@@ -4,7 +4,7 @@ description: Configure required connectivity infrastructure to use SAP HANA on A
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor:
 
 ms.service: virtual-machines-linux
@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -22,8 +22,8 @@ ms.custom: H1Hack27Feb2017
 
 Some definitions upfront before reading this guide. In [SAP HANA (large instances) overview and architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) we introduced two different classes of HANA Large Instance units with:
 
-- S72, S72m, S144, S144m, S192, and S192m, which we refer to as the 'Type I class' of SKUs.
-- S384, S384m, S384xm, S576, S768, and S960, which we refer to as the 'Type II class' of SKUs.
+- S72, S72m, S144, S144m, S192, S192m, and S192xm, which we refer to as the 'Type I class' of SKUs.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm and S960m, which we refer to as the 'Type II class' of SKUs.
 
 The class specifiers are going to be used throughout the HANA Large Instance documentation to eventually refer to different capabilities and requirements based on HANA Large Instance SKUs.
 
@@ -47,9 +47,9 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
 - Data for each of HANA Large Instances system:
   - Desired hostname - ideally with fully qualified domain name.
   - Desired IP address for the HANA Large Instance unit out of the Server IP Pool address range - Keep in mind that the first 30 IP addresses in the Server IP Pool address range are reserved for internal usage within HANA Large Instances
-  - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes). The HANA SID is required for creating the permissions for <sidadm> on the NFS volumes, which are getting attached to the HANA Large Instance unit. It also is used as one of the name components of the disk volumes that get mounted. If you want to run more than one HANA instance on the unit, you need to list multiple HANA SIDs. Each one gets a separate set of volumes assigned.
-  - The groupid the hana-sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. The SAP HANA installation usually creates the sapsys group with a group id of 1001. The hana-sidadm user is part of that group
-  - The userid the hana-sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. If you are running multiple HANA instances on the unit, you need to list all the <sid>adm users 
+  - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes). The HANA SID is required for creating the permissions for sidadm on the NFS volumes, which are getting attached to the HANA Large Instance unit. It also is used as one of the name components of the disk volumes that get mounted. If you want to run more than one HANA instance on the unit, you need to list multiple HANA SIDs. Each one gets a separate set of volumes assigned.
+  - The groupid the sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. The SAP HANA installation usually creates the sapsys group with a group id of 1001. The sidadm user is part of that group
+  - The userid the sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. If you are running multiple HANA instances on the unit, you need to list all the <sid>adm users 
 - Azure subscription ID for the Azure subscription to which SAP HANA on Azure HANA Large Instances are going to be directly connected. This subscription ID references the Azure subscription, which is going to be charged with the HANA Large Instance unit(s).
 
 After you provide the information, Microsoft provisions SAP HANA on Azure (Large Instances) and will return the information necessary to link your Azure VNets to HANA Large Instances and to access the HANA Large Instance units.
@@ -211,7 +211,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 In this example, the HighPerformance gateway SKU was used. Your options are HighPerformance or UltraPerformance as the only gateway SKUs that are supported for SAP HANA on Azure (Large Instances).
 
 > [!IMPORTANT]
-> For HANA Large Instances of the SKU types S384, S384m, S384xm, S576, S768, and S960 (Type II class SKUs), the usage of the UltraPerformance Gateway SKU is mandatory.
+> For HANA Large Instances of the Type II classs SKU, the usage of the UltraPerformance Gateway SKU is mandatory.
 
 ### Linking VNets
 

@@ -22,7 +22,7 @@ Learn more about the [reprotection](vmware-azure-reprotect.md) and [failback](vm
 
 ## Deploy a process server in Azure
 
-1. In the vault > **Site Recovery Infrastructure**> **Mnaage** > **Configuration Servers**, select the configuration server.
+1. In the vault > **Site Recovery Infrastructure**> **Manage** > **Configuration Servers**, select the configuration server.
 2. In the server page, click **+ Process server**
 3. In **Add process server** page, and select to deploy the process server in Azure.
 4. Specify the Azure settings, including the subscription used for failover, a resource group, the Azure region used for failover, and the virtual network in which the Azure VMs are located. If you used multiple Azure networks, you need a process server in each one.

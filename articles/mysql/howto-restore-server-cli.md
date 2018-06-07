@@ -63,14 +63,14 @@ You make the choice between configuring your server for either locally redundant
 
 While creating a server via the `az mysql server create` command, the `--geo-redundant-backup` parameter decides your Backup Redundancy Option. If `Enabled`, geo redundant backups are taken. Or if `Disabled` locally redundant backups are taken. 
 
-The backup retention period is set by the parameter `--backup-retention-days`. 
+The backup retention period is set by the parameter `--backup-retention`. 
 
 For more information about setting these values during create, see the [Azure Database for MySQL server CLI Quickstart](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 The backup retention period of a server can be changed as follows:
 
 ```azurecli-interactive
-az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 The preceding example changes the backup retention period of mydemoserver to 10 days.
@@ -108,6 +108,10 @@ After the restore process finishes, locate the new server and verify that the da
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MySQL is available.  
 
 To create a server using a geo redundant backup, use the Azure CLI `az mysql server georestore` command.
+
+> [!NOTE]
+> When a server is first created it may not be immediately available for geo restore. It may take a few hours for the necessary metadata to be populated.
+>
 
 To geo restore the server, at the Azure CLI command prompt, enter the following command:
 

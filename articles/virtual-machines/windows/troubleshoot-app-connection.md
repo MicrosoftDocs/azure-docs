@@ -4,7 +4,7 @@ description: Use these detailed troubleshooting steps to isolate issues in conne
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 

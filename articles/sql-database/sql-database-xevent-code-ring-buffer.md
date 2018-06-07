@@ -6,8 +6,8 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
-ms.date: 02/03/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: genemi
 
 ---

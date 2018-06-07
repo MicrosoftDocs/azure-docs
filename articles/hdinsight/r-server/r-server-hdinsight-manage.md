@@ -1,18 +1,16 @@
 ---
 title: Manage R Server cluster on HDInsight - Azure | Microsoft Docs
 description: Learn how to manage an R Server cluster in Azure HDInsight.
-services: HDInsight
+services: hdinsight
 documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
 
-ms.service: HDInsight
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: nitinme
 

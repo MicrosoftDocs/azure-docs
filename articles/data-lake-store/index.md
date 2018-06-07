@@ -190,7 +190,7 @@ Learn how to use Data Lake Store to create a hyper-scale, Hadoop-compatible repo
                         <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node​.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (Account Mgmt​.)</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python (Account Mgmt​.)</a></p>
                         <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (Filesystem Mgmt​.)</a></p>
                     </div>
                 </div>

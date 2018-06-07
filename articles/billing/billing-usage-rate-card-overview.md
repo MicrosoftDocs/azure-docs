@@ -11,11 +11,11 @@ tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 10/9/2017
-ms.author: mobandyo;bryanla
+ms.date: 5/10/2018
+ms.author: mobandyo
 
 ---
 
@@ -71,5 +71,5 @@ Here are some of the scenarios that are made possible with the combination of th
 
 * To learn more about the Azure Resource Manager, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md). 
 
-* For more information on the suite of tools necessary to help you get an understanding of cloud spend, see the Gartner article [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
+
 

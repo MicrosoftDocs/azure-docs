@@ -146,10 +146,10 @@ namespace VisionApp1
             // Replace the subscriptionKey string value with your valid subscription key.
             const string subscriptionKey = "<subscription key>";
 
-            //Copy and paste the "Endpoint" attribute that you saved before into the uriBase string "/detect" at the end. 
-            //Example: https://virginia.api.cognitive.microsoft.us/vision/v1.0/detect
+            //Copy and paste the "Endpoint" attribute that you saved before into the uriBase string "/analyze" at the end. 
+            //Example: https://virginia.api.cognitive.microsoft.us/vision/v1.0/analyze
   
-            const string uriBase = "<endpoint>/detect";
+            const string uriBase = "<endpoint>/analyze";
             
             static void Main()
             {
@@ -178,7 +178,7 @@ namespace VisionApp1
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
                 // Request parameters. A third optional parameter is "details".
-                string requestParameters = "returnfaceId=true&returnfaceLandmarks=false&returnfaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion";
+                string requestParameters = "visualFeatures=Categories,Description,Color&language=en";
 
                 // Assemble the URI for the REST API Call.
                 string uri = uriBase + "?" + requestParameters;
@@ -357,7 +357,7 @@ A successful response is returned in JSON. Following is an example of a successf
    }
 }
 ```
-For more information, please see [public documentation](../cognitive-services/computer-vision/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
+For more information, please see [public documentation](../cognitive-services/computer-vision/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
 
 ## Face API
 ### Prerequisites
@@ -601,7 +601,7 @@ Response:
    }
 ]
 ```
-For more information, please see [public documentation](../cognitive-services/Face/index.md), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, please see [public documentation](../cognitive-services/Face/index.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 ## Text Translation API 
 ### Prerequisites

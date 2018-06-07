@@ -2,17 +2,13 @@
 title: Command-line build for Azure | Microsoft Docs
 description: Command-line build for Azure
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-
-ms.assetid: 94b35d0d-0d35-48b6-b48b-3641377867fd
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: 94b35d0d-0d35-48b6-b48b-3641377867fd
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/05/2017
 ms.author: ghogen
 

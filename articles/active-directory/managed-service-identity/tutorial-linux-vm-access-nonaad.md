@@ -8,6 +8,7 @@ manager: mtillman
 editor: daveba
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,7 +17,7 @@ ms.date: 11/20/2017
 ms.author: daveba
 ---
 
-# Use a Linux VM Managed Service Identity (MSI) to access Azure Key Vault 
+# Tutorial: Use a Linux VM Managed Service Identity (MSI) to access Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -54,7 +55,7 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 
 ## Enable MSI on your VM
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables MSI for the VM.  
+A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling Managed Service Identity on a VM, does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
 
 1. Select the **Virtual Machine** that you want to enable MSI on.
 2. On the left navigation bar click **Configuration**.
@@ -62,11 +63,6 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 4. Ensure you click **Save** to save the configuration.
 
     ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** appears on the list.
-
-    ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
-
 
 ## Grant your VM access to a Secret stored in a Key Vault  
 
@@ -105,7 +101,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
     The CURL request for the access token is below.  
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true  
     ```
     The response includes the access token you need to access Resource Manager. 
     
@@ -135,12 +131,12 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
     
 Once you’ve retrieved the secret from the Key Vault, you can use it to authenticate to a service that requires a name and password.
 
+## Next steps
 
-## Related content
+In this tutorial, you learned how to use a Managed Service Identity on a Linux virtual machine to access Azure Key Vault.  To learn more about Azure Key Vault see:
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
-
-Use the following comments section to provide feedback and help us refine and shape our content.
+> [!div class="nextstepaction"]
+>[Azure Key Vault](/azure/key-vault/key-vault-whatis)
 
 
 

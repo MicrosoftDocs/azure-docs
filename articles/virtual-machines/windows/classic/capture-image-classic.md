@@ -4,7 +4,7 @@ description: Capture an image of an Azure Windows virtual machine created with t
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX

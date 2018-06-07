@@ -3,7 +3,7 @@ title: Azure API managment policy sample - Route the request based on the size o
 description: Azure API managment policy sample - Demonstrates how to route requests based on the size of their bodies.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

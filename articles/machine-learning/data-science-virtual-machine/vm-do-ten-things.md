@@ -1,4 +1,4 @@
----
+﻿---
 title: Ten things you can do on the Data Science Virtual Machine on Azure | Microsoft Docs
 description: Perform various data exploration and modeling task on the Data science Virtual Machine.
 services: machine-learning
@@ -9,18 +9,19 @@ editor: cgronlun
 
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
 
 ---
 
-# Ten things you can do on the Data science Virtual Machine
+# Ten things you can do on the Windows Data Science Virtual Machine
 
-The Microsoft Data Science Virtual Machine (DSVM) is a powerful data science development environment that enables you to perform various data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started quickly with your analysis for On-premises, Cloud, or hybrid deployments. The DSVM works closely with many Azure services and is able to read and process data that is already stored on Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage, or in Azure Cosmos DB. It can also utilize other analytics tools such as Azure Machine Learning and Azure Data Factory.
+The Windows Data Science Virtual Machine (DSVM) is a powerful data science development environment that enables you to perform various data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started quickly with your analysis for On-premises, Cloud or hybrid deployments. The DSVM works closely with many Azure services and is able to read and process data that is already stored on Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage, or in Azure Cosmos DB. It can also leverage other analytics tools such as Azure Machine Learning and Azure Data Factory.
 
 In this article, you will learn how to use your DSVM to perform various data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
 
@@ -207,7 +208,7 @@ Data scientists can share large datasets, code, or other resources within the te
 You can use Azure Powershell to create an Azure File Service share. Here is the script to run under Azure PowerShell to create an Azure File service share.
 
     # Authenticate to Azure.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     # Select your subscription
     Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
     # Create a new resource group.

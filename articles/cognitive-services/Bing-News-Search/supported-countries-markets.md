@@ -4,9 +4,8 @@ description: Find out which countries and languages are supported by the Bing Im
 services: cognitive-services
 author: MikeDodaro
 manager: rosh
-
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: v-gedod

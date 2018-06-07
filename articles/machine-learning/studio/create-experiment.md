@@ -11,6 +11,7 @@ editor: cgronlun
 
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -158,7 +159,6 @@ First we add a module that removes the **normalized-losses** column completely, 
 
 	> [!TIP]
 	You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
-
 
 	![Double-click a module to add a comment][add-comment]
 	<br/>

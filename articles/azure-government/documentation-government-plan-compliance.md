@@ -53,6 +53,17 @@ An array of documentation, tools, templates, and other resources are available t
 
 The NIST SP 800-53 implementation guidance is available for download from the [Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Blueprint).
 
+## General Data Protection Regulation (GDPR) Data Subject Requests (DSR) on Azure Government
+
+Azure government customers can submit DSR starting May 25, 2018 by going to [Azure Portal Help + Support](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and submit a **New Support Request** with the following information:
+
+* **Issue Type:** Subscription Management
+* **Problem Type:** Security and Compliance Request
+* **Category:** Privacy Blade and GDPR requests
+* **Description:** *{Include list of all users within the tenant}*
+
+For more information about how Microsoft can help you with the GDPR, see [Get Started: Support for GDPR Accountability](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted) in the Service Trust Portal.
+
 ## Next steps
 
 For inquiries related to Azure Security and Compliance Blueprints, FedRAMP, DoD, or Agency ATO processes, or other compliance assistance; or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).

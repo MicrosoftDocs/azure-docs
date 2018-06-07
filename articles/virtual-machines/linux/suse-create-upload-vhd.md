@@ -4,7 +4,7 @@ description: Learn to create and upload an Azure virtual hard disk (VHD) that co
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -95,9 +95,9 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
      ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
     
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 - - -
@@ -130,7 +130,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
         # sudo zypper update
 5. Install the Azure Linux Agent.
    
-   # sudo zypper install WALinuxAgent
+        # sudo zypper install WALinuxAgent
 6. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
    
      console=ttyS0 earlyprintk=ttyS0 rootdelay=300
@@ -157,9 +157,9 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
      ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 11. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
     
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 12. Ensure the Azure Linux Agent runs at startup:
     
         # sudo systemctl enable waagent.service

@@ -1,4 +1,4 @@
----
+﻿---
  title: include file for PowerShell for Azure DNS
  description: include file for PowerShell for Azure DNS
  services: dns
@@ -48,7 +48,7 @@ Install-Module -Name AzureRM.Network -Force
 Open your PowerShell console and connect to your account. For more information, see [Using PowerShell with Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### Select the subscription

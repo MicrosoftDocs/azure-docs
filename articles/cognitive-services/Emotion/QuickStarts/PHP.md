@@ -4,9 +4,8 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
@@ -21,7 +20,7 @@ videos and to enhance content discovery experiences, such as search results, by 
 This article provides information and code samples to help you quickly get started using PHP and the [Emotion API Recognize method](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) to recognize the emotions expressed by one or more people in an image. 
 
 ## Prerequisite
-* Get your free Subscription Key [here](https://azure.microsoft.com/en-us/try/cognitive-services/)
+* Get your free Subscription Key [here](https://azure.microsoft.com/try/cognitive-services/)
 
 ## Recognize Emotions PHP Example Request
 

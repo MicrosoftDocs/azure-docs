@@ -1,4 +1,4 @@
----
+﻿---
 title: Modify an Azure virtual machine scale set| Microsoft Docs
 description: Learn how to modify and update an Azure virtual machine scale set with the REST APIs, Azure PowerShell, and Azure CLI 2.0
 services: virtual-machine-scale-sets
@@ -344,6 +344,7 @@ Some properties can only be set when you create the scale set. These properties 
 - Availability Zones
 - Image reference publisher
 - Image reference offer
+- Managed OS disk storage account type
 
 ### Properties that can only be changed based on the current value
 Some properties may be changed, with exceptions depending on the current value. These properties include:
@@ -369,12 +370,12 @@ If an application is deployed to a scale set through extensions, an update to th
 It's also common for applications to be deployed through a custom image. This scenario is covered in the following section.
 
 ### OS Updates
-If you use Azure platform images, you can update the image by modifying the *imageReference* (more information, see the [REST API documentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+If you use Azure platform images, you can update the image by modifying the *imageReference* (more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
 > With platform images, it is common to specify "latest" for the image reference version. When you create, scale out, and reimage, VMs are created with the latest available version. However, it **does not** mean that the OS image is automatically updated over time as new image versions are released. A separate feature is currently in preview that provides automatic OS upgrades. For more information, see the [Automatic OS Upgrades documentation](virtual-machine-scale-sets-automatic-upgrade.md).
 
-If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## Examples
 

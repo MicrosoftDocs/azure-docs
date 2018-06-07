@@ -10,7 +10,7 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 02/28/2018
+ms.date: 04/05/2018
 ---
 
 # Monitor and scale an Azure Database for MySQL server using Azure CLI

@@ -4,7 +4,7 @@ description: Learn about using the managed Azure Batch AI service to train artif
 services: batch-ai
 documentationcenter: ''
 author: alexsuttonms
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 

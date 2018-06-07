@@ -4,9 +4,8 @@ description: Get answers to common questions about Microsoft Cognitive Services 
 services: cognitive-services
 author: v-jerkin
 manager: jhubbard
-
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: v-jerkin

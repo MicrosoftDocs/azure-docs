@@ -1,17 +1,16 @@
 ---
-title: 'Customize a UI by using custom policies - Azure AD B2C | Microsoft Docs'
+title: Customize a UI by using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Learn about customizing a user interface (UI) while you use custom policies in Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
+ms.component: B2C
 ---
 # Azure Active Directory B2C: Configure UI customization in a custom policy
 
@@ -124,6 +123,7 @@ Under the top-level *\<TrustFrameworkPolicy\>* tag, you should find *\<BuildingB
     <ContentDefinitions>
       <ContentDefinition Id="api.idpselections">
         <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
       </ContentDefinition>
     </ContentDefinitions>
   </BuildingBlocks>
@@ -138,7 +138,7 @@ Under the top-level *\<TrustFrameworkPolicy\>* tag, you should find *\<BuildingB
 
 ## Test the custom policy by using **Run now**
 
-1. On the **Azure AD B2C** blade, go to **All polices**.
+1. On the **Azure AD B2C** blade, go to **All policies**.
 2. Select the custom policy that you uploaded, and click the **Run now** button.
 3. You should be able to sign up by using an email address.
 

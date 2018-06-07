@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure glossary - Azure dictionary | Microsoft Docs
 description: Use the Azure glossary to understand cloud terminology on the Azure platform. This short Azure dictionary provides definitions for common cloud terms for Azure.
 keywords: Azure dictionary, cloud terminology, Azure glossary, terminology definitions, cloud terms
@@ -22,7 +22,7 @@ ms.author: monicar
 
 The Microsoft Azure glossary is a short dictionary of cloud terminology for the Azure platform. See also:
 
-* [Microsoft Azure and Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Definitions of Azure services and their AWS counterparts.<!-- I propose to link to https://azure.microsoft.com/en-us/services/ instead of this -->
+* [Microsoft Azure and Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Definitions of Azure services and their AWS counterparts.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Cloud computing terms](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - General industry cloud terms.
 
 ## account
@@ -108,7 +108,7 @@ See [Azure Resource Manager overview](azure-resource-manager/resource-group-over
 
 ## role
 A means for controlling access that can be assigned to users, groups, and services. Roles are able to perform actions such as create, manage, and read on Azure resources.  
-See [RBAC: Built-in roles](active-directory/role-based-access-built-in-roles.md)
+See [RBAC: Built-in roles](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>service level agreement (SLA)
 The agreement that describes Microsoft’s commitments for uptime and connectivity. Each Azure service has a specific SLA.  

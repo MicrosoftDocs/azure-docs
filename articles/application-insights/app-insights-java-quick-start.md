@@ -22,13 +22,15 @@ This quickstart guides you through adding the Application Insights SDK to an exi
 
 To complete this quickstart:
 
-- Install Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
+- Install JRE 1.7 or 1.8
 - Install [Free Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). This quickstart uses Eclipse Oxygen (4.7)
 - You will need an Azure Subscription and an existing Java Dynamic Web Project
  
 If you don't have a Java Dynamic Web Project, you can create one with the [Create a Java web app quickstart](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+If you prefer the Spring framework try the [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## Log in to the Azure portal
 

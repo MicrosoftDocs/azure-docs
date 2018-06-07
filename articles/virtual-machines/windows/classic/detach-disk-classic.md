@@ -4,7 +4,7 @@ description: Learn to detach a disk from a virtual machine in Azure using the cl
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX

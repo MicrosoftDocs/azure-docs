@@ -6,8 +6,8 @@ author: giladm
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
-ms.date: 05/31/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: giladm
 
 ---

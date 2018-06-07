@@ -6,9 +6,9 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 06/15/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.topic: article
+ms.topic: conceptual
 
 ---
 # Copy an Azure SQL database

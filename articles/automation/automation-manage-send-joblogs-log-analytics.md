@@ -3,10 +3,11 @@ title: Forward Azure Automation job data to Log Analytics
 description: This article demonstrates how to send job status and runbook job streams to Azure Log Analytics to deliver additional insight and management.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 

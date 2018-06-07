@@ -4,20 +4,20 @@ description: Find out which countries and languages are supported by the Bing Im
 services: cognitive-services
 author: v-jerkin
 manager: jhubbard
-
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: v-jerkin
 ---
+
 # Bing Image Search countries and languages
 
 The Bing Image Search API supports more than three dozen countries, many with more than one language. Specifying a country with a query serves primarily to refine search results based on interests in that country. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country or language.
 
-You can specify a country using the `cc` query parameter. If you specify a country, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by country; they are given for each country in the Markets table.
+To specify the country and language, set the `mkt` (market) query parameter to a code from the **Markets** table below. The market specifies both a country and language. If the user prefers to see display text in a different language, set `setLang` query parameter to the appropriate language code.
 
-Alternatively, you may specify the market using the `mkt` query parameter and a code from the **Markets** table. Specifying a market simultaneously specifies a country and a preferred language. The `setLang` query parameter may be set to a language code in this case; usually this is the same language specified by `mkt` unless the user prefers to see Bing in another language.
+Alternatively, you can specify the country using the `cc` query parameter. If you specify a country, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by country; they are given for each country in the Markets table.
 
 > [!NOTE]
 > The Trending Images API currently supports only the following markets:

@@ -4,18 +4,13 @@ description: Learn about a design pattern for Social Networks by leveraging the 
 keywords: social media apps
 services: cosmos-db
 author: ealsur
-manager: jhubbard
-editor: ''
-documentationcenter: ''
+manager: kfile
 
-ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2017
-ms.author: mimig
+ms.author: maquaran
 
 ---
 # Going social with Azure Cosmos DB

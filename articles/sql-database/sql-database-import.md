@@ -6,9 +6,9 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 01/29/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.topic: article
+ms.topic: conceptual
 
 ---
 # Import a BACPAC file to a new Azure SQL Database
@@ -27,6 +27,9 @@ To import a database using the Azure portal, open the page for the server to ass
    ![Database import](./media/sql-database-import/import.png)
 
 To monitor the progress of the import operation, open the page for the logical server containing the database being imported. Scroll down to **Operations** and then click **Import/Export** history.
+
+> [!NOTE]
+> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) supported importing from a BACPAC file using the other methods in this article, but does not currently support migrating using the Azure portal.
 
 ### Monitor the progress of an import operation
 
@@ -96,10 +99,22 @@ $importStatus
 > [!TIP]
 For another script example, see [Import a database from a BACPAC file](scripts/sql-database-import-from-bacpac-powershell.md).
 
+## Limitations
+- Import to a database in elastic pool is not supported. You can import data into a singleton database and then move the database to a pool.
+
+## Import using other methods
+
+You can also use these wizards:
+
+- [Import Data-tier Application Wizard in SQL Server Management Studio](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard).
+- [SQL Server Import and Export Wizard](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
+
 ## Next steps
 * To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).
 * For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * For a discussion of the entire SQL Server database migration process, including performance recommendations, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
+* To learn how to manage and share storage keys and shared access signitures securely, see [Azure Storage Security Guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide). 
 
 
+  
 

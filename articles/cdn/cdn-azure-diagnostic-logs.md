@@ -1,10 +1,10 @@
----
+﻿---
 title: Azure Diagnostic Logs | Microsoft Docs
 description: 'Customer can enable log analysis for Azure CDN.'
 services: cdn
 documentationcenter: ''
-author: 
-manager: 
+author: dksimpson
+manager: akucer
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: v-deasim
+ms.author: rli
 ---
 
 
@@ -26,7 +26,7 @@ With Azure diagnostic logs, you can view core analytics and save them into one o
  - Azure Event Hubs
  - [Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-This feature is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN Profiles. 
+This feature is available on CDN endpoints for all pricing tiers. 
 
 Azure diagnostics logs allow you to export basic usage metrics from your CDN endpoint to a variety of sources so that you can consume them in a customized way. For example, you can do the following types of data export:
 
@@ -111,7 +111,7 @@ The following example shows how to enable Diagnostic Logs via the Azure PowerShe
 
 First log in and select a subscription:
 
-    Login-AzureRmAccount 
+    Connect-AzureRmAccount 
 
     Select-AzureSubscription -SubscriptionId 
 
@@ -154,10 +154,10 @@ Before you can access the core analytics data from the Azure Storage Account, yo
 
 **Description of fields:**
 
-|value|description|
+|Value|Description|
 |-------|---------|
 |Subscription ID	|ID of the Azure subscription in Guid format.|
-|Resource |Group Name	Name of the resource group to which the CDN resources belong.|
+|Resource Group Name |Name of the resource group to which the CDN resources belong.|
 |Profile Name |Name of the CDN Profile|
 |Endpoint Name |Name of the CDN Endpoint|
 |Year|	4-digit representation of the year, for example, 2017|
@@ -274,47 +274,49 @@ You can drag and drop the types of charts and fill in the data details you want 
 	
 ## Log data delays
 
-Verizon log data delays | Akamai log data delays
---- | ---
-Verizon log data is 1 hour delayed, and take up to 2 hours to start appearing after endpoint propagation completion. | Akamai log data is delayed by 24 hours; if it was created more than 24 hours ago, it takes up to 2 hours to start appearing. If it was recently created, it can take up to 25 hours for the logs to start appearing.
+The following table shows log data delays for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Verizon**.
+
+Microsoft log data delays | Verizon log data delays | Akamai log data delays
+--- | --- | ---
+Delayed by 1 hour. | Delayed by 1 hour and can take up to 2 hours to start appearing after endpoint propagation completion. | Delayed by 24 hours; if it was created more than 24 hours ago, it takes up to 2 hours to start appearing. If it was recently created, it can take up to 25 hours for the logs to start appearing.
 
 ## Diagnostic log types for CDN core analytics
 
 We currently offer only core analytics logs, which contain metrics showing HTTP response statistics and egress statistics as seen from the CDN POPs/edges.
 
 ### Core analytics metrics details
-The following table shows a list of metrics available in the core analytics logs. Not all metrics are available from all providers, although such differences are minimal. The following table also shows if a given metric is available from a provider. Note that the metrics are available for only those CDN endpoints that have traffic on them.
+The following table shows a list of metrics available in the core analytics logs for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Verizon**. Not all metrics are available from all providers, although such differences are minimal. The table also displays whether a given metric is available from a provider. Note that the metrics are available for only those CDN endpoints that have traffic on them.
 
 
-|Metric                     | Description   | Verizon  | Akamai 
-|---------------------------|---------------|---|---|
-| RequestCountTotal         |Total number of request hits during this period| Yes  |Yes   |
-| RequestCountHttpStatus2xx |Count of all requests that resulted in a 2xx HTTP code (for example, 200, 202)              | Yes  |Yes   |
-| RequestCountHttpStatus3xx | Count of all requests that resulted in a 3xx HTTP code (for example, 300, 302)              | Yes  |Yes   |
-| RequestCountHttpStatus4xx |Count of all requests that resulted in a 4xx HTTP code (for example, 400, 404)               | Yes   |Yes   |
-| RequestCountHttpStatus5xx | Count of all requests that resulted in a 5xx HTTP code (for example, 500, 504)              | Yes  |Yes   |
-| RequestCountHttpStatusOthers |  Count of all other HTTP codes (outside of 2xx-5xx) | Yes  |Yes   |
-| RequestCountHttpStatus200 | Count of all requests that resulted in a 200 HTTP code response              |No   |Yes   |
-| RequestCountHttpStatus206 | Count of all requests that resulted in a 206 HTTP code response              |No   |Yes   |
-| RequestCountHttpStatus302 | Count of all requests that resulted in a 302 HTTP code response              |No   |Yes   |
-| RequestCountHttpStatus304 |  Count of all requests that resulted in a 304 HTTP code response             |No   |Yes   |
-| RequestCountHttpStatus404 | Count of all requests that resulted in a 404 HTTP code response              |No   |Yes   |
-| RequestCountCacheHit |Count of all requests that resulted in a Cache Hit. The asset was served directly from the POP to the client.               | Yes  |No   |
-| RequestCountCacheMiss | Count of all requests that resulted in a Cache Miss. This means the asset was not found on the POP closest to the client, and therefore was retrieved from the Origin.              |Yes   | No  |
-| RequestCountCacheNoCache | Count of all requests to an asset that are prevented from being cached due to a user configuration on the edge.              |Yes   | No  |
-| RequestCountCacheUncacheable | Count of all requests to assets that are prevented from being cached by the asset's Cache-Control and Expires headers, which indicate that it should not be cached on a POP or by the HTTP client                |Yes   |No   |
-| RequestCountCacheOthers | Count of all requests with cache status not covered by above.              |Yes   | No  |
-| EgressTotal | Outbound data transfer in GB              |Yes   |Yes   |
-| EgressHttpStatus2xx | Outbound data transfer* for responses with 2xx HTTP status codes in GB            |Yes   |No   |
-| EgressHttpStatus3xx | Outbound data transfer for responses with 3xx HTTP status codes in GB              |Yes   |No   |
-| EgressHttpStatus4xx | Outbound data transfer for responses with 4xx HTTP status codes in GB               |Yes   | No  |
-| EgressHttpStatus5xx | Outbound data transfer for responses with 5xx HTTP status codes in GB               |Yes   |  No |
-| EgressHttpStatusOthers | Outbound data transfer for responses with other HTTP status codes in GB                |Yes   |No   |
-| EgressCacheHit |  Outbound data transfer for responses that were delivered directly from the CDN cache on the CDN POPs/Edges	|Yes   |  No |
-| EgressCacheMiss | Outbound data transfer for responses that were not found on the nearest POP server, and retrieved from the origin server              |Yes   |  No |
-| EgressCacheNoCache | Outbound data transfer for assets that are prevented from being cached due to a user configuration on the edge.                |Yes   |No   |
-| EgressCacheUncacheable | Outbound data transfer for assets that are prevented from being cached by the asset's Cache-Control and/or Expires headers. Indicates that it should not be cached on a POP or by the HTTP client.                   |Yes   | No  |
-| EgressCacheOthers |  Outbound data transfers for other cache scenarios.             |Yes   | No  |
+|Metric                     | Description | Microsoft | Verizon | Akamai |
+|---------------------------|-------------|----------|---------|--------|
+| RequestCountTotal         | Total number of request hits during this period. | Yes | Yes |Yes |
+| RequestCountHttpStatus2xx | Count of all requests that resulted in a 2xx HTTP code (for example, 200, 202). | Yes | Yes |Yes |
+| RequestCountHttpStatus3xx | Count of all requests that resulted in a 3xx HTTP code (for example, 300, 302). | Yes | Yes |Yes |
+| RequestCountHttpStatus4xx | Count of all requests that resulted in a 4xx HTTP code (for example, 400, 404). | Yes | Yes |Yes |
+| RequestCountHttpStatus5xx | Count of all requests that resulted in a 5xx HTTP code (for example, 500, 504). | Yes | Yes |Yes |
+| RequestCountHttpStatusOthers | Count of all other HTTP codes (outside of 2xx-5xx). | Yes | Yes |Yes |
+| RequestCountHttpStatus200 | Count of all requests that resulted in a 200 HTTP code response. | Yes | No  |Yes |
+| RequestCountHttpStatus206 | Count of all requests that resulted in a 206 HTTP code response. | Yes | No  |Yes |
+| RequestCountHttpStatus302 | Count of all requests that resulted in a 302 HTTP code response. | Yes | No  |Yes |
+| RequestCountHttpStatus304 | Count of all requests that resulted in a 304 HTTP code response. | Yes | No  |Yes |
+| RequestCountHttpStatus404 | Count of all requests that resulted in a 404 HTTP code response. | Yes | No  |Yes |
+| RequestCountCacheHit | Count of all requests that resulted in a Cache Hit. The asset was served directly from the POP to the client. | Yes | Yes | No  |
+| RequestCountCacheMiss | Count of all requests that resulted in a Cache Miss. This means the asset was not found on the POP closest to the client, and therefore was retrieved from the Origin. | Yes | Yes | No |
+| RequestCountCacheNoCache | Count of all requests to an asset that are prevented from being cached due to a user configuration on the edge. | Yes | Yes | No |
+| RequestCountCacheUncacheable | Count of all requests to assets that are prevented from being cached by the asset's Cache-Control and Expires headers, which indicate that it should not be cached on a POP or by the HTTP client. | Yes | Yes | No |
+| RequestCountCacheOthers | Count of all requests with cache status not covered by above. | No | Yes | No  |
+| EgressTotal | Outbound data transfer in GB | Yes |Yes |Yes |
+| EgressHttpStatus2xx | Outbound data transfer* for responses with 2xx HTTP status codes in GB. | Yes | Yes | No  |
+| EgressHttpStatus3xx | Outbound data transfer for responses with 3xx HTTP status codes in GB. | Yes | Yes | No  |
+| EgressHttpStatus4xx | Outbound data transfer for responses with 4xx HTTP status codes in GB. | Yes | Yes | No  |
+| EgressHttpStatus5xx | Outbound data transfer for responses with 5xx HTTP status codes in GB. | Yes | Yes | No |
+| EgressHttpStatusOthers | Outbound data transfer for responses with other HTTP status codes in GB. | Yes | Yes | No  |
+| EgressCacheHit | Outbound data transfer for responses that were delivered directly from the CDN cache on the CDN POPs/Edges. | Yes | Yes | No |
+| EgressCacheMiss. | Outbound data transfer for responses that were not found on the nearest POP server, and retrieved from the origin server. | Yes | Yes | No |
+| EgressCacheNoCache | Outbound data transfer for assets that are prevented from being cached due to a user configuration on the edge. | Yes | Yes | No |
+| EgressCacheUncacheable | Outbound data transfer for assets that are prevented from being cached by the asset's Cache-Control and/or Expires headers. Indicates that it should not be cached on a POP or by the HTTP client. | Yes | Yes | No |
+| EgressCacheOthers | Outbound data transfers for other cache scenarios. | No | Yes | No |
 
 *Outbound data transfer refers to traffic delivered from CDN POP servers to the client.
 
@@ -366,7 +368,7 @@ All logs are stored in JSON format and each entry has string fields according to
 }
 ```
 
-Where the ‘time’ represents the start time of the hour boundary for which the statistics is reported. When a metric is not supported by a CDN provider, instead of a double or integer value, there is a null value. This null value indicates the absence of a metric, and is different from a value of 0. There is one set of these metrics per domain configured on the endpoint.
+Where *time* represents the start time of the hour boundary for which the statistics is reported. When a metric is not supported by a CDN provider, instead of a double or integer value, there is a null value. This null value indicates the absence of a metric, and is different from a value of 0. There is one set of these metrics per domain configured on the endpoint.
 
 Example properties:
 

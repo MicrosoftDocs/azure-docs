@@ -197,7 +197,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
             }
           }
     ```
-    For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Now your autoscale setting contains the three profiles explained previously.
+    For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/library/azure/dn931928.aspx). Now your autoscale setting contains the three profiles explained previously.
 
 7. Finally, look at the Autoscale **notification** section. Autoscale notifications allow you to do three things when a scale-out or in action is successfully triggered.
    - Notify the admin and co-admins of your subscription

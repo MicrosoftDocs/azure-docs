@@ -1,24 +1,17 @@
 ---
-title: Job scaling with Azure Stream Analytics & AzureML functions | Microsoft Docs
-description: Learn how to properly scale Stream Analytics jobs (partitioning, SU quantity, and more) when using Azure Machine Learning functions.
-keywords: ''
-documentationcenter: ''
+title: Scale Machine Learning functions in Azure Stream Analytics
+description: This article describes how to scale Stream Analytics jobs that use Machine Learning functions, by configuring partitioning and stream units.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-
-ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
 ---
 # Scale your Stream Analytics job with Azure Machine Learning functions
-It is often easy to set up a Stream Analytics job and run some sample data through it. What should we do when we need to run the same job with higher data volume? It requires us to understand how to configure the Stream Analytics job so that it scales. In this document, we focus on the special aspects of scaling Stream Analytics jobs with Machine Learning functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
+It is straight forward to set up a Stream Analytics job and run some sample data through it. What should we do when we need to run the same job with higher data volume? It requires us to understand how to configure the Stream Analytics job so that it scales. In this document, we focus on the special aspects of scaling Stream Analytics jobs with Machine Learning functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
 
 ## What is an Azure Machine Learning function in Stream Analytics?
 A Machine Learning function in Stream Analytics can be used like a regular function call in the Stream Analytics query language. However, behind the scene, the function calls are actually Azure Machine Learning Web Service requests. Machine Learning web services support “batching” multiple rows, which is called mini-batch, in the same web service API call, to improve overall throughput. See the following articles for more details; [Azure Machine Learning functions in Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) and [Azure Machine Learning Web Services](../machine-learning/studio/consume-web-services.md).

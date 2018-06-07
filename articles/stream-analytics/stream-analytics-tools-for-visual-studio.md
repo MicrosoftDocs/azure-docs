@@ -1,21 +1,14 @@
 ---
-title: Use Azure Stream Analytics tools for Visual Studio | Microsoft Docs
-description: Getting-started tutorial for the Azure Stream Analytics Tools for Visual Studio
-keywords: visual studio
-documentationcenter: ''
+title: Use Azure Stream Analytics tools for Visual Studio
+description: This article describes how to get started using the Azure Stream Analytics Tools for Visual Studio.
 services: stream-analytics
 author: su-jie
-manager: ryanw
-
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/05/2018
 ms.author: sujie
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/05/2018
 ---
 # Use Azure Stream Analytics tools for Visual Studio
 Azure Stream Analytics tools for Visual Studio are now generally available. These tools enable a richer experience for Stream Analytics users to troubleshoot as well as write complex queries and even write queries locally. You also can export a Stream Analytics job into a Visual Studio project.
@@ -30,6 +23,19 @@ After completing this tutorial, you will be able to:
 * Test your job locally with local sample data.
 * Use the monitoring to troubleshoot issues.
 * Export existing jobs to projects.
+
+>[!IMPORTANT]
+> Microsoft recommends you upgrade to Azure Data Lake Tools for Visual Studio version 2.3.3000.4 or later. The previous versions are no longer available for download and are now deprecated. 
+>
+>**What do I need to do?**
+>
+>1.	Check if you are using an earlier version than 2.3.3000.5 of Azure Stream Analytics Tools for Visual Studio. 
+>   
+>   ![Check tool version](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+> 
+>2.	If your version is an earlier version of 2.3.3000.5, update your Azure Data Lake Tools for Visual Studio by visiting the download center: 
+>    - [For Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [For Visual Studio 2013 and 2015](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
 
 ## Prerequisites
 You need the following prerequisites to complete this tutorial:

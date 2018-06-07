@@ -4,7 +4,7 @@ description: Learn to set up endpoints for a classic Windows VM in the Azure por
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 

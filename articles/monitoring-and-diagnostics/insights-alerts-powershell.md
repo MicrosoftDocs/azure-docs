@@ -1,4 +1,4 @@
----
+﻿---
 title: Create alerts for Azure services - PowerShell | Microsoft Docs
 description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met.
 author: rboucher
@@ -59,7 +59,7 @@ For additional information, you can always type ```Get-Help``` and then the Powe
 1. Log in to Azure.   
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     ```
 2. Get a list of the subscriptions you have available. Verify that you are working with the right subscription. If not, set it to the right one using the output from `Get-AzureRmSubscription`.

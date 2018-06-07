@@ -62,6 +62,8 @@ NPM for ExpressRoute offers comprehensive ExpressRoute monitoring for Azure Priv
 * Monitoring connectivity to Azure services such as Office 365, Dynamics 365, ... over ExpressRoute
 * Detect degradation of connectivity to VNets
 
+![Geo-map showing traffic across regions](./media/network-monitoring-overview/expressroute-topology-map.png) 
+
 For more information, see the following articles:
 
 * [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-npm.md)
@@ -114,7 +116,6 @@ Built for DNS Administrators, this solution collects, analyzes, and correlates D
 Related links:
 * [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## Next steps
+## Miscellaneous
 
-* [Configure Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-npm.md)
+* [New Pricing](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

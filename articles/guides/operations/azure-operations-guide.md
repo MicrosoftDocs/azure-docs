@@ -321,7 +321,7 @@ Here are a few example roles built into Azure:
 
 -   **Storage account contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Use role assignments to manage access to your Azure subscription resources](../../active-directory/role-based-access-control-configure.md).
+For more information, see [Use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 
@@ -507,7 +507,7 @@ Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template
 
 ### Access and security for virtual networks
 
-You can help secure Azure virtual networks by using a network security group. NSGs contain a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a virtual network. You can associate NSGs with either subnets or individual VM instances within that subnet. When you associate an NSG with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, you can further restrict traffic to an individual VM by associating an NSG directly with that VM. For more information, see [Filter network traffic with network security groups](../../virtual-network/virtual-networks-nsg.md).
+You can help secure Azure virtual networks by using a network security group. NSGs contain a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a virtual network. You can associate NSGs with either subnets or individual VM instances within that subnet. When you associate an NSG with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, you can further restrict traffic to an individual VM by associating an NSG directly with that VM. For more information, see [Filter network traffic with network security groups](../../virtual-network/security-overview.md).
 
 ## Next steps
 

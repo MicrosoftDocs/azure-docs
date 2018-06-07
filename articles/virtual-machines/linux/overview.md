@@ -4,7 +4,7 @@ description: Describes Azure Compute, Storage, and Networking services with Linu
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902

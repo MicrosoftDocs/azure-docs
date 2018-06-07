@@ -1,20 +1,16 @@
 ---
-title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery (Preview)
+title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery
 description: Learn how to set up disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
-
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
 ---
-# Set up disaster recovery for Azure VMs to a secondary Azure region (Preview)
+# Set up disaster recovery for Azure VMs to a secondary Azure region
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
@@ -25,6 +21,7 @@ This tutorial shows you how to set up disaster recovery to a secondary Azure reg
 > * Verify target resource settings
 > * Set up outbound access for VMs
 > * Enable replication for a VM
+
 
 ## Prerequisites
 
@@ -81,8 +78,7 @@ to the following URLs used by Site Recovery.
 
 ### Outbound connectivity for IP address ranges
 
-When using any IP-based firewall, proxy, or NSG rules to control outbound connectivity, the
-following IP address ranges need to be whitelisted. Download a list of ranges from the following links:
+If you want to control outbound connectivity using IP addresses instead of URLs, whitelist the appropriate datacenter ranges; Office 365 addresses; and service endpoint addresses, for IP-based firewalls, proxy, or NSG rules.
 
   - [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -90,8 +86,7 @@ following IP address ranges need to be whitelisted. Download a list of ranges fr
   - [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)
 
-Use these lists to configure the network access controls in your network. You can use this
-[script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to create
+You can use this [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to create
 required NSG rules.
 
 ## Verify Azure VM certificates
@@ -128,14 +123,14 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
   operations. This role is best suited for an IT monitoring executive who can monitor the current
   state of protection and raise support tickets.
 
-Learn more on [Azure RBAC built-in roles](../active-directory/role-based-access-built-in-roles.md)
+Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md)
 
 ## Enable replication
 
 ### Select the source
 
 1. In Recovery Services vaults, click the vault name > **+Replicate**.
-2. In **Source**, select **Azure - PREVIEW**.
+2. In **Source**, select **Azure**.
 3. In **Source location**, select the source Azure region where your VMs are currently running.
 4. Select the **Azure virtual machine deployment model** for VMs: **Resource Manager** or
    **Classic**.
@@ -166,7 +161,8 @@ your requirements.
 
 - **Target resource group**: The resource group in the target region that holds Azure VMs after
   failover. By default, Site Recovery creates a new resource group in the target region with an
-  "asr" suffix.
+  "asr" suffix. resource group location of the target resource group can be any region except the 
+region where your source virtual machines are hosted. 
 
 - **Target virtual network**: The network in the target region that VMs are located after failover.
   By default, Site Recovery creates a new virtual network (and subnets) in the target region with

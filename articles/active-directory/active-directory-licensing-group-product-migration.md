@@ -26,7 +26,7 @@ This article describes the recommended method to move users between product lice
 
 -	Simple migration between product licenses that don't contain conflicting service plans, such as migrating between Office 365 Enterprise E3 and Office 365 Enterprise E5.
 
--	More complex migration between products that contain some conflicting service plans, such as migrating between Office 365 Enterprise E1 and Office 365 Enterprise E3. For more information about conflicts, see [Conflicting service plans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) and [Service plans that can't be assigned at the same time](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+-	More complex migration between products that contain some conflicting service plans, such as migrating between Office 365 Enterprise E1 and Office 365 Enterprise E3. For more information about conflicts, see [Conflicting service plans](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) and [Service plans that can't be assigned at the same time](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
 This article includes sample PowerShell code that can be used to perform the migration and verification steps. The code is especially useful for large-scale operations where it's not feasible to perform the steps manually.
 
@@ -36,7 +36,7 @@ Before you begin the migration, it's important to verify certain assumptions are
 -	Users have the *source license* that's assigned by using group-based licensing. The licenses for the product to move away from are inherited from a single source group and aren't assigned directly.
 
     >[!NOTE]
-    >If licenses are also assigned directly, they can prevent the application of the *target license*. Learn more about [direct and group license assignment](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). You might want to use a [PowerShell script](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) to check if users have direct licenses.
+    >If licenses are also assigned directly, they can prevent the application of the *target license*. Learn more about [direct and group license assignment](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). You might want to use a [PowerShell script](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) to check if users have direct licenses.
 
 -	You have enough available licenses for the target product. If you don't have enough licenses, some users might not get the *target license*. You can [check the number of available licenses](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
@@ -53,7 +53,7 @@ The migration goal is to use group-based licensing to change user licenses from 
 
 3.	Add a batch of users to the target group. Group-based licensing picks up the change and assigns the *target license*. The process can take an extended amount of time, depending on the size of the batch and other activities in the tenant.
 
-4.	Verify that the batch of users is fully processed by group-based licensing. Confirm that each user has the *target license* assigned. Check that users didn't end up in an error state, such as conflicts with other products or lack of sufficient licenses. For more information about errors, see [Active Directory licensing group problem resolution](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+4.	Verify that the batch of users is fully processed by group-based licensing. Confirm that each user has the *target license* assigned. Check that users didn't end up in an error state, such as conflicts with other products or lack of sufficient licenses. For more information about errors, see [Active Directory licensing group problem resolution](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
 
 5.	At this point, users have both the *source license* and *target license* assigned.
 
@@ -174,7 +174,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## Migrate users between products that have conflicting service plans
-The migration goal is to use group-based licensing to change user licenses from a *source license* (in this example: Office 365 Enterprise E1) to a *target license* (in this example: Office 365 Enterprise E3). The two products in this scenario contain conflicting service plans, so you have to work around the conflict to seamlessly migrate the users. For more information about these conflicts, see [Active Directory licensing group problem resolution: Conflicting service plans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). At no point during the migration should users lose access to services or data. The migration is performed in small "batches." You can validate the outcome for each batch and minimize the scope of any problems that might occur during the process. Overall, the process is as follows:
+The migration goal is to use group-based licensing to change user licenses from a *source license* (in this example: Office 365 Enterprise E1) to a *target license* (in this example: Office 365 Enterprise E3). The two products in this scenario contain conflicting service plans, so you have to work around the conflict to seamlessly migrate the users. For more information about these conflicts, see [Active Directory licensing group problem resolution: Conflicting service plans](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). At no point during the migration should users lose access to services or data. The migration is performed in small "batches." You can validate the outcome for each batch and minimize the scope of any problems that might occur during the process. Overall, the process is as follows:
 
 1.	Users are members of a source group and they inherit the *source license* from that group.
 
@@ -182,7 +182,7 @@ The migration goal is to use group-based licensing to change user licenses from 
 
 3.	Add a batch of users to the target group. Group-based licensing picks up the change and tries to assign the *target license*. The assignment fails due to conflicts between services in the two products. Group-based licensing records the failure as an error on each user. The process can take an extended amount of time, depending on the size of the batch and other activities in the tenant.
 
-4.	Verify that the batch of users is fully processed by group-based licensing. Confirm that each user has the conflict error recorded. Check that some users didn't end up in an unexpected error state. For more information about errors, see [Active Directory licensing group problem resolution](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+4.	Verify that the batch of users is fully processed by group-based licensing. Confirm that each user has the conflict error recorded. Check that some users didn't end up in an unexpected error state. For more information about errors, see [Active Directory licensing group problem resolution](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
 
 5.	At this point, users still have the *source license* and a conflict error for the *target license*. The users don't yet have the *target license* assigned.
 
@@ -316,7 +316,7 @@ This section contains the PowerShell code that's required to run the scripts tha
 >[!WARNING]
 >This code is provided as an example for demonstration purposes. If you intend to use it in your environment, consider testing the code first on a small scale, or in a separate test tenant. You might have to adjust the code to meet the specific needs of your environment.
 
-To execute the code, use the instructions in the [Azure AD PowerShell v1.0 libraries](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Before you execute the script, run the `connect-msolservice` cmdlet to sign in to the tenant.
+To execute the code, use the instructions in the [Azure AD PowerShell v1.0 libraries](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Before you execute the script, run the `connect-msolservice` cmdlet to sign in to the tenant.
 
 ```
 # BEGIN: Helper functions that are used in the scripts.

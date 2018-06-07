@@ -186,3 +186,5 @@ git config --global http.postBuffer 524288000
 
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
 * [Continuous Deployment to Azure App Service](app-service-continuous-deployment.md)
+* [Sample: Create Web App and deploy code from a local Git repository (Azure CLI)](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+* [Sample: Create Web App and deploy code from a local Git repository (PowerShell)](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

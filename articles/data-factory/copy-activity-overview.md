@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/16/2018
+ms.topic: conceptual
+ms.date: 05/01/2018
 ms.author: jingwang
 
 ---

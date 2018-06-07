@@ -4,16 +4,11 @@ description: Use Azure Cosmos DB change feed support to track changes in documen
 keywords: change feed
 services: cosmos-db
 author: rafats
-manager: jhubbard
-editor: mimig
-documentationcenter: ''
+manager: kfile
 
-ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: 
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
 
@@ -158,9 +153,14 @@ This section walks through how to use the SQL SDK to work with a change feed.
     }
     ```
 
+> [!NOTE]
+> Instead of `ChangeFeedOptions.PartitionKeyRangeId`, you can use `ChangeFeedOptions.PartitionKey` to specify a single partition key for which to get a change feed. For example, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> 
+>
+
 If you have multiple readers, you can use **ChangeFeedOptions** to distribute read load to different threads or different clients.
 
-And that's it, with these few lines of code you can start reading the change feed. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
+And that's it, with these few lines of code you can start reading the change feed. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 
 In the code in step 4 above, the **ResponseContinuation** in the last line has the last logical sequence number (LSN) of the document, which you will use the next time you read new documents after this sequence number. By using the **StartTime** of the **ChangeFeedOption** you can widen your net to get the documents. So, if your **ResponseContinuation** is null, but your **StartTime** goes back in time then you will get all the documents that changed since the **StartTime**. But, if your **ResponseContinuation** has a value then system will get you all the documents since that LSN.
 
@@ -276,7 +276,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 }
 ```
 
-That’s it. After these few steps documents will start coming into the **DocumentFeedObserver ProcessChangesAsync** method.
+That’s it. After these few steps documents will start coming into the **DocumentFeedObserver ProcessChangesAsync** method. Find the above code in [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 
 ## Next steps
 

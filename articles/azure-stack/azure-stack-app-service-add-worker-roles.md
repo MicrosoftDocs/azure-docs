@@ -1,4 +1,4 @@
----
+﻿---
 title: Scale out worker roles in App Services - Azure Stack  | Microsoft Docs
 description: Detailed guidance for scaling Azure Stack App Services
 services: azure-stack
@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: brenduns
 
@@ -48,7 +48,7 @@ Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale S
     ##### Scale out the AppService Role instances ######
    
     # Set context to AzureStack admin.
-    Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+    Login-AzureRmAccount -EnvironmentName AzureStackAdmin
                                                  
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"

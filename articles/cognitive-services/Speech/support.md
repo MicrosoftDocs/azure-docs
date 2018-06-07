@@ -4,9 +4,8 @@ description: Support for Microsoft Speech Service.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
 ms.date: 10/15/2017
 ms.author: zhouwang

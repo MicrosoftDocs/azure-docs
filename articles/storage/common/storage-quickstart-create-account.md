@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Quickstart - Create a storage account | Microsoft Docs
 description: Quickly learn to create a new storage account using the Azure portal, Azure PowerShell, or the Azure CLI.
 services: storage
@@ -62,10 +62,10 @@ Log in to the [Azure portal](https://portal.azure.com).
 
 # [PowerShell](#tab/powershell)
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions to authenticate.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions to authenticate.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 # [Azure CLI](#tab/azure-cli)

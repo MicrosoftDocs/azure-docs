@@ -135,7 +135,7 @@ To create a pool using Azure virtual machines (in this case Linux VMs) with a ta
 ImageReference imageRef = new ImageReference(
     publisher: "Canonical",
     offer: "UbuntuServer",
-    sku: "16.04.0-LTS",
+    sku: "16.04-LTS",
     version: "latest");
 
 // Create the pool

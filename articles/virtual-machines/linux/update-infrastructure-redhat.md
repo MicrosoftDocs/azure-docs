@@ -4,7 +4,7 @@ description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Ent
 services: virtual-machines-linux
 documentationcenter: ''
 author: BorisB2015
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a

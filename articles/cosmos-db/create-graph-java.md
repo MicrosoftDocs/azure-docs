@@ -2,17 +2,13 @@
 title: Create an Azure Cosmos DB graph database with Java | Microsoft Docs
 description: Presents a Java code sample you can use to connect to and query graph data in Azure Cosmos DB using Gremlin.
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
-editor: ''
+manager: kfile
 
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
@@ -45,24 +41,7 @@ Before you can create a graph database, you need to create a Gremlin (Graph) dat
 
 ## Add a graph
 
-You can now use the Data Explorer tool in the Azure portal to create a graph database. 
-
-1. Click **Data Explorer** > **New Graph**.
-
-    The **Add Graph** area is displayed on the far right, you may need to scroll right to see it.
-
-    ![The Azure portal Data Explorer, Add Graph page](./media/create-graph-java/azure-cosmosdb-data-explorer-graph.png)
-
-2. In the **Add graph** page, enter the settings for the new graph.
-
-    Setting|Suggested value|Description
-    ---|---|---
-    Database ID|sample-database|Enter *sample-database* as the name for the new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    Graph ID|sample-graph|Enter *sample-graph* as the name for your new collection. Graph names have the same character requirements as database IDs.
-    Storage Capacity|Fixed (10 GB)|Leave the default value of **Fixed (10 GB)**. This value is the storage capacity of the database.
-    Throughput|400 RUs|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.
-
-3. Once the form is filled out, click **OK**.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -100,7 +79,7 @@ The following snippets are all taken from the C:\git-samples\azure-cosmos-db-gra
     client = cluster.connect();
     ```
 
-* A series of Gremlin steps are executed using the `client.submit` method.
+* Series of Gremlin steps are executed using the `client.submit` method.
 
     ```java
     ResultSet results = client.submit(gremlin);
@@ -128,7 +107,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. Change `graphs` to `gremlin.cosmosdb` in the `endpoint` value. (If you created your graph database account before December 20th, 2017, make no changes to the endpoint value and continue to the next step.)
+3. Change `graphs` to `gremlin.cosmosdb` in the `endpoint` value. (If you created your graph database account before December 20, 2017, make no changes to the endpoint value and continue to the next step.)
 
     The endpoint value should now look like this:
 
@@ -187,7 +166,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
-2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that he's connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
+2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that the user is connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
    ![New vertices in the graph in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
@@ -206,7 +185,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
     tech | java | 
 
     > [!NOTE]
-    > In this quickstart we create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
+    > In this quickstart you create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
 
 6. Click **OK**. You may need to expand your screen to see **OK** on the bottom of the screen.
 
@@ -228,11 +207,11 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
     As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and click **Apply Filter** to display all the results again.
 
-12. Now we can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then click ![Change the target of a vertex in a graph](./media/create-graph-java/edit-pencil-button.png)  next to **Targets** on lower right side. You may need to widen your window to see the button.
+12. Now you can connect rakesh, and ashley. Ensure **ashley** is selected in the **Results** list, then click ![Change the target of a vertex in a graph](./media/create-graph-java/edit-pencil-button.png)  next to **Targets** on lower right side. You may need to widen your window to see the button.
 
    ![Change the target of a vertex in a graph](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the check.
+13. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the checkbox.
 
    ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
@@ -240,7 +219,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
    ![Two vertices connected in Data Explorer](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-   That completes the resource creation part of this tutorial.You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
+   That completes the resource creation part of this tutorial. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 
 ## Review SLAs in the Azure portal
 

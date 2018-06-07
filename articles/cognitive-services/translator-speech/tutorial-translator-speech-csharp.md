@@ -5,9 +5,8 @@ description: Learn how to use the Translator speech service to translate text in
 services: cognitive-services
 author: v-jerkin
 manager: chriswendt1
-
 ms.service: cognitive-services
-ms.technology: translator
+ms.component: translator-speech
 ms.devlang: csharp
 ms.topic: article
 ms.date: 3/5/2018

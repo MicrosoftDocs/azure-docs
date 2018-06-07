@@ -73,4 +73,5 @@ After the validation has been completed and terms have been signed, you are Read
  * If you are still unclear about CSP or are looking to apply for the commercial side of the program, review the [CSP Programs for Commercial](https://partnercenter.microsoft.com/partner/cloud-solution-provider), once you have elected a program that suits your business needs, apply for the one that meets your profile. 
 
 ## Next steps
+Once you have onboarded and are ready to create your first customer, make sure to review the [Azure Government CSP Quickstart](https://blogs.msdn.microsoft.com/azuregov/2018/02/13/resources-for-building-your-government-csp-practice/) to view a step by step screencast of the process. 
 If you have any additional questions, contact the [Azure Government CSP Program](mailto:azgovcsp@microsoft.com).

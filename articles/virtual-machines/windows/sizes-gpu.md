@@ -4,7 +4,7 @@ description: Lists the different GPU optimized sizes available for Windows virtu
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -37,6 +37,7 @@ For driver installation and verification steps, see [N-series driver setup for W
 - [High performance compute](sizes-hpc.md)
 - [Memory optimized](sizes-memory.md)
 - [Storage optimized](sizes-storage.md)
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
