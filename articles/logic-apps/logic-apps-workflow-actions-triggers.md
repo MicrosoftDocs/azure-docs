@@ -1,7 +1,7 @@
 ﻿---
 # required metadata
-title: Workflow trigger and action types - Azure Logic Apps | Microsoft Docs
-description: Learn about built-in trigger and action types in Azure Logic Apps as described by the Workflow Definition Language schema
+title: Workflow trigger and action types reference - Azure Logic Apps | Microsoft Docs
+description: Learn about trigger and action types in Azure Logic Apps as described by the Workflow Definition Language schema
 services: logic-apps
 ms.service: logic-apps
 author: kevinlam1
@@ -19,16 +19,12 @@ ms.suite: integration
 
 In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
 all logic app workflows start with triggers followed by actions. 
-This article describes the built-in trigger and action types 
-you can use when creating automated workflows with 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
-To learn more about triggers and actions in logic app definitions, see 
-[Workflow Definition Language for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
-
-You can visually create logic apps with the Logic Apps Designer, 
+This article describes the trigger and action types you can use 
+when creating logic apps for automating tasks, processes, and workflows. 
+You can visually create logic app workflows with the Logic Apps Designer, 
 or by directly authoring the underlying workflow definitions with the 
 [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
-You can use either the Azure portal or Visual Studio. 
+You can create logic apps either in the Azure portal or Visual Studio. 
 
 <a name="triggers-overview"></a>
 
@@ -36,14 +32,14 @@ You can use either the Azure portal or Visual Studio.
 
 All logic apps start with a trigger, which defines the calls 
 that can instantiate and start a logic app workflow. 
-Here are the types of triggers that you can use:
+Here are the types of triggers you can use:
 
 * A *polling* trigger, which checks a service's HTTP endpoint at regular intervals
+
 * A *push* trigger, which calls the 
 [Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows)
  
-All triggers have these top-level elements, 
-although some are optional:  
+All triggers have these top-level elements, although some are optional:  
   
 ```json
 "<triggerName>": {
@@ -61,8 +57,8 @@ although some are optional:
 
 *Required*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | <*triggerName*> | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
 | type | String | The trigger type, for example: "Http" or "ApiConnection" | 
 | inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
@@ -73,8 +69,8 @@ although some are optional:
 
 *Optional*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | [conditions](#trigger-conditions) | Array | One or more conditions that determine whether or not to run the workflow | 
 | [splitOn](#split-on-debatch) | String | An expression that splits up, or *debatches*, array items into multiple workflow instances for processing. This option is available for triggers that return an array and only when working directly in code view. | 
 | [operationOptions](#trigger-operation-options) | String | Some triggers provide additional options that let you change the default trigger behavior | 
@@ -131,8 +127,8 @@ Here is the trigger definition:
 
 *Required*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | Recurrence | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
 | type | String | The trigger type, which is "Recurrence" | 
 | inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
@@ -143,8 +139,8 @@ Here is the trigger definition:
 
 *Optional*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | startTime | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time", or specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
 | timeZone | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
 | hours | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
@@ -243,8 +239,8 @@ To learn how to use this trigger as an HTTP endpoint, see
 
 *Required*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | manual | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
 | type | String | The trigger type, which is "Request" | 
 | kind | String | The type of request, which is "Http" | 
@@ -253,8 +249,8 @@ To learn how to use this trigger as an HTTP endpoint, see
 
 *Optional*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | method | String | The method that requests must use to call the trigger: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" |
 | relativePath | String | The relative path for the parameter that your HTTP endpoint's URL accepts | 
 | schema | JSON Object | The JSON schema that describes and validates the payload, or inputs, that the trigger receives from the incoming request. This schema helps subsequent workflow actions know the properties to reference. | 
@@ -337,8 +333,8 @@ and `uri` parameters required for constructing the HTTP call:
 
 *Required*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | HTTP | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
 | type | String | The trigger type, which is "Http" | 
 | inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
@@ -351,8 +347,8 @@ and `uri` parameters required for constructing the HTTP call:
 
 *Optional*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | queries | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?api-version=2015-02-01` query string to the URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Result: `https://contoso.com?api-version=2015-02-01` | 
 | headers | JSON Object | One or more headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | JSON Object | The payload (data) to send to the endpoint | 
@@ -366,7 +362,7 @@ To work well with your logic app, the HTTP trigger requires that the HTTP API
 conform to a specific pattern. The HTTP trigger recognizes these properties:  
   
 | Response | Required | Description | 
-| -------- | -------- | ----------- |  
+|----------|----------|-------------|  
 | Status code | Yes | The "200 OK" status code starts a run. Any other status code doesn't start a run. | 
 | Retry-after header | No | The number of seconds until the logic app polls the endpoint again | 
 | Location header | No | The URL to call at the next polling interval. If not specified, the original URL is used. | 
@@ -375,7 +371,7 @@ conform to a specific pattern. The HTTP trigger recognizes these properties:
 *Example behaviors for different requests*
 
 | Status code | Retry after | Behavior | 
-| ----------- | ----------- | -------- | 
+|-------------|-------------|----------|
 | 200 | {none} | Run the workflow, then check again for more data after the defined recurrence. | 
 | 200 | 10 seconds | Run the workflow, then check again for more data after 10 seconds. |  
 | 202 | 60 seconds | Don't trigger the workflow. The next attempt happens in one minute, subject to the defined recurrence. If the defined recurrence is less than one minute, the retry-after header takes precedence. Otherwise, the defined recurrence is used. | 
@@ -385,8 +381,8 @@ conform to a specific pattern. The HTTP trigger recognizes these properties:
 
 ### HTTP trigger outputs
 
-| Element name | Type | Description |
-| ------------ | ---- | ----------- |
+| Element | Type | Description |
+|---------|------|-------------|
 | headers | JSON Object | The headers from the HTTP response | 
 | body | JSON Object | The body from the HTTP response | 
 |||| 
@@ -440,8 +436,8 @@ so the trigger's behavior depends on whether or not sections are included:
 
 *Required*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | *APIConnectionTriggerName* | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
 | type | String | The trigger type, which is "ApiConnection" | 
 | inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
@@ -456,8 +452,8 @@ so the trigger's behavior depends on whether or not sections are included:
 
 *Optional*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | queries | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?api-version=2015-02-01` query string to the URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Result: `https://contoso.com?api-version=2015-02-01` | 
 | headers | JSON Object | One or more headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | JSON Object | The JSON object that describes the payload (data) to send to the managed API | 
@@ -495,8 +491,8 @@ so the trigger's behavior depends on whether or not sections are included:
 
 ### APIConnection trigger outputs
  
-| Element name | Type | Description |
-| ------------ | ---- | ----------- |
+| Element | Type | Description |
+|---------|------|-------------| 
 | headers | JSON Object | The headers from the HTTP response | 
 | body | JSON Object | The body from the HTTP response | 
 |||| 
@@ -546,8 +542,8 @@ and the trigger's behavior depends on the sections that you use or omit:
 
 *Required*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | HTTP_Webhook | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
 | type | String | The trigger type, which is "HttpWebhook" | 
 | inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
@@ -558,8 +554,8 @@ and the trigger's behavior depends on the sections that you use or omit:
 
 *Optional*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | unsubscribe | JSON Object | The outgoing request to automatically call and cancel the subscription when an operation makes the trigger invalid. For more information, see [subscribe and unsubscribe](#subscribe-unsubscribe). | 
 | method | String | The HTTP method to use for the cancellation request: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
 | uri | String | The endpoint URL for where to send the cancellation request | 
@@ -619,8 +615,8 @@ The parameters for this function are the same as the HTTP trigger.
 
 ### HTTPWebhook trigger outputs
 
-| Element name | Type | Description |
-| ------------ | ---- | ----------- |
+| Element | Type | Description |
+|---------|------|-------------| 
 | headers | JSON Object | The headers from the HTTP response | 
 | body | JSON Object | The body from the HTTP response | 
 |||| 
@@ -653,8 +649,8 @@ Here is the trigger definition:
 
 *Required*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | <*ApiConnectionWebhookTriggerName*> | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
 | type | String | The trigger type, which is "ApiConnectionWebhook" | 
 | inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
@@ -666,8 +662,8 @@ Here is the trigger definition:
 
 *Optional*
 
-| Element name | Type | Description | 
-| ------------ | ---- | ----------- | 
+| Element | Type | Description | 
+|---------|------|-------------| 
 | queries | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?folderPath=Inbox` query string to the URL: <p>`"queries": { "folderPath": "Inbox" }` <p>Result: `https://<managed-API-URL>?folderPath=Inbox` | 
 |||| 
 
@@ -855,7 +851,7 @@ which create or transform data from various inputs.
 ### Built-in action types
 
 | Action type | Description | 
-| ----------- | ----------- | 
+|-------------|-------------|  
 | **ApiConnection**  | Calls an HTTP endpoint by using [Microsoft-managed APIs](https://docs.microsoft.com/azure/connectors/apis-list). | 
 | **ApiConnectionWebhook** | Works like HTTPWebhook, but uses Microsoft-managed APIs. | 
 | **Compose** | Creates an object from the action's inputs. | 
@@ -874,7 +870,7 @@ which create or transform data from various inputs.
 ### Control workflow action types
 
 | Action type | Description | 
-| ----------- | ----------- | 
+|-------------|-------------| 
 | **ForEach** | This looping action iterates through an array and performs inner actions on each array item. | 
 | **If** | Evaluate an expression and based on the result, runs the corresponding branch. | 
 | **Scope** | Use for logically grouping other actions. | 
@@ -912,8 +908,8 @@ Here is an example APIConnection action:
 }
 ```
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------| 
 | host | Yes | JSON Object | Represents the connector information such as the `runtimeUrl` and reference to the connection object. | 
 | method | Yes | String | Uses one of these HTTP methods: "GET", "POST", "PUT", "DELETE", "PATCH", or "HEAD" | 
 | path | Yes | String | The path for the API operation | 
@@ -972,8 +968,8 @@ action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
 }
 ```
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------| 
 | host | Yes | JSON Object | Represents the connector information such as the `runtimeUrl` and reference to the connection object. | 
 | path | Yes | String | The path for the API operation | 
 | queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
@@ -1058,8 +1054,8 @@ for example:
 }
 ```
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- |  
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------|  
 | function id | Yes | String | The resource ID for the Azure function that you want to call. | 
 | method | No | String | The HTTP method used to call the function. If not specified, "POST" is the default method. | 
 | queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
@@ -1099,8 +1095,8 @@ For example:
 Here, the `inputs` object takes these parameters 
 required for constructing an HTTP call: 
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------| 
 | method | Yes | String | Uses one of these HTTP methods: "GET", "POST", "PUT", "DELETE", "PATCH", or "HEAD" | 
 | uri | Yes| String | The HTTP or HTTPs endpoint that the trigger checks. Maximum string size: 2 KB | 
 | queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
@@ -1573,8 +1569,8 @@ For example, to stop a run that has `Failed` status:
 }
 ```
 
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------| 
 | runStatus | Yes | String | The target run's status, which is either `Failed` or `Cancelled` |
 | runError | No | JSON Object | The error details. Supported only when `runStatus` is set to `Failed`. |
 | runError code | No | String | The run's error code |
@@ -1616,8 +1612,8 @@ you can use this example:
 > You can specify the wait duration with either the `interval` object 
 > or the `until` object, but not both.
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------| 
 | until | No | JSON Object | The wait duration based on a point in time | 
 | until timestamp | Yes | String | The point in time in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) when the wait expires | 
 | interval | No | JSON Object | The wait duration based on the interval unit and count | 
@@ -1655,8 +1651,8 @@ so you must have access to the child workflow. For example:
 }
 ```
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- |  
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------|  
 | host id | Yes | String| The resource ID for the workflow that you want to call | 
 | host triggerName | Yes | String | The name of the trigger that you want to invoke | 
 | queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
@@ -1704,8 +1700,8 @@ Learn more about [Foreach loops in logic apps](../logic-apps/logic-apps-control-
 }
 ```
 
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------| 
 | actions | Yes | JSON Object | The inner actions to run inside the loop | 
 | foreach | Yes | String | The array to iterate through | 
 | operationOptions | No | String | Specifies any operation options for customizing behavior. Currently supports only `Sequential` for sequentially running iterations where the default behavior is parallel. |
@@ -1778,8 +1774,8 @@ Learn more about [conditional statements in logic apps](../logic-apps/logic-apps
 }
 ```
 
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------| 
 | actions | Yes | JSON Object | The inner actions to run when `expression` evaluates to `true` | 
 | expression | Yes | String | The expression to evaluate |
 | else | No | JSON Object | The inner actions to run when `expression` evaluates to `false` |
@@ -1850,8 +1846,8 @@ Learn more about [scopes](../logic-apps/logic-apps-control-flow-run-steps-group-
 }
 ```
 
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- |  
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------|  
 | actions | Yes | JSON Object | The inner actions to run inside the scope |
 ||||| 
 
@@ -1891,8 +1887,8 @@ Learn more about [switch statements in logic apps](../logic-apps/logic-apps-cont
 }
 ```
 
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------| 
 | expression | Yes | String | The object, expression, or token to evaluate | 
 | cases | Yes | JSON Object | Contains the sets of inner actions that run based on the expression result. | 
 | case | Yes | String | The value to match with the result | 
@@ -1955,8 +1951,8 @@ Learn more about ["until" loops in logic apps](../logic-apps/logic-apps-control-
 }
 ```
 
-| Name | Required | Type | Description | 
-| ---- | -------- | ---- | ----------- | 
+| Element | Required | Type | Description | 
+|---------|----------|------|-------------| 
 | actions | Yes | JSON Object | The inner actions to run inside the loop | 
 | expression | Yes | String | The expression to evaluate after each iteration | 
 | limit | Yes | JSON Object | The limits for the loop. Must define at least one limit. | 
