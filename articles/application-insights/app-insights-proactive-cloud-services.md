@@ -50,7 +50,7 @@ Simply combine the base query above with one of the queries below, and used that
 > [!NOTE]
 > In the examples below, an issue will be detected if more than three events are found during the analyzed time window. This default can be configured to change the sensitivity of the alert rule.
 
-```KQL
+```
 // Detect failures in the OnStart method
 EventLogs
 | where eventId == '2001'
@@ -59,7 +59,7 @@ EventLogs
 | where Failures > 3
 ```
 
-```KQL
+```
 // Detect failures during runtime
 EventLogs
 | where eventId == '2001'
@@ -68,7 +68,7 @@ EventLogs
 | where Failures > 3
 ```
 
-```KQL
+```
 // Detect failures when running a startup task
 EventLogs
 | where eventId == '1000'
@@ -76,7 +76,7 @@ EventLogs
 | where Failures > 3
 ```
 
-```KQL
+```
 // Detect recycle loops
 EventLogs
 | where eventId == '1006'
