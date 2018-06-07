@@ -23,7 +23,7 @@ The alerts feature in Azure Log Analytics is being replaced by Azure Alerts. As 
 - Programmatically by using the AlertsVersion API.  
 
 > [!NOTE]
-> Microsoft is currently automatically extending alerts created in Log Analytics to Azure alerts, in phases until completed. Microsoft schedules migrating the alerts to Azure, and during this transition, alerts can be managed from both the Operations Management Suite portal and the Azure portal. This process is not destructive or interruptive.  
+> Microsoft is currently automatically extending alerts created in Log Analytics to Azure Alerts, in phases until completed. Microsoft schedules migrating the alerts to Azure, and during this transition, alerts can be managed from both the Operations Management Suite portal and the Azure portal. This process is not destructive or interruptive.  
 
 ## Option 1 - Initiate from the Operations Management Suite portal
 The following steps describe how to extend alerts for the workspace from the Operations Management Suite portal.  
@@ -133,7 +133,7 @@ If all alert rules in the specified workspace have already been extended to Azur
 }
 ```
 
-To initiate migrating the alerts to Azure, initiate a POST response. The POST response confirms your intent, as well as acceptance, to have alerts extended from Log Analytics to Auzre Alerts. The activity is scheduled and the alerts are processed as indicated, based on the results when you performed the GET response earlier. Optionally, you can provide a list of email addresses to which Log Analytics sends a report when the scheduled background process of migrating the alerts completes successfully. You can use the following request example:
+To initiate migrating the alerts to Azure, initiate a POST response. The POST response confirms your intent, as well as acceptance, to have alerts extended from Log Analytics to Azure Alerts. The activity is scheduled and the alerts are processed as indicated, based on the results when you performed the GET response earlier. Optionally, you can provide a list of email addresses to which Log Analytics sends a report when the scheduled background process of migrating the alerts completes successfully. You can use the following request example:
 
 ```
 $emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
@@ -141,7 +141,7 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 
 > [!NOTE]
-> The result of migrating alerts into Azure Alerts may vary based on the summary provided by GET response. Once scheduled, alerts in Log Analytics are temporarily unavailable for modification in the Operations Management Suite portal. However, you can create new alerts. 
+> The result of migrating alerts into Azure Alerts might vary based on the summary provided by GET response. When scheduled, alerts in Log Analytics are temporarily unavailable for modification in the Operations Management Suite portal. However, you can create new alerts. 
 
 If the POST request is successful, it returns an HTTP 200 OK status, along with the following response:
 
@@ -443,13 +443,13 @@ The following is important information about using the script:
 - A pre-requisite is the installation of [ARMclient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
 - To run the script, you must have a contributor or owner role in the Azure subscription.
 - You must provide the following parameters:
-    - $subscriptionId: The Azure Subscription ID associated with the Operations Management Suite or Log Analytics workspace.
-    - $resourceGroup: The Azure Resource Group for Operations Management Suite or Log Analytics workspace.
-    - $workspaceName: The name of the Operations Management Suite or Log Analytics workspace.
+    - $subscriptionId: The Azure Subscription ID associated with the Operations Management Suite Log Analytics workspace.
+    - $resourceGroup: The Azure Resource Group for Operations Management Suite Log Analytics workspace.
+    - $workspaceName: The name of the Operations Management Suite Log Analytics workspace.
 
 ### Output of the custom PowerShell script
 The script is verbose, and outputs the steps as it runs: 
-- It displays the summary, which contains the information about the existing Operations Management Suite or Log Analytics alerts in the workspace. The summary also contains information about the Azure action groups to be created for the actions associated with them. 
+- It displays the summary, which contains the information about the existing Operations Management Suite Log Analytics alerts in the workspace. The summary also contains information about the Azure action groups to be created for the actions associated with them. 
 - You are prompted to go ahead with the extension, or exit after viewing the summary.
 - If you go ahead with the extension, new Azure action groups are created, and all the existing alerts are associated with them. 
 - The script exits by displaying the message "Extension complete!" In case of any intermediate failures, the script displays subsequent errors.
@@ -457,7 +457,7 @@ The script is verbose, and outputs the steps as it runs:
 ## Troubleshooting 
 During the process of extending alerts, problems can prevent the system from creating the necessary [action groups](monitoring-action-groups.md). In such cases, you see an error message in a banner in the Alert section of the Operations Management Suite portal, or in the GET call done to the API.
 
-> [!CAUTION]
+> [!IMPORTANT]
 > If you don't take the following remediation steps before July 5, 2018, alerts will run in Azure but will not fire any action or notification. To get notifications for alerts, you must manually edit and add [action groups](monitoring-action-groups.md), or use the preceding [custom PowerShell script](#option-3---using-custom-powershell-script).
 
 Here are the remediation steps for each error:

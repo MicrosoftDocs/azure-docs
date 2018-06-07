@@ -1,6 +1,6 @@
 ---
 title: Extend (copy) Log Analytics alerts into Azure Alerts - Overview | Microsoft Docs
-description: Overview of process to copy alerts from Log Analytics in OMS portal into Azure Alerts, with details addressing common customer concerns.
+description: Overview of process to copy alerts from Log Analytics in the Operations Management Suite portal into Azure Alerts, with details addressing common customer concerns.
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -25,16 +25,16 @@ There are several advantages of creating and managing alerts in the Azure portal
 - Unlike in the Operations Management Suite portal, where only 250 alerts could be created and viewed, Azure Alerts has no such limitation.
 - From Azure Alerts, you can manage, enumerate, and view all your alert types. Previously, you could only do so for Log Analytics alerts.
 - You can limit access to users to only monitoring and alerting, by using the [Azure Monitor role](monitoring-roles-permissions-security.md).
-- In Azure Alerts, you can use [action groups](monitoring-action-groups.md). This allows you to have more than one action for each alert. You can SMS, send a voice call, invoke an Automation Runbook, invoke a Webhook, and configure an IT Service Management (ITSM) Connector. 
+- In Azure Alerts, you can use [action groups](monitoring-action-groups.md). This allows you to have more than one action for each alert. You can SMS, send a voice call, invoke an Azure Automation runbook, invoke a webhook, and configure an IT Service Management (ITSM) Connector. 
 
 ## Process of extending your alerts
 The process of moving alerts from Log Analytics into Azure Alerts does not involve changing your alert definition, query, or configuration in any way. The only change required is that in Azure, you perform all actions by using an action group. If action groups are already associated with your alert, they are included when extended into Azure.
 
 > [!NOTE]
-> Microsoft automatically extends alerts created in Log Analytics to Azure alerts. If you have any problems creating [action groups](monitoring-action-groups.md), use [these remediation steps](monitoring-alerts-extend-tool.md#troubleshooting) to get action groups created automatically. You can use these steps until July 5,2018. 
+> Microsoft automatically extends alerts created in Log Analytics to Azure Alerts. If you have any problems creating [action groups](monitoring-action-groups.md), use [these remediation steps](monitoring-alerts-extend-tool.md#troubleshooting) to get action groups created automatically. You can use these steps until July 5,2018. 
 > 
 
-When you schedule alerts in a Log Analytics workspace to be extended to Azure, they continue to work, and do not in any way compromise your configuration. When scheduled, your alerts may be unavailable for modification temporarily, but you can continue to create new Azure alerts during this time. If you attempt to edit or create alerts from the Operations Management Suite portal, you have the option to continue creating them from your Log Analytics workspace. You can also choose to create them from Azure Alerts in the Azure portal.
+When you schedule alerts in a Log Analytics workspace to be extended to Azure, they continue to work, and do not in any way compromise your configuration. When scheduled, your alerts might be unavailable for modification temporarily, but you can continue to create new Azure Alerts during this time. If you attempt to edit or create alerts from the Operations Management Suite portal, you have the option to continue creating them from your Log Analytics workspace. You can also choose to create them from Azure Alerts in the Azure portal.
 
  ![Screenshot of option to create alerts from Log Analytics or Azure Alerts](./media/monitor-alerts-extend/ScheduledDirection.png)
 
@@ -61,5 +61,5 @@ You can continue to create alerts from the [Log Analytics API](../log-analytics/
 ## Next steps
 
 * Learn about the tools to [initiate extending alerts from Log Analytics into Azure](monitoring-alerts-extend-tool.md).
-* Learn more about the [Azure alerts experience](monitoring-overview-unified-alerts.md).
+* Learn more about the [Azure Alerts experience](monitoring-overview-unified-alerts.md).
 * Learn how to create [log alerts in Azure Alerts](monitor-alerts-unified-log.md).
