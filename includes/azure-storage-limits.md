@@ -12,7 +12,7 @@
 
 | Resource | Default Limit |
 | --- | --- |
-| Number of storage accounts per region | 200<sup>1</sup> |
+| Number of storage accounts per region per subscription | 200<sup>1</sup> |
 | Max storage account capacity | 500 TiB<sup>2</sup> |
 | Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate per storage account | 20,000 requests per second<sup>2</sup> |
