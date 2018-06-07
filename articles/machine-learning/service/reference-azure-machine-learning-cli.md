@@ -20,8 +20,3 @@ What can I do with it? What can't I?
 + [Install the CLI and get started]()quickstart-set-up-in-python.md
 
 + [Azure Machine Learning CLI reference documentation]()
-
-**Try these next steps for this package:**
-1. [Download]() the SDK.
-2. [Install the SDK and create a project]().
-3. [Build, train, and deploy a model]().
