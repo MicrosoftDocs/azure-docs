@@ -65,7 +65,7 @@ This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery,
         // Request parameters.
         var params = {
             "language": "unk",
-            "detectOrientation ": "true",
+            "detectOrientation": "true",
         };
 
         // Display the image.
