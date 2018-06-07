@@ -11,16 +11,15 @@ services: iot-edge
 ---
 
 # Continuous integration and continuous deployment to Azure IoT Edge - preview
-This tutorial demonstrates how you can use the continuous integration and continuous deployment features of Visual Studio Team Services (VSTS) and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
+This article demonstrates how you can use the continuous integration and continuous deployment features of Visual Studio Team Services (VSTS) and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
-In this tutorial, you will learn how to:
-> [!div class="checklist"]
-> * Create and check in a sample IoT Edge solution containing unit tests.
-> * Install Azure IoT Edge extension for your VSTS.
-> * Configure continuous integration (CI) to build the solution and run the unit tests.
-> * Configure continuous deployment (CD) to deploy the solution and view responses.
+In this article, you will learn how to:
+* Create and check in a sample IoT Edge solution containing unit tests.
+* Install Azure IoT Edge extension for your VSTS.
+* Configure continuous integration (CI) to build the solution and run the unit tests.
+* Configure continuous deployment (CD) to deploy the solution and view responses.
 
-It will take 30 minutes to complete this tutorial.
+It will take 30 minutes to complete the steps in this article.
 
 ![CI and CD](./media/how-to-ci-cd/cd.png)
 
@@ -429,7 +428,7 @@ In this section, you will create a build definition that is configured to run au
     
     ![Complete](./media/how-to-ci-cd/complete.png)
 
-1. You can go back to VS Code and check the IoT Hub device explorer. The Edge device with the module should start running (Make sure you've added registry credentials to Edge runtime).
+1. You can go back to VS Code and check the IoT Hub device explorer. The Edge device with the module should start running.
 
     ![Edge running](./media/how-to-ci-cd/edge-running.png)
 
@@ -444,10 +443,8 @@ So, when deploying to IoT Edge devices, there are three main environments.
 
 ## Next steps
 
-This tutorial demonstrates how you can use the continuous integration and continuous deployment features of VSTS or TFS. 
-
 * Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
-* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale][how-to-deploy-monitor.md].
+* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
 
 
 

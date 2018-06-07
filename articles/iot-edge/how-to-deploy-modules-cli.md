@@ -44,8 +44,8 @@ Here's a basic deployment manifest with one module as an example:
              "type": "docker",
              "settings": {
                "minDockerVersion": "v1.25",
-               "loggingOptions": ""
-             }
+               "loggingOptions": "",
+               "registryCredentials": {}
            },
            "systemModules": {
              "edgeAgent": {

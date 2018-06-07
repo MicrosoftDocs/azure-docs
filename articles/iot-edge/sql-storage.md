@@ -30,15 +30,12 @@ The following articles aren't required to successfully complete this tutorial, b
 After you complete the required tutorials, you should have all the required prerequisites ready on your machine: 
 * An active Azure IoT hub.
 * An IoT Edge device with at least 2-GB RAM and a 2-GB disk drive.
-* [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
-* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
-* [Docker](https://docs.docker.com/engine/installation/)
-* [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
-* [Python 2.7](https://www.python.org/downloads/)
-* [IoT Edge control script](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [Docker](https://docs.docker.com/engine/installation/) on your development machine. 
+* [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd)
 * AzureIoTEdgeFunction template (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
-* An active IoT hub with at least an IoT Edge device.
 
 Both Windows and Linux containers on x64 processor architectures work for this tutorial. SQL Server does not support ARM processors.
 
@@ -112,10 +109,10 @@ In step 3, you add create options to the SQL Server container, which are importa
       ```
 
 5. Save the file. 
-6. In the VS Code Command Palette, select **Edge: Create deployment for Edge device**. 
+6. In the VS Code Command Palette, select **Azure IoT Edge: Create deployment for Edge device**. 
 7. Select your IoT Edge device ID.
 8. Select the `deployment.json` file that you updated. In the output window, you can see corresponding outputs for your deployment. 
-9. To start your Edge runtime, select **Edge: Start Edge** in the Command Palette.
+9. To start your Edge runtime, select **Azure IoT Edge: Start IoT Edge** in the Command Palette.
 
 >[!TIP]
 >Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
@@ -288,14 +285,10 @@ To send the data to your database, update the FilterFunction Azure Function that
 
 To apply the changes that you've made, update your container image, publish it, and restart IoT Edge.
 
-1. In Visual Studio Code, expand the **Docker** folder. 
-2. Based on the platform you're using, expand either the **windows-nano** or **linux-x64** folder. 
-3. Right-click the **Dockerfile** file and select **Build IoT Edge module Docker image**.
-4. Navigate to the **FilterFunction** project folder and click **Select folder as EXE_DIR**.
-5. In the pop-up text box at the top of the VS Code window, enter the image name. For example, `<your container registry address>/filterfunction:latest`. If you are deploying to a local registry, the name should be `<localhost:5000/filterfunction:latest>`.
-6. In the VS Code command palette, select **Edge: Push IoT Edge module Docker image**. 
-7. In the pop-up text box, enter the same image name. 
-8. In the VS Code command palette, select **Edge: Restart Edge**.
+1. In the Visual Studio Code command palette, select **Azure IoT Edge: Build and push IoT Edge module image**.
+2. Select the **module.json** file for your Function module. 
+3. Based on the type of containers your IoT Edge device is running, select a platform.
+4. In the VS Code command palette, select **Azure IoT Edge: Restart IoT Edge**.
 
 ## View the local data
 
