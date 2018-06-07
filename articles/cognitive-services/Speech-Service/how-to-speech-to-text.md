@@ -45,10 +45,7 @@ The [Speech SDK](speech-sdk.md) provides the simplest way to use **Speech to Tex
 
 ### SDK samples
 
-You can download code samples demonstrating the use of the SDK for Speech to Text using the links below.
-
-- [Download samples for Windows](https://aka.ms/csspeech/winsample)
-- [Download samples for Linux](https://aka.ms/csspeech/linuxsample)
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 ## Using the REST API
 
@@ -58,7 +55,7 @@ The REST API is the simplest way to recognize speech if you are not using a lang
 > Utterances are limited to 15 seconds or less when using the REST API.
 
 
-For more information on the **Speech to Text** REST API, see [REST APIs](rest-apis.md#speech-to-text). To see it in action, download the [REST API samples](https://github.com/Azure-Samples/SpeechToTeext-REST) from GitHub.
+For more information on the **Speech to Text** REST API, see [REST APIs](rest-apis.md#speech-to-text). To see it in action, download the [REST API samples](https://github.com/Azure-Samples/SpeechToText-REST) from GitHub.
 
 ## Next steps
 
