@@ -11,12 +11,12 @@ ms.author: bryanla
 
 # Tutorial: Create an Azure Time Series Insights single-page web app
 
-This tutorial will guide you through the process of creating a single-page web app (SPA), modeled after the [Time Series Insights (TSI) sample application](https://insights.timeseries.azure.com/clientsample). In this tutorial, you'll learn how to:
+This tutorial will guide you through the process of creating a single-page web app (SPA), modeled after the [Time Series Insights (TSI) sample application](https://insights.timeseries.azure.com/clientsample). In this tutorial, you'll about:
 
 > [!div class="checklist"]
-> * X 
-> * Register the application with Azure Active Directory (AD)
-> * Z 
+> * The application design
+> * How to register the application with Azure Active Directory (AD)
+> * How to build, publish, and test the web application 
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ If you haven't established your own TSI environment, complete the [Create an Azu
 You'll also need to install Visual Studio if you haven't already. For this tutorial, you can [download/install the free Community version, or a free trial](https://www.visualstudio.com/downloads/).
 
 
-## Overview
+## Application design
 
 As mentioned, the TSI sample application provides the basis for the design and code of this tutorial. The TSI sample application uses the TSI Client JavaScript library to query and visualize data from a TSI environment. Both the library source and SPA page source are available in the [tslclient GitHub repository](https://github.com/Microsoft/tsiclient).
 
@@ -37,7 +37,7 @@ For an overview of the structure of the TSI sample app its use of the TSI Client
 
 ## Register the application with Azure AD 
 
-Before building the application, you register it with Azure Active Directory (AD). The registration serves as the identity configuration for the application, enabling it to use Azure AD's OAuth support for single sign-on. OAuth requires SPA applications to use the "implicit" authorization grant, so you also use the manifest editor to update the corresponding property. An application manifest is a JSON representation of the application's identity configuration. 
+Before building the application, you register it with Azure AD. The registration serves as the identity configuration for the application, enabling it to use Azure AD's OAuth support for single sign-on. OAuth requires SPA applications to use the "implicit" authorization grant, so you also use the manifest editor to update the corresponding property. An application manifest is a JSON representation of the application's identity configuration. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription account.  
 2. Select the **Azure Active Directory** resource in the left pane, then **App registrations**, then **+ New application registration**:  
@@ -118,11 +118,13 @@ From the left-hand menu in the Azure portal:
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a TSI environment 
+> * The application design
+> * How to register the application with Azure Active Directory (AD)
+> * How to build, publish, and test the web application 
 
-Now that you know how to create your own TSI SPA web application, learn more about XXXX, by advancing to the following article:
+Now that you know how to create your own TSI SPA web application, learn more about shaping your JSON for maximum query performance:
 
 > [!div class="nextstepaction"]
-> [XXXX](xxx.md)
+> [How to shape JSON to maximize query performance](how-to-shape-query-json.md)
 
 
