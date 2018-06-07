@@ -1011,25 +1011,37 @@ You can then use the action's output in other actions.
 
 *Example 1*
 
-*Example 2*
-
-
-
-*Example 3*
-
-For example, you can use the `Compose` action 
-for merging outputs from multiple actions:
+This action definition merges `abcdefg ` 
+with a trailing space and the value `1234`:
 
 ```json
-"composeUserRecordAction": {
-    "type": "Compose",
-    "inputs": {
-        "firstName": "@actions('getUser').firstName",
-        "alias": "@actions('getUser').alias",
-        "thumbnailLink": "@actions('lookupThumbnail').url"
-    }
-}
+"Compose": {
+   "type": "Compose",
+   "inputs": "abcdefg 1234",
+   "runAfter": {}
+},
 ```
+
+Here is the output that this action creates:
+
+`abcdefg 1234`
+
+*Example 2*
+
+This action definition merges a string variable that contains 
+`abcdefg` and an integer variable that contains `1234`:
+
+```json
+"Compose": {
+   "type": "Compose",
+   "inputs": "@{variables('myString')}@{variables('myInteger')}",
+   "runAfter": {}
+},
+```
+
+Here is the output that this action creates:
+
+`"abcdefg1234"`
 
 <a name="function-action"></a>
 
@@ -1477,8 +1489,7 @@ this action can use for the column header names:
 
 *Optional*
 
-To specify or customize column headers and values, 
-use the `columns` property and define these items as an array. 
+To specify or customize column headers and values, use the `columns` array. 
 When `header-value` pairs have the same header name, 
 their values appear in the same column under that header name. 
 Otherwise, each unique header defines a unique column.
@@ -1513,9 +1524,9 @@ The expression used by the `from` property gets the array from
 Here is the CSV table that this action creates: 
 
 ```
-ID,Product_Name
-0,Apples
-1,Oranges
+ID,Product_Name 
+0,Apples 
+1,Oranges 
 ```
 
 *Example 2*
@@ -1609,7 +1620,7 @@ This action pauses workflow execution for the
 specified interval or until the specified time, 
 but not both. 
 
-**Specified interval**
+*Specified interval*
 
 ```json
 "Delay": {
@@ -1624,7 +1635,7 @@ but not both.
 },
 ```
 
-**Specified time**
+*Specified time*
 
 ```json
 "Delay_until": {
@@ -1659,7 +1670,8 @@ This action definition pauses the workflow for 15 minutes:
          "count": 15,
          "unit": "Minute"
       }
-   }
+   },
+   "runAfter": {}
 },
 ```
 
@@ -1674,7 +1686,8 @@ This action definition pauses the workflow until the specified time:
       "until": {
          "timestamp": "2017-10-01T00:00:00Z"
       }
-   }
+   },
+   "runAfter": {}
 },
 ```
 
