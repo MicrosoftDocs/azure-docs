@@ -18,6 +18,16 @@ ms.author: juliako
 ---
 # Live streaming with Azure Media Services v3
 
+When delivering live streaming events with Azure Media Services the following components are commonly involved:
+
+* A camera that is used to broadcast an event.
+* A live video encoder that converts signals from the camera (or another device, like laptop) to streams that are sent to the Media Services live streaming service. The signals may also include advertising SCTE-35 and Ad-cues. 
+* The Media Services live streaming service enables you to ingest, preview, package, record, encrypt, and broadcast the content to your customers, or to a CDN for further distribution.
+
+This article gives a detailed overview and includes diagrams of major components involved in live streaming with Media Services.
+
+## Overview of main components
+
 In Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A LiveEvent provides an input endpoint (ingest URL) that you then provide to an on-premises live encoder. The LiveEvent receives live input streams from the live encoder in RTMP or Smooth Streaming format and makes it available for streaming through one or more [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). A [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) enables you to control the publishing, recording, and DVR window settings of the live stream. The LiveEvent also provides a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. 
 
 Media Services provides **Dynamic Packaging**, which allows you to preview and broadcast your content in MPEG DASH, HLS, Smooth Streaming streaming formats without you having to manually repackage into these streaming formats. You can play back with any HLS, DASH, or Smooth compatible players. You can also use [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) to test your stream.
@@ -26,7 +36,6 @@ Media Services enables you to deliver your content encrypted dynamically (**Dyna
 
 If desired, you can also apply **Dynamic Filtering**, which can be used to control the number of tracks, formats, bitrates, that are sent out to the players. Media Services also supports ad-insertion.
 
-This aticle gives a detailed overview and includes diagrams of major components involved in live streaming with Media Services.
 
 ## LiveEvent types
 
@@ -69,7 +78,7 @@ The following table compares features of the two LiveEvent types.
 | Support for ad signaling via API|No |Yes |
 | Support for ad signaling via SCTE35 inband|Yes |Yes |
 | Pass-through CEA 608/708 captions |Yes |Yes |
-| Ability to recover from brief stalls in contribution feed |Yes |No (LiveEvent will begin slating after 6+ seconds w/o input data) |
+| Ability to recover from brief stalls in contribution feed |Yes |No (LiveEvent will begin slating after 6+ seconds w/o input data)|
 | Support for non-uniform input GOPs |Yes |No – input must be fixed 2 sec GOPs |
 | Support for variable frame rate input |Yes |No – input must be fixed frame rate.<br/>Minor variations are tolerated, for example, during high motion scenes. But encoder cannot drop to 10 frames/sec. |
 | Auto-shutoff of LiveEvent when input feed is lost |No |After 12 hours, if there is no LiveOutput running |
