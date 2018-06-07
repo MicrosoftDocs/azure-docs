@@ -11,16 +11,10 @@ To install CycleCloud, you must have administrator rights. In addition, your sys
 * At least 50GB of free disk space
 * Administrator (root) privileges
 * Phraseless SSH key
+* Active Microsoft Azure Subscription
 
 > [!NOTE]
 > CycleCloud may be installed on physical or virtualized hardware.
-
-## Cycle Computing Portal Account
-
-A Cycle Computing Portal Account allows you to access downloads and
-licenses associated with your account. If you do not have a Portal
-Account, please contact your rep or email <info@cyclecomputing.com> for
-assistance.
 
 ## SSH Key
 
