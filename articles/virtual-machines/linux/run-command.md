@@ -25,7 +25,7 @@ The following are a list of restrictions that are present when using Run Command
 
 * Output is limited to the last 4096 bytes
 * The minimum time to run a script about 20 seconds
-* Scripts run as elevated user on Linux
+* Scripts run by default as elevated user on Linux
 * One script at a time may run
 * You cannot cancel a running script
 * The maximum time a script can run is 90 minutes, after which it will time out
@@ -37,6 +37,9 @@ The following is an example using the [az vm run-command](/cli/azure/vm/run-comm
 ```azurecli-interactive
 az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
 ```
+
+> [!NOTE]
+> To run commands as a different user, you can use `sudo -u` to specify a user account to use.
 
 ## Azure portal
 
