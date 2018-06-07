@@ -60,7 +60,7 @@ The `AudioInputStream` base class will be overridden by your custom stream adapt
 
      This function is called to close the audio stream.
 
-## Usage Examples
+## Usage examples
 
 In general, the following steps are involved when using audio input streams:
 
