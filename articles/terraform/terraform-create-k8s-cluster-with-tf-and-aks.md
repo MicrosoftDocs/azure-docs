@@ -15,7 +15,7 @@ ms.topic: article
 In this tutorial, you learn how to use the [Terraform](http://terraform.io) to perform the following tasks:
 
 > [!div class="checklist"]
-> * Define a Kubernetes cluster via HashiCorp Language (HCL)
+> * Use the HashiCorp Language (HCL) to define a Kubernetes cluster
 > * Learn about the azurerm_kubernetes_cluster resource type
 > * Test a Kubernetes cluster
 > * Deploy pods with the Kubernetes Terraform provider
