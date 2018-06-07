@@ -21,16 +21,13 @@ Log Analytics initially used its own portal called the OMS portal to manage its 
 
 This article answers common questions for users making this transition.  If you used Log Analytics in the OMS portal, then you can find answers here for how you can perform the same tasks in the Azure portal.
 
-## What's the difference between OMS and Log Analytics?
-You may be wondering why the portal used the name OMS instead of Log Analytics. Operations Management Suite (OMS) is actually a bundling of multiple management services in Azure that includes Log Analytics. We recently introduced new pricing that doesn't include this bundling and are moving away from the term. You won't see the term OMS in the Azure portal but instead interact directly with the services that were included in this suite.
-
 ## Where do I find Log Analytics in Azure?
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).  Click **All services**, and in the list of resources, type **Log Analytics**. Select **Log Analytics** and then select your workspace. The summary page for the workspace is displayed.
 
 ![Log Analytics workspace](media/log-analytics-new-portal/log-analytics.png)
 
 ## How do I manage permissions?
-If you don't have access to your Log Analytics workspace in the Azure portal, you need to configure your permissions using [Azure role-based access](../active-directory/role-based-access-control-configure.md). For details on managing workspace permissions, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md). For information on managing permissions for alerts, see [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+If you don't have access to your Log Analytics workspace in the Azure portal, you need to configure your permissions using [Azure role-based access](../active-directory/role-based-access-control-configure.md). For details on managing workspace permissions, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). For information on managing permissions for alerts, see [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## How do I create a new workspace? 
 From the list of workspaces in the Azure portal, click **Add** in the list of workspaces.  For complete details, see [Create a Log Analytics workspace in the Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
@@ -79,7 +76,7 @@ Manage most Connected Source settings the  in the **Advanced settings** menu for
 | System Center     | **Advanced settings** menu for the workspace. |
 | Office 365        | See the [documentation for Office 365 management solution](../operations-management-suite/oms-solution-office-365.md) for configuration details. |
 | Windows Telemetry | Not yet available in Azure portal. |
-| ITSM Connector    | ITSM connections can be configured through the alert action groups with Azure Alerts. See  [Connect ITSM products/services with IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md). |
+| ITSM Connector    | See  [Connect ITSM products/services with IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) for instructions on connecting your ITSM service with Log Analytics. |
 
 ### Data
 Manage most Data settings the  in the **Advanced settings** menu for the workspace. The following table provides details for each section of this menu.
@@ -99,7 +96,7 @@ Manage most Data settings the  in the **Advanced settings** menu for the workspa
 | Linux File Tracking          | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details. |
 
 ### Solutions
-[List and remove management solutions](#how-do-i-install-and-remove-management-solutions) from the list of solutions in the Azure portal.
+Manage Solutions in the **Solutions** menu for the workspace. 
 
 ## How do I install and remove management solutions?
 In the OMS portal, you install management solutions from the Solutions Gallery and removed them from **Settings**. In the Azure portal, [install management solutions](../monitoring/monitoring-solutions.md#install-a-management-solution) from the Azure Marketplace. [Remove solutions](../monitoring/monitoring-solutions.md#remove-a-management-solution) from the list of installed solutions.
