@@ -348,7 +348,8 @@ The successful response with the LUIS endpoint is:
 ```
 
 ## Using the Traffic Manager parent profile
-In order to manage traffic across endpoints, you need to insert code such as the previous section's DNS request to find the LUIS endpoint. This call needs to be made for every LUIS endpoint request. Add the DNS response code in between your LUIS client application and the request to LUIS for the endpoint prediction. 
+In order to manage traffic across endpoints, you need to insert a call to the Traffic Manager DNS to find the LUIS endpoint. This call needs to be made for every LUIS endpoint request and needs to simulate the geographic location of the user of the LUIS client application. Add the DNS response code in between your LUIS client application and the request to LUIS for the endpoint prediction. 
+
 
 ## Clean up
 Remember to remove the two LUIS subscription keys, the 3 Traffic Manager profiles, and the resource group that contained these five resources. This is done from the Azure portal. You delete the five resources from the resources list. Then delete the resource group. 
