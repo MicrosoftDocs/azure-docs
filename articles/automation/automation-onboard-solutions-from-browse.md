@@ -75,7 +75,7 @@ When onboarding multiple machines, there may be machines that show as **Cannot e
 
 **Solution:** Refer to the [list of supported clients](automation-update-management.md#clients) for the solution.
 
-## Classic VMs cannot be enabled
+### Classic VMs cannot be enabled
 
 **Cause**: Virtual machines that use the classic deployment model are not supported.
 

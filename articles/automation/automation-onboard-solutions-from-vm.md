@@ -23,13 +23,13 @@ Log in to Azure at https://portal.azure.com
 
 Navigate to an existing virtual machine and select either **Update management**, **Inventory**, or **Change tracking** under **OPERATIONS**.
 
+To enable the solution for the VM only ensure the **Enable for this VM** radio button is selected, to onboard multiple machines to the solution select **Enable for VMs in this subscription** and click **Click to select machines to enable**. See, [Onboard Update Management, Change Tracking, and Inventory solutions](automation-onboard-solutsion-from-automation-account.md) to view the steps on how to onboard multiple machines at once.
+
 Choose the Log analytics workspace and automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
 ![Onboard Update solution](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Navigate to the other solutions and click **Enable**, the Log analytics, and Automation account drop-down boxes are disabled as they use the same workspace and automation account as the previously enabled solution.
-
-![Onboard Update solution](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > **Change tracking** and **Inventory** use the same solution, when one is enabled the other is enabled as well.
