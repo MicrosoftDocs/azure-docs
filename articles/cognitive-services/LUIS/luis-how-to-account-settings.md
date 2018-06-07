@@ -8,7 +8,7 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 06/04/2018
 ms.author: v-geberr
 ---
 
@@ -31,6 +31,19 @@ If your authoring key is compromised, reset the key. The key is reset on all you
 
 ## Delete account
 See [Data storage and removal](luis-concept-data-storage.md#accounts) for information about what data is deleted when you delete your account. 
+
+## Azure Active Directory tenant user
+LUIS uses standard Azure Active Directory (Azure AD) consent flow. 
+
+The tenant admin should work directly with the user who needs access granted to use LUIS in the Azure AD. 
+
+First, the user signs into LUIS, and sees the pop-up dialog needing admin approval. The user contacts the tenant admin before continuing. 
+
+Second, the tenant admin signs into LUIS, and sees a consent flow pop-up dialog. This is the dialog the admin needs to give permission for the user. Once the admin accepts the permission, the user is able to continue with LUIS.
+
+If the tenant admin will not sign in to LUIS, the admin can access [consent](https://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=65920ba3-ab61-4a9b-9b10-505e5ce61b58) for LUIS. 
+
+If the tenant admin only wants certain users to use LUIS, refer to this [identity blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 
 ## Next steps
 

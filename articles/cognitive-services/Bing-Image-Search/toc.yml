@@ -25,11 +25,11 @@
     href: sdk.md
   - name: Image search SDK C# quickstart
     href: image-search-sdk-quickstart.md
-  - name: Image search SDK Node.js quickstart (preview)
+  - name: Image search SDK Node.js quickstart
     href: image-search-sdk-node-quickstart.md
-  - name: Image Search SDK Python quickstart (preview)
+  - name: Image Search SDK Python quickstart
     href: image-sdk-python-quickstart.md
-  - name: Image Search SDK Java quickstart (preview)
+  - name: Image Search SDK Java quickstart
     href: image-sdk-java-quickstart.md
 - name: Tutorials
   items:

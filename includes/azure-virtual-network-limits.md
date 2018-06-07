@@ -1,4 +1,17 @@
-<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the classic deployment model per subscription.
+---
+ title: include file
+ description: include file
+ services: networking
+ author: jimdial
+ ms.service: networking
+ ms.topic: include
+ ms.date: 06/05/2018
+ ms.author: jdial
+ ms.custom: include file
+
+---
+
+<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the classic deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
@@ -18,7 +31,7 @@
 | Endpoint Access Control Lists (ACLs) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking Limits - Azure Resource Manager
-The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription.
+The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |

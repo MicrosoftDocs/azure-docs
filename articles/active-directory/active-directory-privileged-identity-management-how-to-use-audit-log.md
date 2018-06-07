@@ -3,7 +3,7 @@ title: How to use the audit log in Azure AD Privileged Identity Management | Mic
 description: Learn how to use the audit log in the Azure Privileged Identity Management extension.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -12,7 +12,7 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 02/14/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
 
 ---

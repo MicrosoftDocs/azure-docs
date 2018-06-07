@@ -6,10 +6,10 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
+ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
 

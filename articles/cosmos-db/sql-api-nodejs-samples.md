@@ -7,10 +7,10 @@ author: moderakh
 manager: kfile
 editor: monicar
 
-ms.assetid: d87d97be-47a5-4928-8d46-a541fbb33213
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 05/23/2017
 ms.author: moderakh
 

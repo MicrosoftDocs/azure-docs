@@ -6,8 +6,8 @@ author: SnehaGunda
 manager: kfile
 editor: ''
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
