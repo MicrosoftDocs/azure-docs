@@ -30,6 +30,7 @@ Microsoft highly recommends Administrators enable users to select more than the 
 | Microsoft Authenticator App | MFA Only |
 | SMS | MFA and SSPR |
 | Voice call | MFA and SSPR |
+| App passwords | MFA only in certain cases |
 
 ## Password
 
@@ -137,6 +138,21 @@ An automated voice call is made to the phone number you provide. Answer the call
 ## Office phone
 
 An automated voice call is made to the phone number you provide. Answer the call and presses # in the phone keypad to authenticate.
+
+## App Passwords
+
+Certain non-browser apps do not support multi-factor authentication, if a user has been enabled for multi-factor authentication and attempt to use non-browser apps, they are unable to authenticate. An app password allows users to continue to authenticate
+
+If you enforce Multi-Factor Authentication through Conditional Access policies and not through per-user MFA, you cannot create app passwords. Applications that use Conditional Access policies to control access do not need app passwords.
+
+If your organization is federated for SSO with Azure AD and you are going to be using Azure MFA, then be aware of the following details:
+
+* The app password is verified by Azure AD and therefore bypasses federation. Federation is only used when setting up app passwords.
+For federated (SSO) users, passwords are stored in the organizational ID. If the user leaves the company, that info has to flow to organizational ID using DirSync. Account disable/deletion may take up to three hours to sync, which delays disable/deletion of app passwords in Azure AD.
+* On-premises Client Access Control settings are not honored by App Password.
+* No on-premises authentication logging/auditing capability is available for app passwords.
+* Certain advanced architectural designs may require using a combination of organizational username and passwords and app passwords when using two-step verification with clients, depending on where they authenticate. For clients that authenticate against an on-premises infrastructure, you would use an organizational username and password. For clients that authenticate against Azure AD, you would use the app password.
+* By default, users cannot create app passwords. If you need to allow users to create app passwords, select the **Allow users to create app passwords to sign into non-browser applications option** under service settings.
 
 ## Next steps
 

@@ -26,20 +26,34 @@ The security of two-step verification lies in its layered approach. Compromising
 
 Azure Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use [authentication methods](concept-authentication-methods.md).
 
-## Authentication methods
-
-All users require a password, which is their first factor of authentication in most cases, in addition your organization can allow users to use a text message, a phone call, or an app on their phone to provide a second factor authentication method. Organizations can choose to pre-populate some data for your users like their office phone number or require them to register and confirm their methods as part of your rollout.
-
-![Set up additional security verification](./media/concept-mfa-howitworks/additional-security-verification.png)
-
 ## How to deploy
 
-Multi-Factor Authentication can be purchased and deployed in three primary ways:
+Multi-Factor Authentication comes as part of the following offerings:
 
-**Multi-Factor Authentication for Office 365** - A subset of Azure Multi-Factor Authentication capabilities are available as a part of your [Office 365 subscription](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba
-).
-**Azure MFA Server** - If your organization wants to manage the associated infrastructure elements and has deployed AD FS in your on-premsies environment this way may be an option.
-**Azure MFA Service (Cloud)** - **This option is the recommended path for new deployments**. Azure MFA in the cloud requires no on-premises infrastructure and can be used with your federated or cloud-only users.
+* **Multi-Factor Authentication for Office 365** - A subset of Azure Multi-Factor Authentication capabilities are available as a part of your subscription. For more information about MFA for Office 365, see the article [Plan for multi-factor authentication for Office 365 Deployments](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
+* **Azure Active Directory Global Administrators** - A subset of Azure Multi-Factor Authentication capabilities are available as a means to protect global administrator accounts.
+* **Azure Active Directory Premium licenses** - Full featured use of Azure Multi-Factor Authentication Service (Cloud) or Azure Multi-Factor Authentication Server (On-premises).
+   * **Azure MFA Server** - If your organization wants to manage the associated infrastructure elements and has deployed AD FS in your on-premsies environment this way may be an option.
+   * **Azure MFA Service (Cloud)** - **This option is the recommended path for new deployments**. Azure MFA in the cloud requires no on-premises infrastructure and can be used with your federated or cloud-only users.
+
+### Auth Provider or MFA license
+
+If you have Azure AD Premium or a license bundle that includes Azure AD Premium, you already have Azure MFA. Your organization doesn't need anything additional to extend the two-step verification capability to all users. You only need to assign a license to a user, and then you can turn on MFA.
+
+If you don't have licenses that include Azure MFA, then you can create an [MFA Auth Provider](concept-mfa-authprovider.md).
+
+If you don't have enough licenses for all your users, you can create a per-user Multi-Factor Auth Provider to cover the rest of your organization. Do not create a per-authentication Multi-Factor Auth Provider. If you do, you could end up paying for verification requests from users that already have licenses.
+
+## Supportability
+
+Since most users are accustomed to using only passwords to authenticate, it is important that your organization communicates to all users regarding this process. Awareness can reduce the likelihood that users call your help desk for minor issues related to MFA. However, there are some scenarios where temporarily disabling MFA is necessary. Use the following guidelines to understand how to handle those scenarios:
+
+* Train your support staff to handle scenarios where the user can't sign in because they do not have access to their authentication methods or they are not working correctly.
+   * Using conditional access policies for Azure MFA Service your support staff can add a user to a group that is excluded from a policy requiring MFA.
+   * Support staff can enable a temporary one-time bypass for Azure MFA Server users to allow a user to authenticate without two-step verification. The bypass is temporary and expires after a specified number of seconds.
+   * Using conditional access policies for Azure MFA Service your support staff can add a user to a group that is excluded from a policy requiring MFA.
+* Consider using Trusted IPs in Azure MFA as a way to minimize two-step verification prompts. With this feature, administrators of a managed or federated tenant can bypass two-step verification for users that are signing in from the company’s local intranet.
+* Deploy [Azure AD Identity Protection](../active-directory-identityprotection.md) and trigger two-step verification based on risk events.
 
 ## Next steps
 
