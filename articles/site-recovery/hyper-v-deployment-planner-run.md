@@ -91,7 +91,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|The virtualization type (VMware or Hyper-V).|
 |-Directory|(Optional) The UNC or local directory path to store profiling data generated during profiling. If a name is not specified, the directory named ProfiledData under the current path will be used as the default directory.|
 |-Password|(Optional) The password to connect to the Hyper-V host. If you don't specify it as a parameter, you will be prompted for it when you run the command.|
-|-StorageAccountName|(Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput. The storage account must be either General Purpose v1 or General Purpose v2.|
+|-StorageAccountName|(Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput. The storage account must be General Purpose v1 type.|
 |-StorageAccountKey|(Optional) The key that's used to access the storage account. Go to the Azure portal > **Storage accounts** > *storage-account name* > **Settings** > **Access Keys** > **Key1** (or the primary access key for a classic storage account).|
 |-Environment|(Optional) Your target environment for the Azure storage account. It can be one of three values: AzureCloud, AzureUSGovernment, or AzureChinaCloud. The default is AzureCloud. Use the parameter when your target region is either Azure US Government or Azure China.|
 
