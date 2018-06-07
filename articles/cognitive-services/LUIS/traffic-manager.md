@@ -1,13 +1,13 @@
 ---
-title: Use Microsoft Azure Traffic Manager to increase endpoint quota in Language Understanding (LUIS) in Node.js- Azure | Microsoft Docs
-description: Use Microsoft Azure Traffic Manager  to spread endpoint quota across several subscriptions in Language Understanding (LUIS) to increase endpoint quota in Node.js
+title: Use Microsoft Azure Traffic Manager to increase endpoint quota in Language Understanding (LUIS) - Azure | Microsoft Docs
+description: Use Microsoft Azure Traffic Manager  to spread endpoint quota across several subscriptions in Language Understanding (LUIS) to increase endpoint quota 
 author: v-geberr
 manager: kaiqb
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: v-geberr
 #Customer intent: As an advanced user, I want to understand how use multiple LUIS subscription keys to increase the number of endpoint requests my application receives.
 ---
@@ -17,18 +17,25 @@ Language Understanding (LUIS) offers the ability to increase the endpoint reques
 
 The client-application has to manage the traffic across the keys. LUIS does not do that for you. 
 
-This article explains how to manage the traffic across keys using Node.js and [Traffic Manager][traffic-manager-marketing].
+This article explains how to manage the traffic across keys [Traffic Manager][traffic-manager-marketing].
 
-## Create Azure resource for the Traffic Manager profiles with PowerShell
+## Connect to PowerShell in Azure portal
+In the [Azure][azure-portal] portal, open the PowerShell window. The icon for the PowerShell window is the **>_** in the top navigation bar. By using PowerShell from the portal, you are sure to get the latest version and you are authenticated. PowerShell in the portal requires an [Azure Storage] account. 
+
+![Screenshot of Azure portal with Powershell window open](./media/azure-portal-powershell.png)
+
+The following sections use [Traffic Manager PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/?view=azurermps-6.2.0#traffic_manager).
+
+## Create Azure resource group with PowerShell
 Before creating the Azure resources, create a resource group to contain all the resources. Name the resource group `luis-traffic-manager` and use the region is `West US`. The region of the resource group stores metadata about the group. It won't slow down your resources if they are in another region. 
 
-Create resource group with **New-AzureRmResourceGroup** cmdlet:
+Create resource group with **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.2.0)** cmdlet:
 
 ```PowerShell
 New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
-## Increase total endpoint quota with more subscription keys
+## Create LUIS keys to increase total endpoint quota
 1. In the Azure portal, create two **Language Understanding** keys, one in the West US and one in the East US. In real-world usage create as many keys as needed in the pricing tier to solve your endpoint request expectations. Use the existing resource group, created in the previous section, named `luis-traffic-manager`.
 
     ![Screenshot of Azure portal with two LUIS keys in luis-traffic-manager resource group](./media/traffic-manager/luis-keys.png)
@@ -49,10 +56,6 @@ Traffic Manager polls the endpoints periodically to make sure the endpoint is st
 
 Because each LUIS endpoint needs its own path, it will need its own Traffic Manager profile. In order to manage across profiles, create a nested Traffic Manager architecture. One parent profile will point to the children profiles and manage traffic across them.
 
-## Connect to PowerShell in Azure portal
-In the [Azure][azure-portal] portal, open the PowerShell window. The icon for the PowerShell window is the **>_** in the top navigation bar. By using PowerShell from the portal, you are sure to get the latest version and you are authenticated. PowerShell in the portal requires a [Azure Storage] account. 
-
-The following sections use [Traffic Manager PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/?view=azurermps-6.2.0#traffic_manager).
 
 ## Configure Traffic Manager with nested Profiles
 The following sections create two child profiles, one for the East LUIS key and one for the West LUIS key. Then a parent profile is created and the two child profiles are added to the parent profile. 
