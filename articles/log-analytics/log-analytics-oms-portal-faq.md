@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: bwren
 
 ---
@@ -79,7 +79,7 @@ Manage most Connected Source settings the  in the **Advanced settings** menu for
 | System Center     | **Advanced settings** menu for the workspace. |
 | Office 365        | See the [documentation for Office 365 management solution](../operations-management-suite/oms-solution-office-365.md) for configuration details. |
 | Windows Telemetry | Not yet available in Azure portal. |
-| ITSM Connector    | **ITSM Connections** menu for the workspace. See  [Connect ITSM products/services with IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) |
+| ITSM Connector    | ITSM connections can be configured through the alert action groups with Azure Alerts. See  [Connect ITSM products/services with IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md). |
 
 ### Data
 Manage most Data settings the  in the **Advanced settings** menu for the workspace. The following table provides details for each section of this menu.
@@ -93,14 +93,13 @@ Manage most Data settings the  in the **Advanced settings** menu for the workspa
 | Custom Fields                | **Advanced settings** menu for the workspace. |
 | Custom Logs                  | **Advanced settings** menu for the workspace. |
 | Syslog                       | **Advanced settings** menu for the workspace. |
-| Application Insights         | Need information for this.  |
+| Application Insights         | This solution has been deprecated now that Log Analytics and Application Insights share the same data engine.  |
 | Windows File Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details. |
 | Windows Registry Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details. |
 | Linux File Tracking          | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details. |
 
 ### Solutions
 [List and remove management solutions](#how-do-i-install-and-remove-management-solutions) from the list of solutions in the Azure portal.
-
 
 ## How do I install and remove management solutions?
 In the OMS portal, you install management solutions from the Solutions Gallery and removed them from **Settings**. In the Azure portal, [install management solutions](../monitoring/monitoring-solutions.md#install-a-management-solution) from the Azure Marketplace. [Remove solutions](../monitoring/monitoring-solutions.md#remove-a-management-solution) from the list of installed solutions.
@@ -109,7 +108,7 @@ In the OMS portal, you install management solutions from the Solutions Gallery a
 Alert rules based on Log Analytics queries are now managed in the [unified alerting experience](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). See [How to extend alerts from Log Analytics into Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) for details on configuring and using alerts in the Azure portal.
 
 ## How do I access my dashboards?
-[Dashboards](../log-analytics/log-analytics-dashboards.md) in Log Analytics have been deprecated.  You can visualize data in Log Analytics using [View Designer](../log-analytics/log-analytics-view-designer.md) which has additional functionality.
+[Dashboards](../log-analytics/log-analytics-dashboards.md) in Log Analytics have been deprecated.  You can visualize data in Log Analytics using [View Designer](../log-analytics/log-analytics-view-designer.md) which has additional functionality and pin query and views to Azure dashboards.
 
 ## How do I check my usage?
 You can now easily view and manage your usage and cost of Log Analytics by selecting **Usage and estimated costs** in your workspace.
@@ -120,3 +119,8 @@ You can now easily view and manage your usage and cost of Log Analytics by selec
 ## Can I still use the classic portal?
 For a limited time, you can still access the portal through this URL, with your own workspace name:
 https://\<your workspace name\>.portal.mms.microsoft.com. We recommend using Azure portal though and provide us with the feedback at LAUpgradeFeedback@microsoft.com on any blocking issues.
+
+## Next steps
+
+- [Find and install management solutions](../monitoring/monitoring-solutions.md) using the Azure portal.
+- Learn about [Log Search in the Azure portal](log-analytics-log-search-portals.md).
