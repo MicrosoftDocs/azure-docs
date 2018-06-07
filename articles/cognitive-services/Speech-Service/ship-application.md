@@ -9,7 +9,7 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/07/2018
 ms.author: wolfma
 ---
 
@@ -23,7 +23,7 @@ Depending on the platform, different dependencies exist to execute your applicat
 
 The Cognitive Services Speech SDK is tested on Windows 10 and on  Windows Server 2016.
 
-The Cognitive Services Speech SDK requires the `VS2017 C++ Runtime libraries` on the system. You can find the latest version of the `VS2017 C++ redistributables` here: https://aka.ms/vs/15/release/vc_redist.x86.exe or https://aka.ms/vs/15/release/vc_redist.x64.exe.
+The Cognitive Services Speech SDK requires the `VS2017 C++ Runtime libraries` on the system. You can find the latest version of the `VS2017 C++ redistributables` here: https://aka.ms/vs/15/release/vc\_redist.x86.exe or https://aka.ms/vs/15/release/vc\_redist.x64.exe.
 
 If your application is using managed code, the `.Net Framework 4.6.1` or later is required on the target machine.
 
@@ -40,7 +40,7 @@ The required Speech SDK files can be deployed in the same directory as your appl
 ## Linux
 
 For a native application you need to ship the Speech SDK library, `libMicrosoft.CognitiveServices.Speech.core.so`.
-Make sure you select the version (x32, x64) matching your application. Depending on the Linux version, you may also need to include the following dependencies:
+Make sure you select the version (x86, x64) matching your application. Depending on the Linux version, you may also need to include the following dependencies:
 
 * The shared libraries of the GNU C Library (including the POSIX Threads Programming library, `libpthreads`)
 * The OpenSSL library (`libssl.so.1.0.0`)

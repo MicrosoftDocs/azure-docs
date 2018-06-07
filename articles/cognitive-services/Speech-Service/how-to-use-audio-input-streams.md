@@ -9,7 +9,7 @@ manager: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/07/2018
 ms.author: fmegen
 ---
 # About the audio input stream API

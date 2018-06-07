@@ -9,7 +9,7 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/07/2018
 ms.author: wolfma
 ---
 
@@ -27,7 +27,9 @@ ms.author: wolfma
 
   While creating a `SpeechRecognizer`, you can request `Detailed` or `Simple` output format. The `DetailedSpeechRecognitionResult` contains a confidence score, recognized text, raw lexical form, normalized form, and normalized form with masked profanity.
 
-- Change to `SpeechRecognitionResult.text` from `SpeechRecognitionResult.RecongizedText` in C# and Java (for the Speech DDK).
+**Breaking Change**
+
+- Change to `SpeechRecognitionResult.Text` from `SpeechRecognitionResult.RecognizedText` in C#.
 
 **Bug fixes**
 
