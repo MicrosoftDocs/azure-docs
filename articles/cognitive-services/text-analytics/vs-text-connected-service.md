@@ -24,9 +24,9 @@ This article and its companion articles provide details for using the Visual Stu
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../includes/vs-install-cognitive-services-vsix.md)]
 
-## Add support to your project for Cognitive Services Text Analytics Service
+## Add support to your project for the Text Analytics Service
 
-1. Create a new ASP.NET Core web project called TextAnalyticsDemo. Use the MVC project template. It’s important to name the project MyWebApplication, so the namespace matches when you copy code into the project.  The example in this articles uses MVC, but you can use the Text Analytics Connected Service with any ASP.NET project type.
+1. Create a new ASP.NET Core web project called TextAnalyticsDemo. Use the Web Application (Model-View-Controller) project template with all the default settings. It’s important to name the project MyWebApplication, so the namespace matches when you copy code into the project.  The example in this articles uses MVC, but you can use the Text Analytics Connected Service with any ASP.NET project type.
 
 1. In **Solution Explorer**, double-click on the **Connected Service** item.
    The Connected Service page appears, with services you can add to your project.
@@ -195,7 +195,6 @@ This article and its companion articles provide details for using the Visual Stu
     
     @{
         ViewData["Title"] = "TextAnalyzeResult";
-        Layout = "~/Views/Shared/_Layout.cshtml";
     }
     
     <h2>Text Language</h2>
