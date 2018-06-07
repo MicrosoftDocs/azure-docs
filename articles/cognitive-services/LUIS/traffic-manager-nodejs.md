@@ -19,14 +19,28 @@ The client-application has to manage the traffic across the keys. LUIS does not 
 
 This article explains how to manage the traffic across keys using Node.js and [Traffic Manager][traffic-manager-marketing].
 
+## Create Azure resource for the Traffic Manager profiles with PowerShell
+Before creating the Azure resources, create a resource group to contain all the resources. Name the resource group `luis-traffic-manager` and use the region is `West US`. The region of the resource group stores metadata about the group. It won't slow down your resources if they are in another region. 
+
+Create resource group with **New-AzureRmResourceGroup** cmdlet:
+
+```PowerShell
+New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
+```
+
 ## Increase total endpoint quota with more subscription keys
+1. In the Azure portal, create two **Language Understanding** keys, one in the West US and one in the East US. In real-world usage create as many keys as needed in the pricing tier to solve your endpoint request expectations. Use the existing resource group, created in the previous section, named `luis-traffic-manager`.
 
-1. In the Azure portal, create two **Language Understanding** keys, one in the West US and one in the East US. In real-world usage create as many keys as needed in the pricing tier to solve your endpoint request expectations. 
+    ![Screenshot of Azure portal with two LUIS keys in luis-traffic-manager resource group](./media/traffic-manager/luis-keys.png)
 
-2. In the [LUIS][LUIS] website, on the **Publish** page, add keys to the app. The example URL in the endpoint column uses a GET request with the subscription key as a query parameter. Copy all these URLs. They will be used as part of the Traffic Manager configuration later in this article.
+2. In the [LUIS][LUIS] website, on the **Publish** page, add keys to the app. 
 
-https://**westus**.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=
-https://**eastus**.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=
+    ![Screenshot of LUIS portal with two LUIS keys on Publish page](./media/traffic-manager/luis-keys-in-luis.png)
+
+    The example URL in the **endpoint** column uses a GET request with the subscription key as a query parameter. Copy all these URLs. They will be used as part of the Traffic Manager configuration later in this article.
+
+    https://**westus**.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=
+    https://**eastus**.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=
 
 ## Manage traffic across keys with Traffic Manager
 Traffic Manager creates a new DNS access point for your endpoints. It does not act as a gateway or proxy but strictly at the DNS level. This example won't change any DNS records. It uses a DNS library to communicate with Traffic Manager to get the correct endpoint for that specific request. _Each_ request intended for LUIS first requires a Traffic Manager request to determine which LUIS endpoint to use. 
@@ -40,14 +54,6 @@ In the [Azure][azure-portal] portal, open the PowerShell window. The icon for th
 
 The following sections use [Traffic Manager PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/?view=azurermps-6.2.0#traffic_manager).
 
-### Create Azure resource for the Traffic Manager profiles with PowerShell
-Before creating the Traffic Manager profiles, create a resource group to contain all the profiles. In the following example, the name of the resource group is `luis-traffic-manager` and the region is `West US`. The region of the resource group stores metadata about the group. It won't slow down your resources if they are in another region. 
-
-Create resource group with **New-AzureRmResourceGroup** cmdlet:
-
-```PowerShell
-New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
-```
 
 ## Configure Traffic Manager with nested Profiles
 The following sections create two child profiles, one for the East LUIS key and one for the West LUIS key. Then a parent profile is created and the two child profiles are added to the parent profile. 
@@ -76,7 +82,7 @@ To create the East US Traffic Manager profile, there are several steps: create p
 2. Add endpoint with **Add-AzureRmTrafficManagerEndpointConfig** cmdlet
 
     ```PowerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "EastUS" -EndpointStatus Enabled
+    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
     ```
 
     |Configuration parameter|Variable name or Value|Purpose|
@@ -85,7 +91,7 @@ To create the East US Traffic Manager profile, there are several steps: create p
     |-TrafficManagerProfile|$eastprofile|Use profile object created in Step 1|
     |-Type|ExternalEndpoints|For more information, see [Traffic Manager endpoint][traffic-manager-endpoints] |
     |-Target|eastus.api.cognitive.microsoft.com|This is domain for the LUIS endpoint.|
-    |-EndpointLocation|"EastUS"|Region of the endpoint|
+    |-EndpointLocation|"eastus"|Region of the endpoint|
     |-EndpointStatus|Enabled|Enable endpoint when it is created|
 
 3. Set east endpoint with **Set-AzureRmTrafficManagerProfile** cmdlet
@@ -120,7 +126,7 @@ To create the West US Traffic Manager profile, follow the same steps: create pro
 2. Add endpoint with **Add-AzureRmTrafficManagerEndpointConfig** cmdlet
 
     ```PowerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "WestUS" -EndpointStatus Enabled
+    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
     ```
 
     |Configuration parameter|Variable name or Value|Purpose|
@@ -129,7 +135,7 @@ To create the West US Traffic Manager profile, follow the same steps: create pro
     |-TrafficManagerProfile|$westprofile|Use profile object created in Step 1|
     |-Type|ExternalEndpoints|For more information, see [Traffic Manager endpoint][traffic-manager-endpoints] |
     |-Target|westus.api.cognitive.microsoft.com|This is domain for the LUIS endpoint.|
-    |-EndpointLocation|"WestUS"|Region of the endpoint|
+    |-EndpointLocation|"westus"|Region of the endpoint|
     |-EndpointStatus|Enabled|Enable endpoint when it is created|
 
 3. Set west endpoint with **Set-AzureRmTrafficManagerProfile** cmdlet
@@ -170,7 +176,7 @@ Create the parent Traffic Manager profile and link two child Traffic Manager pro
     |-Type|NestedEndpoints|For more information, see [Add-AzureRmTrafficManagerEndpointConfig][https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0]. |
     |-TargetResourceId|$eastprofile.Id|Id of the child profile|
     |-EndpointStatus|Enabled|Endpoint status after adding to parent|
-    |-EndpointLocation|"eastus"|[Azure region name](https://azure.microsoft.com/global-infrastructure/regions/) of resource|
+    |-EndpointLocation|"eastus"|This region is superceded by the child regions. [Azure region name](https://azure.microsoft.com/global-infrastructure/regions/) of resource|
     |-MinChildEndpoints|1|Minimum number to child endpoints|
 
 3. Add child west profile to parent with **Add-AzureRmTrafficManagerEndpointConfig** cmdlet and **NestedEndpoints** type
