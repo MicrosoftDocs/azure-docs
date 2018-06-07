@@ -36,13 +36,13 @@ To run the sample, do the following steps:
 require 'net/http'
 
 # You must use the same location in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from  westus,
+# subscription keys. For example, if you got your subscription keys from westus,
 # replace "westcentralus" in the URL below with "westus".
 uri = URI('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr')
 uri.query = URI.encode_www_form({
     # Request parameters
     'language' => 'unk',
-    'detectOrientation ' => 'true'
+    'detectOrientation' => 'true'
 })
 
 request = Net::HTTP::Post.new(uri.request_uri)
