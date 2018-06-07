@@ -295,7 +295,6 @@ private static void CleanupLocatorAssetAndStreamingEndpoint(IAzureMediaServicesC
 private static void CleanupAccount(IAzureMediaServicesClient client, string resourceGroup, string accountName)
 {
     try{
-        
         Console.WriteLine("Cleaning up the resources used, stopping the LiveEvent. This can take a few minutes to complete.");
         Console.WriteLine();
 
@@ -309,7 +308,7 @@ private static void CleanupAccount(IAzureMediaServicesClient client, string reso
                 foreach (LiveOutput o in outputs)
                 {
                     client.LiveOutputs.Delete(resourceGroup, accountName, l.Name, o.Name);
-                        Console.WriteLine($"LiveOutput: {o.Name} deleted from LiveEvent {l.Name}. The archived Asset and Streaming URLs are still retained for on-demand viewing.");
+                    Console.WriteLine($"LiveOutput: {o.Name} deleted from LiveEvent {l.Name}. The archived Asset and Streaming URLs are still retained for on-demand viewing.");
                 }
 
                 if (l.ResourceState == LiveEventResourceState.Running){
@@ -321,7 +320,6 @@ private static void CleanupAccount(IAzureMediaServicesClient client, string reso
                 }
             }
         }
-
     } 
     catch(ApiErrorException e)
     {
