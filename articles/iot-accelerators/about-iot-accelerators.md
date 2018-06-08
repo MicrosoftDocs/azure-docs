@@ -20,7 +20,7 @@ A cloud-based IoT solution typically uses custom code and multiple cloud service
 
 The IoT solution accelerators are a collection of complete, ready-to-deploy, IoT solutions that implement common IoT scenarios such as _remote monitoring_, _predictive maintenance_, and _connected factory_. When you deploy a solution accelerator, the deployment includes all the required cloud-based services along with any required application code.
 
-The application code in each solution accelerator includes a solution-specific dashboard that enables you to manage it. For example, you can use a dashboard to view the telemetry from your connected devices, provision new devices, or upgrade the firmware on your connected devices.
+The application code in each solution accelerator includes a solution-specific dashboard that enables you to manage the solution accelerator. For example, you can use a dashboard to view the telemetry from your connected devices, provision new devices, or upgrade the firmware on your connected devices.
 
 ## IoT scenarios
 
@@ -28,23 +28,23 @@ Currently, there are four solution accelerators available for you to deploy:
 
 ### Remote Monitoring
 
-Use the Remote Monitoring solution to collect telemetry from multiple remote devices and to control those devices. Example devices include cooling systems installed on your customers' premises or valves installed in remote pump stations.
+Use the Remote Monitoring solution accelerator to collect telemetry from multiple remote devices and to control those devices. Example devices include cooling systems installed on your customers' premises or valves installed in remote pump stations.
 
 ### Connected Factory
 
-Use the Connected Factory solution to collect telemetry from industrial assets with an OPC UA interface and to control those assets. Industrial assets might include assembly and test stations on a factory production line.
+Use the Connected Factory solution accelerator to collect telemetry from industrial assets with an [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) interface and to control those assets. Industrial assets might include assembly and test stations on a factory production line.
 
 ### Predictive Maintenance
 
-Use the Predictive Maintenance solution to predict when a remote device is due to fail so that you can carry out maintenance in advance of the predicted failure. The Predictive Maintenance solution uses machine learning algorithms to predict failures from device telemetry. Example devices might be airplane engines or elevators.
+Use the Predictive Maintenance solution accelerator to predict when a remote device is due to fail so that you can carry out maintenance in advance of the predicted failure. The Predictive Maintenance solution accelerator uses machine learning algorithms to predict failures from device telemetry. Example devices might be airplane engines or elevators.
 
 ### Device Simulation
 
-Use the Device Simulation solution to run multiple simulated devices that generate realistic telemetry. You can use this solution to test the behavior of the other solution accelerators or to test your own custom IoT solutions.
+Use the Device Simulation solution accelerator to run multiple simulated devices that generate realistic telemetry. You can use this solution accelerator to test the behavior of the other solution accelerators or to test your own custom IoT solutions.
 
 ## How to use the solution accelerators
 
-The solution accelerators are intended as starting points for your own IoT solutions. The source code for all the solutions is open source and is available in GitHub. You're encouraged to download and customize the solutions to meet your specific requirements.
+The solution accelerators are intended as starting points for your own IoT solutions. The source code for all the solution accelerators is open source and is available in GitHub. You're encouraged to download and customize the solution accelerators to meet your specific requirements.
 
 You can also use the solution accelerators as learning tools before building a custom IoT solution from scratch. The solution accelerators implement proven practices for cloud-based IoT solutions for you to follow.
 
@@ -52,7 +52,7 @@ You can also use the solution accelerators as learning tools before building a c
 
 All the solution accelerators follow the same design principles and goals.
 
-The solutions are designed to be:
+The solution accelerators are designed to be:
 
 * _Scalable_, enabling you to connect and manage millions of connected devices.
 * _Extensible_, enabling you to customize them to meet your specific requirements.
