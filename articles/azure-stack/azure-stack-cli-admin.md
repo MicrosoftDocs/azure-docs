@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 06/06/2018
 ms.author: mabrigg
 
 ---
@@ -55,19 +55,17 @@ certutil -encode root.cer root.pem
 Azure Stack operators should set up a publicly accessible endpoint that hosts a virtual machine alias file. The virtual machine alias file is a JSON file that provides a common name for an image. That name is subsequently specified when a VM is deployed as an Azure CLI parameter.  
 
 Before you add an entry to an alias file, make sure that you [download images from the Azure Marketplace](azure-stack-download-azure-marketplace-item.md), or have [published your own custom image](azure-stack-add-vm-image.md). If you publish a custom image, make note of the publisher, offer, SKU, and version information that you specified during publishing. If it is an image from the marketplace, you can view the information by using the ```Get-AzureVMImage``` cmdlet.  
-   
+
 A [sample alias file](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) with many common image aliases is available. You can use that as a starting point. Host this file in a space where your CLI clients can reach it. One way is to host the file in a blob storage account and share the URL with your users:
 
 1. Download the [sample file](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) from GitHub.
-2. Create a new storage account in Azure Stack. When that's complete, create a new blob container. Set the access policy to "public."  
-3. Upload the JSON file to the new container. When that's complete, you can view the URL of the blob by clicking the blob name and then selecting the URL from the blob properties.
-
+2. Create a new storage account in Azure Stack. When that's done, create a new blob container. Set the access policy to "public."  
+3. Upload the JSON file to the new container. When that's done, you can view the URL of the blob by selecting the blob name and then selecting the URL from the blob properties.
 
 ## Next steps
 
-[Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
+- [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
 
-[Connect with PowerShell](azure-stack-connect-powershell.md)
+- [Connect with PowerShell](azure-stack-connect-powershell.md)
 
-[Manage user permissions](azure-stack-manage-permissions.md)
-
+- [Manage user permissions](azure-stack-manage-permissions.md)
