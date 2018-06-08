@@ -42,7 +42,7 @@
   - name: Traffic View
     href: traffic-manager-traffic-view-overview.md
   - name: Disaster recovery using Azure DNS and Traffic Manager
-    href: /networking/disaster-recovery-dns-traffic-manager.md  
+    href: ../networking/disaster-recovery-dns-traffic-manager.md  
   - name: FAQs
     href: traffic-manager-FAQs.md
 - name: How To
