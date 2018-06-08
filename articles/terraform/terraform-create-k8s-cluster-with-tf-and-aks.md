@@ -5,7 +5,7 @@ keywords: terraform, devops, virtual machine, azure, kubernetes
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 06/07/2018
+ms.date: 06/08/2018
 ms.topic: article
 ---
 
@@ -70,8 +70,13 @@ Create the Terraform configuration file that declares the Azure provider.
 
     ```JSON
     provider "azurerm" {
-    version = "=1.5.0"
+        version = "=1.5.0"
     }
+
+    terraform {
+        backend "azurerm" {}
+    }
+
     ```
 
 1. Exit insert mode by selecting the **Esc** key.
@@ -181,7 +186,7 @@ Create the Terraform configuration file that declares the resources for the Kube
     }
 
     variable resource_group_name {
-    default = "nic-k8stest"
+    default = "azure-k8stest"
     }
 
     variable location {
@@ -250,13 +255,16 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 ## Create the Kubernetes cluster
 
-1. In Cloud Shell, initialize Terraform (replace the &lt;YourAzureStorageAccount> placeholder with the Azure storage name you want to use):
+1. In Cloud Shell, initialize Terraform (replace the &lt;YourAzureStorageAccount> and &lt;YourAzureStorageAccountAccessKey> placeholders with the appropriate values for your Azure storage account):
 
     ```bash
     terraform init \
-    -backend-config "storage_account_name=<YourAzureStorageAccount>" \
+    -backend-config="storage_account_name=<YourAzureStorageAccount>" \
     -backend-config="container_name=tfstate"
+    -backend-config="access_key=<YourStorageAccountAccessKey>" \
+    -backend-config="key=codelab.microsoft.tfstate" 
     ```
+    
 
 1. Create the Terraform plan that defines the infrastructure elements. The command will request two values: **var.client_id** and **var.client_secret**. For the **var.client_id** variable, enter the **appId** value associated with your service principal. For the **var.client_secret** variable, enter the **password** value associated with your service principal.
 
@@ -280,13 +288,13 @@ In this section, you use the Kubernetes dashboard can be used to test the newly 
 1. Get the Kubernetes configuration from the Terraform state and store it in a file that kubectl can read.
 
     ```bash
-    echo "$(terraform output kube_config)" > ~/.kube/azurek8s
+    echo "$(terraform output kube_config)" > ./azurek8s
     ```
 
 1. Set an environment variable so that kubectl picks up the correct config.
 
     ```bash
-    export KUBECONFIG=~/.kube/azurek8s
+    export KUBECONFIG=./azurek8s
     ```
 
 1. Verify the health of the cluster.
