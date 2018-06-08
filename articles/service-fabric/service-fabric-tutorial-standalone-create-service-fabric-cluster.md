@@ -64,7 +64,7 @@ After you update the connection string be sure to create the folder.  The follow
 mkdir \\172.31.27.1\c$\DiagnosticsStore
 ```
 
-Finally, in the `nodeTypes` section add of the configuration add a new section to map the ephemeral ports that windows will use.  The configuration file should like like the following:
+Finally, in the `nodeTypes` section of the configuration add a new section to map the ephemeral ports that windows will use.  The configuration file should like like the following:
 
 ```json
 "applicationPorts": {
