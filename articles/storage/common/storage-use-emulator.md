@@ -2,18 +2,12 @@
 title: Use the Azure storage emulator for development and testing | Microsoft Docs
 description: The Azure storage emulator provides a free local development environment for developing and testing your Azure Storage applications. Learn how requests are authenticated, how to connect to the emulator from your application, and how to use the command-line tool.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 05/17/2018
 ms.author: tamram
 
 ---
@@ -24,7 +18,7 @@ The Microsoft Azure storage emulator provides a local environment that emulates 
 ## Get the storage emulator
 The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator by using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (direct download). To install the storage emulator, you must have administrative privileges on your computer.
 
-The storage emulator currently runs only on Windows. For those considering a storage emulator for Linux, one option is the community maintained, open source storage emulator [Azurite](https://github.com/arafato/azurite).
+The storage emulator currently runs only on Windows. For those considering a storage emulator for Linux, one option is the community maintained, open source storage emulator [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, we recommended that you store that data in an Azure storage account, rather than in the storage emulator.
@@ -42,17 +36,10 @@ Some differences in functionality exist between the storage emulator and Azure s
 
 ## Start and initialize the storage emulator
 
-### [Run the Azure storage emulator in Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
-```
-docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
-```
-
-### Using SDK
-
 To start the Azure storage emulator:
 1. Select the **Start** button or press the **Windows** key.
-1. Begin typing `Azure Storage Emulator`.
-1. Select the emulator from the list of displayed applications.
+2. Begin typing `Azure Storage Emulator`.
+3. Select the emulator from the list of displayed applications.
 
 When the storage emulator starts, a Command Prompt window will appear. You can use this console window to start and stop the storage emulator, clear data, get status, and initialize the emulator. For more information, see the [Storage emulator command-line tool reference](#storage-emulator-command-line-tool-reference) section later in this article.
 
@@ -69,6 +56,7 @@ The storage emulator is installed by default to `C:\Program Files (x86)\Microsof
 >
 
 ### Initialize the storage emulator to use a different SQL database
+
 You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default LocalDB instance:
 
 1. Open the Storage Emulator console window as described in the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section.

@@ -8,6 +8,7 @@ manager: mtillman
 editor: 
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,7 +17,7 @@ ms.date: 04/09/2018
 ms.author: skwan
 
 ---
-# Use a Linux VM MSI to access Azure Cosmos DB 
+# Tutorial: Use a Linux VM MSI to access Azure Cosmos DB 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -69,6 +70,7 @@ To create an MSI-enabled VM:
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
+   ```
 
 ## Create a Cosmos DB account 
 
@@ -146,7 +148,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 4. Use CURL to get an access token for Azure Resource Manager: 
      
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
  
     > [!NOTE]
@@ -249,5 +251,8 @@ This CLI command returns details about the collection:
 
 ## Next steps
 
-- For an overview of MSI, see [Managed Service Identity (MSI) for Azure resources](overview.md).
+In this tutorial, you learned how to use a Managed Service Identity on a Linux virtual machine to access Cosmos DB.  To learn more about Cosmos DB see:
+
+> [!div class="nextstepaction"]
+>[Azure Cosmos DB overview](/azure/cosmos-db/introduction)
 

@@ -20,6 +20,11 @@ ms.author: mahender
 > [!NOTE] 
 > Managed Service Identity for App Service and Azure Functions is currently in preview. App Service on Linux and Web App for Containers are not currently supported.
 
+
+> [!Important] 
+> Managed Service Identity for App Service and Azure Functions will not behave as expected if your app is migrated across subscriptions/tenants. The app will need to obtain a new identity, and the existing identity cannot be properly deleted without deleting the site itself. Your app will need to be recreated with a new identity, and downstream resources will need to have access policies updated to use the new identity.
+
+
 This topic shows you how to create a managed app identity for App Service and Azure Functions applications and how to use it to access other resources. A managed service identity from Azure Active Directory allows your app to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about Managed Service Identity, see the [Managed Service Identity overview](../active-directory/managed-service-identity/overview.md).
 
 ## Creating an app with an identity
@@ -232,5 +237,9 @@ $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SEC
 $accessToken = $tokenResponse.access_token
 ```
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Access SQL Database securely using managed service identity](app-service-web-tutorial-connect-msi.md)
 
 [Microsoft.Azure.Services.AppAuthentication reference]: https://go.microsoft.com/fwlink/p/?linkid=862452

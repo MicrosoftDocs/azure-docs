@@ -3,7 +3,7 @@ title: Push Docker image to private Azure registry
 description: Push and pull Docker images to a private container registry in Azure using the Docker CLI
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
@@ -122,6 +122,6 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 Now that you know the basics, you're ready to start using your registry! Deploy container images from your registry to:
 
-* [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

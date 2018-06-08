@@ -1,4 +1,4 @@
----
+﻿---
 title: Upload a generalize VHD to create multiple VMs in Azure | Microsoft Docs
 description: Upload a generalized VHD to an Azure storage account to create a Windows VM to use with the Resource Manager deployment model.
 services: virtual-machines-windows
@@ -71,7 +71,7 @@ If you don't already have PowerShell version 1.4 or above installed, read [How t
 1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 2. Get the subscription IDs for your available subscriptions.
    

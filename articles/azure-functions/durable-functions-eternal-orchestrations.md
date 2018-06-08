@@ -33,6 +33,9 @@ When `ContinueAsNew` is called, the instance enqueues a message to itself before
 > [!NOTE]
 > The Durable Task Framework maintains the same instance ID but internally creates a new *execution ID* for the orchestrator function that gets reset by `ContinueAsNew`. This execution ID is generally not exposed externally, but it may be useful to know about when debugging orchestration execution.
 
+> [!NOTE]
+> The `ContinueAsNew` method is not yet available in JavaScript.
+
 ## Periodic work example
 
 One use case for eternal orchestrations is code that needs to do periodic work indefinitely.

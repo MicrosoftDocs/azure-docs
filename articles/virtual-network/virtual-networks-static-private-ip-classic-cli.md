@@ -3,7 +3,7 @@ title: Configure private IP addresses for VMs (Classic) - Azure CLI 1.0| Microso
 description: Learn how to configure private IP addresses for virtual machines (Classic) using the Azure command-line interface (CLI) 1.0.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 tags: azure-service-management

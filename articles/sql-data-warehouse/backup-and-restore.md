@@ -2,13 +2,13 @@
 title: Azure SQL Data Warehouse backup and restore - snapshots, geo-redundant | Microsoft Docs
 description: Learn how backup and restore works in Azure SQL Data Warehouse. Use data warehouse backups to restore your data warehouse to a restore point in the primary region. Use geo-redundant backups to restore to a different geographical region.
 services: sql-data-warehouse
-author: ronortloff
+author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
-ms.date: 04/11/2018
-ms.author: rortloff
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
 ms.reviewer: igorstan
 ---
 
@@ -51,9 +51,9 @@ When you drop a data warehouse, SQL Data Warehouse creates a final snapshot and 
 > 
 
 ## Geo-backups
-SQL Data Warehouse performs a geo-backup once per day to a [paired data center](../best-practices-availability-paired-regions.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to the server in the geo-paired region. A geo-backup ensures you can restore data warehouse in case you cannot access the snapshots in your primary region.
+SQL Data Warehouse performs a geo-backup once per day to a [paired data center](../best-practices-availability-paired-regions.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where SQL Data Warehouse is supported. A geo-backup ensures you can restore data warehouse in case you cannot access the snapshots in your primary region.
 
-Geo-backups are on by default. If your data warehouse is optimized for elasticity, you can [opt out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) if you wish. You cannot opt out of geo-backups with the optimized for compute performance tier.
+Geo-backups are on by default. If your data warehouse is Gen1, you can [opt out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) if you wish. You cannot opt out of geo-backups for Gen2 as data protection is a built-in gurantee.
 
 ## Backup costs
 You will notice the Azure bill has a line item for Azure Premium Storage and a line item for geo-redundant storage. The Premium Storage charge is the total cost for storing your data in the primary region, which includes snapshots.  The geo-redundant charge covers the cost for storing the geo-backups.  

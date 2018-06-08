@@ -1,13 +1,12 @@
 ---
 title: Manage your keys in LUIS | Microsoft Docs
-description: Use Language Understanding (LUIS) to manage your programmatic API, endpoint, and external keys. 
+description: Use Language Understanding (LUIS) to manage your programmatic API, endpoint, and external keys.
 titleSuffix: Azure
 services: cognitive-services
 author: v-geberr
 manager: Kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
@@ -30,7 +29,7 @@ See [Keys in LUIS](luis-concept-keys.md) to understand LUIS authoring and endpoi
 ## Assign endpoint key
 On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the authoring (starter) key. 
 
-1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).
+1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](luis-how-to-azure-subscription.md).
  
 2. In order to add the LUIS key created in the previous step, click the **Add Key** button to open the **Assign a key to your app** dialog. 
 

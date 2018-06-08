@@ -3,26 +3,30 @@ title: Assign a user or group to an enterprise app in Azure Active Directory | M
 description: How to select an enterprise app to assign a user or group to it in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
 
-ms.assetid: 5817ad48-d916-492b-a8d0-2ade8c50a224
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
-ms.author: markvi
-
+ms.date: 06/06/2018
+ms.author: barbkess
 ms.reviewer: luleon
 
 ---
 # Assign a user or group to an enterprise app in Azure Active Directory
 To assign a user or group to an enterprise app, you must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory.
+
+> [!NOTE]
+> The features discussed in this article require an Azure Active Directory Premium P1 or Premium P2 license. For more information, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
+
 > [!NOTE]
 > For Microsoft Applications (such as Office 365 apps), use PowerShell to assign users to an enterprise app.
+
 
 ## How do I assign user access to an enterprise app in the Azure portal?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
@@ -70,9 +74,11 @@ To assign a user or group to an enterprise app, you must have the appropriate pe
 
 For more information about how to assign a user to an application role visit the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
+To assign a group to an enterprise app, you need to replace `Get-AzureADUser` with `Get-AzureADGroup`.
+
 ### Example
 
-This example assigns the user Britta Simon to the [Microsoft Workplace Analytics](https://products.office.com/en-us/business/workplace-analytics) application using PowerShell.
+This example assigns the user Britta Simon to the [Microsoft Workplace Analytics](https://products.office.com/business/workplace-analytics) application using PowerShell.
 
 1. In PowerShell, assign the corresponding values to the variables $username, $app_name and $app_role_name. 
 

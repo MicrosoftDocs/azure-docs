@@ -6,7 +6,7 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: carlrab
 
@@ -105,6 +105,6 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 
 ## Next steps
 
-- Learn about service tiers, performance levels, and storage amounts, see [Service tiers](sql-database-service-tiers.md).
+- Learn about service tiers, performance levels, and storage amounts, see [[DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md).
 - Learn about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)

@@ -3,7 +3,7 @@ title: Azure Analysis Services alias server names | Microsoft Docs
 description: Describes how to create and use server name aliases.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
@@ -21,7 +21,7 @@ Alias server names are good for:
 - Direct users to different servers at different times of the day. 
 - Direct users in different regions to instances that are geographically closer, like when using Azure Traffic Manager. 
 
-Any HTTP endpoint that returns a valid Azure Analysis Services server name can serve as an alias.
+Any HTTPS endpoint that returns a valid Azure Analysis Services server name can serve as an alias. The endpoint must support HTTPS over port 443 and the port must not be specified in the URI.
 
 ![Alias using link format](media/analysis-services-alias/aas-alias-browser.png)
 

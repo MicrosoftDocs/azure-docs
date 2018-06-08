@@ -1,32 +1,35 @@
 ---
-title: Azure Security Center and Windows virtual machines in Azure | Microsoft Docs
-description: Learn about security for your Azure Windows virtual machine with Azure Security Center.
+title: Tutorial - Use Azure Security Center for Windows VMs in Azure | Microsoft Docs
+description: In this tutorial, you learn about the Azure Security Center features to help protect and secure your Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
+
+#Customer intent: As an IT administrator, I want to learn about monitoring security in Azure so that I can make sure my virtual machines are protected and compliant with security policies.
 ---
-# Monitor virtual machine security by using Azure Security Center
+
+# Tutorial: Use Azure Security Center to monitor Windows virtual machines
 
 Azure Security Center can help you gain visibility into your Azure resource security practices. Security Center offers integrated security monitoring. It can detect threats that otherwise might go unnoticed. In this tutorial, you learn about Azure Security Center, and how to:
- 
+
 > [!div class="checklist"]
 > * Set up data collection
 > * Set up security policies
 > * View and fix configuration health issues
-> * Review detected threats  
+> * Review detected threats
 
 ## Security Center overview
 

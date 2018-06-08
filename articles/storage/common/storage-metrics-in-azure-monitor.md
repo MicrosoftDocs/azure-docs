@@ -17,7 +17,7 @@ ms.date: 09/05/2017
 ms.author: fryu
 ---
 
-# Azure Storage metrics in Azure Monitor (preview)
+# Azure Storage metrics in Azure Monitor
 
 With metrics on Azure Storage, you can analyze usage trends, trace requests, and diagnose issues with your storage account.
 
@@ -152,12 +152,12 @@ The following example shows how to list metric definition at account level:
         // Resource ID for storage account
         var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
         var subscriptionId = "{SubscriptionID}";
-        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
         var tenantId = "{TenantID}";
         var applicationId = "{ApplicationID}";
         var accessKey = "{AccessKey}";
 
-        Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
+        // Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
         MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
         IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
 
@@ -189,7 +189,7 @@ The following example shows how to read `UsedCapacity` data at account level:
         // Resource ID for storage account
         var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
         var subscriptionId = "{SubscriptionID}";
-        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
         var tenantId = "{TenantID}";
         var applicationId = "{ApplicationID}";
         var accessKey = "{AccessKey}";
@@ -241,7 +241,7 @@ The following example shows how to read metric data on the metric supporting mul
         // Resource ID for blob storage
         var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
         var subscriptionId = "{SubscriptionID}";
-        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
         var tenantId = "{TenantID}";
         var applicationId = "{ApplicationID}";
         var accessKey = "{AccessKey}";

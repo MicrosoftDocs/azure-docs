@@ -20,9 +20,9 @@ This article summarizes the supported components and settings for disaster recov
 ## Supported scenarios
 
 **Scenario** | **Details**
---- | --- 
+--- | ---
 Hyper-V with Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that are managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](tutorial-vmm-to-vmm.md).
-Hyper-V without Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that aren't managed by Virtual Machine Manager.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell. 
+Hyper-V without Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that aren't managed by Virtual Machine Manager.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.
 
 
 ## On-premises servers
@@ -36,7 +36,7 @@ Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2016, V
 ## Replicated VMs
 
 
-The following table summarizes VM support. Site Recovery supports any workloads running on a supported operating system. 
+The following table summarizes VM support. Site Recovery supports any workloads running on a supported operating system.
 
  **Component** | **Details**
 --- | ---
@@ -75,7 +75,8 @@ Multi-NIC | Yes | Yes
 Reserved IP | Yes | Yes
 IPv4 | Yes | Yes
 Retain source IP address | Yes | Yes
-Azure Virtual Network service endpoints<br/><br/> (Azure Storage firewalls and virtual networks) | No | No
+Azure Virtual Network service endpoints<br/> (without Azure Storage firewalls) | Yes | Yes
+Accelerated Networking | No | No
 
 
 ## Hyper-V host storage
@@ -122,7 +123,7 @@ Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
 Premium storage | Yes | Yes
 Import/export service | No | No
-Azure Virtual Network service endpoints (Azure Storage firewalls and virtual networks) on target to cache storage account used for replication data | No | No
+Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No | No
 
 
 ## Azure compute features
@@ -156,9 +157,9 @@ VM type | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with a
 ## Recovery Services vault actions
 
 **Action** |  **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
---- | --- | --- 
-Move vault across resource groups<br/><br/> Within and across subscriptions | No | No 
-Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No 
+--- | --- | ---
+Move vault across resource groups<br/><br/> Within and across subscriptions | No | No
+Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
 
 
 ## Provider and agent
@@ -167,7 +168,7 @@ To make sure your deployment is compatible with settings in this article, make s
 
 **Name** | **Description** | **Details**
 --- | --- | --- | --- | ---
-Azure Site Recovery provider | Coordinates communications between on-premises servers and Azure <br/><br/> Hyper-V with Virtual Machine Manager: Installed on Virtual Machine Manager servers<br/><br/> Hyper-V without Virtual Machine Manager: Installed on Hyper-V hosts| Latest version: 5.1.2700.1 (available from the Azure portal)<br/><br/> [Latest features and fixes](https://aka.ms/latest_asr_updates)
+Azure Site Recovery provider | Coordinates communications between on-premises servers and Azure <br/><br/> Hyper-V with Virtual Machine Manager: Installed on Virtual Machine Manager servers<br/><br/> Hyper-V without Virtual Machine Manager: Installed on Hyper-V hosts| Latest version: 5.1.2700.1 (available from the Azure portal)<br/><br/> [Latest features and fixes](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services agent | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without Virtual Machine Manager) | Latest agent available from the portal
 
 
@@ -176,4 +177,4 @@ Microsoft Azure Recovery Services agent | Coordinates replication between Hyper-
 
 
 ## Next steps
-Learn how to [prepare Azure](tutorial-prepare-azure.md) for disaster recovery of on-premises Hyper-V VMs. 
+Learn how to [prepare Azure](tutorial-prepare-azure.md) for disaster recovery of on-premises Hyper-V VMs.

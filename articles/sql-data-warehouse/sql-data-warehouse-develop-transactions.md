@@ -2,13 +2,13 @@
 title: Using transactions in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips for implementing transactions in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-author: ronortloff
+author: ckarst
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/12/2018
-ms.author: rortloff
+ms.date: 04/17/2018
+ms.author: cakarst
 ms.reviewer: igorstan
 ---
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an Azure Internet-facing load balancer with IPv6 - PowerShell  | Microsoft Docs
 description: Learn how to create an Internet facing load balancer with IPv6 using PowerShell for Resource Manager
 services: load-balancer
@@ -65,7 +65,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
 1. Sign into Azure
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     Enter your credentials when prompted.

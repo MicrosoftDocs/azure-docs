@@ -3,25 +3,21 @@ title: Overview of Azure Stream Analytics
 description: Learn about Stream Analytics, a managed service that helps you analyze streaming data from the Internet of Things (IoT) in real-time.
 services: stream-analytics
 author: jseb225
-manager: kfile
-
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/27/2018
 ms.author: jeanb
+manager: kfile
 ms.reviewer: jasonh
-
+ms.service: stream-analytics
+ms.topic: overview
+ms.workload: data-services
+ms.custom: mvc
+ms.date: 03/27/2018
 #Customer intent: "What is Azure Stream Analytics and why should I care? As a IT Pro or developer, how do I use Stream Analytics to perform analytics on data streams?".
 
 ---
 
 # What is Stream Analytics?
 
-Azure Stream Analytics an event-processing engine that allows you to examine high volumes of data streaming from devices. Incoming data can be from devices, sensors, web sites, social media feeds, applications, and more. It also supports extracting information from data streams, identifying patterns, and relationships. You can then use these patterns to trigger other actions downstream, like alerts, feed information to a reporting tool, or store it for later use.
+Azure Stream Analytics is an event-processing engine that allows you to examine high volumes of data streaming from devices. Incoming data can be from devices, sensors, web sites, social media feeds, applications, and more. It also supports extracting information from data streams, identifying patterns, and relationships. You can then use these patterns to trigger other actions downstream, like alerts, feed information to a reporting tool, or store it for later use.
 
 Following are some examples where Azure Stream Analytics can be used: 
 
@@ -84,7 +80,7 @@ Azure Stream Analytics is optimized for high performance, it can process streami
 
 ## Next steps
 
-You now have an overview of Azure Stream Analytics, next you can dive deep and create Stream Analytics jobs by using one of the following methods:
+You now have an overview of Azure Stream Analytics. Next, you can dive deep and create your first Stream Analytics job:
 
-* [creating a Stream Analytics job by using Azure portal](stream-analytics-quick-create-portal.md).
-* [creating a Stream Analytics job by using Azure PowerShell](stream-analytics-quick-create-powershell.md).
+* [Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md).
+* [Create a Stream Analytics job by using Azure PowerShell](stream-analytics-quick-create-powershell.md).

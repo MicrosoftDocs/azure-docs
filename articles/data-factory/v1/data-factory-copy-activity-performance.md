@@ -12,8 +12,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/25/2018
 ms.author: jingwang
 
 robots: noindex
@@ -100,8 +100,8 @@ A **cloud data movement unit (DMU)** is a measure that represents the power (a c
 
 | Copy scenario | Default DMUs determined by service |
 |:--- |:--- |
-| Copy data between file-based stores | Between 2 and 16 depending on the number and size of the files. |
-| All other copy scenarios | 2 |
+| Copy data between file-based stores | Between 4 and 16 depending on the number and size of the files. |
+| All other copy scenarios | 4 |
 
 To override this default, specify a value for the **cloudDataMovementUnits** property as follows. The **allowed values** for the **cloudDataMovementUnits** property are 2, 4, 8, 16, 32. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 

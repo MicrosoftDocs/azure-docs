@@ -1,4 +1,4 @@
----
+﻿---
 title: Run Sqoop jobs by using PowerShell and Azure HDInsight | Microsoft Docs
 description: Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between a Hadoop cluster and an Azure SQL database.
 editor: cgronlun
@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 05/16/2018
 ms.author: jgao
 
 ---
@@ -54,7 +54,7 @@ The following PowerShell script pre-processes the source file and then exports i
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #endregion
 
     #region - pre-process the source file

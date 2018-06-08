@@ -1,19 +1,13 @@
 ---
 title: How to deprovision devices that have been provisioned with Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: How to deprovision devices that have been provisioned with Azure IoT Hub Device Provisioning Service
-services: iot-dps
-keywords: 
 author: bryanla
-ms.author: v-jamebr;bryanla
-ms.date: 04/06/2018
-ms.topic: article
+ms.author: bryanla
+ms.date: 05/11/2018
+ms.topic: conceptual
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: mvc
-
 ---
 
 # How to deprovision devices that were previously auto-provisioned 
@@ -27,7 +21,7 @@ In general, deprovisioning a device involves two steps:
    - To learn how to disenroll a device, see [How to disenroll a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
    - To learn how to disenroll a device programmatically using one of the provisioning service SDKs, see [Manage device enrollments with service SDKs](how-to-manage-enrollments-sdks.md).
 
-2. Deregister the device from your IoT Hub, to prevent future communications and data transfer. Again, you can temporarily disable or permanently delete the device's entry in the identity registry for the IoT Hub where it was provisioned. See [Disable devices](/azure/iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) to learn more about disablement. See "Device Management / IoT Devices" for your IoT Hub resource, in the [Azure portal](https://portal.azure.com).
+2. Deregister the device from your IoT Hub, to prevent future communications and data transfer. Again, you can temporarily disable or permanently delete the device's entry in the identity registry for the IoT Hub where it was provisioned. See [Disable devices](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) to learn more about disablement. See "Device Management / IoT Devices" for your IoT Hub resource, in the [Azure portal](https://portal.azure.com).
 
 The exact steps you take to deprovision a device depend on its attestation mechanism and its applicable enrollment entry with your provisioning service. The following sections provide an overview of the process, based on the enrollment and attestation type.
 

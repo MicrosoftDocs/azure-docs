@@ -30,15 +30,15 @@ If you have questions about how pricing works for Application Insights, you can 
 
 For current prices in your currency and region, see [Application Insights pricing][pricing].
 
+> [!NOTE]
+> In April 2018, we [introduced](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) a new pricing model for Azure monitoring. This model adopts a simple "pay-as-you-go" model across the complete portfolio of monitoring services. Learn more about the  [new pricing model](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), how to [assess the impact of moving to this model](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) based on your usage patterns, and [how to opt into the new model](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model).
+
 ### Basic plan
 
 The Basic plan is the default pricing plan when a new Application Insights resource is created. The Basic plan is optimal for all customers except those who have an Operations Management Suite subscription.
 
-* In the Basic plan, you are charged by data volume. Data volume is the number of bytes of telemetry received by Application Insights. 
-    
-    Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application.
-
-    For [tabular data imported to Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), data volume is measured as the uncompressed size of files that are sent to Application Insights.
+* In the Basic plan, you are charged by data volume. Data volume is the number of bytes of telemetry received by Application Insights. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. For [tabular data imported to Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), data volume is measured as the uncompressed size of files that are sent to Application Insights.
+* Your application's data volume charges are now reported on a new billing meter named **Data Ingestion** as of April 2018. This new meter is be shared across monitoring technologies such as Applications Insights and Log Analytics and is currently under the service name **App Services** (and soon changing to **Log Analytics**). 
 * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
 * [Continuous export](app-insights-export-telemetry.md) and the [Azure Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) are available at no extra charge in the Basic plan as of April 2018.
 

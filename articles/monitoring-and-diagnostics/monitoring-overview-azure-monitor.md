@@ -106,7 +106,7 @@ Examples include:
 
 ### Store and Archive
 Some monitoring data is already stored and available in Azure Monitor for a set amount of time. 
-- Metrics are stored for 30 days. 
+- Metrics are stored for 90 days. 
 - Activity log entries are stored for 90 days. 
 - Diagnostics logs are not stored at all. 
 

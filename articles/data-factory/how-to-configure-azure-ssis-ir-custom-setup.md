@@ -10,8 +10,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/13/2018
+ms.topic: conceptual
+ms.date: 05/03/2018
 ms.author: douglasl
 ---
 # Custom setup for the Azure-SSIS integration runtime
@@ -25,13 +25,13 @@ You can install both free or unlicensed components, and paid or licensed compone
 
 ## Current limitations
 
--   You cannot directly use scripts that call xcopy or robocopy or similar tools to copy files at this time. As a workaround, create a `cmd` file containing scripts that call xcopy or robocopy tools (for example, `install.cmd`), and call this `cmd` file instead. For example:
+-   If you want to use `gacutil.exe` to install assemblies in the Global Assembly Cache (GAC), you need to provide it as part of your custom setup, or use the copy provided in the Public Preview container.
 
-    ```
-    start /wait cmd /c "call install.cmd > %CUSTOM\_SETUP\_SCRIPT\_LOG\_DIR%\\install.cmd.log"
-    ```
+-   If you need to join your Azure-SSIS IR with custom setup to a VNet, only Azure Resource Manager VNet is supported. Classic VNet is not supported.
 
--   You cannot directly call `gacutil.exe` to install assemblies in the Global Assembly Cache (GAC) at this time. As a workaround, use `gacinstall.cmd` (provided in the Public Preview container).
+-   Administrative share is currently not supported on the Azure-SSIS IR.
+
+-   If you want to map a file share to a drive in your custom setup, the `net use` command is currently not supported. As a result, you can't use a command like `net use d: \\fileshareserver\sharename`. Instead, use the `cmdkey` command - for example, `cmdkey /add:fileshareserver /user:yyy /pass:zzz` - to access the `\\fileshareserver\folder` directly in your packages.
 
 ## Prerequisites
 
@@ -123,29 +123,31 @@ To customize your Azure-SSIS IR, you need the following things:
 
     c. Select the connected Public Preview container and double-click the `CustomSetupScript` folder. In this folder are the following items:
 
-       1. A `Sample` folder, which contains a custom setup to install a basic task on each node of your Azure-SSIS IR. The task does nothing but sleep for a few seconds. The folder also contains `gacinstall.cmd` to replace `gacutil.exe`.
+       1. A `Sample` folder, which contains a custom setup to install a basic task on each node of your Azure-SSIS IR. The task does nothing but sleep for a few seconds. The folder also contains a `gacutil` folder, which contains `gacutil.exe`.
 
-       2. A `UserScenarios` folder, which contains eight custom setups for real user scenarios.
+       2. A `UserScenarios` folder, which contains several custom setups for real user scenarios.
 
     ![Contents of the public preview container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 
     d. Double-click the `UserScenarios` folder. In this folder are the following items:
 
-       1. A `BCP` folder, which contains a custom setup to install SQL Server command-line utilities (`MsSqlCmdLnUtils.msi`), including the bulk copy program (`bcp`), on each node of your Azure-SSIS IR.
+       1. A `.NET FRAMEWORK 3.5` folder, which contains a custom setup to install an earlier version of the .NET Framework that might be required for custom components on each node of your Azure-SSIS IR.
 
-       2. An `EXCEL` folder, which contains a custom setup to install open-source assemblies (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, and `ExcelDataReader.dll`) on each node of your Azure-SSIS IR.
+       2. A `BCP` folder, which contains a custom setup to install SQL Server command-line utilities (`MsSqlCmdLnUtils.msi`), including the bulk copy program (`bcp`), on each node of your Azure-SSIS IR.
 
-       3. An `MSDTC` folder, which contains a custom setup to enable and start the Microsoft Distributed Transaction Coordinator (MSDTC) service on each node of your Azure-SSIS IR.
+       3. An `EXCEL` folder, which contains a custom setup to install open-source assemblies (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, and `ExcelDataReader.dll`) on each node of your Azure-SSIS IR.
 
-       4. An `ORACLE ENTERPRISE` folder, which contains a custom setup script (`main.cmd`) and silent install config file (`client.rsp`) to install the Oracle OCI driver on each node of your Azure-SSIS IR Enterprise Edition (Private Preview). This setup lets you use the Oracle Connection Manager, Source, and Destination. First, you have to download `winx64_12102_client.zip` from [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) and then upload it together with `main.cmd` and `client.rsp` into your container. If you use TNS to connect to Oracle, you also need to download `tnsnames.ora`, edit it, and upload it into your container, so it can be copied into the Oracle installation folder during setup.
+       4. An `MSDTC` folder, which contains a custom setup to modify the network and security configurations for the Microsoft Distributed Transaction Coordinator (MSDTC) instance on each node of your Azure-SSIS IR.
 
-       5. An `ORACLE STANDARD` folder, which contains a custom setup script (`main.cmd`) to install the Oracle ODP.NET driver on each node of your Azure-SSIS IR. This setup lets you use the ADO.NET Connection Manager, Source, and Destination. First, download `ODP.NET_Managed_ODAC122cR1.zip` from [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), and then upload it together with `main.cmd` into your container.
+       5. An `ORACLE ENTERPRISE` folder, which contains a custom setup script (`main.cmd`) and silent install config file (`client.rsp`) to install the Oracle OCI driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Oracle Connection Manager, Source, and Destination. First, download the latest Oracle client - for example, `winx64_12102_client.zip` - from [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) and then upload it together with `main.cmd` and `client.rsp` into your container. If you use TNS to connect to Oracle, you also need to download `tnsnames.ora`, edit it, and upload it into your container, so it can be copied into the Oracle installation folder during setup.
 
-       6. An `SAP BW` folder, which contains a custom setup script (`main.cmd`) to install the SAP .NET connector assembly (`librfc32.dll`) on each node of your Azure-SSIS IR Enterprise Edition (Private Preview). This setup lets you use the SAP BW Connection Manager, Source, and Destination. First, upload the 64-bit or the 32-bit version of `librfc32.dll` from the SAP installation folder into your container, together with `main.cmd`. The script then copies the SAP assembly into the `%windir%\SysWow64` or `%windir%\System32` folder during setup.
+       6. An `ORACLE STANDARD` folder, which contains a custom setup script (`main.cmd`) to install the Oracle ODP.NET driver on each node of your Azure-SSIS IR. This setup lets you use the ADO.NET Connection Manager, Source, and Destination. First, download the latest Oracle ODP.NET driver - for example, `ODP.NET_Managed_ODAC122cR1.zip` - from [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), and then upload it together with `main.cmd` into your container.
 
-       7. A `STORAGE` folder, which contains a custom setup to install Azure PowerShell on each node of your Azure-SSIS IR. This setup lets you deploy and run SSIS packages that run [PowerShell scripts to manipulate your Azure Storage account](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copy `main.cmd`, a sample `AzurePowerShell.msi` (or install the latest version), and `storage.ps1` to your container. Use PowerShell.dtsx as a template for your packages. The package template combines an [Azure Blob Download Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), which downloads `storage.ps1` as a modifiable PowerShell script, and an [Execute Process Task](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/)  that executes the script on each node.
+       7. An `SAP BW` folder, which contains a custom setup script (`main.cmd`) to install the SAP .NET connector assembly (`librfc32.dll`) on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the SAP BW Connection Manager, Source, and Destination. First, upload the 64-bit or the 32-bit version of `librfc32.dll` from the SAP installation folder into your container, together with `main.cmd`. The script then copies the SAP assembly into the `%windir%\SysWow64` or `%windir%\System32` folder during setup.
 
-       8. A `TERADATA` folder, which contains a custom setup script (`main.cmd)`, its associated file (`install.cmd`), and installer packages (`.msi`). These files install Teradata connectors, the TPT API, and the ODBC driver on each node of your Azure-SSIS IR Enterprise Edition (Private Preview). This setup lets you use the Teradata Connection Manager, Source, and Destination. First, download the Teradata Tools and Utilities (TTU) 15.x zip file (for example,  `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) from [Teradata](http://partnerintelligence.teradata.com), and then upload it together with the above `.cmd` and `.msi` files into your container.
+       8. A `STORAGE` folder, which contains a custom setup to install Azure PowerShell on each node of your Azure-SSIS IR. This setup lets you deploy and run SSIS packages that run [PowerShell scripts to manipulate your Azure Storage account](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copy `main.cmd`, a sample `AzurePowerShell.msi` (or install the latest version), and `storage.ps1` to your container. Use PowerShell.dtsx as a template for your packages. The package template combines an [Azure Blob Download Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), which downloads `storage.ps1` as a modifiable PowerShell script, and an [Execute Process Task](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/)  that executes the script on each node.
+
+       9. A `TERADATA` folder, which contains a custom setup script (`main.cmd)`, its associated file (`install.cmd`), and installer packages (`.msi`). These files install Teradata connectors, the TPT API, and the ODBC driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Teradata Connection Manager, Source, and Destination. First, download the Teradata Tools and Utilities (TTU) 15.x zip file (for example,  `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) from [Teradata](http://partnerintelligence.teradata.com), and then upload it together with the above `.cmd` and `.msi` files into your container.
 
     ![Folders in the user scenarios folder](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

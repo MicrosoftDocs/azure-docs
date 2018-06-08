@@ -74,7 +74,7 @@ The script is run from the privileged endpoint on an ERCS virtual machine.
 
 
 Requirements:
-- A certified is required.
+- A certificate is required.
 
 **Parameters**
 

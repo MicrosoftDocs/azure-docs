@@ -1,26 +1,19 @@
 ---
-title: Overview of Recovery Services vaults | Microsoft Docs
+title: Overview of Recovery Services vaults
 description: An overview and comparison between Recovery Services vaults and Azure Backup vaults.
 services: backup
-documentationcenter: ' '
 author: markgalioto
 manager: carmonm
-
-ms.assetid: 38d4078b-ebc8-41ff-9bc8-47acf256dc80
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 10/15/2017
-ms.author: markgal;arunak;sogup
-
+ms.author: markgal
 ---
 # Recovery Services vaults overview
 
 This article describes the features of a Recovery Services vault. A Recovery Services vault is a storage entity in Azure that houses data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and Azure SQL databases. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead. 
 
-Within an Azure subscription, you can create up to 25 Recovery Services vaults per region.
+Within an Azure subscription, you can create up to 500 Recovery Services vaults per subscription per region.
 
 ## Comparing Recovery Services vaults and Backup vaults
 

@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/07/2018
 ms.author: jingwang
 
 ---
@@ -33,8 +33,11 @@ You can copy data from Cassandra database to any supported sink data store. For 
 
 Specifically, this Cassandra connector supports:
 
-- Cassandra **versions 2.X**.
+- Cassandra **versions 2.x and 3.x**.
 - Copying data using **Basic** or **Anonymous** authentication.
+
+>[!NOTE]
+>For activity running on Self-hosted Integration Runtime, Cassandra 3.x is supported since IR version 3.7 and above.
 
 ## Prerequisites
 
@@ -59,6 +62,9 @@ The following properties are supported for Cassandra linked service:
 | username |Specify user name for the user account. |Yes, if authenticationType is set to Basic. |
 | password |Specify password for the user account. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes, if authenticationType is set to Basic. |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!NOTE]
+>Currently connection to Cassandra using SSL is not supported.
 
 **Example:**
 
@@ -88,7 +94,7 @@ The following properties are supported for Cassandra linked service:
 
 For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Cassandra dataset.
 
-To copy data from Cassandra, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data from Cassandra, set the type property of the dataset to **CassandraTable**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
