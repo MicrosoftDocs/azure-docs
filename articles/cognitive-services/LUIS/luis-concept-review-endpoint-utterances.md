@@ -12,7 +12,7 @@ ms.date: 06/08/2018
 ms.author: v-geberr;
 ---
 # Enable active learning by reviewing endpoint utterances
-Active learning is one of three strategies to improve prediction accuracy. 
+Active learning is one of three strategies to improve prediction accuracy and the easiest to implement. 
 
 ## What is active learning
 Active learning is a two-step process. First, LUIS selects utterances it receives at the app's endpoint that it wants validated. The second step is performed by the app owner or collaborator to validate the selected utterances for [review](label-suggested-utterances.md), including the correct intent and any entities within the intent. After reviewing the utterances, train and publish the app again. 
