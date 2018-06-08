@@ -272,7 +272,6 @@ In this section, you see how to use the terraform command to create the resource
     -backend-config="key=codelab.microsoft.tfstate" 
     ```
     
-
 1. Create the Terraform plan that defines the infrastructure elements. The command will request two values: **var.client_id** and **var.client_secret**. For the **var.client_id** variable, enter the **appId** value associated with your service principal. For the **var.client_secret** variable, enter the **password** value associated with your service principal.
 
     ```bash
@@ -323,6 +322,10 @@ In this section, you use the Kubernetes dashboard can be used to test the newly 
     The **kubectl proxy** command returns an IP address as shown in the following image:
 
     ![The kubectl proxy command allows you to access the Kubernetes dashboard](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-proxy.png)
+
+1. The [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) allows you to deploy containerized applications to a Kubernetes cluster, troubleshoot your containerized application, and manage the cluster itself along with its attendant resources. Display the Kubernetes dashboard by following the instructions in the article, [Kubernetes dashboard with Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/kubernetes-dashboard).
+
+    ![The Kubernetes dashboard ](/media/terraform-create-k8s-cluster-with-tf-and-aks/kubernetes-dashboard.png)
 
 ## Deploy pods with the Kubernetes Terraform provider
 [Kubernetes pods](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod) are the smallest deployable units of computing that can be created and managed in Kubernetes. In this section, you learn how to declare the Kubernetes provider and use it to deploy pods.
