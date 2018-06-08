@@ -428,7 +428,7 @@ In this section, you will create a build definition that is configured to run au
     
     ![Complete](./media/how-to-ci-cd/complete.png)
 
-1. You can go back to VS Code and check the IoT Hub device explorer. The Edge device with the module should start running.
+1. You can go back to VS Code and check the IoT Hub device explorer. The Edge device with the module should start running (Make sure you've added registry credentials to Edge runtime).
 
     ![Edge running](./media/how-to-ci-cd/edge-running.png)
 
