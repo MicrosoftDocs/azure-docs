@@ -149,6 +149,8 @@
       href: luis-tutorial-composite-entity.md
     - name: Use list entity to match exact text using Node.js
       href: luis-tutorial-list-entity.md
+    - name: Build app programmatically using Node.js
+      href: luis-tutorial-node-import-utterances-csv.md
   - name: Integrate 
     items: 
     - name: Correct spelling with Bing Spell Check API v7
@@ -174,13 +176,9 @@
     - name: Review endpoint utterances
       href: Label-Suggested-Utterances.md
     - name: Add Phrase list
-      items: 
-      - name: How to add
-        href: luis-how-to-add-features.md
+      href: luis-how-to-add-features.md
     - name: Add Patterns
-      items: 
-      - name: How to add      
-        href: luis-how-to-model-intent-pattern.md
+      href: luis-how-to-model-intent-pattern.md
   - name: Train
     href: luis-how-to-train.md
   - name: Test
@@ -203,26 +201,24 @@
       href: Cortana-Prebuilt-App.md
   - name: Manage your LUIS app
     items: 
-    - name: Monitor your app using the dashboard
+    - name: Using the dashboard
       href: luis-how-to-use-dashboard.md
-    - name: Manage LUIS keys
-      href: Manage-Keys.md
-    - name: Manage Azure endpoint keys
+    - name: Create keys
       href: luis-how-to-azure-subscription.md
-    - name: View usage from Cloud Shell
+    - name: Add keys in LUIS 
+      href: Manage-Keys.md
+    - name: View endpoint usage with PowerShell
       href: luis-how-to-manage-from-cloud-shell.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
-    - name: Collaborate on a LUIS app
+    - name: Collaborate with other authors
       href: luis-how-to-collaborate.md 
-    - name: Increase endpoint quota with Traffic Manager
+    - name: Spread endpoint quota across keys with Traffic Manager
       href: traffic-manager.md  
   - name: Manage your LUIS account
     href: luis-how-to-account-settings.md   
   - name: Migrate to V2 API
     href: migration-v1-to-v2.md
-  - name: Build app programmatically using Node.js
-    href: luis-tutorial-node-import-utterances-csv.md
   - name: Find region programmatically
     items: 
     - name: Using C#

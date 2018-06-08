@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 06/07/2018
 ms.author: brenduns
 ms.reviewer:
 
@@ -22,9 +22,9 @@ ms.reviewer:
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-[Microsoft Azure Stack](azure-stack-poc.md) is a hybrid cloud platform that lets you deliver services from your datacenter. As a service provider, you can offer services to your tenants. Within a business or government agency, you can offer on-premises services to your employees. The services that you can deliver include, but are not limited to:
+[Microsoft Azure Stack](azure-stack-poc.md) is a hybrid cloud platform that lets you deliver services from your datacenter. As a service provider, you can offer services to your tenants. Within a business or government agency, you can offer on-premises services to your employees. The services that you can deliver include, but aren't limited to:
 
-- Platform as a Service (PaaS) services like App Services, API Apps, API Functions, SQL, MySQL.
+- Platform as a Service (PaaS) services like App Services, API Apps, API Functions, SQL, and MySQL.
 
 You can even combine services to integrate and build complex solutions for different users.
 
@@ -41,5 +41,5 @@ When you’re planning your offers, keep the following points in mind:
 **Delegated providers**: You can grant others the ability to create offers in your environment. For example, if you’re a service provider, you can [delegate](azure-stack-delegated-provider.md) this ability to your resellers. Or, if you’re an organization, you can delegate to other divisions/subsidiaries.
 
 ## Next steps
-[Create an offer in Azure Stack](azure-stack-create-offer.md)
 
+[Create an offer in Azure Stack](azure-stack-create-offer.md)
