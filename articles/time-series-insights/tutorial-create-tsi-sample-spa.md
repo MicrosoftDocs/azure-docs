@@ -77,16 +77,16 @@ Before building the application, you register it with Azure AD. Registration ser
 
 ## Build and publish the web application
 
-1. Create a working directory to store your application project. Then browse to each of the following URLs, right-click on the "Raw" link in the upper right area of the page, and "Save as" into your working directory:
+1. Create a directory to store your application project files. Then browse to each of the following URLs, right-click on the "Raw" link in the upper right area of the page, and "Save as" into your project directory:
 
    - **index.html** HTML and JavaScript for the page https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
    - **sampleStyles.css:** CSS style sheet: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
-2. Start and sign in to Visual Studio, to create a solution for the web application. On the **File** menu, select the **Open**, **Web site** option. Select the working directory where you stored the HTML and CSS files, then click **Open**:
+2. Start and sign in to Visual Studio, to create a project for the web application. On the **File** menu, select the **Open**, **Web site** option. Select the working directory where you stored the HTML and CSS files, then click **Open**:
 
    ![VS - File open web site](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
 
-3. Open **Solution Explorer** from the **View** menu. You should see the new solution, containing a web site project (globe icon), which contains the HTML and CSS files:
+3. Open **Solution Explorer** from the **View** menu. You should see a new solution, containing the web site project (globe icon), which contains the HTML and CSS files:
 
    ![VS - Solution explorer new solution](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
 
@@ -100,7 +100,7 @@ Before building the application, you register it with Azure AD. Registration ser
 
       ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-publish-web-app.png)
 
-   c. If the account used for Visual Studio sign-in has access to multiple subscriptions, select the subscription you'd like to use. Then click “New” to configure the new Azure App Service: 
+   c. If the account used for Visual Studio sign-in has access to multiple subscriptions, select the subscription you'd like to use. Then click “New” to add a new Azure App Service publish target to the publishing profile: 
 
       ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-publish-web-app-app-service.png)
 
