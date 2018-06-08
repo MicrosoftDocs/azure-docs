@@ -1,4 +1,15 @@
-<!--author=alkohli last changed: 05/08/18-->
+---
+title: include file
+description: include file
+services: storsimple
+author: alkohli
+ 
+ms.service: storsimple
+ms.topic: include
+ms.date: 06/08/2018
+ms.author: alkohli
+ms.custom: include file
+---
 
 To delete a volume container, you must
  - delete volumes in the volume container. If the volume container has associated volumes, take those volumes offline first. Follow the steps in [Take a volume offline](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). After the volumes are offline, you can delete them. 
