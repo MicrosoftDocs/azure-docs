@@ -325,7 +325,7 @@ In this section, you use the Kubernetes dashboard can be used to test the newly 
 
 1. The [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) allows you to deploy containerized applications to a Kubernetes cluster, troubleshoot your containerized application, and manage the cluster itself along with its attendant resources. Display the Kubernetes dashboard by following the instructions in the article, [Kubernetes dashboard with Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/kubernetes-dashboard).
 
-    ![The Kubernetes dashboard ](/media/terraform-create-k8s-cluster-with-tf-and-aks/kubernetes-dashboard.png)
+    ![The Kubernetes dashboard ](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubernetes-dashboard.png)
 
 ## Deploy pods with the Kubernetes Terraform provider
 [Kubernetes pods](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod) are the smallest deployable units of computing that can be created and managed in Kubernetes. In this section, you learn how to declare the Kubernetes provider and use it to deploy pods.
