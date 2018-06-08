@@ -1,10 +1,10 @@
 ---
-title: Migrate to updated Batch AI API | Microsoft Docs
-description:
+title: Migrate to updated Azure Batch AI API | Microsoft Docs
+description: How to update Azure Batch AI code and scripts to use workspace and experiment resources
 services: batch-ai
 documentationcenter: na
-author: 
-manager: 
+author: dlepow
+manager: jeconnoc
 editor: 
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.service: batch-ai
 ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: 
-ms.date: 06/06/2018
+ms.topic: article
+ms.date: 06/08/2018
 ms.author: danlep
 ---
 
@@ -28,7 +28,7 @@ If you've used a previous version of the Batch AI API, this article explains how
 
 In response to customer feedback, we’re removing limits on the number of jobs and making it easier to manage Batch AI resources. The new API introduces two new resources, *workspace* and *experiment*. Collect related training jobs under an experiment, and organize all related Batch AI resources (clusters, file servers, experiments, jobs) under a workspace.  
 
-* **Workspace** - A top-level collection of all types of Batch AI resources. Clusters and file servers are contained in a workspace. Workspaces usually separate work belonging to different groups or projects. For example, you might have a dev and a test workspace. You'll probably need only a limited number of workspaces per subscription. 
+* **Workspace** - A top-level collection of all types of Batch AI resources. Clusters and file servers are contained in a workspace. Workspaces usually separate work belonging to different groups or projects. For example, you might have a dev and a test workspace. You probably need only a limited number of workspaces per subscription. 
 
 * **Experiment** - A collection of related jobs that can be queried and managed together. For example, use an experiment to group all jobs that are performed as part of a hyper-parameter tuning sweep. 
 
@@ -48,13 +48,13 @@ To access jobs, clusters, or file servers previously created via the Batch AI SD
 If you use the Python SDK, relevant changes are shown in the following examples. Changes are similar in the other Batch AI SDKs. 
 
 
-#### Get old clusters 
+#### Get old cluster 
 
 ```python
 cluster = client.clusters.get(resource_group_name, 'migrated-<region>', cluster_name)
 ```
 
-#### Delete old clusters 
+#### Delete old cluster 
 
 ```python
 client.clusters.delete(resource_group_name, 'migrated-<region>', cluster_name)
@@ -66,14 +66,14 @@ client.clusters.delete(resource_group_name, 'migrated-<region>', cluster_name)
 cluster = client.fileservers.get(resource_group_name, 'migrated-<region>', fileserver_name)
 ```
 
-#### Delete old file servers  
+#### Delete old file server  
 
 ```python
 client.fileservers.delete(resource_group_name, 'migrated-<region>', fileserver_name)
 ``` 
 
 
-#### Get old jobs 
+#### Get old job 
 
 ```python
 cluster = client.jobs.get(resource_group_name, 'migrated-<region>', 'migrated', job_name)
@@ -90,51 +90,45 @@ client.jobs.delete(resource_group_name, 'migrated-<region>', 'migrated', job_nam
 When using the Azure CLI to access previously created jobs, clusters, or file servers, use the `-w` and `-e` parameters to supply workspace and experiment names. 
 
 
-#### Get old clusters
+#### Get old cluster
 
 ```azurecli
 az batchai cluster show -g resource-group-name -w migrated-<region> -n cluster-name
 ```
 
 
-#### Delete old clusters 
+#### Delete old cluster 
 
 ```azurecli
 az batchai cluster delete -g resource-group-name -w migrated-<region> -n cluster-name
 ```
 
-#### Get old file servers
+#### Get old file server
 
 ```azurecli
 az batchai fileserver show -g resource-group-name -w migrated-<region> -n fileserver-name
 ```
 
 
-#### Delete old file servers 
+#### Delete old file server 
 
 ```azurecli
 az batchai fileserver delete -g resource-group-name -w migrated-<region> -n fileserver-name
 ``` 
 
 
-#### Get old jobs
+#### Get old job
 
 ```azurecli
 az batchai fileserver show -g resource-group-name -w migrated-<region> -e migrated -n job-name
 ```
 
 
-#### Delete old jobs 
+#### Delete old job 
 
 ```azurecli
 az batchai fileserver delete -g resource-group-name -w migrated-<region> -e migrated -n job-name
 ``` 
-
- 
-> [!NOTE]
-> You cannot delete migrated workspaces or experiments created by the Batch AI service until August 2018. 
->
-
 
 ## Create Batch AI resources 
  
