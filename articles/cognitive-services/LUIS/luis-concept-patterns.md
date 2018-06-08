@@ -103,6 +103,9 @@ Mark optional text in the utterance using the regular expression square bracket 
 
 Punctuation marks such as `.`, `!`, and `?` can be ignored using the square brackets. In order to ignore these marks, each mark must be in a separate pattern. The optional syntax doesn't currently support ignoring an item in a list of several items.
 
+## Patterns only
+LUIS allows an app without any example utterances in intent. This is allowed only if patterns are used. Patterns require at least one entity in each pattern. For a pattern-only app, the pattern should not contain machine-learned entities because these do require example utterances. 
+
 ## Best practices
 Learn [best practices](luis-concept-best-practices.md).
 
