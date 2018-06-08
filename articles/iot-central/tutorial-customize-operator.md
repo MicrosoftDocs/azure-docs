@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-Tutorial: Customize the Azure IoT Central operator's view
+# Tutorial: Customize the Azure IoT Central operator's view
 
 This tutorial shows you, as a builder, how to customize the operator's view of your application. When you make a change to the application as a builder, you can preview the operator's view in the Microsoft Azure IoT Central application.
 
