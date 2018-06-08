@@ -119,8 +119,9 @@ Sample JSON document.
     
 }
 ```
-[!NOTE]
-Please note unique key name is case sensitive. As shown in above example, unique name is set for /address/zipcode. If your data will have ZipCode, then it will insert "null" in  unique key as zipcode is not equal to ZipCode. And because of this case sensitivity all other records with ZipCode will not be able to be inserted as duplicate "null" will violate unique key constraint.
+> [!NOTE]
+> Please note unique key name is case sensitive. As shown in above example, unique name is set for /address/zipcode. If your data will have ZipCode, then it will insert "null" in  unique key as zipcode is not equal to ZipCode. And because of this case sensitivity all other records with ZipCode will not be able to be inserted as duplicate "null" will violate unique key constraint.
+
 ## MongoDB API sample
 
 The following command sample shows how to create a unique index on the firstName, lastName, and email fields of the users collection for the MongoDB API. This ensures the uniqueness for a combination of all three fields across all documents in the collection. For MongoDB API collections, the unique index is created after the collection is created, but before populating the collection.
