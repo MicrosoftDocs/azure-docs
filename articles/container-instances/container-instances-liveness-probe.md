@@ -14,11 +14,11 @@ ms.author: juluk
 
 Containerized applications may run for extended periods of time resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes to include configurations so that your container can restart if critical functionality is not working. 
 
-This article explains how to setup a liveness probe to simulate deployment of an unhealthy container.
+This article explains how to deploy a container group that includes a liveness probe, demonstrating the automatic restart of a simulated unhealthy container.
 
 ## YAML deployment
 
-Create a `liveness-probe.yaml` file with the following snippet. This example details how to setup a liveness command on an NGINX container that will eventually become unhealthy. 
+Create a `liveness-probe.yaml` file with the following snippet. This file defines a container group that consists of an NGNIX container that eventually becomes unhealthy. 
 
 ```yaml
 apiVersion: 2018-06-01
@@ -58,19 +58,19 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### Start command
 
-The deployment defines a starting command to be run when the container first starts running, defined by the `command` property which accepts an array of strings. In this example it will start a bash session and create a file called `healthy` within the `/tmp` directory by passing this command:
+The deployment defines a starting command to be run when the container first starts running, defined by the `command` property which accepts an array of strings. In this example, it will start a bash session and create a file called `healthy` within the `/tmp` directory by passing this command:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- It will then sleep for 30 seconds before deleting the file to then enter a 10 minute sleep.
+ It will then sleep for 30 seconds before deleting the file, then enters a 10 minute sleep.
 
 ### Liveness command
 
-This deployment defines a `livenessProbe` which supports an `exec` liveness command that acts as the liveness check. If this command exits with a non-zero value, the container will be killed and restarted signaling the `healthy` file could not be found. If this command exits successfully with exit code 0, no action will be taken.
+This deployment defines a `livenessProbe` which supports an `exec` liveness command that acts as the liveness check. If this command exits with a non-zero value, the container will be killed and restarted, signaling the `healthy` file could not be found. If this command exits successfully with exit code 0, no action will be taken.
 
-The periodSeconds property designates the liveness command should execute every 5 seconds.
+The `periodSeconds` property designates the liveness command should execute every 5 seconds.
 
 ## Verify liveness output
 
@@ -92,7 +92,7 @@ If the liveness probe continuously fails and triggers too many restarts, your co
 
 ## Liveness probes and restart policies
 
-Restart policies supercede the restart behavior triggered by liveness probes. For example, if you set a `restartPolicy = Never` *and* a liveness probe, the container group will not restart in the event of a failed liveness check. The container group will instead adhere to the container group's restart policy of `Never`.
+Restart policies supersede the restart behavior triggered by liveness probes. For example, if you set a `restartPolicy = Never` *and* a liveness probe, the container group will not restart in the event of a failed liveness check. The container group will instead adhere to the container group's restart policy of `Never`.
 
 ## Next steps
 
