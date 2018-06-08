@@ -61,6 +61,8 @@ Some examples include customer use of containers, storage, and networking config
 
 We don't recommended turning off telemetry in your organization. However, in some scenarios this may be necessary.
 
+### ASDK: set telemetry level in the Windows registry
+
 In these scenarios, you can configure the telemetry level sent to Microsoft by using registry settings before you deploy Azure Stack, or by using the Telemetry Endpoints after you deploy Azure Stack.
 
 ### Telemetry levels and data collection
