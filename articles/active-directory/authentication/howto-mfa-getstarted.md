@@ -20,7 +20,7 @@ Getting started with Azure Multi-Factor Authentication (Azure MFA) is a straight
 
 Before you start, make sure you have the following prerequisites:
 
-* A global administrator account in your Azure AD tenant. If you need help completing this step, see our article [Get started with Azure AD](../get-started-azure-ad)
+* A global administrator account in your Azure AD tenant. If you need help completing this step, see our article [Get started with Azure AD](../get-started-azure-ad.md)
 * Correct licenses assigned to users. If you need more information see the topic [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md)
 
 ## Choose how to enable
@@ -73,4 +73,4 @@ Congratulations, you have set up Azure Multi-Factor Authentication in the cloud.
 
 To configure additional settings like trusted IPs, custom voice messages, and fraud alerts, see the article [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
 
-Information about managing user settings for Azure Multi-Factor Authentication can be found in the article [Manage user settings with Azure Multi-Factor Authentication in the cloud](howto-mfa-userdevicesettings)
+Information about managing user settings for Azure Multi-Factor Authentication can be found in the article [Manage user settings with Azure Multi-Factor Authentication in the cloud](howto-mfa-userdevicesettings.md)
