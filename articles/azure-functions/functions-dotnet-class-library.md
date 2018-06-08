@@ -308,6 +308,8 @@ public static class EnvironmentVariablesExample
 }
 ```
 
+The [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) property is an alternative API for getting app setting values, but we recommend that you use `GetEnvironmentVariable` as shown here.
+
 > [!NOTE]
 > When developing locally with a local.settings.json file, `System.Environment.GetEnvironmentVariable("WEBSITE_SITE_NAME")` will retrieve the setting of that name under the "Values" property. For instance, `"My Site Name"` would be returned if your file contained `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
