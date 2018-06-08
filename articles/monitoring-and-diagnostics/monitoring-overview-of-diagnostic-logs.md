@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/07/2018
 ms.author: johnkem; magoedte
 
 ---
@@ -40,6 +40,9 @@ Here are some of the things you can do with resource diagnostic logs:
 * Analyze them with [Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
 You can use a storage account or Event Hubs namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
+
+> [!NOTE]
+>  You cannot currently archive data to a storage account that behind a secured virtual network.
 
 ## Resource diagnostic settings
 
