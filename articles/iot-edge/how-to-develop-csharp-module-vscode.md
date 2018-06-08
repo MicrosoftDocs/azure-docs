@@ -32,7 +32,7 @@ To create a module, you need .NET which builds the project folder, Docker to bui
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
-To test your module on a device, you need an active IoT hub with at least one IoT Edge device. If you want to use your computer as an IoT Edge device, you can do so by following the steps in the tutorials for [Windows](tutorial-simulate-device-windows.md) or [Linux and Mac](tutorial-simulate-device-linux.md). 
+To test your module on a device, you need an active IoT hub with at least one IoT Edge device. If you want to use your computer as an IoT Edge device, you can do so by following the steps in the quickstarts for [Windows](quickstart.md) or [Linux and Mac](quickstart-linux.md). 
 
 <!--- - A local Docker registry running on your development machine. It is suggested to use a local Docker registry for prototype and testing purpose. You can update the container registry in the `module.json` file in each module folder.
 - An Edge runtime running on your development machine.
