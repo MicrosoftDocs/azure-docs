@@ -30,7 +30,7 @@ The PowerShell examples in this article require Azure PowerShell 6.2 or later. I
 
 ## Create the resource template
 
-Every managed application definition contains a file named **mainTemplate.json**. In it, you define the Azure resources to provision. The template is no different than a regular Resource Manager template.
+Every managed application definition includes a file named **mainTemplate.json**. In it, you define the Azure resources to deploy. The template is no different than a regular Resource Manager template.
 
 Create a file named **mainTemplate.json**. The name is case-sensitive.
 
@@ -206,6 +206,10 @@ New-AzureRmManagedApplicationDefinition `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
+### Make sure users can see your definition
+
+You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, see [Use Role-Based Access Control to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
+
 ## Create the managed application
 
 You can deploy the managed application through the portal, PowerShell, or Azure CLI.
@@ -253,6 +257,16 @@ Now, let's use the portal to deploy the managed application. You see the user in
 1. Find the managed application you want to create from the list of available solutions, and select it. Select **Create**.
 
    ![Find the managed application](./media/publish-service-catalog-app/find-application.png)
+
+   If you can't see the managed application definition through the portal, you may need to change your portal settings. Select the **Directory and Subscription filter**.
+
+   ![Select subscription filter](./media/publish-service-catalog-app/select-filter.png)
+
+   Check that the global subscription filter includes the subscription that contains the managed application definition.
+
+   ![Check subscription filter](./media/publish-service-catalog-app/check-global-filter.png)
+
+   After selecting the subscription, start over with creating the service catalog managed application. You should see it now.
 
 1. Provide basic information that is required for the managed application. Specify the subscription and a new resource group to contain the managed application. Select **West Central US** for location. When done, select **OK**.
 
