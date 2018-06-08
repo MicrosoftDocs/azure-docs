@@ -125,7 +125,7 @@
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md
+#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
 
