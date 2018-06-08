@@ -1,3 +1,5 @@
+# [Azure Active Directory Documentation](index.md)
+
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [About Azure identity management](identity-fundamentals.md)
@@ -46,6 +48,7 @@
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](active-directory-users-assign-role-azure-portal.md)
+### [Restore a deleted user](active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
@@ -80,7 +83,8 @@
 ## [Manage groups and members](active-directory-manage-groups.md)
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
@@ -88,16 +92,16 @@
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migrate users between product licenses](active-directory-licensing-group-product-migration.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 #### [Reference for products and service plans in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Set up Office 365 groups expiration](active-directory-groups-lifecycle-azure-portal.md)
+### [Enforce a naming policy for groups](groups-naming-policy.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
 ### [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md)
-### Manage group settings
-#### [Azure portal](active-directory-groups-settings-azure-portal.md)
-#### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [Manage group settings](active-directory-groups-settings-azure-portal.md) 
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
@@ -114,13 +118,17 @@
 #### [Configure named locations](active-directory-named-locations.md)
 #### [Find activity reports](active-directory-reporting-migration.md)
 #### [Use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Remediate users flagged for risk](active-directory-report-security-user-at-risk-remediation.md)
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
+#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md
+
+
+
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -178,6 +186,14 @@
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
+### [User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md) 
+#### [App integration tutorials](active-directory-saas-tutorial-list.md) 
+#### [Automate provisioning to SCIM-enabled apps](active-directory-scim-provisioning.md) 
+#### [Customize attribute mappings](active-directory-saas-customizing-attribute-mappings.md) 
+#### [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
+#### [Use scoping filters](active-directory-saas-scoping-filters.md) 
+#### [Report on automatic user provisioning](active-directory-saas-provisioning-reporting.md) 
+#### [Troubleshoot user provisioning](active-directory-application-provisioning-content-map.md) 
 
 ### [Access apps remotely with App Proxy](manage-apps/application-proxy.md)
 #### Get started
@@ -214,7 +230,7 @@
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 ##### [Qlik](active-directory-application-proxy-qlik.md)
-
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 
 
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
@@ -227,9 +243,9 @@
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
 #### [Advanced certificate signing for SAML apps](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Hide a third-party app from a user's experience](active-directory-coreapps-hide-third-party-app.md)
+#### [Hide an application from a user's experience](active-directory-coreapps-hide-third-party-app.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
-
+### [Migrate AD FS apps to Azure AD](migrate-adfs-apps-to-azure.md) 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [SSO access](manage-apps/what-is-single-sign-on.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
@@ -244,6 +260,15 @@
 ##### [Configuration](active-directory-application-config-content-map.md)
 ##### [Sign-in](active-directory-application-sign-in-content-map.md)
 ##### [Provisioning](active-directory-application-provisioning-content-map.md)
+
+###### [Verifying a user is provisioned](application-provisioning-when-will-provisioning-finish-specific-user.md) 
+###### [Provisioning taking a long time](application-provisioning-when-will-provisioning-finish.md) 
+###### [How to configure user provisioning](application-provisioning-config-how-to.md) 
+###### [Problem configuring provisioning](application-provisioning-config-problem.md) 
+###### [Problem saving administrator credentials](application-provisioning-config-problem-storage-limit.md) 
+###### [No users are being provisioned](application-provisioning-config-problem-no-users-provisioned.md) 
+###### [Wrong users are being provisioned](application-provisioning-config-problem-wrong-users-provisioned.md) 
+
 ##### [Managing Access](active-directory-application-access-content-map.md)
 ##### [Access Panel](active-directory-application-access-panel-content-map.md)
 ##### [Application Proxy](active-directory-application-proxy-content-map.md)
@@ -274,11 +299,15 @@
 
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
-#### [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
+#### [Assign admin role to a user](active-directory-users-assign-role-azure-portal.md) 
+#### [Compare member and guest user permissions](users-default-permissions.md) 
+### [Securing privileged access](admin-roles-best-practices.md)  
+### [Create emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md) 
+
+
 #### [Default user permissions](users-default-permissions.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
-### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Securing privileged roles](admin-roles-best-practices.md)
 
 ## Access reviews
@@ -297,6 +326,7 @@
 #### [Conditions](active-directory-conditional-access-conditions.md)
 #### [Location conditions](active-directory-conditional-access-locations.md)
 #### [Controls](active-directory-conditional-access-controls.md)
+#### [Baseline protection](active-directory-conditional-access-baseline-protection.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
 #### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
@@ -315,9 +345,7 @@
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
-#### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
+
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -336,8 +364,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
-## [Integrate other services with Azure AD]()
-### [Enable LinkedIn integration](linkedin-integration.md)
+## Integrate other services with Azure AD 
+### [Integrate LinkedIn with Azure AD](linkedin-integration.md)
 
 ## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
