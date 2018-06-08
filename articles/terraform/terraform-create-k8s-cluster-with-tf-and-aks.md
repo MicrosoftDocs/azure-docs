@@ -141,7 +141,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
     The preceding code sets the name of the cluster, location, and the resource_group_name. In addition, the dns_prefix value - that forms part of the fully qualified domain name (FQDN) used to access the cluster - is set.
 
-    The linux_profile record allows you to configure the settings which enable signing into the worker nodes using SSH.
+    The linux_profile record allows you to configure the settings that enable signing into the worker nodes using SSH.
 
     With AKS, you pay only for the worker nodes. The agent_pool_profile record configures the details for these worker nodes. The agent_pool_profile record includes the number of worker nodes to create and the type of worker nodes. If you need to scale up or scale down the cluster in the future, you modify the **count** value in this record.
 
