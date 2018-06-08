@@ -1,5 +1,5 @@
 ---
-title: Review enterprise billing data with REST API | Microsoft Docs
+title: Review enterprise enrollment billing data with REST API | Microsoft Docs
 description: Learn how to use Azure REST APIs to review enterprise enrollment billing information.
 services: billing
 documentationcenter: na
@@ -20,7 +20,7 @@ ms.author: alleonar
 
 ---
 
-# Review enterprise billing using REST APIs
+# Review enterprise enrollment billing using REST APIs
 
 Azure Reporting APIs help you review and manage your Azure costs.
 

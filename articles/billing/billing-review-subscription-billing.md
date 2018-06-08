@@ -20,7 +20,7 @@ ms.author: alleonar
 
 ---
 
-# Review department billing using REST APIs
+# Review subscription billing using REST APIs
 
 Azure Reporting APIs help you review and manage your Azure costs.  
 
@@ -30,7 +30,6 @@ Here, you learn to use a REST API to return subscription billing details for a g
 
 ``` http
 GET https://management.azure.com/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}/providers/Microsoft.Consumption/usageDetails?$filter=properties/usageEnd ge '${startDate}' AND properties/usageEnd le '${endDate}'
-nsumption.azure.com/v2/enrollments/{enrollmentID}/usagedetails
 Content-Type: application/json   
 Authorization: Bearer
 ```
