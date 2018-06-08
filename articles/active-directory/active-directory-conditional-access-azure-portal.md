@@ -31,6 +31,7 @@ Security is a top concern for organizations using the cloud. A key aspect of clo
 This article provides you with a conceptual overview of conditional access in Azure AD.
 
 
+
 ## Common scenarios
 
 In a mobile-first, cloud-first world, Azure Active Directory enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices (including BYOD), work off corporate networks, and third party SaaS apps, IT professionals are faced with two opposing goals:
