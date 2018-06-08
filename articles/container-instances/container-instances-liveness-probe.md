@@ -12,11 +12,13 @@ ms.author: juluk
 ---
 # Configure liveness probes
 
-Containerized applications may run for extended periods of time resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes to include restart situations within a container's specification.
+Containerized applications may run for extended periods of time resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes to include configurations so that your container can restart if critical functionality is not working. 
+
+This article explains how to setup a liveness probe and how your container's lifecycle may change as a result.
 
 ## YAML deployment
 
-Create a `liveness-probe.yaml` file with the following snippet. 
+Create a `liveness-probe.yaml` file with the following snippet. This example details how to setup a liveness command on an NGINX container. 
 
 ```yaml
 apiVersion: 2018-06-01
@@ -47,31 +49,51 @@ properties:
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
+
 Run the following command to deploy this container group with the above YAML configuration.
 
 ```azurecli-interactive
 az container create --resource-group myRG --name livenesstest -f liveness-probe.yaml
 ```
 
-The periodSeconds property designates the liveness command should execute every 5 seconds. In this example the command `cat /tmp/healthy` acts as the probe, returning 0 if successful. If the command returns a non-zero value, the container will automatically be killed and restarted.
+### Start command
+
+The deployment defines a starting command to be run when the container first starts running, defined by the `command` property which accepts an array of strings. In this example it will start a bash session and create a file called `healthy` within the `/tmp` directory by passing this command:
+
+```bash
+/bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
+```
+
+ It will then sleep for 30 seconds before deleting the file to then enter a 10 minute sleep.
+
+### Liveness command
+
+This deployment defines a `livenessProbe` which supports an `exec` command that acts as the liveness check. If this command exits with a non-zero value, the container will be killed and restarted signaling the `healthy` file could not be found. If this command exits successfully with exit code 0, no action will be taken.
+
+The periodSeconds property designates the liveness command should execute every 5 seconds.
 
 ## Verify liveness output
 
-Within the first 30 seconds, the `healthy` file created by the start command still exists. When the liveness command checks for the `healthy` file's existence, the status code returns a zero signaling success so no restarting occurs.
+Within the first 30 seconds, the `healthy` file created by the start command exists. When the liveness command checks for the `healthy` file's existence, the status code returns a zero signaling success so no restarting occurs.
 
-After 30 seconds the command for `cat /tmp/healthy` begin to fail causing unhealthy and killing events to occur.
+After 30 seconds the command for `cat /tmp/healthy` begins to fail causing unhealthy and killing events to occur. 
+
+These events can be viewed from the Azure portal or Azure CLI 2.0.
 
 ![Portal unhealthy event][portal-unhealthy]
 
-By viewing the events in the Azure portal, events of type `Unhealthy` will be triggered upon the liveness command failing. The subsequent event will be of type `Killing` signifying a container deletion so a restart can begin.
+By viewing the events in the Azure portal, events of type `Unhealthy` will be triggered upon the liveness command failing. The subsequent event will be of type `Killing` to signal a container deletion so a restart can begin. The restart count for the container will increment each time this occurs.
 
-### Liveness and restart policies
+![Portal restart counter][portal-restart]
+
+## Liveness probes and restart policies
 
 Restart policies supercede the restart behavior triggered by liveness probes. For example, if you set a `restartPolicy = Never` and a liveness probe the container group will not restart in the event of a failed liveness check to adhere to the container group's restart policy.
 
 ## Next steps
 
-Task-based scenarios may require a liveness probe to enable automatic restarts if a pre-requisite function is not working properly. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
+Task-based scenarios may require a liveness probe tom enable automatic restarts if a pre-requisite function is not working properly. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png
+[portal-restart]: ./media/container-instances-liveness-probe/portal-restart.png
