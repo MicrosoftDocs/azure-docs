@@ -32,6 +32,10 @@ To enable collection of disk and network performance data, change the statistics
 
 ## Collector errors
 
+### Deployment of collector OVA failed
+
+This could happen if the OVA is partially downloaded or due to the browser if you are using vSphere web client to deploy the OVA. Ensure that the download is complete and try deploying the OVA with a different browser.
+
 ### Collector is not able to connect to the internet
 
 This can happen when the machine you are using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs one.
@@ -83,7 +87,7 @@ Unable to connect to vCenter Server "Servername.com:9443" due to error: There wa
 
 Check if you are running the latest version of the collector appliance, if not, upgrade the appliance to the [latest version](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
 
-If the issue happens in the latest version, it could be because the collector machine is unable to resolve the vCenter Server name specified or the port specified is wrong. By default, if the port is not specified, collector will try to connect to the port number 443.
+If the issue still happens in the latest version, it could be because the collector machine is unable to resolve the vCenter Server name specified or the port specified is wrong. By default, if the port is not specified, collector will try to connect to the port number 443.
 
 1. Try to ping the Servername.com from the collector machine.
 2. If step 1 fails, try to connect to the vCenter server over IP address.
