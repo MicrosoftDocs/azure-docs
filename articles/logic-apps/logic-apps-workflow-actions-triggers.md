@@ -2203,41 +2203,58 @@ For example:
 
 ## Until action
 
-This looping action runs inner actions until a condition evaluates as true. 
-Learn more about ["until" loops in logic apps](../logic-apps/logic-apps-control-flow-loops.md#until-loop).
+This loop action contains actions that 
+run until the specified condition is true. 
+The loop checks the condition as the last 
+step after all other actions have run. 
+
+You can include more than one action in the `"actions"` object, 
+and the action must define at least one limit. Learn how to create 
+["until" loops](../logic-apps/logic-apps-control-flow-loops.md#until-loop). 
 
 ```json
- "<my-Until-loop-name>": {
-    "type": "Until",
-    "actions": {
-        "myActionName": {
-            "type": "<action-type>",
-            "inputs": {},
-            "runAfter": {}
-        }
-    },
-    "expression": "<myCondition>",
-    "limit": {
-        "count": 1000,
-        "timeout": "PT1H"
-    },
-    "runAfter": {}
+ "Until": {
+   "type": "Until",
+   "actions": {
+      "<action-name>": {
+         "type": "<action-type>",
+         "inputs": { "<action-inputs>" },
+         "runAfter": {}
+      },
+      "<action-name>": {
+         "type": "<action-type>",
+         "inputs": {},
+         "runAfter": {}
+      }
+   },
+   "expression": "<condition>",
+   "limit": {
+      "count": <loop-count>,
+      "timeout": "<loop-timeout>"
+   },
+   "runAfter": {}
 }
 ```
 
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------| 
-| actions | Yes | JSON Object | The inner actions to run inside the loop | 
-| expression | Yes | String | The expression to evaluate after each iteration | 
-| limit | Yes | JSON Object | The limits for the loop. Must define at least one limit. | 
-| count | No | Integer | The limit on the number of iterations to perform | 
-| timeout | No | String | The timeout limit in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601) that specifies how long the loop should run |
-||||| 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*action-name*> | String | The name for the action you want to run inside the loop | 
+| <*action-type*> | Various | The type of action you want to run | 
+| <*action-inputs*> | Various | The inputs for the action to run | 
+| <*condition*> | String | The condition or expression to evaluate after all the actions in the loop finish running | 
+| <*loop-count*> | Integer | The limit on the most number of loops that the action can run. The default `count` value is 60. | 
+| <*loop-timeout*> | String | The limit on the longest time that the loop can run. The default `timeout` value is `PT1H`, which is the required [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). |
+|||| 
 
-For example:
+*Example*
+
+This loop action definition sends an HTTP request 
+to the specified URL until the request receives 
+a "200 OK" status code, the loop has run 60 times, 
+or the loop has run for one hour.
 
 ```json
- "runUntilSucceededAction": {
+ "Run_until_loop_succeeds_or_expires": {
     "type": "Until",
     "actions": {
         "Http": {
@@ -2251,7 +2268,7 @@ For example:
     },
     "expression": "@equals(outputs('Http')['statusCode', 200)",
     "limit": {
-        "count": 100,
+        "count": 60,
         "timeout": "PT1H"
     },
     "runAfter": {}
