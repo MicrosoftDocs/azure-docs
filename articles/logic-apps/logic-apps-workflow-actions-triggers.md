@@ -1510,8 +1510,10 @@ items from another array based on the specified map.
 The output array and source array always have the same number of items. 
 Although you can't change the number of objects in the output array, 
 you can add or remove properties and their values across those objects. 
-The `select` property defines the map that transforms the items in the source 
-array by specifying the properties and values across the objects in the output array. 
+The `select` property specifies at least one key-value pair that 
+define the map for transforming items in the source array. 
+A key-value pair represents a property and its value across 
+all the objects in the output array. 
 
 ```json
 "Select": {
@@ -1536,9 +1538,13 @@ array by specifying the properties and values across the objects in the output a
 | <*expression*> | String | The expression that transforms the item in the source array and assigns the result to <*key-name*> | 
 |||| 
 
-To reference and use a **Select** action's output in other actions, 
-pass that output into a **Compose** action, and then reference 
-the output from the **Compose** action in your other actions.
+The **Select** action creates an array as output, 
+so any action that wants to use this output must either accept an array, 
+or you must convert the array into the type that the consumer action accepts. 
+For example, to convert the output array to a string, 
+you can pass that array to the **Compose** action, 
+and then reference the output from the **Compose** 
+action in your other actions.
 
 *Example*
 
@@ -2133,7 +2139,7 @@ When the switch statement runs, only one case should match the result.
 Learn more about [switch statements in logic apps](../logic-apps/logic-apps-control-flow-switch-statement.md).
 
 ``` json
-"<my-switch-statement-name>": {
+"Switch": {
    "type": "Switch",
    "expression": "<evaluate-this-object-expression-token>",
    "cases": {
@@ -2209,8 +2215,8 @@ The loop checks the condition as the last
 step after all other actions have run. 
 
 You can include more than one action in the `"actions"` object, 
-and the action must define at least one limit. Learn how to create 
-["until" loops](../logic-apps/logic-apps-control-flow-loops.md#until-loop). 
+and the action must define at least one limit. Learn 
+[how to create "until" loops](../logic-apps/logic-apps-control-flow-loops.md#until-loop). 
 
 ```json
  "Until": {
@@ -2248,10 +2254,12 @@ and the action must define at least one limit. Learn how to create
 
 *Example*
 
-This loop action definition sends an HTTP request 
-to the specified URL until the request receives 
-a "200 OK" status code, the loop has run 60 times, 
-or the loop has run for one hour.
+This loop action definition sends an HTTP request to 
+the specified URL until one of these conditions is met: 
+
+* The request gets a response with the "200 OK" status code.
+* The loop has run 60 times.
+* The loop has run for one hour.
 
 ```json
  "Run_until_loop_succeeds_or_expires": {
