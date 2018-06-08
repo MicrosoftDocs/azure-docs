@@ -22,7 +22,7 @@ ms.custom: azlog
 
 
 >[!IMPORTANT]
-> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads will be disabled by Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/en-us/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads will be disabled by Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 You should only use Azure log integration if an [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector isn't available from your Security Incident and Event Management (SIEM) vendor.
 
