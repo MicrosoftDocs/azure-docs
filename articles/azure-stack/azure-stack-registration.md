@@ -19,9 +19,11 @@ ms.reviewer: avishwan
 
 ---
 
+# Register Azure Stack with Azure
+
 Registering [Azure Stack](azure-stack-poc.md) with Azure allows you to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce and you can see it under the subscription used for registration.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Registration is required to support full Azure Stack functionality, including marketplace syndication. In addition, you will be in violation of Azure Stack licensing terms if you do not register when using the pay-as-you-use billing model. To learn more about Azure Stack licensing models, please see the [How to buy page](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## Prerequisites
