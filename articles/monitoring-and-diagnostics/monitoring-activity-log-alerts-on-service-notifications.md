@@ -1,23 +1,18 @@
 ---
-title: Receive activity log alerts on Azure service notifications | Microsoft Docs
+title: Receive activity log alerts on Azure service notifications
 description: Get notified via SMS, email, or webhook when Azure service occurs.
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/08/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/09/2018
 ms.author: johnkem
-
+ms.component: alerts
 ---
+
 # Create activity log alerts on service notifications
 ## Overview
-This article shows you how to set up activity log alerts for service health notifications by using the Azure Portal.  
+This article shows you how to set up activity log alerts for service health notifications by using the Azure portal.  
 
 You can receive an alert when Azure sends service health notifications to your Azure subscription. You can configure the alert based on:
 
@@ -35,7 +30,7 @@ To learn more about action groups, see [Create and manage action groups](monitor
 
 For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
 
-## Create an alert on a service health notification for a new action group by using the Azure Portal
+## Create an alert on a service health notification for a new action group by using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Service Health**.
 
     ![The "Service Health" service](./media/monitoring-activity-log-alerts-on-service-notifications/home-servicehealth.png)
@@ -84,7 +79,7 @@ Learn how to [Configure webhook notifications for existing problem management sy
 >
 >
 
-## Create an alert on a service health notification for an existing action group by using the Azure Portal
+## Create an alert on a service health notification for an existing action group by using the Azure portal
 
 1. Follow steps 1 through 7 in the previous section to create your service health notification. 
 
