@@ -105,7 +105,7 @@ SAP HANA System Replication setup uses a dedicated virtual hostname and virtual 
 ## Deploy for Linux
 
 The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for SAP Applications.
-The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12. You can use this image to deploy new virtual machines.
+The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines.
 
 ### Deploy with a template
 You can use one of the quickstart templates that are on GitHub to deploy all the required resources. The template deploys the virtual machines, the load balancer, the availability set, and so on.
@@ -265,83 +265,84 @@ Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azu
 
 ## Install SAP HANA
 
-The steps in this section apply to all nodes, as indicated by the prefix **[A]**.
+The steps in this section use the following prefixes:
+- **[A]**: The step applies to all nodes.
+- **[1]**: The step applies to node 1 only.
+- **[2]**: The step applies to node 2 of the Pacemaker cluster only.
 
-1. **[A]** Set up the disk layout: **SAP Landscape Virtualization Management (LVM)**.
+1. **[A]** Set up the disk layout: **Logical Volume Manager (LVM)**.
 
-    We generally recommend that you use LVM for volumes that store data and log files. The following example assumes that the virtual machines have four attached data disks to use to create two volumes.
+    We recommend that you use LVM for volumes that store data and log files. The following example assumes that the virtual machines have four data disks attached that are used to create two volumes.
    
     a. List all of the available disks:
        
-        <pre><code>
-        ls /dev/disk/azure/scsi1/lun*
-        </code></pre>
+       <pre><code>
+       ls /dev/disk/azure/scsi1/lun*
+       </code></pre>
        
         Example output:
        
-        ```
-        /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
-        ```
+       ```
+       /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
+       ```
        
     b. Create physical volumes for all of the disks that you want to use:
 
-        <pre><code>
-        sudo pvcreate /dev/disk/azure/scsi1/lun0
-        sudo pvcreate /dev/disk/azure/scsi1/lun1
-        sudo pvcreate /dev/disk/azure/scsi1/lun2
-        sudo pvcreate /dev/disk/azure/scsi1/lun3
-        </code></pre>
+       <pre><code>
+       sudo pvcreate /dev/disk/azure/scsi1/lun0
+       sudo pvcreate /dev/disk/azure/scsi1/lun1
+       sudo pvcreate /dev/disk/azure/scsi1/lun2
+       sudo pvcreate /dev/disk/azure/scsi1/lun3
+       </code></pre>
 
     c. Create a volume group for the data files. Use one volume group for the log files and one for the shared directory of SAP HANA:
 
-        <pre><code>
-        sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
-        sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
-        sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
-        </code></pre>
+       <pre><code>
+       sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
+       sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
+       sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
+       </code></pre>
        
-    d. Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. Create a striped volume for better I/O performance.
-    
-        The value for the `-i` argument should be the number of the underlying physical volume. In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. One physical volume is used for the log volume, so no `-i` switch is explicitly used. When you use more than one physical volume for each data, log, or shared volume, use the `-i` switch and set it to the number of the underlying physical volume.
+    d. Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance, where the `-i` argument should be the number of the underlying physical volume. In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. One physical volume is used for the log volume, so no `-i` switch is explicitly used. Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes.
 
-        <pre><code>
-        sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
-        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
-        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
-        sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
-        sudo mkfs.xfs /dev/vg_hana_log_<b>HN1</b>/hana_log
-        sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
-        </code></pre>
+       <pre><code>
+       sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
+       sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
+       sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
+       sudo mkfs.xfs /dev/vg_hana_log_<b>HN1</b>/hana_log
+       sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
+       </code></pre>
        
     e. Create the mount directories and copy the UUID of all of the logical volumes:
        
-        <pre><code>
-        sudo mkdir -p /hana/data/<b>HN1</b>
-        sudo mkdir -p /hana/log/<b>HN1</b>
-        sudo mkdir -p /hana/shared/<b>HN1</b>
-        # Write down the IDs for /dev/vg_hana_data_<b>HN1</b>/hana_data, /dev/vg_hana_log_<b>HN1</b>/hana_log, and  /dev/vg_hana_shared_<b>HN1</b>/hana_shared
-        sudo blkid
-        </code></pre>
+       <pre><code>
+       sudo mkdir -p /hana/data/<b>HN1</b>
+       sudo mkdir -p /hana/log/<b>HN1</b>
+       sudo mkdir -p /hana/shared/<b>HN1</b>
+       # Write down the ID of /dev/vg_hana_data_<b>HN1</b>/hana_data, /dev/vg_hana_log_<b>HN1</b>/hana_log, and /dev/vg_hana_shared_<b>HN1</b>/hana_shared
+       sudo blkid
+       </code></pre>
        
     f. Create `fstab` entries for the three logical volumes:
        
-        <pre><code>
-        sudo vi /etc/fstab
-        </code></pre>
+       <pre><code>
+       sudo vi /etc/fstab
+       </code></pre>
        
     g. Insert the following line in the `/etc/fstab` file:
        
-        <pre><code>
-        /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
-        /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
-        /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_shared_<b>HN1</b>-hana_shared&gt;</b> /hana/shared/<b>HN1</b> xfs  defaults,nofail  0  2
-        </code></pre>
+       <pre><code>
+       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
+       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
+       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_shared_<b>HN1</b>-hana_shared&gt;</b> /hana/shared/<b>HN1</b> xfs  defaults,nofail  0  2
+       </code></pre>
        
     h. Mount the new volumes:
        
-        <pre><code>
-        sudo mount -a
-        </code></pre>
+       <pre><code>
+       sudo mount -a
+       </code></pre>
     
 1. **[A]** Set up the disk layout: **Plain Disks**.
 
@@ -349,27 +350,27 @@ The steps in this section apply to all nodes, as indicated by the prefix **[A]**
    
     a. Create a partition on /dev/disk/azure/scsi1/lun0 and format it with xfs:
 
-        <pre><code>
-        sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
-        sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
+       <pre><code>
+       sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
+       sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
        
-        # Write down the ID for /dev/disk/azure/scsi1/lun0-part1
-        sudo /sbin/blkid
-        sudo vi /etc/fstab
-        </code></pre>
+       # Write down the ID of /dev/disk/azure/scsi1/lun0-part1
+       sudo /sbin/blkid
+       sudo vi /etc/fstab
+       </code></pre>
 
     b. Insert this line in the /etc/fstab file:
 
-        <pre><code>
-        /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
-        </code></pre>
+       <pre><code>
+       /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
+       </code></pre>
 
     c. Create the target directory and mount the disk:
 
-        <pre><code>
-        sudo mkdir /hana
-        sudo mount -a
-        </code></pre>
+       <pre><code>
+       sudo mkdir /hana
+       sudo mount -a
+       </code></pre>
 
 1. **[A]** Set up host name resolution for all hosts.
 
@@ -377,24 +378,25 @@ The steps in this section apply to all nodes, as indicated by the prefix **[A]**
 
     a. Replace the IP address and the hostname in the following commands:
 
-        ```bash
-        sudo vi /etc/hosts
-        ```
+       ```bash
+       sudo vi /etc/hosts
+       ```
     
     b. Insert the following lines in the /etc/hosts file. Change the IP address and hostname to match your environment:
     
-        <pre><code>
-        <b>10.0.0.5 hn1-db-0</b>
-        <b>10.0.0.6 hn1-db-1</b>
-        </code></pre>
+       <pre><code>
+       <b>10.0.0.5 hn1-db-0</b>
+       <b>10.0.0.6 hn1-db-1</b>
+       </code></pre>
 
 1. **[A]** Install the HANA High Availability packages:
 
     ```bash
     sudo zypper install SAPHanaSR
+    
     ```
     
-    To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
+To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
 
 1. **[A]** Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
 
@@ -450,7 +452,7 @@ The steps in this section apply to all nodes, as indicated by the prefix **[A]**
 
 1. **[A]** Upgrade the SAP Host Agent.
 
-    Download the latest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file that you downloaded:
+    Download the latest SAP Host Agent archive from the [SAP Software Center][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file that you downloaded:
     
     ```bash
     sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
@@ -458,7 +460,8 @@ The steps in this section apply to all nodes, as indicated by the prefix **[A]**
 
 ## Configure SAP HANA 2.0 System Replication
 
-The following prefixes are used to annotate the steps in this section:
+The steps in this section use the following prefixes:
+- **[A]**: The step applies to all nodes.
 - **[1]**: The step applies to node 1 only.
 - **[2]**: The step applies to node 2 of the Pacemaker cluster only.
 
@@ -468,32 +471,32 @@ The following prefixes are used to annotate the steps in this section:
 
     Log in as \<hanasid>adm and execute the following command:
 
-    <pre><code>
-    hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
-    </code></pre>
+   <pre><code>
+   hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
+   </code></pre>
 
 1. **[1]** Configure System Replication on the first node:
    
     a. Log in as \<hanasid>adm and back up the databases:
 
-        <pre><code>
-        hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
-        hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
-        hdbsql -d <b>NW1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupNW1</b>')"
-        </code></pre>
+       <pre><code>
+       hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
+       hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
+       hdbsql -d <b>NW1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupNW1</b>')"
+       </code></pre>
 
     b. Copy the system PKI files to the secondary site:
 
-        <pre><code>
-        scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT   <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
-        scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY  <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
-        </code></pre>
+       <pre><code>
+       scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT   <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
+       scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY  <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
+       </code></pre>
 
     c. Create the primary site:
 
-        <pre><code>
-        hdbnsutil -sr_enable –-name=<b>SITE1</b>
-        </code></pre>
+       <pre><code>
+       hdbnsutil -sr_enable –-name=<b>SITE1</b>
+       </code></pre>
 
 1. **[2]** Configure System Replication on the second node:
     
@@ -506,7 +509,7 @@ The following prefixes are used to annotate the steps in this section:
 
 ## Configure SAP HANA 1.0 System Replication
 
-The following prefixes are used to annotate the steps in this section:
+The steps in this section use the following prefixes:
 - **[A]**: The step applies to all nodes.
 - **[1]**: The step applies to node 1 only.
 - **[2]**: The step applies to node 2 of the Pacemaker cluster only.
@@ -524,7 +527,7 @@ The following prefixes are used to annotate the steps in this section:
 
 1. **[A]** Create the keystore entry.
 
-    Log in as root and run the following command to create a new keystore entry:
+   Log in as root and run the following command to create a new keystore entry:
 
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
@@ -533,18 +536,18 @@ The following prefixes are used to annotate the steps in this section:
 
 1. **[1]** Back up the database.
 
-    Log in as root and back up the databases:
+   Log in as root and back up the databases:
 
-    <pre><code>
-    PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
-    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
-    </code></pre>
+   <pre><code>
+   PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
+   hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
+   </code></pre>
 
-    If you use a multi-tenant installation, also back up the tenant database:
+   If you use a multi-tenant installation, also back up the tenant database:
 
-    <pre><code>   
-    hdbsql -d <b>HN1</b> -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
-    </code></pre>
+   <pre><code>   
+   hdbsql -d <b>HN1</b> -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
+   </code></pre>
 
 1. **[1]** Configure System Replication on the first node.
 
@@ -555,7 +558,7 @@ The following prefixes are used to annotate the steps in this section:
     hdbnsutil -sr_enable –-name=<b>SITE1</b>
     </code></pre>
 
-1. **[2]** Configure System Replication on the second node.
+1. **[2]** Configure System Replication on the secondary node.
 
     Log in as \<hanasid>adm and register the secondary site:
 
@@ -568,85 +571,85 @@ The following prefixes are used to annotate the steps in this section:
 
 First, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
    
-<pre><code>
-sudo crm configure property maintenance-mode=true
+   <pre><code>
+   sudo crm configure property maintenance-mode=true
 
-# Replace the bold string with your instance number and HANA system ID
+   # Replace the bold string with your instance number and HANA system ID
    
-sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
-  operations \$id="rsc_sap2_<b>HN1</b>_HDB<b>03</b>-operations" \
-  op monitor interval="10" timeout="600" \
-  op start interval="0" timeout="600" \
-  op stop interval="0" timeout="300" \
-  params SID="<b>HN1</b>" InstanceNumber="<b>03</b>"
+   sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
+     operations \$id="rsc_sap2_<b>HN1</b>_HDB<b>03</b>-operations" \
+     op monitor interval="10" timeout="600" \
+     op start interval="0" timeout="600" \
+     op stop interval="0" timeout="300" \
+     params SID="<b>HN1</b>" InstanceNumber="<b>03</b>"
    
-sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
-  meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
-</code></pre>
+   sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
+     meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
+   </code></pre>
    
 Next, create the HANA resources:
    
-<pre><code>
-# Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
+   <pre><code>
+   # Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
       
-sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
-  operations \$id="rsc_sap_<b>HN1</b>_HDB<b>03</b>-operations" \
-  op start interval="0" timeout="3600" \
-  op stop interval="0" timeout="3600" \
-  op promote interval="0" timeout="3600" \
-  op monitor interval="60" role="Master" timeout="700" \
-  op monitor interval="61" role="Slave" timeout="700" \
-  params SID="<b>HN1</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
-  DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
+   sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
+     operations \$id="rsc_sap_<b>HN1</b>_HDB<b>03</b>-operations" \
+     op start interval="0" timeout="3600" \
+     op stop interval="0" timeout="3600" \
+     op promote interval="0" timeout="3600" \
+     op monitor interval="60" role="Master" timeout="700" \
+     op monitor interval="61" role="Slave" timeout="700" \
+     params SID="<b>HN1</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
+     DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
    
-sudo crm configure ms msl_SAPHana_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> \
-  meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
-  target-role="Started" interleave="true"
+   sudo crm configure ms msl_SAPHana_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> \
+     meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
+     target-role="Started" interleave="true"
    
-sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \
-  meta target-role="Started" is-managed="true" \
-  operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
-  op monitor interval="10s" timeout="20s" \
-  params ip="<b>10.0.0.13</b>"
+   sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \
+     meta target-role="Started" is-managed="true" \
+     operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
+     op monitor interval="10s" timeout="20s" \
+     params ip="<b>10.0.0.13</b>"
    
-sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> anything \
-  params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \
-  op monitor timeout=20s interval=10 depth=0
+   sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> anything \
+     params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \
+     op monitor timeout=20s interval=10 depth=0
    
-sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
+   sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
    
-sudo crm configure colocation col_saphana_ip_<b>HN1</b>_HDB<b>03</b> 4000: g_ip_<b>HN1</b>_HDB<b>03</b>:Started \
-  msl_SAPHana_<b>HN1</b>_HDB<b>03</b>:Master  
+   sudo crm configure colocation col_saphana_ip_<b>HN1</b>_HDB<b>03</b> 4000: g_ip_<b>HN1</b>_HDB<b>03</b>:Started \
+     msl_SAPHana_<b>HN1</b>_HDB<b>03</b>:Master  
    
-sudo crm configure order ord_SAPHana_<b>HN1</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
-  msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+   sudo crm configure order ord_SAPHana_<b>HN1</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
+     msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
    
-# Clean up the HANA resources. The HANA resources might have failed because of a known issue.
-sudo crm resource cleanup rsc_SAPHana_<b>HN1</b>_HDB<b>03</b>
+   # Clean up the HANA resources. The HANA resources might have failed because of a known issue.
+   sudo crm resource cleanup rsc_SAPHana_<b>HN1</b>_HDB<b>03</b>
 
-sudo crm configure property maintenance-mode=false
-</code></pre>
+   sudo crm configure property maintenance-mode=false
+   </code></pre>
 
-Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
+Make sure that the cluster status is ok and that all the resources are started. It's not important on which node the resources are running.
 
-<pre><code>
-sudo crm_mon -r
+   <pre><code>
+   sudo crm_mon -r
    
-# Online: [ hn1-db-0 hn1-db-1 ]
-#
-# Full list of resources:
-#
-# stonith-sbd     (stonith:external/sbd): Started hn1-db-0
-# rsc_st_azure    (stonith:fence_azure_arm):      Started hn1-db-1
-# Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
-#     Started: [ hn1-db-0 hn1-db-1 ]
-# Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
-#     Masters: [ hn1-db-0 ]
-#     Slaves: [ hn1-db-1 ]
-# Resource Group: g_ip_HN1_HDB03
-#     rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-#     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
-</code></pre>
+   # Online: [ hn1-db-0 hn1-db-1 ]
+   #
+   # Full list of resources:
+   #
+   # stonith-sbd     (stonith:external/sbd): Started hn1-db-0
+   # rsc_st_azure    (stonith:fence_azure_arm):      Started hn1-db-1
+   # Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   #     Started: [ hn1-db-0 hn1-db-1 ]
+   # Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   #     Masters: [ hn1-db-0 ]
+   #     Slaves: [ hn1-db-1 ]
+   # Resource Group: g_ip_HN1_HDB03
+   #     rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+   #     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   </code></pre>
 
 ### Test the cluster setup
 This section describes how you can test your setup. Every test assumes that you are root and the SAP HANA master is running on the **hn1-db-0** virtual machine.
@@ -678,7 +681,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 #### Test a manual failover
 
-You can test a manual failover by stopping the pacemaker service on the hn1-db-0 node:
+You can test a manual failover by stopping the `pacemaker` service on the hn1-db-0 node:
 
 <pre><code>
 service pacemaker stop
@@ -724,7 +727,7 @@ The migration creates location constraints that need to be deleted again:
 <pre><code>
 crm configure edited
 
-# Delete location constraints that are named like the following contraint. You should have two constraints: one for the SAP HANA resource and one for the IP address group.
+# Delete location constraints that are named like the following contraint. You should have two constraints: one for the SAP HANA resource, and one for the IP address group.
 location cli-prefer-g_ip_<b>HN1</b>_HDB<b>03</b> g_ip_<b>HN1</b>_HDB<b>03</b> role=Started inf: <b>hn1-db-1</b>
 </code></pre>
 
@@ -737,7 +740,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 ## Next steps
-* Review the [Azure Virtual Machines planning and implementation for SAP][planning-guide] guide.
-* Review the [Azure Virtual Machines deployment for SAP][deployment-guide] guide.
-* Review the [Azure Virtual Machines DBMS deployment for SAP][dbms-guide] guide.
-* Learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances) in the [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md) article.
+* [Azure Virtual Machines planning and implementation for SAP][planning-guide]
+* [Azure Virtual Machines deployment for SAP][deployment-guide]
+* [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
+* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md)
