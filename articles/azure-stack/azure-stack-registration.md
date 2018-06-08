@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure registration for Azure Stack integrated systems | Microsoft Docs
 description: Describes the Azure registration process for multi-node Azure Stack Azure-connected deployments.
 services: azure-stack
@@ -18,6 +18,8 @@ ms.author: jeffgilb
 ms.reviewer: avishwan
 
 ---
+
+# Register Azure Stack with Azure
 
 Registering [Azure Stack](azure-stack-poc.md) with Azure allows you to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce and you can see it under the subscription used for registration.
 
