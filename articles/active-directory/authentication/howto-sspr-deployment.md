@@ -47,12 +47,12 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
    - Train your users to register and reset
       * Self-service password reset registration [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
       * Self-service password reset [https://aka.ms/sspr](https://aka.ms/sspr)
-   - We have sample training and communication materials you can download and tailor to your organization's needs from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56768)
+   - We have [sample training and communication materials](howto-sspr-deployment.md#email-communication).
 
    > [!IMPORTANT]
    > Test SSPR with a user, rather than an administrator, as Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md) article.
 
-10. Enable Windows 10 users to [reset their passwords from the locon screen](tutorial-sspr-windows.md).
+10. OPTIONALLY: Enable Windows 10 users to [reset their passwords from the locon screen](tutorial-sspr-windows.md).
 11. [Review reports to see details about the use of SSPR in your organization over time.](howto-sspr-reporting.md)
 12. As your pilot phase comes to a close review any feedback from your users and make the appropriate changes to any of the options previously selected.
 13. When you're ready, enable password reset for all users by setting the **Self Service Password Reset Enabled** switch to **All**.

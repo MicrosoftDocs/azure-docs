@@ -101,8 +101,8 @@
 ### [Data collection](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
 # Deprecate
-### [Passwords overview](../active-directory/authentication/active-directory-passwords-overview.md)
-### [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
+## [Passwords overview](../active-directory/authentication/active-directory-passwords-overview.md)
+## [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
