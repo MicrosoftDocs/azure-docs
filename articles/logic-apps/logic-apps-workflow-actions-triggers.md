@@ -1416,8 +1416,6 @@ values greater than the specified value, which is two:
 ## Response action  
 
 This action creates the payload for the response to an HTTP request. 
-You can use this action only in workflows that are triggered by HTTP requests, 
-but you can use this action anywhere in the workflow. 
 
 ```json
 "Response" {
@@ -1425,7 +1423,7 @@ but you can use this action anywhere in the workflow.
     "kind": "http",
     "inputs": {
         "statusCode": 200,
-        "headers": { <response-body> },
+        "headers": { <response-headers> },
         "body": { <response-body> }
     },
     "runAfter": {}
@@ -1474,19 +1472,21 @@ specified status code, message body, and message headers:
 
 Unlike other actions, the **Response** action has special restrictions: 
 
-* Your workflow can't use the **Response** action when 
-the workflow starts with the **Recurrence** trigger.
+* Your workflow can use the **Response** action only when the 
+workflow starts with an HTTP request trigger, 
+meaning your workflow must be triggered by an HTTP request.
 
-* Your workflow can't use the **Response** action inside parallel branches 
-because the incoming HTTP request requires predictable responses.
+* Your workflow can use the **Response** action anywhere *except* 
+inside **Foreach** loops, **Until** loops, including sequential loops, 
+and parallel branches. 
 
 * The original HTTP request gets your workflow's response only when all 
 actions required by the **Response** action are finished within the 
 [HTTP request timeout limit](../logic-apps/logic-apps-limits-and-config.md#request-limits).
 
-  However, if your workflow calls another another logic app as a nested workflow, 
-  the parent workflow waits until the nested workflow finishes, no matter how much 
-  time passes before the nested workflow finishes.
+  However, if your workflow calls another logic app as a nested workflow, 
+  the parent workflow waits until the nested workflow finishes, no matter 
+  how much time passes before the nested workflow finishes.
 
 * When your workflow uses the **Response** action and a synchronous response pattern, 
 the workflow can't also use the **splitOn** command in the trigger definition because 
