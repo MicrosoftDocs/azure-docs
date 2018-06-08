@@ -4,7 +4,7 @@ description: Use the IoT extension for Azure CLI 2.0 to deploy modules to an IoT
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 05/30/2018
+ms.date: 06/08/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
@@ -45,7 +45,13 @@ Here's a basic deployment manifest with one module as an example:
              "settings": {
                "minDockerVersion": "v1.25",
                "loggingOptions": "",
-               "registryCredentials": {}
+               "registryCredentials": {
+                 "registryName": {
+                   "username": "",
+                   "password": "",
+                   "address": ""
+                 }
+               }
            },
            "systemModules": {
              "edgeAgent": {
