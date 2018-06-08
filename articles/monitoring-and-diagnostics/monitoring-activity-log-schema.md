@@ -1,19 +1,13 @@
 ---
-title: Azure Activity Log Event Schema | Microsoft Docs
+title: Azure Activity Log event schema
 description: Understand the event schema for data emitted into the Activity Log
 author: johnkemnetz
-manager: robb
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-
+ms.component: activitylog
 ---
 # Azure Activity Log event schema
 The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data.

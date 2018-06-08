@@ -62,7 +62,7 @@ To enable baseline policy: 
 6. Click **Save**. 
  
 
-The baseline policy provides you with the option to exclude users and groups. You might want to exclude one *emergency-access administrative account* to ensure you are not locked out of the tenant.
+The baseline policy provides you with the option to exclude users and groups. You might want to exclude one *[emergency-access administrative account](active-directory-admin-manage-emergency-access-accounts.md)* to ensure you are not locked out of the tenant.
   
  
 
@@ -70,18 +70,9 @@ The baseline policy provides you with the option to exclude users and groups. Yo
 
 The directory roles that are included in the baseline policy are the most privileged Azure AD roles. Based on feedback, others might be included in the future. 
 
-If you have accounts that are used for scripting, you should use Managed Service Identity (MSI) or service principals (with certificates) for scripting. As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
+If you have accounts with administrator privileges in your scripts, you should use [Managed Service Identity (MSI)](managed-service-identity/overview.md) or [service principals (with certificates)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) instead. As a temporary workaround, you can exclude specific user accounts from your baseline policy. 
 
 The policy applies to legacy authentication flows like POP, IMAP, older Office desktop client. 
-
-
-
-
-
-
-
-
-
 
 ## Next steps
 

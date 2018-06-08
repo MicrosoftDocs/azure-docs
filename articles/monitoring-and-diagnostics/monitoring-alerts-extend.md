@@ -1,20 +1,13 @@
 ---
-title: Extend (copy) Log Analytics alerts into Azure Alerts - Overview | Microsoft Docs
+title: Extend (copy) Log Analytics alerts into Azure Alerts - Overview
 description: Overview of process to copy alerts from Log Analytics in OMS portal into Azure Alerts, with details addressing common customer concerns.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: vinagara
-
+ms.component: alerts
 ---
 # Extend Log Analytics alerts to Azure Alerts
 Until recently, Azure Log Analytics included its own alert functionality, which could proactively notify you of conditions based on Log Analytics data.  Management of alert rules were performed in [Microsoft Operation Management Suite (OMS) portal](../operations-management-suite/operations-management-suite-overview.md). The new alerts experience has now integrated the alerting experience across various services in Microsoft Azure. The new experience is available as **Alerts** under Azure Monitor in the Azure portal, and supports alerting from activity logs, metrics, and logs from both Log Analytics and Application Insights. 

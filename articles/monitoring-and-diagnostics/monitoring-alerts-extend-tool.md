@@ -1,20 +1,13 @@
 ---
-title: How to extend alerts from Log Analytcs to Azure | Microsoft Docs
+title: How to extend alerts from Log Analytcs to Azure
 description: This article describes the tools and API by which you can extend alerts from Log Analytics to Azure Alerts.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
-
+ms.component: alerts
 ---
 # How to extend alerts from Log Analytics into Azure Alerts
 Alerts in Log Analytics is being replaced by Azure Alerts and as part of this transition, alerts that you configured in Log Analytics will be extended into Azure.  If you don't want to wait for them to be automatically moved into Azure, you can initiate the process following one of the options:
