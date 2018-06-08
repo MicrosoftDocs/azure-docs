@@ -3,8 +3,11 @@
 
 ## Comparing Azure Data Lake Storage (Preview) and Azure Data Lake Store
 
-The table in this article summarizes the differences between Azure Data Lake Store and Azure Data Lake Storage (Preview). 
+The table in this article summarizes the differences between Azure Data Lake Store and Azure Data Lake Storage (Preview).
 
+Azure Data Lake Store is a hyper scale repository that is optimized for big data analytics workloads.
+
+In comparison, Azure Data Lake Storage (Preview) offers rich support for the Hadoop Compatible File System along with a full hierarchical namespace optimized for analytics workloads. Additionally it brings all of Azure Blobs offerings to the table so functionality like data tiering and lifecycle management, durability options for HA and DR, eventgrid support, enhanced network security, and compatibility with all of Blob APIs.
 
 |Azure Data Lake Store  |Azure Data Lake Storage (Preview)  |
 |---------|---------|
@@ -36,3 +39,6 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 |Auditing – customer can have request and diagnostic logs collect data to access audit trails.     |         |
 |APIs – customer can use REST APIs over HTTPS.     |APIs – customer can use REST APIs over HTTP/HTTPS.         |
 |Many ways to read and write data – customer can use SDKs (.NET, Java, Python, R), Azure portal, and tools (Powershell, Azure CLI, AdlCopy, Distcp, ADF, Azure Import/Export) to read and write their data.     |Many ways to read and write data – Azure portal, and tools (Azure Storage Explorer, Powershell, Azure CLI, AzCopy, Distcp, ADF, Azure Import/Export, Azure Databox) to read and write their data.         |
+
+
+To Do: Add a couple transition sentences to the migration article.
