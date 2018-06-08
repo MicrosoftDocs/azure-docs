@@ -13,7 +13,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 04/26/2018
+  ms.date: 06/08/2018
   ms.author: barclayn
 
 
@@ -25,22 +25,30 @@ In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (V
 
 Your responsibility for security is based on the type of cloud service. The following chart summarizes the balance of responsibility for both Microsoft and you:
 
-
 ![Areas of responsibility](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 Security requirements vary depending on a number of factors including different types of workloads. Not one of these best practices can by itself secure your systems. Like anything else in security, you have to choose the appropriate options and see how the solutions can complement each other by filling gaps.
 
-This article discusses various VM security best practices, each derived from our customers' and our own direct experiences with VMs.
+This article discusses various VM security best practices, each derived from customer and Microsoft's own direct experiences with VMs.
 
-The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time, we plan to update this article regularly to reflect those changes.
+The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time,  this article will be updated reflect those changes.
+
+[!div class="checklist"]
+
+Create a Key Vault.
+Store a secret in Key Vault.
+Create an Azure Web Application.
+Enable managed service identities
+Grant the required permissions for the application to read data from Key vault.
+
 
 ## Use Privileged Access Workstations
 
-Organizations often fall prey to cyberattacks because administrators perform actions while using accounts with elevated rights. Usually this isn’t done maliciously but because existing configuration and processes allow it. Most of these users understand the risk of these actions from a conceptual standpoint but still choose to do them.
+Organizations often fall prey to cyberattacks because administrators perform actions while using accounts with elevated rights. While this may not be the result of malicious activity, it happens because existing configuration and processes allow it. Most of these users understand the risk of these actions from a conceptual standpoint but still choose to do them.
 
 Doing things like checking email and browsing the Internet seem innocent enough. But they might expose elevated accounts to compromise by malicious actors. Browsing activities, specially crafted emails, or other techniques can be used to gain access to your enterprise. We highly recommend the use of secure management workstations (SAWs) for conducting all Azure administration tasks. SAWs are a way of reducing exposure to accidental compromise.
 
-Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks--one that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily-use workstations and devices provides strong protection. This separation limits the impact of phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks. (keystroke logging, Pass-the-Hash, and Pass-the-Ticket)
+Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks--one that is protected from Internet attacks and threat vectors. Separating sensitive tasks and accounts from the daily use workstations and devices provides strong protection. This separation limits the impact of phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks. (keystroke logging, Pass-the-Hash, and Pass-the-Ticket)
 
 The PAW approach is an extension of the well-established and recommended practice to use an individually assigned administrative account. The administrative account is separate from a standard user account. A PAW provides a trustworthy workstation for those sensitive accounts.
 
@@ -48,7 +56,7 @@ For more information and implementation guidance, see [Privileged Access Worksta
 
 ## Use Multi-Factor Authentication
 
-In the past, your network perimeter was used to control access to corporate data. In a cloud-first, mobile-first world, identity is the control plane: You use it to control access to IaaS services from any device. You also use it to get visibility and insight into where and how your data is being used. Protecting the digital identity of your Azure users is the cornerstone of protecting your subscriptions from identity theft and other cybercrimes.
+In the past, the network perimeter was used to control access to corporate data. In a cloud-first, mobile-first world, identity is the control plane: You use it to control access to IaaS services from any device. You also use it to get visibility and insight into where and how your data is being used. Protecting the digital identity of your Azure users is the cornerstone of protecting your subscriptions from identity theft and other cybercrimes.
 
 One of the most beneficial steps that you can take to secure an account is to enable two-factor authentication. Two-factor authentication is a way of authenticating by using something in addition to a password. It helps mitigate the risk of access by someone who manages to get someone else’s password.
 
@@ -64,7 +72,7 @@ The following screenshot shows some of the options available for Azure Multi-Fac
 
 ## Limit and constrain administrative access
 
-Securing the accounts that can manage your Azure subscription is extremely important. The compromise of any of those accounts negates the value of all the other steps that you might take to ensure the confidentiality and integrity of your data. As recently illustrated by the [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) internal attacks pose a huge threat to the overall security of any organization.
+Securing the accounts that can manage your Azure subscription is important. The compromise of any of those accounts negates the value of all the other steps that you might take to ensure the confidentiality and integrity of your data. As recently illustrated by the [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) internal attacks pose a huge threat to the overall security of any organization.
 
 Evaluate individuals for administrative rights by following criteria similar to these:
 
@@ -74,14 +82,13 @@ Evaluate individuals for administrative rights by following criteria similar to 
 
 Document all other known alternative approaches to granting the privilege and why each isn't acceptable.
 
-The use of just-in-time administration prevents the unnecessary existence of accounts with elevated rights during periods when those rights are not needed. Accounts have elevated rights for a limited time so that administrators can do their jobs. Then, those rights are removed at the end of a shift or when a task is completed.
+Just-in-time administration prevents the unnecessary existence of accounts with elevated rights during periods when those rights are not needed. Accounts have elevated rights for a limited time so that administrators can do their jobs. Then, those rights are removed at the end of a shift or when a task is completed.
 
 You can use [Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md) to manage, monitor, and control access in your organization. It helps you remain aware of the actions that individuals take in your organization. It also brings just-in-time administration to Azure AD by introducing the concept of eligible admins. These are individuals who have accounts with the potential to be granted admin rights. These types of users can go through an activation process and be granted admin rights for a limited time.
 
-
 ## Use DevTest Labs
 
-Using Azure for labs and development environments enables organizations to gain agility in testing and development by taking away the delays that hardware procurement introduces. Unfortunately, a lack of familiarity with Azure or a desire to help expedite its adoption might lead the administrator to be overly permissive with rights assignment. This risk might unintentionally expose the organization to internal attacks. Some users might be granted a lot more access than they should have.
+Azure for labs and development environments takes away the delays that hardware procurement introduces. This enables organizations to gain agility in testing and development. On the other hand, a lack of familiarity with Azure or a desire to help expedite its adoption might lead the administrator to be overly permissive with rights assignment. This risk might unintentionally expose the organization to internal attacks. Some users might be granted a lot more access than they should have.
 
 The [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service uses [Azure Role-Based Access Control](../role-based-access-control/overview.md) (RBAC). By using RBAC, you can segregate duties within your team into roles that grant only the level of access necessary for users to do their jobs. RBAC comes with predefined roles (owner, lab user, and contributor). You can even use these roles to assign rights to external partners and greatly simplify collaboration.
 
@@ -96,7 +103,7 @@ Azure DevTest Labs features include:
 - Self-service that enables users to provision their labs by using templates.
 - Managing and limiting consumption.
 
-![Using DevTest Labs to create a lab](./media/azure-security-iaas/devtestlabs.png)
+![DevTest Labs](./media/azure-security-iaas/devtestlabs.png)
 
 No additional cost is associated with the usage of DevTest Labs. The creation of labs, policies, templates, and artifacts is free. You pay for only the Azure resources used in your labs, such as virtual machines, storage accounts, and virtual networks.
 
@@ -132,7 +139,7 @@ Features that you would have access to include:
 
 ### VM availability and network access
 
-If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, create at least two VMs in the [availability set](../virtual-machines/windows/tutorial-availability-sets.md).
+If a VM runs critical applications that need to have high availability, it is strongly recommend that multiple VMs are used. For better availability, create at least two VMs in the [availability set](../virtual-machines/windows/tutorial-availability-sets.md).
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) also requires that load-balanced VMs belong to the same availability set. If these VMs must be accessed from the Internet, you must configure an [Internet-facing load balancer](../load-balancer/load-balancer-internet-overview.md).
 
@@ -157,7 +164,7 @@ Anyone with an Azure subscription can create and use key vaults. Although Key Va
 
 For more information, see [Azure Disk Encryption in Windows and Linux IaaS VMs](azure-security-disk-encryption.md).
 
-[Azure Storage Service Encryption](../storage/common/storage-service-encryption.md) helps protect your data at rest. It's enabled at the storage account level. It encrypts data as it's written in our datacenters, and it's automatically decrypted as you access it. It supports the following scenarios:
+[Azure Storage Service Encryption](../storage/common/storage-service-encryption.md) helps protect data at rest. It's enabled at the storage account level. It encrypts data as it's written in our datacenters, and it's automatically decrypted as you access it. It supports the following scenarios:
 
 - Encryption of block blobs, append blobs, and page blobs
 - Encryption of archived VHDs and templates brought to Azure from on-premises
@@ -170,7 +177,7 @@ Before you proceed with Azure Storage Encryption, be aware of two limitations:
 
 ## Use a centralized security management system
 
-Your servers need to be monitored for patching, configuration, events, and activities that might be considered security concerns. To address those concerns, you can use [Security Center](https://azure.microsoft.com/services/security-center/) and [Operations Management Suite Security and Compliance](https://azure.microsoft.com/services/security-center/). Both of these options go beyond the configuration in the operating system. They also provide monitoring of the configuration of the underlying infrastructure, like network configuration and virtual appliance use.
+Your servers must be monitored for patching, configuration, events, and activities that might be considered security concerns. To address those concerns, you can use [Security Center](https://azure.microsoft.com/services/security-center/) and [Operations Management Suite Security and Compliance](https://azure.microsoft.com/services/security-center/). Both of these options go beyond the configuration in the operating system. They also provide monitoring of the configuration of the underlying infrastructure, like network configuration and virtual appliance use.
 
 ## Manage operating systems
 
