@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/08/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 
@@ -22,11 +22,15 @@ ms.reviewer: unknown
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Use Visual Studio to author and deploy Azure Resource Manager [templates](user/azure-stack-arm-templates.md) in Azure Stack. You can use the steps described in this article to install Visual Studio either from [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are connected through [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). These steps perform a new installation of Visual Studio 2015 Community Edition. Read more about [coexistence](https://msdn.microsoft.com/library/ms246609.aspx) between other Visual Studio versions.
+You can use Visual Studio to write and deploy Azure Resource Manager [templates](user/azure-stack-arm-templates.md) to Azure Stack. The steps in this article walk you through installing Visual Studio on the [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or on an external computer if you can connect to Azure Stack through the [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). 
 
 ## Install Visual Studio
-1. Download and run the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).             
-2. Search for **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**, click **Add**, and **Install**.
+
+1. Download and run the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).  
+
+2. Open the **Microsoft Web Platform Installer**.
+
+3. Search for **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**. Click **Add**, and **Install**.
 
     ![Screenshot of WebPI install steps](./media/azure-stack-install-visual-studio/image1.png) 
 
