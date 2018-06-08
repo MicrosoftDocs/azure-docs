@@ -53,7 +53,7 @@
 
 ## Cloud-based MFA
 ### [Deploy cloud-based MFA](../active-directory/authentication/howto-mfa-getstarted.md)
-### [Enable or disable MFA](../active-directory/authentication/howto-mfa-userstates.md)
+### [Per user MFA](../active-directory/authentication/howto-mfa-userstates.md)
 ### [User and device settings](../active-directory/authentication/howto-mfa-userdevicesettings.md)
 ### [Configure settings](../active-directory/authentication/howto-mfa-mfasettings.md)
 ### Directory Federation
