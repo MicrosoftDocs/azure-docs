@@ -6,8 +6,7 @@ services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: snmuvva, vinagara
-ms.custom: 
+ms.author: snmuvva
 ms.component: alerts
 ---
 

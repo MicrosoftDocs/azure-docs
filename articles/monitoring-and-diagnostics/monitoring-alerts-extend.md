@@ -1,5 +1,5 @@
 ---
-title: Extend (copy) Log Analytics alerts into Azure Alerts - Overview | Microsoft Docs
+title: Extend (copy) Log Analytics alerts into Azure Alerts - Overview
 description: Overview of process to copy alerts from Log Analytics in OMS portal into Azure Alerts, with details addressing common customer concerns.
 author: msvijayn
 services: azure-monitor

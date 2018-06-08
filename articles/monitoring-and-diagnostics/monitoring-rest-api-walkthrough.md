@@ -4,10 +4,6 @@ description: How to authenticate requests and use the Azure Monitor REST API to 
 author: mcollier
 services: azure-monitor
 ms.service: azure-monitor
-ms.search.region: 
-ms.search.scope: 
-ms.search.validFrom: 
-ms.dyn365.ops.version: 
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier

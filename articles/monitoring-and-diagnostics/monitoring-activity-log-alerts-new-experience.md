@@ -7,7 +7,6 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: 
 ms.component: alerts
 ---
 # Create activity log alerts using the new alerts experience

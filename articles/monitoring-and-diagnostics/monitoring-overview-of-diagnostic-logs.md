@@ -6,7 +6,7 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: magoedte
+ms.author: johnkem
 ms.component: logs
 ---
 # Collect and consume log data from your Azure resources
