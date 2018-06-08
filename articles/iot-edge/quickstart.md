@@ -4,7 +4,7 @@ description: Try out Azure IoT Edge by running analytics on a simulated edge dev
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 05/03/2018
+ms.date: 06/08/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -35,6 +35,18 @@ This quickstart assumes that you're using a computer or virtual machine running 
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
+5. You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality. You can complete these steps in the cloud shell in the Azure portal.
+    * Sign in to the [Azure portal][lnk-portal]. 
+    * Select the **Cloud Shell** button. 
+
+       ![Cloud Shell button][1]
+
+    * Run the following command in the cloud shell:
+
+       ```azurecli
+       az extension show --name azure-cli-iot-ext
+       ```
+
 > [!NOTE]
 > Azure IoT Edge can run either Windows containers or Linux containers. To use Windows containers, you have to run:
 >    * Windows 10 Fall Creators Update, or
@@ -50,12 +62,7 @@ This quickstart assumes that you're using a computer or virtual machine running 
 
 Create an IoT hub in your Azure subscription. The free level of IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a free hub created, you can skip this section and go on to [Register an IoT Edge device][anchor-register]. Each subscription can only have one free IoT hub. 
 
-1. Sign in to the [Azure portal][lnk-portal]. 
-1. Select the **Cloud Shell** button. 
-
-   ![Cloud Shell button][1]
-
-1. Create a resource group. The following code creates a resource group called **IoTEdge** in the **West US** region:
+1. Use the Azure cloud shell to create a resource group. The following code creates a resource group called **IoTEdge** in the **West US** region:
 
    ```azurecli
    az group create --name IoTEdge --location westus
@@ -69,7 +76,21 @@ Create an IoT hub in your Azure subscription. The free level of IoT Hub works fo
 
 ## Register an IoT Edge device
 
-[!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
+Create a device identity for your simulated device so that it can communicate with your IoT hub. Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning. 
+
+1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub **MyIoTHub**
+
+   ```azurecli
+   az iot hub device-identity create --device-id myEdgeDevice --hub-name MyIoTHub --edge-enabled
+   ```
+
+1. Retrieve the connection string for your device, which links your physical device with its identity in IoT Hub. 
+
+   ```azurecli
+   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name MyIoTHub
+   ```
+
+1. Copy the connection string and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
 
 ## Configure the IoT Edge runtime
 
@@ -131,7 +152,7 @@ iotedgectl uninstall
 When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
 
 ```azurecli
-az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
+az iot hub delete --name MyIoTHub --resource-group IoTEdge
 ```
 
 ## Next steps

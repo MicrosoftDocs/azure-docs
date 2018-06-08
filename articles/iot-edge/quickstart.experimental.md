@@ -5,7 +5,7 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 11/16/2017
+ms.date: 06/08/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -17,7 +17,7 @@ experiment_id:
 
 # Deploy Azure IoT Edge on a simulated device in Windows -  preview
 
-Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, built from Azure services or custom code, but first you need a device to test. 
+Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, but first you need a device to test. 
 
 In this quickstart you learn how to:
 
@@ -104,7 +104,7 @@ docker ps
 
 ## Deploy a module
 
-Manage your Azure IoT Edge device from the cloud to deploy a module which will send telemetry data to IoT Hub.
+Manage your Azure IoT Edge device from the cloud to deploy a module that will send telemetry data to IoT Hub.
 ![Register a device][6]
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]

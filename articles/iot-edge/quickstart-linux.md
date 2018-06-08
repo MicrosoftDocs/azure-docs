@@ -16,7 +16,7 @@ experiment_id:
 
 # Quickstart: Deploy your first IoT Edge module to a Linux or Mac device - preview
 
-Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this topic, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
+Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this quickstart, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
 
 If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
@@ -79,7 +79,7 @@ Create a device identity for your simulated device so that it can communicate wi
 
 The IoT Edge runtime is deployed on all IoT Edge devices. Its composed of three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
-1. On the machine where you'll run the IoT Edge device, download and install a version of **hsmlib** that enables the security daemon to interact with the device's hardware security:
+1. On the machine where you'll run the IoT Edge device, install a version of **hsmlib** that enables the security daemon to interact with the device's hardware security:
 
    ```bash
    wget https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-amd64-13893488/libiothsm-std_0.1.1-13893488_amd64.deb && sudo apt-get install ./libiothsm-std_0.1.1-13893488_amd64.deb
@@ -91,7 +91,7 @@ The IoT Edge runtime is deployed on all IoT Edge devices. Its composed of three 
    wget https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-amd64-13893488/iotedge_0.1-13893488_amd64.deb && sudo apt-get install ./iotedge_0.1-13893488_amd64.deb
    ```
 
-2. Open `/etc/iotedge/config.yaml`. It is a protected file so you may have to use elevated privilages to access it.
+2. Open `/etc/iotedge/config.yaml`. It is a protected file so you may have to use elevated privileges to access it.
    
    ```bash
    sudo nano /etc/iotedge/config.yaml
@@ -111,9 +111,9 @@ The IoT Edge runtime is deployed on all IoT Edge devices. Its composed of three 
    sudo systemctl status iotedge
    ```
 
-   ![See the Edge Daemon running as a system service][7]
+   ![See the Edge Daemon running as a system service](./media/tutorial-install-iot-edge/iotedged-running.png)
 
-You can also see logs from the Edge Security Daemon by running the command
+You can also see logs from the Edge Security Daemon by running the following command:
    ```
    journalctl -u iotedge
    ```
@@ -132,7 +132,7 @@ Open the command prompt on the computer running your simulated device again. Con
 sudo iotedge list
 ```
 
-![View three modules on your device][8]
+![View three modules on your device](./media/tutorial-simulate-device-linux/running-modules.png)
 
 View the messages being sent from the tempSensor module to the cloud:
 
@@ -140,25 +140,39 @@ View the messages being sent from the tempSensor module to the cloud:
 sudo docker logs tempSensor -f 
 ```
 
-![View the data from your module][9]
+![View the data from your module](./media/tutorial-simulate-device-linux/sensor-data.png)
 
-The temperature sensor module my be waiting to connect to Edge Hub if the last line you see in the log is `Using transport Mqtt_Tcp_Only`. Try killing the module and letting the Edge Agent restart it. You can kill it with the command `sudo docker stop tempSensor`.
+The temperature sensor module may be waiting to connect to Edge Hub if the last line you see in the log is `Using transport Mqtt_Tcp_Only`. Try killing the module and letting the Edge Agent restart it. You can kill it with the command `sudo docker stop tempSensor`.
 
 You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer]. 
 
 
 ## Clean up resources
 
-If you want to remove the simulated device that you created, along with the Docker containers that were started for each module, use the following command: 
+If you want to continue on to the IoT Edge tutorials, you can use the device that you registered and set up in this quickstart. If you want to remove the installations from your device, use the following commands.  
 
-```bash
-sudo iotedgectl uninstall
-```
+Remove the IoT Edge runtime.
+
+   ```bash
+   sudo apt-get remove --purge iotedge
+   ```
+
+Delete the containers that were created on your device. 
+
+   ```bash
+   sudo docker rm -f $(sudo docker ps -aq)
+   ```
+
+Remove the container runtime.
+
+   ```bash
+   sudo apt-get remove --purge moby
+   ```
 
 When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
 
 ```azurecli
-az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
+az iot hub delete --name MyIoTHub --resource-group IoTEdge
 ```
 
 ## Next steps
