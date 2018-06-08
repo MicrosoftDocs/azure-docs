@@ -1,6 +1,6 @@
 ---
 title: Use Microsoft Azure Traffic Manager to increase endpoint quota in Language Understanding (LUIS) - Azure | Microsoft Docs
-description: Use Microsoft Azure Traffic Manager  to spread endpoint quota across several subscriptions in Language Understanding (LUIS) to increase endpoint quota 
+description: Use Microsoft Azure Traffic Manager to spread endpoint quota across several subscriptions in Language Understanding (LUIS) to increase endpoint quota 
 author: v-geberr
 manager: kaiqb
 services: cognitive-services
@@ -9,7 +9,7 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: v-geberr
-#Customer intent: As an advanced user, I want to understand how use multiple LUIS subscription keys to increase the number of endpoint requests my application receives.
+#Customer intent: As an advanced user, I want to understand how to use multiple LUIS subscription keys to increase the number of endpoint requests my application receives.
 ---
 
 # Use Microsoft Azure Traffic Manager to manage endpoint quota across keys
@@ -19,7 +19,7 @@ The client-application has to manage the traffic across the keys. LUIS doesn't d
 
 This article explains how to manage the traffic across keys with Azure [Traffic Manager][traffic-manager-marketing]. You must already have a trained and published LUIS app. If you do not have one, follow the Prebuilt domain [quickstart](luis-get-started-create-app.md). 
 
-## Connect to PowerShell in Azure Portal
+## Connect to PowerShell in the Azure portal
 In the [Azure][azure-portal] portal, open the PowerShell window. The icon for the PowerShell window is the **>_** in the top navigation bar. By using PowerShell from the portal, you get the latest PowerShell version and you are authenticated. PowerShell in the portal requires an [Azure Storage](https://azure.microsoft.com/services/storage/) account. 
 
 ![Screenshot of Azure portal with Powershell window open](./media/traffic-manager/azure-portal-powershell.png)
@@ -56,7 +56,7 @@ Because each LUIS endpoint needs its own path, it needs its own Traffic Manager 
 
 Once the Traffic Manager is configured, remember to change the path to use the logging=false query string parameter so your log is not filling up with polling.
 
-## Configure Traffic Manager with nested Profiles
+## Configure Traffic Manager with nested profiles
 The following sections create two child profiles, one for the East LUIS key and one for the West LUIS key. Then a parent profile is created and the two child profiles are added to the parent profile. 
 
 ### Create the East US Traffic Manager profile with PowerShell
@@ -313,7 +313,7 @@ $<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -Resour
 ## Verify Traffic Manager works
 To verify that the Traffic Manager profiles work, the profiles need to have the status of `Online` This status is based on the polling path of the endpoint. 
 
-### View new profiles in Azure Portal
+### View new profiles in the Azure portal
 You can verify that all three profiles are created by looking at the resources in the `luis-traffic-manager` resource group.
 
 ![Screenshot of Azure resource group luis-traffic-manager](./media/traffic-manager/traffic-manager-profiles.png)
@@ -355,7 +355,7 @@ The successful response with the LUIS endpoint is:
 ]
 ```
 
-## Using the Traffic Manager parent profile
+## Use the Traffic Manager parent profile
 In order to manage traffic across endpoints, you need to insert a call to the Traffic Manager DNS to find the LUIS endpoint. This call is made for every LUIS endpoint request and needs to simulate the geographic location of the user of the LUIS client application. Add the DNS response code in between your LUIS client application and the request to LUIS for the endpoint prediction. 
 
 
