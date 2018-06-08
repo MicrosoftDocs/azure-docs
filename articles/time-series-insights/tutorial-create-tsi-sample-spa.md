@@ -20,13 +20,13 @@ This tutorial will guide you through the process of creating a single-page web a
 
 ## Prerequisites
 
-If you haven't established your own TSI environment yet, complete the [Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md) tutorial first, before starting this one. You also learn how to create a [free Azure subscription](https://azure.microsoft.com/en-us/free/), if you don't already have one. You'll use the TSI environment as a data source for this tutorial. 
+If you haven't established your own TSI environment yet, complete the [Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md) tutorial first. You'll use the TSI environment as a data source for this tutorial. You'll also create a [free Azure subscription](https://azure.microsoft.com/en-us/free/), if you don't already have one. 
 
 You'll also need to install Visual Studio if you haven't already. For this tutorial, you can [download/install the free Community version, or a free trial](https://www.visualstudio.com/downloads/).
 
 ## Application design overview
 
-As mentioned, the TSI sample application provides the basis for the design and code of this tutorial. The sample uses the TSI Client JavaScript library to query and visualize data from a TSI environment. 
+As mentioned, the TSI sample application is the basis for the design and code of this tutorial. The sample uses the TSI Client JavaScript library to query and visualize data from a TSI environment. 
 
 The TSI Client JavaScript library provides an abstraction for two important API categories:
 - **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using JSON-based expressions. The methods are organized under the `TsiClient.server` namespace of the library.
@@ -79,23 +79,39 @@ Before building the application, you register it with Azure AD. Registration ser
 
 1. Create a working directory to store your application project. Then browse to each of the following URLs, right-click on the "Raw" link in the upper right area of the page, and "Save as" into your working directory:
 
-   - **index.html** HTML and JavaScript for the page https://github.com/Microsoft/tsiclient/blob/tutorial/pages/samples/index.html
-   - **sampleStyles.css:** CSS style sheet: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/samples/sampleStyles.css
+   - **index.html** HTML and JavaScript for the page https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
+   - **sampleStyles.css:** CSS style sheet: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
-2. Start Visual Studio. On the **File** menu, select the **Open**, **Web site** option. Select the working directory where you stored the HTML and CSS files, then click **Open**:
+2. Start and sign in to Visual Studio, to create a solution for the web application. On the **File** menu, select the **Open**, **Web site** option. Select the working directory where you stored the HTML and CSS files, then click **Open**:
 
    ![VS - File open web site](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
 
+3. Open **Solution Explorer** from the **View** menu. You should see the new solution, containing a web site project (globe icon), which contains the HTML and CSS files:
 
-4. Open Solution Explorer, you should see index.html and styles.css files. 
-5. Right click on the solution to publish the web app to Azure. Right Click -> Publish Web App
-6. Click Microsoft Azure App Service 
-7. Click “New” Resource Group and provide a resource group name and click “OK” 
-8. Click “New” App Service Plan and provide an App service plan name and click “OK” 
-9. Click “Create” to complete the hosting steps
-10. Click “Publish” to publish the web app
+   ![VS - Solution explorer new solution](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
 
+4. Now publish the web application to your Azure subscription as an Azure App Service:
 
+   a. Right click on the web site project node in **Solution Explorer**, and select **Publish Web App**: 
+
+      ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png)
+
+   b. Select **Microsoft Azure App Service** as the publish target: 
+
+      ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-publish-web-app.png)
+
+   c. If the account used for Visual Studio sign-in has access to multiple subscriptions, select the subscription you'd like to use. Then click “New” to configure the new Azure App Service: 
+
+      ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-publish-web-app-app-service.png)
+
+   d. For this tutorial, we use the default App, Resource Group, and App Service Plan names, but feel free to change them. Click **Create** to create when finished:
+
+      ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-publish-web-app-app-service-create.png)
+
+   e. Click “Create” to complete the hosting steps
+   f. Click “Publish” to publish the web app
+
+5. next...
 
 ## Test the web application
 
