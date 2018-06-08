@@ -254,13 +254,20 @@ Create the Terraform configuration file that declares the resources for the Kube
     ```
 
 ## Create the Kubernetes cluster
+In this section, you see how to use the terraform command to create the resources defined the configuration files you created in the previous sections.
 
-1. In Cloud Shell, initialize Terraform (replace the &lt;YourAzureStorageAccount> and &lt;YourAzureStorageAccountAccessKey> placeholders with the appropriate values for your Azure storage account):
+1. In Cloud Shell, create a container in your storage account (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with the appropriate values for your Azure storage account).
+
+    ```bash
+    az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
+    ```
+
+1. Initialize Terraform (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with the appropriate values for your Azure storage account).
 
     ```bash
     terraform init \
-    -backend-config="storage_account_name=<YourAzureStorageAccount>" \
-    -backend-config="container_name=tfstate"
+    -backend-config="storage_account_name=<YourAzureStorageAccountName>" \
+    -backend-config="container_name=tfstate" \
     -backend-config="access_key=<YourStorageAccountAccessKey>" \
     -backend-config="key=codelab.microsoft.tfstate" 
     ```
@@ -315,16 +322,7 @@ In this section, you use the Kubernetes dashboard can be used to test the newly 
 
     The **kubectl proxy** command returns an IP address as shown in the following image:
 
-    ![The kubectl proxy command allows you to access the Kubernetes dashboard](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
-
-1. Display the Kubernetes dashboard.
-
-    ```bash
-    open 'http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/overview?namespace=default'
-    ```
-
-    ![Kubernetes dashboard](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubernetes-dashboard.png)
-
+    ![The kubectl proxy command allows you to access the Kubernetes dashboard](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-proxy.png)
 
 ## Deploy pods with the Kubernetes Terraform provider
 [Kubernetes pods](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod) are the smallest deployable units of computing that can be created and managed in Kubernetes. In this section, you learn how to declare the Kubernetes provider and use it to deploy pods.
