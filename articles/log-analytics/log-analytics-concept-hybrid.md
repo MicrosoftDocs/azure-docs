@@ -62,7 +62,7 @@ The following Linux distributions are officially supported.  However, the Linux 
 The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Log Analytics.  
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
-|------|---------|--------|  
+|------|---------|--------|--------|   
 |*.ods.opinsights.azure.com |Port 443 |Inbound and outbound|Yes |  
 |*.oms.opinsights.azure.com |Port 443 |Inbound and outbound|Yes |  
 |*.blob.core.windows.net |Port 443 |Inbound and outbound|Yes |  
