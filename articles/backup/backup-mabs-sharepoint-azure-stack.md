@@ -1,6 +1,6 @@
 ---
-title: Use Azure Backup server to back up a SharePoint farm to Azure
-description: Use Azure Backup Server to back up and restore your SharePoint data. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
+title: Back up a SharePoint farm on Azure Stack to Azure
+description: Use Azure Backup Server to back up and restore your SharePoint data on Azure Stack. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
 services: backup
 author: pvrk
 manager: shivamg
@@ -10,8 +10,8 @@ ms.date: 6/8/2018
 ms.author: pullabhk
 ---
 
-# Back up a SharePoint farm to Azure
-You back up a SharePoint farm to Microsoft Azure by using Microsoft Azure Backup Server (MABS) in much the same way that you back up other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points and gives you retention policy options for various backup points. It also provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
+# Back up a SharePoint farm on Azure Stack to Azure
+You back up a SharePoint farm on Azure Stack to Microsoft Azure by using Microsoft Azure Backup Server (MABS) in much the same way that you back up other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points and gives you retention policy options for various backup points. It also provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
 
 ## SharePoint supported versions and related protection scenarios
 Azure Backup for DPM supports the following scenarios:
@@ -24,7 +24,7 @@ Azure Backup for DPM supports the following scenarios:
 There are a few things you need to confirm before you back up a SharePoint farm to Azure.
 
 ### Prerequisites
-Before you proceed, make sure that you have [installed and prepared the Azure Backup Server](backup-azure-microsoft-azure-backup.md) to protect workloads.
+Before you proceed, make sure that you have [installed and prepared the Azure Backup Server](backup-mabs-install-azure-stack.md) to protect workloads.
 
 ### Protection agent
 The Azure Backup agent must be installed on the server that's running SharePoint, the servers that are running SQL Server, and all other servers that are part of the SharePoint farm. For more information about how to set up the protection agent, see [Setup Protection Agent](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  The one exception is that you install the agent only on a single web front end (WFE) server. Azure Backup Server needs the agent on one WFE server only to serve as the entry point for protection.
@@ -228,5 +228,5 @@ A: Because SharePoint databases are configured in SQL AlwaysOn, they cannot be m
 
 ## Next Steps
 
-See the [Back up Exchange server](backup-azure-exchange-mabs.md) article.
-See the [Back up SQL Server](backup-azure-sql-mabs.md) article.
+See the [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
+See the [Backup SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md) article.
