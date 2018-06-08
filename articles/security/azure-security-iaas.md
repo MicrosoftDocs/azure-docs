@@ -33,13 +33,13 @@ This article discusses various VM security best practices, each derived from cus
 
 The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time,  this article will be updated reflect those changes.
 
-[!div class="checklist"]
 
-Create a Key Vault.
-Store a secret in Key Vault.
-Create an Azure Web Application.
-Enable managed service identities
-Grant the required permissions for the application to read data from Key vault.
+> [!div class="checklist"]
+> * Create a Key Vault.
+> * Store a secret in Key Vault.
+> * Create an Azure Web Application.
+> * Enable managed service identities
+> * Grant the required permissions for the application to read data from Key vault.
 
 
 ## Use Privileged Access Workstations
