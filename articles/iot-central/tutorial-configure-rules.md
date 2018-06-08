@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-Tutorial: Configure rules and actions for your device in Azure IoT Central
+# Tutorial: Configure rules and actions for your device in Azure IoT Central
 
 This tutorial shows you, as a builder, how to configure telemetry-based rules and actions in your Microsoft Azure IoT Central application.
 
