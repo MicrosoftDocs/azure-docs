@@ -1293,10 +1293,10 @@ easily reference the data in that output.
 *Example*
 
 This action definition creates these tokens, 
-which you can use at design time in your logic app workflow, 
-but only in actions that run after this **Parse JSON** action: 
+which you can use at design time in your logic app workflow 
+but only in actions that run following the **Parse JSON** action. 
 
-Tokens created: "FirstName", "LastName", "Email"
+Here are the tokens that this action creates: "FirstName", "LastName", "Email"
 
 ```json
 "Parse_JSON": {
@@ -1334,22 +1334,22 @@ Tokens created: "FirstName", "LastName", "Email"
 ```
 
 In this example, the "content" property specifies the JSON content for the action to parse. 
-You can use this content as the sample payload for generating the schema.
+You can also provide this JSON content as the sample payload for generating the schema.
 
 ```json
-{
+"content": {
    "Member": { 
       "FirstName": "Sophie",
       "LastName": "Owen",
       "Email": "Sophie.Owen@contoso.com"
    }
-}
+},
 ```
 
-Here is the JSON schema that describes this JSON content:
+The "schema" property specifies the JSON schema used for describing the JSON content:
 
 ```json
-{
+"schema": {
    "type": "object",
    "properties": {
       "Member": {
@@ -1415,41 +1415,91 @@ values greater than the specified value, which is two:
 
 ## Response action  
 
-This action contains the entire response payload from an HTTP request 
-and includes a `statusCode`, `body`, and `headers`:
-  
+This action creates the payload for the response to an HTTP request. 
+You can use this action only in workflows that are triggered by HTTP requests, 
+but you can use this action anywhere in the workflow. 
+
 ```json
-"myResponseAction": {
+"Response" {
     "type": "Response",
+    "kind": "http",
     "inputs": {
         "statusCode": 200,
-        "body": {
-            "contentFieldOne": "value100",
-            "anotherField": 10.001
-        },
-        "headers": {
-            "x-ms-date": "@utcnow()",
-            "Content-type": "application/json"
-        }
+        "headers": { <response-body> },
+        "body": { <response-body> }
     },
     "runAfter": {}
+},
+```
+
+*Required*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*response-status-code*> | Integer | The HTTP status code that is sent to the incoming request. The default code is "200 OK", but the code can be any valid status code that starts with 2xx, 4xx, or 5xx, but not with 3xxx. | 
+|||| 
+
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*response-headers*> | JSON Object | One or more headers to include with the response | 
+| <*response-body*> | Various | The response body, which can be a string, JSON object, or even binary content from a previous action | 
+|||| 
+
+*Example*
+
+This action definition creates a response to an HTTP request with the 
+specified status code, message body, and message headers:
+
+```json
+"Response": {
+   "type": "Response",
+   "inputs": {
+      "statusCode": 200,
+      "body": {
+         "ProductID": 0,
+         "Description": "Organic Apples"
+      },
+      "headers": {
+         "x-ms-date": "@utcnow()",
+         "content-type": "application/json"
+      }
+   },
+   "runAfter": {}
 }
 ```
 
-The response action has special restrictions that don't apply to other actions, specifically:  
-  
-* You can't have response actions in parallel branches within a logic 
-app definition because the incoming request requires a deterministic response.
-  
-* If the workflow reaches a response action after the 
-incoming request already received a response, 
-the response action is considered failed or in conflict. 
-As a result, the logic app run is marked `Failed`.
-  
-* A workflow with response actions can't use the `splitOn` command 
-in the trigger definition because the call creates multiple runs. 
-As a result, check for this case when the workflow operation is PUT, 
-and return a "bad request" response.
+*Restrictions*
+
+Unlike other actions, the **Response** action has special restrictions: 
+
+* Your workflow can't use the **Response** action when 
+the workflow starts with the **Recurrence** trigger.
+
+* Your workflow can't use the **Response** action inside parallel branches 
+because the incoming HTTP request requires predictable responses.
+
+* The original HTTP request gets your workflow's response only when all 
+actions required by the **Response** action are finished within the 
+[HTTP request timeout limit](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+
+  However, if your workflow calls another another logic app as a nested workflow, 
+  the parent workflow waits until the nested workflow finishes, no matter how much 
+  time passes before the nested workflow finishes.
+
+* When your workflow uses the **Response** action and a synchronous response pattern, 
+the workflow can't also use the **splitOn** command in the trigger definition because 
+that command creates multiple runs. Check for this case when the PUT method is used, 
+and if true, return a "bad request" response.
+
+  Otherwise, if your workflow uses the **splitOn** command and a **Response** action, 
+  the workflow runs asynchronously and immediately returns a "202 ACCEPTED" response.
+
+* When your workflow's execution reaches the **Response** action, 
+but the incoming request has already received a response, 
+the **Response** action is marked as "Failed" due to the conflict. 
+And as a result, your logic app run is also marked with "Failed" status.
 
 <a name="select-action"></a>
 
