@@ -78,7 +78,7 @@ Make sure that the following URLs are accessible from computers inside your orga
 - https://enterpriseregistration.windows.net
 
 - https://login.microsoftonline.com
-
+Allow
 - https://device.login.microsoftonline.com
 
 - Your organization's STS (federated domains)
@@ -91,7 +91,7 @@ If your organization is planning to use Seamless SSO, then the following URLs ne
 
 - https://aadg.windows.net.nsatc.net
 
-- Also, the following setting should be enabled in the user's intranet zone: "Allow updates to status bar via script."
+- Also, the following setting should be enabled in the user's intranet zone: "Allow status bar updates via script."
 
 If your organization uses managed (non-federated) setup with on-premises AD and does not use ADFS to federate with Azure AD, then hybrid Azure AD join on Windows 10 relies on the computer objects in AD to be sync'ed to Azure AD. Make sure that any Organizational Units (OU) that contain the computer objects that need to be hybrid Azure AD joined are enabled for sync in the Azure AD Connect sync configuration.
 
