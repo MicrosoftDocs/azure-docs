@@ -16,7 +16,6 @@ ms.author: v-jerkin
 # Try the Speech service for free
 
 Getting started with the Speech service is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
-Getting started with the Speech service is easy and affordable. A 30 day free trial lets you discover the capabilities of the service and decide whether it's right for your application's needs.
 
 If you need more time, sign up for a Microsoft Azure account—it comes with $200 in service credit that you can apply toward a paid Speech service subscription for up to 30 days.
 
