@@ -766,6 +766,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-edge/tutorial-simulate-device-linux.md",
+            "redirect_url": "/azure/iot-edge/quickstart-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-simulate-device-windows.md",
+            "redirect_url": "/azure/iot-edge/quickstart",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
             "redirect_url": "/azure/cognitive-services/recommendations/overview",
             "redirect_document_id": false

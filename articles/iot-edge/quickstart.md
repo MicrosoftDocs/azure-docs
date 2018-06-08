@@ -9,6 +9,9 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
+
+experimental: true
+experiment_id: 
 ---
 
 # Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
@@ -19,7 +22,7 @@ If you don't have an active Azure subscription, create a [free account][lnk-acco
 
 ## Prerequisites
 
-This tutorial assumes that you're using a computer or virtual machine running Windows to simulate an Internet of Things device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
+This quickstart assumes that you're using a computer or virtual machine running Windows to simulate an Internet of Things device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
 
 1. Make sure you're using a supported Windows version:
    * Windows 10 
@@ -133,11 +136,10 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 
 ## Next steps
 
-You learned how to deploy an IoT Edge module to an IoT Edge device. Now try deploying different types of Azure services as modules, so that you can analyze data at the edge. 
+This quickstart is the prerequisite for all of the IoT Edge tutorials. You can continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
 
-* [Deploy Azure Function as a module](tutorial-deploy-function.md)
-* [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
-* [Deploy your own code as a module](tutorial-csharp-module.md)
+> [!div class="nextstepaction"]
+> [Filter sensor data using an Azure Function](tutorial-deploy-function.md)
 
 
 <!-- Images -->
