@@ -102,40 +102,40 @@ Create the Terraform configuration file that declares the resources for the Kube
 
     ```JSON
     resource "azurerm_resource_group" "k8s" {
-    name     = "${var.resource_group_name}"
-    location = "${var.location}"
+        name     = "${var.resource_group_name}"
+        location = "${var.location}"
     }
 
     resource "azurerm_kubernetes_cluster" "k8s" {
-    name                = "${var.cluster_name}"
-    location            = "${azurerm_resource_group.k8s.location}"
-    resource_group_name = "${azurerm_resource_group.k8s.name}"
-    dns_prefix          = "${var.dns_prefix}"
+        name                = "${var.cluster_name}"
+        location            = "${azurerm_resource_group.k8s.location}"
+        resource_group_name = "${azurerm_resource_group.k8s.name}"
+        dns_prefix          = "${var.dns_prefix}"
 
-    linux_profile {
-        admin_username = "ubuntu"
+        linux_profile {
+            admin_username = "ubuntu"
 
-        ssh_key {
-        key_data = "${file("${var.ssh_public_key}")}"
+            ssh_key {
+            key_data = "${file("${var.ssh_public_key}")}"
+            }
         }
-    }
 
-    agent_pool_profile {
-        name            = "default"
-        count           = "${var.agent_count}"
-        vm_size         = "Standard_D2"
-        os_type         = "Linux"
-        os_disk_size_gb = 30
-    }
+        agent_pool_profile {
+            name            = "default"
+            count           = "${var.agent_count}"
+            vm_size         = "Standard_D2"
+            os_type         = "Linux"
+            os_disk_size_gb = 30
+        }
 
-    service_principal {
-        client_id     = "${var.client_id}"
-        client_secret = "${var.client_secret}"
-    }
+        service_principal {
+            client_id     = "${var.client_id}"
+            client_secret = "${var.client_secret}"
+        }
 
-    tags {
-        Environment = "Development"
-    }
+        tags {
+            Environment = "Development"
+        }
     }
     ```
 
@@ -170,27 +170,27 @@ Create the Terraform configuration file that declares the resources for the Kube
     variable "client_secret" {}
 
     variable "agent_count" {
-    default = 3
+        default = 3
     }
 
     variable "ssh_public_key" {
-    default = "~/.ssh/id_rsa.pub"
+        default = "~/.ssh/id_rsa.pub"
     }
 
     variable "dns_prefix" {
-    default = "k8stest"
+        default = "k8stest"
     }
 
     variable cluster_name {
-    default = "k8stest"
+        default = "k8stest"
     }
 
     variable resource_group_name {
-    default = "azure-k8stest"
+        default = "azure-k8stest"
     }
 
     variable location {
-    default = "Central US"
+        default = "Central US"
     }
     ```
 
@@ -217,31 +217,31 @@ Create the Terraform configuration file that declares the resources for the Kube
 
     ```JSON
     output "client_key" {
-    value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
+        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }
 
     output "client_certificate" {
-    value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_certificate}"
+        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_certificate}"
     }
 
     output "cluster_ca_certificate" {
-    value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.cluster_ca_certificate}"
+        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.cluster_ca_certificate}"
     }
 
     output "cluster_username" {
-    value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.username}"
+        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.username}"
     }
 
     output "cluster_password" {
-    value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.password}"
+        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.password}"
     }
 
     output "kube_config" {
-    value = "${azurerm_kubernetes_cluster.k8s.kube_config_raw}"
+        value = "${azurerm_kubernetes_cluster.k8s.kube_config_raw}"
     }
 
     output "host" {
-    value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.host}"
+        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.host}"
     }
     ```
 
@@ -334,12 +334,12 @@ In this section, you use the Kubernetes dashboard can be used to test the newly 
 
     ```JSON
     provider "kubernetes" {
-    host                   = "${azurerm_kubernetes_cluster.main.kube_config.0.host}"
-    username               = "${azurerm_kubernetes_cluster.main.kube_config.0.username}"
-    password               = "${azurerm_kubernetes_cluster.main.kube_config.0.password}"
-    client_certificate     = "${base64decode(azurerm_kubernetes_cluster.main.kube_config.0.client_certificate)}"
-    client_key             = "${base64decode(azurerm_kubernetes_cluster.main.kube_config.0.client_key)}"
-    cluster_ca_certificate = "${base64decode(azurerm_kubernetes_cluster.main.kube_config.0.cluster_ca_certificate)}"
+        host                   = "${azurerm_kubernetes_cluster.main.kube_config.0.host}"
+        username               = "${azurerm_kubernetes_cluster.main.kube_config.0.username}"
+        password               = "${azurerm_kubernetes_cluster.main.kube_config.0.password}"
+        client_certificate     = "${base64decode(azurerm_kubernetes_cluster.main.kube_config.0.client_certificate)}"
+        client_key             = "${base64decode(azurerm_kubernetes_cluster.main.kube_config.0.client_key)}"
+        cluster_ca_certificate = "${base64decode(azurerm_kubernetes_cluster.main.kube_config.0.cluster_ca_certificate)}"
     }
     ```
 
@@ -355,16 +355,16 @@ In this section, you use the Kubernetes dashboard can be used to test the newly 
 
     ```JSON
     resource "kubernetes_pod" "test" {
-    metadata {
-        name = "terraform-example"
-    }
-
-    spec {
-        container {
-        image = "nginx:1.7.9"
-        name  = "example"
+        metadata {
+            name = "terraform-example"
         }
-    }
+
+        spec {
+            container {
+                image = "nginx:1.7.9"
+                name  = "example"
+            }
+        }
     }
     ```
 
