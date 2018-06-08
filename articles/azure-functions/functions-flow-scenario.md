@@ -4,7 +4,7 @@ description: Create a custom connector then call a function using that connector
 services: functions
 keywords: cloud apps, cloud services, Microsoft Flow, business processes, business application
 documentationcenter: ''
-author: mgblythe
+author: ggailey777
 manager: cfowler
 editor: ''
 
@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
+ms.author: glenga
+ms.reviewer: sunayv
 ms.custom: ''
 ---
 
