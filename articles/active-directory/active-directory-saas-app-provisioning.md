@@ -205,7 +205,7 @@ Summary of factors that influence the time it takes to complete an **initial syn
 
 * Number of errors in the [audit logs](active-directory-saas-provisioning-reporting.md). Performance is slower if there are many errors and the provisioning service has gone into a quarantine state	
 
-* Request rate limits and throttling implemented by the target system. Some target systems implement request rate limits and throttling which can impact performance during large sync operations. The pre-built Azure AD provisioning connectors for those systems take this into account.
+* Request rate limits and throttling implemented by the target system. Some target systems implement request rate limits and throttling which can impact performance during large sync operations. Under these conditions, an app that receives too many requests too fast might slow its response rate or close the connection. To improve performance, the connector needs to adjust by not sending the app requests faster than the app can process them. Provisioning connectors built by Microsoft make this adjustment. 
 
 * The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs will take longer than only syncing user objects.
  
