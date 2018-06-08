@@ -8,7 +8,7 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 06/07/2018
 ms.author: bonova
 manager: craigg
 

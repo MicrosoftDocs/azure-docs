@@ -2,12 +2,28 @@
 title: Overview of Azure Diagnostic Logs
 description: Learn what Azure diagnostic logs are and how you can use them to understand events occurring within an Azure resource.
 author: johnkemnetz
+<<<<<<< HEAD
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: logs
+=======
+manager: orenr
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/07/2018
+ms.author: johnkem; magoedte
+
+>>>>>>> 8a80026356c62bdb4e986fd7d9d4c07997d4752f
 ---
 # Collect and consume log data from your Azure resources
 
@@ -33,6 +49,9 @@ Here are some of the things you can do with resource diagnostic logs:
 * Analyze them with [Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
 You can use a storage account or Event Hubs namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
+
+> [!NOTE]
+>  You cannot currently archive data to a storage account that behind a secured virtual network.
 
 ## Resource diagnostic settings
 
