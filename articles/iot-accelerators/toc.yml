@@ -27,8 +27,9 @@
 - name: Concepts
   items:
   - name: Remote Monitoring
-    href: iot-accelerators-remote-monitoring-sample-walkthrough.md
     items:
+    - name: Architecture overview
+      href: iot-accelerators-remote-monitoring-sample-walkthrough.md
     - name: Architectural choices
       href: iot-accelerators-remote-monitoring-architectural-choices.md
     - name: Device model schema
@@ -48,28 +49,51 @@
 
 - name: How-to guides
   items:
+  - name: Remote Monitoring
+    items:
+    - name: Connect a physical device
+      items:
+      - name: C on Windows
+        href: iot-accelerators-connecting-devices.md
+      - name: C on Linux
+        href: iot-accelerators-connecting-devices-linux.md
+      - name: Node.js (generic
+        href: iot-accelerators-connecting-devices-node.md
+      - name: Node.js on Raspberry Pi
+        href: iot-accelerators-connecting-pi-node.md
+      - name: C on Raspberry Pi
+        href: iot-accelerators-connecting-pi-c.md
+      - name: MX Chip AZ3166 DevKit
+        href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+    - name: Integrate SIM data
+      href: iot-accelerators-remote-monitoring-telefonica-sim.md
+    - name: Create a simulated device
+      href: iot-accelerators-remote-monitoring-test.md
+    - name: Customize the UI
+      href: iot-accelerators-remote-monitoring-customize.md
+    - name: Customize and redeploy a microservice
+      href: iot-accelerators-microservices-example.md
+    - name: Deploy using the CLI
+      href: iot-accelerators-remote-monitoring-deploy-cli.md
+    - name: Deploy locally
+      href: iot-accelerators-remote-monitoring-deploy-local.md
+    - name: Visualize telemetry with PowerBI
+      href: iot-accelerators-integrate-data-powerbi.md
+    - name: Visualize telemetry with Time Series Insights
+      href: iot-accelerators-time-series-insights.md
+    - name: Analyze telemetry with Data Lake
+      href: iot-accelerators-integrate-data-lake.md
 
-- name: Reference
-  items:
-
-- name: Resources
-  items:
-
-
-
-
-- name: Get started
-  items:
   - name: Remote Monitoring (previous version)
     items:
-    - name: What are the solution accelerators?
+    - name: What are the preconfigured solutions?
       href: ../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md
     - name: FAQ
       href: ../iot-suite/iot-suite-v1-faq.md
 
     - name: Get Started
       items:
-      - name: Get started with the solution accelerators
+      - name: Get started with the preconfigured solutions
         href: ../iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md
       - name: Permissions on azureiotsuite.com
         href: ../iot-suite/iot-suite-v1-permissions.md
@@ -118,81 +142,30 @@
       - name: Device information in the Remote Monitoring solution
         href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
 
-
   - name: Predictive Maintenance
     items:
-    - name: Predictive Maintenance solution accelerator overview
+    - name: Deploy solution accelerator
       href: iot-accelerators-predictive-overview.md
-
 
   - name: Connected Factory
     items:
-
-    - name: Connected Factory solution overview
+    - name: Deploy solution accelerator
       href: iot-accelerators-connected-factory-overview.md
-
+    - name: Deploy a gateway
+      href: iot-accelerators-connected-factory-gateway-deployment.md
+    - name: Use the OPC publisher
+      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
+    - name: Configure the solution accelerator
+      href: iot-accelerators-connected-factory-configure.md
+    - name: Customize the solution accelerator
+      href: iot-accelerators-connected-factory-customize.md
 
   - name: Device Simulation
     items:
-    - name: Deploy Device Simulation
+    - name: Deploy solution accelerator
       href: iot-accelerators-device-simulation-deploy.md
-    - name: Explore Device Simulation
+    - name: Run a simulation
       href: iot-accelerators-device-simulation-explore.md
-
-- name: How-to guides
-  items:
-  - name: Remote Monitoring
-    items:
-    - name: Integrate SIM data
-      href: iot-accelerators-remote-monitoring-telefonica-sim.md
-
-    - name: Create a new simulated device
-      href: iot-accelerators-remote-monitoring-test.md
-    - name: Visualize with PowerBI
-      href: iot-accelerators-integrate-data-powerbi.md
-    - name: Customize the solution UI
-      href: iot-accelerators-remote-monitoring-customize.md
-    - name: Customize and redeploy a microservice
-      href: iot-accelerators-microservices-example.md
-    - name: Deploy using the CLI
-      href: iot-accelerators-remote-monitoring-deploy-cli.md
-    - name: Deploy locally
-      href: iot-accelerators-remote-monitoring-deploy-local.md
-    - name: Visualize data with Time Series Insights
-      href: iot-accelerators-time-series-insights.md
-    - name: Integrate with Data Lake
-      href: iot-accelerators-integrate-data-lake.md
-    - name: Connect a physical device
-      items:
-      - name: C on Windows
-        href: iot-accelerators-connecting-devices.md
-      - name: C on Linux
-        href: iot-accelerators-connecting-devices-linux.md
-      - name: Node.js (generic
-        href: iot-accelerators-connecting-devices-node.md
-      - name: Node.js on Raspberry Pi
-        href: iot-accelerators-connecting-pi-node.md
-      - name: C on Raspberry Pi
-        href: iot-accelerators-connecting-pi-c.md
-      - name: MX Chip AZ3166 DevKit
-        href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
-
-    - name: Concepts
-      items:
-
-
-
-  - name: Connected Factory
-    items:
-    - name: Deploy a gateway for Connected Factory
-      href: iot-accelerators-connected-factory-gateway-deployment.md
-    - name: Customize Connected Factory
-      href: iot-accelerators-connected-factory-customize.md
-    - name: Use the OPC publisher for Connected Factory
-      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-    - name: Configure Connected Factory
-      href: iot-accelerators-connected-factory-configure.md
-
 
 - name: Reference
   items:

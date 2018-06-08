@@ -36,7 +36,7 @@ Use the Connected Factory solution accelerator to collect telemetry from industr
 
 ### Predictive Maintenance
 
-Use the Predictive Maintenance solution accelerator to predict when a remote device is due to fail so that you can carry out maintenance in advance of the predicted failure. The Predictive Maintenance solution accelerator uses machine learning algorithms to predict failures from device telemetry. Example devices might be airplane engines or elevators.
+Use the Predictive Maintenance solution accelerator to predict when a remote device is expected to fail so that you can carry out maintenance in advance of the predicted failure. The Predictive Maintenance solution accelerator uses machine learning algorithms to predict failures from device telemetry. Example devices might be airplane engines or elevators.
 
 ### Device Simulation
 
