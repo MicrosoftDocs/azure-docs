@@ -44,17 +44,16 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Load Balancer |[Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Network Security Groups |[Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDOS Protection | ../virtual-network/manage-ddos-protection.md |
-| PowerBI Dedicated | |
+| DDOS Protection | [Manage Azure DDoS Protection Standard](../virtual-network/manage-ddos-protection.md) |
+| PowerBI Dedicated | Schema not available. |
 | Recovery Services | [Data Model for Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Search |[Enabling and using Search Traffic Analytics](../search/search-traffic-analytics.md) |
-| Server Management | Schema not available. |
 | Service Bus |[Azure Service Bus diagnostic logs](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database diagnostic logging](../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Job diagnostic logs](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Traffic Manager | |
+| Traffic Manager | Schema not available. |
 | Virtual Networks | Schema not available. |
-| Virtual Network Gateways | |
+| Virtual Network Gateways | Schema not available. |
 
 ## Supported log categories per resource type
 |Resource Type|Category|Category Display Name|
