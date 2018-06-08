@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure registration for Azure Stack integrated systems | Microsoft Docs
 description: Describes the Azure registration process for multi-node Azure Stack Azure-connected deployments.
 services: azure-stack
@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 06/08/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
 
@@ -278,7 +278,7 @@ To remove the activation resource in Azure Stack, run the following PowerShell c
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Next, to remove the registration resource in Azure, ensure you are on an Azure connected computer, log in to the correct Azure PowerShell context, and run the appropriate PowerShell commands as described below.
+Next, to remove the registration resource in Azure, ensure you are on an Azure connected computer, sign in to the correct Azure PowerShell context, and run the appropriate PowerShell commands as described below.
 
 You can use the registration token used to create the resource:  
 

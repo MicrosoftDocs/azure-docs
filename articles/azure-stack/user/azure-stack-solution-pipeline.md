@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
@@ -130,7 +130,7 @@ A Service Principal requires a key for authentication. Use the following steps t
 
     ![Key description and duration](media\azure-stack-solution-hybrid-pipeline\000_05.png)
 
-    After you save the key, the key **VALUE** is displayed. Copy this value because you can't get this value later. You provide the **key value** with the application ID to log in as the application. Store the key value where your application can retrieve it.
+    After you save the key, the key **VALUE** is displayed. Copy this value because you can't get this value later. You provide the **key value** with the application ID to sign in as the application. Store the key value where your application can retrieve it.
 
     ![Key VALUE](media\azure-stack-solution-hybrid-pipeline\000_06.png)
 
