@@ -8,7 +8,7 @@ manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 759746a5-388a-42cf-bccf-435bf9b53251
-ms.service: cortana-analytics
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
