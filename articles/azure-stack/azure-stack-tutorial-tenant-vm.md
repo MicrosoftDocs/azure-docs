@@ -47,7 +47,7 @@ Offers are groups of one or more plans that providers present to users to purcha
 
    ![New offer](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-2. In **New Offer**, enter a **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the friendly name you choose for the offer. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
+2. In **New Offer**, enter a **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
    ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
 
