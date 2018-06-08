@@ -68,7 +68,7 @@ Review [service limits for Load Balancer](https://aka.ms/lblimits), as well as [
 
 Standard Load Balancer backend pools expands to any virtual machine resource in a virtual network.  It can contain up to 1000 backend instances.  A backend instance is an IP configuration, which is a property of a NIC resource.
 
-The backend pool can contain standalone virtual machines, availability sets, or virtual machine scale sets.  You can blend resources in the backend pool and it can contain any combination of these resources up to 150 total.
+The backend pool can contain standalone virtual machines, availability sets, or virtual machine scale sets.  You can also blend resources in the backend pool. You can combine up to 150 resources in the backend pool per Load Balancer resource.
 
 When considering how to design your backend pool, you can design for the least number of individual backend pool resources to further optimize the duration of management operations.  There is no difference in data plane performance or scale.
 
