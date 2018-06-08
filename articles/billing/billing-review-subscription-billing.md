@@ -40,7 +40,7 @@ The `{subscriptionID}` parameter is required and identifies the target subscript
 
 The `{billingPeriod}` parameter is required and specifies a current [billing period](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod).
 
-The ${startDate} and ${endDate} parameters are required for this example, but optional for the endpoint.  They specify the date range as strings in the form of YYYY-MM-DD (examples: `'20180501'` and `20180615`). 
+The `${startDate}` and `${endDate}` parameters are required for this example, but optional for the endpoint.  They specify the date range as strings in the form of YYYY-MM-DD (examples: `'20180501'` and `'20180615'`). 
 
 The following headers are required: 
 
