@@ -272,7 +272,7 @@ Now that you understand how to create the request, call the service, and parse t
 > [!TIP]
 > Azure Storage now supports Azure Active Directory (Azure AD) integration for the Blob and Queue services (Preview). Azure AD offers a much simpler experience for authorizing a request to Azure Storage. For more information on using Azure AD to authorize REST operations, see [Authenticate with Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). For an overview of Azure AD integration with Azure Storage, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
 
-There is an article that explains conceptually (no code) how to perform [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services).
+There is an article that explains conceptually (no code) how to perform [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authorization-for-the-Azure-Storage-Services).
 Let's distill that article down to exactly is needed and show the code.
 
 First, use a Shared Key authentication. The authorization header format looks like this:
