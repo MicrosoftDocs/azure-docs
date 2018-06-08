@@ -7,21 +7,24 @@ manager: jeconnoc
 
 ms.service: dns
 ms.topic: quickstart
-ms.date: 5/30/2018
+ms.date: 6/8/2018
 ms.author: kumud
-#Customer intent: As an administrator, I want learn how to create a DNS zone and record so that I understand how to perform basic functions in Azure DNS.
+#Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS so I can connect to my web server using a friendly name.
 ---
 
-# Quickstart: Create a DNS zone and record using the Azure Portal
+# Quickstart: Configure Azure DNS for name resolution using the Azure Portal
 
-> [!div class="op_single_selector"]
-> * [Azure portal](dns-getstarted-portal.md)
-> * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 2.0](dns-getstarted-cli.md)
+ You can configure Azure DNS to resolve a host name in your public domain. For example, if you purchased the contoso.com domain name from a domain name registrar, you could configure Azure DNS to host the contoso.com domain and resolve www.contoso.com to point to your web server or web app.
 
-This quickstart walks you through the steps to create your first DNS zone and record using the Azure portal. You can also perform these steps using Azure PowerShell or the cross-platform Azure CLI.
+In this quickstart, you will create a test domain, and then create a host address record named 'www' to point to an IP address of your choice.
 
-A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. Finally, to publish your DNS zone to the Internet, you need to configure the name servers for the domain. Each of these steps is described in the following steps.
+It is important to know that all the names and IP addresses used in this quickstart are examples only, and are not meant to represent a real-world scenario. However, where applicable, real-world alternatives are also described.
+
+<!---
+You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI 2.0](dns-getstarted-cli.md).
+--->
+
+A DNS zone is used to contain the DNS entries for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS entry (or record) for your domain is then created inside this DNS zone. This is described in the following steps.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -37,19 +40,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    | **Setting** | **Value** | **Details** |
    |---|---|---|
-   |**Name**|contoso.com|The name of the DNS zone|
+   |**Name**|contoso.xyz|The name of the DNS zone for this example. You can use any value you want for this test, as long as it not already configured on the Azure DNS servers. A real-world value would be a domain that you bought from a domain name registrar.|
    |**Subscription**|[Your subscription]|Select a subscription to create the DNS zone in.|
-   |**Resource group**|**Create new:** contosoDNSRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) overview article.|
-   |**Location**|West US||
-
-> [!NOTE]
-> The resource group refers to the location of the resource group, and has no impact on the DNS zone. The DNS zone location is always "global", and is not shown.
+   |**Resource group**|**Create new:** dns-test|Create a resource group. The resource group name must be unique within the subscription you selected. |
+   |**Location**|East US||
 
 ## Create a DNS record
 
-The following example walks you through the process of creating new 'A' record. For other record types and to modify existing records, see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md). 
+The following example walks you through the process of creating new address record ('A' record). 'A' records are used to resolve a host name to an IP v4 address.
 
-1. With the DNS Zone created, in the Azure portal **Favorites** pane, click **All resources**. Click the **contoso.com** DNS zone in the All resources page. If the subscription you selected already has several resources in it, you can enter **contoso.com** in the **Filter by name…** box to easily access the DNS Zone.
+1. With the DNS Zone created, in the Azure portal **Favorites** pane, click **All resources**. Click the **contoso.xyz** DNS zone in the All resources page. If the subscription you selected already has several resources in it, you can enter **contoso.xyz** in the **Filter by name…** box to easily access the DNS Zone.
 
 1. At the top of the **DNS zone** page, select **+ Record set** to open the **Add record set** page.
 
@@ -57,36 +57,43 @@ The following example walks you through the process of creating new 'A' record. 
 
    |**Setting** | **Value** | **Details** |
    |---|---|---|
-   |**Name**|www|Name of the record|
-   |**Type**|A| Type of DNS record to create, acceptable values are A, AAAA, CNAME, MX, NS, SRV, TXT, and PTR.  For more information about record types, see [Overview of DNS zones and records](dns-zones-records.md)|
+   |**Name**|www|Name of the record. This is the name of the host that you want to resolve to an IP address.|
+   |**Type**|A| Type of DNS record to create.|
    |**TTL**|1|Time-to-live of the DNS request.|
    |**TTL unit**|Hours|Measurement of time for TTL value.|
-   |**IP address**|ipAddressValue| This value is the IP address that the DNS record resolves.|
-
-## View records
-
-In the lower part of the DNS zone page, you can see the records for the DNS zone. You should see the default DNS and SOA records, which are created in every zone, plus any new records you have created.
-
-![zone](./media/dns-getstarted-portal/viewzone500.png)
+   |**IP address**|10.10.10.10| This value is the IP address that the 'A' record resolves to. This is just a test value for this example. For a real-world example, you would enter the public IP address for your web server.|
 
 
-## Update name servers
+Since in this example you didn't actually purchase a real domain name, there is no need to configure Azure DNS as the name server with your domain name registrar. But in a real-world scenario, you would want anyone on the Internet to be able to resolve your host name to connect to your web server or app. For more information about that real-world scenario, see [Delegate a domain to Azure DNS](dns-delegate-domain-azure-dns.md).
 
-Once you are satisfied that your DNS zone and records have been set up correctly, you need to configure your domain name to use the Azure DNS name servers. This enables other users on the Internet to find your DNS records.
 
-The name servers for your zone are given in the Azure portal:
+## Test the name resolution
 
-![zone](./media/dns-getstarted-portal/viewzonens500.png)
+Now that you have a test zone, with a test 'A' record in it, you can test the name resolution with a tool called nslookup. 
 
-These name servers should be configured with the domain name registrar (where you purchased the domain name). Your registrar offers the option to set up the name servers for the domain. For more information, see [Delegate your domain to Azure DNS](dns-domain-delegation.md).
+1. First, you need to note the Azure DNS name servers to use with nslookup. 
 
-## Cleanup resources
+   The name servers for your zone are listed on the DNS zone Overview page. Copy the name of one of the name servers:
 
-To delete all resources created in this quickstart, complete the following steps:
+   ![zone](./media/dns-getstarted-portal/viewzonens500.png)
 
-1. In the Azure portal **Favorites** pane, click **All resources**. Click the **MyResourceGroup** resource group in the All resources page. If the subscription you selected already has several resources in it, you can enter **MyResourceGroup** in the **Filter by name…** box to easily access the resource group.
-1. In the **MyResourceGroup** page, click the **Delete** button.
-1. The portal requires you to type the name of the resource group to confirm that you want to delete it. Click **Delete**, Type *MyResourceGroup* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
+2. Now, open a command prompt and run the following command:
+
+   ```
+   nslookup www.contoso.xyz <name server>
+   
+   For example:
+
+   nslookup www.contoso.xyz ns1-08.azure-dns.com
+   ```
+
+You should see something like to the following screenshot:
+
+![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+## Clean up resources
+
+To delete all resources created in this quickstart, you can delete the **dns-test** resource group. To do so, select the resource group that contains the dns zone and click **Delete**.
 
 
 ## Next steps
