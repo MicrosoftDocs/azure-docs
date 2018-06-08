@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: 
 ms.custom: mvc
@@ -41,59 +41,55 @@ To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-fe
 
 ## Create an offer
 
-Now you can get things ready for your users. The process of creating an offer has several steps. First, you're prompted to create the offer, then a plan, and finally, quotas.
+Offers are groups of one or more plans that providers present to users to purchase or subscribe to. The process of creating an offer has several steps. First, you're prompted to create the offer, then a plan, and finally, quotas.
 
-1. **Create an offer**
-
-   Offers are groups of one or more plans that providers present to users to purchase or subscribe to.
-
-   a. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a cloud administrator and then select **New** > **Offers + Plans** > **Offer**.
+1. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a cloud administrator and then select **New** > **Offers + Plans** > **Offer**.
 
    ![New offer](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-   b. In **New Offer**, enter a **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
+2. In **New Offer**, enter a **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
    ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-   c. Select **Base plans**, and in the **Plan** section, select **Add** to add a new plan to the offer.
+3. Select **Base plans**, and in the **Plan** section, select **Add** to add a new plan to the offer.
 
    ![Add a plan](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-   d. In the **New Plan** section, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that users see. Only the cloud operator can see the Resource Name. It's the name that cloud operators use to work with the plan as an Azure Resource Manager resource.
+4. In the **New Plan** section, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that users see. Only the cloud operator can see the Resource Name. It's the name that cloud operators use to work with the plan as an Azure Resource Manager resource.
 
    ![Plan display name](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-   e. Select **Services**. From the list of Services, pick  **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**. Choose **Select** to add these services to the plan.
+5. Select **Services**. From the list of Services, pick  **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**. Choose **Select** to add these services to the plan.
 
    ![Plan services](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-   f. Select **Quotas**, and then select the first service that you want to create a quota for. For an IaaS quota, use the following example as a guide for configuring quotas for the Compute, Network, and Storage services.
+6. Select **Quotas**, and then select the first service that you want to create a quota for. For an IaaS quota, use the following example as a guide for configuring quotas for the Compute, Network, and Storage services.
 
-   First, we create a quota for the Compute service. In the namespace list, select **Microsoft.Compute** and then select **Create new quota**.
+   - First, we'll create a quota for the Compute service. In the namespace list, select **Microsoft.Compute** and then select **Create new quota**.
 
-   ![Create new quota](media/azure-stack-tutorial-tenant-vm/image06.png)
+     ![Create new quota](media/azure-stack-tutorial-tenant-vm/image06.png)
 
-   g. In **Create quota**, enter a name for the quota. You can change or accept any of the quota values that are shown for the quota you're creating. In this example, we accept the default settings and select **OK**.
+   - In **Create quota**, enter a name for the quota. You can change or accept any of the quota values that are shown for the quota you're creating. In this example, we accept the default settings and select **OK**.
 
-   ![Quota name](media/azure-stack-tutorial-tenant-vm/image07.png)
+     ![Quota name](media/azure-stack-tutorial-tenant-vm/image07.png)
 
-   h. Pick **Microsoft.Compute** in the namespace list, and then select the quota that you created. This links the quota to the Compute service.
+   - Pick **Microsoft.Compute** in the namespace list, and then select the quota that you created. This links the quota to the Compute service.
 
-   ![Select quota](media/azure-stack-tutorial-tenant-vm/image08.png)
+      ![Select quota](media/azure-stack-tutorial-tenant-vm/image08.png)
 
-   Repeat these steps for the Network and Storage services. When you're finished, select **OK** in **Quotas** to save all the quotas.
+      Repeat these steps for the Network and Storage services. When you're finished, select **OK** in **Quotas** to save all the quotas.
 
-   i. In **New plan**, select **OK**.
+7. In **New plan**, select **OK**.
 
-   j. Under **Plan**, select the new plan and then **Select**.
+8. Under **Plan**, select the new plan and then **Select**.
 
-   k. In **New offer**, select **Create**. You'll see a notification when the offer is created.
+9. In **New offer**, select **Create**. You'll see a notification when the offer is created.
 
-   l. On the dashboard menu, select **Offers** and then pick the offer you created.
+10. On the dashboard menu, select **Offers** and then pick the offer you created.
 
-   m. Select **Change State**, and then chose **Public**.
+11. Select **Change State**, and then chose **Public**.
 
-   ![Public state](media/azure-stack-tutorial-tenant-vm/image09.png)
+    ![Public state](media/azure-stack-tutorial-tenant-vm/image09.png)
 
 ## Add an image
 
