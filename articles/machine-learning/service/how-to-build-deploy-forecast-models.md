@@ -31,7 +31,7 @@ Consult the [package reference documentation](https://aka.ms/aml-packages/foreca
    - An Azure Machine Learning Model Management account
    - Azure Machine Learning Workbench installed 
 
-    If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) article.
+    If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](quickstart-installation.md) article.
 
 1. The Azure Machine Learning Package for Forecasting must be installed. Learn how to [install this package here](https://aka.ms/aml-packages/forecasting).
 

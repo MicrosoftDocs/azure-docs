@@ -12,6 +12,7 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
+ROBOTS: NOINDEX 
 ---
 
 # Quickstart: Install and get started with Azure Machine Learning services

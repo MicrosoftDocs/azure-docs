@@ -156,4 +156,4 @@ There are three values that you can change.
 ```
 
 ## Next steps
-* [Create and Install Azure Machine Learning](../service/quickstart-installation.md)
+* [Create and Install Azure Machine Learning](quickstart-installation.md)
