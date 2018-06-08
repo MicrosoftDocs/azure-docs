@@ -46,11 +46,11 @@ The **Device** page for the **Connected Air Conditioner-1** simulated device you
 
 As an operator, you can view information about the device on the **Measurements**, **Settings**, **Properties**, **Rules**, and **Dashboard** pages. The builder customized the **Dashboard** to display important information about a connected air conditioner device.
 
-Choose the **Dashboard** view to see information about the device:
+Choose the **Dashboard** view to see information about the device.
 
-    ![Device dashboard](media/tutorial-monitor-devices/initial_screen.png)
+![Device dashboard](media/tutorial-monitor-devices/initial_screen.png)
 
-    The chart on the dashboard shows a plot of the device temperature. You can also see the current target temperature for the device in the **Set target temperature** tile. You decide that the target temperature is too high.
+The chart on the dashboard shows a plot of the device temperature. You can also see the current target temperature for the device in the **Set target temperature** tile. You decide that the target temperature is too high.
 
 ## Remediate an issue
 
