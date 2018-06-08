@@ -44,13 +44,7 @@ The following list describes the certificate requirements that are needed to dep
 - The certificate's "Issued to:" field must not be the same as its "Issued by:" field.
 - The passwords to all certificate pfx files must be the same at the time of deployment
 - Password to the certificate pfx has to be a complex password.
-- Ensure that the subject names and subject alternative names in the subject alternative name extension (x509v3_config) match. The subject alternative name extension allows you to specify different literal values. Alternative names include:  
-    - Email address
-    - Uniform resource indicator
-    - DNS domain name
-    - Registered object identifier
-    - IP address
-    - Directory name
+- Ensure that the subject names and subject alternative names in the subject alternative name extension (x509v3_config) match. The subject alternative name field lets you specify additional host names (websites, IP addresses, common names) to be protected by a single SSL Certificate.
 
 > [!NOTE]  
 > Self Signed certificates are not supported.
