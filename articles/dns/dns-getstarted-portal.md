@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create a DNS zone
 
 1. Sign in to the Azure portal.
-2. On the Hub menu, click **Create a resource > Networking >** and then click **DNS zone** to open the **Create DNS zone** page.
+2. In the upper left, click **+ Create a resource > Networking >** and then click **DNS zone** to open the **Create DNS zone** page.
 
     ![DNS zone](./media/dns-getstarted-portal/openzone650.png)
 
@@ -45,11 +45,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    |**Resource group**|**Create new:** dns-test|Create a resource group. The resource group name must be unique within the subscription you selected. |
    |**Location**|East US||
 
+It may take a few minutes to create the zone.
+
 ## Create a DNS record
 
-The following example walks you through the process of creating new address record ('A' record). 'A' records are used to resolve a host name to an IP v4 address.
+Now you create a new address record ('A' record). 'A' records are used to resolve a host name to an IP v4 address.
 
-1. With the DNS Zone created, in the Azure portal **Favorites** pane, click **All resources**. Click the **contoso.xyz** DNS zone in the All resources page. If the subscription you selected already has several resources in it, you can enter **contoso.xyz** in the **Filter by name…** box to easily access the DNS Zone.
+1. With the DNS zone created, in the Azure portal **Favorites** pane, click **All resources**. Click the **contoso.xyz** DNS zone in the All resources page. If the subscription you selected already has several resources in it, you can enter **contoso.xyz** in the **Filter by name…** box to easily access the DNS zone.
 
 1. At the top of the **DNS zone** page, select **+ Record set** to open the **Add record set** page.
 
@@ -58,9 +60,9 @@ The following example walks you through the process of creating new address reco
    |**Setting** | **Value** | **Details** |
    |---|---|---|
    |**Name**|www|Name of the record. This is the name of the host that you want to resolve to an IP address.|
-   |**Type**|A| Type of DNS record to create.|
-   |**TTL**|1|Time-to-live of the DNS request.|
-   |**TTL unit**|Hours|Measurement of time for TTL value.|
+   |**Type**|A| Type of DNS record to create. 'A' records are the most common, but there are other record types for mail servers (MX), IP v6 addresses (AAAA), and so on. |
+   |**TTL**|1|Time-to-live of the DNS request. Specifies how long DNS servers and clients can cache a response.|
+   |**TTL unit**|hours|Measurement of time for TTL value.|
    |**IP address**|10.10.10.10| This value is the IP address that the 'A' record resolves to. This is just a test value for this example. For a real-world example, you would enter the public IP address for your web server.|
 
 
@@ -93,7 +95,7 @@ You should see something like to the following screenshot:
 
 ## Clean up resources
 
-To delete all resources created in this quickstart, you can delete the **dns-test** resource group. To do so, select the resource group that contains the dns zone and click **Delete**.
+When no longer needed, delete the **dns-test** resource group to delete the resources created in this quickstart. To do so, click the **dns-test** resource group and then click **Delete resource group**.
 
 
 ## Next steps
