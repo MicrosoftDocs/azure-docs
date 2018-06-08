@@ -1,4 +1,4 @@
-﻿---
+---
 title: Download marketplace items from Azure | Microsoft Docs
 description: I can download marketplace items from Azure to my Azure Stack deployment.
 services: azure-stack
@@ -24,7 +24,7 @@ ms.reviewer: jeffgo
 
 As you decide what content to include in your Azure Stack marketplace, you should consider the content available from the Azure marketplace. You can download from a curated list of Azure marketplace items that have been pre-tested to run on Azure Stack. New items are frequently added to this list, so make sure to check back for new content.
 
-## Download marketplace items in a connected scenario (with internet connectivity)
+## Download marketplace items in a connected scenario (with Internet connectivity)
 
 1. To download marketplace items, you must first [register Azure Stack with Azure](azure-stack-register.md).
 2. Sign in to the Azure Stack administrator portal (For ASDK, use https://portal.local.azurestack.external).

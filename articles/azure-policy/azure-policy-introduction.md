@@ -2,10 +2,8 @@
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
 services: azure-policy
-keywords:
 author: DCtheGeek
 ms.author: dacoulte
-ms.reviewer: nini
 ms.date: 05/07/2018
 ms.topic: overview
 ms.service: azure-policy

@@ -13,17 +13,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 05/11/2018
 ms.author: brenduns
 
 ---
 
 # Virtual machine sizes supported in Azure Stack
 
-This article lists the virtual machine (VM) sizes that are supported by Azure Stack. 
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
+This article lists the virtual machine (VM) sizes that are available in Azure Stack.
 
 ## General purpose
+
+General purpose VM sizes provide a balanced CPU-to-memory ratio. They are used for testing and development, small to medium databases, and low to medium traffic web servers.
 
 ### Basic A
 |Size - Size\Name |vCPU     |Memory | Max temporary disk size | Max OS disk throughput: (IOPS) | Max temp storage throughput (IOPS) | Max data disk throughput (IOPS) | Max NICs |    
@@ -82,8 +85,9 @@ This article lists the virtual machine (VM) sizes that are supported by Azure St
 |**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32 / 32x2300 |8 / 6000 |
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64x2300 |8 / 10000 |
 
-
 ## Memory optimized
+
+Memory optimized VM sizes provide a high memory-to-CPU ratio that is designed for relational database servers, medium to large caches, and in-memory analytics.
 
 ### <a name="mo-d"></a>D-series
 |Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs / expected network bandwidth (Mbps) |
@@ -117,7 +121,6 @@ This article lists the virtual machine (VM) sizes that are supported by Azure St
 |**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |16 / 16x2300  |4 / 3000 |
 |**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |32 / 32x2300  |8 / 6000 |
 |**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |64 / 64x2300  |8 / 10000 |
-
 
 ## Next steps
 

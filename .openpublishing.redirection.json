@@ -851,6 +851,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-docker-host.md",
+            "redirect_url": "https://docs.docker.com/docker-for-azure/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/windows/accelerated-maintenance.md",
             "redirect_url": "/azure/virtual-machines/windows/mitigate-se",
             "redirect_document_id": false
@@ -1958,6 +1963,11 @@
         {
             "source_path": "articles/app-service/app-service-move-resources.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-tutorial-content-delivery-network.md",
+            "redirect_url": "/azure/cdn/app-service-web-tutorial-content-delivery-network",
             "redirect_document_id": false
         },
         {
@@ -3852,12 +3862,12 @@
         },
         {
             "source_path": "articles/azure-stack/user/azure-stack-connect-cli.md",
-            "redirect_url": "/azure/user/azure-stack-version-profiles-azurecli2",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-version-profiles-azurecli2",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-manage-storage-physical-capacity.md",
-            "redirect_url": "/azure/azure-stack-manage-storage-physical-memory-capacity",
+            "redirect_url": "/azure/azure-stack/azure-stack-manage-storage-physical-memory-capacity",
             "redirect_document_id": false
         },
         {
@@ -3983,6 +3993,11 @@
         {
             "source_path": "articles/cache/index.md",
             "redirect_url": "https://docs.microsoft.com/azure/redis-cache/cache-faq#managed-cache-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cdn/cdn-cloud-service-with-cdn.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn",
             "redirect_document_id": false
         },
         {
@@ -8528,6 +8543,11 @@
         {
             "source_path": "articles/backup/backup-azure-arm-vms.md",
             "redirect_url": "/azure/backup/backup-azure-vms-first-look-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/backup/backup-azure-vms-prepare.md",
+            "redirect_url": "/azure/backup/backup-azure-arm-vms-prepare",
             "redirect_document_id": false
         },
         {
@@ -19666,9 +19686,29 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/network-watcher/network-watcher-troubleshoot-manage-portal.md",
-            "redirect_url": "/azure/network-watcher/diagnose-communication-problem-between-networks",
+            "source_path": "articles/network-watcher/network-watcher-topology-overview.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-powershell.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-cli.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-rest.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
@@ -21101,9 +21141,115 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-application-proxy-enable.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-publish-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-publish-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-custom-domains.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-sso-overview.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-single-sign-on",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-sso-using-kcd.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/nodejs-specify-node-version-azure-apps.md",
             "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
             "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/application-proxy-ping-access.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-sso-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-understand-connectors.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-security-considerations.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-network-topology-considerations.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-transition-from-uag-tmg.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-connectors-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connector-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-working-with-proxy-servers.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-claims-aware-apps.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-for-claims-aware-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-native-client.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-native-client-application",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-silent-installation.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-register-connector-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-office365-app-launcher.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-link-translation.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-hard-coded-link-translation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-publish-remote-desktop.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-remote-desktop-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-enable-remote-access-sharepoint.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-enterprise-app-role-management.md",
+            "redirect_url": "/azure/active-directory/active-directory-enterprise-app-role-management",
+            "redirect_document_id": false
         }
+
     ]
 }

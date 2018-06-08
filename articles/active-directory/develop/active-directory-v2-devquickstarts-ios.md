@@ -2,16 +2,18 @@
 title: Add sign-in to an iOS application using the Azure AD v2.0 endpoint | Microsoft Docs
 description: How to build an iOS app that signs in users with both personal Microsoft account and work or school accounts by using third-party libraries.
 services: active-directory
-author: xerners
+author: CelesteDG
 manager: mtillman
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: celested
+ms.reviewer: brandwe
 ms.custom: aaddev
 
 ---
@@ -35,7 +37,7 @@ The v2.0 endpoint does not support all Azure Active Directory scenarios and feat
 > 
 
 ## Download code from GitHub
-The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) or clone the skeleton:
+The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2). To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) or clone the skeleton:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
@@ -48,7 +50,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 ```
 
 ## Register an app
-Create a new app at the [Application registration portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow the detailed steps at  [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).  Make sure to:
+Create a new app at the [Application registration portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow the detailed steps at  [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md). Make sure to:
 
 * Copy the **Application Id** that's assigned to your app because you'll need it soon.
 * Add the **Mobile** platform for your app.
@@ -118,7 +120,7 @@ The NXOAuth2Client library requires some values to get set up. After you complet
 
 Let's look at details about the code.
 
-The first string is for `scopes`.  The `User.Read` value allows you to read the basic profile of the signed in user.
+The first string is for `scopes`. The `User.Read` value allows you to read the basic profile of the signed in user.
 
 You can learn more about all the available scopes at [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes).
 

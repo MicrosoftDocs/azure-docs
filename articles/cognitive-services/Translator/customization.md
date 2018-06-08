@@ -36,6 +36,17 @@ More details about the various levels of customization based on available data c
 
 The legacy Microsoft Translator Hub can be used to translate statistical machine translation. [Learn more](https://www.microsoft.com/en-us/translator/hub.aspx) 
 
+## Custom Translator versus Hub
+
+|   | **Hub** | **Custom Translator**|
+|:-----|:----:|:----:|
+|Customization Feature Status	| General Availability	| Preview |
+| Text API version	| V2 only	| V3 only |
+| SMT customization	| Yes	| No | 
+| NMT customization	| No	| Yes |
+| New unified Speech services customization	| No	| Yes | 
+| [No Trace](http://www.aka.ms/notrace) | Yes	| Yes | 
+
 ## Collaborative Translations Framework
 
 > [!NOTE]

@@ -280,10 +280,10 @@ The Managed Service Identity endpoint signals errors via the status code field o
 
 | Status Code | Error Reason | How To Handle |
 | ----------- | ------------ | ------------- |
+| 404 Not found. | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
 | 429 Too many requests. |  IMDS Throttle limit reached. | Retry with Exponential Backoff. See guidance below. |
 | 4xx Error in request. | One or more of the request parameters was incorrect. | Do not retry.  Examine the error details for more information.  4xx errors are design-time errors.|
 | 5xx Transient error from service. | The MSI sub-system or Azure Active Directory returned a transient error. | It is safe to retry after waiting for at least 1 second.  If you retry too quickly or too often, IMDS and/or Azure AD may return a rate limit error (429).|
-| 404 Not found. | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
 | timeout | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
 
 If an error occurs, the corresponding HTTP response body contains JSON with the error details:

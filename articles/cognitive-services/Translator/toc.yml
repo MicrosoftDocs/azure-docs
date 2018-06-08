@@ -6,6 +6,8 @@
     href: translator-info-overview.md
 - name: Concepts
   items:
+  - name: Supported languages
+    href: languages.md
   - name: Customize and improve text translation
     href: customization.md
   - name: How the API counts characters
@@ -76,8 +78,6 @@
     href: https://cognitive.uservoice.com/forums/558796-translator
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-translator
-  - name: Supported languages
-    href: languages.md
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
   - name: Code samples on GitHub

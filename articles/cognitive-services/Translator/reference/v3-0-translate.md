@@ -49,7 +49,7 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>category</td>
-    <td>*Optional parameter*.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Microsoft Translator Hub](https://hub.microsofttranslator.com/). Default value is: `general`.</td>
+    <td>*Optional parameter*.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../customization.md). Default value is: `general`.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -146,7 +146,7 @@ A successful response is a JSON array with one result for each string in the inp
 
     The `transliteration` object is not included if transliteration does not take place.
 
-    * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The aligment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  The colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be non-contiguous. When no alignment information is available, the alignment element will be empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
+    * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  The colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be non-contiguous. When no alignment information is available, the alignment element will be empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
 
     * `sentLen`: An object returning sentence boundaries in the input and output texts.
 
@@ -156,7 +156,7 @@ A successful response is a JSON array with one result for each string in the inp
 
     Sentence boundaries are only included when the request parameter `includeSentenceLength` is `true`.
 
-  * `sourceText`: An object with a single string proerty named `text`, which gives the input text in the default script of the source language. `sourceText` property is present only when the input is expressed in a script that's not the usual script for the language. For example, if the input were Arabic written in Latin script, then `sourceText.text` would be the same Arabic text converted into Arab script.
+  * `sourceText`: An object with a single string property named `text`, which gives the input text in the default script of the source language. `sourceText` property is present only when the input is expressed in a script that's not the usual script for the language. For example, if the input were Arabic written in Latin script, then `sourceText.text` would be the same Arabic text converted into Arab script.
 
 Example of JSON responses are provided in the [examples](#examples) section.
 
@@ -540,7 +540,7 @@ The result is:
 ]
 ```
 
-This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using the Microsoft Translator Hub. The Hub makes full use of context and statistical probabilities. If you have or can afford to create training data that shows your work or phrase in context, you get much better results. You can find more information about the hub at https://hub.microsofttranslator.com.
+This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you have or can afford to create training data that shows your work or phrase in context, you get much better results. [Learn more about Custom Translator](../customization.md).
  
 
 

@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
 ---
-# Import from a knowledge base in QnA Maker Preview
+# Migrate a knowledge base using export-import
 QnA Maker announced General Availability on May 7, 2018 at the \\\build\ conference. QnA Maker GA has a new architecture built on Azure. Knowledge bases created with QnA Maker Free Preview will need to be migrated to QnA Maker GA. QnA Maker Preview will be deprecated in November 2018. For more information about the changes in QnA Maker GA, see the QnA Maker GA announcement [blog post](https://aka.ms/qnamakerga-blog).
 
 QnAMaker now has a [pricing model](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
@@ -30,20 +30,34 @@ Prerequisites
 
 3. Click on **Download knowledge base** to download a .tsv file that contains the content of your knowledge base - questions, answers, metadata, and the data source names from which they were extracted.
 
-    ![Download knowledge base](../media/qnamaker-how-to-migrate-kb/Preview-download.png)
+    ![Download knowledge base](../media/qnamaker-how-to-migrate-kb/preview-download.png)
 
-4. In the current [QnA Maker portal](https://qnamaker.ai), learn how to [create a knowledge base](./create-knowledge-base.md).
-5. Create a new empty knowledge base. To create an empty knowledge base, skip uploading and data sources in Step 4.
+4. Sign into to the [QnA Maker portal](https://qnamaker.ai) with your azure credentials and click on **Create new service**.
 
-    ![Create empty knowledge base](../media/qnamaker-how-to-migrate-kb/create-empty-kb.png)
+    ![Create KB ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+    
+5. If you have not already created a QnA Maker service, select **Create a QnA service**. Otherwise, choose a QnA Maker service from the drop-downs in Step 2. Select the QnA Maker service that will host the Knowledge Base.
 
-6. In this new Knowledge base, open the **Settings** tab and click on **Import knowledge base**. This imports the questions, answers, and metadata, and retains the data source names from which they were extracted.
+    ![Setup QnA service](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
 
-    ![Import knowledge base](../media/qnamaker-how-to-migrate-kb/import.png)
+6. Create an empty knowledge base 
 
-7. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](./test-knowledge-base.md).
-8. **Publish** the knowledge base. Learn how to [publish your knowledge base](./publish-knowledge-base.md).
-9. Use the endpoint below in your application or bot code. See here how to [create a QnA bot](../Tutorials/create-qna-bot.md).
+    ![Set data sources](../media/qnamaker-how-to-create-kb/set-data-sources.png)
+
+    - Give your service a **name.** Duplicate names are supported and special characters are supported as well.
+    - Skip uploading files or URLs as you want to use the data from your Preview knowledge base. For now, you will create an empty knowledge base.
+
+7. Select **Create**.
+
+    ![Create KB](../media/qnamaker-how-to-create-kb/create-kb.png)
+
+8. In this new Knowledge base, open the **Settings** tab and click on **Import knowledge base**. This imports the questions, answers, and metadata, and retains the data source names from which they were extracted.
+
+   ![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)
+
+9. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](./test-knowledge-base.md).
+10. **Publish** the knowledge base. Learn how to [publish your knowledge base](./publish-knowledge-base.md).
+11. Use the endpoint below in your application or bot code. See here how to [create a QnA bot](../Tutorials/create-qna-bot.md).
 
     ![QnA Maker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 

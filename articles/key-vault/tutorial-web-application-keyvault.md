@@ -2,11 +2,11 @@
 title: Configure an Azure web application to read a secret from Key vault | Microsoft Docs
 description: Tutorial Configure an ASP.Net core application to read a secret from Key vault
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: barclayn
 manager: mbaldwin
 
-ms.assetid: 
+ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article

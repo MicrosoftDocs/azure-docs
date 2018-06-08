@@ -70,6 +70,7 @@ To create an MSI-enabled VM:
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
+   ```
 
 ## Create a Cosmos DB account 
 

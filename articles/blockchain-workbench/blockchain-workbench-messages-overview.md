@@ -246,4 +246,5 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 
 ## Next steps
 
-* [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)

@@ -74,8 +74,10 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
+
+    If you choose a different name for your device, update the device name in the sample application before you run it.
 
 1. Run the following command to get the _device connection string_ for the device you just registered:
 

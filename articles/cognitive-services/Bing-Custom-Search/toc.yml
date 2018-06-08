@@ -74,7 +74,7 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
   - name: Try it!
     href: https://aka.ms/bingcustomsearchtryit
-  - name: Custom Search endpoint
+  - name: Bing Custom Search endpoint
     href: endpoint-custom.md
   - name: Supported countries and markets
     href: supported-countries-markets.md

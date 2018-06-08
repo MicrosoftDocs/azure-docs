@@ -83,7 +83,7 @@ The following questions and answers apply to the **Advanced** networking configu
 
   No. Deploying VMs in the subnet used by your Kubernetes cluster is not supported. VMs may be deployed in the same VNet, but in a different subnet.
 
-* *Can I configure per-pod network policies?
+* *Can I configure per-pod network policies?*
 
   No. Per-pod network policies are currently unsupported.
 

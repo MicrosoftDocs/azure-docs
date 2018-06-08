@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 05/11/2018
 
 ms.author: twooley
 author: twooley
@@ -19,6 +19,11 @@ ms.reviewer: sasubram
 # Add Azure Active Directory B2B collaboration users in the Azure portal
 
 As a global administrator, or a user who is assigned any of the limited administrator directory roles, you can use the Azure portal to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources.
+
+After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can click the redemption URL in the invitation email. For more information about the redemption process, see [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md).
+
+> [!IMPORTANT]
+> You should follow the steps in [How-to: Add your organization's privacy info in Azure Active Directory](https://aka.ms/adprivacystatement) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
 
 ## Add guest users to the directory
 
@@ -86,7 +91,7 @@ To add B2B collaboration users to an application as an Azure AD administrator, f
  
 ## Resend invitations to guest users
 
-If a guest user has not yet redeemed their invitation, you can resend the invitation.
+If a guest user has not yet redeemed their invitation, you can resend the invitation email.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. In the navigation pane, select **Azure Active Directory**.
@@ -105,6 +110,4 @@ If a guest user has not yet redeemed their invitation, you can resend the invita
 
 - To learn how non-Azure AD admins can add B2B guest users, see [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
 - For information about the invitation email, see [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md).
-- For information about the invitation redemption process, see [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md).
-
 

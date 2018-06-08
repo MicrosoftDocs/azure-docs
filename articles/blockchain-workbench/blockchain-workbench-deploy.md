@@ -166,7 +166,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Password | The password is used for connecting to VMs. |
     | SSH | Use an RSA public key in the single-line format beginning  with **ssh-rsa** or use the multi-line PEM format. You can generate SSH keys using `ssh-keygen` on Linux and OS X, or by using PuTTYGen on Windows. More information on SSH keys, see [How to use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md). |
     | Database password / Confirm database password | Specify the password to use for access to the database created as part of the deployment. |
-    | Deployment region | Specify where to deploy Blockchain Workbench resources. For best availablity, this should match the **Location** setting. |
+    | Deployment region | Specify where to deploy Blockchain Workbench resources. For best availability, this should match the **Location** setting. |
     | Subscription | Specify the Azure Subscription you wish to use for your deployment. |
     | Resource groups | Create a new Resource group by selecting **Create new** and specify a unique resource group name. |
     | Location | Specify the region you wish to deploy the framework. |
@@ -233,6 +233,8 @@ Once the deployment of the Blockchain Workbench has completed, a new resource gr
 
     ![App service essentials](media/blockchain-workbench-deploy/app-service.png)
 
+To associate a custom domain name with Blockchain Workbench, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+
 ## Configuring the Reply URL
 
 Once the Azure Blockchain Workbench has been deployed, the next step is to make sure the Azure Active Directory (Azure AD) client application is registered to the correct **Reply URL** of the deployed Blockchain Workbench web URL.
@@ -242,7 +244,7 @@ Once the Azure Blockchain Workbench has been deployed, the next step is to make 
 3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations**.
 4. Select the Azure AD client application you registered in the prerequisite section.
 5. Select **Settings > Reply URLs**.
-6. Specify the main web URL of the Azure Blockchain Workbench deployment you retrieved in the **Get the Azure Blockchain Workbench Web URL** section. The Reply URL is prefixed with `https://`.  For example, `https://myblockchain2-7v75.azurewebsites.net`
+6. Specify the main web URL of the Azure Blockchain Workbench deployment you retrieved in the **Get the Azure Blockchain Workbench Web URL** section. The Reply URL is prefixed with `https://`. For example, `https://myblockchain2-7v75.azurewebsites.net`
 
     ![Reply URLs](media/blockchain-workbench-deploy/configure-reply-url.png)
 
@@ -250,4 +252,7 @@ Once the Azure Blockchain Workbench has been deployed, the next step is to make 
 
 ## Next steps
 
-Now that you have Azure Blockchain Workbench deployed, the next step is to [manage users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md).
+In this how-to article, you've deployed Azure Blockchain Workbench. To learn how to create a blockchain application, continue to the next how-to article.
+
+> [!div class="nextstepaction"]
+> [Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)

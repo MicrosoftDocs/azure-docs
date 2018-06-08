@@ -39,7 +39,7 @@ As resources are added to a virtual network, it can become difficult to understa
 
 ![Topology view](./media/network-watcher-monitoring-overview/topology.png)
 
-You can download an editable version of the picture in svg format. Learn more about [topology view](network-watcher-topology-overview.md).
+You can download an editable version of the picture in svg format. Learn more about [topology view](view-network-topology.md).
 
 ## Diagnostics
 

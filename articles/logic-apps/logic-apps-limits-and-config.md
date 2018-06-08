@@ -3,18 +3,18 @@ title: Limits and configuration - Azure Logic Apps | Microsoft Docs
 description: Service limits and configuration values for Azure Logic Apps
 services: logic-apps
 documentationcenter: 
-author: jeffhollan
-manager: anneta
-editor: ''
+author: ecfan
+manager: cfowler
+editor: 
 
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: LADocs; jehollan
+ms.date: 05/14/2018
+ms.author: estfan
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -51,18 +51,31 @@ Here are the limits for a single logic app definition:
 
 Here are the limits for a single logic app run:
 
-| Name | Limit | 
-| ---- | ----- | 
-| Run duration | 90 days | 
-| Storage retention | 90 days from the run's start time | 
-| Minimum recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds | 
-| Maximum recurrence interval | 500 days | 
-||| 
+| Name | Limit | Notes | 
+|------|-------|-------| 
+| Run duration | 90 days | To change this limit, see [change run duration](#change-duration). | 
+| Storage retention | 90 days from the run's start time | To change this limit, see [change storage retention](#change-retention). | 
+| Minimum recurrence interval | 1 second | | 
+| Maximum recurrence interval | 500 days | | 
+|||| 
 
-To exceed the limits for run duration or 
-storage retention in your normal processing flow, 
+<a name="change-duration"></a>
+<a name="change-retention"></a>
+
+### Change run duration and storage retention
+
+You can change this limit to a value between seven days and 90 days. 
+However, to exceed the maximum limit, 
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
+
+1. In the Azure portal, on your logic app's menu, 
+choose **Workflow settings**. 
+
+2. Under **Runtime options**, from the **Run history retention in days** list, 
+choose **Custom**. 
+
+3. Enter or drag the slider for the number of days you want.
 
 <a name="looping-debatching-limits"></a>
 
@@ -119,7 +132,8 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Message size | 100 MB | Some connectors and APIs might not support 100 MB. | 
+| Message size | 100 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| Message size with chunking | 1 GB | This limit applies to actions that either natively support chunking or can have chunking support enabled in their runtime configuration. For more information, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). | 
 | Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. | 
 |||| 
 
@@ -152,21 +166,46 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 ### Artifact limits per integration account
 
-Here are the limits on the number of artifacts for each integration account.
+Here are the limits on the number of artifacts for each integration account. 
+For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Free pricing tier*
+*Free tier*
 
-| Name | Limit | Notes | 
-| ---- | ----- | ----- | 
-| Agreements | 10 | | 
-| Other artifact types | 25 | Artifact types include partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts. | 
+| Artifact | Limit | Notes | 
+|----------|-------|-------| 
+| EDI trading partners | 25 | | 
+| EDI trading agreements | 10 | | 
+| Maps | 25 | | 
+| Schemas | 25 | 
+| Assemblies | 10 | | 
+| Batch configurations | 5 | 
+| Certificates | 25 | | 
 |||| 
 
-*Standard pricing tier*
+*Basic tier*
 
-| Name | Limit | Notes | 
-| ---- | ----- | ----- | 
-| Any type of artifact | 500 | Artifact types include agreements, partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts. | 
+| Artifact | Limit | Notes | 
+|----------|-------|-------| 
+| EDI trading partners | 2 | | 
+| EDI trading agreements | 1 | | 
+| Maps | 500 | | 
+| Schemas | 500 | 
+| Assemblies | 25 | | 
+| Batch configurations | 1 | | 
+| Certificates | 2 | | 
+|||| 
+
+*Standard tier*
+
+| Artifact | Limit | Notes | 
+|----------|-------|-------| 
+| EDI trading partners | 500 | | 
+| EDI trading agreements | 500 | | 
+| Maps | 500 | | 
+| Schemas | 500 | 
+| Assemblies | 50 | | 
+| Batch configurations | 5 |  
+| Certificates | 50 | | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>

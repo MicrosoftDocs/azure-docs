@@ -111,15 +111,7 @@
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: How to enable write accelerator
-      href: how-to-enable-write-accelerator.md
-    - name: Troubleshoot attached VHDs
-      items:
-      - name: Storage resource deletion errors
-        href: storage-resource-deletion-errors.md  
-      - name: Unexpected reboots of VMs with attached VHDs  
-        href: unexpected-reboots-attached-vhds.md            
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md 
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -393,6 +385,8 @@
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
+    - name: Enable write accelerator
+      href: how-to-enable-write-accelerator.md
     - name: Optimize performance
       href: optimization.md
       items:
@@ -500,6 +494,12 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
+    - name: Attached VHDs
+      items:
+      - name: Storage resource deletion errors
+        href: storage-resource-deletion-errors.md  
+      - name: Unexpected reboots of VMs with attached VHDs  
+        href: unexpected-reboots-attached-vhds.md
 - name: Reference
   items:
   - name: Azure CLI
