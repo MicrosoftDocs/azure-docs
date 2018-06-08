@@ -64,11 +64,11 @@ These properties are supported for an Azure SQL Data Warehouse linked service.
 
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively.
 
-- [Using SQL authentication](#using-sql-authentication).
-- [Using Azure AD application token authentication: service principal](#using-service-principal-authentication).
-- [Using Azure AD application token authentication: Managed Service Identity](#using-managed-service-identity-authentication).
+- [SQL authentication](#using-sql-authentication)
+- [Azure AD application token authentication: service principal](#using-service-principal-authentication)
+- [Azure AD application token authentication: Managed Service Identity](#using-managed-service-identity-authentication)
 
-### Using SQL authentication
+### SQL authentication
 
 #### Linked service example that uses SQL authentication
 
@@ -91,11 +91,11 @@ For different authentication types, refer to the following sections on prerequis
 }
 ```
 
-### Using service principal authentication
+### Service principal authentication
 
 To use service principal-based Azure AD application token authentication, follow these steps.
 
-1. **[Create an Azure Active Directory application from Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).** Make note of the application name and the following values that you use to define the linked service.
+1. **[Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)** from an Azure portal. Make note of the application name and the following values that define the linked service.
 
     - Application ID
     - Application key
