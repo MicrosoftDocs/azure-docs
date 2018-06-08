@@ -26,6 +26,25 @@
 
 - name: Concepts
   items:
+  - name: Remote Monitoring
+    href: iot-accelerators-remote-monitoring-sample-walkthrough.md
+    items:
+    - name: Architectural choices
+      href: iot-accelerators-remote-monitoring-architectural-choices.md
+    - name: Device model schema
+      href: iot-accelerators-remote-monitoring-device-schema.md
+    - name: Device model behavior
+      href: iot-accelerators-remote-monitoring-device-behavior.md
+  - name: Predictive Maintenance
+    href: iot-accelerators-predictive-walkthrough.md
+  - name: Connected Factory
+    items:
+    - name: What is Connected Factory?
+      href: iot-accelerators-connected-factory-features.md
+    - name: Architecture
+      href: iot-accelerators-connected-factory-sample-walkthrough.md
+  - name: Permissions on azureiotsolutions.com
+    href: iot-accelerators-permissions.md
 
 - name: How-to guides
   items:
@@ -35,6 +54,9 @@
 
 - name: Resources
   items:
+
+
+
 
 - name: Get started
   items:
@@ -101,17 +123,14 @@
     items:
     - name: Predictive Maintenance solution accelerator overview
       href: iot-accelerators-predictive-overview.md
-    - name: Predictive Maintenance solution accelerator walkthrough
-      href: iot-accelerators-predictive-walkthrough.md
+
 
   - name: Connected Factory
     items:
-    - name: What is Connected Factory?
-      href: iot-accelerators-connected-factory-features.md
+
     - name: Connected Factory solution overview
       href: iot-accelerators-connected-factory-overview.md
-    - name: Connected Factory solution walkthrough
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
+
 
   - name: Device Simulation
     items:
@@ -126,10 +145,7 @@
     items:
     - name: Integrate SIM data
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
-    - name: Understand the device model schema
-      href: iot-accelerators-remote-monitoring-device-schema.md
-    - name: Understand the device model behavior
-      href: iot-accelerators-remote-monitoring-device-behavior.md
+
     - name: Create a new simulated device
       href: iot-accelerators-remote-monitoring-test.md
     - name: Visualize with PowerBI
@@ -163,10 +179,8 @@
 
     - name: Concepts
       items:
-      - name: Remote Monitoring implementation details
-        href: iot-accelerators-remote-monitoring-sample-walkthrough.md
-      - name: Remote Monitoring architectural choices
-        href: iot-accelerators-remote-monitoring-architectural-choices.md
+
+
 
   - name: Connected Factory
     items:
@@ -178,8 +192,7 @@
       href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
     - name: Configure Connected Factory
       href: iot-accelerators-connected-factory-configure.md
-  - name: Permissions on azureiotsuite.com
-    href: iot-accelerators-permissions.md
+
 
 - name: Reference
   items:
