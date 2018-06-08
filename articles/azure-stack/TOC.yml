@@ -199,6 +199,8 @@
         href: azure-stack-plan-offer-quota-overview.md
       - name: Create a plan
         href: azure-stack-create-plan.md
+      - name: Create an add-on plan
+        href: create-add-on-plan.md
       - name: Create an offer
         href: azure-stack-create-offer.md
       - name: Subscribe to an offer

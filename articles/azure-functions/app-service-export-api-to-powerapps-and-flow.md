@@ -3,8 +3,8 @@ title: Exporting an Azure-hosted API to PowerApps and Microsoft Flow | Microsoft
 description: Overview of how to expose an API hosted in App Service to PowerApps and Microsoft Flow
 services: app-service
 documentationcenter: ''
-author: mattchenderson
-manager: erikre
+author: ggailey777
+manager: cfowler
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: mahender; mblythe
+ms.author: glenga
+ms.reviewer: sunayv
 
 ---
 # Exporting an Azure-hosted API to PowerApps and Microsoft Flow
