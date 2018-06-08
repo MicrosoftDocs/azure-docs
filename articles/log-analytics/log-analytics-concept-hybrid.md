@@ -68,6 +68,9 @@ The information below list the proxy and firewall configuration information requ
 |*.blob.core.windows.net |Port 443 |Inbound and outbound|Yes |  
 |*.azure-automation.net |Port 443 |Inbound and outbound|Yes |  
 
+
+If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#network-planning). 
+
 The Windows and Linux agent supports communicating either through a proxy server or OMS Gateway to the Log Analytics service using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](log-analytics-agent-manage.md#update-proxy-settings) from Control Panel or  with PowerShell.  
 
 For the Linux agent, the proxy server is specified during installation or [after installation](/log-analytics-agent-manage.md#update-proxy-settings) by modifying the proxy.conf configuration file.  The Linux agent proxy configuration value has the following syntax:
