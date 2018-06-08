@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2018
+ms.date: 06/8/2018
 ms.author: kumud
 
 ---
 # Disaster recovery using Azure DNS and Traffic Manager
 
-Disaster recovery (DR) is focused on recovering from a severe loss of application functionality. Business and technology owners must determine how much functionality is required during a disaster. This level of functionality can take a few forms: unavailable, partially available via reduced functionality or delayed availability, or fully available.
+Disaster recovery is focused on recovering from a severe loss of application functionality. Business and technology owners must determine how much functionality is required during a disaster. This level of functionality can take a few forms: unavailable, partially available via reduced functionality or delayed availability, or fully available.
 Most enterprise customers are choosing a multi-region architecture for resiliency against an application or infrastructure level failover. Customers can choose several approaches in the quest to achieve failover and high availability via redundant architecture. here are some of the popular approaches:
 
 - **Active-passive with cold standby**: In this scenario, the VMs and other appliances running in the standby region is not active until the need for failover. However, the production environment is replicated in the form of backups / VM images / Resource Manager templates to a different region. This mechanism is cost-effective but takes a longer time to undertake a complete failover.
