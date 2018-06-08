@@ -120,21 +120,18 @@ Set up the configuration server, register it in the vault, and discover VMs.
 
 Do the following before you start: 
 
-- On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
-- Make sure the machine can access these URLs:
+#### Verify Time Acuracy
+On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
 
- [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+#### Verify Connectivity
+Make sure the machine can access these URLs based on your environment: [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  IP address-based firewall rules should allow communication to Azure.  Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
 
-- IP address-based firewall rules should allow communication to Azure.
-- Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
-- Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
-
+#### Run setup
 Run Unified Setup as a Local Administrator, to install the configuration server. The process server and the master target server are also installed by default on the configuration server.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 After registration finishes, the configuration server is displayed on the **Settings** > **Servers** page in the vault.
-
 
 ## Set up the target environment
 
