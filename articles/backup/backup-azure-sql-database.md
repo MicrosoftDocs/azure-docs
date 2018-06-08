@@ -44,6 +44,34 @@ The following items are the known limitations for the Public Preview.
 - SQL Failover Cluster Instances (FCI) are not supported.
 - Use the Azure portal to configure Azure Backup to protect SQL Server databases. Support for Azure PowerShell, CLI, and REST APIs is not currently available.
 
+## Supported Azure GEOs
+
+- Australia South East (ASE) 
+- Brazil South (BRS)
+- Canada Central (CNC)
+- Canada East (CE)
+- Central US (CUS)
+- East Asia (EA)
+- East Australia (AE) 
+- East US (EUS)
+- East US 2 (EUS2)
+- Japan East (JPE)
+- Japan West (JPW)
+- India Central (INC) 
+- India South (INS)
+- Korea Central (KRC)
+- Korea South (KRS)
+- North Central US (NCUS) 
+- North Europe (NE) 
+- South Central US (SCUS) 
+- South East Asia (SEA)
+- UK South (UKS) 
+- UK West (UKW) 
+- West Europe (WE) 
+- West US (WUS)
+- West Central US (WCUS)
+- West US 2 (WUS 2) 
+
 ## Supported operating systems and versions of SQL server
 
 The following supported operating systems and versions of SQL Server apply to SQL marketplace Azure virtual machines, and non-marketplace virtual machines (where SQL Server is manually installed).
@@ -71,6 +99,10 @@ Before you can back up your SQL Server database, check the following conditions.
 - Identify or [create a Recovery Services vault](backup-azure-sql-database.md#create-a-recovery-services-vault) in the same region, or locale, as the virtual machine hosting SQL Server.
 - [Check the permissions on the virtual machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) needed to back up SQL databases.
 - [SQL virtual machine has network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
+
+> [!NOTE]
+> You can have only one backup solution at a time to backup SQL Server databases. Please disable any other SQL backup before using this feature, else backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict 
+>
 
 If these conditions exist in your environment, proceed to the section, [Configure your vault to protect a SQL database](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database). If any of the prerequisites do not exist, continue reading this section.
 
@@ -221,7 +253,13 @@ When you use the **Discover DBs** tool, Azure Backup executes the following oper
 
 ## Configure backup for SQL Server database
 
-Azure Backup provides management services to protect your SQL Server databases and manage backup jobs. The management and monitoring capabilities depend on your Recovery Services vault. To configure protection for your SQL database:
+Azure Backup provides management services to protect your SQL Server databases and manage backup jobs. The management and monitoring capabilities depend on your Recovery Services vault. 
+
+> [!NOTE]
+> You can have only one backup solution at a time to backup SQL Server databases. Please disable any other SQL backup before using this feature, else backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict 
+>
+
+To configure protection for your SQL database:
 
 1. Open the Recovery Services vault registered with the SQL virtual machine.
 
