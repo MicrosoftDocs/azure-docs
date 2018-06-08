@@ -38,7 +38,7 @@ To run the sample, do the following steps:
 1. Save the file with an `.js` extension.
 1. Open the Node.js command prompt and run the file, for example: `node myfile.js`.
 
-```js
+```nodejs
 'use strict';
 
 const request = require('request');
