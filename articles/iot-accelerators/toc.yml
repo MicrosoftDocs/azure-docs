@@ -15,6 +15,14 @@
 
 - name: Tutorials
   items:
+  - name: Monitor IoT devices
+    href: iot-accelerators-remote-monitoring-monitor.md
+  - name: Detect device issues
+    href: iot-accelerators-remote-monitoring-automate.md
+  - name: Configure and manage devices
+    href: iot-accelerators-remote-monitoring-manage.md
+  - name: Use alerts and fix device issues
+    href: iot-accelerators-remote-monitoring-maintain.md
 
 - name: Concepts
   items:
@@ -116,16 +124,8 @@
   items:
   - name: Remote Monitoring
     items:
-    - name: Perform advanced monitoring
-      href: iot-accelerators-remote-monitoring-monitor.md
-    - name: Use rules to detect issues
-      href: iot-accelerators-remote-monitoring-automate.md
     - name: Integrate SIM data
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
-    - name: Manage your devices
-      href: iot-accelerators-remote-monitoring-manage.md
-    - name: Troubleshoot device issues
-      href: iot-accelerators-remote-monitoring-maintain.md
     - name: Understand the device model schema
       href: iot-accelerators-remote-monitoring-device-schema.md
     - name: Understand the device model behavior
