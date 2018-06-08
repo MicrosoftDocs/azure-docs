@@ -59,9 +59,9 @@ The patch orchestration app is composed of the following subcomponents:
 ### Ensure that your Azure VMs are running Ubuntu 16.04
 At the time of writing this document, Ubuntu 16.04 (`Xenial Xerus`) is the only supported version.
 
-### Ensure that the service fabric linux cluster is version 6.1.x and above
+### Ensure that the service fabric linux cluster is version 6.2.x and above
 
-Patch orchestration app linux uses certain features of runtime that are only available in service fabric runtime version 6.1.x and above.
+Patch orchestration app linux uses certain features of runtime that are only available in service fabric runtime version 6.2.x and above.
 
 ### Enable the repair manager service (if it's not running already)
 
@@ -116,7 +116,9 @@ For Ubuntu [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecu
 
 ## Download the app package
 
-Download the application from the [download link](https://go.microsoft.com/fwlink/?linkid=867984).
+Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=867984).
+
+Application in sfpkg format can be downloaded from [sfpkg link](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -365,5 +367,8 @@ The patch orchestration app collects telemetry to track usage and performance. T
 ### Version 0.1.0
 - Private preview release
 
-### Version 2.0.0 (Latest)
+### Version 2.0.0
 - Public release
+
+### Version 2.0.1 (Latest)
+- Recompiled the app using latest Service Fabric SDK

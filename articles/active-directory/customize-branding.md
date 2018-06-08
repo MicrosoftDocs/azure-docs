@@ -9,9 +9,9 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/23/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
@@ -81,24 +81,24 @@ Azure AD sign-in gives the user the option to remain signed in when they close a
 ## Add company branding to your directory
 
 1. Sign in to [the Azure AD admin center](https://aad.portal.azure.com) with an account that's a global admin for the tenant.
-2. Select **Users and groups** > **Company branding** > **Edit**.
+2. Select **Azure Active Directory** > **Company branding** > **Edit**.
   
   ![Opening custom branding](./media/customize-branding/navigation-to-branding.png)
 3. Modify the elements you want to customize. All elements are optional.
   
   ![Edit custom branding](./media/customize-branding/edit-branding.png)
-5. When you're done, select **Save**.
+4. When you're done, select **Save**.
 
 It can take up to an hour for any changes you made to the sign-in page branding to appear.
 
 ## Add language-specific company branding to your directory
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
-2. Select **Users and groups** > **Company branding** > **New language**.
+2. Select **Azure Active Directory** > **Company branding** > **New language**.
   
   ![Add language-specific branding elements](./media/customize-branding/add-language.png)
-5. Modify the elements you want to customize. All elements are optional.
-6. When you're done, select **Save**.
+3. Modify the elements you want to customize. All elements are optional.
+4. When you're done, select **Save**.
 
 It can take up to an hour for any changes you made to the sign-in page branding to appear.
 

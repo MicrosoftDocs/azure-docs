@@ -4,7 +4,7 @@ description: Establish High Availability of SAP HANA on Azure Virtual Machines (
 services: virtual-machines-linux
 documentationcenter: 
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor:
 
 ms.service: virtual-machines-linux

@@ -16,6 +16,10 @@ ms.author: nolachar
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 
+You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+
 ## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
@@ -34,7 +38,7 @@ To run the sample, do the following steps:
 
 The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. The API key is passed in via the `headers` dictionary. The size of the thumbnail is passed in via the `params` dictionary. The thumbnail is returned as a byte array in the response.
 
-### Get Thumbnail request
+## Get Thumbnail request
 
 ```python
 # Replace <Subscription Key> with your valid subscription key.

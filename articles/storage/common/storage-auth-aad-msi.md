@@ -18,7 +18,9 @@ Azure Storage supports Azure Active Directory (Azure AD) authentication with [Ma
 To grant permissions to a managed service identity for storage containers or queues, you assign an RBAC role encompassing storage permissions to the MSI. For more information about RBAC roles in storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md). 
 
 > [!IMPORTANT]
-> Azure AD integration with Azure Storage is in preview, and is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications. 
+> This preview is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications. For additional information about the preview, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
+>
+> During the preview, RBAC role assignments may take up to five minutes to propagate.
 
 This article shows how to authenticate to Azure Storage with MSI from an Azure VM.  
 
@@ -45,7 +47,7 @@ The code example assumes that you have an MSI access token. The access token is 
 In Visual Studio, install the preview version of the Azure Storage client library. From the **Tools** menu, select **Nuget Package Manager**, then **Package Manager Console**. Type the following command into the console:
 
 ```
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0-Preview  
+Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0  
 ```
 
 Add the following using statements to your code:
@@ -67,8 +69,12 @@ StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
 ``` 
 
+> [!NOTE]
+> Azure AD integration with Azure Storage requires that you use HTTPS for Azure Storage operations.
+
 ## Next steps
 
 - To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
 - To learn how to authorize access to containers and queues from within your storage applications, see [Use Azure AD with storage applications](storage-auth-aad-app.md).
 - To learn how to log into Azure CLI and PowerShell with an Azure AD identity, see [Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)](storage-auth-aad-script.md).
+- For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

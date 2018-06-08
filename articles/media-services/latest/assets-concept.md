@@ -47,7 +47,7 @@ The following table shows the Asset's properties and gives their definitions.
 
 For the full definition, see [Assets](https://docs.microsoft.com/rest/api/media/assets).
 
-## Filtering, ordering, and paging support
+## Filtering, ordering, paging
 
 Media Services supports the following OData query options for Assets: 
 

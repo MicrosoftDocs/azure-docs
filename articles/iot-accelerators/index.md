@@ -1,14 +1,13 @@
 ---
 title: Azure IoT solution accelerators Documentation - Tutorials, API Reference | Microsoft Docs
 description: Documentation for Azure IoT solution accelerators includes Getting started guides, How-to articles, Tutorials, and API Reference.
-services: iot-suite
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.service: iot-suite
+author: dominicbetts
+manager: timlt
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: landing-page
 ms.date: 11/27/2017
-ms.author: carolz
+ms.author: dobett
 ---
 
 # IoT solution accelerators documentation

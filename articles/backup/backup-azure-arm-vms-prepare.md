@@ -1,22 +1,14 @@
 ---
-title: 'Azure Backup: Prepare to back up virtual machines | Microsoft Docs'
+title: 'Azure Backup: Prepare to back up virtual machines'
 description: Make sure your environment is prepared for backing up virtual machines in Azure.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: backups; backing up;
-
-ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;sogup;
-
+ms.author: markgal
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
 

@@ -1,18 +1,13 @@
 ---
 title: Search Categories in Azure Maps | Microsoft Docs
 description: Learn about search categories in Azure Maps 
-services: azure-maps
-keywords: 
 author: sataneja
 ms.author: sataneja
-ms.date: 5/14/2018
-ms.topic: article
+ms.date: 05/14/2018
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: 
+services: azure-maps
+manager: 
 ---
 
 

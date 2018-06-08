@@ -1,17 +1,13 @@
 ---
-title: Device schema in Remote Monitoring solution - Azure | Microsoft Docs
-description: This article describes the JSON schema that defines a simulated device in the Remote Monitoring solution.
-services: iot-suite
-suite: iot-suite
+title: Device schema in remote monitoring solution - Azure | Microsoft Docs
+description: This article describes the JSON schema that defines a simulated device in the remote monitoring solution.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Understand the device model schema

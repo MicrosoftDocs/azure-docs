@@ -16,6 +16,8 @@ ms.author: nolachar
 
 In this quickstart, you analyze an image to extract visual features using Computer Vision.
 
+## Prerequisites
+
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## Analyze Image request

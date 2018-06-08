@@ -1,4 +1,5 @@
 - name: Face API Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Face API?
@@ -14,16 +15,14 @@
     href: QuickStarts/Java.md
   - name: JavaScript
     href: QuickStarts/JavaScript.md
+  - name: PHP
+    href: QuickStarts/PHP.md
+  - name: Python
+    href: QuickStarts/Python.md
+  - name: Ruby
+    href: QuickStarts/Ruby.md
 - name: How to guides
   items:
-  - name: Try Face API
-    items:
-    - name: PHP
-      href: QuickStarts/PHP.md
-    - name: Python
-      href: QuickStarts/Python.md
-    - name: Ruby
-      href: QuickStarts/Ruby.md
   - name: First Face API apps
     items:
     - name: C#

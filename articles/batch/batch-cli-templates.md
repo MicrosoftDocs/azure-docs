@@ -177,7 +177,7 @@ ffmpeg installed. To use it, supply only a pool ID string and the number of VMs 
                 "imageReference": {
                     "publisher": "Canonical",
                     "offer": "UbuntuServer",
-                    "sku": "16.04.0-LTS",
+                    "sku": "16.04-LTS",
                     "version": "latest"
                 },
                 "nodeAgentSKUId": "batch.node.ubuntu 16.04"

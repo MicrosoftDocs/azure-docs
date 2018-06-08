@@ -1,23 +1,15 @@
 ---
-title: Architecture of Remote Monitoring solution - Azure | Microsoft Docs
-description: A walkthrough of the architecture of the Remote Monitoring solution accelerator.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
+title: Architecture of remote monitoring solution - Azure | Microsoft Docs
+description: A walkthrough of the architecture of the remote monitoring solution accelerator.
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-
 ---
+
 # Remote Monitoring solution accelerator architecture
 
 The Remote Monitoring [solution accelerator](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) implements an end-to-end monitoring solution for multiple machines in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) it to meet your own specific business requirements.
@@ -138,6 +130,8 @@ If you want to explore the source code and developer documentation, start with o
 
 * [Solution accelerator for Remote Monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Solution accelerator for Remote Monitoring with Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-* [Solution accelerator for Remote Monitoring architecture)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+
+Detailed solution architecture diagrams:
+* [Solution accelerator for Remote Monitoring architecture](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 For more conceptual information about the Remote Monitoring solution accelerator, see [Customize the solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

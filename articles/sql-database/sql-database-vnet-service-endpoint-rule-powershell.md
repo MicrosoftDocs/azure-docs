@@ -6,7 +6,7 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: "VNet Service endpoints"
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.reviewer: genemi
 ms.author: dmalik

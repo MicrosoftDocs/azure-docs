@@ -11,7 +11,8 @@ ms.author: jeffgilb
 ms.date: 07/05/2017
 ms.topic: article
 ms.prod:
-ms.service: azure
+ms.service: active-directory
+ms.component: fundamentals
 ms.technology:
 ms.assetid:
 

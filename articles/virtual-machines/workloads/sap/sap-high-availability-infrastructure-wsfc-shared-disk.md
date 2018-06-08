@@ -4,7 +4,7 @@ description: Learn how to prepare the Azure infrastructure for SAP HA by using a
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''

@@ -1,21 +1,13 @@
 ---
-title: 'Manage Backups with Azure Role-Based Access Control | Microsoft Docs'
+title: Manage Backups with Azure Role-Based Access Control'
 description: Use Role-based Access Control to manage access to backup management operations in Recovery Services vault.
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-
-ms.assetid: 3bd46b97-4b29-47a5-b5ac-ac174dd36760
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/22/2017
-ms.author: trinadhk;markgal
-
+ms.author: trinadhk
 ---
 
 # Use Role-Based Access Control to manage Azure Backup recovery points

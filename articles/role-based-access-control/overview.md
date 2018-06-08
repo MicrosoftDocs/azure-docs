@@ -61,7 +61,7 @@ Azure includes several [built-in roles](built-in-roles.md) that you can use. The
 - [Reader](built-in-roles.md#reader) - Can view existing Azure resources.
 - [User Access Administrator](built-in-roles.md#user-access-administrator) - Lets you manage user access to Azure resources.
 
-The rest of the built-in roles allow management of specific Azure resources. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows a user to create and manage virtual machines. The built-in roles cannot be modified. If the built-in roles don't meet your specific access needs, you can create your own [custom roles](custom-roles.md).
+The rest of the built-in roles allow management of specific Azure resources. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows a user to create and manage virtual machines. If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md).
 
 Azure has introduced data operations (currently in preview) that enable you to grant access to data within an object. For example, if a user has read data access to a storage account, then they can read the blobs or messages within that storage account. For more information, see [Understand role definitions](role-definitions.md).
 
