@@ -93,23 +93,16 @@
 #### [CBA on iOS Devices](../active-directory/active-directory-certificate-based-authentication-ios.md)
 
 ## Develop
-
 ### [Build MFA into custom apps](../active-directory/authentication/howto-mfa-sdk.md)
 
 ## Reporting
 ### [SSPR Reports](../active-directory/authentication/howto-sspr-reporting.md)
 ### [MFA Reports](../active-directory/authentication/howto-mfa-reporting.md)
-
-# Deprecate
-
-## SSPR
-### [Passwords overview](../active-directory/authentication/active-directory-passwords-overview.md)
-## [Reporting](../active-directory/authentication/howto-mfa-reporting.md)
 ### [Data collection](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
-## MFA
+# Deprecate
+### [Passwords overview](../active-directory/authentication/active-directory-passwords-overview.md)
 ### [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
-### [MFA user guide](./end-user/multi-factor-authentication-end-user.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
