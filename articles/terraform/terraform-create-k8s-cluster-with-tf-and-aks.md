@@ -141,9 +141,9 @@ Create the Terraform configuration file that declares the resources for the Kube
 
     The preceding code sets the name of the cluster, location, and the resource_group_name. In addition, the dns_prefix value - that forms part of the fully qualified domain name (FQDN) used to access the cluster - is set.
 
-    The linux_profile record allows you to configure the settings that enable signing into the worker nodes using SSH.
+    The **linux_profile** record allows you to configure the settings that enable signing into the worker nodes using SSH.
 
-    With AKS, you pay only for the worker nodes. The agent_pool_profile record configures the details for these worker nodes. The agent_pool_profile record includes the number of worker nodes to create and the type of worker nodes. If you need to scale up or scale down the cluster in the future, you modify the **count** value in this record.
+    With AKS, you pay only for the worker nodes. The **agent_pool_profile** record configures the details for these worker nodes. The **agent_pool_profile record** includes the number of worker nodes to create and the type of worker nodes. If you need to scale up or scale down the cluster in the future, you modify the **count** value in this record.
 
 1. Exit insert mode by selecting the **Esc** key.
 
@@ -278,7 +278,7 @@ In this section, you see how to use the terraform command to create the resource
     terraform plan -out out.plan
     ```
 
-1. If the output from the **terraform plan** command is as expected, apply the plan to create the Kubernetes cluster. This process can take several minutes.
+1. If the output from the `terraform plan` command is as expected, apply the plan to create the Kubernetes cluster. This process can take several minutes.
 
     ```bash
     terraform apply out.plan
@@ -319,7 +319,7 @@ In this section, you use the Kubernetes dashboard can be used to test the newly 
     kubectl proxy
     ```
 
-    The **kubectl proxy** command returns an IP address as shown in the following image:
+    The `kubectl proxy` command returns an IP address as shown in the following image:
 
     ![The kubectl proxy command allows you to access the Kubernetes dashboard](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-proxy.png)
 
