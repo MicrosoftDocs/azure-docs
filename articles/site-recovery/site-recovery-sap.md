@@ -97,8 +97,15 @@ Below are the steps for setting up the disaster recovery
 6.	Do a failover 
 
 Below is the recommendation for disaster recovery of each tier used in this example. 
-![Screenshot that shows disaster recovery recommendation of each tier](./media/site-recovery-sap/dr_of_each_tier.PNG)
 
+
+ **SAP tiers** | **Recommendation**
+ --- | ---
+**SAP Web Dispatcher pool** |  Replicate using Site recovery 
+**SAP Application server pool** |  Replicate using Site recovery 
+**SAP Central Services cluster** |  Replicate using Site recovery 
+**Active directory virtual machines** |  Active directory replication 
+**SQL database servers** |  SQL always on replication
 ##Replicate virtual machines
 
 To start replicating all the SAP application virtual machines to the Azure disaster recovery datacenter, follow the guidance in [Replicate a virtual machine to Azure](azure-to-azure-walkthrough-enable-replication.md).
