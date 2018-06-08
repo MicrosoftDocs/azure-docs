@@ -101,7 +101,7 @@
     items:
     - name: Prediction score
       href: luis-concept-prediction-score.md
-    - name: Active learning by reviewing endpoint utterances
+    - name: Review endpoint utterances
       href: luis-concept-review-endpoint-utterances.md
     - name: Phrase lists
       href: luis-concept-feature.md
