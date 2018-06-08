@@ -43,8 +43,8 @@
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js
-### [Vault management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
-### [Vault contents management](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
+### [Vault management](https://docs.microsoft.com/javascript/api/azure-keyvault/index?view=azure-node-latest)
+### [Vault contents management](https://docs.microsoft.com/javascript/api/azure-arm-keyvault/index?view=azure-node-latest)
 ## [REST](/rest/api/keyvault)
 ## Develop
 ### [Developer quick start video](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
