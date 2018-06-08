@@ -99,7 +99,7 @@
       href: load-balancer-multiple-ip-powershell.md
   - name: Log analytics for Azure Load Balancer
     href: load-balancer-monitor-log.md
-  - name: Query Load Balancer metrics using REST
+  - name: Get Load Balancer metrics with REST
     href: load-balancer-query-metrics-rest-api.md
   - name: Configure High Availability Ports for Internal Load Balancer
     href: load-balancer-configure-ha-ports.md
