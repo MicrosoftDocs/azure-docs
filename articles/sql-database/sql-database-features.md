@@ -5,8 +5,8 @@ services: sql-database
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
-ms.topic: conceptual
-ms.date: 05/15/2018
+ms.topic: article
+ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
 ---
