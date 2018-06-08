@@ -132,5 +132,5 @@ After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md
 
 ## Next steps
 
-Learn how to [build a pattern](luis-tutorial-pattern.md) with a pattern.any and roles
-Learn how to [train](luis-how-to-train.md) your app
+* Learn how to [build a pattern](luis-tutorial-pattern.md) with a pattern.any and roles.
+* Learn how to [train](luis-how-to-train.md) your app.
