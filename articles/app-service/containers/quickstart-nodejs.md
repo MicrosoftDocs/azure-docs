@@ -68,10 +68,14 @@ az webapp up -n <app_name>
 ```
 
 The `az webapp up` command does the following:
-*Create a default resource group.
-*Create a default app service plan.
-*Create an app with the specified name.
-*[Zip deploy](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) files from the current working directory to the web app.
+
+- Create a default resource group.
+
+- Create a default app service plan.
+
+- Create an app with the specified name.
+
+- [Zip deploy](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) files from the current working directory to the web app.
 
 This command may take a few minutes to run. While running, it displays information similar to the following example:
 
