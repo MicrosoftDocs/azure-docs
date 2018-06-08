@@ -17,7 +17,7 @@ You can use Azure Backup to protect (or back up) files and applications on Azure
 > Though Azure Backup Server and System Center Data Protection Manager (DPM) are similar, DPM is not supported for use with Azure Stack.
 >
 
-This article assumes that you have already installed Azure Backup Server in the Azure Stack environment you want to protect. If you haven't installed Azure Backup Server, see the article, [Preparing to back up workloads using Azure Backup Server](backup-mabs-install-azure-stack.md).
+This article does not cover installing Azure Backup Server in the Azure Stack environment. To install Azure Backup Server on Azure Stack, see the article, [Preparing to back up workloads using Azure Backup Server](backup-mabs-install-azure-stack.md).
 
 
 ## Back up Azure Stack VM file data to Azure
@@ -40,7 +40,7 @@ To configure Azure Backup Server to protect IaaS virtual machines, open the Azur
 
     ![New Protection group wizard opens](./media/backup-mabs-files-applications-azure-stack/4-opening-screen-choose-servers.png)
 
-3. In the **Select Group Members** screen, click **+** to expand the list of sub-items. For all items that you want to protect, select the check box. Once all items have been selected, click **Next**.
+3. In the **Select Group Members** screen, click **+** to expand the list of subitems. For all items that you want to protect, select the check box. Once all items have been selected, click **Next**.
 
     ![New Protection group wizard opens](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
@@ -60,7 +60,7 @@ To configure Azure Backup Server to protect IaaS virtual machines, open the Azur
 
     ![New Protection group wizard opens](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png) 
 
-    Instead of selecting an interval for incremental backups, enable **Just before a recovery point** to run an express full backup just before each scheduled recovery point. If you're protecting application workloads, Azure Backup Server creates recovery points per the Synchronization frequency schedule (provided the application supports incremental backups). If the application doesn't support incremental backups, Azure Backup Server runs an express full backup.
+    Instead of selecting an interval for incremental backups, to run an express full backup just before each scheduled recovery point, click **Just before a recovery point**. If you're protecting application workloads, Azure Backup Server creates recovery points per the Synchronization frequency schedule (provided the application supports incremental backups). If the application doesn't support incremental backups, Azure Backup Server runs an express full backup.
 
     For **File recovery points**, specify when to create recovery points. Click **Modify** to set the times and days of the week when recovery points are created.
 
@@ -77,7 +77,7 @@ To configure Azure Backup Server to protect IaaS virtual machines, open the Azur
 
 10. In **Specify online backup schedule**, specify when incremental backups to Azure should occur. 
 
-    You can schedule backups to run every day/week/month/year and the time/date at which they should run. Backups can occur up to twice a day. Each time a backup job runs, a data recovery point is created in Azure from the copy of the backed up data stored on the Azure Backup Server disk.
+    You can schedule backups to run every day/week/month/year and the time/date at which they should run. Backups can occur up to twice a day. Each time a backup job runs, a data recovery point is created in Azure from the copy of the backed-up data stored on the Azure Backup Server disk.
 
 11. In **Specify online retention policy**, specify how the recovery points created from the daily/weekly/monthly/yearly backups are retained in Azure.
 
@@ -111,8 +111,8 @@ Use Azure Backup Server console to recover data to your virtual machine.
     * For **Existing version recovery behavior**, select **Create copy**, **Skip**, or **Overwrite**. Overwrite is available only when recovering to the original location.
     * For **Restore security**, choose **Apply settings of the destination computer** or **Apply the security settings of the recovery point version**.
     * For **Network bandwidth usage throttling**, click **Modify** to enable network bandwidth usage throttling.
-    * Select **Enable SAN based recovery using hardware snapshots** to use SAN-based hardware snapshots for quicker recovery. This option is valid only when you have a SAN where hardware-snapshot functionality is enabled. The SAN must have the capability to create a clone and split a clone to make it writable. The protected VM and Azure Backup Server must be connected to the same SAN.
-    * **Notification** Click **Send an e-mail when the recovery completes**, and specify the recipients who'll receive the notification. Separate the e-mail addresses with commas.
+    * Select **Enable SAN-based recovery using hardware snapshots** to use SAN-based hardware snapshots for quicker recovery. This option is valid only when you have a SAN where hardware-snapshot functionality is enabled. To make the recovery point writable, the SAN must be able to create a clone and split a clone. The protected VM and Azure Backup Server must be connected to the same SAN.
+    * **Notification** Click **Send an e-mail when the recovery completes**, and specify the recipients who will receive the notification. Separate the e-mail addresses with commas.
     * After making the selections, click **Next**
 
 7. Review your recovery settings, and click **Recover**. 

@@ -6,11 +6,11 @@ author: pvrk
 manager: Shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 6/8/2018
 ms.author: pullabhk
 ---
 # Back up SQL Server on Azure Stack to Azure
-This article leads you through the configuration steps for backup of SQL Server databases on Azure Stack using Microsoft Azure Backup Server (MABS).
+Use this article to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 
 The management of SQL Server database backup to Azure and recovery from Azure involves three steps:
 
@@ -19,7 +19,8 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 3. Recover the database from Azure.
 
 ## Before you start
-Before you begin, ensure that you have [installed and prepared the Azure Backup Server](backup-mabs-install-azure-stack.md).
+
+[Install and prepare Azure Backup Server](backup-mabs-install-azure-stack.md).
 
 ## Create a backup policy to protect SQL Server databases to Azure
 1. On the Azure Backup Server UI, click the **Protection** workspace.
@@ -34,34 +35,34 @@ Before you begin, ensure that you have [installed and prepared the Azure Backup 
 
     ![Select Protection Group Type - 'Servers'](./media/backup-azure-backup-sql/pg-servers.png)
 
-4. In the **Select Group Members** screen, the Available members list displays the various data sources. Click **+** to expand a folder and reveal the sub-folders. Click the checkbox to select an item. 
+4. In the **Select Group Members** screen, the Available members list displays the various data sources. Click **+** to expand a folder and reveal the subfolders. Click the checkbox to select an item.
 
     ![Select SQL DB](./media/backup-azure-backup-sql/pg-databases.png)
 
-    When you select an item, it appears in the list of Selected members. After selecting the servers or databases you want to protect, click **Next**.
+    All selected items appear in the Selected members list. After selecting the servers or databases you want to protect, click **Next**.
 
 5. In the **Select Data Protection Method** screen, provide a name for the protection group and select the **I want online Protection** checkbox.
 
-    ![Data Protection Method - short term disk & Online Azure](./media/backup-azure-backup-sql/pg-name.png)
+    ![Data Protection Method - short-term disk & Online Azure](./media/backup-azure-backup-sql/pg-name.png)
 
 6. In the **Specify Short-Term Goals** screen, include the necessary inputs to create backup points to disk, and click **Next**.
 
-    Here we see that **Retention range** is set to *5 days*, **Synchronization frequency** is set to once every *15 minutes* which is the frequency at which backup is taken. **Express Full Backup** is set to *8:00 P.M*.
+    In the example, **Retention range** is **5 days**, **Synchronization frequency** is once every **15 minutes**, which is the backup frequency. **Express Full Backup** is set to **8:00 P.M**.
 
-    ![Short term goals](./media/backup-azure-backup-sql/pg-shortterm.png)
+    ![Short-term goals](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
    > In the example shown, at 8:00 PM every day a backup point is created by transferring the modified data from the previous day’s 8:00 PM backup point. This process is called **Express Full Backup**. Transaction logs are synchronized every 15 minutes. If you need to recover the database at 9:00 PM, the point is created from the logs from the last express full backup point (8PM in this case).
    >
    >
 
-7. On the **Review disk allocation** screen, verify the overall storage space available, and the potential disk space utilization. Click **Next**.
+7. On the **Review disk allocation** screen, verify the overall storage space available, and the potential disk space. Click **Next**.
 
     ![Disk allocation](./media/backup-azure-backup-sql/pg-storage.png)
 
-    By default, Azure Backup Server creates one volume per data source (SQL Server database) which is used for the initial backup copy. Using this approach, the Logical Disk Manager (LDM) limits Azure Backup protection to 300 data sources (SQL Server databases). To work around this limitation, select the **Co-locate data in DPM Storage Pool**, option. Using this option, Azure Backup Server uses a single volume for multiple data sources, and can protect up to 2000 SQL Server databases.
+    By default, Azure Backup Server creates one volume per data source (SQL Server database), which is used for the initial backup copy. Using this approach, the Logical Disk Manager (LDM) limits Azure Backup protection to 300 data sources (SQL Server databases). To work around this limitation, select **Co-locate data in DPM Storage Pool**. With co-location, Azure Backup Server uses a single volume for multiple data sources, and can protect up to 2000 SQL Server databases.
 
-    If you select **Automatically grow the volumes**, Azure Backup Server accounts for the increased backup volume as production data grows. If **Automatically grow the volumes** option is not selected, Azure Backup Server limits the backup storage used to the data sources in the protection group.
+    If you select **Automatically grow the volumes**, Azure Backup Server accounts for the increased backup volume as production data grows. If you don't select the option, Azure Backup Server limits the backup storage used to the data sources in the protection group.
 
 8. In the **Choose Replica Creation Method**, choose how to create your first recovery point. You can transfer the initial backup manually (off network) to avoid bandwidth congestion or over the network. If you choose to wait to transfer the first backup, you can specify the time for the initial transfer. Click **Next**.
 
@@ -88,11 +89,11 @@ Before you begin, ensure that you have [installed and prepared the Azure Backup 
     In this example, backups are taken once a day at 12:00 PM and 8 PM (bottom part of the screen)
 
     > [!NOTE]
-    > It’s a good practice to have a few short-term recovery points on disk, for quick recovery. These recovery points are used for “operational recovery". Azure serves as a good offsite location with higher SLAs and guaranteed availability.
+    > It’s a good practice to have a few short-term recovery points on disk, for quick recovery. These recovery points are used for operational recovery. Azure serves as a good offsite location with higher SLAs and guaranteed availability.
     >
     >
 
-    **Best Practice**: Make sure that backups to Azure are scheduled after the completion of local disk backups. This enables the latest disk backup to be copied to Azure.
+    **Best Practice**: If you schedule backups to Azure to start after the local disk backups complete, the latest disk backups are always copied to Azure.
 
 12. Choose the retention policy schedule. The details on how the retention policy works are provided at [Use Azure Backup to replace your tape infrastructure article](backup-azure-backup-cloud-as-tape.md).
 
@@ -107,7 +108,7 @@ Before you begin, ensure that you have [installed and prepared the Azure Backup 
 13. Click **Next** and select the appropriate option for transferring the initial backup copy to Azure. You can choose **Automatically over the network** or **Offline Backup**.
 
     * **Automatically over the network** transfers the backup data to Azure as per the schedule chosen for backup.
-    * How **Offline Backup** works is explained at [Offline Backup workflow in Azure Backup](backup-azure-backup-import-export.md).
+    * **Offline Backup** is explained at [Offline Backup workflow in Azure Backup](backup-azure-backup-import-export.md).
 
     Choose the relevant transfer mechanism to send the initial backup copy to Azure and click **Next**.
 
@@ -124,17 +125,17 @@ While the previous steps created a backup policy, a “recovery point” is crea
 2. Right-click on the database and select **Create Recovery Point**.
 
     ![Create Online Recovery Point](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
-3. Choose **Online Protection** in the drop-down menu and click **OK**. This starts the creation of a recovery point in Azure.
+3. Choose **Online Protection** in the drop-down menu and click **OK** to start creation of a recovery point in Azure.
 
     ![Create recovery point](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-4. You can view the job progress in the **Monitoring** workspace where you'll find an in progress job like the one depicted in the next figure.
+4. View the job progress in the **Monitoring** workspace.
 
     ![Monitoring console](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## Recover a SQL Server database from Azure
 The following steps are required to recover a protected entity (SQL Server database) from Azure.
 
-1. Open the Azure Backup Server Management Console. Navigate to **Recovery** workspace where you can see the protected servers. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time which ends with **Online**.
+1. Open the Azure Backup Server Management Console. Navigate to **Recovery** workspace where you can see the protected servers. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time that is specified as an **Online** point.
 
     ![Select Recovery point](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. Right-click the database name and click **Recover**.
@@ -144,7 +145,8 @@ The following steps are required to recover a protected entity (SQL Server datab
 
     ![Recover to Original Location](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    In this example, DPM allows recovery of the database to another SQL Server instance or to a standalone network folder.
+    In this example, DPM recovers the database to another SQL Server instance, or to a standalone network folder.
+
 4. In the **Specify Recovery options** screen, you can select the recovery options like Network bandwidth usage throttling to throttle the bandwidth used by recovery. Click **Next**.
 
 5. In the **Summary** screen, you see all the recovery configurations provided so far. Click **Recover**.
