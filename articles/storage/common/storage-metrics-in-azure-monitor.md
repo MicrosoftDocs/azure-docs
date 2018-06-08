@@ -404,6 +404,12 @@ For the metrics supporting dimensions, you need to specify the dimension value t
 
 Legacy metrics are available in parallel with Azure Monitor managed metrics. The support keeps the same until Azure Storage ends the service on legacy metrics.
 
+## FAQ
+
+**Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
+
+No, Azure Compute supports the metrics on disks. See [article](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/) for more details.
+
 ## Next steps
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
