@@ -127,6 +127,13 @@ Two options are available to users with mobile phones.
 
 If users don't want their mobile phone number to be visible in the directory, but they still want to use it for password reset, administrators should not populate it in the directory. Users should then populate their **Authentication Phone** attribute via the [password reset registration portal](https://aka.ms/ssprsetup). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
+To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
+
+> [!NOTE]
+> There needs to be a space between the country code and the phone number.
+>
+> Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
+
 ### Text message
 
 An SMS is sent to the mobile phone number containing a verification code. Enter the verification code provided in the sign-in interface to continue.
@@ -138,6 +145,13 @@ An automated voice call is made to the phone number you provide. Answer the call
 ## Office phone
 
 An automated voice call is made to the phone number you provide. Answer the call and presses # in the phone keypad to authenticate.
+
+To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
+
+> [!NOTE]
+> There needs to be a space between the country code and the phone number.
+>
+> Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
 
 ## App Passwords
 
