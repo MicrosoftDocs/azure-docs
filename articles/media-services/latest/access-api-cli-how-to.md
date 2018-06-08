@@ -44,3 +44,7 @@ If you choose to install and use the CLI locally, this topic requires the Azure 
 
 > [!div class="nextstepaction"]
 > [Stream a file](stream-files-dotnet-quickstart.md)
+
+## See also
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

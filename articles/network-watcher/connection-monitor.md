@@ -138,8 +138,7 @@ By default, Azure allows communication over all ports between VMs in the same vi
 
 5. Since connection monitor probes at 60-second intervals, wait a few minutes and then on the left side of the portal, select **Network Watcher**, then **Connection monitor**, and then select the **myVm1-myVm2(22)** monitor again. The results are different now, as shown in the following picture:
 
-    ![Monitor details fault](./media/connection-monitor/vm-monitor-fault
-.png)
+    ![Monitor details fault](./media/connection-monitor/vm-monitor-fault.png)
 
     You can see that there's a red exclamation icon in the status column for the **myvm2529** network interface.
 

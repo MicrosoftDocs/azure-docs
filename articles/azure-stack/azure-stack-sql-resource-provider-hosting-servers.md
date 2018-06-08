@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/18/2018
 ms.author: jeffgilb
 
 ---
@@ -93,25 +93,21 @@ Configuring SQL Always On instances requires additional steps and involves at le
 > [!NOTE]
 > The SQL adapter RP _only_ supports SQL 2016 SP1 Enterprise or later instances for Always On, as it requires new SQL features such as automatic seeding. In addition to the preceding common list of requirements:
 
-* You must provide a file server in addition to the SQL Always On computers. There is an [Azure Stack Quickstart template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-ha) that can create this environment for you. It also can serve as a guide to building your own instance.
+Specifically, you must enable [Automatic Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each availability group for each instance of SQL Server:
 
-* You must set up the SQL servers. Specifically, you must enable [Automatic Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each availability group for each instance of SQL Server.
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON 'InstanceName'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  ```
 
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>]
-    MODIFY REPLICA ON 'InstanceName'
-    WITH (SEEDING_MODE = AUTOMATIC)
-GO
-```
+On secondary instances use these SQL commands:
 
-On secondary instances
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
-GO
-
-```
-
-
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
 
 To add SQL Always On hosting servers, follow these steps:
 
@@ -121,14 +117,16 @@ To add SQL Always On hosting servers, follow these steps:
 
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
-
-3. Fill the form with the connection details of your SQL Server instance, being sure to use the FQDN or IPv4 address of the Always On Listener (and optional port number). Provide the account information for the account you configured with system admin privileges.
+3. Fill the form with the connection details of your SQL Server instance, being sure to use the FQDN address of the Always On Listener (and optional port number). Provide the account information for the account you configured with system admin privileges.
 
 4. Check this box to enable support for SQL Always On Availability Group instances.
 
 	![Hosting Servers](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. Add the SQL Always On instance to a SKU. You cannot mix standalone servers with Always On instances in the same SKU. That will be determined when adding the first hosting server. Attempting to mix types afterwards will result in an error.
+5. Add the SQL Always On instance to a SKU. 
+
+> [!IMPORTANT]
+> You cannot mix standalone servers with Always On instances in the same SKU. Attempting to mix types after adding the first hosting server results in an error.
 
 
 ## Making SQL databases available to users

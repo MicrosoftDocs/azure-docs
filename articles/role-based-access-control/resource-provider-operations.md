@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 05/18/2018
 ms.author: rolyon
 
 ---
@@ -1039,6 +1039,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Compute/virtualMachines/extensions/write | Creates a new virtual machine extension or updates an existing one |
 > | Action | Microsoft.Compute/virtualMachines/generalize/action | Sets the virtual machine state to Generalized and prepares the virtual machine for capture |
 > | Action | Microsoft.Compute/virtualMachines/instanceView/read | Gets the detailed runtime status of the virtual machine and its resources |
+> | DataAction | Microsoft.Compute/virtualMachines/login/action | Log in to a virtual machine as a regular user |
+> | DataAction | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Log in to a virtual machine with Windows administrator or Linux root user privileges |
 > | Action | Microsoft.Compute/virtualMachines/performMaintenance/action | Performs Maintenance Operation on the VM. |
 > | Action | Microsoft.Compute/virtualMachines/powerOff/action | Powers off the virtual machine. Note that the virtual machine will continue to be billed. |
 > | Action | Microsoft.Compute/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read | Reads Virtual Machine Metric Definitions |
@@ -1713,6 +1715,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DocumentDB/databaseAccounts/listKeys/action | List keys of a database account |
 > | Action | Microsoft.DocumentDB/databaseAccounts/metricDefinitions/read | Reads the database account metrics definitions. |
 > | Action | Microsoft.DocumentDB/databaseAccounts/metrics/read | Reads the database account metrics. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/offlineRegion/action | Offline a region of a database account.  |
+> | Action | Microsoft.DocumentDB/databaseAccounts/onlineRegion/action | Online a region of a database account. |
 > | Action | Microsoft.DocumentDB/databaseAccounts/operationResults/read | Read status of the asynchronous operation |
 > | Action | Microsoft.DocumentDB/databaseAccounts/percentile/metrics/read | Read latency metrics |
 > | Action | Microsoft.DocumentDB/databaseAccounts/percentile/read | Read percentiles of replication latencies |
@@ -2095,6 +2099,43 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Deprecated: Please use /providers/Microsoft.Maps) Generate new Location Based Services Account primary or secondary key |
 > | Action | Microsoft.LocationBasedServices/accounts/write | (Deprecated: Please use /providers/Microsoft.Maps) Create or update a Location Based Services Account. |
 > | Action | Microsoft.LocationBasedServices/register/action | (Deprecated: Please use /providers/Microsoft.Maps) Register the provider |
+
+## Microsoft.LogAnalytics
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Action Type | Operation | Description |
+> | --- | --- | --- |
+> | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Read data from the Alert table |
+> | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | Read data from the AzureActivity table |
+> | DataAction | Microsoft.LogAnalytics/logs/AzureMetrics/read | Read data from the AzureMetrics table |
+> | DataAction | Microsoft.LogAnalytics/logs/CommonSecurityLog/read | Read data from the CommonSecurityLog table |
+> | DataAction | Microsoft.LogAnalytics/logs/ComputerGroup/read | Read data from the ComputerGroup table |
+> | DataAction | Microsoft.LogAnalytics/logs/CustomLogs/read | Reading data from any *_CL table |
+> | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | Read data from the ETWEvent table |
+> | DataAction | Microsoft.LogAnalytics/logs/Event/read | Read data from the Event table |
+> | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Read data from the Heartbeat table |
+> | DataAction | Microsoft.LogAnalytics/logs/LinuxAuditLog/read | Read data from the LinuxAuditLog table |
+> | DataAction | Microsoft.LogAnalytics/logs/Operation/read | Read data from the Operation table |
+> | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Read data from the Perf table |
+> | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | Read data from the ProtectionStatus table |
+> | DataAction | Microsoft.LogAnalytics/logs/read | Read data from logs |
+> | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | Read data from the ReservedAzureCommonFields table |
+> | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | Read data from the ReservedCommonFields table |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityAlert/read | Read data from the SecurityAlert table |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaseline/read | Read data from the SecurityBaseline table |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaselineSummary/read | Read data from the SecurityBaselineSummary table |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityDetection/read | Read data from the SecurityDetection table |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityEvent/read | Read data from the SecurityEvent table |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricOperationalEvent/read | Read data from the ServiceFabricOperationalEvent table |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableActorEvent/read | Read data from the ServiceFabricReliableActorEvent table |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableServiceEvent/read | Read data from the ServiceFabricReliableServiceEvent table |
+> | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | Read data from the Syslog table |
+> | DataAction | Microsoft.LogAnalytics/logs/SysmonEvent/read | Read data from the SysmonEvent table |
+> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Read data from the Update table |
+> | DataAction | Microsoft.LogAnalytics/logs/UpdateSummary/read | Read data from the UpdateSummary table |
+> | DataAction | Microsoft.LogAnalytics/logs/Usage/read | Read data from the Usage table |
+> | DataAction | Microsoft.LogAnalytics/logs/W3CIISLog/read | Read data from the W3CIISLog table |
+> | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | Read data from the WindowsFirewall table |
 
 ## Microsoft.Logic
 
@@ -3653,6 +3694,10 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Storage/operations/read | Polls the status of an asynchronous operation. |
 > | Action | Microsoft.Storage/register/action | Registers the subscription for the storage resource provider and enables the creation of storage accounts. |
 > | Action | Microsoft.Storage/skus/read | Lists the Skus supported by Microsoft.Storage. |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | Returns the result of adding blob content |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
 > | Action | Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action | Clear blob container legal hold |
 > | Action | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
 > | Action | Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/delete | Delete blob container immutability policy |
@@ -3681,6 +3726,11 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/metricDefinitions/read | Get list of Microsoft Storage Metrics definitions. |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returns the result of deleting a queue |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Returns the result of adding a message |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returns the result of deleting a message |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Returns the result of processing a message |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returns the result of writing a message |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returns the result of writing a queue |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/read | Returns queue service properties or statistics. |
@@ -3992,7 +4042,6 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/classicmobileservices/read | Get Classic Mobile Services. |
 > | Action | Microsoft.Web/connectionGateways/Delete | Deletes a Connection Gateway. |
 > | Action | Microsoft.Web/connectionGateways/Join/Action | Joins a Connection Gateway. |
-> | Action | microsoft.web/connectiongateways/liststatus/action | List Status Connection Gateways. |
 > | Action | Microsoft.Web/connectionGateways/ListStatus/Action | Lists status of a Connection Gateway. |
 > | Action | Microsoft.Web/connectionGateways/Move/Action | Moves a Connection Gateway. |
 > | Action | Microsoft.Web/connectionGateways/Read | Get the list of Connection Gateways. |
@@ -4015,6 +4064,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Web/geoRegions/Read | Get the list of Geo regions. |
 > | Action | microsoft.web/hostingenvironments/capacities/read | Get Hosting Environments Capacities. |
 > | Action | Microsoft.Web/hostingEnvironments/Delete | Delete an App Service Environment |
+> | Action | microsoft.web/hostingenvironments/detectors/read | Get Hosting Environments Detectors. |
 > | Action | microsoft.web/hostingenvironments/diagnostics/read | Get Hosting Environments Diagnostics. |
 > | Action | microsoft.web/hostingenvironments/inboundnetworkdependenciesendpoints/read | Get the network endpoints of all inbound dependencies. |
 > | Action | microsoft.web/hostingenvironments/metricdefinitions/read | Get Hosting Environments Metric Definitions. |
@@ -4094,14 +4144,17 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Web/sites/backup/Action | Create a new web app backup |
 > | Action | microsoft.web/sites/backup/read | Get Web Apps Backup. |
 > | Action | microsoft.web/sites/backup/write | Update Web Apps Backup. |
+> | Action | microsoft.web/sites/backups/action | Discovers an existing app backup that can be restored from a blob in Azure storage. |
 > | Action | microsoft.web/sites/backups/delete | Delete Web Apps Backups. |
 > | Action | microsoft.web/sites/backups/list/action | List Web Apps Backups. |
 > | Action | Microsoft.Web/sites/backups/Read | Get the properties of a web app's backup |
 > | Action | microsoft.web/sites/backups/restore/action | Restore Web Apps Backups. |
+> | Action | microsoft.web/sites/backups/write | Update Web Apps Backups. |
 > | Action | microsoft.web/sites/config/delete | Delete Web Apps Config. |
 > | Action | Microsoft.Web/sites/config/list/Action | List Web App's security sensitive settings, such as publishing credentials, app settings and connection strings |
 > | Action | Microsoft.Web/sites/config/Read | Get Web App configuration settings |
 > | Action | Microsoft.Web/sites/config/Write | Update Web App's configuration settings |
+> | Action | microsoft.web/sites/containerlogs/action | Get Zipped Container Logs for Web App. |
 > | Action | microsoft.web/sites/continuouswebjobs/delete | Delete Web Apps Continuous Web Jobs. |
 > | Action | microsoft.web/sites/continuouswebjobs/read | Get Web Apps Continuous Web Jobs. |
 > | Action | microsoft.web/sites/continuouswebjobs/start/action | Start Web Apps Continuous Web Jobs. |
@@ -4111,6 +4164,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/sites/deployments/log/read | Get Web Apps Deployments Log. |
 > | Action | microsoft.web/sites/deployments/read | Get Web Apps Deployments. |
 > | Action | microsoft.web/sites/deployments/write | Update Web Apps Deployments. |
+> | Action | microsoft.web/sites/detectors/read | Get Web Apps Detectors. |
 > | Action | microsoft.web/sites/diagnostics/analyses/execute/Action | Run Web Apps Diagnostics Analysis. |
 > | Action | microsoft.web/sites/diagnostics/analyses/read | Get Web Apps Diagnostics Analysis. |
 > | Action | microsoft.web/sites/diagnostics/aspnetcore/read | Get Web Apps Diagnostics for ASP.NET Core app. |
@@ -4274,6 +4328,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/sites/slots/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Action | microsoft.web/sites/slots/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Action | Microsoft.Web/sites/slots/providers/Microsoft.Insights/metricDefinitions/Read | Gets the available metrics for Web App Slot |
+> | Action | microsoft.web/sites/slots/publiccertificates/delete | Delete Web Apps Slots Public Certificates. |
 > | Action | microsoft.web/sites/slots/publiccertificates/read | Get Web Apps Slots Public Certificates. |
 > | Action | microsoft.web/sites/slots/publiccertificates/write | Create or Update Web Apps Slots Public Certificates. |
 > | Action | Microsoft.Web/sites/slots/publish/Action | Publish a Web App Slot |

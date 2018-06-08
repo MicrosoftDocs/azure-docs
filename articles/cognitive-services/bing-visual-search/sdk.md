@@ -23,7 +23,7 @@ Bing Visual Search provides the following client SDKs that you can use to exerci
 * [Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * [Node.js libraries](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/imageSearch) for definitions and dependencies
 * [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * [Java libraries](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-imagesearch) for definitions and dependencies
+    * [Java libraries](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search) for definitions and dependencies
 * [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-imagesearch) for definitions and dependencies
 

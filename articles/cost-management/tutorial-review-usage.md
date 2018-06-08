@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: 
+ms.custom:
 manager: dougeby
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
@@ -22,6 +22,7 @@ Azure Cost Management shows you usage and costs so that you can track trends, de
 > * Track usage and cost trends
 > * Detect usage inefficiencies
 > * Create alerts for unusual spending or overspending
+> * Export data
 
 If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -90,6 +91,9 @@ Use the **Scheduling** tab to send yourself an email of the report using the fre
 
 You can also choose the Cost Percentage vs. Budget threshold metric to create alerts. By using that metric, you can use budget percentages instead of currency values.
 
+## Export data
+
+Similar to way you create alerts for reports, you can also export data from any report. For example, you might want to export a list of Cloudyn accounts or other user data. To export any report, open the report and then in the top right of the report, click **Actions**. Some of the actions you might want to take are **Export all report data** so that you can download or print the information. Or, you can select **Schedule report** to schedule the report to get sent as an email.
 
 ## Next steps
 
@@ -99,6 +103,7 @@ In this tutorial, you learned how to:
 > * Track usage and cost trends
 > * Detect usage inefficiencies
 > * Create alerts for unusual spending or overspending
+> * Export data
 
 
 Advance to the next tutorial to learn how to forecast spending using historical data.

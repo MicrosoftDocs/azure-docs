@@ -35,6 +35,7 @@ Patterns solve the following situations:
 ## Patterns solve missed entity detection
 A second issue is that LUIS doesn't find the employee name in the utterance, to return in an entity. 
 -->
+
 ## Patterns are not a guarantee of intent
 Patterns use a mix of prediction technologies. Setting an intent for a template utterance in a pattern is not a guarantee of the intent prediction but it is a strong signal. 
 
@@ -102,7 +103,7 @@ Mark optional text in the utterance using the regular expression square bracket 
 ```
 
 ## Best practices
-See [Entity best practices](luis-concept-best-practices.md#entities) to learn more.
+Learn [best practices](luis-concept-best-practices.md).
 
 ## Next steps
 

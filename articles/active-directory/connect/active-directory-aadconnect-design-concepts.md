@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/13/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 
 ---
 # Azure AD Connect: Design concepts
-The purpose of this topic is to describe areas that must be thought through during the implementation design of Azure AD Connect. This topic is a deep dive on certain areas and these concepts are briefly described in other topics as well.
+The purpose of this document is to describe areas that must be thought through during the implementation design of Azure AD Connect. This document is a deep dive on certain areas and these concepts are briefly described in other documents as well.
 
 ## sourceAnchor
 The sourceAnchor attribute is defined as *an attribute immutable during the lifetime of an object*. It uniquely identifies an object as being the same object on-premises and in Azure AD. The attribute is also called **immutableId** and the two names are used interchangeable.
 
-The word immutable, that is "cannot be changed", is important to this topic. Since this attribute’s value cannot be changed after it has been set, it is important to pick a design that supports your scenario.
+The word immutable, that is "cannot be changed", is important to this document. Since this attribute’s value cannot be changed after it has been set, it is important to pick a design that supports your scenario.
 
 The attribute is used for the following scenarios:
 
@@ -37,12 +38,12 @@ This topic only talks about sourceAnchor as it relates to users. The same rules 
 ### Selecting a good sourceAnchor attribute
 The attribute value must follow the following rules:
 
-* Be less than 60 characters in length
+* Fewer than 60 characters in length
   * Characters not being a-z, A-Z, or 0-9 are encoded and counted as 3 characters
 * Not contain a special character: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Must be globally unique
 * Must be either a string, integer, or binary
-* Should not be based on user's name, these change
+* Should not be based on user's name because these can change
 * Should not be case-sensitive and avoid values that may vary by case
 * Should be assigned when the object is created
 
@@ -162,7 +163,7 @@ If you are using Azure AD Connect to manage on-premises AD FS deployment, the Az
 
 If you are managing AD FS outside of Azure AD Connect or you are using third-party federation servers for authentication, you must manually update the claim rules for ImmutableID claim to be consistent with the sourceAnchor values exported to Azure AD as described in article section [Modify AD FS claim rules](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims). The wizard returns the following warning after installation completes:
 
-![Third party federation configuration](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
+![Third-party federation configuration](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
 ### Adding new directories to existing deployment
 Suppose you have deployed Azure AD Connect with the ConsistencyGuid feature enabled, and now you would like to add another directory to the deployment. When you try to add the directory, Azure AD Connect wizard checks the state of the mSDS-ConsistencyGuid attribute in the directory. If the attribute is configured on one or more objects in the directory, the wizard concludes the attribute is being used by other applications and returns an error as illustrated in the diagram below. If you are certain that the attribute isn't used by existing applications, you need to contact Support for information on how to suppress the error.
@@ -190,7 +191,7 @@ Some organizations have non-routable domains, like contoso.local, or simple sing
 
 Read [Add your custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md) for more info on adding and verifying domains.
 
-Azure AD Connect detects if you are running in a non-routable domain environment and would appropriately warn you from going ahead with express settings. If you are operating in a non-routable domain, then it is likely that the UPN of the users have non-routable suffixes too. For example, if you are running under contoso.local, Azure AD Connect suggests you to use custom settings rather than using express settings. Using custom settings, you are able to specify the attribute that should be used as UPN to sign in to Azure after the users are synced to Azure AD.
+Azure AD Connect detects if you are running in a non-routable domain environment and would appropriately warn you from going ahead with express settings. If you are operating in a non-routable domain, then it is likely that the UPN, of the users, have non-routable suffixes too. For example, if you are running under contoso.local, Azure AD Connect suggests you to use custom settings rather than using express settings. Using custom settings, you are able to specify the attribute that should be used as UPN to sign in to Azure after the users are synced to Azure AD.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

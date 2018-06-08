@@ -3,7 +3,7 @@ title: Perform an access review in Privileged Identity Management for Azure reso
 description: This document describes how to perform an access review in PIM for Azure resources, according to resource role.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: mwahl
 ms.service: active-directory
@@ -11,8 +11,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
 ---
 

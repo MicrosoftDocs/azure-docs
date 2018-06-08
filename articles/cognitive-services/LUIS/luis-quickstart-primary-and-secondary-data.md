@@ -1,26 +1,45 @@
 ---
-title: Create a LUIS app to extract data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and a simple entity to extract machine-learned data in this quickstart. 
+title: Tutorial creating a LUIS app to extract data - Azure | Microsoft Docs 
+description: In this tutorial, learn how to create a simple LUIS app using intents and a simple entity to extract machine-learned data. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 03/29/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
-# Quickstart: Create app with intents and a simple entity
-In this quickstart, you create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
+# Tutorial: Create app that uses simple entity
+In this tutorial, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
 
-This simple app has two intents and one entity. This app demonstrates how to pull data out of an utterance. In the utterance, `Send a message telling them to stop`, the intent (primary data) is to send a message and the simple entity (secondary data) is the content of the message, `telling them to stop`.  
-
-When the intent and entities of the utterance are identified, LUIS is done. The calling application or chat bot takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand simple entities 
+> * Create new LUIS app for the communication domain with SendMessage intent
+> * Add _None_ intent and add example utterances
+> * Add simple entity to extract message contents from utterance
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
+## Purpose of the app
+This app demonstrates how to pull data out of an utterance. Consider the following utterance from a chatbot:
+
+```JSON
+Send a message telling them to stop
+```
+
+The intent is to send a message. The important data of the utterance is the message itself,  `telling them to stop`.  
+
+## Purpose of the simple entity
+The purpose of the simple entity is to teach LUIS what a message is and where it can be found in an utterance. The part of the utterance that is the message can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of messages in any utterance across all intents.  
+
+For this simple app, the message will be at the end of the utterance. 
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the region where you need the LUIS endpoints published.
@@ -83,7 +102,7 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
     |Good bye|
     |What is going on?|
     
-    In your LUIS-calling application, such as a chat bot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
+    In your LUIS-calling application, such as a chatbot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png "Screenshot of LUIS with utterances for None intent")](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png#lightbox)
 
@@ -132,7 +151,7 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
     ![Training success notification](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
+In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
@@ -185,10 +204,10 @@ The JSON result identifies the top scoring intent `SendMessage` with a score of 
 
 The message data has a type, `Message`, as well as a value, `i ' m driving and will be 30 minutes late to the meeting`. 
 
-Your chat bot now has enough information to determine the primary action, `SendMessage`, and a parameter of that action, the text of the message. 
+Your chatbot now has enough information to determine the primary action, `SendMessage`, and a parameter of that action, the text of the message. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to send the message through a 3rd party API. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to send the message through a 3rd party API. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
@@ -196,7 +215,7 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to add a list entity](luis-quickstart-intent-and-list-entity.md)
+> [Learn how to add a hierarchical entity](luis-quickstart-intent-and-hier-entity.md)
 
 
 <!--References-->

@@ -12,9 +12,11 @@ ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a Thumbnail from an Image with C&#35;
+# Quickstart: Generate a Thumbnail with C&#35;
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
+
+## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
@@ -27,7 +29,7 @@ To run the sample, do the following steps:
 1. Create a new Visual C# Console App in Visual Studio.
 2. Replace Program.cs with the following code.
 3. Replace `<Subscription Key>` with your valid subscription key.
-4. Change the `uriBase` value to use the location where you obtained your subscription keys, if necessary.
+4. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
 5. Run the program.
 6. At the prompt, enter the path to an image.
 
@@ -274,7 +276,7 @@ StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.Stre
 
 ## Next steps
 
-Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag and describe visual features, including faces, in an image.
+Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
 
 > [!div class="nextstepaction"]
 > [Computer Vision API C&#35; Tutorial](../Tutorials/CSharpTutorial.md)
