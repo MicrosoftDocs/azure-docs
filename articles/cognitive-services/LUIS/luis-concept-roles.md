@@ -33,6 +33,14 @@ buy a ticket from {Location:origin} to {Location:destination}
 ## Role syntax in patterns
 The entity and role are surrounded in parentheses, `{}`. The entity and the role are separated by a colon. 
 
+## Roles versus Hierarchical entities
+Hierarchical entities provide the same contextual information as roles but only to utterances in **intents**. Similarly, roles provide the same contextual information as hierarchical entities but only in **patterns**.
+
+|Contextual learning|Used in|
+|--|--|
+|hierarchical entities|intents|
+|roles|patterns|
+
 ## Next steps
 
 * Learn how to add [roles](luis-how-to-add-entities.md#add-role-to-pattern-based-entity)
