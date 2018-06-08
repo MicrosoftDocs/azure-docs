@@ -20,16 +20,7 @@ To install CycleCloud, you must have administrator rights. In addition, your sys
 
 You will need to generate your own SSH key for use in CycleCloud. This
 key is used by the cycle\_server user, and must be accessible to that
-account. To do this, run the following:
-
-    # Ensure your .ssh directory exists
-    $> mkdir -p ~/.ssh
-    # Generate the key pair
-    $> ssh-keygen -f ~/.ssh/cyclecloud -t rsa -b 2048
-    # Do not enter a passphrase to allow CycleCloud's automated processes to work.
-    # Rename the private key to have a .pem extension
-    $> mv ~/.ssh/cyclecloud ~/.ssh/cyclecloud-private.pem
-
+account.
 
 > [!WARNING]
 > Use a phraseless SSH key. If you enter a passphrase when generating your SSH key, the return proxy feature of CycleCloud will not work, which may cause node reporting and autoscaling to fail.

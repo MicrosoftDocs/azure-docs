@@ -35,7 +35,7 @@ create additional clusters through the web interface.
 You may log on to a node that is in the “Preparing” or “Ready” phase. CycleCloud provides two convenient
 methods to connect to instances: the “Connect” button on the Nodes tab in the web interface, and via the
 command line tool. From the web user interface, the “Connect” button displays instructions on initiating
-ssh or RDP connections. The command line command ``''cyclecloud connect <nodename>`` initiates an ssh
+ssh or RDP connections. The command line command `''cyclecloud connect <nodename>` initiates an ssh
 connection on Linux, or an RDP session on Windows.
 
 Finally, terminating the cluster will stop and remove the instances and delete any non­-persistent
@@ -57,7 +57,7 @@ Check the box for Return Proxy on the Networking screen to have the node act as 
 ## Starting Clusters
 
 Clusters are started through the web interface by clicking the “Start” button, or from the
-command line with ``cyclecloud start_cluster <clustername>``. By default, all nodes defined in the
+command line with `cyclecloud start_cluster <clustername>`. By default, all nodes defined in the
 cluster template will be started, but nodearrays will only start instances if the InitialCoreCount
 setting is non­-zero.
 
@@ -67,22 +67,22 @@ Using autoscale will cause the cluster to add or remove nodes from a nodearray b
 current workload. You can also add or remove nodes manually when desired. To add
 nodes to a cluster from the web interface, select the desired cluster and click the “Add” button.
 Enter the desired number of nodes and the template (nodearray) and click “Add”. From the
-command line, use ``cyclecloud add_nodes <clustername> -c <count> ­-t <template>`` .
+command line, use `cyclecloud add_nodes <clustername> -c <count> ­-t <template>` .
 
 To remove nodes from the web interface, select the node(s) to terminate in the Nodes tab and
-click the “remove” button. To remove nodes from the command line, use ``cyclecloud
-remove_node <clustername nodename>``. To remove multiple nodes, filter expressions can be
+click the “remove” button. To remove nodes from the command line, use `cyclecloud
+remove_node <clustername nodename>`. To remove multiple nodes, filter expressions can be
 provided.
 
 ## Terminating Clusters
 
 Terminating a cluster will terminate all instances running in that cluster. Terminated
 clusters through the web interface by clicking the “Terminate" link or from the
-command line with ``cyclecloud terminate_cluster <clustername>``.
+command line with `cyclecloud terminate_cluster <clustername>`.
 
 ## Reimporting Clusters
 
-An existing cluster can be reimported by appending the ``--force`` argument to the command
+An existing cluster can be reimported by appending the `--force` argument to the command
 used to import the cluster. Any configuration changes will be applied to new instances, but not
 to running instances. Attributes that were previously specified in the file and are now missing will
 be removed from the node definitions. Attributes that were added to nodes after the cluster was

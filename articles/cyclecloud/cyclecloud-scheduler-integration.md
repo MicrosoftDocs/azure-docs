@@ -260,13 +260,13 @@ CycleCloud supports a standard set <autostop-attributes> of autostop attributes 
               [[[configuration]]]
               run_list = role[usc_execute]
 
-Importing and starting a cluster with definition in CycleCloud will yield a "manager" and a "scheduler" node, as well as one "execute" node. Execute nodes can be added to the cluster via the ``cyclecloud add_node`` command. To add 10 more execute nodes:
+Importing and starting a cluster with definition in CycleCloud will yield a "manager" and a "scheduler" node, as well as one "execute" node. Execute nodes can be added to the cluster via the `cyclecloud add_node` command. To add 10 more execute nodes:
 
       cyclecloud add_node htcondor -t execute -c 10
 
 ## HTCondor Autoscaling
 
-CycleCloud supports autoscaling for HTCondor, which means that the software will monitor the status of your queue and turn on and off nodes as needed to complete the work in an optimal amount of time/cost. You can enable autoscaling for HTCondor by adding ``Autoscale=true`` to your cluster definition:
+CycleCloud supports autoscaling for HTCondor, which means that the software will monitor the status of your queue and turn on and off nodes as needed to complete the work in an optimal amount of time/cost. You can enable autoscaling for HTCondor by adding `Autoscale=true` to your cluster definition:
 
       [cluster htcondor]
       Autoscale = True

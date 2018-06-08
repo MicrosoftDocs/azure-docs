@@ -4,8 +4,7 @@
 
 It is worth noting that the names CycleCloud and CycleServer are sometimes used interchangeably, but this
 confuses the distinction between them. CycleServer is the platform that underlies CycleCloud.
-It handles data storage, plugin management, logging, monitoring, and alerting among other functions. CycleCloud is a plugin to CycleServer, which manages the creation of clusters across multiple cloud providers. While CycleCloud is the official name of the product,
-you will find CycleServer referenced in many commands and directory names.
+It handles data storage, plugin management, logging, monitoring, and alerting among other functions. CycleCloud is a plugin to CycleServer, which manages the creation of clusters across multiple cloud providers. While CycleCloud is the official name of the product, you will find CycleServer referenced in many commands and directory names.
 
 ## Installation
 
@@ -20,10 +19,10 @@ On Linux systems, the install.sh script supports several options for customizati
 
 Option | Definition
 ------ | ----------
-``--batch``| Install without any prompts
-``--installdir`` | Install to a directory other than /opt/cycle_server
-``--force``      | Install to the specified directory even if it is not empty
-``--nostart``    | Do not start the processes after the installation is complete
+`--batch`| Install without any prompts
+`--installdir` | Install to a directory other than /opt/cycle_server
+`--force`      | Install to the specified directory even if it is not empty
+`--nostart`    | Do not start the processes after the installation is complete
 
 > [!NOTE]
 >You must have write permission to the /opt directory. The CycleCloud installer will create a cycle_server user and unix group, install into the /opt/cycle_server directory by default, and assign cycle_server:cycle_server ownership to the directory.
@@ -39,9 +38,9 @@ Do not install CycleCloud on a shared drive, or any drive in which non-admin use
 
 ## Upgrading CycleCloud
 
-To upgrade an existing CycleCloud installation, save the install bundle to the server’s local drive. The upgrade script will unpack the bundle and install the new package. On Linux, the upgrade script is ``$CS_HOME/util/upgrade.sh``. On Windows, the upgrade script is ``C:\Program Files\CycleServer\util\upgrade.cmd``. Both scripts take the path to the install bundle as an argument. For example:
+To upgrade an existing CycleCloud installation, save the install bundle to the server’s local drive. The upgrade script will unpack the bundle and install the new package. On Linux, the upgrade script is `$CS_HOME/util/upgrade.sh`. On Windows, the upgrade script is `C:\Program Files\CycleServer\util\upgrade.cmd`. Both scripts take the path to the install bundle as an argument. For example:
 
-  ``/opt/cycle_server/util/upgrade.sh /tmp/cyclecloud-6.6.0.tar.gz``
+  `/opt/cycle_server/util/upgrade.sh /tmp/cyclecloud-6.6.0.tar.gz`
 
 To upgrade the cyclecloud command line tool, copy the new binary over the old. In most cases, upgrades within a release series (e.g. 5.x) do not typically require CLI upgrades.
 
@@ -56,32 +55,24 @@ To upgrade the cyclecloud command line tool, copy the new binary over the old. I
 
 Running multiple instances of CycleCloud on the same machine is supported, but requires some slight
 modifications to the configuration files before starting CycleCloud for the first time.
-During the install step, make sure to use the ``--nostart`` flag to keep the server from starting,
-and the ``--installdir`` flag to specify an alternate install directory. For example:
+During the install step, make sure to use the `--nostart` flag to keep the server from starting,
+and the `--installdir` flag to specify an alternate install directory. For example:
 
-  ``./install.sh --nostart --installdir /mnt/second_cycle_server``
+  `./install.sh --nostart --installdir /mnt/second_cycle_server`
 
-After the installer finishes, edit ``$CS_HOME/config/cycle_server.properties`` and change the
+After the installer finishes, edit `$CS_HOME/config/cycle_server.properties` and change the
 following port numbers to an unused port (incrementing each default port number by one usually works well):
 
-```cyclecloud_installation-interactive
-commandPort=6400
+      commandPort=6400
+      webServerPort=8080
+      webServerSslPort=8443
+      tomcat.shutdownPort=8007
+      brokerPort=5672
+      brokerJmxPort=9099
+      url=jdbc:derby://localhost:1527/cycle_server
 
-webServerPort=8080
-
-webServerSslPort=8443
-
-tomcat.shutdownPort=8007
-
-brokerPort=5672
-
-brokerJmxPort=9099
-
-url=jdbc:derby://localhost:1527/cycle_server
-```
-
-Next, edit ``$CS_HOME/data/derby.properties`` and modify ``derby.drda.portNumber``
-so that it matches the port specified in the ``url=`` line of cycle_server.properties
+Next, edit `$CS_HOME/data/derby.properties` and modify `derby.drda.portNumber`
+so that it matches the port specified in the `url=` line of cycle_server.properties.
 
 Finally, copy /etc/init.d/cycle_server to a new file and edit the CS_HOME path
 to point to the new CycleServer install, then start CycleServer using the new init script.

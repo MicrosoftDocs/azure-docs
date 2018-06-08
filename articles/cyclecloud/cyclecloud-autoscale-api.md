@@ -120,9 +120,9 @@ If a dynamic array does not exist, it will be created. If it does, it will be up
 
 The overall behavior of the `update` API is intended to make it easy to write code that periodically monitors a cluster and determines what resources are needed, including the ability to create new node definitions. CycleCloud tracks any new node arrays created on behalf of this call and removes them when no longer needed.
 
-By default, CycleCloud only attempts to provide the requested TargetCoreCount or TargetCount for 5 minutes after the last autoscale request. This is intended to be used with code that runs regularly (eg via ``cron``). You can request a longer interval with the ``expiration_interval`` argument to the `update` function.
+By default, CycleCloud only attempts to provide the requested TargetCoreCount or TargetCount for 5 minutes after the last autoscale request. This is intended to be used with code that runs regularly (eg via `cron`). You can request a longer interval with the `expiration_interval` argument to the `update` function.
 
-If you want to scale more than one completely independent set of resources, you can write separate scripts that run independently and update separate node arrays. Each script must include a unique value for the optional ``request_set`` parameter (which defaults to "standard"). Each script can run on its own interval and can set its own ``expiration_interval`` to match. Dynamic arrays requested in one set will only be deleted when they are no longer included in requests made for that set.
+If you want to scale more than one completely independent set of resources, you can write separate scripts that run independently and update separate node arrays. Each script must include a unique value for the optional `request_set` parameter (which defaults to "standard"). Each script can run on its own interval and can set its own `expiration_interval` to match. Dynamic arrays requested in one set will only be deleted when they are no longer included in requests made for that set.
 
 ## Auto-Scaling Grouped Nodes
 

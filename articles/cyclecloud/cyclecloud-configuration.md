@@ -38,7 +38,7 @@ Azure uses a subscription ID and authentication certificate for account validati
 3. Click on **App Registrations**, then **+ New Application Registration**
 4. Give your application a unique name (i.e. "MyAzureApplication")
 5. Choose "Web App/API" as the Type
-6. The Sign-on URL is a required field, but not used by CycleCloud. Enter ``http://localhost`` so the form will accept your request.
+6. The Sign-on URL is a required field, but not used by CycleCloud. Enter `http://localhost` so the form will accept your request.
 7. Click **Create**
 8. Once your application has been created, click on it to load the app information. From here, click on **Settings**, then **Keys**.
 

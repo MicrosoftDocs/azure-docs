@@ -3,9 +3,8 @@
 Endpoints are logical connections to storage providers and can be any of the following:
 
 * Azure Block Storage  
-* Amazon S3
-* Google Cloud Storage
 * Host data residing on servers accessible to the CycleCloud Data Manager. These can be local directories or other mounted file systems.
+* Storage options on other Cloud Providers
 
 To view and manage endpoints, select **Data** then **Transfer Manager** from the CycleCloud menu bar.
 

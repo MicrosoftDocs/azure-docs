@@ -133,5 +133,5 @@ above, using the -L argument:
     ssh -A -t ec2-user@BASTION_SERVER_IP  -L 33890:TARGET:3389 ssh -A root@TARGET_SERVER_IP
 
 This will tunnel port 3389 on target to 33890 on your local
-machine. Then if you connect to ``localhost:33890`` you will actually
+machine. Then if you connect to `localhost:33890` you will actually
 be connected to the target instance.
