@@ -68,19 +68,6 @@ To set up a security policy for an entire subscription:
 4. When you're finished selecting your settings, select **OK**.
 5. On the **Security policy** blade, select **Save**. 
 
-To set up a policy for a specific resource group:
-
-1. On the Security Center dashboard, select **Security policy**,
-2.  and then select a resource group.
-2. Select **Prevention policy**.
-3. Turn on or turn off policy items that you want to apply to the resource group.
-4. Under **INHERITANCE**, select **Unique**.
-5. When you're finished selecting your settings, select **OK**.
-6. On the **Security policy** blade, select **Save**.  
-
-You also can turn off data collection for a specific resource group on this page.
-
-In the following example, a unique policy has been created for a resource group named *myResoureGroup*. In this policy, disk encryption and web application firewall recommendations are turned off.
 
 ![Unique policy](./media/tutorial-azure-security/unique-policy.png)
 
