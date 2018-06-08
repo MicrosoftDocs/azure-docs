@@ -74,10 +74,11 @@ To complete this quickstart, make sure you have:
     mvn exec:java -Dexec.mainClass="TestConsumer"                                    
     ```
 
-If your Event Hubs Kafka cluster has events queued from the producer, you should now start receiving them from the consumer.
+If your Event Hubs Kafka cluster has events, you should now start receiving them from the consumer.
 
 ## Next steps
 
-* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
 * [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
 * Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on-prem to Kafka enabled Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Learn how to stream into Kafka enabled Event Hubs using [Apache Flink](event-hubs-kafka-flink-tutorial.md) or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md).
