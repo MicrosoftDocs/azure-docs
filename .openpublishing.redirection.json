@@ -5101,6 +5101,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/event-hubs/event-hubs-what-is-event-hubs.md",
+            "redirect_url": "/azure/event-hubs/event-hubs-about",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/data-factory/data-factory-sdks.md",
             "redirect_url": "https://azure.microsoft.com/services/data-factory/",
             "redirect_document_id": false
