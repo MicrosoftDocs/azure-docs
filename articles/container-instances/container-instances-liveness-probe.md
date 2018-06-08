@@ -71,21 +71,7 @@ Restart policies supercede the restart behavior triggered by liveness probes. Fo
 
 ## Next steps
 
-Task-based scenarios may require communication over certain ports, liveness probes enable automatic restarts if a pre-requisite function is not working properly. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
+Task-based scenarios may require a liveness probe to enable automatic restarts if a pre-requisite function is not working properly. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png
-[portal-env-vars-02]: ./media/container-instances-environment-variables/portal-env-vars-02.png
-
-<!-- LINKS - External -->
-[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
-
-<!-- LINKS Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[azure-cli-install]: /cli/azure/
-[azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
-[new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[portal]: https://portal.azure.com
