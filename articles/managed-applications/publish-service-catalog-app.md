@@ -9,7 +9,7 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: tomfitz
 ---
 # Publish a managed application for internal consumption
@@ -25,6 +25,8 @@ To publish a managed application for the service catalog, you must:
 * Create the managed application definition that points to the .zip package and requests access for the identity.
 
 For this article, your managed application contains only a storage account. It is intended to illustrate the steps of publishing a managed application. For complete examples, see [Sample projects for Azure managed applications](sample-projects.md).
+
+The PowerShell examples in this article require Azure PowerShell 6.2 or later. If needed, please [update your version](/powershell/azure/install-azurerm-ps).
 
 ## Create the resource template
 
