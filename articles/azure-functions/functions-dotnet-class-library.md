@@ -58,7 +58,7 @@ public static class SimpleExample
 } 
 ```
 
-The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only comtain letters, numbers, `_` and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
+The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_` and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
 
 The trigger attribute specifies the trigger type and binds input data to a method parameter. The example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
 
@@ -309,6 +309,9 @@ public static class EnvironmentVariablesExample
 ```
 
 The [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) property is an alternative API for getting app setting values, but we recommend that you use `GetEnvironmentVariable` as shown here.
+
+> [!NOTE]
+> When developing locally with a local.settings.json file, `System.Environment.GetEnvironmentVariable("WEBSITE_SITE_NAME")` will retrieve the setting of that name under the "Values" property. For instance, `"My Site Name"` would be returned if your file contained `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
 ## Binding at runtime
 
