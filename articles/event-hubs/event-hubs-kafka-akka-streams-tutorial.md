@@ -19,13 +19,13 @@ ms.author: bahariri
 
 # Using Akka Streams with Event Hubs for Kafka Ecosystem
 
-One of the key benefits of using Apache Kafka is the ecosystem of frameworks it can connect to. Kafka enabled Event Hubs combines the flexibility of Kafka with the scalability, consistency, and support of the Azure ecosystem - it's the best of both worlds!
+One of the key benefits of using Apache Kafka is the ecosystem of frameworks it can connect to. Kafka-enabled Event Hubs combines the flexibility of Kafka with the scalability, consistency, and support of the Azure ecosystem.
 
-This tutorial shows you how to connect Akka Streams to Kafka enabled Event Hubs without changing your protocol clients or running your own clusters. Azure Event Hubs for Kafka Ecosystem supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
+This tutorial shows you how to connect Akka Streams to Kafka-enabled event hubs without changing your protocol clients or running your own clusters. Azure Event Hubs for the Kafka ecosystem supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
 
 ## Prerequisites
 
-To complete this tutorial, make sure you have:
+To complete this tutorial, make sure you have the following prerequisites:
 
 * An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * [Java Development Kit (JDK) 1.8+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -38,18 +38,18 @@ To complete this tutorial, make sure you have:
 
 ## Create an Event Hubs namespace
 
-An Event Hubs namespace is required to send or receive from any Event Hubs service. See [Create Kafka Enabled Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create-kafka-enabled) for instructions on getting an Event Hubs Kafka endpoint. Make sure to copy the Event Hubs connection string for later use.
+An Event Hubs namespace is required to send or receive from any Event Hubs service. See [Create Kafka Enabled Event Hubs](event-hubs-create-kafka-enabled.md) for information about getting an Event Hubs Kafka endpoint. Make sure to copy the Event Hubs connection string for later use.
 
 ## Clone the example project
 
-Now that you have a Kafka enabled Event Hubs connection string, clone the Azure Event Hubs repository and navigate to the `akka` subfolder:
+Now that you have a Kafka-enabled Event Hubs connection string, clone the Azure Event Hubs repository and navigate to the `akka` subfolder:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs.git
 cd azure-event-hubs/samples/kafka/akka
 ```
 
-## Akka Streams Producer
+## Akka Streams producer
 
 Using the provided Akka Streams producer example, send messages to the Event Hubs service.
 
@@ -84,11 +84,11 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 ```
 
-The producer will now begin sending events to the Kafka enabled Event Hub at topic `test` and printing the events to stdout.
+The producer begins sending events to the Kafka-enabled event hub at topic `test`, and prints the events to stdout.
 
-## Akka Streams Consumer
+## Akka Streams consumer
 
-Using the provided consumer example, receive messages from the Kafka enabled Event Hubs.
+Using the provided consumer example, receive messages from the Kafka-enabled event hubs.
 
 ### Provide an Event Hubs Kafka endpoint
 
@@ -124,9 +124,9 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 ```
 
-If the Kafka enabled Event Hub has events (for instance, if your producer is also running), then the consumer should now begin receiving events from topic `test`. 
+If the Kafka-enabled event hub has events (for instance, if your producer is also running), then the consumer begins receiving events from topic `test`. 
 
-Check out the [Akka Streams Kafka Guide](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) for more detailed information on Akka Streams.
+Check out the [Akka Streams Kafka Guide](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) for more detailed information about Akka Streams.
 
 ## Next steps
 
