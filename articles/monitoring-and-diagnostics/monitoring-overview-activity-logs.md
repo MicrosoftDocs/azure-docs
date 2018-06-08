@@ -104,6 +104,9 @@ A **Log Profile** controls how your Activity Log is exported. Using a Log Profil
 
 You can use a storage account or event hub namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
+> [!NOTE]
+>  You cannot currently archive data to a storage account that behind a secured virtual network.
+
 These settings can be configured via the “Export” option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
 ### Configure log profiles using the Azure portal
