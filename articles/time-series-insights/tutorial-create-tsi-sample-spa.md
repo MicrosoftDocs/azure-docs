@@ -71,7 +71,7 @@ Before building the application, you register it with Azure AD. Registration ser
 
    ![Azure portal Azure AD update manifest](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)
 
-8. Finally, click on the breadcrumb to go back to the **Registered app** page again, and copy the **Home page** and **Application ID** properties for your application. You'll use these properties in a later step:
+8. Finally, click on the breadcrumb to go back to the **Registered app** page again, and copy the **Home page** URL and **Application ID** properties for your application. You'll use these properties in a later step:
 
    ![Azure portal Azure AD properties](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)
 
@@ -86,32 +86,80 @@ Before building the application, you register it with Azure AD. Registration ser
 
    ![VS - File open web site](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
 
-3. Open **Solution Explorer** from the **View** menu. You should see a new solution, containing the web site project (globe icon), which contains the HTML and CSS files:
+3. Open **Solution Explorer** from the Visual Studio **View** menu. You should see your new solution, containing the web site project (globe icon), which contains the HTML and CSS files:
 
    ![VS - Solution explorer new solution](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
 
-4. Now publish the web application to your Azure subscription as an Azure App Service:
+4. Before you can publish the application, you need to update the application's code to associate it with your new Azure AD application registration, and your TSI environment:
+
+   a. Open the **index.html** file in your Visual Studio solution, and scroll down to following lines of JavaScript code.
+
+      > [!div class="mx-imgBorder"]
+      [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
+
+   b. Change the `clientID` and `postLogoutRedirectUri` variables respectively, to use the Application ID and Home Page URL you copied previously during step #8 in [Register the application with Azure AD](#register-the-application-with-azure-ad) section. 
+
+      ```javascript
+      clientId: '8884d4ca-b9e7-403a-bd8a-366d0ce0d460',
+      postLogoutRedirectUri: 'https://tsispaapp.azurewebsites.net',
+      ``` 
+
+   c. Scroll down to following lines of JavaScript code.
+
+      > [!div class="mx-imgBorder"]
+      [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=207-224&highlight=12)]
+
+   d. Change the second argument of the `getAggregates` call, to use your TSI environment's full qualified domain name (FQDN). The FQDN is shown next to the **Data Access FQDN** property on the TSI environment **Overview** page (for an example, see step #2 of the [Verify the telemetry data section](tutorial-create-populate-tsi-environment#verify-the-telemetry-data), in the "Create an Azure Time Series Insights environment" tutorial):
+
+      ```javascript
+      tsiClient.server.getAggregates(token, '10000000-0000-0000-0000-100000000108.env.timeseries.azure.com', aggregateExpressions3.map(function(ae){return ae.toTsx()})).then(function(result){
+      ``` 
+   e. Save the **index.html** when you've finished editting.
+
+5. Now publish the web application to your Azure subscription as an Azure App Service:
+
+   >[!NOTE]
+   >Several of the fields on the following dialog boxes are populated with data from your Azure subscription. As such, it may take a few seconds for each dialog to load completely, before you're able to continue.
 
    a. Right click on the web site project node in **Solution Explorer**, and select **Publish Web App**: 
 
-      ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png)
+       > [!div class="mx-imgBorder"]
+       ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png)
 
-   b. Select **Microsoft Azure App Service** as the publish target: 
+   b. Select **Microsoft Azure App Service** to create a publish target: 
 
-      ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-publish-web-app.png)
+       > [!div class="mx-imgBorder"]
+       ![VS - Publish profile](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)
 
-   c. If the account used for Visual Studio sign-in has access to multiple subscriptions, select the subscription you'd like to use. Then click “New” to add a new Azure App Service publish target to the publishing profile: 
+   c. If the account used for Visual Studio sign-in has access to multiple subscriptions, select the subscription you'd like to use. Then click “New”: 
 
-      ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-publish-web-app-app-service.png)
+       > [!div class="mx-imgBorder"]
+       ![VS - Publish profile - app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)
 
-   d. For this tutorial, we use the default App, Resource Group, and App Service Plan names, but feel free to change them. Click **Create** to create when finished:
+   d. Give the **Create App Service** dialog a few seconds to load all fiels, then modify the following fields:
+   
+      Field|Description
+      ---|---
+      **App Name** | Change to the Azure AD app registration name you used in step #3, in [Register the application with Azure AD](#register-the-application-with-azure-ad). 
+      **Resource Group** | Change to match the **App Name** field.
+      **App Service Plans** | Change to match the **App Name** field.
 
-      ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-publish-web-app-app-service-create.png)
+       > [!div class="mx-imgBorder"]
+       ![VS - Publish profile - add new app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service-create.png)
 
-   e. Click “Create” to complete the hosting steps
-   f. Click “Publish” to publish the web app
+      When finished, click **Create**. You notice the **Export** button in the lower left, is replaced with a "Deploying:" message. When the App Service publish target has been added to the publishing profile, you'll be returned to the previous dialog.
 
-5. next...
+   e. Once you return to the **Publish** dialog, make sure **Publish method** is set to "Web deploy", then click “Publish”:
+
+       > [!div class="mx-imgBorder"]
+       ![VS - Publish web app - publish the app service](media/tutorial-create-tsi-sample-spa/vs-publish-publish.png)
+
+   f. You should see a successful publish log in the Visual Studio **Output** window. You may also notice a browser tab opened, taking you to the new web application.
+
+       > [!div class="mx-imgBorder"]
+       ![VS - Publish web app - publish log output](media/tutorial-create-tsi-sample-spa/vs-publish-output.png)
+
+6. next...
 
 ## Test the web application
 
