@@ -10,6 +10,8 @@
 
 - name: Quickstarts
   items:
+  - name: Deploy a remote monitoring solution
+    href: quickstart-remote-monitoring-deploy.md
 
 - name: Tutorials
   items:
@@ -28,13 +30,6 @@
 
 - name: Get started
   items:
-  - name: Remote Monitoring
-    items:
-    - name: Deploy the solution accelerator
-      href: iot-accelerators-remote-monitoring-deploy.md
-    - name: Operate the solution accelerator
-      href: iot-accelerators-remote-monitoring-explore.md
-
   - name: Remote Monitoring (previous version)
     items:
     - name: What are the solution accelerators?
