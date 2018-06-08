@@ -29,7 +29,7 @@ What you learn how to:
 > * Grant minimal privileges to the service identity in SQL Database
 
 > [!NOTE]
-> Azure Active Directory authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)). Integrated Windows authentication only applies to the on-premises Active Directory (AD DS) and not to Azure Active Directory. For more information, see [The difference between Windows Server AD DS and Azure AD](../active-directory/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
+> Azure Active Directory authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)). Integrated Windows authentication uses protocols like [NTLM](https://msdn.microsoft.com/library/cc236621.aspx) and [Kerberos](/previous-versions/windows/it-pro/windows-server-2003/cc780469(v=ws.10)), which are supported by the on-premises Active Directory (AD DS) but not by Azure Active Directory. For more information, see [The difference between Windows Server AD DS and Azure AD](../active-directory/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
