@@ -2,30 +2,12 @@
 title: Unified alerts in Azure Monitor
 description: Description of unified alerts in Azure that allow you to manage alerts and alerts rules across Azure services.
 author: manishsm-msft
-<<<<<<< HEAD
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 06/07/2018
 ms.author: mamit
 ms.component: alerts
-=======
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/07/2018
-ms.author: mamit,bwren
-ms.custom:
-
->>>>>>> 8a80026356c62bdb4e986fd7d9d4c07997d4752f
 ---
 
 # Unified alerts in Azure Monitor
