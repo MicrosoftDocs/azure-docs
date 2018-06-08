@@ -97,7 +97,7 @@ AKS is complaint with SOC and ISO/HIPPA/HITRUST.
 Learn more about deploying and managing AKS with the AKS quickstart.
 
 > [!div class="nextstepaction"]
-> [AKS Tutorial][aks-cli]
+> [AKS quickstart][aks-cli]
 
 <!-- LINKS - external -->
 [acs-engine]: https://github.com/Azure/acs-engine
