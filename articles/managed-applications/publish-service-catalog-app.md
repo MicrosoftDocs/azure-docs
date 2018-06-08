@@ -9,12 +9,12 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: tomfitz
 ---
 # Publish a managed application for internal consumption
 
-You can create and publish Azure [managed applications](overview.md) that are intended for members of your organization. For example, an IT department can publish managed applications that ensure compliance with organizational standards. These managed applications are available through the service catalog, not the Azure marketplace.
+You can create and publish Azure [managed applications](overview.md) that are intended for members of your organization. For example, an IT department can publish managed applications that fulfill organizational standards. These managed applications are available through the service catalog, not the Azure marketplace.
 
 To publish a managed application for the service catalog, you must:
 
@@ -24,7 +24,9 @@ To publish a managed application for the service catalog, you must:
 * Decide which user, group, or application needs access to the resource group in the user's subscription.
 * Create the managed application definition that points to the .zip package and requests access for the identity.
 
-For this article, your managed application contains only a storage account. It is intended to illustrate the steps of publishing a managed application. For complete examples, see [Sample projects for Azure managed applications](sample-projects.md).
+For this article, your managed application has only a storage account. It's intended to illustrate the steps of publishing a managed application. For complete examples, see [Sample projects for Azure managed applications](sample-projects.md).
+
+The PowerShell examples in this article require Azure PowerShell 6.2 or later. If needed, [update your version](/powershell/azure/install-azurerm-ps).
 
 ## Create the resource template
 
@@ -138,7 +140,7 @@ Save the createUiDefinition.json file.
 
 ## Package the files
 
-Add the two files to a .zip file named app.zip. The two files must be at the root level of the .zip file. If you put them in a folder, you receive an error when creating the managed application definition that states the required files are not present. 
+Add the two files to a .zip file named app.zip. The two files must be at the root level of the .zip file. If you put them in a folder, you receive an error when creating the managed application definition that states the required files aren't present. 
 
 Upload the package to an accessible location from where it can be consumed. 
 
@@ -182,7 +184,7 @@ $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 
 ### Create the managed application definition
 
-If you do not already have a resource group for storing your managed application definition, create one now:
+If you don't already have a resource group for storing your managed application definition, create one now:
 
 ```powershell
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
