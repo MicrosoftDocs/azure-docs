@@ -21,6 +21,8 @@ ms.author: asmalser
 ## What is automated user provisioning for SaaS apps?
 Azure Active Directory (Azure AD) allows you to automate the creation, maintenance, and removal of user identities in cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications such as Dropbox, Salesforce, ServiceNow, and more.
 
+> [!VIDEO https://www.youtube.com/watch?v=_ZjARPpI6NI]
+
 **Below are some examples of what this feature allows you to do:**
 
 * Automatically create new accounts in the right systems for new people when they join your team or organization.
@@ -74,6 +76,8 @@ To contact the Azure AD engineering team to request provisioning support for add
 	
 	
 ## How do I set up automatic provisioning to an application?
+
+> [!VIDEO https://www.youtube.com/watch?v=pKzyts6kfrw]
 
 Configuration of the Azure AD provisioning service for a selected application starts in the **[Azure portal](https://portal.azure.com)**. In the **Azure Active Directory > Enterprise Applications** section, select **Add**, then **All**, and then add either of the following depending on your scenario:
 
