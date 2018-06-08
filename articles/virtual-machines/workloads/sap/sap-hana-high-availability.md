@@ -280,7 +280,7 @@ The steps in this section use the following prefixes:
        ls /dev/disk/azure/scsi1/lun*
        </code></pre>
        
-        Example output:
+      Example output:
        
        ```
        /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
