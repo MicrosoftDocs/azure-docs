@@ -23,7 +23,9 @@ ms.custom: mvc
 > This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create a Node.js web app in Azure](../app-service-web-get-started-nodejs.md).
 >
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Node.js app to App Service on Linux using a built-in image. You create the web app with built-in image using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Node.js code to the web app.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Node.js app to App Service on Linux using the [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+
+You'll complete this quickstart in Cloud Shell, but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -31,9 +33,15 @@ ms.custom: mvc
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+## Install web app extension for Cloud Shell
+
+To complete this quickstart, you will need to add the az [web app extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add).
+
+Install the webapp extension, type `az extension add -n webapp`. Next you'll create the web app using the command below. Replace <app_name> with your web app name.
+
 ## Download the sample
 
-In the Cloud Shell, create a quickstart directory and then change to it. You use this Cloud Shell to run all the commands in this quickstart.
+In the Cloud Shell, create a quickstart directory and then change to it.
 
 ```bash
 mkdir quickstart
@@ -47,21 +55,23 @@ Next, run the following command to clone the sample app repository to your local
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
-Change to the directory that contains the sample code.
+## Create a web app
+
+Change to the directory that contains the sample code and run the `az webapp up` command.
 
 ```bash
 cd nodejs-docs-hello-world
-```
 
-## Create a web app
-
-Install the webapp extension, type `az extension add -n webapp`. Next you'll create the web app using the command below. Replace <app_name> with your web app name.
-
-```bash
 az webapp up -n <app_name>
 ```
 
-When the web app has been created, the Azure CLI shows output similar to the following example:
+The `az webapp up` command does the following:
+*Create a default resource group.
+*Create a default app service plan.
+*Create an app with the specified name.
+*[Zip deploy](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) files from the current working directory to the web app.
+
+This command may take a few minutes to run. While running, it displays information similar to the following example:
 
 ```json
 Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
@@ -127,13 +137,13 @@ You'll now redeploy the app. Substitute `<app_name>` with your web app.
 azwebapp up -n <app_name>
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
+Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
 ![Updated sample app running in Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
 
 ## Manage your new Azure web app
 
-Go to the [Azure portal](https://portal.azure.com) to manage the web app you created.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
 
 From the left menu, click **App Services**, and then click the name of your Azure web app.
 
