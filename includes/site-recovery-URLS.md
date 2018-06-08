@@ -1,4 +1,4 @@
-``*.hypervrecoverymanager.windowsazure.com``| Name | Commercial URL | Government URL | Description |
+| Name | Commercial URL | Government URL | Description |
 |---|---|---|---|
 | AAD | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Used for access control and identity management using AAD |
 | Backup | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Used for replication data transfer and coordination |
