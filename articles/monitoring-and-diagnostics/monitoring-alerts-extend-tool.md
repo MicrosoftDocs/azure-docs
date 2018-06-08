@@ -23,7 +23,7 @@ The alerts feature in Azure Log Analytics is being replaced by Azure Alerts. As 
 - Programmatically by using the AlertsVersion API.  
 
 > [!NOTE]
-> Microsoft is currently automatically extending alerts created in Log Analytics to Azure Alerts, in phases until completed. Microsoft schedules migrating the alerts to Azure, and during this transition, alerts can be managed from both the Operations Management Suite portal and the Azure portal. This process is not destructive or interruptive.  
+> Microsoft will automatically extend alerts created in Log Analytics to Azure Alerts, starting on May 14, 2018, in a recurring series until completed. Microsoft schedules migrating the alerts to Azure, and during this transition, alerts can be managed from both the Operations Management Suite portal and the Azure portal. This process is not destructive or interruptive.  
 
 ## Option 1 - Initiate from the Operations Management Suite portal
 The following steps describe how to extend alerts for the workspace from the Operations Management Suite portal.  
