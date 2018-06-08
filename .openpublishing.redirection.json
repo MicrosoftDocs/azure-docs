@@ -22186,6 +22186,21 @@
              "source_path": "articles/azure-stack/asdk/asdk-offer-services.md",
             "redirect_url": "/azure/azure-stack/azure-stack-tutorial-tenant-vm",
             "redirect_document_id": false
+     },
+     {
+            "source_path": "articles/azure-stack/asdk/asdk-subscribe-services.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-subscribe-services",
+            "redirect_document_id": false
+     },
+     {
+            "source_path": "articles/azure-stack/asdk/asdk-update-offers.md",
+            "redirect_url": "/azure/azure-stack/create-add-on-plan",
+            "redirect_document_id": false
+     },
+     {
+            "source_path": "articles/azure-stack/asdk/asdk-create-vm-template.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-create-vm-template",
+            "redirect_document_id": false
      }
     ]
 }

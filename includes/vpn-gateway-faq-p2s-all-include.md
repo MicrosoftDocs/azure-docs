@@ -26,6 +26,10 @@ The following client operating systems are supported:
 * Linux (StrongSwan)
 * iOS
 
+>[!NOTE]
+>[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
+>
+
 ### How many VPN client endpoints can I have in my Point-to-Site configuration?
 
 We support up to 128 VPN clients to be able to connect to a virtual network at the same time.
