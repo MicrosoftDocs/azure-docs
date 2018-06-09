@@ -61,6 +61,14 @@ To run Azure Backup Server on an Azure Stack virtual machine, use size A2 or lar
 ### Virtual Networks on Azure Stack virtual machines
 All virtual machines used in an Azure Stack workload must belong to the same Azure virtual network and Azure Subscription.
 
+### Azure Backup Server VM performance
+If shared with other virtual machines, the storage account size and IOPS limits impact Azure Backup Server VM performance. For this reason, you should use a separate storage account for the Azure Backup Server virtual machine. The Azure Backup agent running on the Azure Backup Server needs temporary storage for:
+- its own use (a cache location),
+- data restored from the cloud (local staging area)
+
+### Configuring Azure Backup temporary disk storage
+Each Azure Stack virtual machine comes with temporary disk storage, which is available to the user as volume `D:\`. The local staging area needed by Azure Backup can be configured to reside in `D:\`, and the cache location can be placed on `C:\`. In this way, no storage needs to be carved away from the data disks attached to the Azure Backup Server virtual machine.
+
 ### Storing backup data on local disk and in Azure
 Azure Backup Server stores backup data on Azure disks attached to the virtual machine, for operational recovery. Once the disks and storage space are attached to the virtual machine, Azure Backup Server manages storage for you. The amount of backup data storage depends on the number and size of disks attached to each [Azure Stack virtual machine](../azure-stack/user/azure-stack-storage-overview.md). Each size of Azure Stack VM has a maximum number of disks that can be attached to the virtual machine. For example, A2 is four disks. A3 is eight disks. A4 is 16 disks. Again, the size and number of disks determines the total backup storage pool.
 
@@ -74,15 +82,6 @@ To store backup data in Azure, create or use a Recovery Services vault. When pre
  
 ### Using SQL Server
 If you want to use a remote SQL Server for the Azure Backup Server database, select only an Azure Stack VM running SQL Server.
-
-### Azure Backup Server VM performance
-If shared with other virtual machines, the storage account size and IOPS limits can impact the Azure Backup Server virtual machine performance. For this reason, you should use a separate storage account for the Azure Backup Server virtual machine. The Azure Backup agent running on the Azure Backup Server needs temporary storage for:
-
-    * its own use (a cache location),
-    * data restored from the cloud (local staging area)
-  
-### Configuring Azure Backup temporary disk storage
-Each Azure Stack virtual machine comes with temporary disk storage, which is available to the user as volume `D:\`. The local staging area needed by Azure Backup can be configured to reside in `D:\`, and the cache location can be placed on `C:\`. In this way, no storage needs to be carved away from the data disks attached to the Azure Backup Server virtual machine.
 
 ### Scaling deployment
 If you want to scale your deployment, you have the following options:
