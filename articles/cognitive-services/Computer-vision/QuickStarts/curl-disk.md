@@ -1,42 +1,38 @@
 ---
-title: Computer Vision API cURL quickstart analyze a remote image | Microsoft Docs
+title: Computer Vision API cURL quickstart analyze a local image | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze a remote image using Computer Vision with cURL in Cognitive Services.
+description: In this quickstart, you analyze a local image using Computer Vision with cURL in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/24/2018
+ms.date: 06/10/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze a Remote Image with cURL
+# Quickstart: Analyze a Local Image with cURL
 
-In this quickstart, you analyze a remote image to extract visual features using Computer Vision. To analyze a local image, see [Analyze a Local Image with cURL](curl-disk.md).
+In this quickstart, you analyze a local image to extract visual features using Computer Vision. To analyze a remote image, see [Analyze a Remote Image with cURL](curl-analyze.md).
 
 ## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Analyze a remote image
+## Analyze a local image
 
-With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+This sample is similar to [Analyze a Remote Image with cURL](curl-analyze.md) except the image to analyze is read locally from disk. Three changes are required:
 
-* A detailed list of tags related to the image content.
-* A description of image content in a complete sentence.
-* The coordinates, gender, and age of any faces contained in the image.
-* The ImageType (clip art or a line drawing).
-* The dominant color, the accent color, or whether an image is black & white.
-* The category defined in this [taxonomy](../Category-Taxonomy.md).
-* Does the image contain adult or sexually suggestive content?
+- Change the Content-Type to `"Content-Type: application/octet-stream"`.
+- Change the `-d` switch to `--data-binary`.
+- Specify the image to analyze using the following syntax: `@C:/Pictures/ImageToAnalyze.jpg`.
 
 To run the sample, do the following steps:
 
 1. Copy the following code into an editor.
 1. Replace `<Subscription Key>` with your valid subscription key.
 1. Change the Request URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) to use the location where you obtained your subscription keys, if necessary.
-1. Optionally, change the image (`{\"url\":\"...`) to analyze.
+1. Replace `<Image To Analyze>` with the local image you want to analyze.
 1. Optionally, change the response language (`language=en`).
 1. Open a command window on a computer with cURL installed.
 1. Paste the code in the window and run the command.
@@ -44,10 +40,8 @@ To run the sample, do the following steps:
 >[!NOTE]
 >You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
 
-## Analyze Image request
-
 ```json
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary <Image To Analyze>
 ```
 
 ## Analyze Image response
