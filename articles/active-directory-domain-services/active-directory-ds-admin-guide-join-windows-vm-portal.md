@@ -138,6 +138,8 @@ If you're having trouble with credentials and are unable to join the domain, try
 
 * Try to use the credentials of a user account that belongs to the *AAD DC Administrators* group.
 
+* Try using a different user account, as long as that user is a member of the *AAD DC Administrators* group.
+
 * Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the getting started guide.
 
 * Ensure that you use the UPN of the user as configured in Azure AD (for example, *bob@domainservicespreview.onmicrosoft.com*) to sign in.
