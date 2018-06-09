@@ -2,8 +2,8 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Set up a device template in an Azure IoT Central application | Microsoft Docs
 description: Learn how to set up a device template with measurements, settings, properties, rules, and dashboard.
-author: viv-liu; miriambrus
-ms.author: viviali; miriamb
+author: viv-liu; 
+ms.author: viviali; 
 ms.date: 04/16/2018
 ms.topic: conceptual
 ms.service: iot-central
@@ -158,30 +158,30 @@ After choosing **Save**, device location appears as a tile:
 > After creating a new tile, you can change the property value. First, switch off design mode at the top right of the screen.
 
 ### Create a Location Property powered by Azure Maps
-You can now give geographic context to your location data in Azure IoT Central and map any latitude and longitude coordinates of a street address, or simply latitude and longitude coordinates. We have added the capability In Azure IoT Central to enter location property backed up by Azure Maps and ability to visualize your devices location on a map.
+You can give geographic context to your location data in Azure IoT Central and map any latitude and longitude coordinates of a street address, or simply latitude and longitude coordinates. This capability In Azure IoT Central is powered by Azure Maps.
 
 There are two types of location properties you can add:
 - **Location as an Application property** which will be stored purely in the application. The device has no knowledge of application properties.
 - **Location as a Device property** which will be reported by the device.
 
 ####Adding Location as an Application property 
-This section shows you how to create a location property as an Application property using Azure maps in your Azure IoT Central application. 
+You can create a location property as an Application property using Azure maps in your Azure IoT Central application. 
 For example, you can add the device installation address. 
 
-1. Navigate to the Device Property tab; Ensure Design Mode is turned On
+1. Navigate to the Device Property tab; Ensure Design Mode is turned On.
 
 ![Location Property](./media/howto-set-up-template/locationcloudproperty1.png)
 
-2.	On the Property tab click on Location
+2. On the Property tab, click Location.
 3. Configure Display Name, Field Name and the initial value of the location optionally. 
 
 ![Location Property form](./media/howto-set-up-template/locationcloudproperty2.png)
 
-There are two supported formates to add a location:
-- **Location as an adress**
+There are two supported formats to add a location:
+- **Location as an address**
 - **Location as coordinates** 
 
-4. Click Save 
+4. Click Save. 
 
 ![Location Property field](./media/howto-set-up-template/locationcloudproperty3.png)
 
@@ -189,24 +189,24 @@ Now an operator can update the location value in the location field form.
 
 ####Adding Location as a Device property 
 
-This section shows you how to create a location property as a device property that is reported by the Device.
+You can create a location property as a device property that is reported by the Device.
 For example, you want to track the device location.
 
-1.	Navigate to the Device Property tab; Ensure Design Mode is turned On
-2.	Click Device Property from the Library 
+1.	Navigate to the Device Property tab; ensure Design Mode is turned On.
+2.	Click Device Property from the Library.
 
 ![Location Property field](./media/howto-set-up-template/locationdeviceproperty1.png)
 
-3.	Configure display name, field name and choose “location” as a data type 
+3.	Configure display name, field name, and choose “location” as a data type. 
 
 > [!NOTE]
-The Field Name must exactly match to the name of the property the device reports. 
+The field name must exactly match to the name of the property the device reports. 
 
 ![Location Property field](./media/howto-set-up-template/locationdeviceproperty2.png)
 
 ![Location Property operator view](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Now that you have configured your location property, you will be able to add a Map to visualize the location in the Device Dashboard. See how to [Add Location Azure Map in Dashboard](howto-set-up-template.md)
+Now that you have configured your location property, you will be able to add a Map to visualize the location in the Device Dashboard. See how to [Add Location Azure Map in Dashboard](howto-set-up-template.md).
 
 
 
@@ -231,14 +231,14 @@ Now when an operator views the dashboard, they can see this tile that displays t
 
 ### Add Location Azure Map in Dashboard
 
-If you have configured a location property as in the steps [Create a Location Property powered by Azure Maps]((howto-set-up-template.md) you will be able to visualize the location using a map right in your device dashboard.
+If you have configured a location property as in the steps [Create a Location Property powered by Azure Maps]((howto-set-up-template.md), you will be able to visualize the location using a map right in your device dashboard.
 
-1.	Navigate to the Device Dashboard tab; Ensure Design Mode is turned On
-2.	On Device Dashboard select Map from the Library 
+1.	Navigate to the Device Dashboard tab; ensure Design Mode is turned On.
+2.	On Device Dashboard, select Map from the Library. 
 
 ![Dashboard Location Azure Map select](./media/howto-set-up-template/locationcloudproperty4map.png)
 
-3.	Give a title and choose the location property you have previously configured as part of your Device Property 
+3.	Give a title and choose the location property you have previously configured as part of your Device Property.
 
 ![Dashboard Location Azure Map Configure](./media/howto-set-up-template/locationcloudproperty5map.png)
 
