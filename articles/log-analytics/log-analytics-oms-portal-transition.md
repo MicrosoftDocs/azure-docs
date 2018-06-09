@@ -65,11 +65,7 @@ Azure portal access management is richer and more powerful than the access manag
 
 Starting June 25, automatic conversion of the access control permissions from the OMS portal to Azure portal permissions will start. Once the conversion is completed, the access management in OMS Portal will route users to Azure portal. 
 
-During the conversion, the system will perform the following logic for each user or security group that has permissions in the OMS portal.
-
-- Check if the user or security group has same level or permissions in Azure.
-- If permissions are missing, assign the following roles for the relevant workspaces and solutions:
-
+During the conversion, the system will check each user or security group that has permissions in the OMS portal and determine if it has same same level or permissions in Azure. If permissions are missing, it will assign the following roles for the relevant workspaces and solutions.
 
     | Classic portal permission level | Azure Role |
     |:---|:---|
