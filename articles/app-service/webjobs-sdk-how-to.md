@@ -1,5 +1,5 @@
 ---
-title: How to use the WebJobs SDK for event-driven background processing - Azure
+title: How to use the Azure WebJobs SDK
 description: Learn more about how to write code for the WebJobs SDK. Create  event-driven background processing jobs that access data in Azure services and third-party services.
 services: app-service\web, storage
 documentationcenter: .net
@@ -16,12 +16,12 @@ ms.date: 04/27/2018
 ms.author: tdykstra
 ---
 
-# How to use the WebJobs SDK for event-driven background processing
+# How to use the Azure WebJobs SDK for event-driven background processing
 
-This article provides guidance on how to write code for [the WebJobs SDK](webjobs-sdk-get-started.md). The documentation applies to versions 2.x and 3.x except where noted otherwise. The main change introduced by 3.x is the use of .NET Core instead of .NET Framework.
+This article provides guidance on how to write code for [the Azure WebJobs SDK](webjobs-sdk-get-started.md). The documentation applies to versions 2.x and 3.x except where noted otherwise. The main change introduced by 3.x is the use of .NET Core instead of .NET Framework.
 
 >[!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md) is built on WebJobs SDK, and this article links to Azure Functions documentation for some topics. Note the following differences between Functions and the WebJobs SDK:
+> [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK, and this article links to Azure Functions documentation for some topics. Note the following differences between Functions and the WebJobs SDK:
 > * Azure Functions version 1.x corresponds to WebJobs SDK version 2.x, and Azure Functions 2.x corresponds to WebJobs SDK 3.x. Source code repositories follow the WebJobs SDK numbering, and many have v2.x branches, with the master branch currently having 3.x code.
 > * Sample code for Azure Functions C# class libraries is like WebJobs SDK code except you don't need a `FunctionName` attribute in a WebJobs SDK project.
 > * Some binding types are only supported in Functions, such as HTTP, webhook, and Event Grid (which is based on HTTP). 

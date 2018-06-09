@@ -2,20 +2,12 @@
 title: Use the Azure portal to create alerts for Azure services | Microsoft Docs
 description: Trigger emails or notifications, or call website URLs (webhooks) or automation when the conditions that you specify are met.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 09/23/2016
 ms.author: robb
-
+ms.component: alerts
 ---
 # Use the Azure portal to create classic metric alerts in Azure Monitor for Azure services 
 
