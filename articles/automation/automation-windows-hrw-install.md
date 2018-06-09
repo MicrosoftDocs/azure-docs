@@ -79,34 +79,34 @@ Perform the first two steps once for your Automation environment, and then repea
 
 #### 1. Create a Log Analytics workspace
 
-If you do not already have a Log Analytics workspace, then create one using instructions at [Manage your workspace](../log-analytics/log-analytics-manage-access.md). You can use an existing workspace if you already have one.
+If you don't already have a Log Analytics workspace, create one by using instructions at [Manage your workspace](../log-analytics/log-analytics-manage-access.md). You can use an existing workspace if you already have one.
 
 #### 2. Add the Automation solution to the Log Analytics workspace
 
-Solutions add functionality to Log Analytics. The Automation solution adds functionality for Azure Automation including support for Hybrid Runbook Worker. When you add the solution to your workspace, it automatically pushes down worker components to the agent computer that you will install in the next step.
+Solutions add functionality to Log Analytics. The Automation solution adds functionality for Azure Automation, including support for Hybrid Runbook Worker. When you add the solution to your workspace, it automatically pushes down worker components to the agent computer that you will install in the next step.
 
-Follow the instructions at [To add a solution using the Solutions Gallery](../log-analytics/log-analytics-add-solutions.md) to add the **Automation** solution to your Log Analytics workspace.
+To add the **Automation** solution to your Log Analytics workspace, follow the instructions at [To add a solution using the Solutions Gallery](../log-analytics/log-analytics-add-solutions.md).
 
 #### 3. Install the Microsoft Monitoring Agent
 
-The Microsoft Monitoring Agent connects computers to Log Analytics. When you install the agent on your on-premises computer and connect it to your workspace, it will automatically download the components required for Hybrid Runbook Worker.
+The Microsoft Monitoring Agent connects computers to Log Analytics. When you install the agent on your on-premises computer and connect it to your workspace, it automatically downloads the components required for Hybrid Runbook Worker.
 
-Follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agent.md) to install the agent on the on-premises computer. You can repeat this process for multiple computers to add multiple workers to your environment.
+To install the agent on the on-premises computer, follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agent.md). You can repeat this process for multiple computers to add multiple workers to your environment.
 
-When the agent has successfully connected to Log Analytics, it is listed on the **Connected Sources** tab of the Log Analytics **Settings** page. You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. To confirm the version of the Hybrid Runbook Worker, you can navigate to C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ and note the \\*version* subfolder.
+When the agent has successfully connected to Log Analytics, it's listed on the **Connected Sources** tab of the Log Analytics **Settings** page. You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. To confirm the version of the Hybrid Runbook Worker, you can browse to C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ and note the \\*version* subfolder.
 
 #### 4. Install the runbook environment and connect to Azure Automation
 
 When you add an agent to Log Analytics, the Automation solution pushes down the **HybridRegistration** PowerShell module, which contains the **Add-HybridRunbookWorker** cmdlet. You use this cmdlet to install the runbook environment on the computer and register it with Azure Automation.
 
-Open a PowerShell session in Administrator mode and run the following commands to import the module.
+Open a PowerShell session in Administrator mode and run the following commands to import the module:
 
 ```powershell-interactive
 cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
 Import-Module HybridRegistration.psd1
 ```
 
-Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
+Then run the **Add-HybridRunbookWorker** cmdlet by using the following syntax:
 
 ```powershell-interactive
 Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
@@ -114,37 +114,39 @@ Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
 You can get the information required for this cmdlet from the **Manage Keys** page in the Azure portal. Open this page by selecting the **Keys** option from the **Settings** page in your Automation account.
 
-![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+!["Manage Keys" page](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* **GroupName** is the name of the Hybrid Runbook Worker Group. If this group already exists in the automation account, then the current computer is added to it. If it does not already exist, then it is added.
-* **EndPoint** is the **URL** field in the **Manage Keys** page.
-* **Token** is the **Primary Access Key** in the **Manage Keys** page.
+* **GroupName** is the name of the Hybrid Runbook Worker Group. If this group already exists in the Automation account, then the current computer is added to it. If it does not already exist, it's added.
+* **EndPoint** is the **URL** entry on the **Manage Keys** page.
+* **Token** is the **PRIMARY ACCESS KEY** entry on the **Manage Keys** page.
 
-Use the **-Verbose** switch with **Add-HybridRunbookWorker** to receive detailed information about the installation.
+To receive detailed information about the installation, use the **-Verbose** switch with **Add-HybridRunbookWorker**.
 
 #### 5. Install PowerShell modules
 
-Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment. These modules are not automatically deployed to on-premises computers though, so you must install them manually. The exception is the Azure module, which is installed by default providing access to cmdlets for all Azure services and activities for Azure Automation.
+Runbooks can use any of the activities and cmdlets defined in the modules that are installed in your Azure Automation environment. These modules are not automatically deployed to on-premises computers, so you must install them manually. The exception is the Azure module, which is installed by default and provides access to cmdlets for all Azure services and activities for Azure Automation.
 
-Since the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you most likely need to install the modules that support these resources. You can refer to [Installing Modules](http://msdn.microsoft.com/library/dd878350.aspx) for information on installing Windows PowerShell modules. Modules that are installed must be in a location referenced by PSModulePath environment variable so that they are automatically imported by the Hybrid worker. For more information, see [Modifying the PSModulePath Installation Path](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
+Because the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you most likely need to install the modules that support these resources. For information on installing Windows PowerShell modules, see [Installing Modules](http://msdn.microsoft.com/library/dd878350.aspx). 
+
+Modules that are installed must be in a location referenced by the **PSModulePath** environment variable so that the hybrid worker can automatically import them. For more information, see [Modifying the PSModulePath Installation Path](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 
 ## Troubleshooting
 
-The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
+The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error.
 
 ### The Microsoft Monitoring Agent is not running
 
-If the Microsoft Monitoring Agent Windows service is not running, this prevents the Hybrid Runbook Worker from communicating with Azure Automation. Verify the agent is running by entering the following command in PowerShell: `Get-Service healthservice`. If the service is stopped, enter the following command in PowerShell to start the service: `Start-Service healthservice`.
+If the Microsoft Monitoring Agent Windows service is not running, the Hybrid Runbook Worker can't communicate with Azure Automation. Verify that the agent is running by entering the following command in PowerShell: `Get-Service healthservice`. If the service is stopped, enter the following command in PowerShell to start the service: `Start-Service healthservice`.
 
 ### Event 4502 appears in the Operations Manager log
 
 In the **Application and Services Logs\Operations Manager** event log, you see event 4502 and EventMessage containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description: *The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication. The article KB3126513 has additional troubleshooting information for connectivity issues.*
 
-This can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify that the computer has outbound access to *.azure-automation.net on port 443.
+This event can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify that the computer has outbound access to *.azure-automation.net on port 443.
 
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue affecting onboarding of the role to Azure Automation or issue while performing normal operations.
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue that's affecting onboarding of the role to Azure Automation, or an issue while performing normal operations.
 
-For additional steps on how to troubleshoot issues with Update Management, see [Update Management: troubleshooting](automation-update-management.md#troubleshooting)
+For additional steps on how to troubleshoot issues with Update Management, see [Update Management: troubleshooting](automation-update-management.md#troubleshooting).
 
 ## Next steps
 
