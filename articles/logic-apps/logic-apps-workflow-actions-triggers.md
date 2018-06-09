@@ -843,17 +843,15 @@ For example, here are some commonly used action types:
 
 * **HTTP** and **ApiConnection**, which call HTTP endpoints
 * **Function**, which calls an Azure Function
-* **If**, **ForEach**, and **Until**, which control workflow execution 
-and can contain other actions
 * **Join**, **Query**, **Compose**, **Table**, and **Select**, 
-which create or transform data from various inputs.  
+which create or transform data from various inputs
+* **If**, **ForEach**, and **Until**, which control 
+workflow execution and contain other actions
 
-### Built-in action types
+## Built-in action types
 
 | Action type | Description | 
 |-------------|-------------|  
-| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using [Microsoft-managed APIs](https://docs.microsoft.com/azure/connectors/apis-list). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTPWebhook, but uses Microsoft-managed APIs. | 
 | [**Compose**](#compose-action) | Creates a single output from inputs, which can have various types. | 
 | [**Function**](#function-action) | Calls an Azure Function. | 
 | [**HTTP**](#http-action) | Calls an HTTP endpoint. | 
@@ -868,7 +866,7 @@ which create or transform data from various inputs.
 | [**Workflow**](#workflow-action) | Nests a workflow inside another workflow. | 
 ||| 
 
-### Control workflow action types
+## Control workflow action types
 
 | Action type | Description | 
 |-------------|-------------| 
@@ -879,61 +877,86 @@ which create or transform data from various inputs.
 | [**Until**](#until-action) | Run actions in a loop until the specified condition is true. | 
 |||  
 
+## Standard action types
+
+| Action type | Description | 
+|-------------|-------------|  
+| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTPWebhook but uses [Microsoft-managed APIs](../connectors/apis-list.md). | 
+||| 
+
 <a name="apiconnection-action"></a>
 
-## APIConnection action
+### APIConnection action
 
-This action references a Microsoft-managed connector, 
-requiring a reference to a valid connection and information about the API and parameters. 
-Here is an example APIConnection action:
+This action calls an HTTP endpoint by using a 
+[Microsoft-managed API](../connectors/apis-list.md), 
+which requires information about the API and parameters 
+plus a reference to a valid connection. 
 
-```json
-"Send_Email": {
-    "type": "ApiConnection",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://logic-apis-df.azure-apim.net/apim/office365"
-            },
-            "connection": {
-                "name": "@parameters('$connections')['office365']['connectionId']"
-            }
-        },
-        "method": "POST",
-        "body": {
-            "Subject": "New tweet from @{triggerBody()['TweetedBy']}",
-            "Body": "@{triggerBody()['TweetText']}",
-            "To": "me@example.com"
-        },
-        "path": "/Mail"
+``` json
+"<action-name>": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<api-name>']['connectionId']"
+         },
+         "<other-action-specific-input-properties>"        
+      },
+      "method": "<method-type>",
+      "path": "/<api-operation>",
+      "retryPolicy": "<retry-behavior>",
+      "queries": { "<query-parameters>" },
+      "<other-action-specific-properties>"
     },
     "runAfter": {}
 }
 ```
 
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------| 
-| host | Yes | JSON Object | Represents the connector information such as the `runtimeUrl` and reference to the connection object. | 
-| method | Yes | String | Uses one of these HTTP methods: "GET", "POST", "PUT", "DELETE", "PATCH", or "HEAD" | 
-| path | Yes | String | The path for the API operation | 
-| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
-| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | JSON Object | Represents the payload that's sent to the endpoint. | 
-| retryPolicy | No | JSON Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | No | String | Defines the set of special behaviors to override. | 
-| authentication | No | JSON Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
-||||| 
+*Required*
 
-A retry policy applies to intermittent failures, 
-characterized as HTTP status codes 408, 429, and 5xx, 
-in addition to any connectivity exceptions. 
-You can define this policy with the `retryPolicy` object as shown here:
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*action-name*> | String | The name of the action provided by the connector | 
+| <*api-name*> | String | The name of the Microsoft-managed API that is used for the connection | 
+| <*method-type*> | String | The HTTP method to use when calling the API: "GET", "POST", "PUT", "DELETE", "PATCH", or "HEAD" | 
+| <*api-operation*> | String | The API operation to call | 
+|||| 
+
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to a specific action | 
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| <*query-parameters*> | JSON Object | Any query parameters you want to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
+| <*other-action-specific-properties*> | JSON Object | Any other properties that apply to a specific action | 
+|||| 
+
+*Example*
+
+This definition describes the **Send an email** action for 
+Office 365 Outlook connector, which is a Microsoft-managed API: 
 
 ```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"Send_an_email": {
+   "type": "ApiConnection",
+   "inputs": {
+      "body": {
+         "Body": "Thank you for your membership!",
+         "Subject": "Hello and welcome!",
+         "To": "Sophie.Owen@contoso.com"
+      },
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['office365']['connectionId']"
+         }
+      },
+      "method": "POST",
+      "path": "/Mail"
+    },
+    "runAfter": {}
 }
 ```
 
