@@ -41,9 +41,9 @@ There are currently some functionality gaps that require you to still use the OM
     - [DNS Analytics](log-analytics-dns.md) 
     - [Surface Hub](log-analytics-surface-hubs.md)
 
--  To access Log Analytics resource in Azure, the user must be granted access through [Azure role-based access](# user-access-and-role-migration).
+-  To access Log Analytics resource in Azure, the user must be granted access through [Azure role-based access](#user-access-and-role-migration).
 - Update schedules that were created with the OMS portal may not be reflected in the scheduled update deployments or update job history of the Update management dashboard in the Azure portal. This gap is expected to be addressed by the end of June 2018.
-4. Custom logs preview feature can only be enabled through OMS Portal. By the end of June 2018, this will be automatically enabled for all work spaces.
+- Custom logs preview feature can only be enabled through OMS Portal. By the end of June 2018, this will be automatically enabled for all work spaces.
  
 ## What should I do now?  
 You should refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../log-analytics/log-analytics-oms-portal-faq.md) for information about how to transition to the Azure portal. If the [gaps described above](#current-known-gaps) don't apply to your environment, then you should consider starting using Azure portal as your primary experience. 
@@ -67,7 +67,7 @@ Starting June 25, automatic conversion of the access control permissions from th
 
 During the conversion, the system will check each user or security group that has permissions in the OMS portal and determine if it has same level or permissions in Azure. If permissions are missing, it will assign the following roles for the relevant workspaces and solutions.
 
-| Classic portal permission level | Azure Role |
+| OMS portal permission | Azure Role |
 |:---|:---|
 | ReadOnly | Log Analytics Reader |
 | Contributor | Log Analytics Contributor |
