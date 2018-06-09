@@ -77,10 +77,6 @@ If you are creating resources that will be used with your AKS cluster, such as s
 
 In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service should the published service level not be met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, we seek to maintain availability of at least 99.5% for the Kubernetes API server.
 
-## Does AKS offer a service level agreement?
-
-In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service should the published service level not be met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, we seek to maintain availability of at least 99.5% for the Kubernetes API server.
-
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
