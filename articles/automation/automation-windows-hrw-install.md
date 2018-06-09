@@ -16,7 +16,7 @@ You can use the Hybrid Runbook Worker feature of Azure Automation to run runbook
 
 ## Installing the Windows Hybrid Runbook Worker
 
-To install and configure a Windows Hybrid Runbook Worker, you can use two methods. The recommended method is using an Automation runbook to completely automate the process required to configure a Windows computer. The second method is following a step-by-step procedure to manually install and configure the role.
+To install and configure a Windows Hybrid Runbook Worker, you can use two methods. The recommended method is using an Automation runbook to completely automate the process of configuring a Windows computer. The second method is following a step-by-step procedure to manually install and configure the role.
 
 > [!NOTE]
 > To manage the configuration of your servers that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you need to add them as DSC nodes.
@@ -33,7 +33,7 @@ The minimum requirements for a Windows Hybrid Runbook Worker are:
 To see additional networking requirements for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
 For more information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
-If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer that's connected to your Azure Log Analytics workspace is  automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution. However, it is not registered with any Hybrid Worker groups already defined in your Automation account. 
+If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer that's connected to your Azure Log Analytics workspace is  automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution. However, it isn't registered with any Hybrid Worker groups already defined in your Automation account. 
 
 The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you're using the same account for both the solution and the Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
 
@@ -55,7 +55,7 @@ Perform the following steps to automate the installation and configuration of th
    * *WorkspaceName* (optional): The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one.
 
      > [!NOTE]
-     > Currently, the only Automation regions supported for integration with Log Analytics are **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. If your Automation account is not in one of those regions, the script creates a Log Analytics workspace but warns you that it cannot link them together.
+     > Currently, the only Automation regions supported for integration with Log Analytics are **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. If your Automation account is not in one of those regions, the script creates a Log Analytics workspace but warns you that it can't link them together.
 
 1. On your computer, open **Windows PowerShell** from the **Start** screen in Administrator mode.
 1. From the PowerShell command-line shell, browse to the folder that contains the script that you downloaded. Change the values for the parameters *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId*, and *-WorkspaceName*. Then run the script.
@@ -134,9 +134,9 @@ Modules that are installed must be in a location referenced by the **PSModulePat
 
 The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error.
 
-### The Microsoft Monitoring Agent is not running
+### The Microsoft Monitoring Agent isn't running
 
-If the Microsoft Monitoring Agent Windows service is not running, the Hybrid Runbook Worker can't communicate with Azure Automation. Verify that the agent is running by entering the following command in PowerShell: `Get-Service healthservice`. If the service is stopped, enter the following command in PowerShell to start the service: `Start-Service healthservice`.
+If the Microsoft Monitoring Agent Windows service isn't running, the Hybrid Runbook Worker can't communicate with Azure Automation. Verify that the agent is running by entering the following command in PowerShell: `Get-Service healthservice`. If the service is stopped, enter the following command in PowerShell to start the service: `Start-Service healthservice`.
 
 ### Event 4502 appears in the Operations Manager log
 
