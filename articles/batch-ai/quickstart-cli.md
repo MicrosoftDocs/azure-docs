@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - CNTK training with Batch AI - Azure CLI | Microsoft Docs
-description: Quickly learn to run a CNTK training job with Batch AI using the Azure CLI
+title: Azure Quickstart - Deep learning training with Batch AI - Azure CLI | Microsoft Docs
+description: Quickly learn to run a deep learning training job on a single GPU with Batch AI using the Azure CLI
 services: batch-ai
 documentationcenter: na
 author: AlexanderYukhanov
@@ -14,80 +14,59 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
-ms.date: 10/06/2017
+ms.date: 06/08/2017
 ms.author: Alexander.Yukhanov
 ---
 
-# Run a CNTK training job using the Azure CLI
+# Quickstart: Run your first deep learning training job using the Azure CLI
 
-Azure CLI 2.0 allows you to create and manage Batch AI resources - create/delete Batch AI file servers and clusters,
-and submit/terminate/delete/monitor training jobs.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create the smallest Batch AI cluster, consisting of one GPU node. Then, run an example deep learning training job on the cluster using Horovod, which is a distributed TensorFlow framework. The job runs in a Docker container to train a convolutional neural network on the MNIST database of handwritten
+digits. After completing this quickstart, you will understand the key concepts of using Batch AI for training a deep learning model, and be ready to try training jobs at larger scale.
 
-This quickstart shows how to create a GPU cluster and run a training job using Microsoft Cognitive Toolkit.
+[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-The training script [ConvNet_MNIST.py](https://github.com/Azure/BatchAI/blob/master/recipes/CNTK/CNTK-GPU-Python/CNTK-GPU-Python.ipynb)
-is available at Batch AI GitHub page. This script trains convolutional neural network on MNIST database of handwritten
-digits.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-The official CNTK example has been modified to accept location of the training dataset and the output directory location via
-command-line arguments.
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## Quickstart Overview
+## Create a resource group
 
-* Create a single node GPU cluster (with `Standard_NC6` VM size) with name `nc6`;
-* Create a new storage account to store job input and output;
-* Create an Azure File Share with two folders `logs` and `scripts` to store jobs output and training scripts;
-* Create an Azure Blob Container `data` to store training data;
-* Deploy the training script and the training data to the created file share and container;
-* Configure the job to mount the Azure File Share and Azure Blob Container on the cluster's node and make them available as regular
-file system at `$AZ_BATCHAI_JOB_MOUNT_ROOT/logs`, `$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts`, and `$AZ_BATCHAI_JOB_MOUNT_ROOT/data`.
-`AZ_BATCHAI_JOB_MOUNT_ROOT` is an environment variable set by Batch AI for the job.
-* Monitor the job execution by streaming its standard output;
-* After the job completion, inspect its output and generated models;
-* At the end, delete all allocated resources.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-# Prerequisites
+The following example creates a resource group named *myResourceGroup* in the *eastus* location. Be sure to choose a location such as East US in which the Batch AI service is available.
 
-* Azure subscription - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-before you begin.
-* Access to Azure CLI 2.0 with version 2.0.31 or higher. You can either use Azure CLI 2.0 available in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
-or install it locally following [these instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-# Cloud Shell Only
-
-If you are using Cloud Shell, change the working directory to `/usr/$USER/clouddrive` because your home directory has no empty space:
-
-```azurecli
-cd /usr/$USER/clouddrive
+```azurecli-interactive 
+az group create \
+    --name myResourceGroup \
+    --location eastus
 ```
 
-# Create a Resource Group
+# Create a single GPU cluster
 
-An Azure resource group is a logical container for deploying and managing Azure resources. The following command
-creates a new resource group ```batchai.quickstart``` in East US location:
+First, use the [az batchai workspace create](/cli/azure/batchai/workspace#az-batchai-workspace-create) command to create a Batch AI *workspace*. You need a workspace to organize your Batch AI clusters and other resources.
 
-```azurecli
-az group create -n batchai.quickstart -l eastus
+```azurecli-interactive
+az batchai workspace create \
+    --name myworkspace \
+    --resource-group myResourceGroup \
 ```
 
-# Create GPU cluster
+As a basic example, the following [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command creates a single-node GPU cluster named *mycluster* using the NC6 virtual machine size, which contains one NVIDIA Tesla K-80 GPU. This cluster runs a default Ubuntu Server image designed to host container-based applications. This example includes the `--use-auto-storage` option to create and configure a storage account, and mount a file share and storage container in that account on each node. This command adds a user account named *azureuser*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*). 
 
-The following command creates a single node GPU cluster (VM size is Standard_NC6) using Ubuntu DSVM as the operation
-system image:
-
-```azurecli
-az batchai cluster create -n nc6 -g batchai.quickstart -s Standard_NC6 -i UbuntuDSVM -t 1 --generate-ssh-keys
+```azurecli-interactive
+az batchai cluster create \
+    --name mycluster \
+    --workspace myworkspace \
+    --resource-group myResourceGroup \
+    --use-auto-storage \
+    --vm-size Standard_NC6 \
+    --target 1 \
+    --user-name myusername \
+    --generate-ssh-keys
 ```
 
-Ubuntu DSVM allows you to run any training jobs in docker containers and to run most popular deep learning frameworks
-directly on VM.
+Output:
 
-`--generate-ssh-keys` option tells Azure CLI to generate private and public ssh keys if you have not them already. You
-can access the cluster nodes using the current user name and generated ssh key.
-
-Note, if you use Cloud Shell, back up ~/.ssh folder to some permanent storage.
-
-Example output:
 ```json
 {
   "allocationState": "steady",
@@ -108,8 +87,8 @@ Example output:
     "unusableNodeCount": 0
   },
   "provisioningState": "succeeded",
-  "provisioningStateTransitionTime": "2018-04-11T20:12:11.445000+00:00",
-  "resourceGroup": "batchai.quickstart",
+  "provisioningStateTransitionTime": "2018-06-08T20:12:11.445000+00:00",
+  "resourceGroup": "myresourcegroup",
   "scaleSettings": {
     "additionalProperties": {},
     "autoScale": null,
@@ -123,7 +102,7 @@ Example output:
   "type": "Microsoft.BatchAI/Clusters",
   "userAccountSettings": {
     "additionalProperties": {},
-    "adminUserName": "alex",
+    "adminUserName": "azureuser",
     "adminUserPassword": null,
     "adminUserSshPublicKey": "<YOUR SSH PUBLIC KEY HERE>"
   },
@@ -131,9 +110,9 @@ Example output:
     "additionalProperties": {},
     "imageReference": {
       "additionalProperties": {},
-      "offer": "linux-data-science-vm-ubuntu",
-      "publisher": "microsoft-ads",
-      "sku": "linuxdsvmubuntu",
+      "offer": "ubuntu-server-container",
+      "publisher": "microsoft-azure-batch",
+      "sku": "16-04-lts",
       "version": "latest",
       "virtualMachineImageId": null
     }
@@ -143,21 +122,54 @@ Example output:
 }
 ```
 
-# Create a Storage Account
+The cluster creation command runs quickly, but it takes a few minutes to allocate and start the node. To see the status of the cluster, run the [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) command. 
 
-The following command creates a new storage account in the same region as batchai.repices resource group. Update the
-command with a unique storage account name.
-
-```azurecli
-az storage account create -n <storage account name> --sku Standard_LRS -g batchai.quickstart
+```azurecli-interactive
+az batchai cluster show \
+    --name mycluster \
+    --resource-group myResourceGroup \
+    --output table
 ```
 
-If selected storage account name is not available, the above command will report the corresponding error. In this case, choose
-other name and retry.
+Continue the following steps to create a training job while the pool state is changing. The cluster is ready to run a job when the state is `steady` and the node is `idle`.
 
-# Data Deployment
+## Configure storage for script and output files
+
+When Batch AI automatically created the storage account, it also created an SMB file share named `batchaishare`. The rest of this quickstart uses this file share to store both the training script and the output of the traning job
+
+To set up the auto-storage account, first set environment variables to contain the storage account credentials. Note that Batch AI creates the storage account automatically in the *batchaiautostorage* resource group, which is used in the command to export the storage key.
+
+```bash
+export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --resource-group myResourceGroup --query 'nodeSetup.mountVolumes.azureFileShares[0].accountName' | sed s/\"//g)
+
+export AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT --resource-group batchaiautostorage --query [0].value)
+```
+
+ Run the [az storage directory create](cli/azure/storage/directory#az-storage-directory-create) command to reate a folder named `horovod_samples` in the share:
+
+```azurecli-interactive
+
+az storage directory create \
+    --share-name batchaishare \
+    --name horovod_samples
+```
+
+### Download training script
+
+Create a local working folder, and download the [tensorflow_mnist.py](https://raw.githubusercontent.com/uber/horovod/v0.9.10/examples/tensorflow_mnist.py) sample script into the folder.
+
+```bash
+wget https://raw.githubusercontent.com/uber/horovod/v0.9.10/examples/tensorflow_mnist.py
+```
 
 ## Download the Training Script and Training Data
+
+```
+az storage file upload \
+    --share-name batchaishare \
+    --path helloworld \
+    --source hello-tf.py
+```
 
 * Download and extract preprocessed MNIST Database from [this location](https://batchaisamples.blob.core.windows.net/samples/mnist_dataset.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=PmhL%2BYnYAyNTZr1DM2JySvrI12e%2F4wZNIwCtf7TRI%2BM%3D)
 into the current folder.
