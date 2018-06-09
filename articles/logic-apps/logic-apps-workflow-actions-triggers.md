@@ -881,17 +881,17 @@ workflow execution and contain other actions
 
 | Action type | Description | 
 |-------------|-------------|  
-| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTPWebhook but uses [Microsoft-managed APIs](../connectors/apis-list.md). | 
+| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using a [Microsoft-managed API](../connectors/apis-list.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTPWebhook but uses a [Microsoft-managed API](../connectors/apis-list.md). | 
 ||| 
 
 <a name="apiconnection-action"></a>
 
 ### APIConnection action
 
-This action calls an HTTP endpoint by using a 
-[Microsoft-managed API](../connectors/apis-list.md), 
-which requires information about the API and parameters 
+This action sends an HTTP request to a 
+[Microsoft-managed API](../connectors/apis-list.md) 
+and requires information about the API and parameters 
 plus a reference to a valid connection. 
 
 ``` json
@@ -918,7 +918,7 @@ plus a reference to a valid connection.
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*action-name*> | String | The name of the action provided by the connector | 
+| <*action-name*> | String | The name of the action that is provided by the connector | 
 | <*api-name*> | String | The name of the Microsoft-managed API that is used for the connection | 
 | <*method-type*> | String | The HTTP method to use when calling the API: "GET", "POST", "PUT", "DELETE", "PATCH", or "HEAD" | 
 | <*api-operation*> | String | The API operation to call | 
@@ -962,37 +962,35 @@ Office 365 Outlook connector, which is a Microsoft-managed API:
 
 <a name="apiconnectionwebhook-action"></a>
 
-## APIConnection webhook action
+## APIConnectionWebhook action
 
-The APIConnectionWebhook action references a Microsoft-managed connector. 
-This action requires a reference to a valid connection and information 
-about the API and parameters. You can specify limits on a webhook 
+This action waits for an HTTP response from a 
+[Microsoft-managed API](../connectors/apis-list.md) 
+and requires information about the API and parameters 
+plus a reference to a valid connection. 
+You can specify limits on a webhook 
 action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
 
 ```json
-"Send_approval_email": {
-    "type": "ApiConnectionWebhook",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://logic-apis-df.azure-apim.net/apim/office365"
-            },
-            "connection": {
-                "name": "@parameters('$connections')['office365']['connectionId']"
-            }
-        },
-        "body": {
-            "Message": {
-                "Subject": "Approval Request",
-                "Options": "Approve, Reject",
-                "Importance": "Normal",
-                "To": "me@email.com"
-            }
-        },
-        "path": "/approvalmail",
-        "authentication": "@parameters('$authentication')"
-    },
-    "runAfter": {}
+"<action-name>": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "<method-type>",
+         "uri": "<subscription-endpoint-URL>",
+         "headers": { "<request-headers>" },
+         "body": { "<body-information>" },
+         "authentication": {},
+         "retryPolicy": {}
+      },
+      "unsubscribe": {
+         "method": "<method-type>",
+         "uri": "<subscription-endpoint-URL>",
+         "headers": { "<request-headers>" },
+         "body": { "<body-information>" },
+         "authentication": "@parameters('$authentication')"
+      },
+   },
 }
 ```
 
