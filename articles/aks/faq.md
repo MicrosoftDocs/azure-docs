@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 2/01/2018
+ms.date: 6/08/2018
 ms.author: nepeters
 ---
 
@@ -33,13 +33,13 @@ Additional regions are added as demand increases.
 
 OS security patches are applied to the nodes in your cluster on a nightly schedule, however a reboot is not performed. If needed, nodes may be rebooted through the portal or the Azure CLI. When upgrading a cluster, the latest Ubuntu image is used and all security patches are applied (with a reboot).
 
-## Do you recommend customers use ACS or AKSs? 
+## Do you recommend customers use ACS or AKS? 
 
 Given that Azure Container Service (AKS) will GA at a later date, we recommend that you build PoC’s, dev and test clusters in AKS but production clusters in ACS-Kubernetes.  
 
 ## When will ACS be deprecated? 
 
-ACS will be deprecated around the time AKS becomes GA. You will have 12 months after that date to migrate clusters to AKS. During the 12-month period, you can run all ACS operations.
+ACS will be deprecated around the time AKS that becomes GA. You will have 12 months after that date to migrate clusters to AKS. During the 12-month period, you can run all ACS operations.
 
 ## Does AKS support node autoscaling? 
 
@@ -52,6 +52,10 @@ The second resource group is auto-created for easy deletion of all resources ass
 ## Is Azure Key Vault integrated with AKS? 
 
 No, it is not but this integration is planned. In the meantime, you can try out the following solution from [Hexadite][hexadite]. 
+
+## Does AKS offer a service level agreement?
+
+In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service should the published service level not be met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, we seek to maintain availability of at least 99.5% for the Kubernetes API server.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler
