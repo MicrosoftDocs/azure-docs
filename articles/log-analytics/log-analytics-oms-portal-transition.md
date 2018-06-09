@@ -33,7 +33,7 @@ The following changes are being announced with the deprecation of the OMS portal
 
 
 ## Current known gaps 
-There are currently some functionality gaps that require you to still use the OMS Portal. These gaps are being closed, and this document will be updated appropriately. You should also use [Azure Updates](https://azure.microsoft.com/en-us/updates/?product=log-analytics) for on-going announcements about extensions and changes.
+There are currently some functionality gaps that require you to still use the OMS Portal. These gaps are being closed, and this document will be updated appropriately. You should also refer to [Azure Updates](https://azure.microsoft.com/en-us/updates/?product=log-analytics) for on-going announcements about extensions and changes.
 
 - The following solutions are not yet fully functional in the Azure portal. You should continue to use these solutions in the classic portal until they're updated.
 
@@ -42,11 +42,11 @@ There are currently some functionality gaps that require you to still use the OM
     - [Surface Hub](log-analytics-surface-hubs.md)
 
 -  To access Log Analytics resource in Azure, the user must be granted access through [Azure role-based access](# user-access-and-role-migration).
-- Update schedules that were created using the OMS portal may not be reflected in the scheduled update deployments or update job history of the Update management dashboard in the Azure portal. This gap is expected to be addressed by the end of June 2018.
+- Update schedules that were created with the OMS portal may not be reflected in the scheduled update deployments or update job history of the Update management dashboard in the Azure portal. This gap is expected to be addressed by the end of June 2018.
 4. Custom logs preview feature can only be enabled through OMS Portal. By the end of June 2018, this will be automatically enabled for all work spaces.
  
 ## What should I do now?  
-You should refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../log-analytics/log-analytics-oms-portal-faq.md) for information about how to transition to the Azure portal. If the [gaps described above](#current-known-gaps) don't apply to your environment, then you should consider starting using Azure Pportal as your primary experience. 
+You should refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../log-analytics/log-analytics-oms-portal-faq.md) for information about how to transition to the Azure portal. If the [gaps described above](#current-known-gaps) don't apply to your environment, then you should consider starting using Azure portal as your primary experience. 
 
 Send any feedback, questions, or concerns to LAUpgradeFeedback@microsoft.com.
 
@@ -56,7 +56,7 @@ Send any feedback, questions, or concerns to LAUpgradeFeedback@microsoft.com.
 Alerts are in the process of being [extended into the Azure portal](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Once this is complete, management actions on alerts will only be available in Azure portal. Existing alerts will continue to be listed in the OMS portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
 
 ### Alert management solution
-Instead of the [alert management solution](log-analytics-solution-alert-management.md), you can use [Azure Monitor's unified alerting interface](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to visualize and manage your alerts. This new experience aggregates alerts from multiple sources within Azure including log alerts from Log Analytics. You can see distributions of your alerts, take advantage of automated grouping of related alerts via Smartgroups, and view alerts across multiple subscriptions while applying rich filters. All these features are available in preview starting June 4, 2018. The alert management solution will not be available in the Azure portal. 
+Instead of the [alert management solution](log-analytics-solution-alert-management.md), you can use [Azure Monitor's unified alerting interface](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to visualize and manage your alerts. This new experience aggregates alerts from multiple sources within Azure including log alerts from Log Analytics. You can see distributions of your alerts, take advantage of automated grouping of related alerts via smart groups, and view alerts across multiple subscriptions while applying rich filters. All these features are available in preview starting June 4, 2018. The alert management solution will not be available in the Azure portal. 
 
 The data collected by the Alert Management solution (records with a type of Alert) continues to be in Log Analytics as long as the solution is installed for the workspace. Starting August 2018, streaming of alerts from unified alerting into workspaces will be enabled, replacing this capability. Some schema changes are expected and will be announced at a later date.
 
@@ -65,7 +65,7 @@ Azure portal access management is richer and more powerful than the access manag
 
 Starting June 25, automatic conversion of the access control permissions from the OMS portal to Azure portal permissions will start. Once the conversion is completed, the access management in OMS Portal will route users to Azure portal. 
 
-During the conversion, the system will check each user or security group that has permissions in the OMS portal and determine if it has same same level or permissions in Azure. If permissions are missing, it will assign the following roles for the relevant workspaces and solutions.
+During the conversion, the system will check each user or security group that has permissions in the OMS portal and determine if it has same level or permissions in Azure. If permissions are missing, it will assign the following roles for the relevant workspaces and solutions.
 
     | Classic portal permission level | Azure Role |
     |:---|:---|
