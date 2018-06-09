@@ -75,7 +75,7 @@ Now that you have a test zone, with a test 'A' record in it, you can test the na
 
 1. First, you need to note the Azure DNS name servers to use with nslookup. 
 
-   The name servers for your zone are listed on the DNS zone Overview page. Copy the name of one of the name servers:
+   The name servers for your zone are listed on the DNS zone **Overview** page. Copy the name of one of the name servers:
 
    ![zone](./media/dns-getstarted-portal/viewzonens500.png)
 
@@ -92,6 +92,8 @@ Now that you have a test zone, with a test 'A' record in it, you can test the na
 You should see something like to the following screenshot:
 
 ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+This verifies that name resolution is working correctly. www.contoso.zyz resolves to 10.10.10.10, just like you configured it!
 
 ## Clean up resources
 
