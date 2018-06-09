@@ -16,7 +16,7 @@ ms.reviewer: sahenry, richagi
 ---
 # What are authentication methods?
 
-Azure AD self-service password reset (SSPR) and Multi-Factor Authentication (MFA) may ask for additional information known as authentication methods to confirm you are who you say you are when using the associated features.
+Azure AD self-service password reset (SSPR) and Multi-Factor Authentication (MFA) may ask for additional information, known as authentication methods or security info, to confirm you are who you say you are when using the associated features.
 
 Administrators can define in policy which authentication methods are available to users of SSPR and MFA. Some authentication methods may not be available to all features.
 
@@ -38,7 +38,7 @@ Your Azure AD password is considered an authentication method. It is the one met
 
 ## Security questions
 
-Security questions are available **only in Azure AD self-service password reset** to non administrator accounts.
+Security questions are available **only in Azure AD self-service password reset** to non-administrator accounts.
 
 If you use security questions, we recommend using them in conjunction with another method. Security questions can be less secure than other methods because some people might know the answers to another user's questions.
 
