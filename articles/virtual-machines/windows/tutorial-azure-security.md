@@ -79,8 +79,8 @@ As data is collected, the resource health for each VM and related Azure resource
 
 To view resource health:
 
-1.  On the Security Center dashboard, under **Resource security health**, select **Compute**. 
-2.  On the **Compute** blade, select **Virtual machines**. This view provides a summary of the configuration status for all your VMs.
+1.  On the Security Center dashboard, under **Prevention**, select **Compute**. 
+2.  On the **Compute** blade, select **VMs and computers**. This view provides a summary of the configuration status for all your VMs.
 
 ![Compute health](./media/tutorial-azure-security/compute-health.png)
 
@@ -94,7 +94,7 @@ To see a list of all recommendations:
 
 1. On the Security Center dashboard, select **Recommendations**.
 2. Select a specific recommendation. A list of all resources for which the recommendation applies appears.
-3. To apply a recommendation, select a specific resource. 
+3. To apply a recommendation, select the resource. 
 4. Follow the instructions for remediation steps. 
 
 In many cases, Security Center provides actionable steps you can take to address a recommendation without leaving Security Center. In the following example, Security Center detects a network security group that has an unrestricted inbound rule. On the recommendation page, you can select the **Edit inbound rules** button. The UI that is needed to modify the rule appears. 
@@ -107,13 +107,13 @@ As recommendations are remediated, they are marked as resolved.
 
 In addition to resource configuration recommendations, Security Center displays threat detection alerts. The security alerts feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources. For in-depth information about Security Center threat detection capabilities, see [Azure Security Center detection capabilities](../../security-center/security-center-detection-capabilities.md).
 
-The security alerts feature requires the Security Center pricing tier to be increased from *Free* to *Standard*. A 30-day **free trial** is available when you move to this higher pricing tier. 
+The security alerts feature requires the Security Center pricing tier to be increased from *Free* to *Standard*. A 60-day **free trial** is available when you move to this higher pricing tier. 
 
 To change the pricing tier:  
 
 1. On the Security Center dashboard, click **Security policy**, and then select your subscription.
 2. Select **Pricing tier**.
-3. Select the new tier, and then select **Select**.
+3. Select **Standard** and then click **Save** at the top of the blade.
 4. On the **Security policy** blade, select **Save**. 
 
 After you've changed the pricing tier, the security alerts graph begins to populate as security threats are detected.
