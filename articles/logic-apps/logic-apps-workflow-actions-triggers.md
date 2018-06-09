@@ -918,9 +918,9 @@ plus a reference to a valid connection.
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*action-name*> | String | The name of the action that is provided by the connector | 
+| <*action-name*> | String | The name of the action provided by the connector | 
 | <*api-name*> | String | The name of the Microsoft-managed API that is used for the connection | 
-| <*method-type*> | String | The HTTP method to use when calling the API: "GET", "POST", "PUT", "DELETE", "PATCH", or "HEAD" | 
+| <*method-type*> | String | The HTTP method for calling the API: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
 | <*api-operation*> | String | The API operation to call | 
 |||| 
 
@@ -930,7 +930,7 @@ plus a reference to a valid connection.
 |-------|------|-------------| 
 | <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to a specific action | 
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| <*query-parameters*> | JSON Object | Any query parameters you want to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
+| <*query-parameters*> | JSON Object | Any query parameters to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*other-action-specific-properties*> | JSON Object | Any other properties that apply to a specific action | 
 |||| 
 
@@ -964,12 +964,10 @@ Office 365 Outlook connector, which is a Microsoft-managed API:
 
 ## APIConnectionWebhook action
 
-This action waits for an HTTP response from a 
-[Microsoft-managed API](../connectors/apis-list.md) 
-and requires information about the API and parameters 
-plus a reference to a valid connection. 
-You can specify limits on a webhook 
-action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
+This action sends an HTTP request to the endpoint for a 
+[Microsoft-managed API](../connectors/apis-list.md), 
+provides a *callback URL* where the API can send a response, 
+and waits for the API to respond.
 
 ```json
 "<action-name>": {
@@ -977,34 +975,51 @@ action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
    "inputs": {
       "subscribe": {
          "method": "<method-type>",
-         "uri": "<subscription-endpoint-URL>",
-         "headers": { "<request-headers>" },
-         "body": { "<body-information>" },
-         "authentication": {},
-         "retryPolicy": {}
+         "uri": "<api-subscription-URL>",
+         "headers": { "<header-content>" },
+         "body": "<body-content>",
+         "authentication": { "<authentication-method>" },
+         "retryPolicy": "<retry-behavior>",
+         "queries": { "<query-parameters>" },
+         "<other-action-specific-input-properties>"
       },
       "unsubscribe": {
          "method": "<method-type>",
-         "uri": "<subscription-endpoint-URL>",
-         "headers": { "<request-headers>" },
-         "body": { "<body-information>" },
-         "authentication": "@parameters('$authentication')"
+         "uri": "<api-subscription-URL>",
+         "headers": { "<header-content>" },
+         "body": "<body-content>",
+         "authentication": { "<authentication-method>" },
+         "<other-action-specific-properties>"
       },
    },
+   "runAfter": {}
 }
 ```
 
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------| 
-| host | Yes | JSON Object | Represents the connector information such as the `runtimeUrl` and reference to the connection object. | 
-| path | Yes | String | The path for the API operation | 
-| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
-| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | JSON Object | Represents the payload that's sent to the endpoint. | 
-| retryPolicy | No | JSON Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | No | String | Defines the set of special behaviors to override. | 
-| authentication | No | JSON Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
-||||| 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*action-name*> | String | The name of the action provided by the connector | 
+| <*method-type*> | String | The HTTP method for calling the API: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
+| <*api-subscription-URL*> | String | The API operation to call | 
+|||| 
+
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*header-content*> | JSON Object | Any headers to send in the request <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*body-content*> | JSON Object | Any message content to send in the request | 
+| <*authentication-method*> | JSON Object | The method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
+| <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to a specific action | 
+| <*other-action-specific-properties*> | JSON Object | Any other properties that apply to a specific action | 
+|||| 
+
+You can specify limits on a webhook action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
+
+| operationsOptions | String | Defines the set of special behaviors to override. | 
+|||| 
 
 <a name="compose-action"></a>
 
