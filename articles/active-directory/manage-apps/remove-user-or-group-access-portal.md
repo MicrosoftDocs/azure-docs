@@ -30,15 +30,15 @@ It's easy to remove a user or a group from being assigned access to one of your 
 2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
 3. On the **Azure Active Directory - *directoryname*** page (that is, the Azure AD page for the directory you are managing), select **Enterprise applications**.
 
-    ![Opening Enterprise apps](./media/active-directory-coreapps-remove-assignment-user-azure-portal/open-enterprise-apps.png)
+    ![Opening Enterprise apps](./media/remove-user-or-group-access-portal/open-enterprise-apps.png)
 4. On the **Enterprise applications** page, select **All applications**. You'll see a list of the apps you can manage.
 5. On the **Enterprise applications - All applications** page, select an app.
 6. On the ***appname*** page (that is, the page with the name of the selected app in the title), select **Users & Groups**.
 
-    ![Selecting users or groups](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-app-users.png)
+    ![Selecting users or groups](./media/remove-user-or-group-access-portal/remove-app-users.png)
 7. On the ***appname*** **- User & Group Assignment** page, select one of more users or groups and then select the **Remove** command. Confirm your decision at the prompt.
 
-    ![Selecting the Remove command](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-users.png)
+    ![Selecting the Remove command](./media/remove-user-or-group-access-portal/remove-users.png)
 
 ## How do I remove a user or group assignment to an enterprise app using PowerShell?
 1. Open an elevated Windows PowerShell command prompt.
@@ -65,7 +65,7 @@ It's easy to remove a user or a group from being assigned access to one of your 
     ``` 
 ## Next steps
 
-- [See all of my groups](active-directory-groups-view-azure-portal.md)
-- [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
-- [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
-- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+- [See all of my groups](../active-directory-groups-view-azure-portal.md)
+- [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
+- [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
+- [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)

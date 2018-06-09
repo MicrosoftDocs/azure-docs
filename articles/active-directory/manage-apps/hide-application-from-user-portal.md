@@ -37,13 +37,13 @@ Use the following steps to hide an application from a user's access panel and Of
 1.	Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2.	Select **All services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
 3.	On the **Azure Active Directory - *directoryname*** screen (that is, the Azure AD screen for the directory you are managing), select **Enterprise applications**.
-![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/app1.png)
+![Enterprise apps](./media/hide-application-from-user-portal/app1.png)
 4.	On the **Enterprise applications** screen, select **All applications**. You see a list of the apps you can manage.
 5.	On the **Enterprise applications - All applications** screen, select an app.</br>
-![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/app2.png)
+![Enterprise apps](./media/hide-application-from-user-portal/app2.png)
 6.	On the ***appname*** screen (that is, the screen with the name of the selected app in the title), select Properties.
 7.	On the ***appname* - Properties** screen, select **Yes** for **Visible to users?**.
-![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/app3.png)
+![Enterprise apps](./media/hide-application-from-user-portal/app3.png)
 8.	Select the **Save** command.
 
 ### How do I hide Office 365 applications from user's access panel?
@@ -55,11 +55,11 @@ Use the following steps to hide all Office 365 applications from the access pane
 3.	On the **Azure Active Directory - *directoryname*** screen (that is, the Azure AD screen for the directory you are managing), select **User settings**.
 4.	On the **User settings** screen, under **Enterprise applications** select **Yes** for **Users can only see Office 365 apps in the Office 365 portal**.
 
-![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/apps4.png)
+![Enterprise apps](./media/hide-application-from-user-portal/apps4.png)
 
 ## Next steps
-* [See all my groups](active-directory-groups-view-azure-portal.md)
-* [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
-* [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
-* [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+* [See all my groups](../active-directory-groups-view-azure-portal.md)
+* [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
+* [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
+* [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
 

@@ -20,18 +20,18 @@ ms.reviewer: asmalser
 
 ---
 # Managing user account provisioning for enterprise apps in the Azure portal
-This article describes how to use the [Azure portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it, particularly ones that have been added from the "featured" category of the [Azure Active Directory application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md).
+This article describes how to use the [Azure portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it, particularly ones that have been added from the "featured" category of the [Azure Active Directory application gallery](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
 ## Finding your apps in the portal
-All applications that are configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), can be viewed and managed in the [Azure portal](https://portal.azure.com). The applications can be found in the **All Services** &gt; **Enterprise Applications** section of the portal. Enterprise apps are apps that are deployed and used within your organization.
+All applications that are configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), can be viewed and managed in the [Azure portal](https://portal.azure.com). The applications can be found in the **All Services** &gt; **Enterprise Applications** section of the portal. Enterprise apps are apps that are deployed and used within your organization.
 
-![Enterprise Applications pane](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.png)
+![Enterprise Applications pane](./media/configure-automatic-user-provisioning-portal/enterprise-apps-pane.png)
 
 Selecting the **All applications** link on the left shows a list of all apps that have been configured, including apps that had been added from the gallery. Selecting an app loads the resource pane for that app, where reports can be viewed for that app and a variety of settings can be managed.
 
 User account provisioning settings can be managed by selecting **Provisioning** on the left.
 
-![Application resource pane](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.png)
+![Application resource pane](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## Provisioning modes
 The **Provisioning** pane begins with a **Mode** menu, which shows what provisioning modes are supported for an enterprise application, and allows them to be configured. The available options include:
@@ -43,7 +43,7 @@ The **Provisioning** pane begins with a **Mode** menu, which shows what provisio
 Selecting the **Automatic** option displays a screen that is divided in four sections:
 
 ### Admin Credentials
-This section is where the credentials required for Azure AD to connect to the application's user management API are entered. The input required varies depending on the application. To learn about the credential types and requirements for specific applications, see the [configuration tutorial for that specific application](active-directory-saas-app-provisioning.md).
+This section is where the credentials required for Azure AD to connect to the application's user management API are entered. The input required varies depending on the application. To learn about the credential types and requirements for specific applications, see the [configuration tutorial for that specific application](../active-directory-saas-app-provisioning.md).
 
 Selecting the **Test Connection** button allows you to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 
@@ -52,12 +52,12 @@ This section is where admins can view and edit what user attributes flow between
 
 There is a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. Selecting one of these mappings in the table shows the mapping editor to the right, where they can be viewed and customized.
 
-![Application resource pane](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.png)
+![Application resource pane](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Supported customizations include:
 
 * Enabling and disabling mappings for specific objects, such as the Azure AD user object to the SaaS app's user object.
-* Editing the attributes that flow from the Azure AD user object to the app's user object. For more information on attribute mapping, see [Understanding attribute mapping types](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* Editing the attributes that flow from the Azure AD user object to the app's user object. For more information on attribute mapping, see [Understanding attribute mapping types](../active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
 * Filter the provisioning actions that Azure AD performs on the targeted application. Instead of having Azure AD fully synchronize objects, you can limit the actions performed. For example, by only selecting **Update**, Azure AD only updates existing user accounts in an application and does not create new ones. By only selecting **Create**, Azure only creates new user accounts but does not update existing ones. This feature allows admins to create different mappings for account creation and update workflows.
 
 ### Settings

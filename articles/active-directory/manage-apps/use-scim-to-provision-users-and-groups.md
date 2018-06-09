@@ -690,18 +690,18 @@ The following illustration shows the messages that Azure AcD sends to a SCIM ser
 *Figure 6: Group provisioning and de-provisioning sequence*
 
 ## Related articles
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md)
-* [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
-* [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
+* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
+* [Automate User Provisioning/Deprovisioning to SaaS Apps](../active-directory-saas-app-provisioning.md)
+* [Customizing Attribute Mappings for User Provisioning](../active-directory-saas-customizing-attribute-mappings.md)
+* [Writing Expressions for Attribute Mappings](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
+* [Scoping Filters for User Provisioning](../active-directory-saas-scoping-filters.md)
 * [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
-* [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
+* [List of Tutorials on How to Integrate SaaS Apps](../active-directory-saas-tutorial-list.md)
 
 <!--Image references-->
-[0]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
-[1]: ./media/active-directory-scim-provisioning/scim-figure-2a.PNG
-[2]: ./media/active-directory-scim-provisioning/scim-figure-2b.PNG
-[3]: ./media/active-directory-scim-provisioning/scim-figure-3.PNG
-[4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
-[5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
+[0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png
+[1]: ./media/use-scim-to-provision-users-and-groups/scim-figure-2a.png
+[2]: ./media/use-scim-to-provision-users-and-groups/scim-figure-2b.png
+[3]: ./media/use-scim-to-provision-users-and-groups/scim-figure-3.png
+[4]: ./media/use-scim-to-provision-users-and-groups/scim-figure-4.png
+[5]: ./media/use-scim-to-provision-users-and-groups/scim-figure-5.png

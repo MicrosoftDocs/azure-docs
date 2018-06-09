@@ -27,7 +27,7 @@ Your users can add cloud apps to their Teams channels [using tabs](https://suppo
 
 ## Install the Application Proxy connector and publish your app
 
-If you haven't already, [configure Application Proxy for your tenant and install the connector](manage-apps/application-proxy-enable.md). Then, [publish your on-premises application](manage-apps/application-proxy-publish-azure-portal.md) for remote access. When you're publishing the app, make note of the external URL because it's used to add the app to Teams.
+If you haven't already, [configure Application Proxy for your tenant and install the connector](application-proxy-enable.md). Then, [publish your on-premises application](application-proxy-publish-azure-portal.md) for remote access. When you're publishing the app, make note of the external URL because it's used to add the app to Teams.
 
 If you already have your apps published but don't remember their external URLs, look them up in the [Azure portal](https://portal.azure.com). Sign in, then navigate to **Azure Active Directory** > **Enterprise applications** > **All applications** > select your app > **Application proxy**.
 
@@ -37,19 +37,19 @@ Once you publish the app through Application Proxy, let your users know that the
 
 1. Navigate to the Teams channel where you want to add this app and select **+** to add a tab.
 
-   ![Select Add a tab](./media/application-proxy-teams/add-tab.png)
+   ![Select Add a tab](./media/application-proxy-integrate-with-teams/add-tab.png)
 
 2. Select **Website** from the tab options.
 
-   ![Add a website](./media/application-proxy-teams/website.png)
+   ![Add a website](./media/application-proxy-integrate-with-teams/website.png)
 
 3. Give the tab a name and set the URL to the Application Proxy external URL. 
 
-   ![Configure tab name and URL](./media/application-proxy-teams/tab-name-url.png)
+   ![Configure tab name and URL](./media/application-proxy-integrate-with-teams/tab-name-url.png)
 
 Once one member of a team adds the tab, it shows up for everyone in the channel. Any users who have access to the app get single sign-on access with the credentials they use for Microsoft Teams. Any users who don't have access to the app can see the tab in Teams, but are blocked until you give them permissions to the on-premises app and the Azure portal published version of the app. 
 
 ## Next steps
 
-- Learn how to [publish on-premises SharePoint sites](manage-apps/application-proxy-integrate-with-sharepoint-server.md) with Application Proxy.
-- Configure your apps to use [custom domains](manage-apps/application-proxy-configure-custom-domain.md) for their external URL. 
+- Learn how to [publish on-premises SharePoint sites](application-proxy-integrate-with-sharepoint-server.md) with Application Proxy.
+- Configure your apps to use [custom domains](application-proxy-configure-custom-domain.md) for their external URL. 
