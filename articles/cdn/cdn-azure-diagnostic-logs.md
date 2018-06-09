@@ -32,9 +32,9 @@ Azure diagnostics logs allow you to export basic usage metrics from your CDN end
 
 - Export data to blob storage, export to CSV, and generate graphs in Excel.
 - Export data to Event Hubs and correlate with data from other Azure services.
-- Export data to log analytics and view data in your own Log Analytics work space
+- Export data to Log Analytics and view data in your own Log Analytics work space
 
-The following figure shows a typical CDN core analytics view of data.
+The following diagram shows a typical CDN core analytics view of data.
 
 ![portal - Diagnostics logs](./media/cdn-diagnostics-log/01_OMS-workspace.png)
 
@@ -46,57 +46,83 @@ For more information about diagnostic logs, see [Diagnostic Logs](https://docs.m
 
 Follow these steps enable logging with CDN core analytics:
 
-Sign in to the [Azure portal](http://portal.azure.com). If you don't already have CDN enabled for your workflow, [Enable Azure CDN](cdn-create-new-endpoint.md) before you continue.
+Sign in to the [Azure portal](http://portal.azure.com). If you don't already have enabled CDN for your workflow, [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
 
-1. In the portal, navigate to **CDN profile**.
-2. Select a CDN profile, then select the CDN endpoint for which you want to enable **Diagnostics Logs**.
+1. In the Azure portal, navigate to **CDN profile**.
+
+2. In the Azure portal, search for a CDN profile or select one from your dashboard. Then, select the CDN endpoint for which you want to enable diagnostics logs.
 
 	![portal - Diagnostics logs](./media/cdn-diagnostics-log/02_Browse-to-Diagnostics-logs.png)
 
-3. Select **Diagnostics Logs** in the **Monitoring** section.
+3. Select **Diagnostics logs** in the MONITORING section.
+
+   The **Diagnostics logs** page appears.
 
 	![portal - Diagnostics logs](./media/cdn-diagnostics-log/03_Diagnostics-logs-options.png)
 
 ### Enable logging with Azure Storage
+
+To use a storage account to store the logs, follow these steps:
 	
-1. To use Azure storage to store the logs, select **Archive to a storage account**, select **CoreAnalytics**, and then choose the number of retention days under **Retention (days)**. A retention of zero days stores the logs indefinitely. 
-2. Enter a name for your setting, then select **Storage account**. After you have selected a storage account, select **Save**.
+1. For **Name**, enter a name for your diagnostic log settings.
+ 
+2. Select **Archive to a storage account**, then select **CoreAnalytics**. 
 
-![portal - Diagnostics logs](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png)
+2. For **Retention (days)**, choose the number of retention days. A retention of zero days stores the logs indefinitely. 
 
-*Figure 2 - Logging with Azure Storage*
+    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
+
+3. Select **Storage account**.
+
+    The **Select a storage account** page appears.
+
+4. Select a storage account from the drop-down list, then select **OK**.
+
+    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/cdn-select-storage-account.png)
+
+5. After you have finished making your diagnostic log settings, select **Save**.
 
 ### Logging with Log Analytics
 
 To use Log Analytics to store the logs, follow these steps:
 
-1. From the **Diagnostics Logs** page, select **Send to Log Analytics**. 
+1. From the **Diagnostics logs** page, select **Send to Log Analytics**. 
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. Select **Configure** to configure Log Analytics logging. In the OMS Workspaces dialog box, you can select a previous workspace or create a new one.
+2. Select **Configure** to configure Log Analytics logging. 
+
+   The **OMS Workspaces** page appears.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Select **Create New Workspace**.
 
+    The **OMS Workspace** page appears.
+
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Enter a new Log Analytics workspace name. A Log Analytics workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
+4. For **OMS Workspace**, enter an OMS Workspace name. The OMS Workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
 
-5. Next, select an existing subscription, resource group (new or existing), location, and pricing tier. You also have the option of pinning this configuration to your dashboard. Select **OK** to complete the configuration.
+5. For **Subscription**, select an existing subscription from the drop-down list. 
+
+6. For **Resource group**, create a new resource group or select an existing one.
+
+7. For **Location**, select a location from the list.
+
+8. Select **Pin to dashboard** if you want to save the log configuration to your dashboard. 
+
+9. Select **OK** to complete the configuration.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/08_Workspace-resource.png)
 
-6. After your workspace is created, you are returned to your Diagnostic logs windows. Confirm the name of your new log analytics workspace.
+10. After your workspace is created, you're returned to the **Diagnostic logs** page. Confirm the name of your new Log Analytics workspace.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/09_Return-to-logging.png)
 
-    Once you have set up the log analytics configuration, verify that you have selected  **CoreAnalytics**.
+11. Select **CoreAnalytics**, then select **Save**.
 
-7. Select **Save**.
-
-8. To view your new Log Analytics workspace, go to your Azure portal dashboard and select the name of your workspace. 
+12. To view your new Log Analytics workspace, select **Core analytics** from your CDN endpoint page.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
 
@@ -106,23 +132,23 @@ For more information about log data delays, see [Log data delays](#log-data-dela
 
 ## Enable logging with PowerShell
 
-The following example shows how to enable Diagnostic Logs via the Azure PowerShell Cmdlets.
+The following example shows how to enable diagnostic logs via the Azure PowerShell Cmdlets.
 
-### Enabling Diagnostic Logs in a Storage Account
+### Enabling diagnostic logs in a storage account
 
-First, log in and select a subscription:
+1. Log in and select a subscription:
 
     Connect-AzureRmAccount 
 
     Select-AzureSubscription -SubscriptionId 
 
-
-To enable Diagnostic Logs in a Storage Account, use this command:
+2. To enable Diagnostic Logs in a Storage account, enter this command:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
-To enable Diagnostics Logs in a Log Analytics workspace, use this command:
+
+3. To enable diagnostics logs in a Log Analytics workspace, enter this command:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -130,20 +156,19 @@ To enable Diagnostics Logs in a Log Analytics workspace, use this command:
 ```
 
 
-
 ## Consuming diagnostics logs from Azure Storage
 This section describes the schema of CDN core analytics, how it is organized inside of an Azure storage account, and provides sample code to download the logs in a CSV file.
 
 ### Using Microsoft Azure Storage Explorer
-Before you can access the core analytics data from the Azure Storage Account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. To download the tool, see [Azure Storage Explorer](http://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
+Before you can access the core analytics data from an Azure storage account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. To download the tool, see [Azure Storage Explorer](http://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
 
 1.	Open **Microsoft Azure Storage Explorer**
 2.	Locate the storage account
-3.	Go to the **“Blob Containers”** node under this storage account and expand the node
-4.	Select the container named **“insights-logs-coreanalytics”** and double-click it
-5.	Results show up on the right-hand pane starting with the first level, which looks like **“resourceId=”**. Continue clicking all the way until you see the file **PT1H.json**. See the following note for explanation of the path.
-6.	Each blob **PT1H.json** represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
-7.	The schema of the contents of this JSON file is described in the section Schema of the core analytics logs
+3.	Expand the **Blob Containers** node under this storage account.
+4.	Select the container named *insights-logs-coreanalytics*.
+5.	Results show up on the right-hand pane, starting with the first level, as *resourceId=*. Continue selecting each level until you find the file *PT1H.json*. See the following *Blob path format* note for an explanation of the path.
+6.	Each blob *PT1H.json* file represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
+7.	The schema of the contents of this JSON file is described in the section schema of the core analytics logs.
 
 
 > [!NOTE]
@@ -168,18 +193,18 @@ Before you can access the core analytics data from the Azure Storage Account, yo
 
 ### Exporting the core analytics data to a CSV file
 
-To make it easy to access core analytics, sample code for a tool is provided. This tool allows downloading the JSON files into a flat comma-separated file format, which can be used to easily create charts or other aggregations.
+To make it easy to access core analytics, sample code for a tool is provided. This tool allows downloading the JSON files into a flat comma-separated file format, which can be used to create charts or other aggregations.
 
-Here is how you can use the tool:
+Here's how you can use the tool:
 
-1.	Visit the github link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
+1.	Visit the github link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.	Download the code.
 3.	Follow the instructions to compile and configure.
 4.	Run the tool.
 5.	The resulting CSV file shows the analytics data in a simple flat hierarchy.
 
 ## Consuming diagnostics logs from a Log Analytics workspace
-Log Analytics is a service in Azure that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources. 
+Log Analytics is an Azure service that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources. 
 
 To use Log Analytics, you must [enable logging](#enable-logging-with-azure-storage) to the Azure Log Analytics workspace, which is discussed earlier in this article.
 
@@ -195,14 +220,14 @@ You can display the data in a variety of ways by using Management Solutions. You
 
 You can install management solutions from Azure marketplace by selecting the **Get it now** link at the bottom of each solution.
 
-### Adding a Log Analytics CDN Management Solution
+### Add a Log Analytics CDN Management Solution
 
-Follow these steps to add a Management Solution:
+Follow these steps to add a Log Analytics Management Solution:
 
-1.   If you haven't already done so, sign in to the Azure portal using your Azure subscription and go to your Dashboard.
-    ![Azure Dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
+1.   Sign in to the Azure portal using your Azure subscription and go to your dashboard.
+    ![Azure dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
 
-2. In the **New** page under **Marketplace**, select **Monitoring + management**.
+2. In the **New** page, under **Marketplace**, select **Monitoring + management**.
 
     ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
 
@@ -268,7 +293,7 @@ You can customize the view into your data by using the **View Designer**. To beg
 
 ![View Designer](./media/cdn-diagnostics-log/27_Designer.png)
 
-You can drag and drop the types of charts and fill in the data details you want to analyze.
+Drag-and-drop the types of charts and fill in the data details you want to analyze.
 
 ![View Designer](./media/cdn-diagnostics-log/28_Designer.png)
 
