@@ -280,7 +280,7 @@ That’s it. After these few steps documents will start coming into the **Docume
 
 ## FAQ
 
-### What are the considerations when reading change feed in different ways?
+### What are the different ways you can read Change Feed? and when to use each method?
 
 There are three options for you to read change feed:
 
@@ -288,7 +288,7 @@ There are three options for you to read change feed:
    
    By using this method, you get low level of control on change feed. You can manage the checkpoint, you can access a particular partition key etc. If you have multiple readers, you can use [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) to distribute read load to different threads or different clients. .
 
-2. **[Using the Azure Cosmos DB change feed processor library](change-feed-processor)**
+2. **[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)**
 
    If you want to outsource lot of complexity of change feed then you can use change feed processor library. This library hides lot of complexity, but still gives you complete control on change feed. This library follows an [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), your processing function is called by the SDK. 
 
@@ -330,7 +330,7 @@ Therefore, if you are creating multiple Azure Functions to read the same change 
 
 ### My document is updated every second, and I am not getting all the changes in Azure Functions listening to change feed.
 
-Azure Functions polls change feed for every 5 seconds, so any changes made between 5 seconds are lost. Azure Cosmos DB stores just one version for every 5 seconds so you will get the 5th change on the document. However, if you want to go below 5 second, and want to poll change Feed every second, You can configure the polling time “feedPollTime”, see [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb.md#trigger—configuration). It is defined in milliseconds with a default of 5000. Below 1 second is possible but not advisable, as you will start burning more CPU.
+Azure Functions polls change feed for every 5 seconds, so any changes made between 5 seconds are lost. Azure Cosmos DB stores just one version for every 5 seconds so you will get the 5th change on the document. However, if you want to go below 5 second, and want to poll change Feed every second, You can configure the polling time “feedPollTime”, see [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). It is defined in milliseconds with a default of 5000. Below 1 second is possible but not advisable, as you will start burning more CPU.
 
 ### I inserted a document in the Mongo API collection, but when I get the document in change feed, it shows a different id value. What is wrong here?
 
