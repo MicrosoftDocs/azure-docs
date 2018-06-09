@@ -3,7 +3,7 @@ title: In this tutorial, you create an Azure Stack VM using a template | Microso
 description: Describes how to use the ASDK to create a VM using a predfined template and a GitHub custom template.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: brenduns
 manager: femila
 editor: ''
 
@@ -14,9 +14,9 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
-ms.author: jeffgilb
-ms.reviewer: misainat
+ms.date: 06/07/2018
+ms.author: brenduns
+ms.reviewer: 
 ---
 
 # Tutorial: create a VM using a community template
@@ -59,39 +59,39 @@ This template installs the following components:
 - xRDP
 
 > [!IMPORTANT]
-> The Ubuntu VM image (Ubuntu Server 16.04 LTS in this example) must already have been [added to the Azure Stack marketplace](asdk-marketplace-item.md) before beginning these steps.
+> The Ubuntu VM image (Ubuntu Server 16.04 LTS in this example) must already have been added to the Azure Stack marketplace before beginning these steps.
 
 1.	Click **+New** > **Custom** > **Template deployment**.
 
-    ![](media/asdk-create-vm-template/1.PNG) 
+    ![](media/azure-stack-create-vm-template/1.PNG) 
 
 2. Click **Edit template**.
 
-   ![](media/asdk-create-vm-template/2.PNG) 
+   ![](media/azure-stack-create-vm-template/2.PNG) 
 
 3.	Click **Quickstart template**.
 
-       ![](media/asdk-create-vm-template/3.PNG)
+       ![](media/azure-stack-create-vm-template/3.PNG)
 
 4. Select **101-vm-linux-minikube** from the available templates using the **Select a template** dropdown list, and then click **OK**.	
 
-   ![](media/asdk-create-vm-template/4.PNG)
+   ![](media/azure-stack-create-vm-template/4.PNG)
 
 5. If you want to make modifications to the template JSON you can do so, if not, or when complete, click **Save** to close the edit template dialog.
 
-   ![](media/asdk-create-vm-template/5.PNG) 
+   ![](media/azure-stack-create-vm-template/5.PNG) 
 
 6.	Click on **Parameters**, fill in or modify the available fields as necessary, and then click **OK**. Choose the subscription to use, create or choose an existing resource group name, and then click **Create** to initiate the template deployment.
 
-       ![](media/asdk-create-vm-template/6.PNG)
+       ![](media/azure-stack-create-vm-template/6.PNG)
 
 7. Choose the subscription to use, create or choose an existing resource group name, and then click **Create** to initiate the template deployment.
 
-   ![](media/asdk-create-vm-template/7.PNG)
+   ![](media/azure-stack-create-vm-template/7.PNG)
 
 8. The resource group deployment takes several minutes to create the custom template-based VM. You can monitor the installation status through notifications and from the resource group properties. 
 
-   ![](media/asdk-create-vm-template/8.PNG)
+   ![](media/azure-stack-create-vm-template/8.PNG)
 
    >[!NOTE]
    > The VM will be running when the deployment completes. 
@@ -101,11 +101,11 @@ Now that the Linux VM has been successfully created, you can log in to start min
 
 1. After the deployment completes, click **Connect** to view the Public IP address that will be used to connect to the Linux VM. 
 
-   ![](media/asdk-create-vm-template/9.PNG)
+   ![](media/azure-stack-create-vm-template/9.PNG)
 
 2. From an elevated command prompt, run **mstsc.exe** to open Remote Desktop Connection and connect to the Linux VM's public IP address discovered in the previous step. When prompted to log in to xRDP, use the credentials you specified when creating the VM.
 
-   ![](media/asdk-create-vm-template/10.PNG)
+   ![](media/azure-stack-create-vm-template/10.PNG)
 
 3. Open Terminal Emulator and enter following commands to start minikube:
 
@@ -115,11 +115,11 @@ Now that the Linux VM has been successfully created, you can log in to start min
     >    
     >    `sudo minikube dashboard --url`
 
-   ![](media/asdk-create-vm-template/11.PNG)
+   ![](media/azure-stack-create-vm-template/11.PNG)
 
 4. Open the web browser and visit the kubernetes dashboard address. Congratulations, you now have a fully working kubernetes installation using minikube!
 
-   ![](media/asdk-create-vm-template/12.PNG)
+   ![](media/azure-stack-create-vm-template/12.PNG)
 
 5. If you would like to deploy a sample application, visit the official documentation page of kubernetes, skip the "Create Minikube Cluster" section as you have already created one above. Simply jump to the section "Create your Node.js application" at https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/.
 
@@ -132,6 +132,3 @@ In this tutorial, you learned how to:
 > * Create a VM using a custom GitHub template
 > * Start minikube and install an application
 
-
-> [!div class="nextstepaction"]
-> [Learn about advanced evaluation tasks](asdk-advanced-eval.md)
