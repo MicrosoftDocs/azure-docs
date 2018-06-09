@@ -67,11 +67,11 @@ Starting June 25, automatic conversion of the access control permissions from th
 
 During the conversion, the system will check each user or security group that has permissions in the OMS portal and determine if it has same level or permissions in Azure. If permissions are missing, it will assign the following roles for the relevant workspaces and solutions.
 
-    | Classic portal permission level | Azure Role |
-    |:---|:---|
-    | ReadOnly | Log Analytics Reader |
-    | Contributor | Log Analytics Contributor |
-    | Administrator | Owner |
+| Classic portal permission level | Azure Role |
+|:---|:---|
+| ReadOnly | Log Analytics Reader |
+| Contributor | Log Analytics Contributor |
+| Administrator | Owner |
 
 To make sure that no excessive permissions are assigned to users, the system will not automatically assign these permissions on the resource group level. As a result, workspace administrators must manually assign themselves _owner_ or _contributor_ roles at resource group or subscription level to perform the following actions.
 
@@ -81,7 +81,7 @@ To make sure that no excessive permissions are assigned to users, the system wil
 
 In some cases, the automatic conversion cannot apply permission and will prompt the administrator to manually assign permissions.
 
-## OMS Mobile App deprecation
+## OMS Mobile App
 The OMS mobile app will be sunsetted along with the OMS portal. Instead of the OMS mobile app, to access information about your IT infrastructure, dashboards and saved queries, you can access the Azure portal directly from your browser in your mobile device. To get alerts, you should configure [Azure Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md) to receive notifications in the form of SMS or a voice call
 
 ## Application Insights Connector and solution
