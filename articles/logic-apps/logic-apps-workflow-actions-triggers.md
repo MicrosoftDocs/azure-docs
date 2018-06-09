@@ -2177,10 +2177,10 @@ runs the default actions. Learn
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*expression-object-or-token*> | Various | The expression, JSON object, or token to evaluate | 
+| <*expression-object-or-token*> | Varies | The expression, JSON object, or token to evaluate | 
 | <*action-name*> | String | The name of the action to run for the matching case | 
 | <*action-definition*> | JSON Object | The definition for the action to run for the matching case | 
-| <*matching-value*> | Yes | Various | The value to compare with the evaluated result | 
+| <*matching-value*> | Varies | The value to compare with the evaluated result | 
 |||| 
 
 *Optional*
@@ -2188,7 +2188,7 @@ runs the default actions. Learn
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*default-action-name*> | String | The name of the default action to run when no matching case exists | 
-| <*default-action-name*> | JSON Object | The definition for the action to run when no matching case exists | 
+| <*default-action-definition*> | JSON Object | The definition for the action to run when no matching case exists | 
 |||| 
 
 *Example*
