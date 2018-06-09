@@ -2131,74 +2131,145 @@ Learn more about [scopes](../logic-apps/logic-apps-control-flow-run-steps-group-
 
 ## Switch action
 
-This action, which is a switch statement, performs different actions based on specific values of an object, 
-expression, or token. This action evaluates the object, expression, or token, 
-chooses the case that matches the result, and runs actions for only that case. 
-When no case matches the result, the default action runs. 
-When the switch statement runs, only one case should match the result. 
-Learn more about [switch statements in logic apps](../logic-apps/logic-apps-control-flow-switch-statement.md).
+This action, also known as a *switch statement*, 
+organizes other actions into *cases*, and assigns 
+a value to each case, except for the default case 
+if that exists. When your workflow runs, the **Switch** 
+action compares the value from an expression, object, 
+or token against the values specified for each case. 
+
+If the **Switch** action finds a matching case, 
+your workflow runs only the actions in that case. 
+Each time the **Switch** action runs, either only 
+one matching case exists or no matches exist. 
+If no matches exist, the **Switch** action 
+runs the default actions. Learn 
+[how to create switch statements](../logic-apps/logic-apps-control-flow-switch-statement.md).
 
 ``` json
 "Switch": {
    "type": "Switch",
-   "expression": "<evaluate-this-object-expression-token>",
+   "expression": "<expression-object-or-token>",
    "cases": {
-      "myCase1": {
+      "Case": {
          "actions": {
-           "myAction1": {}
+           "<action-name>": { "<action-definition>" }
          },
-         "case": "<result1>"
+         "case": "<matching-value>"
       },
-      "myCase2": {
+      "Case_2": {
          "actions": {
-           "myAction2": {}
+           "<action-name>": { "<action-definition>" }
          },
-         "case": "<result2>"
+         "case": "<matching-value>"
       }
    },
    "default": {
       "actions": {
-          "myDefaultAction": {}
+         "<default-action-name>": { "<default-action-definition>" }
       }
    },
    "runAfter": {}
 }
 ```
 
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------| 
-| expression | Yes | String | The object, expression, or token to evaluate | 
-| cases | Yes | JSON Object | Contains the sets of inner actions that run based on the expression result. | 
-| case | Yes | String | The value to match with the result | 
-| actions | Yes | JSON Object | The inner actions that run for the case matching the expression result | 
-| default | No | JSON Object | The inner actions that run when no cases match the result | 
-||||| 
+*Required*
 
-For example:
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*expression-object-or-token*> | Various | The expression, JSON object, or token to evaluate | 
+| <*action-name*> | String | The name of the action to run for the matching case | 
+| <*action-definition*> | JSON Object | The definition for the action to run for the matching case | 
+| <*matching-value*> | Yes | Various | The value to compare with the evaluated result | 
+|||| 
+
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*default-action-name*> | String | The name of the default action to run when no matching case exists | 
+| <*default-action-name*> | JSON Object | The definition for the action to run when no matching case exists | 
+|||| 
+
+*Example*
+
+This action definition evaluates whether the person responding 
+to the approval request email chose the "Approve" option 
+or the "Reject" option. Based on this choice, the **Switch** 
+action runs the actions for the matching case, which is 
+to send another email to the responder but with different 
+wording in each case. 
 
 ``` json
-"myApprovalEmailAction": {
+"Switch": {
    "type": "Switch",
    "expression": "@body('Send_approval_email')?['SelectedOption']",
    "cases": {
       "Case": {
          "actions": {
-           "Send_an_email": {...}
+            "Send_an_email": { 
+               "type": "ApiConnection",
+               "inputs": {
+                  "Body": "Thank you for your approval.",
+                  "Subject": "Response received", 
+                  "To": "Sophie.Owen@contoso.com"
+               },
+               "host": {
+                  "connection": {
+                     "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+               },
+               "method": "post",
+               "path": "/Mail"
+            },
+            "runAfter": {}
          },
          "case": "Approve"
       },
       "Case_2": {
          "actions": {
-           "Send_an_email_2": {...}
+            "Send_an_email_2": { 
+               "type": "ApiConnection",
+               "inputs": {
+                  "Body": "Thank you for your response.",
+                  "Subject": "Response received", 
+                  "To": "Sophie.Owen@contoso.com"
+               },
+               "host": {
+                  "connection": {
+                     "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+               },
+               "method": "post",
+               "path": "/Mail"
+            },
+            "runAfter": {}     
          },
          "case": "Reject"
       }
    },
    "default": {
-      "actions": {}
+      "actions": { 
+         "Send_an_email_3": { 
+            "type": "ApiConnection",
+            "inputs": {
+               "Body": "Please respond with either 'Approve' or 'Reject'.",
+               "Subject": "Please respond", 
+               "To": "Sophie.Owen@contoso.com"
+            },
+            "host": {
+               "connection": {
+                  "name": "@parameters('$connections')['office365']['connectionId']"
+               }
+            },
+            "method": "post",
+            "path": "/Mail"
+         },
+         "runAfter": {} 
+      }
    },
    "runAfter": {
-      "Send_approval_email": [
+      "Send_approval_email": [ 
          "Succeeded"
       ]
    }
@@ -2209,11 +2280,8 @@ For example:
 
 ## Until action
 
-This loop action contains actions that 
-run until the specified condition is true. 
-The loop checks the condition as the last 
-step after all other actions have run. 
-
+This loop action contains actions that run until the specified condition is true. 
+The loop checks the condition as the last step after all other actions have run. 
 You can include more than one action in the `"actions"` object, 
 and the action must define at least one limit. Learn 
 [how to create "until" loops](../logic-apps/logic-apps-control-flow-loops.md#until-loop). 
@@ -2229,7 +2297,7 @@ and the action must define at least one limit. Learn
       },
       "<action-name>": {
          "type": "<action-type>",
-         "inputs": {},
+         "inputs": { "<action-inputs>" },
          "runAfter": {}
       }
    },
@@ -2245,7 +2313,7 @@ and the action must define at least one limit. Learn
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*action-name*> | String | The name for the action you want to run inside the loop | 
-| <*action-type*> | Various | The type of action you want to run | 
+| <*action-type*> | String | The action type you want to run | 
 | <*action-inputs*> | Various | The inputs for the action to run | 
 | <*condition*> | String | The condition or expression to evaluate after all the actions in the loop finish running | 
 | <*loop-count*> | Integer | The limit on the most number of loops that the action can run. The default `count` value is 60. | 
