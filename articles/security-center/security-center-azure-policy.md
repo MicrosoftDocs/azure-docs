@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2018
+ms.date: 06/10/2018
 ms.author: terrylan
 ---
 
@@ -117,7 +117,7 @@ It is not required that you create a management group and add your subscription 
 	>
 	>
 
-## Add subscription to management group
+## Add subscriptions to a management group
 Now you can add subscriptions to the management group that you created.
 
 1. Under **Management Groups**, select a management group to add your subscription to.
