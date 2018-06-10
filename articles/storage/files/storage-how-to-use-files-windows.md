@@ -1,6 +1,6 @@
 ---
-title: Mount an Azure file share and access the share in Windows | Microsoft Docs
-description: Mount an Azure file share and access the share in Windows.
+title: Use an Azure file share with Windows | Microsoft Docs
+description: Learn how to use an Azure file share with Windows and Windows Server.
 services: storage
 documentationcenter: na
 author: wmgries
@@ -17,12 +17,12 @@ ms.date: 06/07/2018
 ms.author: wgries
 ---
 
-# Mount an Azure file share and access the share in Windows
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure file share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
+# Use an Azure file share with Windows
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be seamlessly used in Windows and Windows Server. This article discusses the considerations for using an Azure file share with Windows and Windows Server.
 
-In order to mount an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
+In order to use an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
 
-You can mount Azure file shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support mounting file shares in which environment:
+You can use Azure file shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support accessing file shares in which environment:
 
 | Windows version        | SMB version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
@@ -43,21 +43,31 @@ You can mount Azure file shares on a Windows installation that is running either
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
 
-## Prerequisites for mounting Azure file share with Windows 
+## Prerequisites 
 * **Storage account name**: To mount an Azure file share, you will need the name of the storage account.
 
 * **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-* **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet.
+* **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. The following PowerShell code assumes you have the AzureRM PowerShell module installed, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resoure-group-name>` with the relevant names for your storage account.
 
     ```PowerShell
-    Test-NetConnection -ComputerName <storage-account> -Port 445
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
+
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
     ```
 
     If the connection was successful, you should see the following output:
 
     ```
-    ComputerName     : <storage-account>.file.core.windows.net
+    ComputerName     : <storage-account-host-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
@@ -68,99 +78,131 @@ You can mount Azure file shares on a Windows installation that is running either
     > [!Note]  
     > The above command returns the current IP address of the storage account. This IP address is not guaranteed to remain the same, and may change at any time. Do not hardcode this IP address into any scripts, or into a firewall configuration. 
 
-## Persisting connections across reboots
-The easiest way to establish a persistent connection is to save your storage account credentials into windows using the cmdkey utility. The following is an example command-line for persisting your storage account credentials into your VM:
+## Using an Azure file share with Windows
+To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or access it via its [UNC path](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
+
+Unlike other SMB shares you may have interacted with, such as those hosted on a Windows Server, Linux Samba server, or NAS device, Azure file shares do not currently support Kerberos authentication with your Active Directory (AD) or Azure Active Directory (AAD) identity, although this is a feature we are [working on](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). Instead, you must access your Azure file share with the storage account key for the storage account containing your Azure file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc) contained within your storage account. If this is not sufficient for your workload, [Azure File Sync](storage-files-planning.md#data-access-method) may address the lack of Kerberos authentication and ACL support in the interim until this feature is publicly available.
+
+A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure VM. One important consideration for successfully migrating a line-of-business application to use an Azure file share is that many line-of-business applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than the your administrative account.
+
+### Persisting Azure file share credentials in Windows  
+The [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) utility allows you to store your storage account credentials within Windows. This means that when you try to access an Azure file share via its UNC path or mount the Azure file share, you will not need to specify credentials. To save your storage account's credentials, run the following PowerShell commands, replacing `<your-storage-account-name>` and `<your-resoure-group-name>` where appropriate.
 
 ```PowerShell
-cmdkey /add:<storage-account>.file.core.windows.net /user:AZURE\<storage-account> /pass:<storage-account-key>
+$resourceGroupName = "<your-resource-group-name>"
+$storageAccountName = "<your-storage-account-name>"
+
+# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# already logged in.
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+# The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
+# consume the appropriate values from the storage account variables. The value given to the add parameter of the
+# cmdkey utility is the host address for the storage account, <storage-account>.file.core.windows.net for Azure 
+# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign 
+# clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+Invoke-Expression -Command "cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) /user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)"
 ```
 
-CmdKey can also allow you to list the credentials it stored:
+You can verify the cmdkey utility has stored the credential for the storage account by using the list parameter:
 
 ```PowerShell
 cmdkey /list
 ```
 
-If the credentials for your Azure file share are stored successfully, the expected output is as follows:
+If the credentials for your Azure file share are stored successfully, the expected output is as follows (there may be additional keys stored in the list):
 
 ```
 Currently stored credentials:
 
-Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Target: Domain:target=<storage-account-host-name>
 Type: Domain Password
-User: AZURE\<yourstorageaccountname>
+User: AZURE\<your-storage-account-name>
 ```
 
-Once the credentials have been persisted, you no longer have to supply them when connecting to your share. Instead you can connect without specifying any credentials.
+You should now be able to mount or access the share without having to supply additional credentials.
 
-## Mount the Azure file share with File Explorer
+#### Advanced cmdkey scenarios
+There are two additional scenarios to consider with cmdkey: storing credentials for another user on the machine, such as a service account, and storing credentials on a remote machine with PowerShell remoting.
+
+Storing the credentials for another user on the machine is very easy: when logged into your account, simply execute the following PowerShell command:
+
+```PowerShell
+$password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
+Start-Process -FileName PowerShell.exe -Credential $credential -LoadUserProfile
+```
+
+This will open a new PowerShell window under the user context of your service account (or user account). You can then use the cmdkey utility as described [above](#persisting-azure-file-share-credentials-in-windows).
+
+Storing the credentials on a remote machine is not however possible, as cmdkey does not allow access, even for additions, to its credential store when the user is logged in via PowerShell remoting. We recommend logging into the machine with [Remote Desktop](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
+
+### Mount the Azure file share with PowerShell
+Run the following commands from a regular (i.e. not an elevated) PowerShell session to mount the Azure file share. Remember to replace `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>`, and `<desired-drive-letter>` with the proper information.
+
+```PowerShell
+$resourceGroupName = "<your-resource-group-name>"
+$storageAccountName = "<your-storage-account-name>"
+$fileShareName = "<your-file-share-name>"
+
+# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# already logged in.
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object { 
+    $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
+}
+
+if ($fileShare -eq $null) {
+    throw [System.Exception]::new("Azure file share not found")
+}
+
+# The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
+# <storage-account>.file.core.windows.net for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
+# used because non-Public Azure regions, such as soverign clouds or Azure Stack deployments, will have different 
+# hosts for Azure file shares (and other storage resources).
+$password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password
+New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($fileShare.StorageUri.PrimaryUri.Host)\$($fileShare.Name)" -Credential $credential -Persist
+```
+
+> [!Note]  
+> Using the `-Persist` option on the `New-PSDrive` cmdlet will only allow the file share to be remounted on boot if the credentials are saved. You can save the credentials using the cmdkey as [previously described](#persisting-azure-file-share-credentials-in-windows). 
+
+If desired, you can dismount the Azure file share using the following PowerShell cmdlet.
+
+```PowerShell
+Remove-PSDrive -Name <desired-drive-letter>
+```
+
+### Mount the Azure file share with File Explorer
 > [!Note]  
 > Note that the following instructions are shown on Windows 10 and may differ slightly on older releases. 
 
-1. **Open File Explorer**: This can be done by opening from the Start Menu, or by pressing Win+E shortcut.
+1. Open File Explorer. This can be done by opening from the Start Menu, or by pressing Win+E shortcut.
 
-2. **Navigate to the "This PC" item on the left-hand side of the window. This will change the menus available in the ribbon. Under the Computer menu, select "Map Network Drive"**.
+2. Navigate to the **This PC** item on the left-hand side of the window. This will change the menus available in the ribbon. Under the Computer menu, select **Map network drive**.
     
     ![A screenshot of the "Map network drive" drop-down menu](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Copy the UNC path from the "Connect" pane in the Azure portal.** 
+3. Copy the UNC path from the **Connect** pane in the Azure portal. 
 
     ![The UNC path from the Azure Files Connect pane](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
-4. **Select the Drive letter and enter the UNC path.** 
+4. Select the drive letter and enter the UNC path. 
     
     ![A screenshot of the "Map Network Drive" dialog](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. **Use the Storage Account Name prepended with `Azure\` as the username and a Storage Account Key as the password.**
+5. Use the storage account name prepended with `AZURE\` as the username and a storage account key as the password.
     
     ![A screenshot of the network credential dialog](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
-6. **Use Azure file share as desired**.
+6. Use Azure file share as desired.
     
     ![Azure file share is now mounted](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. **When you are ready to dismount (or disconnect) the Azure file share, you can do so by right-clicking on the entry for the share under the "Network locations" in File Explorer and selecting "Disconnect"**.
-
-## Mount the Azure file share with PowerShell
-1. **Use the following command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` with the proper information.
-
-    ```PowerShell
-    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
-    New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<share-name>" -Credential $credential
-    ```
-
-2. **Use the Azure file share as desired**.
-
-3. **When you are finished, dismount the Azure file share using the following command**.
-
-    ```PowerShell
-    Remove-PSDrive -Name <desired-drive-letter>
-    ```
-
-> [!Note]  
-> You may use the `-Persist` parameter on `New-PSDrive` to make the Azure file share visible to the rest of the OS while mounted.
-
-## Mount the Azure file share with Command Prompt
-1. **Use the following command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` with the proper information.
-
-    ```
-    net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
-    ```
-
-2. **Use the Azure file share as desired**.
-
-3. **When you are finished, dismount the Azure file share using the following command**.
-
-    ```
-    net use <desired-drive-letter>: /delete
-    ```
-
-> [!Note]  
-> You can configure the Azure file share to automatically reconnect on reboot by persisting the credentials in Windows. The following command will persist the credentials:
->   ```
->   cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
->   ```
+7. When you are ready to dismount the Azure file share, you can do so by right-clicking on the entry for the share under the **Network locations** in File Explorer and selecting **Disconnect**.
 
 ## Securing Windows/Windows Server
 In order to mount an Azure file share on Windows, port 445 must be accessible. Many organizations block port 445 access to Azure because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with Windows and Windows Server. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and all supported versions of Windows and Windows Server make it possible to remove or disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) removing or disabling the SMB 1 client and server in Windows before continuing with this guide.
