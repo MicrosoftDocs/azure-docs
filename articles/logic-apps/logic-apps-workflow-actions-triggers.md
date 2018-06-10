@@ -960,7 +960,7 @@ Office 365 Outlook connector, which is a Microsoft-managed API:
 }
 ```
 
-<a name="apiconnectionwebhook-action"></a>
+<a name="apiconnection-webhook-action"></a>
 
 ## APIConnectionWebhook action
 
