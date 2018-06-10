@@ -48,31 +48,40 @@ You can mount Azure file shares on a Windows installation that is running either
 
 * **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-* **Ensure port 445 is open**: Azure Files uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine. You can use Portqry to check whether the TCP port 445 is open. If the TCP port 445 is displayed as filtered, the TCP port is blocked. Here is an example query:
+* **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet.
 
-    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+    ```PowerShell
+    Test-NetConnection -ComputerName <storage-account> -Port 445
+    ```
 
-    If TCP port 445 is blocked by a rule along the network path, you will see the following output:
+    If the connection was successful, you should see the following output:
 
-    `TCP port 445 (Microsoft-ds service): FILTERED`
+    ```
+    ComputerName     : <storage-account>.file.core.windows.net
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+    ```
 
-    For more information about how to use Portqry, see [Description of the Portqry.exe command-line utility](https://support.microsoft.com/help/310099).
+    > [!Note]  
+    > The above command returns the current IP address of the storage account. This IP address is not guaranteed to remain the same, and may change at any time. Do not hardcode this IP address into any scripts, or into a firewall configuration. 
 
 ## Persisting connections across reboots
-### CmdKey
-The easiest way to establish a persistent connection is to save your storage account credentials into windows using the "CmdKey" command-line utility. The following is an example command-line for persisting your storage account credentials into your VM:
-```
-C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
-```
-> [!Note]
-> Domainname here will be "AZURE"
+The easiest way to establish a persistent connection is to save your storage account credentials into windows using the cmdkey utility. The following is an example command-line for persisting your storage account credentials into your VM:
 
-CmdKey will also allow you to list the credentials it stored:
+```PowerShell
+cmdkey /add:<storage-account>.file.core.windows.net /user:AZURE\<storage-account> /pass:<storage-account-key>
+```
 
+CmdKey can also allow you to list the credentials it stored:
+
+```PowerShell
+cmdkey /list
 ```
-C:\>cmdkey /list
-```
-Output will be as follows:
+
+If the credentials for your Azure file share are stored successfully, the expected output is as follows:
 
 ```
 Currently stored credentials:
@@ -81,6 +90,7 @@ Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
 Type: Domain Password
 User: AZURE\<yourstorageaccountname>
 ```
+
 Once the credentials have been persisted, you no longer have to supply them when connecting to your share. Instead you can connect without specifying any credentials.
 
 ## Mount the Azure file share with File Explorer
