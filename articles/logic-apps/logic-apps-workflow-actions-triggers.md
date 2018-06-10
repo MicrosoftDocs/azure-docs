@@ -1118,7 +1118,7 @@ This action calls a previously created
 
 | Value | Type | Description | 
 |-------|------|-------------|  
-| <*header-content*> | JSON Object | Any headers to send in the request <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*header-content*> | JSON Object | Any headers to send with the call <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON Object | Any message content to send in the request | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
@@ -1129,14 +1129,41 @@ When you save your logic app, the Logic Apps engine
 performs these checks on the referenced function:
 
 * Your workflow must have access to the function.
-* Your workflow can use only a standard HTTP trigger or generic JSON webhook trigger.
-* The function can't have any route defined.
-* Only "function" and "anonymous" authorization levels are allowed.
 
-The Logic Apps engine retrieves and caches the trigger URL, which is used at runtime. 
-So if any operation invalidates the cached URL, the action fails at runtime. 
-To work around this issue, save the logic app again, 
-which causes the logic app to retrieve and cache the trigger URL again.
+* Your workflow can use only a standard HTTP trigger or generic JSON webhook trigger. 
+
+  The Logic Apps engine gets and caches the trigger's URL, 
+  which is used at runtime. However, if any operation 
+  invalidates the cached URL, the **Function** action 
+  fails at runtime. To fix this issue, save the logic app again
+  so that the logic app gets and caches the trigger URL again.
+
+* The function can't have any route defined.
+
+* Only "function" and "anonymous" authorization levels are allowed. 
+
+*Example*
+
+This action definition calls an Azure function named "GetProductIDFunction":
+
+```json
+"GetProductIDFunction": {
+   "type": "Function",
+   "inputs": {
+     "function": {
+        "id": "/subscriptions/<XXXXXXXXXXXXXXXXXXXX>/resourceGroups/myLogicAppResourceGroup/providers/Microsoft.Web/sites/InventoryChecker/functions/GetProductIDFunction"
+      },
+      "method": "POST",
+      "headers": { 
+          "x-ms-date": "@utcnow()"
+       },
+      "body": { 
+          "Product_ID": "@variables('ProductID')"
+      }
+   },
+   "runAfter": {}
+}
+```
 
 <a name="http-action"></a>
 
