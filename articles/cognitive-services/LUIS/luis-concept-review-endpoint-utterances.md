@@ -20,7 +20,7 @@ Active learning is a two-step process. First, LUIS selects utterances it receive
 ## Which utterances are on the review list
 LUIS adds utterances to the review list when the top firing intent has a low score or the top two intents' scores are too close. 
 
-## Where are the utterances from?
+## Where are the utterances from
 Endpoint utterances are taken from end-user queries on the application’s HTTP endpoint. If your app is not published or has not received hits yet, you do not have any utterances to review. If no endpoint hits are received for a specific intent or entity, you do not have utterances to review that contain them. 
 
 ## Schedule review periodically
