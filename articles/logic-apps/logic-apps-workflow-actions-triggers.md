@@ -917,18 +917,20 @@ in the action's inputs, for example:
 ### Asynchronous limits
 
 You can limit the duration for an asynchronous pattern to a specific time interval. 
-If the time interval elapses without reaching a terminal state, 
-the action's status is marked `Cancelled` with an `ActionTimedOut` code. 
-The limit timeout is specified in ISO 8601 format. 
-This example shows how you can specify limits:
+So, if the interval passes and the action hasn't completed, 
+the action's status is marked `Cancelled` with the `ActionTimedOut` code. 
+The limit timeout uses [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). 
+
+This example shows how you can specify an asynchronous limit:
 
 ``` json
 "<action-name>": {
-    "type": "Workflow|Webhook|Http|ApiConnectionWebhook|ApiConnection",
-    "inputs": { },
-    "limit": {
-        "timeout": "PT10S"
-    }
+   "type": "Workflow | Webhook | Http | ApiConnectionWebhook | ApiConnection",
+   "inputs": {},
+   "limit": {
+      "timeout": "PT10S"
+   },
+   "runAfter": {}
 }
 ```
 
@@ -1009,7 +1011,7 @@ Office 365 Outlook connector, which is a Microsoft-managed API:
 
 <a name="apiconnection-webhook-action"></a>
 
-## APIConnectionWebhook action
+### APIConnectionWebhook action
 
 This action sends a subscription request over HTTP to an endpoint 
 by using a [Microsoft-managed API](../connectors/apis-list.md), 
@@ -1073,7 +1075,7 @@ in the same way as [HTTP asynchronous limits](#asynchronous-limits).
 
 <a name="compose-action"></a>
 
-## Compose action
+### Compose action
 
 This action creates a single output from multiple inputs, 
 including expressions. Both the output and inputs can 
@@ -1132,7 +1134,7 @@ Here is the output that this action creates:
 
 <a name="function-action"></a>
 
-## Function action
+### Function action
 
 This action calls a previously created 
 [Azure function](../azure-functions/functions-create-first-azure-function.md).
@@ -1267,7 +1269,7 @@ by sending a request to the specified endpoint:
 
 <a name="join-action"></a>
 
-## Join action
+### Join action
 
 This action creates a string from all the items in an array 
 and separates those items with the specified delimiter character. 
@@ -1315,7 +1317,7 @@ which are separated by a comma: `"1,2,3,4"`
 
 <a name="parse-json-action"></a>
 
-## Parse JSON action
+### Parse JSON action
 
 This action creates user-friendly fields or *tokens* from the properties in JSON content. 
 You can then access those properties in your logic app by using the tokens instead. 
@@ -1424,7 +1426,7 @@ The "schema" property specifies the JSON schema used for describing the JSON con
 
 <a name="query-action"></a>
 
-## Query action
+### Query action
 
 This action creates an array from items in another array
 based on a specified condition or filter.
@@ -1465,7 +1467,7 @@ values greater than the specified value, which is two:
 
 <a name="response-action"></a>
 
-## Response action  
+### Response action  
 
 This action creates the payload for the response to an HTTP request. 
 
@@ -1555,7 +1557,7 @@ And as a result, your logic app run is also marked with "Failed" status.
 
 <a name="select-action"></a>
 
-## Select action
+### Select action
 
 This action creates an array with JSON objects by transforming 
 items from another array based on the specified map. 
@@ -1664,7 +1666,7 @@ the **Office 365 Outlook - Send an email** action:
 
 <a name="table-action"></a>
 
-## Table action
+### Table action
 
 This action creates a CSV or HTML table from an array. 
 For arrays with JSON objects, this action automatically creates 
@@ -1801,7 +1803,7 @@ Here is the HTML table that this action creates:
 
 <a name="terminate-action"></a>
 
-## Terminate action
+### Terminate action
 
 This action stops the run for logic app workflow instance, 
 cancels any actions in progress, skips any remaining actions, 
@@ -1943,7 +1945,7 @@ This action definition pauses the workflow until the specified time:
 
 <a name="workflow-action"></a>
 
-## Workflow action
+### Workflow action
 
 This action lets you nest a workflow. The Logic Apps engine performs 
 an access check on the child workflow, more specifically, the trigger, 
@@ -1998,7 +2000,7 @@ other actions that are in the same control workflow structure.
 
 <a name="foreach-action"></a>
 
-## Foreach action
+### Foreach action
 
 This looping action iterates through an array and performs inner actions on each array item. 
 By default, the Foreach loop runs in parallel. For the maximum number of parallel cycles that 
@@ -2063,125 +2065,131 @@ For example:
 
 <a name="if-action"></a>
 
-## If action
+### If action
 
-This action, which is a conditional statement, lets you evaluate a condition 
-and execute a branch based on whether the expression evaluates as true. 
-If the condition evaluates successfully as true, the condition is marked with "Succeeded" status. 
-Actions that are in the `actions` or `else` objects evaluate to these values:
+This action, which is a *conditional statement*, evaluates a 
+condition and runs a branch based on whether the expression is true. 
+If the condition is true, the condition is marked with "Succeeded" status. 
+The actions in the `actions` or `else` objects get these values:
 
 * "Succeeded" when they run and succeed
 * "Failed" when they run and fail
 * "Skipped" when the respective branch doesn't run
 
-Learn more about [conditional statements in logic apps](../logic-apps/logic-apps-control-flow-conditional-statement.md).
-
 ``` json
-"<my-condition-name>": {
-  "type": "If",
-  "expression": "<condition>",
-  "actions": {
-    "if-true-run-this-action": {
-      "type": <action-type>,
-      "inputs": {},
-      "runAfter": {}
-    }
-  },
-  "else": {
-    "actions": {
-        "if-false-run-this-action": {
-            "type": <action-type>,
-            "inputs": {},
-            "runAfter": {}
-        }
-    }
-  },
-  "runAfter": {}
+"Condition": {
+   "type": "If",
+   "expression": { "<condition>" },
+   "actions": {
+      "<action-1>": { "<action-definition>" }
+   },
+   "else": {
+      "actions": {
+        "<action-2>": { "<action-definition" }
+      }
+   },
+   "runAfter": {}
 }
 ```
 
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------| 
-| actions | Yes | JSON Object | The inner actions to run when `expression` evaluates to `true` | 
-| expression | Yes | String | The expression to evaluate |
-| else | No | JSON Object | The inner actions to run when `expression` evaluates to `false` |
-||||| 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*condition*> | JSON Object | The condition, which can be an expression, to evaluate | 
+| <*action-1*> | JSON Object | The action to run when <*condition*> evaluates to true | 
+| <*action-definition*> | JSON Object | The definition for the action | 
+| <*action-2*> | JSON Object | The action to run when <*condition*> evaluates to false | 
+|||| 
 
-For example:
+Learn [how to create conditional statements](../logic-apps/logic-apps-control-flow-conditional-statement.md).
+
+*Example*
+
+This condition specifies that when the integer variable has a value greater than zero, 
+the workflow checks a website. If the variable is zero or less, the workflow checks a different website.
 
 ```json
-"myCondition": {
-    "type": "If",
-    "actions": {
-        "if-true-check-this-website": {
+"Condition": {
+   "type": "If",
+   "expression": {
+      "and": [ {
+         "greater": [ "@variables('myIntegerVariable')", 0 ] 
+      } ]
+   },
+   "actions": { 
+      "HTTP - Check this website": {
+         "type": "Http",
+         "inputs": {
+         "method": "GET",
+            "uri": "http://this-url"
+         },
+         "runAfter": {}
+      }
+   },
+   "else": {
+      "actions": {
+         "HTTP - Check this other website": {
             "type": "Http",
             "inputs": {
-                "method": "GET",
-                "uri": "http://this-url"
+               "method": "GET",
+               "uri": "http://this-other-url"
             },
             "runAfter": {}
-        }
-    },
-    "else": {
-        "actions": {
-            "if-false-check-this-other-website": {
-                "type": "Http",
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://this-other-url"
-                },
-                "runAfter": {}
-            }
-        }
-    }
+         }
+      }
+   },
+   "runAfter": {}
 }
 ```  
 
-### How conditions can use expressions in actions
+#### How conditions use expressions
 
 Here are some examples that show how you can use expressions in conditions:
   
-| JSON expression | Result | 
-| --------------- | ------ | 
-| `"expression": "@parameters('hasSpecialAction')"` | Any value that evaluates as true causes this condition to pass. Supports only Boolean expressions. To convert other types to Boolean, use these functions: `empty` or `equals` | 
-| `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | Supports comparison functions. For this example, the action runs only when the output of action1 is greater than the threshold value. | 
-| `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | Supports logic functions for creating nested Boolean expressions. In this example, the action runs when the output of action1 is more than the threshold or under 100. | 
-| `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | To check whether an array has any items, you can use array functions. In this example, the action runs when the errors array is empty. | 
-| `"expression": "parameters('hasSpecialAction')"` | This expression causes an error and isn't a valid condition. Conditions must use the "@" symbol. | 
+| JSON | Result | 
+|------|--------| 
+| "expression": "@parameters('<*hasSpecialAction*>')" | For Boolean expressions only, the condition passes for any value that evaluates to true. <p>To convert other types to Boolean, use these functions: `empty()` or `equals()`. | 
+| "expression": "@greater(actions('<*action*>').output.value, parameters('<*threshold*>'))" | For comparison functions, the action runs only when the output from <*action*> is more than the <*threshold*> value. | 
+| "expression": "@or(greater(actions('<*action*>').output.value, parameters('<*threshold*>')), less(actions('<*same-action*>').output.value, 100))" | For logic functions and creating nested Boolean expressions, the action runs when the output from <*action*> is more than the <*threshold*> value or under 100. | 
+| "expression": "@equals(length(actions('<*action*>').outputs.errors), 0))" | You can use array functions for checking whether the array has any items. The action runs when the `errors` array is empty. | 
 ||| 
 
 <a name="scope-action"></a>
 
-## Scope action
+### Scope action
 
-This action lets you logically group actions in a workflow. 
-The scope gets its own status after the actions in that scope finish running. 
-Learn more about [scopes](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md).
+This action logically groups actions into *scopes*, which get their own status 
+after the actions in that scope finish running. You can then use the scope's 
+status to determine whether other actions run. Learn [how to create scopes](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md).
 
 ```json
-"<my-scope-action-name>": {
-    "type": "Scope",
-    "actions": {
-        "myInnerAction1": {
-            "type": "<action-type>",
-            "inputs": {}
-        },
-        "myInnerAction2": {
-            "type": "<action-type>",
-            "inputs": {}
-        }
-    }
+"Scope": {
+   "type": "Scope",
+   "actions": {
+      "<inner-action-1>": {
+         "type": "<action-type>",
+         "inputs": { "<action-inputs>" },
+         "runAfter": {}
+      },
+      "<inner-action-2>": {
+         "type": "<action-type>",
+         "inputs": { "<action-inputs>" },
+         "runAfter": {}
+      }
+   }
 }
 ```
 
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------|  
-| actions | Yes | JSON Object | The inner actions to run inside the scope |
-||||| 
+*Required*
+
+| Value | Type | Description | 
+|-------|------|-------------|  
+| <*inner-action-1...n*> | JSON Object | One or more actions that run inside the scope |
+| <*action-inputs*> | JSON Object | The inputs for each action |
+|||| 
 
 <a name="switch-action"></a>
 
-## Switch action
+### Switch action
 
 This action, also known as a *switch statement*, 
 organizes other actions into *cases*, and assigns 
@@ -2246,7 +2254,7 @@ runs the default actions. Learn
 *Example*
 
 This action definition evaluates whether the person responding 
-to the approval request email chose the "Approve" option 
+to the approval request email selected the "Approve" option 
 or the "Reject" option. Based on this choice, the **Switch** 
 action runs the actions for the matching case, which is 
 to send another email to the responder but with different 
@@ -2330,7 +2338,7 @@ wording in each case.
 
 <a name="until-action"></a>
 
-## Until action
+### Until action
 
 This loop action contains actions that run until the specified condition is true. 
 The loop checks the condition as the last step after all other actions have run. 
