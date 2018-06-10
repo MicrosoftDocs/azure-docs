@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 06/10/2018
 ms.author: terrylan
 
 ---
@@ -24,7 +24,7 @@ Azure Security Center provides unified security management and advanced threat p
 Why use Security Center?
 
 - **Centralized policy management** – Ensure compliance with company or regulatory security requirements by centrally managing security policies across all your hybrid cloud workloads.
-- **Continuous security assessment** – Monitor the security of machines, networks, storage and data services, and applications to discover potential security issues.
+- **Continuous security assessment** – Monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues.
 - **Actionable recommendations** – Remediate security vulnerabilities before they can be exploited by attackers with prioritized and actionable security recommendations.
 - **Prioritized alerts and incidents** - Focus on the most critical threats first with prioritized security alerts and incidents.
 - **Advanced cloud defenses** – Reduce threats with just in time access to management ports and adaptive application controls running on your VMs.
