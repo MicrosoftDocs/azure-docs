@@ -3,7 +3,7 @@ title: Mount Azure file share over SMB with macOS | Microsoft Docs
 description: Learn how to mount an Azure file share over SMB with macOS.
 services: storage
 documentationcenter: ''
-author: RenaShahMSFT
+author: wmgries
 manager: aungoo
 editor: tamram
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
-ms.author: renash
+ms.author: wgries
 ---
 
 # Mount Azure file share over SMB with macOS

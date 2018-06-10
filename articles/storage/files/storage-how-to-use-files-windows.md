@@ -3,7 +3,7 @@ title: Mount an Azure file share and access the share in Windows | Microsoft Doc
 description: Mount an Azure file share and access the share in Windows.
 services: storage
 documentationcenter: na
-author: RenaShahMSFT
+author: wmgries
 manager: aungoo
 editor: tamram
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/07/2018
-ms.author: renash
+ms.author: wgries
 ---
 
 # Mount an Azure file share and access the share in Windows

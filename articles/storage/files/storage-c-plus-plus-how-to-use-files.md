@@ -3,7 +3,7 @@ title: Develop for Azure Files with C++ | Microsoft Docs
 description: Learn how to develop C++ applications and services that use Azure Files to store file data.
 services: storage
 documentationcenter: .net
-author: renashahmsft
+author: wmgries
 manager: aungoo
 editor: tamram
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: renashahmsft
+ms.author: wgries
 ---
 
 # Develop for Azure Files with C++
