@@ -26,7 +26,7 @@ You can mount Azure file shares on a Windows installation that is running either
 
 | Windows version        | SMB version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019 (preview)<sup>1</sup> | 3.0 | Yes | Yes |
+| Windows Server 2019 (preview)<sup>1</sup> | SMB 3.0 | Yes | Yes |
 | Windows 10<sup>2</sup> | SMB 3.0 | Yes | Yes |
 | Windows Server semi-annual channel<sup>3</sup> | SMB 3.0 | Yes | Yes |
 | Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
@@ -170,7 +170,7 @@ The following table provides detailed information on the status of SMB 1 each ve
 | Windows version                           | SMB 1 default status | Disable/Remove method       | 
 |-------------------------------------------|----------------------|-----------------------------|
 | Windows Server 2019 (preview)             | Disabled             | Remove with Windows feature |
-| Windows Server, versions 1709 and 1803    | Disabled             | Remove with Windows feature |
+| Windows Server, versions 1709+            | Disabled             | Remove with Windows feature |
 | Windows 10, versions 1709+                | Disabled             | Remove with Windows feature |
 | Windows Server 2016                       | Enabled              | Remove with Windows feature |
 | Windows 10, versions 1507, 1607, and 1703 | Enabled              | Remove with Windows feature |
@@ -181,7 +181,7 @@ The following table provides detailed information on the status of SMB 1 each ve
 | Windows 7                                 | Enabled              | Disable with Registry       | 
 
 ### Auditing SMB 1 usage
-> Applies to Windows Server 2019 (preview), Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows 10 (versions 1507, 1607, 1703, 1709, and 1804), Windows Server 2012 R2, and Windows 8.1
+> Applies to Windows Server 2019 (preview), Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows 10 (versions 1507, 1607, 1703, 1709, and 1803), Windows Server 2012 R2, and Windows 8.1
 
 Before removing SMB 1 in your environment, you may wish to audit SMB 1 usage to see if any clients will be broken by the change. If any requests are made against SMB shares with SMB 1, an audit event will be logged in the event log under `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
 
@@ -209,7 +209,7 @@ To complete the removal process, restart your server.
 > Starting with Windows 10 and Windows Server version 1709, SMB 1 is not installed by default and has separate Windows features for the SMB 1 client and SMB 1 server. We always recommend leaving both the SMB 1 server (`FS-SMB1-SERVER`) and the SMB 1 client (`FS-SMB1-CLIENT`) uninstalled.
 
 ### Removing SMB 1 from Windows client
-> Applies to Windows 10 (versions 1507, 1607, 1703, 1709, and 1804) and Windows 8.1
+> Applies to Windows 10 (versions 1507, 1607, 1703, 1709, and 1803) and Windows 8.1
 
 To remove SMB 1 from your Windows client, execute the following cmdlet from an elevated PowerShell session:
 
