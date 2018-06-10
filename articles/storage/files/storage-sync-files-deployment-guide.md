@@ -70,6 +70,8 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Componen
 Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 ``` 
 
+---
+
 ## Install the Azure File Sync agent
 The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share. 
 
@@ -117,13 +119,15 @@ Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolde
 Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
 ```
 
+---
+
 ## Deploy the Storage Sync Service 
 The deployment of Azure File Sync starts with placing a **Storage Sync Service** resource into a resource group of your selected subscription. We recommend provisioning as few of these as needed. You will create a trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.
 
 > [!Note]
 > The Storage Sync Service inherited access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
 
-# [Portal](tab/portal)
+# [Portal](#tab/portal)
 To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), click *New* and then search for Azure File Sync. In the search results, select **Azure File Sync (preview)**, and then select **Create** to open the **Deploy Storage Sync** tab.
 
 On the pane that opens, enter the following information:
@@ -135,7 +139,7 @@ On the pane that opens, enter the following information:
 
 When you are finished, select **Create** to deploy the Storage Sync Service.
 
-# [PowerShell](tab/powershell)
+# [PowerShell](#tab/powershell)
 Before interacting with the Azure File Sync management cmdlets, you will need to import a DLL and create an Azure File Sync management context. This is required because the Azure File Sync management cmdlets are not yet part of the AzureRM PowerShell module. We plan to bring migrate the Azure File Sync cmdlets to the AzureRM PowerShell module in a future release.
 
 > [!Note]  
@@ -205,6 +209,8 @@ $storageSyncName = "<my-storage-sync-service>"
 New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 ```
 
+---
+
 ## Register Windows Server with Storage Sync Service
 Registering your Windows Server with a Storage Sync Service establishes a trust relationship between your server (or cluster) and the Storage Sync Service. A server can only be registered to one Storage Sync Service and can sync with other servers and Azure file shares associated with the same Storage Sync Service.
 
@@ -228,6 +234,8 @@ After you have selected the appropriate information, select **Register** to comp
 ```PowerShell
 $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
+
+---
 
 ## Create a sync group and a cloud endpoint
 A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share and one or server endpoints. A server endpoint represents a path on registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to to appropriately describe your desired sync topology.
@@ -294,6 +302,8 @@ New-AzureRmStorageSyncCloudEndpoint `
     -FriendlyName $fileShare.Name
 ```
 
+---
+
 ## Create a server endpoint
 A server endpoint represents a specific location on a registered server, such as a folder on a server volume. A server endpoint must be a path on a registered server (rather than a mounted share), and to use cloud tiering, the path must be on a non-system volume. Network attached storage (NAS) is not supported.
 
@@ -343,6 +353,8 @@ else {
         -FriendlyName $registeredServer.DisplayName
 }
 ```
+
+---
 
 ## Onboarding with Azure File Sync
 The recommended steps to onboard on Azure File Sync for the first with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
