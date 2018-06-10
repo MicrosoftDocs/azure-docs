@@ -2,8 +2,8 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Set up a device template in an Azure IoT Central application | Microsoft Docs
 description: Learn how to set up a device template with measurements, settings, properties, rules, and dashboard.
-author: viv-liu; 
-ms.author: viviali; 
+author: viv-liu
+ms.author: viviali
 ms.date: 04/16/2018
 ms.topic: conceptual
 ms.service: iot-central
