@@ -313,7 +313,7 @@ In this section, you see how to use the `terraform init` command to create the r
     ![Cloud Shell prompt](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 
 ## Recover from a Cloud Shell timeout
-When the Cloud Shell session times out, you can perform the following steps to recover:
+If the Cloud Shell session times out, you can perform the following steps to recover:
 
 1. Start a Cloud Shell session.
 
