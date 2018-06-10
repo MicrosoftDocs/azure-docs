@@ -253,7 +253,7 @@ Create the Terraform configuration file that declares the resources for the Kube
     ```
 
 ## Set up Azure storage to store Terraform state
-Terraform tracks state locally via the `terraform.tfstate` file. This works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server utilizing [Azure storage](/azure/storage/). In this section, you retrieve the necessary storage account information (account name and account key), and create a storage container into which the Terraform state information will be stored.
+Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server utilizing [Azure storage](/azure/storage/). In this section, you retrieve the necessary storage account information (account name and account key), and create a storage container into which the Terraform state information will be stored.
 
 1. In the Azure portal, select **All services** in the left menu.
 
@@ -286,7 +286,7 @@ In this section, you see how to use the `terraform init` command to create the r
     
     The `terraform init` command displays the success of initializing the backend and provider plugin:
 
-    ![Example of terraform init results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
+    ![Example of "terraform init" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
 1. Run the `terraform plan` command to create the Terraform plan that defines the infrastructure elements. The command will request two values: **var.client_id** and **var.client_secret**. For the **var.client_id** variable, enter the **appId** value associated with your service principal. For the **var.client_secret** variable, enter the **password** value associated with your service principal.
 
@@ -296,7 +296,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     The `terraform plan` command displays the resources that will be created when you run the `terraform apply` command:
 
-    ![Example of terraform plan results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
+    ![Example of "terraform plan" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
 1. Run the `terraform apply` command to apply the plan to create the Kubernetes cluster. The process to create a Kubernetes cluster can take several minutes, resulting in the Cloud Shell session timing out. If the Cloud Shell session times out, you can follow the steps in the section "./#recover-from-a-dloud-shell-timeout" to enable you to complete the tutorial.
 
@@ -306,7 +306,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     The `terraform apply` command displays the results of creating the resources defined in your configuration files:
 
-    ![Example of terraform apply results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
+    ![Example of "terraform apply" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
 1. In the Azure portal, select **All services** in the left menu to see the resources created for your new Kubernetese cluster.
 
