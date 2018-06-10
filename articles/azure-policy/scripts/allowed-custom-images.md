@@ -17,7 +17,7 @@ an array of approved image IDs.
 
 You can deploy this sample policy using:
 
-- The [Azure Portal](#azure-portal)
+- The [Azure portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure CLI](#azure-cli)
 - [REST API](#rest-api)
@@ -61,7 +61,8 @@ PowerShell also supports `-PolicyParameterObject` which requires passing the cmd
 hashtable where **Name** is the parameter name and **Value** is the single value or array of values
 being passed during assignment.
 
-In this example parameter, only the _ContosoStdImage_ in resource group _YourResourceGroup_ or the Windows Server 2016 Datacenter located in 'Central US' will be allowed.
+In this example parameter, only the _ContosoStdImage_ in resource group _YourResourceGroup_ or the
+May 2018 image version of Windows Server 2016 Datacenter located in 'Central US' will be allowed.
 
 ```json
 {
@@ -74,7 +75,7 @@ In this example parameter, only the _ContosoStdImage_ in resource group _YourRes
 }
 ```
 
-## Azure Portal
+## Azure portal
 
 [![Deploy to Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
 [![Deploy to Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
