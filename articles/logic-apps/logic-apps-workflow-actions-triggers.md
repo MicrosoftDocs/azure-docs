@@ -74,7 +74,7 @@ All triggers have these top-level elements, although some are optional:
 | [conditions](#trigger-conditions) | Array | One or more conditions that determine whether to run the workflow | 
 | [splitOn](#split-on-debatch) | String | An expression that splits up, or *debatches*, array items into multiple workflow instances for processing. This option is available for triggers that return an array and only when working directly in code view. | 
 | [operationOptions](#trigger-operation-options) | String | Some triggers provide additional options that let you change the default trigger behavior | 
-||||| 
+|||| 
 
 ## Trigger types
 
@@ -885,6 +885,53 @@ workflow execution and contain other actions
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTPWebhook but uses a [Microsoft-managed API](../connectors/apis-list.md). | 
 ||| 
 
+<a name="asynchronous-patterns"></a>
+
+## Asynchronous patterns
+
+By default, all HTTP-based actions support the standard asynchronous operation pattern. 
+This pattern specifies that when an HTTP-based action sends a request to a specified endpoint, 
+the remote server sends back a "202 ACCEPTED" response. This reply means the server accepted 
+the request for processing. The Logic Apps engine keeps checking the URL specified by the 
+response's location header until processing stops, which is any non-202 response.
+
+Requests have a timeout limit, so for long-running actions, 
+you can disable the asynchronous behavior by setting the 
+optional `operationOptions` property to `DisableAsyncPattern` 
+in the action's inputs, for example:
+  
+```json
+"callLongRunningOperationAction": {
+   "type": "Http",
+   "inputs": {
+      "method": "POST",
+      "uri": "https://host.example.com/resources",
+      "operationOptions": "DisableAsyncPattern"
+   },
+   "runAfter": {}
+}
+```
+
+<a name="asynchronous-limits"></a>
+
+### Asynchronous limits
+
+You can limit the duration for an asynchronous pattern to a specific time interval. 
+If the time interval elapses without reaching a terminal state, 
+the action's status is marked `Cancelled` with an `ActionTimedOut` code. 
+The limit timeout is specified in ISO 8601 format. 
+This example shows how you can specify limits:
+
+``` json
+"<action-name>": {
+    "type": "Workflow|Webhook|Http|ApiConnectionWebhook|ApiConnection",
+    "inputs": { },
+    "limit": {
+        "timeout": "PT10S"
+    }
+}
+```
+
 <a name="apiconnection-action"></a>
 
 ### APIConnection action
@@ -1167,119 +1214,54 @@ This action definition calls an Azure function named "GetProductIDFunction":
 
 <a name="http-action"></a>
 
-## HTTP action  
+## HTTP action
 
-An HTTP action calls a specified endpoint and checks the 
-response to determine whether the workflow should run or not. 
-For example:
-  
+This action sends a request to the specified endpoint and 
+checks the response to determine whether the workflow should run. 
+
 ```json
-"myLatestNewsAction": {
-    "type": "Http",
-    "inputs": {
-        "method": "GET",
-        "uri": "https://mynews.example.com/latest"
-    }
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "<method-type>",
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>"
+   },
+   "runAfter": {}
 }
 ```
 
-Here, the `inputs` object takes these parameters 
-required for constructing an HTTP call: 
+*Required*
 
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------| 
-| method | Yes | String | Uses one of these HTTP methods: "GET", "POST", "PUT", "DELETE", "PATCH", or "HEAD" | 
-| uri | Yes| String | The HTTP or HTTPs endpoint that the trigger checks. Maximum string size: 2 KB | 
-| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
-| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | JSON Object | Represents the payload that's sent to the endpoint. | 
-| retryPolicy | No | JSON Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | No | String | Defines the set of special behaviors to override. | 
-| authentication | No | JSON Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). <p>Beyond Scheduler, there is one more supported property: `authority`. By default, this value is `https://login.windows.net` when not specified, but you can use a different value, such as`https://login.windows\-ppe.net`. | 
-||||| 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*method-type*> | String | The method to use for sending the request: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
+| <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint to call. Maximum string size: 2 KB | 
+|||| 
 
-HTTP actions and APIConnection actions support *retry policies*. 
-A retry policy applies to intermittent failures, 
-characterized as HTTP status codes 408, 429, and 5xx, 
-in addition to any connectivity exceptions. 
-You can define this policy with the `retryPolicy` object as shown here:
-  
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*header-content*> | JSON Object | Any headers to send with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*body-content*> | JSON Object | Any message content to send in the request | 
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
+| <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
+| <*other-action-specific-properties*> | JSON Object | Any other properties that apply to this specific action | 
+|||| 
+
+*Example*
+
+This action definition gets the latest news 
+by sending a request to the specified endpoint:
+
 ```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
-}
-```
-
-This example HTTP action retries fetching the latest news two times 
-if there are intermittent failures for a total of three executions and 
-a 30-second delay between each attempt:
-  
-```json
-"myLatestNewsAction": {
-    "type": "Http",
-    "inputs": {
-        "method": "GET",
-        "uri": "https://mynews.example.com/latest",
-        "retryPolicy": {
-            "type": "fixed",
-            "interval": "PT30S",
-            "count": 2
-        }
-    }
-}
-```
-
-The retry interval is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). 
-This interval has a default and minimum value of 20 seconds, while the maximum value is one hour. 
-The default and maximum retry count is four hours. 
-If you don't specify a retry policy definition, 
-a `fixed` strategy is used with default retry count and interval values. 
-To disable the retry policy, set its type to `None`.
-
-<a name="asynchronous-patterns"></a>
-
-### Asynchronous patterns
-
-By default, all HTTP-based actions support the standard asynchronous operation pattern. 
-So if the remote server indicates that the request is accepted for processing 
-with a "202 ACCEPTED" response, the Logic Apps engine keeps polling the URL specified 
-in the response's location header until reaching a terminal state, which is a non-202 response.
-  
-To disable the asynchronous behavior previously described, 
-set `operationOptions` to `DisableAsyncPattern` in the action inputs. 
-In this case, the action's output is based on the initial 202 response from the server. 
-For example:
-  
-```json
-"invokeLongRunningOperationAction": {
-    "type": "Http",
-    "inputs": {
-        "method": "POST",
-        "uri": "https://host.example.com/resources"
-    },
-    "operationOptions": "DisableAsyncPattern"
-}
-```
-
-<a name="asynchronous-limits"></a>
-
-#### Asynchronous limits
-
-You can limit the duration for an asynchronous pattern to a specific time interval. 
-If the time interval elapses without reaching a terminal state, 
-the action's status is marked `Cancelled` with an `ActionTimedOut` code. 
-The limit timeout is specified in ISO 8601 format. 
-This example shows how you can specify limits:
-
-``` json
-"<action-name>": {
-    "type": "Workflow|Webhook|Http|ApiConnectionWebhook|ApiConnection",
-    "inputs": { },
-    "limit": {
-        "timeout": "PT10S"
-    }
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "https://mynews.example.com/latest"
+   }
 }
 ```
 

@@ -15,125 +15,172 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-
 ---
-# Handle errors and exceptions in Logic Apps
 
-Appropriately handling downtime or issues from dependent systems can 
-pose a challenge for any integration architecture. 
-To create robust integrations that are resilient against problems and failures, 
-Logic Apps offers a first-class experience for handling errors and exceptions. 
+# Handle errors and exceptions in Azure Logic Apps
+
+The way that any integration architecture appropriately handles 
+downtime or issues caused by dependent systems can pose a challenge. 
+To help you create robust and resilient integrations that gracefully 
+handle problems and failures, Logic Apps provides a first-class 
+experience for handling errors and exceptions. 
 
 ## Retry policies
 
-For the most basic exception and error handling, you can use the retry policy. 
-If an initial request timed out or failed, 
-which is any request that results in a 429 or 5xx response, 
-this policy defines whether and how the action retries the request. 
+For the most basic exception and error handling, you can use the 
+"retry policy" capability in any action or trigger where supported. 
+A retry policy specifies whether and how the action or trigger 
+retries a request when the original request times out or fails, 
+which is any request that results in a 408, 429, or 5xx response. 
+If no other retry policy is used, the default policy is used. 
 
-There are four types of retry policies: default, none, fixed interval, and exponential interval. 
-If your workflow definition doesn't have a retry policy, the default policy, 
-as defined by the service, is used instead.
+Here are the retry policy types: 
 
-To set up retry policies, if applicable, open the Logic App Designer for your logic app, 
-and go to **Settings** for a specific action in your logic app. Or, 
-you can define retry policies in the **inputs** section for a specific action or trigger, 
-if retryable, in your workflow definition. Here's the general syntax:
+| Type | Description | 
+|------|-------------| 
+| [**Default**](#default-retry) | This policy sends up to four retries at [*exponentially increasing*](#exponential-retry) intervals, which scale by 7.5 seconds but are capped between 5 and 45 seconds. | 
+| [**Exponential interval**](#exponential-retry)  | This policy waits a random interval selected from an exponentially growing range before sending the next request. | 
+| [**Fixed interval**](#fixed-retry)  | This policy waits the specified interval before sending the next request. | 
+| [**None**](#no-retry)  | Do not retry sending the request. | 
+||| 
+
+For information about retry policy limits, 
+see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
+
+### Change retry policy
+
+To select a different retry policy, follow these steps: 
+
+1. Open yor logic app in Logic App Designer. 
+
+2. Open the **Settings** for an action or trigger.
+
+3. If the action or trigger supports retry policies, 
+under **Retry Policy**, select the type you want. 
+
+Or, you can manually specify the retry policy in the `inputs` section 
+for an action or trigger that supports retry policies. If you don't 
+specify a retry policy, the action uses the default policy.
 
 ```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"<action-name>": {
+   "type": "<action-type>", 
+   "inputs": {
+      "<action-specific-inputs>",
+      "retryPolicy": {
+         "type": "<retry-policy-type>",
+         "interval": "<retry-interval>",
+         "count": <retry-attempts>,
+         "minimumInterval": "<minimum-interval>",
+         "maximumInterval": "<maximun-interval>"
+      },
+      "<other-action-specific-inputs>"
+   },
+   "runAfter": {}
 }
 ```
 
-For more information about syntax and the **inputs** section, 
-see the [retry-policy section in Workflow Actions and Triggers][retryPolicyMSDN]. 
-For information about retry policy limitations, 
-see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
+*Required*
+
+| Value | Type | Description |
+|-------|------|-------------|
+| <*retry-policy-type*> | String | The retry policy type you want to use: "default", "none", "fixed", or "exponential" | 
+| <*retry-interval*> | String | The retry interval where the value must use [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default minimum interval is `PT5S` and the maximum interval is `PT1D`. When you use the exponential interval policy, you can specify different minimum and maximum values. | 
+| <*retry-attempts*> | Integer | The number of retry attempts, which must be between 1 and 90 | 
+||||
+
+*Optional*
+
+| Value | Type | Description |
+|-------|------|-------------|
+| <*minimum-interval*> | String | For the exponential interval policy, the minimum interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*minimum-interval*> | String | For the exponential interval policy, the maximum interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+|||| 
+
+Here is more information about the different policy types.
+
+<a name="default-retry"></a>
 
 ### Default
 
-When you don't define a retry policy in the **retryPolicy** section, 
-your logic app uses the default policy, which is an [exponential interval policy](#exponential-interval) 
-that sends up to four retries at exponentially increasing intervals that are scaled by 7.5 seconds. 
-The interval is capped between 5 and 45 seconds. This policy is equivalent 
-to the policy in this example HTTP workflow definition:
+If you don't specify a retry policy, the action uses the default policy, 
+which is actually an [exponential interval policy](#exponential-interval) 
+that sends up to four retries at exponentially increasing intervals 
+that are scaled by 7.5 seconds. The interval is capped between 5 and 45 seconds. 
+
+Though not explicitly defined in your action or trigger, 
+here is how the default policy behaves in an example HTTP action:
 
 ```json
 "HTTP": {
-    "type": "Http",
-    "inputs": {
-        "method": "GET",
-        "uri": "http://myAPIendpoint/api/action",
-        "retryPolicy" : {
-            "type": "exponential",
-            "count": 4,
-            "interval": "PT7S",
-            "minimumInterval": "PT5S",
-            "maximumInterval": "PT1H"
-        }
-    },
-    "runAfter": {}
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://myAPIendpoint/api/action",
+      "retryPolicy" : {
+         "type": "exponential",
+         "interval": "PT7S",
+         "count": 4,
+         "minimumInterval": "PT5S",
+         "maximumInterval": "PT1H"
+      }
+   },
+   "runAfter": {}
 }
 ```
 
 ### None
 
-If you set **retryPolicy** to **none**, this policy does not retry failed requests.
-
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| type | Yes | String | **none** | 
-||||| 
+To specify that the action or trigger doesn't retry failed requests, 
+set the <*retry-policy-type*> to `none`.
 
 ### Fixed interval
 
-If you set **retryPolicy** to **fixed**, this policy retries a failed request 
-by waiting the specified interval of time before sending the next request.
+To specify that the action or trigger waits the specified interval 
+before sending the next request, set the <*retry-policy-type*> to `fixed`.
 
-| Element name | Required | Type | Description |
-| ------------ | -------- | ---- | ----------- |
-| type | Yes | String | **fixed** |
-| count | Yes | Integer | The number of retry attempts, which must be between 1 and 90 | 
-| interval | Yes | String | The retry interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), which must be between PT5S and PT1D | 
-||||| 
+*Example*
+
+This retry policy attempts to get the latest news two more times 
+after the first failed request with a 30-second delay between each attempt:
+
+```json
+"Get_latest_news": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "https://mynews.example.com/latest",
+      "retryPolicy": {
+         "type": "fixed",
+         "interval": "PT30S",
+         "count": 2
+      }
+   }
+}
+```
 
 <a name="exponential-interval"></a>
 
 ### Exponential interval
 
-If you set **retryPolicy** to **exponential**, this policy retries a failed 
-request after a random time interval from an exponentially growing range. 
-The policy also guarantees to send each retry attempt at a random interval 
-that is greater than **minimumInterval** and less than **maximumInterval**. 
-Exponential policies require **count** and **interval**, 
-while values for **minimumInterval** and **maximumInterval** are optional. 
-If you want to override the PT5S and PT1D default values respectively, 
-you can add these values.
+To specify that the action or trigger waits a random interval before 
+sending the next request, set the <*retry-policy-type*> to `exponential`. 
+The random interval is selected from an exponentially growing range. 
+Optionally, you can also override the default minimum and maximum 
+intervals by specifying your own minimum and maximum intervals.
 
-| Element name | Required | Type | Description |
-| ------------ | -------- | ---- | ----------- |
-| type | Yes | String | **exponential** |
-| count | Yes | Integer | The number of retry attempts, which must be between 1 and 90  |
-| interval | Yes | String | The retry interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), which must be between PT5S and PT1D. |
-| minimumInterval | No | String | The retry minimum interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), which must be between PT5S and **interval** |
-| maximumInterval | No | String | The retry minimum interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), which must be between **interval** and PT1D | 
-||||| 
+**Random variable ranges**
 
-This table shows how a uniform random variable in the indicated range 
-is generated for each retry up to and including **count**:
-
-**Random variable range**
+This table shows how Logic Apps generates a uniform random variable in the 
+specified range for each retry up to and including the number of retries:
 
 | Retry number | Minimum interval | Maximum interval |
-| ------------ | ---------------- | ---------------- |
-| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
-| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
-| 3 | Max(2 * interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
-| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
-| .... | | | 
+|--------------|------------------|------------------|
+| 1 | max(0, <*minimum-interval*>) | min(interval, <*maximum-interval*>) |
+| 2 | max(interval, <*minimum-interval*>) | min(2 * interval, <*maximum-interval*>) |
+| 3 | max(2 * interval, <*minimum-interval*>) | min(4 * interval, <*maximum-interval*>) |
+| 4 | max(4 * interval, <*minimum-interval*>) | min(8 * interval, <*maximum-interval*>) |
+| .... | .... | .... | 
 |||| 
 
 ## Catch and handle failures with the RunAfter property
