@@ -17,7 +17,7 @@ ms.reviewer: sahenry
 ---
 # Tutorial: Enabling password writeback
 
-Password writeback provides a seamless and secure mechanism to send passwords back to an existing on-premises directory from Azure Active Directory (Azure AD). Password writeback is a component of Azure AD Connect.
+Password writeback provides a seamless and secure mechanism to send passwords back to an existing on-premises directory from Azure Active Directory (Azure AD). Password writeback is enabled as a component of Azure AD Connect.
 
 > [!div class="checklist"]
 > * Enable password writeback option in Azure AD Connect
