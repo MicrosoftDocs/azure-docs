@@ -1,5 +1,5 @@
 ---
-title: Rehost a Contoso Linux LAMP service desk app to Azure and Azure MySQL | Microsoft Docs
+title: Rehost a Contoso Linux service desk app to Azure and Azure MySQL | Microsoft Docs
 description: Learn how Contoso rehosts an on-premises Linux app by migrating it to Azure VMs and Azure MySQL.
 services: site-recovery
 author: rayne-wiselman
@@ -12,23 +12,22 @@ ms.author: raynew
 
 # Contoso migration: Rehost an on-premises Linux app to Azure VMs and Azure MySQL 
 
-This article shows how Contoso are rehosting their on-premises two-tier Linux Apache MySQL PHP (LAMP)service desk app (osTicket) by migrating it to Azure and Azure MySQL.
+This article shows how Contoso are rehosting their on-premises two-tier Linux service desk app (osTicket), by migrating it to Azure and Azure MySQL.
 
-This document is the eighth in a series of articles that document how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and a series of scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity, and we'll be adding additional articles over time.
+This document is the eighth in a series of articles that document how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity, and we'll be adding additional articles over time.
 
 **Article** | **Details** | **Status**
 --- | --- | ---
 [Article 1: Overview](contoso-migration-overview.md) | Provides an overview of Contoso's migration strategy, the article series, and the sample apps we use. | Available
 [Article 2: Deploy an Azure infrastructure](contoso-migration-infrastructure.md) | Describes how Contoso prepares its on-premises and Azure infrastructure for migration. The same infrastructure is used for all Contoso migration scenarios. | Available
 [Article 3: Assess on-premises resources](contoso-migration-assessment.md)  | Shows how Contoso runs an assessment of their on-premises two-tier SmartHotel app running on VMware. They assess app VMs with the [Azure Migrate](migrate-overview.md) service, and the app SQL Server database with the [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Available
-[Article 4: Rehost to Azure VMs and a SQL Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstrates how Contoso migrates the SmartHotel app to Azure. They migrate the app frontend VM using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and the app database using the [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service, to migrate to a SQL Managed Instance. | Available
-[Article 5: Rehost to Azure VMs](contoso-migration-rehost-vm.md) | Shows how Contoso migrate their SmartHotel app VMs using Site Recovery only.
+[Article 4: Rehost to Azure VMs and a SQL Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstrates how Contoso migrates the SmartHotel app to Azure. They migrate the app web VM using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and the app database using the [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service, to migrate to a SQL Managed Instance. | Available
+[Article 5: Rehost to Azure VMs](contoso-migration-rehost-vm.md) | Shows how Contoso migrate their SmartHotel to Azure IaaS VMs, using the Site Recovery service.
 [Article 6: Rehost to Azure VMs and SQL Server Availability Groups](contoso-migration-rehost-vm-sql-ag.md) | Shows how Contoso migrates the SmartHotel app. They use Site Recovery to migrate the app VMs, and the Database Migration service to migrate the app database to a SQL Server Availability Group. | Available
-[Article 7: Rehost a Linux app to Azure VMs](contoso-migration-rehost-linux-vm.md) | Shows how Contoso migrates their osService Linux app using Azure Site Recovery.
-Article 8: Rehost a Linux app to Azure VMs and Azure MySQL Server (this article) | Demonstrates how Contoso migrates the osService Linux app, using Site Recovery for VM migration, and MySQL Workbench to migrate (to an Azure MySQL Server instance. | Available
+[Article 7: Rehost a Linux app to Azure VMs](contoso-migration-rehost-linux-vm.md) | Shows how Contoso migrates their osTicket Linux app to Azure IaaS VMs using Azure Site Recovery.
+Article 8: Rehost a Linux app to Azure VMs and Azure MySQL Server (this article) | Demonstrates how Contoso migrates the osTicket Linux app. They use Site Recovery for VM migration, and MySQL Workbench to migrate to an Azure MySQL Server instance. | Available
 
-
-In this article, Contoso will migrate a two-tier Linux Apache MySQL PHP (LAMP) service desk app (osService) to Azure. The app will be migrated using the Azure Site Recovery service, and MySQL Workbench tools. If you'd like to use this open source app, you can download it from [GitHub](https://github.com/osTicket/osTicket).
+In this article, Contoso migrates a two-tier Linux Apache MySQL PHP (LAMP) service desk app (osTicket) to Azure. If you'd like to use this open source app, you can download it from [GitHub](https://github.com/osTicket/osTicket).
 
 
 
@@ -36,18 +35,18 @@ In this article, Contoso will migrate a two-tier Linux Apache MySQL PHP (LAMP) s
 
 The IT Leadership team has worked closely with their business partners to understand what they want to achieve:
 
-- **Address business growth**: Contoso is growing and as a result there is pressure on their on-premises systems and infrastructure.
+- **Address business growth**: Contoso is growing, and as a result there's pressure on the on-premises systems and infrastructure.
 - **Limit risk**: The service desk app is critical for the Contoso business. They want to move it to Azure with zero risk.
-- **Extend**:  Contoso doesn't want to change the app right now. They simply want to ensure that it's stable.
+- **Extend**:  Contoso doesn't want to change the app right now. They simply want to keep it stable.
 
 
 ## Migration goals
 
-The Contoso cloud team has pinned down goals for this migration. These goals are used to determine the best migration method:
+The Contoso cloud team has pinned down goals for this migration, in order determine the best migration method:
 
 - After migration, the app in Azure should have the same performance capabilities as it does today in their on-premises VMWare environment.  The app will remain as critical in the cloud as it is on-premises. 
-- Contoso doesn’t want to invest in this app.  It is critical and important to the business, but in its current form they simply want to move it safely to the cloud.
-- Having completed a couple of Windows app migrations, Contoso wants to learn how to use a Linux-based infrastructure in the Azure cloud.
+- Contoso doesn’t want to invest in this app.  It's important to the business, but in its current form they simply want to move it safely to the cloud.
+- Having completed a couple of Windows app migrations, Contoso wants to learn how to use a Linux-based infrastructure in Azure.
 - Contoso wants to minimize database admin tasks after the application is moved to the cloud.
 
 ## Proposed architecture
@@ -60,8 +59,8 @@ In this scenario:
 - Contoso has an on-premises datacenter (contoso-datacenter), with an on-premises domain controller (**contosodc1**).
 - The web tier app on OSTICKETWEB will be migrated to an Azure IaaS VM.
 - The app database will be migrated to the Azure Database for MySQL PaaS service.
-- - Since both VMs are production workloads, they will reside in the production resource group ContosoRG.
-- The  will be replicated to the primary region (East US 2) and placed in the production network (VNET-PROD-EUS2):
+- Since they're migrating a production workload, the resources will reside in the production resource group **ContosoRG**.
+- The resources will be replicated to the primary region (East US 2), and placed in the production network (VNET-PROD-EUS2):
     - The web VM will reside in the frontend subnet (PROD-FE-EUS2).
     - The database instance will reside in the database subnet (PROD-DB-EUS2).
 - The app database will be migrated to Azure MySQL using MySQL tools.
@@ -95,7 +94,7 @@ To migrate the database:
 **Service** | **Description** | **Cost**
 --- | --- | ---
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | The service orchestrates and manages migration and disaster recovery for Azure VMs, and on-premises VMs and physical servers.  | During replication to Azure, Azure Storage charges are incurred.  Azure VMs are created, and incur charges, when failover occurs. [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about charges and pricing.
-[Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | The database is based on the open source MySQL Server engine. It provides a fully can be developed leveraging open source tools.
+[Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | The database is based on the open source MySQL Server engine. It provides a fully-managed, enterprise-ready community MySQL database, as a service for app development and deployment. 
 
  
 ## Prerequisites
@@ -129,18 +128,21 @@ Here's how Azure will complete the migration:
 
 Contoso needs a couple of Azure components for Site Recovery:
 
-- A VNet in which failed over resources are located (Contoso will use the production VNet they already deployed)
+- A VNet in which failed over resources are located (Contoso will use the production VNet they already deployed).
 - A new Azure storage account to hold replicated data. 
 - A Recovery Services vault in Azure.
 
 Contoso already created the VNet during [Azure infrastructure deployment](contoso-migration-infrastructure.md), so they just need to create a storage account and vault.
 
 
-1. Contoso creates an Azure storage acount (contosovmsacc20180528) in the East US 2 region. The storage account must be in the same region as the Recovery Services vault. They're using a general purpose account, with standard storage, and LRS replication.
+1. Contoso creates an Azure storage acount (**contosovmsacc20180528**) in the East US 2 region.
+
+    - The storage account must be in the same region as the Recovery Services vault.
+    - Contoso uses a general purpose account, with standard storage, and LRS replication.
 
     ![Site Recovery storage](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
-3. With the network and storage account in place, Contoso creates a vault (ContosoMigrationVault), and places it in the ContosoFailoverRG resource group, in the primary East US 2 region.
+3. With the network and storage account in place, Contoso creates a vault (ContosoMigrationVault), and places it in the **ContosoFailoverRG** resource group, in the primary East US 2 region.
 
     ![Recovery Services vault](./media/contoso-migration-rehost-linux-vm-mysql/asr-vault.png)
 
@@ -153,9 +155,9 @@ Contoso already created the VNet during [Azure infrastructure deployment](contos
 
 Contoso prepares the on-premises VMware infrastructure as follows:
 
-- Prepare an account on the vCenter server or vSphere ESXi host, to automate VM discovery.
-- Prepare an account that allows automatic installation of the Mobility service on VMware VMs that you want to replicate.
-- Prepare on-premises VMs, if you want to connect to Azure VMs when they're created after failover.
+- Creates an account on the vCenter server, to automate VM discovery.
+- Creates an account that allows automatic installation of the Mobility service on VMware VMs that you want to replicate.
+- Prepares on-premises VMs, so that they can connect to Azure VMs when they're created after the migration.
 
 
 ### Prepare an account for automatic discovery
@@ -173,26 +175,21 @@ Contoso sets up the account as follows:
 
 ### Prepare an account for Mobility service installation
 
-The Mobility service must be installed on the Linux VM that Contoso's migrating:
+The Mobility service must be installed on each VM that Contoso wants to migrate.
 
 - Site Recovery can do an automatic push installation of this component when you enable replication for the VMs.
-- For automatic push installation, you need to prepare an account that Site Recovery will use to access the VMs.
-- Accounts details are input during replication setup. 
-- The account can be domain or local account, with permissions to install on VMs.
-
-
+- For automatic installation. Site Recovery needs an account with permissions to access the VM. 
+- Account details are input during replication setup. 
+- The account can be domain or local account, as long as it has installation permissions.
 
 
 ### Prepare to connect to Azure VMs after failover
 
-After failover to Azure, Contoso wants to be able to connect to the replicated VMs in Azure. To do this, there's a couple of things to do, before running the migration: 
+After failover to Azure, Contoso wants to be able to connect to the Azure VMs. To do this, they need to do a couple of things: 
 
-- To access over the internet, they enable SSH on the on-premises Linux VM.  For Ubuntu this can be completed using the following command: **Sudo apt-get ssh install -y**.
-
-In addition, when they run a failover: 
-
+- To access over the internet, they enable SSH on the on-premises Linux VM before the migration.  For Ubuntu this can be completed using the following command: **Sudo apt-get ssh install -y**.
 - After the failover, they should check **Boot diagnostics** to view a screenshot of the VM.
-- If this doesn't work, they should check that the VM is running, and review these [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- If this doesn't work, they need to verify that the VM is running, and review these [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 **Need more help?**
 
@@ -208,16 +205,16 @@ Contoso provisions a MySQL database instance in the primary East US 2 region.
 
     ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-1.png)
 
-2. They add the name **contosoosticket** for the Azure database. They, they add it to the production resource group **ContosoRG**, and specify credentials for the instance.
+2. They add the name **contosoosticket** for the Azure database. They add the database to the production resource group **ContosoRG**, and specify credentials for it.
 3. The on-premises MySQL database is version 5.7, so they select this version for compatibility. They use the default sizes, which match their database requirements.
 
      ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-2.png)
 
-4. For **Backup Redundancy Options**, Contoso selects to use **Geo-Rdundant**. This option allows them to restore the database in their secondary Central US region if an outage occurs. They can only configure this option when they provision the database.
+4. For **Backup Redundancy Options**, Contoso selects to use **Geo-Redundant**. This option allows them to restore the database in their secondary Central US region if an outage occurs. They can only configure this option when they provision the database.
 
      ![Redundancy](./media/contoso-migration-rehost-linux-vm-mysql/db-redundancy.png)
 
-4. In the **VNET-PROD-EUS2** network > **Service endpoints**, they add a service endpoint (the database subnet) for the SQL service.
+4. In the **VNET-PROD-EUS2** network > **Service endpoints**, they add a service endpoint (a database subnet) for the SQL service.
 
     ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-3.png)
 
@@ -243,7 +240,7 @@ To continue, they confirm that they've completed deployment planning, by selecti
 
 ### Set up the source environment
 
-Contoso needs to configure their source environment. To do this, they download an OVF template and use it to deploy the Site Recovery configuration server as a highly available, on-premises VMware VM. After the configuration server is up and running, they register it in the vault.
+Contoso needs to configure their source environment. To do this, using an OVF template they deploy a Site Recovery configuration server as a highly available, on-premises VMware VM. After the configuration server is up and running, they register it in the vault.
 
 The configuration server runs a number of components:
 
@@ -265,29 +262,30 @@ Contoso perform these steps as follows:
 3. When they turn on the VM for the first time, it boots up into a Windows Server 2016 installation experience. They accept the license agreement, and enter an administrator password.
 4. After the installation finishes, they sign in to the VM as the administrator. At first sign-in, the Azure Site Recovery Configuration Tool runs by default.
 5. In the tool, they specify a name to use for registering the configuration server in the vault.
-6. The tool checks that the VM can connect to Azure. After the connection is established, they sign in to the Azure subscription. The credentials must have access to the vault in which you want to register the configuration server.
+6. The tool checks that the VM can connect to Azure.
+7. After the connection is established, they sign in to the Azure subscription. The credentials must have access to the vault in which they'll register the configuration server.
 
     ![Register configuration server](./media/contoso-migration-rehost-linux-vm-mysql/config-server-register2.png)
 
-7. The tool performs some configuration tasks and then reboots.
-8. They sign in to the machine again, and the Configuration Server Management Wizard starts automatically.
-9. In the wizard, they select the NIC to receive replication traffic. This setting can't be changed after it's configured.
-10. They select the subscription, resource group, and vault in which to register the configuration server.
+8. The tool performs some configuration tasks and then reboots.
+9. They sign in to the machine again, and the Configuration Server Management Wizard starts automatically.
+10. In the wizard, they select the NIC to receive replication traffic. This setting can't be changed after it's configured.
+11. They select the subscription, resource group, and vault in which to register the configuration server.
 
     ![vault](./media/contoso-migration-rehost-linux-vm-mysql/cswiz1.png) 
 
-11. They then download and install MySQL Server, and VMWare PowerCLI. 
-12. After validation, they specify the FQDN or IP address of the vCenter server or vSphere host. They leave the default port, and specify a friendly name for the vCenter server.
-13. They specify the account that they created for automatic discovery, and the credentials that are used to to automatically install the Mobility Service. For Windows machines, the account needs local administrator privileges on the VMs.
+12. Now, they download and install MySQL Server, and VMWare PowerCLI. 
+13. After validation, they specify the FQDN or IP address of the vCenter server or vSphere host. They leave the default port, and specify a friendly name for the vCenter server.
+14. They input the account that they created for automatic discovery, and the credentials that Site Recovery will use to automatically install the Mobility Service. 
 
     ![vCenter](./media/contoso-migration-rehost-linux-vm-mysql/cswiz2.png)
 
-14. After registration finishes, in the Azure portal, Contoso double checks that the configuration server and VMware server are listed on the **Source** page in the vault. Discovery can take 15 minutes or more. 
-15. Site Recovery then connects to VMware servers using the specified settings, and discovers VMs.
+14. After registration finishes, in the Azure portal, Contoso checks that the configuration server and VMware server are listed on the **Source** page in the vault. Discovery can take 15 minutes or more. 
+15. With everything in place, Site Recovery connects to VMware servers, and discovers VMs.
 
 ### Set up the target
 
-Now Contoso specifies target replication settings.
+Now Contoso inputs target replication settings.
 
 1. In **Prepare infrastructure** > **Target**, they select the target settings.
 2. Site Recovery checks that there's a Azure storage account and network in the specified target.
@@ -295,7 +293,7 @@ Now Contoso specifies target replication settings.
 
 ### Create a replication policy
 
-After the source and target are set up, Contoso is ready to create a replication policy, and associate it with the configuration server.
+With the source and target set up, Contoso is ready to create a replication policy.
 
 1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
 2. They use the default settings:
@@ -316,28 +314,28 @@ After the source and target are set up, Contoso is ready to create a replication
 - Detailed instructions are available to help you [set up the source environment](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-source), [deploy the configuration server](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server), and [configure replication settings](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-replication).
 - [Learn more](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) about the Azure Guest agent for Linux.
 
-### Enable replication for OSTICKETWEB
+### Enable replication for the Web VM
 
-Now Contoso can start replicating the OSTICKETWEB VM.
+Now Contoso can start replicating the **OSTICKETWEB** VM.
 
 1. In **Replicate application** > **Source** > **+Replicate** they select the source settings.
-2. They select that they want to enable virtual machines, select the source settings, including the vCenter server, and the configuration server.
+2. They indicate that they want to enable virtual machines, and select the source settings, including the vCenter server, and the configuration server.
 
     ![Enable replication](./media/contoso-migration-rehost-linux-vm-mysql/enable-replication-source.png)
 
-3. Now, they specify the target settings, including the resource group in which the Azure VM will be located after failover, the storage account in which replicated data will be stored, and the Azure network/subnet in which the Azure VM will be located when it's created after failover. 
+3. Now they specify the target settings. These include the resource group and network in which the Azure VM will be located after failover, and the storage account in which replicated data will be stored. 
 
      ![Enable replication](./media/contoso-migration-rehost-linux-vm-mysql/enable-replication2.png)
 
-3. Contoso selects OSTICKETWEB for replication. Site Recovery automatically installs the Mobility service when replication is enabled for the VM.
+3. Contoso selects **OSTICKETWEB** for replication. 
 
     ![Enable replication](./media/contoso-migration-rehost-linux-vm-mysql/enable-replication3.png)
 
-4. In the VM properties, they select the account that's used by the process server to automatically install Mobility Service on the machine.
+4. In the VM properties, they select the account that should be used to automatically install the Mobility Service on the VM.
 
      ![Mobility service](./media/contoso-migration-rehost-linux-vm-mysql/linux-mobility.png)
 
-5. in **Replication settings** > **Configure replication settings**, they check that the correct replication policy is applied, and select **Enable Replication**.
+5. in **Replication settings** > **Configure replication settings**, they check that the correct replication policy is applied, and select **Enable Replication**. The Mobility service will be automatically installed.
 6.  They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 
 
@@ -348,11 +346,11 @@ You can read a full walkthrough of all these steps in [Enable replication](https
 
 ## Step 5: Migrate the database
 
-Contoso will migrate the database to the Azure PaaS service using backup and restore, with MySQL tools. They need to install MySQL Workbench, back up the database from OSTICKETMYSQL, and then restore it to Azure Database for MySQL Server.
+Contoso will migrate the database using backup and restore, with MySQL tools. They install MySQL Workbench, back up the database from OSTICKETMYSQL, and then restore it to Azure Database for MySQL Server.
 
 ### Install MySQL Workbench
 
-1. Contoso checks [prerequisites and downloads MySQL Workbench](https://dev.mysql.com/downloads/workbench/?utm_source=tuicool).
+1. Contoso checks the [prerequisites and downloads MySQL Workbench](https://dev.mysql.com/downloads/workbench/?utm_source=tuicool).
 2. They install MySQL Workbench for Windows in accordance with the [installation instructions](https://dev.mysql.com/doc/workbench/en/wb-installing.html).
 3. In MySQL Workbench, they create a MySQL connection to OSTICKETMYSQL. 
 
@@ -376,7 +374,7 @@ Contoso run a quick test failover, and then migrate the VM.
 
 ### Run a test failover
 
-Running a test failover helps ensure that everything's working as expected before the migration. 
+Running a test failover helps verify that everything's working as expected, before the migration. 
 
 1. Contoso runs a test failover to the latest available point in time (**Latest processed**).
 2. They select **Shut down machine before beginning failover**, so that Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails. 
@@ -386,14 +384,14 @@ Running a test failover helps ensure that everything's working as expected befor
     - Failover processes the data, so that an Azure VM can be created. If select the latest recovery point, a recovery point is created from the data.
     - An Azure VM is created using the data processed in the previous step.
 
-3. After the failover finishes, the replica Azure VM appears in the Azure portal. they checks that the VM is the appropriate size, that it's connected to the right network, and that it's running. 
+3. After the failover finishes, the replica Azure VM appears in the Azure portal. Contoso checks that the VM is the appropriate size, that it's connected to the right network, and that it's running. 
 4. After verifying, they clean up the failover, and record and save any observations.
 
 ### Migrate the VM
 
- After verifying that the test failover worked as expected, Contoso creates a recovery plan that includes the VM, and fails it over to Azure.
+To migrate the VM, Contoso creates a recovery plan that includes the VM, and fail the plan over to Azure.
 
-1. Contoso create a recovery plan for migration, and add OSTICKETWEB to the plan.
+1. Contoso creates a plan, and adds **OSTICKETWEB** to it.
 
     ![Recovery plan](./media/contoso-migration-rehost-linux-vm-mysql/recovery-plan.png)
 
@@ -409,7 +407,7 @@ Running a test failover helps ensure that everything's working as expected befor
 
     ![Failover](./media/contoso-migration-rehost-linux-vm-mysql/failover2.png)  
 
-5. After verifying the VM in Azure, they complete the migration to finish the migration process. This stops replication for the VM, and stop Site Recovery billing for the VM.
+5. After checking the VM, they complete the migration. This stops replication for the VM, and stop Site Recovery billing for the VM.
 
     ![Failover](./media/contoso-migration-rehost-linux-vm-mysql/failover3.png)
 
@@ -422,7 +420,7 @@ Running a test failover helps ensure that everything's working as expected befor
 
 ### Connect the VM to the database
 
-As the final step in the migration process, Contoso update the connection string of the application to point to the Azure Database for MySQL. To do this, Contoso will connect to the server using SSH, and then modify the ost-config.php file.
+As the final step in the migration process, Contoso update the connection string of the app to point to the Azure Database for MySQL. 
 
 1. They make an SSH connection to the OSTICKETWEB VM using Putty or another SSH client. The VM is private so they connect using the private IP address.
 
@@ -430,7 +428,7 @@ As the final step in the migration process, Contoso update the connection string
 
     ![Connect to database](./media/contoso-migration-rehost-linux-vm-mysql/db-connect2.png)  
 
-2. Now, they need to make sure that the OSTICKET Web VM can communicate with the OMTICKETMYSQL database. Currently the configuration is hardcoded with the on-premises IP address 172.16.0.43.
+2. They update settings so that the **OSTICKETWEB** VM can communicate with the **OSTICKETMYSQL** database. Currently the configuration is hardcoded with the on-premises IP address 172.16.0.43.
 
     **Before the update**
     ![Update IP](./media/contoso-migration-rehost-linux-vm-mysql/update-ip1.png)  
@@ -444,7 +442,7 @@ As the final step in the migration process, Contoso update the connection string
 
     ![Restart](./media/contoso-migration-rehost-linux-vm-mysql/restart.png) 
 
-4. Finally, they update the DNS records for OSTICKETWEB, on one of the Contoso domain controllers.
+4. Finally, they update the DNS records for **OSTICKETWEB**, on one of the Contoso domain controllers.
 
     ![Update DNS](./media/contoso-migration-rehost-linux-vm-mysql/update-dns.png) 
 
@@ -458,9 +456,9 @@ Now, Contoso needs to do the following:
 - Remove the on-premises VMs from local backup jobs.
 - Update internal documentation show new locations and IP addresses. 
 - Review any resources that interact with the on-premises VMs, and update any relevant settings or documentation to reflect the new configuration.
-- Contoso used the Azure Migrate service with dependency mapping to assess the OSTICKETWEB VM for migration, so they should remove the Microsoft Monitoring Agent, and the Dependency Agent they installed for this purpose, from the VM.
+- Contoso used the Azure Migrate service with dependency mapping to assess the **OSTICKETWEB** VM for migration. They should now remove the agents (Microsoft Monitoring Agent/Dependency Agent) they installed for this purpose, from the VM.
 
-## Step 9: Review the deployment
+## Review the deployment
 
 With the app now running, Contoso need to fully operationalize and secure their new infrastructure.
 
@@ -476,18 +474,18 @@ The Contoso security team review the VM and databse to determine any security is
 
 ### Backups
 
-- Contoso will up the data on the VM using the Azure Backup service. [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- They don't need to set up backup for the database. Azure Database for MySQL automatically creates server backups and stores. They select to use geo-redundancy for the database, so it's production-ready.
+- Contoso will back up the data on the VM using the Azure Backup service. [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- They don't need to configure backup for the database. Azure Database for MySQL automatically creates server backups and stores. They selected to use geo-redundancy for the database, so it's resilient and production-ready.
 
 ### Licensing and cost optimization
 
-- After deploying resources, Contoso assigns Azure tags, as [they determined](contoso-migration-infrastructure.md#set-up-tagging) when they set up the Azure infrastructure.
+- After deploying resources, Contoso assigns Azure tags, in accordance with decisions they made during the [Azure infrastructure](contoso-migration-infrastructure.md#set-up-tagging) deployment.
 - There are no licensing issues for the Contoso Ubuntu servers.
 - Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multi-cloud cost management solution that helps you to utilize and manage Azure and other cloud resources.  [Learn more](https://docs.microsoft.com/azure/cost-management/overview) about Azure Cost Management.
 
 
 ## Next steps
 
-In this scenario we showed the final scenario that Contoso completed for rehost (lift-and-shift) migration. They migrated the frontend VM of on-premises Linux service desk app to an Azure VM, and migrate the app database to an Azure MySQL instance.
+In this scenario we showed the final rehost scenario that Contoso tried out. They migrated the frontend VM of the on-premises Linux osTicket app to an Azure VM, and migrated the app database to an Azure MySQL instance.
 
-In the next set of tutorials in the migration series, we're going to show you how Contoso performed a more complex set of migrations, involving some refactoring of apps, rather than simple lift-and-shift. 
+In the next set of tutorials in the migration series, we're going to show you how Contoso performed a more complex set of migrations, involving app refactoring, rather than simple lift-and-shift migrations.
