@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/17/2017
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ---
 # Use Role-Based Access Control to manage access to your Azure subscription resources
 > [!div class="op_single_selector"]

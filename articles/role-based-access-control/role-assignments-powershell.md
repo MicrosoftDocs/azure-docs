@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/17/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ---
 # Manage role-based access control with Azure PowerShell
 > [!div class="op_single_selector"]

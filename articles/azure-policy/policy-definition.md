@@ -186,7 +186,7 @@ A condition evaluates whether a **field** meets certain criteria. The supported 
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value.
+When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value. The value should not contain more than 1 wildcard (*).
 
 When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Allow multiple name patterns](scripts/allow-multiple-name-patterns.md).
 
