@@ -928,10 +928,10 @@ plus a reference to a valid connection.
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to a specific action | 
+| <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*other-action-specific-properties*> | JSON Object | Any other properties that apply to a specific action | 
+| <*other-action-specific-properties*> | JSON Object | Any other properties that apply to this specific action | 
 |||| 
 
 *Example*
@@ -964,10 +964,10 @@ Office 365 Outlook connector, which is a Microsoft-managed API:
 
 ## APIConnectionWebhook action
 
-This action sends an HTTP request to the endpoint for a 
-[Microsoft-managed API](../connectors/apis-list.md), 
-provides a *callback URL* where the API can send a response, 
-and waits for the API to respond.
+This action sends a subscription request over HTTP to an endpoint 
+by using a [Microsoft-managed API](../connectors/apis-list.md), 
+provides a *callback URL* to where the endpoint can send a response, 
+and waits for the endpoint to respond. 
 
 ```json
 "<action-name>": {
@@ -996,11 +996,16 @@ and waits for the API to respond.
 }
 ```
 
+Some values, such as <*method-type*>, are available for 
+both the `"subscribe"` and `"unsubscribe"` objects.
+
+*Required*
+
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*action-name*> | String | The name of the action provided by the connector | 
-| <*method-type*> | String | The HTTP method for calling the API: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
-| <*api-subscription-URL*> | String | The API operation to call | 
+| <*method-type*> | String | The HTTP method to use for subscribing or unsubscribing from an endpoint: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
+| <*api-subscription-URL*> | String | The URI to use for subscribing or unsubscripting from an endpoint | 
 |||| 
 
 *Optional*
@@ -1009,17 +1014,15 @@ and waits for the API to respond.
 |-------|------|-------------| 
 | <*header-content*> | JSON Object | Any headers to send in the request <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON Object | Any message content to send in the request | 
-| <*authentication-method*> | JSON Object | The method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to a specific action | 
-| <*other-action-specific-properties*> | JSON Object | Any other properties that apply to a specific action | 
+| <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
+| <*other-action-specific-properties*> | JSON Object | Any other properties that apply to this specific action | 
 |||| 
 
-You can specify limits on a webhook action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
-
-| operationsOptions | String | Defines the set of special behaviors to override. | 
-|||| 
+You can also specify limits on an **ApiConnectionWebhook** action 
+in the same way as [HTTP asynchronous limits](#asynchronous-limits).
 
 <a name="compose-action"></a>
 
@@ -1084,54 +1087,56 @@ Here is the output that this action creates:
 
 ## Function action
 
-This action lets you represent and call an 
-[Azure function](../azure-functions/functions-overview.md), 
-for example:
+This action calls a previously created 
+[Azure function](../azure-functions/functions-create-first-azure-function.md).
 
 ```json
-"<my-Azure-Function-name>": {
+"<Azure-function-name>": {
    "type": "Function",
-    "inputs": {
-        "function": {
-            "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/sites/<your-Azure-function-app-name>/functions/<your-Azure-function-name>"
-        },
-        "queries": {
-            "extrafield": "specialValue"
-        },  
-        "headers": {
-            "x-ms-date": "@utcnow()"
-        },
-        "method": "POST",
-    	"body": {
-            "contentFieldOne": "value100",
-            "anotherField": 10.001
-        }
-    },
-    "runAfter": {}
+   "inputs": {
+     "function": {
+        "id": "<Azure-function-ID>"
+      },
+      "method": "<method-type>",
+      "headers": { "<header-content>" },
+      "body": { "<body-content>" },
+      "queries": { "<query-parameters>" } 
+   },
+   "runAfter": {}
 }
 ```
 
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------|  
-| function id | Yes | String | The resource ID for the Azure function that you want to call. | 
-| method | No | String | The HTTP method used to call the function. If not specified, "POST" is the default method. | 
-| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
-| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | JSON Object | Represents the payload that's sent to the endpoint. | 
-|||||
+*Required*
 
-When you save your logic app, the Logic Apps engine performs some checks on the referenced function:
+| Value | Type | Description | 
+|-------|------|-------------|  
+| <*Azure-function-ID*> | String | The resource ID for the Azure function you want to call. Here is the format for this value:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
+| <*method-type*> | String | The HTTP method to use for calling the function: "GET", "PUT", "POST", "PATCH", or "DELETE" <p>If not specified, the default is the "POST" method. | 
+||||
 
-* You must have access to the function.
-* You can use only a standard HTTP trigger or generic JSON Webhook trigger.
-* The function shouldn't have any route defined.
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------|  
+| <*header-content*> | JSON Object | Any headers to send in the request <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*body-content*> | JSON Object | Any message content to send in the request | 
+| <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
+| <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
+| <*other-action-specific-properties*> | JSON Object | Any other properties that apply to this specific action | 
+||||
+
+When you save your logic app, the Logic Apps engine 
+performs these checks on the referenced function:
+
+* Your workflow must have access to the function.
+* Your workflow can use only a standard HTTP trigger or generic JSON webhook trigger.
+* The function can't have any route defined.
 * Only "function" and "anonymous" authorization levels are allowed.
 
-> [!NOTE]
-> The Logic Apps engine retrieves and caches the trigger URL, which is used at runtime. 
-> So if any operation invalidates the cached URL, the action fails at runtime. 
-> To work around this issue, save the logic app again, 
-> which causes the logic app to retrieve and cache the trigger URL again.
+The Logic Apps engine retrieves and caches the trigger URL, which is used at runtime. 
+So if any operation invalidates the cached URL, the action fails at runtime. 
+To work around this issue, save the logic app again, 
+which causes the logic app to retrieve and cache the trigger URL again.
 
 <a name="http-action"></a>
 
@@ -1205,6 +1210,8 @@ The default and maximum retry count is four hours.
 If you don't specify a retry policy definition, 
 a `fixed` strategy is used with default retry count and interval values. 
 To disable the retry policy, set its type to `None`.
+
+<a name="asynchronous-patterns"></a>
 
 ### Asynchronous patterns
 
