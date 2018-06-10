@@ -1,21 +1,13 @@
 ---
-title: Call a webhook on an Azure activity log alert | Microsoft Docs
-description: Learn how to route activity log events to other services for custom actions. For example, you can send SMS messages, log bugs, or notify a team via a chat or messaging service. 
+title: Call a webhook on a Azure activity log alert (classic)
+description: Learn how to route activity log events to other services for custom actions. For example, you can send SMS messages, log bugs, or notify a team via a chat or messaging service.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 64d333d1-7f37-4a00-9d16-dda6e69a113b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: johnkem
-
+ms.component: alerts
 ---
 # Call a webhook on an Azure activity log alert
 You can use webhooks to route an Azure alert notification to other systems for post-processing or for custom actions. You can use a webhook on an alert to route it to services that send SMS messages, to log bugs, to notify a team via chat or messaging services, or for various other actions. You can also set up an activity log alert to send email when an alert is activated.
