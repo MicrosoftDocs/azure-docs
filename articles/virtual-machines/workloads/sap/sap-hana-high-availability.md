@@ -276,73 +276,73 @@ The steps in this section use the following prefixes:
    
     a. List all of the available disks:
        
-       <pre><code>
-       ls /dev/disk/azure/scsi1/lun*
-       </code></pre>
+      <pre><code>
+      ls /dev/disk/azure/scsi1/lun*
+      </code></pre>
        
       Example output:
        
-       ```
-       /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
-       ```
+      ```
+      /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
+      ```
        
     b. Create physical volumes for all of the disks that you want to use:
 
-       <pre><code>
-       sudo pvcreate /dev/disk/azure/scsi1/lun0
-       sudo pvcreate /dev/disk/azure/scsi1/lun1
-       sudo pvcreate /dev/disk/azure/scsi1/lun2
-       sudo pvcreate /dev/disk/azure/scsi1/lun3
-       </code></pre>
+      <pre><code>
+      sudo pvcreate /dev/disk/azure/scsi1/lun0
+      sudo pvcreate /dev/disk/azure/scsi1/lun1
+      sudo pvcreate /dev/disk/azure/scsi1/lun2
+      sudo pvcreate /dev/disk/azure/scsi1/lun3
+      </code></pre>
 
     c. Create a volume group for the data files. Use one volume group for the log files and one for the shared directory of SAP HANA:
 
-       <pre><code>
-       sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
-       sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
-       sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
-       </code></pre>
+      <pre><code>
+      sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
+      sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
+      sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
+      </code></pre>
        
     d. Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance, where the `-i` argument should be the number of the underlying physical volume. In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. One physical volume is used for the log volume, so no `-i` switch is explicitly used. Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes.
 
-       <pre><code>
-       sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
-       sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
-       sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
-       sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
-       sudo mkfs.xfs /dev/vg_hana_log_<b>HN1</b>/hana_log
-       sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
-       </code></pre>
+      <pre><code>
+      sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+      sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
+      sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
+      sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
+      sudo mkfs.xfs /dev/vg_hana_log_<b>HN1</b>/hana_log
+      sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
+      </code></pre>
        
     e. Create the mount directories and copy the UUID of all of the logical volumes:
        
-       <pre><code>
-       sudo mkdir -p /hana/data/<b>HN1</b>
-       sudo mkdir -p /hana/log/<b>HN1</b>
-       sudo mkdir -p /hana/shared/<b>HN1</b>
-       # Write down the ID of /dev/vg_hana_data_<b>HN1</b>/hana_data, /dev/vg_hana_log_<b>HN1</b>/hana_log, and /dev/vg_hana_shared_<b>HN1</b>/hana_shared
-       sudo blkid
-       </code></pre>
+      <pre><code>
+      sudo mkdir -p /hana/data/<b>HN1</b>
+      sudo mkdir -p /hana/log/<b>HN1</b>
+      sudo mkdir -p /hana/shared/<b>HN1</b>
+      # Write down the ID of /dev/vg_hana_data_<b>HN1</b>/hana_data, /dev/vg_hana_log_<b>HN1</b>/hana_log, and /dev/vg_hana_shared_<b>HN1</b>/hana_shared
+      sudo blkid
+      </code></pre>
        
     f. Create `fstab` entries for the three logical volumes:
        
-       <pre><code>
-       sudo vi /etc/fstab
-       </code></pre>
+      <pre><code>
+      sudo vi /etc/fstab
+      </code></pre>
        
     g. Insert the following line in the `/etc/fstab` file:
        
-       <pre><code>
-       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
-       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
-       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_shared_<b>HN1</b>-hana_shared&gt;</b> /hana/shared/<b>HN1</b> xfs  defaults,nofail  0  2
-       </code></pre>
+      <pre><code>
+      /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
+      /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
+      /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_shared_<b>HN1</b>-hana_shared&gt;</b> /hana/shared/<b>HN1</b> xfs  defaults,nofail  0  2
+      </code></pre>
        
     h. Mount the new volumes:
        
-       <pre><code>
-       sudo mount -a
-       </code></pre>
+      <pre><code>
+      sudo mount -a
+      </code></pre>
     
 1. **[A]** Set up the disk layout: **Plain Disks**.
 
@@ -350,27 +350,27 @@ The steps in this section use the following prefixes:
    
     a. Create a partition on /dev/disk/azure/scsi1/lun0 and format it with xfs:
 
-       <pre><code>
-       sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
-       sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
+      <pre><code>
+      sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
+      sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
        
-       # Write down the ID of /dev/disk/azure/scsi1/lun0-part1
-       sudo /sbin/blkid
-       sudo vi /etc/fstab
-       </code></pre>
+      # Write down the ID of /dev/disk/azure/scsi1/lun0-part1
+      sudo /sbin/blkid
+      sudo vi /etc/fstab
+      </code></pre>
 
     b. Insert this line in the /etc/fstab file:
 
-       <pre><code>
-       /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
-       </code></pre>
+      <pre><code>
+      /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
+      </code></pre>
 
     c. Create the target directory and mount the disk:
 
-       <pre><code>
-       sudo mkdir /hana
-       sudo mount -a
-       </code></pre>
+      <pre><code>
+      sudo mkdir /hana
+      sudo mount -a
+      </code></pre>
 
 1. **[A]** Set up host name resolution for all hosts.
 
@@ -378,16 +378,16 @@ The steps in this section use the following prefixes:
 
     a. Replace the IP address and the hostname in the following commands:
 
-       ```bash
-       sudo vi /etc/hosts
-       ```
+      ```bash
+      sudo vi /etc/hosts
+      ```
     
     b. Insert the following lines in the /etc/hosts file. Change the IP address and hostname to match your environment:
     
-       <pre><code>
-       <b>10.0.0.5 hn1-db-0</b>
-       <b>10.0.0.6 hn1-db-1</b>
-       </code></pre>
+      <pre><code>
+      <b>10.0.0.5 hn1-db-0</b>
+      <b>10.0.0.6 hn1-db-1</b>
+      </code></pre>
 
 1. **[A]** Install the HANA High Availability packages:
 
@@ -479,24 +479,24 @@ The steps in this section use the following prefixes:
    
     a. Log in as \<hanasid>adm and back up the databases:
 
-       <pre><code>
-       hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
-       hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
-       hdbsql -d <b>NW1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupNW1</b>')"
-       </code></pre>
+      <pre><code>
+      hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
+      hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
+      hdbsql -d <b>NW1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupNW1</b>')"
+      </code></pre>
 
     b. Copy the system PKI files to the secondary site:
 
-       <pre><code>
-       scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT   <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
-       scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY  <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
-       </code></pre>
+      <pre><code>
+      scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT   <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
+      scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY  <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
+      </code></pre>
 
     c. Create the primary site:
 
-       <pre><code>
-       hdbnsutil -sr_enable –-name=<b>SITE1</b>
-       </code></pre>
+      <pre><code>
+      hdbnsutil -sr_enable –-name=<b>SITE1</b>
+      </code></pre>
 
 1. **[2]** Configure System Replication on the second node:
     
