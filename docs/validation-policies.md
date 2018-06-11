@@ -126,7 +126,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |7.4.3|This policy does not apply to dictionary add-in submissions.|
 |7.4.4|You must specify language support for your add-in in your add-in's manifest. |
 |7.4.5|If your app or add-in targets a larger organization or enterprise, the title can use your brand or service. For more information, see  [AppSource validation policy changes to support apps and add-ins that target larger organizations and enterprises](https://dev.office.com/blogs/office-store-validation-policy-changes-to-support-apps-and-add-ins-that-target-larger-organizations-and-enterprises).|
-|7.4.6|Your short and full description must not be the same. Additionally, your short description must not be repeated within the full description.|
+|7.4.6|Your short and long description must not be the same. Additionally, your short description must not be repeated within the long description.|
 |7.5| Apps or add-ins listed in multiple languages must be easily identified and understood. AppSource supports merchandising of apps and add-ins in the following languages:<br/><br/>Arabic<br/>Bulgarian<br/>Chinese (Simplified)<br/>Chinese (Traditional)<br/>Croatian<br/>Czech<br/>Danish<br/>Dutch<br/>English<br/>Estonian<br/>Finnish<br/>French<br/>German<br/>Greek<br/>Hebrew<br/>Hindi<br/>Hungarian<br/>Indonesian<br/>Italian<br/>Japanese<br/>Kazakh<br/>Korean<br/>Latvian<br/>Lithuanian<br/>Malay (Latin)<br/>Norwegian (Bokmål)<br/>Polish<br/>Portuguese (Brazil)<br/>Portuguese (Portugal)<br/>Romanian<br/>Russian<br/>Serbian (Latin)<br/>Slovak<br/>Slovenian<br/>Spanish<br/>Swedish<br/>Thai<br/>Turkish<br/>Ukrainian<br/>Vietnamese<br/><br/>**Note:** English apps and add-ins are distributed to all Store-supported markets by default. Providers can block English apps and add-ins from distribution via Seller Dashboard. For more information, see *How do I declare language support for my add-in?* in [AppSource submission FAQ](office-store-submission-faq.md). |
 |7.6|Your app or add-in must not falsely declare language support.|
 |7.7|The capabilities you declare must relate to the core functions and description of your app or add-in.|
@@ -253,6 +253,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|June 11, 2018|Added policy 7.4.6.|
 |2.2|May 16, 2018|Updated policy 5.1.|
 |2.2|March 30, 2018|Added policy 5.9. |
 |2.2|March 8, 2018|Added policy 14.18.|
