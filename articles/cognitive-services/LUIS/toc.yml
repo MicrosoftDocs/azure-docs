@@ -19,6 +19,8 @@
   items: 
   - name: Get data from entity
     items: 
+    - name: Add prebuilt intents and entities
+      href: luis-tutorial-prebuilt-intents-and-entities.md
     - name: Simple entity
       href: luis-quickstart-primary-and-secondary-data.md
     - name: Hierarchical entity

@@ -187,12 +187,7 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to add a simple entity to your app](luis-quickstart-primary-and-secondary-data.md)
-
-Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract any numbers. 
-
-Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract dates, times, and datetime ranges.
-
+> [Learn how to add prebuilt intents and entities](luis-tutorial-prebuilt-intents-and-entities.md)
 
 <!--References-->
 [LUIS]: luis-reference-regions.md#luis-website
