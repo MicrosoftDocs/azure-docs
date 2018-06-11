@@ -40,9 +40,9 @@ Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos DB 
 
 You can read the change feed in three different ways, as discussed later in this article:
 
-1.	[Using Azure Functions](#azure-functions)
-2.	[Using the Azure Cosmos DB SDK](#sql-sdk)
-3.	[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)
+*	[Using Azure Functions](#azure-functions)
+*	[Using the Azure Cosmos DB SDK](#sql-sdk)
+*	[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)
 
 The change feed is available for each partition key range within the document collection, and thus can be distributed across one or more consumers for parallel processing as shown in the following image.
 
@@ -284,17 +284,17 @@ That’s it. After these few steps documents will start coming into the **Docume
 
 There are three options for you to read change feed:
 
-1. **[Using Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
+* **[Using Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
    
    By using this method, you get low level of control on change feed. You can manage the checkpoint, you can access a particular partition key etc. If you have multiple readers, you can use [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) to distribute read load to different threads or different clients. .
 
-2. **[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)**
+* **[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)**
 
    If you want to outsource lot of complexity of change feed then you can use change feed processor library. This library hides lot of complexity, but still gives you complete control on change feed. This library follows an [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), your processing function is called by the SDK. 
 
    If you have a high throughput change feed, you can instantiate multiple clients to read the change feed. Because you are using “change feed processor library”, it will automatically divide the load among different clients. You do not have to do anything. All the complexity is handled by SDK. However, if you want to have your own load balancer, then you can implement IParitionLoadBalancingStrategy for custom partition strategy. Implement IPartitionProcessor – for custom processing changes on a partition. However, with SDK, you can process a partition range but if you want to process a particular partition key then you have to use SDK for SQL API.
 
-3. **[Using Azure Functions](#azure-functions)** 
+* **[Using Azure Functions](#azure-functions)** 
    
    The last option Azure Function is the simplest option. We recommend using this option. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to and the function is triggered whenever a change to the collection is made. watch a [screen cast](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) of using Azure function and change feed
 
@@ -308,11 +308,11 @@ Change feed documents comes in order of their modification time. This sort order
 
 Yes, change feed will work across the manual failover operation and it will be contiguous.
 
-### How long change feed persist the changed data if I set the TTL (Time to Live) property for the document to -1
+### How long change feed persist the changed data if I set the TTL (Time to Live) property for the document to -1?
 
 Change feed will persist forever. If data is not deleted, it will remain in change feed.
 
-### How can I configure Azure functions to read from a particular region, as change feed is available in all the read regions by default.
+### How can I configure Azure functions to read from a particular region, as change feed is available in all the read regions by default?
 
 Currently it’s not possible to configure Azure Functions to read from a particular region. There is a GitHub issue in the Azure Functions repo to set the preferred regions of any Azure Cosmos DB binding and trigger.
 
