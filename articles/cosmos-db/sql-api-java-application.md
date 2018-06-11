@@ -7,6 +7,7 @@ author: dennyglee
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017

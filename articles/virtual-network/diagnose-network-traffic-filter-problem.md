@@ -184,15 +184,15 @@ Consider the following points when troubleshooting connectivity problems:
 
 * Default security rules block inbound access from the internet, and only permit inbound traffic from the virtual network. To allow inbound traffic from the Internet, add security rules with a higher priority than default rules. Learn more about [default security rules](security-overview.md#default-security-rules), or how to [add a security rule](manage-network-security-group.md#create-a-security-rule).
 * If you have peered virtual networks, by default, the **VIRTUAL_NETWORK** service tag automatically expands to include prefixes for peered virtual networks. To troubleshoot any issues related to virtual network peering, you can view the prefixes in the **ExpandedAddressPrefix** list. Learn more about [virtual network peering](virtual-network-peering-overview.md) and [service tags](security-overview.md#service-tags).
-* Effective security rules are only shown for a network interface if there is an NSG associated with the VM???s network interface and, or, subnet, and if the VM is in the running state.
+* Effective security rules are only shown for a network interface if there is an NSG associated with the VM's network interface and, or, subnet, and if the VM is in the running state.
 * If there are no NSGs associated with the network interface or subnet, and you have a [public IP address](virtual-network-public-ip-address.md) assigned to a VM, all ports are open for inbound access from and outbound access to anywhere. If the VM has a public IP address, we recommend applying an NSG to the subnet the network interface.
 
 ## Additional diagnosis
 
 * To run a quick test to determine if traffic is allowed to or from a VM, use the [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) capability of Azure Network Watcher. IP flow verify tells you if traffic is allowed or denied. If denied, IP flow verify tells you which security rule is denying the traffic.
-* If there are no security rules causing a VM???s network connectivity to fail, the problem may be due to:
+* If there are no security rules causing a VM's network connectivity to fail, the problem may be due to:
   * Firewall software running within the VM's operating system
-  * Routes configured for virtual appliances or on-premises traffic. Internet traffic can be redirected to your on-premises network via [forced-tunneling](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you force tunnel internet traffic to a virtual appliance, or on-premises, you may not be able to connect to the VM from the internet. To learn how to diagnose route problems that may impede the flow of traffic out of the VM, see [Diagnose a virtual machine network traffic routing problem](virtual-network-routes-troubleshoot-powershell.md).
+  * Routes configured for virtual appliances or on-premises traffic. Internet traffic can be redirected to your on-premises network via [forced-tunneling](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you force tunnel internet traffic to a virtual appliance, or on-premises, you may not be able to connect to the VM from the internet. To learn how to diagnose route problems that may impede the flow of traffic out of the VM, see [Diagnose a virtual machine network traffic routing problem](diagnose-network-routing-problem.md).
 
 ## Next steps
 

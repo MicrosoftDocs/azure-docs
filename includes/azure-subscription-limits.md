@@ -26,5 +26,5 @@
 
 <sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core.
 
-<sup>2</sup>The storage account limit includes both Standard and Premium storage accounts. If you require more than 200 storage accounts in a single region, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
+<sup>2</sup>The storage account limit includes both Standard and Premium storage accounts. If you require more than 200 storage accounts in a given region, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts for a given region. 
 

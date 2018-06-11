@@ -11,7 +11,7 @@ ms.date: 11/14/2017
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 services: active-directory
 ms.custom: it-pro
 
