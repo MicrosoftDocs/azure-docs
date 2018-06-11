@@ -70,14 +70,13 @@ The **None** intent is a required intent and can't be deleted or renamed.
 ## Negative intentions 
 If you want to determine negative and positive intentions, such as "I **want** a car" and "I **don't** want a car", you can create two intents (one positive, and one negative) and add appropriate utterances for each. Or you can create a single intent and mark the two different positive and negative terms as an entity.  
 
-
-## Intent limits
-Review [limits](luis-boundaries.md#model-boundaries) to understand how many intents you can add to a model. 
-
-### Intent balance
+## Intent balance
 The app domain intents should have a balance of utterances across each intent. Do not have one intent with 10 utterances and another intent with 500 utterances. This is not balanced. If you have this situation, review the intent with 500 utterances to see if many of the intents can be reorganized into a [pattern](luis-concept-patterns.md). 
 
 The **None** intent is not included in the balance. That intent should contain 10% of the total utterances in the app.
+
+## Intent limits
+Review [limits](luis-boundaries.md#model-boundaries) to understand how many intents you can add to a model. 
 
 ### If you need more than the maximum number of intents 
 First, consider whether your system is using too many intents. 
