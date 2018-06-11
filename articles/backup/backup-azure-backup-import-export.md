@@ -45,7 +45,7 @@ The following Azure Backup features or workloads support use of Offline Backup.
 Before initiating the Offline Backup workflow, complete the following prerequisites: 
 * Create a [Recovery Services vault](backup-azure-recovery-services-vault-overview.md). To create a vault, refer to the steps in [this article](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * Make sure that only the [latest version of the Azure Backup agent](https://aka.ms/azurebackup_agent) has been installed on the Windows Server/Windows client, as applicable and the computer is registered with the Recovery Services Vault.
-* Azure PowerShell 3.7.0 or greater is required on the computer running Azure Backup agent. It is recommended you [install the latest version of Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+* Azure PowerShell 3.7.0 is required on the computer running Azure Backup agent. It is recommended that you download and [install the 3.7.0 version of Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * On the computer running Azure Backup agent, make sure Microsoft Edge or Internet Explorer 11 is installed, and JavaScript is enabled. 
 * Create an Azure Storage account in the same subscription as the Recovery Services vault. 
 * Make sure you have the [necessary permissions](../azure-resource-manager/resource-group-create-service-principal-portal.md) to create the Azure Active Directory application. The Offline Backup workflow creates an Azure Active Directory application in the subscription associated with the Azure Storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import Service, required for the Offline Backup workflow. 
@@ -102,7 +102,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the **Initiate offline backup** workflow.
     * BitLocker is enabled on the copy computer.
-    * Azure PowerShell 3.7.0, or greater, is installed.
+    * Azure PowerShell 3.7.0 is installed.
     * The latest compatible browsers (Edge or Internet Explorer 11) are installed and JavaScript is enabled. 
     * The copy computer can access the Azure portal. If necessary, the copy computer can be the same as the source computer.
     
