@@ -3,7 +3,7 @@ title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
 description: Troubleshooting Azure Files problems in Linux
 services: storage
 documentationcenter: ''
-author: jeffpatt24
+author: wmgries
 manager: aungoo
 editor: tamram
 tags: storage
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: jeffpatt
+ms.author: wgries
 
 ---
 # Troubleshoot Azure Files problems in Linux

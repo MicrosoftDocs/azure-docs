@@ -3,7 +3,7 @@ title: Use Azure Files with Linux | Microsoft Docs
 description: Learn how to mount an Azure file share over SMB on Linux.
 services: storage
 documentationcenter: na
-author: wmgries
+author: RenaShahMSFT
 manager: aungoo
 editor: tamram
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: wgries
+ms.author: renash
 ---
 
 # Use Azure Files with Linux

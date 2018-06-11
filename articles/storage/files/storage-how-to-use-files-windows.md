@@ -3,7 +3,7 @@ title: Use an Azure file share with Windows | Microsoft Docs
 description: Learn how to use an Azure file share with Windows and Windows Server.
 services: storage
 documentationcenter: na
-author: wmgries
+author: RenaShahMSFT
 manager: aungoo
 editor: tamram
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/07/2018
-ms.author: wgries
+ms.author: renash
 ---
 
 # Use an Azure file share with Windows

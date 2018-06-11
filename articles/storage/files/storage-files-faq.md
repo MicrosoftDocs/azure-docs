@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Find answers to frequently asked questions about Azure Files.
 services: storage
 documentationcenter: ''
-author: wmgries
+author: RenaShahMSFT
 manager: aungoo
 editor: tamram
 
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
-ms.author: wgries
+ms.author: renash
 ---
 
 # Frequently asked questions (FAQ) about Azure Files
