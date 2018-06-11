@@ -30,21 +30,13 @@ sections:
       text: C&#35;
       href: QuickStarts/CSharp
     - image: 
-        src: media/index/logo_curl.svg
-      text: cURL
-      href: QuickStarts/curl
-    - image: 
         src: media/index/logo_java.svg
       text: Java
       href: QuickStarts/Java
     - image: 
-        src: media/index/logo_js.svg
-      text: JavaScript
-      href: QuickStarts/JavaScript
-    - image: 
-        src: media/index/logo_php.svg
-      text: PHP
-      href: QuickStarts/PHP
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: QuickStarts/node
     - image: 
         src: media/index/logo_python.svg
       text: Python
