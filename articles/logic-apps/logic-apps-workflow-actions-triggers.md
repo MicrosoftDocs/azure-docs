@@ -1,4 +1,4 @@
-﻿---
+---
 # required metadata
 title: Workflow trigger and action types reference - Azure Logic Apps | Microsoft Docs
 description: Learn about trigger and action types in Azure Logic Apps as described by the Workflow Definition Language schema
