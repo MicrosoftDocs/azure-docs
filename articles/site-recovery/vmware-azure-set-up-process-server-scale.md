@@ -10,6 +10,8 @@ ms.date: 06/10/2018
 ms.author: raynew
 ---
 
+# Set up additional process servers for scalability
+
 By default, when you're replicating VMware VMs or physical servers to Azure using [Site Recovery](site-recovery-overview.md), a process server is installed on the configuration server machine, and is used to coordinate data transfer between Site Recovery and your on-premises infrastructure. To increase capacity and scale out your replication deployment, you can add additional standalone process servers. This article describes how to do this.
 
 ## Before you start
@@ -44,7 +46,7 @@ Download the installation file for the process server as follows:
 3. Select the configuration server to drill down into the server details. Then click **+ Process Server**.
 4. In **Add Process server** >  **Choose where you want to deploy your process server**, select **Deploy a Scale-out Process Server on-premises**.
 
-  ![Add Servers Page](./media/vmware-azure-set-up-scale-process-server/add-process-server.png)
+  ![Add Servers Page](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Click **Download the Microsoft Azure Site Recovery Unified Setup**. This downloads the latest version of the installation file.
 
   > [!WARNING]
