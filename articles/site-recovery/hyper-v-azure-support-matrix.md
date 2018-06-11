@@ -41,7 +41,7 @@ The following table summarizes VM support. Site Recovery supports any workloads 
  **Component** | **Details**
 --- | ---
 VM configuration | VMs that replicate to Azure must meet [Azure requirements](#failed-over-azure-vm-requirements).
-Guest operating system | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx).<br/><br/> Windows Server 2016 Nano Server isn't supported.
+Guest operating system | Any guest OS supported by Azure.<br/><br/> Windows Server 2016 Nano Server isn't supported.
 
 
 

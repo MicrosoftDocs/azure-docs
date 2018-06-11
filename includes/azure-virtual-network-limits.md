@@ -64,6 +64,7 @@ The following limits apply only for networking resources managed through Azure R
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
 | Load Balancers | 100 | 1000 |
+| Backend resources per Load Balancer* | 50 | 150 |
 | Rules per resource, Basic | 150 | 250 |
 | Rules per resource, Standard | 1250 | 1500 |
 | Rules per IP configuration | 299 |299 |
@@ -72,6 +73,8 @@ The following limits apply only for networking resources managed through Azure R
 | Backend pool, Basic | 100, single Availability Set | 100, single Availability Set |
 | Backend pool, Standard | 1000, single VNet | 1000, single VNet |
 | HA Ports, Standard | 1 per internal frontend | 1 per internal frontend |
+
+* Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 
