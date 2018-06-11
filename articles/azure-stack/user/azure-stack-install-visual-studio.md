@@ -22,7 +22,7 @@ ms.reviewer: unknown
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You can use Visual Studio to write and deploy Azure Resource Manager [templates](user/azure-stack-arm-templates.md) to Azure Stack. The steps in this article walk you through installing Visual Studio on the [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or on an external computer if you plan to Azure Stack through the [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+You can use Visual Studio to write and deploy Azure Resource Manager [templates](azure-stack-arm-templates.md) to Azure Stack. The steps in this article walk you through installing Visual Studio on the [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or on an external computer if you plan to Azure Stack through the [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 ## Install Visual Studio
 
@@ -50,7 +50,7 @@ You can use Visual Studio to write and deploy Azure Resource Manager [templates]
 
     ![Screenshot of Cloud Explorer once logged in and connected to Azure Stack](./media/azure-stack-install-visual-studio/image2.png)
 
-Once logged in, you can [deploy templates](user/azure-stack-deploy-template-visual-studio.md) or browse available resource types and resource groups to create your own templates.  
+Once logged in, you can [deploy templates](azure-stack-deploy-template-visual-studio.md) or browse available resource types and resource groups to create your own templates.  
 
 ## Connect to Azure Stack with AD FS
 
@@ -86,4 +86,4 @@ Once logged in, you can [deploy templates](user/azure-stack-deploy-template-visu
 ## Next steps
 
  - Read more about [coexistence](https://msdn.microsoft.com/library/ms246609.aspx) with other Visual Studio versions.
- - [Develop templates for Azure Stack](user/azure-stack-develop-templates.md)
+ - [Develop templates for Azure Stack](azure-stack-develop-templates.md)
