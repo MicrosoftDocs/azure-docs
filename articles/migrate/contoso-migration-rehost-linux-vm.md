@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: 
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 06/11/2018
 ms.author: raynew
 
 ---
@@ -219,8 +219,7 @@ Contoso perform these steps as follows:
 5. In the tool, they specify a name to use for registering the configuration server in the vault.
 6. The tool checks that the VM can connect to Azure. After the connection is established, they sign in to the Azure subscription. The credentials must have access to the vault in which you want to register the configuration server.
 
-
-    [Register configuration server](./media/contoso-migration-rehost-linux-vm/config-server-register2.png)
+    ![Register configuration server](./media/contoso-migration-rehost-linux-vm/config-server-register2.png)
 
 7. The tool performs some configuration tasks and then reboots.
 8. They sign in to the machine again, and the Configuration Server Management Wizard starts automatically.
@@ -395,9 +394,11 @@ As the final step in the migration process, Contoso update the connection string
 2. They need to make sure that the **OSTICKETWEB** VM can communicate with the **OSTICKETMYSQL** VM. Currently the configuration is hardcoded with the on-premises IP address 172.16.0.43.
 
     **Before the update**
+    
     ![Update IP](./media/contoso-migration-rehost-linux-vm/update-ip1.png)  
 
     **After the update**
+    
     ![Update IP](./media/contoso-migration-rehost-linux-vm/update-ip2.png) 
     
 3. They restart the service with **systemctl restart apache2**.
