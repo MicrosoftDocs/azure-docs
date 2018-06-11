@@ -66,17 +66,17 @@ Kubernetes has a rich ecosystem of development and management tools such as Helm
 
 Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal configuration, you can run and debug containers directly in Azure Kubernetes Service (AKS).
 
-For more information, see [Azure Dev Spaces][azure-dev-spaces]
+For more information, see [Azure Dev Spaces][azure-dev-spaces].
 
 Azure DevOps project provides a simple solution for bringing existing code and Git repository into Azure. The DevOps project automatically creates Azure resources such as AKS, a release pipeline in VSTS that includes a build definition for CI, sets up a release definition for CD, and then creates an Azure Application Insights resource for monitoring.
 
-For more information, see [Azure DevOps project][azure-devops]
+For more information, see [Azure DevOps project][azure-devops].
 
 ## Virtual network integration
 
 An AKS cluster can be deployed into an existing VNet. In this configuration, every pod in the cluster is assigned an IP address in the VNet, and can directly communicate with other pods in the cluster, and other nodes in the VNet. Pods can connect also to other services in a peered VNet, and to on-premises networks over ExpressRoute and site-to-site (S2S) VPN connections.
 
-For more information, see the [AKS networking overview][aks-networking]
+For more information, see the [AKS networking overview][aks-networking].
 
 ## Private container registry
 
@@ -84,13 +84,23 @@ Integrate with Azure Container Registry (ACR) for private storage of your Docker
 
 For more information, see [Azure Container Registry (ACR)][acr-docs].
 
+## Storage volume support
+
+Azure Kubernetes Service (AKS) support mounting storage volumes for persistant data. AKS clusters are created with support for Azure Files and Azure Disks.
+
+For more information, see [Azure Files][azure-files] and [Azure Disks][azure-disk].
+
+## Docker image support
+
+Azure Kubernetes Service (AKS) supports the Docker image format.
+
 ## Kubernetes certification
 
-Azure Kubernetes Service has been CNCF certified as Kubernetes conformant.
+Azure Kubernetes Service (AKS) has been CNCF certified as Kubernetes conformant.
 
 ## Regulatory compliance
 
-AKS is complaint with SOC and ISO/HIPPA/HITRUST.
+Azure Kubernetes Service (AKS) is complaint with SOC and ISO/HIPPA/HITRUST.
 
 ## Next steps
 
@@ -107,8 +117,6 @@ Learn more about deploying and managing AKS with the AKS quickstart.
 [kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - internal -->
-[azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks?view=vsts
 [acr-docs]: ../container-registry/container-registry-intro.md
 [aks-aad]: ./aad-integration.md
 [aks-cli]: ./kubernetes-walkthrough.md
@@ -118,5 +126,9 @@ Learn more about deploying and managing AKS with the AKS quickstart.
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./scale-cluster.md
 [aks-upgrade]: ./upgrade-cluster.md
+[azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
+[azure-devops]: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks?view=vsts
+[azure-disk]: ./azure-disks-dynamic-pv.md
+[azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../monitoring/monitoring-container-health.md
 
