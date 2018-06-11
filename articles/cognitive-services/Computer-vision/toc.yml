@@ -21,8 +21,10 @@
       href: QuickStarts/CSharp-hand-text.md
   - name: cURL
     items:
-    - name: Analyze an image
+    - name: Analyze a remote image
       href: QuickStarts/curl-analyze.md
+    - name: Analyze a local image
+      href: QuickStarts/curl-disk.md
     - name: Generate a thumbnail
       href: QuickStarts/curl-thumb.md
     - name: Extract printed text
@@ -67,8 +69,10 @@
       href: QuickStarts/php-print-text.md
   - name: Python
     items:
-    - name: Analyze an image
+    - name: Analyze a remote image
       href: QuickStarts/python-analyze.md
+    - name: Analyze a local image
+      href: QuickStarts/python-disk.md
     - name: Use a domain model
       href: QuickStarts/python-domain.md
     - name: Generate a thumbnail
@@ -77,8 +81,6 @@
       href: QuickStarts/python-print-text.md
     - name: Extract handwritten text
       href: QuickStarts/python-hand-text.md
-    - name: Analyze a disk image
-      href: QuickStarts/python-disk.md
   - name: Ruby
     items:
     - name: Analyze an image
