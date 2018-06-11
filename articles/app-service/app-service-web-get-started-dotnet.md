@@ -1,6 +1,6 @@
 ---
-title: Create an ASP.NET Core web app in Azure | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying the default ASP.NET web app.
+title: Create a C# ASP.NET Core web app in Azure | Microsoft Docs
+description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
