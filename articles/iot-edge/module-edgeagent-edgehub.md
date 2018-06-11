@@ -14,7 +14,7 @@ services: iot-edge
 
 The Edge agent and Edge hub are two modules that make up the IoT Edge runtime. For more information about what duties each module performs, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md). 
 
-This article provides the desired properties and reported properties of the runtime module twins. See [Deployment and monitoring][lnk-deploy] for more information on how to deploy modules on IoT Edge devices.
+This article provides the desired properties and reported properties of the runtime module twins. For more information on how to deploy modules on IoT Edge devices, see [Deployment and monitoring][lnk-deploy].
 
 ## EdgeAgent desired properties
 
@@ -26,22 +26,25 @@ The module twin for the Edge agent is called `$edgeAgent` and coordinates the co
 | runtime.type | Has to be "docker" | Yes |
 | runtime.settings.minDockerVersion | Set to the minimum Docker version required by this deployment manifest | Yes |
 | runtime.settings.loggingOptions | A stringified JSON containing the logging options for the Edge agent container. [Docker logging options][lnk-docker-logging-options] | No |
+| runtime.settings.registryCredentials<br>.{registryId}.username | The username of the container registry. For Azure Container Registry, the username is usually the registry name.<br><br> Registry credentials are necessary for any module images that are not public. | No |
+| runtime.settings.registryCredentials<br>.{registryId}.password | The password for the container registry. | No |
+| runtime.settings.registryCredentials<br>.{registryId}.address | The address of the container registry. For Azure Container Registry, the address is usually *{registryname}.azurecr.io*. | No |  
 | systemModules.edgeAgent.type | Has to be "docker" | Yes |
 | systemModules.edgeAgent.settings.image | The URI of the image of the Edge agent. Currently, the Edge agent is not able to update itself. | Yes |
-| systemModules.edgeAgent.settings.createOptions | A stringified JSON containing the options for the creation of the Edge agent container. [Docker create options][lnk-docker-create-options] | No |
-| systemModules.edgeAgent.configuration.id | The ID of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
+| systemModules.edgeAgent.settings<br>.createOptions | A stringified JSON containing the options for the creation of the Edge agent container. [Docker create options][lnk-docker-create-options] | No |
+| systemModules.edgeAgent.configuration.id | The ID of the deployment that deployed this module. | This property is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
 | systemModules.edgeHub.type | Has to be "docker" | Yes |
 | systemModules.edgeHub.status | Has to be "running" | Yes |
 | systemModules.edgeHub.restartPolicy | Has to be "always" | Yes |
 | systemModules.edgeHub.settings.image | The URI of the image of the Edge hub. | Yes |
-| systemModules.edgeHub.settings.createOptions | A stringified JSON containing the options for the creation of the Edge hub container. [Docker create options][lnk-docker-create-options] | No |
-| systemModules.edgeHub.configuration.id | The ID of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
+| systemModules.edgeHub.settings<br>.createOptions | A stringified JSON containing the options for the creation of the Edge hub container. [Docker create options][lnk-docker-create-options] | No |
+| systemModules.edgeHub.configuration.id | The ID of the deployment that deployed this module. | This property is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
 | modules.{moduleId}.version | A user-defined string representing the version of this module. | Yes |
 | modules.{moduleId}.type | Has to be "docker" | Yes |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Yes |
 | modules.{moduleId}.settings.image | The URI to the module image. | Yes |
 | modules.{moduleId}.settings.createOptions | A stringified JSON containing the options for the creation of the module container. [Docker create options][lnk-docker-create-options] | No |
-| modules.{moduleId}.configuration.id | The ID of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
+| modules.{moduleId}.configuration.id | The ID of the deployment that deployed this module. | This property is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
 
 ## EdgeAgent reported properties
 
@@ -54,7 +57,7 @@ The Edge agent reported properties include three main pieces of information:
 This last piece of information is useful in case the latest desired properties are not applied successfully by the runtime, and the device is still running a previous deployment manifest.
 
 > [!NOTE]
-> The reported properties of the Edge agent are useful as they can be queried with the [IoT Hub query language][lnk-iothub-query] to investigate the status of deployments at scale. Refer to [Deployments][lnk-deploy] for more information on how to use this feature.
+> The reported properties of the Edge agent are useful as they can be queried with the [IoT Hub query language][lnk-iothub-query] to investigate the status of deployments at scale. For more information on how to use the Edge agent properties for status, see [Understand IoT Edge deployments for single devices or at scale][lnk-deploy].
 
 The following table does not include the information that is copied from the desired properties.
 
