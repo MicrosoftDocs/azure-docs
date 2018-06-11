@@ -5066,6 +5066,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/event-hubs/event-hubs-manage-with-ps.md",
+            "redirect_url": "/azure/event-hubs/event-hubs-quickstart-powershell",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/event-hubs/event-hubs-overview.md",
             "redirect_url": "/azure/event-hubs/event-hubs-what-is-event-hubs",
             "redirect_document_id": false
