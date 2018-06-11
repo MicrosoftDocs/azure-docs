@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 * Query LUIS and receive prediction response
 
 ## Before you begin
-If you do no have the Human Resources app from the [custom domain](luis-quickstart-intents-only.md) quickstart, [import](create-new-app#import-new-app.md) the JSON into a new app in the [LUIS]{LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
+If you do no have the Human Resources app from the [custom domain](luis-quickstart-intents-only.md) quickstart, [import](create-new-app.md#import-new-app.md) the JSON into a new app in the [LUIS]{LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
 
 If you want to keep the origin Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `prebuilts`. Cloning is a great way to play with various LUIS features without affecting the original or primary version. 
 
@@ -41,7 +41,7 @@ LUIS provides several prebuilt domains to help with common user intentions.
 
 3. Search for `Utilities`. 
 
-    ![Screenshot of prebuilt intents dialog with Utilities in the search box](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.md)
+    ![Screenshot of prebuilt intents dialog with Utilities in the search box](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)
 
 4. Select the following intents and select **Done**: 
 
@@ -56,7 +56,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. Select **Entities** from the left navigation menu.
 
-    ![Screenshot of Intents list with Entities highlighted in left navigation](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.md)
+    ![Screenshot of Intents list with Entities highlighted in left navigation](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)
 
 2. Select **Manage prebuilt entities** button.
 
