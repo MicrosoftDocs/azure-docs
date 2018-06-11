@@ -48,7 +48,7 @@ A role assignment consists of three elements: security principal, role definitio
 | Group<br>(RBAC Tutorial Group) | [Reader](built-in-roles.md#reader) | Subscription |
 | Group<br>(RBAC Tutorial Group)| [Contributor](built-in-roles.md#contributor) | Resource group<br>(rbac-tutorial-resource-group) |
 
-   ![Role assignments for a group](./media/tutorial-role-assignments-powershell/rbac-role-assignments.png)
+   ![Role assignments for a group](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)
 
 ## Create a group
 
@@ -67,7 +67,7 @@ To assign a role, you need a user, group, or service principal.
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-If you dont have permissions to create groups, you can try the [Tutorial: Assign a role to user using Azure PowerShell](tutorial-role-assignments-powershell.md) instead.
+If you dont have permissions to create groups, you can try the [Tutorial: Assign a role to user using Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
 
 ## Create a resource group
 
@@ -236,11 +236,11 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
 
 1. To see how the role assignments look in the Azure portal, view the **Access control (IAM)** blade for the subscription.
 
-    ![Role assignments for a group at subscription scope](./media/tutorial-role-assignments-powershell/role-assignments-subscription.png)
+    ![Role assignments for a group at subscription scope](./media/tutorial-role-assignments-group-powershell/role-assignments-subscription.png)
 
 1. View the **Access control (IAM)** blade for the resource group.
 
-    ![Role assignments for a group at resource group scope](./media/tutorial-role-assignments-powershell/role-assignments-resource-group.png)
+    ![Role assignments for a group at resource group scope](./media/tutorial-role-assignments-group-powershell/role-assignments-resource-group.png)
 
 ## Remove role assignments
 
