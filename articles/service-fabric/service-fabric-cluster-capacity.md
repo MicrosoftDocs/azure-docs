@@ -43,6 +43,8 @@ Each node type is a distinct scale set and can be scaled up or down independentl
 
 A Service Fabric cluster can consist of more than one node type. In that event, the cluster consists of one primary node type and one or more non-primary node types.
 
+A single node type can not simply exceed 100 nodes per VMSS. YOu may need to add VMSS's to achieve the targeted scale, and auto-scaling can not automagically add VMSS's. Adding VMSS's in-place to a live cluster is a challenging task, and commonly this results in users provisioning new clusters with the appropriate node types provisioned at creation time. 
+
 ### Primary node type
 
 The Service Fabric system services (for example, the Cluster Manager service or Image Store service) are placed on the primary node type. 
