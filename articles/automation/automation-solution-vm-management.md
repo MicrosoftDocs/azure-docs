@@ -289,6 +289,10 @@ On the **StartStop_VM_Notification** page, click **Edit details** under **Detail
 
 Alternatively you can add additional actions to the action group, to learn more about action groups, see [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md)
 
+The following is an example email that is sent when the solution shuts down virtual machines.
+
+![Automation Update Management solution page](media/automation-solution-vm-management/email.png)
+
 ## Modify the startup and shutdown schedules
 
 Managing the startup and shutdown schedules in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md).
