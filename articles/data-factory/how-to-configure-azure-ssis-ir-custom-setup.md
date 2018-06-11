@@ -27,7 +27,7 @@ You can install both free or unlicensed components, and paid or licensed compone
 
 -   If you want to use `gacutil.exe` to install assemblies in the Global Assembly Cache (GAC), you need to provide it as part of your custom setup, or use the copy provided in the Public Preview container.
 
--   If you need to join your Azure-SSIS IR with custom setup to a VNet, only Azure Resource Manager VNet is supported. Classic VNet is not supported.
+-   If you need to join your Azure-SSIS IR with custom setup to a virtual network, only Azure Resource Manager virtual network is supported. Classic virtual network is not supported.
 
 -   Administrative share is currently not supported on the Azure-SSIS IR.
 
