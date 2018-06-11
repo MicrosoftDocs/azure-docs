@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
 ms.custom: mvc
 # As a website owner, I want to add a custom domain to my CDN endpoint so that my users can use my custom domain to access my content.
@@ -131,7 +131,7 @@ After you've registered your custom domain, you can then add it to your CDN endp
    It can take some time for the new custom domain settings to propagate to all CDN edge nodes: 
     - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
     - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-    - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes.   
+    - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes in 10 minutes.   
 
 
 ## Verify the custom domain

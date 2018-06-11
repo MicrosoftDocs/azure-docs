@@ -1,4 +1,16 @@
-﻿## Overview
+---
+title: include file
+description: include file
+services: virtual-machines
+author: sdwheeler
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/18/2018
+ms.author: kirpas;iainfou;sewhee
+ms.custom: include file
+---
+
+## Overview
 When you create a new virtual machine (VM) in a Resource Group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default OS drive is often 127 GB (some images have smaller OS disk sizes by default). Even though it’s possible to add data disks to the VM (how many depending upon the SKU you’ve chosen) and moreover it’s recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
 
 1. Support legacy applications that install components on OS drive.
@@ -13,7 +25,7 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 >
 
 ## Resize the OS drive
-In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](/powershell/azureps-cmdlets-docs). We will show resizing the OS drive for both Unamanged and Managed disks since the approach to resize disks differs between both disk types.
+In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](/powershell/azureps-cmdlets-docs). We will show resizing the OS drive for both Unmanaged and Managed disks since the approach to resize disks differs between both disk types.
 
 ### For resizing Unmanaged Disks:
 
@@ -106,7 +118,7 @@ And that’s it! Now RDP into the VM, open Computer Management (or Disk Manageme
 ## Summary
 In this article, we used Azure Resource Manager modules of Powershell to expand the OS drive of an IaaS virtual machine. Reproduced below is the complete script for your reference for both Unmanaged and Managed disks:
 
-Unamanged Disks:
+Unmanaged Disks:
 
 ```Powershell
 Connect-AzureRmAccount
@@ -134,10 +146,10 @@ Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## Next Steps
-Though in this article, we focused primarily on expanding the Unamanged/Managed OS disk of the VM, the developed script may also be used for expanding the data disks attached to the VM. For example, to expand the first data disk attached to the VM, replace the ```OSDisk``` object of ```StorageProfile``` with ```DataDisks``` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
+## For resizing Data Disks
+Though in this article, we focused primarily on expanding the Unmanaged/Managed OS disk of the VM, the developed script may also be used for expanding the data disks attached to the VM. For example, to expand the first data disk attached to the VM, replace the ```OSDisk``` object of ```StorageProfile``` with ```DataDisks``` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
 
-Unamanged Disk:
+Unmanaged Disk:
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
@@ -149,11 +161,11 @@ $disk.DiskSizeGB = 1023
 
 Similarly you may reference other data disks attached to the VM, either by using an index as shown above or the ```Name``` property of the disk as illustrated below:
 
-Unamanged Disk:
+Unmanaged Disk:
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
 ```
-Manged Disk:
+Managed Disk:
 ```Powershell
 (Get-AzureRmDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```

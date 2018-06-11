@@ -29,7 +29,7 @@ Customers with [Azure Active Directory Premium](active-directory-whatis.md) lice
 
 * Self-service integration of any application that supports SAML 2.0 identity providers (SP-initiated or IdP-initiated)
 * Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
-* Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](active-directory-scim-provisioning.md))
+* Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](manage-apps/use-scim-to-provision-users-and-groups.md))
 * Ability to add links to any application in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
 
 This can include not only SaaS applications that you use but have not yet been on-boarded to the Azure AD application gallery, but third-party web applications that your organization has deployed to servers you control, either in the cloud or on-premises.
@@ -120,7 +120,7 @@ Verify the certificate has:
 - A status of active. If the status is inactive, change the status to active. To change the status, check **Active** and then save the configuration. 
 - The correct notification email. When the active certificate is near the expiration date, Azure AD will send a notification to the email address configured in this field.  
 
-For more information, see [Manage certificates for federated single sign-on in Azure Active Directory](active-directory-sso-certs.md).
+For more information, see [Manage certificates for federated single sign-on in Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md).
 
 ### Set up target application
 
