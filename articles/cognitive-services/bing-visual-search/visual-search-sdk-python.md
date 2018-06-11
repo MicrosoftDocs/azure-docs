@@ -19,15 +19,15 @@ The [source code for Python Bing Visual Search SDK samples](https://github.com/A
 
 Code scenarios are documented under the following headings:
 * [Visual Search Client](#client)
-* [Complete console application](#complete)
+* [Complete console application](#complete-console)
 * [Image binary post with cropArea](#binary-crop)
 * [KnowledgeRequest parameter](#knowledge-req)
 * [Tags, actions, and actionType](#tags-actions)
 
 ## Application dependencies
-* A cognitive services API key is required to authenticate SDK calls. Sign up for a [free trial key](https://azure.microsoft.com/en-us/try/cognitive-services/?api=search-api-v7). The trial key is good for 7 days with 1 call per second. For production scenario, [buy access key](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). See also [pricing information](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/visual/).
+* A cognitive services API key is required to authenticate SDK calls. Sign up for a [free trial key](https://azure.microsoft.com/en-us/try/cognitive-services/?api=search-api-v7). The trial key is good for seven days with 1 call per second. For production scenario, [buy access key](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). See also [pricing information](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/visual/).
 * If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
-* The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install virtualenv for Python 2.7.
+* The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7.
 ```
 python -m venv mytestenv
 ```
@@ -56,7 +56,7 @@ from azure.cognitiveservices.search.visualsearch.models import (
 Replace the subscriptionKey string value with your valid subscription key.
 ```
 subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
-
+```
 Then, instantiate the client:
 ```
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
@@ -64,7 +64,6 @@ var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KE
 Use the client to search images and parse results:
 ```
 image_path = os.path.join(PATH, "image.jpg")
-
 with open(image_path, "rb") as image_fd:
 
     # You need to pass the serialized form of the model
@@ -97,10 +96,9 @@ with open(image_path, "rb") as image_fd:
     else:
         print("Couldn't find image tags!")
 
-
 ```
 
-<a name="complete"></a> 
+<a name="complete-console"></a> 
 ## Complete console application
 
 The following console application executes the previously defined query and parses the results:
@@ -120,8 +118,7 @@ from azure.cognitiveservices.search.visualsearch.models import (
     CropArea,
     ImageInfo,
     Filters,
-    KnowledgeRequest,
-)
+    KnowledgeRequest,)
 
 from msrest.authentication import CognitiveServicesCredentials
 
@@ -162,7 +159,7 @@ with open(image_path, "rb") as image_fd:
         print("Couldn't find image tags!")
 
 
-# uncomment these methods to include code under the subsequent headings of this topic.
+# Uncomment these methods to include code under the following headings of this documentation.
 #search_image_binary_with_crop_area(client, subscription_key, PATH)
 #search_url_with_filters(client, subscription_key)
 #search_insights_token_with_crop_area(client, subscription_key)
