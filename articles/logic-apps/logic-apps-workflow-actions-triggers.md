@@ -92,7 +92,7 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 <a name="recurrence-trigger"></a>
 
-## Recurrence trigger  
+### Recurrence trigger  
 
 This trigger runs based on your specified recurrence and schedule 
 and provides an easy way for regularly running a workflow. 
@@ -208,7 +208,7 @@ see [Create and schedule regularly running tasks](../connectors/connectors-nativ
 
 <a name="request-trigger"></a>
 
-## Request trigger
+### Request trigger
 
 This trigger makes your logic app callable by creating 
 an endpoint that can accept incoming HTTP requests. 
@@ -379,7 +379,7 @@ conform to a specific pattern. The HTTP trigger recognizes these properties:
 | 500 | {none}| Server error, don't run the workflow. If no `retryPolicy` is defined, then the default policy is used. After the number of retries has been reached, the trigger checks again for data after the defined recurrence. | 
 |||| 
 
-### HTTP trigger outputs
+#### HTTP trigger outputs
 
 | Element | Type | Description |
 |---------|------|-------------|
@@ -389,7 +389,7 @@ conform to a specific pattern. The HTTP trigger recognizes these properties:
 
 <a name="apiconnection-trigger"></a>
 
-## APIConnection trigger  
+### APIConnection trigger  
 
 This trigger works like the [HTTP trigger](#http-trigger), 
 but uses [Microsoft-managed APIs](../connectors/apis-list.md) 
@@ -489,7 +489,7 @@ so the trigger's behavior depends on whether or not sections are included:
 }
 ```
 
-### APIConnection trigger outputs
+#### APIConnection trigger outputs
  
 | Element | Type | Description |
 |---------|------|-------------| 
@@ -499,7 +499,7 @@ so the trigger's behavior depends on whether or not sections are included:
 
 <a name="httpwebhook-trigger"></a>
 
-## HTTPWebhook trigger  
+### HTTPWebhook trigger  
 
 This trigger works like the [Request trigger](#request-trigger) by 
 creating a callable endpoint for your logic app. However, 
@@ -595,7 +595,7 @@ and the trigger's behavior depends on the sections that you use or omit:
 
 <a name="subscribe-unsubscribe"></a>
 
-### `subscribe` and `unsubscribe`
+#### `subscribe` and `unsubscribe`
 
 The `subscribe` call happens when the workflow changes in any way, 
 for example, when credentials are renewed, or the trigger's input parameters change. 
@@ -623,7 +623,7 @@ The parameters for this function are the same as the HTTP trigger.
 
 <a name="apiconnectionwebhook-trigger"></a>
 
-## ApiConnectionWebhook trigger
+### ApiConnectionWebhook trigger
 
 This trigger works like the [HTTPWebhook trigger](#httpwebhook-trigger), 
 but uses [Microsoft-managed APIs](../connectors/apis-list.md). 
@@ -669,7 +669,7 @@ Here is the trigger definition:
 
 <a name="trigger-conditions"></a>
 
-## Triggers: Conditions
+## Trigger conditions
 
 For any trigger, you can include an array with one or more 
 conditions that determine whether the workflow should run or not. 
@@ -711,7 +711,7 @@ when your website returns a "500" status code:
 
 <a name="split-on-debatch"></a>
 
-## Triggers: Split an array into multiple runs
+## Triggers - Split into multiple runs
 
 If your trigger returns an array for your logic app to process, 
 sometimes a "for each" loop might take too long to process each array item. 
@@ -803,7 +803,7 @@ So, your trigger outputs look like these examples:
 
 <a name="trigger-operation-options"></a>
 
-## Triggers: Operation options
+## Trigger operation options
 
 These triggers provide more options that let you change the default behavior.
 
@@ -1217,7 +1217,7 @@ created "GetProductID" function:
 
 <a name="http-action"></a>
 
-## HTTP action
+### HTTP action
 
 This action sends a request to the specified endpoint and 
 checks the response to determine whether the workflow should run. 
@@ -1867,7 +1867,7 @@ and returns the status, an error code, and an error message:
 
 <a name="wait-action"></a>
 
-## Wait action  
+### Wait action  
 
 This action pauses workflow execution for the 
 specified interval or until the specified time, 
