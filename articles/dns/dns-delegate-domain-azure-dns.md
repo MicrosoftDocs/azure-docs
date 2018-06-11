@@ -45,7 +45,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    | **Setting** | **Value** | **Details** |
    |---|---|---|
    |**Name**|[your domain name] |The domain name you bought. This tutorial uses contoso.net as an example.|
-   |**Subscription**|[Your subscription]|Select a subscription to create the application gateway in.|
+   |**Subscription**|[Your subscription]|Select a subscription to create the zone in.|
    |**Resource group**|**Create new:** contosoRG|Create a resource group. The resource group name must be unique within the subscription that you selected. |
    |**Location**|East US||
 
