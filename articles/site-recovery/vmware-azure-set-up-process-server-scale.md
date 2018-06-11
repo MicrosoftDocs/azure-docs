@@ -44,7 +44,7 @@ Download the installation file for the process server as follows:
 3. Select the configuration server to drill down into the server details. Then click **+ Process Server**.
 4. In **Add Process server** >  **Choose where you want to deploy your process server**, select **Deploy a Scale-out Process Server on-premises**.
 
-  ![Add Servers Page](./media/vmware-azure-set-up-scale-process-server/add-process-server.png)
+  ![Add Servers Page](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Click **Download the Microsoft Azure Site Recovery Unified Setup**. This downloads the latest version of the installation file.
 
   > [!WARNING]
