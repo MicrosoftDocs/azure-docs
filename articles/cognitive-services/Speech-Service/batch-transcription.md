@@ -12,7 +12,7 @@ ms.date: 04/26/2018
 ms.author: panosper
 ---
 
-# Batch Transcription
+# Batch transcription
 Batch transcription is ideal for use cases with large amounts of audio where the developer wishes to point to audio files and get back transcriptions in asynchronous mode.
 
 ## Batch transcription API
@@ -21,7 +21,7 @@ The Batch transcription API makes the above scenario possible. It offers asynchr
 > [!NOTE]
 > The Batch transcription API is idea for Call Centers which typically accummulate thousands of hours of audio in a daily basis
 
-### Supported Formats
+### Supported formats
 The Batch transcription API aims to become the de-facto for all offline call center related scenarios and offer support for all related formats. Currently supported formats:
 
 Name| Channel  |
@@ -62,7 +62,7 @@ Authentication for the Batch transcription API is carried out as follows. As wit
     ![The Upload View](media/stt/Subscriptions.jpg)
 
 
-## Sample Code
+## Sample code
 Making use of the API is fairly straight forward. The Sample code below can be customized with a subscription key and an API key.
 
 ```cs
@@ -125,13 +125,13 @@ Also notice that the current sample code does not specify any custom models. The
 
 If one does not wish to use baseline, one must pass model Ids for both acoustic and language models.
 
-### Supported Storage
+### Supported storage
 
 Currently the only storage supported is Azure blob.
 
 ## Downloading the sample
 
-The sample from this article can be downloaded [here](https://aka.ms/csspeech/winsample).
+The sample from this article in on [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
 > Typically an audio transcription requires a time span equal to the duration of the audio file plus a 2-3 minute overhead.

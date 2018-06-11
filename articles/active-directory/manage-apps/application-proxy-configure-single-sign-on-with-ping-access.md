@@ -180,4 +180,4 @@ When you've completed all these steps, your app should be up and running. To tes
 
 - [Configure PingAccess for Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [How does Azure AD Application Proxy provide single sign-on?](application-proxy-single-sign-on.md)
-- [Troubleshoot Application Proxy](../active-directory-application-proxy-troubleshoot.md)
+- [Troubleshoot Application Proxy](application-proxy-troubleshoot.md)

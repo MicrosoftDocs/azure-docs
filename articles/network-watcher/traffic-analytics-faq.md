@@ -26,14 +26,14 @@ ms.author: jdial
     - NSG flow logs enabled for the NSGs you want to monitor
     - An Azure Storage account, to store raw flog logs
     - A Log Analytics (OMS) Workspace, with read and write access
-    - Your account must be assigned with either one of the following permissions at subscription level:
+    - User must be assigned with either one of the following roles at subscription level:
     
             All permissions *
             All Read permissions */read
             All network permissions Microsoft.Network/*
             All network read permissions Microsoft.Network/*/read
 
-    Or, your account must be assigned with following all actions at subscription level: 
+    Or, user must be assigned with following all roles at subscription level: 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
@@ -45,6 +45,20 @@ ms.author: jdial
         - Microsoft.Network/routeTables/read
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
+        
+To check roles assigned to a user for a subscription, please follow below the steps:
+
+Login to Azure using Login-AzureRmAccount 
+
+Select the required subscription using Select-AzureRmSubscription 
+
+Now to list all the roles that are assigned to a specified user, use
+Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators 
+
+If you are not seeing any output after executing commends then please reach out to respective Subscription admin, to get access to execute the commands.  
+
+For more details please refer [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+
 
 2.  Which Azure regions are traffic analytics available in?
 
@@ -110,11 +124,11 @@ ms.author: jdial
 
 14. Can I configure traffic analytics using PowerShell or an Azure Resource Manager template?
 
-    No, traffic analytics can only be configured using the Azure portal.
+Yes, traffic analytics configuration using windows powershell is supported from version 6.2.1 onwards, however Azure Resource Manager template support is not available at present. To learn more, how PowerShell can be used to configure traffic analytics please refer following [documentation](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
 
 15.  How is traffic analytics priced?
 
-        Traffic analytics is metered for enhancing reduced logs, and storing the enhanced logs in a Log Analytics workspace. While in preview, traffic analytics is not billed for enhancing the reduced logs, however retention of data in a workspace is subject to billing at published rates. This answer will be updated once pricing for traffic analytics is available.
+Traffic analytics is metered for flow log data processed by the service and storing the resulted enhanced logs in a Log Analytics workspace. To know more about pricing plan please [click here](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
 
 16.  How can I navigate using Keyboard in Geo Map View?
 
