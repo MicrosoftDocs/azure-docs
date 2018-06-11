@@ -10,7 +10,7 @@ ms.date: 06/10/2018
 ms.author: raynew
 ---
 
-# Contoso migration: Rehost an on-premises Linux app to Azure VMs and Azure MySQL 
+# Contoso migration: Rehost an on-premises Linux app to Azure VMs and Azure MySQL
 
 This article shows how Contoso are rehosting their on-premises two-tier Linux service desk app (osTicket), by migrating it to Azure and Azure MySQL.
 
@@ -431,9 +431,11 @@ As the final step in the migration process, Contoso update the connection string
 2. They update settings so that the **OSTICKETWEB** VM can communicate with the **OSTICKETMYSQL** database. Currently the configuration is hardcoded with the on-premises IP address 172.16.0.43.
 
     **Before the update**
+    
     ![Update IP](./media/contoso-migration-rehost-linux-vm-mysql/update-ip1.png)  
 
     **After the update**
+    
     ![Update IP](./media/contoso-migration-rehost-linux-vm-mysql/update-ip2.png) 
     
     ![Update IP](./media/contoso-migration-rehost-linux-vm-mysql/update-ip3.png) 
