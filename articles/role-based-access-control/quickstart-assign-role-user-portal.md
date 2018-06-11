@@ -21,7 +21,7 @@ ms.author: rolyon
 
 # Quickstart: Assign a role to a user in the Azure Portal
 
-Role-based access control (RBAC) is the way that you control access to resources in Azure. In this quickstart, you grant a user access to create and manage virtual machines in a resource group.
+Role-based access control (RBAC) is the way that you manage access to resources in Azure. In this quickstart, you grant a user access to create and manage virtual machines in a resource group.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,7 +35,7 @@ Sign in to the Azure portal at http://portal.azure.com.
 
 1. Choose **Add** to open the **Resource group** blade.
 
-   ![Add a new resource group](./media/quickstart-assign-role-user/resource-group.png)
+   ![Add a new resource group](./media/quickstart-assign-role-user-portal/resource-group.png)
 
 1. For **Resource group name**, enter **rbac-quickstart-resource-group**.
 
@@ -47,7 +47,7 @@ Sign in to the Azure portal at http://portal.azure.com.
 
    The new resource group appears in your resource groups list.
 
-   ![Resource group list](./media/quickstart-assign-role-user/resource-group-list.png)
+   ![Resource group list](./media/quickstart-assign-role-user-portal/resource-group-list.png)
 
 ## Grant access
 
@@ -57,13 +57,13 @@ In RBAC, to grant access, you create a role assignment.
 
 1. Choose **Access control (IAM)** to see the current list of role assignments.
 
-   ![Access control (IAM) blade for resource group](./media/quickstart-assign-role-user/access-control.png)
+   ![Access control (IAM) blade for resource group](./media/quickstart-assign-role-user-portal/access-control.png)
 
 1. Choose **Add** to open the **Add permissions** pane.
 
    If you don't have permissions to assign roles, you won't see the **Add** option.
 
-   ![Add permissions pane](./media/quickstart-assign-role-user/add-permissions.png)
+   ![Add permissions pane](./media/quickstart-assign-role-user-portal/add-permissions.png)
 
 1. In the **Role** drop-down list, select **Virtual Machine Contributor**.
 
@@ -73,7 +73,7 @@ In RBAC, to grant access, you create a role assignment.
 
    After a few moments, the user is assigned the Virtual Machine Contributor role at the rbac-quickstart-resource-group resource group scope.
 
-   ![Virtual Machine Contributor role assignment](./media/quickstart-assign-role-user/vm-contributor-assignment.png)
+   ![Virtual Machine Contributor role assignment](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
 
 ## Remove access
 
@@ -83,7 +83,7 @@ In RBAC, to remove access, you remove a role assignment.
 
 1. Choose **Remove**.
 
-   ![Remove role assignment message](./media/quickstart-assign-role-user/remove-role-assignment.png)
+   ![Remove role assignment message](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
 1. In the remove role assignment message that appears, choose **Yes**.
 
@@ -95,7 +95,7 @@ In RBAC, to remove access, you remove a role assignment.
 
 1. Choose **Delete resource group** to delete the resource group.
 
-   ![Delete resource group](./media/quickstart-assign-role-user/delete-resource-group.png)
+   ![Delete resource group](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
 1. On the **Are you sure you want to delete** blade, type the resource group name: **rbac-quickstart-resource-group**.
 
