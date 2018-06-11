@@ -22,18 +22,18 @@ ms.reviewer: asmalser
 ---
 # Managing single sign-on for enterprise apps
 
-This article describes how to use the [Azure portal](https://portal.azure.com) to manage single sign-on settings for enterprise applications. Enterprise apps are apps that are deployed and used within your organization. This article applies particularly to apps that were added from the [Azure Active Directory application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
+This article describes how to use the [Azure portal](https://portal.azure.com) to manage single sign-on settings for enterprise applications. Enterprise apps are apps that are deployed and used within your organization. This article applies particularly to apps that were added from the [Azure Active Directory application gallery](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## Finding your apps in the portal
 All enterprise apps that are set up for single sign-on can be viewed and managed in the Azure portal. The applications can be found in the **All Services** &gt; **Enterprise Applications** section of the portal. 
 
-![Enterprise Applications blade](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.png)
+![Enterprise Applications blade](./media/configure-single-sign-on-portal/enterprise-apps-blade.png)
 
 Select **All applications** to view a list of all apps that have been configured. Selecting an app displays the resources for that app, where reports can be viewed for that app and a variety of settings can be managed.
 
 To manage single sign-on settings, select **Single sign-on**.
 
-![Application resource blade](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.png)
+![Application resource blade](./media/configure-single-sign-on-portal/enterprise-apps-sso-blade.png)
 
 ## Single sign-on modes
 **Single sign-on** begins with a **Mode** menu, which allows the single sign-on mode to be configured. The available options include:
@@ -42,7 +42,7 @@ To manage single sign-on settings, select **Single sign-on**.
 * **Password-based sign-on** - This option is available if Azure AD supports password form filling for this application.
 * **Linked sign-on** - Formerly known as "Existing single sign-on", this option allows administrators to place a link to this application in their user's Azure AD Access Panel or Office 365 application launcher.
 
-For more information about these modes, see [How does single sign-on with Azure Active Directory work](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
+For more information about these modes, see [How does single sign-on with Azure Active Directory work](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## SAML-based sign-on
 The **SAML-based sign-on** option is divided in four sections:
@@ -75,17 +75,17 @@ The **Configure Application** fly-out menu provides new concise, embedded instru
 > 
 > 
 
-![Embedded docs](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
+![Embedded docs](./media/configure-single-sign-on-portal/enterprise-apps-blade-embedded-docs.png)
 
 ## Password-based sign-on
-If supported for the application, selecting the password-based SSO mode and selecting **Save** instantly configures it to do password-based SSO. For more information about deploying password-based SSO, see [How does single sign-on with Azure Active Directory work](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
+If supported for the application, selecting the password-based SSO mode and selecting **Save** instantly configures it to do password-based SSO. For more information about deploying password-based SSO, see [How does single sign-on with Azure Active Directory work](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Password-based sign-on](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
+![Password-based sign-on](./media/configure-single-sign-on-portal/enterprise-apps-blade-password-sso.png)
 
 ## Linked sign-on
-If supported for the application, selecting the linked SSO mode allows you to enter the URL that you want the Azure AD Access Panel or Office 365 to redirect to when users click on this app. For more information about linked SSO (formerly known as "existing SSO"), see [How does single sign-on with Azure Active Directory work](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
+If supported for the application, selecting the linked SSO mode allows you to enter the URL that you want the Azure AD Access Panel or Office 365 to redirect to when users click on this app. For more information about linked SSO (formerly known as "existing SSO"), see [How does single sign-on with Azure Active Directory work](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Linked sign-on](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
+![Linked sign-on](./media/configure-single-sign-on-portal/enterprise-apps-blade-linked-sso.png)
 
 ## Feedback
 

@@ -42,7 +42,7 @@ The overall solution comprises the following components: 
 
 The following diagram illustrates the high-level traffic flow. SSL inspection is only required on traffic to Azure AD, not to the Office 365 cloud services. This distinction is important because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
 
-![Tenant Restrictions traffic flow - diagram](./media/active-directory-tenant-restrictions/traffic-flow.png)
+![Tenant Restrictions traffic flow - diagram](./media/tenant-restrictions/traffic-flow.png)
 
 ## Set up Tenant Restrictions
 
@@ -87,7 +87,7 @@ This section shows the experience for both end users and admins.
 
 An example user is on the Contoso network, but is trying to access the Fabrikam instance of a shared SaaS application like Outlook online. If Contoso is a non-permitted tenant for that instance, the user sees the following page:
 
-![Access denied page for users in non-permitted tenants](./media/active-directory-tenant-restrictions/end-user-denied.png)
+![Access denied page for users in non-permitted tenants](./media/tenant-restrictions/end-user-denied.png)
 
 ### Admin experience
 
@@ -95,7 +95,7 @@ While configuration of Tenant Restrictions is done on the corporate proxy infras
 
 The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see all sign-ins blocked because of the Tenant Restrictions policy, including the identity used and the target directory ID.
 
-![Use the Azure portal to view restricted sign-in attempts](./media/active-directory-tenant-restrictions/portal-report.png)
+![Use the Azure portal to view restricted sign-in attempts](./media/tenant-restrictions/portal-report.png)
 
 Like other reports in the Azure portal, you can use filters to specify the scope of your report. You can filter on a specific user, application, client, or time interval.
 
