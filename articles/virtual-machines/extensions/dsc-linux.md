@@ -39,7 +39,7 @@ DSCForLinux Extension is published and supported by Microsoft. The extension ins
 The DSC Linux extension supports all the [Extension Supported OS's](https://azurewiki.cloudapp.netVMAgentExtension/extensionSupportedOSs) except:
 
 | Distribution | Version |
-
+|---|---|
 | CentOS Linux | 6.5 and higher |
 | Ubuntu| 12.04 LTS, 14.04 LTS, 16.04 LTS  |
 | RHEL| 6.5 and higher  |
