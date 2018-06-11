@@ -22286,7 +22286,12 @@
             "source_path": "articles/active-directory/active-directory-scim-provisioning.md",
             "redirect_url": "/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups",
             "redirect_document_id": true
-        } 
-	 
+        },
+	    {
+            "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
+            "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+            "redirect_document_id": false
+        }
+
     ]
 }
