@@ -74,7 +74,7 @@ Managed Disks supports three key default roles:
 
 **Is there a way that I can copy or export a managed disk to a private storage account?**
 
-You can generate a read-only shared access signature (SAS) URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage. You can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI or [AzCopy](../../storage/common/storage-use-azcopy.md)
+You can generate a read-only shared access signature (SAS) URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage. You can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI or [AzCopy](../../articles/storage/common/storage-use-azcopy.md)
 
 **Can I create a copy of my managed disk?**
 
