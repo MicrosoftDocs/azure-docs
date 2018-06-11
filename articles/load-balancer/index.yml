@@ -48,8 +48,6 @@ sections:
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">Load balance VMs across availability zones</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">Load balance VMs within a zone</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal">Configure port fowarding in Load Balancer</a>
-    - html: <a href="/azure/load-balancer/tutorial-load-balancer-basic-internal-portal">Load balance internal traffic to VMs</a>
-
   
 - title: Free Pluralsight Video Training
   items:
