@@ -29,7 +29,7 @@ Article 2: Deploy an Azure infrastructure (this article) | Describes how Contoso
 [Article 5: Rehost to Azure VMs](contoso-migration-rehost-vm.md) | Shows how Contoso migrate their SmartHotel app VMs using Site Recovery only.
 [Article 6: Rehost to Azure VMs and SQL Server Availability Groups](contoso-migration-rehost-vm-sql-ag.md) | Shows how Contoso migrates the SmartHotel app. They use Site Recovery to migrate the app VMs, and the Database Migration service to migrate the app database to a SQL Server Availability Group. | Available
 [Article 7: Rehost a Linux app to Azure VMs](contoso-migration-rehost-linux-vm.md) | Demonstrates how Contoso migrates the Linux osTicket app to Azure VMs. | Available
-[Article 8: Rehost a Linux app to Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the SmartHotel app VMs using Site Recovery, and MySQL Workbench to migrate (backup and restore) to an Azure MySQL Server instance. | Available
+[Article 8: Rehost a Linux app to Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the Linux osTicket app using Site Recovery, and MySQL Workbench to migrate (backup and restore) to an Azure MySQL Server instance. | Available
 
 In this article Contoso set up all the infrastructure elements they need to complete the migration scenarios. 
 
