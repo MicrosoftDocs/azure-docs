@@ -216,7 +216,7 @@
       items:
       - name: Deploy the SQL Server resource provider
         href: azure-stack-sql-resource-provider-deploy.md
-      - name: Add hosting servers
+      - name: Add SQL hosting servers
         href: azure-stack-sql-resource-provider-hosting-servers.md
       - name: Create SQL databases
         href: azure-stack-sql-resource-provider-databases.md
@@ -227,7 +227,20 @@
       - name: Remove the SQL Server resource provider
         href: azure-stack-sql-resource-provider-remove.md 
     - name: Offer MySQL as PaaS
-      href: azure-stack-mysql-resource-provider-deploy.md
+      href: azure-stack-mysql-resource-provider.md
+      items:
+      - name: Deploy the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-deploy.md
+      - name: Add MySQL hosting servers
+        href: azure-stack-mysql-resource-provider-hosting-servers.md
+      - name: Create MySQL Databases
+        href: azure-stack-mysql-resource-provider-databases.md
+      - name: Update the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-update.md
+      - name: Maintain MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-maintain.md
+      - name: Remove the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-remove.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview

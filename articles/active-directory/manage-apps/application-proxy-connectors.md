@@ -161,6 +161,6 @@ You can examine the state of the service in the Services window. The connector c
 
 * [Publish applications on separate networks and locations using connector groups](application-proxy-connector-groups.md)
 * [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)
-* [Troubleshoot Application Proxy and connector errors](../active-directory-application-proxy-troubleshoot.md)
+* [Troubleshoot Application Proxy and connector errors](application-proxy-troubleshoot.md)
 * [How to silently install the Azure AD Application Proxy Connector](application-proxy-register-connector-powershell.md)
 

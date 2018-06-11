@@ -4,7 +4,7 @@ description: Create a function to trigger a logic app by using Azure Functions a
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef

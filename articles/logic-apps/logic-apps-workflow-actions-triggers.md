@@ -3,7 +3,7 @@ title: Workflow triggers and actions - Azure Logic Apps | Microsoft Docs
 description: Learn about triggers and actions in workflow definitions for Azure Logic Apps
 services: logic-apps
 author: kevinlam1
-manager: SyntaxC4
+manager: jeconnoc
 editor: 
 documentationcenter: 
 
