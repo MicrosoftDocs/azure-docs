@@ -38,7 +38,7 @@ Because of its advanced features, you'll usually use the Advanced Analytics port
 
 - Comments must be removed from the query before it's copied and pasted into another location.  You can comment a line by preceding it with two slashes (//).  When you paste a multiple line query into a single line, line breaks are removed.  If comments are included, all characters after the first comment are considered part of the comment.
 
-## Firewall requirements
+### Firewall requirements
 Your browser requires access to the following addresses to access the Advanced Analytics portal.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
 
 | Uri | IP | Ports |
