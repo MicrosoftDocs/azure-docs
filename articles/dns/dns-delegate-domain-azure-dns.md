@@ -9,7 +9,7 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/11/2018
 ms.author: kumud
-#Customer intent: As an administrator, I want learn how to us Azure DNS to resolve names in my domain and sub-domains.
+#Customer intent: As an administrator, I want learn how to configure Azure DNS so I can resolve names in my own domain and sub-domains.
 ---
 
 # Tutorial: Host your domain and subdomains in Azure DNS
@@ -18,9 +18,9 @@ You can use Azure DNS to host your DNS domain and manage your DNS records. Your 
 
 For domains that you buy from a registrar, your registrar offers the option to set up the name server (NS) records. NS records identify which DNS server is authoritative for a particular domain.
 
-You don't have to own a domain to create a DNS zone with that domain name in Azure DNS. However, you do need to own the domain to set up the delegation to Azure DNS with the registrar.
+Recall that a dns zone contains all the entries (records) for a particular domain. You don't have to own a domain to create a DNS zone with that domain name in Azure DNS. However, you do need to own the domain to set up the delegation to Azure DNS with the registrar.
 
-For example, suppose you buy the domain contoso.net and create a zone with the name contoso.net in Azure DNS. Because you're the owner of the domain, your registrar offers you the option to configure the NS records for your domain. The registrar stores these NS records in the .net parent domain. Users around the world are then directed to your domain in the Azure DNS zone when they're trying to resolve DNS records in contoso.net.
+For example, suppose you buy the domain contoso.net and create a zone with the name contoso.net in Azure DNS. Because you're the owner of the domain, your registrar offers you the option to configure the NS records for your domain. The registrar stores these NS records in the .net parent zone. Users around the world are then directed to your domain in the Azure DNS zone when they're trying to resolve DNS records in contoso.net.
 
 In this tutorial, you learn how to:
 
@@ -205,7 +205,7 @@ Azure DNS automatically creates authoritative NS records in your zone for the as
 
 ## Clean up resources
 
-When no longer needed, delete the **contosoRG** resource group to delete the resources created in this tutorial. To do so, click the **dns-test** resource group and then click **Delete resource group**. 
+When no longer needed, delete the **contosoRG** resource group to delete the resources created in this tutorial. To do so, click the **contosoRG** resource group and then click **Delete resource group**. 
 
 ## Next steps
 
