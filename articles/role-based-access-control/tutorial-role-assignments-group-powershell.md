@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this tutorial, you will need:
 
 - Permissions to create groups in Azure Active Directory (or have an existing group)
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell) -OR- [Azure PowerShell](/powershell/azure/install-azurerm-ps) with the [Azure AD module](/powershell/azure/active-directory/install-adv2)
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
 
 ## Role assignments
 
@@ -52,9 +52,9 @@ A role assignment consists of three elements: security principal, role definitio
 
 ## Create a group
 
-To assign a role, you need a user, group, or service principal.
+To assign a role, you need a user, group, or service principal. If you don't already have a group, you can create one.
 
-- In Azure Cloud Shell or Azure PowerShell, create a new group using the [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command.
+- In Azure Cloud Shell, create a new group using the [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command.
 
    ```azurepowershell
    New-AzureADGroup -DisplayName "RBAC Tutorial Group" `
