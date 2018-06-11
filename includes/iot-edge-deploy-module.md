@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-edge
+ author: kgremban
+ ms.service: iot-edge
+ ms.topic: include
+ ms.date: 06/11/2018
+ ms.author: kgremban
+ ms.custom: include file
+---
+
 One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. An IoT Edge module is an executable package implemented as a container. In this section, you deploy a module that generates telemetry for your simulated device. 
 
 1. In the Azure portal, navigate to your IoT hub.
