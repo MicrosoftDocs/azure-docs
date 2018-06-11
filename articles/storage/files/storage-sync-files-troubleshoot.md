@@ -3,7 +3,7 @@ title: Troubleshoot Azure File Sync (preview) | Microsoft Docs
 description: Troubleshoot common issues with Azure File Sync.
 services: storage
 documentationcenter: ''
-author: wmgries
+author: jeffpatt24
 manager: aungoo
 
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
-ms.author: wgries
+ms.author: jeffpatt
 ---
 
 # Troubleshoot Azure File Sync (preview)
