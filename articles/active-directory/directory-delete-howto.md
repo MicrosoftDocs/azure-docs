@@ -57,7 +57,7 @@ Subscription state | Data | Access to data
 ----- | ----- | -----
 Active (30 days for trial)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Office 365 admin center and resources 
 Expired (30 days)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Office 365 admin center and resources
-Disabled (30 days) | Data accessible to admin only	| <li>Users can’t access Office 365 files, or apps<li>•	Admins can access the Office 365 admin center but can’t assign licenses to or update users
+Disabled (30 days) | Data accessible to admin only	| <li>Users can’t access Office 365 files, or apps<li>Admins can access the Office 365 admin center but can’t assign licenses to or update users
 Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if no other services are in use) | <li>Users can’t access Office 365 files, or apps<li>Admins can access the Office 365 admin center to purchase and manage other subscriptions 
 
 You can put a subscription into a Deprovisoned state to be deleted in 3 days using Microsoft Store for Business admin center. This capability is coming soon to Office 365 Admin center.
