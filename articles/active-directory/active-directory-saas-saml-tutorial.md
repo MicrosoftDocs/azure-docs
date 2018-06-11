@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/11/2018
 ms.author: jeedes
 
 ---
@@ -104,9 +104,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![SAML 1.1 Token enabled LOB App Domain and URLs single sign-on information](./media/active-directory-saas-saml-tutorial/tutorial_saml_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://your-app-url`
+    a. In the **Sign on URL** textbox, type a URL using the following pattern: `https://your-app-url`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://your-app-url`
+	b. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern: `https://your-app-url`
 	 
 	> [!NOTE] 
 	> These values are not real. Please replace these values with application specific urls.  
