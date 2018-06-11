@@ -114,8 +114,8 @@ $tempFolder = New-Item -Path "afstemp" -ItemType Directory
 Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolder" -Wait
 
 # Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
-# Note that the installer currently forces all PowerShell sessions closed - which we agree is bad 
-# behavior and will be fixed in a future Azure File Sync release.  
+# Note that the installer currently forces all PowerShell sessions closed - this is a known issue 
+# and will be fixed in a future Azure File Sync release.  
 Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
 ```
 
@@ -140,7 +140,7 @@ On the pane that opens, enter the following information:
 When you are finished, select **Create** to deploy the Storage Sync Service.
 
 # [PowerShell](#tab/powershell)
-Before interacting with the Azure File Sync management cmdlets, you will need to import a DLL and create an Azure File Sync management context. This is required because the Azure File Sync management cmdlets are not yet part of the AzureRM PowerShell module. We plan to bring migrate the Azure File Sync cmdlets to the AzureRM PowerShell module in a future release.
+Before interacting with the Azure File Sync management cmdlets, you will need to import a DLL and create an Azure File Sync management context. This is required because the Azure File Sync management cmdlets are not yet part of the AzureRM PowerShell module. The Azure File Sync cmdlets will be moved to the AzureRM PowerShell module in a future release.
 
 > [!Note]  
 > The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzureRmStorageSync` was chosen to match the `Login-AzureRmAccount` cmdlet in the AzureRM PowerShell module, which also uses the "unapproved" verb, although PowerShell does not complain. This error message (and cmdlet) will be removed the Azure File Sync agent is added to the AzureRM PowerShell module.
