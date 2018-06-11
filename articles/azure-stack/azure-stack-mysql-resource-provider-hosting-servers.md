@@ -22,10 +22,10 @@ You can use MySQL instances on VMs inside of your [Azure Stack](azure-stack-poc.
 ## Provide capacity by connecting to a MySQL hosting server 
 1. Sign in to the Azure Stack portal as a service admin. 
 2. Select **ADMINISTRATIVE RESOURCES** > **MySQL Hosting Servers** > **+Add**. 
-On the **MySQL Hosting Servers** blade, you can connect the MySQL Server resource provider to actual instances of MySQL Server that serve as the resource provider’s back end. 
+On the **MySQL Hosting Servers** blade, you can connect the MySQL Server resource provider to actual instances of MySQL Server that serve as the resource provider’s back end.
 
-![Hosting servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png) 
-
+  ![Hosting servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
+  
 3. Provide the connection details of your MySQL Server instance. Be sure to provide the fully qualified domain name (FQDN) or a valid IPv4 address, and not the short VM name. This installation no longer provides a default MySQL instance. The size that's provided helps the resource provider manage the database capacity. It should be close to the physical capacity of the database server. 
 
     > [!NOTE] 
