@@ -15,7 +15,7 @@ You can buy Reserved Virtual Machine Instances in the [Azure portal](https://por
 You must use one of the methods described below to correctly identify the VM size for a reservation purchase.
 
 ## Determine the right VM size before purchase
-1. Refer to the AdditionalInfo field in your usage file or API to determine the correct VM size for reservation purchase. Do not use the values from Meter Sub-category or Product fields since they do not differentiate between S and Non-S versions of a VM.
+1. Refer to the AdditionalInfo field in your usage file or usage API to determine the correct VM size for a reservation purchase. Do not use the values from Meter Sub-category or Product fields since they do not differentiate between S and Non-S versions of a VM.
 2. You can also get accurate VM size information using Powershell, Azure Resource Manager (ARM) or from VM details in the Azure portal.
 
 ## Buy a Reserved Virtual Machine Instance
