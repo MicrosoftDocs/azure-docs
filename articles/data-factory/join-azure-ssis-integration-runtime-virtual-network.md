@@ -1,6 +1,6 @@
 ---
 title: Join Azure-SSIS integration runtime to a virtual network | Microsoft Docs
-description: Learn how to join Azure-SSIS integration runtime to an Azure virtual network. 
+description: Learn how to join the Azure-SSIS integration runtime to an Azure virtual network. 
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -20,8 +20,9 @@ ms.author: douglasl
 # Join an Azure-SSIS integration runtime to a virtual network
 Join your Azure-SSIS integration runtime (IR) to an Azure virtual network in the following scenarios: 
 
-- You are hosting the SQL Server Integration Services (SSIS) catalog database on Azure SQL Database Managed Instance (Preview) in a virtual network.
 - You want to connect to on-premises data stores from SSIS packages running on an Azure-SSIS integration runtime.
+
+- You are hosting the SQL Server Integration Services (SSIS) catalog database on Azure SQL Database Managed Instance (Preview) in a virtual network.
 
  Azure Data Factory version 2 (Preview) lets you join your Azure-SSIS integration runtime to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model. 
 
