@@ -17,6 +17,8 @@ ROBOTS: NOINDEX
 ---
 # How to Use Microsoft Machine Learning Library for Apache Spark
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
+
 ## Introduction
 
 [Microsoft Machine Learning Library for Apache Spark](https://github.com/Azure/mmlspark) (MMLSpark)  provides tools that let you easily create scalable machine learning models for large datasets. It includes integration of SparkML pipelines with the [Microsoft Cognitive Toolkit

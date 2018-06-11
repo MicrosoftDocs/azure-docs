@@ -13,7 +13,9 @@ ms.date: 03/28/2018
 
 ROBOTS: NOINDEX
 ---
-# What's New in Azure Machine Learning
+# Release notes in Azure Machine Learning Sept 2017 - Jun 2018
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
 
 In this article, learn about the new releases of [Azure Machine Learning](../service/overview-what-is-azure-ml.md). 
 

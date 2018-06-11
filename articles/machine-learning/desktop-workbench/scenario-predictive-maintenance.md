@@ -19,6 +19,10 @@ ROBOTS: NOINDEX
 
 # Predictive maintenance for real-world scenarios
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+
+
+
 The impact of unscheduled equipment downtime can be detrimental for any business. It's critical to keep field equipment running to maximize utilization and performance, and to minimize costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
 
 This scenario explores a relatively [large-scale simulated data set](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) to walk through a predictive maintenance data science project from data ingestion, feature engineering, model building, and model operationalization and deployment. The code for the entire process is written in the Jupyter Notebook by using PySpark in Azure Machine Learning Workbench. The final model is deployed by using Azure Machine Learning Model Management to make real-time equipment failure predictions.   

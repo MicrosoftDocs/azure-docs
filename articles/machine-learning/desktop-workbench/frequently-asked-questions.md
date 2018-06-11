@@ -16,6 +16,8 @@ ROBOTS: NOINDEX
 ---
 # Azure Machine Learning frequently asked questions
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+
 Azure Machine Learning is a fully managed Azure service that allows you to create, test, manage, and deploy machine learning and AI models. Our services and downloadable application offer a code-first approach that leverages the cloud, on-premises, and edge to provide the train, deploy, manage, and monitor models with power, speed, and flexibility. Alternatively, Azure Machine Learning Studio offers a browser-based, visual drag-and-drop authoring environment where no coding is required. 
 
 ## General product questions

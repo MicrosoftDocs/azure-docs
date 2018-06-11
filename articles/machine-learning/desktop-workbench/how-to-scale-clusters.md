@@ -18,6 +18,9 @@ ROBOTS: NOINDEX
 
 # Scaling the cluster to manage web service throughput
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
+
+
 ## Why scale the cluster?
 
 Scaling the Azure Container Service (ACS) cluster is an effective way to optimize the service throughput while keeping the cluster size to a minimum to reduce cost. 

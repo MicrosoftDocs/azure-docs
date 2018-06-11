@@ -18,6 +18,10 @@ ROBOTS: NOINDEX
 ---
 
 # Sample of custom column transforms (Python) 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+
+
 The name of this transform in the menu is **Add Column (Script)**.
 
 Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).

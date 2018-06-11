@@ -24,6 +24,10 @@ ROBOTS: NOINDEX
 
 # Biomedical entity recognition using Team Data Science Process (TDSP) Template
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+
+
+
 Entity extraction is a subtask of information extraction (also known as [Named-entity recognition (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), entity chunking, and entity identification). The aim of this real-world scenario is to highlight how to use Azure Machine Learning Workbench to solve a complicated Natural Language Processing (NLP) task such as entity extraction from unstructured text:
 
 1. How to train a neural word embeddings model on a text corpus of about 18 million PubMed abstracts using [Spark Word2Vec implementation](https://spark.apache.org/docs/latest/mllib-feature-extraction.html#word2vec).

@@ -17,6 +17,10 @@ ROBOTS: NOINDEX
 
 # Data Source Wizard #
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+
+
+
 The Data Source Wizard is a quick and easy way to bring a dataset into Azure ML Workbench without code. It is where you can also select a sample strategy for the dataset and data types for each column. 
 
 ## Step 1: Trigger the Data Source Wizard ## 

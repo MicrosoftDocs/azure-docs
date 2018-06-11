@@ -17,8 +17,7 @@ ROBOTS: NOINDEX
 ---
 # Install and use the machine learning CLI for top tasks in Azure Machine Learning
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
-**Learn about the latest CLI this [overview article](/).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Learn about the latest machine learning CLI in this [overview article](../service/reference-azure-machine-learning-cli.md).**
 
 Azure Machine Learning services are an integrated, end-to-end data science and advanced analytics solution. Professional data scientists can use Azure Machine Learning services to prepare data, develop experiments, and deploy models at cloud scale. 
 

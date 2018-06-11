@@ -16,6 +16,9 @@ ROBOTS: NOINDEX
 ---
 # Model management setup
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
+
+
 This document gets you started with using Azure ML model management to deploy and manage your machine learning models as web services. 
 
 Using Azure ML model management, you can efficiently deploy and manage Machine Learning models that are built using a number of frameworks including SparkML, Keras, TensorFlow, the Microsoft Cognitive Toolkit, or Python. 

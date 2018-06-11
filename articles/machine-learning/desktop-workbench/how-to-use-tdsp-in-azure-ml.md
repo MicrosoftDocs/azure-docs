@@ -21,6 +21,10 @@ ms.author: bradsev
 ROBOTS: NOINDEX
 ---
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+
+
+
 # Structure projects with the Team Data Science Process template
 
 This document provides instructions on how to create data science projects in Azure Machine Learning with Team Data Science Process (TDSP) templates. These templates help to structure projects for collaboration and reproducibility. 

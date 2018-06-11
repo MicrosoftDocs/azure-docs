@@ -16,6 +16,9 @@ ROBOTS: NOINDEX
 ---
 # Use Jupyter Notebooks in Azure Machine Learning Workbench
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
+
+
 Azure Machine Learning Workbench supports interactive data science experimentation through its integration with Jupyter Notebooks. This article describes how to make effective use of this feature to increase the rate and quality of your interactive data science experimentation.
 
 ## Prerequisites
