@@ -20,7 +20,7 @@ This app is the simplest type of LUIS app because it doesn't extract data from t
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Purpose of the app
-This app has two intents. The first intent, **"GetStoreInfo"**, identifies when a user wants store information such as hours, and location. The second intent, **"None"**, identifies every other type of utterance. 
+This app has two intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, identifies every other type of utterance. 
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log in to the region where you need the LUIS endpoints published.
@@ -29,7 +29,7 @@ This app has two intents. The first intent, **"GetStoreInfo"**, identifies when 
 
     [![](media/luis-quickstart-intents-only/app-list.png "Screenshot of My Apps page")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
-3. In the pop-up dialog, enter the name `MyStore`. 
+3. In the pop-up dialog, enter the name `HumanResources`. This app will cover questions about a company's Human Resources department. That type of department issues about employment such as positions in the company that need to be filled with a new employee, as well as policies about how people interact with each other.
 
     ![LUIS new app](./media/luis-quickstart-intents-only/create-app.png)
 
