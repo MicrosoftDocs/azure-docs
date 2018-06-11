@@ -25,8 +25,10 @@ Use the Azure Stack MySQL Server resource provider to expose MySQL databases as 
 2. Sign in to a host that can access the privileged endpoint VM:
     - On Azure SDK installations, sign in to the physical host.  
     - On integrated systems, the host must be a system that can access the privileged endpoint. 
+    
     >[!NOTE] 
     > The system on which the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure Stack ASDK host meets this criterion. 
+    
 3. Download the MySQL resource provider binary. Then run the self-extractor to extract the contents to a temporary directory. 
     >[!NOTE]  
     > The resource provider has a minimum corresponding Azure Stack build. Be sure to download the correct binary for the version of Azure Stack that is running.
