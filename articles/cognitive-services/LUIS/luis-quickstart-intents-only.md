@@ -7,13 +7,13 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to only use intents and no entities in the app. 
 ---
 
-# Quickstart: Create app to determine user's intention
-In this quickstart, create an app that demonstrates how to use **intents** to determine the user's _intention_ based on the utterance (text) they submit to the app. When you're finished, you'll have a LUIS endpoint running in the cloud.
+# Quickstart: Create app that determine user's intention
+In this quickstart, create an app that demonstrates how to use **intents** to determine the user's _intention_ based on the utterance (text) they submit to the app. When you're finished, you have a LUIS endpoint running in the cloud.
 
 This app is the simplest type of LUIS app because it doesn't extract data from the utterances. It only determines the user's intention of the utterance.
 
@@ -29,7 +29,7 @@ This app has a few intents. The first intent, **`GetJobInformation`**, identifie
 
     [![](media/luis-quickstart-intents-only/app-list.png "Screenshot of My Apps page")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
-3. In the pop-up dialog, enter the name `HumanResources`. This app will cover questions about your company's Human Resources department. That type of department handles issues related to employment such as positions in the company that need to be filled.
+3. In the pop-up dialog, enter the name `HumanResources`. This app covers questions about your company's Human Resources department. That type of department handles issues related to employment such as positions in the company that need to be filled.
 
     ![LUIS new app](./media/luis-quickstart-intents-only/create-app.png)
 
@@ -42,7 +42,7 @@ This app has a few intents. The first intent, **`GetJobInformation`**, identifie
 
     ![](media/luis-quickstart-intents-only/create-intent.png "Screenshot of New intent dialog")
 
-    By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
+    By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer. LUIS doesn't answer these questions, only identify what type of information is being asked for in natural language. 
 
 2. Add seven utterances to this intent that you expect a user to ask for, such as:
 
@@ -58,7 +58,7 @@ This app has a few intents. The first intent, **`GetJobInformation`**, identifie
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-3. The LUIS app currently has no utterances for the **None** intent. It needs utterances that the app won't answer. Do not leave it empty. 
+3. The LUIS app currently has no utterances for the **None** intent. It needs utterances that the app doesn't answer. Do not leave it empty. 
     
     Select **Intents** from the left panel. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app. If the app is about your Job postings, some good **None** utterances are:
 
