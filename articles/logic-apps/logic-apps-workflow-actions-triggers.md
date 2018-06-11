@@ -25,6 +25,8 @@ You can visually create logic app workflows with the Logic Apps Designer,
 or by directly authoring the underlying workflow definitions with the 
 [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
 You can create logic apps either in the Azure portal or Visual Studio. 
+The underlying definition for the entire workflow, including the trigger 
+and actions, use Javascript Object Notation (JSON) format.
 
 <a name="triggers-overview"></a>
 
@@ -42,26 +44,104 @@ Here are the types of triggers you can use:
 All triggers have these top-level elements, although some are optional:  
   
 ```json
-"<triggerName>": {
-   "type": "<triggerType>",
-   "inputs": { "<trigger-behavior-settings>" },
+"<trigger-name>": {
+   "type": "<trigger-type>",
+   "inputs": { "<trigger-inputs>" },
    "recurrence": { 
-      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-      "interval": "<recurrence-interval-based-on-frequency>"
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>
    },
-   "conditions": [ <array-with-required-conditions> ],
-   "splitOn": "<property-used-for-creating-runs>",
-   "operationOptions": "<optional-trigger-operations>"
+   "conditions": [ "<array-with-conditions>" ],
+   "splitOn": "<expression-for-creating-multiple-runs>",
+   "operationOptions": "<trigger-operations>"
 }
 ```
 
 *Required*
 
-| Element | Type | Description | 
-|---------|------|-------------| 
-| <*triggerName*> | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
-| type | String | The trigger type, for example: "Http" or "ApiConnection" | 
-| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*trigger-name*> | String | The name for the trigger | 
+| <*trigger-type*> | String | The trigger type, for example, "Http" or "ApiConnection" | 
+| <*trigger-inputs*> | JSON Object | The inputs that define the trigger's behavior | 
+| <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*number-of-time-units-to-wait*> | Integer | A positive number that determines how often the trigger fires based on the frequency, which is specifically the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
+|||| 
+
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow | 
+| <*expression-for-creating-multiple-runs*> | String | An expression that [splits or *debatches*](#split-on-debatch) array items into multiple workflow instances for processing. This option applies to triggers that return an array and is available only when working directly in code view. | 
+| <*trigger-operations*> | String | Applies to triggers that provide [operation options](#trigger-operation-options) for changing the default trigger behavior | 
+|||| 
+
+## Trigger types
+
+Each trigger type has a different interface and inputs that define the trigger's behavior. 
+
+| Trigger type | Description | 
+|--------------|-------------| 
+| [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app by calling [Microsoft-managed APIs](../connectors/apis-list.md) to subscribe and unsubscribe. | 
+| [**HTTP**](#http-trigger) | Checks or *polls* any endpoint. This endpoint must conform to a specific trigger contract either by using a "202" asynchronous pattern or by returning an array. | 
+| [**HTTPWebhook**](#httpwebhook-trigger) | Creates a callable endpoint for your logic app but calls the specified URL to register or unregister. |
+| [**Recurrence**](#recurrence-trigger) | Fires based on a defined schedule. You can set a future date and time for firing this trigger. Based on the frequency, you can also specify times and days for running your workflow. | 
+| [**Request**](#request-trigger)  | Creates a callable endpoint for your logic app and is also known as a "manual" trigger. For example, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md). | 
+||| 
+
+<a name="apiconnection-trigger"></a>
+
+### APIConnection trigger  
+
+This trigger checks or *polls* an endpoint by using 
+[Microsoft-managed APIs](../connectors/apis-list.md) 
+so the parameters for this trigger can differ based on the endpoint. 
+Many sections in this trigger definition are optional, 
+so the trigger's behavior depends on whether or not sections are included.
+
+```json
+"<APIConnection_trigger_name>": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
+         },
+         "<other-trigger-specific-input-properties>"
+      },
+      "method": "<*method-type*>",
+      "path": "</<api-operation>",
+      "headers": { "<header-content>" },
+      "body": { "<body-content>" },
+      "retryPolicy": { "<retry-behavior>" },
+      "queries": { "<query-parameters>" },
+      "<other-trigger-specific-properties>"
+   },
+   "recurrence": { 
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-concurrently-running-workflow-instances>
+      }
+   },
+   "splitOn": "@triggerbody()?['value']",
+   "operationOptions": "singleInstance"
+}
+```
+
+*Required*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*APIConnection_trigger_name*> | String | The name for the trigger | 
+| <*managed-API-endpoint-URL*> | String | The endpoint URL for the  | 
+| api | JSON Object | The endpoint URL for the managed API | 
+| <*connection-name*> | String | The name for the managed API connection that the workflow uses, which must include a reference to a parameter named `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
+| <*method-type*> | String | The HTTP method for communicating with the managed API: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | recurrence | JSON Object | The frequency and interval that describes how often the trigger fires |  
 | frequency | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
 | interval | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
@@ -71,33 +151,55 @@ All triggers have these top-level elements, although some are optional:
 
 | Element | Type | Description | 
 |---------|------|-------------| 
-| [conditions](#trigger-conditions) | Array | One or more conditions that determine whether to run the workflow | 
-| [splitOn](#split-on-debatch) | String | An expression that splits up, or *debatches*, array items into multiple workflow instances for processing. This option is available for triggers that return an array and only when working directly in code view. | 
-| [operationOptions](#trigger-operation-options) | String | Some triggers provide additional options that let you change the default trigger behavior | 
+| queries | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?api-version=2015-02-01` query string to the URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Result: `https://contoso.com?api-version=2015-02-01` | 
+| headers | JSON Object | One or more headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | JSON Object | The JSON object that describes the payload (data) to send to the managed API | 
+| authentication | JSON Object | The method that an incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| retryPolicy | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| concurrency | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
+| operationOptions | String | The `singleInstance` option specifies that the trigger fires only after all active runs are finished. See [Triggers: Fire only after active runs finish](#single-instance). | 
+||||
+
+*Example*
+
+```json
+"Create_daily_report": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "https://myReportsRepo.example.com/"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>'].name"
+         }     
+      },
+      "method": "POST",
+      "body": {
+         "category": "statusReports"
+      }  
+   },
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
+}
+```
+
+#### APIConnection trigger outputs
+ 
+| Element | Type | Description |
+|---------|------|-------------| 
+| headers | JSON Object | The headers from the HTTP response | 
+| body | JSON Object | The body from the HTTP response | 
 |||| 
-
-## Trigger types
-
-Each trigger type has a different interface and inputs that define the trigger's behavior. 
-
-| Trigger type | Description | 
-| ------------ | ----------- | 
-| [**Recurrence**](#recurrence-trigger) | Fires based on a defined schedule. You can set a future date and time for firing this trigger. Based on the frequency, you can also specify times and days for running the workflow. | 
-| [**Request**](#request-trigger)  | Makes your logic app into a callable endpoint, also known as a "manual" trigger. For example, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md). | 
-| [**HTTP**](#http-trigger) | Checks, or *polls*, an HTTP web endpoint. The HTTP endpoint must conform to a specific trigger contract either by using a "202" asynchronous pattern or by returning an array. | 
-| [**ApiConnection**](#apiconnection-trigger) | Works like the HTTP trigger, but uses [Microsoft-managed APIs](../connectors/apis-list.md). | 
-| [**HTTPWebhook**](#httpwebhook-trigger) | Works like the Request trigger, but calls a specified URL for registering and unregistering. |
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Works like the HTTPWebhook trigger, but uses [Microsoft-managed APIs](../connectors/apis-list.md). | 
-||| 
 
 <a name="recurrence-trigger"></a>
 
-## Recurrence trigger  
+### Recurrence trigger  
 
 This trigger runs based on your specified recurrence and schedule 
 and provides an easy way for regularly running a workflow. 
-
-Here is the trigger definition:
 
 ```json
 "Recurrence": {
@@ -208,7 +310,7 @@ see [Create and schedule regularly running tasks](../connectors/connectors-nativ
 
 <a name="request-trigger"></a>
 
-## Request trigger
+### Request trigger
 
 This trigger makes your logic app callable by creating 
 an endpoint that can accept incoming HTTP requests. 
@@ -295,7 +397,7 @@ schema that validates input from the incoming request:
 
 <a name="http-trigger"></a>
 
-## HTTP trigger  
+### HTTP trigger  
 
 This trigger polls a specified endpoint and checks the response. 
 The response determines whether the workflow should run or not. 
@@ -379,7 +481,7 @@ conform to a specific pattern. The HTTP trigger recognizes these properties:
 | 500 | {none}| Server error, don't run the workflow. If no `retryPolicy` is defined, then the default policy is used. After the number of retries has been reached, the trigger checks again for data after the defined recurrence. | 
 |||| 
 
-### HTTP trigger outputs
+#### HTTP trigger outputs
 
 | Element | Type | Description |
 |---------|------|-------------|
@@ -387,119 +489,9 @@ conform to a specific pattern. The HTTP trigger recognizes these properties:
 | body | JSON Object | The body from the HTTP response | 
 |||| 
 
-<a name="apiconnection-trigger"></a>
-
-## APIConnection trigger  
-
-This trigger works like the [HTTP trigger](#http-trigger), 
-but uses [Microsoft-managed APIs](../connectors/apis-list.md) 
-so the parameters for this trigger differ. 
-
-Here is the trigger definition, although many sections are optional, 
-so the trigger's behavior depends on whether or not sections are included:
-
-```json
-"<APIConnectionTriggerName>": {
-   "type": "ApiConnection",
-   "inputs": {
-      "host": {
-         "api": {
-            "runtimeUrl": "<managed-API-endpoint-URL>"
-         },
-         "connection": {
-            "name": "@parameters('$connections')['<connection-name>'].name"
-         },
-      },
-      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
-      "queries": "<query-parameters>",
-      "headers": { "<headers-for-request>" },
-      "body": { "<payload-to-send>" },
-      "authentication": { "<authentication-method>" },
-      "retryPolicy": {
-          "type": "<retry-policy-type>",
-          "interval": "<retry-interval>",
-          "count": <number-retry-attempts>
-      }
-   },
-   "recurrence": {
-      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-      "interval": "<recurrence-interval-based-on-frequency>"
-   },
-   "runtimeConfiguration": {
-      "concurrency": {
-         "runs": <maximum-number-for-concurrently-running-workflow-instances>
-      }
-   },
-   "operationOptions": "singleInstance"
-}
-```
-
-*Required*
-
-| Element | Type | Description | 
-|---------|------|-------------| 
-| *APIConnectionTriggerName* | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
-| type | String | The trigger type, which is "ApiConnection" | 
-| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
-| host | JSON Object | The JSON object that describes the host gateway and ID for the managed API <p>The `host` JSON object has these elements: `api` and `connection` | 
-| api | JSON Object | The endpoint URL for the managed API: <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
-| connection | JSON Object | The name for the managed API connection that the workflow uses, which must include a reference to a parameter named `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
-| method | String | The HTTP method for communicating with the managed API: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
-| recurrence | JSON Object | The frequency and interval that describes how often the trigger fires |  
-| frequency | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
-| interval | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
-|||| 
-
-*Optional*
-
-| Element | Type | Description | 
-|---------|------|-------------| 
-| queries | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?api-version=2015-02-01` query string to the URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Result: `https://contoso.com?api-version=2015-02-01` | 
-| headers | JSON Object | One or more headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | JSON Object | The JSON object that describes the payload (data) to send to the managed API | 
-| authentication | JSON Object | The method that an incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
-| retryPolicy | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| concurrency | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
-| operationOptions | String | The `singleInstance` option specifies that the trigger fires only after all active runs are finished. See [Triggers: Fire only after active runs finish](#single-instance). | 
-||||
-
-*Example*
-
-```json
-"Create_daily_report": {
-   "type": "ApiConnection",
-   "inputs": {
-      "host": {
-         "api": {
-            "runtimeUrl": "https://myReportsRepo.example.com/"
-         },
-         "connection": {
-            "name": "@parameters('$connections')['<connection-name>'].name"
-         }     
-      },
-      "method": "POST",
-      "body": {
-         "category": "statusReports"
-      }  
-   },
-   "recurrence": {
-      "frequency": "Day",
-      "interval": 1
-   }
-}
-```
-
-### APIConnection trigger outputs
- 
-| Element | Type | Description |
-|---------|------|-------------| 
-| headers | JSON Object | The headers from the HTTP response | 
-| body | JSON Object | The body from the HTTP response | 
-|||| 
-
 <a name="httpwebhook-trigger"></a>
 
-## HTTPWebhook trigger  
+### HTTPWebhook trigger  
 
 This trigger works like the [Request trigger](#request-trigger) by 
 creating a callable endpoint for your logic app. However, 
@@ -595,7 +587,7 @@ and the trigger's behavior depends on the sections that you use or omit:
 
 <a name="subscribe-unsubscribe"></a>
 
-### `subscribe` and `unsubscribe`
+#### `subscribe` and `unsubscribe`
 
 The `subscribe` call happens when the workflow changes in any way, 
 for example, when credentials are renewed, or the trigger's input parameters change. 
@@ -613,7 +605,7 @@ unique "callback URL" for this trigger. This URL represents a unique
 identifier for the endpoints that use the service's REST API. 
 The parameters for this function are the same as the HTTP trigger.
 
-### HTTPWebhook trigger outputs
+#### HTTPWebhook trigger outputs
 
 | Element | Type | Description |
 |---------|------|-------------| 
@@ -623,7 +615,7 @@ The parameters for this function are the same as the HTTP trigger.
 
 <a name="apiconnectionwebhook-trigger"></a>
 
-## ApiConnectionWebhook trigger
+### ApiConnectionWebhook trigger
 
 This trigger works like the [HTTPWebhook trigger](#httpwebhook-trigger), 
 but uses [Microsoft-managed APIs](../connectors/apis-list.md). 
