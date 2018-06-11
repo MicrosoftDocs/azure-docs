@@ -37,7 +37,7 @@ This app has two intents. The first intent, **`GetJobInformation`**, identifies 
 
     [![](media/luis-quickstart-intents-only/intents-list.png "Screenshot of Intents list page")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
-5. Select **Create new intent**. Enter the new intent name `GetStoreInfo`. This intent should be selected any time a user wants information about your store such as what you sell, what hours you are open, and how to contact you.
+5. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent should be selected any time a user wants information about open jobs about your company.
 
     By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
 
@@ -45,27 +45,27 @@ This app has two intents. The first intent, **`GetJobInformation`**, identifies 
 
     | Example utterances|
     |--|
-    |When do you open?|
-    |What are your hours?|
-    |Are you open right now?|
-    |What is your phone number?|
-    |Can someone call me please?|
-    |Where is your store?|
-    |How do I get to your store?|
+    |Any new jobs posted today?|
+    |What positions are available for Senior Engineers?|
+    |Is there any work with databases?|
+    |Looking for a new situation with responsibilities in accounting|
+    |Where is the job listings|
+    |New jobs?|
+    |Are there any new positions in the Seattle office?|
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
 7. The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
     
-    Select **Intents** from the left panel. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app. If the app is about your store, some good **None** utterances are:
+    Select **Intents** from the left panel. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app. If the app is about your Job postings, some good **None** utterances are:
 
     | Example utterances|
     |--|
-    |Cancel!|
-    |Good bye|
-    |What is going on?|
+    |Barking dogs are annoying|
+    |Order a pizza for me|
+    |Penguins in the ocean|
 
-    In your LUIS-calling application, such as a chatbot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
+    In your LUIS-calling application, such as a chatbot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The chatbot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
 8. In the top right side of the LUIS website, select the **Train** button. 
 
@@ -77,28 +77,14 @@ This app has two intents. The first intent, **`GetJobInformation`**, identifies 
 
 9. In the top right side of the LUIS website, select the **Publish** button. Select the Production slot and the **Publish** button. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
-10. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `When do you open next?`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the example utterances in step 4 so it is a good test and should return the `GetStoreInfo` utterances. 
+10. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `I'm looking for a job with Natual Language Processing`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances in step 4 so it is a good test and should return the `` utterances. 
 
     ```
-    {
-      "query": "When do you open next?",
-      "topScoringIntent": {
-        "intent": "MyStore",
-        "score": 0.984749258
-      },
-      "intents": [
-        {
-          "intent": "MyStore",
-          "score": 0.984749258
-        },
-        {
-          "intent": "None",
-          "score": 0.2040639
-        }
-      ],
-      "entities": []
-    }
+
     ```
+
+
+
 
 ## What has this LUIS app accomplished?
 This app, with just two intents, identified a natural language query that is of the same intention but worded differently. 
