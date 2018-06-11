@@ -165,7 +165,7 @@ A scan is performed every 3 hours for each managed Linux computer.
 
 It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed computers.
 
-## View update assessments
+## <a name="viewing-update-assessments"></a>View update assessments
 
 In your Automation account, select **Update Management** to view the status of your machines.
 
