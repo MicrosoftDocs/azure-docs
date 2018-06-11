@@ -15,7 +15,7 @@ ms.author: raynew
 
 This article shows how Contoso is rehosting an on-premises Linux-based service desk app (**osTicket**), to Azure IaaS VMs.
 
-This document is the seventh in a series of articles that document how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and a set of scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity, and we'll be adding additional articles over time.
+This document is the seventh in a series of articles that document how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and a set of scenarios that illustrates how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity, and we'll be adding additional articles over time.
 
 **Article** | **Details** | **Status**
 --- | --- | ---
@@ -28,7 +28,7 @@ This document is the seventh in a series of articles that document how the ficti
 Article 7: Rehost a Linux app to Azure VMs (this article) | Shows how Contoso migrates their osService Linux app using Azure Site Recovery.
 [Article 8: Rehost a Linux app to Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the osService Linux app, using Site Recovery for VM migration, and MySQL Workbench to migrate (to an Azure MySQL Server instance. | Available
 
-In this article, Contoso will migrate the two-tier **osTicket** app, running on Linux Apache MySQL PHP (LAMP) to Azure. The app VMs will be migrated using the Azure Site Recovery service. If you'd like to use this open source app, you can download it from [GitHub](https://github.com/osTicket/osTicket).
+In this article, Contoso will migrate the two-tier **osTicket** app, running on Linux Apache MySQL PHP (LAMP) to Azure. The app VMs will be migrated using the Azure Site Recovery service. If you'd like to use this open-source app, you can download it from [GitHub](https://github.com/osTicket/osTicket).
 
 ## Business drivers
 
@@ -57,7 +57,7 @@ In this scenario:
 - The VMs are located on VMware ESXi host **contosohost1.contoso.com** (version 6.5).
 - The VMware environment is managed by vCenter Server 6.5 (**vcenter.contoso.com**), running on a VM.
 - Contoso has an on-premises datacenter (**contoso-datacenter**), with an on-premises domain controller (**contosodc1**).
-- Since the app is a production workloads, the VMs in Azure  will reside in the production resource group **ContosoRG**.
+- Since the app is a production workload, the VMs in Azure  will reside in the production resource group **ContosoRG**.
 - The VMs will be migrated to the primary region (East US 2) and placed in the production network (VNET-PROD-EUS2):
     - The web VM will reside in the frontend subnet (PROD-FE-EUS2).
     - The database VM will reside in the database subnet (PROD-DB-EUS2).
@@ -69,7 +69,7 @@ In this scenario:
 
 Contoso will migrate as follows:
 
-1. As a first step, Contoso sets up the Azure and on-premises infrastructure needed to deploy Site Recovery (ASR).
+1. As a first step, Contoso sets up the Azure and on-premises infrastructure needed to deploy Site Recovery.
 2. After preparing Azure and on-premises components, they set up and enable replication for the VMs.
 3. After replication is working, they migrate the VMs by failing them over to Azure.
 
@@ -89,7 +89,7 @@ Here's what you (and Contoso) need for this scenario.
 **Requirements** | **Details**
 --- | ---
 **Azure subscription** | You should have already created a subscription during early articles in this series. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.<br/><br/> If you need more granular permissions, review [this article](../site-recovery/site-recovery-role-based-linked-access-control.md). 
-**Azure infrastructure** | Contoso set up their Azure infrastrcture as described in [Azure infrastructure for migration](contoso-migration-infrastructure.md).<br/><br/> Learn more about specific [network](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) and [storage](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) requirements for Site Recovery.
+**Azure infrastructure** | Contoso set up their Azure infrastructure as described in [Azure infrastructure for migration](contoso-migration-infrastructure.md).<br/><br/> Learn more about specific [network](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) and [storage](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) requirements for Site Recovery.
 **On-premises servers** | Your on-premises vCenter server should be running version 5.5, 6.0, or 6.5<br/><br/> An ESXi host running version 5.5, 6.0 or 6.5<br/><br/> One or more VMware VMs running on the ESXi host.
 **On-premises VMs** | [Review Linux machines](https://docs.microsoft.com//azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines) that are supported for migration with Site Recovery.<br/><br/> Verify supported [Linux file and storage systems](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#linux-file-systemsguest-storage).<br/><br/> VMs must meet [Azure requirements](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).
 
@@ -115,7 +115,7 @@ Contoso needs a couple of Azure components for Site Recovery:
 
 Contoso already created the VNet during [Azure infrastructure deployment](contoso-migration-infrastructure.md), so they just need to create a storage account and vault.
 
-1. Contoso creates an Azure storage acount (contosovmsacc20180528) in the East US 2 region.
+1. Contoso creates an Azure storage account (contosovmsacc20180528) in the East US 2 region.
 
     - The storage account must be in the same region as the Recovery Services vault.
     - They're using a general purpose account, with standard storage, and LRS replication.
@@ -187,7 +187,7 @@ Before they can migrate the web VM to Azure, Contoso sets up and enables replica
 ### Set a protection goal
 
 1. In the vault, under the vault name (ContosoVMVault) they set a replication goal (**Getting Started** > **Site Recovery** > **Prepare infrastructure**.
-2. They specify that their machines are located on-premises, that they're VMware VMs, and that they want to replicate the to Azure.
+2. They specify that their machines are located on-premises, that they're VMware VMs, and that they want to replicate to Azure.
     ![Replication goal](./media/contoso-migration-rehost-linux-vm/replication-goal.png)
 
 ### Confirm deployment planning
@@ -242,7 +242,7 @@ Contoso perform these steps as follows:
 Now Contoso configures the target replication settings.
 
 1. In **Prepare infrastructure** > **Target**, they select the target settings.
-2. Site Recovery checks that there's a Azure storage account and network in the specified target.
+2. Site Recovery checks that there's an Azure storage account and network in the specified target.
 
 ### Create a replication policy
 
@@ -331,7 +331,7 @@ Running a test failover helps ensure that everything's working as expected befor
 2. They select **Shut down machine before beginning failover**, so that Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails. 
 3. Test failover runs: 
     - A prerequisites check runs to make sure all of the conditions required for migration are in place.
-    - Failover processes the data, so that an Azure VM can be created. If the latest recovery point is select, a recovery point is created from the data.
+    - Failover processes the data, so that an Azure VM can be created. If the latest recovery point is selected, a recovery point is created from the data.
     - An Azure VM is created using the data processed in the previous step.
 3. After the failover finishes, the replica Azure VM appears in the Azure portal. They check that the VM is the appropriate size, that it's connected to the right network, and that it's running. 
 4. After verifying, they clean up the failover, and record and save any observations.
@@ -376,7 +376,7 @@ Contoso are ready to run a failover on the recovery plan, to migrate the VMs.
 
     ![Failover](./media/contoso-migration-rehost-linux-vm/failover2.png)  
 
-3. After verifying the VM in Azure, they complete the migration to finish the migration process for each VM. This stops replication for the VM, and stop Site Recovery billing for the VM.
+3. After verifying the VM in Azure, they complete the migration to finish the migration process for each VM. This stops replication for the VM, and stops Site Recovery billing for the VM.
 
     ![Failover](./media/contoso-migration-rehost-linux-vm/failover3.png)
 
@@ -457,4 +457,4 @@ Contoso back up the data on the VMs using the Azure Backup service. [Learn more]
 
 In this article we showed how Contoso migrated an on-premises service desk app tiered on two Linux VMs to Azure IaaS VMs, using Azure Site Recovery.
 
-In the next article in the series, we'll show hyou how Contoso migrate the same service desk app to Azure. This time Contoso use using Site Recovery to migrate the frontend VM for the app, and they migrate the app database using backup and restore to Azure Database for MySQL, using the MySQL workbench tool. [Get started](contoso-migration-rehost-linux-vm-mysql.md).
+In the next article in the series, we'll show you how Contoso migrate the same service desk app to Azure. This time Contoso uses Site Recovery to migrate the frontend VM for the app, and they migrate the app database using backup and restore to Azure Database for MySQL, using the MySQL workbench tool. [Get started](contoso-migration-rehost-linux-vm-mysql.md).
