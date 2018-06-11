@@ -60,7 +60,7 @@ All triggers have these top-level elements, although some are optional:
 | Element | Type | Description | 
 |---------|------|-------------| 
 | <*triggerName*> | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
-| type | String | The trigger type, for example: "Http" or "ApiConnection" | 
+| type | String | The trigger type, for example, "Http" or "ApiConnection" | 
 | inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
 | recurrence | JSON Object | The frequency and interval that describes how often the trigger fires |  
 | frequency | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
@@ -1193,14 +1193,15 @@ performs these checks on the referenced function:
 
 *Example*
 
-This action definition calls an Azure function named "GetProductIDFunction":
+This action definition calls the previously 
+created "GetProductID" function:
 
 ```json
-"GetProductIDFunction": {
+"GetProductID": {
    "type": "Function",
    "inputs": {
      "function": {
-        "id": "/subscriptions/<XXXXXXXXXXXXXXXXXXXX>/resourceGroups/myLogicAppResourceGroup/providers/Microsoft.Web/sites/InventoryChecker/functions/GetProductIDFunction"
+        "id": "/subscriptions/<XXXXXXXXXXXXXXXXXXXX>/resourceGroups/myLogicAppResourceGroup/providers/Microsoft.Web/sites/InventoryChecker/functions/GetProductID"
       },
       "method": "POST",
       "headers": { 
@@ -1295,8 +1296,8 @@ and separates those items with the specified delimiter character.
 
 *Example*
 
-Suppose you have an array variable named "myIntegerArray" that contains integers, 
-for example: 
+Suppose you have a previously created "myIntegerArray" 
+variable that contains this integer array: 
 
 `[1,2,3,4]` 
 
@@ -1346,11 +1347,10 @@ easily reference the data in that output.
 
 *Example*
 
-This action definition creates these tokens, 
-which you can use at design time in your logic app workflow 
-but only in actions that run following the **Parse JSON** action. 
+This action definition creates these tokens that you can use in your logic app 
+workflow but only in actions that run following the **Parse JSON** action: 
 
-Here are the tokens that this action creates: "FirstName", "LastName", "Email"
+`FirstName`, `LastName`, and `Email`
 
 ```json
 "Parse_JSON": {
@@ -1722,7 +1722,8 @@ Otherwise, each unique header defines a unique column.
 
 *Example 1*
 
-Suppose you have an array variable named "myItemArray" that currently contains this array: 
+Suppose you have a previously created "myItemArray" 
+variable that currently contains this array: 
 
 `[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
 
@@ -1836,8 +1837,8 @@ including sequential loops.
 
 *Optional*
 
-The properties for the "runStatus" object apply 
-only when the "runStatus" property value is "Failed".
+The properties for the "runStatus" object apply only 
+when the "runStatus" property is set to "Failed" status.
 
 | Value | Type | Description | 
 |-------|------|-------------| 
