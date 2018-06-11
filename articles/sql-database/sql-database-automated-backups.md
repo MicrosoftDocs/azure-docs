@@ -98,7 +98,7 @@ You can change the default retention using REST API or PowerShell. The supported
 Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 > [!IMPORTANT]
-> This API is included in AzureRM.Sql PowerShell Module starting from version 4.7.0-preview. 
+> This API is included in AzureRM.Sql PowerShell Module starting from version [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview). 
 
 ### Change PITR retention period using REST API
 **Sample Request**
