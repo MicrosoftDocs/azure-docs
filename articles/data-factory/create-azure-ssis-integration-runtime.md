@@ -69,7 +69,7 @@ In this section, you use the Azure portal, specifically the Data Factory UI, to 
  
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name �MyAzureSsisDataFactory� is not available`
+       `Data factory name "MyAzureSsisDataFactory" is not available`
 
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
