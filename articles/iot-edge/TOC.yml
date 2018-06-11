@@ -67,9 +67,9 @@
   - name: Develop and test modules
     items:
     - name: C#
-      href: how-to-develop-csharp-module-vscode.md
+      href: how-to-develop-csharp-module.md
     - name: Azure Functions
-      href: how-to-vscode-debug-azure-function.md
+      href: how-to-develop-csharp-function.md
   - name: Deploy modules
     items:
     - name: Azure portal

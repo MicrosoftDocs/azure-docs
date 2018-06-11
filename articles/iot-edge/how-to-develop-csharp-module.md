@@ -32,11 +32,10 @@ To create a module, you need .NET which builds the project folder, Docker to bui
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
-To test your module on a device, you need an active IoT hub with at least one IoT Edge device. If you want to use your computer as an IoT Edge device, you can do so by following the steps in the tutorials for [Windows](tutorial-simulate-device-windows.md) or [Linux and Mac](tutorial-simulate-device-linux.md). 
+   >[!TIP]
+   >You can use a local Docker registry for prototype and testing purposes, instead of a cloud registry. 
 
-<!--- - A local Docker registry running on your development machine. It is suggested to use a local Docker registry for prototype and testing purpose. You can update the container registry in the `module.json` file in each module folder.
-- An Edge runtime running on your development machine.
---->
+To test your module on a device, you need an active IoT hub with at least one IoT Edge device. If you want to use your computer as an IoT Edge device, you can do so by following the steps in the tutorials for [Windows](tutorial-simulate-device-windows.md) or [Linux and Mac](tutorial-simulate-device-linux.md). 
 
 ## Create a new solution template
 
@@ -51,7 +50,7 @@ The following steps show you how to create an IoT Edge module based on .NET Core
 3. In Visual Studio Code, select **View** > **Command Palette**. 
 4. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge Solution**.
 
-   ![Run New IoT Edge Solution](./media/how-to-develop-csharp-module-vscode/new-solution.png)
+   ![Run New IoT Edge Solution](./media/how-to-develop-csharp-module/new-solution.png)
 
 5. Browse to the folder where you want to create the new solution, and click **Select folder**. 
 6. Provide a name for your solution. 
@@ -61,7 +60,7 @@ The following steps show you how to create an IoT Edge module based on .NET Core
 
 VS Code takes the information you provided, creates an IoT Edge solution, then loads it in a new window.
 
-![View IoT Edge solution](./media/how-to-develop-csharp-module-vscode/view-solution.png)
+   ![View IoT Edge solution](./media/how-to-develop-csharp-module/view-solution.png)
 
 Within the solution you have three items: 
 * A **.vscode** folder contains debug configurations.
@@ -74,7 +73,7 @@ In each module folder, there are multiple Docker files for different container t
 
 1. In VS Code, navigate to the `deployment.template.json` file. Update your function image URL by adding **.debug** to the end.
 
-   ![Add .debug to your image name](./media/how-to-develop-csharp-module-vscode/image-debug.png)
+   ![Add .debug to your image name](./media/how-to-develop-csharp-module/image-debug.png)
 
 2. In the VS Code command palette, type and run the command **Edge: Build IoT Edge solution**.
 3. Select the `deployment.template.json` file for your solution from the command palette. 
@@ -92,7 +91,7 @@ If you aren't familiar with the debugging capabilities of Visual Studio Code, re
 VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace. This `launch.json` file was generated when you created a new IoT Edge solution. It updates each time you add a new module that supports debugging. 
 
 1. Navigate to the VS Code debug view and select the debug configuration file for your module.
-    ![Select debug configuration](./media/how-to-develop-csharp-module-vscode/debug-config.png)
+    ![Select debug configuration](./media/how-to-develop-csharp-module/debug-config.png)
 
 2. Navigate to `program.cs`. Add a breakpoint in this file.
 
@@ -104,5 +103,5 @@ The preceding example shows how to debug .NET Core IoT Edge modules on container
 
 ## Next steps
 
-[Use Visual Studio Code to debug Azure Functions with Azure IoT Edge](how-to-vscode-debug-azure-function.md)
+[Use Visual Studio Code to debug Azure Functions with Azure IoT Edge](how-to-develop-csharp-function.md)
 
