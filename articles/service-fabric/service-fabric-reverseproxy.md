@@ -170,7 +170,7 @@ First, you get the template for the cluster that you want to deploy. You can eit
 
     ```json
     {
-        "apiVersion": "2016-09-01",
+        "apiVersion": "2017-07-01-preview",
         "type": "Microsoft.ServiceFabric/clusters",
         "name": "[parameters('clusterName')]",
         "location": "[parameters('clusterLocation')]",
@@ -190,7 +190,7 @@ First, you get the template for the cluster that you want to deploy. You can eit
 
     ```json
     {
-        "apiVersion": "[variables('lbApiVersion')]",
+        "apiVersion": "2017-10-01",
         "type": "Microsoft.Network/loadBalancers",
         ...
         ...
@@ -203,16 +203,16 @@ First, you get the template for the cluster that you want to deploy. You can eit
                         "id": "[variables('lbPoolID0')]"
                     },
                     "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
+                    "enableFloatingIP": false,
                     "frontendIPConfiguration": {
                         "id": "[variables('lbIPConfig0')]"
                     },
                     "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
+                    "idleTimeoutInMinutes": 5,
                     "probe": {
                         "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
                     },
-                    "protocol": "tcp"
+                    "protocol": "Tcp"
                 }
             }
         ],
@@ -224,7 +224,7 @@ First, you get the template for the cluster that you want to deploy. You can eit
                     "intervalInSeconds": 5,
                     "numberOfProbes": 2,
                     "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
+                    "protocol": "Tcp"
                 }
             }  
         ]
@@ -234,7 +234,7 @@ First, you get the template for the cluster that you want to deploy. You can eit
 
     ```json
     {
-        "apiVersion": "2016-09-01",
+        "apiVersion": "2017-07-01-preview",
         "type": "Microsoft.ServiceFabric/clusters",
         "name": "[parameters('clusterName')]",
         "location": "[parameters('clusterLocation')]",
