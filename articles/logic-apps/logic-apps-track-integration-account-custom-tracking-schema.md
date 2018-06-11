@@ -2,7 +2,7 @@
 title: Custom tracking schemas for B2B monitoring - Azure Logic Apps | Microsoft Docs
 description: Create custom tracking schemas to monitor B2B messages from transactions in your Azure Integration Account.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
