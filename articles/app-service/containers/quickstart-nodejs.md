@@ -37,7 +37,17 @@ You'll complete this quickstart in Cloud Shell, but you can also run these comma
 
 To complete this quickstart, you will need to add the [az web app extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). If the extension is already installed, you should update it to the latest version. To update the web app extension, type `az extension update -n webapp`.
 
-To install the webapp extension, type `az extension add -n webapp`.
+To install the webapp extension, run the following command:
+
+```bash
+az extension add -n webapp
+```
+
+When the extension has been installed, the Cloud Shell shows information to the following example:
+
+```bash
+The installed extension 'webapp' is in preview.
+```
 
 ## Download the sample
 
@@ -55,6 +65,16 @@ Next, run the following command to clone the sample app repository to your local
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
+While running, it displays information similar to the following example:
+
+```bash
+Cloning into 'nodejs-docs-hello-world'...
+remote: Counting objects: 40, done.
+remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
+Unpacking objects: 100% (40/40), done.
+Checking connectivity... done.
+````
+
 ## Create a web app
 
 Change to the directory that contains the sample code and run the `az webapp up` command.
@@ -66,16 +86,6 @@ cd nodejs-docs-hello-world
 
 az webapp up -n <app_name>
 ```
-
-The `az webapp up` command does the following:
-
-- Create a default resource group.
-
-- Create a default app service plan.
-
-- Create an app with the specified name.
-
-- [Zip deploy](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) files from the current working directory to the web app.
 
 This command may take a few minutes to run. While running, it displays information similar to the following example:
 
@@ -113,6 +123,16 @@ All done.
 }
 ```
 
+The `az webapp up` command does the following actions:
+
+- Create a default resource group.
+
+- Create a default app service plan.
+
+- Create an app with the specified name.
+
+- [Zip deploy](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) files from the current working directory to the web app.
+
 ## Browse to the app
 
 Browse to the deployed application using your web browser. Replace <app_name> with your web app name.
@@ -129,13 +149,17 @@ The Node.js sample code is running in a web app with built-in image.
 
 ## Update and redeploy the code
 
-In the Cloud Shell, open the `index.js` file in the Node.js app. Type `nano index.js` and make a small change to the text in the call to `response.end`:
+In the Cloud Shell, type `nano index.js` to open the nano text editor.
+
+![Nano index.js](media/quickstart-nodejs/nano-indexjs.png)
+
+ Make a small change to the text in the call to `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");
 ```
 
-Save your changes and exit nano.
+Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 
 You'll now redeploy the app. Substitute `<app_name>` with your web app.
 
