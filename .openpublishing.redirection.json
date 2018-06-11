@@ -22201,6 +22201,11 @@
             "source_path": "articles/azure-stack/asdk/asdk-create-vm-template.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-create-vm-template",
             "redirect_document_id": false
+     },
+     {
+            "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
+            "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+            "redirect_document_id": false
      }
     ]
 }
