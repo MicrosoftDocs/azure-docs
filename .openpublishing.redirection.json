@@ -19226,6 +19226,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack-install-visual-studio.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-install-visual-studio",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/monitoring/management-overview-monitoring.md",
             "redirect_url": "/azure/monitoring/",
             "redirect_document_id": false
