@@ -36,28 +36,20 @@
       href: custom-script-linuxOstc.md
     - name: Windows
       href: custom-script-windows.md
-  - name: Diagnostics 
+  - name: IaaS antimalware for Windows
+    href: iaas-antimalware-windows.md
+  - name: VM Snapshot 
     items:
     - name: Linux
-      href: diagnostics-linux.md
+      href: vmsnapshot-linux.md
     - name: Windows
-      href: diagnostics-windows.md
-    - name: Use templates
-      href: diagnostics-template.md
-  - name: IaaS antimalware for Windows
-      href: iaas-antimalware-windows.md
+      href: vmsnapshot-windows.md
   - name: Network Watcher Agent
     items:
     - name: Linux
       href: network-watcher-linux.md
     - name: Windows
       href: network-watcher-windows.md
-  - name: NVIDIA GPU Drivers
-    items:
-    - name: Linux
-      href: hpccompute-gpu-linux.md
-    - name: Windows
-      href: hpccompute-gpu-windows.md
   - name: Operations Management suite
     items:
     - name: Linux
@@ -76,13 +68,21 @@
     - name: Use templates
       href: dsc-template.md
   - name: Virtual machine access
-      href: vmaccess.md
-  - name: VM Snapshot 
+    href: vmaccess.md
+  - name: NVIDIA GPU Drivers
     items:
     - name: Linux
-      href: vmsnapshot-linux.md
+      href: hpccompute-gpu-linux.md
     - name: Windows
-      href: vmsnapshot-windows.md
+      href: hpccompute-gpu-windows.md
+  - name: Virtual machine Diagnostics 
+    items:
+    - name: Linux
+      href: diagnostics-linux.md
+    - name: Windows
+      href: diagnostics-windows.md
+    - name: Use templates
+      href: diagnostics-template.md
   - name: Third-party extensions
     items:
     - name: Stackify Retrace
