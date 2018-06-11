@@ -64,7 +64,7 @@ A cloud operator can add an add-on plan to a previously created subscription at 
 
 ## Create a subscription as a user
 
-As a user, you can sign in to the user portal to locate and subscribe to public offers and add-on plans for your directory tenant (organization.)
+As a user, you can sign in to the user portal to locate and subscribe to public offers and add-on plans for your directory tenant (organization).
 
 >[!NOTE]
 >If your Azure Stack environment supports [multi-tenancy](azure-stack-enable-multitenancy.md) you can also subscribe to offers from a remote directory tenant.
