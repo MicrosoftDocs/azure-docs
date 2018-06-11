@@ -63,7 +63,9 @@ var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KE
 ```
 Use the client to search images and parse results:
 ```
+PATH = 'C:\\Users\\USER\\azure-cognitive-samples\\mytestenv\\TestImages\\'
 image_path = os.path.join(PATH, "image.jpg")
+
 with open(image_path, "rb") as image_fd:
 
     # You need to pass the serialized form of the model
@@ -108,7 +110,7 @@ import json
 import os.path
 
 # Replace the subscriptionKey string value with your valid subscription key.
-subscription_key = 'f4967b8529404d1bb076d56d66b5c21f'
+subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
 
 PATH = 'C:\\Users\\v-gedod\\azure-cognitive-samples\\mytestenv\\TestImages\\'
 
