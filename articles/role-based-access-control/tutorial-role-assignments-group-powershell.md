@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/26/2018
+ms.date: 06/11/2018
 ms.author: rolyon
 
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant permissions for groups to resources so that they can perform their job.
@@ -21,7 +21,7 @@ ms.author: rolyon
 
 # Tutorial: Assign a role to a group using Azure PowerShell
 
-[Role-based access control (RBAC)](overview.md) is the way that you control access to resources in Azure. In this tutorial, you assign roles to grant access to a group at different scopes using Azure PowerShell.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. In this tutorial, you assign roles to grant access to a group at different scopes using Azure PowerShell.
 
 In this tutorial, you learn how to:
 
@@ -291,4 +291,4 @@ To clean up the resources created by this tutorial, delete the resource group an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a custom role using PowerShell](tutorial-custom-roles-powershell.md)
+> [Manage role-based access control with Azure PowerShell](role-assignments-powershell.md)
