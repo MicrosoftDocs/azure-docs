@@ -132,6 +132,8 @@ In the left menu, click **Deployment Center** > **GitHub** or **VSTS** or **BitB
 
 ![](media/app-service-continuous-deployment/disable.png)
 
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
 ## Additional Resources
 
 * [How to investigate common issues with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)

@@ -4,7 +4,7 @@ description: Create logic apps with the SharePoint Online connector to mange lis
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 
