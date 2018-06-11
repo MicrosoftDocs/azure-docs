@@ -28,28 +28,16 @@ To use update management, you need:
 
 ## Supported operating systems
 
-Update management is supported on the following operating systems.
+Update management is supported on the following operating systems:
 
-### Windows
-
-- Windows Server 2008 and later, and update deployments against Windows Server 2008 R2 SP1 and later. Nano Server is not supported.
-
-  Support for deploying updates to Windows Server 2008 R2 SP1 requires Microsoft .NET Framework 4.5 and Windows Management Framework 5.0 or later.
-
-- Windows client operating systems are not supported.
-
-Windows agents must be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.
-
-> [!NOTE]
-> System Center Configuration Manager cannot manage the Windows agent concurrently.
->
-
-### Linux
-
-- CentOS 6 (x86/x64) and 7 (x64)
-- Red Hat Enterprise 6 (x86/x64) and 7 (x64)
-- SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)
-- Ubuntu 12.04 LTS and later (x86/x64)
+|Operating system  |Notes  |
+|---------|---------|
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
+|Windows Server 2008 R2 SP1 and later     |Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
+|CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
+|Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
+|SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
 > [!NOTE]
 > To prevent updates from being applied outside a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For more information, see the [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
@@ -146,11 +134,11 @@ In the **New update deployment** pane, specify the following information:
   - Definition updates
   - Tools
   - Updates
+- **Updates to exclude** - This opens the **Exclude** page. Enter in the KBs or package names to exclude.
 - **Schedule settings**: You can leave the default date and time, which is 30 minutes after the current time. Or, you can specify a different time.
    You can also specify whether the deployment occurs once or on a recurring schedule. To set up a recurring schedule, under **Recurrence**, select **Recurring**.
 
    ![Schedule Settings dialog box](./media/manage-update-multi/update-set-schedule.png)
-
 - **Maintenance window (minutes)**: Specify the period of time for when you want the update deployment to occur. This setting helps ensure that changes are performed within your defined service windows.
 
 When you're finished configuring the schedule, return to the status dashboard by selecting the **Create** button. The **Scheduled** table shows the deployment schedule that you created.

@@ -56,12 +56,12 @@ The following table shows a list of supported operating systems:
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later     |Windows PowerShell 4.0 or later is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br/> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments         |
+|Windows Server 2008 R2 SP1 or later     |Microsoft .NET Framework 4.5 or later is required. ([Download .NET Framework](/dotnet/framework/install/guide-for-developers)).</br> Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+|Ubuntu 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
 ### Unsupported client types
 
@@ -171,7 +171,7 @@ In your Automation account, select **Update Management** to view the status of y
 
 This view provides information about your machines, missing updates, update deployments, and scheduled update deployments.
 
-To run a log search that returns information about the machine, update, or deployment, select the item in the list. This opens the **Log Search** pane, with a query for the item selected.
+![Update management default view](media/automation-update-management/update-management-view.png)
 
 ## Install updates
 
@@ -202,13 +202,12 @@ To create a new update deployment, select **Schedule update deployment**. The **
 
 | Property | Description |
 | --- | --- |
-|Name |Unique name to identify the update deployment. |
+| Name |Unique name to identify the update deployment. |
 |Operating System| Select Linux or Windows.|
-|Machines to update |Select a saved search or select **Machine** from the drop-down list, and then select individual machines. |
+| Machines to update |Select a saved search or select **Machine** from the drop-down list, and then select individual machines. |
 |Update classifications|Select all the update classifications that you need.|
-|Updates to exclude|Enter all the knowledge base articles (KBs) to exclude without using the *KB* prefix.|
-|Schedule settings|Select the time to start, and then select either **Once** or **Recurring** for the recurrence|
-| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes or more than 6 hours. |
+|Updates to exclude|Enter the updates to exclude. For Windows, enter the Knowledge Base article without the *KB* prefix. For Linux, enter the package name or use a wildcard.  |
+|Schedule settings|Select the time to start, and select either **Once** or **Recurring** for recurrence.|| Maintenance window. |Number of minutes set for updates. The value can be not be less than 30 minutes or more than 6 hours. |
 
 ## Update classifications
 

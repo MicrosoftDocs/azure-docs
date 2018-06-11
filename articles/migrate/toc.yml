@@ -14,7 +14,7 @@
     href: concepts-collector.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
-  - name: Dependency visualization
+  - name: About dependency visualization
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
@@ -25,9 +25,13 @@
     - name: 2. Contoso-Set up an Azure infrastructure
       href: contoso-migration-infrastructure.md
     - name: 3. Contoso-Assess on-premises resources for migration to Azure
-      href: migrate-scenarios-assessment.md
-    - name: 4. Contoso-Rehost on Azure VMs and Azure SQL Managed Instance 
-      href: migrate-scenarios-lift-and-shift.md
+      href: contoso-migration-assessment.md
+    - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Managed Instance
+      href: contoso-migration-rehost-vm-sql-managed-instance.md
+    - name: 5. Contoso-Rehost an app on Azure VMs
+      href: contoso-migration-rehost-vm.md
+    - name: 6. Contoso-Rehost an app on Azure VMs and Azure SQL AlwaysOn
+      href: contoso-migration-rehost-vm-sql-ag.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines
@@ -48,4 +52,5 @@
     href: https://azure.microsoft.com/migrate
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  
+  - name: FAQ
+    href: resources-faq.md
