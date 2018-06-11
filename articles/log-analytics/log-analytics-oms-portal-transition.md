@@ -12,21 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2018
+ms.date: 06/11/2018
 ms.author: bwren
 
 ---
 # OMS portal moving to Azure
 Thank you for using the OMS portal. We are encouraged by your support and continue to invest heavily in our monitoring and management services. One piece of feedback heard repeatedly from customers is the need for a single user experience to monitor and manage both on-premises and Azure workloads. You probably know the Azure portal is the hub for all Azure services and offers a rich management experience with capabilities such as dashboards for pinning resources, intelligent search for finding resources, and tagging for resource management. To consolidate and streamline the monitoring and management workflow, we started adding the OMS portal capabilities into the Azure portal. We are happy to announce most of the features of the OMS portal are now part of the Azure portal. In fact, some of the new features such as Traffic Manager are only available in the Azure portal. There are only a few gaps remaining, the most impactful being five solutions that are still in the process to be moved to Azure portal. If you are not using these features, you will be able to accomplish everything you were doing in the OMS portal with the Azure portal and more. If you haven’t already done so, we recommend you start using the Azure portal today! 
 
-We expect to close down the remaining gaps between the two portals soon. Based on feedback from customers, we will communicate the timeline for sunsetting the OMS portal. We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. The rest of this article goes over the key scenarios, the current gaps, and the roadmap for this transition. 
+We expect to close down the remaining gaps between the two portals by August 2018. Based on feedback from customers, we will communicate the timeline for sunsetting the OMS portal. We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. The rest of this article goes over the key scenarios, the current gaps, and the roadmap for this transition. 
 
 
 ## What will change? 
 The following changes are being announced with the deprecation of the OMS portal. Each of these changes is described in more detail in the sections below.
 
-- The new alert management experience will replace the Alert Management solution. 
-- The Application Insights Connector and solution are no longer required and will be deprecated.
+- The new alert management experience will replace the Alert Management solution.
+- User access management will be done in the Azure portal using Azure role-based access control.
+- The Application Insights Connector and solution are no longer required since the same functionality can be enabled through cross-workspace queries.
 - The OMS Mobile App will be deprecated. 
 - The NSG solution is being replaced with enhanced functionality available via Traffic Analytics solution.
 
@@ -59,9 +60,9 @@ Instead of the [alert management solution](log-analytics-solution-alert-manageme
 The data collected by the Alert Management solution (records with a type of Alert) continues to be in Log Analytics as long as the solution is installed for the workspace. Starting August 2018, streaming of alerts from unified alerting into workspaces will be enabled, replacing this capability. Some schema changes are expected and will be announced at a later date.
 
 ## User access and role migration
-Azure portal access management is richer and more powerful than the access management in the OMS Portal, but it does require some conversions. See [Manage workspaces](log-analytics-manage-access.md) for details of access management in Log Analytics.
+Azure portal access management is richer and more powerful than the access management in the OMS Portal, but it does require some conversions. See [Manage workspaces](log-analytics-manage-access.md#manage-accounts-and-users) for details of access management in Log Analytics.
 
-Starting June 25, automatic conversion of the access control permissions from the OMS portal to Azure portal permissions will start. Once the conversion is completed, the access management in OMS Portal will route users to Azure portal. 
+Starting June 25 and continuing through July, automatic conversion of the access control permissions from the OMS portal to Azure portal permissions will start. Once the conversion is completed, the OMS Portal user management section will route users to Access control (IAM) in Azure. 
 
 During the conversion, the system will check each user or security group that has permissions in the OMS portal and determine if it has same level or permissions in Azure. If permissions are missing, it will assign the following roles for the relevant workspaces and solutions.
 
