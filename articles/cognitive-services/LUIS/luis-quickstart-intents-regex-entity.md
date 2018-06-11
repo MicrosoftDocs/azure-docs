@@ -195,7 +195,7 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [!div class="nextstepaction"]
 > [Learn about the KeyPhrase entity](luis-quickstart-intent-and-key-phrase.md)
 
-Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
+Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract any numbers. 
 
 Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract dates, times, and datetime ranges.
 

@@ -123,25 +123,63 @@ Return to the browser tab for the LUIS website and create a new intention to app
     | Example utterances|
     |--|
     |I want to apply for the new account job|
-    |Fill out application for Job #123456|
-    |Submit resum for engineering position|
-    |Here is my c.v. for position #654234|
-    |Job #567890 and my paperwork|
-    ||
-    |Are there any new positions in the Seattle office?|
+    |Fill out application for Job 123456|
+    |Submit resume for engineering position|
+    |Here is my c.v. for position 654234|
+    |Job 567890 and my paperwork|
 
-    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot of entering new utterances for ApplyForJob intent")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+
+    The labeled intent is outlined in red because is LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
+
+## Train and publish the app
+Adding a new intent and new utterances changes the LUIS model. In order for LUIS to know about these changes, train the app. In order for the changes to be available on the endpoint, publish the app.
+
+1. In the top right side of the LUIS website, select the **Train** button. 
+
+    ![Train button](./media/luis-quickstart-intents-only/train-button.png)
+
+    Training is complete when you see the green status bar at the top of the website confirming success.
+
+    ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
+
+2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button. Publishing is complete when you see the green status bar at the top of the website confirming success.
+
+## Query endpoint with a different utterance
+On the **Publish** page, select the **endpoint** link at the bottom of the page. In the new browser window, enter `Can I submit my resume for job 235986` at the end of the URL. 
+
+    ```
+    {
+      "query": "Can I submit my resume for job 235986",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.9166808
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.9166808
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.07162977
+        },
+        {
+          "intent": "None",
+          "score": 0.0262826588
+        }
+      ],
+      "entities": []
+    }
+    ```
 
 ## What has this LUIS app accomplished?
-This app, with just two intents, identified a natural language query that is of the same intention but worded differently. 
+This app, with just a few intents, identified a natural language query that is of the same intention but worded differently. 
 
-The JSON result identifies the top scoring intent `GetStoreInfo` with a score of 0.984749258. All scores are between 1 and 0, with the better score being close to 1. The `None` intent's score is 0.2040639, much closer to zero. 
+The JSON result identifies the top scoring intent. All scores are between 1 and 0, with the better score being close to 1. The `None` intent's score is much closer to zero. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and either find information (not stored in LUIS) to answer the question or can send the user to the store's website page containing the information. There are other programmatic options for the bot or calling application. LUIS doesn't do that work. LUIS only determines what the user's intention is. 
-
-## What about entities? 
-This LUIS app is so simple that it doesn't need entities yet. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and either find information (not stored in LUIS) to answer the question or end the conversation. These are programmatic options for the bot or calling application. LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
@@ -151,7 +189,7 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [!div class="nextstepaction"]
 > [Learn how to add a simple entity to your app](luis-quickstart-primary-and-secondary-data.md)
 
-Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
+Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract any numbers. 
 
 Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract dates, times, and datetime ranges.
 
