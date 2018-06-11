@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-
+ 
 ---
 
 # Azure consumption API overview 

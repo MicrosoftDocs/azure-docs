@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/23/2016
-ms.author: mbullwin; borooji
+ms.author: mbullwin
 
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK
