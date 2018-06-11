@@ -104,7 +104,7 @@ To test the OpenFaaS system, browse to the external IP address on port 8080, `ht
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
-Finally, install the OpenFaaS CLI. This exmaple used brew, see the [OpenFaaS CLI documentation][open-faas-cli] for more options.
+Finally, install the OpenFaaS CLI. This example used brew, see the [OpenFaaS CLI documentation][open-faas-cli] for more options.
 
 ```console
 brew install faas-cli
