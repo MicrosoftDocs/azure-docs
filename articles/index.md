@@ -273,6 +273,12 @@ featureFlags:
                                                             Visual Studio Team Services
                                                         </a>
                                                     </li>
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Learn DevOps with Azure
+                                                        </a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
