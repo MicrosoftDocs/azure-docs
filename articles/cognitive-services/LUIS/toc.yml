@@ -101,6 +101,8 @@
     items:
     - name: Prediction score
       href: luis-concept-prediction-score.md
+    - name: Review endpoint utterances
+      href: luis-concept-review-endpoint-utterances.md
     - name: Phrase lists
       href: luis-concept-feature.md
     - name: Patterns
