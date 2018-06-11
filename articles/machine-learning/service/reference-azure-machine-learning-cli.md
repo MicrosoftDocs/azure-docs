@@ -10,10 +10,10 @@ ms.date: 07/27/2018
 ---
 # What is the Azure Machine Learning command line interface (CLI) extension?
 
-The Azure Machine Learning CLI, an extension of Azure CLI 2.0, enables data scientists and developers to quickly automate and productionalize machine learning workflows on Azure Machine learning services, to train, track and version, containerize and deploy models.
+The Azure Machine Learning CLI enables data scientists and developers to quickly automate machine learning workflows on Azure Machine Learning services. The CLI is an extension of Azure CLI 2.0 which can be used to train, track and version, containerize and deploy models.
 
 **Try these next steps for this CLI**
 
-+ [Install the CLI and get started]()quickstart-set-up-in-cli.md
++ [Install the CLI and get started](quickstart-set-up-in-cli.md)
 
 + [Azure Machine Learning CLI reference documentation]()
