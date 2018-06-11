@@ -322,14 +322,18 @@ In the **Add server endpoint** pane, enter the following information to create a
 To add the server endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server. 
 
 # [PowerShell](#tab/powershell)
+Execute the following PowerShell commands to create the server endpoint, and be sure to replace `<server-endpoint-path>` and `<your-volume-free-space>` with the desired values.
+
 ```PowerShell
-$serverEndpointPath = "<server-endpoint-path>"
+$serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
+$volumeFreeSpacePercentage = <your-volume-free-space>
 
 if ($cloudTieringEnabled) {
     # Ensure endpoint path is not the system volume
     $directoryRoot = [System.IO.Directory]::GetDirectoryRoot("C:\shares\myserverendpoint")
-    if ($directoryRoot -eq "C:\") {
+    $osVolume = "$($env:SystemDrive)\"
+    if ($directoryRoot -eq $osVolume) {
         throw [System.Exception]::new("Cloud tiering cannot be enabled on the system volume")
     }
 
@@ -341,7 +345,7 @@ if ($cloudTieringEnabled) {
         -ServerLocalPath "<FullPath>" `
         -FriendlyName $registeredServer.DisplayName `
         -CloudTiering `
-        -VolumeFreeSpacePercent 10
+        -VolumeFreeSpacePercent $volumeFreeSpacePercentage
 }
 else {
     # Create server endpoint
