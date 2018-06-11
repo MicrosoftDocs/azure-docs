@@ -4,7 +4,7 @@ description: Patterns for error and exception handling in Logic Apps.
 services: logic-apps
 documentationcenter: 
 author: dereklee
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4

@@ -6,9 +6,9 @@ services: logic-apps
 ms.service: logic-apps
 author: kevinlam1
 ms.author: klam 
-manager: cfowler 
-ms.topic: reference
+manager: jeconnoc
 ms.date: 05/01/2018
+ms.topic: reference
 
 # optional metadata
 ms.reviewer: klam, LADocs
