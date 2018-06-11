@@ -5,6 +5,10 @@
 - name: Role-based access control (RBAC)
   href: overview.md
   items:
+  - name: Quickstarts
+    items:
+    - name: Assign a role to a user - Portal
+      href: quickstart-assign-role-user-portal.md
   - name: Tutorials
     items:
     - name: Assign a role to a user - PowerShell
