@@ -17,12 +17,12 @@ You can use Azure Backup to protect (or back up) files and applications on Azure
 > Though Azure Backup Server and System Center Data Protection Manager (DPM) are similar, DPM is not supported for use with Azure Stack.
 >
 
-This article does not cover installing Azure Backup Server in the Azure Stack environment. To install Azure Backup Server on Azure Stack, see the article, [Preparing to back up workloads using Azure Backup Server](backup-mabs-install-azure-stack.md).
+This article does not cover installing Azure Backup Server in the Azure Stack environment. To install Azure Backup Server on Azure Stack, see the article, [Installing Azure Backup Server](backup-mabs-install-azure-stack.md).
 
 
-## Back up Azure Stack VM file data to Azure
+## Back up Azure Stack Files to Azure
 
-To configure Azure Backup Server to protect IaaS virtual machines, open the Azure Backup Server console. You'll use the console to configure protection groups and to protect the data on your virtual machines.
+To configure Azure Backup Server to protect Files in Azure Stack VMs virtual machines, open the Azure Backup Server console. You'll use the console to configure protection groups and to protect the data on your virtual machines.
 
 1. In the Azure Backup Server console, click **Protection** and in the toolbar, click **New** to open the **Create New Protection Group** wizard.
 
@@ -44,13 +44,13 @@ To configure Azure Backup Server to protect IaaS virtual machines, open the Azur
 
     ![New Protection group wizard opens](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft recommends putting all virtual machines that will share a protection policy, into one protection group. For complete information about planning and deploying protection groups, see the System Center DPM article, [Deploy Protection Groups](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft recommends putting all data that will share a protection policy, into one protection group. For complete information about planning and deploying protection groups, see the System Center DPM article, [Deploy Protection Groups](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
 4. In the **Select Data Protection Method** screen, type a name for the protection group. Select the checkbox for **I want short-term protection using:** and **I want online protection**. Click **Next**.
 
     ![New Protection group wizard opens](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    To select **I want online protection**, you must first select **I want short-term protection using:** Disk. Azure Backup Server can't protect to tape, so disk is the only choice for short-term protection.
+    To select **I want online protection**, you must first select **I want short-term protection using:** Disk. Azure Backup Server does not protect to tape, so disk is the only choice for short-term protection.
 
 5. In the **Specify Short-Term Goals** screen, choose how long to retain the recovery points saved to disk, and when to save incremental backups. Click **Next**.
 
@@ -111,7 +111,6 @@ Use Azure Backup Server console to recover data to your virtual machine.
     * For **Existing version recovery behavior**, select **Create copy**, **Skip**, or **Overwrite**. Overwrite is available only when recovering to the original location.
     * For **Restore security**, choose **Apply settings of the destination computer** or **Apply the security settings of the recovery point version**.
     * For **Network bandwidth usage throttling**, click **Modify** to enable network bandwidth usage throttling.
-    * Select **Enable SAN-based recovery using hardware snapshots** to use SAN-based hardware snapshots for quicker recovery. This option is valid only when you have a SAN where hardware-snapshot functionality is enabled. To make the recovery point writable, the SAN must be able to create a clone and split a clone. The protected VM and Azure Backup Server must be connected to the same SAN.
     * **Notification** Click **Send an e-mail when the recovery completes**, and specify the recipients who will receive the notification. Separate the e-mail addresses with commas.
     * After making the selections, click **Next**
 
