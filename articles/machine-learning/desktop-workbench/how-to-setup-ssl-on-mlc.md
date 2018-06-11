@@ -19,7 +19,7 @@ ROBOTS: NOINDEX
 # Enable SSL on an Azure Machine Learning Compute (MLC) cluster 
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
-**Find the new quickstarts and tutorials on this [landing page](../service/).**
+**Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
 
 
 These instructions allow you to set up SSL for scoring calls on a Machine Learning Compute (MLC) cluster. 

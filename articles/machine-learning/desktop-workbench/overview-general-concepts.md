@@ -20,7 +20,7 @@ ROBOTS: NOINDEX
 
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
-**Find the new quickstarts and tutorials on this [landing page](../service/).**
+**Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
 
 
 This article defines and describes the concepts you need to know to use Azure Machine Learning. 

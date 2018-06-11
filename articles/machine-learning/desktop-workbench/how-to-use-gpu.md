@@ -17,7 +17,7 @@ ROBOTS: NOINDEX
 # How to use GPU in Azure Machine Learning
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
-**Find the new quickstarts and tutorials on this [landing page](../service/).**
+**Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
 
 Graphical Processing Unit (GPU) is widely used to process computationally intensive tasks that can typically happen when training certain deep neural network models. By using GPUs, you can reduce the training time of the models significantly. In this document, you learn how to configure Azure ML Workbench to use  [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) equipped with GPUs as execution target. 
 

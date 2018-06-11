@@ -20,7 +20,7 @@ ROBOTS: NOINDEX
 # Tutorial 1: Classify Iris - Preparing the data
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
-**Find the new quickstarts and tutorials on this [landing page](../service/).**
+**Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
 
 Azure Machine Learning service (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 

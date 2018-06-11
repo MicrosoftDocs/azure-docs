@@ -18,7 +18,7 @@ ROBOTS: NOINDEX
 # Azure Machine Learning Model Management
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
-**Find the new quickstarts and tutorials on this [landing page](../service/).**
+**Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
 
 
 Azure Machine Learning Model Management enables you to manage and deploy machine-learning workflows and models. 

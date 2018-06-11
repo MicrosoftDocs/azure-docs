@@ -18,7 +18,7 @@ ROBOTS: NOINDEX
 # How to Use Microsoft Machine Learning Library for Apache Spark
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
-**Find the new quickstarts and tutorials on this [landing page](../service/).**
+**Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
 
 
 ## Introduction
