@@ -1,6 +1,6 @@
 ---
 title: Create Azure-SSIS integration runtime in Azure Data Factory | Microsoft Docs
-description: Learn how to create an Azure-SSIS integration runtime so that you can run SSIS package in the Azure cloud.
+description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory so you can deploy and run SSIS packages in Azure.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -16,9 +16,9 @@ ms.author: douglasl
 ---
 
 # Create an Azure-SSIS integration runtime in Azure Data Factory
-This article provides steps for provisioning an Azure-SSIS integration runtime in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure.
+This article provides steps for provisioning an Azure-SSIS integration runtime in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy and run SQL Server Integration Services (SSIS) packages in this runtime in Azure.
 
-The tutorial: [Tutorial: deploy SQL Server Integration Services packages (SSIS) to Azure](tutorial-create-azure-ssis-runtime-portal.md) showed you how to create an Azure-SSIS Integration Runtime (IR) by using Azure SQL Database as the store for SSIS catalog. This article expands on the tutorial and shows you how to do the following: 
+The tutorial [Tutorial: deploy SQL Server Integration Services packages (SSIS) to Azure](tutorial-create-azure-ssis-runtime-portal.md) shows you how to create an Azure-SSIS Integration Runtime (IR) by using Azure SQL Database to host the SSIS Catalog. This article expands on the tutorial and shows you how to do the following: 
 
 - Use Azure SQL Managed Instance (Preview) for hosting an SSIS catalog (SSISDB database).
 - Join Azure-SSIS IR to an Azure virtual network. For conceptual information on joining an Azure-SSIS IR to a virtual network and configuring a virtual network in Azure portal, see [Join Azure-SSIS IR to virtual network](join-azure-ssis-integration-runtime-virtual-network.md). 

@@ -1,6 +1,6 @@
 ﻿---
-title: 'Deploy SSIS packages to Azure with PowerShell | Microsoft Docs'
-description: 'This article explains how to deploy SSIS packages to Azure and create an Azure-SSIS integration runtime by using PowerShell.'
+title: Create the Azure-SSIS Integration Runtime with PowerShell | Microsoft Docs
+description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory with PowerShell so you can deploy and run SSIS packages in Azure.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 04/13/2018
 ms.author: douglasl
 ---
-# Deploy SQL Server Integration Services packages to Azure with PowerShell
-This tutorial provides steps for provisioning an Azure-SSIS integration runtime (IR) in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. In this tutorial, you do the following steps:
+# Create the Azure-SSIS Integration Runtime in Azure Data Factory with PowerShell
+This tutorial provides steps for provisioning an Azure-SSIS integration runtime (IR) in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy and run SQL Server Integration Services (SSIS) packages in this runtime in Azure. In this tutorial, you do the following steps:
 
 > [!NOTE]
 > This article uses Azure PowerShell to provision an Azure SSIS IR. To use the Data Factory user interface (UI) to provision an Azure SSIS IR, see [Tutorial: Create an Azure SSIS integration runtime](tutorial-create-azure-ssis-runtime-portal.md). 
