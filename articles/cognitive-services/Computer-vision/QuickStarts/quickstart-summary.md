@@ -17,7 +17,7 @@ ms.author: nolachar
 These quickstarts provide information and code samples to help you quickly get started using the Computer Vision API to accomplish the following tasks:
 
 * Analyze a remote image
-* Analyze an image from disk
+* Analyze a local image
 * Detect celebrities and landmarks (domain models)
 * Intelligently generate a thumbnail
 * Detect and extract printed text (OCR) from an image
@@ -26,15 +26,15 @@ These quickstarts provide information and code samples to help you quickly get s
 The code in each sample is similar. However, they highlight different Computer Vision features along with different techniques for exchanging data with the service, such as:
 
 * _Generate a thumbnail_ returns an image as a byte array in the body of the response.
-* _Analyze a disk image_ requires the image to be included in the request as a byte array.
+* _Analyze a local image_ requires the image to be included in the request as a byte array.
 * _Extract handwritten text_ requires two calls to retrieve the text.
 
 ## Summary
 
 | Quickstart               | Request Parameters                          | Response          |
 | ------------------------ | ------------------------------------------- | ----------------  |
-| Analyze an image         | visualFeatures=Categories,Description,Color | JSON string       |
-| Analyze a disk image     | data=image_data (byte array)                | JSON string       |
+| Analyze a remote image   | visualFeatures=Categories,Description,Color | JSON string       |
+| Analyze a local image    | data=image_data (byte array)                | JSON string       |
 | Detect celebrities       | model=celebrities                           | JSON string       |
 | Generate a thumbnail     | width=200&height=150&smartCropping=true     | byte array        |
 | Extract printed text     | language=unk&detectOrientation=true         | JSON string       |
