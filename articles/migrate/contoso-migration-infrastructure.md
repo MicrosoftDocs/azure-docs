@@ -559,7 +559,7 @@ After updating network settings, Contoso are ready to build out their domain con
 
     ![VM NIC](./media/contoso-migration-infrastructure/vm-nic.png)
 
-4. Now, they attach a new data disk to the VM. This disk contains the Active Directory database, and the SYSVOL share. 
+4. Now, they attach a new data disk to the VM. This disk contains the Active Directory database, and the sysvol share. 
     - The size of the disk will determine the number of IOPS that it supports.
     - Over time the disk size might need to increase as the environment grows.
     - The drive shouldn't be set to Read/Write for host caching. Active Directory databases don't support this.
@@ -650,7 +650,7 @@ Contoso will use the built-in policy definition **Allow virtual machines SKUs** 
 
 Policies go into effect immediately, and Contoso can check resources for compliance. 
 
-1. In the Azure Portal, click the **Compliance** link.
+1. In the Azure portal, click the **Compliance** link.
 2. The compliance dashboard appears. You can drill down for further details.
 
     ![Policy compliance](./media/contoso-migration-infrastructure/policy-compliance.png)

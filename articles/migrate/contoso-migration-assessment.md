@@ -99,10 +99,10 @@ In this scenario, Contoso downloads and runs the DMA to assess the on-premises S
 - Contoso is a fictitious name representing a typical enterprise organization. 
 - Contoso has an on-premises datacenter (**contoso-datacenter**), with on-premises domain controllers (CONTOSODC1, CONTOSODC2).
 - VMware VMs are located on a VMware ESXI hosts running version 6.5. Hosts: **contosohost1**, **contosohost2**
-- The VMware environment is managed by vCenter server 6.5 (**vcenter**, running on a VM.
+- The VMware environment is managed by vCenter server 6.5 (**venter**, running on a VM.
 - The SmartHotel travel app:
     - The app is tiered across two VMware VMs, **WEBVM** and **SQLVM**.
-    - The VMs are and located on VMware ESXi host **contosohost1.contoso.com**.
+    - The VMs are located on VMware ESXi host **contosohost1.contoso.com**.
     - The VMs are running Windows Server 2008 R2 Datacenter with SP1.
 - The VMware environment is managed by vCenter Server (**vcenter.contoso.com**) running on a VM.
 - The OSTicket Service Desk app:
