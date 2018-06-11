@@ -29,13 +29,13 @@ All applications come with the predefined intent, "[None](#none-intent-is-fallba
 In addition to intents that you define, you can use prebuilt intents from one of the prebuilt domains. For more information, see [Use prebuilt domains in LUIS apps](luis-how-to-use-prebuilt-domains.md) to learn about how to customize intents from a prebuilt domain for use in your app.
 
 ## Return all intents' scores
-You assign an utterance to a single intent. When LUIS receives an utterance on the endpoint, it returns the one top intent for that utterance. If you want all intents, you can provide `verbose=true` flag on the query string of the API [endpoint call](https://aka.ms/v1-endpoint-api-docs). 
+You assign an utterance to a single intent. When LUIS receives an utterance on the endpoint, it returns the one top intent for that utterance. If you want scores for all intents for the utterance, you can provide `verbose=true` flag on the query string of the API [endpoint call](https://aka.ms/v1-endpoint-api-docs). 
 
 ## Intent compared to entity
 The intent represents action the chatbot should take for the user and is based on the entire utterance. The entity represents words or phrases contained inside the utterance. An utterance can have only one top scoring intent but it can have many entities. 
 
 <a name="how-do-intents-relate-to-entities"></a>
-Create an intent when this intent would trigger an action in your client application, like a call to the checkweather() function, and create an entity to represent parameters required to execute the action. 
+Create an intent when the user's _intention_ would trigger an action in your client application, like a call to the checkweather() function. Then create an entity to represent parameters required to execute the action. 
 
 |Example intent   | Entity | Entity in example utterances   | 
 |------------------|------------------------------|------------------------------|
@@ -44,7 +44,7 @@ Create an intent when this intent would trigger an action in your client applica
 
 ## Custom intents
 
-Similar intentioned [utterances](luis-concept-utterance.md) correspond to a single intent. Utterances in your intent can use any [entity](luis-concept-entity-types.md) in the app since entities are not intent-specific. 
+Similarly intentioned [utterances](luis-concept-utterance.md) correspond to a single intent. Utterances in your intent can use any [entity](luis-concept-entity-types.md) in the app since entities are not intent-specific. 
 
 ## Prebuilt domain intents
 
@@ -54,7 +54,7 @@ Similar intentioned [utterances](luis-concept-utterance.md) correspond to a sing
 The **None** intent is a catch-all or fallback intent. It is used to teach LUIS utterances that are not important in the app domain (subject area). The **None** intent should have between 10 and 20 percent of the total utterances in the application. Do not leave it empty. 
 
 ### None intent helps conversation direction
-When an utterance is predicted as the None intent and returned to the bot with that prediction, the bot can ask more questions or provide a menu to direct the user to valid choices in the bot. 
+When an utterance is predicted as the None intent and returned to the chatbot with that prediction, the bot can ask more questions or provide a menu to direct the user to valid choices in the chatbot. 
 
 ### No utterances in None intent skews predictions
 If you do not add any utterances for the **None** intent, LUIS forces an utterance that is outside the domain into one of the domain intents. This will skew the prediction scores by teaching LUIS the wrong intent for the utterance. 
