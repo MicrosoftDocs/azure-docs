@@ -6,6 +6,7 @@ author: mwinkle
 ms.author: mwinkle
 manager: cgronlun
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017

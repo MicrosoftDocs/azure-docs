@@ -7,10 +7,10 @@ author: SnehaGunda
 manager: kfile
 editor: ''
 
-ms.assetid: fb38bc53-3561-487d-9e03-20f232319a87
 ms.service: cosmos-db
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-mongo
+ms.devlang: nodejs
+ms.topic: sample
 ms.date: 03/23/2018
 ms.author: sngun
 

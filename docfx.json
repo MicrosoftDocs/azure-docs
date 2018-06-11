@@ -157,7 +157,7 @@
         "articles/analysis-services/**/*.md": "https://feedback.azure.com/forums/556165-azure-analysis-services",
         "articles/ansible/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/api-management/**/*.md": "https://feedback.azure.com/forums/248703-api-management",
-        "articles/app-service-mobile/**/*.md": "https://feedback.azure.com/forums/568069-azure-mobile-app",
+        "articles/app-service-mobile/**/*.md": "https://github.com/Azure/azure-mobile-apps/issues",
         "articles/app-service/**/*.md": "https://feedback.azure.com/forums/169385-web-apps",
         "articles/application-gateway/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=134448",
         "articles/application-insights/**/*.md": "https://feedback.azure.com/forums/357324-application-insights",

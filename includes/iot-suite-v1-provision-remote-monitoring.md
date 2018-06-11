@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-accelerators
+ author: dominicbetts
+ ms.service: iot-accelerators
+ ms.topic: include
+ ms.date: 05/30/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## Provision the solution
 
 If you haven't already provisioned the remote monitoring preconfigured solution in your account:
@@ -21,7 +33,7 @@ If you haven't already provisioned the remote monitoring preconfigured solution 
 
 Are there details you'd expect to see that aren't listed for your solution? Give us feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-v1-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-v1-faq.md

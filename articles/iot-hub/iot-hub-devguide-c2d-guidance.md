@@ -1,22 +1,15 @@
 ---
 title: Azure IoT Hub cloud-to-device options | Microsoft Docs
 description: Developer guide - guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages for cloud-to-device communications. 
-services: iot-hub
-documentationcenter: ''
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+manager: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-
 ---
+
 # Cloud-to-device communications guidance
 IoT Hub provides three options for device apps to expose functionality to a back-end app:
 

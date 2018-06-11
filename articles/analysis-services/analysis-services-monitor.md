@@ -3,7 +3,7 @@ title: Monitor Azure Analysis Services server metrics | Microsoft Docs
 description: Learn how to monitor Analysis Services server metrics an in Azure portal.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend

@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 18/05/2018
+ms.date: 05/18/2018
 ms.author: xibingao
 ---
 # Skin Cancer Image Classification with Azure Machine Learning (AML) package for Computer Vision (AMLPCV) and Team Data Science Process (TDSP)
