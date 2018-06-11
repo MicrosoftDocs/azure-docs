@@ -151,8 +151,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    :NDP472
    set "netfxinstallfile=NDP472-KB4054531-Web.exe"
    set netfxregkey="0x70BF6"
-   goto logtimestamp
-   
+   goto logtimestamp   
    
    :logtimestamp
    REM ***** Setup LogFile with timestamp *****
