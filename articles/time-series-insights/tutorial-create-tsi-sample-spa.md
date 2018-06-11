@@ -71,7 +71,7 @@ Before building the application, you register it with Azure AD. Registration ser
 
    ![Azure portal Azure AD required permissions - consent](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)
 
-8. Next, click **Reply URLs** on the **Settings** page. Here you specify the "Reply URL" where Azure AD will redirect to when responding with the access token. For this tutorial, specify the same URL that was used previously in step #3, for the **Sign-on URL**, then click **Save**:
+8. Next, click **Reply URLs** on the **Settings** page. Here you specify the "Reply URL" where Azure AD will redirect,  when responding with the access token. For this tutorial, specify the same URL that was used previously in step #3, for the **Sign-on URL**, then click **Save**:
 
    ![Azure portal Azure AD required permissions - reply URL](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-reply-url.png)
 
@@ -139,17 +139,16 @@ Before building the application, you register it with Azure AD. Registration ser
    c. Scroll down to following line of JavaScript code. Change the second argument of the `getAggregates` call, to use your TSI environment's full qualified domain name (FQDN). The FQDN is shown next to the **Data Access FQDN** property on the TSI environment **Overview** page: 
 
       > [!NOTE]
-      > If you don't have a TSI environment, you can use the existing FQDN value (`'10000000-0000-0000-0000-100000000108.env.timeseries.azure.com'`) for demonstration. This is the TSI environment used by the [Time Series Insights sample application](https://insights.timeseries.azure.com/clientsample).
+      > If you don't have a TSI environment, for demonstration purposes you can use the existing FQDN value. This is the TSI environment used by the [Time Series Insights sample application](https://insights.timeseries.azure.com/clientsample).
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=207-224&highlight=12)]
 
-      ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/ap-view-tsi-env-explorer-url.png)
+      ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/ap-view-tsi-env-fqdn.png)
 
       Your changed code should look similar to the following example:
 
       ```javascript
-      clientId: '8884d4ca-b9e7-403a-bd8a-366d0ce0d460',
-      postLogoutRedirectUri: 'https://tsispaapp.azurewebsites.net',
+      tsiClient.server.getAggregates(token, 'd3z3754A-eef7-BLLL-a544-b474cfeab82c.env.timeseries.azure.com', aggregateExpressions2.map(function (ae) { return ae.toTsx() })).then(function (result) {
       ``` 
 
    d. Save the **index.html** when you've finished editing.
