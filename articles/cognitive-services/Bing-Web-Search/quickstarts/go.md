@@ -7,7 +7,8 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 03/09/2018
-ms.author: rosh, nhoyadx@gmail.com, v-gedod
+ms.author: rosh
+ms.reviewer: nhoyadx@gmail.com, v-gedod
 ---
 
 # Call and response: Your first Bing Web Search query in Go

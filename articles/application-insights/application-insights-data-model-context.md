@@ -3,7 +3,7 @@ title: Azure Application Insights Telemetry Data Model - Telemetry Context | Mic
 description: Application Insights telemetry context data model
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: sergkanz
+ms.author: sergkanz; mbullwin
 
 ---
 # Telemetry context: Application Insights data model

@@ -54,10 +54,11 @@ If you are unsure of where the certificate is coming from, you can try these ste
 
 If you cannot find any self-signed certificates using the preceding steps, contact us through the feedback tool for more help. Alternatively, you can choose to launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore certificate errors.
 
-## Sign in issues
+## Sign-in issues
 
 If you are unable to sign in, try the following troubleshooting methods:
 
+* If you are on macOS and the sign-in window never appears over the "Waiting for authentication..." dialog, then try [these steps](#Resetting-the-Mac-Keychain)
 * Restart Storage Explorer
 * If the authentication window is blank, wait at least one minute before closing the authentication dialog box.
 * Ensure that your proxy and certificate settings are properly configured for both your machine and Storage Explorer
@@ -93,8 +94,8 @@ If you are unable to remove an attached account or storage resource through the 
 
 First, make sure that the following information you entered are all correct:
 
-*The proxy URL and port number
-*Username and password if required by the proxy
+* The proxy URL and port number
+* Username and password if required by the proxy
 
 ### Common solutions
 
@@ -127,7 +128,7 @@ If your proxy settings are correct, you may have to contact your proxy server ad
 
 If you are connected to Azure through a proxy, verify that your proxy settings are correct. If you were granted access to a resource from the owner of the subscription or account, verify that you have read or list permissions for that resource.
 
-### Issues with SAS URL
+## Issues with SAS URL
 If you're connecting to a service using a SAS URL and experiencing this error:
 
 * Verify that the URL provides the necessary permissions to read or list resources.
@@ -150,6 +151,19 @@ For Linux distros other than Ubuntu 16.04, you may need to manually install some
 * Up-to-date GCC
 
 Depending on your distro, there may be other packages you need to install. The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distros.
+
+## Resetting the Mac Keychain
+The macOS Keychain can sometimes get into a state that causes issues for Storage Explorer's authentication library. To get the keychain out of this state try the following steps:
+1. Close Storage Explorer.
+2. Open keychain (**cmd+space**, type in keychain, hit enter).
+3. Select the "login" keychain.
+4. Click the padlock icon to lock the keychain (the padlock will animate to a locked position when complete, it may take a few seconds depending on what apps you have open).
+
+    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Launch Storage Explorer.
+6. A pop up should appear saying something like "Service hub wants to access the keychain", enter your Mac admin account password and click **Always Allow** (or **Allow** if **Always Allow** is not available).
+7. Try to sign in.
 
 ## Next steps
 

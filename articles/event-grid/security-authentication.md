@@ -6,8 +6,8 @@ author: banisadr
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: conceptual
+ms.date: 04/27/2018
 ms.author: babanisa
 ---
 # Event Grid security and authentication 
@@ -22,7 +22,9 @@ Azure Event Grid has three types of authentication:
 
 Webhooks are one of many ways to receive events from Azure Event Grid. When a new event is ready, the Event Grid Webhook sends an HTTP request to the configured HTTP endpoint with the event in the body.
 
-When you register your own WebHook endpoint with Event Grid, it sends you a POST request with a simple validation code to prove endpoint ownership. Your app needs to respond by echoing back the validation code. Event Grid doesn't deliver events to WebHook endpoints that haven't passed the validation.
+When you register your own WebHook endpoint with Event Grid, it sends you a POST request with a simple validation code to prove endpoint ownership. Your app needs to respond by echoing back the validation code. Event Grid doesn't deliver events to WebHook endpoints that haven't passed the validation. If you use a third-party API service (like [Zapier](https://zapier.com) or [IFTTT](https://ifttt.com/)), you might not be able to programmatically echo the validation code. For those services, you can manually validate the subscription by using a validation URL that is sent in the subscription validation event. Copy that URL and send a GET request either through a REST client or your web browser.
+
+Manual validation is in preview. To use it, you must install the [Event Grid extension](/cli/azure/azure-cli-extensions-list) for [AZ CLI 2.0](/cli/azure/install-azure-cli). You can install it with `az extension add --name eventgrid`. If you are using the REST API, ensure you are using `api-version=2018-05-01-preview`.
 
 ### Validation details
 
@@ -30,6 +32,7 @@ When you register your own WebHook endpoint with Event Grid, it sends you a POST
 * The event contains a header value "Aeg-Event-Type: SubscriptionValidation".
 * The event body has the same schema as other Event Grid events.
 * The event data includes a "validationCode" property with a randomly generated string. For example, "validationCode: acb13…".
+* The event data includes a "validationUrl" property with a URL for manually validating the subscription.
 * The array contains only the validation event. Other events are sent in a separate request after you echo back the validation code.
 
 An example SubscriptionValidationEvent is shown in the following example:
@@ -40,7 +43,8 @@ An example SubscriptionValidationEvent is shown in the following example:
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -56,6 +60,9 @@ To prove endpoint ownership, echo back the validation code in the validationResp
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+Or, manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.
+
 ### Event delivery security
 
 You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token) which the webhook can use to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.

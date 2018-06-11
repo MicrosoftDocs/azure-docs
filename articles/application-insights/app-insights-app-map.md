@@ -3,7 +3,7 @@ title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: mbullwin
+ms.author: mbullwin; Soubhagya.Dash
 
 ---
 # Application Map: Triage Distributed Applications

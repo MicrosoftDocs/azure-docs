@@ -1,10 +1,10 @@
 ---
  title: include file
  description: include file
- services: azure-policy
+ services: active-directory
  author: eross-msft
  
-ms.service: azure-policy
+ms.service: active-directory
  ms.topic: include
  ms.date: 04/24/2018
  ms.author: lizross
@@ -12,4 +12,4 @@ ms.service: azure-policy
 ---
 
 >[!Note] 
->If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust Center](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
+>If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

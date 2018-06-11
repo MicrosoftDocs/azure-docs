@@ -3,7 +3,7 @@ title: Using Analytics - the powerful search tool of Azure Application Insights 
 description: 'Using the Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
-author: danhadari
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
@@ -142,7 +142,7 @@ This means that, when you put together a dashboard to help you monitor the perfo
 You can pin a table to the dashboard, if it has four or fewer columns. Only the top seven rows are displayed.
 
 ### Dashboard refresh
-The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every hours. You can also click the Refresh button.
+The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every hour. You can also click the Refresh button.
 
 ### Automatic simplifications
 
@@ -204,7 +204,7 @@ For example, if authenticated users are identified in your telemetry by an alias
 ### Define your data schema
 
 1. Click **Settings** (at top left) and then **Data Sources**. 
-2. Add a data source, following the instructions. You are asked to supply a sample of the data, which should include at least ten rows. You then correct the schema.
+2. Add a data source, following the instructions. You are asked to supply a sample of the data, which should include at least 10 rows. You then correct the schema.
 
 This defines a data source, which you can then use to import individual tables.
 

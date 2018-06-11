@@ -3,7 +3,7 @@ title: 'Application Insights: languages, platforms and integrations| Microsoft D
 description: Languages, platforms and integrations available for Application Insights
 services: application-insights
 documentationcenter: ''
-author: OlegAnaniev-MSFT
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: mbullwin
+ms.author: mbullwin; olegan
 
 ---
 # Developer analytics: languages, platforms, and integrations
@@ -26,6 +26,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Node.JS](app-insights-nodejs.md)
 
 ## Languages - community-supported
+* [F#](https://safe-stack.github.io/docs/template-azure-ai/)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -50,6 +51,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [J2EE - for apps that are already live](app-insights-java-live.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
+* [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
 * [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [Universal Windows app](app-insights-mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)

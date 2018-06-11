@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshoot Azure Data Factory issues
 description: Learn how to troubleshoot issues with using Azure Data Factory.
 services: data-factory
@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 

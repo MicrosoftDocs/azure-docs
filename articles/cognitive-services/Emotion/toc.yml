@@ -1,7 +1,7 @@
 - name: Emotion API Documentation
 - name: Overview
   items:
-  - name: What is Emotion API
+  - name: What is Emotion API?
     href: Home.md
 - name: How to guides
   items:

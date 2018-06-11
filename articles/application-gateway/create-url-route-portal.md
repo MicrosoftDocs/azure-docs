@@ -2,8 +2,8 @@
 title: Create an application gateway with URL path-based routing rules - Azure portal | Microsoft Docs
 description: Learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 
@@ -11,7 +11,7 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
+ms.author: victorh
 
 ---
 # Create an application gateway with path-based routing rules using the Azure portal

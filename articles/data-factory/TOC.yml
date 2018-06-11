@@ -1,5 +1,7 @@
 - name: Data Factory V2 Documentation
   href: index.yml
+- name: Switch to version 1 documentation
+  href: v1/data-factory-introduction.md
 - name: Overview
   items:
   - name: Introduction to Data Factory
@@ -229,6 +231,8 @@
         href: connector-oracle.md
       - name: Oracle Eloqua
         href: connector-oracle-eloqua.md
+      - name: Oracle Responsys
+        href: connector-oracle-responsys.md
       - name: Paypal
         href: connector-paypal.md
       - name: Phoenix
@@ -243,6 +247,8 @@
         href: connector-salesforce.md
       - name: Salesforce Service Cloud
         href: connector-salesforce.md
+      - name: Salesforce Marketing Cloud
+        href: connector-salesforce-marketing-cloud.md
       - name: SAP Business Warehouse
         href: connector-sap-business-warehouse.md
       - name: SAP Cloud for Customer
@@ -312,22 +318,24 @@
       href: compute-linked-services.md
   - name: Control flow
     items:
-    - name: If Condition Activity
-      href: control-flow-if-condition-activity.md
-    - name: Until Activity
-      href: control-flow-until-activity.md
-    - name: Web Activity
-      href: control-flow-web-activity.md
-    - name: Lookup Activity
-      href: control-flow-lookup-activity.md
-    - name: Get Metadata Activity
-      href: control-flow-get-metadata-activity.md
     - name: Execute Pipeline Activity
       href: control-flow-execute-pipeline-activity.md
+    - name: Filter Activity
+      href: control-flow-filter-activity.md
     - name: For Each Activity
       href: control-flow-for-each-activity.md
+    - name: Get Metadata Activity
+      href: control-flow-get-metadata-activity.md
+    - name: If Condition Activity
+      href: control-flow-if-condition-activity.md
+    - name: Lookup Activity
+      href: control-flow-lookup-activity.md
+    - name: Until Activity
+      href: control-flow-until-activity.md
     - name: Wait Activity
       href: control-flow-wait-activity.md
+    - name: Web Activity
+      href: control-flow-web-activity.md
     - name: Expression Language
       href: control-flow-expression-language-functions.md
     - name: System variables
@@ -344,16 +352,18 @@
       href: data-factory-service-identity.md
   - name: Monitor and manage
     items:
-    - name: Use SDKs
-      href: monitor-programmatically.md
-    - name: Use Azure Monitor
-      href: monitor-using-azure-monitor.md
     - name: Monitor visually
       href: monitor-visually.md
-    - name: Manage Azure-SSIS integration runtime
-      href: manage-azure-ssis-integration-runtime.md
+    - name: Monitor with Azure Monitor
+      href: monitor-using-azure-monitor.md
+    - name: Monitor with SDKs
+      href: monitor-programmatically.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
+    - name: Monitor Azure-SSIS integration runtime
+      href: monitor-integration-runtime.md#azure-ssis-integration-runtime
+    - name: Manage Azure-SSIS integration runtime
+      href: manage-azure-ssis-integration-runtime.md
   - name: Create integration runtime
     items:
     - name: Azure integration runtime
@@ -364,24 +374,24 @@
       href: create-azure-ssis-integration-runtime.md
   - name: Run SSIS packages in Azure
     items:
-    - name: Custom setup for Azure-SSIS integration runtime
-      href: how-to-configure-azure-ssis-ir-custom-setup.md
-    - name: Provision Enterprise Edition for Azure-SSIS integration runtime
-      href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-    - name: Join Azure-SSIS integration runtime to a VNET
+    - name: Join Azure-SSIS IR to a VNET
       href: join-azure-ssis-integration-runtime-virtual-network.md
-    - name: Manage Azure-SSIS integration runtime
-      href: manage-azure-ssis-integration-runtime.md
-    - name: Configure performance settings of Azure-SSIS integration runtime
+    - name: Enable Azure AD authentication for Azure-SSIS IR
+      href: enable-aad-authentication-azure-ssis-ir.md
+    - name: Configure high performance for Azure-SSIS IR
       href: configure-azure-ssis-integration-runtime-performance.md
-    - name: Run SSIS packages using SSIS activity
+    - name: Provision Enterprise Edition for Azure-SSIS IR
+      href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+    - name: Customize setup for Azure-SSIS IR
+      href: how-to-configure-azure-ssis-ir-custom-setup.md
+    - name: Install licensed components for Azure-SSIS IR
+      href: how-to-develop-azure-ssis-ir-licensed-components.md
+    - name: Run SSIS packages with Execute SSIS Package activity
       href: how-to-invoke-ssis-package-ssis-activity.md
-    - name: Run SSIS packages using stored procedure activity
+    - name: Run SSIS packages with Stored Procedure activity
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
-    - name: Develop licensed components for Azure-SSIS integration runtime
-      href: how-to-develop-azure-ssis-ir-licensed-components.md
   - name: Create triggers
     items:
     - name: Create a schedule trigger
@@ -400,19 +410,19 @@
     href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources
   items:
-  - name: FAQ
-    href: frequently-asked-questions.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=analytics
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/data-factory/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory
-  - name: Stack Overflow
+  - name: Ask a question - MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc
+  - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature
     href: https://feedback.azure.com/forums/270578-azure-data-factory
-  - name: Region availability
-    href: https://azure.microsoft.com/regions/services/
+  - name: FAQ
+    href: frequently-asked-questions.md
+  - name: Roadmap
+    href: https://azure.microsoft.com/en-us/roadmap/?tag=data-factory
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/data-factory/
+  - name: Availability by region
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/

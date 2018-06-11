@@ -38,7 +38,6 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need:
 
 * [Git](https://git-scm.com/downloads)
-* An active [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Docker](https://docs.docker.com/get-started/#setup)
 * A [Docker Hub account](https://docs.docker.com/docker-id/)
 
@@ -121,6 +120,10 @@ docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 Verify the web app and container are functioning correctly by browsing to `http://localhost:2222`.
 
 ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
+
+> [!NOTE] 
+> You can also connect to the app container directly from your local development machine using SSH, SFTP, or Visual Studio Code (for live debugging Node.js apps). For more information, see [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug).
+>
 
 ## Push the Docker image to Docker Hub
 

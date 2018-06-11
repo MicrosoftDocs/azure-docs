@@ -5,7 +5,7 @@ services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
@@ -25,7 +25,7 @@ Customers are most interested in the resiliency of their own databases and are l
 
 For data, SQL Database uses both local storage (LS) based on direct attached disks/VHDs and remote storage (RS) based on Azure Premium Storage page blobs. 
 - Local storage is used in the Premium or Business Critical (preview) databases and elastic pools, which are designed for mission critical OLTP applications with high IOPS requirements. 
-- Remote storage is used for Basic and Standard service tiers, designed for budget oriented business workloads that require storage and compute power to scale independently. They use a single page blob for database and log files, and built-in storage replication and failover mechanisms.
+- Remote storage is used in Basic, Standard and General Purpose service tiers, which are designed for budget oriented business workloads that require storage and compute power to scale independently. They use a single page blob for database and log files, and built-in storage replication and failover mechanisms.
 
 In both cases, the replication, failure detection, and failover mechanisms of SQL Database are fully automated and operate without human intervention. This architecture is designed to ensure that committed data is never lost and that data durability takes precedence over all else.
 
@@ -51,7 +51,7 @@ The [Service Fabric](../service-fabric/service-fabric-overview.md) failover syst
 
 ## Remote storage configuration
 
-For remote storage configurations (Basic and Standard tiers), exactly one copy is maintained in remote blob storage, using the storage systems capabilities for durability, redundancy, and bit-rot detection. 
+For remote storage configurations (Basic, Standard or General Purpose tiers), exactly one copy is maintained in remote blob storage, using the storage systems capabilities for durability, redundancy, and bit-rot detection. 
 
 The high availability architecture is illustrated by following diagram:
  
@@ -73,7 +73,7 @@ By default, the quorum-set replicas for the local storage configurations are cre
 Because the zone redundant quorum-set has replicas in different datacenters with some distance between them, the increased network latency may increase the commit time and thus impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone redundancy setting. This process is a size of data operation and is similar to the regular service level objective (SLO) update. At the end of the process, the database or pool is migrated from a zone redundant ring to a single zone ring or vice versa.
 
 > [!IMPORTANT]
-> Zone redundant databases and elastic pools are only supported in the Premium and Business Critical (preview) service tiers. During public preview, backups and audit records are stored in RA-GRS storage and therefore may not be automatically available in case of a zone-wide outage. 
+> Zone redundant databases and elastic pools are currently only supported in the Premium service tier. During public preview, backups and audit records are stored in RA-GRS storage and therefore may not be automatically available in case of a zone-wide outage. 
 
 The zone redundant version of the high availability architecture is illustrated by the following diagram:
  

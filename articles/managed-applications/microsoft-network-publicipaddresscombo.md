@@ -1,18 +1,18 @@
 ---
 title: Azure PublicIpAddressCombo UI element | Microsoft Docs
 description: Describes the Microsoft.Network.PublicIpAddressCombo UI element for Azure portal.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
 
 ---
@@ -52,7 +52,8 @@ automatically based on the selected location.
   "options": {
     "hideNone": false,
     "hideDomainNameLabel": false,
-    "hideExisting": false
+    "hideExisting": false,
+    "zone": 3
   },
   "visible": true
 }
@@ -66,6 +67,7 @@ the public IP address is hidden. The default value is **false**.
 domain name label is hidden. The default value is **false**.
 - If `options.hideExisting` is true, then the user is not able to choose an
 existing public IP address. The default value is **false**.
+- For `zone`, only public IP addresses for the specified zone or zone resilient public IP addresses are available.
 
 ## Sample output
 If the user selects no public IP address, the following output is expected:

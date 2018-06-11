@@ -2,15 +2,15 @@
 title: Create an application gateway that hosts multiple web sites  - Azure portal | Microsoft Docs
 description: Learn how to create an application gateway that hosts multiple web sites using the Azure portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/28/2017
-ms.author: davidmu
+ms.author: victorh
 
 ---
 # Create and configure an application gateway to host multiple web sites using the Azure portal

@@ -5,14 +5,10 @@ keywords: eventual consistency, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
@@ -41,7 +37,7 @@ The following table illustrates the specific guarantees each consistency level p
 | Consistency Level	| Guarantees |
 | --- | --- |
 | Strong | Linearizability. Reads are guaranteed to return the most recent version of an item.|
-| Bounded Staleness	| Consistent Prefix. Reads lag behind writes by k prefixes or t interval |
+| Bounded Staleness	| Consistent Prefix. Reads lag behind writes by at most k prefixes or t interval |
 | Session	| Consistent Prefix. Monotonic reads, monotonic writes, read-your-writes, write-follows-reads |
 | Consistent Prefix	| Updates returned are some prefix of all the updates, with no gaps |
 | Eventual	| Out of order reads |

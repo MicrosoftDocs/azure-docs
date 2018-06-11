@@ -3,8 +3,8 @@ title: Azure Application Gateway PowerShell Samples | Microsoft Docs
 description: Azure Application Gateway PowerShell Samples
 services: application-gateway
 documentationcenter: networking
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/29/2018
-ms.author: davidmu
+ms.author: victorh
 ms.custom: mvc
 ---
 # Azure Application Gateway PowerShell samples

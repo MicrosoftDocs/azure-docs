@@ -3,18 +3,18 @@ title: View all the enterprise apps that I can manage in Azure Active Directory 
 description: How to see a list of the enterprise apps that you have the permissions to manage in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
 
-ms.assetid: c4fb6f94-34f8-4323-8bd7-a3ee44901f7d
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
 

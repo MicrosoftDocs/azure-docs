@@ -1,11 +1,11 @@
-﻿---
+---
 title: Managing Azure file shares with Azure PowerShell
 description: Learn to manage Azure file shares using Azure PowerShell.
 services: storage
 documentationcenter: ''
 author: wmgries	
-manager: jeconnoc
-editor: 
+manager: aungoo
+editor: tamram
 
 ms.service: storage
 ms.workload: storage
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, you can create a [free account](https:/
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If would like to install and use the PowerShell locally, this guide requires the Azure PowerShell module version 5.1.1 or later. To find out which version of the Azure PowerShell module you are running, execute `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+If you would like to install and use the PowerShell locally, this guide requires the Azure PowerShell module version 5.1.1 or later. To find out which version of the Azure PowerShell module you are running, execute `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Create a resource group
 A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet. 
@@ -162,7 +162,7 @@ Now, if you list the files in the new share, you should see your copied file.
 Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-While the `Start-AzureStorageFileCopy` cmdlet is convenient for ad-hoc file moves between Azure file shares and Azure Blob storage containers, we recommend AzCopy for larger moves (in terms of number or size of files being moved). Learn more about [AzCopy for Windows](../common/storage-use-azcopy.md) and [AzCopy for Linux](../common/storage-use-azcopy-linux.md). AzCopy must be installed locally - it is not available in Cloud Shell 
+While the `Start-AzureStorageFileCopy` cmdlet is convenient for ad-hoc file moves between Azure file shares and Azure Blob storage containers, we recommend AzCopy for larger moves (in terms of number or size of files being moved). Learn more about [AzCopy for Windows](../common/storage-use-azcopy.md) and [AzCopy for Linux](../common/storage-use-azcopy-linux.md). AzCopy must be installed locally - it is not available in Cloud Shell. 
 
 ## Create and modify share snapshots
 One additional useful task you can do with an Azure file share is to create share snapshots. A snapshot preserves a point in time for an Azure file share. Share snapshots are similar to operating system technologies you may already be familiar with such as:

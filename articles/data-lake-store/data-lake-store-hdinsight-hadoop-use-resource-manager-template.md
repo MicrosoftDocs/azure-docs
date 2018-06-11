@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use Azure templates to create HDInsight and Data Lake Store | Microsoft Docs
 description: Use Azure Resource Manager templates to create and use HDInsight clusters with Azure Data Lake Store
 services: data-lake-store,hdinsight
@@ -10,10 +10,8 @@ editor: cgronlun
 ms.assetid: 8ef8152f-2121-461e-956c-51c55144919d
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/28/2017
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
 
 ---

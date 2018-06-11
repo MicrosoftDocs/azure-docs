@@ -7,7 +7,7 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: ayolubek
 ---

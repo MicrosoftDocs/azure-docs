@@ -103,7 +103,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, **Admin Password**, and **Domain** of your Cornerstone OnDemand's account.
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Cornerstone OnDemand tenant. Example: admin.
+	*   In the **Admin Username** field, populate the domain\username of the admin account on your Cornerstone OnDemand tenant. Example: contoso\admin.
 
 	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
@@ -155,7 +155,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

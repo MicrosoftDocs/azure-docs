@@ -3,7 +3,7 @@ title: Azure Security Center security policies integration with Azure Policy | M
 description: This document helps you to configure Azure Security Center security policies integration with Azure Policy.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
+ms.date: 06/05/2018
+ms.author: terrylan
 ---
 
 # Integrate Security Center security policies with Azure Policy
 This article helps you configure Azure Security Center security policies, which are powered by Azure Policy.
 
 ## How security policies work
-Security Center automatically creates a default security policy for each of your Azure subscriptions. You can edit the policies in Security Center or use [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) to do the following:
+Security Center automatically creates a default security policy for each of your Azure subscriptions. You can edit the policies in Security Center or use [Azure Policy](../azure-policy/azure-policy-introduction.md) to do the following:
 * Create new policy definitions.
 * Assign policies across management groups, which can represent an entire organization or a business unit within the organization.
 * Monitor policy compliance.
 
 > [!NOTE]
-> Azure Policy is in limited preview. To join, go to [Sign up for Azure Policy](https://aka.ms/getpolicy). For more information about Azure Policy, see [Create and manage policies to enforce compliance](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
+> For more information about Azure Policy, see [Create and manage policies to enforce compliance](../azure-policy/create-manage-policy.md).
 
 ## Edit security policies
 You can edit the default security policy for each of your Azure subscriptions in Security Center. To modify a security policy, you must be an owner, contributor, or security administrator of the subscription or the containing management group. To view your security polices in Security Center, do the following:
@@ -73,7 +73,7 @@ To understand the policy definitions that are available in the default security 
 | Security configurations |Analyzes operating system configurations daily to determine issues that could make the virtual machine vulnerable to attack. The policy also recommends configuration changes to address these vulnerabilities. For more information about the specific configurations that are being monitored, see the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (At this time, Windows Server 2016 is not fully supported.) |
 | Endpoint protection |Recommends that endpoint protection be set up for all Windows virtual machines (VMs) to help identify and remove viruses, spyware, and other malicious software. |
 | Disk encryption |Recommends enabling disk encryption in all virtual machines to enhance data protection at rest. |
-| Network security groups |Recommends that [network security groups](../virtual-network/virtual-networks-nsg.md) be configured to control inbound and outbound traffic to VMs that have public endpoints. Network security groups that are configured for a subnet are inherited by all virtual-machine network interfaces unless otherwise specified. In addition to checking to see whether a network security group has been configured, this policy assesses inbound security rules to identify rules that allow incoming traffic. |
+| Network security groups |Recommends that [network security groups](../virtual-network/security-overview.md) be configured to control inbound and outbound traffic to VMs that have public endpoints. Network security groups that are configured for a subnet are inherited by all virtual-machine network interfaces, unless otherwise specified. In addition to checking to see whether a network security group has been configured, this policy assesses inbound security rules to identify rules that allow incoming traffic. |
 | Web application firewall |Recommends that a web application firewall be set up on virtual machines when either of the following is true: <ul><li>An [instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) is used, and the inbound security rules for the associated network security group are configured to allow access to port 80/443.</li><li>A load-balanced IP is used, and the associated load balancing and inbound network address translation (NAT) rules are configured to allow access to port 80/443. For more information, see [Azure Resource Manager support for Load Balancer](../load-balancer/load-balancer-arm.md).</li> |
 | Next generation firewall |Extends network protections beyond network security groups, which are built into Azure. Security Center discovers deployments for which a next generation firewall is recommended, and then you can set up a virtual appliance. |
 | SQL auditing and threat detection |Recommends that auditing of access to Azure Database be enabled for compliance and advanced threat detection, for investigation purposes. |
@@ -92,3 +92,5 @@ In this article, you learned how to configure security policies in Security Cent
 * [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+
+To learn more about Azure Policy, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)

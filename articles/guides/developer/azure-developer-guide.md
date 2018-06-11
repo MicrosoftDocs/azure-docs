@@ -233,14 +233,15 @@ Azure is built on a set of REST APIs that support the Azure portal UI. Most of t
 In addition to REST APIs, many Azure services also let you programmatically manage resources from your applications by using platform-specific Azure SDKs, including SDKs for the following development platforms:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](http://azure.github.io/azure-sdk-for-node/)
--   [Java](https://docs.microsoft.com/java/api/)
+-   [Node.js](https://docs.microsoft.com/javascript/azure)
+-   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
+-   [Python](https://docs.microsoft.com/python/azure)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
+-   [Go](https://docs.microsoft.com/go/azure)
 
 Services such as [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md)
-and [Azure Media Services](../../media-services/media-services-dotnet-how-to-use.md) provide client-side SDKs to let you access services from web and mobile client apps.
+and [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) provide client-side SDKs to let you access services from web and mobile client apps.
 
 ### Azure Resource Manager 
  	

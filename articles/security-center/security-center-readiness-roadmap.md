@@ -3,7 +3,7 @@ title: Azure Security Center Readiness Roadmap | Microsoft Docs
 description: This document provides you a readiness roadmap to ramp up on Azure Security Center.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: ndicola
 editor: ''
 

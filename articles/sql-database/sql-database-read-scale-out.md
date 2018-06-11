@@ -6,7 +6,7 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: sashan
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrade to the latest generation of Azure SQL Data Warehouse | Microsoft Docs
 description: Upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and storage architecture.
 services: sql-data-warehouse
@@ -65,7 +65,13 @@ Sign in to the [Azure portal](https://portal.azure.com/).
    
    The second step of the upgrade process is data migration ("Upgrading - Online"). Data migration is an online trickle background process, which slowly moves columnar data from the old storage architecture to the new storage architecture leveraging a local SSD cache. During this time, your data warehouse will be online for querying and loading. All your data will be available to query regardless of whether it has been migrated or not. The data migration happens at a varying rate depending on your data size, your performance level, and the number of your columnstore segments. 
 
-5. **Optional Recommendation:** 
+5. **Find your Gen2 data warehouse** by using the SQL database browse blade. 
+
+> [!NOTE]
+> There is currently an issue where Gen2 data warehouses will not appear in the SQL data warehouse browse blade. Please use the SQL database browse blade to find your newly upgraded Gen2 data warehouse. We are actively working on this fix.
+> 
+
+6. **Optional Recommendation:** 
 To expedite the data migration background process, it is recommended to immediately force data movement by running [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) on all columnstore tables at a larger SLO and resource class. This operation is offline compared to the trickle background process; however, data migration will be much quicker where you can then take full advantage of the new enhanced storage architecture once complete with high-quality rowgroups. 
 
 This following query generates the required Alter Index Rebuild commands to expedite the data migration process:

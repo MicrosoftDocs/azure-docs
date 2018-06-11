@@ -91,7 +91,7 @@ The following table shows the gateway types and the estimated aggregate throughp
 |**High Performance SKU** | 200 Mbps	| 5	|
 ***(1)*** The VPN throughput is not a guaranteed throughput for cross-premises connections across the Internet. It is the maximum possible throughput measurement.  
 ***(2)*** Max tunnels number is the total per Azure Stack deployment for ALL subscriptions.  
-***(3)*** BGP is not supported for the Basic SKU.  
+***(3)*** BGP is not supported for the Basic SKU.
 
 ## Next steps
 Learn about [settings for VPN gateways](azure-stack-vpn-gateway-settings.md) for Azure Stack.

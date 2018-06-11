@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 05/09/2017
 ms.author: jeedes
 
 ---
@@ -26,7 +26,7 @@ Integrating O.C. Tanner - AppreciateHub with Azure AD provides you with the foll
 - You can enable your users to automatically get signed-on to O.C. Tanner - AppreciateHub (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_url.png)
 
-    a. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.appreciatehub.com/fed/sp/authnResponse20`
+    a. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.octanner.net/sp/ACS.saml2`
 
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Reply URL. Contact [O.C. Tanner - AppreciateHub support team](mailto:sso@octanner.com) to get this value.
@@ -214,7 +214,7 @@ When you click the O.C. Tanner - AppreciateHub tile in the Access Panel, you sho
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 
@@ -171,7 +171,7 @@ You can manage your pipelines by using Azure PowerShell. For example, you can pa
 > [!NOTE] 
 > The diagram view does not support pausing and resuming pipelines. If you want to use an user interface, use the monitoring and managing application. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md) article. 
 
-You can pause/suspend pipelines by using the **Suspend-AzureRmDataFactoryPipeline** PowerShell cmdlet. This cmdlet is useful when you dont want to run your pipelines until an issue is fixed. 
+You can pause/suspend pipelines by using the **Suspend-AzureRmDataFactoryPipeline** PowerShell cmdlet. This cmdlet is useful when you don't want to run your pipelines until an issue is fixed. 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -196,7 +196,7 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## Debug pipelines
 Azure Data Factory provides rich capabilities for you to debug and troubleshoot pipelines by using the Azure portal and Azure PowerShell.
 
-> [!NOTE} 
+> [!NOTE] 
 > It is much easier to troubleshot errors using the Monitoring & Management App. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md) article. 
 
 ### Find errors in a pipeline
