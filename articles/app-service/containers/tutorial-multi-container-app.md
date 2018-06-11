@@ -132,6 +132,7 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 > [!NOTE]
 > Any other options not explicitly called out are also ignored in Public Preview.
+> When using Docker Compose, ensure that the exposed service is described as the first service. In case this isn't done, then the wrong service might be picked to be exposed.
 
 ### Docker Compose with WordPress and MySQL containers
 
