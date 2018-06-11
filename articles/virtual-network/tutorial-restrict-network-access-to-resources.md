@@ -61,7 +61,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Enable a service endpoint
 
-Service endpoints are enabled per service, per subnet.
+Service endpoints are enabled per service, per subnet. Create a subnet and enable a service endpoint for the subnet.
 
 1. In the **Search resources, services, and docs** box at the top of the portal, enter *myVirtualNetwork.* When **myVirtualNetwork** appears in the search results, select it.
 2. Add a subnet to the virtual network. Under **SETTINGS**, select **Subnets**, and then select **+ Subnet**, as shown in the following picture:
@@ -76,7 +76,8 @@ Service endpoints are enabled per service, per subnet.
     |Address range| 10.0.1.0/24|
     |Service endpoints| Select **Microsoft.Storage** under **Services**|
 
-Before enabling a service endpoint for a subnet that has existing resources in it, see [Change subnet settings](virtual-network-manage-subnet.md#change-subnet-settings).
+> [!CAUTION]
+> Before enabling a service endpoint for an existing subnet that has resources in it, see [Change subnet settings](virtual-network-manage-subnet.md#change-subnet-settings).
 
 ## Restrict network access for a subnet
 
