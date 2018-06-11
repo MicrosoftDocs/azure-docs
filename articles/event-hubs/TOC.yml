@@ -94,8 +94,6 @@
         href: event-hubs-capture-overview.md
       - name: Capture Event Hubs data using Python
         href: event-hubs-capture-python.md
-    - name: Using PowerShell to provision entities
-      href: event-hubs-manage-with-ps.md
     - name: Stream Azure Diagnostics data using Event Hubs
       href: event-hubs-streaming-azure-diags-data.md
     - name: Create and deploy an event hub using a Resource Manager template
