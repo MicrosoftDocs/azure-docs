@@ -61,6 +61,8 @@ In the left menu, click **Deployment Center** > **OneDrive** or **Dropbox** > **
 
 ![](media/app-service-deploy-content-sync/disable.png)
 
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]
