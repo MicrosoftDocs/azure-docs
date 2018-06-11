@@ -30,7 +30,16 @@ To learn how to assign administrative roles to a user in Azure Active Directory,
 ## Available roles
 The following administrator roles are available:
 
+* **Application Administrator**
+Users in this role can manage all enterprise applications, application registrations, and proxy application settings. This role can configure single sign-on (SSO) for gallery and non-gallery apps, which includes cert-rollover, user attributes (claims), and enable self-service settings.  Additionally, this role can assign users access to apps as well as owners.
+
+* **Application Developer** 
+Users in this role can create application registrations even when “Users can register apps” is turned off, and are marked as the owner of the applications they create. They can consent for themselves even when the “Users can consent to apps” is turned off.
+
 * **Billing Administrator**: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
+
+* **Cloud Application Administrator**
+Users in this role role can add and manage enterprise application and application registrations. This role doesn't manage on-premise application proxy apps, but the Application Administrator role does.
 
 * **Compliance Administrator**: Users with this role have management permissions within in the Office 365 Security & Compliance Center and Exchange Admin Center. More information at “[About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).”
 
