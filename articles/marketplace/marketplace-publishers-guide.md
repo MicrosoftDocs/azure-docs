@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: ellacroi
 
 ---  
@@ -115,7 +115,7 @@ Each storefront provides specialized options to help you maximize your publishin
 ---   
 
 ## How to Publish in the storefronts on the marketplace  
-The following sections help you navigate the publishing options in AppSource and Azure Marketplace.  
+The following pages help you navigate the publishing options in AppSource and Azure Marketplace.  
 
 Become a publisher in the storefronts on the marketplace in three easy steps.  
 1.  Visit the [Determine the Listing Type for Your Solution](./determine-your-listing-type.md) page.  
@@ -132,7 +132,6 @@ Become a publisher in the storefronts on the marketplace in three easy steps.
 ---  
 
 ## Support  
-
 *   Visit the [Support for AppSource](./support-appsource.md) page.  
 *   Visit the [Support for Azure Marketplace](./support-azure-marketplace.md) page.  
 
@@ -144,6 +143,7 @@ Become a publisher in the storefronts on the marketplace in three easy steps.
 
 ## Guidelines  
 *   Visit the [Guidelines](./guidelines.md) page.  
+    *   Visit the [Guidelines for creating a Microsoft ID to manage a marketplace account](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) section.  
 *   Visit the [Register in Dev Center](./register-dev-center.md) page.  
 *   Visit the [Add Bank and Tax Information](./add-bank-tax-info.md) page.  
 *   Visit the [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md) page.  

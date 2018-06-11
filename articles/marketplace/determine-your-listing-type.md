@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/11/2018
 ms.author: ellacroi
 
 ---  
@@ -65,6 +65,9 @@ The following table provides more information about the specific requirements fo
 ---   
 
 ## Azure Marketplace Publishing by Product  
+
+![](./media/marketplace-publishers-guide/workflow-azure-marketplace.png)  
+
 The following table provides more information about the specific requirements for Azure Marketplace offers.  
 
 | Listing type | Offer type |  Technical guidelines |  
@@ -207,7 +210,10 @@ Microsoft currently supports free and bring-your-own-license (BYOL) licensing mo
 | Requirement | Details |  
 |:--- |:--- |  
 | Billing and metering | Support either the free or BYOL billing model. |  
-| Docker-based image | Your container image must be based on the Docker image format and must be pulled from Azure Container Registries. |  
+| Image built from Dockerfile | Container images must be based on the Docker image specification and must be built from a Dockerfile.<ul> <li>For more information about building docker images, visit the Usage section located at [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
+| Hosting in ACR | Container images must be hosted in an Azure Container Registry (ACR) repository.<ul> <li>For more information about working with ACR, visit the Quickstart: Create a container registry using the Azure portal page located at [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> Learn more about working with ACR [here].(https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) |  
+| Image tagging | Container images must contain at least 1 tag (maximum tags: 16).<ul> <li>For more information about tagging an image, visit the docker tag page located at [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
+
 
 #### Requirements: Azure Marketplace: Transact: SaaS app  
 Use SaaS app offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. The following requirements must be met for your SaaS app.  
@@ -220,8 +226,9 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 |:--- |:--- |  
 | Billing and metering | Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based *true-up* options are not supported at this time. |  
 | Cancelation | Your offer is cancelable by the customer at any time. |  
-| Transaction Landing Page | Host an Azure co-branded transaction landing page. Your landing page enables your customers to create and manage your SaaS service account. |  
-| SaaS Subscription API | Provide a service that interacts with the SaaS Subscription to create, update, and delete a user account and service plan. All critical API changes must be supported within 24 hours. Any non-critical API changes are updated periodically. |  
+|Transaction landing page     |   You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account.      |    Transaction     |
+|Subscription API    |   You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically.      |     Transaction    |
+
 
 #### Requirements: Azure Marketplace: Transact: Virtual machine  
 Use the Virtual machine offer type when you deploy a virtual appliance to the subscription associated with your customer. VMs are fully commerce enabled using Pay-As-You-Go or Bring-your-Own-License (BYOL) licensing models. Microsoft hosts the commerce transaction and bills your customer on your behalf. You get the benefit of using the preferred payment relationship between your customer and Microsoft, including any Enterprise Agreements.  
