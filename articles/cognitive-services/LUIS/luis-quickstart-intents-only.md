@@ -15,12 +15,12 @@ ms.author: v-geberr
 # Quickstart: Create app to determine user's intention
 In this quickstart, create an app that demonstrates how to use **intents** to determine the user's _intention_ based on the utterance (text) they submit to the app. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
-This app is the simplest type of LUIS app because it doesn't extract data from the utterances. It only determines an user's intention of the utterance.
+This app is the simplest type of LUIS app because it doesn't extract data from the utterances. It only determines the user's intention of the utterance.
 
 For this article, you need a free [LUIS][LUIS] account for the LUIS website in order to author your LUIS application.
 
 ## Purpose of the app
-This app has two intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, identifies every other type of utterance. 
+This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, identifies every other type of utterance. Later in the quickstart, a third intent, `ApplyForJob`, is added. 
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log in to the [region](luis-reference-regions.md#publishing-regions) where you need the LUIS endpoints published.
@@ -29,7 +29,7 @@ This app has two intents. The first intent, **`GetJobInformation`**, identifies 
 
     [![](media/luis-quickstart-intents-only/app-list.png "Screenshot of My Apps page")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
-3. In the pop-up dialog, enter the name `HumanResources`. This app will cover questions about your company's Human Resources department. That type of department handles issues related to employment such as positions in the company that need to be filled with a new employee.
+3. In the pop-up dialog, enter the name `HumanResources`. This app will cover questions about your company's Human Resources department. That type of department handles issues related to employment such as positions in the company that need to be filled.
 
     ![LUIS new app](./media/luis-quickstart-intents-only/create-app.png)
 
@@ -38,7 +38,7 @@ This app has two intents. The first intent, **`GetJobInformation`**, identifies 
     [![](media/luis-quickstart-intents-only/intents-list.png "Screenshot of Intents list page")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
 ## Create first intention
-1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent should be selected any time a user wants information about open jobs in your company.
+1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in your company.
 
     ![](media/luis-quickstart-intents-only/create-intent.png "Screenshot of New intent dialog")
 
@@ -79,7 +79,7 @@ This app has two intents. The first intent, **`GetJobInformation`**, identifies 
 
     ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
 
-2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button. Publishing is complete when you see the green status bar at the top of the website confirming success.
+2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button by the product slot choice. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
     You do not have to create a LUIS key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
 
@@ -130,12 +130,12 @@ Return to the browser tab for the LUIS website and create a new intention to app
 
     [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot of entering new utterances for ApplyForJob intent")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
-    The labeled intent is outlined in red because is LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
+    The labeled intent is outlined in red because LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
 
 ## Train and publish the app
 Adding a new intent and new utterances changes the LUIS model. In order for LUIS to know about these changes, train the app. In order for the changes to be available on the endpoint, publish the app.
 
-1. In the top right side of the LUIS website, select the **Train** button. 
+1. In the top, right side of the LUIS website, select the **Train** button. 
 
     ![Train button](./media/luis-quickstart-intents-only/train-button.png)
 
@@ -143,7 +143,7 @@ Adding a new intent and new utterances changes the LUIS model. In order for LUIS
 
     ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
 
-2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button. Publishing is complete when you see the green status bar at the top of the website confirming success.
+2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button by the product slot choice. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query endpoint with a different utterance
 On the **Publish** page, select the **endpoint** link at the bottom of the page. In the new browser window, enter `Can I submit my resume for job 235986` at the end of the URL. 
@@ -176,7 +176,7 @@ On the **Publish** page, select the **endpoint** link at the bottom of the page.
 ## What has this LUIS app accomplished?
 This app, with just a few intents, identified a natural language query that is of the same intention but worded differently. 
 
-The JSON result identifies the top scoring intent. All scores are between 1 and 0, with the better score being close to 1. The `None` intent's score is much closer to zero. 
+The JSON result identifies the top scoring intent. All scores are between 1 and 0, with the better score being close to 1. The `GetJobInformation` and `None` intents' score are much closer to zero. 
 
 ## Where is this LUIS data used? 
 LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and either find information (not stored in LUIS) to answer the question or end the conversation. These are programmatic options for the bot or calling application. LUIS doesn't do that work. LUIS only determines what the user's intention is. 
