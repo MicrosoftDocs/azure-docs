@@ -307,7 +307,7 @@ Section "Device"
     Driver         "nvidia"
     VendorName     "NVIDIA Corporation"
     BoardName      "Tesla M60"
-    BusID          "PCI:your-BusID:0:0"
+    BusID          "PCI:0@your-BusID:0:0"
 EndSection
 ```
  
