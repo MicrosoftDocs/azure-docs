@@ -34,8 +34,8 @@ To install and configure a Hybrid Runbook Worker on your Linux computer, you fol
 
 The minimum requirements for a Linux Hybrid Runbook Worker are:
 
-* A minimum of two cores
-* A minimum of 4 GB of RAM
+* Two cores
+* 4 GB of RAM
 * Port 443 (outbound)
 
 ### Package requirements
@@ -102,7 +102,7 @@ The Linux Hybrid Runbook Worker depends on the OMS Agent for Linux to communicat
 
 ### The OMS Agent for Linux isn't running
 
-If the OMS Agent for Linux isn't running, the Linux Hybrid Runbook Worker can't communicate with Azure Automation. Verify that the agent is running by entering the following command: `ps -ef | grep python`. 
+If the OMS Agent for Linux isn't running, the Linux Hybrid Runbook Worker can't communicate with Azure Automation. Verify that the agent is running by entering the command `ps -ef | grep python`. 
 
 You should see output similar to the following (the Python processes with the **nxautomation** user account). If the Update Management or Azure Automation solution is not enabled, none of the following processes will be running.
 
