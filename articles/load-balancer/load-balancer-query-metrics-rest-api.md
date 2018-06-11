@@ -1,5 +1,5 @@
 ---
-title: Retrieve Load Balancer metrics with the REST API | Microsoft Docs
+title: Retrieve Azure Load Balancer metrics with the REST API | Microsoft Docs
 description: Use the Azure REST APIs to collect health and utilization metrics for Load Balancer for a given range of time and dates.
 services: sql-database
 author: KumudD
