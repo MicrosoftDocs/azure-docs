@@ -16,7 +16,7 @@ You deploy an on-premises configuration server when you use [Azure Site Recovery
 
 ## Prerequisites
 
-We recommend that you deploy the configuration server as a highly available VMware VM. Minimum hardware requirements are summarized in the following table.
+We recommend that you deploy the configuration server as a highly available VMware VM. Configuration server requirements are summarized in the following table.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
