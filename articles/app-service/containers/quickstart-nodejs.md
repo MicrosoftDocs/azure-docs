@@ -59,7 +59,7 @@ mkdir quickstart
 cd quickstart
 ```
 
-Next, run the following command to clone the sample app repository to your local machine.
+Next, run the following command to clone the sample app repository to your quickstart directory.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
@@ -164,7 +164,7 @@ Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 You'll now redeploy the app. Substitute `<app_name>` with your web app.
 
 ```bash
-azwebapp up -n <app_name>
+az webapp up -n <app_name>
 ```
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
@@ -185,7 +185,15 @@ You see your web app's Overview page. Here, you can complete basic management ta
 
 The left menu provides different pages for configuring your app.
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group from the Cloud Shell. If you modified the region of the web app, you'll need to update the resource group name from `appsvc_rg_Linux_CentralUS` to the resource group specific to your app.
+
+```azurecli-interactive
+az group delete --name appsvc_rg_Linux_CentralUS
+```
+
+This command may take a minute to run.
 
 ## Next steps
 
