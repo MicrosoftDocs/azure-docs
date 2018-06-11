@@ -1,5 +1,5 @@
 ---
-title: How to extend alerts from Log Analytcs to Azure
+title: Extend alerts from Log Analytcs to Azure
 description: This article describes the tools and API by which you can extend alerts from Log Analytics to Azure Alerts.
 author: msvijayn
 services: azure-monitor
@@ -9,7 +9,7 @@ ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
 ---
-# How to extend alerts from Log Analytics into Azure Alerts
+# Extend alerts from Log Analytics into Azure Alerts
 The alerts feature in Azure Log Analytics is being replaced by Azure Alerts. As part of this transition, alerts that you originally configured in Log Analytics will be extended into Azure. If you don't want to wait for them to be automatically moved into Azure, you can initiate the process:
 
 - Manually from the Operations Management Suite portal. 
@@ -18,7 +18,7 @@ The alerts feature in Azure Log Analytics is being replaced by Azure Alerts. As 
 > [!NOTE]
 > Microsoft will automatically extend alerts created in Log Analytics to Azure Alerts, starting on May 14, 2018, in a recurring series until completed. Microsoft schedules migrating the alerts to Azure, and during this transition, alerts can be managed from both the Operations Management Suite portal and the Azure portal. This process is not destructive or interruptive.  
 
-## Option 1 - Initiate from the Operations Management Suite portal
+## Option 1: Initiate from the Operations Management Suite portal
 The following steps describe how to extend alerts for the workspace from the Operations Management Suite portal.  
 
 1. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
@@ -36,14 +36,14 @@ The following steps describe how to extend alerts for the workspace from the Ope
 8. In the last step of wizard, select **Finish**, and confirm when prompted to initiate the process. Optionally, you can provide an email address, so that you are notified when the process completes and all alerts have been successfully moved to Azure Alerts.
 ![Screenshot of step 3 of the wizard](./media/monitor-alerts-extend/ExtendStep3.png)
 
-When the wizard is finished, on the **Alert Settings** page, the option to extend alerts to Azure is removed. In the background, your alerts are moved into Azure, and this can take some time. During the operation, you are not able to make changes to alerts from the Operations Management Suite portal. You can see the current status from the banner at the top of the portal. If you provided an email address earlier, you receive an email when the process has successfully completed.  
+When the wizard is finished, on the **Alert Settings** page, the option to extend alerts to Azure is removed. In the background, your alerts are moved into Azure, and this can take some time. During the operation, you can't make changes to alerts from the Operations Management Suite portal. You can see the current status from the banner at the top of the portal. If you provided an email address earlier, you receive an email when the process has successfully completed.  
 
 
 Alerts continue to be listed in Operations Management Suite portal, even after they are successfully moved into Azure.
 ![Screenshot of Operations Management Suite portal Alert Settings page](./media/monitor-alerts-extend/PostExtendList.png)
 
 
-## Option 2 - Use the AlertsVersion API
+## Option 2: Use the AlertsVersion API
 You can use the Log Analytics AlertsVersion API to extend alerts from Log Analytics into Azure Alerts from any client that can call a REST API. You can access the API from PowerShell by using [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool. You can output the results in JSON.  
 
 To use the API, you first create a GET request. This evaluates and returns a summary of the proposed changes, before you attempt to actually extend into Azure by using a POST request. The results list your alerts and a proposed list of [action groups](monitoring-action-groups.md), in JSON format. If similar actions are seen across more than one alert, the service proposes to associate all of them with a single action group. The naming convention is as follows: *WorkspaceName_AG_#Number*.
@@ -208,7 +208,7 @@ This response indicates the alerts have been successfully extended into Azure Al
 ```
 
 
-## Option 3 - Use a custom PowerShell script
+## Option 3: Use a custom PowerShell script
  If Microsoft has not successfully extended your alerts from the Operations Management Suite portal to Azure, you can do so manually until July 5, 2018. The two options for manual extension are covered in the previous two sections.
 
 After July 5, 2018, all alerts from the Operations Management Suite portal are extended into Azure. Users who didn't take the [necessary remediation steps suggested](#troubleshooting) will have their alerts running without firing actions or notifications, due to the lack of associated [action groups](monitoring-action-groups.md). 
@@ -433,7 +433,7 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 
 ### About the custom PowerShell script 
 The following is important information about using the script:
-- A pre-requisite is the installation of [ARMclient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
+- A prerequisite is the installation of [ARMclient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
 - To run the script, you must have a contributor or owner role in the Azure subscription.
 - You must provide the following parameters:
     - $subscriptionId: The Azure Subscription ID associated with the Operations Management Suite Log Analytics workspace.
@@ -448,7 +448,7 @@ The script is verbose, and outputs the steps as it runs:
 - The script exits by displaying the message "Extension complete!" In case of any intermediate failures, the script displays subsequent errors.
 
 ## Troubleshooting 
-During the process of extending alerts, problems can prevent the system from creating the necessary [action groups](monitoring-action-groups.md). In such cases, you see an error message in a banner in the Alert section of the Operations Management Suite portal, or in the GET call done to the API.
+During the process of extending alerts, problems can prevent the system from creating the necessary [action groups](monitoring-action-groups.md). In such cases, you see an error message in a banner in the **Alert** section of the Operations Management Suite portal, or in the GET call done to the API.
 
 > [!IMPORTANT]
 > If you don't take the following remediation steps before July 5, 2018, alerts will run in Azure but will not fire any action or notification. To get notifications for alerts, you must manually edit and add [action groups](monitoring-action-groups.md), or use the preceding [custom PowerShell script](#option-3---using-custom-powershell-script).
@@ -457,20 +457,20 @@ Here are the remediation steps for each error:
 - **Error: Scope Lock is present at subscription/resource group level for write operations**:
     ![Screenshot of the Operations Management Suite portal Alert Settings page, with Scope Lock error message highlighted](./media/monitor-alerts-extend/ErrorScopeLock.png)
 
-    When Scope Lock is enabled, the feature restricts any new change in the subscription or resource group containing the Log Analytics (Operations Management Suite) workspace. The system is unable to extend alerts into Azure and create necessary action groups.
+    When Scope Lock is enabled, the feature restricts any new change in the subscription or resource group that contains the Log Analytics (Operations Management Suite) workspace. The system is unable to extend alerts into Azure and create necessary action groups.
     
-    To resolve, delete the *ReadOnly* lock on your subscription or resource group containing the workspace. You can do this by using the Azure portal, PowerShell, Azure CLI, or the API. To learn more, see [resource lock usage](../azure-resource-manager/resource-group-lock-resources.md). 
+    To resolve, delete the *ReadOnly* lock on your subscription or resource group that contains the workspace. You can do this by using the Azure portal, PowerShell, Azure CLI, or the API. To learn more, see [resource lock usage](../azure-resource-manager/resource-group-lock-resources.md). 
     
-    When resolved per the steps illustrated in the article, Operations Management Suite extends your alerts into Azure within the next day's scheduled run. You do not need to take any further action or initiate anything.
+    When you resolve the error by using the steps illustrated in the article, Operations Management Suite extends your alerts into Azure within the next day's scheduled run. You don't need to take any further action or initiate anything.
 
 - **Error: Policy is present at subscription/resource group level**: 
     ![Screenshot of the Operations Management Suite portal Alert Settings page, with Policy error message highlighted](./media/monitor-alerts-extend/ErrorPolicy.png)
 
-    When [Azure Policy](../azure-policy/azure-policy-introduction.md) is applied, it restricts any new resource in a subscription or resource group containing the Log Analytics (Operations Management Suite) workspace. The system is unable to extend alerts into Azure and create necessary action groups.
+    When [Azure Policy](../azure-policy/azure-policy-introduction.md) is applied, it restricts any new resource in a subscription or resource group that contains the Log Analytics (Operations Management Suite) workspace. The system is unable to extend alerts into Azure and create necessary action groups.
     
-    To resolve, edit the policy causing the *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* error, which prevents creation of new resources on your subscription or resource group containing the workspace. You can do this by using the Azure portal, PowerShell, Azure CLI or the API. You can audit actions to find the appropriate policy causing failure. To learn more, see [viewing activity logs to audit actions](../azure-resource-manager/resource-group-audit.md). 
+    To resolve, edit the policy that's causing the *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* error, which prevents creation of new resources on your subscription or resource group that contains the workspace. You can do this by using the Azure portal, PowerShell, Azure CLI, or the API. You can audit actions to find the appropriate policy that's causing failure. To learn more, see [viewing activity logs to audit actions](../azure-resource-manager/resource-group-audit.md). 
     
-    When resolved per the steps illustrated in the article, Operations Management Suite extends your alerts into Azure within the next day's scheduled run. You do not need to take any further action or initiate anything.
+    When you resolve the error by using the steps illustrated in the article, Operations Management Suite extends your alerts into Azure within the next day's scheduled run. You don't need to take any further action or initiate anything.
 
 
 ## Next steps
