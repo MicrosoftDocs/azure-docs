@@ -131,7 +131,7 @@ Currently the only storage supported is Azure blob.
 
 ## Downloading the sample
 
-The sample from this article can be downloaded [here](https://aka.ms/csspeech/winsample).
+The sample from this article in on [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
 > Typically an audio transcription requires a time span equal to the duration of the audio file plus a 2-3 minute overhead.
