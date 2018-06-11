@@ -89,7 +89,7 @@ To add the **Automation** solution to your Log Analytics workspace, follow the i
 
 #### 3. Install the Microsoft Monitoring Agent
 
-The Microsoft Monitoring Agent connects computers to Log Analytics. When you install the agent on your on-premises computer and connect it to your workspace, it automatically downloads the components required for Hybrid Runbook Worker.
+The Microsoft Monitoring Agent connects computers to Log Analytics. When you install the agent on your on-premises computer and connect it to your workspace, it automatically downloads the components that are required for Hybrid Runbook Worker.
 
 To install the agent on the on-premises computer, follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agent.md). You can repeat this process for multiple computers to add multiple workers to your environment.
 
@@ -151,4 +151,4 @@ For additional steps on how to troubleshoot issues with Update Management, see [
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* For instructions on how to remove Hybrid Runbook Workers, see [Remove Azure Automation Hybrid Runbook Workers](automation-hybrid-runbook-worker.md#removing-hybrid-runbook-worker).
+* For instructions on how to remove Hybrid Runbook Workers, see [Remove Azure Automation Hybrid Runbook Workers](automation-hybrid-runbook-worker.md#removing-a-hybrid-runbook-worker).

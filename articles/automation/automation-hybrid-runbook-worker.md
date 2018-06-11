@@ -31,7 +31,7 @@ To install and configure a Windows Hybrid Runbook Worker, you can use two method
 |OS  |Deployment types  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
-|Linux     | [Python](automation-linux-hrw-install.md#installing-linux-hybrid-runbook-worker)        |
+|Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
 > To manage the configuration of your servers that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you need to add them as DSC nodes. For more information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
@@ -148,9 +148,9 @@ Verify that the computer has outbound access to *.azure-automation.net on port 4
 
 A computer running the Hybrid Runbook Worker should meet the minimum hardware requirements before you designate it to host this feature. Otherwise, depending on the resource utilization of other background processes and the contention caused by runbooks during execution, the computer can become overutilized and cause runbook job delays or timeouts.
 
-Confirm that the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Memory or CPU pressure might indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error. Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate that an increase is necessary.
+Confirm that the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Memory or CPU pressure might indicate the need to upgrade processors, add processors, or increase memory to address the resource bottleneck and resolve the error. Or, select a different compute resource that can support the minimum requirements and scale when workload demands indicate that an increase is necessary.
 
-For additional information on troubleshooting for a specific OS, see [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#troubleshooting) or [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#troubleshooting).
+For more information on troubleshooting for a specific OS, see [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#troubleshooting) or [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#troubleshooting).
 
 ## Next steps
 
