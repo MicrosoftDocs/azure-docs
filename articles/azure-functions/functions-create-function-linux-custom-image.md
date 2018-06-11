@@ -222,7 +222,7 @@ In this tutorial, you learned how to:
 > * Deploy a function app from Docker Hub.
 > * Add application settings to the function app.
 
-Learn how to enable the App Service for Containers continuous integration functionality, which redeploys your container when you make updates in Docker Hub.
+Learn how to enable continuous integration functionality built into the core App Service platform. You can configure your function app so that the container is redeployed when you update your image in Docker Hub.
 
 > [!div class="nextstepaction"] 
 > [Continuous deployment with Web App for Containers](../app-service/containers/app-service-linux-ci-cd.md)
