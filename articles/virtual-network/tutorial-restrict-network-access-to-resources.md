@@ -174,7 +174,7 @@ The steps necessary to restrict network access to resources created through Azur
 4. Enter *my-file-share* under **Name**, and then select **OK**.
 5. Close the **File service** box.
 
-### Limit network access to a subnet
+### Restrict network access to a subnet
 
 By default, storage accounts accept network connections from clients in any network, including the internet. Deny network access from the internet, and all other subnets in all virtual networks, except for the *Private* subnet in the *myVirtualNetwork* virtual network.
 
