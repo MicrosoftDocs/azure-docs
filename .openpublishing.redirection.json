@@ -22291,11 +22291,6 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-mysql-resource-provider-deploy.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-mysql-resource-provider",
-            "redirect_document_id": false
         }
     ]
 }
