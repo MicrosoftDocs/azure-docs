@@ -1,21 +1,13 @@
 ---
-title: Create and manage action groups in the Azure portal | Microsoft Docs
+title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/1/2018
 ms.author: dukek
-
+ms.component: alerts
 ---
 # Create and manage action groups in the Azure portal
 ## Overview ##

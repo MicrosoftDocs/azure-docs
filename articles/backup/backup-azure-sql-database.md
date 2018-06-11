@@ -100,6 +100,10 @@ Before you can back up your SQL Server database, check the following conditions.
 - [Check the permissions on the virtual machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) needed to back up SQL databases.
 - [SQL virtual machine has network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
 
+> [!NOTE]
+> You can have only one backup solution at a time to backup SQL Server databases. Please disable any other SQL backup before using this feature, else backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict 
+>
+
 If these conditions exist in your environment, proceed to the section, [Configure your vault to protect a SQL database](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database). If any of the prerequisites do not exist, continue reading this section.
 
 
@@ -249,7 +253,13 @@ When you use the **Discover DBs** tool, Azure Backup executes the following oper
 
 ## Configure backup for SQL Server database
 
-Azure Backup provides management services to protect your SQL Server databases and manage backup jobs. The management and monitoring capabilities depend on your Recovery Services vault. To configure protection for your SQL database:
+Azure Backup provides management services to protect your SQL Server databases and manage backup jobs. The management and monitoring capabilities depend on your Recovery Services vault. 
+
+> [!NOTE]
+> You can have only one backup solution at a time to backup SQL Server databases. Please disable any other SQL backup before using this feature, else backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict 
+>
+
+To configure protection for your SQL database:
 
 1. Open the Recovery Services vault registered with the SQL virtual machine.
 
