@@ -32,12 +32,12 @@ You can copy data from Azure SQL Data Warehouse to any supported sink data store
 
 Specifically, this Azure SQL Data Warehouse connector supports the following functions:
 
-- Use **SQL authentication** and **Azure Active Directory Application token authentication** with a service principal or Managed Service Identity (MSI) to copy data.
+- Use SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or Managed Service Identity (MSI) to copy data.
 - As a source, use a SQL query or stored procedure to retrieve data.
 - As a sink, use PolyBase or a bulk insert to load data. We recommend PolyBase for better copy performance.
 
 > [!IMPORTANT]
-> Note that PolyBase supports only SQL authentication but not Azure Active Directory (Azure AD) authentication.
+> Note that PolyBase supports only SQL authentication but not Azure Active AD authentication.
 
 > [!IMPORTANT]
 > If you use Azure Data Factory Integration Runtime to copy data, configure an [Azure SQL Server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure Services can access the server.
@@ -115,7 +115,7 @@ To use service principal-based Azure AD application token authentication, follow
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. In Azure Data Factory, configure an Azure SQL Data Warehouse linked service.
+5. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
 
 
 #### Linked service example that uses service principal authentication
@@ -147,16 +147,16 @@ To use service principal-based Azure AD application token authentication, follow
 
 ### Managed Service Identity authentication
 
-A data factory can be associated with a [Managed Service Identity](data-factory-service-identity.md) that represents the specific data factory. You can use this service identity for Azure SQL Data Warehouse authentication. The designated factory can access and copy data from or to your data warehouse by using this identity.
+A data factory can be associated with a [Managed Service Identity](data-factory-service-identity.md) that represents the specific factory. You can use this service identity for Azure SQL Data Warehouse authentication. The designated factory can access and copy data from or to your data warehouse by using this identity.
 
 > [!IMPORTANT]
 > Note that PolyBase isn't currently supported for MSI authentication.
 
 To use MSI-based Azure AD application token authentication, follow these steps.
 
-1. **Create a group in Azure AD. Make the factory MSI a member of the group**.
+1. **Create a group in Azure AD.** Make the factory MSI a member of the group.
 
-    a. Find the data factory service identity from the Azure portal. Go to your data factory's **Properties**. Copy the **SERVICE IDENTITY ID**.
+    a. Find the data factory service identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
 
     b. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Use the `Connect-AzureAD` command to sign in. Run the following commands to create a group and add the data factory MSI as a member.
     ```powershell
@@ -346,13 +346,13 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity sink must be set to **SqlDWSink**. | Yes |
-| allowPolyBase | Indicates whether to use PolyBase (when applicable) instead of the BULKINSERT mechanism. <br/><br/> **We recommend that you use PolyBase to load data into SQL Data Warehouse.** See the [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default).  | No |
+| allowPolyBase | Indicates whether to use PolyBase, when applicable, instead of the BULKINSERT mechanism. <br/><br/> We recommend that you use PolyBase to load data into SQL Data Warehouse. See the [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default).  | No |
 | polyBaseSettings | A group of properties that can be specified when the **allowPolybase** property is set to **true**. | No |
-| rejectValue | Specifies the number or percentage of rows that can be rejected before the query fails.<br/><br/>Learn more about PolyBase’s reject options in the **Arguments** section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Allowed values are 0 (default), 1, 2, etc. |No |
-| rejectType | Specifies whether the **rejectValue** option a literal value or a percentage.<br/><br/>Allowed values are **Value** (default) and **Percentage**. | No |
+| rejectValue | Specifies the number or percentage of rows that can be rejected before the query fails.<br/><br/>Learn more about PolyBase’s reject options in the Arguments section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Allowed values are 0 (default), 1, 2, etc. |No |
+| rejectType | Specifies whether the **rejectValue** option is a literal value or a percentage.<br/><br/>Allowed values are **Value** (default) and **Percentage**. | No |
 | rejectSampleValue | Determines the number of rows to retrieve before PolyBase recalculates the percentage of rejected rows.<br/><br/>Allowed values are 1, 2, etc. | Yes, if the **rejectType** is **percentage**. |
-| useTypeDefault | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the **Arguments** section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are **True** and **False** (default). | No |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). | No (default is 10000) |
+| useTypeDefault | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are **True** and **False** (default). | No |
+| writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). | No. The default is 10000. |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No | (#repeatability-during-copy). | A query statement. | No |
 
@@ -505,7 +505,7 @@ To use PolyBase, the user that loads data into SQL Data Warehouse must have ["CO
 
 ### Row size and data type limits
 
-PolyBase loads are limited to rows smaller than **1 MB**. They can't load to VARCHR(MAX), NVARCHAR(MAX), or VARBINARY(MAX). For more information, see [SQL Data Warehouse service capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+PolyBase loads are limited to rows smaller than 1 MB. They can't load to VARCHR(MAX), NVARCHAR(MAX), or VARBINARY(MAX). For more information, see [SQL Data Warehouse service capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
 When your source data has rows greater than 1 MB, you might want to vertically split the source tables into several small ones. Make sure that the largest size of each row doesn't exceed the limit. The smaller tables can then be loaded by using PolyBase and merged together in Azure SQL Data Warehouse.
 
