@@ -661,7 +661,7 @@ Here is the trigger definition:
 
 <a name="trigger-conditions"></a>
 
-## Triggers: Conditions
+## Trigger conditions
 
 For any trigger, you can include an array with one or more 
 conditions that determine whether the workflow should run or not. 
@@ -703,7 +703,7 @@ when your website returns a "500" status code:
 
 <a name="split-on-debatch"></a>
 
-## Triggers: Split an array into multiple runs
+## Triggers - Split into multiple runs
 
 If your trigger returns an array for your logic app to process, 
 sometimes a "for each" loop might take too long to process each array item. 
@@ -795,7 +795,7 @@ So, your trigger outputs look like these examples:
 
 <a name="trigger-operation-options"></a>
 
-## Triggers: Operation options
+## Trigger operation options
 
 These triggers provide more options that let you change the default behavior.
 
@@ -1046,7 +1046,7 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 |-------|------|-------------| 
 | <*action-name*> | String | The name of the action provided by the connector | 
 | <*method-type*> | String | The HTTP method to use for subscribing or unsubscribing from an endpoint: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
-| <*api-subscription-URL*> | String | The URI to use for subscribing or unsubscripting from an endpoint | 
+| <*api-subscription-URL*> | String | The URI to use for subscribing or unsubscribing from an endpoint | 
 |||| 
 
 *Optional*
@@ -1185,14 +1185,15 @@ performs these checks on the referenced function:
 
 *Example*
 
-This action definition calls an Azure function named "GetProductIDFunction":
+This action definition calls the previously 
+created "GetProductID" function:
 
 ```json
-"GetProductIDFunction": {
+"GetProductID": {
    "type": "Function",
    "inputs": {
      "function": {
-        "id": "/subscriptions/<XXXXXXXXXXXXXXXXXXXX>/resourceGroups/myLogicAppResourceGroup/providers/Microsoft.Web/sites/InventoryChecker/functions/GetProductIDFunction"
+        "id": "/subscriptions/<XXXXXXXXXXXXXXXXXXXX>/resourceGroups/myLogicAppResourceGroup/providers/Microsoft.Web/sites/InventoryChecker/functions/GetProductID"
       },
       "method": "POST",
       "headers": { 
@@ -1208,7 +1209,7 @@ This action definition calls an Azure function named "GetProductIDFunction":
 
 <a name="http-action"></a>
 
-## HTTP action
+### HTTP action
 
 This action sends a request to the specified endpoint and 
 checks the response to determine whether the workflow should run. 
@@ -1287,8 +1288,8 @@ and separates those items with the specified delimiter character.
 
 *Example*
 
-Suppose you have an array variable named "myIntegerArray" that contains integers, 
-for example: 
+Suppose you have a previously created "myIntegerArray" 
+variable that contains this integer array: 
 
 `[1,2,3,4]` 
 
@@ -1338,11 +1339,10 @@ easily reference the data in that output.
 
 *Example*
 
-This action definition creates these tokens, 
-which you can use at design time in your logic app workflow 
-but only in actions that run following the **Parse JSON** action. 
+This action definition creates these tokens that you can use in your logic app 
+workflow but only in actions that run following the **Parse JSON** action: 
 
-Here are the tokens that this action creates: "FirstName", "LastName", "Email"
+`FirstName`, `LastName`, and `Email`
 
 ```json
 "Parse_JSON": {
@@ -1714,7 +1714,8 @@ Otherwise, each unique header defines a unique column.
 
 *Example 1*
 
-Suppose you have an array variable named "myItemArray" that currently contains this array: 
+Suppose you have a previously created "myItemArray" 
+variable that currently contains this array: 
 
 `[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
 
@@ -1828,8 +1829,8 @@ including sequential loops.
 
 *Optional*
 
-The properties for the "runStatus" object apply 
-only when the "runStatus" property value is "Failed".
+The properties for the "runStatus" object apply only 
+when the "runStatus" property is set to "Failed" status.
 
 | Value | Type | Description | 
 |-------|------|-------------| 
@@ -1858,7 +1859,7 @@ and returns the status, an error code, and an error message:
 
 <a name="wait-action"></a>
 
-## Wait action  
+### Wait action  
 
 This action pauses workflow execution for the 
 specified interval or until the specified time, 
