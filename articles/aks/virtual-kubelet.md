@@ -36,7 +36,7 @@ Use the [az aks install-connector][aks-install-connector] command to install Vir
 az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --os-type Both
 ```
 
-These arguments are avaliable for the `aks install-connector` command.
+These arguments are available for the `aks install-connector` command.
 
 | Argument: | Description | Required |
 |---|---|:---:|
