@@ -151,11 +151,7 @@
 #### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
 ### [Develop for constrained devices](iot-hub-devguide-develop-for-constrained-devices.md)
 ### [Develop for mobile devices](iot-hub-how-to-develop-for-mobile-devices.md)
-### Routing messages
-#### [.NET](iot-hub-csharp-csharp-process-d2c.md)
-#### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.js](iot-hub-node-node-process-d2c.md)
-#### [Python](iot-hub-python-python-process-d2c.md)
+### [Query Avro data from a hub route](iot-hub-query-avro-data.md)
 ### Send cloud-to-device messages
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)

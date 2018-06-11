@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 005/29/2018
+ms.date: 05/29/2018
 ms.author: shlo
 
 ---
@@ -139,8 +139,6 @@ Triggers are another way that you can execute a pipeline run. Triggers represent
 
 - Tumbling window trigger: A trigger that operates on a periodic interval, while also retaining state. Azure Data Factory doesn't currently support event-based triggers. For example, the trigger for a pipeline run that responds to a file-arrival event is not supported.
 
-- Event-based trigger: A trigger that responds to an event.
-
 Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
 
 ### Basic trigger definition
@@ -179,12 +177,6 @@ For more information about schedule triggers and for examples, see [Create a sch
 Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals.
 
 For more information about tumbling window triggers and for examples, see [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
-
-## Event-based trigger
-
-An event-based triggers runs pipelines in response to an event, such as the arrival of a file, or the deletion of a file, in Azure Blob Storage.
-
-For more information about event-based triggers, see [Create a trigger that runs a pipeline in response to an event](how-to-create-event-trigger.md).
 
 ## Schedule trigger definition
 When you create a schedule trigger, you specify scheduling and recurrence by using a JSON definition. 

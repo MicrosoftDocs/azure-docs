@@ -11,8 +11,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/16/2018
-ms.author: billmath
+ms.author: rolyon
 ---
 
 # Manage user access with Azure AD access reviews

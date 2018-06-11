@@ -10,22 +10,32 @@
     href: tutorial-assessment-vmware.md
 - name: Concepts
   items:
-  - name: Collector Concepts
+  - name: About the collector
     href: concepts-collector.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
-  - name: Dependency visualization
+  - name: About dependency visualization
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
-  - name: Migrate your on-premises resources to Azure
+  - name: Contoso migration series
     items:
-    - name: Scenario overview - Migrate your on-premises resources to Azure
-      href: migrate-scenarios-overview.md
-    - name: Scenario 1 - Assess on-premises resources for migration to Azure
-      href: migrate-scenarios-assessment.md
-    - name: Scenario 2- Lift and shift migration to Azure
-      href: migrate-scenarios-lift-and-shift.md
+    - name: 1. Contoso-Migration overview
+      href: contoso-migration-overview.md
+    - name: 2. Contoso-Set up an Azure infrastructure
+      href: contoso-migration-infrastructure.md
+    - name: 3. Contoso-Assess on-premises resources for migration to Azure
+      href: contoso-migration-assessment.md
+    - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Managed Instance
+      href: contoso-migration-rehost-vm-sql-managed-instance.md
+    - name: 5. Contoso-Rehost an app on Azure VMs
+      href: contoso-migration-rehost-vm.md
+    - name: 6. Contoso-Rehost an app on Azure VMs and Azure SQL AlwaysOn
+      href: contoso-migration-rehost-vm-sql-ag.md
+    - name: 7. Contoso-Rehost a Linux app on Azure VMs
+      href: contoso-migration-rehost-linux-vm.md
+    - name: 8. Contoso-Rehost a Linux app on Azure VMs and Azure MySQL
+      href: contoso-migration-rehost-linux-vm-mysql.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines
@@ -46,4 +56,5 @@
     href: https://azure.microsoft.com/migrate
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  
+  - name: FAQ
+    href: resources-faq.md

@@ -25,7 +25,7 @@ With the [OCR method](https://westus.dev.cognitive.microsoft.com/docs/services/5
 
 To run the sample, do the following steps:
 
-1. Copy the following code into an editor, such as Notepad.
+1. Copy the following code into an editor.
 1. Replace `<Subscription Key>` with your valid subscription key.
 1. Change the Request URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) to use the location where you obtained your subscription keys, if necessary.
 1. Optionally, change the image (`{\"url\":\"...`) to analyze.
