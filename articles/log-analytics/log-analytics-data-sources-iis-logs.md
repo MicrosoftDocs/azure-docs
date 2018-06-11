@@ -32,7 +32,7 @@ Configure IIS logs in Log Analytics from the [Data menu in Log Analytics Setting
 
 
 ## Data collection
-Log Analytics collects IIS log entries from each connected source each time the log is closed and a new one is created. This frequency is controlled by the **Log File Rollover Schedule** setting for the IIS site. For example, if the settings is **Hourly**, then Log Analytics will collect the log each hour.  If the setting is **Daily**, then Log Analytics will collect the log every 24 hours.
+Log Analytics collects IIS log entries from each agent each time the log is closed and a new one is created. This frequency is controlled by the **Log File Rollover Schedule** setting for the IIS site. For example, if the settings is **Hourly**, then Log Analytics will collect the log each hour.  If the setting is **Daily**, then Log Analytics will collect the log every 24 hours.
 
 
 ## IIS log record properties
