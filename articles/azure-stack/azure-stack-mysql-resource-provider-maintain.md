@@ -81,6 +81,7 @@ When using the SQL and MySQL resource providers with Azure Stack integrated syst
 - External SSL Certificate [provided during deployment](azure-stack-pki-certs.md). 
 - The resource provider VM local administrator account password provided during deployment. 
 - Resource provider diagnostic user (dbadapterdiag) password. 
+
 #### PowerShell examples for rotating secrets 
  
 **Change all secrets at the same time** 
