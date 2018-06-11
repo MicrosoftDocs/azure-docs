@@ -299,7 +299,7 @@ If the driver is installed, you will see output similar to the following. Note t
  
 
 ### X11 server
-If you need an X11 server for remote connections to an NV VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the xconfig file (usually in `etc/X11/xorg.conf`). Add a `"Device"` section similar to the following:
+If you need an X11 server for remote connections to an NV VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the X server configuration file (usually, `etc/X11/xorg.conf`). Add a `"Device"` section similar to the following:
  
 ```
 Section "Device"
@@ -307,7 +307,7 @@ Section "Device"
     Driver         "nvidia"
     VendorName     "NVIDIA Corporation"
     BoardName      "Tesla M60"
-    BusID          "your-BusID:0:0:0"
+    BusID          "PCI:your-BusID:0:0"
 EndSection
 ```
  
@@ -319,7 +319,7 @@ The decimal BusID can be found by running
 nvidia-xconfig --query-gpu-info | awk '/PCI BusID/{print $4}'
 ```
  
-The BusID can change when a VM gets reallocated or rebooted. Therefore, you may want to create a script to update the BusID in the X11 configuration when a VM is rebooted. For example, create a script named `busidupdate.sh` (or another name you choose) with the following contents:
+The BusID can change when a VM gets reallocated or rebooted. Therefore, you may want to create a script to update the BusID in the X11 configuration when a VM is rebooted. For example, create a script named `busidupdate.sh` (or another name you choose) with contents similar to the following:
 
 ```bash 
 #!/bin/bash
