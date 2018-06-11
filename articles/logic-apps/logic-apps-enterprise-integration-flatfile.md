@@ -4,7 +4,7 @@ description: How to use the file file encoder or decoder in the Enterprise Integ
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: divyaswarnkar
-manager: anneta
+manager: jeconnoc
 editor: 
 
 ms.assetid: 82152dab-c7ad-43df-b721-596559703be8

@@ -2,7 +2,7 @@
 title: Manage integration account artifact metadata - Azure Logic Apps | Microsoft Docs
 description: Add or retrieve artifact metadata from integration accounts for Azure Logic Apps
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
