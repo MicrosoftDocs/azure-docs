@@ -141,7 +141,16 @@ client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
 // upload a video
 var content = new MultipartFormDataContent();
 Debug.WriteLine("Uploading...");
-var videoUrl = "..."; // replace with the video url 
+// get the video from URL
+var videoUrl = "VIDEO_URL"; // replace with the video URL
+
+// as an alternative to specifying video URL, you can upload a file.
+// remove the videoUrl parameter from the query string below and add the following lines:
+  //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
+  //byte[] buffer =newbyte[video.Length];
+  //video.Read(buffer, 0, buffer.Length);
+  //content.Add(newByteArrayContent(buffer));
+
 var uploadRequestResult = client.PostAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}", content).Result;
 var uploadResult = uploadRequestResult.Content.ReadAsStringAsync().Result;
 
