@@ -18,8 +18,10 @@ Be aware that if you intend on migrating an application over you typically stop 
 
 When doing an evaluation using active / active replication - it might make sense to initially set the solution to be a one way replication. Just to ensure that the test environment doesn't get replicated to the source environment. When you are ready to go live then you can set the replication to be two way and begin moving apps over.
  
-* Dual Channel - if you have a framework like ADF in front of your source systems then you can modify it to write to two different channels. One channel pointing to the old system and one pointing to the new system. After that you can start testing your app in the second system.
+* Dual Channel - if you have a framework like Azure Data Factory in front of your source systems then you can modify it to write to two different channels. One channel pointing to the old system and one pointing to the new system. After that you can start testing your app in the second system.
 
 This setup may require bulk load in order to initialize the data. we recommend designing what a migration might look like for you. Microsoft will offer a broad range of tooling, support, and guidance but you should begin thinking what the migration effort would look like.
+
+Additionally, if you are using Azure Data Factory, you may only need to replace the connector from Azure Data Lake Store to Azure Data Lake Storage. This would only be available if Azure Data Factory was already in use.
 
 (Transition sentence here) you can take a look at [copying some data into Azure Data Lake Storage](Link to ingestion article).
