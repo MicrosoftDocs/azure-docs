@@ -5,6 +5,12 @@
 - name: Role-based access control (RBAC)
   href: overview.md
   items:
+  - name: Tutorials
+    items:
+    - name: Assign a role to a user - PowerShell
+      href: tutorial-role-assignments-user-powershell.md
+    - name: Assign a role to a group - PowerShell
+      href: tutorial-role-assignments-group-powershell.md
   - name: Manage role assignments
     items:
     - name: User
