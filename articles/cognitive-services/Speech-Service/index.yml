@@ -5,8 +5,8 @@ metadata:
   title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
   meta.description: Speech SDK provides developers an easy way to create powerful speech-enabled features in their applications, such as voice command control and dialog, using natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
-  author: wiazur
-  manager: noellelacharite
+  author: noellelacharite
+  manager: nolachar
   layout: LandingPage
   ms.service: cognitive-services
   ms.component: speech-service
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/01/2018
-  ms.author: v-wiazur
+  ms.author: nolachar
 
 abstract:
   description: The Microsoft Speech Service and SDK provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, transcription, and dictation. Cortana, Microsoft Office, and others use the same technology. A key differentiator of Microsoft Speech Service is the ability to customize <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. In fact, customized <a href="http://aka.ms/customvoice">Text-to-speech</a> and <a href="http://aka.ms/customtranslator">Speech-Translation</a> are available as well.<br/><br/>Our Speech SDK is available on multiple platforms in several programming languages, so you can take care of live microphone management, real-time streaming, or batch-based file communication, depending on your application needs.
@@ -74,7 +74,7 @@ sections:
     - text: 'Transcribe streaming speech in real-time, with partial results, for dictation.'
     - text: 'Determine what users want to do based on a spoken natural-language request.'
   - type: paragraph
-    text: The Speech SDK supports interactive speech transcription with real-time continuous <a href="https://azure.microsoft.com/services/cognitive-services/speech-to-text>Speech-to-Text</a> and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.
+    text: The Speech SDK supports interactive speech transcription with real-time continuous <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">Speech-to-Text</a> and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.
   - type: paragraph
     text: A key differentiator of Microsoft Speech Service is the ability to customize <a href="http://aka.ms/customspeech">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
 

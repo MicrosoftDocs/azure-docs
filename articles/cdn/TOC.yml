@@ -116,6 +116,8 @@
       href: cdn-troubleshoot-endpoint.md
     - name: File compression
       href: cdn-troubleshoot-compression.md
+    - name: Allowed certificate authorities
+      href: cdn-troubleshoot-allowed-ca.md      
 - name: Reference
   items:
   - name: Rules engine reference

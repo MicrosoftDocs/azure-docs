@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
+ms.reviewer: bagovind
 
 ---
 # Manage Role-Based Access Control with the REST API

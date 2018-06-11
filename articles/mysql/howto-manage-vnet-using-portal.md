@@ -6,7 +6,7 @@ author: mbolz
 ms.author: mbolz
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/01/2018
 ---

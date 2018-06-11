@@ -321,24 +321,24 @@ Configure the corresponding Data Factory data type in a dataset structure based 
 
 | Dynamics data type | Data Factory interim data type | Supported as source | Supported as sink |
 |:--- |:--- |:--- |:--- |
-| AttributeTypeCode.BigInt | Long | ? | ? |
-| AttributeTypeCode.Boolean | Boolean | ? | ? |
-| AttributeType.Customer | Guid | ? | |	
-| AttributeType.DateTime | Datetime | ? | ? |
-| AttributeType.Decimal | Decimal | ? | ? |
-| AttributeType.Double | Double | ? | ? |
-| AttributeType.EntityName | String | ? | ? |
-| AttributeType.Integer | Int32 | ? | ? |
-| AttributeType.Lookup | Guid | ? | ? |
-| AttributeType.ManagedProperty | Boolean | ? | |
-| AttributeType.Memo | String | ? | ? |
-| AttributeType.Money | Decimal | ? | ? |
-| AttributeType.Owner | Guid | ? | |
-| AttributeType.Picklist | Int32 | ? | ? |
-| AttributeType.Uniqueidentifier | Guid | ? | ? |
-| AttributeType.String | String | ? | ? |
-| AttributeType.State | Int32 | ? | ? |
-| AttributeType.Status | Int32 | ? | ? |
+| AttributeTypeCode.BigInt | Long | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
+| AttributeType.Customer | Guid | ✓ | |	
+| AttributeType.DateTime | Datetime | ✓ | ✓ |
+| AttributeType.Decimal | Decimal | ✓ | ✓ |
+| AttributeType.Double | Double | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
+| AttributeType.Integer | Int32 | ✓ | ✓ |
+| AttributeType.Lookup | Guid | ✓ | ✓ |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
+| AttributeType.Memo | String | ✓ | ✓ |
+| AttributeType.Money | Decimal | ✓ | ✓ |
+| AttributeType.Owner | Guid | ✓ | |
+| AttributeType.Picklist | Int32 | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
+| AttributeType.State | Int32 | ✓ | ✓ |
+| AttributeType.Status | Int32 | ✓ | ✓ |
 
 
 > [!NOTE]
