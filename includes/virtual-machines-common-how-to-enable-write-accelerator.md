@@ -5,7 +5,7 @@
  author: msraiye
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 5/9/2018
+ ms.date: 6/8/2018
  ms.author: raiye
  ms.custom: include file
 ---
@@ -44,17 +44,13 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 
 | VM SKU | Number of Write Accelerator disks | Write Accelerator Disk IOPS per VM |
 | --- | --- | --- |
-| M128ms | 16 | 8000 |
-| M128s | 16 | 8000 |
-| M64ms | 8 | 4000 |
-| M64s | 8 | 4000 | 
-| M32ms | 4 | 2000 | 
-| M32s | 4 | 2000 | 
-| M16ms | 2 | 1000 | 
-| M16s | 2 | 1000 | 
-| M8ms | 1 | 500 | 
-| M8s | 1 | 500 | 
+| M128ms, 128s | 16 | 8000 |
+| M64ms, M64ls, M64s | 8 | 4000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 2000 | 
+| M16ms, M16s | 2 | 1000 | 
+| M8ms, M8s | 1 | 500 | 
 
+The IOPS limits are per VM and *not* per disk. All Write Accelerator disks share the same IOPS limit per VM.
 ## Enabling Write Accelerator on a specific disk
 The next few sections will describe how Write Accelerator can be enabled on Azure Premium Storage VHDs.
 
