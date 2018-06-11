@@ -105,8 +105,8 @@ Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to o
 ```console
 $ kubectl get pods -o wide
 
-NAME                                            READY     STATUS    RESTARTS   AGE       IP             NODE
-aci-helloworld-2559879000-8vmjw                 1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
+NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
+aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
 ```
 
 ## Run Windows container
@@ -148,8 +148,8 @@ Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to o
 ```console
 $ kubectl get pods -o wide
 
-NAME                                            READY     STATUS    RESTARTS   AGE       IP             NODE
-nanoserver-iis-868bc8d489-v9ptm                 1/1       Running   0          5s        <none>         virtual-kubelet-virtual-kubelet-win
+NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
+nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.91.121.91   virtual-kubelet-virtual-kubelet-win
 ```
 
 ## Remove Virtual Kubelet
