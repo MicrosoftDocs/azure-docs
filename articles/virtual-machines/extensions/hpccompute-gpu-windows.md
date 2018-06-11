@@ -21,10 +21,10 @@ ms.author: danis
 
 ## Overview
 
-This extension installs NVIDIA drivers on Linux or Windows N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the NVIDIA End User License Agreement.  
+This extension installs NVIDIA drivers on Linux or Windows N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the NVIDIA End-User License Agreement.  
 During the installation process, your virtual machine may reboot to complete the driver setup.
 
-Terms of NVIDIA End User License Agreement are located here - https://go.microsoft.com/fwlink/?linkid=874330
+Terms of NVIDIA End-User License Agreement are located here - https://go.microsoft.com/fwlink/?linkid=874330
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ The following JSON shows the schema for the extension.
 ## Deployment
 
 
-### ARM Template 
+### Azure Resource Manager Template 
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
 

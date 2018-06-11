@@ -30,7 +30,7 @@ https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption#p
 
 ### Operating system
 
-For a list of currently Windows versions, please see [Azure Disk Encryption Prerequisites](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption#prerequisites).
+For a list of currently Windows versions, see [Azure Disk Encryption Prerequisites](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption#prerequisites).
 
 ### Internet connectivity
 
@@ -95,7 +95,7 @@ Instructions can be found in the latest [Azure CLI documentation](https://docs.m
 
 ### Troubleshoot
 
-Please refer to the [Azure Disk Encryption troubleshooting guide](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg).
+Refer to the [Azure Disk Encryption troubleshooting guide](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg).
 
 ### Support
 

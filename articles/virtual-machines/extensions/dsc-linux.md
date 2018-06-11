@@ -57,7 +57,7 @@ For other actions such as Pull, Pull, Install requires connectivity to azure str
 
 ### 1.1 Public configuration
 
-Here're all the supported public configuration parameters:
+Here are all the supported public configuration parameters:
 
 * `FileUri`: (optional, string) the uri of the MOF file/Meta MOF file/custom resource ZIP file.
 * `ResourceName`: (optional, string) the name of the custom resource module
@@ -72,7 +72,7 @@ Here're all the supported public configuration parameters:
 
 ### 1.2 Protected configuration
 
-Here're all the supported protected configuration parameters:
+Here are all the supported protected configuration parameters:
 
 * `StorageAccountName`: (optional, string) the name of the storage account that contains the file
 * `StorageAccountKey`: (optional, string) the key of the storage account that contains the file
@@ -277,9 +277,9 @@ $publicConfig = '{
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration such as onboarding to Azure Automation. 
 
-The sample ARM template is [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) and [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
+The sample Resource Manager template is [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) and [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
-For more details about ARM template, please visit [Authoring Azure Resource Manager templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/).
+For more details about Azure Resource Manager template, visit [Authoring Azure Resource Manager templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/).
 
 
 ## Azure CLI deployment
@@ -323,7 +323,7 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 
 #### 2.2.1 Classic
 
-You can login to your Azure account (Azure Service Management mode) by running:
+You can log in to your Azure account (Azure Service Management mode) by running:
 
 ```powershell>
 Add-AzureAccount
@@ -362,7 +362,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 
 #### 2.2.2.Resource Manager
 
-You can login to your Azure account (Azure Resource Manager mode) by running:
+You can log in to your Azure account (Azure Resource Manager mode) by running:
 
 ```powershell>
 Login-AzureRmAccount

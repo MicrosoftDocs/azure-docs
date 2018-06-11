@@ -99,7 +99,7 @@ Instructions can be found in the latest [Azure CLI documentation](https://docs.m
 
 ### Troubleshoot
 
-For troubleshooting, please refer to the [Azure Disk Encryption troubleshooting guide](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg).
+For troubleshooting, refer to the [Azure Disk Encryption troubleshooting guide](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg).
 
 ### Support
 
