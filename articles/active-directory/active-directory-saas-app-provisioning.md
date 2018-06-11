@@ -13,13 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2017
+ms.date: 06/07/2018
 ms.author: asmalser
 
 ---
 # Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory
 ## What is automated user provisioning for SaaS apps?
 Azure Active Directory (Azure AD) allows you to automate the creation, maintenance, and removal of user identities in cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications such as Dropbox, Salesforce, ServiceNow, and more.
+
+> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
 **Below are some examples of what this feature allows you to do:**
 
@@ -41,7 +43,7 @@ Some common motivations for using this feature include:
 * Avoiding the costs, inefficiencies, and human error associated with manual provisioning processes.
 * Avoiding the costs associated with hosting and maintaining custom-developed provisioning solutions and scripts
 * To secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
-* To easily import a large numbers of users into a particular SaaS application or system.
+* To easily import a large number of users into a particular SaaS application or system.
 * To enjoy having a single set of policies to determine who is provisioned and who can sign in to an app.
 
 
@@ -74,6 +76,8 @@ To contact the Azure AD engineering team to request provisioning support for add
 	
 	
 ## How do I set up automatic provisioning to an application?
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 Configuration of the Azure AD provisioning service for a selected application starts in the **[Azure portal](https://portal.azure.com)**. In the **Azure Active Directory > Enterprise Applications** section, select **Add**, then **All**, and then add either of the following depending on your scenario:
 
@@ -167,31 +171,50 @@ When in quarantine, the frequency of incremental syncs is gradually reduced to o
 The provisioning job will be removed from quarantine after all of the offending errors being fixed, and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled.
 
 
+## How long will it take to provision users?
+
+Performance depends on whether your provisioning job is performing an initial sync or an incremental sync, as described in the previous section.
+
+For **initial syncs**, the job time depends on a variety of factors, including the number of users and groups in scope for provisioning, and the total number of users and group in the source system. A comprehensive list of factors that affect initial sync performance are summarized later in this section.
+
+For **incremental syncs**, the job time depends on the number of changes detected in that sync cycle. If there are fewer than 5,000 user or group membership changes, the job can finish within a single incremental sync cycle. 
+
+The following table summarizes synchronization times for common provisioning scenarios. In these scenarios, the source system is Azure AD and the target system is a SaaS application. The sync times are derived from a statistical analysis of sync jobs for the SaaS applications ServiceNow, Workplace, Salesforce, and Google Apps.
+
+
+| Scope configuration | Users, groups, and members in scope | Initial sync time | Incremental sync time |
+| -------- | -------- | -------- | -------- |
+| Sync assigned users and groups only |  < 1,000 |  < 30 minutes | < 30 minutes |
+| Sync assigned users and groups only |  1,000 - 10,000 | 142 - 708 minutes | < 30 minutes |
+| Sync assigned users and groups only |   10,000 - 100,000 | 1,170 - 2,340 minutes | < 30 minutes |
+| Sync all users and groups in Azure AD |  < 1,000 | < 30 minutes  | < 30 minutes |
+| Sync all users and groups in Azure AD |  1,000 - 10,000 | < 30 - 120 minutes | < 30 minutes |
+| Sync all users and groups in Azure AD |  10,000 - 100,000  | 713 - 1,425 minutes | < 30 minutes |
+| Sync all users in Azure AD|  < 1,000  | < 30 minutes | < 30 minutes |
+| Sync all users in Azure AD | 1,000 - 10,000  | 43 - 86 minutes | < 30 minutes |
+
+
+For the configuration **Sync assigned user and groups only**, you can use the following formulas to determine the approximate minimum and maximum expected **initial sync** times:
+
+	Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
+	Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
+	
+Summary of factors that influence the time it takes to complete an **initial sync**:
+
+* The total number of users and groups in scope for provisioning
+
+* The total number of users, groups, and group members present in the source system (Azure AD)
+
+* Whether or not users in scope for provisioning are matched to existing users in the target application, or need to be created for the first time. Sync jobs for which all users are created for the first time take approximately *twice as long* as sync jobs for which all users are matched to existing users.
+
+* Number of errors in the [audit logs](active-directory-saas-provisioning-reporting.md). Performance is slower if there are many errors and the provisioning service has gone into a quarantine state	
+
+* Request rate limits and throttling implemented by the target system. Some target systems implement request rate limits and throttling which can impact performance during large sync operations. Under these conditions, an app that receives too many requests too fast might slow its response rate or close the connection. To improve performance, the connector needs to adjust by not sending the app requests faster than the app can process them. Provisioning connectors built by Microsoft make this adjustment. 
+
+* The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs will take longer than only syncing user objects.
+ 
+
 ## Frequently asked questions
-
-**How long will it take to provision my users?**
-
-Performance will be different depending on whether your provisioning job is performing an initial sync, or an incremental sync.
-
-For initial syncs, the time it takes to complete will be directly dependent on how many users, groups, and group members are present in the source system. Very small source systems with hundreds of objects can complete initial syncs in a matter of minutes. However, source systems with hundreds of thousands or millions of combined objects will take longer.
-
-For incremental syncs, the time it takes depends on the number changes detected in that sync cycle. If there are less than 5,000 user or group membership changes detected, these can often be synced within a 40 minute cycle. 
-
-Note that overall performance is dependent on both the source and target systems. Some target systems implement request rate limits and throttling that can impact performance during large sync operations, and the pre-built Azure AD provisioning connectors for those systems take this into account.
-
-Performance is also slower if there are many errors (recorded in the [audit logs](active-directory-saas-provisioning-reporting.md)) and the provisioning service has gone into a "quarantine" state.
-
-**How can I improve the performance of synchronization?**
-
-Most performance problems occur during initial syncs of systems that have a large number of groups and group members.
-
-If sync of groups or group memberships is not required, sync performance can be greatly improved by:
-
-1. Setting the **Provisioning > Settings > Scope** menu to **Sync all**, instead of syncing assigned users and groups.
-2. Use [scoping filters](active-directory-saas-scoping-filters.md) instead of assignments to filter the list of users provisioned.
-
-> [!NOTE]
-> For applications that support provisioning of group names and group properties (such as ServiceNow and Google Apps), disabling this also reduces the time it takes for an initial sync to complete. If you do not want to provision group names and group memberships to your application, you can disable this in the [attribute mappings](active-directory-saas-customizing-attribute-mappings.md) of your provisioning configuration.
 
 **How can I track the progress of the current provisioning job?**
 
