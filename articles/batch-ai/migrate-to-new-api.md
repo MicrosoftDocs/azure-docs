@@ -106,28 +106,28 @@ az batchai cluster delete -g resource-group-name -w migrated-<region> -n cluster
 #### Get old file server
 
 ```azurecli
-az batchai fileserver show -g resource-group-name -w migrated-<region> -n fileserver-name
+az batchai file-server show -g resource-group-name -w migrated-<region> -n fileserver-name
 ```
 
 
 #### Delete old file server 
 
 ```azurecli
-az batchai fileserver delete -g resource-group-name -w migrated-<region> -n fileserver-name
+az batchai file-server delete -g resource-group-name -w migrated-<region> -n fileserver-name
 ``` 
 
 
 #### Get old job
 
 ```azurecli
-az batchai fileserver show -g resource-group-name -w migrated-<region> -e migrated -n job-name
+az batchai job show -g resource-group-name -w migrated-<region> -e migrated -n job-name
 ```
 
 
 #### Delete old job 
 
 ```azurecli
-az batchai fileserver delete -g resource-group-name -w migrated-<region> -e migrated -n job-name
+az batchai job delete -g resource-group-name -w migrated-<region> -e migrated -n job-name
 ``` 
 
 ## Create Batch AI resources 
