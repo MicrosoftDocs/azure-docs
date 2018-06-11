@@ -93,7 +93,7 @@ You should see something like to the following screenshot:
 
 ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-This verifies that name resolution is working correctly. www.contoso.zyz resolves to 10.10.10.10, just like you configured it!
+This verifies that name resolution is working correctly. www.contoso.xyz resolves to 10.10.10.10, just like you configured it!
 
 ## Clean up resources
 
