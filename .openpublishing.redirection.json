@@ -19316,6 +19316,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack-install-visual-studio.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-install-visual-studio",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/monitoring/management-overview-monitoring.md",
             "redirect_url": "/azure/monitoring/",
             "redirect_document_id": false
@@ -22201,11 +22206,97 @@
             "source_path": "articles/azure-stack/asdk/asdk-create-vm-template.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-create-vm-template",
             "redirect_document_id": false
-     },
-     {
+     }, 
+        {
+            "source_path": "articles/active-directory/application-proxy-teams.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-teams",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-tableau.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-tableau",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-troubleshoot.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-troubleshoot",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-assign-user-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/change-name-or-logo-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-disable-app-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/disable-user-sign-in-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-remove-assignment-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/remove-user-or-group-access-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-view-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-provisioning.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-sso.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-enterprise-apps-advance-certificate-options.md",
+            "redirect_url": "/azure/active-directory/manage-apps/certificate-signing-options",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-hide-third-party-app.md",
+            "redirect_url": "/azure/active-directory/manage-apps/hide-application-from-user-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-auto-acceleration-using-hrd.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-managing-access-to-apps.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-access-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-sso-certs.md",
+            "redirect_url": "/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-tenant-restrictions.md",
+            "redirect_url": "/azure/active-directory/manage-apps/tenant-restrictions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-scim-provisioning.md",
+            "redirect_url": "/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups",
+            "redirect_document_id": true
+        },
+	    {
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
             "redirect_document_id": false
-     }
+        }
+
     ]
 }

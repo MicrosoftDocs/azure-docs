@@ -67,7 +67,7 @@ Azure AD features pre-integrated support for a variety of popular SaaS apps and 
 
 For a list of all applications for which Azure AD supports a pre-integrated provisioning connector, see the [list of application tutorials for user provisioning](active-directory-saas-tutorial-list.md).
 
-For information on how to add support for Azure AD user provisioning to an application, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md).
+For information on how to add support for Azure AD user provisioning to an application, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md).
 
 To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).	
 
@@ -102,7 +102,7 @@ In the application management screen, provisioning is configured in the **Provis
 
     * **Filter on attribute values** - The "Source Object Scope" menu in the attribute mappings allows filtering on specific attribute values. For example, you can specify that only users with a "Department" attribute of "Sales" should be in scope for provisioning. For more information, see [Using scoping filters](active-directory-saas-scoping-filters.md).
 
-    * **Filter on assignments** - The "Scope" menu in the Provisioning > Settings section of the portal allows you to specify whether only "assigned" users and groups should be in scope for provisioning, or if all users in the Azure AD directory should be provisioned. For information on "assigning" users and groups, see [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
+    * **Filter on assignments** - The "Scope" menu in the Provisioning > Settings section of the portal allows you to specify whether only "assigned" users and groups should be in scope for provisioning, or if all users in the Azure AD directory should be provisioned. For information on "assigning" users and groups, see [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md).
 	
 * **Settings** control the operation of the provisioning service for an application, including whether it is currently running or not.
 
@@ -122,7 +122,7 @@ When Azure AD is the source system, the provisioning service uses the [Different
 When the provisioning service is started, the first sync ever performed will:
 
 1. Query all users and groups from the source system, retrieving all attributes defined in the [attribute mappings](active-directory-saas-customizing-attribute-mappings.md).
-2. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
+2. Filter the users and groups returned, using any configured [assignments](manage-apps/assign-user-or-group-access-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
 3. When a user is found to be assigned or in scope for provisioning, the service queries the target system for a matching user using the designated [matching attributes](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties). Example: If the userPrincipal name in the source system is the matching attribute and maps to userName in the target system, then the provisioning service queries the target system for userNames that match the userPrincipal name values in the source system.
 4. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
 5. If a matching user is found, it is updated using the attributes provided by the source system.
@@ -135,7 +135,7 @@ Some applications such as ServiceNow, Google Apps, and Box support not only prov
 After the initial sync, all subsequent syncs will:
 
 1. Query the source system for any users and groups that were updated since the last watermark was stored.
-2. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
+2. Filter the users and groups returned, using any configured [assignments](manage-apps/assign-user-or-group-access-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
 3. When a user is found to be assigned or in scope for provisioning, the service queries the target system for a matching user using the designated [matching attributes](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties).
 4. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
 5. If a matching user is found, it is updated using the attributes provided by the source system.
@@ -238,7 +238,7 @@ Contact us through the [Azure Active Directory feedback forum](https://feedback.
 * [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
 * [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
+* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 * [Step-by-step deployment plan for outbound user provisioning of an application](https://aka.ms/userprovisioningdeploymentplan)
 

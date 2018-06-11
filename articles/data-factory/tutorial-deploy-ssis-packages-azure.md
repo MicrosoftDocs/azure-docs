@@ -1,6 +1,6 @@
 ---
-title: 'Deploy SSIS packages to Azure | Microsoft Docs'
-description: 'This article explains how to deploy SSIS packages to Azure and create an Azure-SSIS integration runtime by using Azure Data Factory.'
+title: Create the Azure-SSIS Integration Runtime | Microsoft Docs
+description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory so you can deploy and run SSIS packages in Azure.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -16,8 +16,8 @@ ms.date: 04/13/2018
 ms.author: douglasl
 ---
 
-# Deploy SQL Server Integration Services packages to Azure
-This tutorial provides steps for using the Azure portal to provision an Azure-SSIS integration runtime (IR) in Azure Data Factory. Then, you can use SQL Server Data Tools or SQL Server Management Studio to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. For conceptual information on Azure-SSIS IRs, see [Azure-SSIS integration runtime overview](concepts-integration-runtime.md#azure-ssis-integration-runtime).
+# Create the Azure-SSIS Integration Runtime in Azure Data Factory
+This tutorial provides steps for using the Azure portal to provision an Azure-SSIS integration runtime (IR) in Azure Data Factory. Then, you can use SQL Server Data Tools or SQL Server Management Studio to deploy and run SQL Server Integration Services (SSIS) packages in this runtime oi Azure. For conceptual information on Azure-SSIS IRs, see [Azure-SSIS integration runtime overview](concepts-integration-runtime.md#azure-ssis-integration-runtime).
 
 In this tutorial, you complete the following steps:
 
@@ -32,8 +32,8 @@ In this tutorial, you complete the following steps:
 ## Prerequisites
 - **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 - **Azure SQL Database server**. If you don't already have a database server, create one in the Azure portal before you get started. Azure Data Factory creates the SSIS Catalog (SSISDB database) on this database server. We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to the SSISDB database without crossing Azure regions. 
-- Based on the selected database server, SSISDB can be created on your behalf as a standalone database, part of an Elastic Pool, or in a Managed Instance (Preview) and accessible in public network or by joining a virtual network (VNet). If you use Azure SQL Database with VNet service endpoints/Managed Instance (Preview) to host SSISDB or require access to on-premises data, you need to join your Azure-SSIS IR to a VNet, see [Create Azure-SSIS IR in a VNet](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
-- Confirm that the **Allow access to Azure services** setting is enabled for the database server. This is not applicable when you use Azure SQL Database with VNet service endpoints/Managed Instance (Preview) to host SSISDB. For more information, see [Secure your Azure SQL database](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). To enable this setting by using PowerShell, see [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
+- Based on the selected database server, SSISDB can be created on your behalf as a standalone database, part of an Elastic Pool, or in a Managed Instance (Preview) and accessible in public network or by joining a virtual network. If you use Azure SQL Database with virtual network service endpoints/Managed Instance (Preview) to host SSISDB or require access to on-premises data, you need to join your Azure-SSIS IR to a virtual network, see [Create Azure-SSIS IR in a virtual network](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+- Confirm that the **Allow access to Azure services** setting is enabled for the database server. This is not applicable when you use Azure SQL Database with virtual network service endpoints/Managed Instance (Preview) to host SSISDB. For more information, see [Secure your Azure SQL database](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). To enable this setting by using PowerShell, see [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
 - Add the IP address of the client machine, or a range of IP addresses that includes the IP address of client machine, to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](../sql-database/sql-database-firewall-configure.md).
 - You can connect to the database server using SQL authentication with your server admin credentials or Azure Active Directory (AAD) authentication with your Azure Data Factory (ADF) Managed Service Identity (MSI).  For the latter, you need to add your ADF MSI into an AAD group with access permissions to the database server, see [Create Azure-SSIS IR with AAD authentication](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
 - Confirm that your Azure SQL Database server does not have an SSIS Catalog (SSISDB database). The provisioning of an Azure-SSIS IR does not support using an existing SSIS Catalog.
@@ -107,7 +107,7 @@ In this tutorial, you complete the following steps:
 
    b. For **Location**, select the location of your database server to host SSISDB. We recommend that you select the same location of your integration runtime.
    
-   c. For **Catalog Database Server Endpoint**, select the endpoint of your database server to host SSISDB. Based on the selected database server, SSISDB can be created on your behalf as a standalone database, part of an Elastic Pool, or in a Managed Instance (Preview) and accessible in public network or by joining a virtual network (VNet). If you select Azure SQL Database with VNet service endpoints/Managed Instance (Preview) to host SSISDB or require access to on-premises data, you need to join your Azure-SSIS IR to a VNet, see [Create Azure-SSIS IR in a VNet](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+   c. For **Catalog Database Server Endpoint**, select the endpoint of your database server to host SSISDB. Based on the selected database server, SSISDB can be created on your behalf as a standalone database, part of an Elastic Pool, or in a Managed Instance (Preview) and accessible in public network or by joining a virtual network. If you select Azure SQL Database with virtual network service endpoints/Managed Instance (Preview) to host SSISDB or require access to on-premises data, you need to join your Azure-SSIS IR to a virtual network, see [Create Azure-SSIS IR in a virtual network](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
 
    d. On **Use AAD authentication...** checkbox, select the authentication method for your database server to host SSISDB: SQL or Azure Active Directory (AAD) with your Azure Data Factory (ADF) Managed Service Identity (MSI). If you check it, you need to add your ADF MSI into an AAD group with access permissions to the database server, see [Create Azure-SSIS IR with AAD authentication](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
    
@@ -126,7 +126,7 @@ In this tutorial, you complete the following steps:
 
    b. For **Custom Setup Container SAS URI**, optionally enter Shared Access Signature (SAS) Uniform Resource Identifier (URI) of your Azure Storage Blob container where your setup script and its associated files are stored, see [Custom setup for Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
  
-   c. On **Select a VNet...** checkbox, select whether you want to join your integration runtime to a VNet. You should check it if you use Azure SQL Database with VNet service endpoints/Managed Instance (Preview) to host SSISDB or require access to on-premises data, see [Create Azure-SSIS IR in a VNet](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+   c. On **Select a VNet...** checkbox, select whether you want to join your integration runtime to a virtual network. You should check it if you use Azure SQL Database with virtual network service endpoints/Managed Instance (Preview) to host SSISDB or require access to on-premises data, see [Create Azure-SSIS IR in a virtual network](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
 5. Click **Finish** to start the creation of your integration runtime. 
 
    > [!IMPORTANT]
