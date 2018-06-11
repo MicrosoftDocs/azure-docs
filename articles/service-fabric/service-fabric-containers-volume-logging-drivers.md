@@ -133,7 +133,7 @@ The driver name for the Azure Files volume plugin is **sfazurefile**. This value
 
 In the **Volume** element in the snippet above, the Azure Files volume plugin requires the following tags:
 - **Source** - This is the name of the volume. The user can pick any name for their volume.
-- **Destination** - This tag is the location that the **Source** is mapped to within the running container. Thus, your destination can't be a location that already exists within your container
+- **Destination** - This tag is the location that the volume is mapped to within the running container. Thus, your destination can't be a location that already exists within your container
 
 As shown in the **DriverOption** elements in the snippet above, the Azure Files volume plugin supports the following driver options:
 
