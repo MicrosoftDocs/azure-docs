@@ -53,6 +53,8 @@ You can't delete a tenant in Azure AD until it passes several checks. These chec
 
 For what to expect when a trial Office 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Office 365 data retention and subscription lifecycle, see [What happens to my data and access when my Office 365 for business subscription ends?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
+Subscription state | Data | Access to data
+----- | ----- | -----
 Active (30 days for trial)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Office 365 admin center and resources 
 Expired (30 days)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Office 365 admin center and resources
 Disabled (30 days) | Data accessible to admin only	| <li>Users can’t access Office 365 files, or apps<li>•	Admins can access the Office 365 admin center but can’t assign licenses to or update users
