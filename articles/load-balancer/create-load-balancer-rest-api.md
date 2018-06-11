@@ -1,6 +1,6 @@
 ---
-title: 'Create a load balancer using REST API | Microsoft Docs'
-description: 
+title: 'Create an Azure Load Balancer using REST API | Microsoft Docs'
+description: Learn how to create an Azure Load Balancer using REST API.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -21,7 +21,7 @@ ms.author: kumud
 
 An Azure Load Balancer distributes new inbound flows that arrive on the load balancer's frontend to the backend pool instances, according to rules and health probes. The Load Balancer is available in two SKUs: Basic and Standard. To understand the difference between the two SKU versions, [Load Balancer SKU comparisons](/load-balancer/load-balancer-overview.md#skus).
  
-This how-to shows how to create a Azure Basic Load Balancer using [Azure REST API](/rest/api/azure/) to help load balance incoming request across multiple VMs within an Azure virtual network. 
+This how-to shows how to create an Azure Basic Load Balancer using [Azure REST API](/rest/api/azure/) to help load balance incoming request across multiple VMs within an Azure virtual network. 
 Complete reference documentation and additional samples are available in the [Azure Load Balancer REST reference](/rest/api/load-balancer/).
  
 ## Build the request
@@ -33,7 +33,7 @@ Use the following HTTP PUT request to create a new Azure Basic Load Balancer.
 
 |Name  |In  |Required |Type |Description |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  True       |   string      |  The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.      |
+|subscriptionId   |  path       |  True       |   string      |  The subscription credentials that uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.      |
 |resourceGroupName     |     path    | True        |  string       |   The name of the resource group.     |
 |loadBalancerName     |  path       |      True   |    string     |    The name of the load balancer.    |
 |api-version    |   query     |  True       |     string    |  Client API version.      |
@@ -51,7 +51,7 @@ The only required parameter is `location`. If you do not define the *SKU* versio
 
 ## Example: Create and update a Basic Load Balancer
 
-In this example, you first create a Basic Load Balancer along with its resources. Next, you configure the the load balancer resources that include a frontend IP configuration, a backend address pool, a load balancing rule , a health probe, and an inbound NAT rule.
+In this example, you first create a Basic Load Balancer along with its resources. Next, you configure the load balancer resources that include a frontend IP configuration, a backend address pool, a load balancing rule, a health probe, and an inbound NAT rule.
 
 Before you create a load balancer using the example below, create a virtual network named *vnetlb* with a subnet named *subnetlb* in a resource group named *rg1* in the **East US** location.
 
@@ -70,7 +70,7 @@ In this step, you create a Basic Load Balancer, named *lb* at the **EAST US** lo
    }
   ```
 ### STEP 2. Configure load balancer resources
-In this step, you configure the the load balancer *lb* resources that include a frontend IP configuration (*fe-lb*), a backend address pool (*be-lb*), a load balancing rule (*rulelb*), a health probe (*probe-lb*), and an inbound NAT rule (*in-nat-rule*).
+In this step, you configure the load balancer *lb* resources that include a frontend IP configuration (*fe-lb*), a backend address pool (*be-lb*), a load balancing rule (*rulelb*), a health probe (*probe-lb*), and an inbound NAT rule (*in-nat-rule*).
 #### Sample request
 
   ```HTTP    
