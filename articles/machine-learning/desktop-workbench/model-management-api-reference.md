@@ -18,7 +18,7 @@ ROBOTS: NOINDEX
 ---
 # Azure Machine Learning Model Management Account API reference
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
 
 For information about setting up the deployment environment, see [Model Management account setup](deployment-setup-configuration.md).
 

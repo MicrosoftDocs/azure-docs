@@ -17,8 +17,8 @@ ROBOTS: NOINDEX
 
 # Consuming web services
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
-**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+
 
 Once you deploy a model as a realtime web service, you can send it data and get predictions from a variety of platforms and applications. The realtime web service exposes a REST API for getting predictions. You can send data to the web service in the single or multi-row format to get one or more predictions at a time.
 

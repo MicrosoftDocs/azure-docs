@@ -20,8 +20,8 @@ ROBOTS: NOINDEX
 
 # Image classification using Azure Machine Learning Workbench
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
-**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+
 
 
 Image classification approaches can be used to solve a large number of Computer Vision problems.

@@ -18,8 +18,8 @@ ROBOTS: NOINDEX
 
 # Expand JSON transformation
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
-**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+
 
 The **Expand JSON** transform enables users to expand an existing column that contains valid JSON text into multiple columns.
 

@@ -1,1 +1,1 @@
-**This article is deprecated since it covers a 2017 Preview feature(s) that is not part of the generally available Azure Machine Learning. Support for these past preview features ends on January 1, 2019.**
+**This article describes a now-deprecated 2017 Preview feature, which is not part of the generally available Azure Machine Learning. Support for this feature ends January 1, 2019.**

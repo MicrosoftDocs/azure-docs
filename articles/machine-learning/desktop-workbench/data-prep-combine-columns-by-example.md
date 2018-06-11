@@ -18,8 +18,8 @@ ROBOTS: NOINDEX
 
 # Combine columns by example transformation
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
-**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+
 
 This transformation allows user to add a new column by combining values from multiple columns. User can specify a separator or provide examples of combined values to perform this transform. When the user provides examples of combination, the transformation is handled by the same **By-Example** engine that is used in the **Derive Column by Example** transform.
 
