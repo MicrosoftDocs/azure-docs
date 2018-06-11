@@ -25,9 +25,6 @@ sections:
   - type: table
     style: dataMatrix
     columns: 
-    - image:
-        src: media/index/blue_globe_icon.png
-      title: Web
     - image: 
         src: media/index/logo_Csharp.svg
       title: C#
@@ -35,68 +32,71 @@ sections:
         src: media/index/logo_java.svg
       title: Java
     - image: 
-        src: media/index/logo_python.svg
-      title: Python
-    - image: 
         src: media/index/logo_nodejs.svg
       title: Node.js
+    - image: 
+        src: media/index/logo_python.svg
+      title: Python
+    - image:
+        src: media/index/blue_globe_icon.png
+      title: Web
     rows:
     - title: Computer Vision - API
       values:
-      - href:
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
+      - href:
     - title: Custom Vision - Build a Classifier
       values:
+      - href:
+      - href:
+      - href:
+      - href:
       - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
-      - href:
-      - href:
-      - href:
-      - href:
     - title: Speech Service - Recognize speech
       values: 
-      - href: /azure/cognitive-services/speech-service/get-started
       - href: /azure/cognitive-services/speech-service/quickstart-csharp-windows
       - href: 
       - href: 
-      - href: 
+      - href:
+      - href: /azure/cognitive-services/speech-service/get-started 
     - title: Translator Speech - API
       values: 
-      - href:
       - href: /azure/cognitive-services/translator-speech/quickstarts/csharp
       - href: /azure/cognitive-services/translator-speech/quickstarts/java
-      - href: /azure/cognitive-services/translator-speech/quickstarts/python
       - href: /azure/cognitive-services/translator-speech/quickstarts/nodejs
+      - href: /azure/cognitive-services/translator-speech/quickstarts/python
+      - href:
     - title: LUIS - Use prebuilt domain
       values:
-      - href: /azure/cognitive-services/luis/luis-get-started-create-app
       - href: 
       - href: 
       - href: 
       - href:
+      - href: /azure/cognitive-services/luis/luis-get-started-create-app
     - title: Translator Text - API sign up
       values:
-      - href: /azure/cognitive-services/translator/translator-text-how-to-signup
       - href: 
       - href: 
       - href: 
       - href:
+      - href: /azure/cognitive-services/translator/translator-text-how-to-signup
     - title: Bing Web Search - Call and Response
       values: 
-      - href:
       - href: /azure/cognitive-services/bing-web-search/quickstarts/csharp
       - href: /azure/cognitive-services/bing-web-search/quickstarts/java
-      - href: /azure/cognitive-services/bing-web-search/quickstarts/python
       - href: /azure/cognitive-services/bing-web-search/quickstarts/nodejs
+      - href: /azure/cognitive-services/bing-web-search/quickstarts/python
+      - href:
     - title: Bing Image Search - Call and Response
       values:
-      - href:
       - href: /azure/cognitive-services/bing-image-search/quickstarts/csharp
       - href: /azure/cognitive-services/bing-image-search/quickstarts/java
-      - href: /azure/cognitive-services/bing-image-search/quickstarts/python
       - href: /azure/cognitive-services/bing-image-search/quickstarts/nodejs
+      - href: /azure/cognitive-services/bing-image-search/quickstarts/python
+      - href:
 
 - title: Step-by-Step Tutorials
   items:

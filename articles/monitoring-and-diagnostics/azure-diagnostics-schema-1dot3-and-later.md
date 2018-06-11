@@ -1,21 +1,14 @@
 ---
-title: Azure Diagnostics extension 1.3 and later configuration schema | Microsoft Docs
+title: Azure Diagnostics extension 1.3 and later configuration schema
 description: Schema version 1.3 and later Azure diagnostics shipped as part of the Microsoft Azure SDK 2.4 and later.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-
+ms.component: diagnostic-extension
 ---
 # Azure Diagnostics 1.3 and later configuration schema
 > [!NOTE]

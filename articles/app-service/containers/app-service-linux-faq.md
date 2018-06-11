@@ -31,7 +31,7 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 
 **What are the expected values for the Startup File section when I configure the runtime stack?**
 
-For Node.js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name. For Ruby, you can specify the Ruby script that you want to initialize your app with.
+For Node.js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name as `dotnet <myapp>.dll`. For Ruby, you can specify the Ruby script that you want to initialize your app with.
 
 ## Management
 
