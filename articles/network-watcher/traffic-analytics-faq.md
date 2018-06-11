@@ -28,13 +28,19 @@ ms.author: jdial
     - A Log Analytics (OMS) Workspace, with read and write access
     - User must be assigned with either one of the following roles at subscription level:
     
-            All permissions *
-            All Read permissions */read
-            All network permissions Microsoft.Network/*
-            All network read permissions Microsoft.Network/*/read
+    1.	User must be any one of the following classic administrator 
+        a.	Account administrator
+        b.	Service administrator 
+        c.	Co-administrator
+        
+    2.	User must have any one of following RBAC roles at subscription scope
+        a.	Owner
+        b.	Contributor
+        c.	Reader
+        d.	Network Contributor
 
-    Or, user must be assigned with following all roles at subscription level: 
-
+    3. User must have any custom RBAC roles with permission to all of the following mentioned actions at subscription level
+            
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
         - Microsoft.Network/loadBalancers/read 
