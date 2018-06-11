@@ -67,7 +67,7 @@ accompanying effect that takes place if the conditions are met.
 In Azure Policy, we offer some built-in policies that are available to you by default. For example:
 
 - **Require SQL Server 12.0**: This policy definition has conditions/rules to ensure that all SQL servers use version 12.0. Its effect is to deny all servers that do not meet these criteria.
-- **Allowed Storage Account SKUs**: This policy definition has a set of conditions/rules that determine if a storage account that is being deployed is within a set of SKU sizes. Its effect is to deny all servers that do not adhere to the set of defined SKU sizes.
+- **Allowed Storage Account SKUs**: This policy definition has a set of conditions/rules that determine if a storage account that is being deployed is within a set of SKU sizes. Its effect is to deny all storage accounts that do not adhere to the set of defined SKU sizes.
 - **Allowed Resource Type**: This policy definition has a set of conditions/rules to specify the resource types that your organization can deploy. Its effect is to deny all resources that are not part of this defined list.
 - **Allowed Locations**: This policy enables you to restrict the locations that your organization can specify when deploying resources. Its effect is used to enforce your geo-compliance requirements.
 - **Allowed Virtual Machine SKUs**: This policy enables you to specify a set of virtual machine SKUs that your organization can deploy.
@@ -234,4 +234,4 @@ next steps:
 - [Assign a policy definition using the Azure CLI](assign-policy-definition-cli.md)
 - [Assign a policy definition using PowerShell](assign-policy-definition-ps.md)
 - Review what a management group is with [Organize your resources with Azure Management Groups](../azure-resource-manager/management-groups-overview.md)
-- View [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9.
+- View [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9

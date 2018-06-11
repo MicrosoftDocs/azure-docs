@@ -105,7 +105,7 @@ Administrators can manage access to your application with [user roles and permis
 
 Now that you have an overview of Azure IoT Central, here are suggested next steps:
 
-- Understand the differences between [Azure IoT Central and Azure IoT Suite](overview-iot-options.md).
+- Understand the differences between [Azure IoT Central and Azure IoT solution accelerators](overview-iot-options.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Follow a sequence of tutorials that show you how to:

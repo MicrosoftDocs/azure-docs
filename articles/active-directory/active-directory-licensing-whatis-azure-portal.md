@@ -10,7 +10,7 @@
   editor: ''
 
   ms.service: active-directory
-  ms.component: users-groups-roles
+  ms.component: fundamentals
   ms.topic: article
   ms.workload: identity
   ms.date: 05/21/2018

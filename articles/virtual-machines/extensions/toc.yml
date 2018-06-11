@@ -63,8 +63,6 @@
       href: dsc-template.md
   - name: IaaS antimalware for Windows
     href: iaas-antimalware-windows.md
-  - name: Key Vault 
-    href: key-vault-windows.md
   - name: VM Snapshot 
     items:
     - name: Linux
