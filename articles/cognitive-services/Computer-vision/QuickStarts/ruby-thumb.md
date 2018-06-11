@@ -25,7 +25,7 @@ With the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/
 
 To run the sample, do the following steps:
 
-1. Copy the following code into an editor, such as Notepad.
+1. Copy the following code into an editor.
 1. Replace `<Subscription Key>` with your valid subscription key.
 1. Change the `uri` value to the location where you obtained your subscription keys, if necessary.
 1. Optionally, change the image (`{\"url\":\"...`) to analyze.
@@ -36,7 +36,7 @@ To run the sample, do the following steps:
 require 'net/http'
 
 # You must use the same location in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from  westus,
+# subscription keys. For example, if you got your subscription keys from westus,
 # replace "westcentralus" in the URL below with "westus".
 uri = URI('https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail')
 uri.query = URI.encode_www_form({

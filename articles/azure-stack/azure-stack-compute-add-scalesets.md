@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
 
@@ -85,7 +85,7 @@ For more information, see [operating system disks and images](.\user\azure-stack
 To remove a virtual machine scale set gallery item, run the following PowerShell command:
 
 ```PowerShell  
-    Remove-AzsVMSSGalleryItem
+    Remove-AzsGalleryItem
 ````
 
 > [!NOTE]

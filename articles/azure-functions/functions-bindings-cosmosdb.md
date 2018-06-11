@@ -3,7 +3,7 @@ title: Azure Cosmos DB bindings for Functions 1.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: glenga
+ms.author: tdykstra
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x
@@ -205,8 +205,8 @@ The following table explains the binding configuration properties that you set i
 
 The trigger requires a second collection that it uses to store _leases_ over the partitions. Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
 
- >[!IMPORTANT]
- > If multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection. Otherwise, only one of the functions will be triggered. 
+>[!IMPORTANT]
+> If multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `LeaseCollectionPrefix` for each function. Otherwise, only one of the functions will be triggered. For information about the prefix, see the [Configuration section](#trigger---configuration).
 
 The trigger doesn't indicate whether a document was updated or inserted, it just provides the document itself. If you need to handle updates and inserts differently, you could do that by implementing timestamp fields for insertion or update.
 
@@ -232,7 +232,7 @@ See the language-specific examples that read a single document by specifying an 
 
 This section contains the following examples:
 
-* [Queue trigger, look up ID from POCO](#queue-trigger-look-up-id-from-poco-c)
+* [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-c)
 * [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-c)
 * [HTTP trigger, look up ID from route data](#http-trigger-look-up-id-from-route-data-c)
 * [HTTP trigger, look up ID from route data, using SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
@@ -254,7 +254,7 @@ namespace CosmosDBSamplesV1
 
 [Skip input examples](#input---attributes)
 
-#### Queue trigger, look up ID from POCO (C#)
+#### Queue trigger, look up ID from JSON (C#)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by a queue message that contains a JSON object. The queue trigger parses the JSON into an object named `ToDoItemLookup`, which contains the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -274,9 +274,9 @@ using Microsoft.Azure.WebJobs.Host;
 
 namespace CosmosDBSamplesV1
 {
-    public static class DocByIdFromPOCO
+    public static class DocByIdFromJSON
     {
-        [FunctionName("DocByIdFromPOCO")]
+        [FunctionName("DocByIdFromJSON")]
         public static void Run(
             [QueueTrigger("todoqueueforlookup")] ToDoItemLookup toDoItemLookup,
             [DocumentDB(
