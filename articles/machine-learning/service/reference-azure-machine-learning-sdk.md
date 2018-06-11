@@ -10,9 +10,7 @@ ms.date: 07/27/2018
 ---
 # What is the Azure Machine Learning Python SDK?
 
-Add 2-3 sentences on what the SDK is, why I would want to use it, what can't I use it for...
-
-The Azure Machine Learning Python SDK is a Python pip-installable extension for Azure Machine Learning that enable data scientists and AI developers to quickly build, train, and deploy highly accurate machine learning and deep learning models for various domains.
+The Azure Machine Learning Python SDK empowers data scientists and AI developers build end-to-end machine learning workflows upon Azure Machine Learning services, to quickly build, train, and deploy highly accurate machine learning and deep learning models for various domains.
 
 **Try these next steps for this package:**
 1. [Download]() the SDK.
