@@ -1,4 +1,4 @@
-﻿---
+---
 # required metadata
 title: Workflow trigger and action types reference - Azure Logic Apps | Microsoft Docs
 description: Learn about trigger and action types in Azure Logic Apps as described by the Workflow Definition Language schema
@@ -1054,7 +1054,7 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 |-------|------|-------------| 
 | <*action-name*> | String | The name of the action provided by the connector | 
 | <*method-type*> | String | The HTTP method to use for subscribing or unsubscribing from an endpoint: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
-| <*api-subscription-URL*> | String | The URI to use for subscribing or unsubscripting from an endpoint | 
+| <*api-subscription-URL*> | String | The URI to use for subscribing or unsubscribing from an endpoint | 
 |||| 
 
 *Optional*
