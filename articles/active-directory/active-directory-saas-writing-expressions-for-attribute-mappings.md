@@ -271,7 +271,7 @@ If the state code doesn't match any of the predefined options, use default value
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md)
 * [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
 * [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
+* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
 * [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
 
