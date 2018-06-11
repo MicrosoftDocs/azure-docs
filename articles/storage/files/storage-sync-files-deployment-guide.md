@@ -322,7 +322,7 @@ In the **Add server endpoint** pane, enter the following information to create a
 To add the server endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server. 
 
 # [PowerShell](#tab/powershell)
-Execute the following PowerShell commands to create the server endpoint, and be sure to replace `<server-endpoint-path>` and `<your-volume-free-space>` with the desired values.
+Execute the following PowerShell commands to create the server endpoint, and be sure to replace `<your-server-endpoint-path>` and `<your-volume-free-space>` with the desired values.
 
 ```PowerShell
 $serverEndpointPath = "<your-server-endpoint-path>"
