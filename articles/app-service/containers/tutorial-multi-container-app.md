@@ -105,6 +105,14 @@ When the App Service plan has been created, the Azure CLI shows information simi
   "workerTierName": null
 }
 ```
+## Using custom images from a private registry
+
+If you're using custom images from a private registry make sure to specify the following application settings in your app service. 
+
+* DOCKER_REGISTRY_SERVER_PASSWORD
+* DOCKER_REGISTRY_SERVER_URL
+* DOCKER_REGISTRY_SERVER_USERNAME
+
 
 ## Docker Compose configuration options
 
