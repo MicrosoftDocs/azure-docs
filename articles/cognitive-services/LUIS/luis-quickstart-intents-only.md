@@ -39,6 +39,8 @@ This app has two intents. The first intent, **`GetJobInformation`**, identifies 
 
 5. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent should be selected any time a user wants information about open jobs about your company.
 
+    ![](media/luis-quickstart-intents-only/create-intent.png "Screenshot of New intent dialog")
+
     By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
 
 6. Add seven utterances to the `GetStoreInfo` intent that you expect a user to ask for, such as:
@@ -77,14 +79,30 @@ This app has two intents. The first intent, **`GetJobInformation`**, identifies 
 
 9. In the top right side of the LUIS website, select the **Publish** button. Select the Production slot and the **Publish** button. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
-10. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `I'm looking for a job with Natual Language Processing`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances in step 4 so it is a good test and should return the `` utterances. 
+    You do not have to create a LUIS key in the Azure portal before your publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
+
+10. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `I'm looking for a job with Natual Language Processing`. The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances in step 4 so it is a good test and should return the `GetJobInformation` intent as the top scoring intent. 
 
     ```
-
+    {
+      "query": "I'm looking for a job with Natual Language Processing",
+      "topScoringIntent": {
+        "intent": "GetJobInformation",
+        "score": 0.8965092
+      },
+      "intents": [
+        {
+          "intent": "GetJobInformation",
+          "score": 0.8965092
+        },
+        {
+          "intent": "None",
+          "score": 0.147104025
+        }
+      ],
+      "entities": []
+    }
     ```
-
-
-
 
 ## What has this LUIS app accomplished?
 This app, with just two intents, identified a natural language query that is of the same intention but worded differently. 
