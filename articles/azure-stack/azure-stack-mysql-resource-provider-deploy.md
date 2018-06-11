@@ -112,13 +112,13 @@ The system account must have the following privileges:
     # Run the installation script from the folder where you extracted the installation files. 
     # Find the ERCS01 IP address first, and make sure the certificate 
     # file is in the specified directory. 
-    $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds ` 
-    VMLocalCredential $vmLocalAdminCreds ` 
-    CloudAdminCredential $cloudAdminCreds ` 
-    PrivilegedEndpoint $privilegedEndpoint ` 
-    DefaultSSLCertificatePassword $PfxPass ` 
-    DependencyFilesLocalPath $tempDir\cert ` 
-    AcceptLicense 
+    $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+        -VMLocalCredential $vmLocalAdminCreds `
+        -CloudAdminCredential $cloudAdminCreds `
+        -PrivilegedEndpoint $privilegedEndpoint `
+        -DefaultSSLCertificatePassword $PfxPass `
+        -DependencyFilesLocalPath $tempDir\cert `
+        -AcceptLicense
     ``` 
 
 ### DeployMySqlProvider.ps1 parameters 
