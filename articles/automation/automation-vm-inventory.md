@@ -91,13 +91,13 @@ To view your machine groups select the **Machine groups** tab on the Inventory p
 
 ![View machine groups on the inventory page](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-Selecting a machinge group from the list opens the Machine groups page. This page shows details about the machine group. These details include the definition or log analytics query that is used to define the group. At the bottom of the page is a paged list of the machines that are part of that group.
+Selecting a machine group from the list opens the Machine groups page. This page shows details about the machine group. These details include the log analytics query that is used to define the group. At the bottom of the page, is a paged list of the machines that are part of that group.
 
 ![View machine group page](./media/automation-vm-inventory/machine-group-page.png)
 
 Click the **+ Clone** button to clone the machine group. Here you must give the group a new name and alias for the group. The definition can be altered at this time. After changing the query press **Validate query** to preview the machines that would be selected. When you are happy with the group click **Create** to create the machine group
 
-If you want to create a new mchine group, select **+ Create a machine group**. This button opens the **Create a machine group page** where you can define your new group.
+If you want to create a new mchine group, select **+ Create a machine group**. This button opens the **Create a machine group page** where you can define your new group. Click **Create** to create the group.
 
 ![Create new machine group](./media/automation-vm-inventory/create-new-group.png)
 
