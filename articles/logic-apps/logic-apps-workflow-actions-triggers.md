@@ -5,7 +5,7 @@ description: Learn about trigger and action types in Azure Logic Apps as describ
 services: logic-apps
 ms.service: logic-apps
 author: kevinlam1
-ms.author: klam 
+ms.author: klam
 manager: jeconnoc
 ms.date: 05/01/2018
 ms.topic: reference
