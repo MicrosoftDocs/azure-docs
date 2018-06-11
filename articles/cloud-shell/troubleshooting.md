@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 06/06/2018
 ms.author: damaerte
 ---
 
@@ -47,16 +47,6 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 - **Resolution**: Utilize [docker-machine](https://docs.docker.com/machine/overview/), which is installed by default, to manage docker containers from a remote Docker host.
 
 ## PowerShell troubleshooting
-
-### No $Home directory persistence
-
-- **Details**: Any data that application (such as: git, vim, and others) writes to `$Home` is not persisted across PowerShell sessions.
-- **Resolution**: In your PowerShell profile, create a symbolic link to application specific folder in `clouddrive` to $Home.
-
-### Ctrl+C doesn't exit out of a Cmdlet prompt
-
-- **Details**: When attempting to exit a Cmdlet prompt, `Ctrl+C` does not exit the prompt.
-- **Resolution**: To exit the prompt, press `Ctrl+C` then `Enter`.
 
 ### GUI applications are not supported
 

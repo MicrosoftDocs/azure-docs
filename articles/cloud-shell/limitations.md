@@ -59,13 +59,15 @@ Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud
 
 ## PowerShell limitations
 
-### Slow startup time
 
-PowerShell in Azure Cloud Shell (Preview) could take up to 60 seconds to initialize during preview.
+### `AzureAD` module name
 
-### No $Home directory persistence
+The `AzureAD` module name is currently `AzureAD.Standard.Preview`, the module provides the same functionality.
 
-Data written to `$Home` by any application (such as: git, vim, and others) does not persist across PowerShell sessions. For a workaround, [see here](troubleshooting.md#powershell-troubleshooting).
+ ### `Sqlcmd` functionality
+
+ Currently, cmdlets such as `Invoke-SQLcmd` are not supported.
+
 
 ### Default file location when created from Azure drive:
 
