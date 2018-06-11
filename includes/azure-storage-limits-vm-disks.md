@@ -5,15 +5,15 @@ An Azure virtual machine supports attaching a number of data disks. This article
 
 * **For Azure Managed Disks:** 
 
-| Resource | Default Limit | Maximum Limit |
-| --- | --- | --- |
-| Standard Managed Disks | 10,000 | 50,000 |
-| Standard SSD Managed Disks | 10,000 | 50,000 |
-| Premium Managed Disks | 10,000 | 50,000 |
-| Standard_LRS Snapshots | 10,000 | 50,000 |
-| Standard_ZRS Snapshots | 10,000 | 50,000 |
-| Premium_LRS Snapshots | 10,000 | 50,000 |
-| Managed Image | 10,000 | 50,000 |
+> | Resource | Default Limit | Maximum Limit |
+> | --- | --- | --- |
+> | Standard Managed Disks | 10,000 | 50,000 |
+> | Standard SSD Managed Disks | 10,000 | 50,000 |
+> | Premium Managed Disks | 10,000 | 50,000 |
+> | Standard_LRS Snapshots | 10,000 | 50,000 |
+> | Standard_ZRS Snapshots | 10,000 | 50,000 |
+> | Premium_LRS Snapshots | 10,000 | 50,000 |
+> | Managed Image | 10,000 | 50,000 |
 
 * **For standard storage accounts:** A standard storage account has a maximum total request rate of 20,000 IOPS. The total IOPS across all of your virtual machine disks in a standard storage account should not exceed this limit.
   
