@@ -136,6 +136,8 @@ After you complete the delegation, you can verify that name resolution is workin
 
 You do not have to specify the Azure DNS name servers. If the delegation is set up correctly, the normal DNS resolution process finds the name servers automatically.
 
+From a command prompt, type:
+
 ```
 nslookup -type=SOA contoso.net
 ```
