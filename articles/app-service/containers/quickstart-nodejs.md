@@ -187,7 +187,7 @@ The left menu provides different pages for configuring your app.
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group from the Cloud Shell. If you modified the region of the web app, you'll update the resource group name from `appsvc_rg_Linux_CentralUS` to the resource group specific to your app.
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group from the Cloud Shell. If you modified the region, update the resource group name `appsvc_rg_Linux_CentralUS` to the resource group specific to your app.
 
 ```azurecli-interactive
 az group delete --name appsvc_rg_Linux_CentralUS
