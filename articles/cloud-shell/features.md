@@ -45,22 +45,22 @@ Files outside of `$Home` and machine state are not persisted across sessions.
 
 [Learn more about persisting files in Bash in Cloud Shell.](persisting-shell-storage.md)
 
-### Deep integration with open-source tooling
+### Integration with open-source tooling
 
-Bash in Cloud Shell includes pre-configured authentication for open-source tools such as Terraform and Ansible. Try it out from the example walkthroughs.
+Bash in Cloud Shell includes pre-configured authentication for open-source tools such as Terraform, Ansible, and Chef InSpec. Try it out from the example walkthroughs.
 
 ## Tools
 
 |Category   |Name   |
 |---|---|
 |Linux tools            |bash<br> sh<br> tmux<br> dig<br>               |
-|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
+|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Text editors           |vim<br> nano<br> emacs       |
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
 |Containers             |[Docker CLI](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Databases              |MySQL client<br> PostgreSql client<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Other                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)| 
+|Other                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
 
 ## Language support
 
@@ -70,7 +70,7 @@ Bash in Cloud Shell includes pre-configured authentication for open-source tools
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.0.1](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0.2](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 and 3.5 (default)|
 
 ## Next steps

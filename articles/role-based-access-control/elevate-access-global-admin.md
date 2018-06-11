@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: rqureshi
+editor: bagovind
 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2018
 ms.author: rolyon
+ms.reviewer: bagovind
 
 ---
 # Elevate access for a Global administrator in Azure Active Directory

@@ -5,8 +5,8 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018

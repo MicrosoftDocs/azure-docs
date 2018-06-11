@@ -7,7 +7,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 06/04/2018
 ms.author: v-geberr
 ---
 # Intents in LUIS
@@ -32,7 +32,7 @@ In addition to intents that you define, you can use prebuilt intents from one of
 You assign an utterance to a single intent. When LUIS receives an utterance on the endpoint, it returns the one top intent for that utterance. If you want all intents, you can provide `verbose=true` flag on the query string of the API [endpoint call](https://aka.ms/v1-endpoint-api-docs). 
 
 ## Intent compared to entity
-The intent represents action the chat bot should take for the user and is based on the entire utterance. The entity represents words or phrases contained inside the utterance. An utterance can have only one top scoring intent but it can have many entities. 
+The intent represents action the chatbot should take for the user and is based on the entire utterance. The entity represents words or phrases contained inside the utterance. An utterance can have only one top scoring intent but it can have many entities. 
 
 <a name="how-do-intents-relate-to-entities"></a>
 Create an intent when this intent would trigger an action in your client application, like a call to the checkweather() function, and create an entity to represent parameters required to execute the action. 
@@ -79,15 +79,19 @@ First, consider whether your system is using too many intents.
 Intents that are too similar can make it more difficult for LUIS to distinguish between them. Intents should be varied enough to capture the main tasks that the user is asking for, but they don't need to capture every path your code takes. For example, BookFlight and FlightCustomerService might be separate intents in a travel app, but BookInternationalFlight and BookDomesticFlight are too similar. If your system needs to distinguish them, use entities or other logic rather than intents. 
 
 ### Dispatcher model
-If you cannot use fewer intents, divide your intents into multiple LUIS apps using the dispatcher model. This approach allows you to have different domains in separate apps controlled by a parent domain. The parent domain the general domain of each child. The chat bot receives this first intent, then sends a second prediction request to the correct child app. 
+Learn more about combining LUIS and QnA maker apps with the [dispatch model](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps). 
+<!-- 
+If you cannot use fewer intents, divide your intents into multiple LUIS apps using the dispatcher model. This approach allows you to have different domains in separate apps controlled by a parent domain. The parent domain the general domain of each child. The chatbot receives this first intent, then sends a second prediction request to the correct child app. 
 
-For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, you can group intents so that each group is in a single app, then create a top-level group with each intent. Base the utterance to LUIS twice, first to the top-level app, then based on the results, to the group-level app.  
+For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, you can group intents so that each group is in a single app, then create a top-level group with each intent. Base the utterance to LUIS twice, first to the top-level app, then based on the results, to the group-level app. -->
  
 ### Client-app preprocessing
 Another method is to do some preprocessing on the utterance, such as matching on regular expressions, to determine which LUIS app or set of apps receives the utterance. 
 
+<!-- replaced by dispatch tool 
 ### Prediction from all children and parent at same time
 To improve responsiveness, ordinarily a system is designed to reduce the number of REST API calls. Instead, consider sending the utterance to multiple LUIS apps simultaneously and asynchronously, then pick the intent with the highest score.  
+-->
 
 ### Request help for apps with significant number of intents
 If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [LUIS][LUIS] website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/). 
@@ -95,7 +99,7 @@ If reducing the number of intents or dividing your intents into multiple apps do
 ## Next steps
 
 * Learn more about [entities](luis-concept-entity-types.md), which are important words relevant to intents
-* Learn how to [add and manage intents](Add-intents.md) in your LUIS app.
+* Learn how to [add and manage intents](luis-how-to-add-intents.md) in your LUIS app.
 * Review intent [best practices](luis-concept-best-practices.md)
 
 [LUIS]:luis-reference-regions.md#luis-website

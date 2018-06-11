@@ -5,12 +5,10 @@ services: cosmos-db
 author: luisbosquez
 manager: kfile
 
-ms.assetid: dfce0de9-a326-401c-9940-406ac0414461
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.devlang: ''
+ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq

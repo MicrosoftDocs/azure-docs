@@ -5,10 +5,10 @@ services: cosmos-db
 author: ealsur
 manager: kfile
 
-ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
 

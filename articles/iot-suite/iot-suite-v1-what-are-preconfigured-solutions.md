@@ -165,7 +165,7 @@ Now you know what a preconfigured solution is, you can get started by deploying 
 [lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]:../iot-accelerators/iot-accelerators-predictive-overview.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-v1-getstarted-preconfigured-solutions.md
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md

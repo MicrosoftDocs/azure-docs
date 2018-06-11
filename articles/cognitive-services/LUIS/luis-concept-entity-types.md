@@ -206,6 +206,6 @@ See [best practices](luis-concept-best-practices.md) for more information.
 
 Learn concepts about good [utterances](luis-concept-utterance.md). 
 
-See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.
+See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
 
 [LUIS]:luis-reference-regions.md#luis-website
