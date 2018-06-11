@@ -153,6 +153,3 @@ In this step, you configure the load balancer *lb* resources that include a fron
     "outboundNatRules": []
   }  }
 ```
-## Next steps
-- Learn about [Standard Load Balancer](load-balancer-standard-overview.md)
-- Learn how to [create or update inbound NAT rules](https://docs.microsoft.com/rest/api/load-balancer/inboundnatrules/createorupdate)
