@@ -15,6 +15,7 @@ The Azure Machine Learning command-line interface (CLI) is an extension of [Azur
 + Track and version models
 + Containerize and deploy models as web services
 
+For Python-based interface to Azure Machine Learning services on which the CLI is built, see [the Python SDK](reference-azure-machine-learning-sdk.md).
 
 **Try these next steps for this CLI**
 
