@@ -16,7 +16,7 @@ ms.date: 05/28/2018
 ms.author: jingwang
 
 ---
-#  Use Azure Data Factory to copy data to or from Azure SQL Data Warehouse
+#  Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use."]
 > * [Version 1: GA](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Version 2: Preview](connector-azure-sql-data-warehouse.md)
