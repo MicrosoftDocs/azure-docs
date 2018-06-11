@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/01/2017
+ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
 
@@ -61,12 +61,10 @@ Security policies are used to define the items for which Security Center collect
 
 To set up a security policy for an entire subscription:
 
-1. On the Security Center dashboard, select **Security policy**.
-2. Click the arrow next to your subscription to open the list of resource groups and select one.
-3. Under **Inheritance**, select **Unique** and then click **Save** at the top of the page.
-3. Turn on or turn off policy items that you want to apply to the resource group.
-4. When you're finished selecting your settings, select **OK**.
-5. On the **Security policy** blade, select **Save**. 
+1. On the Security Center dashboard, select **Security policy** and then select your subscription.
+2. On the **Security policy** blade, select **Security policy**. 
+3. On the ** Security policy - Security policy ** blade, turn on or turn off policy items that you want to apply to the subscription.
+4. When you're finished selecting your settings, select **Save** at the top of the blade. 
 
 
 ![Unique policy](./media/tutorial-azure-security/unique-policy.png)
@@ -114,7 +112,7 @@ To change the pricing tier:
 1. On the Security Center dashboard, click **Security policy**, and then select your subscription.
 2. Select **Pricing tier**.
 3. Select **Standard** and then click **Save** at the top of the blade.
-4. On the **Security policy** blade, select **Save**. 
+
 
 After you've changed the pricing tier, the security alerts graph begins to populate as security threats are detected.
 
