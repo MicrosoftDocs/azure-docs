@@ -1,0 +1,73 @@
+---
+title: How to manage a user assigned identities using REST
+description: Step by step instructions on how to create, list and delete a user assigned manage identity using CURL to make REST API calls.
+services: active-directory
+documentationcenter: 
+author: daveba
+manager: mtillman
+editor: 
+ms.service: active-directory
+ms.component: msi
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/16/2018
+ms.author: daveba
+---
+
+# Create, list or delete a user assigned identity using CRUL to make REST API calls
+
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+
+Managed Identity provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
+
+In this article, you learn how to create, list and delete a user assigned identity using CURL to make REST API calls.
+
+## Prerequisites
+
+- If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+- If you are using Windows, install the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) or use the [Azure Cloud Shell](../../cloud-shell/overview.md) in the Azure portal
+    - [Install Azure CLI](/azure/install-azure-cli), if you use the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about).
+- Sign in to Azure using `az login` with an account that is associated with the Azure subscription you would like to deploy or retrieve user assigned identity information.
+- Retrieve a Bearer access token using `az account get-access-token` to perform the following user assigned managed identity operations.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+## Create a user assigned managed identity 
+
+To create a user assigned identity, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>`, and `<ACCESS TOKEN>` values with your own values:
+
+```bash
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
+s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview' -X PUT -d '{"loc
+ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+```
+
+## List user assigned identities
+
+To list user assigned identities, use the following CURL request to the Azure Resource Manager API.  Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`, and `<ACCESS TOKEN>` values with your own values:
+
+```bash
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
+```
+## Delete a user assigned identity
+
+To delete a user assigned identity, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` parameters values with your own values:
+
+```bash
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
+s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID3?api-version=2015-08-31-preview' -X DELETE -H "Authorization: Bearer <ACCESS TOKEN>"
+```
+
+> [!NOTE]
+> Deleting a user assigned identity will not remove the reference, from any resource it was assigned to. Please remove those from VM/VMSS using the `az vm/vmss identity remove` command
+
+## Related content
+
+For a full list of Azure CLI identity commands, see [az identity](/cli/azure/identity).
+
+For information on how to assign a user assigned identity to an Azure VM see, [Configure Managed Service Identity (MSI) using Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-identity)
+
+
