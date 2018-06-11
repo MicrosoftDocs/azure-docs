@@ -164,6 +164,30 @@ using (FileStream fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess
 }
 ```
 
+# [Python](#tab/Python)
+
+```py
+import requests
+import json
+
+# Modify the parameters as you want
+recogMode = 'interactive'
+language = 'en-US'
+outputFormat = 'detailed'
+apiKey = 'YOUR_SUBSCRIPTION_KEY'
+audioFilePath = 'YOUR_AUDIO_FILE'
+
+apiURL = 'https://speech.platform.bing.com/speech/recognition/'+ recogMode + '/cognitiveservices/v1?language=' + language + '&format=' + outputFormat
+
+requestHeader = {
+        'Ocp-Apim-Subscription-Key' : apiKey,
+        'Content-type' : 'audio/wav; codec=audio/pcm; samplerate=16000'
+}
+
+requestBody = open(audioFilePath, 'rb').read()
+response = requests.post(apiURL, data=requestBody, headers=requestHeader)
+```
+
 ---
 
 ## Process the speech recognition response
@@ -209,6 +233,13 @@ using (WebResponse response = request.GetResponse())
     Console.WriteLine(responseString);
     Console.ReadLine();
 }
+```
+
+# [Python](#tab/Python)
+
+```py
+# show the response in JSON format
+json.loads(response.content.decode('utf-8'))
 ```
 
 ---
