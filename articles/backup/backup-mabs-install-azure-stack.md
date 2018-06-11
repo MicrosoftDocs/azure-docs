@@ -38,18 +38,9 @@ Azure Backup Server protects the following Azure Stack virtual machine workloads
 | SQL Server 2016 | Database |
 | SQL Server 2014 | Database |
 | SQL Server 2012 SP1 | Database |
+| SharePoint 2016 | Farm, database, frontend, web server |
 | SharePoint 2013 | Farm, database, frontend, web server |
 | SharePoint 2010 | Farm, database, frontend, web server |
-
-
-### Host vs Guest Backup
-
-Azure Backup Server performs host or guest-level backups of virtual machines. At the host level, Azure Backup agent is installed on the virtual machine or cluster, and protects the entire virtual machine and data files running on the host. At the guest level, Azure Backup agent is installed on each virtual machine and protects the workload present on that machine.
-
-Both methods have their pros and cons:
-
-   * Host-level backups work, regardless of the OS running on the guest machines, and don't require the Azure Backup agent to be installed on each VM. If you deploy host-level backups you recover an entire virtual machine, or files and folders (item-level recovery).
-   * Guest-level backup is beneficial for protecting specific workloads running on a virtual machine. At host-level, you can recover an entire VM or specific files, but it doesn't recover data in the context of a specific application. For example, to recover specific SharePoint files from a protected virtual machine, you must protect the VM at guest-level. If you want to protect data stored on passthrough disks, you must use guest-level backup. Passthrough allows the virtual machine to directly access the storage device, and doesn't store virtual volume data in a VHD file.
 
 ## Prerequisites for the Azure Backup Server environment
 
@@ -86,7 +77,7 @@ If you want to use a remote SQL Server for the Azure Backup Server database, sel
 ### Scaling deployment
 If you want to scale your deployment, you have the following options:
   - Scale up - Increase the size of the Azure Backup Server virtual machine from A series to D series, and increase the local storage [per the Azure Stack virtual machine instructions](../azure-stack/user/azure-stack-manage-vm-disks.md).
-  - Offload data - send older data to Azure Backup Server and retain only the newest data on the storage attached to the Azure Backup Server.
+  - Offload data - send older data to Azure and retain only the newest data on the storage attached to the Azure Backup Server.
   - Scale out - Add more Azure Backup Servers to protect the workloads.
 
 ### .NET Framework
@@ -318,7 +309,7 @@ Azure Backup Server shares code with Data Protection Manager. You will see refer
 
 ## Add backup storage
 
-The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Configure storage pools and disk storage](https://technet.microsoft.com/library/hh758075.aspx).
+The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Add Modern Backup storage](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > You need to add backup storage even if you plan to send data to Azure. In the Azure Backup Server architecture, the Recovery Services vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
