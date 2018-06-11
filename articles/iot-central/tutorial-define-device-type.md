@@ -301,11 +301,11 @@ You use _properties_ to store information about your device in the application. 
 
 ## Use commands
 
-You use _commands_ to enable an operator to run commands directly on the device. In this section, you add a command to your **Connected Air Conditioner** device template that enables an operator to turn off the connected air conditioner.
+You use _commands_ to enable an operator to run commands directly on the device. In this section, you add a command to your **Connected Air Conditioner** device template that enables an operator to echo a certain message on the the connected air conditioner display (this works with MxChip sample code).
 
 1. Navigate to the **Commands** page for your **Connected Air Conditioner** device template:
 
-    ![Prepare to add a setting](media/tutorial-define-device-type/deviceaddsetting.png)
+    ![Prepare to add a setting](media/tutorial-define-device-type/commandsecho.png)
 
     You can create commands of different types based on your requirements. 
 
@@ -315,9 +315,11 @@ You use _commands_ to enable an operator to run commands directly on the device.
 
     | Field                | Value           |
     | -------------------- | -----------     |
-    | Display Name         | Reboot          |
-    | Field Name           | reboot          |
+    | Display Name         | Echo Command    |
+    | Field Name           | echo            |
     | Default Timeout      | 30              |
+    | Display Name         | Display Text    |
+    | Display Type         | text            |  
 
 You can add additional inputs to the command by clicking **+** for inputs.
 
@@ -325,7 +327,7 @@ Then choose **Save**.
 
 1. You can customize the layout of the **Commands** page by moving and resizing commands tiles:
 
-    ![Customize settings layout](media/tutorial-define-device-type/settingslayout.png)
+    ![Customize settings layout](media/tutorial-define-device-type/commandstileresize.png)
 
 
 
