@@ -19,6 +19,10 @@ ROBOTS: NOINDEX
 
 # Deep learning for predictive maintenance real-world scenarios
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
+
 Deep learning is one of the most popular trends in machine learning and has applications to many areas, including:
 - Driverless cars and robotics.
 - Speech and image recognition.

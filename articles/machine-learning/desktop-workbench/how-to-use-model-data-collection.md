@@ -18,6 +18,10 @@ ROBOTS: NOINDEX
 
 # Collect model data by using data collection
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Find the new quickstarts and tutorials on this [landing page](../service/).**
+
+
 You can use the model data collection feature in Azure Machine Learning to archive model inputs and predictions from a web service.
 
 ## Install the data collection package

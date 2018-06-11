@@ -18,6 +18,10 @@ ROBOTS: NOINDEX
 
 
 # Tutorial: Classifying Iris using the command-line interface
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Find the new quickstarts and tutorials on this [landing page](../service/).**
+
 Azure Machine Learning services (preview) are an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
 
 In this tutorial, you learn to use the command-line interface (CLI) tools in Azure Machine Learning preview features to: 

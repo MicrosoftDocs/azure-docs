@@ -24,6 +24,10 @@ ROBOTS: NOINDEX
 
 # Income classification with Team Data Science Process (TDSP) project
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
+
 ## Introduction
 
 Standardization of the structure and documentation of data science projects, that is anchored to an established [data science lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), is key to facilitating effective collaboration in data science teams. Creating Azure Machine Learning projects with the [Team Data Science Process (TDSP)](https://github.com/Azure/Microsoft-TDSP) template provides a framework for such standardization.

@@ -17,6 +17,10 @@ ROBOTS: NOINDEX
 
 # Deploying a Machine Learning Model as a web service
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
+
 Azure Machine Learning Model Management provides interfaces to deploy models as containerized Docker-based web services. You can deploy models you create using frameworks such as Spark, the Microsoft Cognitive Toolkit (CNTK), Keras, Tensorflow, and Python. 
 
 This document covers the steps to deploy your models as web services using the Azure Machine Learning Model Management command-line interface (CLI).

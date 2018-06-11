@@ -18,6 +18,10 @@ ROBOTS: NOINDEX
 
 # Model management command-line interface reference
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn about the latest machine learning CLI in this [overview article](../service/reference-azure-machine-learning-cli.md).**
+
+
 ## Base CLI concepts:
 
     account : Manage model management accounts.	

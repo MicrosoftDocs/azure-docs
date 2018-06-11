@@ -16,6 +16,10 @@ ROBOTS: NOINDEX
 ---
 # Model management setup
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
+
 ## Overview
 This document gets you started with using Azure ML model management to deploy and manage your machine learning models as web services. 
 

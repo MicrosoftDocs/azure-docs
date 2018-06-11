@@ -1,1 +1,1 @@
-**This article has been deprecated. Support for this CLI version ends on 2018-1-1.**
+**This article has been deprecated because it covers a 2017 Azure Machine Learning Preview feature(s) that has been deprecated or replaced. Support for these features ends on January 1, 2019. **

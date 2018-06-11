@@ -18,6 +18,10 @@ ROBOTS: NOINDEX
 ---
 
 # Sample of filter expressions (Python) 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
 Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
 ## Filter with equivalence test

@@ -16,6 +16,11 @@ ROBOTS: NOINDEX
 ---
 
 # Quickstart: Install and get started with Azure Machine Learning services
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Find the new quickstarts and tutorials on this [landing page](../service/).**
+
+
 Azure Machine Learning services (preview) are an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
 This quickstart shows you how to:

@@ -18,6 +18,10 @@ ROBOTS: NOINDEX
 
 # Getting started with data preparation
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
+
 Welcome to the Data Preparation Getting Started Guide. 
 
 Data Preparation provides a set of tools for efficiently exploring, understanding, and fixing problems in data. It allows you to consume data in many forms and transform that data into cleansed data that is better suited for downstream usage.

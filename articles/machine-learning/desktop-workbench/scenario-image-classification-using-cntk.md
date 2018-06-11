@@ -20,6 +20,10 @@ ROBOTS: NOINDEX
 
 # Image classification using Azure Machine Learning Workbench
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
+
 Image classification approaches can be used to solve a large number of Computer Vision problems.
 These include building models, which answer questions such as: *Is an OBJECT present in the image?* where OBJECT could for example be *dog*, *car*, or *ship*. Or more complex questions like: *What class of eye disease severity is evinced by this patient's retinal scan?*.
 

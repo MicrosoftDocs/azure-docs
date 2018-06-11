@@ -18,6 +18,11 @@ ROBOTS: NOINDEX
 ---
 
 # Supported inspectors for the Azure Machine Learning data preparation preview
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
+
 This document outlines the set of inspectors that are available in this preview.
 
 ## The halo effect 

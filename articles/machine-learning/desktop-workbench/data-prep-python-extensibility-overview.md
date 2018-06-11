@@ -15,6 +15,10 @@ ms.date: 05/09/2018
 ROBOTS: NOINDEX
 ---
 # Data Preparations Python extensions
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
 As a way of filling in functionality gaps between built-in features, Azure Machine Learning Data Preparations includes extensibility at multiple levels. In this document, we outline the extensibility via Python script. 
 
 ## Custom code steps 

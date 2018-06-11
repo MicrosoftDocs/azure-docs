@@ -17,6 +17,10 @@ ms.date: 02/01/2018
 ROBOTS: NOINDEX
 ---
 # Supported matrix for this release 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
 When your code loads data by using Azure Machine Learning Data Sources or Azure Machine Learning Data Preparations, getting either a Pandas or Spark dataframe, the following combinations of experiment compute environments and data locations are supported:
 
 |     |Local files  |Azure Blob storage  |SQL Server database***  |

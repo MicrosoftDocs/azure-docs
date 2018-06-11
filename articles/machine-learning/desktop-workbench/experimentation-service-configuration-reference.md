@@ -17,6 +17,10 @@ ROBOTS: NOINDEX
 
 # Azure Machine Learning Experimentation Service configuration files
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Find the new quickstarts and tutorials on this [landing page](../service/).**
+
+
 When you run a script in Azure Machine Learning (Azure ML) Workbench, the behavior of the execution is controlled by files in the **aml_config** folder. This folder is under your project folder root. It is important to understand the contents of these files in order to achieve the desired outcome for your execution in an optimal way.
 
 Following are the relevant files under this folder:

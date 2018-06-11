@@ -18,6 +18,10 @@ ROBOTS: NOINDEX
 ---
 
 # Supported data sources for Azure Machine Learning data preparation 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
 This article outlines the currently supported data sources for Azure Machine Learning data preparation.
 
 The supported data sources for this release are as follows.

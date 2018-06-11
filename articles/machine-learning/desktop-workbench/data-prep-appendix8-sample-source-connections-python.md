@@ -17,6 +17,10 @@ ms.date: 02/01/2018
 ROBOTS: NOINDEX
 ---
 # Sample of custom source connections (Python) 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
 Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
 ## Load data from data.world

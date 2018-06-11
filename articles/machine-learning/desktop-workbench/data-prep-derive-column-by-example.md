@@ -19,6 +19,10 @@ ROBOTS: NOINDEX
 
 # Derive column by example transformation
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
+
 The **Derive Column by Example** transform enables users to create a derivative of one or more existing columns using user provided examples of the derived result. The derivative can be any combination of the supported String, Date, and Number transformations. 
 
 Following String, Date, and Number transformations are supported:

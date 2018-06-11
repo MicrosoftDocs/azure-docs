@@ -17,6 +17,10 @@ ms.date: 02/01/2018
 ROBOTS: NOINDEX
 ---
 # Data Preparations user guide 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Learn more about what happened to the desktop Workbench in this [overview article](../service/what-happened-to-workbench.md).**
+
 The Azure Machine Learning Data Preparations experience provides a lot of rich functionality. This article documents the deepest parts of the experience.
 
 ### Step execution, history, and caching 

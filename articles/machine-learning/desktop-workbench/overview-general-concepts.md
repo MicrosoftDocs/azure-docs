@@ -18,6 +18,11 @@ ROBOTS: NOINDEX
 
 # Azure Machine Learning - Concepts
 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+**Find the new quickstarts and tutorials on this [landing page](../service/).**
+
+
 This article defines and describes the concepts you need to know to use Azure Machine Learning. 
 
 ![Hierarchy of concepts](media/overview-general-concepts/hierarchy.png)
