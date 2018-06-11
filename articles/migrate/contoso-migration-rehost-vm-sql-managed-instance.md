@@ -29,8 +29,8 @@ This document is the fourth in a series of articles that document how the fictit
 Article 4: Rehost to Azure VMs and a SQL Managed Instance (this article) | Demonstrates how Contoso migrates the SmartHotel app to Azure. They migrate the app frontend VM using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and the app database using the [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service, to migrate to a SQL Managed Instance. | Available
 [Article 5: Rehost to Azure VMs](contoso-migration-rehost-vm.md) | Shows how Contoso migrates the SmartHotel app VMs using Site Recovery only.
 [Article 6: Rehost to Azure VMs and SQL Server Availability Groups](contoso-migration-rehost-vm-sql-ag.md) | Shows how Contoso migrates the SmartHotel app. They use Site Recovery to migrate the app VMs, and the Database Migration service to migrate the app database to a SQL Server Availability Group. | Available
-[Article 7: Rehost a Linux app to Azure VMs](cntoso-migration-rehost-linux-vm.md) | Demonstrates how Contoso migrates the Linux osTicket app to Azure VMs using Site Recovery. | Available
-[Article 8: Rehost a Linux app to Azure VMs and Azure MySQL Server](cntoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the Linux osTicket app to Azure VMs using Site Recovery, and to an Azure MySQL Server instance using MySQL Workbench. | Available
+[Article 7: Rehost a Linux app to Azure VMs](contoso-migration-rehost-linux-vm.md) | Demonstrates how Contoso migrates the Linux osTicket app to Azure VMs using Site Recovery. | Available
+[Article 8: Rehost a Linux app to Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the Linux osTicket app to Azure VMs using Site Recovery, and to an Azure MySQL Server instance using MySQL Workbench. | Available
 
 If you'd like to use the sample SmartHotel app used in this article, you can download it from [github](https://github.com/Microsoft/SmartHotel360).
 
