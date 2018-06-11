@@ -40,13 +40,13 @@ You can use Visual Studio to write and deploy Azure Resource Manager [templates]
 
 6. Restart the operating system after the installation completes.
 
-## Connect to Azure Stack
+## Connect to Azure Stack with Azure AD
 
 1. Launch Visual Studio.
 
 2. From the **View** menu, select **Cloud Explorer**.
 
-3. In the new pane, select **Add Account** and sign in with your Azure Active Directory credentials.  
+3. In the new pane, select **Add Account** and sign in with your Azure Active Directory (Azure AD) credentials.  
 
     ![Screenshot of Cloud Explorer once logged in and connected to Azure Stack](./media/azure-stack-install-visual-studio/image2.png)
 
@@ -61,7 +61,7 @@ Once logged in, you can [deploy templates](azure-stack-deploy-template-visual-st
 3. Expand **Environment** in the **Navigation Pane** and select **Accounts**.
 
 4. Select **Add**, and enter the User Azure Resource Manger endpoint.  
-  For the Azure Stack Development kit, the URL is: https://management.local.azurestack/external`.  
+  For the Azure Stack Development kit, the URL is: `https://management.local.azurestack/external`.  
   For Azure Stack integrated systems the URL is: `https://management.[Region}.[External FQDN]`.
 
     ![X](./media/azure-stack-install-visual-studio/image5.png)
