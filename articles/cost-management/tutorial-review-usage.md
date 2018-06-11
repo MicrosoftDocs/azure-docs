@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/22/2018
+ms.date: 06/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom:
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a  [free account](https://azure.
 
 ## Open the Cloudyn portal
 
-You review all usage and costs in the Cloudyn portal. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com and log in.
+You review all usage and costs in the Cloudyn portal. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com and sign in.
 
 ## Track usage and cost trends
 
