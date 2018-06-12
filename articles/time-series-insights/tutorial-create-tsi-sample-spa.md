@@ -26,9 +26,8 @@ You'll also need to install Visual Studio if you haven't already. For this tutor
 
 ## Application design overview
 
-As mentioned, the TSI sample application is the basis for the design and code presented in this tutorial. The sample uses the TSI Client JavaScript library to query and visualize data from a TSI environment. 
+As mentioned, the TSI sample application is the basis for this tutorial's design and code. Including the TSI Client JavaScript library, used to query and visualize data from a TSI environment. The TSI Client JavaScript library provides an abstraction for two important API categories:
 
-The TSI Client JavaScript library provides an abstraction for two important API categories:
 - **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using JSON-based expressions. The methods are organized under the `TsiClient.server` namespace of the library.
 - **Methods for creating and populating several types of charting controls**: Methods that are used for visualizing the TSI data in a web page. The methods are organized under the `TsiClient.ux` namespace of the library.
 
@@ -36,7 +35,7 @@ This tutorial will also use the data from the sample application's TSI environme
 
 ## Register the application with Azure AD 
 
-Before building the application, you need to register it with Azure AD. Registration serves as the identity configuration for an application, enabling it to use Azure AD's OAuth support for single sign-on. OAuth requires SPA applications to use the "implicit" authorization grant, so you also use the manifest editor to update the corresponding property. An application manifest is a JSON representation of the application's identity configuration. 
+Before building the application, you need to register it with Azure AD. Registration provides the identity configuration for an application, allowing it to use OAuth support for single sign-on. OAuth requires SPAs to use the "implicit" authorization grant, which you'll update in the application manifest. An application manifest is a JSON representation of the application's identity configuration. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription account.  
 2. Select the **Azure Active Directory** resource in the left pane, then **App registrations**, then **+ New application registration**:  
@@ -167,17 +166,17 @@ Before building the application, you need to register it with Azure AD. Registra
 
       ![VS - Publish web app - publish the app service](media/tutorial-create-tsi-sample-spa/vs-publish-publish.png)  
 
-   f. You should see a successful publish log in the Visual Studio **Output** window. When completed, Visual Studio will open a new new web application tab, prompting for sign-in. After successful sign-in, you will see all of the TSI controls populated with data:  
+   f. You should see a successful publish log in the Visual Studio **Output** window. After deployment is done, Visual Studio will also open the web application in a browser tab, prompting for sign-in. After successful sign-in, you'll see all of the TSI controls populated with data:  
 
       ![VS - Publish web app - publish log output](media/tutorial-create-tsi-sample-spa/vs-publish-output.png)  
 
-      ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net-signin.png)  
+      ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)  
 
 ## Troubleshooting  
 
 Error code/condition | Description
 ---------------------| -----------
-Unstyled text-only sign-in page with a white background. | Verify that the paths discussed in step #4.a of [Build and publish the web application](#build-and-publish-the-web-application) are correct. If the web application can't find the .css files, the page won't be styled correctly.
+Web application has an unstyled, text-only sign-in page, with a white background. | Verify that the paths discussed in step #4.a of [Build and publish the web application](#build-and-publish-the-web-application) are correct. If the web application can't find the .css files, the page won't be styled correctly.
 AADSTS50011: No reply address is registered for the application. | The Azure AD registration is missing the "Reply URL" property. See step #8 of [Register the application with Azure AD](#register-the-application-with-azure-ad)
 AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '<Reply URL GUID>'. | The `postLogoutRedirectUri` specified in step #4.b of [Build and publish the web application](#build-and-publish-the-web-application), must match the value specified under the **Settings** / **Reply URLs** property in your Azure AD application registration.
 
