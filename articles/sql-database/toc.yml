@@ -179,11 +179,11 @@
       - name: Table auditing (deprecated)
         href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Dynamic data masking
-      - items:
-        - name: Overview
-          href: sql-database-dynamic-data-masking-get-started.md
-        - name: Configure masking
-          href: sql-database-dynamic-data-masking-get-started-portal.md
+      items:
+      - name: Overview
+        href: sql-database-dynamic-data-masking-get-started.md
+      - name: Configure masking
+        href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: Always encrypted
       items:
       - name: Use the certificate store
