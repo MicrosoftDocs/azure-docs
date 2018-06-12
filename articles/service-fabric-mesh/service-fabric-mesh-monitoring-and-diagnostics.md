@@ -19,7 +19,7 @@ ms.custom: mvc, devcenter
 ---
 
 # Monitoring and diagnostics
-Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Monitoring and diagnostics for Service Fabric Mesh is generally catagorized into three main types of diagnostics data:
+Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Monitoring and diagnostics for Service Fabric Mesh is catagorized into three main types of diagnostics data:
 
 1. Application logs - these are defined as the logs from your containerized applications, based on how you have instrumented your application (docker logs)
 2. Platform events - events from the SeaBreeze platform relevant to your container operation, currently including container activation, deactivation, termination.
@@ -47,11 +47,11 @@ az mesh codepackage logs --resource-group <RG> --app-name SbzVoting --service-na
 
 Here is a list of current events exposed in the platform, with a brief description: 
 
-* ContainerActivated: container succesfully created and started
+* ContainerActivated: container successfully created and started
 * ContainerDeactivated – container stopped
 * ContainerTerminated – container exited with status (could be 'success' or 'error'). The container will be restarted automatically. 
 
-Currently, events can be viewed at a servicereplica level. Here is the CLI command to view container events. 
+Currently, events can be viewed at a service replica level. Here is the CLI command to view container events. 
 
 ```cli
 az mesh servicereplica show <nameOfResourceGroup> --app-name <nameOfCGS> --service-name <nameOfService> --replica-name <nameOfReplica>
