@@ -134,7 +134,7 @@ Return to the browser tab for the LUIS website and create a new intention to app
 
     [Train and publish](#Train-and-publish-the-app) again. 
 
-### Query endpoint for ApplyForJob intent
+## Query endpoint for ApplyForJob intent
 On the **Publish** page, select the **endpoint** link at the bottom of the page. In the new browser window, enter `Can I submit my resume for job 235986` at the end of the URL. 
 
     ```
