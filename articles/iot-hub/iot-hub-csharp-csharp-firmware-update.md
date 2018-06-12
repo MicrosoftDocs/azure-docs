@@ -394,7 +394,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-dm-getstarted]: iot-hub-csharp-csharp-device-management-get-started.md
-[lnk-tutorial-jobs]: iot-hub-csharp-node-schedule-jobs.md
+[lnk-tutorial-jobs]: iot-hub-csharp-csharp-schedule-jobs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
