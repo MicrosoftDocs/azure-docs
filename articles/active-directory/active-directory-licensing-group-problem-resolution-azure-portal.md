@@ -6,14 +6,12 @@
   keywords: Azure AD licensing
   documentationcenter: ''
   author: curtand
-  manager: femila
+  manager: mtillman
   editor: ''
 
-  ms.assetid:
   ms.service: active-directory
-  ms.devlang: na
+  ms.component: users-groups-roles
   ms.topic: article
-  ms.tgt_pltfrm: na
   ms.workload: identity
   ms.date: 06/05/2017
   ms.author: curtand

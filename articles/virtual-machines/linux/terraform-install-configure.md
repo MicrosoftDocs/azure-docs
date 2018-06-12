@@ -23,7 +23,7 @@ ms.author: echuvyrov
 Terraform provides an easy way to define, preview, and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure. 
 
 > [!TIP]
-To learn more about how to use Terraform with Azure, visit the [Terraform Hub](/azure/terraform). Terraform is installed by default in the [Cloud Shell](/terraform/terraform-cloud-shell). By using Cloud Shell, you can skip the install/setup portions of this document.
+To learn more about how to use Terraform with Azure, visit the [Terraform Hub](/azure/terraform). Terraform is installed by default in the [Cloud Shell](/azure/terraform/terraform-cloud-shell). By using Cloud Shell, you can skip the install/setup portions of this document.
 
 ## Install Terraform
 
@@ -77,12 +77,13 @@ az vm list-sizes --location westus
 
 ## Configure Terraform environment variables
 
-Configure Terraform to use the tenant ID, subscription ID, client ID, and client secret from the service principal when creating Azure resources. Set the following environment variables, which are used automatically by the [Azure Terraform modules](https://registry.terraform.io/modules/Azure).
+Configure Terraform to use the tenant ID, subscription ID, client ID, and client secret from the service principal when creating Azure resources. You can also set the environment if working with an Azure cloud other than Azure public. Set the following environment variables, which are used automatically by the [Azure Terraform modules](https://registry.terraform.io/modules/Azure).
 
 - ARM_SUBSCRIPTION_ID
 - ARM_CLIENT_ID
 - ARM_CLIENT_SECRET
 - ARM_TENANT_ID
+- ARM_ENVIRONMENT
 
 You can use this sample shell script to set those variables:
 
@@ -93,6 +94,9 @@ export ARM_SUBSCRIPTION_ID=your_subscription_id
 export ARM_CLIENT_ID=your_appId
 export ARM_CLIENT_SECRET=your_password
 export ARM_TENANT_ID=your_tenant_id
+
+# Not needed for public, required for usgovernment, german, china
+export ARM_ENVIRONMENT=public
 ```
 
 ## Run a sample script

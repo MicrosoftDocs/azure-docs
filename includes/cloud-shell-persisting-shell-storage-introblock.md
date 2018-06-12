@@ -18,6 +18,9 @@ When you use basic settings and select only a subscription, Cloud Shell creates 
 
 The file share mounts as `clouddrive` in your `$Home` directory. This is a one-time action, and the file share mounts automatically in subsequent sessions. 
 
+> [!NOTE]
+> For security, each user should provision their own storage.  For role-based access control (RBAC), users must have contributor access or above.
+
 In Bash, the file share also contains a 5-GB image that is created for you which automatically persists data in your `$Home` directory. 
 
 ### Use existing resources
@@ -29,7 +32,7 @@ In Bash, existing file shares receive a 5-GB image created for you to persist yo
 ![The Resource group setting](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
 ### Restrict resource creation with an Azure resource policy
-Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) that are triggered by this specific tag.
+Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](../articles/azure-policy/json-samples.md) that are triggered by this specific tag.
 
 ## Supported storage regions
 Associated Azure storage accounts must reside in the same region as the Cloud Shell machine that you're mounting them to.

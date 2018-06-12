@@ -1,5 +1,5 @@
 ---
-title: Azure Government Cognitive Services quickStart | Microsoft Docs
+title: Cognitive Services on Azure Government | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
@@ -18,11 +18,16 @@ ms.author: yujhong
 
 ---
 
-# Cognitive Services – Computer Vision, Face, Translator Text APIs
+# Cognitive Services on Azure Government – Computer Vision, Face, Translator Text APIs
 
 To see an overview of Cognitive Services on Azure Government, [click here](documentation-government-services-aiandcognitiveservices.md).
 
+## Prerequisites
+* Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
+* Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
+
 ## Part 1: Provision Cognitive Services Accounts
+
 In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access. **Cognitive Services is not yet supported in the Azure Government Portal**, but you can use Azure PowerShell to access the APIs and services. 
 
 > [!NOTE]
@@ -30,11 +35,9 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 > 
 > 
 
-### Prerequisites
-* Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
-* Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
+1. Make sure that you have the **Cognitive Services resource provider registered on your account**. 
+You can do this by **running the following Powershell command:**
 
-1. Make sure that you have the **Cognitive Services resource provider registered on your account**. You can do this by **running the following Powershell command:**
    ```PowerShell
    Get-AzureRmResourceProvider
    ```
@@ -58,9 +61,9 @@ In order to access any of the Cognitive Services APIs, you must first provision 
    New-AzureRmCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
    ```
 
-After you run the command, you should see something like this: 
+   After you run the command, you should see something like this: 
 
-![cog1](./media/documentation-government-cognitiveservices-img1.png)
+   ![cog1](./media/documentation-government-cognitiveservices-img1.png)
 
 3. Copy and save the "Endpoint" attribute somewhere as you will need it when making calls to the API. 
 
@@ -354,7 +357,7 @@ A successful response is returned in JSON. Following is an example of a successf
    }
 }
 ```
-For more information, please see [public documentation](../cognitive-services/computer-vision/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
+For more information, please see [public documentation](../cognitive-services/computer-vision/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
 
 ## Face API
 ### Prerequisites
@@ -598,7 +601,7 @@ Response:
    }
 ]
 ```
-For more information, please see [public documentation](../cognitive-services/Face/index.md), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, please see [public documentation](../cognitive-services/Face/index.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 ## Text Translation API 
 ### Prerequisites

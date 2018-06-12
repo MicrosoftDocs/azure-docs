@@ -1,10 +1,10 @@
 ---
-title: Create a VM with a static public IP address - Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create a VM with a static public IP address using the Azure command-line interface (CLI) 2.0.
+title: Create a VM with a static public IP address - Azure CLI | Microsoft Docs
+description: Learn how to create a VM with a static public IP address using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -19,14 +19,12 @@ ms.author: jdial
 ms.custom: H1Hack27Feb2017
 
 ---
-# Create a VM with a static public IP address using the Azure CLI 2.0
+# Create a VM with a static public IP address using the Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
-> * [Template](virtual-network-deploy-static-pip-arm-template.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -37,7 +35,7 @@ Azure has two different deployment models for creating and working with resource
 
 ## <a name = "create"></a>Create the VM
 
-You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). The values in "" for the variables in the steps that follow create resources with settings from the scenario. Change the values, as appropriate, for your environment.
+The values in "" for the variables in the steps that follow create resources with settings from the scenario. Change the values, as appropriate, for your environment.
 
 1. Install the [Azure CLI 2.0](/cli/azure/install-az-cli2) if you don't already have it installed.
 2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -143,7 +141,11 @@ It's recommended that you delete the resources created in this exercise if you w
 1. To view the resources in the resource group, run the `az resource list --resource-group IaaSStory` command.
 2. Confirm there are no resources in the resource group, other than the resources created by the script in this article. 
 3. To delete all resources created in this exercise, run the `az group delete -n IaaSStory` command. The command deletes the resource group and all the resources it contains.
+ 
+## Set IP addresses within the operating system
+
+You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary, such as when [assigning multiple IP addresses to a Windows VM](virtual-network-multiple-ip-addresses-cli.md). If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings.
 
 ## Next steps
 
-Any network traffic can flow to and from the VM created in this article. You can define inbound and outbound rules within an NSG that limit the traffic that can flow to and from the network interface, the subnet, or both. To learn more about NSGs, read the [NSG overview](virtual-networks-nsg.md) article.
+Any network traffic can flow to and from the VM created in this article. You can define inbound and outbound security rules within a network security group that limit the traffic that can flow to and from the network interface, the subnet, or both. To learn more about network security groups, see [Network security group overview](security-overview.md).

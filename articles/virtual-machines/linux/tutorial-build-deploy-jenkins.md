@@ -1,6 +1,6 @@
 ---
-title: CI/CD from Jenkins to Azure VMs with Team Services | Microsoft Docs
-description: Set up continuous integration (CI) and continuous deployment (CD) of a Node.js app by using Jenkins to Azure VMs from Release Management in Visual Studio Team Services or Microsoft Team Foundation Server
+title: Tutorial - CI/CD from Jenkins to Azure VMs with Team Services | Microsoft Docs
+description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app by using Jenkins to Azure VMs from Release Management in Visual Studio Team Services or Microsoft Team Foundation Server
 author: ahomer
 manager: douge
 editor: tysonn
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
+
+#Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use services like VSTS and Jenkins to build and deploy my applications automatically.
 ---
 
-# Deploy your app to Linux VMs by using Jenkins and Team Services
+# Tutorial: Deploy your app to Linux virtual machines in Azure with using Jenkins and Visual Studio Team Services
 
 Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code. Visual Studio Team Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular third-party CI/CD server-based tool that also provides CI/CD automation. You can use Team Services and Jenkins together to customize how you deliver your cloud app or service.
 
 In this tutorial, you use Jenkins to build a Node.js web app. You then use Team Services or Team Foundation Server to deploy it
-to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) that contains Linux virtual machines (VMs).
-
-You will:
+to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) that contains Linux virtual machines (VMs). You learn how to:
 
 > [!div class="checklist"]
 > * Get the sample app.
@@ -39,7 +39,7 @@ You will:
 ## Before you begin
 
 * You need access to a Jenkins server. If you have not yet created a Jenkins server,
-  see [Create a Jenkins master on an Azure virtual machine](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+  see [Create a Jenkins master on an Azure virtual machine](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Sign in to your Team Services account (**https://{youraccount}.visualstudio.com**). 
   You can get a [free Team Services account](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -47,9 +47,9 @@ You will:
   > [!NOTE]
   > For more information, see [Connect to Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
+*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## Get the sample app
 

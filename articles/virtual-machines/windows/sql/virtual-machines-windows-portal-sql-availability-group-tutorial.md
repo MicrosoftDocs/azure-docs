@@ -4,7 +4,7 @@ description: "This tutorial shows how to create a SQL Server Always On Availabil
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 
@@ -55,7 +55,7 @@ Before you begin the tutorial, you need to [Complete prerequisites for creating 
 <a name="CreateCluster"></a>
 ## Create the cluster
 
-After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.  
+After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.
 
 1. RDP to the first SQL Server using a domain account that is an administrator on both SQL Servers and the witness server.
 
@@ -83,7 +83,8 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 
    ![Cluster Properties](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Select **Static IP Address** and specify an available address from subnet where the SQL Server is in the Address text box. Then, click **OK**.
+3. Select **Static IP Address** and specify an available address from the Automatic Private IP Addressing (APIPA) range: 169.254.0.1 to 169.254.255.254 in the Address text box. For this example you can use any address in that range. For example `169.254.0.1`. Then, click **OK**.
+
 4. In the **Cluster Core Resources** section, right-click cluster name and click **Bring Online**. Then, wait until both resources are online. When the cluster name resource comes online, it updates the DC server with a new AD computer account. Use this AD account to run the Availability Group clustered service later.
 
 ### <a name="addNode"></a>Add the other SQL Server to cluster
@@ -354,7 +355,7 @@ On Azure virtual machines, a SQL Server Availability Group requires a load balan
    | **Virtual network** |Use the name of the Azure virtual network. |
    | **Subnet** |Use the name of the subnet that the virtual machine is in.  |
    | **IP address assignment** |Static |
-   | **IP address** |Use an available address from subnet. |
+   | **IP address** |Use an available address from subnet. Note that this is different from your cluster IP address |
    | **Subscription** |Use the same subscription as the virtual machine. |
    | **Location** |Use the same location as the virtual machine. |
 
@@ -372,22 +373,14 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 
    ![Find Load Balancer in Resource Group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Click the load balancer, click **Backend pools**, and click **+Add**. Set the backend pool as follows:
+1. Click the load balancer, click **Backend pools**, and click **+Add**. 
 
-   | Setting | Description | Example
-   | --- | --- |---
-   | **Name** | Type a text name | SQLLBBE
-   | **Associated to** | Pick from list | Availability set
-   | **Availability set** | Use a name of the availability set that your SQL Server VMs are in | sqlAvailabilitySet |
-   | **Virtual machines** |The two Azure SQL Server VM names | sqlserver-0, sqlserver-1
+1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Type the name for the back end pool.
+1. Under **Target network IP configurations**, check **VIRTUAL MACHINE** and choose both of the virtual machines that will host availability group replicas. Do not include the file share witness server.
 
-1. Click **+ Add a virtual machine**.
-
-1. For the availability set, choose the availability set that the SQL Servers are in.
-
-1. For virtual machines, include both of the SQL Servers. Do not include the file share witness server.
+   >[!NOTE]
+   >If both virtual machines are not specified, connections will only succeed to the primary replica.
 
 1. Click **OK** to create the backend pool.
 

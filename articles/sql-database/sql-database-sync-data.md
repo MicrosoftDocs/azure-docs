@@ -2,21 +2,15 @@
 title: Azure SQL Data Sync (Preview) | Microsoft Docs
 description: This overview introduces Azure SQL Data Sync (Preview)
 services: sql-database
-documentationcenter: ''
 author: douglaslms
 manager: craigg
-editor: ''
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/13/2017
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
+ms.custom: data-sync
 ---
 # Sync data across multiple cloud and on-premises databases with SQL Data Sync (Preview)
 
@@ -46,7 +40,7 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 
 ## When to use Data Sync
 
-Data Sync is useful in cases where data needs to be kept up to date across several Azure SQL Databases or SQL Server databases. Here are the main use cases for Data Sync:
+Data Sync is useful in cases where data needs to be kept up-to-date across several Azure SQL Databases or SQL Server databases. Here are the main use cases for Data Sync:
 
 -   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL Databases to enable hybrid applications. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
 
@@ -76,16 +70,6 @@ Data Sync is not appropriate for the following scenarios:
 
 ## <a name="sync-req-lim"></a> Requirements and limitations
 
-### General requirements
-
--   Each table must have a primary key. Don't change the value of the primary key in any row. If you have to change a primary key value, delete the row and recreate it with the new primary key value. 
-
--   A table cannot have an identity column that is not the primary key.
-
--   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
-
--   Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
 ### General considerations
 
 #### Eventual consistency
@@ -94,7 +78,23 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 #### Performance impact
 Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
 
+Provisioning and deprovisioning during sync group creation, update and deletion may also impact the database performance. 
+
+### General requirements
+
+-   Each table must have a primary key. Don't change the value of the primary key in any row. If you have to change a primary key value, delete the row and recreate it with the new primary key value. 
+
+-   Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
 ### General limitations
+
+-   A table cannot have an identity column that is not the primary key.
+
+-   A primary key cannot have the datetime data type.
+
+-   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
+
+-   Azure Active Directory authentication is not supported.
 
 #### Unsupported data types
 
@@ -136,6 +136,11 @@ Yes. You must have a SQL Database account to host the Hub Database.
 
 ### Can I use Data Sync to sync between SQL Server on-premises databases only? 
 Not directly. You can sync between SQL Server on-premises databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
+
+### Can I use Data Sync to sync between SQL Databases that belong to different subscriptions?
+Yes. You can sync between SQL Databases that belong to resource groups owned by different subscriptions.
+-   If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
+-   Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
    
 ### Can I use Data Sync to seed data from my production database to an empty database, and then keep them synchronized? 
 Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
@@ -145,6 +150,12 @@ Yes. Create the schema manually in the new database by scripting it from the ori
 It is not recommended to use SQL Data Sync (Preview) to create a backup of your data. You cannot back up and restore to a specific point in time because SQL Data Sync (Preview) synchronizations are not versioned. Furthermore, SQL Data Sync (Preview) does not back up other SQL objects, such as stored procedures, and does not do the equivalent of a restore operation quickly.
 
 For one recommended backup technique, see [Copy an Azure SQL database](sql-database-copy.md).
+
+### Can Data Sync sync encrypted tables and columns?
+
+-   If a database uses Always Encrypted, you can sync only the tables and columns that are *not* encrypted. You can't sync the encrypted columns, because Data Sync can't decrypt the data.
+
+-   If a column uses Column-Level Encryption (CLE), you can sync the column, as long as the row size is less than the maximum size of 24 Mb. Data Sync treats the column encrypted by key (CLE) as normal binary data. To decrypt the data on other sync members, you need to have the same certificate.
 
 ### Is collation supported in SQL Data Sync?
 
@@ -164,7 +175,7 @@ For more info about SQL Data Sync, see:
 
 -   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
 -   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   [Monitor Azure SQL Data Sync with OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:

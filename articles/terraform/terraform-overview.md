@@ -41,6 +41,6 @@ Terraform is a popular tool choice for multi-cloud scenarios, where similar infr
 
 Now that you have an overview of Terraform and its benefits, here are suggested next steps:
 
-- Get started by [installing Terraform and configuring it to use Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure).
-- [Create an Azure virtual machine using Terraform](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-create-complete-vm)
+- Get started by [installing Terraform and configuring it to use Azure](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure).
+- [Create an Azure virtual machine using Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm)
 - Explore the [Azure Resource Manager module for Terraform](https://www.terraform.io/docs/providers/azurerm/) 

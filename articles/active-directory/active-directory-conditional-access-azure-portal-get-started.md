@@ -5,15 +5,16 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -27,7 +28,7 @@ This topic provides you with instructions for testing a conditional access based
 
 ## Scenario description
 
-One common requirement in many organizations is to only require multi-factor authentication for access to apps that is not performed from the corporate intranet. With Azure Active Directory, you can easily accomplish this goal by configuring a location-based conditional access policy. This topic provides you with detailed instructions for configuring a related policy. The policy leverages [Trusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) to distinguish between access attempts made from the corporate's intranet and all other locations.
+One common requirement in many organizations is to only require multi-factor authentication for access to apps that is not performed from the corporate intranet. With Azure Active Directory, you can easily accomplish this goal by configuring a location-based conditional access policy. This topic provides you with detailed instructions for configuring a related policy. The policy leverages [Trusted IPs](authentication/howto-mfa-mfasettings.md#trusted-ips) to distinguish between access attempts made from the corporate's intranet and all other locations.
 
 
 ## Prerequisites
@@ -44,7 +45,7 @@ To test this scenario, you need to:
 
 - Configure trusted IPs
 
-If you need more details about Trusted IPs, see [Trusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+If you need more details about Trusted IPs, see [Trusted IPs](authentication/howto-mfa-mfasettings.md#trusted-ips).
 
 
 ## Policy configuration steps

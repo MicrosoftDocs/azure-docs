@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
 
@@ -96,10 +96,10 @@ It can be exported by you and your team members and could be copied to other loc
 Microsoft uses the data only in order to provide the service to you.
 
 ## Where is the data held?
-* In the USA or Europe. You can select the location when you create a new Application Insights resource. 
+* In the USA, Europe or Southeast Asia. You can select the location when you create a new Application Insights resource. 
 
 
-#### Does that mean my app has to be hosted in the USA or Europe?
+#### Does that mean my app has to be hosted in the USA, Europe or Southeast Asia?
 * No. Your application can run anywhere, either in your own on-premises hosts or in the Cloud.
 
 ## How secure is my data?

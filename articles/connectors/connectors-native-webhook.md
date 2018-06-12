@@ -3,7 +3,7 @@ title: Webhook connector for Azure Logic Apps | Microsoft Docs
 description: How to use webhook actions and triggers to perform actions like Filter Array from logic apps
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 tags: connectors
@@ -168,5 +168,5 @@ Webhook request
 
 ## Next steps
 
-* [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Find other connectors](apis-list.md)

@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 6b47d483-d3a3-442d-b123-171e3f0f7486
 ms.service: active-directory
@@ -26,7 +26,7 @@ Integrating SAML SSO for Confluence by resolution GmbH with Azure AD provides yo
 - You can enable your users to automatically get signed-on to SAML SSO for Confluence by resolution GmbH (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -167,26 +167,53 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon3.png)
     
-16. On **SAML SingleSignOn Plugin Configuration** page, click **Add additional Identity Provider** button to configure the settings of Identity Provider.
+16. On **SAML SingleSignOn Plugin Configuration** page, click **Add new IdP** button to configure the settings of Identity Provider.
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon4.png)
 
-17. Perform following steps on this page:
+17. On **Choose your SAML Identity Provider** page, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5.png)
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5a.png)
  
-	a. Add **Name** of the Identity Provider (e.g Azure AD).
+	a. Set **Azure AD** as the IdP type.
 	
-	b. Add **Description** of the Identity Provider (e.g Azure AD).
+	b. Add **Name** of the Identity Provider (e.g Azure AD).
+	
+	c. Add **Description** of the Identity Provider (e.g Azure AD).
+	
+	d. Click **Next**.
+	
+18. On **Identity provider configuration** page, click **Next** button.
 
-	c. Click **XML** and select the **Metadata** file that you have downloaded from Azure portal.
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5b.png)
 
-	d. Click **Load** button.
+19. On **Import SAML IdP Metadata** page, perform the following steps:
 
-    e. It reads the IdP metadata and populates the fields as highlighted in the screenshot.	
-18. Click **Save settings** button to save the settings.
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5c.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
+    a. Click **Load File** button and pick Metadata XML file you downloaded in Step 5.
+
+    b. Click **Import** button.
+    
+    c. Wait briefly until import succeeds.
+    
+    d. Click **Next** button.
+    
+20. On **User ID attribute and transformation** page, click **Next** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5d.png)
+	
+21. On **User creation and update** page, click **Save & Next** to save settings.	
+	
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6a.png)
+	
+22. On **Test your settings** page, click **Skip test & configure manually** to skip the user test for now. This will be performed in the next section and requires some settings in Azure portal. 
+	
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6b.png)
+	
+23. In the apprearing dialog reading **Skipping the test means...**, click **OK**.
+	
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6c.png)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -291,7 +318,7 @@ For more information about the Access Panel, see [introduction to the Acc
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

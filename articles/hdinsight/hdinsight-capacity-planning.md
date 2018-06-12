@@ -11,8 +11,6 @@ editor: cgronlun
 ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
@@ -66,9 +64,7 @@ For a 48-node cluster we recommend 4 to 8 storage accounts. Although there may a
 
 ## Choose a cluster type
 
-The cluster type determines the workload your HDInsight cluster is configured to run, such as Hadoop, Storm, Kafka, or Spark. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
+The cluster type determines the workload your HDInsight cluster is configured to run, such as Hadoop, Storm, Kafka, or Spark. For a detailed description of the available cluster types, see [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
 
 ## Choose the VM size and type
 
@@ -90,14 +86,11 @@ A cluster's scale is determined by the quantity of its VM nodes. For all cluster
 
 Depending on your cluster type, increasing the number of worker nodes adds additional computational capacity (such as more cores), but may also add to the total amount of memory required for the entire cluster to support in-memory storage of data being processed. As with the choice of VM size and type, selecting the right cluster scale is typically reached empirically, using simulated workloads or canary queries.
 
-You can scale out your cluster to meet peak load demands, then scale it back down when those extra nodes are no longer needed.
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+You can scale out your cluster to meet peak load demands, then scale it back down when those extra nodes are no longer needed. For more information, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md).
 
 ### Cluster lifecycle
 
-You are charged for a cluster's lifetime. If there are only specific times that you need your cluster up and running, you can create on-demand clusters using Azure Data Factory.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-You can also create PowerShell scripts that provision and delete your cluster, and then schedule those scripts using [Azure Automation](https://azure.microsoft.com/services/automation/).
+You are charged for a cluster's lifetime. If there are only specific times that you need your cluster up and running, you can [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). You can also create PowerShell scripts that provision and delete your cluster, and then schedule those scripts using [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > When a cluster is deleted, its default Hive metastore is also deleted. To persist the metastore for the next cluster re-creation, use an external metadata store such as Azure Database or Oozie.

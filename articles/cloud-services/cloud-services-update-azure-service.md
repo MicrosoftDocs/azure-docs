@@ -183,6 +183,6 @@ The following diagram illustrates how a service than contains two roles are dist
 >
 
 ## Next steps
-[How to Manage Cloud Services](cloud-services-how-to-manage.md)  
+[How to Manage Cloud Services](cloud-services-how-to-manage-portal.md)  
 [How to Monitor Cloud Services](cloud-services-how-to-monitor.md)  
-[How to Configure Cloud Services](cloud-services-how-to-configure.md)  
+[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)  

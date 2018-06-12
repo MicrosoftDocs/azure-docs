@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
 
@@ -49,7 +49,6 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 "allowedValues": [
                     "web",
                     "java",
-                    "HockeyAppBridge",
                     "other"
                 ],
                 "metadata": {
@@ -152,7 +151,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
 ## Create Application Insights resources
 1. In PowerShell, sign in to Azure:
    
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Run a command like this:
    
     ```PS
@@ -201,7 +200,7 @@ To create an app resource with the Enterprise price plan, using the template abo
 * If you only want to use the default Basic price plan, you can omit the CurrentBillingFeatures resource from the template.
 * If you want to change the price plan after the component resource has been created, you can use a template that omits the "microsoft.insights/components" resource. Also, omit the `dependsOn` node from the billing resource. 
 
-To verify the updated price plan, look at the "Features+pricing" blade in the browser. **Refresh the browser view** to make sure you see the latest state.
+To verify the updated price plan, look at the **Usage and estimated costs page** blade in the browser. **Refresh the browser view** to make sure you see the latest state.
 
 
 

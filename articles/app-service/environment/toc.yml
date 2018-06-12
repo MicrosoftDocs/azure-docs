@@ -30,6 +30,8 @@
     href: app-service-app-service-environment-geo-distributed-scale.md
   - name: ASEv1
     href: app-service-app-service-environment-intro.md
+  - name: Diagnostics
+    href: ../app-service-diagnostics.md
 - name: How-To guides
   items:
   - name: Use an ASE
@@ -72,15 +74,6 @@
       href: app-service-app-service-environment-control-inbound-traffic.md
     - name: Use layered security
       href: app-service-app-service-environment-layered-security.md
-  - name: CLI 2.0
-- name: Reference
-  items:
-  - name: Azure CLI
-    href: /cli/azure/appservice
-  - name: Azure PowerShell
-    href: /powershell
-  - name: REST API
-    href: /rest/api/appservice/
 - name: Resources
   items:
   - name: Azure Roadmap

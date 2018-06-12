@@ -4,7 +4,7 @@ description: How to configure single sign-on for a custom application you are de
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

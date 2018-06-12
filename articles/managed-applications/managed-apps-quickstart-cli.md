@@ -1,15 +1,15 @@
 ---
 title: Create Azure managed application with Azure CLI | Microsoft Docs
 description: Shows how to create an Azure managed application that is intended for members of your organization.
-services: azure-resource-manager
+services: managed-applications
 author: tfitzmac
 manager: timlt
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
 ---
 # Create and deploy an Azure managed application with Azure CLI
@@ -71,7 +71,7 @@ When the command completes, you have a managed application definition in your re
 Some of the parameters used in the preceding example are:
 
 * **resource-group**: The name of the resource group where the managed application definition is created.
-* **lock-level**: The type of lock placed on the managed resource group. It prevents the customer from performing undesirable operations on this resource group. Currently, ReadOnly is the only supported lock level. When ReadOnly is specified, the customer can only read the resources present in the managed resource group.
+* **lock-level**: The type of lock placed on the managed resource group. It prevents the customer from performing undesirable operations on this resource group. Currently, ReadOnly is the only supported lock level. When ReadOnly is specified, the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock.
 * **authorizations**: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group. It's specified in the format of `<principalId>:<roleDefinitionId>`. Multiple values also can be specified for this property. If multiple values are needed, they should be specified in the form `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Multiple values are separated by a space.
 * **package-file-uri**: The location of a .zip package that contains the required files. At a minimum, the package contains the **mainTemplate.json** and **createUiDefinition.json** files. **mainTemplate.json** defines the Azure resources that are provisioned as part of the managed application. The template is no different than a regular Resource Manager template. **createUiDefinition.json** generates the user interface for users who create the managed application through the portal.
 
@@ -101,7 +101,7 @@ az managedapp create \
   --resource-group applicationGroup \
   --managedapp-definition-id $appid \
   --managed-rg-id $managedGroupId \
-  --parameters "{\"storageAccountNamePrefix\": {\"value\": \"<your-prefix>\"}, \"storageAccountType\": {\"value\": \"Standard_LRS\"}}"
+  --parameters "{\"storageAccountNamePrefix\": {\"value\": \"storage\"}, \"storageAccountType\": {\"value\": \"Standard_LRS\"}}"
 ```
 
 Some of the parameters used in the preceding example are:
@@ -117,5 +117,4 @@ After the deployment finishes successfully, you see the managed application is c
 
 * For an introduction to managed applications, see [Managed application overview](overview.md).
 * For examples of the files, see [Managed application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
-* For information about publishing managed applications to the Azure Marketplace, see [Create marketplace application](publish-marketplace-app.md).
 * To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).

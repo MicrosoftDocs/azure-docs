@@ -1,21 +1,13 @@
 ---
-title: 'Azure Backup: Restore System State to a Windows Server | Microsoft Docs'
+title: 'Azure Backup: Restore System State to a Windows Server'
 description: Step by step explanation for restoring Windows Server System State from a backup in Azure.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/18/2017
-ms.author: saurse;trinadhk;markgal;
-
+ms.author: saurse
 ---
 # Restore System State to Windows Server
 
@@ -86,9 +78,6 @@ The terminology used in these steps includes:
 1. Open the **Microsoft Azure Backup** snap-in on the *Target machine*.
 2. Ensure that the *Target machine* and the *Source machine* are registered to the same Recovery Services vault.
 3. Click **Recover Data** to initiate the workflow.
-
-    ![Recover Data](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. Select **Another server**
 
     ![Another Server](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -96,9 +85,6 @@ The terminology used in these steps includes:
 5. Provide the vault credential file that corresponds to the *Sample vault*. If the vault credential file is invalid (or expired), download a new vault credential file from the *Sample vault* in the Azure portal. Once the vault credential file is provided, the Recovery Services vault associated with the vault credential file appears.
 
 6. On the Select Backup Server pane, select the *Source machine* from the list of displayed machines.
-
-    ![List of machines](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. On the Select Recovery Mode pane, choose **System State** and click **Next**. 
 
     ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
@@ -174,7 +160,7 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 System State backup includes Active Directory data. Use the following steps to restore Active Directory Domain Service (AD DS) from its current state to a previous state.
 
 1. Restart the domain controller in Directory Services Restore Mode (DSRM).
-2. Follow the steps [here](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx) to use Windows Server Backup cmdlets to recover AD DS.
+2. Follow the steps [here](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) to use Windows Server Backup cmdlets to recover AD DS.
 
 
 ## Troubleshoot failed System State restore
