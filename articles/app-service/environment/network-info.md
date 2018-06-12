@@ -56,7 +56,9 @@ This is true if you're on an External ASE or on an ILB ASE. If you're on an Exte
 The size of the subnet used to host an ASE cannot be altered after the ASE is deployed.  The ASE uses an address for each infrastructure role as well as for each Isolated App Service plan instance.  Additionally, there are 5 addresses used by Azure Networking for every subnet that is created.  An ASE with no App Service plans at all will use 12 addresses before you create an app.  If it is an ILB ASE then it will use 13 addresses before you create an app in that ASE. As you scale out your ASE, infrastructure roles are added every multiple of 15 and 20 of your App Service plan instances.
 
    > [!NOTE]
-   > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/25` with 128 addresses.
+   > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/24` with 256 addresses.
+
+When you scale up or down, the new roles required are added and then your workloads are migrated from the current size to the target size.  This means that if you had an ASE with 100 ASP instances there would be a period where you need double the number of VMs.  It is for this reason that we recommend the use of a '/24' to accomodate any changes you might require.  
 
 ## ASE dependencies ##
 
