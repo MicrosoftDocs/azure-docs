@@ -35,7 +35,7 @@ Is your Service Fabric application and cluster production ready? You may have be
 11. Ensure the cluster has [primary and secondary certificates](service-fabric-cluster-security-update-certs-azure.md) always (so you don't get locked out).
 12. Keep separate clusters for development, staging and production. 
 13. [Application upgrades](service-fabric-application-upgrade.md) and [cluster upgrades](service-fabric-tutorial-upgrade-cluster.md) are tested in development and staging clusters first. 
-14. Turn off automatic upgrades in production clusters. 
+14. Turn off automatic upgrades in production clusters, and turn it on for development and staging clusters (rollback as needed). 
 16. Establish a Recovery Point Objective (RPO) for your service, and set up a [disaster recovery process](service-fabric-disaster-recovery.md) and test it out.
 17. Ensure offline backup of [Reliable Services and Reliable Actors](service-fabric-reliable-services-backup-restore.md) and test the restoration process. 
 18. Plan for [scaling](service-fabric-cluster-scaling.md) your cluster manually or programmatically.
