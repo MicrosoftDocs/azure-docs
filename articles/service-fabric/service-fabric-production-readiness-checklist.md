@@ -19,12 +19,12 @@ ms.author: subramar
 
 # Production readiness checklist
 
-Is your application and cluster ready to take production traffic? Running and testing your application and your cluster doesn't necessarily imply it's ready to go into production. Keep your application and cluster running smoothly with zero downtime by going through the following checklist. We strongly recommend all these items to be checked off. Obviously, you can choose to use alternative solutions for a particular line item  (for example, your own diagnostics frameworks).
+Is your application and cluster ready to take production traffic? Running and testing your application and your cluster doesn't necessarily mean it's ready to go into production. Keep your application and cluster running smoothly by going through the following checklist. We strongly recommend all these items to be checked off. Obviously, you can choose to use alternative solutions for a particular line item  (for example, your own diagnostics frameworks).
 
 
-1. For clusters with more than 20 cores, create separate primary and secondary node types. 
-2. Production clusters must be [secure](service-fabric-cluster-security.md).
-3. For clusters with more than one node type, add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) to reserve the primary node type for system services.
+1. For clusters with more than 20 cores or 10 nodes, create a dedicated primary node type for system services. Add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) to reserve the primary node type for system services. 
+2. Use a D2v2 or higher SKU for the primary node type. 
+2. Production clusters must be [secure](service-fabric-cluster-security.md). For an example of setting up a secure cluster, see this [cluster template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Use common names for certificates and avoid using self signed certs.
 4. Add [resource constraints on containers and services](service-fabric-resource-governance.md), so that they don't consume more than 75% of node resources. 
 5. Understand and set the [durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Silver or higher durability level is recommended for node types running stateful workloads. The primary node type should have a durability level set to Silver or higher.
 6. Understand and pick the [reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of the node type. Silver or higher reliability is recommended.
