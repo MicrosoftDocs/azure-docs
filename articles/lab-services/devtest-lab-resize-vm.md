@@ -32,7 +32,7 @@ To resize a VM in a lab in Azure DevTest Labs, take the following steps:
 3. From the list of labs, select the lab that includes the VM  you want to restart.  
 4. In the left panel, select **My Virtual Machines**. 
 5. From the list of VMs, select a VM.
-6. Select **Stop** on the toolbar if the VM is running. Wait until the VM is stpped. Check the status of the operation in the **Notifications** window. 
+6. Select **Stop** on the toolbar if the VM is running. Check the status of the operation in the **Notifications** window. Wait until the VM is stpped and then close the **Notifications** window. 
 
     ![Stop the VM](media/devtest-lab-resize-vm/stop-vm.png)
 1. In the Virtual Machine page for your VM, select **Size** under **SETTINGS** in the left menu.
