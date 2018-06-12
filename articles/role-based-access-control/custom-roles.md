@@ -49,6 +49,22 @@ Custom roles are essentially the same as built-in roles, but there are a couple 
 | Modify a custom role | `Microsoft.Authorization/ roleDefinition/write` | Users that are granted this operation on all the `assignableScopes` of the custom role can modify custom roles in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of subscriptions, resource groups, and resources. |
 | View a custom role | `Microsoft.Authorization/ roleDefinition/read` | Users that are granted this operation at a scope can view the custom roles that are available for assignment at that scope. All built-in roles allow custom roles to be available for assignment. |
 
+## Required properties
+
+To create a custom role, you must have the following properties.
+
+| Property | Required | Notes |
+| --- | --- | --- |
+| Name | Required | Must be unique to your tenant. Can include spaces and special characters. |
+| Id | Required | Automatically generated when you create a new role. |
+| IsCustom | Required | |
+| Description | Required | |
+| Actions | Required | |
+| NotActions | Optional | |
+| DataActions | Optional | |
+| NotDataActions | Optional | |
+| AssignableScopes | Required | Cannot be root scope (`"/"`). |
+
 ## Next steps
 - [Understand role definitions](role-definitions.md)
 - [Tutorial: Create a custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
