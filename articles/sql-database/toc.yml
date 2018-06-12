@@ -92,6 +92,8 @@
       items:
       - name: Overview
         href: sql-database-servers-databases.md
+      - name: Manage
+        href: sql-database-servers-databases-manage.md
       - name: Resource limits
         items:
         - name: vCore-based resource limits
@@ -104,6 +106,8 @@
       items:
       - name: Overview
         href: sql-database-elastic-pool.md
+      - name: Manage
+        href: sql-database-elastic-pool-manage.md
       - name: Resource limits
         items:
         - name: vCore-based resource limits
