@@ -17,6 +17,10 @@
       href: stream-files-tutorial-with-api.md
     - name: With REST
       href: stream-files-tutorial-with-rest.md
+  - name: Stream live
+    items:
+    - name: With .NET Core
+      href: stream-live-tutorial-with-api.md
   - name: Analyze your video
     items:
     - name: With .NET
@@ -37,6 +41,8 @@
       href: encoding-concept.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
+  - name: Live streaming
+    href: live-streaming-overview.md
   - name: Media intelligence
     href: intelligence-concept.md
   - name: Reacting to events
@@ -55,16 +61,14 @@
     href: access-api-cli-how-to.md
   - name: Job state events - CLI
     href: job-state-events-cli-how-to.md    
-  - name: Upload content - .NET
+  - name: Upload content 
     items:
-    - name: From HTTP(s)
+    - name: From HTTP(s) - .NET
       href: job-input-from-http-how-to.md
-    - name: From a local file
+    - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md    
-  - name: Customize Transform presets
-    items:
-    - name: With .NET Core
-      href: customize-encoder-presets-how-to.md
+  - name: Customize Transform presets - .NET Core
+    href: customize-encoder-presets-how-to.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)

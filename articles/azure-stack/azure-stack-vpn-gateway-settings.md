@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ---
 
@@ -154,7 +154,10 @@ Unlike Azure, which supports multiple offers as both an initiator and a responde
 |IKE Version |IKEv2 |
 |Encryption & Hashing Algorithms (Encryption)     | GCMAES256|
 |Encryption & Hashing Algorithms (Authentication) | GCMAES256|
-|SA Lifetime (Time)  | 27,000 seconds |
-|SA Lifetime (Bytes) | 819,200       |
+|SA Lifetime (Time)  | 27,000 seconds<sup>See note 1</sup> |
+|SA Lifetime (Bytes) | 33,553,408<sup>See note 2</sup>     |
 |Perfect Forward Secrecy (PFS) |PFS2048 |
 |Dead Peer Detection | Supported|  
+
+*Note 1:*  Prior to version 1803, Azure Stack uses a value of 14,400 for the SA Lifetime (Time). 
+*Note 2:*  Prior to version 1803, Azure Stack uses a value of 819,200 for the SA Lifetime (Bytes).
