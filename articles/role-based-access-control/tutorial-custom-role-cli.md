@@ -56,7 +56,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
     
 1. Create a new file named **ReaderSupportRole.json**.
 
-1. Add the following JSON template to ReaderSupportRole.json.
+1. Open ReaderSupportRole.json in an editor and add the following JSON.
 
     For information about the different sections, see [Understand role definitions](role-definitions.md).
 
@@ -96,7 +96,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
     az account list --output table
     ```
 
-1. In `AssignableScopes`, add your subscription ID.
+1. In `AssignableScopes`, replace 00000000-0000-0000-0000-000000000000 with your subscription ID.
 
     You must add explicit subscription IDs, otherwise you won't be allowed to import the role into your subscription.
 
@@ -212,7 +212,7 @@ To update the custom role, update the JSON file and then update the custom role.
 
 1. Open the ReaderSupportRole.json file.
 
-1. In `Actions`, add the operation to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`. Be sure to include a comma after the first previous operation.
+1. In `Actions`, add the operation to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`. Be sure to include a comma after the previous operation.
 
     Your updated JSON file should look like the following:
 

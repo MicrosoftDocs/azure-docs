@@ -26,12 +26,12 @@ If the [built-in roles](built-in-roles.md) don't meet the specific needs of your
 
 1. Determine the required permissions
 
-    When you create a custom role, you need to know the resource provider operations that are available. To view the list of operations, you can use the [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list) commands.
-    To create the permissions you want, you'll add the operations to the `actions` or `notActions` sections of the [role definition](role-definitions.md). If you have data operations, you add those to the `dataActions` or `notDataActions` sections.
+    When you create a custom role, you need to know the resource provider operations that are available to define your permissions. To view the list of operations, you can use the [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list) commands.
+    To create the permissions you want, you add the operations to the `actions` or `notActions` sections of the [role definition](role-definitions.md). If you have data operations, you add those to the `dataActions` or `notDataActions` sections.
 
 2. Create the custom role
 
-    Depending on the language that you use, there are different ways to create a custom role. Typically, you start with a built-in role and then modify it for your needs. When you use PowerShell, you can also create a custom role from scratch.
+    Depending on the language that you use, there are different ways to create a custom role. Typically, you start with a built-in role and then modify it for your needs. You use the [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) or [az role definition create](/cli/azure/role/definition#az-role-definition-create) commands to create the custom role.
 
 3. Test the custom role
 

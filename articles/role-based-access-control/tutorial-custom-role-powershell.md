@@ -40,7 +40,7 @@ To complete this tutorial, you will need:
 
 ## Sign in to Azure PowerShell
 
-Sign in to [Azure PowerShell](/powershell/azure/authenticate-azureps)
+Sign in to [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ## Create a custom role
 
@@ -66,7 +66,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
     ```
 
-1. Open the **ReaderSupportRole.json** file.
+1. Open the **ReaderSupportRole.json** file in an editor.
 
     The following shows the JSON output. For information about the different sections, see [Understand role definitions](role-definitions.md).
 
@@ -94,7 +94,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     }
     ```
     
-1. Edit the JSON file to add the `"Microsoft.Support/*"` operation to the `Actions` section. This action will allow the user to create support tickets.
+1. Edit the JSON file to add the `"Microsoft.Support/*"` operation to the `Actions` section. Be sure to include a comma after the read operation. This action will allow the user to create support tickets.
 
 1. Get the ID of your subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) command.
 
@@ -183,8 +183,10 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
     ```azurepowershell
     Get-AzureRmRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
     ```
-    
-1. In `Actions`, add the operation to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`. Be sure to include a comma after the first previous operation.
+
+1. Open the file in an editor.
+
+1. In `Actions`, add the operation to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`.
 
     Your updated JSON file should look like the following:
 
@@ -238,7 +240,7 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
     $role = Get-AzureRmRoleDefinition "Reader Support Tickets"
     ```
     
-1. Add the operation to read diagnostic settings.
+1. Call the `Add` method to add the operation to read diagnostic settings.
 
     ```azurepowershell
     $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*/read")
