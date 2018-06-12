@@ -20,12 +20,16 @@
     href: quickstart-create-standard-load-balancer-powershell.md
 - name: Tutorials
   items:
+  - name: Create and manage Load Balancer
+    href: tutorial-load-balancer-standard-manage-portal.md
   - name: Load balance internal traffic to VMs
     href: tutorial-load-balancer-basic-internal-portal.md
   - name: Load balance VMs across availability zones
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
     href: tutorial-load-balancer-standard-public-zonal-portal.md
+  - name: Configure port fowarding in Load Balancer
+    href: tutorial-load-balancer-port-forwarding-portal.md  
 - name: Samples
   items:
   - name: Azure CLI
@@ -102,6 +106,8 @@
       href: load-balancer-multiple-ip-powershell.md
   - name: Log analytics for Azure Load Balancer
     href: load-balancer-monitor-log.md
+  - name: Get Load Balancer metrics with REST
+    href: load-balancer-query-metrics-rest-api.md
   - name: Configure High Availability Ports for Internal Load Balancer
     href: load-balancer-configure-ha-ports.md
   - name: Troubleshoot

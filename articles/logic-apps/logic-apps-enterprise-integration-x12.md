@@ -4,7 +4,7 @@ description: Exchange X12 messages in EDI format for B2B enterprise integration 
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: 
 
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164

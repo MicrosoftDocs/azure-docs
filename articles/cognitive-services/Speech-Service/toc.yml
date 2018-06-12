@@ -31,10 +31,14 @@
       href: how-to-translate-speech.md
     - name: Prepare transcripts
       href: prepare-transcription.md
+    - name: Use custom audio streams
+      href: how-to-use-audio-input-streams.md
     - name: Get the Speech Devices SDK
       href: get-speech-devices-sdk.md
     - name: Customize device wake word
       href: speech-devices-sdk-create-kws.md
+    - name: Batch transcription (call centers)
+      href: batch-transcription.md
 - name: Samples
   items:
   - name: Download samples

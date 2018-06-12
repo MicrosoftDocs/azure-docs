@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ---
 

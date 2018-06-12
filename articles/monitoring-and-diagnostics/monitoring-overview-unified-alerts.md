@@ -1,23 +1,15 @@
 ﻿---
-title: Unified alerts in Azure Monitor| Microsoft Docs
+title: Unified alerts in Azure Monitor
 description: Description of unified alerts in Azure that allow you to manage alerts and alerts rules across Azure services.
 author: manishsm-msft
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/31/2018
-ms.author: mamit,bwren
-ms.custom:
-
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/07/2018
+ms.author: mamit
+ms.component: alerts
 ---
+
 # Unified alerts in Azure Monitor
 
 ## Overview
@@ -58,6 +50,7 @@ The unified alerts experience uses the following concepts to separate alert rule
 | Criteria | Combination of _signal_ and _logic_ applied on a target resource.<br>Examples: Percentage CPU > 70%, Server Response Time > 4 ms, Result count of a log query > 100 etc. |
 | Logic | User-defined logic to check if the signal is within expected range/values. |
 | Action | Action to perform when the alert is fired. Multiple actions may occur when an alert fires. These alerts support action groups.<br>Examples: emailing an email address, calling a webhook URL. |
+| Monitor Condition | Indicates whether the condition that created a metric alert has subsequently been resolved. Metric alert rules sample a particular metric at regular intervals. If the criteria in the alert rule is met, then a new alert is created with a condition of Fired.  When the metric is sampled again, if the criteria is still met then nothing happens.  If the criteria is not met though, then the condition of the alert is changed to Resolved. The next time that the criteria is met, then a another alert is created with a condition of Fired. |
 
 
 ## Alert pages
