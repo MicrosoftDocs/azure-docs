@@ -27,8 +27,8 @@
 
 - name: How-to guides
   items:
-  - name: How?
-    href: service-fabric-mesh-how-to.md
+  - name: Deploy an app (CLI)
+    href: service-fabric-mesh-deploy-app-cli.md
 
 - name: Reference
   items:
