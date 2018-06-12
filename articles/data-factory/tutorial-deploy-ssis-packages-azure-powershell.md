@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 04/13/2018
 ms.author: douglasl
 ---
-# Deploy SQL Server Integration Services packages to Azure with PowerShell
-This tutorial provides steps for provisioning an Azure-SSIS integration runtime (IR) in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. In this tutorial, you do the following steps:
+# Create the Azure-SSIS Integration Runtime in Azure Data Factory with PowerShell
+This tutorial provides steps for provisioning an Azure-SSIS integration runtime (IR) in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy and run SQL Server Integration Services (SSIS) packages in this runtime in Azure. In this tutorial, you do the following steps:
 
 > [!NOTE]
 > This article uses Azure PowerShell to provision an Azure SSIS IR. To use the Data Factory user interface (UI) to provision an Azure SSIS IR, see [Tutorial: Create an Azure SSIS integration runtime](tutorial-create-azure-ssis-runtime-portal.md). 
@@ -215,6 +215,7 @@ The PowerShell script in this section configures an instance of Azure-SSIS integ
 
 > [!NOTE]
 > - The script connects to your Azure SQL Database server to prepare the SSIS Catalog database (SSISDB).
+
 > - When you provision an instance of Azure-SSIS IR, the Azure Feature Pack for SSIS and the Access Redistributable are also installed. These components provide connectivity to Excel and Access files and to various Azure data sources, in addition to the data sources supported by the built-in components. You can also install additional components. For more info, see [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 For a list of supported **pricing tiers** for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md). 

@@ -35,7 +35,7 @@ The configuration server is an on-premises machine that runs Site Recovery compo
 **Component** | **Requirements**
 --- |---
 CPU cores | 8
-RAM | 12 GB
+RAM | 16 GB
 Number of disks | 3 disks<br/><br/> Disks include the OS disk, process server cache disk, and retention drive for failback.
 Disk free space | 600 GB of space required for process server cache.
 Disk free space | 600 GB  of space required for retention drive.
