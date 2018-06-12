@@ -62,7 +62,7 @@ After monitoring is enabled all configuration tasks are completed successfully, 
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster.  
 
 ## Enable container health monitoring for existing managed clusters
-Enabling monitoring of your AKS container already deployed can be accomplished either from the portal or from the provided Azure Resource Manager template with the PowerShell cmdlet **New-AzureRmResourceGroupDeployment** or Azure CLI.  
+Enabling monitoring of your AKS container already deployed can be accomplished either from the Azure portal or with the provided Azure Resource Manager template using the PowerShell cmdlet **New-AzureRmResourceGroupDeployment** or Azure CLI.  
 
 
 ### Enable from Azure portal
@@ -71,7 +71,7 @@ Perform the following steps to enable monitoring of your AKS container from the 
 1. In the Azure portal, click **All services**. In the list of resources, type **Containers**. As you begin typing, the list filters based on your input. Select **Kubernetes services**.<br><br> ![Azure portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
 2. In your list of containers, select a container.
 3. On the container overview page, select **Monitor container health** and the **Onboarding to Container Health and Logs** page appears.
-4. On the **Onboarding to Container Health and Logs** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  The default workspace and location the AKS container is deployed to in the subscription is preselected. Or you can select **Create New** and specify a new workspace in the same subscription.<br><br> ![Enable AKS container health monitoring](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+4. On the **Onboarding to Container Health and Logs** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  The list preselects the default workspace and location the AKS container is deployed to in the subscription. Or you can select **Create New** and specify a new workspace in the same subscription.<br><br> ![Enable AKS container health monitoring](./media/monitoring-container-health/container-health-enable-brownfield.png) 
 
     If you select **Create New**, the **Create new workspace** pane appears. The **Region** defaults to the region your container resource is created in and you can accept the default or select a different region, and then specify a name for the workspace.  Click **Create** to accept your selection.<br><br> ![Define workspace for container monintoring](./media/monitoring-container-health/create-new-workspace-01.png)  
 
