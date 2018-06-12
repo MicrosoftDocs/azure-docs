@@ -7,7 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/13/2017
 ms.service: application-insights
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 
