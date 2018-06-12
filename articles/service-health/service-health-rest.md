@@ -40,7 +40,7 @@ The following headers are required:
 | Name | Description |
 | :--- | :---------- |
 | subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
-| api-version | The API version to use for the request.<br /><br /> This document covers api-version `2018-01-01`, included in the above URL.  |
+| api-version | The API version to use for the request.<br /><br /> This document covers api-version `2015-04-01`, included in the above URL.  |
 | $filter | The filtering option to reduce the set of returned results. The allowable patterns for this parameter are available [in the reference for the Activity Logs operation](/rest/api/monitor/activitylogs/list#uri-parameters). The example shown captures all events in a time range between 2018-05-16 and 2018-06-20 |
 | &nbsp; | &nbsp; |
 
@@ -63,7 +63,7 @@ Status code 200 is returned with a list of health event values corresponding to 
         "value": "EndRequest",
         "localizedValue": "End request"
       },
-      "id": "/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
+      "id": "/subscriptions/{subscription-id}/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
       "resourceGroupName": "MSSupportGroup",
       "resourceProviderName": {
         "value": "microsoft.support",
