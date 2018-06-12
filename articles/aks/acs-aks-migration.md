@@ -14,15 +14,15 @@ ms.custom: mvc
 
 # Migrating from Azure Container Service (ACS) to Azure Kubernetes Service (AKS)
 
-This article will help you plan and execute a successful migration from Azure Container Service with Kubernetes (ACS) to Azure Kubernetes Service (AKS). Every application and migration is unique. This guide should give you an overview of the migration process and help you make key decisions.
+This goal of this document is to help you plan and execute a successful migration between Azure Container Service with Kubernetes (ACS) and Azure Kubernetes Service (AKS). Every application and migration is unique. This guide provides an overview of the migration process and should help you make key decisions.
 
 ## Plan for Migration
 
-The first step in any migration effort is to identify the services that you'll be migrating. You'll want to plan for nodes and applications, and think about how you'll integrate your new AKS cluster into your deployment process.
+The first step in any migration effort is to identify the services that need migrating. You'll want to plan for nodes and applications, and think about how you'll integrate your new AKS cluster into your deployment process.
 
 ## Differences between ACS and AKS
 
-ACS and AKS differ in some key areas that impact migration. You should be review and plan to address the following differences before any migration.
+ACS and AKS differ in some key areas that impact migration. You should review and plan to address the following differences before any migration.
 
 * AKS nodes use Managed Disks
     * Unmanaged disks will need to be converted before they can be attached to AKS nodes
@@ -31,11 +31,11 @@ ACS and AKS differ in some key areas that impact migration. You should be review
 * AKS currently supports only one agent pool
 * Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)
 * Check the list of AKS [supported regions](https://docs.microsoft.com/en-us/azure/aks/container-service-quotas)
-* AKS is a managed service with a hosted Kubernetes control plane. You may need to modify your application if you've previously modified the configuration of your ACS masters
+* AKS is a managed service with a hosted Kubernetes control plane. You may need to modify your applications if you've previously modified the configuration of your ACS masters
 
 ### Differences between Kubernetes versions
 
-If you're migrating to a newer version of Kubernetes (ex: 1.7.x to 1.9.x), there are a few changes to the k8s API that will require your attention. 
+If you're migrating to a newer version of Kubernetes (ex: 1.7.x to 1.9.x), there are a few changes to the k8s API that will require your attention.
 
 * [Migrate a ThirdPartyResource to CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
 * [Workloads API changes in versions 1.8 and 1.9](https://kubernetes.io/docs/reference/workloads-18-19/).
@@ -57,7 +57,7 @@ You'll deploy additional virtual machines into your subscription as you migrate,
 
 For complex applications, you'll typically migrate over time rather than all at once. That means that the old and new environments may need to communicate over the network. Applications that were previously able to use `ClusterIP` services to communicate may need to be exposed as type `LoadBalancer` and secured appropriately.
 
-To complete the migration, you'll want to point clients to the new deployments running on AKS. The recommended way to redirect traffic is by updating DNS to point to the Load Balancer that sits in front of your AKS cluster.
+To complete the migration, you'll want to point clients to the new services running on AKS. The recommended way to redirect traffic is by updating DNS to point to the Load Balancer that sits in front of your AKS cluster.
 
 ### Stateless Applications
 
@@ -65,7 +65,7 @@ Stateless application migration is the most straightforward case. You'll apply y
 
 ### Stateful Applications
 
-Migrating stateful applications requires careful planning to avoid data loss or unexpected downtime. 
+Migrating stateful applications requires careful planning to avoid data loss or unexpected downtime.
 
 #### Highly Available Applications
 
@@ -98,7 +98,7 @@ Open-source tools exist that can help you create Managed Disks and migrate volum
 
 #### Azure Files
 
-Unlike disks, Azure Files can be mounted to multiple hosts concurrently. Neither Azure nor Kubernetes will prevent you from creating a Pod in your AKS cluster that is still being used by your ACS cluster. To prevent data loss and unexpected behavior, you should ensure that both clusters aren't writing to the same files at the same time.
+Unlike disks, Azure Files can be mounted to multiple hosts concurrently. Neither Azure nor Kubernetes prevents you from creating a Pod in your AKS cluster that is still being used by your ACS cluster. To prevent data loss and unexpected behavior, you should ensure that both clusters aren't writing to the same files at the same time.
 
 If your application can host multiple replicas pointing to the same file share, you can follow the stateless migration steps and deploy your YAML definitions to your new cluster.
 
@@ -128,7 +128,7 @@ There are also several open-source tools that can help, depending on your needs:
 * [yaron2/azure-kube-cli](https://github.com/yaron2/azure-kube-cli)
 * [mhausenblas/reshifter](https://github.com/mhausenblas/reshifter)
 
-## Migration
+## Migration steps
 
 ### 1. Create an AKS cluster
 
