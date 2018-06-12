@@ -16,7 +16,7 @@ ROBOTS: NOINDEX
 ---
 # Deploy an Azure Machine Learning model to an Azure IoT Edge device
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/overview-what-happened-to-workbench.md).**
 
 
 
