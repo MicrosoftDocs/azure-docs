@@ -1,6 +1,6 @@
 ---
-title: 'Deploy SSIS packages to Azure with PowerShell | Microsoft Docs'
-description: 'This article explains how to deploy SSIS packages to Azure and create an Azure-SSIS integration runtime by using PowerShell.'
+title: Create the Azure-SSIS Integration Runtime with PowerShell | Microsoft Docs
+description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory with PowerShell so you can deploy and run SSIS packages in Azure.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
