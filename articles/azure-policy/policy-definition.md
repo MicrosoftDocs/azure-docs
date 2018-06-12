@@ -2,13 +2,12 @@
 title: Azure Policy definition structure
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
 services: azure-policy
-keywords:
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
-ms.topic: article
+ms.date: 05/24/2018
+ms.topic: conceptual
 ms.service: azure-policy
-ms.custom:
+manager: carmonm
 ---
 # Azure Policy definition structure
 
@@ -59,7 +58,7 @@ For example, the following JSON shows a policy that limits where resources are d
 }
 ```
 
-All Azure Policy template samples are at [Templates for Azure Policy](json-samples.md).
+All Azure Policy samples are at [Policy samples](json-samples.md).
 
 ## Mode
 
@@ -187,7 +186,7 @@ A condition evaluates whether a **field** meets certain criteria. The supported 
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value.
+When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value. The value should not contain more than 1 wildcard (*).
 
 When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Allow multiple name patterns](scripts/allow-multiple-name-patterns.md).
 
@@ -199,7 +198,7 @@ The following fields are supported:
 
 - `name`
 - `fullName`
-  - Returns the full name of the resource, including any parents (for example "myServer/myDatabase")
+  - Returns the full name of the resource. The full name of a resource is the resource name prepended by any parent resource names (for example "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`
@@ -247,124 +246,67 @@ The value can be either a string or a JSON format object.
 With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a related resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks.
 For an example of auditing when a virtual machine extension is not deployed, see [Audit if extension does not exist](scripts/audit-ext-not-exist.md).
 
+For complete details on each effect, order of evaluation, properties, and examples, see [Understanding Policy Effects](policy-effects.md).
+
 ## Aliases
 
 You use property aliases to access specific properties for a resource type. Aliases enable you to restrict what values or conditions are permitted for a property on a resource. Each alias maps to paths in different API versions for a given resource type. During policy evaluation, the policy engine gets the property path for that API version.
 
-**Microsoft.Cache/Redis**
+The list of aliases is always growing. To discover what aliases are currently supported by Azure Policy, use one of the following methods:
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Cache/Redis/enableNonSslPort | Set whether the non-ssl Redis server port (6379) is enabled. |
-| Microsoft.Cache/Redis/shardCount | Set the number of shards to be created on a Premium Cluster Cache.  |
-| Microsoft.Cache/Redis/sku.capacity | Set the size of the Redis cache to deploy.  |
-| Microsoft.Cache/Redis/sku.family | Set the SKU family to use. |
-| Microsoft.Cache/Redis/sku.name | Set the type of Redis Cache to deploy. |
+- Azure PowerShell
 
-**Microsoft.Cdn/profiles**
+  ```azurepowershell-interactive
+  # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.CDN/profiles/sku.name | Set the name of the pricing tier. |
+  $azContext = Get-AzureRmContext
+  $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+  $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+  $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+  $authHeader = @{
+      'Content-Type'='application/json'
+      'Authorization'='Bearer ' + $token.AccessToken
+  }
 
-**Microsoft.Compute/disks**
+  # Invoke the REST API
+  $response = Invoke-RestMethod -Uri 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases' -Method Get -Headers $authHeader
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
+  # Create an Array List to hold discovered aliases
+  $aliases = New-Object System.Collections.ArrayList
 
+  foreach ($ns in $response.value) {
+      foreach ($rT in $ns.resourceTypes) {
+          if ($rT.aliases) {
+              foreach ($obj in $rT.aliases) {
+                  $alias = [PSCustomObject]@{
+                      Namespace       = $ns.namespace
+                      resourceType    = $rT.resourceType
+                      alias           = $obj.name
+                  }
+                  $aliases.Add($alias) | Out-Null
+              }
+          }
+      }
+  }
 
-**Microsoft.Compute/virtualMachines**
+  # Output the list, sort, and format. You can customize with Where-Object to limit as desired.
+  $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
+  ```
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Set the identifier of the image used to create the virtual machine. |
-| Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/licenseType | Set that the image or disk is licensed on-premises. This value is only used for images that contain the Windows Server operating system.  |
-| Microsoft.Compute/virtualMachines/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/osDisk.Uri | Set the vhd URI. |
-| Microsoft.Compute/virtualMachines/sku.name | Set the size of the virtual machine. |
-| Microsoft.Compute/virtualMachines/availabilitySet.id | Sets the availability set id for the virtual machine. |
+- Azure CLI
 
-**Microsoft.Compute/virtualMachines/extensions**
+  ```azurecli-interactive
+  # Login first with az login if not using Cloud Shell
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Compute/virtualMachines/extensions/publisher | Set the name of the extension’s publisher. |
-| Microsoft.Compute/virtualMachines/extensions/type | Set the type of extension. |
-| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Set the version of the extension. |
+  # Get Azure Policy aliases for a specific Namespace
+  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  ```
 
-**Microsoft.Compute/virtualMachineScaleSets**
+- REST API / ARMClient
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Set the identifier of the image used to create the virtual machine. |
-| Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/licenseType | Set that the image or disk is licensed on-premises. This value is only used for images that contain the Windows Server operating system. |
-| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Set the computer name prefix for all  the virtual machines in the scale set. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Set the blob URI for user image. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Set the container URLs that are used to store operating system disks for the scale set. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Set the size of virtual machines in a scale set. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Set the tier of virtual machines in a scale set. |
-
-**Microsoft.Network/applicationGateways**
-
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Network/applicationGateways/sku.name | Set the size of the gateway. |
-
-**Microsoft.Network/virtualNetworkGateways**
-
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Network/virtualNetworkGateways/gatewayType | Set the type of this virtual network gateway. |
-| Microsoft.Network/virtualNetworkGateways/sku.name | Set the gateway SKU name. |
-
-**Microsoft.Sql/servers**
-
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Sql/servers/version | Set the version of the server. |
-
-**Microsoft.Sql/databases**
-
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Sql/servers/databases/edition | Set the edition of the database. |
-| Microsoft.Sql/servers/databases/elasticPoolName | Set the name of the elastic pool the database is in. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Set the configured service level objective ID of the database. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Set the name of the configured service level objective of the database.  |
-
-**Microsoft.Sql/elasticpools**
-
-| Alias | Description |
-| ----- | ----------- |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Set the total shared DTU for the database elastic pool. |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Set the edition of the elastic pool. |
-
-**Microsoft.Storage/storageAccounts**
-
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Storage/storageAccounts/accessTier | Set the access tier used for billing. |
-| Microsoft.Storage/storageAccounts/accountType | Set the SKU name. |
-| Microsoft.Storage/storageAccounts/enableBlobEncryption | Set whether the service encrypts the data as it is stored in the blob storage service. |
-| Microsoft.Storage/storageAccounts/enableFileEncryption | Set whether the service encrypts the data as it is stored in the file storage service. |
-| Microsoft.Storage/storageAccounts/sku.name | Set the SKU name. |
-| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Set to allow only https traffic to storage service. |
-| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Check whether Virtual Network Service Endpoint is enabled. |
+  ```http
+  GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
+  ```
 
 ## Initiatives
 
@@ -446,4 +388,4 @@ The following example illustrates how to create an initiative for handling two t
 
 ## Next steps
 
-- Review the Azure Policy template samples at [Templates for Azure Policy](json-samples.md).
+- Review more examples at [Azure Policy samples](json-samples.md).

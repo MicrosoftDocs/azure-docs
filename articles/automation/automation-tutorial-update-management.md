@@ -4,6 +4,7 @@ description: This article provides an overview of how to use Azure Automation - 
 services: automation
 author: zjalexander
 ms.service: automation
+ms.component: update-management
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal

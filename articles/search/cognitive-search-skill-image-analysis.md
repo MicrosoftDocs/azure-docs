@@ -35,9 +35,9 @@ Parameters are case-sensitive.
 
 ## Skill inputs
 
-| Inputs	 | Description |
-|--------------------|-------------|
-| url | Unique locator for the image. It could be a web URL or the location of blob storage.|
+| Input name	  | Description                                          |
+|---------------|------------------------------------------------------|
+| image         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to ```generateNormalizedImages```. See the [sample](#sample-output) for more information.|
 
 
 
@@ -58,8 +58,8 @@ Parameters are case-sensitive.
     "defaultLanguageCode": "en",
     "inputs": [
         {
-            "name": "url",
-            "source": "/document/metadata_storage_path"
+            "name": "image",
+            "source": "/document/normalized_images/*"
         }
     ],
     "outputs": [
@@ -244,3 +244,4 @@ In the following error cases, no elements are extracted.
 
 + [Predefined skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

@@ -1,22 +1,16 @@
 ---
 title: Get started with Azure IoT Hub device twins (.NET/.NET) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for .NET to implement the simulated device app and the Azure IoT service SDK for .NET to implement a service app that adds the tags and runs the IoT Hub query.
-services: iot-hub
-documentationcenter: node
 author: dsk-2015
 manager: timlt
-editor: ''
-
-ms.assetid: f7e23b6e-bfde-4fba-a6ec-dbb0f0e005f4
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: dkshir
-
 ---
+
 # Get started with device twins (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
@@ -225,7 +219,7 @@ Use the following resources to learn how to:
 
 [lnk-iothub-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
-[lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
+[lnk-twin-how-to-configure]: iot-hub-csharp-csharp-twin-how-to-configure.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 

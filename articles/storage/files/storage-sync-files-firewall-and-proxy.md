@@ -4,7 +4,7 @@ description: Azure File Sync on-premises network configuration
 services: storage
 documentationcenter: ''
 author: fauhse
-manager: klaasl
+manager: aungoo
 editor: tamram
 
 ms.assetid: 
@@ -21,6 +21,9 @@ ms.author: fauhse
 Azure File Sync connects your on-premises servers to Azure Files, enabling multi-site synchronization and cloud tiering features. As such, an on-premises server must be connected to the internet. An IT admin needs to decide the best path for the server to reach into Azure cloud services.
 
 This article will provide insight into specific requirements and options available to successfully and securely connect your server to Azure File Sync.
+
+> [!Important]
+> Azure File Sync does not yet support firewalls and virtual networks for a storage account. 
 
 ## Overview
 Azure File Sync acts as an orchestration service between your Windows Server, your Azure file share, and several other Azure services to sync data as described in your sync group. For Azure File Sync to work correctly, you will need to configure your servers to communicate with the following Azure services:
@@ -58,7 +61,7 @@ The following table describes the required domains for communication:
 | **Azure Resource Manager** | https://management.azure.com | Any user call (like PowerShell) goes to/through this URL, including the initial server registration call. |
 | **Azure Active Directory** | https://login.windows.net | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
 | **Azure Active Directory** | https://graph.windows.net/ | As part of deploying Azure File Sync, a service principal in the subscription's Azure Active Directory will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
-| **Azure Storage** | &ast;.core.windows.net | When the server downloads a file, then the server performs that data movement more efficiently when talking directly to the Azure File Share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
+| **Azure Storage** | &ast;.core.windows.net | When the server downloads a file, then the server performs that data movement more efficiently when talking directly to the Azure file share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
 | **Azure File Sync** | &ast;.one.microsoft.com | After initial server registration, the server receives a regional URL for the Azure File Sync service instance in that region. The server can use the URL to communicate directly and efficiently with the instance handling its sync. |
 
 > [!Important]

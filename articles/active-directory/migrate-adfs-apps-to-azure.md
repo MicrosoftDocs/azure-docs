@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Migrate AD FS on-premises apps to Azure. | Microsoft Docs'
 description: This article is intended to help organizations understand how to migrate on-premises applications to Azure AD, with a focus on federated SaaS applications.
 services: active-directory
@@ -230,6 +230,6 @@ If you want Azure AD to directly handle user provisioning for an SaaS app, see [
 
 ## Next steps
 
-- [Managing applications with Azure Active Directory](active-directory-enable-sso-scenario.md)
-- [Manage access to apps](active-directory-managing-access-to-apps.md)
+- [Managing applications with Azure Active Directory](manage-apps/what-is-application-management.md)
+- [Manage access to apps](manage-apps/what-is-access-management.md)
 - [Azure AD Connect federation](active-directory-aadconnectfed-whatis.md)

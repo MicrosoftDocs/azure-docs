@@ -1,6 +1,6 @@
 ---
-title: Using SQL databases on Azure Stack | Microsoft Docs
-description: Learn how you can deploy SQL databases as a service on Azure Stack and the quick steps to deploy the SQL Server resource provider adapter.
+title: Removing the SQL resource provider on Azure Stack | Microsoft Docs
+description: Learn how you can remove the SQL resource provider from your Azure Stack deployment.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -12,28 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
 
-# Remove the SQL resource provider
+# Removing the MySQL resource provider  
+Before removing the SQL resource provider, it is essential to first remove any dependencies.
 
-To remove the SQL resource provider, it is essential to first remove any dependencies:
+## Remove the MySQL resource provider 
 
-1. Ensure that you have the original deployment package that you downloaded for this version of the SQL resource provider adapter.
+1. Verify that you have removed any existing SQL resource provider dependencies.
 
-2. All user databases must be deleted from the resource provider. (Deleting the user databases doesn't delete the data.) This task should be performed by the users themselves.
+  > [!NOTE]
+  > Uninstalling the SQL resource provider will proceed even if dependent resources are currently using the resource provider. 
+  
+2. Ensure that you have the original deployment package that you downloaded for this version of the SQL resource provider adapter.
+3. Rerun the deployment script using the following parameters:
+    - Use the -Uninstall parameter
+    - The IP address or DNS name of the privileged endpoint.
+    - The credential for the cloud administrator, necessary for accessing the privileged endpoint.
+    - The credentials for the Azure Stack service admin account. Use the same credentials as you used for deploying Azure Stack.
 
-3. The administrator must delete the hosting servers from the SQL resource provider adapter.
-
-4. The administrator must delete any plans that reference the SQL resource provider adapter.
-
-5. The administrator must delete any SKUs and quotas that are associated with the SQL resource provider adapter.
-
-6. Rerun the deployment script with the following elements:
-    - The -Uninstall parameter
-    - The Azure Resource Manager endpoints
-    - The DirectoryTenantID
-    - The credentials for the service administrator account
-
+## Next steps
+[Offer App Services as PaaS](azure-stack-app-service-overview.md)

@@ -3,10 +3,11 @@ title: Update Management solution in Azure
 description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
 services: automation
 ms.service: automation
+ms.component: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/23/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Update Management solution in Azure
@@ -50,11 +51,11 @@ The following table shows a list of supported operating systems:
 |Operating System  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments         |
-|Windows Server 2008 R2 SP1 and higher     |Windows PowerShell 4.0 or higher is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
+|Windows Server 2008 R2 SP1 and higher     |.NET Framework 4.5 or higher is required ([Download .NET Framework](/dotnet/framework/install/guide-for-developers)).</br> Windows PowerShell 4.0 or higher is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+|Ubuntu 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
 ### Unsupported client types
 
@@ -161,6 +162,8 @@ This view provides information on your machines, missing updates, update deploym
 
 You can run a log search that returns information on the machine, update, or deployment by selecting the item in the list. This opens the **Log Search** page with a query for the item selected.
 
+![Update management default view](media/automation-update-management/update-management-view.png)
+
 ## Installing updates
 
 Once updates have been assessed for all of the Linux and Windows computers in your workspace, you can have required updates installed by creating an *Update Deployment*. An Update Deployment is a scheduled installation of required updates for one or more computers. You specify the date and time for the deployment in addition to a computer or group of computers that should be included in the scope of a deployment. To learn more about computer groups, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md). When you include computer groups in your update deployment, group membership is evaluated only once at the time of schedule creation. Subsequent changes to a group are not reflected. To work around this, delete the scheduled update deployment and recreate it.
@@ -192,9 +195,8 @@ Create a new Update Deployment by clicking the **Schedule update deployment** bu
 |Operating System| Linux or Windows|
 | Machines to update |Select a Saved search or pick Machine from the drop-down and select individual machines |
 |Update classifications|Select all the update classifications that you need|
-|Updates to exclude|Enter all the KBs to exclude without the 'KB' prefix|
-|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
-| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
+|Updates to exclude|Enter the updates to exclude. For  Windows enter the KB without the 'KB' prefix. For Linux, enter the package name or use a wildcard.  |
+|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
 
 ## Update classifications
 
@@ -224,10 +226,11 @@ The following tables provide a listing of the Update classifications in Update M
 
 The following addresses are required specifically for Update Management. Communication to these addresses is done over port 443.
 
-* *.ods.opinsights.azure.com
-* *.oms.opinsights.azure.com
-* ods.systemcenteradvisor.com
-* *.blob.core.windows.net
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 For additional information on ports that the Hybrid Runbook Worker requires, [Hybrid Worker role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role)
 
@@ -280,11 +283,11 @@ Deploying updates by update classification may not work on openSUSE Linux due to
 
 This section provides information to help troubleshoot issues with the Update Management solution.
 
-If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each.
+If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log on the local machine for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each.
 
 | Message | Reason | Solution |
 |----------|----------|----------|
-| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)|
 | Unable to Register Machine for Patch Management, Registration Failed with Exception</br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---></br>System.Net.WebException: The underlying connection</br>was closed: An unexpected error</br>occurred on a receive. ---> System.ComponentModel.Win32Exception:</br>The client and server cannot communicate,</br>because they do not possess a common algorithm | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
 | Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
 | The certificate presented by the service \<wsid\>.oms.opinsights.azure.com</br>was not issued by a certificate authority</br>used for Microsoft services. Contact</br>your network administrator to see if they are running a proxy that intercepts</br>TLS/SSL communication. |Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|

@@ -6,7 +6,7 @@ keywords:
 author: tfitzmac
 ms.author: tomfitz
 ms.date: 05/04/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: event-grid
 ---
 # Route custom events to Azure Relay Hybrid Connections with Azure CLI and Event Grid
@@ -36,6 +36,10 @@ az group create --name gridResourceGroup --location westus2
 An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because it is represented by a DNS entry.
 
 ```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

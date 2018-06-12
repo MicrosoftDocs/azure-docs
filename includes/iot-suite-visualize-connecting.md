@@ -28,7 +28,7 @@ You can view the telemetry sent from your device on the **Devices** page in the 
 
 ## Act on your device
 
-To invoke methods on your devices, use the **Devices** page in the remote monitoring solution. For example, in the remote monitoring solution **Chiller** devices implement a **FirmwareUpdate** method.
+To invoke methods on your devices, use the **Devices** page in the Remote Monitoring solution. For example, in the Remote Monitoring solution **Chiller** devices implement a **FirmwareUpdate** method.
 
 1. Choose **Devices** to navigate to the **Devices** page in the solution.
 
@@ -53,4 +53,4 @@ To invoke methods on your devices, use the **Devices** page in the remote monito
 
 ## Next steps
 
-The article [Customize the remote monitoring solution accelerator](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) describes some ways to customize the solution accelerator.
+The article [Customize the Remote Monitoring solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) describes some ways to customize the solution accelerator.

@@ -3,7 +3,7 @@ title: Azure Active Directory sign-in activity report API reference | Microsoft 
 description: Reference for the Azure Active Directory sign-in activity report API
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 05/08/2018
-ms.author: dhanyahk;markvi
+ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk 
 
 ---
@@ -49,7 +50,7 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ## Prerequisites
 To access this report through the reporting API, you must have:
 
-* An [Azure Active Directory Premium P1 or P2 edition](active-directory-editions.md)
+* An [Azure Active Directory Premium P1 or P2 edition](active-directory-whatis.md)
 * Completed the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md). 
 
 ## Accessing the API

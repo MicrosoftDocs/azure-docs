@@ -1,26 +1,20 @@
 ---
-title: Manage Azure Data Lake Analytics using Azure .NET SDK | Microsoft Docs
-description: 'Learn how to manage Data Lake Analytics jobs, data sources, users. '
+title: Manage Azure Data Lake Analytics using Azure .NET SDK
+description: This article describes how to use the Azure .Net SDK to write apps that manage Data Lake Analytics jobs, data sources, & users.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: saveenr
-editor: cgronlun
-
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 06/18/2017
-ms.author: saveenr
-
 ---
-# Manage Azure Data Lake Analytics using Azure .NET SDK
+# Manage Azure Data Lake Analytics a .NET app
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure .NET SDK. 
+This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using an app written using the Azure .NET SDK. 
 
 ## Prerequisites
 
@@ -285,6 +279,8 @@ using (var memstream = new MemoryStream())
    {
       sw.WriteLine("Hello World");
       sw.Flush();
+      
+      memstream.Position = 0;
 
       adlsFileSystemClient.FileSystem.Create(adls, "/Samples/Output/randombytes.csv", memstream);
    }

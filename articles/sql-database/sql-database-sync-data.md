@@ -6,7 +6,7 @@ author: douglaslms
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
@@ -77,6 +77,8 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 
 #### Performance impact
 Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
+
+Provisioning and deprovisioning during sync group creation, update, and deletion may also impact the database performance. 
 
 ### General requirements
 

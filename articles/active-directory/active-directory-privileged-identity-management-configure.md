@@ -3,15 +3,15 @@ title: Configure Azure AD Privileged Identity Management | Microsoft Docs
 description: A topic that explains what Azure AD Privileged Identity Management is and how to use PIM to improve your cloud security.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim 
 ---
 # What is Azure AD Privileged Identity Management?
@@ -27,7 +27,7 @@ With Azure Active Directory (AD) Privileged Identity Management, you can manage,
 >- Assigned to an Azure resource role with Just in time or Direct (Time based) assignments  
 >- Assigned to an access review
 >
->For more information, see [Azure Active Directory editions](active-directory-editions.md).
+>For more information, see [Azure Active Directory editions](active-directory-whatis.md).
 
 Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious user getting that access, or an authorized user inadvertently impacting a sensitive resource.  However, users still need to carry out privileged operations in Azure AD, Azure, Office 365, or SaaS apps. Organizations can give users privileged access to Azure resources like Subscriptions, and Azure AD. There is a need for oversight for what those users are doing with their admin privileges. Azure AD Privileged Identity Management helps to mitigate the risk of excessive, unnecessary or misused access rights.
 

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/24/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
@@ -27,10 +27,14 @@ Perform the following steps on a computer that can access the privileged endpoin
 - If you have not already done so, [register Azure Stack](.\azure-stack-registration.md) with Azure so that you can download Azure marketplace items.
 - Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Server core** image. If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, SQL resource provider installation will fail.
 - Download SQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build. Be sure to download the correct binary for the version of Azure Stack that you are running:
-    - Azure Stack version 1802 (1.0.180302.1): [SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802).
-    - Azure Stack version 1712 (1.0.180102.3, 1.0.180103.2 or 1.0.180106.1 (integrated systems)): [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712).
+
+    |Azure Stack version|SQL RP version|
+    |-----|-----|
+    |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
+    |Version 1802 (1.0.180302.1)|[SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |Version 1712 (1.0.180102.3, 1.0.180103.2 or 1.0.180106.1 (integrated systems))|[SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
+    |     |     |
 - For integrated systems installations only, you must provide the SQL PaaS PKI certificate as described in the optional PaaS certificates section of [Azure Stack deployment PKI requirements](.\azure-stack-pki-certs.md#optional-paas-certificates), by placing the .pfx file in the location specified by the **DependencyFilesLocalPath** parameter.
-- Ensure that you have the [latest version of Azure Stack PowerShell](.\azure-stack-powershell-install.md) (v1.2.11) installed. 
 
 ## Deploy the SQL resource provider
 After you have successfully prepared to install the SQL resource provider by meeting all prerequisites, you can now run the **DeploySqlProvider.ps1** script to deploy the SQL resource provider. The DeploySqlProvider.ps1 script is extracted as part of the SQL resource provider binary that you downloaded corresponding to your Azure Stack version. 
@@ -71,16 +75,17 @@ You can specify these parameters in the command line. If you do not, or if any p
 | **Uninstall** | Removes the resource provider and all associated resources (see the following notes). | No |
 | **DebugMode** | Prevents automatic cleanup on failure. | No |
 
+>[!NOTE]
+> SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
 
 
 ## Deploy the SQL resource provider using a custom script
 To avoid manually entering required information when the DeploySqlProvider.ps1 script runs, you can customize the following script example by changing the default account information and passwords as needed:
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -109,12 +114,13 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
-. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
-  -VMLocalCredential $vmLocalAdminCreds `
-  -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint $privilegedEndpoint `
-  -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
+$tempDir\DeploySQLProvider.ps1 `
+    -AzCredential $AdminCreds `
+    -VMLocalCredential $vmLocalAdminCreds `
+    -CloudAdminCredential $cloudAdminCreds `
+    -PrivilegedEndpoint $privilegedEndpoint `
+    -DefaultSSLCertificatePassword $PfxPass `
+    -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ## Verify the deployment using the Azure Stack portal

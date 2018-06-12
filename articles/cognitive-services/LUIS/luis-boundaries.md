@@ -19,13 +19,14 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 
 |Area|Limit|
 |--|:--|--|
-| [App name][luis-get-started-create-app] | 50 characters |
+| [App name][luis-get-started-create-app] | *Default character max |
 | [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
 | **[Composite](./luis-concept-entity-types.md)|100 with up to 10 children |
 | Explicit list | 50 per application|
 | **[Hierarchical](./luis-concept-entity-types.md) |100 with up to 10 children |
 | [Intents][intents]|500 per application|
-| [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items || [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
+| [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonyms have no length restriction. |
+| [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|
 | [Prebuilt entities](./Pre-builtEntities.md) | no limit|
@@ -35,6 +36,8 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000 per application|
 | [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanumeric and period (.) |
+
+*Default character max is 50 characters. 
 
 **The total count of simple, hierarchical, and composite entities can't exceed 100. The total count of hierarchical entities, composite entities, simple entities, and hierarchical children entities can't exceed 330. 
 

@@ -3,21 +3,23 @@ title: Azure AD Xamarin getting started | Microsoft Docs
 description: Build Xamarin applications that integrate with Azure AD for sign-in and call Azure AD-protected APIs using OAuth.
 services: active-directory
 documentationcenter: xamarin
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-
 ---
+
 # Azure AD Xamarin getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
@@ -54,7 +56,7 @@ To enable the app to get tokens, you first need to register it in your Azure AD 
   * **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a value (for example, http://DirectorySearcher).
 6. After you’ve completed registration, Azure AD assigns the app a unique application ID. Copy the value from the **Application** tab, because you'll need it later.
 7. On the **Settings** page, select **Required Permissions**, and then select **Add**.
-8. Select **Microsoft Graph** as the API. Under **Delegated Permissions**, add the **Read Directory Data** permission.  
+8. Select **Microsoft Graph** as the API. Under **Delegated Permissions**, add the **Read Directory Data** permission. 
 This action enables the app to query the Graph API for users.
 
 ## Step 3: Install and configure ADAL
@@ -100,7 +102,7 @@ Almost all of the app's authentication logic lies in `DirectorySearcher.SearchBy
     {
     ```
 
-2. Initialize `AuthenticationContext`, which is the primary class of ADAL.  
+2. Initialize `AuthenticationContext`, which is the primary class of ADAL. 
 This action passes ADAL the coordinates it needs to communicate with Azure AD.
 3. Call `AcquireTokenAsync(...)`, which accepts the `IPlatformParameters` object and invokes the authentication flow that's necessary to return a token to the app.
 

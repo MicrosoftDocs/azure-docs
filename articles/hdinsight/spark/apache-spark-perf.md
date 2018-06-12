@@ -11,7 +11,7 @@ tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
 

@@ -114,9 +114,10 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}}
     ```
 
-## Related content
+## Next steps
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
+In this tutorial, you learned how to create a user assigned identity and attach it to a Azure Virtual Machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
-Use the following comments section to provide feedback and help us refine and shape our content.
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
 

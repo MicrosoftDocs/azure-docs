@@ -1,24 +1,36 @@
 ---
-title: Create a LUIS app to get exact text match listed data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and list entities to extract data in this quickstart. 
+title: Tutorial create a LUIS app to get exact text match listed data - Azure | Microsoft Docs 
+description: In this tutorial, learn how to create a simple LUIS app using intents and list entities to extract data in this quickstart. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
-# Quickstart: Create app with intents and a list entity
-In this quickstart, you create an app that demonstrates how to use the exact text matched entity named **List** entity to extract information out of utterances.
+# Tutorial: Create app using a list entity
+In this tutorial, create an app that demonstrates how to get data that matches a predefined list. 
 
-This simple app has two [intents](luis-concept-intent.md) and one list [entity](luis-concept-entity-types.md). Its purpose is to take drink orders such as `1 coke and 1 milk please`. 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand list entities 
+> * Create new LUIS app for the beverage domain with OrderDrinks intent
+> * Add _None_ intent and add example utterances
+> * Add list entity to extract drink items from utterance
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
+## Purpose of the list entity
+This app takes drink orders such as `1 coke and 1 milk please` and returns the data such as the type of drink. A **list** entity of drinks looks for exact text matches and returns those matches. 
+
+A list entity is a good choice for this type of data when the data values are a known set. The names of drinks can vary including slang, and abbreviations but the names do not frequently change. 
 
 ## App intents
 The intents are categories of what the user wants. This app has two intents: OrderDrink and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
@@ -48,7 +60,7 @@ Abbreviated or slang versions of utterances include:
 The list entity matches `h2o` to water, and `pop` to soft drink.  
 
 ## What LUIS does
-When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chatbot takes that JSON response and fulfills the request -- in whatever way the app or chatbot is designed to do. 
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
@@ -104,9 +116,9 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
     |What is going on?|
 
 ## When the utterance is predicted for the None intent
-In your LUIS-calling application (such as a chat bot), when LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
+In your LUIS-calling application (such as a chatbot), when LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
-Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chat bot, your chat bot can follow up with a question that focuses the customer's intent. 
+Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chatbot, your chatbot can follow up with a question that focuses the customer's intent. 
 
 ## Create a menu entity from the Intent page
 Now that the two intents have utterances, LUIS needs to understand what a drink is. Navigate back to the `OrderDrinks` intent and label (mark) the drinks in an utterance by following the steps:
@@ -169,7 +181,7 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
     ![Training succeeded](./media/luis-quickstart-intent-and-list-entity/trained.png)
 
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
+In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
@@ -238,22 +250,20 @@ Because the list entity is an exact text match, it doesn't rely on natural langu
 ## What has this LUIS app accomplished?
 This app, with just two intents and a list entity, identified a natural language query intention and returned the extracted data. 
 
-Your chat bot now has enough information to determine the primary action, `OrderDrinks`, and what types of drinks were ordered from the Drink list entity. 
+Your chatbot now has enough information to determine the primary action, `OrderDrinks`, and what types of drinks were ordered from the Drink list entity. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
-[Learn how to add a hierarchical entity](luis-quickstart-intent-and-hier-entity.md). 
+> [!div class="nextstepaction"]
+> [Learn how to add a regular expression entity](luis-quickstart-intents-regex-entity.md)
 
-Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
-
-Add the **dimension** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the volume for each drink type such as liters or gallons.
-
+Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number. 
 
 <!--References-->
 [LUIS]:luis-reference-regions.md#luis-website
