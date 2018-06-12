@@ -7,9 +7,9 @@
   items:
   - name: Tutorials
     items:
-    - name: Assign a role to a user - PowerShell
+    - name: Grant access for a user - PowerShell
       href: tutorial-role-assignments-user-powershell.md
-    - name: Assign a role to a group - PowerShell
+    - name: Grant access for a group - PowerShell
       href: tutorial-role-assignments-group-powershell.md
     - name: Create a custom role - PowerShell
       href: tutorial-custom-role-powershell.md
