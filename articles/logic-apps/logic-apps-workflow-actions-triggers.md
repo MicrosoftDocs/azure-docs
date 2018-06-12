@@ -86,10 +86,38 @@ Each trigger type has a different interface and inputs that define the trigger's
 | [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md). | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app by calling [Microsoft-managed APIs](../connectors/apis-list.md) to subscribe and unsubscribe. | 
 | [**HTTP**](#http-trigger) | Checks or *polls* any endpoint. This endpoint must conform to a specific trigger contract either by using a "202" asynchronous pattern or by returning an array. | 
-| [**HTTPWebhook**](#httpwebhook-trigger) | Creates a callable endpoint for your logic app but calls the specified URL to register or unregister. |
+| [**HTTPWebhook**](#http-webhook-trigger) | Creates a callable endpoint for your logic app but calls the specified URL to register or unregister. |
 | [**Recurrence**](#recurrence-trigger) | Fires based on a defined schedule. You can set a future date and time for firing this trigger. Based on the frequency, you can also specify times and days for running your workflow. | 
 | [**Request**](#request-trigger)  | Creates a callable endpoint for your logic app and is also known as a "manual" trigger. For example, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
+
+
+<a name="subscribe-unsubscribe"></a>
+
+## Subscribing to endpoints
+
+Some triggers and actions don't regularly check endpoints, 
+but wait for specific events that happen at those endpoints instead. 
+To monitor those endpoints, these triggers and actions *subscribe* 
+to the endpoints by providing a *callback URL* where the endpoint 
+can send responses.
+
+The `subscribe` call happens when the workflow changes in any way, 
+for example, when credentials are renewed, or when the input 
+parameters change for  a trigger or action. This call uses 
+the same parameters as standard HTTP actions. 
+ 
+The `unsubscribe` call automatically happens when an operation 
+makes the trigger or action invalid, for example:
+
+* Deleting or disabling the trigger. 
+* Deleting or disabling the workflow. 
+* Deleting or disabling the subscription. 
+
+To support these calls, the `@listCallbackUrl()` function returns a 
+unique "callback URL" for the trigger or action. This URL represents 
+a unique identifier for the endpoints that use the service's REST API. 
+The parameters for this function are the same as the webhook trigger or action.
 
 <a name="apiconnection-trigger"></a>
 
@@ -134,7 +162,7 @@ so the trigger's behavior depends on whether or not sections are included.
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | String | The name for the trigger | 
-| <*connection-name*> | String | The name for the managed API connection that the workflow uses | 
+| <*connection-name*> | String | The name for the connection to the managed API that the workflow uses | 
 | <*method-type*> | String | The HTTP method for communicating with the managed API: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*api-operation*> | String | The API operation to call | 
 | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
@@ -149,7 +177,7 @@ so the trigger's behavior depends on whether or not sections are included.
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
 | <*splitOn-expression*> | For triggers that return arrays, this expression represents the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
-| <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). <p>For example, you can specify that the trigger fires only after all active runs finish by specifying the `singleInstance` option. See [Triggers: Fire only after active runs finish](#single-instance).|
+| <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). <p>For example, you can specify that the trigger fires only after all active runs finish by specifying the `singleInstance` option. See [Triggers: Fire only after active runs finish](#single-instance). |
 ||||
 
 *Outputs*
@@ -186,6 +214,269 @@ inside the inbox for an Office 365 Outlook account:
    "recurrence": {
       "frequency": "Day",
       "interval": 1
+   }
+}
+```
+
+<a name="apiconnectionwebhook-trigger"></a>
+
+### ApiConnectionWebhook trigger
+
+This trigger sends a subscription request to an endpoint 
+by using a [Microsoft-managed API](../connectors/apis-list.md), 
+provides a *callback URL* to where the endpoint can send a response, 
+and waits for the endpoint to respond. For more information, see 
+[Endpoint subscriptions](#subscribe-unsubscribe).
+
+```json
+"<ApiConnectionWebhook_trigger_name>": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "body": {
+          "NotificationUrl": "@{listCallbackUrl()}"
+      },
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
+         }
+      },
+      "retryPolicy": { "<retry-behavior>" },
+      "queries": "<query-parameters>"
+   },
+   "splitOn": "<splitOn-expression>"
+}
+```
+
+*Required*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*connection-name*> | String | The name for the connection to the managed API that the workflow uses | 
+| <*body-content*> | JSON Object | Any message content to send as payload to the managed API | 
+|||| 
+
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
+| <*splitOn-expression*> | For triggers that return arrays, this expression represents the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
+|||| 
+
+*Example*
+
+This trigger definition subscribes to the Office 365 Outlook API, 
+provides a callback URL to the API endpoint, and waits for the 
+endpoint to respond when a new email arrives.
+
+```json
+"When_a_new_email_arrives_(webhook)": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "body": {
+         "NotificationUrl": "@{listCallbackUrl()}" 
+      },
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['office365']['connectionId']"
+         }
+      },
+      "path": "/MailSubscription/$subscriptions",
+      "queries": {
+          "folderPath": "Inbox",
+          "hasAttachment": "Any",
+          "importance": "Any"
+      }
+   },
+   "splitOn": "@triggerBody()?['value']"
+}
+```
+
+<a name="http-trigger"></a>
+
+### HTTP trigger
+
+This trigger checks or polls the specified endpoint. 
+Based on the response, the trigger determines whether the workflow runs.
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "<method-type>",
+      "uri": "<endpoint-URL>",
+      "headers": { "<header-content>" },
+      "body": "<body-content>",
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": { "<retry-behavior>" },
+      "queries": "<query-parameters>"
+   },
+   "recurrence": {
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-concurrent-workflow-instances>
+      }
+   },
+   "operationOptions": "<trigger-operations>"
+}
+```
+
+*Required*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*method-type*> | String | The HTTP method to use for polling the specified endpoint: "GET", "PUT", "POST", "PATCH", "DELETE" | 
+| <*endpoint-URL*> | String | The HTTP or HTTPS URL for the endpoint to poll <p>Maximum string size: 2 KB | 
+| <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*number-of-time-units*> | Integer | A positive number that determines how often the trigger fires based on the frequency, which is specifically the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
+|||| 
+
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*header-content*> | JSON Object | The headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*body-content*> | String | The message content to send as payload with the request | 
+| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://login.windows.net`, but you can use a different value, such as`https://login.windows\-ppe.net`. |
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
+ <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. | 
+| <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` |  
+| <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). <p>For example, you can specify that the trigger fires only after all active runs finish by specifying the `singleInstance` option. See [Triggers: Fire only after active runs finish](#single-instance). |
+|||| 
+
+*Outputs*
+
+| Element | Type | Description |
+|---------|------|-------------| 
+| headers | JSON Object | The headers from the response | 
+| body | JSON Object | The body from the response | 
+|||| 
+
+*Requirements for incoming requests*
+
+To work well with your logic app, this trigger requires that the 
+endpoint conform to a specific pattern or contract, 
+and recognizes these properties:  
+  
+| Response | Required | Description | 
+|----------|----------|-------------|  
+| Status code | Yes | The "200 OK" status code starts a run. Any other status code doesn't start a run. | 
+| Retry-after header | No | The number of seconds until the logic app polls the endpoint again | 
+| Location header | No | The URL to call at the next polling interval. If not specified, the original URL is used. | 
+|||| 
+
+*Example behaviors for different requests*
+
+| Status code | Retry after | Behavior | 
+|-------------|-------------|----------|
+| 200 | {none} | Run the workflow, then check again for more data after the defined recurrence. | 
+| 200 | 10 seconds | Run the workflow, then check again for more data after 10 seconds. |  
+| 202 | 60 seconds | Don't trigger the workflow. The next attempt happens in one minute, subject to the defined recurrence. If the defined recurrence is less than one minute, the retry-after header takes precedence. Otherwise, the defined recurrence is used. | 
+| 400 | {none} | Bad request, don't run the workflow. If no `retryPolicy` is defined, then the default policy is used. After the number of retries has been reached, the trigger checks again for data after the defined recurrence. | 
+| 500 | {none}| Server error, don't run the workflow. If no `retryPolicy` is defined, then the default policy is used. After the number of retries has been reached, the trigger checks again for data after the defined recurrence. | 
+|||| 
+
+<a name="http-webhook-trigger"></a>
+
+### HTTPWebhook trigger  
+
+This trigger makes your logic app callable by creating an endpoint 
+that can register a subscription by calling the specified endpoint URL. 
+When you create this trigger in your workflow, an outgoing request 
+makes the call to register the subscription. That way, the trigger 
+can start listening for events. When an operation makes this trigger invalid, 
+an outgoing request automatically makes the call to cancel the subscription. 
+For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
+
+You can also specify [asynchronous limits](#asynchronous-limits) on an **HTTPWebhook** trigger.
+The trigger's behavior depends on the sections that you use or omit. 
+
+```json
+"HTTP_Webhook": {
+   "type": "HttpWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "<method-type>",
+         "uri": "<endpoint-subscribe-URL>",
+         "headers": { "<header-content>" },
+         "body": "<body-content>",
+         "authentication": { "<authentication-method>" },
+         "retryPolicy": { "<retry-behavior>" }
+         },
+      },
+      "unsubscribe": {
+         "method": "<method-type>",
+         "url": "<endpoint-unsubscribe-URL>",
+         "headers": { "<header-content>" },
+         "body": "<body-content>",
+         "authentication": { "<authentication-method>" }
+      }
+   }
+}
+```
+
+Some values, such as <*method-type*>, are available for 
+both the `"subscribe"` and `"unsubscribe"` objects.
+
+*Required*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*method-type*> | String | The HTTP method to use for the subscription request: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
+| <*endpoint-subscribe-URL*> | String | The endpoint URL where to send the subscription request | 
+|||| 
+
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*method-type*> | String | The HTTP method to use for the cancellation request: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
+| <*endpoint-unsubscribe-URL*> | String | The endpoint URL where to send the cancellation request | 
+| <*body-content*> | String | Any message content to send in the subscription or cancellation request | 
+| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+|||| 
+
+*Outputs* 
+
+| Element | Type | Description |
+|---------|------|-------------| 
+| headers | JSON Object | The headers from the response | 
+| body | JSON Object | The body from the response | 
+|||| 
+
+*Example*
+
+This trigger creates a subscription to the specified endpoint, 
+provides a unique callback URL, and waits for newly published 
+technology articles.
+
+```json
+"HTTP_Webhook": {
+   "type": "HttpWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "POST",
+         "uri": "https://pubsubhubbub.appspot.com/subscribe",
+         "body": {
+            "hub.callback": "@{listCallbackUrl()}",
+            "hub.mode": "subscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      },
+      "unsubscribe": {
+         "method": "POST",
+         "url": "https://pubsubhubbub.appspot.com/subscribe",
+         "body": {
+            "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
+            "hub.mode": "unsubscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         }
+      }
    }
 }
 ```
@@ -304,13 +595,15 @@ see [Create and schedule regularly running tasks](../connectors/connectors-nativ
 
 ### Request trigger
 
-This trigger makes your logic app callable by creating 
-an endpoint that can accept incoming HTTP requests. 
-For this trigger, provide a JSON schema for describing 
-and validating the payload or inputs that the trigger 
-receives from the incoming request. 
-This schema helps subsequent workflow actions 
-know the properties to reference.
+This trigger makes your logic app callable by creating an endpoint that can accept incoming requests. 
+For this trigger, provide a JSON schema that describes and validates the payload or inputs 
+that the trigger receives from the incoming request. The schema also makes trigger properties 
+easier to reference from later actions in the workflow. 
+
+To call this trigger, you must use the `listCallbackUrl` API, which is described in the 
+[Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
+To learn how to use this trigger as an HTTP endpoint, see 
+[Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
 
 ```json
 "manual": {
@@ -332,16 +625,11 @@ know the properties to reference.
 }
 ```
 
-To call this trigger, you must use the `listCallbackUrl` API in the 
-[Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
-To learn how to use this trigger as an HTTP endpoint, see 
-[Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
-
 *Required*
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*property-name*> | String | The name of a property in the JSON schema that describes the payload | 
+| <*property-name*> | String | The name of a property in the JSON schema, which describes the payload | 
 | <*property-type*> | String | The property's type | 
 |||| 
 
@@ -350,15 +638,15 @@ To learn how to use this trigger as an HTTP endpoint, see
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*method-type*> | String | The method that incoming requests must use to call your logic app: "GET", "PUT", "POST", "PATCH", "DELETE" |
-| <*relative-path-for-accepted-parameter*> | String | The relative path for the parameter accepted by your endpoint's URL | 
+| <*relative-path-for-accepted-parameter*> | String | The relative path for the parameter that your endpoint's URL can accept | 
 | <*required-properties*> | Array | One or more properties that require values | 
 |||| 
 
 *Example*
 
-This request trigger specifies that an incoming request 
-must use the HTTP POST method to call the trigger and a 
-schema that validates input from the incoming request: 
+This trigger specifies that an incoming request must 
+use the HTTP POST method to call the trigger and includes 
+a schema that validates input from the incoming request: 
 
 ```json
 "manual": {
@@ -388,266 +676,6 @@ schema that validates input from the incoming request:
    }
 }
 ```
-
-<a name="http-trigger"></a>
-
-### HTTP trigger  
-
-This trigger polls a specified endpoint and checks the response. 
-The response determines whether the workflow should run or not. 
-The `inputs` JSON object includes and requires the `method` 
-and `uri` parameters required for constructing the HTTP call:
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
-      "uri": "<HTTP-or-HTTPS-endpoint-to-poll>",
-      "queries": "<query-parameters>",
-      "headers": { "<headers-for-request>" },
-      "body": { "<payload-to-send>" },
-      "authentication": { "<authentication-method>" },
-      "retryPolicy": { "<retry-behavior>" }
-   },
-   "recurrence": {
-      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-      "interval": <recurrence-interval-based-on-frequency>
-   },
-   "runtimeConfiguration": {
-      "concurrency": {
-         "runs": <maximum-number-for-concurrently-running-workflow-instances>
-      }
-   },
-   "operationOptions": "singleInstance"
-}
-```
-
-*Required*
-
-| Element | Type | Description | 
-|---------|------|-------------| 
-| HTTP | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
-| type | String | The trigger type, which is "Http" | 
-| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
-| method | Yes | String | The HTTP method for polling the specified endpoint: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
-| uri | Yes| String | The HTTP or HTTPS endpoint URL that the trigger checks or polls <p>Maximum string size: 2 KB | 
-| recurrence | JSON Object | The frequency and interval that describes how often the trigger fires |  
-| frequency | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
-| interval | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
-|||| 
-
-*Optional*
-
-| Element | Type | Description | 
-|---------|------|-------------| 
-| queries | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?api-version=2015-02-01` query string to the URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Result: `https://contoso.com?api-version=2015-02-01` | 
-| headers | JSON Object | One or more headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | JSON Object | The payload (data) to send to the endpoint | 
-| authentication | JSON Object | The method that the incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://login.windows.net`, but you can use a different value, such as`https://login.windows\-ppe.net`. | 
-| retryPolicy | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| concurrency | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: <p>`"concurrency": { "runs": 10 }` | 
-| operationOptions | String | The `singleInstance` option specifies that the trigger fires only after all active runs are finished. See [Triggers: Fire only after active runs finish](#single-instance). | 
-|||| 
-
-To work well with your logic app, the HTTP trigger requires that the HTTP API 
-conform to a specific pattern. The HTTP trigger recognizes these properties:  
-  
-| Response | Required | Description | 
-|----------|----------|-------------|  
-| Status code | Yes | The "200 OK" status code starts a run. Any other status code doesn't start a run. | 
-| Retry-after header | No | The number of seconds until the logic app polls the endpoint again | 
-| Location header | No | The URL to call at the next polling interval. If not specified, the original URL is used. | 
-|||| 
-
-*Example behaviors for different requests*
-
-| Status code | Retry after | Behavior | 
-|-------------|-------------|----------|
-| 200 | {none} | Run the workflow, then check again for more data after the defined recurrence. | 
-| 200 | 10 seconds | Run the workflow, then check again for more data after 10 seconds. |  
-| 202 | 60 seconds | Don't trigger the workflow. The next attempt happens in one minute, subject to the defined recurrence. If the defined recurrence is less than one minute, the retry-after header takes precedence. Otherwise, the defined recurrence is used. | 
-| 400 | {none} | Bad request, don't run the workflow. If no `retryPolicy` is defined, then the default policy is used. After the number of retries has been reached, the trigger checks again for data after the defined recurrence. | 
-| 500 | {none}| Server error, don't run the workflow. If no `retryPolicy` is defined, then the default policy is used. After the number of retries has been reached, the trigger checks again for data after the defined recurrence. | 
-|||| 
-
-#### HTTP trigger outputs
-
-| Element | Type | Description |
-|---------|------|-------------|
-| headers | JSON Object | The headers from the HTTP response | 
-| body | JSON Object | The body from the HTTP response | 
-|||| 
-
-<a name="httpwebhook-trigger"></a>
-
-### HTTPWebhook trigger  
-
-This trigger works like the [Request trigger](#request-trigger) by 
-creating a callable endpoint for your logic app. However, 
-this trigger also calls a specified endpoint URL for registering 
-or unregistering a subscription. You can specify limits on a 
-webhook trigger in the same way as [HTTP Asynchronous Limits](#asynchronous-limits). 
-
-Here is the trigger definition, though many sections are optional, 
-and the trigger's behavior depends on the sections that you use or omit:
-
-```json
-"HTTP_Webhook": {
-    "type": "HttpWebhook",
-    "inputs": {
-        "subscribe": {
-            "method": "POST",
-            "uri": "<subscribe-to-endpoint-URL>",
-            "headers": { "<headers-for-request>" },
-            "body": {
-                "hub.callback": "@{listCallbackUrl()}",
-                "hub.mode": "subscribe",
-                "hub.topic": "<subscription-topic>"
-            },
-            "authentication": {},
-            "retryPolicy": {}
-        },
-        "unsubscribe": {
-            "method": "POST",
-            "url": "<unsubscribe-from-endpoint-URL>",
-            "body": {
-                "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
-                "hub.mode": "unsubscribe",
-                "hub.topic": "<subscription-topic>"
-            },
-            "authentication": {}
-        }
-    },
-}
-```
-
-*Required*
-
-| Element | Type | Description | 
-|---------|------|-------------| 
-| HTTP_Webhook | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
-| type | String | The trigger type, which is "HttpWebhook" | 
-| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
-| subscribe | JSON Object| The outgoing request to call and perform the initial registration when the trigger is created. This call happens so that the trigger can start listening to events at the endpoint. For more information, see [subscribe and unsubscribe](#subscribe-unsubscribe). | 
-| method | String | The HTTP method used for the subscription request: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
-| uri | String | The endpoint URL for where to send the subscription request | 
-|||| 
-
-*Optional*
-
-| Element | Type | Description | 
-|---------|------|-------------| 
-| unsubscribe | JSON Object | The outgoing request to automatically call and cancel the subscription when an operation makes the trigger invalid. For more information, see [subscribe and unsubscribe](#subscribe-unsubscribe). | 
-| method | String | The HTTP method to use for the cancellation request: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
-| uri | String | The endpoint URL for where to send the cancellation request | 
-| body | JSON Object | The JSON object that describes the payload (data) for the subscription or cancellation request | 
-| authentication | JSON Object | The method that an incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
-| retryPolicy | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-|||| 
-
-*Example*
-
-```json
-"myAppSpotTrigger": {
-   "type": "HttpWebhook",
-   "inputs": {
-      "subscribe": {
-         "method": "POST",
-         "uri": "https://pubsubhubbub.appspot.com/subscribe",
-         "headers": {},
-         "body": {
-            "hub.callback": "@{listCallbackUrl()}",
-            "hub.mode": "subscribe",
-            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
-         },
-      },
-      "unsubscribe": {
-         "method": "POST",
-         "url": "https://pubsubhubbub.appspot.com/subscribe",
-         "body": {
-            "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
-            "hub.mode": "unsubscribe",
-            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
-         },
-      }
-   },
-}
-```
-
-<a name="subscribe-unsubscribe"></a>
-
-#### `subscribe` and `unsubscribe`
-
-The `subscribe` call happens when the workflow changes in any way, 
-for example, when credentials are renewed, or the trigger's input parameters change. 
-The call uses the same parameters as standard HTTP actions. 
- 
-The `unsubscribe` call automatically happens when an operation 
-makes the HTTPWebhook trigger invalid, for example:
-
-* Deleting or disabling the trigger. 
-* Deleting or disabling the workflow. 
-* Deleting or disabling the subscription. 
-
-To support these calls, the `@listCallbackUrl()` function returns a 
-unique "callback URL" for this trigger. This URL represents a unique 
-identifier for the endpoints that use the service's REST API. 
-The parameters for this function are the same as the HTTP trigger.
-
-#### HTTPWebhook trigger outputs
-
-| Element | Type | Description |
-|---------|------|-------------| 
-| headers | JSON Object | The headers from the HTTP response | 
-| body | JSON Object | The body from the HTTP response | 
-|||| 
-
-<a name="apiconnectionwebhook-trigger"></a>
-
-### ApiConnectionWebhook trigger
-
-This trigger works like the [HTTPWebhook trigger](#httpwebhook-trigger), 
-but uses [Microsoft-managed APIs](../connectors/apis-list.md). 
-
-Here is the trigger definition:
-
-```json
-"<ApiConnectionWebhookTriggerName>": {
-   "type": "ApiConnectionWebhook",
-   "inputs": {
-      "host": {
-         "connection": {
-            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
-         }
-      },        
-      "body": {
-          "NotificationUrl": "@{listCallbackUrl()}"
-      },
-      "queries": "<query-parameters>"
-   }
-}
-```
-
-*Required*
-
-| Element | Type | Description | 
-|---------|------|-------------| 
-| <*ApiConnectionWebhookTriggerName*> | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
-| type | String | The trigger type, which is "ApiConnectionWebhook" | 
-| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
-| host | JSON Object | The JSON object that describes the host gateway and ID for the managed API <p>The `host` JSON object has these elements: `api` and `connection` | 
-| connection | JSON Object | The name for the managed API connection that the workflow uses, which must include a reference to a parameter named `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>']['connectionId']"` | 
-| body | JSON Object | The JSON object that describes the payload (data) to send to the managed API | 
-| NotificationUrl | String | Returns a unique "callback URL" for this trigger that the managed API can use | 
-|||| 
-
-*Optional*
-
-| Element | Type | Description | 
-|---------|------|-------------| 
-| queries | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?folderPath=Inbox` query string to the URL: <p>`"queries": { "folderPath": "Inbox" }` <p>Result: `https://<managed-API-URL>?folderPath=Inbox` | 
-|||| 
 
 <a name="trigger-conditions"></a>
 
@@ -864,7 +892,7 @@ workflow execution and contain other actions
 | Action type | Description | 
 |-------------|-------------|  
 | [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using a [Microsoft-managed API](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTPWebhook but uses a [Microsoft-managed API](../connectors/apis-list.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTP Webhook but uses a [Microsoft-managed API](../connectors/apis-list.md). | 
 ||| 
 
 <a name="asynchronous-patterns"></a>
@@ -896,7 +924,7 @@ in the action's inputs, for example:
 
 <a name="asynchronous-limits"></a>
 
-### Asynchronous limits
+## Asynchronous limits
 
 You can limit the duration for an asynchronous pattern to a specific time interval. 
 So, if the interval passes and the action hasn't completed, 
@@ -906,7 +934,7 @@ The limit timeout uses [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#
 This example shows how you can specify an asynchronous limit:
 
 ``` json
-"<action-name>": {
+"<trigger-or-action-name>": {
    "type": "Workflow | Webhook | Http | ApiConnectionWebhook | ApiConnection",
    "inputs": {},
    "limit": {
@@ -998,7 +1026,8 @@ Office 365 Outlook connector, which is a Microsoft-managed API:
 This action sends a subscription request over HTTP to an endpoint 
 by using a [Microsoft-managed API](../connectors/apis-list.md), 
 provides a *callback URL* to where the endpoint can send a response, 
-and waits for the endpoint to respond. 
+and waits for the endpoint to respond. For more information, see 
+[Endpoint subscriptions](#subscribe-unsubscribe).
 
 ```json
 "<action-name>": {
@@ -1006,7 +1035,7 @@ and waits for the endpoint to respond.
    "inputs": {
       "subscribe": {
          "method": "<method-type>",
-         "uri": "<api-subscription-URL>",
+         "uri": "<api-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
          "authentication": { "<authentication-method>" },
@@ -1016,7 +1045,7 @@ and waits for the endpoint to respond.
       },
       "unsubscribe": {
          "method": "<method-type>",
-         "uri": "<api-subscription-URL>",
+         "uri": "<api-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
          "authentication": { "<authentication-method>" },
@@ -1036,13 +1065,14 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 |-------|------|-------------| 
 | <*action-name*> | String | The name of the action provided by the connector | 
 | <*method-type*> | String | The HTTP method to use for subscribing or unsubscribing from an endpoint: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
-| <*api-subscription-URL*> | String | The URI to use for subscribing or unsubscribing from an endpoint | 
+| <*api-subscribe-URL*> | String | The URI to use for subscribing to the API | 
 |||| 
 
 *Optional*
 
 | Value | Type | Description | 
 |-------|------|-------------| 
+| <*api-unsubscribe-URL*> | String | The URI to use for unsubscribing from the API | 
 | <*header-content*> | JSON Object | Any headers to send in the request <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON Object | Any message content to send in the request | 
 | <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
