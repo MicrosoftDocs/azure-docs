@@ -15,10 +15,6 @@ ms.author: nepeters
 
 This article addresses frequent questions about Azure Kubernetes Service (AKS).
 
-> [!IMPORTANT]
-> Azure Kubernetes Service (AKS) is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
->
-
 ## Which Azure regions provide the Azure Kubernetes Service (AKS) today?
 
 - Canada Central
@@ -38,10 +34,6 @@ Azure automatically applies security patches to the nodes in your cluster on a n
 - Manually, through the Azure portal or the Azure CLI.
 - By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), then bring them back up with the latest Ubuntu image. Update the OS image on your nodes without changing Kubernetes versions by specifying the current cluster version in `az aks upgrade`.
 - Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. It then orchestrates those reboots across the cluster, following the same cordon and drain process described earlier.
-
-## Do you recommend customers use ACS or AKS?
-
-While AKS remains in preview, we recommend creating production clusters using ACS-Kubernetes or [acs-engine](https://github.com/azure/acs-engine). Use AKS for proof-of-concept deployments, and dev/test environments.
 
 ## When will ACS be deprecated?
 
