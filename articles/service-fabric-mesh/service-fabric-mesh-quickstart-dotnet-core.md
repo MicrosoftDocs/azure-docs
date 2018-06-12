@@ -22,7 +22,7 @@ ms.custom: mvc, devcenter
 
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy containerized applications without managing VMs, storage, or networking.
 
-In this quickstart you will create a new Service Fabric Mesh app, which is made up of an ASP.NET Core website, and run it on the local development cluster.
+In this quickstart you'll create a new Service Fabric Mesh app, an ASP.NET Core website, and run it on the local development cluster.
 
 You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
@@ -58,23 +58,23 @@ Visual Studio will create both the Service Fabric Application project and the AS
 
 ## Build and publish to your local cluster
 
-A Docker image will automatically be built and published to your local cluster as soon as your project loads. This process may take some time and you can monitor the progress of the Service Fabric tools in the **Output** pane if you want. Select the **Service Fabric Tools** item in the pane. You are not prevented from running your project.
+A Docker image will automatically be built and published to your local cluster as soon as your project loads. This process may take some time. You can monitor the progress of the Service Fabric tools in the **Output** pane if you want. Select the **Service Fabric Tools** item in the pane.
 
 After the project has been created, press **F5** to compile and run your service locally. Whenever the project is run and debugged locally, Visual Studio will: 
 
 1. Make sure that Docker for Windows is running and set to use Windows as the container operating system.
-2. Download any missing Docker base images. This part may take some time
+2. Download any missing Docker base images. This part may take some time.
 3. Build (or rebuild) the Docker image used to host your code project.
-4. Deploys and runs the container on the local Service Fabric development cluster.
-6. Run your services and hits any breakpoints you have set.
+4. Deploy and run the container on the local Service Fabric development cluster.
+5. Run your service and hit any breakpoints you have set.
 
-After the local deployment is finished, and Visual Studio is running your projects, a browser window will open and automatically navigate to the sample webpage.
+After the local deployment is finished, and Visual Studio is running your project, a browser window will open with a sample webpage.
 
-When you are done browsing the deployed service you can stop debugging your project by pressing **Shift+F5** in Visual Studio.
+When you're done browsing the deployed service, you can stop debugging your project by pressing **Shift+F5** in Visual Studio.
 
 ## Clean up resources
 
-When no longer needed, delete all of the resources you created. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group.
+When you are finished, delete all of the resources you created. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group.
 
 ```azurecli
 az group delete --resource-group sfmeshTutorial1RG
