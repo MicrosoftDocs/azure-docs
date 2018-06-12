@@ -4,7 +4,7 @@ description: Create transforms or maps for advanced JSON transformations using L
 services: logic-apps
 documentationcenter: 
 author: divyaswarnkar
-manager: anneta
+manager: jeconnoc
 editor: 
 
 ms.assetid: 

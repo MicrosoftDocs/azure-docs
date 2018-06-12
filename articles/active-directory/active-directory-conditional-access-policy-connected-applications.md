@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/07/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -64,7 +64,7 @@ In your conditional access policy, you can select **Require Hybrid Azure AD join
 
 ![Device-based conditions](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-This setting only applies to Windows 10 devices that are joined to an on-premises Azure AD. You can only register these devices with Azure AD using a Hybrid Azure AD join, which is an [automated process](device-management-hybrid-azuread-joined-devices-setup.md) to get a Windows 10 device registered. 
+This setting only applies to Windows 10 devices that are joined to an on-premises AD. You can only register these devices with Azure AD using a Hybrid Azure AD join, which is an [automated process](device-management-hybrid-azuread-joined-devices-setup.md) to get a Windows 10 device registered. 
 
 ![Device-based conditions](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 
