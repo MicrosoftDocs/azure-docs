@@ -16,7 +16,7 @@ ms.author: routlaw
 ms.custom: aaddev
 
 
-# As a developer, I want to use HTTP to authenticate with JWT token to access a secured application or API given that I have a service principal already.
+# As a developer, I want to use HTTP to authenticate with JWT token to access a secured application or API given that I have retrieved an access token with a service principal or user permission already.
 
 ---
 
@@ -59,8 +59,9 @@ The following headers are required:
 | redirect_uri  | required              | The same redirect_uri value that was used to acquire the authorization_code.                                                                                                                                                                                                                                                                                                                                                             |
 | client_secret | required for web apps | The application secret that you created in the app registration portal for your app. It should not be used in a native app, because client_secrets cannot be reliably stored on devices. It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.                                                                                                                      |
 | code_verifier | optional              | The same code_verifier that was used to obtain the authorization_code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
-#### Successful response
-A successful token response will look like:
+## Handle the response
+
+A successful token response will contain a JWT token and will look like:
 
 ```json
 {
