@@ -62,6 +62,8 @@
     href: sql-database-managed-instance-restore-from-backup-tutorial.md
   - name: 7 - Migrate to a Managed Instance using DMS
     href: ../dms/tutorial-sql-server-to-managed-instance.md
+  - name: 8 - Sync data
+    href: sql-database-get-started-sql-data-sync.md
 - name: Samples
   items:
   - name: Code samples
@@ -240,20 +242,20 @@
       href: sql-database-manage-after-migration.md
   - name: Load & move data
     items:
-    - name: Copy a DB
+    - name: Overview - to be written
+      href: blah.md
+    - name: Copy a DB within Azure
       href: sql-database-copy.md
-    - name: Import a DB
+    - name: Import a DB from a BACPAC
       href: sql-database-import.md
-    - name: Export a DB
+    - name: Export a DB to BACPAC
       href: sql-database-export.md
-    - name: Sync data
+    - name: Sync data with SQL Data Sync
       href: sql-database-sync-data.md
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md
     - name: Load data with ADF
       href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-    - name: Sync data
-      href: sql-database-get-started-sql-data-sync.md
   - name: Monitor & tune
     items:
     - name: Overview
