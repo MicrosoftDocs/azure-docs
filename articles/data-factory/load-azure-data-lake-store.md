@@ -70,9 +70,11 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 2. In the **Properties** page, specify **CopyFromAmazonS3ToADLS** for the **Task name** field, and select **Next**:
 
     ![Properties page](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. In the **Source data store** page, click **+ Create new connection**, select **Amazon S3**, and select **Continue**:
+3. In the **Source data store** page, click **+ Create new connection**:
 
     ![Source data store page](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
+	
+	Select **Amazon S3**, and select **Continue**
 	
 	![Source data store s3 page](./media/load-data-into-azure-data-lake-store/source-data-store-page-s3.png)
 	
@@ -83,7 +85,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
    
    ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
-   4. Select **Next**.
+   4. You will see a new connection. Select **Next**.
    
    ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
    
@@ -95,18 +97,18 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     ![Specify output folder](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
 	
-7. In the **Destination data store** page, select **Azure Data Lake Store**, and select **Next**:
+7. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Lake Store**, and select **Continue**:
 
     ![Destination data store page](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
 8. In the **Specify Data Lake Store connection** page, do the following steps: 
 
    1. Select your Data Lake Store for the **Data Lake Store account name**.
-   2. Specify the service principal information: **Tenant**, **Service principal ID**, and **Service principal key**.
+   2. Specify the **Tenant**, and select Finish.
    3. Select **Next**.
    
    > [!IMPORTANT]
-   > In this walkthrough, you use a _service principal_ to authenticate your Data Lake Store. Be sure to grant the service principal the proper permissions in Azure Data Lake Store by following [these instructions](connector-azure-data-lake-store.md#using-service-principal-authentication).
+   > In this walkthrough, you use a _managed service identity_ to authenticate your Data Lake Store. Be sure to grant the service principal the proper permissions in Azure Data Lake Store by following [these instructions](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Specify Azure Data Lake Store account](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**: 
