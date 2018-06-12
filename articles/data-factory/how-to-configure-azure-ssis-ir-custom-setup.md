@@ -1,6 +1,6 @@
 ---
-title: "Custom setup for the Azure-SSIS integration runtime | Microsoft Docs"
-description: "This article describes how to use the custom setup interface for the Azure-SSIS integration runtime"
+title: "Customize setup for the Azure-SSIS integration runtime | Microsoft Docs"
+description: "This article describes how to use the custom setup interface for the Azure-SSIS integration runtime to install additional components or change settings"
 services: data-factory
 documentationcenter: ""
 author: douglaslMS 
@@ -14,9 +14,9 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: douglasl
 ---
-# Custom setup for the Azure-SSIS integration runtime
+# Customize setup for the Azure-SSIS integration runtime
 
-The custom setup interface for the Azure-SSIS Integration Runtime lets you alter the default operating configuration or environment (for example, to start additional Windows services) or install additional components (for example, assemblies, drivers, or extensions) on each node of your Azure-SSIS IR. In general, it provides an interface to add your own setup steps during the provisioning or reconfiguration of your Azure-SSIS IR.
+The custom setup interface for the Azure-SSIS Integration Runtime provides an interface to add your own setup steps during the provisioning or reconfiguration of your Azure-SSIS IR. Custom setup lets you alter the default operating configuration or environment (for example, to start additional Windows services) or install additional components (for example, assemblies, drivers, or extensions) on each node of your Azure-SSIS IR.
 
 You configure your custom setup by preparing a script and its associated files, and uploading them into a blob container in your Azure Storage account. You provide a Shared Access Signature (SAS) Uniform Resource Identifier (URI) for your container when you provision or reconfigure your Azure-SSIS IR. Each node of your Azure-SSIS IR then downloads the script and its associated files from your container and runs your custom setup with elevated privileges. When custom setup is finished, each node uploads the standard output of execution and other logs into your container.
 
@@ -27,7 +27,7 @@ You can install both free or unlicensed components, and paid or licensed compone
 
 -   If you want to use `gacutil.exe` to install assemblies in the Global Assembly Cache (GAC), you need to provide it as part of your custom setup, or use the copy provided in the Public Preview container.
 
--   If you need to join your Azure-SSIS IR with custom setup to a VNet, only Azure Resource Manager VNet is supported. Classic VNet is not supported.
+-   If you need to join your Azure-SSIS IR with custom setup to a virtual network, only Azure Resource Manager virtual network is supported. Classic virtual network is not supported.
 
 -   Administrative share is currently not supported on the Azure-SSIS IR.
 

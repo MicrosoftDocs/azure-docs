@@ -27,7 +27,7 @@ The following changes are being announced with the deprecation of the OMS portal
 
 - The new alert management experience will replace the Alert Management solution.
 - User access management will be done in the Azure portal using Azure role-based access control.
-- The Application Insights Connector and solution are no longer required since the same functionality can be enabled through cross-workspace queries.
+- The Application Insights Connector are no longer required since the same functionality can be enabled through cross-workspace queries.
 - The OMS Mobile App will be deprecated. 
 - The NSG solution is being replaced with enhanced functionality available via Traffic Analytics solution.
 
@@ -94,10 +94,10 @@ The [Azure Network Security Group Analytics solution](log-analytics-azure-networ
 
 This solution analyzes NSG Flow logs and provides insights into the following.
 
-- Traffic flows across your networks between Azure and Internet, public cloud regions, VNETs, and subnets
-- applications and protocols on your network, without the need for sniffers or dedicated flow collection appliances.
-- Top talkers, chatty applications, VM conversations in the cloud, traffic hotspots
-- sources and destinations of traffic across VNETs, inter-relationships between critical business services and applications.
+- Traffic flows across your networks between Azure and Internet, public cloud regions, VNETs, and subnets.
+- Applications and protocols on your network, without the need for sniffers or dedicated flow collection appliances.
+- Top talkers, chatty applications, VM conversations in the cloud, traffic hotspots.
+- Sources and destinations of traffic across VNETs, inter-relationships between critical business services and applications.
 - Security including malicious traffic, ports open to the Internet, applications or VMs attempting Internet access.
 - Capacity utilization, which helps you eliminate issues of over provisioning or underutilization.
 

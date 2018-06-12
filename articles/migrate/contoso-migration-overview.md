@@ -14,7 +14,7 @@ ms.author: raynew
 
 This is the first article in a series that demonstrates how the fictitious organization Contoso are migrating their on-premises infrastructure to the [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) cloud. 
 
-The article series provides sample example deployments that help you to understand and try out different options for migration to Azure, and for working in a hybrid environment. Articles show how the Contoso company completes its migration mission, but pointers for general reading and specific instructions are provided throughout.
+The article series provides example deployments that help you to understand and try out different options for migration to Azure, and for working in a hybrid environment. Articles show how the Contoso company completes its migration mission, but pointers for general reading and specific instructions are provided throughout.
 
 ## Introduction
 

@@ -27,7 +27,7 @@
     href: quickstart-create-data-factory-resource-manager-template.md
 - name: Tutorials
   items:
-  - name: 1 - Deploy SSIS packages to Azure
+  - name: 1 - Create Azure-SSIS integration runtime
     items:
     - name: User interface (UI)
       href: tutorial-deploy-ssis-packages-azure.md
@@ -362,7 +362,7 @@
       href: monitor-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
-    - name: Manage Azure-SSIS integration runtime
+    - name: Reconfigure Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
   - name: Create integration runtime
     items:
@@ -374,7 +374,7 @@
       href: create-azure-ssis-integration-runtime.md
   - name: Run SSIS packages in Azure
     items:
-    - name: Join Azure-SSIS IR to a VNET
+    - name: Join Azure-SSIS IR to a virtual network
       href: join-azure-ssis-integration-runtime-virtual-network.md
     - name: Enable Azure AD authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
