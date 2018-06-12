@@ -7,7 +7,7 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/12/2018
 ms.author: alkohli
 
 ---
@@ -75,12 +75,19 @@ For import jobs, only the first data volume on the drive is processed. The data 
 
 ### Supported external USB adaptors
 
-When preparing hard drives and copying the data using the WAImportExport tool, you can use following (off-the-shelf) external USB adaptors: 
+When preparing hard drives and copying the data using the WAImportExport tool, you can use external USB adaptors.
+
+The following list of adaptors was tested by Microsoft:
 - Anker 68UPSATAA-02BU
 - Anker 68UPSHHDS-BU
 - Startech SATADOCK22UE
 - Orico 6628SUS3-C-BK (6628 Series)
 - Thermaltake BlacX Hot-Swap SATA External Hard Drive Docking Station (USB 2.0 & eSATA)
+
+If the above are not available, you can also use:
+ - an off-the-shelf external USB 3.0 (or later) SATA docking station.
+ - the station should match or exceed the capacity of the drives you are using. 
+ - the station should be able to fit your 2.5" or 3.5" HDD or SSD without the need for any tool
 
 
 ## Next steps
