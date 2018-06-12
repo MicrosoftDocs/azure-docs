@@ -4381,11 +4381,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-cli.md",
-            "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli2",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-net-sdk.md",
             "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli2",
             "redirect_document_id": false
@@ -4394,6 +4389,11 @@
             "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-python.md",
             "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli2",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-cli2.md",
+            "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/data-lake-analytics/data-lake-analytics-u-sql-combine-data-with-joins.md",
