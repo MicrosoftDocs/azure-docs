@@ -346,6 +346,9 @@ Contents of `ptvs_virtualenv_proxy.py`:
 ## Troubleshooting - Virtual Environment
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+## Troubleshooting - Startup Errors
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
+
 ## Next steps
 For more information, see the [Python Developer Center](/develop/python/).
 
