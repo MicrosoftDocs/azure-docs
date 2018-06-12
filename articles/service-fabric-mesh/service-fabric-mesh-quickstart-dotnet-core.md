@@ -74,17 +74,7 @@ When you're done browsing the deployed service, you can stop debugging your proj
 
 ## Clean up resources
 
-When you are finished, delete all of the resources you created. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group.
-
-```azurecli
-az group delete --resource-group sfmeshTutorial1RG
-```
-
-```powershell
-Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
-```
-
-Alternatively, you can delete the resource group [from the portal](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources).
+Because we did not publish the website to Azure, there are no resources to clean up.
 
 ## Next steps
 To learn more about Service Fabric Mesh, read the overview:
