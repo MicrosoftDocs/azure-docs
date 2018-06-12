@@ -82,7 +82,7 @@
       href: sql-database-elastic-pool.md
     - name: vCore-based Service tiers - onsolidate
       href: sql-database-service-tiers-vcore.md
-    - name: vCore-based resource limits - onsolidate
+    - name: vCore-based resource limits - consolidate
       href: sql-database-vcore-resource-limits.md  
     - name: DTU-based Service tiers - onsolidate
       href: sql-database-service-tiers-dtu.md
@@ -103,6 +103,7 @@
     - name: Overview
       href: sql-database-managed-instance.md
     - name: Connectivity architecture for Managed Instance - pull from overview article
+      href: blah.md
     - name: VNet configuration
       href: sql-database-managed-instance-vnet-configuration.md
     - name: Custom DNS
@@ -122,8 +123,11 @@
   - name: Scale up and scale down    
   - items:
     - name: vCore-based purchasing model - from existing service tier article
+      href: blah.md
     - name: DTU-based purchasing model - from existing service tier article
+      href: blah.md
     - name: Migrate to vCore-based purchasing model - from existing service tier article
+      href: blah.md
   - name: Security   
     items:
     - name: Overview
