@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: app-service
-author: cephaslin
+author: cephalin
 ms.service: app-service
 ms.topic: include
 ms.date: 06/11/2018
