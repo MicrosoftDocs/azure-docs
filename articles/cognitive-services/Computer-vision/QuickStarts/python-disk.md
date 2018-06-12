@@ -1,7 +1,7 @@
 ---
-title: Computer Vision Python quickstart analyze image on disk | Microsoft Docs
+title: Computer Vision Python quickstart analyze a local image | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze an image from disk using Computer Vision with Python in Cognitive Services.
+description: In this quickstart, you analyze a local image using Computer Vision with Python in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -12,9 +12,9 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze a Disk Image with Python
+# Quickstart: Analyze a Local Image with Python
 
-In this quickstart, you analyze an image from disk using Computer Vision.
+In this quickstart, you analyze a local image using Computer Vision. To analyze a remote image, see [Analyze a Remote Image with Python](python-analyze.md).
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
@@ -24,9 +24,9 @@ You can run this quickstart in a step-by step fashion using a Jupyter notebook o
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Analyze an image from disk
+## Analyze a local image
 
-This sample is similar to [Analyze an image](python-analyze.md) except the image to analyze is read from disk. Two changes are required:
+This sample is similar to [Analyze a Remote Image with Python](python-analyze.md) except the image to analyze is read locally from disk. Two changes are required:
 
 - Add a `{"Content-Type": "application/octet-stream"}` header to the request.
 - Add the image data (byte array) to the body of the request.

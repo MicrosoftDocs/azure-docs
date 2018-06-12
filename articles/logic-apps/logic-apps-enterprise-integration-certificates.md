@@ -4,7 +4,7 @@ description: Add certificates to secure B2B messages with the Enterprise Integra
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: 
 
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d

@@ -11,9 +11,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
-ms.author: danha; mbullwin
+ms.reviewer: danha
+ms.author: mbullwin
 
 ---
 # Using Analytics in Application Insights
