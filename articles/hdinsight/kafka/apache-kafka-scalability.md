@@ -4,7 +4,7 @@ description: 'Learn how to configure managed disks for Apache Kafka cluster on A
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.service: hdinsight
@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/20/2018
+ms.date: 05/30/2018
 ms.author: larryfr
 ---
 

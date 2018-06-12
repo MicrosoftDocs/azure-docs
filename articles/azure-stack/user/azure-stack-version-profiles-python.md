@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using API version profiles with Python in Azure Stack | Microsoft Docs
 description: Learn about using API version profiles with Python in Azure Stack.
 services: azure-stack
@@ -36,7 +36,7 @@ The Python SDK supports API version profiles to target different cloud platforms
 ## Install Azure Python SDK
 
 1.	Install Git from [the official site](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-2.	For Instructions to install the Python SDK, see [Azure for Python developers](https://docs.microsoft.com/en-us/python/azure/python-sdk-azure-install?view=azure-python).
+2.	For Instructions to install the Python SDK, see [Azure for Python developers](https://docs.microsoft.com/python/azure/python-sdk-azure-install?view=azure-python).
 3.	If not available, create a subscription and save the Subscription ID to be used later. For Instructions to create a subscription, see [Create subscriptions to offers in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md). 
 4.	Create a service principal and save its ID and secret. For instructions to create a service principal for Azure Stack, see [Provide applications access to Azure Stack](../azure-stack-create-service-principals.md). 
 5.	Make sure your service principal has contributor/owner role on your subscription. For instructions on how to assign role to service principal, see [Provide applications access to Azure Stack](../azure-stack-create-service-principals.md).
@@ -114,7 +114,7 @@ The examples are not necessarily in the order shown in the above list.
     pip install -r requirements.txt
     ````
 
-5.  Create a [service principal](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) to work with Azure Stack. Make sure your service principal has [contributor/owner role](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal) on your subscription.
+5.  Create a [service principal](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) to work with Azure Stack. Make sure your service principal has [contributor/owner role](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal) on your subscription.
 
 6.  Set the following variables and export these environment variables into your current shell. 
 
@@ -126,7 +126,7 @@ The examples are not necessarily in the order shown in the above list.
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image).
+7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
 8. Run the sample.
 

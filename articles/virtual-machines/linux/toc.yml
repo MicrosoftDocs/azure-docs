@@ -88,7 +88,9 @@
       - name: Setup GPU drivers
         href: n-series-driver-setup.md      
     - name: High performance compute
-      href: sizes-hpc.md    
+      href: sizes-hpc.md   
+    - name: Previous generations
+      href: sizes-previous-gen.md       
     - name: Azure compute units (ACU)
       href: acu.md 
     - name: Benchmark scores
@@ -140,6 +142,8 @@
       href: create-cli-complete.md
     - name: Use a template
       href: create-ssh-secured-vm-from-template.md
+    - name: Use REST API
+      href: create-vm-rest-api.md
     - name: Copy or clone a VM
       href: copy-vm.md
   - name: Secure VMs

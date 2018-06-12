@@ -68,7 +68,7 @@ Blockchain Workbench deployment requires registration of an Azure AD application
 Next, you need to modify the application manifest to use application roles within Azure AD to specify Blockchain Workbench administrators.  For more information about application manifests, see [Azure Active Directory application manifest](../active-directory/develop/active-directory-application-manifest.md).
 
 1. For the application you registered, select **Manifest** in the registered application details pane.
-2. Generate a GUID. You can use the PowerShell command `[guid]::NewGuid()` or online tools to generate a GUID. 
+2. Generate a GUID. You can generate a GUID using the PowerShell command [guid] :: NewGuid () or New-GUID cmdlet. Another option is to use a GUID generator website.
 3. You are going to update the **appRoles** section of the manifest. In the Edit manifest pane, select **Edit** and replace `"appRoles": []` with the provided JSON. Be sure to replace the value for the **id** field with the GUID you generated. 
 
     ``` json

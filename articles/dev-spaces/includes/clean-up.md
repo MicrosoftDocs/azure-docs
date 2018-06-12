@@ -12,12 +12,12 @@ ms.topic: "include"
 manager: "douge"
 ---
 ## Clean up
-To completely delete an Azure Dev Space, including all the running services within it, use the `azds resource rm` command. Bear in mind that this action is irreversible.
+To completely delete an Azure Dev Spaces instance on a cluster, including all the dev spaces and running services within it, use the `az aks remove-dev-spaces` command. Bear in mind that this action is irreversible. You can add support for Azure Dev Spaces again on the cluster, but it will be as if you are starting again. Your old services and spaces won't be restored.
 
 The following example lists the Azure Dev Spaces in your active subscription, and then deletes the Dev Spaces resources named 'mydevspace' that is in the resource group 'mydevspace-rg'.
 
 ```cmd
-    azds resource list
-    azds resource rm --name mydevspace --resource-group mydevspace-rg
+    azds list
+    az aks remove-dev-spaces --name mydevspace --resource-group mydevspace-rg
 ```
 
