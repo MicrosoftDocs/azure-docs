@@ -87,7 +87,7 @@ When create an AKS cluster, the following parameters are configurable for advanc
 
 ## Configure networking CLI
 
-When you create and AKS cluster with the Azure CLI, you can also configuring advanced networking. Use the following command to create a new AKS cluster with advanced networking features enabled.
+When you create and AKS cluster with the Azure CLI, you can also configuring advanced networking. Use the following commands to create a new AKS cluster with advanced networking features enabled.
 
 First, get the subnet resource ID for the existing subnet into which the AKS cluster will be joined.
 
