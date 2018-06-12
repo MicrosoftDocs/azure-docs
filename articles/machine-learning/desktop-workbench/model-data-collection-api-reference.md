@@ -17,7 +17,7 @@ ROBOTS: NOINDEX
 ---
 # Azure Machine Learning Model Data Collection API reference
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/overview-what-happened-to-workbench.md).**
 
 Model data collection allows you to archive model inputs and predictions from a machine learning web service. See the [model data collection how-to guide](how-to-use-model-data-collection.md) to understand how to install `azureml.datacollector` on your Windows and Linux machine.
 

@@ -24,7 +24,7 @@ ROBOTS: NOINDEX
 
 # Server workload forecasting on terabytes of data
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/what-happened-to-workbench.md).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/overview-what-happened-to-workbench.md).**
 
 
 
