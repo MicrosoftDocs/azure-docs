@@ -4,7 +4,7 @@ description: Use the Azure portal to deploy modules to an IoT Edge device
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 05/30/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
@@ -37,18 +37,19 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
 ### Add modules
 
-1. On the **Add modules** page, select **Add**. 
-2. Select the type of module from the drop-down list: 
+1. In the **Registry settings** section of the page, provide the credentials to access any private container registries that contain your module images. 
+2. In the **Deployment modules** section of the page, select **Add**. 
+3. Select the type of module from the drop-down list: 
    * **IoT Edge Module** - the default option.
    * **Azure Stream Analytics Module** - only modules generated from an Azure Stream Analytics workload. 
 
-3. Provide a name for the module, then specify the container image. For example: 
+4. Provide a name for the module, then specify the container image. For example: 
    * **Name** - tempSensor
    * **Image URI** - microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview
-4. Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
-5. Select **Save**.
-6. Repeat steps 1-5 to add additional modules to your deployment. 
-7. Select **Next** to continue to the routes section.
+5. Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
+6. Select **Save**.
+7. Repeat steps 2-6 to add additional modules to your deployment. 
+8. Select **Next** to continue to the routes section.
 
 ### Specify routes
 

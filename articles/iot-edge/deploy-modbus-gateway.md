@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 06/07/2018
 ms.author: kgremban
 ---
 
@@ -38,10 +38,10 @@ If you want to create your own module and customize it for your environment, the
 
 ## Run the solution
 1. On the [Azure portal](https://portal.azure.com/), go to your IoT hub.
-2. Go to **IoT Edge (preview)** and select your IoT Edge device.
+2. Go to **IoT Edge (preview)** and click on your IoT Edge device.
 3. Select **Set modules**.
 4. Add the Modbus module:
-   1. Select **Add IoT Edge module**.
+   1. Click **Add** and select **IoT Edge module**.
    2. In the **Name** field, enter "modbus".
    3. In the **Image** field, enter the image URI of the sample container: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
    4. Check the **Enable** box to update the module twin's desired properties.
@@ -83,7 +83,7 @@ If you want to create your own module and customize it for your environment, the
 
 8. Select **Next**. 
 9. In the **Review Template** step, select **Submit**. 
-10. Return to the device details page and select **Refresh**. You should see the new **modbus** running along with the IoT Edge runtime.
+10. Return to the device details page and select **Refresh**. You should see the new **modbus** module running along with the IoT Edge runtime.
 
 ## View data
 View the data coming through the modbus module:
