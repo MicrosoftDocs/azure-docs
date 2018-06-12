@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+services: app-service
+author: cephaslin
+ms.service: app-service
+ms.topic: include
+ms.date: 06/11/2018
+ms.author: cephalin
+ms.custom: include file
+---
+ 
 If Python encounters an error while starting your application, only a simple error page will be returned (e.g. "The page cannot be displayed because an internal server error has occurred.").
 
 To capture Python application errors:
