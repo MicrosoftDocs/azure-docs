@@ -18,7 +18,7 @@
 - name: Tutorials
   items: 
   - name: Add prebuilt intents and entities
-    href: luis-tutorial-prebuilt-intents-and-entities.md
+    href: luis-tutorial-prebuilt-intents-entities.md
   - name: Get data from entity
     items: 
     - name: Simple entity
