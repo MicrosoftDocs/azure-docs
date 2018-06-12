@@ -118,11 +118,12 @@
     - name: General Purpose / Basic and Standard (from existing HA article)
       href: sql-database-high-availability.md  
     - name: Business Critical / Premium (from existing HA article)
-- name: Scale up and scale down    
-  - items:
-    - name: vCore-based purchasing model (from existing service tier article)
-    - name: DTU-based purchasing model (from existing service tier article)
-    - name: Migrate to vCore-based purchasing model (from existing service tier article)
+      href: sql-database-high-availability.md  
+  - name: Scale up and scale down    
+    - items:
+      - name: vCore-based purchasing model (from existing service tier article)
+      - name: DTU-based purchasing model (from existing service tier article)
+      - name: Migrate to vCore-based purchasing model (from existing service tier article)
   - name: Security   
     items:
     - name: Overview
