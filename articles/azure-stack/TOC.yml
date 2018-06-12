@@ -128,6 +128,8 @@
       href: azure-stack-monitor-health.md
     - name: Manage network resources
       href: azure-stack-viewing-public-ip-address-consumption.md
+    - name: Change user subscription owner
+      href: azure-stack-change-subscription-owner.md
     - name: Manage Windows Azure Pack VMs
       href: azure-stack-manage-windows-azure-pack.md
     - name: Start and stop Azure Stack
