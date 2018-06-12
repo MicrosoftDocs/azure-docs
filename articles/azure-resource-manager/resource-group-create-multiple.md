@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 06/12/2018
 ms.author: tomfitz
 
 ---
@@ -219,6 +219,34 @@ Resource Manager expands the `copy` array during deployment. The name of the arr
       ...
 ```
 
+The copy element is an array so you can specify more than one property for the resource. Add an object for each property to create.
+
+```json
+{
+    "name": "string",
+    "type": "Microsoft.Network/loadBalancers",
+    "apiVersion": "2017-10-01",
+    "properties": {
+        "copy": [
+          {
+              "name": "loadBalancingRules",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          },
+          {
+              "name": "probes",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          }
+        ]
+    }
+}
+```
+
 You can use resource and property iteration together. Reference the property iteration by name.
 
 ```json
@@ -304,6 +332,27 @@ To create multiple instances of a variable, use the `copy` element in the variab
     }
   }
 }
+```
+
+With either apporoach, the copy element is an array so you can specify more than one variable. Add an object for each variable to create.
+
+```json
+"copy": [
+  {
+    "name": "first-variable",
+    "count": 5,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('first-varialbe'))]",
+    }
+  },
+  {
+    "name": "second-variable",
+    "count": 3,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('second-varialbe'))]",
+    }
+  },
+]
 ```
 
 ## Depend on resources in a loop
