@@ -132,7 +132,7 @@ Return to the browser tab for the LUIS website and create a new intention to app
 
     The labeled intent is outlined in red because LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
 
-    [Train and publish](#Train-and-publish-the-app) again. 
+    [Train and publish](#train-and-publish-the-app) again. 
 
 ## Query endpoint for ApplyForJob intent
 On the **Publish** page, select the **endpoint** link at the bottom of the page. In the new browser window, enter `Can I submit my resume for job 235986` at the end of the URL. 
