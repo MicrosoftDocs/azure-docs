@@ -45,9 +45,7 @@ You can't delete a tenant in Azure AD until it passes several checks. These chec
 
 5. If your tenant does not pass one or more checks, you're provided with a link to more information on how to pass. After you pass all checks, select **Delete** to complete the process.
 
-## Questions about directory deletion
-
-**Q: Can I delete my Azure AD tenant after a subscription has expired? Is there a lifecycle of license-based subscriptions?**
+## I have an expired subscription but I can't delete the tenant
 
 **A:** When you configured your Azure Active Directory tenant, you may have also activated license-based subscriptions for your organization like Azure Active Directory Premium P2, Office 365 Business Premium, or Enterprise Mobility + Security E5. These subscriptions block directory deletion until they are fully deleted, to avoid accidental data loss. The subscriptions must be in a Deprovisioned state to allow tenant deletion. An Expired or Canceled subscription moves to the Disabled state, and then finally stage is the Deprovisoned state. 
 
@@ -64,7 +62,7 @@ You can put a subscription into a Deprovisoned state to be deleted in 3 days usi
 
 1. Sign in to the [Microsoft Store for Business admin center](https://businessstore.microsoft.com/en-us/manage/) with an account that is a Global Administrator in the tenant. If you are trying to delete the “Contoso” tenant that has the initial default domain contoso.onmicrosoft.com, sign on with a UPN such as admin@contoso.onmicrosoft.com.
 
-2. Go to the **Manage** tab and select **Products and Services**, then choose what subscription you want to cancel. After you click **Cancel**, refresh the page.
+2. Go to the **Manage** tab and select **Products and Services**, then choose the subscription you want to cancel. After you click **Cancel**, refresh the page.
   
   ![Delete link for deleting subscription](./media/directory-delete-howto/delete-command.png)
   
