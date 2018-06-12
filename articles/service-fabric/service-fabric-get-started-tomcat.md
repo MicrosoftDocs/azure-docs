@@ -38,11 +38,16 @@ Follow the steps in this section to build a Docker image based on an Apache Tomc
 1. Clone the Service Fabric Tomcat application on your development computer.
 
    ```bash
-   git clone https://github.com/suhuruli/dev_test.git
-   cd dev_test
-   git checkout TomcatServiceFabric 
+   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
    ```
-1. Create a Docker file based on the official [Tomcat image](https://hub.docker.com/_/tomcat/) located on Docker Hub and the application you cloned in the previous step. In the *dev_test* directory, create a file named *Dockerfile* (with no file extension). Add the following to *Dockerfile* and save your changes:
+
+1. Change directories to the Apache Tomcat server sample directory (*service-fabric-java-getting-started/container-apache-tomcat-web-server-sample*):
+
+   ```bash
+   cd service-fabric-java-getting-started/container-apache-tomcat-web-server-sample
+   ```
+
+1. Create a Docker file based on the official [Tomcat image](https://hub.docker.com/_/tomcat/) located on Docker Hub and the Tomcat server sample. In the *service-fabric-java-getting-started/container-apache-tomcat-web-server-sample* directory, create a file named *Dockerfile* (with no file extension). Add the following to *Dockerfile* and save your changes:
 
    ```
    FROM library/tomcat
@@ -52,7 +57,7 @@ Follow the steps in this section to build a Docker image based on an Apache Tomc
    COPY ./ApacheTomcat /usr/local/tomcat
    ```
 
-   Read the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) for more information.
+   See the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) for more information.
 
 
 4. Run the `docker build` command to create the image that runs your web application:
@@ -127,7 +132,7 @@ Now that you've verified that the Tomcat image runs in a container on your devel
 ## Build and deploy the Service Fabric container application
 Now that you've pushed the Tomcat image to a container registry, you can build and deploy a Service Fabric container application that pulls the Tomcat image from your registry and runs it as a containerized service in your cluster. 
 
-1. Create a new directory (outside of the dev_test directory structure). Switch to it and use Yeoman to create a scaffold for a container application: 
+1. Create a new directory outside of your local clone (outside of the *service-fabric-java-getting-started* directory tree). Switch to it and use Yeoman to create a scaffold for a container application: 
 
    ```bash
    yo azuresfcontainer 
@@ -142,7 +147,7 @@ Now that you've pushed the Tomcat image to a container registry, you can build a
 
    ![Service Fabric Yeoman generator for containers](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
-10. In the service manifest, add the following XML under the root **ServiceManfest** tag to open the port your application is listening to requests on. The **Endpoint** tag declares the protocol and port for the endpoint. For this article, the containerized service listens on port 8080: 
+10. In the service manifest (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*), add the following XML under the root **ServiceManfest** tag to open the port your application is listening to requests on. The **Endpoint** tag declares the protocol and port for the endpoint. For this article, the containerized service listens on port 8080: 
 
     ```xml
     <Resources>
@@ -155,7 +160,7 @@ Now that you've pushed the Tomcat image to a container registry, you can build a
 	</Resources>
     ```
 
-11. In the application manifest, under the **ServiceManifestImport** tag, add the following XML. Replace the **AccountName** and **Password** in the **RepositoryCredentials** tag with the name of your container registry and the password required to log in to it.
+11. In the application manifest (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), under the **ServiceManifestImport** tag, add the following XML. Replace the **AccountName** and **Password** in the **RepositoryCredentials** tag with the name of your container registry and the password required to log in to it.
 
     ```xml
     <Policies>
