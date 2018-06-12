@@ -92,10 +92,8 @@
         href: sql-database-what-is-a-dtu.md
       - name: DTU benchmark - onsolidate
         href: sql-database-benchmark-overview.md
-    - name: Logical servers
+    - name: Logical servers and databases
       href: sql-database-servers-databases.md
-    - name: Single databases
-      href: sql-database-single-database-resources.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
     - name: Connectivity architecture for logical servers, pools, and databases
@@ -128,9 +126,9 @@
       href: sql-database-high-availability.md  
   - name: Scale up and scale down    
     items:
-    - name: vCore-based purchasing model - from existing service tier article
-      href: blah.md
-    - name: DTU-based purchasing model - from existing service tier article
+    - name: Scaling a single database
+      href: sql-database-single-database-scaling.md
+    - name: Scaling an elastic pool
       href: blah.md
     - name: Migrate to vCore-based purchasing model - from existing service tier article
       href: blah.md
@@ -328,20 +326,30 @@
         href: sql-database-elastic-database-perf-counters.md
       - name: Use entity framework
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-    - name: Cross-database operations
+  - name: Cross-database operations
+    items:
+    - name: Elastic queries
       items:
-      - name: Elastic queries
-        items:
-        - name: Overview
-          href: sql-database-elastic-query-overview.md
-        - name: Query vertically partitioned data
-          href: sql-database-elastic-query-getting-started-vertical.md
-        - name: Report across scaled-out data tier
-          href: sql-database-elastic-query-horizontal-partitioning.md
-        - name: Query across tables with different schemas
-          href: sql-database-elastic-query-vertical-partitioning.md
-      - name: Elastic transactions
-        href: sql-database-elastic-transactions-overview.md
+      - name: Overview
+        href: sql-database-elastic-query-overview.md
+      - name: Query vertically partitioned data
+        href: sql-database-elastic-query-getting-started-vertical.md
+      - name: Report across scaled-out data tier
+        href: sql-database-elastic-query-horizontal-partitioning.md
+      - name: Query across tables with different schemas
+        href: sql-database-elastic-query-vertical-partitioning.md
+    - name: Elastic transactions
+      href: sql-database-elastic-transactions-overview.md
+    - name: Elastic database jobs
+      items:
+      - name: Overview
+        href: blah.md
+      - name: Create jobs (T-SQL)
+        href: blah.md
+      - name: Create jobs (PowerShell)
+        href: blah.md
+      - name: Migrate to new Elastic database jobs  
+        href: blah.md
       - name: Elastic jobs - deprecated
         items:
         - name: Overview

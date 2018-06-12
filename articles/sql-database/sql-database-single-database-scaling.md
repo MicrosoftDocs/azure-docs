@@ -9,7 +9,6 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: carlrab
-
 ---
 # Manage resources for a single database in Azure SQL Database
 
