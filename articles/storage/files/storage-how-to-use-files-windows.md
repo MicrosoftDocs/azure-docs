@@ -137,7 +137,7 @@ Start-Process -FileName PowerShell.exe -Credential $credential -LoadUserProfile
 
 This will open a new PowerShell window under the user context of your service account (or user account). You can then use the cmdkey utility as described [above](#persisting-azure-file-share-credentials-in-windows).
 
-Storing the credentials on a remote machine is not however possible, as cmdkey does not allow access, even for additions, to its credential store when the user is logged in via PowerShell remoting. We recommend logging into the machine with [Remote Desktop](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
+Storing the credentials on a remote machine using PowerShell remoting is not however possible, as cmdkey does not allow access, even for additions, to its credential store when the user is logged in via PowerShell remoting. We recommend logging into the machine with [Remote Desktop](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
 
 ### Mount the Azure file share with PowerShell
 Run the following commands from a regular (i.e. not an elevated) PowerShell session to mount the Azure file share. Remember to replace `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>`, and `<desired-drive-letter>` with the proper information.
@@ -206,7 +206,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 7. When you are ready to dismount the Azure file share, you can do so by right-clicking on the entry for the share under the **Network locations** in File Explorer and selecting **Disconnect**.
 
 ## Securing Windows/Windows Server
-In order to mount an Azure file share on Windows, port 445 must be accessible. Many organizations block port 445 access to Azure because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with Windows and Windows Server. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and all supported versions of Windows and Windows Server make it possible to remove or disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) removing or disabling the SMB 1 client and server in Windows before continuing with this guide.
+In order to mount an Azure file share on Windows, port 445 must be accessible. Many organizations block port 445 access to Azure because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with Windows and Windows Server. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and all supported versions of Windows and Windows Server make it possible to remove or disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) removing or disabling the SMB 1 client and server in Windows before mounting Azure file shares in production.
 
 The following table provides detailed information on the status of SMB 1 each version of Windows:
 
