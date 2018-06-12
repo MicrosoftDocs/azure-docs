@@ -37,8 +37,8 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 
 ## Functional limitations
 ### Scale operations
-1.  Dynamic scaling to and from the Basic pricing tiers is currently not supported.
-2.	Decreasing server storage size is currently not supported.
+- Dynamic scaling to and from the Basic pricing tiers is currently not supported.
+- Decreasing server storage size is currently not supported.
 
 ### Server version upgrades
 - Automated migration between major database engine versions is currently not supported.
@@ -47,8 +47,8 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 - Dynamically moving servers across subscriptions and resource groups is currently not supported.
 
 ### Point-in-time-restore (PITR)
-1.	When using the PITR feature, the new server is created with the same configurations as the server it is based on.
-2.	Restoring a deleted server is not supported.
+- When using the PITR feature, the new server is created with the same configurations as the server it is based on.
+- Restoring a deleted server is not supported.
 
 ## Next steps
 - Understand [what’s available in each pricing tier](concepts-pricing-tiers.md)

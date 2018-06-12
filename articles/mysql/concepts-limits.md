@@ -71,14 +71,14 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 - Automated migration between major database engine versions is currently not supported.
 
 ### Point-in-time-restore
-- Restoring to different service tier and/or Compute Units and Storage size is not allowed.
+- When using the PITR feature, the new server is created with the same configurations as the server it is based on.
 - Restoring a deleted server is not supported.
 
 ### Subscription management
 - Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
 ## Current known issues
-- MySQL server instance displays the wrong server version after connection is established. To get the correct server instance versioning, use select version(); command at the MySQL prompt.
+- MySQL server instance displays the wrong server version after connection is established. To get the correct server instance engine version, use the `select version();` command.
 
 ## Next steps
 - [What’s available in each service tier](concepts-pricing-tiers.md)
