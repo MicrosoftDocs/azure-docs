@@ -554,7 +554,7 @@ For Azure CLI 2.0, use the following commands to sign in, choose your subscripti
 az login
 az account list
 az account set <subscriptionNameOrId>
-az appservice web log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <resource group name> --name <function app name>
 ```
 
 For Azure PowerShell, use the following commands to add your Azure account, choose your subscription, and stream log files:
