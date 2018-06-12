@@ -23,38 +23,32 @@ Is your Service Fabric application and cluster production ready? You may have be
 
 
 1. For clusters with more than 50 cores, create separate primary and secondary node types. 
-2. Production clusters must be secure. For more information, see [Service Fabric cluster security scenarios](./service-fabric-cluster-security)
-2. For clusters with multiple node types, add placement constraints to ensure that the primary node type is reserved for system services.
-3. For clusters with multiple node types, set the primary node type durability level to silver or gold (since system services are stateful).
-4. Add resource constraints on services, so that they never exceed 75% of node resources. 
-5. For any node type running stateful workloads, set the durability level to silver or gold.
-6. Perform load/perf/scale tests on your workloads to identify capacity requirements for your cluster. 
-7. Your services and applications are monitored and application logs are being generated and stored, with alerting.
-8. The cluster is monitored with alerting. 
-9. The underlying VMSS infrastructure is monitored with alerting, so you are informed about high loads and can add capacity as required.
-10. Ensure the cluster has primary and secondary certificates always (so you don't get locked out).
-11. Keep separate clusters for development, staging and production. 
-12. Applications and cluster upgrades are always tested in development and staging clusters first.
-13. Turn off automatic upgrades in production clusters. 
-14. Establish a Recovery Point Objective (RPO) for your service, and the process to handle it.
-15. Ensure offline backup of all data, so you can recover from unlikely large scale outages. 
-16. Plan for scaling your cluster in/out (manually or programmatically)
-17. Estabilish a CI/CD pipeline so that your latest changes are being continually tested.
+2. Production clusters must be [secure](service-fabric-cluster-security.md).
+3. For clusters with multiple node types, add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) to ensure that the primary node type is reserved for system services.
+4. Add [resource constraints on containers and services](service-fabric-resource-governance.md), so that they never exceed 75% of node resources. 
+5. Understand and set the [durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Silver or higher durability level is recommended for node types running stateful workloads. The primary node type should have a durability level set to Silver or higher.
+6. Understand and pick the [reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of the node type. Silver or higher reliability is recommended.
+7. Perform load/perf/scale tests on your workloads to identify [capacity requirements](service-fabric-cluster-capacity.md) for your cluster. 
+8. Your services and applications are monitored and application logs are being generated and stored, with alerting. For example, see [Add logging to your Service Fabric application](service-fabric-how-to-diagnostics-log.md) and [Monitor containers with Log Analytics](service-fabric-diagnostics-oms-containers.md).
+9. The cluster is monitored with alerting (for example, with [OMS](service-fabric-diagnostics-event-analysis-oms.md)). 
+10. The underlying VMSS infrastructure is monitored with alerting (for example, with [Log Analytics](service-fabric-diagnostics-oms-agent.md).
+11. Ensure the cluster has [primary and secondary certificates](service-fabric-cluster-security-update-certs-azure.md) always (so you don't get locked out).
+12. Keep separate clusters for development, staging and production. 
+13. [Application upgrades](service-fabric-application-upgrade) and [cluster upgrades](service-fabric-tutorial-upgrade-cluster.md) are tested in development and staging clusters first.
+14. Turn off automatic upgrades in production clusters. 
+16. Establish a Recovery Point Objective (RPO) for your service, and set up a [disaster recovery process](service-fabric-disaster-recover.md) and test it out.
+17. Ensure offline backup of [Reliable Services and Reliable Actors](service-fabric-reliable-services-backup-restore.md) and test the restoration process. 
+18. Plan for [scaling](service-fabric-cluster-scaling.md) your cluster manually or programmatically.
+19. Plan for [patching](service-fabric-patch-orchestration-application.md) your cluster nodes. 
+20. Estabilish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+21. Test your development & staging clusters with the [Fault Analysis Service](service-fabric-testability-overview.md) and induce controlled [chaos](service-fabric-controlled-chaos.md). 
+22. Plan for [scaling](service-fabric-concepts-scalability.md) your applications.
 
 While the above list is a pre-requisite to go into production, the following items should also be considered:
-18. Plug into the Service Fabric health and load reporting APIs.
-19. Deploy a custom watchdog that is monitoring your application and reports load/health to the Service Fabric runtime.
-20. Add custom metrics in the cluster to enable load balancing based on them. 
+23. Plug into the [Service Fabric health model](service-fabric-health-introduction.md) for extending the built-in health evaluation and reporting.
+24. Deploy a custom watchdog that is monitoring your application and reports [load](service-fabric-cluster-resource-manager-metrics.md) for [resource balancing](service-fabric-cluster-resource-manager-balancing). 
 
 ## Next steps
-* Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
-* Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
+* [Deploy a Service Fabric Windows cluster][service-fabric-tutorial-create-vnet-and-windows-cluster.md]
+* [Deploy a Service Fabric Linux cluster][service-fabric-tutorial-create-vnet-and-linux-cluster.md]
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
-* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
-
-[hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
-[sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
-
-[1]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
-[2]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
-[3]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png
