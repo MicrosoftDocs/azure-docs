@@ -191,7 +191,7 @@ To learn more about ASEv1, see [Introduction to the App Service Environment v1][
 [6]: ./media/how_to_create_an_external_app_service_environment/createexternalase-network.png
 [7]: ./media/how_to_create_an_external_app_service_environment/createexternalase-createwafc.png
 [8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-aspcreatewafc.png
-[8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
+[9]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
 
 
 
