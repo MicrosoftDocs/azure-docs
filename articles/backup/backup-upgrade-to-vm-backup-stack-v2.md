@@ -44,7 +44,7 @@ By default, snapshots are kept for seven days. This feature allows the restore t
 
 * If you do a restore from a snapshot recovery point for a premium VM, you see a temporary storage location that is used while the VM is created as part of the restore.
 
-* For premium storage accounts, the snapshots that are taken for instant recovery occupy 10 TB of allocated space.
+* For premium storage accounts, the snapshots that are taken for instant recovery will count towards the limit of 10 TB of allocated space.
 
 ## Upgrade
 ### The Azure portal
