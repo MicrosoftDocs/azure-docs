@@ -136,7 +136,7 @@ Now that you understand authenticating an Azure AD app using Client ID and Clien
 
 ### Get or create a certificate
 
- We'll make a test certificate for this tutorial. Here are some commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files created.  For the beginning and ending date of the certificate, use the current date plus one year.
+ We'll make a test certificate for this tutorial. Here is a script to create a self-signed certificate. Change directory to where you want the cert files created.  For the beginning and ending date of the certificate, you can use the current date plus one year.
 
 ```powershell
 #Create self-signed certificate and export pfx and cer files 
