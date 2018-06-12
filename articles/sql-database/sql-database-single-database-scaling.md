@@ -12,7 +12,7 @@ ms.author: carlrab
 ---
 # Manage resources for a single database in Azure SQL Database
 
-With a single database, you determine the amount of resources that the database requires to handle its workload at the service tier, performance level, and amount of storage it requires. 
+With a single database, you determine the amount of resources that the database requires to handle its workload. 
 
 ## Manage single database resources using the Azure portal
 

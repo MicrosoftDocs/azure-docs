@@ -13,9 +13,9 @@ ms.topic: conceptual
 ms.reviewwer: carlrab
 ---
 
-# Manage resources for a single database in Azure SQL Database
+# Manage resources for an elastic pool in Azure SQL Database
 
-With a single database, you determine the amount of resources that the database requires to handle its workload at the service tier, performance level, and amount of storage it requires. 
+With an elastic pool, you determine the amount of resources that the elastic pool requires to handle the workload of its databases. 
 
 ## Manage elastic pools and databases using the Azure portal
 
