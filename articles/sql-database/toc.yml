@@ -121,7 +121,7 @@
     - name: Business Critical / Premium - from existing HA article
       href: sql-database-high-availability.md  
   - name: Scale up and scale down    
-  - items:
+    items:
     - name: vCore-based purchasing model - from existing service tier article
       href: blah.md
     - name: DTU-based purchasing model - from existing service tier article
@@ -279,7 +279,7 @@
     - name: Read Scale-Out
       href: sql-database-read-scale-out.md
     - name: Database sharding
-    - items: 
+      items: 
       - name: Overview
         href: sql-database-elastic-scale-introduction.md
       - name: Elastic client library - consolidate
