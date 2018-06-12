@@ -59,6 +59,6 @@ While the above lists are pre-requisites to go into production, the following it
 
 
 ## Next steps
-* [Deploy a Service Fabric Windows cluster][service-fabric-tutorial-create-vnet-and-windows-cluster.md]
-* [Deploy a Service Fabric Linux cluster][service-fabric-tutorial-create-vnet-and-linux-cluster.md]
+* [Deploy a Service Fabric Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* [Deploy a Service Fabric Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
