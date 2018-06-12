@@ -26,11 +26,11 @@ Azure Stack operators can use PowerShell to change the Billing Owner of a user s
 
 There are two types of *Owners* that are assigned to a subscription:
 
-- **Billing owner** – By default, the Billing Owner is the user account that gets the subscription from an Offer and then owns the billing relationship for that subscription. This account is also an administrator of the subscription.  Only one user account can have this designation on a subscription. A Billing Owner is often an organization or team lead. 
+- **Billing Owner** – By default, the Billing Owner is the user account that gets the subscription from an Offer and then owns the billing relationship for that subscription. This account is also an administrator of the subscription.  Only one user account can have this designation on a subscription. A Billing Owner is often an organization or team lead. 
 
   You use the PowerShell cmdlet the **Set-AzsUserSubscription** to change the Billing Owner.  
 
-- **Owners through RBAC roles** – Additional users can be granted the Owner role using the [Role Based Access Control](azure-stack-manage-permissions.md) (RBAC) system.  Any number of additional user accounts can be added as owners to compliment the Billing Owner. Additional owners are also administrators of the subscription and have all privileges for the subscription except permissions to delete the Billing  Owner. 
+- **Owners added through RBAC roles** – Additional users can be granted the Owner role using the [Role Based Access Control](azure-stack-manage-permissions.md) (RBAC) system.  Any number of additional user accounts can be added as owners to compliment the Billing Owner. Additional owners are also administrators of the subscription and have all privileges for the subscription except permissions to delete the Billing  Owner. 
 
   You can use PowerShell to manage additional owners, see [Azure PowerShell to manage role-based access control]( https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
