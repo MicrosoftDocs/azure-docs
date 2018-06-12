@@ -27,8 +27,7 @@ To confirm this communication works as expected,
 you can set up monitoring for AS2, X12, and EDIFACT messages, 
 along with diagnostics logging for your integration account 
 through the [Azure Log Analytics](../log-analytics/log-analytics-overview.md) service. 
-This service in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
-monitors your cloud and on-premises environments, 
+This service monitors your cloud and on-premises environments, 
 helping you maintain their availability and performance, 
 and also collects runtime details and events for richer debugging. 
 You can also [use your diagnostic data with other services](#extend-diagnostic-data), 
@@ -40,12 +39,11 @@ like Azure Storage and Azure Event Hubs.
 Learn [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
   > [!NOTE]
-  > After you've met this requirement, you should have a workspace in the 
-  > [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). 
-  > You should use the same OMS workspace 
+  > After you've met this requirement, you should have a workspace in Log Analytics. 
+  > You should use the same Log Analytics workspace 
   > when you set up logging for your integration account. 
-  > If you don't have an OMS workspace, 
-  > learn [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
+  > If you don't have a Log Analytics workspace, 
+  > learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
 
 * An integration account that's linked to your logic app. Learn 
 [how to create an integration account with a link to your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
@@ -84,17 +82,17 @@ Otherwise, select the values that you want:
 
    ![Turn on Azure Diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Now select the OMS workspace and data to use for logging as shown:
+4. Now select the Log Analytics workspace and data to use for logging as shown:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS Workspaces**, select the OMS workspace to use for logging.
+   3. Under **OMS Workspaces**, select the Log Analytics workspace to use for logging.
    4. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
    5. Choose **Save**.
 
    ![Set up Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Now [set up tracking for your B2B messages in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+5. Now [set up tracking for your B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
@@ -125,18 +123,18 @@ Otherwise, select the values that you want:
 
    ![Turn on Azure Diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Now select the OMS workspace and event category for logging as shown:
+4. Now select the Log Analytics workspace and event category for logging as shown:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS Workspaces**, select the OMS workspace 
+   3. Under **OMS Workspaces**, select the Log Analytics workspace 
    to use for logging.
    4. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
    5. When you're done, choose **Save**.
 
    ![Set up Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Now [set up tracking for your B2B messages in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+5. Now [set up tracking for your B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## Extend how and where you use diagnostic data with other services
 
@@ -175,6 +173,6 @@ which all have fixed schemas except the Custom type.
 
 ## Next steps
 
-* [Track B2B messages in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Track B2B messages in OMS")
+* [Track B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Track B2B messages in OMS")
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
 

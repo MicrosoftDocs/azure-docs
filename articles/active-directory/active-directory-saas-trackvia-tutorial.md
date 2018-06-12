@@ -27,7 +27,7 @@ Integrating TrackVia with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to TrackVia (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -124,11 +124,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-	
-7. To configure single sign-on on **TrackVia** side, you need to send the downloaded **Metadata XML** to [TrackVia support team](mailto:support@trackvia.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. On the **TrackVia Configuration** section, click **Configure TrackVia** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
+
+	![TrackVia configuration](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+	
+8. In different browser window, sign on to your TrackVia company site as an administrator.
+
+9. Click on Trackvia **My Account** settings and then select **Single Sign On** tab, perform the following steps:
+
+	![TrackVia configuration](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+	a. In the **Identity Provider Entity ID** textbox, paste **SAML Entity ID** value, which you have copied from the Azure portal.
+
+	b. Select the **Choose File** to upload the metadata file that you downloaded from the Azure portal.
+
+	c. Click **Save**
 
 ### Create an Azure AD test user
 
@@ -166,7 +177,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in TrackVia. TrackVia supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access TrackVia if it doesn't exist yet.
 >[!Note]
->If you need to create a user manually, contact [TrackVia support team](mailto:support@trackvia.com).
+>If you need to create a user manually, contact [TrackVia support team](mailto:support@trackvia.com).
 
 ### Assign the Azure AD test user
 
@@ -203,14 +214,12 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the TrackVia tile in the Access Panel, you should get automatically signed-on to your TrackVia application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -225,4 +234,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-

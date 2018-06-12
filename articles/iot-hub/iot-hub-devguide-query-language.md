@@ -1,32 +1,27 @@
 ---
 title: Understand the Azure IoT Hub query language | Microsoft Docs
-description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device twins and jobs from your IoT hub.
-services: iot-hub
-documentationcenter: .net
+description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
+manager: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 02/26/2018
 ms.author: elioda
-
 ---
-# IoT Hub query language for device twins, jobs, and message routing
+
+# IoT Hub query language for device and module twins, jobs, and message routing
 
 IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins][lnk-twins] and [jobs][lnk-jobs], and [message routing][lnk-devguide-messaging-routes]. This article presents:
 
 * An introduction to the major features of the IoT Hub query language, and
 * The detailed description of the language.
 
-## Device twin queries
-[Device twins][lnk-twins] can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins as a single JSON document containing all device twin information.
-Assume, for instance, that your IoT hub device twins have the following structure:
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+## Device and module twin queries
+[Device twins][lnk-twins] and module twins can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins and module twins as a single JSON document containing all twin information.
+Assume, for instance, that your IoT hub device twins have the following structure (module twin would be similar just with an additional moduleId):
 
 ```json
 {
@@ -77,6 +72,8 @@ Assume, for instance, that your IoT hub device twins have the following structur
     }
 }
 ```
+
+### Device twin queries
 
 IoT Hub exposes the device twins as a document collection called **devices**.
 So the following query retrieves the whole set of device twins:
@@ -153,6 +150,26 @@ Projection queries allow developers to return only the properties they care abou
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### Module twin queries
+
+Querying on module twins is similar to query on device twins, but using a different collection/namespace, i.e. instead of “from devices” you can query
+
+```sql
+SELECT * FROM devices.modules
+```
+
+We don't allow join between the devices and devices.modules collections. If you want to query module twins across devices, you do do it based on tags. This query will return all module twins across all devices with the scanning status:
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning'
+```
+
+This query will return all module twins with the scanning status, but only on the specified subset of devices.
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### C# example
@@ -295,27 +312,27 @@ IoT Hub assumes the following JSON representation of message headers for message
 
 ```json
 {
-    "$messageId": "",
-    "$enqueuedTime": "",
-    "$to": "",
-    "$expiryTimeUtc": "",
-    "$correlationId": "",
-    "$userId": "",
-    "$ack": "",
-    "$connectionDeviceId": "",
-    "$connectionDeviceGenerationId": "",
-    "$connectionAuthMethod": "",
-    "$content-type": "",
-    "$content-encoding": "",
-
-    "userProperty1": "",
-    "userProperty2": ""
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
 }
 ```
 
 Message system properties are prefixed with the `'$'` symbol.
-User properties are always accessed with their name. If a user property name coincides with a system property (such as `$to`), the user property is retrieved with the `$to` expression.
-You can always access the system property using brackets `{}`: for instance, you can use the expression `{$to}` to access the system property `to`. Bracketed property names always retrieve the corresponding system property.
+User properties are always accessed with their name. If a user property name coincides with a system property (such as `$contentType`), the user property is retrieved with the `$contentType` expression.
+You can always access the system property using brackets `{}`: for instance, you can use the expression `{$contentType}` to access the system property `contentType`. Bracketed property names always retrieve the corresponding system property.
 
 Remember that property names are case insensitive.
 
@@ -347,12 +364,58 @@ Refer to the [Expression and conditions][lnk-query-expressions] section for the 
 
 IoT Hub can only route based on message body contents if the message body is properly formed JSON encoded in UTF-8, UTF-16, or UTF-32. Set the content type of the message to `application/json`. Set the content encoding to one of the supported UTF encodings in the message headers. If either of the headers is not specified, IoT Hub does not attempt to evaluate any query expression involving the body against the message. If your message is not a JSON message, or if the message does not specify the content type and content encoding, you can still use message routing to route the message based on the message headers.
 
+The following example shows how to create a message with a properly formed and encoded JSON body:
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
+
 You can use `$body` in the query expression to route the message. You can use a simple body reference, body array reference, or multiple body references in the query expression. Your query expression can also combine a body reference with a message header reference. For example, the following are all valid query expressions:
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```

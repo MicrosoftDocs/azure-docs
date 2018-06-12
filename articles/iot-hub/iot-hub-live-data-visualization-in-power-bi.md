@@ -1,23 +1,17 @@
 ---
 title: Real-time data visualization of sensor data from Azure IoT Hub – Power BI | Microsoft Docs
 description: Use Power BI to visualize temperature and humidity data that is collected from the sensor and sent to your Azure IoT hub.
-services: iot-hub
-documentationcenter: ''
-author: shizn
-manager: timlt
-tags: ''
-keywords: 'real time data visualization, live data visualization, sensor data visualization'
-
-ms.assetid: e67c9c09-6219-4f0f-ad42-58edaaa74f61
+author: rangv
+manager: 
+keywords: real time data visualization, live data visualization, sensor data visualization
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2017
-ms.author: xshi
-
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 4/11/2018
+ms.author: rangv
 ---
+
 # Visualize real-time sensor data from Azure IoT Hub using Power BI
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/4.png)
@@ -49,7 +43,7 @@ You learn how to visualize real-time sensor data that your Azure IoT hub receive
 
 ### Create a Stream Analytics job
 
-1. In the Azure portal, click New > Internet of Things > Stream Analytics job.
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Internet of Things** > **Stream Analytics job**.
 1. Enter the following information for the job.
 
    **Job name**: The name of the job. The name must be globally unique.

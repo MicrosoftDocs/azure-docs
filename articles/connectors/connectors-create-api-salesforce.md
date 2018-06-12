@@ -3,7 +3,7 @@ title: Learn to use the Salesforce Connector in your logic apps| Microsoft Docs
 description: Create logic apps with Azure App service. The Salesforce Connector provides an API to work with Salesforce objects.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the Salesforce connector

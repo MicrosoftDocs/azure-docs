@@ -27,7 +27,7 @@ The following table provides an overview of our samples repository and the scena
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>Append Blob</td> 
-<td><a href="https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">CloudBlobContainer.GetAppendBlobReference Method Example</a></td> 
+<td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">CloudBlobContainer.GetAppendBlobReference Method Example</a></td> 
 </tr> 
 <tr> 
 <td>Block Blob</td>

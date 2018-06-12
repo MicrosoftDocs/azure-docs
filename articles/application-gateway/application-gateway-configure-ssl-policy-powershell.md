@@ -1,19 +1,18 @@
 ---
-title: Configure SSL policy on Azure Application Gateway - PowerShell | Microsoft Docs
+title: Configure SSL policy on Azure Application Gateway - PowerShell
 description: This page provides instructions to configure SSL Policy on Azure Application Gateway
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
+ms.date: 3/27/2018
+ms.author: victorh
 
 ---
 
@@ -73,9 +72,9 @@ AvailableProtocols:
 
 ## List pre-defined SSL Policies
 
-Application gateway comes with 3 pre-defined policies that can be used. The `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet retrieves these policies. Each policy has different protocol versions and cipher suites enabled. These pre-defined policies can be used to quickly configure an SSL policy on your application gateway. By default **AppGwSslPolicy20170401** is selected if no specific SSL policy is defined.
+Application gateway comes with three pre-defined policies that can be used. The `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet retrieves these policies. Each policy has different protocol versions and cipher suites enabled. These pre-defined policies can be used to quickly configure an SSL policy on your application gateway. By default **AppGwSslPolicy20150501** is selected if no specific SSL policy is defined.
 
-The following is an example of running `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
+The following output is an example of running `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 
 ```
 Name: AppGwSslPolicy20150501
@@ -147,34 +146,50 @@ The following example creates a new application gateway with a pre-defined SSL p
 ```powershell
 # Create a resource group
 $rg = New-AzureRmResourceGroup -Name ContosoRG -Location "East US"
+
 # Create a subnet for the application gateway
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+
 # Create a virtual network with a 10.0.0.0/16 address space
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName $rg.ResourceGroupName -Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+
 # Retrieve the subnet object for later use
 $subnet = $vnet.Subnets[0]
+
 # Create a public IP address
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location "East US" -AllocationMethod Dynamic
+
 # Create a ip configuration object
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+
 # Create a backend pool for backend web servers
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+
 # Define the backend http settings to be used.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
+
 # Create a new port for SSL
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
+
 # Upload an existing pfx certificate for SSL offload
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile C:\folder\contoso.pfx -Password "P@ssw0rd"
+$password = ConvertTo-SecureString -String "P@ssw0rd" -AsPlainText -Force
+$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile C:\folder\contoso.pfx -Password $password
+
 # Create a frontend IP configuration for the public IP address
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
+
 # Create a new listener with the certificate, port, and frontend ip.
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+
 # Create a new rule for backend traffic routing
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+
 # Define the size of the application gateway
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+
 # Configure the SSL policy to use a different pre-defined policy
 $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
+
 # Create the application gateway.
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
@@ -192,6 +207,8 @@ $RG = "YourResourceGroupName"
 
 $AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 
+# Choose either custom policy or prefedined policy and uncomment the one you want to use.
+
 # SSL Custom Policy
 # Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
 
@@ -201,9 +218,8 @@ $AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 # Update AppGW
 # The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
 $SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
-
-
+```
 
 ## Next steps
 
-Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to a HTTPS endpoint.
+Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to an HTTPS endpoint.

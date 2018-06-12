@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -47,7 +48,7 @@ You can combine app-based conditional access policies with other policies such a
  
 
 
-##Before you begin
+## Before you begin
 
 This topic assumes that you are familiar with:
 

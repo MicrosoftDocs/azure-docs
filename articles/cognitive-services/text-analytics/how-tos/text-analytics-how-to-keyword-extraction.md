@@ -3,12 +3,11 @@ title: How-to key phrase extraction in Text Analytics REST API (Microsoft Cognit
 description: How to extract key phrases using the Text Analytics REST API in Microsoft Cognitive Services on Azure in this walkthrough tutorial.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 3/07/2018
 ms.author: heidist
 ---
 

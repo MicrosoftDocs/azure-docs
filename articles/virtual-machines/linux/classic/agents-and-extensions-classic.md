@@ -5,7 +5,7 @@ description: Gives an overview of the agent and extensions, and how to install t
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX

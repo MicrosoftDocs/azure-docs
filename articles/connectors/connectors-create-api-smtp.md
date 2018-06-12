@@ -3,7 +3,7 @@ title: SMTP connector in Azure Logic Apps | Microsoft Docs
 description: Create logic apps with Azure App service. Connect to SMTP to send email.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the SMTP connector
@@ -34,13 +34,13 @@ Before your logic app can access any service, you first need to create a *connec
 ## Use an SMTP trigger
 A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-In this example, because SMTP does not have a trigger of its own, we'll use the **Salesforce - When an object is created** trigger. This trigger activates when a new object is created in Salesforce. For our example, we'll set it up such that every time a new lead is created in Salesforce, a *send email* action occurs via the SMTP connector with a notification of the new lead being created.
+In this example, SMTP doesn't have a trigger of its own. So, use the **Salesforce - When an object is created** trigger. This trigger activates when a new object is created in Salesforce. For this example, it's set it up so that every time a new lead is created in Salesforce, a *send email* action occurs using the SMTP connector with a notification of the new lead being created.
 
 1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created** trigger.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 2. The **When an object is created** control is displayed.
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.  
+3. Select the **Object Type** then select *Lead* from the list of objects. In this step, you are creating a trigger that notifies your logic app whenever a new lead is created in Salesforce.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 4. The trigger has been created.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
@@ -48,7 +48,7 @@ In this example, because SMTP does not have a trigger of its own, we'll use the 
 ## Use an SMTP action
 An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Now that the trigger has been added, follow these steps to add an SMTP action that will occur when a new lead is created in Salesforce.
+Now that the trigger has been added, use the following steps to add an SMTP action that occurs when a new lead is created in Salesforce.
 
 1. Select **+ New Step** to add the action you would like to take when a new lead is created.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
@@ -59,7 +59,7 @@ Now that the trigger has been added, follow these steps to add an SMTP action th
    ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)    
 5. Input your desired email information in the **SMTP - Send Email** block.  
    ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
-6. Save your work in order to activate your workflow.  
+6. Save your work to activate your workflow.  
 
 ## Connector-specific details
 

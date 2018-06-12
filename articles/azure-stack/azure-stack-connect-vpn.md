@@ -3,8 +3,8 @@ title: Connect Azure Stack to Azure using VPN
 description: How to connect virtual networks in Azure Stack to virtual networks in Azure using VPN.
 services: azure-stack
 documentationcenter: ''
-author: ScottNapolitan
-manager: 
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
-ms.author: victorh
+ms.author: brenduns
+ms.reviewer: scottnap
 
 ---
 # Connect Azure Stack to Azure using VPN

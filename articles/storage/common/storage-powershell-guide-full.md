@@ -1,10 +1,10 @@
----
+﻿---
 title: Using Azure PowerShell with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure PowerShell cmdlets for Azure Storage.
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
+author: roygara
+manager: jeconnoc
 
 ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
-ms.author: robinsh
+ms.author: rogarana
 ---
 
 # Using Azure PowerShell with Azure Storage
@@ -43,10 +43,10 @@ For more information about storage accounts, see [Introduction to Storage](stora
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## List the storage accounts in the subscription
@@ -134,8 +134,6 @@ To change the settings for a storage account, use [Set-AzureRmStorageAccount](/p
 
 * The **access tier** for Blob storage accounts. The value for access tier is set to **hot** or **cool**, and allows you to minimize your cost by selecting the access tier that aligns with how you use the storage account. For more information, see [Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
-* The storage service encryption setting for blob storage and/or file storage. For more information about SSE, see [Storage Service Encryption](storage-service-encryption.md).
-
 * Only allow HTTPS traffic. 
 
 ### Manage the access keys
@@ -213,7 +211,7 @@ Now that you understand how to manage your storage account with PowerShell, you 
 * [How to manage blobs with PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [How to manage files with PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [How to manage queues with PowerShell](../queues/storage-powershell-how-to-use-queues.md)
-* [Perform Azure Table storage operations with PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+* [Perform Azure Table storage operations with PowerShell](../../storage/tables/table-storage-how-to-use-powershell.md)
 
 Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. 
 

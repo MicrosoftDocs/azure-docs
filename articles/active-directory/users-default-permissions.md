@@ -6,11 +6,9 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang:
+ms.component: fundamentals
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
@@ -20,7 +18,7 @@ ms.reviewer: vincesm
 # Default user permissions in Azure Active Directory
 
 In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists the type of user, their [role
-memberships](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults.
+memberships](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults.
 
 ## Member and guest users
 The set of default permissions received depends on if the user is a native member of the tenant (member user) or if the user is a B2B collaboration guest (guest user). For more information about B2B collaboration, see [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md) for more information about guest users). 
@@ -34,11 +32,11 @@ Default permissions for guests are restrictive by default. Guests can be added t
 **Area** | **Member user permissions** | **Guest user permissions**
 ------------ | --------- | ----------
 Users and contacts | Read all public properties of users and contacts<br>Invite guests<br>Change own password<br>Manage own mobile phone number<br>Manage own photo<br>Invalidate own refresh tokens | Read own properties<br>Read display name, email, sign-in name, photo, user principal name, and user type properties of other users and contacts<br>Change own password
-Groups   | Create security groups<br>Create Office 365 groups<br>Read all properties of groups<br>Read non-hidden group memberships<br>Read hidden Office 365 group memberships for joined group<br>Manage properties, ownership, and membership of owned groups<br>Add guests to owned groups<br>Manage dynamic membership settings<br>Delete owned groups<br>Restore owned Office 365 groups | Read all properties of groups<br>Read non-hidden group memberships<br>Read hidden Office 365 group memberships for joined groups<br>Manage owned groups<br>Add guests to owned groups (if allowed)<br>Delete owned groups<br>Restore owned Office 365 groups           
+Groups | Create security groups<br>Create Office 365 groups<br>Read all properties of groups<br>Read non-hidden group memberships<br>Read hidden Office 365 group memberships for joined group<br>Manage properties, ownership, and membership of owned groups<br>Add guests to owned groups<br>Manage dynamic membership settings<br>Delete owned groups<br>Restore owned Office 365 groups | Read all properties of groups<br>Read non-hidden group memberships<br>Read hidden Office 365 group memberships for joined groups<br>Manage owned groups<br>Add guests to owned groups (if allowed)<br>Delete owned groups<br>Restore owned Office 365 groups 
 Applications | Register (create) new application<br>Read properties of registered and enterprise applications<br>Manage application properties, assignments, and credentials for owned applications<br>Create or delete application password for user<br>Delete owned applications<br>Restore owned applications | Read properties of registered and enterprise applications<br>Manage application properties, assignments, and credentials for owned applications<br>Delete owned applications<br>Restore owned applications
 Devices | Read all properties of devices<br>Manage all properties of owned devices<br> | No permissions<br>Delete owned devices<br>
 Directory | Read all company information<br>Read all domains<br>Read all partner contracts | Read display name and verified domains
-Roles and Scopes | Read all administrative roles and memberships<br>Read all properties and membership of administrative units | No permissions              
+Roles and Scopes | Read all administrative roles and memberships<br>Read all properties and membership of administrative units | No permissions 
 Subscriptions | Read all subscriptions<br>Enable Service Plan Member | No permissions
 Policies | Read all properties of policies<br>Manage all properties of owned policy | No permissions
 
@@ -57,7 +55,7 @@ Ability to register (create) applications | Setting this option to No prevents n
 Admins and users in the guest inviter role can invite guests | Setting this option to No prevents all users from inviting guests. See Configuring Default Permissions for Member Users. For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
 Members can invite guests | Setting this to no prevents users from inviting guests. Global Administrators, User Account Administrators, and Guest Inviters will still be able to invite guests. For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
 Restrict access to Azure AD administration portal | Setting this option to No prevents users from accessing the Azure Active Directory portal.
-Ability to read other users | For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
+Ability to read other users | This setting is available in PowerShell only. Setting this to $false prevents all non-admins from reading user infromation from the directory. This does not prevent reading user infromation in other Microsoft services like Exchange Online. This setting is meant for special circumstances, and setting this to $false is not recommended.
 
 ## Object ownership
 
@@ -75,6 +73,6 @@ When a user creates a group, they are automatically added as an owner for that g
 ## Next steps
 
 * To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
-* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
+* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Manage users](active-directory-create-users.md)

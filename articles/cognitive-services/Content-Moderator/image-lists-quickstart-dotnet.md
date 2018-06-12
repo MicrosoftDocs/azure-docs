@@ -4,9 +4,8 @@ description: How to moderate with custom image lists using Azure Content Moderat
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
@@ -24,6 +23,10 @@ the Content Moderator SDK for .NET to:
 - Screen images against images in the list
 - Delete all images from the list
 - Delete the custom list
+
+> [!NOTE]
+> There is a maximum limit of **5 image lists** with each list to **not exceed 10,000 images**.
+>
 
 The console application for this quickstart simulates some of the tasks you
 can perform with the image list API.

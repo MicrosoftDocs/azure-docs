@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: raynew
 
 ---
@@ -21,8 +21,8 @@ This article describes how to unregister servers from a Recovery Services vault,
 If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can unregister an unconnected configuration server from a vault as follows:
 
 1. [Disable protection of virtual machines](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-2. [Disassociate](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) and [delete](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) all Replication policies
-3. [Delete the configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
+2. [Disassociate or delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) replication policies.
+3. [Delete the configuration server](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
 ## Unregister a VMM server
 

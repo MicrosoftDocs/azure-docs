@@ -4,8 +4,8 @@ description: 'In this tutorial, you create an Azure Data Factory pipeline that c
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -366,16 +366,25 @@ In this step, you create datasets to represent the data source, the data destina
 3. You see a new tab opened in the Web browser for configuring the dataset. You also see a dataset in the treeview. In the **General** tab of the Properties window at the bottom, enter **SinkDataset** for **Name**.
 
    ![Sink Dataset - general](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. Switch to the **Connection** tab in the Properties window, and select **AzureSqlLinkedService** for **Linked service**. 
-
-   ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
-5. Switch to the **Parameters** tab in the Properties window, and do the following steps: 
+4. Switch to the **Parameters** tab in the Properties window, and do the following steps: 
 
     1. Click **New** in the **Create/update parameters** section. 
     2. Enter **SinkTableName** for the **name**, and **String** for the **type**. This dataset takes **SinkTableName** as a parameter. The SinkTableName parameter is set by the pipeline dynamically at runtime. The ForEach activity in the pipeline iterates through a list of table names and passes the table name to this dataset in each iteration.
-    3. Enter `@{dataset().SinkTableName}` for **tableName** property in the **Parameterizable properties** section. You use the value passed to the **SinkTableName** parameter to initialize the **tableName** property of the dataset. 
-
+   
        ![Sink Dataset - properties](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+5. Switch to the **Connection** tab in the Properties window, and select **AzureSqlLinkedService** for **Linked service**. For **Table** property, click **Add dynamic content**. 
+
+   ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+    
+	
+6. Select **SinkTableName** in the **Parameters** section
+   
+   ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+
+   
+ 7. After clicking **Finish**, you see **@dataset().SinkTableName** as the table name.
+   
+   ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### Create a dataset for a watermark
 In this step, you create a dataset for storing a high watermark value. 
@@ -420,7 +429,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     3. Select **Object** for the parameter **type**.
 
     ![Pipeline parameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Drag-and-drop the **ForEach** activity from the **Activities** toolbox to the pipeline designer surface. In the **General** tab of the **Properties** window, enter **IterateSQLTables**. 
+4. In the **Activities** toolbox, expand **Iteration & Conditionals**, and drag-drop the **ForEach** activity to the pipeline designer surface. In the **General** tab of the **Properties** window, enter **IterateSQLTables**. 
 
     ![ForEach activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. Switch to the **Settings** tab in the **Properties** window, and enter `@pipeline().parameters.tableList` for **Items**. The ForEach activity iterates through a list of tables and performs the incremental copy operation. 
@@ -429,7 +438,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 6. Select the **ForEach** activity in the pipeline if it isn't already selected. Click the **Edit (Pencil icon)** button.
 
     ![ForEach activity - edit](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. Drag-drop the **Lookup** activity from the **Activities** toolbox, and enter **LookupOldWaterMarkActivity** for **Name**.
+7. In the **Activities** toolbox, expand **General**, drag-drop the **Lookup** activity to the pipeline designer surface, and enter **LookupOldWaterMarkActivity** for **Name**.
 
     ![First Lookup Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. Switch to the **Settings** tab of the **Properties** window, and do the following steps: 
@@ -495,12 +504,13 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. Switch to the **Stored Procedure** tab, and do the following steps:
 
-    1. Enter `sp_write_watermark` for **Stored procedure name**. 
-    2. Use the **New** button to add the following parameters: 
+    1. For **Stored procedure name**, select `sp_write_watermark`. 
+    2. Select **Import parameter**. 
+    3. Specify the following values for the parameters: 
 
         | Name | Type | Value | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

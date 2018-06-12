@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/09/2018
 ms.author: jeedes
 
 ---
@@ -27,7 +27,7 @@ Integrating Cisco Cloudlock with Azure AD provides you with the following benefi
 - You can enable your users to automatically get signed-on to Cisco Cloudlock (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -104,9 +104,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Cisco Cloudlock Domain and URLs single sign-on information](./media/active-directory-saas-ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL: `https://platform.cloudlock.com`
+    a. In the **Sign-on URL** textbox, type a URL:
+	| |
+	|--|
+	| `https://platform.cloudlock.com` |
+	| `https://app.cloudlock.com` |
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://platform.cloudlock.com/gate/saml/sso/<subdomain>`
+	b. In the **Identifier** textbox, type a URL using the following pattern: 
+	| |
+	|--|
+	| `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
+	| `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
 
 	> [!NOTE] 
 	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Cisco Cloudlock Client support team](mailto:support@cloudlock.com) to get the value. 
@@ -201,7 +209,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 
