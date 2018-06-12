@@ -34,7 +34,7 @@ In this article, you learn how to create, list and delete a user assigned identi
 
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
     - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
-    - [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. Sign in to Azure using `az login`, using an account that is associated with the Azure subscription under which you would like to deploy the user assigned identity.
+    - [Install the latest version of CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local CLI console. Sign in to Azure using `az login`, using an account that is associated with the Azure subscription under which you would like to deploy the user assigned identity.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

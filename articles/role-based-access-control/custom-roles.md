@@ -169,7 +169,7 @@ az role definition create --role-definition ~/roles/rbacrole1.json
 
 The new custom role is now available in the Azure portal and the process to use this role is the same as in the previous PowerShell section.
 
-![Azure portal screenshot of custom role created using CLI 1.0](./media/custom-roles/26.png)
+![Azure portal screenshot of custom role created using CLI](./media/custom-roles/26.png)
 
 
 ## See also
