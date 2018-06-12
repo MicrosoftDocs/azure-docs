@@ -46,7 +46,7 @@ Continue reading for more detailed troubleshooting steps and explanations.
 You can reset credentials or SSH configuration using one of the following methods:
 
 * [Azure portal](#use-the-azure-portal) - great if you need to quickly reset the SSH configuration or SSH key and you don't have the Azure tools installed.
-* [Azure CLI 2.0](#use-the-azure-cli-20) - if you are already on the command line, quickly reset the SSH configuration or credentials. You can also use the [Azure CLI 1.0](#use-the-azure-cli-10)
+* [Azure CLI](#use-the-azure-cli-20) - if you are already on the command line, quickly reset the SSH configuration or credentials. You can also use the [Azure CLI 1.0](#use-the-azure-cli-10)
 * [Azure VMAccessForLinux extension](#use-the-vmaccess-extension) - create and reuse json definition files to reset the SSH configuration or user credentials.
 
 After each troubleshooting step, try connecting to your VM again. If you still cannot connect, try the next step.
@@ -74,8 +74,8 @@ Use [IP flow verify](../../network-watcher/network-watcher-check-ip-flow-verify-
 
 Use Network Watcher's [Next hop](../../network-watcher/network-watcher-check-next-hop-portal.md) capability to confirm that a route isn't preventing traffic from being routed to or from a virtual machine. You can also review effective routes to see all effective routes for a network interface. For more information, see [Using effective routes to troubleshoot VM traffic flow](../../virtual-network/diagnose-network-routing-problem.md).
 
-## Use the Azure CLI 2.0
-If you haven't already, install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+## Use the Azure CLI
+If you haven't already, install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 If you created and uploaded a custom Linux disk image, make sure the [Microsoft Azure Linux Agent](../extensions/agent-windows.md) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
 
@@ -195,7 +195,7 @@ The following example restarts the VM named `myVM` in the resource group named `
 azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
-### Azure CLI 2.0
+### Azure CLI
 The following example uses [az vm restart](/cli/azure/vm#az_vm_restart) to restart the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
@@ -223,7 +223,7 @@ The following example redeploys the VM named `myVM` in the resource group named 
 azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
-### Azure CLI 2.0
+### Azure CLI
 The following example use [az vm redeploy](/cli/azure/vm#az_vm_redeploy) to redeploy the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
