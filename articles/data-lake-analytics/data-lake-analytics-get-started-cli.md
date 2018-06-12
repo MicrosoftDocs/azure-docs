@@ -19,7 +19,7 @@ This article describes how to use the Azure CLI command-line interface to create
 Before you begin, you need the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* This article requires that you are running the Azure CLI version 2.0 or later. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+* This article requires that you are running the Azure CLI version 2.0 or later. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 
