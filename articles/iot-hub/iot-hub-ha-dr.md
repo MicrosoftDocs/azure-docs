@@ -13,23 +13,25 @@ ms.author: elioda
 # IoT Hub high availability and disaster recovery
 As a first step towards implementing a resilient IoT solution, architects, developers, and business owners must define the uptime goals for the solutions they are building. These goals can be defined primarily based on specific business objectives for each scenario. In this context, the article [Azure Business Continuity Technical Guidance]( https://docs.microsoft.com/azure/architecture/resiliency/) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](_https://msdn.microsoft.com/library/dn251004.aspx) paper provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR). The current article discusses the HA and DR features offered specifically by the IoT Hub service. The broad areas discussed in this article are intra-region high availability, disaster recovery, and an approach to achieve automatic cross regional failover per device. Depending on the uptime goals you define for your IoT solutions, you should determine which of the options outlined below best suit your business objectives. 
 
-Incorporating any of the solutions outlined below into your IoT solution requires a careful evaluation of the trade-offs between the:
+Incorporating any of these solutions into your IoT solution requires a careful evaluation of the trade-offs between the:
 - Level of resiliency you require. 
 - Cost to operationalize the solution. 
 - Implementation and maintenance complexity.
 
 ## Intra-region HA
-The IoT Hub service provides intra-region HA by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](_https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) is achieved by making use of these redundancies. No additional work is required by the developers of an IoT solution to take advantage of these HA features. Some Azure services also provide additional layers of availability within a region by integrating with [Availability Zones (AZs)](_https://docs.microsoft.com/azure/availability-zones/az-overview). AZs provide resiliency when power outages and networking failures happen within a single datacenter. AZs are currently not supported by the IoT Hub service. 
-Migrating solutions to the cloud from an on-premise solution, shifts the focus from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry policies](_https://channel9.msdn.com/Shows/Internet-of-Things-Show/Retry-logic-in-device-SDKs-for-Azure-IoT-Hub) must be built in to the components interacting with a cloud application to deal with transient failures.
+The IoT Hub service provides intra-region HA by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](_https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) is achieved by making use of these redundancies. No additional work is required by the developers of an IoT solution to take advantage of these HA features. Although IoT Hub offers a high uptime SLA, transient failures can still be expected. If you are just getting started with migrating your solutions to the cloud from an on-premise solution, please note that your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry policies](_https://channel9.msdn.com/Shows/Internet-of-Things-Show/Retry-logic-in-device-SDKs-for-Azure-IoT-Hub) must be built in to the components interacting with a cloud application to deal with transient failures. 
 
-## Cross region disaster recovery
+> [!NOTE]
+> Some Azure services also provide additional layers of availability within a region by integrating with [Availability Zones (AZs)](_https://docs.microsoft.com/azure/availability-zones/az-overview). AZs are currently not supported by the IoT Hub service.
+
+## Cross region DR
 There could be some rare situations when a datacenter experiences extended outages due to power failures or other failures involving physical assets. Such events are rare during which the intra region HA capability described above does not help. IoT Hub provides multiple solutions for recovering from such extended outages. The recovery options available to customers in such a situation are "Microsoft initiated failover" and "manual failover". The difference between the two is that Microsoft initiates the former and the user initiates the latter. Manual failover provides a lower recovery time objective (RTO) compared to the Microsoft initiated failover option.
  
 The usage of any of these options to failover an IoT hub from its primary region causes the hub to become fully functional in the corresponding [Azure geo-paired region](_https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Both these failover options offer the following recovery point objectives (RPOs):
 
 | Functionality | RPO |
 | --- | --- |
-| Service availability for registry and communication operations |The IP address of the hub changes|
+| Service availability for registry and communication operations |No change to FQDN. IP address changes|
 | Identity data in identity registry |0-5 mins data loss |
 | Device-to-cloud messages |All unread messages are lost |
 | Operations monitoring messages |All unread messages are lost |
@@ -38,27 +40,37 @@ The usage of any of these options to failover an IoT hub from its primary region
 | Device twin data |0-5 mins data loss |
 | Parent and device jobs |0-5 mins data loss |
 
+
+Once the failover operation for the IoT hub completes, all operations from the device and backend applications are expected to continue without requiring a manual intervention.
+
+> [!CAUTION]
+> The underlying Event Hub-compatible endpoint corresponding to the built-in endpoint of the IoT hub instance will change post failover. When receiving telemetry messages from the built-in endpoint using either the event hub client or event processor host, you MUST [use the IoT hub connection string](_https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin#read-from-the-built-in-endpoint) to establish the connection. This will ensure that your backend applications can continue working without requiring manual intervention post failover. If you use the Event Hub-compatible endpoint in your backend application directly, you will have to reconfigure your application by fetching the new endpoint after failover to continue operations. 
+
 ### Microsoft initiated failover
 Microsoft initiated failover is exercised by Microsoft to fail over all the IoT hubs from an affected region to the corresponding geo-paired region. This is a default option (no way for users to opt out) and requires no intervention from the user. This option has a recovery time objective (RTO) of 2-26 hours. The large RTO is because Microsoft must perform the failover operation for ALL the affected customers in that region. If you are running a less critical IoT solution that can sustain a downtime of roughly a day, it is ok for you to take a dependency on this option as a part of the overall disaster recovery goals for your IoT solution.
 
 ### Manual failover (preview)
 
-If your business uptime goals are not satisfied by the RTO that Microsoft initiated failover provides, you should consider using manual failover to trigger the failover process yourself. The RTO using this option could be anywhere between 10 minutes to a couple of hours. The RTO is currently a function of the number of devices registered against the IoT hub instance being failed over. You can expect the RTO for a hub hosting approximately 100-K devices to be in the ballpark of 15 minutes.
+If your business uptime goals are not satisfied by the RTO that Microsoft initiated failover provides, you should consider using manual failover to trigger the failover process yourself. The RTO using this option could be anywhere between 10 minutes to a couple of hours. The RTO is currently a function of the number of devices registered against the IoT hub instance being failed over. You can expect the RTO for a hub hosting approximately 100K devices to be in the ballpark of 15 minutes.
 
-The manual failover option is always available for use irrespective of whether the primary region is experiencing downtime or not. Therefore, this option could potentially be used to perform planned failovers. One example usage of planned failovers is to perform periodic failover drills. A word of caution though is that a planned failover operation results in a downtime for the hub for the period defined by the RTO for this option, and also results in a guaranteed telemetry data loss.
+The manual failover option is always available for use irrespective of whether the primary region is experiencing downtime or not. Therefore, this option could potentially be used to perform planned failovers. One example usage of planned failovers is to perform periodic failover drills. A word of caution though is that a planned failover operation results in a downtime for the hub for the period defined by the RTO for this option, and also results in a data loss as defined by the RPO table above. You could consider setting up a test IoT hub instance to exercise the planned failover option periodically to gain confidence in your ability to get your end-to-end solutions up and running when a real disaster happens. 
 
 > [!CAUTION]
 > Test drills should not be performed on IoT hubs that are being used in your production environments. 
 
-You could consider setting up a test IoT hub instance to exercise the planned failover option periodically to gain confidence in your ability to get your end-to-end solutions up and running when a real disaster happens. Manual failover should not be used as a mechanism to permanently migrate your hub between the Azure geo paired regions. Doing so would cause an increased latency for the operations being performed against the hub from devices homed in the old primary region. 
-
-### Failback
-
-Failback can be achieved by triggering the failover action another time. Users can only perform 2 successful failover operations and 2 successful failback operations per day.
-
+> [!CAUTION]
+> Manual failover should not be used as a mechanism to permanently migrate your hub between the Azure geo paired regions. Doing so would cause an increased latency for the operations being performed against the hub from devices homed in the old primary region. 
 
 > [!IMPORTANT]
 > Manual failover is currently in preview and is not available in the following Azure regions. East US, West US, North Europe, West Europe, Brazil South, South Central US.
+
+### Failback
+
+Failing back to the primary location can be achieved by triggering the failover action another time. If the original failover operation was performed to recover from an extended outage in the original primary location, it is recommended that the hub be failed back to that location once it has recovered from the outage situation. 
+
+> [!IMPORTANT]
+> Users are only allowed to perform 2 successful failover and 2 successful failback operations per day.
+
 
 ### Time to recover
 
