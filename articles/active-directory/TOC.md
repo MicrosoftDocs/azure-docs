@@ -280,6 +280,7 @@
 #### [Quickstart](add-custom-domain.md)
 #### [Add custom domain names](active-directory-domains-manage-azure-portal.md)
 ### [Administer your directory](active-directory-administer.md)
+### [Delete a directory](directory-delete-howto.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
 ### [Self-service signup](active-directory-self-service-signup.md)
 ### [Take over an unmanaged directory](domains-admin-takeover.md)
