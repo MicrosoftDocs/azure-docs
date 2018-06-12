@@ -80,17 +80,17 @@
       href: sql-database-single-database-resources.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
-    - name: vCore-based Service tiers (consolidate)
+    - name: vCore-based Service tiers - onsolidate
       href: sql-database-service-tiers-vcore.md
-    - name: vCore-based resource limits (consolidate)
+    - name: vCore-based resource limits - onsolidate
       href: sql-database-vcore-resource-limits.md  
-    - name: DTU-based Service tiers (consolidate)
+    - name: DTU-based Service tiers - onsolidate
       href: sql-database-service-tiers-dtu.md
-    - name: DTU-based resource limits (consolidate)
+    - name: DTU-based resource limits - onsolidate
       href: sql-database-dtu-resource-limits.md  
-    - name: DTUs and eDTUs (consolidate)
+    - name: DTUs and eDTUs - onsolidate
       href: sql-database-what-is-a-dtu.md
-    - name: DTU benchmark (consolidate)
+    - name: DTU benchmark - onsolidate
       href: sql-database-benchmark-overview.md
     - name: Connectivity architecture for logical servers, pools, and databases
       href: sql-database-connectivity-architecture.md 
@@ -102,7 +102,7 @@
     items:
     - name: Overview
       href: sql-database-managed-instance.md
-    - name: Connectivity architecture for Managed Instance (pull from overview article) 
+    - name: Connectivity architecture for Managed Instance - pull from overview article
     - name: VNet configuration
       href: sql-database-managed-instance-vnet-configuration.md
     - name: Custom DNS
@@ -113,17 +113,17 @@
       href: sql-database-managed-instance-sync-network-configuration.md
   - name: SQL Server common features
     href: sql-database-features.md
-  - name: High availability (split into two articles)
+  - name: High availability - split into two articles
     items:
-    - name: General Purpose / Basic and Standard (from existing HA article)
+    - name: General Purpose / Basic and Standard - from existing HA article
       href: sql-database-high-availability.md  
-    - name: Business Critical / Premium (from existing HA article)
+    - name: Business Critical / Premium - from existing HA article
       href: sql-database-high-availability.md  
   - name: Scale up and scale down    
   - items:
-    - name: vCore-based purchasing model (from existing service tier article)
-    - name: DTU-based purchasing model (from existing service tier article)
-    - name: Migrate to vCore-based purchasing model (from existing service tier article)
+    - name: vCore-based purchasing model - from existing service tier article
+    - name: DTU-based purchasing model - from existing service tier article
+    - name: Migrate to vCore-based purchasing model - from existing service tier article
   - name: Security   
     items:
     - name: Overview
@@ -145,7 +145,13 @@
     - name: Access control
       href: sql-database-control-access.md
     - name: Azure AD
-      href: sql-database-aad-authentication.md
+      items:
+      - name: Overview
+        href: sql-database-aad-authentication.md
+      - name: Configure Azure AD auth
+        href: sql-database-aad-authentication-configure.md
+      - name: Conditional access
+        href: sql-database-conditional-access.md
     - name: Logins and users
       href: sql-database-manage-logins.md
     - name: Multi-factor auth
@@ -182,13 +188,13 @@
       href: sql-database-disaster-recovery.md
     - name: Perform recovery drill
       href: sql-database-disaster-recovery-drills.md
-  - name: Migrate to SQL Database (combine)
+  - name: Migrate to SQL Database- combine
     items:
-    - name: Migrate to SQL Database (combine)
+    - name: Migrate to SQL Database - combine
       href: sql-database-cloud-migrate.md
-    - name: Migrate to Managed Instance (combine)
+    - name: Migrate to Managed Instance - combine
       href: sql-database-managed-instance-migrate.md
-    - name: Manage SQL Database after migration (joe sack)
+    - name: Manage SQL Database after migration - joe sack
       href: sql-database-manage-after-migration.md
   - name: Load & move data
     items:
@@ -226,11 +232,11 @@
     items:
     - name: Read Scale-Out
       href: sql-database-read-scale-out.md
-    - name: Sharding
+    - name: Database sharding
     - items: 
-      - name: Sharding overview
+      - name: Overview
         href: sql-database-elastic-scale-introduction.md
-      - name: Elastic client library (consolidate)
+      - name: Elastic client library - onsolidate
         href: sql-database-elastic-database-client-library.md
       - name: Upgrade elastic database client library
         href: sql-database-elastic-scale-upgrade-client-library.md
@@ -253,21 +259,31 @@
     - name: Cross-database operations
       items:
       - name: Elastic queries
-        href: sql-database-elastic-query-overview.md
+        items:
+        - name: Overview
+          href: sql-database-elastic-query-overview.md
+        - name: Query vertically partitioned data
+          href: sql-database-elastic-query-getting-started-vertical.md
+        - name: Report across scaled-out data tier
+          href: sql-database-elastic-query-horizontal-partitioning.md
+        - name: Query across tables with different schemas
+          href: sql-database-elastic-query-vertical-partitioning.md
       - name: Elastic transactions
         href: sql-database-elastic-transactions-overview.md
-      - name: Elastic jobs (deprecated)
-        href: sql-database-elastic-jobs-overview.md
-      - name: Install elastic job
-        href: sql-database-elastic-jobs-service-installation.md
-      - name: Create job - Portal
-        href: sql-database-elastic-jobs-create-and-manage.md
-      - name: Create job - Azure PowerShell
-        href: sql-database-elastic-jobs-powershell.md
-      - name: Create job - Sample app
-        href: sql-database-elastic-jobs-getting-started.md
-      - name: Uninstall elastic job
-        href: sql-database-elastic-jobs-uninstall.md
+      - name: Elastic jobs - deprecated
+        items:
+        - name: Overview
+          href: sql-database-elastic-jobs-overview.md
+        - name: Install elastic job
+          href: sql-database-elastic-jobs-service-installation.md
+        - name: Create job - Portal
+          href: sql-database-elastic-jobs-create-and-manage.md
+        - name: Create job - Azure PowerShell
+          href: sql-database-elastic-jobs-powershell.md
+        - name: Create job - Sample app
+          href: sql-database-elastic-jobs-getting-started.md
+        - name: Uninstall elastic job
+          href: sql-database-elastic-jobs-uninstall.md
   - name: Multi-tenant SaaS
     items:
     - name: SaaS design patterns
@@ -310,20 +326,8 @@
       href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: How-to guides
   items:
-  - name: Service features
-    items:
-    - name: Query vertically partitioned data
-      href: sql-database-elastic-query-getting-started-vertical.md
-    - name: Report across scaled-out data tier
-      href: sql-database-elastic-query-horizontal-partitioning.md
-    - name: Query across tables with different schemas
-      href: sql-database-elastic-query-vertical-partitioning.md
   - name: Security
     items:
-    - name: Configure Azure AD auth
-      href: sql-database-aad-authentication-configure.md
-    - name: Conditional access
-      href: sql-database-conditional-access.md
     - name: Always encrypted cert store
       href: sql-database-always-encrypted.md
     - name: Always encrypted key vault
@@ -404,7 +408,7 @@
       href: sql-database-elastic-database-perf-counters.md
     - name: Use entity framework
       href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-  - name: Multi-tenant SaaS
+  - name: Multi-tenant SaaS reference architecture
     items:
     - name: Wingtip Tickets sample
       href: saas-tenancy-welcome-wingtip-tickets-app.md
