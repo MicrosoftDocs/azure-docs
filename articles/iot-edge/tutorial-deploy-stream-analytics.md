@@ -70,14 +70,13 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 2. In the **New Stream Analytics Job** pane, do the following:
 
     a. In the **Job name** box, type a job name.
-    
+    b. Use the same **Resource group** and **Location** as your IoT hub. 
+
+       > [!NOTE]
+       > Currently, Azure Stream Analytics jobs on IoT Edge aren't supported in the West US 2 region. 
+
     b. Under **Hosting environment**, select **Edge**.
     
-    c. In the remaining fields, use the default values.
-
-    > [!NOTE]
-    > Currently, Azure Stream Analytics jobs on IoT Edge aren't supported in the West US 2 region. 
-
 3. Select **Create**.
 
 4. In the created job, under **Job Topology**, open **Inputs**.
@@ -86,21 +85,21 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 
 5. Select **Add stream input**, then select **Edge Hub**.
 
-5. In the **New input** pane, enter **temperature** as the input alias. 
+6. In the **New input** pane, enter **temperature** as the input alias. 
 
-6. Select **Save**.
+7. Select **Save**.
 
-7. Under **Job Topology**, open **Outputs**.
+8. Under **Job Topology**, open **Outputs**.
 
    ![Azure Stream Analytics output](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-8. Select **Add**, then select **Edge Hub**.
+9. Select **Add**, then select **Edge Hub**.
 
-8. In the **New output** pane, enter **alert** as the output alias. 
+10. In the **New output** pane, enter **alert** as the output alias. 
 
-9. Select **Create**.
+11. Select **Save**.
 
-9. Under **Job Topology**, select **Query**, and then replace the default text with the following query:
+12. Under **Job Topology**, select **Query**, and then replace the default text with the following query:
 
     ```sql
     SELECT  
@@ -113,7 +112,12 @@ An Azure Storage account is required to provide an endpoint to be used as an out
     HAVING Avg(machine.temperature) > 70
     ```
 
-10. Select **Save**.
+13. Select **Save**.
+14. Under **Configure** select **IoT Edge settings**.
+15. Select your **Storage account** from the drop-down menu.
+16. Choose to **Use existing** container, and select the one that you created from the drop-down menu.
+17. Select **Save**. 
+
 
 ## Deploy the job
 
@@ -124,7 +128,7 @@ You are now ready to deploy the Azure Stream Analytics job on your IoT Edge devi
 2. Select **Set modules**.  
     If you previously deployed the tempSensor module on this device, it might autopopulate. If it does not, add the module by doing the following:
 
-   a. Select **Add IoT Edge Module**.
+   a. Click **Add** and select **IoT Edge Module**.
 
    b. For the name, type **tempSensor**.
     
@@ -134,7 +138,7 @@ You are now ready to deploy the Azure Stream Analytics job on your IoT Edge devi
    
    e. Select **Save**.
 
-3. To add your Azure Stream Analytics Edge job, select **Import Azure Stream Analytics IoT Edge Module**.
+3. To add your Azure Stream Analytics Edge job, click **Add** and select **Azure Stream Analytics Module**.
 
 4. Select your subscription and the Azure Stream Analytics Edge job that you created. 
 
@@ -142,13 +146,9 @@ You are now ready to deploy the Azure Stream Analytics job on your IoT Edge devi
 
     ![Set module][6]
 
-6. Copy the name of your Azure Stream Analytics module. 
+7. Select **Next**.
 
-    ![Temperature module][11]
-
-7. To configure routes, select **Next**.
-
-8. Copy the following code to **Routes**. Replace _{moduleName}_ with the module name that you copied:
+8. Copy the following code to **Routes**. Replace _{moduleName}_ with the name of your Azure Stream Analytics module. The module should have the same name as the job that it was created from. 
 
     ```json
     {
