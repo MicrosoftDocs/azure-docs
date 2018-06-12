@@ -62,7 +62,7 @@
     href: sql-database-managed-instance-restore-from-backup-tutorial.md
   - name: 7 - Migrate to a Managed Instance using DMS
     href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 8 - Sync data
+  - name: 8 - Set up Azure SQL Data Sync
     href: sql-database-get-started-sql-data-sync.md
 - name: Samples
   items:
