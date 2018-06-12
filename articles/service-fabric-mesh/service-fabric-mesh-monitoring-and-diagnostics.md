@@ -37,7 +37,7 @@ az mesh codepackage logs --resource-group <nameOfResourceGroup> --app-name <name
 
 *Note: currently, replica names are incrementing numbers from 0.*
 
-Here is what this looks like for seeing the logs from the VotingWeb.Code container from the [quickstart](application-deployment-quickstart.md):
+Here is what this looks like for seeing the logs from the VotingWeb.Code container from the voting application:
 
 ```cli
 az mesh codepackage logs --resource-group <RG> --app-name SbzVoting --service-name VotingWeb --replica-name 0 --code-package-name VotingWeb.Code
@@ -57,7 +57,7 @@ Currently, events can be viewed at a servicereplica level. Here is the CLI comma
 az mesh servicereplica show <nameOfResourceGroup> --app-name <nameOfCGS> --service-name <nameOfService> --replica-name <nameOfReplica>
 ```
 
-Here is what this looks like for seeing events for the VotingWeb service deployed in the [quickstart](application-deployment-quickstart.md):
+Here is what this looks like for seeing events for the VotingWeb service deployed in the voting application:
 
 ```cli
 az mesh servicereplica show --resource-group <RG> --app-name SbzVoting --service-name VotingWeb --replica-name 0 

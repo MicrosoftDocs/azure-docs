@@ -96,8 +96,6 @@ ImportError: cannot import name 'sdk_no_wait'.
 
 **I get a mismatch distribution name error when installing the CLI extension package**
 
-![warning message in cloud shell](./media/faq-and-knownissues/cli-package-warning.png)
-
 This does not mean that the extension did not install. You should still be able to use the CLI commands without a problem.
 
 **When I scale out, I see that all my containers are affected, including my running ones**
