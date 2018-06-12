@@ -13,9 +13,9 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Configure the resource owner password credentials flow (ROPC) in Azure AD B2C
+# Configure the resource owner password credentials flow in Azure AD B2C
 
-The Resource Owner Password Credentials flow is an OAuth standard authentication flow where the application, also known as the relying party, exchanges valid credentials such as userid and password for an ID token, access token, and a refresh token. 
+The resource owner password credentials (ROPC) flow is an OAuth standard authentication flow where the application, also known as the relying party, exchanges valid credentials such as userid and password for an ID token, access token, and a refresh token. 
 
 > [!NOTE]
 > This feature is in preview.
@@ -57,7 +57,7 @@ The following flows are not supported:
 
 Use your favorite API development application to generate an API call, and review the response to debug your policy. Construct a call like this with the information in the following table as the body of the POST request:
 - Replace *\<yourtenant.onmicrosoft.com>* with the name of your B2C tenant.
-- Replace *\<B2C_1A_ROPC_Auth>* with the full name of your Resource Owner Password Credentials policy.
+- Replace *\<B2C_1A_ROPC_Auth>* with the full name of your resource owner password credentials policy.
 - Replace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* with the Application ID from your registration.
 
 `https://te.cpim.windows.net/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
@@ -114,7 +114,7 @@ Construct a POST call like the one shown here with the information in the follow
 
 ## Implement with your preferred native SDK or use App-Auth
 
-The Azure AD B2C implementation meets OAuth 2.0 standards for public client Resource Owner Password Credentials and should be compatible with most client SDKs. We have tested this flow extensively, in production, with AppAuth for iOS and AppAuth for Android. For the latest information, see [Native App SDK for OAuth 2.0 and OpenID Connect implementing modern best practices](https://appauth.io/).
+The Azure AD B2C implementation meets OAuth 2.0 standards for public client resource owner password credentials and should be compatible with most client SDKs. We have tested this flow extensively, in production, with AppAuth for iOS and AppAuth for Android. For the latest information, see [Native App SDK for OAuth 2.0 and OpenID Connect implementing modern best practices](https://appauth.io/).
 
 Download working samples that have been configured for use with Azure AD B2C from GitHub, [for Android](https://aka.ms/aadb2cappauthropc) and [for iOS](https://aka.ms/aadb2ciosappauthropc).
 
