@@ -292,4 +292,4 @@ This widget highlights the best mapping of elastic compute units between Amazon 
 - Click the widget to open the Instances Type Mapping report.
 
 ## Next steps
-- Read the [use-reports.md](Use Cost Management reports) article to learn more about reports.
+- Read the [Use Cost Management reports](use-reports.md) article to learn more about reports.
