@@ -16,10 +16,6 @@ ms.custom: mvc
 
 This goal of this document is to help you plan and execute a successful migration between Azure Container Service with Kubernetes (ACS) and Azure Kubernetes Service (AKS). This guide details the differences between ACS and AKS, provides an overview of the migration process, and should help you make key decisions.
 
-## Plan for Migration
-
-The first step in any migration effort is to identify the services that need migrating. You'll want to plan for nodes and applications, and think about how you'll integrate your new AKS cluster into your deployment process.
-
 ## Differences between ACS and AKS
 
 ACS and AKS differ in some key areas that impact migration. You should review and plan to address the following differences before any migration.
@@ -39,6 +35,8 @@ If you're migrating to a newer version of Kubernetes (ex: 1.7.x to 1.9.x), there
 
 * [Migrate a ThirdPartyResource to CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
 * [Workloads API changes in versions 1.8 and 1.9](https://kubernetes.io/docs/reference/workloads-18-19/).
+
+## Migration considerations
 
 ### Agent Pools
 
