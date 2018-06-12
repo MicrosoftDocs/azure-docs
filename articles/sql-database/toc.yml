@@ -96,8 +96,6 @@
       href: sql-database-connectivity-architecture.md 
     - name: SQL Database T-SQL details
       href: sql-database-transact-sql-information.md
-    - name: Managed Instance T-SQL details
-      href: sql-database-managed-instance-transact-sql-information.md
   - name: Managed Instances
     items:
     - name: Overview
@@ -112,6 +110,8 @@
       href: sql-database-managed-instance-connect-app.md
     - name: Sync network configuration
       href: sql-database-managed-instance-sync-network-configuration.md
+    - name: Managed Instance T-SQL details
+      href: sql-database-managed-instance-transact-sql-information.md
   - name: SQL Server common features
     href: sql-database-features.md
   - name: High availability - split into two articles
@@ -133,17 +133,19 @@
     - name: Overview
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
-      href: sql-advanced-threat-protection.md
-    - name: Data discovery & classification
-      href: sql-database-data-discovery-and-classification.md
-    - name: Vulnerability assessment
-      href: sql-vulnerability-assessment.md
-    - name: Threat detection
       items:
-      - name: Threat detection - SQL Database
-        href: sql-database-threat-detection.md
-      - name: Threat detection - Managed Instance
-        href: sql-database-managed-instance-threat-detection.md
+      - name: Overview
+        href: sql-advanced-threat-protection.md
+      - name: Data discovery & classification
+        href: sql-database-data-discovery-and-classification.md
+      - name: Vulnerability assessment
+        href: sql-vulnerability-assessment.md
+      - name: Threat detection
+        items:
+        - name: Threat detection - SQL Database
+          href: sql-database-threat-detection.md
+        - name: Threat detection - Managed Instance
+          href: sql-database-managed-instance-threat-detection.md
     - name: Firewall rules
       items:
       - name: Oveview
