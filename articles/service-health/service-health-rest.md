@@ -14,16 +14,16 @@ ms.author: routlaw
 
 # Get Resource Health using the REST API 
 
-This how-to shows how to retrieve the resource utilization for a [Linux Virtual Machine](/azure/linux/virtual-machine) using the [Azure REST API](/rest/api/azure/).
+This how-to shows how to retrieve a list of health events for the Azure resources in your subsrciption using using the [Azure REST API](/rest/api/azure/).
 
 Complete reference documention and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
 
 ## Build the request
 
-Use the following GET request to collect the [Percentage CPU metric](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines) from a Virtual Machine
+Use the following GET request to get a list of the health events for your subscription for the range of time between `2018-05-16` and `2018-06-20`.
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
+https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&%24filter=eventTimestamp%20ge%20'2018-05-16T04%3A36%3A37.6407898Z'%20and%20eventTimestamp%20le%20'2018-06-20T04%3A36%3A37.6407898Z'
 ```
 
 ### Request headers
@@ -40,11 +40,8 @@ The following headers are required:
 | Name | Description |
 | :--- | :---------- |
 | subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
-| resourceGroupName | The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API, CLI, or the portal. |
-| vmname | The name of the Azure Virtual Machine. |
-| metricnames | Comma-separated list of valid  [Load Balancer metrics](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | api-version | The API version to use for the request.<br /><br /> This document covers api-version `2018-01-01`, included in the above URL.  |
-| timespan | The timespan of the query. It is a string with the following format `startDateTime_ISO/endDateTime_ISO`. This optional parameter is set to return a day's worth of data in the example. |
+| $filter | The filtering option to reduce the set of returned results. The allowable patterns for this parameter are available [in the reference for the Activity Logs operation](/rest/api/monitor/activitylogs/list#uri-parameters). The example shown captures all events in a time range between 2018-05-16 and 2018-06-20 |
 | &nbsp; | &nbsp; |
 
 ### Request body
@@ -53,49 +50,38 @@ No request body is needed for this operation.
 
 ## Handle the response
 
-Status code 200 is returned when the list of metric values is returned successfully. A full list of error codes is available in the [reference documentation](/rest/api/monitor/metrics/list#errorresponse).
+Status code 200 is returned with a list of health event values corresponding to the filter parameter, along with a `nextlink` URI to retrieve the next page of results.
 
 ## Example response 
 
 ```json
 {
-	"cost": 0,
-	"timespan": "2018-06-08T23:48:10Z/2018-06-09T00:48:10Z",
-	"interval": "PT1M",
-	"value": [
-		{
-			"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU",
-			"type": "Microsoft.Insights/metrics",
-			"name": {
-				"value": "Percentage CPU",
-				"localizedValue": "Percentage CPU"
-			},
-			"unit": "Percent",
-			"timeseries": [
-				{
-					"metadatavalues": [],
-					"data": [
-						{
-							"timeStamp": "2018-06-08T23:48:00Z",
-							"average": 0.44
-						},
-						{
-							"timeStamp": "2018-06-08T23:49:00Z",
-							"average": 0.31
-						},
-						{
-							"timeStamp": "2018-06-08T23:50:00Z",
-							"average": 0.29
-						},
-						{
-							"timeStamp": "2018-06-08T23:51:00Z",
-							"average": 0.29
-						},
-						{
-							"timeStamp": "2018-06-08T23:52:00Z",
-							"average": 0.285
-						} ]
-                } ]
-        } ]
+  "value": [
+    {
+      "correlationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
+      "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+      },
+      "id": "/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
+      "resourceGroupName": "MSSupportGroup",
+      "resourceProviderName": {
+        "value": "microsoft.support",
+        "localizedValue": "microsoft.support"
+      },
+      "operationName": {
+        "value": "microsoft.support/supporttickets/write",
+        "localizedValue": "microsoft.support/supporttickets/write"
+      },
+      "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+      },
+      "eventTimestamp": "2015-01-21T22:14:26.9792776Z",
+      "submissionTimestamp": "2015-01-21T22:14:39.9936304Z",
+      "level": "Informational"
+    }
+  ],
+  "nextLink": "https://management.azure.com/########-####-####-####-############$skiptoken=######"
 }
 ```
