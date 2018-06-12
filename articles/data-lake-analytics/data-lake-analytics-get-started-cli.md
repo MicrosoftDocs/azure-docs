@@ -8,7 +8,7 @@ ms.author: saveenr
 manager: kfile
 editor: jasonwhowell
 ms.topic: get-started-article
-ms.date: 06/18/2017
+ms.date: 06/11/2018
 ---
 # Get started with Azure Data Lake Analytics using Azure CLI
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
