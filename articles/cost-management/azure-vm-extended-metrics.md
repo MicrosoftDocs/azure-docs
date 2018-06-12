@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -14,7 +14,7 @@ ms.custom:
 
 # Add extended metrics for Azure virtual machines
 
-Cost Management uses Azure metric data from your Azure VMs to show you detailed information about their resources. Metric data, also called performance counters, is used by Cost Management to generate reports. However, Cost Management does not automatically gather all Azure metric data from guest VMs—you must enable metric collection. This article helps you enable and configure additional diagnostics metrics for your Azure VMs.
+Cost Management uses Azure metric data from your Azure VMs to show you detailed information about their resources. Metric data, also called performance counters, is used by Cost Management to generate reports. However, Cost Management does not automatically gather all Azure metric data from guest VMs — you must enable metric collection. This article helps you enable and configure additional diagnostics metrics for your Azure VMs.
 
 After you enable metric collection, you can:
 
@@ -24,6 +24,9 @@ After you enable metric collection, you can:
 - Get cost effective sizing optimization recommendations from Cost Management.
 
 For example, you might want to monitor the CPU % and Memory % of your Azure VMs. The Azure VM metrics correspond to _[Host] Percentage CPU_ and _[Guest] Memory percentage_.
+
+> [!NOTE]
+> Extended metric data collection is only supported with Azure guest-level monitoring. Cost Management is not compatible with the Log Analytics VM extension.
 
 ## Verify that metrics are enabled on VMs
 
@@ -40,19 +43,21 @@ Standard metrics are host computer metrics. The _[Host] Percentage CPU_ metric i
 
 Enabling extended metrics is straightforward. For each VM, enable guest-level monitoring. When you enable guest-level monitoring, the Azure diagnostics agent is installed on the VM. The following process is the same for classic and regular VMs and the same for Windows and Linux VMs.
 
+Keep in mind that both Azure and Linux guest-level monitoring require a storage account. When you enable guest-level monitoring, if you don't choose an existing storage account, then one is created for you.
+
 ### Enable guest-level monitoring on existing VMs
 
 1. In **Virtual Machines**, view your list of your VMs and then select a VM.
 2. Under **Monitoring**, select **Metrics**.
 3. Click **Diagnostic settings**.
-4. On the Diagnostics settings page, click **Enable guest-level monitoring**. Linux VMs require an existing storage account. If you don't choose a storage account for a Windows VM, then one is created for you.  
+4. On the Diagnostics settings page, click **Enable guest-level monitoring**.  
     ![Enable guest level monitoring](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 5. After a few minutes, the Azure diagnostics agent is installed on the VM. Refresh the page and the list of available metrics is updated with guest metrics.  
     ![Extended metrics](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### Enable guest-level monitoring on new VMs
 
-When you create new VMs, ensure that you select **Guest OS diagnostics**. Linux VMs require an existing storage account. If you don't choose a storage account for a Windows VM, then one is created for you.
+When you create new VMs, ensure that you select **Guest OS diagnostics**.
 
 ![Enable Guest OS diagnostics](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
@@ -72,4 +77,4 @@ To view performance metrics on your Azure Instances in the Cloudyn portal, navig
 
 ## Next steps
 
-- If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to [Activate Azure subscriptions and accounts](activate-subs-accounts.md)
+- If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to [Activate Azure subscriptions and accounts](activate-subs-accounts.md).

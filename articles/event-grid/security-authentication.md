@@ -65,7 +65,7 @@ An example SubscriptionValidationEvent is shown in the following example:
 }]
 ```
 
-To prove endpoint ownership, you can echo back the validation code in the validationResponse property, as shown in the following example:
+To prove endpoint ownership, echo back the validation code in the validationResponse property, as shown in the following example:
 
 ```json
 {

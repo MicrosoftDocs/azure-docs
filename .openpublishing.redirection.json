@@ -11141,6 +11141,17 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-reporting-api-audit-reference.md",
+            "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-sign-in-activity-reference.md",
+            "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path": "articles/active-directory/active-directory-identityprotection-risk-events-types.md",
             "redirect_url": "/azure/active-directory/active-directory-identity-protection-risk-events",
             "redirect_document_id": false
@@ -18261,6 +18272,26 @@
           "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-device-management-get-started",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-firmware-update.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-firmware-update",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-twin-getstarted",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-schedule-jobs.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-schedule-jobs",
+          "redirect_document_id": false
+        },
+        {
           "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
           "redirect_url": "/azure/iot-hub/tutorial-routing",
           "redirect_document_id": false
@@ -19127,7 +19158,12 @@
         },
         {
             "source_path": "articles/operations-management-suite/operations-management-suite-walkthrough-servicemap.md",
-            "redirect_url": "/azure/monitoring/monitoring-walkthrough-servicemap",
+            "redirect_url": "/azure/monitoring/monitoring-service-map",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring/monitoring-walkthrough-servicemap.md",
+            "redirect_url": "/azure/monitoring/monitoring-service-map",
             "redirect_document_id": false
         },
         {
@@ -19313,6 +19349,11 @@
         {
             "source_path": "articles/azure-stack/azure-stack-deploy.md",
             "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack-install-visual-studio.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-install-visual-studio",
             "redirect_document_id": false
         },
         {
@@ -22292,6 +22333,5 @@
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
             "redirect_document_id": false
         }
-
     ]
 }
