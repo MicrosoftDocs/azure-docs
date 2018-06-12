@@ -36,24 +36,24 @@ Is your Service Fabric application and cluster production ready? You may have be
 12. Keep separate clusters for development, staging and production. 
 13. [Application upgrades](service-fabric-application-upgrade.md) and [cluster upgrades](service-fabric-tutorial-upgrade-cluster.md) are tested in development and staging clusters first. 
 14. Turn off automatic upgrades in production clusters, and turn it on for development and staging clusters (rollback as needed). 
-16. Establish a Recovery Point Objective (RPO) for your service, and set up a [disaster recovery process](service-fabric-disaster-recovery.md) and test it out.
-17. Ensure offline backup of [Reliable Services and Reliable Actors](service-fabric-reliable-services-backup-restore.md) and test the restoration process. 
-18. Plan for [scaling](service-fabric-cluster-scaling.md) your cluster manually or programmatically.
-19. Plan for [patching](service-fabric-patch-orchestration-application.md) your cluster nodes. 
-20. Establish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-21. Test your development & staging clusters with the [Fault Analysis Service](service-fabric-testability-overview.md) and induce controlled [chaos](service-fabric-controlled-chaos.md). Run chaos simultaneously with a load test, so you're stress testing the system under load. 
-22. Plan for [scaling](service-fabric-concepts-scalability.md) your applications. 
+15. Establish a Recovery Point Objective (RPO) for your service, and set up a [disaster recovery process](service-fabric-disaster-recovery.md) and test it out.
+16. Plan for [scaling](service-fabric-cluster-scaling.md) your cluster manually or programmatically.
+17. Plan for [patching](service-fabric-patch-orchestration-application.md) your cluster nodes. 
+18. Establish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+19. Test your development & staging clusters with the [Fault Analysis Service](service-fabric-testability-overview.md) and induce controlled [chaos](service-fabric-controlled-chaos.md). Run chaos simultaneously with a load test, so you're stress testing the system under load. 
+20. Plan for [scaling](service-fabric-concepts-scalability.md) your applications. 
 
 
 If you're using the Service Fabric Reliable Services or Reliable Actors programming model, the following pre-requisites need to be checked off as well:
-23. Upgrade applications during local development to ensure your service code is honoring the cancellation token in RunAsync and/or closing custom communication listeners when using Reliable Services.
-24. Avoid [common pitfalls](service-fabric-work-with-reliable-collections.md) when using Reliable Collections.
-25. Observe .NET CLR memory performance counters when running a load tests and look for high GC usage or runaway heap growth.
+21. Upgrade applications during local development to ensure your service code is honoring the cancellation token in RunAsync and/or closing custom communication listeners when using Reliable Services.
+22. Avoid [common pitfalls](service-fabric-work-with-reliable-collections.md) when using Reliable Collections.
+23. Observe .NET CLR memory performance counters when running a load tests and look for high GC usage or runaway heap growth.
+24. Ensure offline backup of [Reliable Services and Reliable Actors](service-fabric-reliable-services-backup-restore.md) and test the restoration process. 
 
 
 While the above lists are pre-requisites to go into production, the following items should also be considered:
-26. Plug into the [Service Fabric health model](service-fabric-health-introduction.md) for extending the built-in health evaluation and reporting.
-27. Deploy a custom watchdog that is monitoring your application and reports [load](service-fabric-cluster-resource-manager-metrics.md) for [resource balancing](service-fabric-cluster-resource-manager-balancing.md). 
+25. Plug into the [Service Fabric health model](service-fabric-health-introduction.md) for extending the built-in health evaluation and reporting.
+26. Deploy a custom watchdog that is monitoring your application and reports [load](service-fabric-cluster-resource-manager-metrics.md) for [resource balancing](service-fabric-cluster-resource-manager-balancing.md). 
 
 
 
