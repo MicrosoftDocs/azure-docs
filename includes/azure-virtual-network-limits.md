@@ -71,7 +71,7 @@ The following limits apply only for networking resources managed through Azure R
 | Frontend IP configurations, Standard | 10 | 600 |
 | Backend pool, Basic | 100, single Availability Set | 100, single Availability Set |
 | Backend pool, Standard | 1000, single VNet | 1000, single VNet |
-| Backend resources per Load Balancer, Standard&ast; | 50 | 150 |
+| Backend resources per Load Balancer, Standard &ast; | 50 | 150 |
 | HA Ports, Standard | 1 per internal frontend | 1 per internal frontend |
 
 &ast; Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
