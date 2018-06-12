@@ -36,6 +36,6 @@ To redeploy a VM in a lab in Azure DevTest Labs, take the following steps:
     ![Redeploy status](media/devtest-lab-redeploy-vm/redeploy-status.png)
 
 ## Next steps
-Learn how to resize feature supported by Azure virtual machines, see [Resize a VM](devtest-lab-resize-vm.md).
+Learn how to resize a VM in Azure DevTest Labs, see [Resize a VM](devtest-lab-resize-vm.md).
 
 
