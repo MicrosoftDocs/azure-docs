@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/12/2018
 ms.author: jeedes
 
 ---
@@ -100,23 +100,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-supermood-tutorial/tutorial_supermood_samlbase.png)
 
-3. On the **Supermood Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+3. On the **Supermood Domain and URLs** section, perform the following steps:
 
 	![Supermood Domain and URLs single sign-on information](./media/active-directory-saas-supermood-tutorial/tutorial_supermood_url.png)
 
 	a. Check **Show advanced URL settings**.
 
-    b. In the **Relay State** textbox, type a URL: `https://supermood.co/auth/sso/saml20`
+    b. If you wish to configure the application in **IDP** initiated mode, in the **Relay State** textbox, type a URL: `https://supermood.co/auth/sso/saml20`
 
-4. If you wish to configure the application in **SP** initiated mode, perform the following step:
+	c. If you wish to configure the application in **SP** initiated mode, in the **Sign-on URL** textbox, type a URL: `https://supermood.co/app/#!/loginv2`
 
-	In the **Sign-on URL** textbox, type a URL: `https://supermood.co/app/#!/loginv2`
-
-5. Supermood application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
+4. Supermood application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-supermood-tutorial/tutorial_supermood_attribute.png)
 
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
 	| Attribute Name | Attribute Value |
 	| ---------------| --------------- |    
@@ -137,24 +135,24 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**
 
-7. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+6. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
 	![The Certificate download link](./media/active-directory-saas-supermood-tutorial/tutorial_supermood_certificate.png) 
 
-8. Click **Save** button.
+7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-supermood-tutorial/tutorial_general_400.png)
-	
-9. Go to your Supermood.co admin panel as Security Administrator.
 
-10. Click on **My account** (bottom left) and **Single Sign On (SSO)**.
+8. Go to your Supermood.co admin panel as Security Administrator.
+
+9. Click on **My account** (bottom left) and **Single Sign On (SSO)**.
 
 	![The Certificate single](./media/active-directory-saas-supermood-tutorial/tutorial_supermood_single.png)
-11. On **Your SAML 2.0 configurations**, Click **Add an SAML 2.0 configuration for an email domain**.
+10. On **Your SAML 2.0 configurations**, Click **Add an SAML 2.0 configuration for an email domain**.
 
 	![The Certificate add](./media/active-directory-saas-supermood-tutorial/tutorial_supermood_add.png)
 
-12. On **Add an SAML 2.0 configuration for an email domain**. section, perform the following steps:
+11. On **Add an SAML 2.0 configuration for an email domain**. section, perform the following steps:
 
 	![The Certificate saml](./media/active-directory-saas-supermood-tutorial/tutorial_supermood_saml.png)
 
