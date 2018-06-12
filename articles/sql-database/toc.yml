@@ -138,12 +138,6 @@
       href: sql-database-high-availability.md  
     - name: Business Critical / Premium - from existing HA article
       href: sql-database-high-availability.md  
-  - name: Scale up and scale down    
-    items:
-    - name: Scaling a single database
-      href: sql-database-single-database-scaling.md
-    - name: Scaling an elastic pool
-      href: sql-database-elastic-database-scaling.md
   - name: Security   
     items:
     - name: Overview
