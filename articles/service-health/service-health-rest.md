@@ -14,13 +14,13 @@ ms.author: routlaw
 
 # Get Resource Health using the REST API 
 
-This how-to shows how to retrieve a list of health events for the Azure resources in your subsrciption using using the [Azure REST API](/rest/api/azure/).
+This example article shows how to retrieve a list of health events for the Azure resources in your subscription using the [Azure REST API](/rest/api/azure/).
 
-Complete reference documention and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
+Complete reference documentation and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
 
 ## Build the request
 
-Use the following GET request to get a list of the health events for your subscription for the range of time between `2018-05-16` and `2018-06-20`.
+Use the following `GET` HTTP request to list the health events for your subscription for the range of time between `2018-05-16` and `2018-06-20`.
 
 ```http
 https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&%24filter=eventTimestamp%20ge%20'2018-05-16T04%3A36%3A37.6407898Z'%20and%20eventTimestamp%20le%20'2018-06-20T04%3A36%3A37.6407898Z'
