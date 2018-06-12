@@ -11,8 +11,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 05/02/2018
-ms.author: billmath
+ms.author: rolyon
 ---
 
 # Complete an access review of members of a group or users' access to an application in Azure AD

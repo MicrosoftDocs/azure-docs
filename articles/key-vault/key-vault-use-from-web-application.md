@@ -258,8 +258,7 @@ When no longer needed, delete the app service, key vault, and Azure AD applicati
 > [!div class="nextstepaction"]
 >[Azure Key Vault Management API Reference](/dotnet/api/overview/azure/keyvault/management).
 
-> [!div class="nextstepaction"]
->[Azure Key Vault Client API Reference](/dotnet/api/overview/azure/keyvault/client).
+For programming references, see [Azure Key Vault C# Client API Reference](https://msdn.microsoft.com/en-us/library/azure/mt430941.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png

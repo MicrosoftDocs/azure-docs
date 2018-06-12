@@ -50,8 +50,6 @@
   items:
   - name: Manage
     items:
-    - name: Update a job
-      href: stream-analytics-job-reliability.md
     - name: Update credentials
       href: stream-analytics-login-credentials-inputs-outputs.md
     - name: Configure alerts
@@ -60,6 +58,10 @@
       href: stream-analytics-test-query.md
     - name: View results on a dashboard
       href: stream-analytics-power-bi-dashboard.md
+    - name: Clean up your job
+      href: stream-analytics-clean-up-your-job.md
+    - name: Pair jobs for reliability
+      href: stream-analytics-job-reliability.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis

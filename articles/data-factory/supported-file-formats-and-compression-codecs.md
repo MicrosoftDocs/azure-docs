@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
 

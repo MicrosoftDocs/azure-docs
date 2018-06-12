@@ -23,7 +23,7 @@ The management group feature is available in a public preview. To start using ma
 
 To make changes to a management group, you must have an Owner or Contributor role on the management group. To see what permissions you have, select the management group and then select **IAM**. To learn more about RBAC Roles, see [Manage access and permissions with RBAC](../role-based-access-control/overview.md).
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## Change the name of a management group 
 You can change the name of the management group by using the portal, PowerShell, or Azure CLI.

@@ -5,14 +5,10 @@ keywords: change feed
 services: cosmos-db
 author: rafats
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: 
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
 
@@ -44,9 +40,9 @@ Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos DB 
 
 You can read the change feed in three different ways, as discussed later in this article:
 
-1.	[Using Azure Functions](#azure-functions)
-2.	[Using the Azure Cosmos DB SDK](#rest-apis)
-3.	[Using the Azure Cosmos DB Change Feed Processor library](#change-feed-processor)
+*	[Using Azure Functions](#azure-functions)
+*	[Using the Azure Cosmos DB SDK](#sql-sdk)
+*	[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)
 
 The change feed is available for each partition key range within the document collection, and thus can be distributed across one or more consumers for parallel processing as shown in the following image.
 
@@ -89,7 +85,7 @@ If you're using Azure Functions, the simplest way to connect to an Azure Cosmos 
 
 Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md).
 
-<a id="rest-apis"></a>
+<a id="sql-sdk"></a>
 ## Using the SDK
 
 The [SQL SDK](sql-api-sdk-dotnet.md) for Azure Cosmos DB gives you all the power to read and manage a change feed. But with great power comes lots of responsibilities, too. If you want to manage checkpoints, deal with document sequence numbers, and have granular control over partition keys, then using the SDK may be the right approach.
@@ -164,20 +160,20 @@ This section walks through how to use the SQL SDK to work with a change feed.
 
 If you have multiple readers, you can use **ChangeFeedOptions** to distribute read load to different threads or different clients.
 
-And that's it, with these few lines of code you can start reading the change feed. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
+And that's it, with these few lines of code you can start reading the change feed. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 
 In the code in step 4 above, the **ResponseContinuation** in the last line has the last logical sequence number (LSN) of the document, which you will use the next time you read new documents after this sequence number. By using the **StartTime** of the **ChangeFeedOption** you can widen your net to get the documents. So, if your **ResponseContinuation** is null, but your **StartTime** goes back in time then you will get all the documents that changed since the **StartTime**. But, if your **ResponseContinuation** has a value then system will get you all the documents since that LSN.
 
-So, your checkpoint array is just keeping the LSN for each partition. But if you don’t want to deal with the partitions, checkpoints, LSN, start time, etc. the simpler option is to use the Change Feed Processor Library.
+So, your checkpoint array is just keeping the LSN for each partition. But if you don’t want to deal with the partitions, checkpoints, LSN, start time, etc. the simpler option is to use the change feed processor library.
 
 <a id="change-feed-processor"></a>
-## Using the Change Feed Processor library 
+## Using the change feed processor library 
 
-The [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) can help you easily distribute event processing across multiple consumers. This library simplifies reading changes across partitions and multiple threads working in parallel.
+The [Azure Cosmos DB change feed processor library](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) can help you easily distribute event processing across multiple consumers. This library simplifies reading changes across partitions and multiple threads working in parallel.
 
-The main benefit of Change Feed Processor library is that you don’t have to manage each partition and continuation token and you don’t have to poll each collection manually.
+The main benefit of change feed processor library is that you don’t have to manage each partition and continuation token and you don’t have to poll each collection manually.
 
-The Change Feed Processor library simplifies reading changes across partitions and multiple threads working in parallel.  It automatically manages reading changes across partitions using a lease mechanism. As you can see in the following image, if you start two clients that are using the Change Feed Processor library, they divide the work among themselves. As you continue to increase the clients, they keep dividing the work among themselves.
+The change feed processor library simplifies reading changes across partitions and multiple threads working in parallel.  It automatically manages reading changes across partitions using a lease mechanism. As you can see in the following image, if you start two clients that are using the change feed processor library, they divide the work among themselves. As you continue to increase the clients, they keep dividing the work among themselves.
 
 ![Distributed processing of Azure Cosmos DB change feed](./media/change-feed/change-feed-output.png)
 
@@ -186,9 +182,9 @@ The left client was started first and it started monitoring all the partitions, 
 Note that if you have two serverless Azure funtions monitoring the same collection and using the same lease then the two functions may get different documents depending upon how the processor library decides to processs the partitions.
 
 <a id="understand-cf"></a>
-### Understanding the Change Feed Processor library
+### Understanding the change feed processor library
 
-There are four main components of implementing the Change Feed Processor: the monitored collection, the lease collection, the processor host, and the consumers. 
+There are four main components of implementing the change feed processor library: the monitored collection, the lease collection, the processor host, and the consumers. 
 
 > [!WARNING]
 > Creating a collection has pricing implications, as you are reserving throughput for the application to communicate with Azure Cosmos DB. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)
@@ -199,7 +195,7 @@ There are four main components of implementing the Change Feed Processor: the mo
 The monitored collection is the data from which the change feed is generated. Any inserts and changes to the monitored collection are reflected in the change feed of the collection. 
 
 **Lease Collection:**
-The lease collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition. It is advantageous to store this lease collection on a different account with the write region closer to where the Change Feed Processor is running. A lease object contains the following attributes: 
+The lease collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition. It is advantageous to store this lease collection on a different account with the write region closer to where the change feed processor is running. A lease object contains the following attributes: 
 * Owner: Specifies the host that owns the lease
 * Continuation: Specifies the position (continuation token) in the change feed for a particular partition
 * Timestamp: Last time lease was updated; the timestamp can be used to check whether the lease is considered expired 
@@ -215,20 +211,20 @@ At this time the number of hosts cannot be greater than the number of partitions
 **Consumers:**
 Consumers, or workers, are threads that perform the change feed processing initiated by each host. Each processor host can have multiple consumers. Each consumer reads the change feed from the partition it is assigned to and notifies its host of changes and expired leases.
 
-To further understand how these four elements of Change Feed Processor work together, let's look at an example in the following diagram. The monitored collection stores documents and uses the "city" as the partition key. We see that the blue partition contains documents with the "city" field from "A-E" and so on. There are two hosts, each with two consumers reading from the four partitions in parallel. The arrows show the consumers reading from a specific spot in the change feed. In the first partition, the darker blue represents unread changes while the light blue represents the already read changes on the change feed. The hosts use the lease collection to store a "continuation" value to keep track of the current reading position for each consumer. 
+To further understand how these four elements of change feed processor work together, let's look at an example in the following diagram. The monitored collection stores documents and uses the "city" as the partition key. We see that the blue partition contains documents with the "city" field from "A-E" and so on. There are two hosts, each with two consumers reading from the four partitions in parallel. The arrows show the consumers reading from a specific spot in the change feed. In the first partition, the darker blue represents unread changes while the light blue represents the already read changes on the change feed. The hosts use the lease collection to store a "continuation" value to keep track of the current reading position for each consumer. 
 
 ![Using the Azure Cosmos DB change feed processor host](./media/change-feed/changefeedprocessornew.png)
 
-### Working with the Change Feed Processor library
+### Working with the change feed processor library
 
-Before installing Change Feed Processor NuGet package, first install: 
+Before installing change feed processor NuGet package, first install: 
 
 * Microsoft.Azure.DocumentDB, version 1.13.1 or above 
 * Newtonsoft.Json, version 9.0.1 or above
 
 Then install the [Microsoft.Azure.DocumentDB.ChangeFeedProcessor Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) and include it as a reference.
 
-To implement the Change Feed Processor library you have to do following:
+To implement the change feed processor library you have to do following:
 
 1. Implement a **DocumentFeedObserver** object, which implements **IChangeFeedObserver**.
 
@@ -280,13 +276,158 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 }
 ```
 
-That’s it. After these few steps documents will start coming into the **DocumentFeedObserver ProcessChangesAsync** method.
+That’s it. After these few steps documents will start coming into the **DocumentFeedObserver ProcessChangesAsync** method. Find the above code in [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
+
+## FAQ
+
+### What are the different ways you can read Change Feed? and when to use each method?
+
+There are three options for you to read change feed:
+
+* **[Using Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
+   
+   By using this method, you get low level of control on change feed. You can manage the checkpoint, you can access a particular partition key etc. If you have multiple readers, you can use [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) to distribute read load to different threads or different clients. .
+
+* **[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)**
+
+   If you want to outsource lot of complexity of change feed then you can use change feed processor library. This library hides lot of complexity, but still gives you complete control on change feed. This library follows an [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), your processing function is called by the SDK. 
+
+   If you have a high throughput change feed, you can instantiate multiple clients to read the change feed. Because you are using “change feed processor library”, it will automatically divide the load among different clients. You do not have to do anything. All the complexity is handled by SDK. However, if you want to have your own load balancer, then you can implement IParitionLoadBalancingStrategy for custom partition strategy. Implement IPartitionProcessor – for custom processing changes on a partition. However, with SDK, you can process a partition range but if you want to process a particular partition key then you have to use SDK for SQL API.
+
+* **[Using Azure Functions](#azure-functions)** 
+   
+   The last option Azure Function is the simplest option. We recommend using this option. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to and the function is triggered whenever a change to the collection is made. watch a [screen cast](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) of using Azure function and change feed
+
+   Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. Visual Studio and VS Code has great support to write Azure Function. You can write and debug the code on your desktop, and then deploy the function with one click. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md) article.
+
+### What is the sort order of documents in change feed?
+
+Change feed documents comes in order of their modification time. This sort order is guaranteed only per partition.
+
+### For a multi-region account, what happens to the change feed when the write-region fails-over? Does the change feed also failover? Would the change feed still appear contiguous or would the fail-over cause change feed to reset?
+
+Yes, change feed will work across the manual failover operation and it will be contiguous.
+
+### How long change feed persist the changed data if I set the TTL (Time to Live) property for the document to -1?
+
+Change feed will persist forever. If data is not deleted, it will remain in change feed.
+
+### How can I configure Azure functions to read from a particular region, as change feed is available in all the read regions by default?
+
+Currently it’s not possible to configure Azure Functions to read from a particular region. There is a GitHub issue in the Azure Functions repo to set the preferred regions of any Azure Cosmos DB binding and trigger.
+
+Azure Functions uses the default connection policy. You can configure connection mode in Azure Functions and by default, it reads from the write region, so it is best to co-locate Azure Functions on the same region.
+
+### What is the default size of batches in Azure Functions?
+
+100 documents at every invocation of Azure Functions. However, this number is configurable within the function.json file. Here is complete [list of configuration options](../azure-functions/functions-run-local.md). If you are developing locally, update the application settings within the [local.settings.json](../azure-functions/functions-run-local.md) file.
+
+### I am monitoring a collection and reading its change feed, however I see I am not getting all the inserted document, some documents are missing. What is going on here?
+
+Please make sure that there is no other function reading the same collection with the same lease collection. It happened to me, and later I realized the missing documents are processed by my other Azure functions, which is also using the same lease.
+
+Therefore, if you are creating multiple Azure Functions to read the same change feed then they must use different lease collection or use the “leasePrefix” configuration to share the same collection. However, when you use change feed processor library you can start multiple instances of your function and SDK will divide the documents between different instances automatically for you.
+
+### My document is updated every second, and I am not getting all the changes in Azure Functions listening to change feed.
+
+Azure Functions polls change feed for every 5 seconds, so any changes made between 5 seconds are lost. Azure Cosmos DB stores just one version for every 5 seconds so you will get the 5th change on the document. However, if you want to go below 5 second, and want to poll change Feed every second, You can configure the polling time “feedPollTime”, see [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). It is defined in milliseconds with a default of 5000. Below 1 second is possible but not advisable, as you will start burning more CPU.
+
+### I inserted a document in the Mongo API collection, but when I get the document in change feed, it shows a different id value. What is wrong here?
+
+Your collection is Mongo API collection. Remember, change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. You are seeing is the representation of a BSON document in JSON. If you use binary attributes in a Mongo accounts, they are converted to JSON.
+
+### Is there a way to control change feed for updates only and not inserts?
+
+Not today, but this functionality is on roadmap. Today, you can add a soft marker on the document for updates.
+
+### Is there a way to get deletes in change feed?
+
+Currently change feed doesn’t log deletes. Change feed is continuously improving, and this functionality is on roadmap. Today, you can add a soft marker on the document for delete. Add an attribute on the document called “deleted” and set it to “true” and set a TTL on the document so that it can be automatically deleted.
+
+### Can I read change feed for historic documents(for example, documents that were added 5 years back) ?
+
+Yes, if the document is not deleted you can read the change feed as far as the origin of your collection.
+
+### Can I read change feed using JavaScript?
+
+Yes, Node.js SDK initial support for change feed is recently added. It can be used as shown in the following example, please update documentdb module to current version before you run the code:
+
+```js
+
+var DocumentDBClient = require('documentdb').DocumentClient;
+const host = "https://your_host:443/";
+const masterKey = "your_master_key==";
+const databaseId = "db";
+const collectionId = "c1";
+const dbLink = 'dbs/' + databaseId;
+const collLink = dbLink + '/colls/' + collectionId;
+var client = new DocumentDBClient(host, { masterKey: masterKey });
+let options = {
+    a_im: "Incremental feed",
+    accessCondition: {
+        type: "IfNoneMatch",        // Use: - empty condition (or remove accessCondition entirely) to start from beginning.
+        //      - '*' to start from current.
+        //      - specific etag value to start from specific continuation.
+        condition: ""
+    }
+};
+ 
+var query = client.readDocuments(collLink, options);
+query.executeNext((err, results, headers) =&gt; {
+    // Now we have headers.etag, which can be used in next readDocuments in accessCondition option.
+    console.log(results);
+    console.log(headers.etag);
+    console.log(results.length);
+    options.accessCondition = { type: "IfNoneMatch", condition: headers.etag };
+    var query = client.readDocuments(collLink, options);
+    query.executeNext((err, results, headers) =&gt; {
+        console.log("next one:", results[0]);
+    });
+});<span id="mce_SELREST_start" style="overflow:hidden;line-height:0;"></span>
+
+```
+
+### Can I read change feed using Java?
+
+Java library to read change feed is available in [Github repository](https://github.com/Azure/azure-documentdb-changefeedprocessor-java). However, currently Java library is few versions behind .NET library. Soon both the libraries will be in sync.
+
+### Can I use _etag, _lsn or _ts for internal bookkeeping, which I get in response?
+
+_etag format is internal and you should not depend on it (do not parse it) because it can change anytime.
+_ts is modification or creation time stamp. You can use _ts for chronological comparison.
+_lsn is is a batch id that is added only for change feed, it represents the transaction id from the store.. Many documents may have same _lsn.
+One more thing to note, ETag on FeedResponse is different than the _etag you see on the document. _etag is an internal identifier and used to concurrency, it tells about the version of the document and ETag is used for sequencing the feed.
+
+### Does reading change feed add any additional cost ?
+
+You are charged for the RU’s consumed i.e. data movement in and out of Azure Cosmos DB collections always consume RU. Users will be charged for RU consumed by the lease collection.
+
+### Can multiple Azure Functions read one collection’s change feed?
+
+Yes. Multiple Azure Functions can read the same collection’s change feed. However, the Azure Functions need to have a separate leaseCollectionPrefix defined.
+
+### Should the lease collection be partitioned?
+
+No, lease collection can be Fixed. Partitioned lease collection is not needed and it’s not currently supported.
+
+### Can I read change feed from Spark?
+
+Yes, you can. Please see [Azure Cosmos DB Spark Connector](spark-connector.md). Here is a [screen cast](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s) showing how you can process change feed as a structured stream.
+
+### If I am processing change feed by using Azure Functions, say a batch of 10 documents, and I get an error at 7th Document. In that case the last three documents are not processed how can I start processing from the failed document(i.e 7th document) in my next feed?
+
+To handle the error, the recommended pattern is to wrap your code with try-catch block. Catch the error and put that document on a queue (dead-letter)and then define logic to deal with the documents that produced the error. With this method if you have a 200-document batch, and just one document failed, you do not have to throw away the whole batch.
+
+In case of error you should not rewind the check point back to beginning else you will can keep getting those documents from change feed. Remember, change feed keeps the last final snap shot of the documents, because of this you may lose the previous snapshot on the document. change feed keeps only one last version of the document, and in between other processes can come and change the document.
+
+As you keep fixing your code, you will soon find no documents on dead-letter queue.
+Azure Functions is automatically called by change feed system and check point etc is maintained internally by Azure Function. If you want to roll back the check point and control every aspect of it, you should consider using change feed Processor SDK.
 
 ## Next steps
 
 For more information about using Azure Cosmos DB with Azure Functions see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md).
 
-For more information on using the Change Feed Processor library, use the following resources:
+For more information on using the change feed processor library, use the following resources:
 
 * [Information page](sql-api-sdk-dotnet-changefeed.md) 
 * [Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)

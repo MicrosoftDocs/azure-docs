@@ -14,7 +14,7 @@ ms.author: v-geberr;
 
 
 # Publish your trained app
-When you finish building and testing your LUIS app, publish it. After the app is published, the Publish page shows all associated HTTP [endpoints](luis-glossary.md#endpoint). These endpoints, per [region](luis-reference-regions.md) and per [key](Manage-Keys.md), are then integrated into any client, chat bot, or backend application. 
+When you finish building and testing your LUIS app, publish it. After the app is published, the Publish page shows all associated HTTP [endpoints](luis-glossary.md#endpoint). These endpoints, per [region](luis-reference-regions.md) and per [key](Manage-Keys.md), are then integrated into any client, chatbot, or backend application. 
 
 You can always [test](train-test.md) your app before publishing it. 
 
@@ -37,7 +37,7 @@ Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) 
 For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-concept-data-extraction.md#sentiment-analysis)
 
 ### Enable speech priming 
-In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chat bot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](../Speech-Service/rest-apis.md). 
+In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chatbot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](../Speech-Service/rest-apis.md). 
 
 ![Image of Speech priming confirmation dialog](./media/luis-how-to-publish-app/speech-prime-modal.png)
 
@@ -61,7 +61,7 @@ Part of the slot choice is the time zone selection. This timezone setting allows
 ### Include all predicted intent scores
 The **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each intent. 
 
-This setting allows your chat bot or LUIS-calling application to make a programmatic decision based on the scores of the returned intents. Generally the top two intents are the most interesting. If the top score is the None intent, your chat bot can choose to ask a follow-up question that makes a definitive choice between the None intent and the other high-scoring intent. 
+This setting allows your chatbot or LUIS-calling application to make a programmatic decision based on the scores of the returned intents. Generally the top two intents are the most interesting. If the top score is the None intent, your chatbot can choose to ask a follow-up question that makes a definitive choice between the None intent and the other high-scoring intent. 
 
 The intents and their scores are also included the endpoint logs. You can [export](create-new-app.md#export-app) those logs and analyze the scores. 
 
@@ -135,7 +135,7 @@ The following query string parameters can be used with the endpoint URL:
 |Query string|Type|Example value|Purpose|
 |--|--|--|--|
 |verbose|boolean|true|Include [all intent scores](#include-all-predicted-intent-scores) for utterance|
-|timezoneOffset|number (unit is minutes)|60|Set [timezone offset](#set-timezone) for [datetimeV2 prebuilt entities](#builtindatetimev2)|
+|timezoneOffset|number (unit is minutes)|60|Set [timezone offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) for [datetimeV2 prebuilt entities](luis-reference-prebuilt-entities.md#builtindatetimev2)|
 |spellCheck|boolean|true|[correct spelling](#enable-bing-spell-checker) of utterance -- used in conjunction with bing-spell-check-subscription-key query string parameter|
 |bing-spell-check-subscription-key|subscription ID||used in conjunction with spellCheck query string parameter|
 |staging|boolean|false|select staging or production endpoint|

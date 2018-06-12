@@ -67,8 +67,9 @@ The **services available in Azure Government** are listed by category, as well a
 ## Web + Mobile
 | Generally Available | Preview |
 | --- | --- |
-| [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) |[API Management](documentation-government-services-webandmobile.md#api-management) |
+| [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) | |
 | [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services) | |
+| [API Management](documentation-government-services-webandmobile.md#api-management) ||
 | [Media Services](documentation-government-services-media.md) | |
 
 ## Databases
@@ -120,6 +121,7 @@ The **services available in Azure Government** are listed by category, as well a
 | --- | --- |
 | [Automation](documentation-government-services-monitoringandmanagement.md#automation)| [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) |
 | [Backup](documentation-government-services-backup.md) | |
+| [Policy**](documentation-government-services-monitoringandmanagement.md#policy) | |
 | [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | |
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | | 
 | [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) | |

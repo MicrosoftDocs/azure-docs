@@ -1,22 +1,15 @@
 ---
 title: Intel Edison to cloud (Node.js) - Connect Intel Edison to Azure IoT Hub | Microsoft Docs
 description: Learn how to setup and connect Intel Edison to Azure IoT Hub for Intel Edison to send data to the Azure cloud platform in this tutorial.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
-keywords: 'azure iot intel edison, intel edison iot hub, intel edison send data to cloud, intel edison to cloud'
-
-ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
+manager: 
+keywords: azure iot intel edison, intel edison iot hub, intel edison send data to cloud, intel edison to cloud
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: nodejs
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+ms.topic: conceptual
+ms.date: 04/11/2018
 ms.author: rangv
-ms.custom: H1Hack27Feb2017
 
 ---
 

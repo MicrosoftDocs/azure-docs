@@ -1,4 +1,4 @@
-﻿---
+---
 title: Introduction to microservices on Azure| Microsoft Docs
 description: An overview of why building cloud applications with a microservices approach is important for modern application development and how Azure Service Fabric provides a platform to achieve this.
 services: service-fabric
@@ -159,7 +159,7 @@ It is important to emphasize again that you can **start and stop at any of these
 - Cost reduction either due to consolidation and removal  of existing hardware or running applications at higher density. 
 - Consistent deployment contract between development and operations.
 
-Cost reductions are understandable, and within Microsoft, large numbers of existing applications are being containerized simply to save millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suites them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
+Cost reductions are understandable, and within Microsoft, large numbers of existing applications are being containerized simply to save millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suits them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
 
 Many organizations stop here. They already have the benefits of containers and Service Fabric provides the complete management experience from deployment, upgrades, versioning, rollbacks, health monitoring etc.
 

@@ -45,13 +45,13 @@
       href: delete-cluster.md
   - name: Configure data volumes
     items:
-    - name: AzureDisk dynamic provisioning
+    - name: Azure Disk - Dynamic
       href: azure-disks-dynamic-pv.md
-    - name: AzureDisk static provisioning
+    - name: Azure Disk - Static
       href: azure-disk-volume.md
-    - name: AzureFile dynamic provisioning
+    - name: Azure Files - Dynamic
       href: azure-files-dynamic-pv.md
-    - name: AzureFile static provisioning
+    - name: Azure Files - Static
       href: azure-files-volume.md
   - name: Configure networking
     items:
@@ -63,6 +63,8 @@
       href: internal-lb.md
     - name: Ingress and TLS
       href: ingress.md
+    - name: Egress traffic
+      href: egress.md
     - name: HTTP application routing
       href: http-application-routing.md
   - name: Security and authentication

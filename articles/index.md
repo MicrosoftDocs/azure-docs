@@ -1,4 +1,4 @@
----
+﻿---
 layout: HubPage
 hide_bc: true
 experimental: true
@@ -69,7 +69,7 @@ featureFlags:
         </ul>
     </div>
     <div class="container">
-        <h1 class="screenReader">Microsoft Azure Documentation</h1>
+        <h1 class="visually-hidden">Microsoft Azure Documentation</h1>
         <ul class="pivots">
             <li>
                 <a href="#get-started">Get Started</a>
@@ -244,9 +244,15 @@ featureFlags:
                                                 <h3>DevOps</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-                                                            Deploy to Azure
+                                                        <a class="barLink" href="/azure/ansible/">
+                                                            <img src="media/index/ansible.svg" alt="">
+                                                            Ansible
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/chef">
+                                                            <img src="chef/media/Chef_Regular.svg" alt="">
+                                                            Chef
                                                         </a>
                                                     </li>
                                                     <li>
@@ -259,6 +265,12 @@ featureFlags:
                                                         <a class="barLink" href="/azure/terraform">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt="">
                                                             Terraform
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Visual Studio Team Services
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -3326,7 +3338,7 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                            <li class="fullSpan">
+                            <!--li class="fullSpan">
                                 <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services APIs</h2>
                                 <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
                                     <li>
@@ -3522,7 +3534,7 @@ featureFlags:
                                         </div>
                                     </li>
                                 </ul>
-                            </li>
+                            </li-->
                         </ul>
                     </li>
                     <li>

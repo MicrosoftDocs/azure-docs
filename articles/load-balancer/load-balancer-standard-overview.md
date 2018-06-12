@@ -29,7 +29,7 @@ Standard Load Balancer is a new Load Balancer product for all TCP and UDP applic
 
 You can use Standard Load Balancer as a public or internal Load Balancer. And a virtual machine can be connected to one public and one internal Load Balancer resource.
 
-The Load Balancer resource's functions are always expressed as a frontend, a rule, a health probe, and a backend pool definition.  A resource can contain multiple rules. You can place virtual machines into the backend pool by specifying the backend pool from the virtual machine's NIC resource.  In the case of a virtual machine scale set, this parameter is passed through the network profile and expanded.
+The Load Balancer resource's functions are always expressed as a frontend, a rule, a health probe, and a backend pool definition.  A resource can contain multiple rules. You can place virtual machines into the backend pool by specifying the backend pool from the virtual machine's NIC resource.  This parameter is passed through the network profile and expanded when using virtual machine scale sets.
 
 One key aspect is the scope of the virtual network for the resource.  While Basic Load Balancer exists within the scope of an availability set, a Standard Load Balancer is fully integrated with the scope of a virtual network and all virtual network concepts apply.
 
@@ -68,7 +68,7 @@ Review [service limits for Load Balancer](https://aka.ms/lblimits), as well as [
 
 Standard Load Balancer backend pools expands to any virtual machine resource in a virtual network.  It can contain up to 1000 backend instances.  A backend instance is an IP configuration, which is a property of a NIC resource.
 
-The backend pool can contain standalone virtual machines, availability sets, or virtual machine scale sets.  You can blend resources in the backend pool and it can contain any combination of these resources up to 150 total.
+The backend pool can contain standalone virtual machines, availability sets, or virtual machine scale sets.  You can also blend resources in the backend pool. You can combine up to 150 resources in the backend pool per Load Balancer resource.
 
 When considering how to design your backend pool, you can design for the least number of individual backend pool resources to further optimize the duration of management operations.  There is no difference in data plane performance or scale.
 
@@ -86,7 +86,7 @@ Review [detailed discussion of Availability Zones related abilities](load-balanc
 
 ### <a name="diagnostics"></a> Diagnostics
 
-Standard Load Balancer provides multi-dimensional metrics through Azure Monitor.  These metrics can be filtered, grouped and provide current and historic insights into performance and health of your service.  Resource Health is also supported.  Following is a brief overview of supported diagnostics:
+Standard Load Balancer provides multi-dimensional metrics through Azure Monitor.  These metrics can be filtered, grouped, and broken out for a given dimension.  They provide current and historic insights into performance and health of your service.  Resource Health is also supported.  Following is a brief overview of supported diagnostics:
 
 | Metric | Description |
 | --- | --- |
@@ -105,7 +105,7 @@ Standard Load Balancer supports a new type of rule.
 
 You can configure load balancing rules to make your application scale and be highly reliable. When you use an HA Ports load balancing rule, Standard Load Balancer will provide per flow load balancing on every ephemeral port of an internal Standard Load Balancer's frontend IP address.  The feature is useful for other scenarios where it is impractical or undesirable to specify individual ports.
 
-An HA Ports load balancing rule allows you to create active-passive or active-active n+1 scenarios for Network Virtual Appliances and any application which requires large ranges of inbound ports.  A health probe can be used to determine which backends should be receiving new flows.  You can use a Network Security Group to emulate a port range scenario.
+An HA Ports load balancing rule allows you to create active-passive or active-active n+1 scenarios for Network Virtual Appliances and any application, which requires large ranges of inbound ports.  A health probe can be used to determine which backends should be receiving new flows.  You can use a Network Security Group to emulate a port range scenario.
 
 >[!IMPORTANT]
 > If you are planning to use a Network Virtual Appliance, check with your vendor for guidance on whether their product has been tested with HA Ports and follow their specific guidance for implementation. 
@@ -114,9 +114,9 @@ Review [detailed discussion of HA Ports](load-balancer-ha-ports-overview.md).
 
 ### <a name="securebydefault"></a>Secure by default
 
-Standard Load Balancer is fully onboarded to the virtual network.  The virtual network is a private, closed network.  Because Standard Load Balancers and Standard public IP addresses are designed to allow this virtual network to be accessed from outside of the virtual network, these resources now default to closed unless you open them. This means Network Security Groups (NSGs) are now used to explicitly permit and whitelist allowed traffic.  You can create your entire virtual data center and decide through NSG what and when it should be available.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, we will not permit traffic to reach this resource.
+Standard Load Balancer is fully onboarded to the virtual network.  The virtual network is a private, closed network.  Because Standard Load Balancers and Standard public IP addresses are designed to allow this virtual network to be accessed from outside of the virtual network, these resources now default to closed unless you open them. This means Network Security Groups (NSGs) are now used to explicitly permit and whitelist allowed traffic.  You can create your entire virtual data center and decide through NSG what and when it should be available.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource.
 
-To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
+To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/security-overview.md).
 
 ### <a name="outbound"></a> Outbound connections
 
@@ -234,7 +234,7 @@ Standard Load Balancer is a charged product based on number of load balancing ru
 - Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md)
 - Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md)
 - Learn about [Virtual Networks](../virtual-network/virtual-networks-overview.md).
-- Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
+- Learn more about [Network Security Groups](../virtual-network/security-overview.md).
 - Learn about [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
 - Learn more about [Load Balancer](load-balancer-overview.md).

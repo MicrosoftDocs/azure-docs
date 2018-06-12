@@ -4,7 +4,7 @@ description: Create Logic apps with Azure App service. Trello gives you perspect
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 

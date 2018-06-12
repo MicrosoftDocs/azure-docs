@@ -257,5 +257,8 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az_gro
   az group delete --name myResourceGroupSLB
 ```
 ## Next step
-Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
+In this quickstart, you created Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 

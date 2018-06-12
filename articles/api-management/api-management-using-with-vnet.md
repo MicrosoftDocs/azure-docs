@@ -187,4 +187,4 @@ Given the calculation above the minimum size of the subnet, in which API Managem
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/virtual-networks-nsg.md
+[Network Security Group]: ../virtual-network/security-overview.md
