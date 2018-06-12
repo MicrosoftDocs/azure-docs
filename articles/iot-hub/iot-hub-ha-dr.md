@@ -58,7 +58,7 @@ Failback can be achieved by triggering the failover action another time. Users c
 
 
 > [!IMPORTANT]
-> Manual failover is not available in the following Azure regions. East US, West US, Brazil South, South Central US. 
+> Manual failover is currently in preview and is not available in the following Azure regions. East US, West US, North Europe, West Europe, Brazil South, South Central US.
 
 ### Time to recover
 
