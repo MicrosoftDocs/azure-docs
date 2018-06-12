@@ -156,24 +156,36 @@ so the trigger's behavior depends on whether or not sections are included.
 | <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). <p>For example, you can specify that the trigger fires only after all active runs finish by specifying the `singleInstance` option. See [Triggers: Fire only after active runs finish](#single-instance).|
 ||||
 
+*Outputs*
+ 
+| Element | Type | Description |
+|---------|------|-------------| 
+| headers | JSON Object | The headers from the HTTP response | 
+| body | JSON Object | The body from the HTTP response | 
+|||| 
+
 *Example*
 
+This trigger definition checks for email every day 
+inside the inbox for an Office 365 Outlook account: 
+
 ```json
-"Create_daily_report": {
+"When_a_new_email_arrives": {
    "type": "ApiConnection",
    "inputs": {
       "host": {
-         "api": {
-            "runtimeUrl": "https://myReportsRepo.example.com/"
-         },
          "connection": {
-            "name": "@parameters('$connections')['<connection-name>'].['connectionId']"
+            "name": "@parameters('$connections')['office365'].['connectionId']"
          }     
       },
-      "method": "POST",
-      "body": {
-         "category": "statusReports"
-      }  
+      "method": "get",
+      "path": "/Mail/OnNewEmail",
+      "queries": {
+          "fetchOnlyWithAttachment": false,
+          "folderPath": "Inbox",
+          "importance": "Any",
+          "includeAttachments": false
+      }
    },
    "recurrence": {
       "frequency": "Day",
@@ -181,14 +193,6 @@ so the trigger's behavior depends on whether or not sections are included.
    }
 }
 ```
-
-#### APIConnection trigger outputs
- 
-| Element | Type | Description |
-|---------|------|-------------| 
-| headers | JSON Object | The headers from the HTTP response | 
-| body | JSON Object | The body from the HTTP response | 
-|||| 
 
 <a name="recurrence-trigger"></a>
 
