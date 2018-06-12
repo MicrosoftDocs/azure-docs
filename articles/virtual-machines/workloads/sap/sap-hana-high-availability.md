@@ -1,6 +1,6 @@
 ---
 title: Set up SAP HANA System Replication on Azure Virtual Machines | Microsoft Docs
-description: Establish High Availability for SAP HANA on Azure Virtual Machines.
+description: Establish High Availability of SAP HANA on Azure Virtual Machines.
 services: virtual-machines-linux
 documentationcenter: 
 author: MSSedusch
@@ -16,7 +16,7 @@ ms.date: 03/24/2018
 ms.author: sedusch
 
 ---
-# High Availability for SAP HANA on Azure Virtual Machines
+# High Availability of SAP HANA on Azure Virtual Machines
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -51,39 +51,22 @@ In the example configurations, installation commands, instance number **03**, an
 Read the following SAP Notes and papers first:
 
 * SAP Note [1928533], which has:
-
   * The list of Azure Virtual Machines sizes that are supported for the deployment of SAP software.
-
   * Important capacity information for Azure Virtual Machines sizes.
-
   * The supported SAP software, and operating system (OS) and database combinations.
-
   * The required SAP kernel version for Windows and Linux on Microsoft Azure.
-
 * SAP Note [2015553] lists the prerequisites for SAP-supported SAP software deployments in Azure.
-
 * SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications.
-
 * SAP Note [1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications.
-
 * SAP Note [2178632] has detailed information about all of the monitoring metrics that are reported for SAP in Azure.
-
 * SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
-
 * SAP Note [2243692] has information about SAP licensing on Linux in Azure.
-
 * SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
-
 * SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
-
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all of the required SAP Notes for Linux.
-
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide] guide.
-
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] (this article).
-
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide] guide.
-
 * [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide] guide. The guide contains all of the required information to set up SAP HANA System Replication for on-premises development. Use this guide as a baseline.
 
 ## Overview
@@ -95,11 +78,8 @@ To achieve high availability, SAP HANA is installed on two virtual machines. The
 SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
 
 * Front-end configuration: IP address 10.0.0.13 for hn1-db
-
 * Back-end configuration: Connected to primary network interfaces of all virtual machines that should be part of HANA System Replication
-
 * Probe Port: Port 62503
-
 * Load balancing rules: 30313 TCP, 30315 TCP, 30317 TCP
 
 ## Deploy for Linux
@@ -108,153 +88,98 @@ The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for 
 The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines.
 
 ### Deploy with a template
+
 You can use one of the quickstart templates that are on GitHub to deploy all the required resources. The template deploys the virtual machines, the load balancer, the availability set, and so on.
 To deploy the template, follow these steps:
 
 1. Open the [database template][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
-
     The database template creates the load balancing rules for a database only. The converged template also creates the load balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 
 1. Enter the following parameters:
-
     - **Sap System ID**: Enter the SAP system ID of the SAP system you want to install. The ID is used as a prefix for the resources that are deployed.
-
     - **Stack Type**: (This parameter is applicable only if you use the converged template.) Select the SAP NetWeaver stack type.
-
     - **Os Type**: Select one of the Linux distributions. For this example, select **SLES 12**.
-
     - **Db Type**: Select **HANA**.
-
     - **Sap System Size**: Enter the number of SAPS that the new system is going to provide. If you're not sure how many SAPS the system requires, ask your SAP Technology Partner or System Integrator.
-
     - **System Availability**: Select **HA**.
-
     - **Admin Username and Admin Password**: A new user is created that can be used to log on to the machine.
-
     - **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet used. If you already have a virtual network that's connected to your on-premises network, select **Existing**.
-
     - **Subnet ID**: The ID of the subnet to which the virtual machines should be connected. To connect the virtual machine to your on-premises network, select the subnet of your VPN or Express Route virtual network. The ID usually looks like **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>**.
 
 ### Manual deployment
 
 1. Create a Resource Group.
-
 1. Create a Virtual Network.
-
 1. Create an Availability Set.
-    - Set the max update domain.
-
+   - Set the max update domain.
 1. Create a load balancer (internal).
-    - Select the Virtual Network created in step 2.
-
+   - Select the Virtual Network created in step 2.
 1. Create Virtual Machine 1.
-
-    a. Use at least SLES4SAP 12 SP1. This example uses the SLES4SAP 12 SP2 image https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   
-    b. Use SLES for SAP 12 SP2 (Premium).
-
-    c. Select the Availability Set created in step 3.
-
+   - Use at least SLES4SAP 12 SP1. This example uses the SLES4SAP 12 SP2 image https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
+   - Use SLES for SAP 12 SP2 (Premium).
+   - Select the Availability Set created in step 3.
 1. Create Virtual Machine 2.
-
-    a. Use at least SLES4SAP 12 SP1. This example uses the SLES4SAP 12 SP1 BYOS image
+   - Use at least SLES4SAP 12 SP1. This example uses the SLES4SAP 12 SP1 BYOS image
    https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-
-    b. Use SLES for SAP 12 SP2 (Premium).
-
-    c. Select the Availability Set created in step 3. 
-
+   - Use SLES for SAP 12 SP2 (Premium).
+   - Select the Availability Set created in step 3. 
 1. Add Data Disks.
-
 1. Configure the load balancer. First, create a front-end IP pool:
 
-    a. Open the load balancer, select **frontend IP pool**, and select **Add**.
-
-    b. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-
-    c. Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
-
-    d. Select **OK**.
-
-    e. After the new front-end IP pool is created, note the pool IP address.
+   1. Open the load balancer, select **frontend IP pool**, and select **Add**.
+   1. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
+   1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
+   1. Select **OK**.
+   1. After the new front-end IP pool is created, note the pool IP address.
 
 1. Next, create a back-end pool:
 
-    a. Open the load balancer, select **backend pools**, and select **Add**.
-
-    b. Enter the name of the new back-end pool (for example, **hana-backend**).
-
-    c. Select **Add a virtual machine**.
-
-    d. Select the Availability Set created in step 3.
-
-    e. Select the virtual machines of the SAP HANA cluster.
-
-    f. Select **OK**.
+   1. Open the load balancer, select **backend pools**, and select **Add**.
+   1. Enter the name of the new back-end pool (for example, **hana-backend**).
+   1. Select **Add a virtual machine**.
+   1. Select the Availability Set created in step 3.
+   1. Select the virtual machines of the SAP HANA cluster.
+   1. Select **OK**.
 
 1. Next, create a health probe:
 
-    a. Open the load balancer, select **health probes**, and select **Add**.
-
-    b. Enter the name of the new health probe (for example, **hana-hp**).
-
-    c. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
-
-    d. Select **OK**.
+   1. Open the load balancer, select **health probes**, and select **Add**.
+   1. Enter the name of the new health probe (for example, **hana-hp**).
+   1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+   1. Select **OK**.
 
 1. For SAP HANA 1.0, create the load balancing rules:
 
-    a. Open the load balancer, select **load balancing rules**, and select **Add**.
-
-    b. Enter the name of the new load balancer rule (for example, hana-lb-3**03**15).
-
-    c. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-
-    d. Keep the **Protocol** set to **TCP**, and enter port 3**03**15.
-
-    e. Increase the **idle timeout** to 30 minutes.
-
-    f. Make sure to **enable Floating IP**.
-
-    g. Select **OK**.
-
-    h. Repeat these steps for port 3**03**17.
+   1. Open the load balancer, select **load balancing rules**, and select **Add**.
+   1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**15).
+   1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
+   1. Keep the **Protocol** set to **TCP**, and enter port 3**03**15.
+   1. Increase the **idle timeout** to 30 minutes.
+   1. Make sure to **enable Floating IP**.
+   1. Select **OK**.
+   1. Repeat these steps for port 3**03**17.
 
 1. For SAP HANA 2.0, create the load balancing rules for the system database:
 
-    a. Open the load balancer, select **load balancing rules**, and select **Add**.
-
-    b. Enter the name of the new load balancer rule (for example, hana-lb-3**03**13).
-
-    c. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-
-    d. Keep the **Protocol** set to **TCP**, and enter port 3**03**13.
-
-    e. Increase the **idle timeout** to 30 minutes.
-
-    f. Make sure to **enable Floating IP**.
-
-    g. Select **OK**.
-
-    h. Repeat these steps for port 3**03**14.
+   1. Open the load balancer, select **load balancing rules**, and select **Add**.
+   1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**13).
+   1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
+   1. Keep the **Protocol** set to **TCP**, and enter port 3**03**13.
+   1. Increase the **idle timeout** to 30 minutes.
+   1. Make sure to **enable Floating IP**.
+   1. Select **OK**.
+   1. Repeat these steps for port 3**03**14.
 
 1. For SAP HANA 2.0, first create the load balancing rules for the tenant database:
 
-    a. Open the load balancer, select **load balancing rules**, and select **Add**.
-
-    b. Enter the name of the new load balancer rule (for example, hana-lb-3**03**40).
-
-    c. Select the frontend IP address, backend pool, and health probe you created earlier (for example, **hana-frontend**).
-
-    d. Keep the **Protocol** set to **TCP**, and enter port 3**03**40.
-
-    e. Increase the **idle timeout** to 30 minutes.
-
-    f. Make sure to **enable Floating IP**.
-
-    g. Select **OK**.
-
-    h. Repeat these steps for ports 3**03**41 and 3**03**42.
+   1. Open the load balancer, select **load balancing rules**, and select **Add**.
+   1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**40).
+   1. Select the frontend IP address, backend pool, and health probe you created earlier (for example, **hana-frontend**).
+   1. Keep the **Protocol** set to **TCP**, and enter port 3**03**40.
+   1. Increase the **idle timeout** to 30 minutes.
+   1. Make sure to **enable Floating IP**.
+   1. Select **OK**.
+   1. Repeat these steps for ports 3**03**41 and 3**03**42.
 
 For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
 
@@ -272,191 +197,147 @@ The steps in this section use the following prefixes:
 
 1. **[A]** Set up the disk layout: **Logical Volume Manager (LVM)**.
 
-    We recommend that you use LVM for volumes that store data and log files. The following example assumes that the virtual machines have four data disks attached that are used to create two volumes.
+   We recommend that you use LVM for volumes that store data and log files. The following example assumes that the virtual machines have four data disks attached that are used to create two volumes.
    
-    a. List all of the available disks:
+   List all of the available disks:       
+   <pre><code>
+   ls /dev/disk/azure/scsi1/lun*
+   </code></pre>
        
-      <pre><code>
-      ls /dev/disk/azure/scsi1/lun*
-      </code></pre>
+   Example output:       
+   ```
+   /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
+   ```
        
-      Example output:
-       
-      ```
-      /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
-      ```
-       
-    b. Create physical volumes for all of the disks that you want to use:
+   Create physical volumes for all of the disks that you want to use:
+   <pre><code>
+   sudo pvcreate /dev/disk/azure/scsi1/lun0
+   sudo pvcreate /dev/disk/azure/scsi1/lun1
+   sudo pvcreate /dev/disk/azure/scsi1/lun2
+   sudo pvcreate /dev/disk/azure/scsi1/lun3
+   </code></pre>
 
-      <pre><code>
-      sudo pvcreate /dev/disk/azure/scsi1/lun0
-      sudo pvcreate /dev/disk/azure/scsi1/lun1
-      sudo pvcreate /dev/disk/azure/scsi1/lun2
-      sudo pvcreate /dev/disk/azure/scsi1/lun3
-      </code></pre>
-
-    c. Create a volume group for the data files. Use one volume group for the log files and one for the shared directory of SAP HANA:
-
-      <pre><code>
-      sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
-      sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
-      sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
-      </code></pre>
+   Create a volume group for the data files. Use one volume group for the log files and one for the shared directory of SAP HANA:
+   <pre><code>
+   sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
+   sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
+   sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
+   </code></pre>
        
-    d. Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance, where the `-i` argument should be the number of the underlying physical volume. In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. One physical volume is used for the log volume, so no `-i` switch is explicitly used. Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes.
-
-      <pre><code>
-      sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
-      sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
-      sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
-      sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
-      sudo mkfs.xfs /dev/vg_hana_log_<b>HN1</b>/hana_log
-      sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
-      </code></pre>
+   Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance, where the `-i` argument should be the number of the underlying physical volume. In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. One physical volume is used for the log volume, so no `-i` switch is explicitly used. Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes.
+   <pre><code>
+   sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+   sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
+   sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
+   sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
+   sudo mkfs.xfs /dev/vg_hana_log_<b>HN1</b>/hana_log
+   sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
+   </code></pre>
        
-    e. Create the mount directories and copy the UUID of all of the logical volumes:
+   Create the mount directories and copy the UUID of all of the logical volumes:       
+   <pre><code>
+   sudo mkdir -p /hana/data/<b>HN1</b>
+   sudo mkdir -p /hana/log/<b>HN1</b>
+   sudo mkdir -p /hana/shared/<b>HN1</b>
+   # Write down the ID of /dev/vg_hana_data_<b>HN1</b>/hana_data, /dev/vg_hana_log_<b>HN1</b>/hana_log, and /dev/vg_hana_shared_<b>HN1</b>/hana_shared
+   sudo blkid
+   </code></pre>
        
-      <pre><code>
-      sudo mkdir -p /hana/data/<b>HN1</b>
-      sudo mkdir -p /hana/log/<b>HN1</b>
-      sudo mkdir -p /hana/shared/<b>HN1</b>
-      # Write down the ID of /dev/vg_hana_data_<b>HN1</b>/hana_data, /dev/vg_hana_log_<b>HN1</b>/hana_log, and /dev/vg_hana_shared_<b>HN1</b>/hana_shared
-      sudo blkid
-      </code></pre>
+   Create `fstab` entries for the three logical volumes:       
+   <pre><code>
+   sudo vi /etc/fstab
+   </code></pre>
        
-    f. Create `fstab` entries for the three logical volumes:
+   Insert the following line in the `/etc/fstab` file:      
+   <pre><code>
+   /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
+   /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
+   /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_shared_<b>HN1</b>-hana_shared&gt;</b> /hana/shared/<b>HN1</b> xfs  defaults,nofail  0  2
+   </code></pre>
        
-      <pre><code>
-      sudo vi /etc/fstab
-      </code></pre>
-       
-    g. Insert the following line in the `/etc/fstab` file:
-       
-      <pre><code>
-      /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
-      /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
-      /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_shared_<b>HN1</b>-hana_shared&gt;</b> /hana/shared/<b>HN1</b> xfs  defaults,nofail  0  2
-      </code></pre>
-       
-    h. Mount the new volumes:
-       
-      <pre><code>
-      sudo mount -a
-      </code></pre>
+   Mount the new volumes:    
+   <pre><code>
+   sudo mount -a
+   </code></pre>
     
 1. **[A]** Set up the disk layout: **Plain Disks**.
 
-    For demo systems, you can place your HANA data and log files on one disk.
-   
-    a. Create a partition on /dev/disk/azure/scsi1/lun0 and format it with xfs:
-
-      <pre><code>
-      sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
-      sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
+   For demo systems, you can place your HANA data and log files on one disk. Create a partition on /dev/disk/azure/scsi1/lun0 and format it with xfs:
+   <pre><code>
+   sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
+   sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
        
-      # Write down the ID of /dev/disk/azure/scsi1/lun0-part1
-      sudo /sbin/blkid
-      sudo vi /etc/fstab
-      </code></pre>
+   # Write down the ID of /dev/disk/azure/scsi1/lun0-part1
+   sudo /sbin/blkid
+   sudo vi /etc/fstab
+   </code></pre>
 
-    b. Insert this line in the /etc/fstab file:
+   Insert this line in the /etc/fstab file:
+   <pre><code>
+   /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
+   </code></pre>
 
-      <pre><code>
-      /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
-      </code></pre>
-
-    c. Create the target directory and mount the disk:
-
-      <pre><code>
-      sudo mkdir /hana
-      sudo mount -a
-      </code></pre>
+   Create the target directory and mount the disk:
+   <pre><code>
+   sudo mkdir /hana
+   sudo mount -a
+   </code></pre>
 
 1. **[A]** Set up host name resolution for all hosts.
 
-    You can either use a DNS server or modify the /etc/hosts file on all nodes. This example shows you how to use the /etc/hosts file.
-
-    a. Replace the IP address and the hostname in the following commands:
-
-      ```bash
-      sudo vi /etc/hosts
-      ```
+   You can either use a DNS server or modify the /etc/hosts file on all nodes. This example shows you how to use the /etc/hosts file.
+   Replace the IP address and the hostname in the following commands:
+   ```bash
+   sudo vi /etc/hosts
+   ```
     
-    b. Insert the following lines in the /etc/hosts file. Change the IP address and hostname to match your environment:
-    
-      <pre><code>
-      <b>10.0.0.5 hn1-db-0</b>
-      <b>10.0.0.6 hn1-db-1</b>
-      </code></pre>
+   Insert the following lines in the /etc/hosts file. Change the IP address and hostname to match your environment:    
+   <pre><code>
+   <b>10.0.0.5 hn1-db-0</b>
+   <b>10.0.0.6 hn1-db-1</b>
+   </code></pre>
 
 1. **[A]** Install the HANA High Availability packages:
-
-    ```bash
-    sudo zypper install SAPHanaSR
-    
-    ```
+   ```bash
+   sudo zypper install SAPHanaSR 
+   ```
     
 To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
 
 1. **[A]** Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
-
-    * Choose installation: Enter **1**.
-
-    * Select additional components for installation: Enter **1**.
-
-    * Enter Installation Path [/hana/shared]: Select **Enter**.
-
-    * Enter Local Host Name [..]: Select **Enter**.
-
-    * Do you want to add additional hosts to the system? (y/n) [n]: Select **Enter**.
-
-    * Enter SAP HANA System ID: Enter the SID of HANA, for example: **HN1**.
-
-    * Enter Instance Number [00]: Enter the HANA Instance number. Enter **03** if you used the Azure template or followed the manual deployment section of this article.
-
-    * Select Database Mode / Enter Index [1]: Select **Enter**.
-
-    * Select System Usage / Enter Index [4]: Select the system usage value.
-
-    * Enter Location of Data Volumes [/hana/data/HN1]: Select **Enter**.
-
-    * Enter Location of Log Volumes [/hana/log/HN1]: Select **Enter**.
-
-    * Restrict maximum memory allocation? [n]: Select **Enter**.
-
-    * Enter Certificate Host Name For Host '...' [...]: Select **Enter**.
-
-    * Enter SAP Host Agent User (sapadm) Password: Enter the host agent user password.
-
-    * Confirm SAP Host Agent User (sapadm) Password: Enter the host agent user password again to confirm.
-
-    * Enter System Administrator (hdbadm) Password: Enter the system administrator password.
-
-    * Confirm System Administrator (hdbadm) Password: Enter the system administrator password again to confirm.
-
-    * Enter System Administrator Home Directory [/usr/sap/HN1/home]: Select **Enter**.
-
-    * Enter System Administrator Login Shell [/bin/sh]: Select **Enter**.
-
-    * Enter System Administrator User ID [1001]: Select **Enter**.
-
-    * Enter ID of User Group (sapsys) [79]: Select **Enter**.
-
-    * Enter Database User (SYSTEM) Password: Enter the database user password.
-
-    * Confirm Database User (SYSTEM) Password: Enter the database user password again to confirm.
-
-    * Restart system after machine reboot? [n]: Select **Enter**.
-
-    * Do you want to continue? (y/n): Validate the summary. Enter **y** to continue.
+   * Choose installation: Enter **1**.
+   * Select additional components for installation: Enter **1**.
+   * Enter Installation Path [/hana/shared]: Select **Enter**.
+   * Enter Local Host Name [..]: Select **Enter**.
+   * Do you want to add additional hosts to the system? (y/n) [n]: Select **Enter**.
+   * Enter SAP HANA System ID: Enter the SID of HANA, for example: **HN1**.
+   * Enter Instance Number [00]: Enter the HANA Instance number. Enter **03** if you used the Azure template or followed the manual deployment section of this article.
+   * Select Database Mode / Enter Index [1]: Select **Enter**.
+   * Select System Usage / Enter Index [4]: Select the system usage value.
+   * Enter Location of Data Volumes [/hana/data/HN1]: Select **Enter**.
+   * Enter Location of Log Volumes [/hana/log/HN1]: Select **Enter**.
+   * Restrict maximum memory allocation? [n]: Select **Enter**.
+   * Enter Certificate Host Name For Host '...' [...]: Select **Enter**.
+   * Enter SAP Host Agent User (sapadm) Password: Enter the host agent user password.
+   * Confirm SAP Host Agent User (sapadm) Password: Enter the host agent user password again to confirm.
+   * Enter System Administrator (hdbadm) Password: Enter the system administrator password.
+   * Confirm System Administrator (hdbadm) Password: Enter the system administrator password again to confirm.
+   * Enter System Administrator Home Directory [/usr/sap/HN1/home]: Select **Enter**.
+   * Enter System Administrator Login Shell [/bin/sh]: Select **Enter**.
+   * Enter System Administrator User ID [1001]: Select **Enter**.
+   * Enter ID of User Group (sapsys) [79]: Select **Enter**.
+   * Enter Database User (SYSTEM) Password: Enter the database user password.
+   * Confirm Database User (SYSTEM) Password: Enter the database user password again to confirm.
+   * Restart system after machine reboot? [n]: Select **Enter**.
+   * Do you want to continue? (y/n): Validate the summary. Enter **y** to continue.
 
 1. **[A]** Upgrade the SAP Host Agent.
 
-    Download the latest SAP Host Agent archive from the [SAP Software Center][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file that you downloaded:
+   Download the latest SAP Host Agent archive from the [SAP Software Center][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file that you downloaded:
     
-    ```bash
-    sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
-    ```
+   ```bash
+   sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
+   ```
 
 ## Configure SAP HANA 2.0 System Replication
 
@@ -467,45 +348,40 @@ The steps in this section use the following prefixes:
 
 1. **[1]** Create the tenant database.
 
-    If you're using SAP HANA 2.0 or MDC, create a tenant database for your SAP NetWeaver system. Replace **NW1** with the SID of your SAP system.
+   If you're using SAP HANA 2.0 or MDC, create a tenant database for your SAP NetWeaver system. Replace **NW1** with the SID of your SAP system.
 
-    Log in as \<hanasid>adm and execute the following command:
-
+   Log in as \<hanasid>adm and execute the following command:
    <pre><code>
    hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** Configure System Replication on the first node:
    
-    a. Log in as \<hanasid>adm and back up the databases:
+   Log in as \<hanasid>adm and back up the databases:
+   <pre><code>
+   hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
+   hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
+   hdbsql -d <b>NW1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupNW1</b>')"
+   </code></pre>
 
-      <pre><code>
-      hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
-      hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
-      hdbsql -d <b>NW1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupNW1</b>')"
-      </code></pre>
+   Copy the system PKI files to the secondary site:
+   <pre><code>
+   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT   <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
+   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY  <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
+   </code></pre>
 
-    b. Copy the system PKI files to the secondary site:
-
-      <pre><code>
-      scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT   <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
-      scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY  <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
-      </code></pre>
-
-    c. Create the primary site:
-
-      <pre><code>
-      hdbnsutil -sr_enable –-name=<b>SITE1</b>
-      </code></pre>
+   Create the primary site:
+   <pre><code>
+   hdbnsutil -sr_enable –-name=<b>SITE1</b>
+   </code></pre>
 
 1. **[2]** Configure System Replication on the second node:
     
-    Register the second node to start the system replication. Log in as \<hanasid>adm and run the following command:
-
-    <pre><code>
-    sapcontrol -nr <b>03</b> -function StopWait 600 10
-    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
-    </code></pre>
+   Register the second node to start the system replication. Log in as \<hanasid>adm and run the following command:
+   <pre><code>
+   sapcontrol -nr <b>03</b> -function StopWait 600 10
+   hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
+   </code></pre>
 
 ## Configure SAP HANA 1.0 System Replication
 
@@ -516,56 +392,50 @@ The steps in this section use the following prefixes:
 
 1. **[1]** Create the required users.
 
-    Log in as root and run the following command. Make sure to replace bold strings (HANA System ID **HN1** and instance number **03**) with the values of your SAP HANA installation:
-
-    <pre><code>
-    PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
-    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
-    hdbsql -u system -i <b>03</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
-    hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
-    </code></pre>
+   Log in as root and run the following command. Make sure to replace bold strings (HANA System ID **HN1** and instance number **03**) with the values of your SAP HANA installation:
+   <pre><code>
+   PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
+   hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
+   hdbsql -u system -i <b>03</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
+   hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
+   </code></pre>
 
 1. **[A]** Create the keystore entry.
 
    Log in as root and run the following command to create a new keystore entry:
-
-    <pre><code>
-    PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
-    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
-    </code></pre>
+   <pre><code>
+   PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
+   hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
+   </code></pre>
 
 1. **[1]** Back up the database.
 
    Log in as root and back up the databases:
-
    <pre><code>
    PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
    </code></pre>
 
    If you use a multi-tenant installation, also back up the tenant database:
-
    <pre><code>   
    hdbsql -d <b>HN1</b> -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
    </code></pre>
 
 1. **[1]** Configure System Replication on the first node.
 
-    Log in as \<hanasid>adm and create the primary site:
-
-    <pre><code>
-    su - <b>hdb</b>adm
-    hdbnsutil -sr_enable –-name=<b>SITE1</b>
-    </code></pre>
+   Log in as \<hanasid>adm and create the primary site:
+   <pre><code>
+   su - <b>hdb</b>adm
+   hdbnsutil -sr_enable –-name=<b>SITE1</b>
+   </code></pre>
 
 1. **[2]** Configure System Replication on the secondary node.
 
-    Log in as \<hanasid>adm and register the secondary site:
-
-    <pre><code>
-    sapcontrol -nr <b>03</b> -function StopWait 600 10
-    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
-    </code></pre>
+   Log in as \<hanasid>adm and register the secondary site:
+   <pre><code>
+   sapcontrol -nr <b>03</b> -function StopWait 600 10
+   hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
+   </code></pre>
 
 ## Create SAP HANA cluster resources
 
@@ -630,7 +500,7 @@ Next, create the HANA resources:
    sudo crm configure property maintenance-mode=false
    </code></pre>
 
-Make sure that the cluster status is ok and that all the resources are started. It's not important on which node the resources are running.
+Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
 
    <pre><code>
    sudo crm_mon -r
@@ -652,6 +522,7 @@ Make sure that the cluster status is ok and that all the resources are started. 
    </code></pre>
 
 ### Test the cluster setup
+
 This section describes how you can test your setup. Every test assumes that you are root and the SAP HANA master is running on the **hn1-db-0** virtual machine.
 
 #### Test the fencing agent
