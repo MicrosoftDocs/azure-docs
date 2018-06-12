@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.reviewer:sergkanz 
+ms.reviewer: sergkanz 
 ms.author: mbullwin
 
 ---
