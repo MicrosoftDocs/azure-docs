@@ -21,8 +21,8 @@ In this tutorial, you create a **Connected Air Conditioner** device template. A 
 
 * Sends telemetry such as temperature and humidity.
 * Reports state such as whether it is on or off.
-* Has properties such as its firmware version and serial number.
-* Has settings such as its target temperature and fan speed.
+* Has properties such as firmware version and serial number.
+* Has settings such as target temperature and fan speed.
 
 In this tutorial, you learn how to:
 
@@ -215,7 +215,7 @@ Properties, device properties, and settings are different values defined in a de
 
 * You use _properties_ to record information about your device in your application. For example, you can use properties to record a device's serial number or the device manufacturer's phone number. Properties are stored in the application and do not synchronize with the device. An operator can assign values to properties.
 
-* You use _device properties_ to enable a device to send property values to your application. These properties can only be changed by the device. For an operator, device properties are read-only.
+* You use _device properties_ to enable a device to send property values to your application. Some properties are read-only, such as firmware version and serial number. Other properties can be changed by the device, such as device location. For an operator, device properties are read-only.
 
 ## Use settings
 
@@ -255,13 +255,13 @@ You use *settings* to enable an operator to send configuration data to a device.
 
 ## Use properties
 
-You use *properties* to store information about your device in the application. In this section, you add properties to your **Connected Air Conditioner** device template to store the device serial number and firmware version for each device.
-
+You use *properties* to store information about your device in the application. In this section, you add device properties to your **Connected Air Conditioner** device template to store the device serial number and firmware version. Note that both of these are read-only properties reported by the device -- you cannot assign values to them. Properties you might use that you can assign values to include the location of the device, ownership information, and the last service date/time for the device.
+ 
 1. Navigate to the **Properties** page for your **Connected Air Conditioner** device template:
 
     ![Prepare to add a property](media/tutorial-define-device-type/deviceaddproperty.png)
 
-    You can create properties of different types such as numbers or text. To add a serial number property to your device template, choose **Text**.
+    You can create device properties of different types such as numbers or text. To add a serial number property to your device template, choose **Text**.
 
 2. To configure your serial number property, use the information in the following table:
 
@@ -276,11 +276,11 @@ You use *properties* to store information about your device in the application. 
 
     ![Configure the device properties](media/tutorial-define-device-type/configureproperties.png)
 
-    Then choose **Save**.
+    Choose **Save**.
 
-3. To add a firmware version property to your device template, choose **Text**
+3. To add a firmware version to the device properties for your device template, choose **Text**.
 
-4. To configure your firmware version property, use the information in the following table:
+4. To configure your firmware version device property, use the information in the following table:
 
     | Field                | Value                   |
     | -------------------- | ----------------------- |
@@ -291,9 +291,9 @@ You use *properties* to store information about your device in the application. 
 
     ![Configure the device properties](media/tutorial-define-device-type/configureproperties2.png)
 
-    Then choose **Save**.
+    Choose **Save**.
 
-5. You can customize the layout of the **Properties** page by moving and resizing properties tiles:
+5. You can customize the layout of the **Properties** page by moving and resizing property tiles:
 
     ![Customize properties layout](media/tutorial-define-device-type/propertieslayout.png)
 
