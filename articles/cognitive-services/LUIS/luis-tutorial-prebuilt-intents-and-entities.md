@@ -13,7 +13,7 @@ ms.author: v-geberr
 --- 
 
 # Use prebuilt intents and entities to handle common intents and data
-Add prebuilt intents and entities to the Human Resources quickstart app. Adding prebuilt intents includes utterances and covers common actions your client application uses. Adding Prebuilt entities is a quick way to extract common data types such as numbers and dates.
+Add prebuilt intents and entities to the Human Resources quickstart app to quickly gain intent prediction and data extraction. 
 
 In this tutorial, you learn how to:
 
@@ -24,12 +24,12 @@ In this tutorial, you learn how to:
 * Query LUIS and receive prediction response
 
 ## Before you begin
-If you do no have the Human Resources app from the [custom domain](luis-quickstart-intents-only.md) quickstart, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS][LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
+If you do not have the Human Resources app from the [custom domain](luis-quickstart-intents-only.md) quickstart, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS][LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
 
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `prebuilts`. Cloning is a great way to play with various LUIS features without affecting the original or primary version. 
+If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `prebuilts`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## Add prebuilt intents
-LUIS provides several prebuilt domains to help with common user intentions.  
+LUIS provides several prebuilt intents to help with common user intentions.  
 
 1. Make sure your app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
@@ -75,7 +75,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
     ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
 
-2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button by the product slot choice. Publishing is complete when you see the green status bar at the top of the website confirming success.
+2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button by the production slot choice. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
     You do not have to create a LUIS key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
 
