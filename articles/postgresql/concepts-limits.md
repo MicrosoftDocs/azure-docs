@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/12/2018
 ---
 # Limitations in Azure Database for PostgreSQL
 The following sections describe capacity and functional limits in the database service.
@@ -37,7 +37,7 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 
 ## Functional limitations
 ### Scale operations
-1.	Dynamic scaling of servers across pricing tiers is currently not supported. That is, switching between Basic, General Purpose, or Memory Optimized tiers.
+1.  Dynamic scaling to and from the Basic pricing tiers is currently not supported.
 2.	Decreasing server storage size is currently not supported.
 
 ### Server version upgrades

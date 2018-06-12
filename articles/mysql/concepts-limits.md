@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/12/2018
 ---
 # Limitations in Azure Database for MySQL
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
@@ -64,7 +64,7 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 ## Functional limitations
 
 ### Scale operations
-- Dynamic scaling of servers across pricing tiers is currently not supported. That is, switching between Basic, General Purpose, and Memory Optimized pricing tiers.
+- Dynamic scaling to and from the Basic pricing tiers is currently not supported.
 - Decreasing server storage size is not supported.
 
 ### Server version upgrades
