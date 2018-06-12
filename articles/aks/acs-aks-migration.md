@@ -26,7 +26,7 @@ ACS and AKS differ in some key areas that impact migration. You should review an
     * Any `PersistentVolumes` will need to use `kind: Managed`
 * AKS currently supports only one agent pool
 * Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)
-* Check the list of AKS [supported regions](https://docs.microsoft.com/en-us/azure/aks/container-service-quotas)
+* Check the list of AKS [supported regions](https://docs.microsoft.com/azure/aks/container-service-quotas)
 * AKS is a managed service with a hosted Kubernetes control plane. You may need to modify your applications if you've previously modified the configuration of your ACS masters
 
 ### Differences between Kubernetes versions
@@ -132,7 +132,7 @@ There are also several open-source tools that can help, depending on your needs:
 
 You can follow the docs to [create an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/create-cluster) via the Azure portal, Azure CLI, or Resource Manager template.
 
-> You can find sample ARM templates for AKS at the [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) repository on GitHub
+> You can find sample Azure Resource Manager templates for AKS at the [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) repository on GitHub
 
 ### 2. Modify applications
 
