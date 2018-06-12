@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: rolyon
+ms.reviewer: bagovind
 
 ---
 # View access assignments for users and groups in the Azure portal

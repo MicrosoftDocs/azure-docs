@@ -81,10 +81,40 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 
     > [!NOTE]
     > You can add multiple images, links, and grids.
-
-1. Turn off **Design Mode**.
+  
+    1. Turn off **Design Mode**.
 
     ![Design Mode off](media/howto-use-device-sets/image10.png)
+
+
+### Configuring Location Map in your device sets dashboard 
+You can add a location map to visualize location of your devices sets in a Map. 
+
+In order to add a location map to you device sets dashboard you must have configured location property in your Device template, see [Create a Location Property powered by Azure Maps](howto-set-up-template.md).
+
+
+1. On Device Sets Dashboard, select Map from the library. 
+
+    ![Device Sets Dashboard Maps](media/howto-use-device-sets/LocationMaps1.png)
+
+
+2. Give a title and choose the location property you have previously configured as part of your Device Property.
+
+    ![Configure Dashboard Maps](media/howto-use-device-sets/LocationMaps2.png)
+
+3. Save and you will see the map tile displaying the location of your devices in the Device Set.
+
+    ![Save Dashboard Maps](media/howto-use-device-sets/LocationMaps3.png)
+
+
+5. Now when an operator views the device sets dashboard, she can see all the tiles you have configured including the location Map to visualize all the devices location at a glance!
+
+    ![Dashboard Maps Operator view](media/howto-use-device-sets/LocationMaps4.png)
+
+    You will be able to resize the map to your desired size.
+
+
+
 
 ## Configure the List for your device set
 
