@@ -77,21 +77,6 @@ Data Lake Storage also provides encryption for data that is stored in the accoun
 
 For key management, Data Lake Storage provides two modes for managing your master encryption keys (MEKs), which are required for decrypting any data that is stored in the Data Lake Storage. You can either let Data Lake Storage manage the MEKs for you, or choose to retain ownership of the MEKs using your Azure Key Vault account. You specify the mode of key management while while creating a Data Lake Storage account. For more information on how to provide encryption-related configuration, see [Get started with Azure Data Lake Storage using the Azure Portal](../../quickstartlinkhere).
 
-## Activity and diagnostic logs
-
-You can use activity or diagnostic logs, depending on whether you are looking for logs for account management-related activities or data-related activities.
-
-* Account management-related activities use Azure Resource Manager APIs and are surfaced in the Azure portal via activity logs.
-* Data-related activities use WebHDFS REST APIs and are surfaced in the Azure portal via diagnostic logs.
-
-### Diagnostics logs
-
-You can enable data access audit and diagnostic logging in the Azure portal and send the logs to an Azure Blob storage account, an event hub, or Log Analytics.
-
-![Diagnostics logs](./media/data-lake-store-security-overview/diagnostic-logs.png "Diagnostics logs")
-
-For more information on working with diagnostic logs with Azure Data Lake Store, see [Accessing diagnostic logs for Data Lake Storage](../../data-lake-store/data-lake-store-diagnostic-logs.md).
-
 ## Summary
 
 Enterprise customers demand a data analytics cloud platform that is secure and easy to use. Azure Data Lake SStoragetore is designed to help address these requirements through identity management and authentication via Azure Active Directory integration, ACL-based authorization, network isolation, data encryption in transit and at rest, and auditing.
