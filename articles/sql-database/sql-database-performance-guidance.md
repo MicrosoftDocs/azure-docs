@@ -20,7 +20,7 @@ In you don't have any applicable recommendations, and you still have performance
 - Tune your application and apply some best practices that can improve performance. 
 - Tune the database by changing indexes and queries to more efficiently work with data.
 
-These are manual methods because you need to decide what [DTU-based model resource limits](sql-database-dtu-resource-limits.md) and [vCore-based model resource limits (preview)](sql-database-vcore-resource-limits.md) meet your needs. Otherwise, you would need to rewrite the application or database code and deploy the changes.
+These are manual methods because you need to decide the amount of resources meet your needs. Otherwise, you would need to rewrite the application or database code and deploy the changes.
 
 ## Increasing performance tier of your database
 
@@ -267,7 +267,7 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 
 ## Next steps
 * For more information about DTU-based service tiers, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [DTU-based model resource limits](sql-database-dtu-resource-limits.md)
-* For more information about vCore-based service tiers, see [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) and [vCore-based resource limits (preview)](sql-database-vcore-resource-limits.md)
+* For more information about vCore-based service tiers, see [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md).
 * For more information about elastic pools, see [What is an Azure elastic pool?](sql-database-elastic-pool.md)
 * For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)
 

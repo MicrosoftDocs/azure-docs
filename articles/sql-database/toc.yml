@@ -107,9 +107,9 @@
       - name: Resource limits
         items:
         - name: vCore-based resource limits
-          href: sql-database-vcore-resource-limits.md  
-        - name: DTU-based resource limits - onsolidate
-          href: sql-database-dtu-resource-limits.md  
+          href: sql-database-vcore-resource-limits-elastic-pools.md  
+        - name: DTU-based resource limits
+          href: sql-database-dtu-resource-limits-elastic-pools.md  
     - name: Connectivity architecture for logical servers, pools, and databases
       href: sql-database-connectivity-architecture.md 
     - name: SQL Database T-SQL details

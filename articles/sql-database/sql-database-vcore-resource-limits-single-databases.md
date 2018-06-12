@@ -18,7 +18,7 @@ ms.author: carlrab
 
 ## Single database: Storage sizes and performance levels
 
-For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](sql-database-single-database-scaling.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-scaling.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-scaling.md#manage-single-database-resources-using-powershell), the [Azure CLI](sql-database-single-database-scaling.md#manage-single-database-resources-using-the-azure-cli), or the [REST API](sql-database-single-database-scaling.md#manage-single-database-resources-using-the-rest-api).
+For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](single-database-scale.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](single-database-scale.md#manage-single-database-resources-using-transact-sql), [PowerShell](single-database-scale.md#manage-single-database-resources-using-powershell), the [Azure CLI](single-database-scale.md#manage-single-database-resources-using-the-azure-cli), or the [REST API](single-database-scale.md#manage-single-database-resources-using-the-rest-api).
 
 ### General Purpose service tier
 

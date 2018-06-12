@@ -144,7 +144,7 @@ There are two ways you can create an elastic pool in the Azure portal.
 > [!NOTE]
 > You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
 
-The pool's service tier determines the features available to the elastics in the pool, and the maximum amount of resources available to each database. For details, see Resource limits for elastic pools in the [DTU model](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels) and the [vCore model](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+The pool's service tier determines the features available to the elastics in the pool, and the maximum amount of resources available to each database. For details, see Resource limits for elastic pools in the [DTU model](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels). For vCore-based resource limits, see [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
 To configure the resources and pricing of the pool, click **Configure pool**. Then select a service tier, add databases to the pool, and configure the resource limits for the pool and its databases.
 
