@@ -4,7 +4,7 @@ description: This tutorial describes options for authoring and configuring a bas
 services: app-service
 documentationcenter: python
 tags: python
-author: huguesv
+author: cephalin
 manager: erikre
 editor: ''
 
