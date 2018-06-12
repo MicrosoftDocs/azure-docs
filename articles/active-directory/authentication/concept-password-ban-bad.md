@@ -14,7 +14,7 @@ manager: mtillman
 ms.reviewer: michmcla
 
 ---
-# Dynamically banned passwords
+# Ban bad passwords
 
 Industry leaders tell you not to use the same password in multiple places, to make it complex, and to not make it simple like Password123. How can organizations guarantee that their users are following guidance? How can they make sure users aren't using common passwords or passwords that are known to be included in recent data breeches?
 

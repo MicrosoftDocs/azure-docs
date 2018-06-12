@@ -16,7 +16,7 @@ ms.reviewer: jsimmons
 ---
 # Preview: Enforce banned passwords on-premises
 
-Azure AD Password Protection is a new feature in public preview powered by Azure Active Directory (Azure AD) to enhance password policies in an organization. The on-premises deployment of Azure AD Password Protection leverages both the global and tenant-specific banned password lists stored in Azure AD, and performs the same checks on-premises as Azure AD cloud-based changes.
+Azure AD Password Protection is a new feature in public preview powered by Azure Active Directory (Azure AD) to enhance password policies in an organization. The on-premises deployment of Azure AD Password Protection uses both the global and tenant-specific banned password lists stored in Azure AD, and performs the same checks on-premises as Azure AD cloud-based changes.
 
 There are three software components that make up Azure AD Password Protection:
 
@@ -52,7 +52,7 @@ Azure AD Password Protection is deployed in two basic procedures.
 
 1. Choose one or more servers to host the Azure AD Password Protection Proxy service.
    * Each such service can only provide password policies for a single forest, and the host machine must be domain-joined to a domain (root and child are both equally supported) in that forest. For Azure AD Password Protection Proxy service to fulfill its mission, there must exist network connectivity between at least one DC in each domain of the forest, and the Azure AD Password Protection Proxy host machine.
-   * It is supported to install and run the Azure AD Password Protection Proxy service on a domain controller for testing purposes but it will then require internet connectivity.
+   * It is supported to install and run the Azure AD Password Protection Proxy service on a domain controller for testing purposes but then  requires internet connectivity.
 
    > [!NOTE]
    > The public preview supports a maximum of two (2) proxy servers per forest. This limitation may be increased or removed in a future release.
@@ -67,7 +67,7 @@ Azure AD Password Protection is deployed in two basic procedures.
       > [!NOTE]
       > The installation software modifies the host machine’s PSModulePath environment variable. In order for this change to take effect so that the AzureADPasswordProtection powershell module can be imported and used, you may need to open a brand new PowerShell console window.
    * Check that the service is running using the following PowerShell command: `Get-Service AzureADPasswordProtectionProxy | fl`.
-      * The result should produce a result with the **Status** returning a "Running" result. If it does not perform a reboot and check again.
+      * The result should produce a result with the **Status** returning a "Running" result.
 
 4. Register the proxy.
    * Once step 3 has been completed the Azure AD Password Protection Proxy service is running on the machine, but does not yet have the necessary credentials to communicate with Azure AD. Registration with Azure AD is required to enable that ability using the `Register-AzureADPasswordProtectionProxy` PowerShell cmdlet. The cmdlet requires global administrator credentials for your Azure tenant as well as on-premises Active Directory domain administrator privileges in the forest root domain.
@@ -145,11 +145,11 @@ Once installed on a domain controller and rebooted, the Azure AD Password Protec
 
 ## Multiple forest deployments
 
-There is no special procedure required to deploy the software across multiple forests. Each forest must be independently configured as described in the “Single forest deployment” section. Each Azure AD Password Protection Proxy can only support domain controllers from the forest it is joined to. Once deployed, the Azure AD Password Protection software in a given forest is unaware of Azure AD Password Protection software deployed in another forest regardless of Active Directory trust configurations.
+There are no additional requirements to deploy Azure AD Password Protection across multiple forests. Each forest is independently configured as described in the single forest deployment section. Each Azure AD Password Protection Proxy can only support domain controllers from the forest it is joined to. The Azure AD Password Protection software in a given forest is unaware of Azure AD Password Protection software deployed in another forest regardless of Active Directory trust configurations.
 
 ## High availability
 
-The main concern with respect to high availability and Azure AD Password Protection is the availability of the proxy servers, when domain controllers in a forest are attempting to download new policies or other data from Azure. The public preview supports a maximum of two (2) proxy servers per forest. Each DC agent uses a simple round-robin style algorithm when deciding which proxy server to call, and skips over proxy servers that are not responding.
+The main concern with ensuring high availability of Azure AD Password Protection is the availability of the proxy servers, when domain controllers in a forest are attempting to download new policies or other data from Azure. The public preview supports a maximum of two proxy servers per forest. Each DC agent uses a simple round-robin style algorithm when deciding which proxy server to call, and skips over proxy servers that are not responding.
 The usual problems associated with high availability are mitigated by the design of the DC agent software. The DC agent maintains a local cache of the most recently downloaded password policy. Even if all registered proxy servers become unavailable for any reason, the DC agent(s) continue to enforce their cached password policy. A reasonable update frequency for password policies in a large deployment could be days, not hours or less, brief outages of the proxy servers will not significantly impact the operation of the Azure AD Password Protection feature or its security benefits.
 
 ## Deployment strategy
@@ -164,87 +164,90 @@ During the audit stage, many organizations find:
 
 Once the feature has been running in audit mode for a reasonable time, the enforcement configuration can be flipped from **Audit** to **Enforce**. Focused monitoring during this time is a good idea.
 
-## Operation and maintenance
-
-Configuring Azure AD Password Protection policies in Azure
-
-## Global password policy
-
-Microsoft maintains a list of known weak passwords, which are enforced\disallowed on a global basis in Azure. After you finish deploying and configuring your on-premises Active Directory Password Protection servers, the DC agents and proxies will work together to automatically download and enforce the Microsoft maintained global list.
-
-## Organizational password policy
-
-<tbd: describe the per-tenant BPL policy elements here>
-Enforcement modes
-The Azure policy may be configured in two modes, **Audit** and **Enforce**.
+## Post-deployment operations and maintenance
 
 ### Audit Mode
 
-Audit mode is intended as a way to run the software in a “what if” mode. Each DC Agent service will always evaluate an incoming password according to the currently active policy. If the current policy is configured to be in Audit mode, “bad” passwords result in event log messages but are accepted. This is the only difference between Audit and Enforce mode; all other operations run the same.
+Audit mode is intended as a way to run the software in a “what if” mode. Each DC Agent service evaluates an incoming password according to the currently active policy. If the current policy is configured to be in Audit mode, “bad” passwords result in event log messages but are accepted. This is the only difference between Audit and Enforce mode; all other operations run the same.
 
-NOTE: Microsoft recommends that initial deployment and testing always start out in Audit mode. Events in the event log should then be monitored to try to anticipate whether any existing operational processes would be disturbed once Enforce mode is enabled.
+> [!NOTE]
+> Microsoft recommends that initial deployment and testing always start out in Audit mode. Events in the event log should then be monitored to try to anticipate whether any existing operational processes would be disturbed once Enforce mode is enabled.
 
 ### Enforce Mode
 
-Enforce mode is intended as the final secure configuration. As in Audit mode above, each DC Agent service will always evaluate incoming passwords according to the currently active policy. If Enforce mode is enabled though, a password that is considered unsecure according to the policy is rejected.
-NOTE: when a password is rejected in Enforce mode by the Azure AD Password Protection DC Agent, the visible impact seen by an end user is identical to what they would see if their password was rejected by traditional on-premises password complexity enforcement. For example, a user might see the following traditional error message at their logon\change-password screen:
+Enforce mode is intended as the final configuration. As in Audit mode above, each DC Agent service evaluates incoming passwords according to the currently active policy. If Enforce mode is enabled though, a password that is considered unsecure according to the policy is rejected.
+
+When a password is rejected in Enforce mode by the Azure AD Password Protection DC Agent, the visible impact seen by an end user is identical to what they would see if their password was rejected by traditional on-premises password complexity enforcement. For example, a user might see the following traditional error message at the logon\change password screen:
 
 “Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.”
 
-The above message is only one example of a possible visible outcome; the specific error message can vary depending on the actual software or scenario that is attempting to set an unsecure password.
+This message is only one example of several possible outcomes. The specific error message can vary depending on the actual software or scenario that is attempting to set an unsecure password.
 
-Affected end users may need to work with their IT admins to understand the new requirements and be more able to choose secure passwords.
+Affected end users may need to work with their IT staff to understand the new requirements and be more able to choose secure passwords.
 
 ## On-premises Logs and events
 
-DC Agent Service
-On each domain controller the DC Agent Service software writes the results of its password validations (and other status) to a local event log located here:
+### DC Agent Service
+
+On each domain controller, the DC Agent Service software writes the results of its password validations (and other status) to a local event log:
 \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin
-As a useful memory device, events are logged by the various DC agent components using the following ranges:
-Component	Event ID range
-DC Agent password filter dll	10000-19999
-DC Agent service hosting process	20000-29999
-DC Agent service policy validation logic	30000-39999
 
-For a successful password validation operation, there is generally one event logged from the DC agent password filter dll. For a failing password validation operation, there are generally two events logged, one from the DC Agent service, and one from the DC Agent password filter dll (refer to the Architecture diagram near the beginning of this document).
+Events are logged by the various DC agent components using the following ranges:
+
+|Component |Event ID range|
+| --- | --- |
+|DC Agent password filter dll| 10000-19999|
+|DC Agent service hosting process| 20000-29999|
+|DC Agent service policy validation logic| 30000-39999|
+
+For a successful password validation operation, there is generally one event logged from the DC agent password filter dll. For a failing password validation operation, there are generally two events logged, one from the DC Agent service, and one from the DC Agent password filter dll.
+
 Discrete events to capture these situations are logged, based around the following factors:
-1.	Whether a given password is being set or changed
-2.	Whether validation of a given password passed or failed
-3.	Whether validation failed due to the Microsoft global policy vs the organizational policy
-4.	Whether audit only mode is currently on or off for the current password policy.
-The key password-validation-related events are as follows:
-	Password change	Password set
-Pass	10014	10015
-Fail (did not pass customer BPL)	10016, 30002	10017, 30003
-Fail (did not pass Microsoft BPL)	10016, 30004	10017, 30005
-Audit-only Pass (would have failed customer BPL)	10024, 30008	10025, 30007
-Audit-only Pass (would have failed Microsoft BPL)	10024, 30010	10025, 30009
 
-NOTE: incoming passwords are validated against the Microsoft global password list first; if that fails, no further processing is performed. This is the same behavior as performed on password changes in Azure.
+1. Whether a given password is being set or changed
+2. Whether validation of a given password passed or failed
+3. Whether validation failed due to the Microsoft global policy vs the organizational policy
+4. Whether audit only mode is currently on or off for the current password policy.
+
+The key password-validation-related events are as follows:
+
+|   |Password change |Password set|
+| --- | :---: | :---: |
+|Pass |10014 |10015|
+|Fail (did not pass customer BPL)| 10016, 30002| 10017, 30003|
+|Fail (did not pass Microsoft BPL)| 10016, 30004| 10017, 30005|
+|Audit-only Pass (would have failed customer BPL)| 10024, 30008| 10025, 30007|
+|Audit-only Pass (would have failed Microsoft BPL)| 10024, 30010| 10025, 30009|
+
+> [!TIP]
+> Incoming passwords are validated against the Microsoft global password list first; if that fails, no further processing is performed. This is the same behavior as performed on password changes in Azure.
+
 An example of a successful 10014 password change event log message is as follows:
 The changed password for the specified user was validated as compliant with the current Azure password policy.
- 
- UserName: BPL_02885102771
- FullName: 
 
-An example of a failed 10017+30003 password set event log message pair is as follows:
+ UserName: BPL_02885102771
+ FullName:
+
+An example of a failed 10017 and 30003 password set event log message pair is as follows:
 10017:
 
 The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
- 
+
  UserName: BPL_03283841185
- FullName: 
+ FullName:
 
 30003:
 
 The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
- 
+
  UserName: BPL_03283841185
- FullName: 
+ FullName:
 
 Some other key event log messages to be aware of are:
-Event ID	Sample event log message
-30001	The password for the specified user was accepted because an Azure password policy is not available yet
+
+#### Sample event log message for Event ID 30001
+
+The password for the specified user was accepted because an Azure password policy is not available yet
 
 UserName: <user>
 FullName: <user>
@@ -266,28 +269,46 @@ Resolution steps: ensure network connectivity exists to at least one Azure AD Pa
 4. This DC does not have connectivity to other domain controllers in the domain.
 
 Resolution steps: ensure network connectivity exists to the domain.
-30006	The service is now enforcing the following Azure password policy.
- 
+
+#### Sample event log message for Event ID 30006
+
+The service is now enforcing the following Azure password policy.
+
  AuditOnly: 1
  Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
  Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
  Enforce tenant policy: 1
 
+#### DC Agent log locations
+
 The DC Agent service will also operational-related events to the following log:
 \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational
+
 The DC Agent service can also log verbose debug-level trace events to the following log:
 \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace
-NOTE: the Trace log is disabled by default. When enabled, this log will receive a high volume of events and may impact domain controller performance. Therefore, this log should only be enabled when a problem requires deeper investigation, and then only for a minimal amount of time.
-Azure AD Password Protection Proxy service
+
+> [!WARNING]
+> The Trace log is disabled by default. When enabled, this log receives a high volume of events and may impact domain controller performance. Therefore, this enhanced log should only be enabled when a problem requires deeper investigation, and then only for a minimal amount of time.
+
+### Azure AD Password Protection Proxy service
+
 The Password Protection Proxy service emits a minimal set of events to the following event log:
 \Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational
+
 The Password Protection Proxy service can also log verbose debug-level trace events to the following log:
 \Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace
-NOTE: the Trace log is disabled by default. When enabled, this log will receive a high volume of events and this may impact performance of the proxy host. Therefore, this log should only be enabled when a problem requires deeper investigation, and then only for a minimal amount of time.
-Usage reporting
-Summary activity reporting
-The Get-AzureADPasswordProtectionSummaryReport cmdlet may be used to produce a summary view of activity. An example output of this cmdlet is as follows:
-PS C:\> Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
+
+> [!WARNING]
+> The Trace log is disabled by default. When enabled, this log receives a high volume of events and this may impact performance of the proxy host. Therefore, this log should only be enabled when a problem requires deeper investigation, and then only for a minimal amount of time.
+
+### Usage reporting
+
+#### Summary activity reporting
+
+The `Get-AzureADPasswordProtectionSummaryReport` cmdlet may be used to produce a summary view of activity. An example output of this cmdlet is as follows:
+
+```
+Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
 PasswordSetsValidated           : 9
@@ -297,46 +318,59 @@ PasswordChangeAuditOnlyFailures : 213
 PasswordSetAuditOnlyFailures    : 3
 PasswordChangeErrors            : 0
 PasswordSetErrors               : 1
-The scope of the cmdlet’s reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying any of these implies –Forest.
-NOTE: this cmdlet works by remotely querying each DC Agent Service’s Admin event log. If the event logs contain large numbers of events, the cmdlet may take a long time to complete. In addition, bulk network queries of large data sets may impact domain controller performance. Therefore, this cmdlet should be used carefully in production environments.
-DC Agent discovery
-The Get-AzureADPasswordProtectionDCAgent cmdlet may be used to display basic information about the various DC agents running in a domain or forest. This information is retrieved from the serviceConnectionPoint object(s) registered by the running DC agent service(s). An example output of this cmdlet is as follows:
+```
+
+The scope of the cmdlet’s reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying a parameter implies –Forest.
+
+> [!NOTE]
+> This cmdlet works by remotely querying each DC Agent Service’s Admin event log. If the event logs contain large numbers of events, the cmdlet may take a long time to complete. In addition, bulk network queries of large data sets may impact domain controller performance. Therefore, this cmdlet should be used carefully in production environments.
+
+### DC Agent discovery
+
+The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to display basic information about the various DC agents running in a domain or forest. This information is retrieved from the serviceConnectionPoint object(s) registered by the running DC agent service(s). An example output of this cmdlet is as follows:
+
+```
 PS C:\> Get-AzureADPasswordProtectionDCAgent
 ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
 Domain                : bplchild.bplRootDomain.com
 Forest                : bplRootDomain.com
 Heartbeat             : 2/16/2018 8:35:01 AM
-The various properties are updated by each DC Agent service on an approximate hourly basis. The data is still subject of course to normal Active Directory replication latencies.
+```
+
+The various properties are updated by each DC Agent service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
+
 The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
 
-## Emergency remediation
+### Emergency remediation
 
-If an unfortunate situation occurs where the DC agent service is misbehaving or otherwise causing problems, the DC Agent service may be immediately shut down. The DC agent password filter dll will still attempt to call the non-running service and will therefore log warning events (10012, 10013), but otherwise all incoming passwords are accepted during that time. The DC agent service may then also be configured via the Windows Service Control Manager with a startup type of “Disabled” as needed.
+If an unfortunate situation occurs where the DC agent service is causing problems, the DC Agent service may be immediately shut down. The DC agent password filter dll attempts to call the non-running service and will log warning events (10012, 10013), but all incoming passwords are accepted during that time. The DC agent service may then also be configured via the Windows Service Control Manager with a startup type of “Disabled” as needed.
 
-## Performance monitoring
+### Performance monitoring
 
-The DC Agent Service software installs a performance counter object named “Azure AD Password Protection”. The following perf counters are currently available:
-Perf counter name	Description
-Passwords processed	This counter displays the total number of passwords processed (accepted or rejected) since last restart.
-Passwords accepted	This counter displays the total number of passwords that were accepted since last restart.
-Passwords rejected	This counter displays the total number of passwords that were rejected since last restart.
-Password filter requests in progress	This counter displays the number of password filter requests currently in progress.
-Peak password filter requests	This counter displays the peak number of concurrent password filter requests since the last restart.
-Password filter request errors	This counter displays the total number of password filter requests that failed due to an error since last restart. Errors can occur when the Azure AD Password Protection DC Agent service is not running.
-Password filter requests/sec	This counter displays the rate at which passwords are being processed.
-Password filter request processing time	This counter displays the average time required to process a password filter request.
-Peak password filter request processing time	This counter displays the peak password filter request processing time since the last restart.
-Passwords accepted due to audit mode	This counter displays the total number of passwords that would normally have been rejected, but were accepted because the password policy was configured to be in audit-mode (since last restart).
+The DC Agent Service software installs a performance counter object named **Azure AD Password Protection**. The following perf counters are currently available:
 
-## Read-only domain controllers
+|Perf counter name | Description|
+| --- | --- |
+|Passwords processed |This counter displays the total number of passwords processed (accepted or rejected) since last restart.|
+|Passwords accepted |This counter displays the total number of passwords that were accepted since last restart.|
+|Passwords rejected |This counter displays the total number of passwords that were rejected since last restart.|
+|Password filter requests in progress |This counter displays the number of password filter requests currently in progress.|
+|Peak password filter requests |This counter displays the peak number of concurrent password filter requests since the last restart.|
+|Password filter request errors |This counter displays the total number of password filter requests that failed due to an error since last restart. Errors can occur when the Azure AD Password Protection DC Agent service is not running.|
+|Password filter requests/sec |This counter displays the rate at which passwords are being processed.|
+|Password filter request processing time |This counter displays the average time required to process a password filter request.|
+|Peak password filter request processing time |This counter displays the peak password filter request processing time since the last restart.|
+|Passwords accepted due to audit mode |This counter displays the total number of passwords that would normally have been rejected, but were accepted because the password policy was configured to be in audit-mode (since last restart).|
+
+### Read-only domain controllers
 
 Password changes\sets are never processed and persisted on read-only domain controllers (RODCs); instead, these are forwarded to writable domain controllers. Therefore there is no need to install the DC agent software on RODCs.
 
-## Directory Services Repair Mode
+### Directory Services Repair Mode
 
 If the domain controller is booted into Directory Services Repair Mode, the DC agent service detects this causing all password validation or enforcement activities to be disabled, regardless of the currently active policy configuration.
 
-## Domain controller demotion
+### Domain controller demotion
 
 It is supported to demote a domain controller that is still running the DC agent software. Administrators should be aware however that the DC agent software keeps running and continues enforcing the current password policy during the demotion procedure. The new local Administrator account password (specified as part of the demotion operation) is validated like any other password. Microsoft recommends that secure passwords be chosen for local Administrator accounts as part of a DC demotion procedure; however the validation of the new local Administrator account password by the DC agent software may be disruptive to pre-existing demotion operational procedures.
 Once the demotion has succeeded, and the domain controller has been rebooted and is again running as a normal member server, the DC agent software reverts to running in a passive mode. It may then be uninstalled at any time.
@@ -344,52 +378,50 @@ Once the demotion has succeeded, and the domain controller has been rebooted and
 ## Removal
 
 If it is decided to uninstall the public preview software and cleanup all related state from the domain(s) and forest, this can be accomplished using the following steps:
+
+> [!IMPORTANT]
+> It is important to perform these steps in order. If any instance of the Password Protection Proxy service is left running it will periodically re-create its serviceConnectionPoint object.
+
 1. Uninstall the Password Protection Proxy software from all machines. This step does **not** require a reboot.
 2. Uninstall the DC Agent software from all domain controllers. This step **requires** a reboot.
-3. Manually remove all proxy service connection points in each domain naming context.
-   * The location of these objects may be discovered with the following Active Directory Powershell command:
+3. Manually remove all proxy service connection points in each domain naming context. The location of these objects may be discovered with the following Active Directory Powershell command:
+   ```
+   $scp = “serviceConnectionPoint”
+   $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   ```
 
-PS C:\>$scp = “serviceConnectionPoint”
-PS C:\>$keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
-PS C:\>Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   Do not omit the asterisk (“*”) at the end of the $keywords variable value above.
 
-NOTE: do not omit the asterisk (“*”) at the end of the $keywords variable value above.
+   The resulting object found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually. 
 
-The resulting object found via the Get-ADObject command can then be piped to Remove-ADObject, or deleted manually. 
+4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the private preview software was deployed. The location of that object may be discovered with the following Active Directory Powershell command:
 
-NOTE: it is important to perform step #1 before this step since if any instance of the Password Protection Proxy service is left running it will periodically re-create its serviceConnectionPoint object.
+   ```
+   $scp = “serviceConnectionPoint”
+   $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   ```
 
-4.	Manually remove all DC agent connection points in each domain naming context
+   The resulting object found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually.
 
-There may be one these objects per domain controller in the forest, depending on how widely the private preview software was deployed. The location of that object may be discovered with the following Active Directory Powershell command:
+5. Manually remove the forest-level configuration state. The forest configuration state is maintained in a container in the Active Directory configuration naming context. It can be discovered and deleted as follows:
 
-PS C:\>$scp = “serviceConnectionPoint”
-PS C:\>$keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
-PS C:\>Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   ```
+   $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
+   Remove-ADObject $passwordProtectonConfigContainer
+   ```
 
-The resulting object found via the Get-ADObject command can then be piped to Remove-ADObject, or deleted manually.
+6. Manually remove all sysvol related state by manually deleting the following folder and all of its contents:
 
-NOTE: it is important to perform step #2 before this step since if any instance of the DC Agent service is left running it will periodically re-create its serviceConnectionPoint object.
+   `\\<domain>\sysvol\<domain fqdn>\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
 
-5.	Manually remove the forest-level configuration state.
+   If necessary, this path may also be accessed locally on a given domain controller; the default location would be something like this:
 
-The forest configuration state is maintained in a container in the Active Directory configuration naming context. It can be discovered and deleted as follows:
+   `%windir%\sysvol\domain\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
 
-PS C:\>$passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
-PS C:\>Remove-ADObject $passwordProtectonConfigContainer
+   This path is different if the sysvol share has been configured in a non-default location.
 
-NOTE: it is important to perform step #2 before this step since if any instance of the DC Agent service is left running it will periodically re-create this container.
+# Next steps
 
-6.	Manually remove all sysvol related state
-
-This can be done by manually deleting the following folder and all of its contents:
-
-\\<domain>\sysvol\<domain fqdn>\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}
-
-If necessary, this path may also be accessed locally on a given domain controller; the default location would be something like this:
-
-%windir%\sysvol\domain\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}
-
-This path is different if the sysvol share has been configured in a non-default location.
-
-NOTE: it is important to perform step #2 before this step since if any instance of the DC Agent service is left running it will periodically re-create this folder.
+For more information on the global and tenant-specific banned password lists, see the article [Ban bad passwords](concept-password-ban-bad.md)
