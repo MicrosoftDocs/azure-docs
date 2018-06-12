@@ -136,39 +136,49 @@ Before building the application, you register it with Azure AD. Registration ser
       postLogoutRedirectUri: 'https://tsispaapp.azurewebsites.net',
       ``` 
 
-   c. Scroll down to following line of JavaScript code. Change the second argument of the `getAggregates` call, to use your TSI environment's full qualified domain name (FQDN). The FQDN is shown next to the **Data Access FQDN** property on the TSI environment **Overview** page: 
+   c. Replace all occurrences of the following values in index.html
 
       > [!NOTE]
-      > If you don't have a TSI environment, for demonstration purposes you can use the existing FQDN value. This is the TSI environment used by the [Time Series Insights sample application](https://insights.timeseries.azure.com/clientsample).
+      > If you don't have a TSI environment, for demonstration purposes you can leave the FQDN and date values as-is, and skip this step. These are the same values used by the [Time Series Insights sample application](https://insights.timeseries.azure.com/clientsample).
+   
+      - **TSI environment fully qualified domain name (FQDN) identifiers**: used in the second argument of `getAggregates` and `getEvents` calls. Replace the first portion of the identifier with the value from your own TSI environment. You can find yours on the TSI environment **Overview** page, next to the **Data Access FQDN** property. 
+
+        ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/ap-view-tsi-env-fqdn.png)
+
+      - **startDate values**: a variable specifying the start date of the TSI query expression, in xxx format. Also used as the basis for calculating the end date.
+      
+      Below are the ones used in "Example 1", for example, and are the first occurrences in index.html:
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=207-224&highlight=12)]
-
-      ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/ap-view-tsi-env-fqdn.png)
 
       Your changed code should look similar to the following example:
 
       ```javascript
+      var startDate = new Date('2018-06-11T12:00:00Z');
+
+      ...
+
       tsiClient.server.getAggregates(token, 'd3z3754A-eef7-BLLL-a544-b474cfeab82c.env.timeseries.azure.com', aggregateExpressions2.map(function (ae) { return ae.toTsx() })).then(function (result) {
       ``` 
 
    d. Save the **index.html** when you've finished editing.
 
-5. Now publish the web application to your Azure subscription as an Azure App Service:
+5. Now publish the web application to your Azure subscription as an Azure App Service:  
 
    > [!NOTE]
-   > Several of the fields on the following dialog boxes are populated with data from your Azure subscription. As such, it may take a few seconds for each dialog to load completely, before you're able to continue.
+   > Several of the fields on the following dialog boxes are populated with data from your Azure subscription. As such, it may take a few seconds for each dialog to load completely, before you're able to continue.  
 
-   a. Right click on the web site project node in **Solution Explorer**, and select **Publish Web App**: 
+   a. Right click on the web site project node in **Solution Explorer**, and select **Publish Web App**:  
 
       ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png)
 
-   b. Select **Microsoft Azure App Service** to create a publish target: 
+   b. Select **Microsoft Azure App Service** to create a publish target:  
 
-      ![VS - Publish profile](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)
+      ![VS - Publish profile](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)  
 
    c. If the account used for Visual Studio sign-in has access to multiple subscriptions, select the subscription you'd like to use. Then click “New”: 
 
-      ![VS - Publish profile - app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)
+      ![VS - Publish profile - app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)  
 
    d. Give the **Create App Service** dialog a few seconds to load all fields, then modify the following fields:
    
@@ -178,23 +188,21 @@ Before building the application, you register it with Azure AD. Registration ser
       **Resource Group** | Change to match the **App Name** field.
       **App Service Plans** | Change to match the **App Name** field.
 
-      ![VS - Publish profile - add new app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service-create.png)
+      ![VS - Publish profile - add new app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service-create.png)  
 
-      When finished, click **Create**. You notice the **Export** button in the lower left, is replaced with a "Deploying:" message. When the App Service publish target has been added to the publishing profile, you'll be returned to the previous dialog.
+      When finished, click **Create**. You notice the **Export** button in the lower left, is replaced with a "Deploying:" message. When the App Service publish target has been added to the publishing profile, you'll be returned to the previous dialog.  
 
-   e. Once you return to the **Publish** dialog, make sure **Publish method** is set to "Web deploy", then click “Publish”:
+   e. Once you return to the **Publish** dialog, make sure **Publish method** is set to "Web deploy", then click “Publish”:  
 
-       ![VS - Publish web app - publish the app service](media/tutorial-create-tsi-sample-spa/vs-publish-publish.png)
+     ![VS - Publish web app - publish the app service](media/tutorial-create-tsi-sample-spa/vs-publish-publish.png)  
 
-   f. You should see a successful publish log in the Visual Studio **Output** window. When completed, Visual Studio will open a new new web application tab, prompting for sign-in. After successful sign-in, you will see all of the TSI controls populated with data:
+   f. You should see a successful publish log in the Visual Studio **Output** window. When completed, Visual Studio will open a new new web application tab, prompting for sign-in. After successful sign-in, you will see all of the TSI controls populated with data:  
 
-       ![VS - Publish web app - publish log output](media/tutorial-create-tsi-sample-spa/vs-publish-output.png)
+     ![VS - Publish web app - publish log output](media/tutorial-create-tsi-sample-spa/vs-publish-output.png)  
 
-       ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net-signin.png)
+     ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net-signin.png)  
 
-6. next...
-
-## Troubleshooting
+## Troubleshooting  
 
 Error code/condition | Description
 ---------------------| -----------
