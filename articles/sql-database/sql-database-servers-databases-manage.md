@@ -12,7 +12,7 @@ ms.author: carlrab
 
 ---
 
-# Create and manage Azure SQL Database servers and databases
+# Create, manage, and scale logical servers and databases in Azure SQL Database 
 
 You can create and manage Azure SQL Databases servers and databases using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
 

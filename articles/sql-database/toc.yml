@@ -74,34 +74,42 @@
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: Servers, pools, and databases
+  - name: Purchasing models
     items:
     - name: vCore purchasing model
-      items:
-      - name: vCore-based service tiers
-        href: sql-database-service-tiers-vcore.md
-    -   name: vCore-based resource limits
-        href: sql-database-vcore-resource-limits.md  
+      href: sql-database-service-tiers-vcore.md
     - name: DTU-based purchasing model
-      items: 
-      - name: DTU-based Service tiers - onsolidate
+      items:
+      - name: Overview of DTU-based purchasing model
         href: sql-database-service-tiers-dtu.md
-      - name: DTU-based resource limits - onsolidate
-        href: sql-database-dtu-resource-limits.md  
       - name: DTUs and eDTUs - onsolidate
         href: sql-database-what-is-a-dtu.md
       - name: DTU benchmark - onsolidate
         href: sql-database-benchmark-overview.md
+  - name: Logical servers, pools, and databases
+    items:
     - name: Logical servers and databases
       items:
       - name: Overview
         href: sql-database-servers-databases.md
-      - name: Create and manage logical servers and databases
-        href: sql-database-servers-databases-create-manage.md  
+      - name: Resource limits
+        items:
+        - name: vCore-based resource limits
+          href: sql-database-vcore-resource-limits-single-databases.md  
+        - name: DTU-based resource limits
+          href: sql-database-dtu-resource-limits-single-databases.md  
+      - name: Create, manage, and scale
+        href: sql-database-servers-databases-manage.md
     - name: Elastic pools
       items:
       - name: Overview
         href: sql-database-elastic-pool.md
+      - name: Resource limits
+        items:
+        - name: vCore-based resource limits
+          href: sql-database-vcore-resource-limits.md  
+        - name: DTU-based resource limits - onsolidate
+          href: sql-database-dtu-resource-limits.md  
     - name: Connectivity architecture for logical servers, pools, and databases
       href: sql-database-connectivity-architecture.md 
     - name: SQL Database T-SQL details

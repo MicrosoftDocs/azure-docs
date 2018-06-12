@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.reviewwer: carlrab
 ---
 
-# Manage resources for an elastic pool in Azure SQL Database
+# Create, manage, and scale an elastic pool in Azure SQL Database
 
 With an elastic pool, you determine the amount of resources that the elastic pool requires to handle the workload of its databases. 
 

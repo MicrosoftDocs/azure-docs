@@ -14,11 +14,15 @@ ms.author: carlrab
 # DTU-based purchasing model for Azure SQL Database 
 
 
-[Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model (preview). The following table and chart compare and contrast these two purchasing models.
+Logical servers in [Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model (preview). 
+
+> [!NOTE]
+> [Managed Instances](sql-database-managed-instance.md) in Azure SQL Database only offer the vCore-based purchasing model.
+
+The following table and chart compare and contrast these two purchasing models.
 
 > [!IMPORTANT]
 > For vCore-based purchasing model (preview), see [vCore-based purchasing model](sql-database-service-tiers-vcore.md)
-
 
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
