@@ -30,16 +30,13 @@ To learn how to assign administrative roles to a user in Azure Active Directory,
 ## Available roles
 The following administrator roles are available:
 
-* **Application Administrator**
-Users in this role can manage all enterprise applications, application registrations, and proxy application settings. This role can configure single sign-on (SSO) for gallery and non-gallery apps, which includes cert-rollover, user attributes (claims), and enable self-service settings.  Additionally, this role can assign users access to apps as well as owners.
+* **Application Administrator**: Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Members of this role are not added as owners when creating new application registrations or enterprise applications.
 
-* **Application Developer** 
-Users in this role can create application registrations even when “Users can register apps” is turned off, and are marked as the owner of the applications they create. They can consent for themselves even when the “Users can consent to apps” is turned off.
+* **Application Developer**: Users in this role can create application registrations when the “Users can register applications” setting is set to No. This role also allows members to consent on their own behalf when the “Users can consent to apps accessing company data on their behalf” setting is set to No. Members of this role are added as owners when creating new application registrations or enterprise applications.
 
 * **Billing Administrator**: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
 
-* **Cloud Application Administrator**
-Users in this role role can add and manage enterprise application and application registrations. This role doesn't manage on-premise application proxy apps, but the Application Administrator role does.
+* **Cloud Application Administrator**: Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. This role grants the ability to create and manage all aspects of enterprise applications, application registrations. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Members of this role are not added as owners when creating new application registrations or enterprise applications.
 
 * **Compliance Administrator**: Users with this role have management permissions within in the Office 365 Security & Compliance Center and Exchange Admin Center. More information at “[About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).”
 
@@ -112,11 +109,29 @@ Users in this role role can add and manage enterprise application and applicatio
 
 ## Administrator permissions
 
+### Application Administrator
+
+| Can do | Cannot do |
+| --- | --- |
+| Read all directory information<br>Create application registrations<br>Update application registration properties<br>Acquire enterprise applications<br>Manage application registration permissions<br>Delete application registrations<br>Manage enterprise application single sign-on settings<br>Manage enterprise application provisioning settings<br>Manage enterprise application self-service settings<br>Manage enterprise application permission settings<br>Manage application access<br>Manage provisioning settings<br>Delete enterprise applications<br>Consent on behalf of everyone for all delegated permission requests<br>Consent on behalf of everyone for all application permission requests except Azure AD Graph or Microsoft Graph<br>Manage application proxy settings<br>Access services settings<br>Monitor service health<br>Manage support tickets<br>Read hidden group membership | Create, edit, and delete groups<br>Manage user licenses<br>Use directory synchronization<br>View sign-in reports and audit logs | 
+
+### Application Developer
+
+| Can do | Cannot do |
+| --- | --- |
+| Read all directory information<br>Create application registrations<br>Consent on behalf of self | View sign-in and audit logs<br>Read hidden group membership |
+
 ### Billing Administrator
 
 | Can do | Cannot do |
 | --- | --- |
-|<p>View company and user information</p><p>Manage Office support tickets</p><p>Perform billing and purchasing operations for Office products</p> |<p>Reset user passwords</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View audit logs</p>|
+|<p>View company and user information</p><p>Manage Office support tickets</p><p>Perform billing and purchasing operations for Office products</p> |<p>Reset user passwords</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View audit logs</p> |
+
+### Cloud Application Administrator
+
+| Can do | Cannot do |
+| --- | --- |
+| Read all directory information<br>Create application registrations<br>Update application registration properties<br>Acquire enterprise applications<br>Manage application registration permissions<br>Delete application registrations<br>Manage enterprise application single sign-on settings<br>Manage enterprise application provisioning settings<br>Manage enterprise application self-service settings<br>Manage enterprise application permission settings<br>Manage application access<br>Manage provisioning settings<br>Delete enterprise applications<br>Consent on behalf of everyone for all delegated permission requests<br>Consent on behalf of everyone for all application permission requests except Azure AD Graph or Microsoft Graph<br>Access services settings<br>Monitor service health<br>Manage support tickets<br>Read hidden group membership | Manage application proxy settings<br>Create, edit, and delete groups<br>Manage user licenses<br>Use directory synchronization<br>View sign-in reports and audit logs |
 
 ### Conditional Access Administrator
 
