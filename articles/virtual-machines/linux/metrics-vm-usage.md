@@ -1,5 +1,5 @@
 ---
-title: Retrieve Virtual Machine metrics with the REST API | Microsoft Docs
+title: Get Azure Virtual Machine usage data using the REST API | Microsoft Docs
 description: Use the Azure REST APIs to collect utilization metrics for a Virtual Machine.
 services: virtual-machines
 author: rloutlaw
