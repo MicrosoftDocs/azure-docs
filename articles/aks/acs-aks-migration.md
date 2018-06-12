@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Migrating from Azure Container Service (ACS) to Azure Kubernetes Service (AKS)
 
-This goal of this document is to help you plan and execute a successful migration between Azure Container Service with Kubernetes (ACS) and Azure Kubernetes Service (AKS). Every application and migration is unique. This guide provides an overview of the migration process and should help you make key decisions.
+This goal of this document is to help you plan and execute a successful migration between Azure Container Service with Kubernetes (ACS) and Azure Kubernetes Service (AKS). This guide details the differences between ACS and AKS, provides an overview of the migration process, and should help you make key decisions.
 
 ## Plan for Migration
 
@@ -51,7 +51,7 @@ Example:
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
 
-You'll deploy additional virtual machines into your subscription as you migrate, so you should make sure that your quotas and limits are sufficient for these resources. You can learn more by reviewing [Azure subscription and service limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). To check your current quotas, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal, select your subscription, then select `Usage + quotas`.
+Because additional virtual machines will be deployed into your subscription during migration, you should verify that your quotas and limits are sufficient for these resources. You can learn more by reviewing [Azure subscription and service limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). To check your current quotas, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal, select your subscription, then select `Usage + quotas`.
 
 ### Networking
 
@@ -118,7 +118,7 @@ The recommended method is to use your existing CI/CD pipeline to deploy a known-
 
 In cases where that's not possible, you'll need to export resource definition from ACS, and then apply them to AKS. You can use `kubectl` to export objects.
 
-```
+```console
 kubectl get deployment -o=yaml --export > deployments.yaml
 ```
 
