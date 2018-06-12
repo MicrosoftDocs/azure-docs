@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Grant access for a user using RBAC and the Azure Portal | Microsoft Docs
+title: Quickstart - Grant access for a user using RBAC and the Azure portal | Microsoft Docs
 description: Use role-based access control (RBAC) to grant permissions to a user by assigning a role in the Azure portal.
 services: role-based-access-control
 documentationCenter: ''
@@ -19,7 +19,7 @@ ms.author: rolyon
 
 ---
 
-# Quickstart: Grant access for a user using RBAC and the Azure Portal
+# Quickstart: Grant access for a user using RBAC and the Azure portal
 
 Role-based access control (RBAC) is the way that you manage access to resources in Azure. In this quickstart, you grant a user access to create and manage virtual machines in a resource group.
 
