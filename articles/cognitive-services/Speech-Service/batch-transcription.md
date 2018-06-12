@@ -21,7 +21,7 @@ Batch transcription is ideal for use cases with large amounts of audio. It enabl
 The Batch transcription API makes the above scenario possible. It offers asynchronous speech to text transcription along with additional features.
 
 > [!NOTE]
-> The Batch transcription API is idea for Call Centers which typically accummulate thousands of hours of audio in a daily basis.
+> The Batch transcription API is idea for Call Centers which typically accumulate thousands of hours of audio in a daily basis.
 
 ### Supported formats
 
@@ -52,11 +52,11 @@ For stereo audio streams, Batch transcription will split the left and right chan
     ```
 
 > [!NOTE]
-> The Batch transcription API is using a REST service for requesting transcriptions, their status, and accociated results. It is based on .NET and does not have any external dependencies. The next section describes how it is used
+> The Batch transcription API is using a REST service for requesting transcriptions, their status, and associated results. It is based on .NET and does not have any external dependencies. The next section describes how it is used.
 
 ## Authorization token
 
-As with all features of the Unified Speech Service, the user needs to create a subscription key from the [Azure Portal](https://portal.azure.com). In addition, an API key needs to be acquired from the Speech Portal. The steps to generate an API key:
+As with all features of the Unified Speech Service, the user needs to create a subscription key from the [Azure portal](https://portal.azure.com). In addition, an API key needs to be acquired from the Speech Portal. The steps to generate an API key:
 
 1. Log in to https://customspeech.ai.
 
