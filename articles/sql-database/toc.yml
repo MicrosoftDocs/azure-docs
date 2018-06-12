@@ -82,18 +82,22 @@
       href: sql-database-single-database-resources.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
-    - name: vCore-based Service tiers - onsolidate
-      href: sql-database-service-tiers-vcore.md
-    - name: vCore-based resource limits - consolidate
-      href: sql-database-vcore-resource-limits.md  
-    - name: DTU-based Service tiers - onsolidate
-      href: sql-database-service-tiers-dtu.md
-    - name: DTU-based resource limits - onsolidate
-      href: sql-database-dtu-resource-limits.md  
-    - name: DTUs and eDTUs - onsolidate
-      href: sql-database-what-is-a-dtu.md
-    - name: DTU benchmark - onsolidate
-      href: sql-database-benchmark-overview.md
+    - name: vCore purchasing model
+      items:
+      - name: vCore-based Service tiers
+        href: sql-database-service-tiers-vcore.md
+    -   name: vCore-based resource limits
+        href: sql-database-vcore-resource-limits.md  
+    - name: DTU-based purchasing model
+      items: 
+      - name: DTU-based Service tiers - onsolidate
+        href: sql-database-service-tiers-dtu.md
+      - name: DTU-based resource limits - onsolidate
+        href: sql-database-dtu-resource-limits.md  
+      - name: DTUs and eDTUs - onsolidate
+        href: sql-database-what-is-a-dtu.md
+      - name: DTU benchmark - onsolidate
+        href: sql-database-benchmark-overview.md
     - name: Connectivity architecture for logical servers, pools, and databases
       href: sql-database-connectivity-architecture.md 
     - name: SQL Database T-SQL details
