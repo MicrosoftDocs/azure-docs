@@ -65,7 +65,7 @@ All triggers have these top-level elements, although some are optional:
 | <*trigger-type*> | String | The trigger type, for example, "Http" or "ApiConnection" | 
 | <*trigger-inputs*> | JSON Object | The inputs that define the trigger's behavior | 
 | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units-to-wait*> | Integer | A positive number that determines how often the trigger fires based on the frequency, which is specifically the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
+| <*number-of-time-units*> | Integer | A positive number that determines how often the trigger fires based on the frequency, which is specifically the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
 |||| 
 
 *Optional*
@@ -95,52 +95,44 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 ## Trigger conditions
 
-For any trigger, you can include an array with one or more 
-conditions that determine whether the workflow should run or not. 
-In this example, the report trigger fires only while 
-the workflow's `sendReports` parameter is set to true. 
+For any trigger, you can include an array that contains one or more 
+expressions for conditions that determine whether the workflow should run. 
+To add the `conditions` property to your logic app, 
+open your logic app in the code view editor.
+
+For example, you can specify that a trigger fires only when 
+a website returns an internal server error by referencing the 
+trigger's status code in the `conditions` property:
 
 ```json
-"myDailyReportTrigger": {
+"Recurrence": {
    "type": "Recurrence",
-   "conditions": [ {
-      "expression": "@parameters('sendReports')"
-   } ],
    "recurrence": {
-      "frequency": "Day",
+      "frequency": "Hour",
       "interval": 1
-   }
+   },
+   "conditions": [ {
+      "expression": "@equals(triggers().code, 'InternalServerError')"
+   } ]
 }
 ```
 
-Also, conditions can reference the trigger's status code. 
-For example, suppose you want to start a workflow only 
-when your website returns a "500" status code:
+By default, a trigger fires only after getting a "200 OK" response. 
+When an expression references a trigger's status code, 
+the trigger's default behavior is replaced. So, if you 
+want the trigger to fire for more than one status code, 
+such as the "200" and "201" status code, you must include 
+this expression as your condition: 
 
-``` json
-"conditions": [ {
-   "expression": "@equals(triggers().code, 'InternalServerError')"  
-} ]  
-```  
-
-> [!NOTE]
-> By default, a trigger fires only on receiving a "200 OK" response. 
-> When an expression references a trigger's status code in any way, 
-> the trigger's default behavior is replaced. So, if you want the 
-> trigger to fire for multiple status codes, for example, 
-> status code 200 and status code 201, 
-> you must include this statement as your condition: 
->
-> `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
+`@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
 <a name="split-on-debatch"></a>
 
-## Triggers - Split into multiple runs
+## Trigger - Split arrays into multiple runs
 
 If your trigger returns an array for your logic app to process, 
 sometimes a "for each" loop might take too long to process each array item. 
 Instead, you can use the **SplitOn** property in your trigger to *debatch* the array. 
-
 Debatching splits up the array items and starts a new logic app instance 
 that runs for each array item. This approach is useful, for example, 
 when you want to poll an endpoint that might return multiple new items between polling intervals.
@@ -159,37 +151,39 @@ the **SplitOn** property is automatically added to your trigger.
 Otherwise, add this property inside the response payload that has the array 
 you want to debatch. 
 
-For example, suppose you have an API that returns this response: 
+*Example*
+
+Suppose you have an API that returns this response: 
   
 ```json
 {
-    "Status": "Succeeded",
-    "Rows": [ 
-        { 
-            "id": 938109380,
-            "name": "customer-name-one"
-        },
-        {
-            "id": 938109381,
-            "name": "customer-name-two"
-        }
-    ]
+   "Status": "Succeeded",
+   "Rows": [ 
+      { 
+         "id": 938109380,
+         "name": "customer-name-one"
+      },
+      {
+         "id": 938109381,
+         "name": "customer-name-two"
+      }
+   ]
 }
 ```
-  
-Your logic app only needs the content from `Rows`, 
-so you can create a trigger like this example.
+ 
+Your logic app only needs the content from the array in `Rows`, 
+so you can create a trigger like this example:
 
 ``` json
-"myDebatchTrigger": {
-    "type": "Http",
-    "recurrence": {
-        "frequency": "Second",
-        "interval": 1
-    },
+"HTTP_Debatch": {
+   "type": "Http",
     "inputs": {
         "uri": "https://mydomain.com/myAPI",
         "method": "GET"
+    },
+   "recurrence": {
+      "frequency": "Second",
+      "interval": 1
     },
     "splitOn": "@triggerBody()?.Rows"
 }
@@ -202,26 +196,25 @@ so you can create a trigger like this example.
 > To avoid a failure if the `Rows` property doesn't exist, 
 > this example uses the `?` operator.
 
-Your workflow definition can now use `@triggerBody().name` 
-to get `customer-name-one` from the first run 
-and `customer-name-two` from the second run. 
+Your workflow definition can now use `@triggerBody().name` to get the `name` values, 
+which are `"customer-name-one"` from the first run and `"customer-name-two"` from the second run. 
 So, your trigger outputs look like these examples:
 
 ```json
 {
-    "body": {
-        "id": 938109380,
-        "name": "customer-name-one"
-    }
+   "body": {
+      "id": 938109380,
+      "name": "customer-name-one"
+   }
 }
 ```
 
 ```json
 {
-    "body": {
-        "id": 938109381,
-        "name": "customer-name-two"
-    }
+   "body": {
+      "id": 938109381,
+      "name": "customer-name-two"
+   }
 }
 ```
 
@@ -244,18 +237,22 @@ For recurring and polling triggers, you can specify that the trigger
 fire only after all active workflow instances finish running. 
 If a scheduled recurrence happens while a workflow instance is running, 
 the trigger skips and waits until the next scheduled recurrence before checking again. 
-For example:
+
+Here is an example where the recurrence trigger, which fires every second, 
+waits until the previous instance has finished before firing: 
 
 ```json
 "Recurrence": {
    "type": "Recurrence",
    "recurrence": {
-      "frequency": "Hour",
+      "frequency": "Second",
       "interval": 1,
    },
    "operationOptions": "singleInstance"
 }
 ```
+
+## Trigger details
 
 <a name="apiconnection-trigger"></a>
 
@@ -821,7 +818,10 @@ a schema that validates input from the incoming request:
 
 Azure Logic Apps provides various action types - each with 
 different inputs that define an action's unique behavior. 
-For example, here are some commonly used action types: 
+
+## Action types
+
+Here are some commonly used action types: 
 
 * [Built-in action types](#built-in-actions) such as 
 these examples and more: 
@@ -846,7 +846,7 @@ you organize workflow execution
 
 <a name="built-in-actions"></a>
 
-## Built-in action types
+### Built-in action types
 
 | Action type | Description | 
 |-------------|-------------|  
@@ -864,7 +864,7 @@ you organize workflow execution
 | [**Workflow**](#workflow-action) | Nests a workflow inside another workflow. | 
 ||| 
 
-## Standard action types
+### Standard action types
 
 | Action type | Description | 
 |-------------|-------------|  
@@ -874,7 +874,14 @@ you organize workflow execution
 
 <a name="control-workflow-actions"></a>
 
-## Control workflow action types
+### Control workflow action types
+
+These actions help you control workflow execution and include other actions. 
+From outside a control workflow action, you can directly reference actions 
+inside that control workflow action. For example, if you have an `Http` action inside a scope, 
+you can reference the `@body('Http')` expression from anywhere in the workflow. 
+However, actions that exist inside a control workflow action can only "run after" 
+other actions that are in the same control workflow structure.
 
 | Action type | Description | 
 |-------------|-------------| 
@@ -885,54 +892,7 @@ you organize workflow execution
 | [**Until**](#until-action) | Run actions in a loop until the specified condition is true. | 
 |||  
 
-<a name="asynchronous-patterns"></a>
-
-### Asynchronous patterns
-
-By default, all HTTP-based actions support the standard asynchronous operation pattern. 
-This pattern specifies that when an HTTP-based action sends a request to a specified endpoint, 
-the remote server sends back a "202 ACCEPTED" response. This reply means the server accepted 
-the request for processing. The Logic Apps engine keeps checking the URL specified by the 
-response's location header until processing stops, which is any non-202 response.
-
-Requests have a timeout limit, so for long-running actions, 
-you can disable the asynchronous behavior by setting the 
-optional `operationOptions` property to `DisableAsyncPattern` 
-in the action's inputs, for example:
-  
-```json
-"callLongRunningOperationAction": {
-   "type": "Http",
-   "inputs": {
-      "method": "POST",
-      "uri": "https://host.example.com/resources",
-      "operationOptions": "DisableAsyncPattern"
-   },
-   "runAfter": {}
-}
-```
-
-<a name="asynchronous-limits"></a>
-
-### Asynchronous limits
-
-You can limit the duration for an asynchronous pattern to a specific time interval. 
-So, if the interval passes and the action hasn't completed, 
-the action's status is marked `Cancelled` with the `ActionTimedOut` code. 
-The limit timeout uses [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). 
-
-This example shows how you can specify an asynchronous limit:
-
-``` json
-"<trigger-or-action-name>": {
-   "type": "Workflow | Webhook | Http | ApiConnectionWebhook | ApiConnection",
-   "inputs": {},
-   "limit": {
-      "timeout": "PT10S"
-   },
-   "runAfter": {}
-}
-```
+## Built-in and standard action details
 
 <a name="apiconnection-action"></a>
 
@@ -1992,14 +1952,7 @@ in the `Response` action for the child workflow.
 If the child workflow doesn't define a `Response` action, 
 the outputs are empty.
 
-## Control workflow actions overview
-
-These actions help you control workflow execution and often include other actions. 
-From outside a control workflow action, you can directly reference actions 
-inside that control workflow action. For example, if you have an `Http` action inside a scope, 
-you can reference the `@body('Http')` expression from anywhere in the workflow. 
-However, actions that exist inside a control workflow action can only "run after" 
-other actions that are in the same control workflow structure.
+## Control workflow action details
 
 <a name="foreach-action"></a>
 
@@ -2411,6 +2364,55 @@ the specified URL until one of these conditions is met:
         "timeout": "PT1H"
     },
     "runAfter": {}
+}
+```
+
+<a name="asynchronous-patterns"></a>
+
+## Action asynchronous patterns
+
+By default, all HTTP-based actions support the standard asynchronous operation pattern. 
+This pattern specifies that when an HTTP-based action sends a request to a specified endpoint, 
+the remote server sends back a "202 ACCEPTED" response. This reply means the server accepted 
+the request for processing. The Logic Apps engine keeps checking the URL specified by the 
+response's location header until processing stops, which is any non-202 response.
+
+Requests have a timeout limit, so for long-running actions, 
+you can disable the asynchronous behavior by setting the 
+optional `operationOptions` property to `DisableAsyncPattern` 
+in the action's inputs, for example:
+  
+```json
+"callLongRunningOperationAction": {
+   "type": "Http",
+   "inputs": {
+      "method": "POST",
+      "uri": "https://host.example.com/resources",
+      "operationOptions": "DisableAsyncPattern"
+   },
+   "runAfter": {}
+}
+```
+
+<a name="asynchronous-limits"></a>
+
+## Asynchronous limits
+
+You can limit the duration for an asynchronous pattern to a specific time interval. 
+So, if the interval passes and the action hasn't completed, 
+the action's status is marked `Cancelled` with the `ActionTimedOut` code. 
+The limit timeout uses [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). 
+
+This example shows how you can specify an asynchronous limit:
+
+``` json
+"<trigger-or-action-name>": {
+   "type": "Workflow | Webhook | Http | ApiConnectionWebhook | ApiConnection",
+   "inputs": {},
+   "limit": {
+      "timeout": "PT10S"
+   },
+   "runAfter": {}
 }
 ```
 
