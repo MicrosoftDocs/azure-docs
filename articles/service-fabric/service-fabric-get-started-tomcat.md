@@ -35,7 +35,7 @@ To learn more about Apache Tomcat, see the [Apache Tomcat homepage](http://tomca
 ## Build a Tomcat image and run it locally
 Follow the steps in this section to build a Docker image based on an Apache Tomcat image and a simple Web app and then run it in a container on your local system. 
  
-1. Clone the Service Fabric Tomcat application on your development computer.
+1. Clone the [Service Fabric getting started with Java](https://github.com/Azure-Samples/service-fabric-java-getting-started) samples repository on your development computer.
 
    ```bash
    git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
