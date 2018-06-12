@@ -227,27 +227,27 @@
     - name: Read Scale-Out
       href: sql-database-read-scale-out.md
     - name: Sharding
-     - items: 
-      - name: Sharding overview
-        href: sql-database-elastic-scale-introduction.md
-      - name: Elastic client library (consolidate)
-        href: sql-database-elastic-database-client-library.md
-      - name: Shard maps
-        href: sql-database-elastic-scale-shard-map-management.md
-      - name: Query routing
-        href: sql-database-elastic-scale-data-dependent-routing.md
-      - name: Manage credentials
-        href: sql-database-elastic-scale-manage-credentials.md
-      - name: Shard querying
-        href: sql-database-elastic-scale-multishard-querying.md
-      - name: Elastic tools
-        href: sql-database-elastic-scale-glossary.md
-      - name: Move sharded data
-        href: sql-database-elastic-scale-overview-split-and-merge.md
-      - name: Elastic client library - Dapper
-        href: sql-database-elastic-scale-working-with-dapper.md
-      - name: Elastic tools FAQ
-        href: sql-database-elastic-scale-faq.md
+    - items: 
+     - name: Sharding overview
+       href: sql-database-elastic-scale-introduction.md
+     - name: Elastic client library (consolidate)
+       href: sql-database-elastic-database-client-library.md
+     - name: Shard maps
+       href: sql-database-elastic-scale-shard-map-management.md
+     - name: Query routing
+       href: sql-database-elastic-scale-data-dependent-routing.md
+     - name: Manage credentials
+       href: sql-database-elastic-scale-manage-credentials.md
+     - name: Shard querying
+       href: sql-database-elastic-scale-multishard-querying.md
+     - name: Elastic tools
+       href: sql-database-elastic-scale-glossary.md
+     - name: Move sharded data
+       href: sql-database-elastic-scale-overview-split-and-merge.md
+     - name: Elastic client library - Dapper
+       href: sql-database-elastic-scale-working-with-dapper.md
+     - name: Elastic tools FAQ
+       href: sql-database-elastic-scale-faq.md
     - name: Cross-database operations
       - name: Elastic queries
         href: sql-database-elastic-query-overview.md
