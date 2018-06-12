@@ -46,18 +46,18 @@ ms.author: jdial
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
         
-To check roles assigned to a user for a subscription, please follow below the steps:
+    To check roles assigned to a user for a subscription, please follow below the steps:
 
-Login to Azure using Login-AzureRmAccount 
+    Login to Azure using Login-AzureRmAccount 
 
-Select the required subscription using Select-AzureRmSubscription 
+    Select the required subscription using Select-AzureRmSubscription 
 
-Now to list all the roles that are assigned to a specified user, use
-Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators 
+    Now to list all the roles that are assigned to a specified user, use
+    Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators 
 
-If you are not seeing any output after executing commends then please reach out to respective Subscription admin, to get access to execute the commands.  
+    If you are not seeing any output after executing commends then please reach out to respective Subscription admin, to get access to execute the commands.  
 
-For more details please refer [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+    For more details please refer [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
 
 
 2.  Which Azure regions are traffic analytics available in?
