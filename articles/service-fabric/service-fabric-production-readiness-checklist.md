@@ -40,7 +40,7 @@ Is your Service Fabric application and cluster production ready? You may have be
 17. Ensure offline backup of [Reliable Services and Reliable Actors](service-fabric-reliable-services-backup-restore.md) and test the restoration process. 
 18. Plan for [scaling](service-fabric-cluster-scaling.md) your cluster manually or programmatically.
 19. Plan for [patching](service-fabric-patch-orchestration-application.md) your cluster nodes. 
-20. Estabilish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+20. Establish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 21. Test your development & staging clusters with the [Fault Analysis Service](service-fabric-testability-overview.md) and induce controlled [chaos](service-fabric-controlled-chaos.md). Run chaos simultaneously with a load test, so you're stress testing the system under load. 
 22. Plan for [scaling](service-fabric-concepts-scalability.md) your applications. 
 
