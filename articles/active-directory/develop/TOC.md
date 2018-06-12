@@ -40,6 +40,7 @@
 ### [OpenID Connect protocol](active-directory-protocols-openid-connect-code.md)
 ### [OAuth 2.0 auth code grant](active-directory-protocols-oauth-code.md)
 ### [OAuth 2.0 implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md)
+### [OAuth 2.0 auth sample](active-directory-protocols-oauth-get-jwt-token.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
 ### [Configuring Role claim](active-directory-enterprise-app-role-management.md)
 ### [Customize claims](active-directory-saml-claims-customization.md)
