@@ -20,7 +20,7 @@ ms.author: rolyon
 ---
 # Tutorial: Create a custom role using Azure CLI
 
-If the [built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets. It allows the user to view everything in the subscription and also open support tickets.
+If the [built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure CLI. The custom role allows the user to view everything in the subscription and also open support tickets.
 
 In this tutorial, you learn how to:
 
@@ -37,6 +37,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this tutorial, you will need:
 
 - Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
+
+## Sign in to Azure CLI
+
+Sign in to [Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Create a custom role
 
