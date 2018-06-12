@@ -16,7 +16,7 @@
     href: storage-how-to-use-files-windows.md
   - name: Mount on Linux
     href: storage-how-to-use-files-linux.md
-  - name: Mount on Mac
+  - name: Mount on macOS
     href: storage-how-to-use-files-mac.md
   - name: Manage with the Azure portal
     href: storage-how-to-use-files-portal.md

@@ -18261,6 +18261,26 @@
           "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-device-management-get-started",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-firmware-update.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-firmware-update",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-twin-getstarted",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-schedule-jobs.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-schedule-jobs",
+          "redirect_document_id": false
+        },
+        {
           "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
           "redirect_url": "/azure/iot-hub/tutorial-routing",
           "redirect_document_id": false
@@ -22297,6 +22317,5 @@
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
             "redirect_document_id": false
         }
-
     ]
 }
