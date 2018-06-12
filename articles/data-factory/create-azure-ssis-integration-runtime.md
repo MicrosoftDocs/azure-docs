@@ -44,7 +44,7 @@ When you provision an instance of Azure-SSIS IR, the Azure Feature Pack for SSIS
 - **Azure SQL Database server/Managed Instance (Preview)**. If you don't already have a database server, create one in the Azure portal before you get started. This server hosts the SSIS Catalog database (SSISDB). We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to SSISDB without crossing Azure regions. Based on the selected database server, SSISDB can be created on your behalf as a standalone database, part of an Elastic Pool, or in a Managed Instance (Preview) and accessible in public network or by joining a virtual network (VNet). For a list of supported pricing tiers for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
 
     Confirm that your Azure SQL Database server/Managed Instance (Preview) does not have an SSIS Catalog (SSIDB database). The provisioning of Azure-SSIS IR does not support using an existing SSIS Catalog.
-- **Classic/Azure Resource Manager (ARM) VNet (optional)**. You must have an Azure VNet if at least one of the following conditions is true:
+- **Classic/Azure Resource Manager VNet (optional)**. You must have an Azure VNet if at least one of the following conditions is true:
     - You are hosting the SSIS Catalog database in Azure SQL Database with VNet service endpoints/Managed Instance (Preview) that is inside a VNet.
     - You want to connect to on-premises data stores from SSIS packages running on an Azure-SSIS integration runtime.
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps), if you use PowerShell to run a script to provision Azure-SSIS integration runtime that runs SSIS packages in the cloud. 
@@ -148,7 +148,7 @@ In this section, you use the Azure portal, specifically the Data Factory UI, to 
     
     b. For **Location**, the same location of your integration runtime is selected.
     
-    b. For **Type**, select the type of your VNet: Classic or Azure Resource Manager (ARM). We recommend that you select ARM VNet, since Classic VNet will be deprecated soon.
+    b. For **Type**, select the type of your VNet: Classic or Azure Resource Manager. We recommend that you select Azure Resource Manager VNet, since Classic VNet will be deprecated soon.
     
     c. For **VNet Name**, select the name of your VNet. This should be the same VNet used for Azure SQL Database with VNet service endpoints/Managed Instance (Preview) to host SSISDB and or the one connected to your on-premises network.
 
@@ -210,8 +210,8 @@ $AzureSSISLicenseType = "" # LicenseIncluded by default, while BasePrice lets yo
 $AzureSSISMaxParallelExecutionsPerNode = 8 
 # Custom setup info
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
-# VNet info: Classic or Azure Resource Manager (ARM)
-$VnetId = “[your VNet resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with VNet service endpoints/Managed Instance (Preview)/on-premises data, ARM VNet is recommended, Classic VNet will be deprecated soon
+# VNet info: Classic or Azure Resource Manager
+$VnetId = “[your VNet resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with VNet service endpoints/Managed Instance (Preview)/on-premises data, Azure Resource Manager VNet is recommended, Classic VNet will be deprecated soon
 $SubnetName = “[your subnet name or leave it empty]" # WARNING: Please use a different subnet than the one used for your Managed Instance (Preview)
 
 ### SSISDB info
@@ -379,8 +379,8 @@ $AzureSSISLicenseType = "" # LicenseIncluded by default, while BasePrice lets yo
 $AzureSSISMaxParallelExecutionsPerNode = 8 
 # Custom setup info
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
-# VNet info: Classic or Azure Resource Manager (ARM)
-$VnetId = “[your VNet resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with VNet service endpoints/Managed Instance (Preview)/on-premises data, ARM VNet is recommended, Classic VNet will be deprecated soon
+# VNet info: Classic or Azure Resource Manager
+$VnetId = “[your VNet resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with VNet service endpoints/Managed Instance (Preview)/on-premises data, Azure Resource Manager VNet is recommended, Classic VNet will be deprecated soon
 $SubnetName = “[your subnet name or leave it empty]" # WARNING: Please use a different subnet than the one used for your Managed Instance (Preview)
 
 ### SSISDB info
@@ -480,10 +480,10 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
-## Azure Resource Manager (ARM) template
-In this section, you use ARM template to create Azure-SSIS integration runtime. Here is a sample walkthrough: 
+## Azure Resource Manager template
+In this section, you use the Azure Resource Manager template to create Azure-SSIS integration runtime. Here is a sample walkthrough: 
 
-1. Create a JSON file with the following ARM template. Replace values in the angled brackets (place holders) with your own values. 
+1. Create a JSON file with the following Azure Resource Manager template. Replace values in the angled brackets (place holders) with your own values. 
 
     ```json
     {
@@ -529,7 +529,7 @@ In this section, you use ARM template to create Azure-SSIS integration runtime. 
     }
     ```
     
-2. To deploy ARM template, run New-AzureRmResourceGroupDeployment command as shown in the following example, where ADFTutorialResourceGroup is the name of your resource group and ADFTutorialARM.json is the file that contains JSON definition for your data factory and Azure-SSIS IR. 
+2. To deploy the Azure Resource Manager template, run New-AzureRmResourceGroupDeployment command as shown in the following example, where ADFTutorialResourceGroup is the name of your resource group and ADFTutorialARM.json is the file that contains JSON definition for your data factory and Azure-SSIS IR. 
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
