@@ -22,7 +22,7 @@ ms.author: juliako
 > [!NOTE]
 > The latest version of Azure Media Services is in Preview and may be referred to as v3. To start using v3 APIs, you should create a new Media Services account, as described in this quickstart. 
 
-This quickstart shows you how easy it is to start streaming videos on a wide variety of browsers and devices using Azure Media Services. 
+This quickstart shows you how easy it is to start streaming videos on a wide variety of browsers and devices using Azure Media Services. The sample in this topic encodes content that you make accessible via a HTTPS URL. 
 
 By the end of the quickstart you will be able to stream a video.  
 

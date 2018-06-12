@@ -3,16 +3,16 @@ title: Roles in Azure AD Privileged Identity Management | Microsoft Docs
 description: Learn what roles are used for privileged identities with the Azure Privileged Identity Management extension.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 03/04/2018
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ---
 # Different administrative role in Azure Active Directory PIM
