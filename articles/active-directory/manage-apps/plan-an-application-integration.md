@@ -62,7 +62,7 @@ As mentioned above, there may be applications that haven't been managed by your 
 [Finding unsanctioned cloud applications with Cloud App Discovery](cloud-app-discovery.md).
 
 ### Authentication Types
-Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](../active-directory-sso-certs.md) and [Password based single sign on](what-is-single-sign-on.md).
+Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) and [Password based single sign on](what-is-single-sign-on.md).
 
 ### Enabling SSO with Azure AD App Proxy
 With Microsoft Azure AD Application Proxy, you can provide access to applications located inside your private network securely, from anywhere and on any device. After you have installed an application proxy connector within your environment, it can be easily configured with Azure AD.
@@ -77,7 +77,7 @@ The following articles discuss the different ways applications integrate with Az
 ## Managing access to applications
 The following articles describe ways you can manage access to applications once they have been integrated with Azure AD using Azure AD Connectors and Azure AD.
 
-* [Managing access to apps using Azure AD](../active-directory-managing-access-to-apps.md)
+* [Managing access to apps using Azure AD](what-is-access-management.md)
 * [Automating with Azure AD Connectors](../active-directory-saas-app-provisioning.md)
 * [Assigning users to an application](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Assigning groups to an application](../active-directory-applications-guiding-developers-assigning-groups.md)

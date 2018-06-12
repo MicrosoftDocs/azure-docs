@@ -78,6 +78,8 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 #### Performance impact
 Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
 
+Provisioning and deprovisioning during sync group creation, update and deletion may also impact the database performance. 
+
 ### General requirements
 
 -   Each table must have a primary key. Don't change the value of the primary key in any row. If you have to change a primary key value, delete the row and recreate it with the new primary key value. 

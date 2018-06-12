@@ -21,17 +21,17 @@ We describe how to create a C++-based console application for Windows Desktop th
 The application is based on the [Microsoft Cognitive Services SDK NuGet Package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and Microsoft VisualStudio 2017.
 
 > [!NOTE]
-> If you're looking for a Quickstart for C++ and Linux, go [here](cpp-linux.md).
-> If you're looking for a Quickstart for C# and Windows, go [here](quickstart-csharp-windows.md).
+> If you're looking for a quickstart for C++ and Linux, go [here](cpp-linux.md).<br>
+> If you're looking for a quickstart for C# and Windows, go [here](quickstart-csharp-windows.md).
 
 > [!NOTE]
-> This quick start requires a PC with a working microphone.
+> This quickstart requires a PC with a working microphone.<br>
 > For a sample that recognizes speech from a given audio input file see the [sample](speech-to-text-sample.md#speech-recognition-from-a-file).
 
 > [!NOTE]
-> Please ensure that your Visual Studio installation includes the **Desktop development with C++** workload.
+> Ensure that your Visual Studio installation includes the **Desktop development with C++** workload.
 > If you're not sure, use these steps to check and fix:
-> In Visual Studio 2017, select **Tools** \> **Get Tools and Features** and acknowledge the User Account Control prompt by clicking **Yes**.
+> In Visual Studio 2017, select **Tools** \> **Get Tools and Features** and acknowledge the User Account Control prompt by choosing **Yes**.
 > In the **Workloads** tab, if **Desktop development with C++** does not have a set checkbox next to it, set it and click on **Modify** to save changes.
 
 [!include[Get a Subscription Key](includes/get-subscription-key.md)]
@@ -51,8 +51,8 @@ If you're running on a 64-bit Windows installation, optionally switch your build
 > [!NOTE]
 > Ensure the NuGet package manager is enabled for your Visual Studio 2017 installation.
 > In Visual Studio 2017, select **Tools** \> **Get Tools and Features** and
-> acknowledge the User Account Control prompt by clicking **Yes**. Then click on
-> the **Individual components** tab, and look for **NuGet package manager**.
+> acknowledge the User Account Control prompt by choosing **Yes**. Then select
+> the **Individual components** tab, and look for **NuGet package manager** under **Code tools**.
 > If the checkbox to its left is not set, make sure to set it and click on **Modify** to save changes.
 >
 > ![Enable NuGet package manager in Visual Studio ](media/sdk/speechsdk-05-vs-enable-nuget-package-manager.png)
@@ -62,7 +62,7 @@ In the Solution Explorer, right-click the solution and click on **Manage NuGet P
 ![Right-click Manage NuGet Packages for Solution](media/sdk/speechsdk-09-vs-cpp-manage-nuget-packages.png)
 
 In the upper-right corner, in the **Package Source** field, choose "Nuget.org".
-Search for and install the "Microsoft.CognitiveServices.Speech" package and install it into the CppHelloSpeech project.
+From the **Browse** tab, search for the "Microsoft.CognitiveServices.Speech" package, select it and check the **Project** and **CppHelloSpeech** boxes on the right, and select **Install** to install it into the CppHelloSpeech project.
 
 ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/speechsdk-11-vs-cpp-manage-nuget-install.png)
 
@@ -72,12 +72,15 @@ In the license screen that pops up, accept the license:
 
 ## Add the sample code
 
-Replace the code with the following:
+Replace your default starter code with the following:
 
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-cpp/CppHelloSpeech.cpp#code)]
 
 > [!IMPORTANT]
-> Replace the subscription key with one that you obtained.
+> Replace the subscription key with one that you obtained. <br>
+> Replace the region with your region from the [Speech Service REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis), e.g. replace with 'westus'.
+
+![Add your subscription key](media/sdk/sub-key-recognize-speech-cpp.png)
 
 ## Build and run the sample
 
