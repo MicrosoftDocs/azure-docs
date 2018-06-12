@@ -4,7 +4,7 @@ description: Exchange EDIFACT messages in EDI format for B2B enterprise integrat
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc

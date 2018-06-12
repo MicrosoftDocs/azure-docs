@@ -3338,7 +3338,7 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                            <li class="fullSpan">
+                            <!--li class="fullSpan">
                                 <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services APIs</h2>
                                 <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
                                     <li>
@@ -3534,7 +3534,7 @@ featureFlags:
                                         </div>
                                     </li>
                                 </ul>
-                            </li>
+                            </li-->
                         </ul>
                     </li>
                     <li>
