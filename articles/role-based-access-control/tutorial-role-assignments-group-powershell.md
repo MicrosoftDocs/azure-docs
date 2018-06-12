@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Assign roles to a group at different scopes using Azure PowerShell | Microsoft Docs
-description: Get started in access management with role-based access control using Azure PowerShell. Assign roles to grant permissions to your resources.
+title: Tutorial - Grant access for a group using RBAC and Azure PowerShell | Microsoft Docs
+description: Use role-based access control (RBAC) to grant a group access to view everything in a subscription and manage everything in a resource group using Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -19,16 +19,16 @@ ms.author: rolyon
 
 ---
 
-# Tutorial: Assign a role to a group using Azure PowerShell
+# Tutorial: Grant access for a group using RBAC and Azure PowerShell
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. In this tutorial, you assign roles to grant access to a group at different scopes using Azure PowerShell.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. In this tutorial, you grant a group access to view everything in a subscription and manage everything in a resource group using Azure PowerShell.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Assign roles to a group at different scopes
-> * List role assignments
-> * Remove role assignments
+> * Grant access for a group at different scopes
+> * List access
+> * Remove access
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -67,7 +67,7 @@ To assign a role, you need a user, group, or service principal. If you don't alr
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-If you dont have permissions to create groups, you can try the [Tutorial: Assign a role to user using Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
+If you don't have permissions to create groups, you can try the [Tutorial: Assign a role to user using Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
 
 ## Create a resource group
 
@@ -99,9 +99,9 @@ You use a resource group to show how to assign a role at a resource group scope.
    ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group
    ```
 
-## Assign roles to the group
+## Grant access for the group
 
-To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) command and specify the security principal, role definition, and scope.
+To grant access, you use the [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) command to assign a role. You must specify the security principal, role definition, and scope.
 
 1. Get the object ID of the group using the [Get-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command.
 
@@ -180,9 +180,9 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
     CanDelegate        : False
     ```
 
-## List role assignments
+## List access
 
-1. To verify the role assignments for the subscription, use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command.
+1. To verify the access for the subscription, use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command to list the role assignments.
 
     ```azurepowershell
     Get-AzureRmRoleAssignment -ObjectId $groupId -Scope $subScope
@@ -202,7 +202,7 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
 
     In the output, you can see that the Reader role has been assigned to the RBAC Tutorial Group at the subscription scope.
 
-1. To verify the role assignments for the resource group, use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command.
+1. To verify the access for the resource group, use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command to list the role assignments.
 
     ```azurepowershell
     Get-AzureRmRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group"
@@ -232,7 +232,7 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
 
     In the output, you can see that both the Contributor and Reader roles have been assigned to the RBAC Tutorial Group. The Contributor role is at the rbac-tutorial-resource-group scope and the Reader role is inherited at the subscription scope.
 
-## (Optional) List role assignments in the Azure portal
+## (Optional) List access in the Azure Portal
 
 1. To see how the role assignments look in the Azure portal, view the **Access control (IAM)** blade for the subscription.
 
@@ -242,9 +242,9 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
 
     ![Role assignments for a group at resource group scope](./media/tutorial-role-assignments-group-powershell/role-assignments-resource-group.png)
 
-## Remove role assignments
+## Remove access
 
-To remove a role assignment (revoke access) for users, groups, and applications, use [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
+To remove access for users, groups, and applications, use [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) to remove a role assignment.
 
 1. Use the following command to remove the Contributor role assignment for the group at the resource group scope.
 
@@ -291,4 +291,4 @@ To clean up the resources created by this tutorial, delete the resource group an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage role-based access control with Azure PowerShell](role-assignments-powershell.md)
+> [Manage access using RBAC and Azure PowerShell](role-assignments-powershell.md)
