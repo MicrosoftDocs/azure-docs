@@ -11,32 +11,32 @@ ms.author: bryanla
 
 # Tutorial: Create an Azure Time Series Insights single-page web app
 
-This tutorial will guide you through the process of creating a single-page web app (SPA), modeled after the [Time Series Insights (TSI) sample application](https://insights.timeseries.azure.com/clientsample). In this tutorial, you'll about:
+This tutorial will guide you through the process of creating your own single-page web app (SPA), modeled after the [Time Series Insights (TSI) sample application](https://insights.timeseries.azure.com/clientsample). In this tutorial, you'll about:
 
 > [!div class="checklist"]
 > * The application design
-> * How to register the application with Azure Active Directory (AD)
-> * How to build, publish, and test the web application 
+> * How to register your application with Azure Active Directory (AD)
+> * How to build, publish, and test your web application 
 
 ## Prerequisites
 
-If you haven't established your own TSI environment yet, complete the [Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md) tutorial first. You'll use the TSI environment as a data source for this tutorial. You'll also create a [free Azure subscription](https://azure.microsoft.com/en-us/free/), if you don't already have one. 
+Sign up for a [free Azure subscription](https://azure.microsoft.com/en-us/free/), if you don't already have one. 
 
 You'll also need to install Visual Studio if you haven't already. For this tutorial, you can [download/install the free Community version, or a free trial](https://www.visualstudio.com/downloads/).
 
 ## Application design overview
 
-As mentioned, the TSI sample application is the basis for the design and code of this tutorial. The sample uses the TSI Client JavaScript library to query and visualize data from a TSI environment. 
+As mentioned, the TSI sample application is the basis for the design and code presented in this tutorial. The sample uses the TSI Client JavaScript library to query and visualize data from a TSI environment. 
 
 The TSI Client JavaScript library provides an abstraction for two important API categories:
 - **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using JSON-based expressions. The methods are organized under the `TsiClient.server` namespace of the library.
 - **Methods for creating and populating several types of charting controls**: Methods that are used for visualizing the TSI data in a web page. The methods are organized under the `TsiClient.ux` namespace of the library.
 
-For an overview of the structure of the TSI sample app its use of the TSI Client library, refer to the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md) tutorial.
+This tutorial will also use the data from the sample application's TSI environment. For an overview of the structure of the TSI sample app its use of the TSI Client library, refer to the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md) tutorial.
 
 ## Register the application with Azure AD 
 
-Before building the application, you register it with Azure AD. Registration serves as the identity configuration for an application, enabling it to use Azure AD's OAuth support for single sign-on. OAuth requires SPA applications to use the "implicit" authorization grant, so you also use the manifest editor to update the corresponding property. An application manifest is a JSON representation of the application's identity configuration. 
+Before building the application, you need to register it with Azure AD. Registration serves as the identity configuration for an application, enabling it to use Azure AD's OAuth support for single sign-on. OAuth requires SPA applications to use the "implicit" authorization grant, so you also use the manifest editor to update the corresponding property. An application manifest is a JSON representation of the application's identity configuration. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription account.  
 2. Select the **Azure Active Directory** resource in the left pane, then **App registrations**, then **+ New application registration**:  
@@ -49,7 +49,7 @@ Before building the application, you register it with Azure AD. Registration ser
    ---|---
    **Name** | Provide a meaningful registration name.  
    **Application type** | Since you're building an SPA web application, leave as "Web app/API."
-   **Sign-on URL** | Enter the URL for the home/sign-in page of the application. Because you host the application in Azure App Service (later), you must use a URL within the "https://azurewebsites.net" domain. In this example, the name is based on the registration name.
+   **Sign-on URL** | Enter the URL for the home/sign-in page of the application. Because the application will be hosted in Azure App Service (later), you must use a URL within the "https://azurewebsites.net" domain. In this example, the name is based on the registration name.
 
    When finished, click **Create** to create the new application registration.
 
@@ -63,11 +63,11 @@ Before building the application, you register it with Azure AD. Registration ser
 
    ![Azure portal Azure AD add permissions - API](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)
 
-6. Now you specify a scope on the API. On the **Add API access** page again, click **2 Select permissions**. On the **Enable Access** page, select the "Access Azure Time Series Insights service" scope. Then click **Select**, then click **Done** when you return to the **Add API access** page:
+6. Now you specify a scope on the API. On the **Add API access** page again, click **2 Select permissions**. On the **Enable Access** page, select the "Access Azure Time Series Insights service" scope. Click **Select**, which will return you to the **Add API access** page, where you click **Done**:
 
    ![Azure portal Azure AD add permissions - scope](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)
 
-7. When you return to the **Required permissions** page, notice that the "Azure Time Series Insights" API is now listed. You also need to pre-consent the new API and permission grant to the application, for all users. Click the **Grant permissions** button at the top, and select **Yes**:
+7. When you return to the **Required permissions** page, notice that the "Azure Time Series Insights" API is now listed. You also need to pre-consent permission for the application to use the new API and scope, for all users. Click the **Grant permissions** button at the top, and select **Yes**:
 
    ![Azure portal Azure AD required permissions - consent](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)
 
@@ -88,12 +88,12 @@ Before building the application, you register it with Azure AD. Registration ser
 1. Create a directory to store your application project files. Then browse to each of the following URLs, right-click on the "Raw" link in the upper right area of the page, and "Save as" into your project directory:
 
    > [!NOTE]
-   > Some browsers may also require you to change the file extension, to HTML and CSS respectively.
+   > Depending on the browser, you may need to correct the file extension (to HTML or CSS), before saving the file.
 
    - **index.html** HTML and JavaScript for the page https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
    - **sampleStyles.css:** CSS style sheet: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
-2. Start and sign in to Visual Studio, to create a project for the web application. On the **File** menu, select the **Open**, **Web site** option. Select the working directory where you stored the HTML and CSS files, then click **Open**:
+2. Start and sign in to Visual Studio, to create a project for the web application. On the **File** menu, select the **Open**, **Web site** option. On the **Open Web Site** dialog, select the working directory where you stored the HTML and CSS files, then click **Open**:
 
    ![VS - File open web site](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
 
@@ -101,13 +101,9 @@ Before building the application, you register it with Azure AD. Registration ser
 
    ![VS - Solution explorer new solution](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
 
-4. Before you can publish the application, you need to update the application's code to
+4. Before you can publish the application, you need to update the application's code: 
 
-   - Use the correct paths to supplemental JavaScript and style sheet files.
-   - Associate it with your new Azure AD application registration.
-   - Associate it with your new TSI environment.
-
-   a. Open the **index.html** file in your Visual Studio solution, and scroll down to following lines of JavaScript code. Uncomment the three lines under  "PROD RESOURCE LINKS", and comment out the three lines under the "DEV RESOURCE LINKS":
+   a. First, change the `<head>` element's paths to supplemental JavaScript and style sheet files. Open the **index.html** file in your Visual Studio solution, and scroll down to following lines of JavaScript code. Uncomment the three lines under  "PROD RESOURCE LINKS", and comment out the three lines under the "DEV RESOURCE LINKS":
    
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
 
@@ -125,7 +121,7 @@ Before building the application, you register it with Azure AD. Registration ser
       <link rel="stylesheet" type="text/css" href="dist/tsiclient.css"></link> -->
       ```
 
-   b. Scroll down to following lines of JavaScript code. Change the `clientID` and `postLogoutRedirectUri` variables respectively, to use the Application ID and Home Page URL you copied previously during step #8 in [Register the application with Azure AD](#register-the-application-with-azure-ad) section.
+   b. Next, change the access token logic to use your new Azure AD application registration. Change the following `clientID` and `postLogoutRedirectUri` variables respectively, to use the Application ID and Home Page URL you copied in step #8 of the [Register the application with Azure AD](#register-the-application-with-azure-ad) section:
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -136,32 +132,7 @@ Before building the application, you register it with Azure AD. Registration ser
       postLogoutRedirectUri: 'https://tsispaapp.azurewebsites.net',
       ``` 
 
-   c. Replace all occurrences of the following values in index.html
-
-      > [!NOTE]
-      > If you don't have a TSI environment, for demonstration purposes you can leave the FQDN and date values as-is, and skip this step. These are the same values used by the [Time Series Insights sample application](https://insights.timeseries.azure.com/clientsample).
-   
-      - **TSI environment fully qualified domain name (FQDN) identifiers**: used in the second argument of `getAggregates` and `getEvents` calls. Replace the first portion of the identifier with the value from your own TSI environment. You can find yours on the TSI environment **Overview** page, next to the **Data Access FQDN** property. 
-
-        ![VS - Solution explorer publish web app](media/tutorial-create-tsi-sample-spa/ap-view-tsi-env-fqdn.png)
-
-      - **startDate values**: a variable specifying the start date of the TSI query expression, in xxx format. Also used as the basis for calculating the end date.
-      
-      Below are the ones used in "Example 1", for example, and are the first occurrences in index.html:
-
-      [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=207-224&highlight=12)]
-
-      Your changed code should look similar to the following example:
-
-      ```javascript
-      var startDate = new Date('2018-06-11T12:00:00Z');
-
-      ...
-
-      tsiClient.server.getAggregates(token, 'd3z3754A-eef7-BLLL-a544-b474cfeab82c.env.timeseries.azure.com', aggregateExpressions2.map(function (ae) { return ae.toTsx() })).then(function (result) {
-      ``` 
-
-   d. Save the **index.html** when you've finished editing.
+   c. Save the **index.html** when you've finished editing.
 
 5. Now publish the web application to your Azure subscription as an Azure App Service:  
 
@@ -176,7 +147,7 @@ Before building the application, you register it with Azure AD. Registration ser
 
       ![VS - Publish profile](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)  
 
-   c. If the account used for Visual Studio sign-in has access to multiple subscriptions, select the subscription you'd like to use. Then click “New”: 
+   c. Select the subscription you'd like to use for publishing the application, then click “New”: 
 
       ![VS - Publish profile - app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)  
 
@@ -184,23 +155,23 @@ Before building the application, you register it with Azure AD. Registration ser
    
       Field | Description
       ---|---
-      **App Name** | Change to the Azure AD app registration name you used in step #3, in [Register the application with Azure AD](#register-the-application-with-azure-ad). 
+      **App Name** | Change to the Azure AD application registration name you used in step #3, in [Register the application with Azure AD](#register-the-application-with-azure-ad). 
       **Resource Group** | Change to match the **App Name** field.
-      **App Service Plans** | Change to match the **App Name** field.
+      **App Service Plan** | Change to match the **App Name** field.
+
+      When finished, click **Create**. Notice the **Export** button in the lower left, is replaced with a "Deploying:" message. When the App Service publish target has been added to the publishing profile, you'll be returned to the previous dialog. 
 
       ![VS - Publish profile - add new app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service-create.png)  
 
-      When finished, click **Create**. You notice the **Export** button in the lower left, is replaced with a "Deploying:" message. When the App Service publish target has been added to the publishing profile, you'll be returned to the previous dialog.  
-
    e. Once you return to the **Publish** dialog, make sure **Publish method** is set to "Web deploy", then click “Publish”:  
 
-     ![VS - Publish web app - publish the app service](media/tutorial-create-tsi-sample-spa/vs-publish-publish.png)  
+      ![VS - Publish web app - publish the app service](media/tutorial-create-tsi-sample-spa/vs-publish-publish.png)  
 
    f. You should see a successful publish log in the Visual Studio **Output** window. When completed, Visual Studio will open a new new web application tab, prompting for sign-in. After successful sign-in, you will see all of the TSI controls populated with data:  
 
-     ![VS - Publish web app - publish log output](media/tutorial-create-tsi-sample-spa/vs-publish-output.png)  
+      ![VS - Publish web app - publish log output](media/tutorial-create-tsi-sample-spa/vs-publish-output.png)  
 
-     ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net-signin.png)  
+      ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net-signin.png)  
 
 ## Troubleshooting  
 
@@ -225,8 +196,8 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * The application design
-> * How to register the application with Azure Active Directory (AD)
-> * How to build, publish, and test the web application 
+> * How to register your application with Azure Active Directory (AD)
+> * How to build, publish, and test your web application 
 
 Now that you know how to create your own TSI SPA web application, learn more about shaping your JSON to get the best possible query performance:
 
