@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Workday for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to use Workday as source of identity data for Active Directory and Azure Active Directory.
+description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Workday.
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2018
+ms.date: 06/12/2018
 ms.author: asmalser
 
 ---
@@ -443,6 +443,7 @@ After installing agent, run the Powershell commands below to configure the agent
 **Command #1**
 
 > cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent"
+Agent\\Modules\\AADSyncAgent
 
 > Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 

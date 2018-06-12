@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with LinkedInSalesNavigator | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with LinkedIn Sales Navigator | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and LinkedInSalesNavigator.
 services: active-directory
 documentationCenter: na
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 06/12/2018
 ms.author: jeedes
 
 ---
