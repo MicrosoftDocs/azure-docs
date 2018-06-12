@@ -132,7 +132,7 @@ Delegations that use name servers in your own zone, sometimes called *vanity nam
 
 ## Verify that name resolution is working
 
-After you complete the delegation, you can verify that name resolution is working by using a tool such as nslookup to query the Start of Authority (SOA) record for your zone. (The SOA record is automatically created when the zone is created.)
+After you complete the delegation, you can verify that name resolution is working by using a tool such as nslookup to query the Start of Authority (SOA) record for your zone. The SOA record is automatically created when the zone is created. You may need to wait 10 minutes or longer after you complete the delegation before you can successfully verify that it is working. It can take a while for changes to propagate through the DNS system.
 
 You do not have to specify the Azure DNS name servers. If the delegation is set up correctly, the normal DNS resolution process finds the name servers automatically.
 
