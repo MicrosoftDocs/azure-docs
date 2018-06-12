@@ -7,17 +7,30 @@ author: "billgib"
 manager: "craigg"
 ms.service: "sql-database"
 ms.custom: "scale out apps"
-ms.topic: "article"
+ms.topic: conceptual
 ms.date: 04/01/2018
+ms.reviewer: genemi
 ms.author: "billgib"
 ---
 # Multi-tenant SaaS database tenancy patterns
 
 When designing a multi-tenant SaaS application, you must carefully choose the tenancy model that best fits the needs of your application.  A tenancy model determines how each tenant’s data is mapped to storage.  Your choice of tenancy model impacts application design and management.  Switching to a different model later is sometimes costly.
 
-A discussion of alternative tenancy models follows.
+This article describes alternative tenancy models.
 
-## A. How to choose the appropriate tenancy model
+## A. SaaS concepts and terminology
+
+In the Software as a Service (SaaS) model, your company does not sell *licenses* to your software. Instead, each customer makes rent payments to your company, making each customer a *tenant* of your company.
+
+In return for paying rent, each tenant receives access to your SaaS application components, and has its data stored in the SaaS system.
+
+The term *tenancy model* refers to how tenants' stored data is organized:
+
+- *Single-tenancy:*&nbsp; Each database stores data from only one tenant.
+- *Multi-tenancy:*&nbsp; Each database stores data from multiple separate tenants (with mechanisms to protect data privacy).
+- Hybrid tenancy models are also available.
+
+## B. How to choose the appropriate tenancy model
 
 In general, the tenancy model does not impact the function of an application, but it likely impacts other aspects of the overall solution.  The following criteria are used to assess each of the models:
 
@@ -45,7 +58,7 @@ In general, the tenancy model does not impact the function of an application, bu
 
 The tenancy discussion is focused on the *data* layer.  But consider for a moment the *application* layer.  The application layer is treated as a monolithic entity.  If you divide the application into many small components, your choice of tenancy model might change.  You could treat some components differently than others regarding both tenancy and the storage technology or platform used.
 
-## B. Standalone single-tenant app with single-tenant database
+## C. Standalone single-tenant app with single-tenant database
 
 #### Application level isolation
 
@@ -61,7 +74,7 @@ Each tenant database is deployed as a standalone database.  This model provides 
 
 The vendor can access all the databases in all the standalone app instances, even if the app instances are installed in different tenant subscriptions.  The access is achieved via SQL connections.  This cross-instance access can enable the vendor to centralize schema management and cross-database query for reporting or analytics purposes.  If this kind of centralized management is desired, a catalog must be deployed that maps tenant identifiers to database URIs.  Azure SQL Database provides a sharding library that is used together with a SQL database to provide a catalog.  The sharding library is formally named the [Elastic Database Client Library][docu-elastic-db-client-library-536r].
 
-## C. Multi-tenant app with database-per-tenant
+## D. Multi-tenant app with database-per-tenant
 
 This next pattern uses a multi-tenant application with many databases, all being single-tenant databases.  A new database is provisioned for each new tenant.  The application tier is scaled *up* vertically by adding more resources per node.  Or the app is scaled *out* horizontally by adding more nodes.  The scaling is based on workload, and is independent of the number or scale of the individual databases.
 
@@ -100,7 +113,7 @@ The management operations can be scripted and offered through a [devops][http-vi
 
 For example, you could automate the recovery of a single tenant to an earlier point in time.  The recovery only needs to restore the one single-tenant database that stores the tenant.  This restore has no impact on other tenants, which confirms that management operations are at the finely granular level of each individual tenant.
 
-## D. Multi-tenant app with multi-tenant databases
+## E. Multi-tenant app with multi-tenant databases
 
 Another available pattern is to store many tenants in a multi-tenant database.  The application instance can have any number of multi-tenant databases.  The schema of a multi-tenant database must have one or more tenant identifier columns so that the data from any given tenant can be selectively retrieved.  Further, the schema might require a few tables or columns that are used by only a subset of tenants.  However, static code and reference data is stored only once and is shared by all tenants.
 
@@ -116,13 +129,13 @@ In general, multi-tenant databases have the lowest per-tenant cost.  Resource co
 
 Two variations of a multi-tenant database model are discussed in what follows, with the sharded multi-tenant model being the most flexible and scalable.
 
-## E. Multi-tenant app with a single multi-tenant database
+## F. Multi-tenant app with a single multi-tenant database
 
 The simplest multi-tenant database pattern uses a single standalone database to host data for all tenants.  As more tenants are added, the database is scaled up with more storage and compute resources.  This scale up might be all that is needed, although there is always an ultimate scale limit.  However, long before that limit is reached the database becomes unwieldy to manage.
 
 Management operations that are focused on individual tenants are more complex to implement in a multi-tenant database.  And at scale these operations might become unacceptably slow.  One example is a point-in-time restore of the data for just one tenant.
 
-## F. Multi-tenant app with sharded multi-tenant databases
+## G. Multi-tenant app with sharded multi-tenant databases
 
 Most SaaS applications access the data of only one tenant at a time.  This access pattern allows tenant data to be distributed across multiple databases or shards, where all the data for any one tenant is contained in one shard.  Combined with a multi-tenant database pattern, a sharded model allows almost limitless scale.
 
@@ -146,7 +159,7 @@ Depending on the sharding approach used, additional constraints may be imposed o
 
 Sharded multi-tenant databases can be placed in elastic pools.  In general, having many single-tenant databases in a pool is as cost efficient as having many tenants in a few multi-tenant databases.  Multi-tenant databases are advantageous when there are a large number of relatively inactive tenants.
 
-## G. Hybrid sharded multi-tenant database model
+## H. Hybrid sharded multi-tenant database model
 
 In the hybrid model, all databases have the tenant identifier in their schema.  The databases are all capable of storing more than one tenant, and the databases can be sharded.  So in the schema sense, they are all multi-tenant databases.  Yet in practice some of these databases contain only one tenant.  Regardless, the quantity of tenants stored in a given database has no effect on the database schema.
 
@@ -160,7 +173,7 @@ The hybrid model shines when there are large differences between the resource ne
 
 In this hybrid model, the single-tenant databases for subscriber tenants can be placed in resource pools to reduce database costs per tenant.  This is also done in the database-per-tenant model.
 
-## H. Tenancy models compared
+## I. Tenancy models compared
 
 The following table summarizes the differences between the main tenancy models.
 

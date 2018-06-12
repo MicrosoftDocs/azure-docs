@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
-ms.author: luisca
+ms.author: ashmaka
 ---
 
 # Quickstart for Text Analytics API with C# 
@@ -42,7 +42,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 
 ## Call the Text Analytics API using the SDK
 1. Replace Program.cs with the code provided below. This program demonstrates the capabilities of the Text Analytics API in 3 sections (language extraction, key-phrase extraction and sentiment analysis).
-1. Replace the `client.SubscriptionKey` value with an access key valid for your subscription.
+1. Replace the `Ocp-Apim-Subscription-Key` header value with an access key valid for your subscription.
 1. Replace the location in `client.AzureRegion` (currently `AzureRegions.Westus`) to the region you signed up for.
 1. Run the program.
 
@@ -61,7 +61,7 @@ namespace ConsoleApp1
     class Program
     {
         /// <summary>
-        /// container for subscription credentials. Make sure to enter 
+        /// Container for subscription credentials. Make sure to enter your valid key.
         /// </summary>
         class ApiKeyServiceClientCredentials : ServiceClientCredentials
         {

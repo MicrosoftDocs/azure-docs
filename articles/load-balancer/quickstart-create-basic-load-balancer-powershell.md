@@ -327,4 +327,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroupLB
 ```
 
 ## Next steps
-- [Learn more about Azure Load Balancer](load-balancer-overview.md)
+
+In this quickstart, you created a Basic Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer tutorials](tutorial-load-balancer-basic-internal-portal.md)

@@ -35,10 +35,12 @@ You cannot turn off image normalization. Skills that iterate over images expect 
 > [!NOTE]
 > If you set the *imageAction* property to anything other than "none", you will not be able to set the *parsingMode* property to anything other than "default".  You may only set one of these two properties to a non-default value in your indexer configuration.
 
+Set the **parsingMode** parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain JSON arrays and you need each element of an array to be treated as a separate document).
+
 The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). If you increase the maximum limits, processing could fail on the larger images.
 
 
-You specify the imageAction in your [indexer definition](ref-create-indexer.md) as follows:
+You specify the imageAction in your [indexer definition](https://docs.microsoft.com/rest/api/searchservice/create-indexer) as follows:
 
 ```json
 {
@@ -211,7 +213,7 @@ As a helper, if you need to transform normalized coordinates to the original coo
 ```
 
 ## See also
-+ [Create indexer (REST)](ref-create-indexer.md)
++ [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Analyze image skill](cognitive-search-skill-image-analysis.md)
 + [OCR skill](cognitive-search-skill-ocr.md)
 + [Text merge skill](cognitive-search-skill-textmerger.md)

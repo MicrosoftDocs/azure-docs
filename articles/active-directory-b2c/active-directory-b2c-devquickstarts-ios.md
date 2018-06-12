@@ -1,19 +1,18 @@
 ---
-title: Using AppAuth in an iOS application - Azure Active Directory B2C
+title: Using AppAuth in an iOS application in Azure Active Directory B2C | Microsoft Docs
 description: This article shows you how to create an iOS app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
 services: active-directory-b2c
-documentationcenter: ios
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure AD B2C: Sign-in using an iOS application
 
 The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. Using an open standard protocol offers more developer choice when selecting a library to integrate with our services. We've provided this walkthrough and others like it to aid developers with writing applications that connect to the Microsoft Identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) are able to connect to the Microsoft Identity platform.

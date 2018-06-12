@@ -2,13 +2,13 @@
 title: Azure SQL Database DTU benchmark overview
 description: This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database.
 services: sql-database
-author: jan-eng
-manager: jhubbard
+author: CarlRabeler
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: janeng
+ms.author: carlrab
 
 ---
 # Azure SQL Database DTU benchmark overview

@@ -27,7 +27,7 @@ By integrating Azure AD with Palo Alto Networks - Admin UI, you get the followin
 - You can enable your users to get signed in automatically to Palo Alto Networks - Admin UI (single sign-on, or SSO) with their Azure AD accounts.
 - You can manage your accounts in one central location, the Azure portal.
 
-To learn about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+To learn about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -309,7 +309,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 ## Additional resources
 
 * [List of tutorials about integrating SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

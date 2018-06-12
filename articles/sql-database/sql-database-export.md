@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.custom: load & move data
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.topic: article
+ms.topic: conceptual
 
 ---
 # Export an Azure SQL database to a BACPAC file

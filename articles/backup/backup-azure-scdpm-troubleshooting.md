@@ -1,22 +1,13 @@
 ---
-
-title: Troubleshoot System Center Data Protection Manager with Azure Backup | Microsoft Docs
+title: Troubleshoot System Center Data Protection Manager with Azure Backup
 description: Troubleshoot issues in System Center Data Protection Manager.
 services: backup
-documentationcenter: ''
 author: adigan
 manager: shreeshd
-editor: ''
-
-ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/24/2017
-ms.author: pullabhk;markgal;adigan
-
+ms.author: adigan
 ---
 
 # Troubleshoot System Center Data Protection Manager
