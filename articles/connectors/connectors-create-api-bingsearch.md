@@ -3,7 +3,7 @@
 title: Connect to Bing Search - Azure Logic Apps | Microsoft Docs
 description: Find news with Bing Search REST APIs and Azure Logic Apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 05/21/2018
 ms.topic: article

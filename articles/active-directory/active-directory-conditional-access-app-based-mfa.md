@@ -176,7 +176,7 @@ To initialize the what if policy evaluation tool, set:
 
     c. Click **Select**.
 
-    d. On the **Select** page, select Microsoft Azure Management**, and then click **Select**.
+    d. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
 
     e. On the cloud apps page, click **Done**.
 

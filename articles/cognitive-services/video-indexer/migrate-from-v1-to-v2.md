@@ -121,6 +121,28 @@ https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/[VIDEO_ID
   https://api.videoindexer.ai/trial/[LOCATION]/[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/Index?accessToken=eyJ0eXA...
   ```
 
+#### Getting video processing state in V1:
+
+```
+https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/[VIDEO_ID]/State
+```
+  
+#### Getting video processing state in V2:
+
+In API v2, the processing state is returned as part of the Get Video Index API.
+
+1. Either use the account access token, or get a video level access token:
+
+  ```
+  https://api.videoindexer.ai/trial/[LOCATION]/[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/Index?accessToken=eyJ0eXA...
+  ```
+  
+2. Get insights:
+
+  ```
+  https://api.videoindexer.ai/trial/[LOCATION]/[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/Index?accessToken=eyJ0eXA...
+  ```
+
 ## Next steps
 
 [Use Azure Video Indexer API](video-indexer-use-apis.md)

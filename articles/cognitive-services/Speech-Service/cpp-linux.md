@@ -17,7 +17,7 @@ ms.author: wolfma
 
 The current version of the Cognitive Services Speech SDK is `0.4.0`.
 
-The Cognitive Services Speech SDK for Linux is available for building of 64-bit and 32-bit applications. The required files can be downloaded as a tar-file.
+The Cognitive Services Speech SDK for Linux is available for building of 64-bit and 32-bit applications. The required files can be downloaded as a tar-file from https://aka.ms/csspeech/linuxbinary.
 
 > [!NOTE]
 > If you're looking for a Quickstart for C++ and Windows, go [here](cpp-windows.md).
