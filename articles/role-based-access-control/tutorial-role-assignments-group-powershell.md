@@ -291,4 +291,4 @@ To clean up the resources created by this tutorial, delete the resource group an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage access using RBAC and Azure PowerShell](role-assignments-powershell.md)
+> [Manage access using RBAC and PowerShell](role-assignments-powershell.md)
