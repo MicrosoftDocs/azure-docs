@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
 
@@ -29,7 +29,7 @@ The articles below are good starting points for those who simply want a brief ex
 |:---:| --- |
 | An introduction to the application management problems that Azure AD solves |[Managing Applications with Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
 | An overview of the various features in Azure AD related to enabling single sign-on, defining who has access to apps, and how users launch apps |[Application Access and Single Sign-on in Azure Active Directory](active-directory-appssoaccess-whatis.md) |
-| A look at the different steps involved when integrating apps into your Azure AD |[Integrating Azure Active Directory with Applications](active-directory-integrating-applications-getting-started.md)<br /><br />[Enabling Single Sign-On to SaaS Apps](active-directory-sso-integrate-saas-apps.md)<br /><br />[Managing Access to Apps](active-directory-managing-access-to-apps.md) |
+| A look at the different steps involved when integrating apps into your Azure AD |[Integrating Azure Active Directory with Applications](active-directory-integrating-applications-getting-started.md)<br /><br />[Enabling Single Sign-On to SaaS Apps](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Managing Access to Apps](active-directory-managing-access-to-apps.md) |
 | A technical explanation of how apps are represented in Azure AD |[How and Why Applications are Added to Azure AD](active-directory-how-applications-are-added.md) |
 
 ## Troubleshooting Articles
@@ -77,8 +77,8 @@ If you have applications in your private network that need to be accessed by use
 |:---:| --- |
 | Overview of Azure AD Application Proxy and how it works |[Providing secure remote access to on-premises applications](active-directory-application-proxy-get-started.md) |
 | Tutorials on how to configure Application Proxy and how to publish your first app |[How to Set Up Azure AD App Proxy](active-directory-application-proxy-enable.md)<br /><br />[How to Silently Install the App Proxy Connector](active-directory-application-proxy-silent-installation.md)<br /><br />[How to Publish Applications using App Proxy](active-directory-application-proxy-publish.md)<br /><br />[How to Use your own Domain Name](active-directory-application-proxy-custom-domains.md) |
-| How to enable single sign-on and conditional access for apps published with App Proxy |[Single-sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Conditional Access and Application Proxy](active-directory-application-proxy-conditional-access.md) |
-| Guidance on how to use Application Proxy for the following scenarios |[How to Support Native Client Applications](active-directory-application-proxy-native-client.md)<br /><br />[How to Support Claims-Aware Applications](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[How to Support Applications Published on Separate Networks and Locations](active-directory-application-proxy-connectors.md) |
+| How to enable single sign-on and conditional access for apps published with App Proxy |[Single-sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Conditional Access and Application Proxy](application-proxy-enable-remote-access-sharepoint.md) |
+| Guidance on how to use Application Proxy for the following scenarios |[How to Support Native Client Applications](active-directory-application-proxy-native-client.md)<br /><br />[How to Support Claims-Aware Applications](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[How to Support Applications Published on Separate Networks and Locations](active-directory-application-proxy-connectors-azure-portal.md) |
 | Troubleshooting guide for Application Proxy |[App Proxy Troubleshooting Guide](active-directory-application-proxy-troubleshoot.md) |
 
 Application Proxy is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to assign access to applications](#managing-access-to-applications).
@@ -104,9 +104,8 @@ Once you set up single sign-on to your apps and resources, you can then further 
 
 | Article Guide |  |
 |:---:| --- |
-| An introduction to the conditional access capabilities offered across Azure AD, Office365, and Intune |[Managing Risk With Conditional Access](active-directory-conditional-access.md) |
-| How to enable conditional access for the following types of resources |[Conditional Access for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Conditional Access for Office 365 services](active-directory-conditional-access-device-policies.md)<br /><br />[Conditional Access for On-Premises Applications](active-directory-conditional-access.md)<br /><br />[Conditional Access for On-Premises Applications Published via Azure AD App Proxy](active-directory-application-proxy-conditional-access.md) |
-
+| An introduction to the conditional access capabilities offered across Azure AD, Office365, and Intune |[Managing Risk With Conditional Access](active-directory-conditional-access-azure-portal.md) |
+| How to enable conditional access for the following types of resources |[Conditional Access for SaaS Apps](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Conditional Access for Office 365 services](active-directory-conditional-access-device-policies.md)<br /><br />[Conditional Access for On-Premises Applications](active-directory-conditional-access-azure-portal.md)<br /><br />[Conditional Access for On-Premises Applications Published via Azure AD App Proxy](application-proxy-enable-remote-access-sharepoint.md) |
 | How to register devices with Azure Active Directory in order to enable device-based conditional access policies |[Overview of Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[How to Enable Automatic Device Registration for Domain Joined Windows Devices](active-directory-conditional-access-automatic-device-registration.md)<br />— [Steps for Windows 8.1 devices](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Steps for Windows 7 devices](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | How to use the Microsoft Authenticator app for two-step verification |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
@@ -159,8 +158,8 @@ To help you manage who should have access to which resources, Azure Active Direc
 |:---:| --- |
 | An overview of Azure AD access management features |[Introduction to Managing Access to Apps](active-directory-managing-access-to-apps.md)<br /><br />[How Access Management Works in Azure AD](active-directory-manage-groups.md)<br /><br />[How to Use Groups to Manage Access to SaaS Applications](active-directory-accessmanagement-group-saasapps.md) |
 | Enable self-service management of apps and groups |[Self-Service Application Management](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](active-directory-accessmanagement-self-service-group-management.md) |
-| Instructions for setting up your groups in Azure AD |[How to Create Security Groups](active-directory-accessmanagement-manage-groups.md)<br /><br />[How to Designate Owners for a Group](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[How to Use the "All Users" Group](active-directory-accessmanagement-dedicated-groups.md) |
-| Use dynamic groups to automatically populate group membership using attribute-based membership rules |[Dynamic Group Membership: Advanced Rules](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
+| Instructions for setting up your groups in Azure AD |[How to Create Security Groups](active-directory-groups-create-azure-portal.md)<br /><br />[How to Designate Owners for a Group](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[How to Use the "All Users" Group](active-directory-accessmanagement-dedicated-groups.md) |
+| Use dynamic groups to automatically populate group membership using attribute-based membership rules |[Dynamic Group Membership: Advanced Rules](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
 
 Group-based application access management is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Self-service group management, self-service application management, and dynamic groups are [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) features.
 

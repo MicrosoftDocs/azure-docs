@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 11/08/2017
 ---
 
 # Model management command-line interface reference
@@ -217,6 +217,7 @@ Unregistered Manifest Arguments
 
 
 ## Service commands
+The following commands are supported for Service. To see the parameters for each command, use the -h option. For example, use `az ml service create realtime -h` to see create command details.
 
     create
     delete

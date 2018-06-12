@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 08/04/2017
+ms.date: 10/24/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive

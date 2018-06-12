@@ -180,11 +180,14 @@ The standard analyzer breaks the input text into the following two tokens, annot
 }
 ~~~~
 
+<a name="exceptions"></a>
+
 ### Exceptions to lexical analysis 
 
 Lexical analysis applies only to query types that require complete terms – either a term query or a phrase query. It doesn’t apply to query types with incomplete terms – prefix query, wildcard query, regex query – or to a fuzzy query. Those query types, including the prefix query with term *air-condition\** in our example, are added directly to the query tree, bypassing the analysis stage. The only transformation performed on query terms of those types is lowercasing.
 
 <a name="stage3"></a>
+
 ## Stage 3: Document retrieval 
 
 Document retrieval refers to finding documents with matching terms in the index. This stage is understood best through an example. Let's start with a hotels index having the following simple schema: 

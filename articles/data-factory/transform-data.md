@@ -3,7 +3,7 @@ title: 'Transform data using Azure Data Factory | Microsoft Docs'
 description: Learn how to transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: shengcmsft
 manager: jhubbard
 editor: monicar
 
@@ -12,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: shlo
+ms.date: 11/09/2017
+ms.author: shengc
 
 ---
 # Transform data in Azure Data Factory
@@ -32,6 +32,9 @@ ms.author: shlo
 This article explains data transformation activities in Azure Data Factory that you can use to transform and processes your raw data into predictions and insights. A transformation activity executes in a computing environment such as Azure HDInsight cluster or an Azure Batch. It provides links to articles with detailed information on each transformation activity.
 
 Data Factory supports the following data transformation activities that can be added to [pipelines](concepts-pipelines-activities.md) either individually or chained with another activity.
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [transformation activities in Data Factory version 1](v1/data-factory-data-transformation-activities.md).
  
 
 ## HDInsight Hive activity

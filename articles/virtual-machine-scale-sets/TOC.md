@@ -21,20 +21,22 @@
 ### [Create with Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Create with Azure PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md)
-### [Linux scale set with autoscale](virtual-machine-scale-sets-linux-autoscale.md)
-### [Windows scale set with autoscale](virtual-machine-scale-sets-windows-autoscale.md)
+### [Autoscale a scale set](virtual-machine-scale-sets-autoscale-overview.md)
+#### [Use the Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
+#### [Use the Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+#### [Use Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Applications on scale sets](virtual-machine-scale-sets-deploy-app.md)
 ### [Use data disks with scale sets](virtual-machine-scale-sets-attached-disks.md)
 ### [Work with large scale sets](virtual-machine-scale-sets-placement-groups.md)
 ### [Convert a scale set template to use managed disk](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## Manage
-### [Windows scale set using Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
-### [Autoscale and scale sets](virtual-machine-scale-sets-autoscale-overview.md)
-### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### Common management tasks
+#### [Use the Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md)
+#### [Use Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Vertical scaling in a scale set](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+### [Automatic OS upgrades](virtual-machine-scale-sets-automatic-upgrade.md)
 ### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
 ### [Networking for scale sets](virtual-machine-scale-sets-networking.md)

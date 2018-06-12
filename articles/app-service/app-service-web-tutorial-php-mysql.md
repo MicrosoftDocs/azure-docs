@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 07/21/2017
+ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -320,23 +320,18 @@ Your app is ready to be deployed.
 
 In this step, you deploy the MySQL-connected PHP application to Azure App Service.
 
+### Configure a deployment user
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
+
 ### Create an App Service plan
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
+<a name="create"></a>
 ### Create a web app
 
-[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)]
-
-### Set the PHP version
-
-In the Cloud Shell, set the PHP version that the application requires by using the [az webapp config set](/cli/azure/webapp/config#set) command.
-
-The following command sets the PHP version to _7.0_.
-
-```azurecli-interactive
-az webapp config set --name <app_name> --resource-group myResourceGroup --php-version 7.0
-```
+[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
 ### Configure database settings
 
@@ -393,17 +388,9 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 By default, Azure App Service points the root virtual application path (_/_) to the root directory of the deployed application files (_sites\wwwroot_).
 
-### Configure a deployment user
-
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
-
-### Configure local Git deployment
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git-no-h.md)]
-
 ### Push to Azure from Git
 
-In the local terminal window, add an Azure remote to your local Git repository.
+In the local terminal window, add an Azure remote to your local Git repository. Replace _&lt;paste\_copied\_url\_here>_ with the URL of the Git remote that you saved from [Create a web app](#create).
 
 ```bash
 git remote add azure <paste_copied_url_here>

@@ -550,7 +550,7 @@ In this article, we’ve shown how it’s possible to combine use of SparkR for 
 
 - For general information on R Server, see the [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) article.
 
-- For information on R Server on HDInsight, see [R Server on Azure HDInsight overview](hdinsight-hadoop-r-server-overview.md) and [R Server on Azure HDInsight](hdinsight-hadoop-r-server-get-started.md).
+- For information on R Server on HDInsight, see [R Server on Azure HDInsight overview](r-server/r-server-overview.md) and [R Server on Azure HDInsight](r-server/r-server-get-started.md).
 
 For more information on use of SparkR, see:
 

@@ -13,7 +13,7 @@ ms.custom: DBs & servers
 ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.workload: data-management
+ms.workload: "Active"
 ms.topic: article
 ms.tgt_pltfrm: NA
 ---

@@ -23,6 +23,7 @@ The Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manag
 > [!NOTE]
 > This topic is on FIM and MIM only. These Connectors are not supported for install on Azure AD Connect. Released Connectors are preinstalled on AADConnect when upgrading to specified Build.
 
+
 This topic list all versions of the Connectors that have been released.
 
 Related links:
@@ -34,6 +35,38 @@ Related links:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
+## 1.1.649.0 (AADConnect 1.1.649.0)
+
+### Fixed issues:
+
+* Lotus Notes:
+  * Filtering custom certifiers option
+  * Import of the class ImportOperations was fixed the definition of what operations can be run in the 'Views' mode and which in the 'Search' mode.
+* Generic LDAP:
+  * OpenLDAP Directory uses DN as anchor rather than entryUUI. New option to GLDAP connector which allows to modify anchor
+* Generic SQL:
+  * Fixed export into field which has varbinary(max) type.
+  * When adding binary data from a data source to CSEntry object, The DataTypeConversion function failed on zero bytes. Fixed DataTypeConversion function of the CSEntryOperationBase class.
+
+
+
+
+### Enhancements:
+
+* Generic SQL:
+  * The ability to configure the mode for execute stored procedure with named
+    parameters or not named is added in a configuration window of the Generic
+    SQL management agent in the page 'Global Parameters'. In the page
+    'Global Parameters' there is check box with the label 'Use named parameters
+    to execute a stored procedure' which is responsible for mode for execute
+    stored procedure with named parameters or not.
+    * Currently, the ability to execute stored procedure with named parameters
+    works only for databases IBM DB2 and MSSQL. For databases Oracle and MySQL
+    this approach doesn’t work: 
+      * The SQL syntaxes of MySQL doesn’t support named parameters in stored
+        procedures.
+      * The ODBC driver for the Oracle doesn’t support named parameters for
+        named parameters in stored procedures)
 
 ## 1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -203,6 +236,22 @@ Before March 2016, the Connectors were released as support topics.
 * [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, 2014 February  
 * [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, 2013 October
 * [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534, 2013 August
+
+## Troubleshooting 
+
+> [!NOTE]
+> When updating Microsoft Identity Manager or AADConnect with use of any of ECMA2 connectors. 
+
+You must refresh the connector definition upon upgrade to match or you will receive the following error in the application event log start to report warning ID 6947: "Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".
+
+To refresh the definition:
+* Open the Properties for the Connector instance
+* Click the Connection / Connect to tab
+  * Enter the password for the Connector account
+* Click each of the property tabs, in turn
+  * If this Connector type has a Partitions tab, with a Refresh button, click the Refresh button while on that tab
+* After all property tabs have been accessed, click the OK button to save the changes.
+
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

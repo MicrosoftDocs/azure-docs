@@ -13,7 +13,7 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: required
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.devlang: na
 ms.author: delhan
 

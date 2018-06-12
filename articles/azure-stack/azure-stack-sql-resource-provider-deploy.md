@@ -73,7 +73,7 @@ The script performs these steps:
 - Register your resource provider with the local Azure Resource Manager (user and admin).
 
 > [!NOTE]
-> If the installation takes more than 90 minutes, it may fail and you see a failure message on the screen and in the log file, but the deployment is retried from the failing step. Systems that do not meet the recommended memory and core specifications may not be able to deploy the SQL RP.
+> If the installation takes more than 90 minutes, it may fail and you see a failure message on the screen and in the log file, but the deployment is retried from the failing step. Systems that do not meet the recommended memory and vCPU specifications may not be able to deploy the SQL RP.
 >
 
 Here's an example you can run from the PowerShell prompt (but change the account information and passwords as needed):
@@ -105,15 +105,9 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # change the following as appropriate
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Run the installation script from the folder where you extracted the installation files
-# Find the ERCS01 IP address first and make sure the certificate
-# file is in the specified directory
-
-$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
-  -VMLocalCredential $vmLocalAdminCreds `
-  -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### DeploySqlProvider.ps1 parameters

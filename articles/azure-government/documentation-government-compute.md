@@ -31,8 +31,14 @@ The following information identifies the Azure Government boundary for Azure Vir
 | --- | --- |
 | Data entered, stored, and processed within a VM can contain export-controlled data. Binaries running within Azure Virtual Machines. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. SQL connection strings.  Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your Azure Virtual Machine.  Do not enter Regulated/controlled data into the following fields:  Tenant role names, Resource groups, Deployment names, Resource names, Resource tags |
 
+## Virtual Machine Scale Sets 
+For details on this service and how to use it, see [Azure Virtual Machine Scale Sets documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
+
+### Variations
+The only variation is the [available sizes of Virtual Machines in Azure Government](https://azure.microsoft.com/regions/services/). 
+
 ## Batch 
-For details on this service and how to use it, see [Azure Batch documentation](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview).
+For details on this service and how to use it, see [Azure Batch documentation](../batch/batch-technical-overview.md).
 
 ### Variations
 The URLs for accessing and managing the Batch service are different:
@@ -40,6 +46,16 @@ The URLs for accessing and managing the Batch service are different:
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
 | Batch | *.batch.azure.com | *.batch.usgovcloudapi.net |
+
+## Cloud Services
+For details on this service and how to use it, see [Azure Cloud Services documentation](../cloud-services/cloud-services-choose-me.md).
+
+### Variations
+The DNS for the Cloud Services is different: 
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| Batch | *.cloudapp.net | *.usgovcloudapp.net |
 
 ## Azure Functions
 The [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) service is now available (General Availability) for the Azure Government environment, with some differences, which you can read about below. 
@@ -49,12 +65,27 @@ The following Functions features are not currently available in Azure Government
 
 - Functions access through the Azure Government Portal
 - Consumption Plan
-    -   The [App Service plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#app-service-plan) is available in Azure Government. To learn more about the two hosting plans, click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale).
-	
+    -   The [App Service plan](../azure-functions/functions-scale.md#app-service-plan) is available in Azure Government. To learn more about the two hosting plans, click [here](../azure-functions/functions-scale.md)
+    .
+
+The URLs once the Function apps have been created are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| Functions | .azurewebsites.net | .azurewebsites.us|	
 	
 ### Quickstarts
 The [Functions Quickstart for Government](documentation-government-functions.md) will guide you through creating your first Azure Function on Azure Government and contains other useful tutorials. 
 
+## Azure Container Service
+This service is available for Preview in Azure Government. 
+For details on this service and how to use it, see [Azure Container Service documentation](../container-service/index.yml). 
+
+### Variations
+Azure Container Service does not yet have Portal support in Azure Government. 
+
+## Service Fabric
+For details on this service and how to use it, see [Azure Service Fabric documentation](../service-fabric/service-fabric-overview.md).
 
 ## Next Steps
 For supplemental information and updates, subscribe to the

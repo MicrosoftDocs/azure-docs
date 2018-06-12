@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: subramar,jessebenson
+editor: subramar,zhol
 
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 11/6/2017
 ms.author: mcoskun
 
 ---

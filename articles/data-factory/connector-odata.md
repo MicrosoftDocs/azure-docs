@@ -26,7 +26,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [OData connector in V1](v1/data-factory-odata-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from OData source to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -58,11 +58,9 @@ The following properties are supported for OData linked service:
 ```json
 {
     "name": "ODataLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "OData",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url": "http://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         },
@@ -79,11 +77,9 @@ The following properties are supported for OData linked service:
 ```json
 {
     "name": "ODataLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "OData",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url": "<endpoint of OData source>",
             "authenticationType": "Basic",
             "userName": "<username>",
@@ -105,11 +101,9 @@ The following properties are supported for OData linked service:
 ```json
 {
     "name": "ODataLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "OData",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url": "<endpoint of on-premises OData source>",
             "authenticationType": "Windows",
             "userName": "<domain>\\<user>",

@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -38,6 +38,17 @@ As with Azure Virtual Machines you need to figure out whether the resource class
 **Network bandwidth:** The Azure VNet gateway is limited in bandwidth of data moving into the Azure VNet, so it is helpful to monitor the data received by all the Azure VMs within a VNet to figure out how close you are to the limits of the Azure gateway SKU you selected. On the HANA Large Instance unit, it does make sense to monitor incoming and outgoing network traffic as well, and to keep track of the volumes that are handled over time.
 
 **Disk space:** Disk space consumption usually increases over time. There are many reasons for this, but most of all are: data volume increases, execution of transaction log backups, storing trace files, and performing storage snapshots. Therefore, it is important to monitor disk space usage and manage the disk space associated with the HANA Large Instance unit.
+
+For the **Type II SKUs** of the HANA Large Instances, the server comes with the preloaded system diagnostic tools. You can utilize these diagnostic tools to perform the system health check. 
+Run the following command to generates the health check log file at /var/log/health_check.
+```
+/opt/sgi/health_check/microsoft_tdi.sh
+```
+When you work with the Microsoft Support team  to troubleshoot an issue, you may also be asked to provide the log files by using these diagnostic tool. You can zip the file using the following command.
+```
+tar  -czvf health_check_logs.tar.gz /var/log/health_check
+```
+
 
 ## Monitoring and troubleshooting from HANA side
 

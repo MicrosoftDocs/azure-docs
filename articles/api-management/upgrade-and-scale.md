@@ -21,10 +21,10 @@ Customers can scale an API Management (APIM) instance by adding and removing uni
 
 Capacity and price of each unit depends on a **tier** in which the unit exists. You can choose between three tiers: **Developer**, **Standard**, **Premium**. If you need to increase capacity for a service within a tier, you should add a unit. If the tier that is currently selected in your APIM instance does not allow adding more units, you need to upgrade to a higher-level tier. 
 
-The price of each unit, the ability to add/remove units, whether or not you have certain features (for example, multi-region deployment) depends on the tier that you chose for your APIM instance. The [pricing details](https://azure.microsoft.com/pricing/details/api-management/) article, explains what price per unit and features you get in each tier. 
+The price of each unit, the ability to add/remove units, whether or not you have certain features (for example, multi-region deployment) depends on the tier that you chose for your APIM instance. The [pricing details](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) article, explains what price per unit and features you get in each tier. 
 
 >[!NOTE]
->The [pricing details](https://azure.microsoft.com/pricing/details/api-management/) article shows approximate numbers of unit capacity in each tier. To get more accurate numbers, you need to look at a realistic scenario for your APIs. See the "How to plan for capacity" section that follows.
+>The [pricing details](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) article shows approximate numbers of unit capacity in each tier. To get more accurate numbers, you need to look at a realistic scenario for your APIs. See the "How to plan for capacity" section that follows.
 
 ## Prerequisites
 

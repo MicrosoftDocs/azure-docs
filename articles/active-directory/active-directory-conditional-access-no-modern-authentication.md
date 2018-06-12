@@ -178,7 +178,7 @@ By applying the following three rules:
 
 ## Next steps
 
-For more information, see [Conditional access in Azure Active Directory](active-directory-conditional-access.md)
+For more information, see [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
 
 

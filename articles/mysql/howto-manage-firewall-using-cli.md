@@ -27,8 +27,8 @@ The **az mysql server firewall-rule** command is used from the Azure CLI to crea
 Commands:
 - **create**: Create an Azure MySQL server firewall rule.
 - **delete**: Delete an Azure MySQL server firewall rule.
-- **list: List the Azure MySQL server firewall rules.
-- **show: Show the details of an Azure MySQL server firewall rule.
+- **list**: List the Azure MySQL server firewall rules.
+- **show**: Show the details of an Azure MySQL server firewall rule.
 - **update**: Update an Azure MySQL server firewall rule.
 
 ## Log in to Azure and list your Azure Database for MySQL Servers

@@ -20,9 +20,11 @@
 ### [Sample input data](stream-analytics-sample-data-input.md)
 ### [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
 ### [Window functions](stream-analytics-window-functions.md)
+
 ### [Use reference data](stream-analytics-use-reference-data.md)
 ### [Test queries](stream-analytics-test-query.md)
 ### [Integrate JavaScript UDFs](stream-analytics-javascript-user-defined-functions.md)
+### [Integrate JavaScript UDAs](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Integrate REST API & Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Create outputs](stream-analytics-define-outputs.md)
 ### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
@@ -53,6 +55,7 @@
 ### [Job diagram and metrics](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO debugging](stream-analytics-select-into.md)
 ### [Event order handling](stream-analytics-out-of-order-and-late-events.md)
+### [Event ordering considerations](stream-analytics-out-of-order-and-late-events.md)
 ### [Event hub reader limits](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md)
 

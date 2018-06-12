@@ -4,7 +4,7 @@ description: Introduces the Adventure Works tutorial for Azure Analysis Services
 services: analysis-services
 documentationcenter: ''
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: owend
 ---
 # Azure Analysis Services - Adventure Works tutorial

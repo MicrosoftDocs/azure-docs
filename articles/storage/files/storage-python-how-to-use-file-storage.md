@@ -22,7 +22,6 @@ ms.author: robinsh
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
-## About this tutorial
 This tutorial will demonstrate the basics of using Python to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with Python and Azure Files:
 
 * Create Azure File shares

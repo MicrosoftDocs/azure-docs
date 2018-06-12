@@ -168,7 +168,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 
 ## Clean up resources
 
-To remove all of the assets you have created in this exercise, remove the resource group, This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
+To remove all of the assets you have created in this exercise, remove the resource group. This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup

@@ -612,12 +612,12 @@ Results in "2007-12-25".
 Can result in "20140905081453.0Z"
 
 - - -
-### GUID
+### Guid
 **Description:**  
-The function GUID generates a new random GUID
+The function Guid generates a new random GUID
 
 **Syntax:**  
-`str GUID()`
+`str Guid()`
 
 - - -
 ### IIF

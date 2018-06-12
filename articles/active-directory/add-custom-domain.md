@@ -75,7 +75,7 @@ If you can't verify a custom domain name, try the following troubleshooting step
 If your organization uses multiple custom domain names, such as ‘contoso.com’ and ‘contosobank.com’, you can add them, up to a maximum of 900 domain names. The steps in this article can help you add each of your domain names.
 
 ### Learn more
-[Conceptual overview of custom domain names in Azure AD](active-directory-add-domain-concepts.md)
+[Conceptual overview of custom domain names in Azure AD](active-directory-domains-manage-azure-portal.md)
 
 [Manage custom domain names](active-directory-domains-manage-azure-portal.md)
 

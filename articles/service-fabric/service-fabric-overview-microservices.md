@@ -144,10 +144,10 @@ Service Fabric provides three broad areas to help you build applications that us
 ### Migrating existing applications to Service Fabric
 A key approach to Service Fabric is to reuse existing code, which can then be modernized with new microservices. There are five stages to application modernization, and you can start and stop at any of the stages. These are;
 
-1) Take a traditional monolithic application
-2) Lift and Shift - Use containers or guest executables to host existing code in Service Fabric.
-3) Modernization - New microservices added alongside existing containerized code. 
-4) Innovate - Break the monolithic into microservices purely based on need.
+1) Take a traditional monolithic application  
+2) Lift and Shift - Use containers or guest executables to host existing code in Service Fabric.  
+3) Modernization - New microservices added alongside existing containerized code.  
+4) Innovate - Break the monolithic into microservices purely based on need.  
 5) Transformed into microservices - the transformation of existing monolithic applications or building new greenfield applications.
 
 ![Migration to Microservices][Image3]
@@ -159,7 +159,7 @@ It is important to emphasize again that you can **start and stop at any of these
 - Cost reduction either due to consolidation and removal  of existing hardware or running applications at higher density. 
 - Consistent deployment contract between development and operations.
 
-Cost reductions are understandable and within Microsoft large numbers of existing applications are being containerized simply to millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suites them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
+Cost reductions are understandable, and within Microsoft, large numbers of existing applications are being containerized simply to save millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suites them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
 
 Many organizations stop here. They already have the benefits of containers and Service Fabric provides the complete management experience from deployment, upgrades, versioning, rollbacks, health monitoring etc.
 

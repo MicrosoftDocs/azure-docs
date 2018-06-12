@@ -19,18 +19,18 @@ ms.author: subramar
 ---
 # Service Fabric container networking modes
 
-The default networking mode offered in the Service Fabric cluster for container services is the `nat` networking mode. With the `nat` networking mode, having more than one containers service listening to the same port results in deployment errors. For running several services that listen on the same port, Service Fabric supports the `open` networking mode (version 5.7 or higher). With the `open` networking mode, each container service gets a dynamically assigned IP address internally allowing multiple services to listen to the same port.   
+The default networking mode offered in the Service Fabric cluster for container services is the `nat` networking mode. With the `nat` networking mode, having more than one containers service listening to the same port results in deployment errors. For running several services that listen on the same port, Service Fabric supports the `Open` networking mode (version 5.7 or higher). With the `Open` networking mode, each container service gets a dynamically assigned IP address internally allowing multiple services to listen to the same port.   
 
-Thus, with a single service type with a static endpoint defined in the service manifest, new services may be created and deleted without deployment errors using the `open` networking mode. Similarly, one can use the same `docker-compose.yml` file with static port mappings for creating multiple services.
+Thus, with a single service type with a static endpoint defined in the service manifest, new services may be created and deleted without deployment errors using the `Open` networking mode. Similarly, one can use the same `docker-compose.yml` file with static port mappings for creating multiple services.
 
 Using the dynamically assigned IP to discover services is not advisable since the IP address changes when the service restarts or moves to another node. Only use the **Service Fabric Naming Service**  or the **DNS Service** for service discovery. 
 
 
 > [!WARNING]
-> Only a total of 4096 IPs are allowed per vNET in Azure. Thus, the sum of the number of nodes and the number of container service instances (with `open` networking) cannot exceed 4096 within a vNET. For such high-density scenarios, the `nat` networking mode is recommended.
+> Only a total of 4096 IPs are allowed per vNET in Azure. Thus, the sum of the number of nodes and the number of container service instances (with `Open` networking) cannot exceed 4096 within a vNET. For such high-density scenarios, the `nat` networking mode is recommended.
 >
 
-## Setting up open networking mode
+## Setting up Open networking mode
 
 1. Set up the Azure Resource Manager template by enabling DNS Service and the IP Provider under `fabricSettings`. 
 
@@ -180,7 +180,7 @@ Using the dynamically assigned IP to discover services is not advisable since th
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | Allow  |
 
 
-4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="open">`.  The mode `open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2` can each listen to the same port (both services are listening on `Endpoint1`).
+4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="Open">`.  The mode `Open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2` can each listen to the same port (both services are listening on `Endpoint1`). When the `Open` networking mode is specied, `PortBinding` configs cannot be specified.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -194,8 +194,7 @@ Using the dynamically assigned IP to discover services is not advisable since th
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage1" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
-           <NetworkConfig NetworkType="open"/>
-           <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+           <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
@@ -203,14 +202,13 @@ Using the dynamically assigned IP to discover services is not advisable since th
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
-            <NetworkConfig NetworkType="open"/>
-            <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
+            <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-You can mix and match different networking modes across services within an application for a Windows cluster. Thus, you can have some services on `open` mode and some on `nat` networking mode. When a service is configured with `nat`, the port it is listening to must be unique. Mixing networking modes for different services isn't supported on Linux clusters. 
+You can mix and match different networking modes across services within an application for a Windows cluster. Thus, you can have some services on `Open` mode and some on `nat` networking mode. When a service is configured with `nat`, the port it is listening to must be unique. Mixing networking modes for different services isn't supported on Linux clusters. 
 
 
 ## Next steps

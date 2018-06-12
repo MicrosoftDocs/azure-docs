@@ -16,7 +16,7 @@ This topic explains the concept of Compute Units and what happens when your work
 ## What are Compute Units?
 Compute Units are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for PostgreSQL server. A Compute Unit is a blended measure of CPU and memory resources. In general, 50 Compute Units equate to half of a core. 100 Compute Units equate to one core. 2000 Compute Units equate to 20 cores of guaranteed processing throughput available to your server.
 
-The amount of memory per Compute Unit is optimized for the Basic and Standard pricing tiers. Doubling the Compute Units by increasing the performance level equates to doubling the set of resource available to that single Azure Database for PostgreSQL.
+The amount of memory per Compute Unit is optimized for the Basic and Standard pricing tiers. Doubling the Compute Units by increasing the performance level equates to doubling the amount of CPU and memory available to that single Azure Database for PostgreSQL.
 
 For example, a Standard 800 Compute Units provides 8x more CPU throughput and memory than a Standard 100 Compute Units configuration. However, while Standard 100 Compute Units provide the same CPU throughput as does Basic 100 Compute Units, the amount of memory that is pre-configured in the  Standard pricing tier is double the amount of memory configured for the Basic pricing tier. Therefore, the Standard pricing tier provides better workload performance and lower transaction latency than does the Basic pricing tier with the same Compute Units selected.
 

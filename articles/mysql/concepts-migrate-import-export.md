@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 11/02/2017
 ---
 
 # Migrate your MySQL database by using import and export
@@ -41,7 +41,7 @@ Add the connection information to MySQL Workbench.
 Use MySQL tools to import and export databases into Azure MySQL Database in the following scenarios. In other scenarios, you might benefit from using the [dump and restore](concepts-migrate-dump-restore.md) approach instead. 
 
 - When you need to selectively choose a few tables to import from an existing MySQL database into Azure MySQL Database, it's best to use the import and export technique.  By doing so, you can omit any unneeded tables from the migration to save time and resources. For example, use the `--include-tables` or `--exclude-tables` switch with [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) and the `--tables` switch with [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
-- When you're moving the database objects other than tables, explicitly create those. Include constraints (primary key, foreign key, indexes), views, functions, procedures, triggers, and any other database objects that you want to migrate.
+- When you're moving the database objects other than tables, explicitly create those objects. Include constraints (primary key, foreign key, indexes), views, functions, procedures, triggers, and any other database objects that you want to migrate.
 - When you're migrating data from external data sources other than a MySQL database, create flat files and import them by using [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 Make sure that all tables in the database use the InnoDB storage engine when you're loading data into Azure Database for MySQL. Azure Database for MySQL supports only the InnoDB storage engine, so it doesn't support alternative storage engines. If your tables require alternative storage engines, be sure to convert them to use the InnoDB engine format before the migration to Azure Database for MySQL. 

@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
 
 ---
@@ -250,7 +250,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milliseconds | Time spent in loading documents  | 
 | `systemFunctionExecuteTimeInMs` | milliseconds | Total time spent executing system (built-in) functions in milliseconds  | 
 | `userFunctionExecuteTimeInMs` | milliseconds | Total time spent executing user-defined functions in milliseconds | 
-| `retrievedDocumentCount` | milliseconds | Total number of retrieved documents  | 
+| `retrievedDocumentCount` | count | Total number of retrieved documents  | 
 | `retrievedDocumentSize` | bytes | Total size of retrieved documents in bytes  | 
 | `outputDocumentCount` | count | Number of output documents | 
 | `writeOutputTimeInMs` | milliseconds | Query execution time in milliseconds | 

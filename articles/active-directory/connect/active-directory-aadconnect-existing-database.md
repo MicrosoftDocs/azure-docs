@@ -31,19 +31,19 @@ These benefits are useful in the following scenarios:
 
 
 - You have an existing Azure AD Connect deployment. Your existing Azure AD Connect server is no longer working but the SQL server containing the ADSync database is still functioning. You can install a new Azure AD Connect server and point it to the existing ADSync database. 
-- You have an existing Azure AD Connect deployment. Your SQL server containing the ADSync database is no longer functioning. However, you have a recent backup of the database. You can restore the ADSync database to a new SQL server first. After which, you can install a new Azure AD Connect server and point it to the restored ADSync database.
+- You have an existing Azure AD Connect deployment. Your SQL server containing the ADSync database is no longer functioning. However, you have a recent back up of the database. You can restore the ADSync database to a new SQL server first. After which, you can install a new Azure AD Connect server and point it to the restored ADSync database.
 - You have an existing Azure AD Connect deployment that is using LocalDB. Due to the 10-GB limit imposed by LocalDB, you would like to migrate to full SQL. You can back up the ADSync database from LocalDB and restore it to a SQL server. After which, you can reinstall a new Azure AD Connect server and point it to the restored ADSync database.
-- You are trying to setup a staging server and wants to make sure its configuration matches that of the current active server. You can back up the ADSync database and restore it to another SQL server. After which, you can reinstall a new Azure AD Connect server and point it to the restored ADSync database.
+- You are trying to set up a staging server and wants to make sure its configuration matches that of the current active server. You can back up the ADSync database and restore it to another SQL server. After which, you can reinstall a new Azure AD Connect server and point it to the restored ADSync database.
 
 ## Prerequisite information
 
 Important notes to take note of before you proceed:
 
-
 - Make sure to review the pre-requisites for installing Azure AD Connect at Hardware and prerequisites, and account and permissions required for installing Azure AD Connect. The permissions required for installing Azure AD Connect using “use existing database” mode is the same as “custom” installation.
+- Deploying Azure AD Connect against an existing ADSync database is only supported with full SQL. It is not supported with SQL Express LocalDB. If you have an existing ADSync database in LocalDB that you wish to use, you must first backup the ADSync database (LocalDB) and restore it to full SQL. After which, you can deploy Azure AD Connect against the restored database using this method.
 - The version of the Azure AD Connect used for installation must satisfy the following criteria:
 	- 1.1.613.0 or above, AND
-	- Same or higher than the version of the Azure AD Connect last used with the ADSync database. If the Azure AD Connect version used for installation is higher than the version last used with the ADSync database, then a full sync may be required.  This is required if there are schema or sync rule changes between the two versions. 
+	- Same or higher than the version of the Azure AD Connect last used with the ADSync database. If the Azure AD Connect version used for installation is higher than the version last used with the ADSync database, then a full sync may be required.  Full sync is required if there are schema or sync rule changes between the two versions. 
 - The ADSync database used should contain a synchronization state that is relatively recent. The last synchronization activity with the existing ADSync database should be within the last three weeks.
 - When installing Azure AD Connect using “use existing database” method, sign-in method configured on the previous Azure AD Connect server is not preserved. Further, you cannot configure sign-in method during installation. You can only configure sign-in method after installation is complete.
 - You cannot have multiple Azure AD Connect servers share the same ADSync database. The “use existing database” method allows you to reuse an existing ADSync database with a new Azure AD Connect server. It does not support sharing.

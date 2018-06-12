@@ -15,7 +15,7 @@ ms.devlang:
 ms.topic: overview-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 10/24/2017
 ms.author: stevelas
 ms.custom:
 ---
@@ -106,3 +106,10 @@ In the preceding example, Contoso consolidated two registries down to one, addin
 ## Summary
 
 With geo-replication, you can manage your regional data centers as one global cloud. As images are used across many Azure services, you can benefit from a single management plane while maintaining network-close, fast, and reliable local image pulls.
+
+## Next steps
+
+Check out the three-part tutorial series, [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md). Walk through creating a geo-replicated registry, building a container, and then deploying it with a single `docker push` command to multiple regional Web Apps for Containers instances.
+
+> [!div class="nextstepaction"]
+> [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md)

@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Build a PHP and MySQL web app in Azure
 
-[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP web app and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Web App for Containers.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP web app and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on App Service on Linux.
 
 ![PHP app running in Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -188,7 +188,6 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 > [!NOTE]
 > Azure Database for MySQL (Preview) doesn't currently limit connections only to Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses. The service is in preview. Better methods for securing your database are planned.
 >
->
 
 ### Connect to production MySQL server locally
 
@@ -323,11 +322,11 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 ### Create an App Service plan
 
-[!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-no-h.md)]
+[!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
 ### Configure database settings
 

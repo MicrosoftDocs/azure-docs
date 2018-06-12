@@ -132,7 +132,7 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 ### Shell script for Linux
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
-sh InstallDependencyAgent-Linux64.bin -s
+sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## Azure VM Extension
@@ -225,10 +225,15 @@ An administrator can uninstall the Dependency Agent for Windows through Control 
 An administrator can also run %Programfiles%\Microsoft Dependency Agent\Uninstall.exe to uninstall the Dependency Agent.
 
 ### Uninstall the Dependency Agent on Linux
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the connector, which is installed automatically with the agent. You can uninstall both by using the following single command:
-
-	rpm -e dependency-agent dependency-agent-connector
-
+To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the connector, which is installed automatically with the agent. You can uninstall both by using the following single command.
+<br>RHEL, CentOs, or Oracle:
+```
+sudo rpm -e dependency-agent dependency-agent-connector
+```
+Ubuntu:
+```
+sudo dpkg --purge dependency-agent dependency-agent-connector
+```
 ## Troubleshooting
 If you have any problems installing or running Service Map, this section can help you. If you still can't resolve your problem, please contact Microsoft Support.
 
@@ -280,6 +285,7 @@ Service Map is currently available in the following Azure regions:
 - East US
 - West Europe
 - West Central US
+- Southeast Asia
 
 
 ## Supported operating systems
@@ -312,6 +318,7 @@ The following sections list the supported operating systems for the Dependency A
 | 7.1 | 3.10.0-229 |
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
 
 #### Red Hat Linux 6
 | OS version | Kernel version |
@@ -325,6 +332,7 @@ The following sections list the supported operating systems for the Dependency A
 | 6.6 | 2.6.32-504 |
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
 
 #### Red Hat Linux 5
 | OS version | Kernel version |
@@ -332,10 +340,17 @@ The following sections list the supported operating systems for the Dependency A
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
 | 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419 |
+| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
-#### Oracle Enterprise Linux with Unbreakable Enterprise Kernel
+### Ubuntu Server
+- Custom kernels, including recompiles of standard kernels, are not supported.
 
+| OS version | Kernel version |
+|:--|:--|
+| 16.04 | 4.4.0-98 |
+| 14.04 | 3.13.0-135<br>4.4.0-98 |
+
+### Oracle Enterprise Linux with Unbreakable Enterprise Kernel
 #### Oracle Linux 6
 | OS version | Kernel version
 |:--|:--|

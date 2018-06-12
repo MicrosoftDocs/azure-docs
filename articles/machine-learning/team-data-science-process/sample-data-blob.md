@@ -4,7 +4,7 @@ description: Sample data in Azure Blob Storage
 services: machine-learning,storage
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: e8d9ad2c-86c5-43d6-80b8-d355b5c0dccf
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
 
 ---

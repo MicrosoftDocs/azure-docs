@@ -1,5 +1,5 @@
 ---
-title: Mounting an Azure Files volume in Azure Container Instances
+title: Mount an Azure Files volume in Azure Container Instances
 description: Learn how to mount an Azure Files volume to persist state with Azure Container Instances
 services: container-instances
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
 
-# Mounting an Azure file share with Azure Container Instances
+# Mount an Azure file share with Azure Container Instances
 
 By default, Azure Container Instances are stateless. If the container crashes or stops, all of its state is lost. To persist state beyond the lifetime of the container, you must mount a volume from an external store. This article shows how to mount an Azure file share for use with Azure Container Instances.
 
@@ -63,7 +63,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## Store storage account access details with Azure key vault
+## Store storage account access details with Azure Key Vault
 
 Storage account keys protect access to your data, so we recommend storing them in an Azure key vault.
 
@@ -182,16 +182,16 @@ Insert the values into the parameters file:
 With the template defined, you can create the container and mount its volume using the Azure CLI. Assuming that the template file is named *azuredeploy.json* and that the parameters file is named *azuredeploy.parameters.json*, then the command line is:
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-Once the container starts up, you can use the simple web app deployed via the **seanmckenna/aci-hellofiles** image, to manage the files in the Azure file share at the mount path that you specified. Obtain the IP address for the web app via the following:
+Once the container starts up, you can use the simple web app deployed via the **seanmckenna/aci-hellofiles** image to manage the files in the Azure file share at the mount path you specified. Obtain the IP address for the web app with the [az container show](/cli/azure/container#az_container_show) command:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-You can use a tool like the [Microsoft Azure Storage Explorer](http://storageexplorer.com) to retrieve and inspect the file written to the file share.
+You can use a tool like the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to retrieve and inspect the file written to the file share.
 
 >[!NOTE]
 > To learn more about using Azure Resource Manager templates, parameter files, and deploying with the Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).

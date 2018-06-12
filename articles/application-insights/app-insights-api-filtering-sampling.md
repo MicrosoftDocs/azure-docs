@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: bwren
+ms.author: borooji;mbullwin
 
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK
@@ -332,6 +332,9 @@ What's the difference between telemetry processors and telemetry initializers?
 * TelemetryProcessors allow you to completely replace or discard a telemetry item.
 * TelemetryProcessors don't process performance counter telemetry.
 
+## Troubleshooting ApplicationInsights.config
+* Confirm that the fully qualified type name and assembly name are correct.
+* Confirm that the applicationinsights.config file is in your output directory and contains any recent changes.
 
 ## Reference docs
 * [API Overview](app-insights-api-custom-events-metrics.md)

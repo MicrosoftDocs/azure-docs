@@ -1,5 +1,5 @@
 ﻿---
-title: Deploy your Azure IoT Suite connected factory gateway | Microsoft Docs
+title: Deploy your connected factory gateway - Azure | Microsoft Docs
 description: How to deploy a gateway on either Windows or Linux to enable connectivity to the connected factory preconfigured solution.
 services: ''
 suite: iot-suite
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 11/14/2017
 ms.author: dobett
 
 ---
@@ -42,7 +42,7 @@ The steps in this article show you how to deploy a gateway using Docker on eithe
 ## Windows deployment
 
 > [!NOTE]
-> If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of our partners. Visit the [Azure IoT device catalog] for a list of gateway devices compatible with the connected factory solution. Follow the instructions that come with the device to set up the gateway. Alternatively, use the following instructions to manually set up one of your existing gateways.
+> If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. Visit the [Azure IoT device catalog] for a list of gateway devices compatible with the connected factory solution. Follow the instructions that come with the device to set up the gateway. Alternatively, use the following instructions to manually set up one of your existing gateways.
 
 ### Install Docker
 
@@ -101,7 +101,7 @@ You can also perform this step after installing docker from the **Settings** men
 ## Linux deployment
 
 > [!NOTE]
-> If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of our partners. Visit the [Azure IoT device catalog] for a list of gateway devices compatible with the connected factory solution. Follow the instructions that come with the device to set up the gateway. Alternatively, use the following instructions to manually set up one of your existing gateways.
+> If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. Visit the [Azure IoT device catalog] for a list of gateway devices compatible with the connected factory solution. Follow the instructions that come with the device to set up the gateway. Alternatively, use the following instructions to manually set up one of your existing gateways.
 
 [Install Docker] on your Linux gateway device.
 
@@ -128,7 +128,7 @@ You can also perform this step after installing docker from the **Settings** men
 
 1. Restart the gateway using the following commands:
 
-    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 –-rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 --rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
 
     `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 

@@ -1,35 +1,69 @@
 ---
 title: Manage updates for multiple Azure virtual machines | Microsoft Docs
-description: Onboard Azure virtual machines to manage updates.
-services: operations-management-suite
+description: This topic describes how to manage updates for Azure virtual machines.
+services: automation
 documentationcenter: ''
 author: eslesar
 manager: carmonm
 editor: ''
 
 ms.assetid: 
-ms.service: operations-management-suite
+ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
-ms.author: eslesar
+ms.date: 10/31/2017
+ms.author: magoedte;eslesar
 ---
-
 # Manage updates for multiple Azure virtual machines
 
 Update management allows you to manage updates and patches for your Azure virtual machines.
-From your [Azure Automation](automation-offering-get-started.md) account, you can quickly onboard virtual machines, assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to all virtual machines for which
-Update management is enabled.
+From your [Azure Automation](automation-offering-get-started.md) account, you can quickly onboard virtual machines, assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to all virtual machines for which Update management is enabled.
 
 ## Prerequisites
 
-To complete the steps in this guide, you will need:
+To use Update management, you need:
 
-* An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](automation-sec-configure-azure-runas-account.md).
-* An Azure Resource Manager virtual machine (not Classic). For instructions on creating a VM, see 
-  [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+* An Azure Automation account. For instructions on creating an Azure Automation Run As account, see
+[Getting Started with Azure Automation](automation-offering-get-started.md).
+
+* A virtual machine or computer with one of the supported operating systems installed.
+
+## Supported operating systems
+
+Update management is supported on the following operating systems.
+
+### Windows
+
+* Windows Server 2008 and higher, and update deployments against Windows Server 2008 R2 SP1 and higher.  Server Core and Nano Server installation options are not supported.
+
+    > [!NOTE]
+    > Support for deploying updates to Windows Server 2008 R2 SP1 requires .NET Framework 4.5 and WMF 5.0 or later.
+    > 
+* Windows client operating systems are not supported.
+
+Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.
+
+> [!NOTE]
+> The Windows agent cannot be managed concurrently by System Center Configuration Manager.
+>
+
+### Linux
+
+* CentOS 6 (x86/x64), and 7 (x64)  
+* Red Hat Enterprise 6 (x86/x64), and 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)  
+* Ubuntu 12.04 LTS and newer x86/x64   
+
+> [!NOTE]  
+> To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure  Unattended-Upgrade package to disable automatic updates. For information on how to configure this, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
+Linux agents must have access to an update repository.
+
+> [!NOTE]
+> An OMS Agent for Linux configured to report to multiple OMS workspaces is not supported with this solution.  
+>
 
 ## Enable update management for Azure virtual machines
 
@@ -37,16 +71,43 @@ To complete the steps in this guide, you will need:
 2. On the left-hand side of the screen, select **Update management**.
 3. At the top of the screen, click **Add Azure VM**.
     ![Onboard VMs](./media/manage-update-multi/update-onboard-vm.png)
-4. Select a virtual machine to oboard. The **Enable Update Management** screen appears.
+4. Select a virtual machine to onboard. The **Enable Update Management** screen appears.
 5. Click **Enable**.
 
    ![Enable update management](./media/manage-update-multi/update-enable.png)
 
 Update management is enabled for your virtual machine.
 
+## Enable update management for non-Azure virtual machines and computers
+
+For instructions on how to enable update management for non-Azure Windows virtual machines and computers, see [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md).
+
+For instructions on how to enable update management for non-Azure Linux virtual machines and computers, see [Connect your Linux Computers to Operations Management Suite (OMS)](../log-analytics/log-analytics-agent-linux.md).
+
 ## View update assessment
 
 After **Update management** is enabled, the **Update management** screen appears. You can see a list of missing updates on the **Missing updates** tab.
+
+## Data collection
+
+Agents installed on virtual machines and computers collect data about updates and send it to Azure update management.
+
+### Supported agents
+
+The following table describes the connected sources that are supported by this solution.
+
+| Connected Source | Supported | Description |
+| --- | --- | --- |
+| Windows agents |Yes |Update management collects information about system updates from Windows agents and initiates installation of required updates. |
+| Linux agents |Yes |Update management collects information about system updates from Linux agents and initiates installation of required updates on supported distros. |
+| Operations Manager management group |Yes |Update management collects information about system updates from agents in a connected management group. |
+| Azure storage account |No |Azure storage does not include information about system updates. |
+
+### Collection frequency
+
+For each managed Windows computer, a scan is performed twice per day. Every 15 minutes the Windows API is called to query for the last update time to determine if status has changed, and if so a compliance scan is initiated.  For each managed Linux computer, a scan is performed every 3 hours.
+
+It can take anywhere from 30 minutes up to 6 hours for the dashboard to display updated data from managed computers.
 
 ## Schedule an update deployment
 
@@ -106,6 +167,8 @@ Click **All logs** to see all log entries that the deployment created.
 Click the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target virtual machine.
 
 Click **Errors** to see detailed information about any errors from the deployment.
+
+For detailed information about the logs, output, and error information, see [Update Management](../operations-management-suite/oms-solution-update-management.md).
 
 ## Next steps
 

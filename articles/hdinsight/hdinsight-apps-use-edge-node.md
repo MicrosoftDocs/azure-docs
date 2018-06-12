@@ -73,7 +73,7 @@ In this section, you use a Resource Manager template to add an edge node to an e
 
 **To add an empty edge node to an existing cluster**
 
-1. Create an HDInsight cluster if you don't have one yet.  See [Hadoop tutorial: Get started using Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Create an HDInsight cluster if you don't have one yet.  See [Hadoop tutorial: Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
@@ -96,7 +96,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 
 **To add an empty edge node to an existing cluster**
 
-1. Create an HDInsight cluster if you don't have one yet.  See [Get started using Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Create an HDInsight cluster if you don't have one yet.  See [Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>

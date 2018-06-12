@@ -14,7 +14,7 @@ ms.custom: overview-samples
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
-ms.workload: database
+ms.workload: "On Demand"
 ms.date: 06/23/2017
 ms.author: janeng
 ---

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: How to query using the DocumentDB API? | Microsoft Docs'
-description: Learn to query with the DocumentDB API for Azure Cosmos DB
+title: 'Azure Cosmos DB: How to query using the MongoDB API? | Microsoft Docs'
+description: Learn to query with the MongoDB API for Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: mimig1

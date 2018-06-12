@@ -29,8 +29,11 @@ In this article, you can learn how to use Storage Explorer to manage Azure Cosmo
 
 ## Prerequisites
 
-- An Azure Cosmos DB account for a SQL (DocumentDB) or MongoDB database. If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a DocumentDB API web app with .NET and the Azure portal](create-documentdb-dotnet.md).
-- Install the newest Azure Storage Explorer bits. You can install them using the following links: [Linux](https://go.microsoft.com/fwlink/?linkid=858559), [Mac](https://go.microsoft.com/fwlink/?linkid=858561), [Windows](https://go.microsoft.com/fwlink/?linkid=858562).
+An Azure Cosmos DB account for a SQL (DocumentDB) or MongoDB database. If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a DocumentDB API web app with .NET and the Azure portal](create-documentdb-dotnet.md).
+
+## Installation
+
+Install the newest Azure Storage Explorer bits here: [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), now we support Windows, Linux, and MAC version.
 
 ## Connect to an Azure subscription
 
@@ -143,10 +146,8 @@ Edit the document filter by entering a [SQL query](documentdb-sql-query.md) and 
 
 * The operations for **Triggers** and **UDF** are similar to those for **Stored Procedures**.
 
-## Demo
-* Watch the following video to see how to use Azure Cosmos DB in Azure Storage Explorer: [Use Azure Cosmos DB in Azure Storage Explorer](https://go.microsoft.com/fwlink/?linkid=858710).
-
 ## Next steps
 
-Now that you have Azure Storage Explorer connected to your Azure Cosmos DB account, learn more about Storage Explorer and connect more services in [Get started with Storage Explorer (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Watch the following video to see how to use Azure Cosmos DB in Azure Storage Explorer: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
+* Learn more about Storage Explorer and connect more services in [Get started with Storage Explorer (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

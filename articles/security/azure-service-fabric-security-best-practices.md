@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 11/01/2017
 ms.author: tomsh
 
 ---
@@ -175,7 +175,7 @@ There are two basic steps to set up a key vault:
 To learn more about how to set up a key vault, see [Get started with Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
 ## Assign users to roles
-After you've created the applications to represent your cluster, assign your users to the roles that are supported by Service Fabric: read-only and admin. You can assign these roles by using the Azure classic portal.
+After you've created the applications to represent your cluster, assign your users to the roles that are supported by Service Fabric: read-only and admin. You can assign these roles by using the Azure portal.
 
 >[!NOTE]
 > For more information about using roles in Service Fabric, see [Role-Based Access Control for Service Fabric clients](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).

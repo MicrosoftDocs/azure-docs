@@ -11,7 +11,7 @@ editor: cjgronlund
 ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.workload: data-management
+ms.workload: "Active"
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article

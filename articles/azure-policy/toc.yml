@@ -15,12 +15,20 @@
   items:
   - name: Create and manage Azure Policy
     href: create-manage-policy.md
+- name: Samples
+  items:
+  - name: Policy templates
+    href: json-samples.md
+- name: Concepts
+  items:
+  - name: Azure Policy definition structure
+    href: policy-definition.md
 - name: Reference
   items:
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/policy?view=azure-cli-latest
+    href: /cli/azure/policy
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.3.1
+    href: /powershell/module/azurerm.resources/#policies
 - name: Resources
   items:
   - name: Azure roadmap

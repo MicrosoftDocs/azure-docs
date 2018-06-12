@@ -204,7 +204,7 @@ The implementation will include the following steps:
 
 George Trifonov of Azure Media Services Team has written a blog providing detailed steps in setting up Azure Active Directory for an ASP.NET MVC player app: [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-George has also written a blog on [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). And here is his [sample on Azure AD integration with Azure Media Services key delivery](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
+George has also written a blog on [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
 For information on Azure Active Directory:
 

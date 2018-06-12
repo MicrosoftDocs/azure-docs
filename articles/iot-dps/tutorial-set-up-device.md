@@ -32,7 +32,7 @@ Before proceeding, create your Device Provisioning Service instance and an IoT h
 
 ## Select a Hardware Security Module
 
-The [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/dps_client) provides support for two types of Hardware Security Modules (or HSMs): 
+The [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) provides support for two types of Hardware Security Modules (or HSMs): 
 
 - [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
     - TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this HSM if you have either of these OSes running on your devices, and if you are looking for an established standard for HSMs. With TPM chips, you can only enroll each device individually to the Device Provisioning Service. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.

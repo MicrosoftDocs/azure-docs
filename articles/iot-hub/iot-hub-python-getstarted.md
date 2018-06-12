@@ -190,6 +190,7 @@ This section lists the steps to create a Python console app, that simulates a de
         # set the time until a message times out
         client.set_option("messageTimeout", MESSAGE_TIMEOUT)
         client.set_option("logtrace", 0)
+        client.set_option("product_info", "HappyPath_Simulated-Python")
         return client
     ```
 7. Add the following function to format and send a message from your simulated device to your IoT hub.

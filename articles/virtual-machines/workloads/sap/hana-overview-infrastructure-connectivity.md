@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -38,8 +38,7 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
 - Business contact information (including e-mail address and phone number)
 - Technical contact information (including e-mail address and phone number)
 - Technical networking contact information (including e-mail address and phone number)
-- Azure deployment region (West US, East US, Australia East, Australia Southeast, West Europe, and North Europe as of July 
-- 2017)
+- Azure deployment region (West US, East US, Australia East, Australia Southeast, West Europe, and North Europe as of July 2017)
 - Confirm SAP HANA on Azure (Large Instances) SKU (configuration)
 - As already detailed in the Overview and Architecture document for HANA Large Instances, for every Azure Region being deployed to:
 	- A /29 IP address range for ER-P2P Connections that connect Azure VNets to HANA Large Instances

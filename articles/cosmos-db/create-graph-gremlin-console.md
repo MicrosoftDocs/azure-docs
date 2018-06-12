@@ -42,7 +42,7 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Connect to your app service
-1. Before starting the Gremlin Console, create or modify the remote-secure.yaml configuration file in the apache-tinkerpop-gremlin-console-3.2.5/conf directory.
+1. Before starting the Gremlin Console, create or modify the remote-secure.yaml configuration file in the `apache-tinkerpop-gremlin-console-3.2.5/conf` directory.
 2. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations:
 
     Setting|Suggested value|Description
@@ -60,6 +60,18 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
     For the password value, copy the **Primary key** from the **Keys** page:
 ![View and copy your primary key in the Azure portal, Keys page](./media/create-graph-gremlin-console/keys.png)
 
+Your remote-secure.yaml file should look like this:
+
+```
+hosts: [your_database_server.graphs.azure.com]
+port: 443
+username: /dbs/your_database_account/colls/your_collection
+password: your_primary_key
+connectionPool: {
+  enableSsl: true
+}
+serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+```
 
 3. In your terminal, run `bin/gremlin.bat` or `bin/gremlin.sh` to start the [Gremlin Console](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.

@@ -13,7 +13,7 @@ ms.workload: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 7/15/2017
+ms.date: 11/03/2017
 ms.author: delhan
 
 ---

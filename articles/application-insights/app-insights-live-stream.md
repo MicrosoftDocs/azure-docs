@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: bwren
+ms.author: mbullwin
 ---
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency 

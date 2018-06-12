@@ -378,7 +378,7 @@ Mobile Apps table output binding supports
 but you can only use [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs)
 or [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
 
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#using-a-blob-output-binding)
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#blob-storage-input--output-bindings)
 with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs

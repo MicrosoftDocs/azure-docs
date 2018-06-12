@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
+ms.custom: devcenter
 
 ---
 # Azure Cosmos DB: Getting started with the DocumentDB API and .NET Core

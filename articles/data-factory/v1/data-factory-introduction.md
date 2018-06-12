@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2017
+ms.date: 10/15/2017
 ms.author: shlo
 
 robots: noindex
@@ -24,7 +24,7 @@ robots: noindex
 > * [Version 2 - Preview](../introduction.md)
 
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is in general availability (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Introduction to Data Factory V2](../introduction.md).
+> This article applies to version 1 of Azure Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Introduction to Data Factory V2](../introduction.md).
 
 
 ## What is Azure Data Factory?
@@ -116,6 +116,7 @@ Linked services are used for two reasons in Data Factory:
 * To represent a *compute resource* that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. See the [Data transformation activities](#data-transformation-activities) section for a list of supported compute environments.
 
 ### Relationship between Data Factory entities
+
 ![Diagram: Data Factory, a cloud data integration service - key concepts](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## Supported regions

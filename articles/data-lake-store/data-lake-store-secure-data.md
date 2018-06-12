@@ -34,7 +34,7 @@ Before you begin this tutorial, you must have the following:
 * **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## Create security groups in Azure Active Directory
-For instructions on how to create AAD security groups and how to add users to the group, see [Managing security groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+For instructions on how to create AAD security groups and how to add users to the group, see [Managing security groups in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
 > You can add both users and other groups to a group in Azure AD using the Azure portal. However, in order to add a service principal to a group, use [Azure AD’s PowerShell module](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).

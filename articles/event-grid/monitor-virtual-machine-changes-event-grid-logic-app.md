@@ -313,6 +313,14 @@ grid and emails you when those events happen.
 You also learned how easily you can create workflows 
 that automate processes and integrate systems and cloud services.
 
+You can monitor other configuration changes with 
+event grids and logic apps, for example:
+
+* A virtual machine gets role-based access control (RBAC) rights.
+* Changes are made to a network security group (NSG) on a network interface (NIC).
+* Disks for a virtual machine are added or removed.
+* A public IP address is assigned to a virtual machine NIC.
+
 ## Clean up resources
 
 This tutorial uses resources and performs actions that incur 
@@ -321,27 +329,21 @@ So when you're done with the tutorial and testing,
 make sure that you disable or delete any resources 
 where you don't want to incur charges.
 
-You can stop your logic app from running and sending email 
-without deleting the app. On your logic app menu, 
-choose **Overview**. On the toolbar, choose **Disable**.
+* To stop running your logic app without deleting your work, 
+disable your app. On your logic app menu, choose **Overview**. 
+On the toolbar, choose **Disable**.
 
-![Turn off your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
+  ![Turn off your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
 
-## FAQ
+  > [!TIP]
+  > If you don't see the logic app menu, 
+  > try returning to the Azure dashboard, 
+  > and reopen your logic app.
 
-**Q**: What other virtual machine monitoring tasks can I perform with event grids and logic apps? </br>
-**A**: You can monitor other configuration changes, for example:
-
-* A virtual machine gets role-based access control (RBAC) rights.
-* Changes are made to a network security group (NSG) on a network interface (NIC).
-* Disks for a virtual machine are added or removed.
-* A public IP address is assigned to a virtual machine NIC.
+* To permanently delete your logic app, on the logic app menu, 
+choose **Overview**. On the toolbar, choose **Delete**. 
+Confirm that you want to delete your logic app, then choose **Delete**.
 
 ## Next steps
 
-* [Event Grid Overview](../event-grid/overview.md)
-* [Event Grid Concepts](../event-grid/concepts.md)
-* [Quickstart: Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
-* [Event Grid event schema](../event-grid/event-schema.md)
-* [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)
-* [Create logic app workflows with predefined templates](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)

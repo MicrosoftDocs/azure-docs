@@ -204,13 +204,6 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-> [!IMPORTANT]
->
->This is a **public preview feature**, customers must not use it for running productive SAP systems.
->
->If you want to join the pilot program, open an SAP support ticket in the BC-OP-NT-AZR queue.  After testing, provide us with feedback.
->
-
 This document is describing Azure infrastructure preparation steps, needed to install and configure high available SAP system on **Windows Failover Cluster (WSFC)**, using **Scale Out File Share** as an option for clustering SAP (A)SCS instance.
 
 ## Prerequisite

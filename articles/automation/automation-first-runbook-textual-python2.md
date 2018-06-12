@@ -216,3 +216,4 @@ Click **OK** to start the runbook. The runbook runs and starts the VM that you s
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
 * To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
 * To learn about developing for Azure with Python, see [Azure for Python developers](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* To view sample Python 2 runbooks, see the [Azure Automation GitHub](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).

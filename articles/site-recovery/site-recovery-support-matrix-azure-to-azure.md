@@ -66,7 +66,7 @@ The below support is applicable for any workload running on the mentioned OS.
 
 #### Windows
 
-- Windows Server 2016 (Server Core and Server with Desktop Experience)*
+- Windows Server 2016 (Server Core, Server with Desktop Experience)*
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 with at least SP1
@@ -142,8 +142,8 @@ VMs migrated using Site Recovery | Supported | If it is a VMware/Physical machin
 
 **Configuration** | **Supported/Not supported** | **Remarks**
 --- | --- | ---
-Maximum OS disk size | 1023 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Maximum data disk size | 1023 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Maximum OS disk size | 2048 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Maximum data disk size | 4095 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Number of data disks | Upto 64 as supported by a specific Azure VM size | Refer to [Azure virtual machine sizes](../virtual-machines/windows/sizes.md)
 Temporary disk | Always excluded from replication | Temporary disk is excluded from replication always. You should not put any persistent data on temporary disk as per Azure guidance. Refer to [Temporary disk on Azure VMs](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) for more details.
 Data change rate on the disk | Maximum of 6 MBps per disk | If the average data change rate on the disk is beyond 6 MBps continuously, replication will not catch up. However, if it is an occasional data burst and the data change rate is greater than 6 MBps for some time and comes down, replication will catch up. In this case, you might see slightly delayed recovery points.

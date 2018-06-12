@@ -30,12 +30,12 @@ For more information about scale sets, watch these videos:
 * [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## Creating and managing scale sets
-You can create a scale set in the [Azure portal](https://portal.azure.com) by selecting **new** and typing **scale** on the search bar. **Virtual machine scale set** is listed in the results. From there, you can fill in the required fields to customize and deploy your scale set. You also have options to set up basic autoscale rules based on CPU usage in the portal. 
+You can create a scale set in the [Azure portal](https://portal.azure.com) by selecting **new** and typing **scale** on the search bar. **Virtual machine scale set** is listed in the results. From there, you can fill in the required fields to customize and deploy your scale set. You also have options to set up basic autoscale rules based on CPU usage in the portal. To manage your scale set, you can use the Azure portal, [Azure PowerShell cmdlets](virtual-machine-scale-sets-windows-manage.md), or the Azure CLI 2.0.
 
 Scale sets can be deployed to an [availability zone](../availability-zones/az-overview.md).
 
 > [!NOTE]
-> Currently Virtual Machine Scale Sets only supports deploying to a single availability zone. Multi-zone deployment will be supported in the future.
+> Currently virtual machine scale sets only supports deploying to a single availability zone. Multi-zone deployment will be supported in the future.
 
 You can define and deploy scale sets by using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx), just like individual Azure Resource Manager VMs. Therefore, you can use any standard Azure Resource Manager deployment methods. For more information about templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -43,8 +43,23 @@ You can find a set of example templates for virtual machine scale sets in the [A
 
 For the Quickstart template examples, a "Deploy to Azure" button in the readme for each template links to the portal deployment feature. To deploy the scale set, click the button and then fill in any parameters that are required in the portal. 
 
-## Scaling a scale set out and in
-You can change the capacity of a scale set in the Azure portal by clicking the **Scaling** section under **Settings**. 
+
+## Autoscale
+To maintain consistent application performance, you can automatically increase or decrease the number of VM instances in your scale set. This autoscale ability reduces the management overhead to monitor and tune your scale set as customer demand changes over time. You define rules based on performance metrics, application response, or a fixed schedule, and your scale set autoscales as needed.
+
+For basic autoscale rules, you can use host-based performance metrics such as CPU usage or disk I/O. These host-based metrics are available out of the box, with no additional agents or extensions to install and configure. Autoscale rules that use host-based metrics can be created with one of the following tools:
+
+- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+
+To use more granular performance metrics, you can install and configure the Azure diagnostic extension on VM instances in your scale set. The Azure diagnostic extension allows you to collect additional performance metrics, such as memory consumption, from inside of each VM instance. These performance metrics are streamed to an Azure storage account, and you create autoscale rules to consume this data. For more information, see the articles for how to enable the Azure diagnostics extension on a [Linux VM](../virtual-machines/linux/diagnostic-extension.md) or [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md).
+
+To monitor the application performance itself, you can install and configure a small instrumentation package in to your application for App Insights. Detailed performance metrics for the application response time or number of sessions can then be streamed back from your app. You can then create autoscale rules with defined thresholds for the application-level performance itself. For more information about App Insights, see [What is Application Insights](../application-insights/app-insights-overview.md).
+
+
+## Manually scaling a scale set out and in
+You can manually change the capacity of a scale set in the Azure portal by clicking the **Scaling** section under **Settings**. 
 
 To change scale set capacity on the command line, use the **scale** command in [Azure CLI](https://github.com/Azure/azure-cli). For example, use this command to set a scale set to a capacity of 10 VMs:
 
@@ -64,26 +79,6 @@ To increase or decrease the number of virtual machines in a scale set by using a
 
 If you are redeploying an Azure Resource Manager template to change the capacity, you can define a much smaller template that includes only the **SKU** property packet with the updated capacity. [Here's an example](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## Autoscale
-
-A scale set can be optionally configured with autoscale settings when it's created in the Azure portal. The number of VMs can then be increased or decreased based on average CPU usage. 
-
-Many of the scale set templates in the [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates) define autoscale settings. You can also add autoscale settings to an existing scale set. For example, this Azure PowerShell script adds CPU-based autoscale to a scale set:
-
-```PowerShell
-
-$subid = "yoursubscriptionid"
-$rgname = "yourresourcegroup"
-$vmssname = "yourscalesetname"
-$location = "yourlocation" # e.g. southcentralus
-
-$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionValue 1
-$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator LessThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionValue 1
-$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "autoprofile1"
-Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
-```
-
-You can find a list of valid metrics to scale on in [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) under the heading "Microsoft.Compute/virtualMachineScaleSets." More advanced autoscale options are also available, including schedule-based autoscale and using webhooks to integrate with alert systems.
 
 ## Monitoring your scale set
 The [Azure portal](https://portal.azure.com) lists scale sets and shows their properties. The portal also supports management operations. You can perform management operations on both scale sets and individual VMs within a scale set. The portal also provides a customizable resource usage graph. 

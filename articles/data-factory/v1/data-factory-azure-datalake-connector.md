@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 
 robots: noindex
@@ -81,9 +81,11 @@ To use service principal authentication, register an application entity in Azure
 * Application key 
 * Tenant ID
 
-> [!IMPORTANT]
-> If you are using the Copy Wizard to author data pipelines, make sure that you grant the service principal at least a **Reader** role in access control (identity and access management) for the Data Lake Store account. Also, grant the service principal at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you might see the message "The credentials provided are invalid."<br/><br/>
-After you create or update a service principal in Azure AD, it can take a few minutes for the changes to take effect. Check the service principal and Data Lake Store access control list (ACL) configurations. If you still see the message "The credentials provided are invalid," wait a while and try again.
+> [!TIP]
+> Make sure you grant the service principal proper permission in Azure Data Lake Store:
+>- If you use Copy Wizard to author pipelines, grant at least **Reader** role in account access control (IAM). Also, grant at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you might see the message "The credentials provided are invalid."
+>- To use Data Lake Store as source, grant at least **Read + Execute** data access permission to list and copy the contents of a folder, or **Read** permission to copy a single file. No requirement on account level access control.
+>- To use Data Lake Store as sink, grant at least **Write + Execute** data access permission to create child items in the folder. And if you use Azure IR to empower copy (both source and sink are in cloud), in order to let Data Factory detect Data Lake Store's region, grant at least **Reader** role in account access control (IAM). If you want to avoid this IAM role, [specify executionLocation](data-factory-data-movement-activities.md#global) with the location of your Data Lake Store in copy activity.
 
 Use service principal authentication by specifying the following properties:
 

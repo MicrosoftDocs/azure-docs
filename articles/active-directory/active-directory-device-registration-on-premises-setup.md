@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -217,8 +217,5 @@ In the preceding commands, **relying party trust name** is the name of your appl
 And **yourdomain.com** is the domain name that you have configured with Azure Active Directory (for example, contoso.com).
 Be sure to remove any line breaks (if any) from the HTML content that you pass to the **Set-AdfsRelyingPartyWebContent** cmdlet.
 
-Now when users access your application from a device that's not registered with the Azure Active Directory device registration service, they see a page that looks similar to the following screenshot.
-
-![Screenshot of an error when users haven't registered their device with Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
-
+Now when users access your application from a device that's not registered with the Azure Active Directory device registration service, they see an error.
 

@@ -50,14 +50,6 @@ The patch orchestration app is composed of the following subcomponents:
 
 ## Prerequisites
 
-### Minimum supported Service Fabric runtime version
-
-#### Azure clusters
-The patch orchestration app must be run on Azure clusters that have Service Fabric runtime version v5.5 or later.
-
-#### Standalone on-premises clusters
-The patch orchestration app must be run on Standalone clusters that have Service Fabric runtime version v5.6 or later.
-
 ### Enable the repair manager service (if it's not running already)
 
 The patch orchestration app requires the repair manager system service to be enabled on the cluster.
@@ -92,10 +84,10 @@ To enable the repair manager service using [Azure Resource Manager template](htt
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. After you have updated your cluster template with these changes, apply them and let the upgrade finish. You can now see the repair manager system service running in your cluster. It is called `fabric:/System/RepairManagerService` in the system services section in the Service Fabric Explorer. 
@@ -117,15 +109,15 @@ To enable the repair manager service:
     }
     ```
 
-2. Now enable repair manager service by adding the following `addonFeaturres` section after the `fabricSettings` section as shown below:
+2. Now enable repair manager service by adding the following `addonFeatures` section after the `fabricSettings` section as shown below:
 
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. Update your cluster manifest with these changes, using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
@@ -133,59 +125,6 @@ To enable the repair manager service:
 ### Disable automatic Windows Update on all nodes
 
 Automatic Windows updates might lead to availability loss because multiple cluster nodes can restart at the same time. The patch orchestration app, by default, tries to disable the automatic Windows Update on each cluster node. However, if the settings are managed by an administrator or group policy, we recommend setting the Windows Update policy to “Notify before Download” explicitly.
-
-### Optional: Enable Azure Diagnostics
-
-Clusters running Service Fabric runtime version `5.6.220.9494` and above collect patch orchestration app logs as part of Service Fabric logs.
-You can skip this step if your cluster is running on Service Fabric runtime version `5.6.220.9494` and above.
-
-For clusters running Service Fabric runtime version less than `5.6.220.9494`, logs for the patch orchestration app are collected locally on each of the cluster nodes.
-We recommend that you configure Azure Diagnostics to upload logs from all nodes to a central location.
-
-For information on enabling Azure Diagnostics, see [Collect logs by using Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-Logs for the patch orchestration app are generated on the following fixed provider IDs:
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-In Resource Manager template goto `EtwEventSourceProviderConfiguration` section under `WadCfg` and add the following entries:
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> If your Service Fabric cluster has multiple node types, then the previous section must be added for all the `WadCfg` sections.
 
 ## Download the app package
 
@@ -304,21 +243,16 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 ## Diagnostics/health events
 
-### Collect patch orchestration app logs
+### Diagnostic logs
 
-Patch orchestration app logs are collected as part of Service Fabric logs from runtime version `5.6.220.9494` and above.
-For clusters running Service Fabric runtime version less than `5.6.220.9494`, logs can be collected by using one of the following methods.
+Patch orchestration app logs are collected as part of Service Fabric runtime logs.
 
-#### Locally on each node
+In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses below fixed provider ID's to log events via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
-Logs are collected locally on each Service Fabric cluster node if Service Fabric runtime version is less than `5.6.220.9494`. The location to access the logs is
-\[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs.
-
-For example, if Service Fabric is installed on drive D, the path is D:\\PatchOrchestrationApplication\\logs.
-
-#### Central location
-
-If Azure Diagnostics is configured as part of prerequisite steps, logs for the patch orchestration app are available in Azure Storage.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### Health reports
 

@@ -25,7 +25,7 @@ This article shows you how to attach both new and existing disks to a Windows vi
 
 Before you do this, review these tips:
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* To use Premium storage, you'll need a Premium Storage enabled VM size like the DS-series or GS-series virtual machine. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* To use Premium storage, you'll need a Premium Storage enabled VM size like the DS-series or GS-series virtual machine. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 

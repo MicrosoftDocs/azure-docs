@@ -35,9 +35,9 @@
 ### [Link Office 365 tenant](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Pay for subscriptions by invoice](billing-how-to-pay-by-invoice.md)
 ## Troubleshoot
-### [Sign-up issues](billing-troubleshoot-azure-sign-up-issues.md)
-### [Declined card](billing-credit-card-fails-during-azure-sign-up.md)
-### [Sign-in issues](billing-cannot-login-subscription.md)
+### [Sign-up issues](https://support.microsoft.com/en-us/help/4042959)
+### [Declined card](https://support.microsoft.com/en-us/help/4042960)
+### [Sign-in issues](https://support.microsoft.com/en-us/help/4042961)
 ### [No subscriptions found](billing-no-subscriptions-found.md)
 ### [Enterprise cost view disabled](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

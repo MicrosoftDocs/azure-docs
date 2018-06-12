@@ -4,7 +4,7 @@ description: Learn how to run web apps in Azure App Service by deploying the def
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: cfowler
 editor: ''
 
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
@@ -102,7 +102,7 @@ In the **Configure App Service Plan** dialog, use the settings in the table foll
 |-|-|-|
 |App Service Plan| myAppServicePlan | Name of the App Service plan. |
 | Location | West Europe | The datacenter where the web app is hosted. |
-| Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/) determines hosting features. |
+| Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
 
 Select **OK**.
 

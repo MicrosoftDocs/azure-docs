@@ -42,7 +42,7 @@ Select what to replicate, and where to replicate it to.
 2. Select **To recovery site** > **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
 3. In **Scout Setup**, download the InMage Scout 8.0.1 GA software, and the registration key. The setup files for all components are included in the downloaded .zip file.
 
-## Install component updates
+## Download and install component updates
 
  Review and install the latest [updates](#updates). Updates should be installed on servers in the following order:
 
@@ -80,7 +80,7 @@ Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file cont
 ## Enable replication
 
 1. Set up replication between the source and target VMware sites.
-2. For guidance, use the InMage Scout documentation that's downloaded with the product. Alternatively, you can access the documentation as follows:
+2. Refer to following documents to learn more about installation, protection and recovery:
 
    * [Release notes](https://aka.ms/asr-scout-release-notes)
    * [Compatibility matrix](https://aka.ms/asr-scout-cm)
@@ -92,6 +92,8 @@ Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file cont
 
 ### Site Recovery Scout 8.0.1 Update 6 
 Updated: October 12, 2017
+
+Download [Scout update 6](https://aka.ms/asr-scout-update6).
 
 Scout Update 6 is a cumulative update. It contains all fixes from Update 1 to Update 5 plus  the new fixes and enhancements described below. 
 

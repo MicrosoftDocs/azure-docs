@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/24/2017
 ms.author: larryfr
 
 ---
@@ -69,7 +69,7 @@ This section provides instructions on how to use the sample script while creatin
 
 1. Start creating a cluster by using the steps in [Create Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md), but do not complete creation.
 
-2. On the **Optional Configuration** blade, select **Script Actions**, and provide the following information:
+2. In the **Optional Configuration** section, select **Script Actions**, and provide the following information:
 
    * **NAME**: Enter a friendly name for the script action.
 
@@ -83,7 +83,7 @@ This section provides instructions on how to use the sample script while creatin
 
    * **PARAMETERS**: Leave this field blank
 
-3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
+3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** section to save the optional configuration information.
 
 4. Continue creating the cluster as described in [Create Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md).
 

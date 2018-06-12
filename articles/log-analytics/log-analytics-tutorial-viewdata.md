@@ -2,11 +2,10 @@
 title: View or analyze Azure Log Analytics data collected | Microsoft Docs
 description: This article includes a tutorial that describes how to create log searches and analyze data stored in your Log Analytics resource using the Log Search portal.  The tutorial includes running some simple queries to return different types of data and analyzing results.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
 editor: ''
-
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,8 +13,9 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
-
+ms.custom: mvc
 ---
+
 # View or analyze data collected with Log Analytics log search
 
 In Log Analytics you can leverage log searches by constructing queries to analyze the collected data, use pre-existing dashboards which you can customize with graphical views of your most valuable searches.  Now that you have defined collection of operational data from your Azure VMs and Activity Logs, in this tutorial you learn how to:

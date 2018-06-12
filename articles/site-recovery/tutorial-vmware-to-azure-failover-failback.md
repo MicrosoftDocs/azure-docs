@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: raynew
+ms.custom: MVC
 
 ---
 # Fail over and fail back VMware VMs and physical servers replicated to Azure

@@ -27,10 +27,10 @@ The process of creating and using endpoint keys involves the following tasks:
 
 1. Create a key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).
  
-2. On the **Publish app** page, click the **Change** link to open the **Assign a key to your app** dialog. 
+2. On the **Publish app** page, click the **Add Key** button to open the **Assign a key to your app** dialog. 
 
     ![Assign a key to your app](./media/luis-manage-keys/luis-assign-key-to-app.png)
-3. Select a Tenant ID in the dialog. In Azure, a tenant represents the client or organization associated with a service. 
+3. Select a Tenant ID in the dialog. In Azure, a tenant represents the client or organization associated with a service.
 
 4. Choose the subscription associated with the key you want to add.
 

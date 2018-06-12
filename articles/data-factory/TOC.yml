@@ -55,10 +55,12 @@
     href: concepts-integration-runtime.md
 - name: How-to guides
   items:
-  - name: Move data
+  - name: Copy data
     items: 
-    - name: Copy Activity overview
+    - name: Copy data from supported sources to destinations
       href: copy-activity-overview.md
+    - name: Read or write partitioned data
+      href: how-to-read-write-partitioned-data.md
     - name: Connectors
       items: 
       - name: Amazon Redshift
@@ -71,9 +73,13 @@
         href: connector-azure-cosmos-db.md
       - name: Azure Data Lake Store
         href: connector-azure-data-lake-store.md
+      - name: Azure Database for MySQL
+        href: connector-azure-database-for-mysql.md
+      - name: Azure File Storage
+        href: connector-azure-file-storage.md
       - name: Azure Search
         href: connector-azure-search.md
-      - name: Azure SQL DB
+      - name: Azure SQL Database
         href: connector-azure-sql-database.md
       - name: Azure SQL Data Warehouse
         href: connector-azure-sql-data-warehouse.md
@@ -91,10 +97,16 @@
         href: connector-file-system.md
       - name: FTP
         href: connector-ftp.md
+      - name: GE Historian
+        href: connector-odbc.md#ge-historian-source
       - name: HDFS
         href: connector-hdfs.md
       - name: HTTP
         href: connector-http.md
+      - name: Informix
+        href: connector-odbc.md#ibm-informix-source
+      - name: Microsoft Access
+        href: connector-odbc.md#microsoft-access-source
       - name: MongoDB
         href: connector-mongodb.md
       - name: MySQL
@@ -121,7 +133,7 @@
         href: connector-sybase.md
       - name: Teradata
         href: connector-teradata.md
-      - name: WebTable
+      - name: Web Table
         href: connector-web-table.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md        
@@ -158,6 +170,10 @@
       href: compute-linked-services.md
   - name: Control flow
     items: 
+    - name: If Condition Activity
+      href: control-flow-if-condition-activity.md
+    - name: Until Activity
+      href: control-flow-until-activity.md     
     - name: Web Activity
       href: control-flow-web-activity.md     
     - name: Lookup Activity
@@ -168,6 +184,8 @@
       href: control-flow-execute-pipeline-activity.md     
     - name: For Each Activity
       href: control-flow-for-each-activity.md  
+    - name: Wait Activity
+      href: control-flow-wait-activity.md               
     - name: Expression Language         
       href: control-flow-expression-language-functions.md
     - name: System variables         
@@ -180,10 +198,12 @@
       href: store-credentials-in-key-vault.md    
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
+    - name: Data factory service identity
+      href: data-factory-service-identity.md
   - name: Monitor and manage
     items: 
-    - name: Use .NET
-      href: quickstart-create-data-factory-dot-net.md#monitor-pipeline-run
+    - name: Use SDKs
+      href: monitor-programmatically.md
     - name: Use Azure Monitor
       href: monitor-using-azure-monitor.md
     - name: Monitor visually

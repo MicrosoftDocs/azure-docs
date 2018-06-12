@@ -1,6 +1,6 @@
 ---
-title: Build a Node.js and MongoDB web app in Azure Web App for Containers | Microsoft Docs 
-description: Learn how to get a Node.js app working in Azure Web App for Containers, with connection to a Cosmos DB database with a MongoDB connection string.
+title: Build a Node.js and MongoDB web app in Azure App Service on Linux | Microsoft Docs 
+description: Learn how to get a Node.js app working in Azure App Service on Linux, with connection to a Cosmos DB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -13,20 +13,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/31/2017
+ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Build a Node.js and MongoDB web app in Azure Web App for Containers
+# Build a Node.js and MongoDB web app in Azure App Service on Linux
 
-[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js web app and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in Web App for Containers. For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js web app, connect it locally to a MongoDB database, then deploy to Azure connected to a CosmosDB database using the MongoDB API. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in App Service on Linux. For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
 
 ![MEAN.js app running in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 What you learn how to:
 
 > [!div class="checklist"]
-> * Create a MongoDB database in Azure
+> * Create a CosmosDB database using the MongoDB API in Azure
 > * Connect a Node.js app to MongoDB
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
@@ -40,7 +40,7 @@ To complete this tutorial:
 1. [Install Git](https://git-scm.com/)
 1. [Install Node.js v6.0 or above and NPM](https://nodejs.org/)
 1. [Install Gulp.js](http://gulpjs.com/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,9 +54,9 @@ Run `mongo` in the terminal to connect to your local MongoDB server.
 mongo
 ```
 
-If your connection is successful, then your MongoDB database is already running. If not, make sure that your local MongoDB database is started by following the steps at [Install MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). Often, MongoDB is installed, but you still need to start it by running `mongod`. 
+If your connection is successful, then your MongoDB database is already running. If not, make sure that your local MongoDB database is started by following the steps at [Install MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). Often, MongoDB is installed, but you still need to start it by running `mongod`.
 
-When you're done testing your MongoDB database, type `Ctrl+C` in the terminal. 
+When you're done testing your MongoDB database, type `Ctrl+C` in the terminal.
 
 ## Create local Node.js app
 
@@ -64,9 +64,9 @@ In this step, you set up the local Node.js project.
 
 ### Clone the sample application
 
-In the terminal window, `cd` to a working directory.  
+In the terminal window, `cd` to a working directory.
 
-Run the following command to clone the sample repository. 
+Run the following command to clone the sample repository.
 
 ```bash
 git clone https://github.com/Azure-Samples/meanjs.git
@@ -86,7 +86,7 @@ npm start
 
 Ignore the config.domain warning. When the app is fully loaded, you see something similar to the following message:
 
-```
+```txt
 --
 MEAN.JS - Development Environment
 
@@ -106,7 +106,7 @@ The MEAN.js sample application stores user data in the database. If you are succ
 
 Select **Admin > Manage Articles** to add some articles.
 
-To stop Node.js at any time, press `Ctrl+C` in the terminal. 
+To stop Node.js at any time, press `Ctrl+C` in the terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -118,7 +118,7 @@ For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/documentdb/). Cosmos DB
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### Create a Cosmos DB account
 
@@ -144,7 +144,7 @@ When the Cosmos DB account is created, the Azure CLI shows information similar t
   },
   "databaseAccountOfferType": "Standard",
   "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
-  "failoverPolicies": 
+  "failoverPolicies":
   ...
   < Output truncated for readability >
 }
@@ -152,7 +152,7 @@ When the Cosmos DB account is created, the Azure CLI shows information similar t
 
 ## Connect app to production MongoDB
 
-In this step, you connect your MEAN.js sample application to the Cosmos DB database you just created, using a MongoDB connection string. 
+In this step, you connect your MEAN.js sample application to the Cosmos DB database you just created, using a MongoDB connection string.
 
 ### Retrieve the database key
 
@@ -176,9 +176,10 @@ The Azure CLI shows information similar to the following example:
 Copy the value of `primaryMasterKey`. You need this information in the next step.
 
 <a name="devconfig"></a>
+
 ### Configure the connection string in your Node.js application
 
-In your local MEAN.js repository, in the _config/env/_ folder, create a file named _local-production.js_. _.gitignore_ is configured to keep this file out of the repository. 
+In your local MEAN.js repository, in the _config/env/_ folder, create a file named _local-production.js_. _.gitignore_ is configured to keep this file out of the repository.
 
 Copy the following code into it. Be sure to replace the two *\<cosmosdb_name>* placeholders with your Cosmos DB database name, and replace the *\<primary_master_key>* placeholder with the key you copied in the previous step.
 
@@ -190,11 +191,11 @@ module.exports = {
 };
 ```
 
-The `ssl=true` option is required because [Cosmos DB requires SSL](../../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+The `ssl=true` option is required because [Cosmos DB requires SSL](../../cosmos-db/connect-mongodb-account.md#connection-string-requirements).
 
 Save your changes.
 
-### Test the application in production mode 
+### Test the application in production mode
 
 In a local terminal window, run the following command to minify and bundle scripts for the production environment. This process generates the files needed by the production environment.
 
@@ -202,13 +203,13 @@ In a local terminal window, run the following command to minify and bundle scrip
 gulp prod
 ```
 
-In a local terminal window, run the following command to use the connection string you configured in _config/env/production.js_. Ignore the certificate error and the config.domain warning.
+In a local terminal window, run the following command to use the connection string you configured in _config/env/local-production.js_. Ignore the certificate error and the config.domain warning.
 
 ```bash
 NODE_ENV=production node server.js
 ```
 
-`NODE_ENV=production` sets the environment variable that tells Node.js to run in the production environment.  `node server.js` starts the Node.js server with `server.js` in your repository root. This is how your Node.js application is loaded in Azure. 
+`NODE_ENV=production` sets the environment variable that tells Node.js to run in the production environment.  `node server.js` starts the Node.js server with `server.js` in your repository root. This is how your Node.js application is loaded in Azure.
 
 When the app is loaded, check to make sure that it's running in the production environment:
 
@@ -223,31 +224,31 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Navigate to `http://localhost:8443` in a browser. Click **Sign Up** in the top menu and create a test user. If you are successful creating a user and signing in, then your app is writing data to the Cosmos DB database in Azure. 
+Navigate to `http://localhost:8443` in a browser. Click **Sign Up** in the top menu and create a test user. If you are successful creating a user and signing in, then your app is writing data to the Cosmos DB database in Azure.
 
-In the terminal, stop Node.js by typing `Ctrl+C`. 
+In the terminal, stop Node.js by typing `Ctrl+C`.
 
 ## Deploy app to Azure
 
 In this step, you deploy your MongoDB-connected Node.js application to Azure App Service.
 
-### Configure local git deployment 
+### Configure local git deployment
 
 [!INCLUDE [Configure a deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
 ### Create an App Service plan
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### Create a web app
+### Create a linux based web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
 ### Configure an environment variable
 
-Since _config/env/local-production.js_ is not in the Git repository. So for your Azure web app, you use app settings to define your MongoDB connection string.
+By default, the MEAN.js project keeps _config/env/local-production.js_ out of the Git repository. So for your Azure web app, you use app settings to define your MongoDB connection string.
 
-To set app settings, use the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell. 
+To set app settings, use the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell.
 
 The following example configures a `MONGODB_URI` app setting in your Azure web app. Replace the *\<app_name>*, *\<cosmosdb_name>*, and *\<primary_master_key>* placeholders.
 
@@ -257,7 +258,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 In Node.js code, you access this app setting with `process.env.MONGODB_URI`, just like you would access any environment variable. 
 
-In your local MEAN.js repository, open _config/env/production.js_ again, which has production-environment specific configuration. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
+In your local MEAN.js repository, open _config/env/production.js_ (not _config/env/local-production.js_), which has production-environment specific configuration. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
 
 ```javascript
 db: {
@@ -288,32 +289,32 @@ remote: Handling node.js deployment.
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
-``` 
+```
 
-You may notice that the deployment process runs [Gulp](http://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it: 
+You may notice that the deployment process runs [Gulp](http://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it:
 
 - _.deployment_ - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
-- _deploy.sh_ - The custom deployment script. If you review the file, you will see that it runs `gulp prod` after `npm install` and `bower install`. 
+- _deploy.sh_ - The custom deployment script. If you review the file, you will see that it runs `gulp prod` after `npm install` and `bower install`.
 
 You can use this approach to add any step to your Git-based deployment. If you restart your Azure web app at any point, App Service doesn't rerun these automation tasks.
 
-### Browse to the Azure web app 
+### Browse to the Azure web app
 
-Browse to the deployed web app using your web browser. 
+Browse to the deployed web app using your web browser.
 
-```bash 
-http://<app_name>.azurewebsites.net 
-``` 
+```bash
+http://<app_name>.azurewebsites.net
+```
 
-Click **Sign Up** in the top menu and create a dummy user. 
+Click **Sign Up** in the top menu and create a dummy user.
 
-If you are successful and the app automatically signs in to the created user, then your MEAN.js app in Azure has connectivity to the MongoDB (Cosmos DB) database. 
+If you are successful and the app automatically signs in to the created user, then your MEAN.js app in Azure has connectivity to the Cosmos DB database MongoDB API.
 
 ![MEAN.js app running in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Select **Admin > Manage Articles** to add some articles. 
+Select **Admin > Manage Articles** to add some articles.
 
-**Congratulations!** You're running a data-driven Node.js app in Azure App Service.
+**Congratulations!** You're running a data-driven Node.js app in Azure App Service on Linux.
 
 ## Update data model and redeploy
 
@@ -427,7 +428,7 @@ You see the new `Comment` textbox now.
 
 ![Added comment field to Articles](./media/tutorial-nodejs-mongodb-app/added-comment-field.png)
 
-In the terminal, stop Node.js by typing `Ctrl+C`. 
+In the terminal, stop Node.js by typing `Ctrl+C`.
 
 ### Publish changes to Azure
 
@@ -459,12 +460,13 @@ By default, the portal shows your web app's **Overview** page. This page gives y
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
+
 ## Next steps
 
 What you learned:
 
 > [!div class="checklist"]
-> * Create a MongoDB database in Azure
+> * Create a CosmosDB database using the MongoDB API in Azure
 > * Connect a Node.js app to MongoDB
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
@@ -473,5 +475,5 @@ What you learned:
 
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)

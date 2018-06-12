@@ -1,6 +1,6 @@
 ---
-title: Bing Text to Speech API in Microsoft Cognitive Services | Microsoft Docs
-description: Use the Bing text to speech API to provide real-time text-to-speech conversion in a variety of voices and languages
+title: Text to Speech API of Microsoft Speech Service | Microsoft Docs
+description: Use the text to speech API to provide real-time text-to-speech conversion in a variety of voices and languages
 services: cognitive-services
 author: priyaravi20
 manager: yanbo
@@ -21,7 +21,7 @@ With the Bing text to speech API, your application can send HTTP requests to a c
 
 ### <a name="Subscription"></a>Authorization token
 
-Every voice synthesis request requires a JSON Web Token (JWT) access token. The JWT access token is passed through in the speech request header. The token has an expiry time of 10 minutes. For information about subscribing and obtaining API keys that are used to retrieve valid JWT access tokens, see [Get Started for Free](https://www.microsoft.com/cognitive-services/en-US/sign-up?ReturnUrl=/cognitive-services/en-us/subscriptions?productId=%2fproducts%2fBing.Speech.Preview).
+Every voice synthesis request requires a JSON Web Token (JWT) access token. The JWT access token is passed through in the speech request header. The token has an expiry time of 10 minutes. For information about subscribing and obtaining API keys that are used to retrieve valid JWT access tokens, see [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/).
 
 The API key is passed to the token service. For example:
 

@@ -1,11 +1,12 @@
 ---
-title: Set up Cloud App Discovery in Azure Active Directory | Microsoft Docs
-description: Provides information about finding and managing applications with Cloud App Discovery, what are the benefits and how it works.
+title: Set up the Cloud App Discovery service in Azure Active Directory | Microsoft Docs
+description: Find and manage applications with Cloud App Discovery to provide actionable information on cloud use and shadow IT.
 services: active-directory
 keywords: cloud app discovery, managing applications
 documentationcenter: ''
 author: curtand
 manager: femila
+tags: ignite
 
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
@@ -13,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
 
@@ -21,13 +22,12 @@ ms.reviewer: nigu
 
 # Set up Cloud App Discovery in Azure AD
 
-The new Cloud App Discovery enhancements in Azure AD are now available with an Azure Active Directory Premium P1 license. These enhancements are based on integration with Microsoft Cloud App Security. Cloud App Discovery compares your traffic logs to the Cloud App Security catalog of over 15,000 cloud apps to provide you with ongoing information on cloud use and shadow IT. 
+Cloud App Discovery in Azure AD is now based on integration with data available from Microsoft Cloud App Security. To provide ongoing information on cloud use and shadow IT, Cloud App Discovery compares your traffic logs to the Cloud App Security catalog of over 15,000 cloud apps. This article describes the setup process and contains links to the detailed information for each step. It also describes firewall and proxy information and log file support.
 
 ## Prerequisites
 
-Your organization must have an Azure AD Premium P1 license to use the product. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
-
-To set up Cloud App Discovery, you must be a Global Administrator or a Security Reader in Azure Active Directory. A user who is assigned an admin role has the same permissions across all of the cloud apps to which your organization has subscribed.
+* Your organization must have an Azure AD Premium P1 license to use the product. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+* To set up Cloud App Discovery, you must be a Global Administrator or a Security Reader in Azure Active Directory.
 
 ## Setup steps
 
@@ -56,8 +56,7 @@ It can take anywhere from a few minutes to several hours to generate reports dep
 
 ## Using traffic logs for Cloud App Discovery
 
-Cloud App Discovery uses the data in your traffic logs. The more detail you can add in your
-log, the better visibility you get. Cloud App Discovery requires web-traffic data with the following attributes:
+Cloud App Discovery uses the data in your traffic logs. The more detail you can add in your log, the better visibility you get. Cloud App Discovery requires web-traffic data with the following attributes:
 
 * Date of the transaction
 * Source IP address
@@ -68,7 +67,7 @@ log, the better visibility you get. Cloud App Discovery requires web-traffic dat
 * Amount of uploaded or downloaded data, for insights about patterns of cloud app usage
 * Action taken (allowed/blocked)
 
-Cloud App Discovery cannot show or analyze attributes that are not included in your logs. For example, **Cisco ASA Firewall** standard log format does not contain the **Amount of uploaded bytes per transaction**, **Username**, or **Target URL** but only the destination IP address. Thus, you might have less visibility into the cloud apps from this data source. For Cisco ASA firewalls, set the information level to 6.1.
+Cloud App Discovery can't show or analyze attributes that are not included in your logs. For example, **Cisco ASA Firewall** standard log format does not contain the **Amount of uploaded bytes per transaction**, **Username**, or **Target URL** but only the destination IP address. Thus, you might have less visibility into the cloud apps from this data source. For Cisco ASA firewalls, set the information level to 6.1.
 
 In order to successfully generate a Cloud App Discovery report, your traffic logs must meet the following conditions:
 

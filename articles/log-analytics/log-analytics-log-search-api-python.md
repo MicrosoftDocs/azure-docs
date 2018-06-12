@@ -4,7 +4,7 @@ description: The Log Analytics Log Search API allows any REST API client to retr
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.service: log-analytics
@@ -12,13 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
 
 ---
 
 # Retrieve data from Log Analytics with a Python script
 The [Log Analytics Log Search API](log-analytics-log-search-api.md) allows any REST API client to retrieve data from a Log Analytics workspace.  This article presents a sample Python script that uses the Log Analytics Log Search API.  
+
+>[!NOTE]
+> This article uses the Log Search API for the legacy query language in Log Analytics.  An update will be provided to this article for workspaces that have been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md).
 
 ## Authentication
 This script uses a service principal in Azure Active Directory to authenticate to the workspace.  Service principals allow a client application to request that the service authenticate an account even if the client does not have the account name. Before running this script, you must create a service principal using the process at [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md).  You'll need to provide the Application ID, Tenant ID, and Authentication Key to the script. 

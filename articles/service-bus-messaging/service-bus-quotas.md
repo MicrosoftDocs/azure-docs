@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 10/18/2017
 ms.author: sethm
 
 ---
 # Service Bus quotas
-This section lists basic quotas and throttling thresholds in Microsoft Azure Service Bus Messaging.
+This section lists basic quotas and throttling thresholds in Azure Service Bus messaging.
 
 ## Messaging quotas
 [!INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]

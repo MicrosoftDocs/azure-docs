@@ -39,5 +39,4 @@ The Microsoft Graph API requires the `user.read` scope to read the user's profil
 
 <!--end-collapse-->
 
-
-
+[!INCLUDE  [Help and Support Options](../../../../includes/active-directory-develop-help-support-include.md)]

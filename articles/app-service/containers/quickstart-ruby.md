@@ -1,6 +1,6 @@
 ---
-title: Create a Ruby App with Azure Web Apps on Linux | Microsoft Docs
-description: Learn to create Ruby apps with Azure web wpp on Linux.
+title: Create a Ruby App and deploy to App Service on Linux | Microsoft Docs
+description: Learn to create Ruby apps with App Service on Linux.
 keywords: azure app service, linux, oss, ruby
 services: app-service
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2017
+ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
-# Create a Ruby App with Web Apps on Linux
+# Create a Ruby App in App Service on Linux
 
-[Azure Web Apps](../app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -28,7 +28,7 @@ ms.custom: mvc
 
 * [Ruby 2.4.1 or higher](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller).
 * [Git](https://git-scm.com/downloads).
-* An [active Azure subscription](https://azure.microsoft.com/pricing/free-trial/).
+* An [active Azure subscription](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -56,7 +56,7 @@ Using your web browser, navigate to `http://localhost:3000` to test the app loca
 ## Modify app to display welcome message
 
 Modify the application so it displays a welcome message. First, you must setup a route by modifying the *~/workspace/ruby-docs-hello-world/config/routes.rb* file to include a route named `hello`.
-    
+
   ```ruby
   Rails.application.routes.draw do
       #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -166,4 +166,4 @@ http://<app name>.azurewebsites.net
 
 ## Next steps
 
-[Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
+[Azure App Service on Linux FAQ](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)

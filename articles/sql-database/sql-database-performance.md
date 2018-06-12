@@ -13,7 +13,7 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: "Inactive"
 ms.date: 07/19/2016
 ms.author: sstein
 

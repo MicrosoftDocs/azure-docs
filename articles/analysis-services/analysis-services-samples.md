@@ -4,7 +4,7 @@ description: Learn about code, project, and database samples for Azure Analysis 
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

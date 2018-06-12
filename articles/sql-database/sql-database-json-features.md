@@ -13,7 +13,7 @@ ms.custom: develop databases
 ms.devlang: NA
 ms.date: 11/15/2016
 ms.author: jovanpop
-ms.workload: NA
+ms.workload: "On Demand"
 ms.topic: article
 ms.tgt_pltfrm: NA
 

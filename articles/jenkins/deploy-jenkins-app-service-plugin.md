@@ -19,6 +19,7 @@ ms.custom: Jenkins
 ---
 
 # Deploy to Azure App Service by using the Jenkins plugin 
+
 To deploy a Java web app to Azure, you can use the Azure CLI in [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) or you can use the [Azure App Service Jenkins plugin](https://plugins.jenkins.io/azure-app-service). 
 The Jenkins plugin version 1.0 supports continuous deployment by using the Web Apps feature of Azure App Service through:
 * Git and FTP.
@@ -26,11 +27,11 @@ The Jenkins plugin version 1.0 supports continuous deployment by using the Web A
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Configure Jenkins to deploy Web Apps through Git and FTP. 
-> * Configure Jenkins to deploy Web Apps for Containers. 
-
+> * Configure Jenkins to deploy Web Apps through Git and FTP.
+> * Configure Jenkins to deploy Web App for Containers.
 
 ## Create and configure a Jenkins instance
+
 If you don't already have a Jenkins Master, start with the [solution template](install-jenkins-solution-template.md), which includes the Java Development Kit (JDK) version 8 and the following required Jenkins plugins:
 
 * [Jenkins Git client plugin](https://plugins.jenkins.io/git-client) version 2.4.6 
@@ -49,7 +50,7 @@ sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
 ```
 
-To deploy to Web Apps for Containers, install Docker on the Jenkins Master or on the VM agent that is used for the build. For instructions, see [Install Docker on Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
+To deploy to Web App for Containers, install Docker on the Jenkins Master or on the VM agent that is used for the build. For instructions, see [Install Docker on Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
 ##<a name="service-principal"></a> Add an Azure service principal to the Jenkins credentials
 
@@ -126,7 +127,7 @@ The Azure App Service Jenkins plugin is pipeline-ready. You can refer to the fol
 6. Update the **Script Path** value to **Jenkinsfile_ftp_plugin**.
 7. Select **Save** and run the job.
 
-## Configure Jenkins to deploy Web Apps for Containers
+## Configure Jenkins to deploy Web App for Containers
 
 Web Apps on Linux supports deployment by using Docker. To deploy your web app by using Docker, you need to provide a Dockerfile that packages your web app with a service runtime into a Docker image. The Jenkins plugin then builds the image, pushes it to a Docker registry, and deploys the image to your web app.
 
@@ -166,7 +167,7 @@ For the **Docker registry URL** value, supply the URL by using the format https:
 12. Similar to the file upload approach, you can choose a different **Slot** name other than **production**.
 13. Save and build the project. Your container image is pushed to your registry and the web app is deployed.
 
-### Deploy Web Apps for Containers by using Jenkins Pipeline
+### Deploy Web App for Containers by using Jenkins Pipeline
 
 1. In the GitHub interface, open the **Jenkinsfile_container_plugin** file. To edit the file, select the pencil icon. Update the **resourceGroup** and **webAppName** definitions for your web app on lines 11 and 12, respectively:
     ```java
@@ -174,15 +175,15 @@ For the **Docker registry URL** value, supply the URL by using the format https:
     def webAppName = '<myAppName>'
     ```
 
-2. Change line 13 to your container registry server:   
+2. Change line 13 to your container registry server:
     ```java
     def registryServer = '<registryURL>'
-    ```    
+    ```
 
-3. Change line 16 to use the credential ID in your Jenkins instance:  
+3. Change line 16 to use the credential ID in your Jenkins instance:
     ```java
     azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
-    ```    
+    ```
 
 ### Create a Jenkins pipeline    
 
@@ -233,4 +234,4 @@ You learned how to:
 
 > [!div class="checklist"]
 > * Configure Jenkins to deploy Azure App Service through FTP 
-> * Configure Jenkins to deploy to Web Apps for Containers 
+> * Configure Jenkins to deploy to Web App for Containers 

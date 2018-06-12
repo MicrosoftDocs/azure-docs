@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 62a349db-bebe-406f-a120-2f1986f2b286
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

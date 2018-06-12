@@ -3,7 +3,7 @@ title: Use a Linux VM MSI to access Azure Storage
 description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure Storage.
 services: active-directory
 documentationcenter: ''
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
+ms.date: 10/30/2017
 ms.author: elkuzmen
 ---
 
@@ -106,7 +106,7 @@ Azure Storage does not natively support Azure AD authentication.  However, you c
 
 For the remainder of the tutorial, we will work from the VM we created earlier.
 
-To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/install_guide).
+To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
 2. Connect to your VM using your SSH client.  

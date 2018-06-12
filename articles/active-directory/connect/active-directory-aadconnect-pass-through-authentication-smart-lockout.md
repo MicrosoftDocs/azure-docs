@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
 ---
 
@@ -38,6 +38,9 @@ To ensure that your users’ on-premises AD accounts are well protected, you nee
 
 1.	Azure AD’s Lockout Threshold is _less_ than AD’s Account Lockout Threshold. We recommend that you set the values such that AD’s Account Lockout Threshold is at least two or three times Azure AD’s Lockout Threshold.
 2.	Azure AD’s Lockout Duration (represented in seconds) is _longer_ than AD’s Reset Account Lockout Counter After (represented in minutes).
+
+>[!IMPORTANT]
+>Currently an Administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. They will have to wait for the Lockout Duration to expire.
 
 ## Verify your AD Account Lockout policies
 

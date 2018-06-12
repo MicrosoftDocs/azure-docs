@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Developer analytics: languages, platforms, and integrations
@@ -32,7 +32,6 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Anything else](#projects)
 
 ## Platforms and frameworks
-* [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET - for apps that are already live](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)

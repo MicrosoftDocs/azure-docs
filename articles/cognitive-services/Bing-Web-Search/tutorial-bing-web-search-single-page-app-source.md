@@ -473,7 +473,7 @@ function doPrevSearchPage() {
 // --></script>
 
 </head>
-<body onload="document.forms.bing.query.focus(); getSubscriptionKey();">
+<body onload="document.forms.bing.query.focus();">
 
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
     bingSearchOptions(this), getSubscriptionKey())">

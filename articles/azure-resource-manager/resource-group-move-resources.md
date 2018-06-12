@@ -318,6 +318,11 @@ You can move HDInsight clusters to a new subscription or resource group. However
 
 When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
 
+## Search limitations
+
+You cannot move multiple Search resources placed in different regions all at once.
+In such a case, you need to move them separately.
+
 ## Use portal
 
 To move resources, select the resource group containing those resources, and then select the **Move** button.

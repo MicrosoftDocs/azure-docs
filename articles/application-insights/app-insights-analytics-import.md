@@ -4,7 +4,7 @@ description: Import static data to join with app telemetry, or import a separate
 services: application-insights
 keywords: "open schema, data import"
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Import data into Analytics

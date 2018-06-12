@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI Script - Create an Azure Database for PostgreSQL | Microsoft Docs"
-description: "Azure CLI Script Sample - Creates an Azure Database for PostgreSQL server and configures a server-level firewall rule."
+title: Azure CLI Script - Create an Azure Database for PostgreSQL | Microsoft Docs
+description: Azure CLI Script Sample - Creates an Azure Database for PostgreSQL server and configures a server-level firewall rule.
 services: postgresql
 author: salonisonpal
 ms.author: salonis
@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: sample
-ms.date: 05/31/2017
+ms.date: 11/03/2017
 ---
 
 # Create an Azure Database for PostgreSQL server and configure a firewall rule using the Azure CLI
@@ -18,7 +18,7 @@ This sample CLI script creates an Azure Database for PostgreSQL server and confi
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 In this sample script, edit the highlighted lines to customize the admin username and password.

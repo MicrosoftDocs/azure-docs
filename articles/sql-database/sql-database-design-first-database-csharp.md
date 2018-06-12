@@ -10,11 +10,11 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: develop databases, mvc
+ms.custom: develop databases, mvc, devcenter
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: ''
+ms.workload: "On Demand"
 ms.date: 08/25/2017
 ms.author: genemi
 ---

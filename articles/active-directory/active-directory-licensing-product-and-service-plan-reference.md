@@ -1,7 +1,7 @@
 ﻿---
 
-  title: Reference for products and service plans in Azure Active Directory | Microsoft Docs
-  description: Reference for products and service plans
+  title: Product names and service plan identifiers for licensing in Azure Active Directory | Microsoft Docs
+  description: Identifier map to manage Azure AD licensing in the Azure portal, the Office 365 portal, PowerShell, or Microsoft Graph
   services: active-directory
   keywords: Azure Active Directory licensing service plans
   documentationcenter: ''
@@ -15,30 +15,24 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 10/11/2017
+  ms.date: 10/26/2017
   ms.author: piotrci
 
 ---
 
-# Reference for products and service plans in Azure Active Directory
+# Product names and service plan identifiers for licensing
 
-This article provides reference information that you may find useful when working on license management for Microsoft Online Services.
+When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or the Office 365 portal, you see product names that look something like *Office 365 Enterprise E3*. When you use PowerShell v1.0 cmdlets, the same product is identified using a specific but less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 cmdlets or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The following table lists the most commonly used Microsoft online service products and provides their various ID values:
 
-## Product names and identifiers used in Azure AD
-
-When managing licenses in [Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or Office portals you see user-friendly products names, such as *Office 365 Enterprise E3*. However when you use PowerShell v1.0 cmdlets, the same product is identified using a less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The same goes for service plans included in the product.
-
-The following table lists the most commonly used Microsoft Online Services products and provides their various ID values.
-
-- **Product Name**: You see these values in management portals
-- **String Id**: These are used by PowerShell v1.0 cmdlets when performing operations on licenses.
-- **Guid Id**: Azure AD Graph and Microsoft Graph use those.
-- **Service Plans Included**: A list of service plans in the product. The String Id and Guid Id are listed.
+- **Product Name**: Used in management portals
+- **String ID**: Used by PowerShell v1.0 cmdlets when performing operations on licenses
+- **Guid ID**: GUID used by Azure AD Graph and Microsoft Graph
+- **Service Plans Included**: A list of service plans in the product that correspond to the String ID and GUID
 
 >[!NOTE]
->This information is accurate as of October 11, 2017. The table contains a selection of most commonly used products.
+>This information is accurate as of October 11, 2017.
 
-| Product Name | String Id | Guid Id| Service Plans Included |
+| Product Name | String ID | GUID | Service Plans Included |
 | --- | --- | --- |--- |
 | AZURE ACTIVE DIRECTORY BASIC	| AAD_BASIC	| 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7	| AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe)
 | AZURE ACTIVE DIRECTORY PREMIUM P1	| AAD_PREMIUM	| 078d2b04-f1bd-4111-bbd4-b4b1b354cef4	| AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0)
@@ -102,7 +96,7 @@ The following table lists the most commonly used Microsoft Online Services produ
 
 ## Service plans that cannot be assigned at the same time
 
-Some products contain service plans that are mutually exclusive - they cannot be assigned to the same user at the same time. For example, if you have *Office 365 Enterprise E1* and *Office 365 Enterprise E3* in your tenant, and you try to assign both licenses to the same user, the operation fails. This is because the E3 product contains the following service plans that conflict with their E1 counterparts:
+Some products contain service plans that cannot be assigned to the same user at the same time. For example, if you have *Office 365 Enterprise E1* and *Office 365 Enterprise E3* in your tenant, and you try to assign both licenses to the same user, the operation fails. This is because the E3 product contains the following service plans that conflict with their E1 counterparts:
 
 -   SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
@@ -113,21 +107,14 @@ This section lists the most common service plans that are mutually exclusive, gr
 
 ### Service: *Azure Active Directory*
 
-The following service plans cannot be assigned together:
-
 >[!NOTE]
->We are working on modifying these service plans to make it possible to assign them together.
-
-| Service Plan Name | Guid Id |
-| --- | --- |
-| AAD_BASIC	| c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe |
-| AAD_PREMIUM	| 41781fb2-bc02-4b7c-bd55-b576c07bb09d |
+>All service plans related to Azure Active Directory can now be assigned together, to the same user. This simplifies certain license management scenarios, such as moving users from Azure AD Basic to Azure AD Premium P1.
 
 ### Service: *Dynamics CRM*
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | CRMIUR	| c42a56bd-9e70-4ace-be17-dc8eeae369d7 |
 | CRMPLAN1	| 119cf168-b6cf-41fb-b82e-7fee7bae5814 |
@@ -143,7 +130,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | EXCHANGE_B_STANDARD	| 90927877-dcff-4af6-b346-2332c0b15bb7 |
 | EXCHANGE_L_STANDARD	| d42bdbd6-c335-4231-ab3d-c8f348d5aff5 |
@@ -158,7 +145,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | INTUNE_A	| c1ec4a95-1f05-45b3-a911-aa3fa01094f5 |
 | INTUNE_A_VL	| 3e170737-c728-4eae-bbb9-3f3360f7184c |
@@ -168,7 +155,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | ONEDRIVEENTERPRISE	| afcafa6a-d966-4462-918c-ec0b4e0fe642 |
 | SHAREPOINT_S_DEVELOPER	| a361d6e2-509e-4e25-a8ad-950060064ef4 |
@@ -184,7 +171,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | MCOIMP	| afc06cb0-b4f4-4473-8286-d644f70d8faf |
 | MCOSTANDARD_MIDMARKET	| b2669e95-76ef-4e7e-a367-002f60a39f3e |
@@ -193,7 +180,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | MCOPSTN1	| 4ed3ff63-69d7-4fb7-b984-5aec7f605ca8 |
 | MCOPSTN2	| 5a10155d-f5c1-411a-a8ec-e99aae125390 |
@@ -202,7 +189,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | YAMMER_ENTERPRISE	| 7547a3fe-08ee-4ccb-b430-5077c5041653 |
 | YAMMER_EDU	| 2078e8df-cff6-4290-98cb-5408261a760a |
