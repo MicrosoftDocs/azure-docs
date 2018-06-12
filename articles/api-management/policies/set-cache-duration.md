@@ -3,7 +3,7 @@ title: Azure API managment policy sample - Set response cache duration | Microso
 description: Azure API managment policy sample - Demonstrates how to set response cache duration using maxAge value in Cache-Control header sent by the backend..
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

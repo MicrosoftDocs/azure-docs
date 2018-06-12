@@ -11,7 +11,7 @@ tags: azure-portal
 ms.service: hdinsight
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/23/2018
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive

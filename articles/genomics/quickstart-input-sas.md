@@ -47,7 +47,7 @@ There are two ways to create a SAS token, either using Azure Storage Explorer or
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a tool to manage resources that you have stored in Azure Storage.  You can learn more about how to use Azure Storage Explorer [here](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-The SAS for the input files should be scoped to the specific input file (blob). To create a SAS token, follow [these instructions](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Once you have created the SAS, the full URL with the query string as well as the query string by itself are provided and can be copied from the screen.
+The SAS for the input files should be scoped to the specific input file (blob). To create a SAS token, follow [these instructions](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Once you have created the SAS, the full URL with the query string as well as the query string by itself are provided and can be copied from the screen.
 
  ![Genomics SAS Storage Explorer](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Storage Explorer")
 

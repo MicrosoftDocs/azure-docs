@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/22/2018
+ms.date: 05/16/2018
 ms.author: shlo
 
 ---
@@ -97,7 +97,7 @@ Here is how a pipeline is defined in JSON format:
 
 Tag | Description | Type | Required
 --- | ----------- | ---- | --------
-name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>•	Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Yes
+name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br/><ul><li>Maximum number of characters: 140</li><li>Must start with a letter number, or an underscore (_)</li><li>•	Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Yes
 description | Specify the text describing what the pipeline is used for. | String | No
 activities | The **activities** section can have one or more activities defined within it. See the [Activity JSON](#activity-json) section for details about the activities JSON element. | Array | Yes
 parameters | The **parameters** section can have one or more parameters defined within the pipeline, making your pipeline flexible for reuse. | List | No
@@ -130,7 +130,7 @@ Following table describes properties in the activity JSON definition:
 
 Tag | Description | Required
 --- | ----------- | ---------
-name | Name of the activity. Specify a name that represents the action that the activity performs. <br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li></ul>
+name | Name of the activity. Specify a name that represents the action that the activity performs. <br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li></ul>
 description | Text describing what the activity or is used for | Yes
 type | Type of the activity. See the [Data Movement Activities](#data-movement-activities), [Data Transformation Activities](#data-transformation-activities), and [Control Activities](#control-activities) sections for different types of activities. | Yes
 linkedServiceName | Name of the linked service used by the activity.<br/><br/>An activity may require that you specify the linked service that links to the required compute environment. | Yes for HDInsight Activity, Azure Machine Learning Batch Scoring Activity, Stored Procedure Activity. <br/><br/>No for all others
@@ -192,7 +192,7 @@ Control activities have the following top-level structure:
 
 Tag | Description | Required
 --- | ----------- | --------
-name | Name of the activity. Specify a name that represents the action that the activity performs.<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li><ul> 
+name | Name of the activity. Specify a name that represents the action that the activity performs.<br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li><ul> 
 description | Text describing what the activity or is used for | Yes
 type | Type of the activity. See the [data movement activities](#data-movement-activities), [data transformation activities](#data-transformation-activities), and [control activities](#control-activities) sections for different types of activities. | Yes
 typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, click links to the activity in the previous section. | No
@@ -352,7 +352,7 @@ For a complete walkthrough of creating this pipeline, see [Tutorial: transform d
 ## Multiple activities in a pipeline
 The previous two sample pipelines have only one activity in them. You can have more than one activity in a pipeline. If you have multiple activities in a pipeline and subsequent activities are not dependent on previous activities, the activities may run in parallel. 
 
-You can chain two activities by using [activity dependency](#activity-dependency), which defines how subsequent activities depend on previous activities, determining the condition whether to continue executing the next task. An activity can defend on one or more previous activities with different dependency conditions. 
+You can chain two activities by using [activity dependency](#activity-dependency), which defines how subsequent activities depend on previous activities, determining the condition whether to continue executing the next task. An activity can depend on one or more previous activities with different dependency conditions. 
 
 ## Scheduling pipelines
 Pipelines are scheduled by triggers. There are different types of triggers (scheduler trigger, which allows pipelines to be triggered on a wall-clock schedule, as well as manual trigger, which triggers pipelines on-demand). For more information about triggers, see [pipeline execution and triggers](concepts-pipeline-execution-triggers.md) article. 

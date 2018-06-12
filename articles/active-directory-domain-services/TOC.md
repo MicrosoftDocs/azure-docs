@@ -1,4 +1,4 @@
-# [Azure AD Domain Services Documentation](index.md)
+# [Azure AD Domain Services Documentation](index.yml)
 
 # Overview
 ## [What is Azure AD Domain Services?](active-directory-ds-overview.md)
@@ -16,7 +16,7 @@
 ## [Task 2: configure network settings](active-directory-ds-getting-started-network.md)
 ## [Task 3: configure administrator group and enable Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ## [Task 4: update DNS settings for virtual network](active-directory-ds-getting-started-dns.md)
-## [Task 5: enable password synchronization](active-directory-ds-getting-started-password-sync.md)
+## [Task 5: enable password hash synchronization](active-directory-ds-getting-started-password-sync.md)
 
 # How to
 ## [Check a managed domain's health](active-directory-ds-check-health.md)
@@ -56,7 +56,7 @@
 
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Related
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

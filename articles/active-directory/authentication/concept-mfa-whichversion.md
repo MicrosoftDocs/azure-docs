@@ -1,19 +1,16 @@
 ---
 title: Choose between Azure MFA cloud or server | Microsoft Docs
-description: Choose the multi-factor authentication security solution that is right for you by asking, what am I trying to secure and where are my users located.  Then choose cloud, MFA Server or AD FS.
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
+description: Choose the multi-factor authentication security solution that is right for you by asking, what am I trying to secure and where are my users located.
 
-ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 10/02/2017
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
 
 ---
@@ -44,8 +41,8 @@ Next, looking at where our users are located helps to determine the correct solu
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD and on-premises AD using federation with AD FS |● |● |
-| Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - no password sync |● |● |
-| Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - with password sync |● | |
+| Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - no password hash sync or pass-through authentication |● |● |
+| Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - with password hash sync or pass-through authentication |● | |
 | On-premises Active Directory | |● |
 
 ## What features do I need?
@@ -78,5 +75,5 @@ Now that you understand the difference between Azure Multi-Factor Authentication
 
 <center>
 
-[![MFA in the cloud](./media/concept-mfa-whichversion/cloud2.png)](howto-mfa-getstarted.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![MFA Server](howto-mfaserver-deploy.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[![MFA in the cloud](./media/concept-mfa-whichversion/cloud2.png)](howto-mfa-getstarted.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![MFA Server](./media/concept-mfa-whichversion/server2.png)](howto-mfaserver-deploy.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </center>

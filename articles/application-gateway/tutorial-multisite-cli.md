@@ -2,8 +2,8 @@
 title: Create an application gateway with multiple site hosting - Azure CLI | Microsoft Docs
 description: Learn how to create an application gateway that hosts multiple sites using the Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 
 ms.service: application-gateway
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
+ms.author: victorh
 
 ---
 # Create an application gateway with multiple site hosting using the Azure CLI

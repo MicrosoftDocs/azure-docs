@@ -56,7 +56,7 @@ Update your registration with the new customer’s subscription. Azure reports t
 > To carry out this step, you must have [registered Azure Stack](azure-stack-register.md).
 
 1. Open Windows PowerShell with an elevated prompt, and run:  
-    `Connect-AzureRmAccount`
+    `Add-AzureRmAccount`
 2. Type your Azure credentials.
 3. In the PowerShell session, run:
 

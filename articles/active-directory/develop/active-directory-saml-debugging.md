@@ -1,23 +1,24 @@
----
+﻿---
 title: How to debug SAML-based single sign-on to applications in Azure Active Directory | Microsoft Docs
 description: 'Learn how to debug SAML-based single sign-on to applications in Azure Active Directory '
 services: active-directory
-author: asmalser-msft
+author: CelesteDG
 documentationcenter: na
 manager: mtillman
 
 ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/20/2017
-ms.author: asmalser
+ms.author: celested
 ms.custom: aaddev
-ms.reviewer: dastrock
-
+ms.reviewer: dastrock; smalser
 ---
+
 # How to debug SAML-based single sign-on to applications in Azure Active Directory
 
 When debugging a SAML-based application integration, it is often helpful to use a tool like [Fiddler](http://www.telerik.com/fiddler) to see the SAML request and the SAML response that contain the SAML token that was issued to an application. 
@@ -92,7 +93,7 @@ You can also copy the value in the **SAMLrequest** and use another Base64 decode
 
 Visit [Error on application’s page after signing in](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML) troubleshooting guidance for more information on what may be missing or wrong in the SAML response.
 
-For information on how to review the SAML response visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML#response).
+For information on how to review the SAML response visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML#response).
 
 
 ## Related Articles

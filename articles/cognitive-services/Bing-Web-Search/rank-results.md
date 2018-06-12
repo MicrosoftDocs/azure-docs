@@ -39,14 +39,14 @@ The following shows an example [RankingResponse](https://docs.microsoft.com/rest
         "value" : [
             {
                 "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.0",
-                "name" : "Porsche Motor Sports - Porsche live at the race track ...",
+                "name" : "Motor Sports - Live at the race track ...",
                 "url" : "http:\/\/www.bing.com\/cr?IG=96C4CF214A0A43...",
-                "displayUrl" : "www.porsche.com\/usa\/eventsandracing\/motorsport",
+                "displayUrl" : "www.contoso.com\/usa\/eventsandracing\/motorsport",
                 "snippet" : "Here you will find detailed information about racing...",
                 "deepLinks" : [{
                     "name" : "Customer Racing",
                     "url" : "http:\/\/www.bing.com\/cr?IG=96C4CF214A0A43...",
-                    "snippet" : "Porsche customer racing news; General news..."
+                    "snippet" : "Customer racing news; General news..."
             },
             . . .  
         ]  
@@ -58,15 +58,15 @@ The following shows an example [RankingResponse](https://docs.microsoft.com/rest
         "isFamilyFriendly" : true,
         "value" : [
             {
-                "name" : "2016 Porsche 919 Hybrid Wallpapers & HD Images - WSupercars",
+                "name" : "2016 Supercar Wallpapers",
                 "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=96C4...",
                 "thumbnailUrl" : "https:\/\/tse1.mm.bing.net\/th?id=OIP...",
                 "datePublished" : "2017-03-25T11:14:00",
-                "contentUrl" : "http:\/\/www.wsupercars.com\/wall...",
+                "contentUrl" : "http:\/\/www.contoso.com\/wall...",
                 "hostPageUrl" : "http:\/\/www.bing.com\/cr?IG=96C4CF214...",
                 "contentSize" : "373283 B",
                 "encodingFormat" : "jpeg",
-                "hostPageDisplayUrl" : "http:\/\/www.wsupercars.com\/lmp-...",
+                "hostPageDisplayUrl" : "http:\/\/www.contoso.com\/lmp-...",
                 "width" : 1920,
                 "height" : 1080,
                 "thumbnail" : {
@@ -85,8 +85,8 @@ The following shows an example [RankingResponse](https://docs.microsoft.com/rest
         "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#RelatedSearches",
         "value" : [
             {
-                "text" : "porsche racing teams",
-                "displayText" : "porsche racing teams",
+                "text" : "vintage racing teams",
+                "displayText" : "vintage racing teams",
                 "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=96C4CF2..."
             },
             . . .  
@@ -99,20 +99,20 @@ The following shows an example [RankingResponse](https://docs.microsoft.com/rest
         "isFamilyFriendly" : true,
         "value" : [
             {
-                "name" : "Porsche: Why We Race",
+                "name" : "Why We Race",
                 "description" : "A new era begins in motorsports this weekend...",
                 "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=96C4CF2...",
                 "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?id=OVP.Vo1...",
                 "datePublished" : "2014-01-25T16:31:48",
                 "publisher" : [
                     {
-                        "name" : "YouTube"
+                        "name" : "Fabrikam"
                     }
                 ],
-                "contentUrl" : "https:\/\/www.youtube.com\/watch?v=oL...",
+                "contentUrl" : "https:\/\/www.fabrikam.com\/watch?v=oL...",
                 "hostPageUrl" : "https:\/\/www.bing.com\/cr?IG=96C4CF214...",
                 "encodingFormat" : "mp4",
-                "hostPageDisplayUrl" : "https:\/\/www.youtube.com\/watch?v=oLAZgD...",
+                "hostPageDisplayUrl" : "https:\/\/www.fabrikam.com\/watch?v=oLAZgD...",
                 "width" : 480,
                 "height" : 360,
                 "duration" : "PT2M42S",

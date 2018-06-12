@@ -22,12 +22,12 @@ This article outlines the developer tools services variations and considerations
 
 ## DevTest Labs
 DevTest Labs is generally available in Azure Government.
-For more information, see [DevTest Labs public documentation](../devtest-lab/devtest-lab-overview.md).
+For more information, see [DevTest Labs public documentation](../lab-services/devtest-lab-overview.md).
 
 ### Variations
 The following DevTest Labs features are not currently available in Azure Government:
-* [Azure Resource Manager templates to create multi-VM environments and PaaS resources within a Lab](../devtest-lab/devtest-lab-create-environment-from-arm.md).
-* Connect to an external GitHub repository to add Azure Resource Manager Templates, however [adding artifact repositories to leverage custom artifacts](../devtest-lab/devtest-lab-add-artifact-repo.md) is available.
+* [Azure Resource Manager templates to create multi-VM environments and PaaS resources within a Lab](../lab-services/devtest-lab-create-environment-from-arm.md).
+* Connect to an external GitHub repository to add Azure Resource Manager Templates, however [adding artifact repositories to leverage custom artifacts](../lab-services/devtest-lab-add-artifact-repo.md) is available.
 * Auto shutdown feature for Azure compute VMs, however, setting auto shutdown for [Labs](https://azure.microsoft.com/updates/azure-devtest-labs-auto-shutdown-notification/) and [Lab Virtual Machines](https://azure.microsoft.com/updates/azure-devtest-labs-set-auto-shutdown-for-a-single-lab-vm/) is available.  
  
 

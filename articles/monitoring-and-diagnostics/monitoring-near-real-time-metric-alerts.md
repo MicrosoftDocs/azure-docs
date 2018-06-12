@@ -1,39 +1,20 @@
 ---
-title: Newer metric alerts in Azure Monitor supported resources | Microsoft Docs
+title: Supported resources for newer Azure Monitor metric alerts
 description: Reference on support metrics and logs for newer Azure near real-time metric alerts.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/26/2018
-ms.author: snmuvva, vinagara
-ms.custom: 
-
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 04/27/2018
+ms.author: snmuvva
+ms.component: alerts
 ---
 
-# Newer metric alerts for Azure services in the Azure portal
-Azure Monitor now supports a new metric alert type. The newer alerts differ from [classic metric alerts](insights-alerts-portal.md) in a few ways:
-
-- **Improved latency**: Newer metric alerts can run as frequently as every one minute. Older metric alerts always run at a frequency of 5 minutes. Log alerts still have a longer than 1 minute delay due to the time is takes to ingest the logs. 
-- **Support for multi-dimensional metrics**: You can alert on dimensional metrics allowing you to monitor an only an interesting segment of the metric. 
-- **More control over metric conditions**: You can define richer alert rules. The newer alerts support monitoring the maximum, minimum, average, and total values of metrics. 
-- **Combined monitoring of multiple metrics**: You can monitor multiple metrics (currently, up to two metrics) with a single rule. An alert is triggered if both metrics breach their respective thresholds for the specified time-period. 
-- **Better notification system**: All newer alerts use [action groups](monitoring-action-groups.md), which are named groups of notifications and actions that can be reused in multiple alerts. Classic metric alerts and older Log Analytics alerts do not use action groups. 
-- **Metrics from Logs** (limited public preview): Log data going into Log Analytics can now be extracted and converted into Azure Monitor metrics and then alerted on just like other metrics. 
-
-To learn how to create a newer metric alert in Azure portal, see [Create an alert rule in the Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). After creation, you can manage the alert by using the steps described in [Manage your alerts in the Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
+# Supported metrics and creation methods for new metric alerts
+Azure Monitor now supports a [new metric alert type](monitoring-overview-unified-alerts.md) which has significant benefits over the older [classic metric alerts](insights-alerts-portal.md). The older alerts support a [large list of metrics](monitoring-supported-metrics.md). The newer alerts support a (growing) subset of that larger list. This article lists that subset. 
 
 ## Portal, PowerShell, CLI, REST support
-Currently, you can create newer metric alerts only in the Azure portal or REST API. Support for configuring newer alerts  using PowerShell and the the Azure command-line interface (Azure CLI 2.0) is coming soon.
+Currently, you can create newer metric alerts only in the Azure portal, [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) or [Resource Manager Templates](monitoring-create-metric-alerts-with-templates.md). Support for configuring newer alerts  using PowerShell and the the Azure command-line interface (Azure CLI 2.0) is coming soon.
 
 ## Metrics and Dimensions Supported
 Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
@@ -48,13 +29,19 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Cache/Redis     |    N/A     |[Redis Cache](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.Compute/virtualMachines     |    N/A     | [Virtual Machines](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Virtual Machine scale sets](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.ContainerInstance/containerGroups | Yes| [Container groups](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
+|Microsoft.DataFactory/datafactories| Yes| [Data Factories V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories     |   Yes     |[Data Factories V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   N/A      |[DB for MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/A     | [DB for PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
 |Microsoft.EventHub/namespaces     |  Yes      |[Event Hubs](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.KeyVault/vaults| No | [Vaults](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/A     | [Application Gateways](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/dnsZones | N/A| [DNS Zones](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
+|Microsoft.Network/loadBalancers (only for Standard SKUs)| Yes| [Load Balancers](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses     |  N/A       |[Public IP Addreses](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.PowerBIDedicated/capacities | N/A | [Capacities](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices     |   N/A      |[Search services](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  Yes       |[Service Bus](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    Yes     | [Storage Accounts](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|

@@ -3,10 +3,11 @@ title: Unlink Azure Automation account from Log Analytics
 description: This article provides an overview of how to unlink your Azure Automation account from a Log Analytics workspace.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/04/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # How to unlink your Automation account from a Log Analytics workspace

@@ -10,6 +10,7 @@ ms.date: 03/09/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
+ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
 
@@ -239,7 +240,7 @@ Require C-suite executives, high-level managers, critical IT and security person
 
 #### Use dedicated workstations for administration for Azure AD
 
-Attackers may attempt to target privileged accounts to gain access to an organization’s data and systems so they can disrupt the integrity and authenticity of data, through malicious code that alters the program logic or snoops the admin entering a credential. Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily use workstations and devices provides very strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-The-Ticket. By deploying privileged access workstations, you can reduce the risk that admins enter admin credentials except on a desktop environment that has been hardened. For more information, see [Privileged Access Workstations](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Attackers may attempt to target privileged accounts to gain access to an organization’s data and systems so they can disrupt the integrity and authenticity of data, through malicious code that alters the program logic or snoops the admin entering a credential. Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily use workstations and devices provides very strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-The-Ticket. By deploying privileged access workstations, you can reduce the risk that admins enter admin credentials except on a desktop environment that has been hardened. For more information, see [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### Review National Institute of Standards and Technology recommendations for handling incidents 
 

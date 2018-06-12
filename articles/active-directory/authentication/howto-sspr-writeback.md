@@ -1,22 +1,17 @@
 ---
 title: 'Azure AD SSPR with password writeback | Microsoft Docs'
 description: Use Azure AD and Azure AD Connect to writeback passwords to an on-premises directory
+
 services: active-directory
-keywords: Active directory password management, password management, Azure AD self service password reset
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 01/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.assetid: 
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
 
 ---
 # Password writeback overview

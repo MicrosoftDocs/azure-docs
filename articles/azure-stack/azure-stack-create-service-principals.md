@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a Service Principal for Azure Stack | Microsoft Docs
 description: Describes how to create a new service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
@@ -74,7 +74,7 @@ The script is run from the privileged endpoint on an ERCS virtual machine.
 
 
 Requirements:
-- A certified is required.
+- A certificate is required.
 
 **Parameters**
 
@@ -126,7 +126,7 @@ Once the Service Principal is created, you must [assign it to a role](azure-stac
 Once you've assigned a role, you can sign in to Azure Stack using the service principal with the following command:
 
 ```powershell
-Connect-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
+Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
  -ApplicationId $servicePrincipal.ApplicationId ` 

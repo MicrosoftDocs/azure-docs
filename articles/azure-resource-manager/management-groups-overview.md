@@ -8,7 +8,7 @@ editor: ''
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
@@ -68,7 +68,7 @@ Each directory is given a single top-level management group called the "Root" ma
 
 Azure Management Groups supports [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) for all resource accesses and role definitions. These permissions are inherited to child resources that exist in the hierarchy.   
 
-While any [built-in RBAC role](../role-based-access-control/overview.md#built-in-roles) can be assigned to a management group, there are four roles that are commonly used: 
+While any [built-in RBAC role](../role-based-access-control/built-in-roles.md) can be assigned to a management group, there are four roles that are commonly used: 
 - **Owner** has full access to all resources including the right to delegate access to others. 
 - **Contributor** can create and manage all types of Azure resources but can't grant access to others.
 - **Resource Policy Contributor** can create and manage policies in the directory on the resources.     
@@ -81,5 +81,5 @@ To learn more about management groups, see:
 - [How to change, delete, or manage your management groups](management-groups-manage.md)
 - [Install the Azure PowerShell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [Install the Azure CLI extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Install the Azure CLI extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
 

@@ -1,17 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Understand Azure IoT Edge modules | Microsoft Docs 
 description: Learn about Azure IoT Edge modules and how they are configured
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 02/15/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
+services: iot-edge
 ---
 
 # Understand Azure IoT Edge modules - preview

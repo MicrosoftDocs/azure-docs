@@ -50,7 +50,7 @@ Learn how to use all the [review tool's features](Review-Tool-User-Guide/human-i
 
 ### Use the APIs
 
-Now that you have explored the content moderation and review tool experience, learn how to integrate Content Moderator with your business applications. Use the following section to learn more and fast-track your understanding with the [SDKs and samples](sdk-and-samples.md).
+Now that you've explored the content moderation and review tool experience, learn how to integrate Content Moderator with your business applications. Use the following section to learn more and fast-track your understanding with the SDKs and samples.
 
 ## Start with the APIs
 

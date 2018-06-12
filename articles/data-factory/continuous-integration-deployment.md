@@ -10,8 +10,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/11/2018
+ms.topic: conceptual
+ms.date: 04/30/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -19,6 +19,10 @@ ms.author: douglasl
 Continuous Integration is the practice of testing each change done to your codebase automatically and as early as possible. Continuous Deployment follows the testing that happens during Continuous Integration and pushes changes to a staging or production system.
 
 For Azure Data Factory, continuous integration & deployment means moving Data Factory pipelines from one environment (development, test, production) to another. To do continuous integration & deployment, you can use Data Factory UI integration with Azure Resource Manager templates. The Data Factory UI can generate a Resource Manager template when you select the **ARM template** options. When you select **Export ARM template**, the portal generates the Resource Manager template for the data factory and a configuration file that includes all your connections strings and other parameters. Then you have to create one configuration file for each environment (development, test, production). The main Resource Manager template file remains the same for all the environments.
+
+For a nine-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## Create a Resource Manager template for each environment
 Select **Export ARM template** to export the Resource Manager template for your data factory in the development environment.

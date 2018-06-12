@@ -1,13 +1,14 @@
-﻿---
+---
 title: Azure Automation DSC Overview
 description: An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues
 keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 
@@ -23,7 +24,7 @@ Azure Automation DSC provides several advantages over using DSC outside of Azure
 
 ### Built-in pull server
 
-Azure Automation provides a [DSC pull server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver) so that target nodes automatically receive configurations, conform to the desired state, and report back on their compliance.
+Azure Automation provides a [DSC pull server](https://msdn.microsoft.com/powershell/dsc/pullserver) so that target nodes automatically receive configurations, conform to the desired state, and report back on their compliance.
 The built-in pull server in Azure Automation eliminates the need to set up and maintain your own pull server.
 Azure Automation can target virtual or physical Windows or Linux machines, in the cloud or on-premises.
 

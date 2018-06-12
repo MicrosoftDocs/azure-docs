@@ -4,13 +4,13 @@ description: Tutorial on how to use Active Directory B2C to protect an ASP.NET w
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
 
 ms.author: davidmu
 ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
+ms.service: active-directory
+ms.component: B2C
 ---
 
 # Tutorial: Grant access to an ASP.NET web API from a web app using Azure Active Directory B2C

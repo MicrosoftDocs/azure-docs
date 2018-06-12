@@ -3,7 +3,7 @@ title:  Cloud Foundry on Azure
 description: Cloud Foundry on Azure
 services: multiple
 author: czeumault
-manager: carolz
+manager: jeconnoc
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
@@ -30,6 +30,7 @@ ms.author: carolz
 <h2>Resources</h2>
 <p>See the following links for additional reference materials and tools for working with Cloud Foundry on Azure.<p>
 <a href="https://pivotal.io/partners/microsoft">Pivotal Cloud Foundry on Azure</a><br/>
+<a href="/azure/cloudfoundry/how-cloud-foundry-integrates-with-azure">Integrate Cloud Foundry with Azure</a><br/>
 <a href="https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html">Installing Cloud Foundry on Azure</a><br/>
 <a href="https://github.com/Microsoft/vsts-cloudfoundry">Visual Studio Team Services plugin for Cloud Foundry</a><br/>
 <a href="https://github.com/Azure/oms-log-analytics-firehose-nozzle">Microsoft Log Analytics Nozzle for Cloud Foundry</a><br/>

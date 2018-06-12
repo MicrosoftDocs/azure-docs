@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
-ms.author: garye;gibattag
+ms.author: garye
+ms.reviewer: gibattag
 
 ---
 

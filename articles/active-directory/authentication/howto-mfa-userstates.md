@@ -1,23 +1,19 @@
 ---
 title: Microsoft Azure Multi-Factor Authentication User States
 description: Learn about user states in Azure Multi-Factor Authentication.
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
 
-ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/26/2017
-ms.author: joflore
-ms.reviewer: richagi
-ms.custom: it-pro
----
 
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+
+---
 # How to require two-step verification for a user or group
 
 You can take one of two approaches for requiring two-step verification. The first option is to enable each user for Azure Multi-Factor Authentication (MFA). When users are enabled individually, they perform two-step verification each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remembered devices_ feature is turned on). The second option is to set up a conditional access policy that requires two-step verification under certain conditions.

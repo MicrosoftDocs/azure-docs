@@ -6,8 +6,8 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: carlrab
 
 ---
@@ -28,7 +28,6 @@ For single databases, the following tables show the resources available for a si
 | Max storage choices (GB) | 2 |
 | Max in-memory OLTP storage (GB) |N/A |
 | Max concurrent workers (requests) | 30 |
-| Max concurrent logins | 30 |
 | Max concurrent sessions | 300 |
 |||
 
@@ -40,7 +39,6 @@ For single databases, the following tables show the resources available for a si
 | Max storage choices (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |
 | Max concurrent workers (requests)| 60 | 90 | 120 | 200 |
-| Max concurrent logins | 60 | 90 | 120 | 200 |
 | Max concurrent sessions |600 | 900 | 1200 | 2400 |
 ||||||
 
@@ -52,7 +50,6 @@ For single databases, the following tables show the resources available for a si
 | Max storage choices (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |N/A |
 | Max concurrent workers (requests)| 400 | 800 | 1600 | 3200 |6000 |
-| Max concurrent logins | 400 | 800 | 1600 | 3200 |6000 |
 | Max concurrent sessions |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
@@ -64,17 +61,15 @@ For single databases, the following tables show the resources available for a si
 | Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
 | Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Max concurrent logins | 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
 
 > [!IMPORTANT]
-> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+> - Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-> 
-
+> - More than 1 TB of storage in the Premium tier is available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. More widespread availability is planned. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>
 
 ## Single database: Change storage size
 
@@ -136,7 +131,6 @@ For SQL Database elastic pools, the following tables show the resources availabl
 | Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Max concurrent logins per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
 | Min eDTUs choices per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | Max eDTUs choices per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
@@ -152,7 +146,6 @@ For SQL Database elastic pools, the following tables show the resources availabl
 | Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | 
 | Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Max concurrent logins per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Min eDTUs choices per database | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Max eDTUs choices per database | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
@@ -168,7 +161,6 @@ For SQL Database elastic pools, the following tables show the resources availabl
 | Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | 
 | Max number DBs per pool | 500 | 500 | 500 | 500 | 500 | 
 | Max concurrent workers (requests) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Max concurrent logins per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Min eDTUs choices per database | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Max eDTUs choices per database | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
@@ -184,7 +176,6 @@ For SQL Database elastic pools, the following tables show the resources availabl
 | Max In-Memory OLTP storage per pool (GB) | 1 | 2 | 4 | 10 | 12 | 
 | Max number DBs per pool | 50 | 100 | 100 | 100 | 100 | 
 | Max concurrent workers per pool (requests) | 200 | 400 | 800 | 1600 | 2400 | 
-| Max concurrent logins per pool | 200 | 400 | 800 | 1600 | 2400 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Min eDTUs per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
 | Max eDTUs per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
@@ -200,7 +191,6 @@ For SQL Database elastic pools, the following tables show the resources availabl
 | Max In-Memory OLTP storage per pool (GB) | 16 | 20 | 24 | 28 | 32 |
 | Max number DBs per pool | 100 | 100 | 100 | 100 | 100 | 
 | Max concurrent workers (requests) per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Max concurrent logins per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Min eDTUs choices per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
 | Max eDTUs choices per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
@@ -208,9 +198,9 @@ For SQL Database elastic pools, the following tables show the resources availabl
 ||||||||
 
 > [!IMPORTANT]
-> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
+> - Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> - More than 1 TB of storage in the Premium tier is available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. More widespread availability is planned. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 >
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.

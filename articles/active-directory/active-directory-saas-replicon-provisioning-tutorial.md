@@ -70,7 +70,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Replicon. Once decided, you can assign these users and/or groups to Replicon by following the instructions here:
 
-*   [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Assign a user or group to an enterprise app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Replicon
 
@@ -103,17 +103,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, **Admin Password**, **CompanyId**, and **Domain** of your Replicon's account. Examples of these values are:
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Replicon Tenant. Example: contosoadmin.
+	*   In the **Admin Username** field, populate the username of the admin account on your Replicon tenant. Example: contosoadmin.
 
 	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
-	*   In the **CompanyId** field, populate the CompanyId of your Replicon tenant. Example: The CompanyID based on the below log-in, is Contoso.
+	*   In the **CompanyId** field, populate the CompanyId of your Replicon tenant. Example: The CompanyID based on the log-in below is Contoso.
 
 	![Replicon Login](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconLogin.png)
 
 	*   In the **Domain** field, populate the Domain as described in Step 6.
 	
-6. Obtain **serviceEndpointRootURL** for your Replicon tenant account based on steps mentioned at, [Replicon Service Help](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Upon obtaining the URL , the **domain** would be the subdomain of **serviceEndpointRootURL** as highlighted. 
+6. Obtain **serviceEndpointRootURL** for your Replicon tenant account based on steps mentioned in [Replicon Service Help](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Upon obtaining the URL , the **domain** would be the subdomain of **serviceEndpointRootURL** as highlighted. 
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconEndpoint.png)
 
@@ -155,8 +155,8 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Managing user account provisioning for Enterprise Apps](manage-apps/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

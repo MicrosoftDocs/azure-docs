@@ -3,9 +3,8 @@ title: 'Transform data using Spark in Azure Data Factory | Microsoft Docs'
 description: 'This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -13,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: shengc
+ms.author: douglasl
 ---
 # Transform data in the cloud by using Spark activity in Azure Data Factory
 In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that transforms data using Spark Activity and an on-demand HDInsight linked service. You perform the following steps in this tutorial:

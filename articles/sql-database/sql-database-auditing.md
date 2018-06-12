@@ -6,7 +6,7 @@ author: giladm
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: giladm
 
@@ -70,12 +70,12 @@ The following section describes the configuration of auditing using the Azure po
 
     ![Navigation pane][3]
 5. To open the **Audit Logs Storage** blade, select **Storage Details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
-   >[!TIP]
-   >To get the most out of the auditing reports templates, use the same storage account for all audited databases.
+    >[!TIP]
+    >To get the most out of the auditing reports templates, use the same storage account for all audited databases.
 
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
-6. If you want to customize the audited events, you can do this via PowerShell or the REST API.
+6. If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
 7. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
 8. Click **Save**.
 
@@ -148,8 +148,8 @@ With geo-replicated databases, when you enable auditing on the primary database 
    * Blob auditing must be enabled on the *primary database itself*, not the server.
    * After blob auditing is enabled on the primary database, it will also become enabled on the secondary database.
 
-     >[!IMPORTANT]
-     >With database-level auditing, the storage settings for the secondary database will be identical to those of the primary database, causing cross-regional traffic. We recommend that you enable only server-level auditing, and leave the database-level auditing disabled for all databases.
+    >[!IMPORTANT]
+    >With database-level auditing, the storage settings for the secondary database will be identical to those of the primary database, causing cross-regional traffic. We recommend that you enable only server-level auditing, and leave the database-level auditing disabled for all databases.
 <br>
 
 ### <a id="subheading-6">Storage key regeneration</a>
@@ -168,33 +168,41 @@ In production, you are likely to refresh your storage keys periodically. When re
 
 * For details about the log format, hierarchy of the storage folder and naming conventions, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
 
-   > [!IMPORTANT]
-   > Azure SQL Database Audit stores 4000 characters of data for character fields in an audit record. When the **statement** or the **data_sensitivity_information** values returned from an auditable action contain more than 4000 characters, any data beyond the first 4000 characters will be **truncated and not audited**.
+    > [!IMPORTANT]
+    > Azure SQL Database Audit stores 4000 characters of data for character fields in an audit record. When the **statement** or the **data_sensitivity_information** values returned from an auditable action contain more than 4000 characters, any data beyond the first 4000 characters will be **truncated and not audited**.
 
-* Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
-   * **Premium Storage** is currently **not supported** by Append Blobs.
-   * **Storage in VNet** is currently **not supported**.
+* Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription:
+    * **Premium Storage** is currently **not supported** by Append Blobs.
+    * **Storage in VNet** is currently **not supported**.
 
-## Manage SQL database auditing using Azure PowerShell
+* The default auditing policy includes all actions and the following set of action groups, which will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:
 
-* **PowerShell cmdlets**:
+    BATCH_COMPLETED_GROUP<br>
+    SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP<br>
+    FAILED_DATABASE_AUTHENTICATION_GROUP
 
-   * [Get-AzureRMSqlDatabaseAuditing][101]
-   * [Get-AzureRMSqlServerAuditing][102]
-   * [Set-AzureRMSqlDatabaseAuditing][105]
-   * [Set-AzureRMSqlServerAuditing][106]
+    You can configure auditing for different types of actions and action groups using PowerShell, as described in the [Manage SQL database auditing using Azure PowerShell](#subheading-7) section.
 
-   For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+## <a id="subheading-7"></a>Manage SQL database auditing using Azure PowerShell
 
-## Manage SQL database auditing using REST API
+**PowerShell cmdlets**:
 
-* **REST API - Blob auditing**:
+* [Create or Update Database Blob Auditing Policy (Set-AzureRMSqlDatabaseAuditing)][105]
+* [Create or Update Server Blob Auditing Policy (Set-AzureRMSqlServerAuditing)][106]
+* [Get Database Auditing Policy (Get-AzureRMSqlDatabaseAuditing)][101]
+* [Get Server Blob Auditing Policy (Get-AzureRMSqlServerAuditing)][102]
 
-   * [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-   * [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-   * [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-   * [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx)
-   * [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
+For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+## <a id="subheading-9"></a>Manage SQL database auditing using REST API
+
+**REST API - Blob auditing**:
+
+* [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx)
+* [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx)
+* [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx)
+* [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 
 <!--Anchors-->
@@ -203,8 +211,9 @@ In production, you are likely to refresh your storage keys periodically. When re
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Automation (PowerShell / REST API)]: #subheading-7
+[Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
+[Manage SQL database auditing using REST API]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
