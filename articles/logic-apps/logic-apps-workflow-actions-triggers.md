@@ -306,22 +306,23 @@ see [Create and schedule regularly running tasks](../connectors/connectors-nativ
 
 This trigger makes your logic app callable by creating 
 an endpoint that can accept incoming HTTP requests. 
-To call this trigger, you must use the `listCallbackUrl` API in the 
-[Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
-To learn how to use this trigger as an HTTP endpoint, see 
-[Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
+For this trigger, provide a JSON schema for describing 
+and validating the payload or inputs that the trigger 
+receives from the incoming request. 
+This schema helps subsequent workflow actions 
+know the properties to reference.
 
 ```json
 "manual": {
    "type": "Request",
    "kind": "Http",
    "inputs": {
-      "method": "GET | POST | PUT | PATCH | DELETE | HEAD",
+      "method": "<method-type>",
       "relativePath": "<relative-path-for-accepted-parameter>",
       "schema": {
          "type": "object",
          "properties": { 
-            "<propertyName>": {
+            "<property-name>": {
                "type": "<property-type>"
             }
          },
@@ -331,41 +332,42 @@ To learn how to use this trigger as an HTTP endpoint, see
 }
 ```
 
+To call this trigger, you must use the `listCallbackUrl` API in the 
+[Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
+To learn how to use this trigger as an HTTP endpoint, see 
+[Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
+
 *Required*
 
-| Element | Type | Description | 
-|---------|------|-------------| 
-| manual | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
-| type | String | The trigger type, which is "Request" | 
-| kind | String | The type of request, which is "Http" | 
-| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*property-name*> | String | The name of a property in the JSON schema that describes the payload | 
+| <*property-type*> | String | The property's type | 
 |||| 
 
 *Optional*
 
-| Element | Type | Description | 
-|---------|------|-------------| 
-| method | String | The method that requests must use to call the trigger: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" |
-| relativePath | String | The relative path for the parameter that your HTTP endpoint's URL accepts | 
-| schema | JSON Object | The JSON schema that describes and validates the payload, or inputs, that the trigger receives from the incoming request. This schema helps subsequent workflow actions know the properties to reference. | 
-| properties | JSON Object | One or more properties in the JSON schema that describes the payload | 
-| required | Array | One or more properties that require values | 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*method-type*> | String | The method that incoming requests must use to call your logic app: "GET", "PUT", "POST", "PATCH", "DELETE" |
+| <*relative-path-for-accepted-parameter*> | String | The relative path for the parameter accepted by your endpoint's URL | 
+| <*required-properties*> | Array | One or more properties that require values | 
 |||| 
 
 *Example*
 
 This request trigger specifies that an incoming request 
-use the HTTP POST method to call the trigger and a 
+must use the HTTP POST method to call the trigger and a 
 schema that validates input from the incoming request: 
 
 ```json
-"myRequestTrigger": {
+"manual": {
    "type": "Request",
    "kind": "Http",
    "inputs": {
       "method": "POST",
       "schema": {
-         "type": "Object",
+         "type": "object",
          "properties": {
             "customerName": {
                "type": "String"
@@ -374,17 +376,17 @@ schema that validates input from the incoming request:
                "type": "Object",
                "properties": {
                   "streetAddress": {
-                     "type": "String"
+                     "type": "string"
                   },
                   "city": {
-                     "type": "String"
+                     "type": "string"
                   }
                }
             }
          }
       }
    }
-} 
+}
 ```
 
 <a name="http-trigger"></a>
