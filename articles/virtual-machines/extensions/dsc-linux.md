@@ -4,16 +4,16 @@ description: Installs OMI and DSC packages to allow VM to be configured using DS
 services: virtual-machines-linux 
 documentationcenter: ''
 author: balukambala
-manager: timlt 
+manager: jeconnoc 
 editor: ''
 
-ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
+ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/21/2017
+ms.date: 06/12/2018
 ms.author: danis
 
 ---
