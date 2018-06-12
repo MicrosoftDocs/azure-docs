@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor Azure Functions
 description: Learn how to use Azure Application Insights with Azure Functions for monitoring function execution.
 services: functions
