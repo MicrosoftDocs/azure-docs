@@ -104,6 +104,13 @@ If you [pay by invoicing](billing-how-to-pay-by-invoice.md), send your payment t
 
 [Create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to ask for the status of your payment. 
 
+## Are there different Azure customer types? How do I know what customer-type I am?
+There are different types of Azure customers. To better understand your pricing and bill, see the following customer-type descriptions.
+
+- **Enterprise**: Enterprise customers have signed an Enterprise Agreement with Azure to make negotiated monetary commitments and gain access to custom pricing for Azure resources.
+- **Web Direct**: Web Direct customers have not signed any custom agreement with Azure. These customers have signed up for Azure via azure.com and receive public facing prices for all Azure resources.
+- **Cloud Service Provider**: Cloud Service Providers are typically companies that have been hired by an end-customer to build solutions on top of Azure.
+
 ## Why don’t I see the cost the resource I have created in my bill?
 Azure does not bill directly based on resource cost. Billing is done based off one or more meters that are used to track a resource’s usage throughout its lifetime. These meters are then used to calculate the bill. See more about Azure metering below.
 
