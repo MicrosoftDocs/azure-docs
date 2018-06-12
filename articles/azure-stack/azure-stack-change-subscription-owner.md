@@ -22,11 +22,11 @@ ms.reviewer: shnatara
 
 # Change the Owner for an Azure Stack user subscription
 
-As an Azure Stack operator, you can use PowerShell to change the Billing Owner of a user subscription. One reason you might do so is to add a new billing owner to replace the original owner after that user leaves your organization.   
+Azure Stack operators can use PowerShell to change the Billing Owner of a user subscription. One reason you might do so is to add a new billing owner to replace the original owner after that user leaves your organization.   
 
 There are two types of *Owners* that are assigned to a subscription:
 
-- **Billing owner** – The Billing Owner is the user account that procured the subscription from an Offer and owns the billing relationship for that subscription. This account is also an administrator of the subscription.  Only one user account can have this designation on a subscription. A Billing Owner is often an organization or team lead. 
+- **Billing owner** – By default, the Billing Owner is the user account that gets the subscription from an Offer and then owns the billing relationship for that subscription. This account is also an administrator of the subscription.  Only one user account can have this designation on a subscription. A Billing Owner is often an organization or team lead. 
 
   You use the PowerShell cmdlet the **Set-AzsUserSubscription** to change the Billing Owner.  
 
@@ -42,7 +42,7 @@ Run the following script to change the Billing Owner of a user subscription.  Th
 Replace the following values in the script before it runs: 
  
 - **$ArmEndpoint** –  Specify the Resource Manager endpoint for your environment.  
-- **“TenantID”**   - Specify your Tenant ID. 
+- **$TenantId**   - Specify your Tenant ID. 
 - **$SubscriptionId** – Specify your Subscription ID.
 - **$OwnerUpn** - Specify an account as *user@example.com* to  add as the new Billing Owner.  
 
