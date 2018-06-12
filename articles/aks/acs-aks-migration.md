@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
 ---
