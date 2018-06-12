@@ -16,7 +16,7 @@ There are two categories of software development kits (SDKs) for working with Io
 
 * **Device SDKs** enable you to build apps that run on your IoT devices. These apps send telemetry to your IoT hub, and optionally receive messages, job, method, or twin updates from your IoT hub.
 
-* **Service SDKs** enable you to manage your IoT hub, and optionally send messages, schedule jobs, invoke direct methods, or send desired property updates to your IoT devices
+* **Service SDKs** enable you to manage your IoT hub, and optionally send messages, schedule jobs, invoke direct methods, or send desired property updates to your IoT devices.
 
 Learn about the benefits of developing using Azure IoT SDKs [here][lnk-benefits-blog].
 
