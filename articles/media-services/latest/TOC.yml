@@ -61,16 +61,14 @@
     href: access-api-cli-how-to.md
   - name: Job state events - CLI
     href: job-state-events-cli-how-to.md    
-  - name: Upload content - .NET
+  - name: Upload content 
     items:
-    - name: From HTTP(s)
+    - name: From HTTP(s) - .NET
       href: job-input-from-http-how-to.md
-    - name: From a local file
+    - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md    
-  - name: Customize Transform presets
-    items:
-    - name: With .NET Core
-      href: customize-encoder-presets-how-to.md
+  - name: Customize Transform presets - .NET Core
+    href: customize-encoder-presets-how-to.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
