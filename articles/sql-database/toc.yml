@@ -138,17 +138,27 @@
       href: sql-database-data-discovery-and-classification.md
     - name: Vulnerability assessment
       href: sql-vulnerability-assessment.md
-    - name: Threat detection - SQL Database
-      href: sql-database-threat-detection.md
-    - name: Threat detection - Managed Instance
-      href: sql-database-managed-instance-threat-detection.md
+    - name: Threat detection
+      items:
+      - name: Threat detection - SQL Database
+        href: sql-database-threat-detection.md
+      - name: Threat detection - Managed Instance
+        href: sql-database-managed-instance-threat-detection.md
     - name: Firewall rules
-      href: sql-database-firewall-configure.md      
-    - name: Firewall virtual network rules
-      href: sql-database-vnet-service-endpoint-rule-overview.md
+      items:
+      - name: Oveview
+        href: sql-database-firewall-configure.md      
+      - name: Firewall virtual network rules
+        href: sql-database-vnet-service-endpoint-rule-overview.md
+      - name: Virtual network rules by PowerShell
+        href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Access control
-      href: sql-database-control-access.md
-    - name: Azure AD
+      items:
+      - name: Overview
+        href: sql-database-control-access.md
+      - name: Logins and users
+        href: sql-database-manage-logins.md
+    - name: Azure AD authentication
       items:
       - name: Overview
         href: sql-database-aad-authentication.md
@@ -156,18 +166,30 @@
         href: sql-database-aad-authentication-configure.md
       - name: Conditional access
         href: sql-database-conditional-access.md
-    - name: Logins and users
-      href: sql-database-manage-logins.md
-    - name: Multi-factor auth
-      href: sql-database-ssms-mfa-authentication.md
-    - name: Auditing - SQL Database
-      href: sql-database-auditing.md
-    - name: Auditing - Managed Instance
-      href: sql-database-managed-instance-auditing.md
-    - name: Table auditing & TDS
-      href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
+      - name: Multi-factor auth
+        href: sql-database-ssms-mfa-authentication.md
+      - name: Configure multi-factor auth
+        href: sql-database-ssms-mfa-authentication-configure.md
+    - name: Auditing
+      items:
+      - name: Auditing - Servers, pools, and databaes
+        href: sql-database-auditing.md
+      - name: Auditing - Managed Instance
+        href: sql-database-managed-instance-auditing.md
+      - name: Table auditing (deprecated)
+        href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Dynamic data masking
-      href: sql-database-dynamic-data-masking-get-started.md
+      - items:
+        - name: Overview
+          href: sql-database-dynamic-data-masking-get-started.md
+        - name: Configure masking
+          href: sql-database-dynamic-data-masking-get-started-portal.md
+    - name: Always encrypted
+      items:
+      - name: Use the certificate store
+        href: sql-database-always-encrypted.md
+      - name: Use the Azure key vault
+        href: sql-database-always-encrypted-azure-key-vault.md
   - name: Business continuity
     items:
     - name: Overview
@@ -175,23 +197,37 @@
     - name: Database backups
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
-      href: sql-database-long-term-retention.md
+      itmes:
+      - name: Overview
+        href: sql-database-long-term-retention.md
+      - name: Configure long-term backup retention - SQL storage
+        href: sql-database-long-term-backup-retention-configure.md
+      - name: Configure long-term backup retention - Azure vault (deprecated)
+        href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Failover groups
-      href: sql-database-geo-replication-overview.md
+      items: 
+      - name: Overview
+        href: sql-database-geo-replication-overview.md
+      - name: Configure Geo-replication - Portal
+        href: sql-database-geo-replication-portal.md
     - name: Database recovery
-      href: sql-database-recovery-using-backups.md
-    - name: Configure security
-      href: sql-database-geo-replication-security-config.md
-    - name: App design & recovery
-      href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-    - name: App design & pools
-      href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-    - name: App design & app upgrades
-      href: sql-database-manage-application-rolling-upgrade.md
-    - name: Recover from outage
-      href: sql-database-disaster-recovery.md
-    - name: Perform recovery drill
-      href: sql-database-disaster-recovery-drills.md
+      items:
+      - name: Overview
+        href: sql-database-recovery-using-backups.md
+      - name: Recover from outage
+        href: sql-database-disaster-recovery.md
+      - name: Perform recovery drill
+        href: sql-database-disaster-recovery-drills.md
+      - name: Configure security for replica
+        href: sql-database-geo-replication-security-config.md
+    - name: App design
+      items:
+      - name: App design & recovery
+        href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+      - name: App design & pools
+        href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+      - name: App design & app upgrades
+        href: sql-database-manage-application-rolling-upgrade.md
   - name: Migrate to SQL Database- combine
     items:
     - name: Migrate to SQL Database - combine
@@ -210,6 +246,12 @@
       href: sql-database-export.md
     - name: Sync data
       href: sql-database-sync-data.md
+    - name: Load data with BCP
+      href: sql-database-load-from-csv-with-bcp.md
+    - name: Load data with ADF
+      href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
+    - name: Sync data
+      href: sql-database-get-started-sql-data-sync.md
   - name: Monitor & tune
     items:
     - name: Overview
@@ -240,7 +282,7 @@
     - items: 
       - name: Overview
         href: sql-database-elastic-scale-introduction.md
-      - name: Elastic client library - onsolidate
+      - name: Elastic client library - consolidate
         href: sql-database-elastic-database-client-library.md
       - name: Upgrade elastic database client library
         href: sql-database-elastic-scale-upgrade-client-library.md
@@ -260,6 +302,24 @@
         href: sql-database-elastic-scale-working-with-dapper.md
       - name: Elastic tools FAQ
         href: sql-database-elastic-scale-faq.md
+      - name: Create sharded app
+        href: sql-database-elastic-scale-get-started.md
+      - name: Query horizontally-sharded data
+        href: sql-database-elastic-query-getting-started.md
+      - name: Move sharded data
+        href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+      - name: Security configuration
+        href: sql-database-elastic-scale-split-merge-security-configuration.md
+      - name: Add a shard
+        href: sql-database-elastic-scale-add-a-shard.md
+      - name: Fix shard map problems
+        href: sql-database-elastic-database-recovery-manager.md
+      - name: Migrate sharded DB
+        href: sql-database-elastic-convert-to-use-elastic-tools.md
+      - name: Create counters
+        href: sql-database-elastic-database-perf-counters.md
+      - name: Use entity framework
+        href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: Cross-database operations
       items:
       - name: Elastic queries
@@ -314,6 +374,8 @@
     items:
     - name: Connectivity
       href: sql-database-libraries.md
+    - name: Use Spark Connector
+      href: sql-database-spark-connector.md
     - name: Authenticate app 
       href: sql-database-client-id-keys.md
     - name: Error messages
@@ -328,36 +390,12 @@
       href: dns-alias-powershell.md
     - name: Ports - ADO.NET
       href: sql-database-develop-direct-route-ports-adonet-v12.md
+    - name: C and C ++
+      href: sql-database-develop-cplusplus-simple.md
+    - name: Excel
+      href: sql-database-connect-excel.md
 - name: How-to guides
   items:
-  - name: Security
-    items:
-    - name: Always encrypted cert store
-      href: sql-database-always-encrypted.md
-    - name: Always encrypted key vault
-      href: sql-database-always-encrypted-azure-key-vault.md
-    - name: Configure masking
-      href: sql-database-dynamic-data-masking-get-started-portal.md
-    - name: Configure multi-factor auth
-      href: sql-database-ssms-mfa-authentication-configure.md
-    - name: Virtual network rules by PowerShell
-      href: sql-database-vnet-service-endpoint-rule-powershell.md
-  - name: Business continuity
-    items:
-    - name: Geo-replicate - Portal
-      href: sql-database-geo-replication-portal.md
-    - name: Configure long-term backup retention - SQL storage
-      href: sql-database-long-term-backup-retention-configure.md
-    - name: Configure long-term backup retention - Azure vault
-      href: sql-database-long-term-backup-retention-configure-vault.md
-  - name: Load & move data
-    items:
-    - name: Load data with BCP
-      href: sql-database-load-from-csv-with-bcp.md
-    - name: Load data with ADF
-      href: ../data-factory/connector-azure-sql-database.md
-    - name: Sync data
-      href: sql-database-get-started-sql-data-sync.md
   - name: Monitor & tune
     items:
     - name: Monitor & improve performance
@@ -392,26 +430,6 @@
       href: sql-database-best-practices-data-sync.md
     - name: Troubleshoot SQL Data Sync
       href: sql-database-troubleshoot-data-sync.md
-  - name: Scale out
-    items:
-    - name: Create sharded app
-      href: sql-database-elastic-scale-get-started.md
-    - name: Query horizontally-sharded data
-      href: sql-database-elastic-query-getting-started.md
-    - name: Move sharded data
-      href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
-    - name: Security configuration
-      href: sql-database-elastic-scale-split-merge-security-configuration.md
-    - name: Add a shard
-      href: sql-database-elastic-scale-add-a-shard.md
-    - name: Fix shard map problems
-      href: sql-database-elastic-database-recovery-manager.md
-    - name: Migrate sharded DB
-      href: sql-database-elastic-convert-to-use-elastic-tools.md
-    - name: Create counters
-      href: sql-database-elastic-database-perf-counters.md
-    - name: Use entity framework
-      href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Multi-tenant SaaS reference architecture
     items:
     - name: Wingtip Tickets sample
@@ -466,14 +484,6 @@
         href: saas-multitenantdb-schema-management.md
       - name: ETL for analytics
         href: saas-multitenantdb-tenant-analytics.md
-  - name: Develop apps
-    items:
-    - name: C and C ++
-      href: sql-database-develop-cplusplus-simple.md
-    - name: Excel
-      href: sql-database-connect-excel.md
-    - name: Use Spark Connector
-      href: sql-database-spark-connector.md
 - name: Reference
   items:
   - name: Azure PowerShell
