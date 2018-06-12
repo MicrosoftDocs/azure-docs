@@ -104,9 +104,9 @@ You use a resource group to show how to assign a role at a resource group scope.
    ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group
    ```
 
-## Grant access for the user
+## Grant access
 
-To grant access, you use the [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) command to assign a role. You must specify the security principal, role definition, and scope.
+To grant access for the user, you use the [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) command to assign a role. You must specify the security principal, role definition, and scope.
 
 1. Get the ID of your subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) command.
 
@@ -219,7 +219,7 @@ To grant access, you use the [New-AzureRmRoleAssignment](/powershell/module/azur
 
     In the output, you can see that both the Contributor and Reader roles have been assigned to the RBAC Tutorial User. The Contributor role is at the rbac-tutorial-resource-group scope and the Reader role is inherited at the subscription scope.
 
-## (Optional) List access in the Azure Portal
+## (Optional) List access using the Azure Portal
 
 1. To see how the role assignments look in the Azure portal, view the **Access control (IAM)** blade for the subscription.
 
