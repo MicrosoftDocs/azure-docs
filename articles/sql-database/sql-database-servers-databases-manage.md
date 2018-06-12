@@ -12,11 +12,11 @@ ms.author: carlrab
 
 ---
 
-# Create, manage, and scale logical servers and databases in Azure SQL Database 
+# Create and manage logical servers and single databases in Azure SQL Database 
 
 You can create and manage Azure SQL Databases servers and databases using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
 
-## Manage Azure SQL servers, databases, and firewalls using the Azure portal
+## Azure portal: Manage logical servers and databases
 
 You can create the Azure SQL database's resource group ahead of time or while creating the server itself. There are multiple methods for getting to a new SQL server form, either by creating a new SQL server or as part of creating a new database. 
 
@@ -50,25 +50,7 @@ To manage an existing database, navigate to the **SQL databases** page and click
 > [!TIP]
 > For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md).
 
-## Scale resources for single database using the Azure portal
-
-To set or change the service tier, performance level, or storage amount for a new or existing Azure SQL database using the Azure portal, open the **Configure performance** window for your database by clicking **Pricing tier (scale DTUs)** - as shown in the following screenshot. 
-
-- Set or change the service tier by selecting the service tier for your workload. 
-- Set or change the performance level (**DTUs**) within a service tier using the **DTU** slider.
-- Set or change the storage amount for the performance level using the **Storage** slider. 
-
-![Configure service tier and performance level](./media/sql-database-single-database-resources/change-service-tier.png)
-
-Click **Overview** to monitor and/or cancel an ongoing operation.
-
-![Cancel operation](./media/sql-database-single-database-resources/cancel-operation.png)
-
-> [!IMPORTANT]
-> Review [Current limitations of P11 and P15 databases with 4-TB maximum size](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
->
-
-## Manage Azure SQL servers, databases, and firewalls using PowerShell
+## PowerShell: Manage logical servers and databases
 
 To create and manage Azure SQL server, databases, and firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
@@ -93,7 +75,7 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 |[Remove-​Azure​Rm​Sql​Server​Firewall​Rule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Deletes a firewall rule from a server.|
 | New-AzureRmSqlServerVirtualNetworkRule | Creates a [*virtual network rule*](sql-database-vnet-service-endpoint-rule-overview.md), based on a subnet that is a Virtual Network service endpoint. |
 
-## Manage Azure SQL servers, databases, and firewalls using Azure CLI
+## Azure CLI: Manage logical servers and databases
 
 To create and manage Azure SQL server, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
@@ -123,7 +105,7 @@ To create and manage Azure SQL server, databases, and firewalls with [Azure CLI]
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Updates a firewall rule|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
 
-## Manage Azure SQL servers, databases, and firewalls using Transact-SQL
+## Transact-SQL: Manage logical servers and databases
 
 To create and manage Azure SQL server, databases, and firewalls with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. For managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
@@ -155,7 +137,7 @@ To create and manage Azure SQL server, databases, and firewalls with Transact-SQ
 
 
 
-## Manage Azure SQL servers, databases, and firewalls using the REST API
+## REST API: Manage logical servers and databases
 
 To create and manage Azure SQL server, databases, and firewalls, use these REST API requests.
 
