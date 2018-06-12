@@ -406,6 +406,8 @@
         href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md    
     - name: Build an ASP.NET Core service
       href: service-fabric-add-a-web-frontend.md
+    - name: Build an Apache Tomcat server container on Linux
+      href: service-fabric-get-started-tomcat.md
     - name: Configure security
       items:
       - name: Manage application secrets
