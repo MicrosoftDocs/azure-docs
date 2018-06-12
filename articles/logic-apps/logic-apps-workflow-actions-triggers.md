@@ -108,14 +108,12 @@ so the trigger's behavior depends on whether or not sections are included.
       "host": {
          "connection": {
             "name": "@parameters('$connections')['<connection-name>']['connectionId']"
-         },
-         "<other-trigger-specific-input-properties>"
+         }
       },
       "method": "<method-type>",
       "path": "/<api-operation>",
       "retryPolicy": { "<retry-behavior>" },
-      "queries": { "<query-parameters>" },
-      "<other-trigger-specific-properties>"
+      "queries": { "<query-parameters>" }
    },
    "recurrence": { 
       "frequency": "<time-unit>",
@@ -137,7 +135,6 @@ so the trigger's behavior depends on whether or not sections are included.
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | String | The name for the trigger | 
 | <*connection-name*> | String | The name for the managed API connection that the workflow uses | 
-| <*other-trigger-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific trigger | 
 | <*method-type*> | String | The HTTP method for communicating with the managed API: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*api-operation*> | String | The API operation to call | 
 | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
@@ -150,7 +147,6 @@ so the trigger's behavior depends on whether or not sections are included.
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*other-trigger-specific-properties*> | JSON Object | Any other properties that apply to this specific trigger | 
 | <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
 | <*splitOn-expression*> | For triggers that return arrays, this expression represents the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
 | <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). <p>For example, you can specify that the trigger fires only after all active runs finish by specifying the `singleInstance` option. See [Triggers: Fire only after active runs finish](#single-instance).|
@@ -160,8 +156,8 @@ so the trigger's behavior depends on whether or not sections are included.
  
 | Element | Type | Description |
 |---------|------|-------------| 
-| headers | JSON Object | The headers from the HTTP response | 
-| body | JSON Object | The body from the HTTP response | 
+| headers | JSON Object | The headers from the response | 
+| body | JSON Object | The body from the response | 
 |||| 
 
 *Example*
@@ -198,15 +194,15 @@ inside the inbox for an Office 365 Outlook account:
 
 ### Recurrence trigger  
 
-This trigger runs based on your specified recurrence and schedule 
-and provides an easy way for regularly running a workflow. 
+This trigger runs based on the specified recurrence schedule 
+and provides an easy way for creating a regularly running workflow. 
 
 ```json
 "Recurrence": {
    "type": "Recurrence",
    "recurrence": {
-      "frequency": "Second | Minute | Hour | Day | Week | Month",
-      "interval": <recurrence-interval-based-on-frequency>,
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>,
       "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
       "timeZone": "<time-zone>",
       "schedule": {
@@ -220,7 +216,7 @@ and provides an easy way for regularly running a workflow.
    },
    "runtimeConfiguration": {
       "concurrency": {
-         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+         "runs": <maximum-concurrent-workflow-instances>
       }
    },
    "operationOptions": "singleInstance"
@@ -229,27 +225,23 @@ and provides an easy way for regularly running a workflow.
 
 *Required*
 
-| Element | Type | Description | 
-|---------|------|-------------| 
-| Recurrence | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
-| type | String | The trigger type, which is "Recurrence" | 
-| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
-| recurrence | JSON Object | The frequency and interval that describes how often the trigger fires |  
-| frequency | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
-| interval | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*number-of-time-units*> | Integer | A positive number that determines how often the trigger fires based on the frequency, which is specifically the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
 |||| 
 
 *Optional*
 
-| Element | Type | Description | 
-|---------|------|-------------| 
-| startTime | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time", or specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
-| timeZone | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
-| hours | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
-| minutes | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time", or specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
+| <*time-zone*> | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
+| <*one-or-more-hour-marks*> | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
+| <*one-or-more-minute-marks*> | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
 | weekDays | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
-| concurrency | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
-| operationOptions | String | The `singleInstance` option specifies that the trigger fires only after all active runs are finished. See [Triggers: Fire only after active runs finish](#single-instance). | 
+| <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
+| <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). <p>For example, you can specify that the trigger fires only after all active runs finish by specifying the `singleInstance` option. See [Triggers: Fire only after active runs finish](#single-instance). | 
 |||| 
 
 *Example 1*
@@ -257,7 +249,7 @@ and provides an easy way for regularly running a workflow.
 This basic recurrence trigger runs daily:
 
 ```json
-"recurrenceTriggerName": {
+"Recurrence": {
    "type": "Recurrence",
    "recurrence": {
       "frequency": "Day",
@@ -272,7 +264,7 @@ You can specify a start date and time for firing the trigger.
 This recurrence trigger starts on the specified date and then fires daily:
 
 ```json
-"recurrenceTriggerName": {
+"Recurrence": {
    "type": "Recurrence",
    "recurrence": {
       "frequency": "Day",
@@ -289,7 +281,7 @@ and fires weekly every Monday at 10:30 AM, 12:30 PM,
 and 2:30 PM Pacific Standard Time:
 
 ``` json
-"myRecurrenceTrigger": {
+"Recurrence": {
    "type": "Recurrence",
    "recurrence": {
       "frequency": "Week",
