@@ -75,7 +75,7 @@ An Azure Storage account is required to provide an endpoint to be used as an out
       > [!NOTE]
       > Currently, Azure Stream Analytics jobs on IoT Edge aren't supported in the West US 2 region. 
 
-    3. Under **Hosting environment**, select **Edge**.
+   3. Under **Hosting environment**, select **Edge**.
     
 3. Select **Create**.
 
