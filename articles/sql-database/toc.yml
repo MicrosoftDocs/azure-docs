@@ -76,12 +76,6 @@
   items:
   - name: Servers, pools, and databases
     items:
-    - name: Logical servers
-      href: sql-database-servers-databases.md
-    - name: Single databases
-      href: sql-database-single-database-resources.md
-    - name: Elastic pools
-      href: sql-database-elastic-pool.md
     - name: vCore purchasing model
       items:
       - name: vCore-based Service tiers
@@ -98,6 +92,12 @@
         href: sql-database-what-is-a-dtu.md
       - name: DTU benchmark - onsolidate
         href: sql-database-benchmark-overview.md
+    - name: Logical servers
+      href: sql-database-servers-databases.md
+    - name: Single databases
+      href: sql-database-single-database-resources.md
+    - name: Elastic pools
+      href: sql-database-elastic-pool.md
     - name: Connectivity architecture for logical servers, pools, and databases
       href: sql-database-connectivity-architecture.md 
     - name: SQL Database T-SQL details
