@@ -1,6 +1,6 @@
 ---
-title: Azure SQL servers & databases, and their resources | Microsoft Docs
-description: Learn about Azure SQL Database server and database concepts, and their resources.
+title: Create & manage Azure SQL servers & databases | Microsoft Docs
+description: Learn about creating and managing servers and databases.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -12,56 +12,9 @@ ms.author: carlrab
 
 ---
 
-# Azure SQL Database servers and databases, and their resources
+# Create and manage Azure SQL Database servers and databases
 
-## What is an Azure SQL logical server?
-
-A logical server acts as a central administrative point for multiple single or [pooled](sql-database-elastic-pool.md) databases, [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-geo-replication-overview.md). A logical server can be in a different region than its resource group. The logical server must exist before you can create the Azure SQL database. All databases on a server are created within the same region as the logical server.
-
-A logical server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. In contrast, a server in a SQL Database Managed Instance is similar to a SQL Server instance that you may be familiar with in the on-premises world.
-
-When you create a logical server, you provide a server login account and password that has administrative rights to the master database on that server and all databases created on that server. This initial account is a SQL login account. Azure SQL Database supports SQL authentication and Azure Active Directory Authentication for authentication. For information about logins and authentication, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md). Windows Authentication is not supported. 
-
-> [!TIP]
-> For valid resource group and server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
->
-
-An Azure Database logical server:
-
-- Is created within an Azure subscription, but can be moved with its contained resources to another subscription
-- Is the parent resource for databases, elastic pools, and data warehouses
-- Provides a namespace for databases, elastic pools, and data warehouses
-- Is a logical container with strong lifetime semantics - delete a server and it deletes the contained databases, elastic pools, and data warehouses
-- Participates in [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) - databases, elastic pools, and data warehouses within a server inherit access rights from the server
-- Is a high-order element of the identity of databases, elastic pools, and data warehouses for Azure resource management purposes (see the URL scheme for databases and pools)
-- Collocates resources in a region
-- Provides a connection endpoint for database access (<serverName>.database.windows.net)
-- Provides access to metadata regarding contained resources via DMVs by connecting to a master database 
-- Provides the scope for management policies that apply to its databases - logins, firewall, audit, threat detection, etc. 
-- Is restricted by a quota within the parent subscription (six servers per subscription by default - [see Subscription limits here](../azure-subscription-service-limits.md))
-- Provides the scope for database quota and DTU or vCore quota for the resources it contains (such as 45,000 DTU)
-- Is the versioning scope for capabilities enabled on contained resources 
-- Server-level principal logins can manage all databases on a server
-- Can contain logins similar to those in instances of SQL Server on your premises that are granted access to one or more databases on the server, and can be granted limited administrative rights. For more information, see [Logins](sql-database-manage-logins.md).
-- The default collation for all user databases created on a logical server is `SQL_LATIN1_GENERAL_CP1_CI_AS`, where `LATIN1_GENERAL` is English (United States), `CP1` is code page 1252, `CI` is case-insensitive, and `AS` is accent-sensitive.
-
-## Logical servers and databases
-
-On a logical server, you can create:
-
-- A single database created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a [combined set of compute and storage resources](sql-database-service-tiers-dtu.md) or an [independent scale of compute and storage resources](sql-database-service-tiers-vcore.md). An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
-- A database created as part of a [pool of databases](sql-database-elastic-pool.md) within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a [combined set of compute and storage resources (DTU-based)](sql-database-service-tiers-dtu.md) or an [independent scale of compute and storage resources (vCore-based)](sql-database-service-tiers-vcore.md) that are shared among all of the databases in the pool. An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
-
-> [!IMPORTANT]
-> SQL Database Managed Instance, currently in public preview, is an [instance of a SQL server](sql-database-managed-instance.md) (a Managed Instance) created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of compute and storage resources for all databases on that server instance. A managed instance contains both system and user databases. Managed Instance is designed to enable database lift-and-shift to a fully managed PaaS, without redesigning the application. Managed Instance provides high compatibility with the on-premises SQL Server programming model and supports the large majority of SQL Server features and accompanying tools and services. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md). The remainder of this article does not apply to Managed Instance.
-
-## TDS and TCP/IP connections
-
-Microsoft Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later and allows only encrypted TCP/IP connections.
-
-## Azure SQL databases protected by SQL Database firewall
-
-To help protect your data, a [SQL Database firewall](sql-database-firewall-configure.md) prevents all access to your database server or any of its databases from outside of your connection to the server directly through your Azure subscription connection. To enable additional connectivity, you must [create one or more firewall rules](sql-database-firewall-configure.md#creating-and-managing-firewall-rules). For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+You can create and manage Azure SQL Databases servers and databases using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
 
 ## Manage Azure SQL servers, databases, and firewalls using the Azure portal
 
@@ -96,11 +49,10 @@ To manage an existing database, navigate to the **SQL databases** page and click
 
 > [!TIP]
 > For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md).
->
 
 ## Manage Azure SQL servers, databases, and firewalls using PowerShell
 
-To create and manage Azure SQL server, databases, and firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To create and manage Azure SQL server, databases, and firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
 | Cmdlet | Description |
 | --- | --- |
@@ -123,9 +75,9 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 > For a PowerShell quickstart, see [Create a single Azure SQL database using PowerShell](sql-database-get-started-portal.md). For PowerShell example scripts, see [Use PowerShell to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale a single SQL database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
-## Manage Azure SQL servers, databases, and firewalls using the Azure CLI
+## Manage Azure SQL servers, databases, and firewalls using Azure CLI
 
-To create and manage Azure SQL server, databases, and firewalls with the [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To create and manage Azure SQL server, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 | Cmdlet | Description |
 | --- | --- |

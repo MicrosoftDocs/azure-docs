@@ -78,7 +78,7 @@
     items:
     - name: vCore purchasing model
       items:
-      - name: vCore-based Service tiers
+      - name: vCore-based service tiers
         href: sql-database-service-tiers-vcore.md
     -   name: vCore-based resource limits
         href: sql-database-vcore-resource-limits.md  
@@ -93,9 +93,15 @@
       - name: DTU benchmark - onsolidate
         href: sql-database-benchmark-overview.md
     - name: Logical servers and databases
-      href: sql-database-servers-databases.md
+      items:
+      - name: Overview
+        href: sql-database-servers-databases.md
+      - name: Create and manage logical servers and databases
+        href: sql-database-servers-databases-create-manage.md  
     - name: Elastic pools
-      href: sql-database-elastic-pool.md
+      items:
+      - name: Overview
+        href: sql-database-elastic-pool.md
     - name: Connectivity architecture for logical servers, pools, and databases
       href: sql-database-connectivity-architecture.md 
     - name: SQL Database T-SQL details
@@ -129,9 +135,7 @@
     - name: Scaling a single database
       href: sql-database-single-database-scaling.md
     - name: Scaling an elastic pool
-      href: blah.md
-    - name: Migrate to vCore-based purchasing model - from existing service tier article
-      href: blah.md
+      href: sql-database-elastic-database-scaling.md
   - name: Security   
     items:
     - name: Overview
