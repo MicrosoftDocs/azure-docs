@@ -6016,6 +6016,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-alerts.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-alerts-actions.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-alerts-webhooks.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-alerts-creating.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-system-update.md",
             "redirect_url": "/azure/automation/automation-update-management",
             "redirect_document_id": false
@@ -6968,6 +6988,11 @@
         {
             "source_path": "articles/machine-learning/data-science-process-walkthroughs-sql-server.md",
             "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-sql-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring/monitoring-solutions-resources-searches-alerts.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-template",
             "redirect_document_id": false
         },
         {
