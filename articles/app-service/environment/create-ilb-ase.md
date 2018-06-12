@@ -249,4 +249,4 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
-[linuxapp]: ../containers.md
+[linuxapp]: ../containers/app-service-linux-intro.md
