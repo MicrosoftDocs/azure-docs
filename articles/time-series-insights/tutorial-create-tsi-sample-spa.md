@@ -4,7 +4,7 @@ description: Learn how to create a single-page web application that queries and 
 author: BryanLa
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/10/2018
+ms.date: 06/13/2018
 ms.author: bryanla
 # Customer intent: As a developer, I want learn how to create a Time Series Insights single-page web application (SPA), so I can apply the principles to building my own SPA.
 ---
