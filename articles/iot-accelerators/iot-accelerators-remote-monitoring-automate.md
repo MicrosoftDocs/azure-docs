@@ -17,7 +17,7 @@ ms.custom: mvc
 
 In this tutorial, you configure the Remote Monitoring solution accelerator to detect issues with your connected IoT devices. To detect the issues with your devices, you add rules that generate alerts on the solution dashboard.
 
-To introduce rules and alerts, the tutorial uses a simulated chiller device. The chiller is managed by an organization called Contoso and is connected to the Remote Monitoring solution accelerator. Contoso already has a rule that generates a critical alert when the pressure in a chiller exceeds 298 PSI. As an operator at Contoso, you want to identify chiller devices that may have problematic sensors by looking for initial pressure spikes. To identify such devices, you add a rule that generates a warning alert when the pressure in the chiller exceeds 150 PSI.
+To introduce rules and alerts, the tutorial uses a simulated chiller device. The chiller is managed by an organization called Contoso and is connected to the Remote Monitoring solution accelerator. Contoso already has a rule that generates a critical alert when the pressure in a chiller goes above 298 PSI. As an operator at Contoso, you want to identify chiller devices that may have problematic sensors by looking for initial pressure spikes. To identify such devices, you add a rule that generates a warning alert when the pressure in the chiller goes above 150 PSI.
 
 You have also been asked to create a critical alert for a chiller when, over the last five minutes, the average humidity in the device was greater than 80% and the temperature of the device was greater than 75 degrees fahrenheit.
 
@@ -56,7 +56,7 @@ To disable or enable one or more rules, select one or more rules in the list:
 
 ## Create a rule
 
-To create a rule that generates a warning when the pressure in a chiller device exceeds 150 PSI, click **New rule**. Use the following values to create the rule:
+To create a rule that generates a warning when the pressure in a chiller device goes above 150 PSI, click **New rule**. Use the following values to create the rule:
 
 | Setting          | Value                                 |
 | ---------------- | ------------------------------------- |
@@ -67,7 +67,7 @@ To create a rule that generates a warning when the pressure in a chiller device 
 | Condition 1 Field| pressure                              |
 | Condition 1 operator | Greater than                      |
 | Condition 1 value    | 150                               |
-| Serverity level  | Warning                               |
+| Severity level  | Warning                               |
 
 [![Create warning rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-expanded.png#lightbox)
 
@@ -91,7 +91,7 @@ To create a rule with multiple conditions that generates a critical alert when, 
 | Condition 1 Field| humidity                              |
 | Condition 1 operator | Greater than                      |
 | Condition 1 value    | 80                                |
-| Serverity level  | Critical                              |
+| Severity level  | Critical                              |
 
 [![Create multiple condition rule part one](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 
@@ -123,7 +123,7 @@ To temporarily switch off a rule, you can disable it in the list of rules. Choos
 
 [![Disable rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
-You can enable and disable multiple rules at the same time if you select multiple rules in the list.
+You can enable and disable multiple rules at the same time by selecting multiple rules in the list.
 
 <!-- ## Delete a rule
 
@@ -131,10 +131,21 @@ To permanently delete a rule, choose the rule in the list of rules and then choo
 
 You can delete multiple rules at the same time if you select multiple rules in the list.-->
 
+## Clean up resources
+
+If you plan to move on to the next tutorial, leave the Remote Monitoring solution accelerator deployed. To reduce the costs of running the solution accelerator while you're not using it, you can stop the simulated devices in the settings panel:
+
+[![Pause telemetry](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
+
+You can restart the simulated devices when you're ready to start the next tutorial.
+
+If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page:
+
+![Delete solution](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+
 ## Next steps
 
 This tutorial showed you how to use the **Rules** page in the Remote Monitoring solution accelerator to create and manage rules that trigger alerts in the solution. To learn how to use the solution accelerator to manage and configure your connected devices, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Configure and manage devices connected to my monitoring solution
-](iot-accelerators-remote-monitoring-manage.md).
+> [Configure and manage devices connected to your monitoring solution](iot-accelerators-remote-monitoring-manage.md).
