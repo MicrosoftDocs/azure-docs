@@ -25,7 +25,7 @@ After you enable metric collection, you can:
 
 For example, you might want to monitor the CPU % and Memory % of your Azure VMs. The Azure VM metrics correspond to _[Host] Percentage CPU_ and _[Guest] Memory percentage_.
 
-> !NOTE
+> [!NOTE]
 > Extended metric data collection is only supported with Azure guest-level monitoring. Cost Management is not compatible with the Log Analytics VM extension.
 
 ## Verify that metrics are enabled on VMs
