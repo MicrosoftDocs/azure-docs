@@ -380,6 +380,8 @@ and recognizes these properties:
 | 500 | {none}| Server error, don't run the workflow. If no `retryPolicy` is defined, then the default policy is used. After the number of retries has been reached, the trigger checks again for data after the defined recurrence. | 
 |||| 
 
+
+
 <a name="http-webhook-trigger"></a>
 
 ### HTTPWebhook trigger  
