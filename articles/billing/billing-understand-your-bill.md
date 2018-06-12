@@ -104,6 +104,33 @@ If you [pay by invoicing](billing-how-to-pay-by-invoice.md), send your payment t
 
 [Create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to ask for the status of your payment. 
 
+## Why don’t I see the cost the resource I have created in my bill?
+Azure does not bill directly based on resource cost. Billing is done based off one or more meters that are used to track a resource’s usage throughout its lifetime. These meters are then used to calculate the bill. See more about Azure metering below.
+
+## How does Azure charge metering work?
+When you spin up a single Azure resource, such as a virtual machine, it will have one or multiple meter instances created as well. These meters are used to track the usage of the resource over time. Each meter emits usage records which are then used by Azure in our cost metering system to calculate the bill. 
+
+For example, a single virtual machine created in Azure may have the following meters created to track its usage:
+
+- Compute Hours
+- IP Address Hours
+- Data Transfer In
+- Data Transfer Out
+- Standard Managed Disk
+- Standard Managed Disk Operations
+- Standard IO-Disk
+- Standard IO-Block Blob Read
+- Standard IO-Block Blob Write
+- Standard IO-Block Blob Delete
+
+Once the VM is created, each one of the meters above will begin emitting usage records. This usage will then be used in Azure’s metering system along with the meter’s price to determine how much a customer is charged.
+
+> [!Note]
+> The example meters above may only be a subset of the meters created a VM that is created.
+
+## What is the difference between Azure 1st party charges and Azure Marketplace charges?
+Azure 1st party charges are for resources that are directly developed and offered by Azure. Azure Marketplace charges are for resources that have been created by third party software vendors that are available for use via the Azure marketplace. For example, a Barracuda Firewall is an Azure marketplace resource offered by a third party. All charges for the firewall and its corresponding meters will appear as marketplace charges. However, the virtual machine that the Barracuda firewall is installed on will appear as an Azure 1st party charge.
+
 ## Tips for cost management
 - Estimate costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) and [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and get the [detailed pricing information for each service](https://azure.microsoft.com/pricing/).
 - [Set up billing alerts](billing-set-up-alerts.md).
