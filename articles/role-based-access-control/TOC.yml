@@ -7,7 +7,7 @@
   items:
   - name: Quickstarts
     items:
-    - name: Assign a role to a user - Portal
+    - name: Grant access for a user - Portal
       href: quickstart-assign-role-user-portal.md
   - name: Tutorials
     items:
