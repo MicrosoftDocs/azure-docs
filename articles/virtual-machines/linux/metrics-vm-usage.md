@@ -12,11 +12,11 @@ ms.date: 06/06/2017
 ms.author: routlaw
 ---
 
-# Get Virtual Machine utilization metrics using the REST API
+# Get Virtual Machine usage metrics using the REST API
 
-This how-to shows how to retrieve the resource utilization for a [Linux Virtual Machine](/azure/linux/virtual-machine) using the [Azure REST API](/rest/api/azure/).
+This example shows how to retrieve the CPU usage for a [Linux Virtual Machine](/azure/linux/virtual-machine) using the [Azure REST API](/rest/api/azure/).
 
-Complete reference documention and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
+Complete reference documentation and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
 
 ## Build the request
 
@@ -40,11 +40,11 @@ The following headers are required:
 | Name | Description |
 | :--- | :---------- |
 | subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
-| resourceGroupName | The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API, CLI, or the portal. |
+| resourceGroupName | The name of the Azure resource group associated with the resource. You can get this value from the Azure Resource Manager API, CLI, or the portal. |
 | vmname | The name of the Azure Virtual Machine. |
 | metricnames | Comma-separated list of valid  [Load Balancer metrics](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | api-version | The API version to use for the request.<br /><br /> This document covers api-version `2018-01-01`, included in the above URL.  |
-| timespan | The timespan of the query. It is a string with the following format `startDateTime_ISO/endDateTime_ISO`. This optional parameter is set to return a day's worth of data in the example. |
+| timespan | String with the following format `startDateTime_ISO/endDateTime_ISO` that defines the time range of the returned metrics. This optional parameter is set to return a day's worth of data in the example. |
 | &nbsp; | &nbsp; |
 
 ### Request body
