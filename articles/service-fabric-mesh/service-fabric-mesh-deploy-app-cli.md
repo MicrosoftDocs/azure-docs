@@ -18,11 +18,10 @@ ms.author: ryanwi
 ms.custom: mvc, devcenter
 
 ---
-
-# Quickstart: Deploy a Service Fabric application in Azure
+# Deploy an application to Service Fabric Mesh using CLI
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy containerized applications without managing VMs, storage, or networking. 
 
-This quickstart shows how to deploy your first .NET Core application to Service Fabric Mesh. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
+This article shows how to deploy your first .NET Core application to Service Fabric Mesh. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
 
 You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
@@ -30,7 +29,7 @@ You can easily create a free Azure subscription, [create a free account](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you're running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install]. 
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete these steps. If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install]. 
 
 
 ## Deploy the application
@@ -56,7 +55,7 @@ az mesh deployment create --resource-group <resourceGroupName> --template-uri ht
 In a few seconds, your command should return with `"provisioningState": "Succeeded"` . 
 
 ## Check the application deployment status
-Your application is now deployed. You can check the application's status using the `app show` command. The application name for the deployed quickstart application is "SbzVoting", so fetch its details. 
+Your application is now deployed. You can check the application's status using the `app show` command. The application name for the deployed application is "SbzVoting", so fetch its details. 
 
 ```azurecli-interactive
 az mesh app show --resource-group <resourceGroupName> --name SbzVoting
@@ -72,7 +71,7 @@ az mesh app list -o table
 ## Open the application
 Once the application status is returned as ""provisioningState": "Succeeded", get the ingress endpoint of the service.  Query the network resource to find the IP address of the container where the service is deployed.
 
-The network resource for the quickstart application is "SbzVotingNetwork", so fetch its details.
+The network resource for the application is "SbzVotingNetwork", so fetch its details.
 
 ```azurecli-interactive
 az mesh network show --resource-group <resourceGroupName> --name SbzVotingNetwork
@@ -139,3 +138,4 @@ To learn more about Service Fabric Mesh, read the overview:
 
 
 [azure-cli-install]: /cli/azure/install-azure-cli
+
