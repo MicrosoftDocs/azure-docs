@@ -73,8 +73,8 @@ All triggers have these top-level elements, although some are optional:
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow | 
-| <*expression-for-creating-multiple-runs*> | String | An expression that [splits or *debatches*](#split-on-debatch) array items into multiple workflow instances for processing. This option applies to triggers that return an array and is available only when working directly in code view. | 
-| <*trigger-operations*> | String | Applies to triggers that provide [operation options](#trigger-operation-options) for changing the default trigger behavior | 
+| <*expression-for-creating-multiple-runs*> | String | For triggers that return an array, you can specify an expression that [splits or *debatches*](#split-on-debatch) array items into multiple workflow instances for processing. You can add this option only when working on the trigger definition in code view. | 
+| <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). | 
 |||| 
 
 ## Trigger types
@@ -111,10 +111,8 @@ so the trigger's behavior depends on whether or not sections are included.
          },
          "<other-trigger-specific-input-properties>"
       },
-      "method": "<*method-type*>",
-      "path": "</<api-operation>",
-      "headers": { "<header-content>" },
-      "body": { "<body-content>" },
+      "method": "<method-type>",
+      "path": "/<api-operation>",
       "retryPolicy": { "<retry-behavior>" },
       "queries": { "<query-parameters>" },
       "<other-trigger-specific-properties>"
@@ -125,11 +123,11 @@ so the trigger's behavior depends on whether or not sections are included.
    },
    "runtimeConfiguration": {
       "concurrency": {
-         "runs": <maximum-concurrently-running-workflow-instances>
+         "runs": <maximum-concurrent-workflow-instances>
       }
    },
-   "splitOn": "@triggerbody()?['value']",
-   "operationOptions": "singleInstance"
+   "splitOn": "<splitOn-expression>",
+   "operationOptions": "<trigger-operations>"
 }
 ```
 
@@ -138,26 +136,24 @@ so the trigger's behavior depends on whether or not sections are included.
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | String | The name for the trigger | 
-| <*managed-API-endpoint-URL*> | String | The endpoint URL for the  | 
-| api | JSON Object | The endpoint URL for the managed API | 
-| <*connection-name*> | String | The name for the managed API connection that the workflow uses, which must include a reference to a parameter named `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
+| <*connection-name*> | String | The name for the managed API connection that the workflow uses | 
+| <*other-trigger-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific trigger | 
 | <*method-type*> | String | The HTTP method for communicating with the managed API: "GET", "PUT", "POST", "PATCH", "DELETE" | 
-| recurrence | JSON Object | The frequency and interval that describes how often the trigger fires |  
-| frequency | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
-| interval | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
+| <*api-operation*> | String | The API operation to call | 
+| <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*number-of-time-units*> | Integer | A positive number that determines how often the trigger fires based on the frequency, which is specifically the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
 |||| 
 
 *Optional*
 
-| Element | Type | Description | 
-|---------|------|-------------| 
-| queries | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?api-version=2015-02-01` query string to the URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Result: `https://contoso.com?api-version=2015-02-01` | 
-| headers | JSON Object | One or more headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | JSON Object | The JSON object that describes the payload (data) to send to the managed API | 
-| authentication | JSON Object | The method that an incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
-| retryPolicy | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| concurrency | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
-| operationOptions | String | The `singleInstance` option specifies that the trigger fires only after all active runs are finished. See [Triggers: Fire only after active runs finish](#single-instance). | 
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*query-parameters*> | JSON Object | Any query parameters to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
+| <*other-trigger-specific-properties*> | JSON Object | Any other properties that apply to this specific trigger | 
+| <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
+| <*splitOn-expression*> | For triggers that return arrays, this expression represents the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
+| <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). <p>For example, you can specify that the trigger fires only after all active runs finish by specifying the `singleInstance` option. See [Triggers: Fire only after active runs finish](#single-instance).|
 ||||
 
 *Example*
@@ -171,7 +167,7 @@ so the trigger's behavior depends on whether or not sections are included.
             "runtimeUrl": "https://myReportsRepo.example.com/"
          },
          "connection": {
-            "name": "@parameters('$connections')['<connection-name>'].name"
+            "name": "@parameters('$connections')['<connection-name>'].['connectionId']"
          }     
       },
       "method": "POST",
@@ -414,11 +410,7 @@ and `uri` parameters required for constructing the HTTP call:
       "headers": { "<headers-for-request>" },
       "body": { "<payload-to-send>" },
       "authentication": { "<authentication-method>" },
-      "retryPolicy": {
-          "type": "<retry-policy-type>",
-          "interval": "<retry-interval>",
-          "count": <number-retry-attempts>
-      }
+      "retryPolicy": { "<retry-behavior>" }
    },
    "recurrence": {
       "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
@@ -801,7 +793,7 @@ These triggers provide more options that let you change the default behavior.
 
 | Trigger | Operation option | Description |
 |---------|------------------|-------------|
-| [Recurrence](#recurrence-trigger), <br>[HTTP](#http-trigger), <br>[ApiConnection](#apiconnection-trigger) | singleInstance | Fire the trigger only after all active runs have finished. |
+| [ApiConnection](#apiconnection-trigger), <br>[HTTP](#http-trigger), <br>[Recurrence](#recurrence-trigger) | singleInstance | Fire the trigger only after all active runs have finished. |
 ||||
 
 <a name="single-instance"></a>
@@ -970,7 +962,7 @@ plus a reference to a valid connection.
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*other-action-specific-properties*> | JSON Object | Any other properties that apply to this specific action | 
 |||| 
@@ -1056,7 +1048,7 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 | <*header-content*> | JSON Object | Any headers to send in the request <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON Object | Any message content to send in the request | 
 | <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
 | <*other-action-specific-properties*> | JSON Object | Any other properties that apply to this specific action | 
@@ -1239,7 +1231,7 @@ checks the response to determine whether the workflow should run.
 |-------|------|-------------| 
 | <*header-content*> | JSON Object | Any headers to send with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON Object | Any message content to send in the request | 
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
 | <*other-action-specific-properties*> | JSON Object | Any other properties that apply to this specific action | 

@@ -1,20 +1,18 @@
 ---
-title: Error and exception handling for Logic Apps in Azure | Microsoft Docs
-description: Patterns for error and exception handling in Logic Apps.
+# required metadata
+title: Error and exception handling - Azure Logic Apps | Microsoft Docs
+description: Learn about patterns for error and exception handling in Azure Logic Apps
 services: logic-apps
-documentationcenter: 
-author: dereklee
-manager: jeconnoc
-editor: ''
-
-ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+author: dereklee
+ms.author: deli
+manager: jeconnoc
 ms.date: 01/31/2018
-ms.author: deli; LADocs
+ms.topic: article
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
 # Handle errors and exceptions in Azure Logic Apps
@@ -24,6 +22,8 @@ downtime or issues caused by dependent systems can pose a challenge.
 To help you create robust and resilient integrations that gracefully 
 handle problems and failures, Logic Apps provides a first-class 
 experience for handling errors and exceptions. 
+
+<a name="retry-policies"></a>
 
 ## Retry policies
 
