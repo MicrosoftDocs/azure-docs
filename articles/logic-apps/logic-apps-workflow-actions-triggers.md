@@ -81,176 +81,23 @@ All triggers have these top-level elements, although some are optional:
 
 Each trigger type has a different interface and inputs that define the trigger's behavior. 
 
+### Built-in triggers
+
 | Trigger type | Description | 
 |--------------|-------------| 
-| [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app by calling [Microsoft-managed APIs](../connectors/apis-list.md) to subscribe and unsubscribe. | 
 | [**HTTP**](#http-trigger) | Checks or *polls* any endpoint. This endpoint must conform to a specific trigger contract either by using a "202" asynchronous pattern or by returning an array. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Creates a callable endpoint for your logic app but calls the specified URL to register or unregister. |
 | [**Recurrence**](#recurrence-trigger) | Fires based on a defined schedule. You can set a future date and time for firing this trigger. Based on the frequency, you can also specify times and days for running your workflow. | 
 | [**Request**](#request-trigger)  | Creates a callable endpoint for your logic app and is also known as a "manual" trigger. For example, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
-<a name="trigger-conditions"></a>
+### Standard triggers
 
-## Trigger conditions
-
-For any trigger, you can include an array that contains one or more 
-expressions for conditions that determine whether the workflow should run. 
-To add the `conditions` property to your logic app, 
-open your logic app in the code view editor.
-
-For example, you can specify that a trigger fires only when 
-a website returns an internal server error by referencing the 
-trigger's status code in the `conditions` property:
-
-```json
-"Recurrence": {
-   "type": "Recurrence",
-   "recurrence": {
-      "frequency": "Hour",
-      "interval": 1
-   },
-   "conditions": [ {
-      "expression": "@equals(triggers().code, 'InternalServerError')"
-   } ]
-}
-```
-
-By default, a trigger fires only after getting a "200 OK" response. 
-When an expression references a trigger's status code, 
-the trigger's default behavior is replaced. So, if you 
-want the trigger to fire for more than one status code, 
-such as the "200" and "201" status code, you must include 
-this expression as your condition: 
-
-`@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
-
-<a name="split-on-debatch"></a>
-
-## Trigger - Split arrays into multiple runs
-
-If your trigger returns an array for your logic app to process, 
-sometimes a "for each" loop might take too long to process each array item. 
-Instead, you can use the **SplitOn** property in your trigger to *debatch* the array. 
-Debatching splits up the array items and starts a new logic app instance 
-that runs for each array item. This approach is useful, for example, 
-when you want to poll an endpoint that might return multiple new items between polling intervals.
-For the maximum number of array items that **SplitOn** can process in a single logic app run, 
-see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
-
-> [!NOTE]
-> You can add **SplitOn** only to triggers by manually defining or overriding 
-> in code view for your logic app's JSON definition. You can't use **SplitOn** 
-> when you want to implement a synchronous response pattern. 
-> Any workflow that uses **SplitOn** and includes a response action 
-> runs asynchronously and immediately sends a `202 ACCEPTED` response.
-
-If your trigger's Swagger file describes a payload that is an array, 
-the **SplitOn** property is automatically added to your trigger. 
-Otherwise, add this property inside the response payload that has the array 
-you want to debatch. 
-
-*Example*
-
-Suppose you have an API that returns this response: 
-  
-```json
-{
-   "Status": "Succeeded",
-   "Rows": [ 
-      { 
-         "id": 938109380,
-         "name": "customer-name-one"
-      },
-      {
-         "id": 938109381,
-         "name": "customer-name-two"
-      }
-   ]
-}
-```
- 
-Your logic app only needs the content from the array in `Rows`, 
-so you can create a trigger like this example:
-
-``` json
-"HTTP_Debatch": {
-   "type": "Http",
-    "inputs": {
-        "uri": "https://mydomain.com/myAPI",
-        "method": "GET"
-    },
-   "recurrence": {
-      "frequency": "Second",
-      "interval": 1
-    },
-    "splitOn": "@triggerBody()?.Rows"
-}
-```
-
-> [!NOTE]
-> If you use the `SplitOn` command, you can't get the properties that are outside the array. 
-> So for this example, you can't get the `status` property in the response returned from the API.
-> 
-> To avoid a failure if the `Rows` property doesn't exist, 
-> this example uses the `?` operator.
-
-Your workflow definition can now use `@triggerBody().name` to get the `name` values, 
-which are `"customer-name-one"` from the first run and `"customer-name-two"` from the second run. 
-So, your trigger outputs look like these examples:
-
-```json
-{
-   "body": {
-      "id": 938109380,
-      "name": "customer-name-one"
-   }
-}
-```
-
-```json
-{
-   "body": {
-      "id": 938109381,
-      "name": "customer-name-two"
-   }
-}
-```
-
-<a name="trigger-operation-options"></a>
-
-## Trigger operation options
-
-Here are more options for changing the default behavior for these triggers:
-
-| Operation option | Description | Triggers | 
-|------------------|-------------|----------|
-| `singleInstance` | Trigger only after all active runs have finished. | [ApiConnection](#apiconnection-trigger), <br>[HTTP](#http-trigger), <br>[Recurrence](#recurrence-trigger) | 
-||||
-
-<a name="single-instance"></a>
-
-### Trigger only after active runs finish
-
-For recurring and polling triggers, you can specify that the trigger 
-fire only after all active workflow instances finish running. 
-If a scheduled recurrence happens while a workflow instance is running, 
-the trigger skips and waits until the next scheduled recurrence before checking again. 
-
-Here is an example where the recurrence trigger, which fires every second, 
-waits until the previous instance has finished before firing: 
-
-```json
-"Recurrence": {
-   "type": "Recurrence",
-   "recurrence": {
-      "frequency": "Second",
-      "interval": 1,
-   },
-   "operationOptions": "singleInstance"
-}
-```
+| Trigger type | Description | 
+|--------------|-------------| 
+| [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app by calling [Microsoft-managed APIs](../connectors/apis-list.md) to subscribe and unsubscribe. | 
+||| 
 
 ## Trigger details
 
@@ -812,6 +659,167 @@ a schema that validates input from the incoming request:
 }
 ```
 
+<a name="trigger-conditions"></a>
+
+## Trigger conditions
+
+For any trigger, you can include an array that contains one or more 
+expressions for conditions that determine whether the workflow should run. 
+To add the `conditions` property to your logic app, 
+open your logic app in the code view editor.
+
+For example, you can specify that a trigger fires only when 
+a website returns an internal server error by referencing the 
+trigger's status code in the `conditions` property:
+
+```json
+"Recurrence": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Hour",
+      "interval": 1
+   },
+   "conditions": [ {
+      "expression": "@equals(triggers().code, 'InternalServerError')"
+   } ]
+}
+```
+
+By default, a trigger fires only after getting a "200 OK" response. 
+When an expression references a trigger's status code, 
+the trigger's default behavior is replaced. So, if you 
+want the trigger to fire for more than one status code, 
+such as the "200" and "201" status code, you must include 
+this expression as your condition: 
+
+`@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
+
+<a name="split-on-debatch"></a>
+
+## Trigger multiple runs
+
+If your trigger returns an array for your logic app to process, 
+sometimes a "for each" loop might take too long to process each array item. 
+Instead, you can use the **SplitOn** property in your trigger to *debatch* the array. 
+Debatching splits up the array items and starts a new logic app instance 
+that runs for each array item. This approach is useful, for example, 
+when you want to poll an endpoint that might return multiple new items between polling intervals.
+For the maximum number of array items that **SplitOn** can process in a single logic app run, 
+see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
+
+> [!NOTE]
+> You can add **SplitOn** only to triggers by manually defining or overriding 
+> in code view for your logic app's JSON definition. You can't use **SplitOn** 
+> when you want to implement a synchronous response pattern. 
+> Any workflow that uses **SplitOn** and includes a response action 
+> runs asynchronously and immediately sends a `202 ACCEPTED` response.
+
+If your trigger's Swagger file describes a payload that is an array, 
+the **SplitOn** property is automatically added to your trigger. 
+Otherwise, add this property inside the response payload that has the array 
+you want to debatch. 
+
+*Example*
+
+Suppose you have an API that returns this response: 
+  
+```json
+{
+   "Status": "Succeeded",
+   "Rows": [ 
+      { 
+         "id": 938109380,
+         "name": "customer-name-one"
+      },
+      {
+         "id": 938109381,
+         "name": "customer-name-two"
+      }
+   ]
+}
+```
+ 
+Your logic app only needs the content from the array in `Rows`, 
+so you can create a trigger like this example:
+
+``` json
+"HTTP_Debatch": {
+   "type": "Http",
+    "inputs": {
+        "uri": "https://mydomain.com/myAPI",
+        "method": "GET"
+    },
+   "recurrence": {
+      "frequency": "Second",
+      "interval": 1
+    },
+    "splitOn": "@triggerBody()?.Rows"
+}
+```
+
+> [!NOTE]
+> If you use the `SplitOn` command, you can't get the properties that are outside the array. 
+> So for this example, you can't get the `status` property in the response returned from the API.
+> 
+> To avoid a failure if the `Rows` property doesn't exist, 
+> this example uses the `?` operator.
+
+Your workflow definition can now use `@triggerBody().name` to get the `name` values, 
+which are `"customer-name-one"` from the first run and `"customer-name-two"` from the second run. 
+So, your trigger outputs look like these examples:
+
+```json
+{
+   "body": {
+      "id": 938109380,
+      "name": "customer-name-one"
+   }
+}
+```
+
+```json
+{
+   "body": {
+      "id": 938109381,
+      "name": "customer-name-two"
+   }
+}
+```
+
+<a name="trigger-operation-options"></a>
+
+## Trigger operation options
+
+Here are more options for changing the default behavior for these triggers:
+
+| Operation option | Description | Triggers | 
+|------------------|-------------|----------|
+| `singleInstance` | Trigger only after all active runs have finished. | [ApiConnection](#apiconnection-trigger), <br>[HTTP](#http-trigger), <br>[Recurrence](#recurrence-trigger) | 
+||||
+
+<a name="single-instance"></a>
+
+### Trigger only after active runs finish
+
+For recurring and polling triggers, you can specify that the trigger 
+fire only after all active workflow instances finish running. 
+If a scheduled recurrence happens while a workflow instance is running, 
+the trigger skips and waits until the next scheduled recurrence before checking again. 
+
+Here is an example where the recurrence trigger, which fires every second, 
+waits until the previous instance has finished before firing: 
+
+```json
+"Recurrence": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Second",
+      "interval": 1,
+   },
+   "operationOptions": "singleInstance"
+}
+```
+
 <a name="actions-overview"></a>
 
 ## Actions overview
@@ -846,7 +854,7 @@ you organize workflow execution
 
 <a name="built-in-actions"></a>
 
-### Built-in action types
+### Built-in actions
 
 | Action type | Description | 
 |-------------|-------------|  
@@ -864,7 +872,7 @@ you organize workflow execution
 | [**Workflow**](#workflow-action) | Nests a workflow inside another workflow. | 
 ||| 
 
-### Standard action types
+### Standard actions
 
 | Action type | Description | 
 |-------------|-------------|  
@@ -874,7 +882,7 @@ you organize workflow execution
 
 <a name="control-workflow-actions"></a>
 
-### Control workflow action types
+### Control workflow actions
 
 These actions help you control workflow execution and include other actions. 
 From outside a control workflow action, you can directly reference actions 
@@ -892,7 +900,7 @@ other actions that are in the same control workflow structure.
 | [**Until**](#until-action) | Run actions in a loop until the specified condition is true. | 
 |||  
 
-## Built-in and standard action details
+## Action details
 
 <a name="apiconnection-action"></a>
 
@@ -2369,7 +2377,7 @@ the specified URL until one of these conditions is met:
 
 <a name="asynchronous-patterns"></a>
 
-## Action asynchronous patterns
+## Asynchronous patterns
 
 By default, all HTTP-based actions support the standard asynchronous operation pattern. 
 This pattern specifies that when an HTTP-based action sends a request to a specified endpoint, 
