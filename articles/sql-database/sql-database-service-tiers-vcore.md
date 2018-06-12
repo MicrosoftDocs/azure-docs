@@ -29,7 +29,7 @@ ms.author: carlrab
 
 ## vCore-based purchasing model  (preview)
 
-A virtual core represents the logical CPU offered with an option to choose between generations of hardware. The vCore-based purchasing model (preview) gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model (preview), customers can choose between General Purpose and Business critical service tiers (preview) for both [single databases](single-database-scale.md) and [elastic pools](sql-database-elastic-pool.md). 
+A virtual core represents the logical CPU offered with an option to choose between generations of hardware. The vCore-based purchasing model (preview) gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model (preview), customers can choose between General Purpose and Business critical service tiers (preview) for both [single databases](sql-database-single-database-scale.md) and [elastic pools](sql-database-elastic-pool.md). 
 
 Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups. When using the vCore model, single databases and elastic pools are eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
@@ -75,7 +75,7 @@ The following table helps you understand the differences between these two tiers
 > [!IMPORTANT]
 > If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
 
-For details on specific performance levels and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-database.md#single-database-storage-sizes-and-performance-levels) and for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pool.md#elastic-pool-storage-sizes-and-performance-levels).
+For details on specific performance levels and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels) and for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
 
 See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions. 
 

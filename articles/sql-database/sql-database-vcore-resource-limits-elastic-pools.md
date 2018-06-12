@@ -14,12 +14,12 @@ ms.author: carlrab
 # Azure SQL Database vCore-based purchasing model limits for elastic pools (preview)
 
 > [!IMPORTANT]
-> For DTU-based purchasing model limits, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md).
+> For DTU-based purchasing model limits, see [SQL Database DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).
 
 
 ## Elastic pool: Storage sizes and performance levels
 
-For SQL Database elastic pools, the following tables show the resources available at each service tier and performance level. You can set the service tier, performance level, and storage amount using the [Azure portal](sql-database-elastic-pool-manage.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](sql-database-elastic-pool-manage.md#manage-elastic-pools-and-databases-using-powershell), the [Azure CLI](sql-database-elastic-pool-manage.md#manage-elastic-pools-and-databases-using-the-azure-cli), or the [REST API](sql-database-elastic-pool-manage.md#manage-elastic-pools-and-databases-using-the-rest-api).
+For SQL Database elastic pools, the following tables show the resources available at each service tier and performance level. You can set the service tier, performance level, and storage amount using the [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), the [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), or the [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools that has the same performance level. For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
@@ -150,14 +150,14 @@ The following table describes the properties for pooled databases.
 > <br> •	Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
 > <br> •	Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
-## What happens when database and elastic pool resource limits are reached?
+## What happens when elastic pool resource limits are reached?
 
 ### Compute (vCores)
 
 When database compute utilization (measured by vCore utilization) becomes high, query latency increases and can even time out. Under these conditions, queries may be queued by the service and are provided resources for execution as resource become free.
 When encountering high compute utilization, mitigation options include:
 
-- Increasing the performance level of the database or elastic pool to provide the database with more vCores. See [Single database: change cVcores](#single-database-change-vcores) and [Elastic pool: change vCores](#elastic-pool-change-vcores).
+- Increasing the performance level of the elastic pool to provide the pooled databases with more vCores. See [Elastic pool: change vCores](#elastic-pool-change-vcores).
 - Optimizing queries to reduce the resource utilization of each query. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### Storage
@@ -166,8 +166,8 @@ When database space used reaches the max size limit, database inserts and update
 
 When encountering high space utilization, mitigation options include:
 
-- Increasing the max size of the database or elastic pool, or change the performance level to increase the maximum storage. See [SQL Database vCore-based resource limits](sql-database-vcore-resource-limits.md).
-- If the database is in an elastic pool, then alternatively the database can be moved outside of the pool so that its storage space is not shared with other databases.
+- Increasing the max size of the elastic pool, or change the performance level to increase the maximum storage. See [SQL Database vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
+- Alternatively, the database can be moved outside of the pool so that its storage space is not shared with other databases.
 
 ### Sessions and workers (requests) 
 
