@@ -19147,7 +19147,12 @@
         },
         {
             "source_path": "articles/operations-management-suite/operations-management-suite-walkthrough-servicemap.md",
-            "redirect_url": "/azure/monitoring/monitoring-walkthrough-servicemap",
+            "redirect_url": "/azure/monitoring/monitoring-service-map",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring/monitoring-walkthrough-servicemap.md",
+            "redirect_url": "/azure/monitoring/monitoring-service-map",
             "redirect_document_id": false
         },
         {
