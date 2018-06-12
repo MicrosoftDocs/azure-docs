@@ -41,8 +41,8 @@ Deploying a FreeBSD virtual machine is a straightforward process using an image 
 - [FreeBSD 11.0 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
 - [FreeBSD 11.1 on the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
-### Create a FreeBSD VM through Azure CLI 2.0 on FreeBSD
-First you need to install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
+### Create a FreeBSD VM through Azure CLI on FreeBSD
+First you need to install [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash

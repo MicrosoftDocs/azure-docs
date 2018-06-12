@@ -93,7 +93,7 @@ azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## Azure CLI 2.0 deployment
+## Azure CLI deployment
 
 The following example deploys the Network Watcher Agent VM extension to an existing VM deployed through Resource Manager:
 
@@ -119,7 +119,7 @@ Extension execution output is logged to files found in the following directory:
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
-The following example shows the deployment state of the NetworkWatcherAgentLinux extension for a VM deployed through Resource Manager, using the Azure CLI 2.0:
+The following example shows the deployment state of the NetworkWatcherAgentLinux extension for a VM deployed through Resource Manager, using the Azure CLI:
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1
