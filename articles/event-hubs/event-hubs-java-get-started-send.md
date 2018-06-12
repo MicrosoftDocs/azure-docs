@@ -79,7 +79,7 @@ Use the ConnectionStringBuilder class to construct a connection string value to 
 
 ```java
 final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-        .setNamespaceName("Your Event Hubs namespace name") // to target National clouds - use .setEndpoint(URI)
+        .setNamespaceName("Your Event Hubs namespace name")
         .setEventHubName("Your event hub")
         .setSasKeyName("Your policy name")
         .setSasKey("Your primary SAS key");
