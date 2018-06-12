@@ -16,7 +16,7 @@ There are two categories of software development kits (SDKs) for working with Io
 
 * **Device SDKs** enable you to build apps that run on your IoT devices. These apps send telemetry to your IoT hub, and optionally receive messages, job, method, or twin updates from your IoT hub.
 
-* **Service SDKs** enable you to manage your IoT hub, and optionally send messages, schedule jobs, invoke direct methods, or send desired property updates to your IoT devices.
+* **Service SDKs** enable you to manage your IoT hub, and optionally send messages, schedule jobs, invoke direct methods, or send desired property updates to your IoT devices
 
 Learn about the benefits of developing using Azure IoT SDKs [here][lnk-benefits-blog].
 
@@ -98,7 +98,12 @@ Azure IoT Hub service SDK for iOS:
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
 
 
+
 ## Next steps
+
+Azure IoT SDKs also provide a set of tools to help with development:
+* [iothub-diagnostics](https://github.com/Azure/iothub-diagnostics): a cross-platform command line tool to help diagnose issues related to connection with IoT Hub.
+* [device-explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer): a Windows desktop application to connect to your IoT Hub.
 
 Other reference topics in this IoT Hub developer guide include:
 
