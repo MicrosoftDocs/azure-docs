@@ -21,14 +21,14 @@ ms.author: iainfou
 You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
 
 > [!WARNING]
-> You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM with the Azure CLI 1.0. You can [add NICs to an existing VM with the Azure CLI 2.0](multiple-nics.md). You can also [create a VM based on the original virtual disk(s)](copy-vm.md) and create multiple NICs as you deploy the VM.
+> You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM with the Azure CLI 1.0. You can [add NICs to an existing VM with the Azure CLI](multiple-nics.md). You can also [create a VM based on the original virtual disk(s)](copy-vm.md) and create multiple NICs as you deploy the VM.
 
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#create-supporting-resources) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](multiple-nics.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI](multiple-nics.md) - our next generation CLI for the resource management deployment model
 
 
 ## Create supporting resources
