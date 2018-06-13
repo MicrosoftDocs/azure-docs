@@ -11141,6 +11141,17 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-reporting-api-audit-reference.md",
+            "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-sign-in-activity-reference.md",
+            "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path": "articles/active-directory/active-directory-identityprotection-risk-events-types.md",
             "redirect_url": "/azure/active-directory/active-directory-identity-protection-risk-events",
             "redirect_document_id": false
