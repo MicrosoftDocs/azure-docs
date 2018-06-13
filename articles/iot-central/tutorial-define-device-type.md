@@ -145,9 +145,9 @@ You can use Event to define point-in-time data that is sent by the device to sig
 
 2. Each type of Event you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
-    * Display Name.
-    * Field Name.
-    * Severity.
+   * Display Name.
+   * Field Name.
+   * Severity.
 
     To configure your **Fan Motor Error** event, use the information in the following table:
 
@@ -179,10 +179,10 @@ You can use State to define and visualize the state of the device or its compone
 
 2. Each type of State you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
-    * Display Name.
-    * Field Name.
-    * Values with optional display labels.
-    * Color for each value
+   * Display Name.
+   * Field Name.
+   * Values with optional display labels.
+   * Color for each value.
 
     To configure your **Fan Mode** state, use the information in the following table:
 
