@@ -5,9 +5,6 @@
   items:
   - name: About Service Fabric Mesh
     href: service-fabric-mesh-overview.md
-  - name: Set up your development environment to build Service Fabric Mesh apps
-    href: service-fabric-mesh-setup-developer-environment-sdk.md
-
 - name: Quickstarts
   items:
   - name: Deploy an existing container
@@ -22,13 +19,23 @@
 
 - name: Concepts
   items:
-  - name: Conceptual
-    href: service-fabric-mesh-concepts.md
+  - name: Terminology
+    href: service-fabric-mesh-terminology.md
+  - name: Application model
+    href: service-fabric-mesh-application-model.md
+  - name: Monitoring and diagnostics
+    href: service-fabric-mesh-monitoring-diagnostics.md
+  - name: Application scaling
+    href: service-fabric-mesh-scaling.md
+  - name: Storing state
+    href: service-fabric-mesh-storing-state.md
 
 - name: How-to guides
   items:
-  - name: How?
-    href: service-fabric-mesh-how-to.md
+  - name: Set up your development environment
+    href: service-fabric-mesh-setup-developer-environment-sdk.md
+  - name: Deploy an app (CLI)
+    href: service-fabric-mesh-deploy-app-cli.md
 
 - name: Reference
   items:
@@ -37,7 +44,7 @@
 
 - name: Resources
   items:
-  - name: FAQ
+  - name: Common questions
     href: service-fabric-mesh-faq.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=service-fabric-mesh
