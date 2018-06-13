@@ -153,7 +153,6 @@ You can use startup tasks to perform operations before a role starts. Installing
    set netfxregkey="0x70BF6"
    goto logtimestamp
    
-   
    :logtimestamp
    REM ***** Setup LogFile with timestamp *****
    md "%PathToNETFXInstall%\log"
