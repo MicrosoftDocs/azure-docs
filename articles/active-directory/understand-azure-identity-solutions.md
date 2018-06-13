@@ -119,8 +119,8 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 * [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md)
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
-* [What is Microsoft Azure Active Directory licensing?](active-directory-licensing-whatis-azure-portal.md)
+* [Managing access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md)
+* [What is Microsoft Azure Active Directory licensing?](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [How can I discover unsanctioned cloud apps that are used within my organization](manage-apps/cloud-app-discovery.md)
 
 ## Next steps

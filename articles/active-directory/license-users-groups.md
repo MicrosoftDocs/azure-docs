@@ -23,7 +23,7 @@ License-based Azure AD services work by activating an Azure Active Directory (Az
 
 Although obtaining a subscription is all you need to configure paid capabilities, you must still assign user licenses for paid Azure AD paid features. Any user who should have access to, or who is managed through, an Azure AD paid feature must be assigned a license. License assignment is a mapping between a user and a purchased service, such as Azure AD Premium, Basic, or Enterprise Mobility + Security.
 
-You can use [group-based license assignment](active-directory-licensing-whatis-azure-portal.md) to set up rules such as the following:
+You can use [group-based license assignment](fundamentals/active-directory-licensing-whatis-azure-portal.md) to set up rules such as the following:
 * All users in your directory automatically get a license
 * Everyone with the appropriate job title gets a license
 * You can delegate the decision to other managers in the organization (by using [self-service groups](active-directory-accessmanagement-self-service-group-management.md))

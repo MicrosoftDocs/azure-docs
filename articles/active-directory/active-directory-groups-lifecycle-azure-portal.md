@@ -1,4 +1,4 @@
-﻿---
+---
 title: Expiration for Office 365 groups in Azure Active Directory | Microsoft Docs
 description: How to set up expiration for Office 365 groups in Azure Active Directory
 services: active-directory
@@ -148,8 +148,8 @@ The following cmdlets can be used to configure the policy in more detail. For mo
 ## Next steps
 These articles provide additional information on Azure AD groups.
 
-* [See existing groups](active-directory-groups-view-azure-portal.md)
-* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
+* [See existing groups](fundamentals/active-directory-groups-view-azure-portal.md)
+* [Manage settings of a group](fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Manage members of a group](active-directory-groups-members-azure-portal.md)
 * [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
 * [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)

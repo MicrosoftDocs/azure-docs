@@ -30,7 +30,7 @@ For more information, see [What is Azure Active Directory?](active-directory-wha
 
 For more information, see:
 
-* [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* [How Azure subscriptions are associated with Azure Active Directory](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Manage the directory for your Office 365 subscription in Azure](active-directory-manage-o365-subscription.md)
 
 - - -
@@ -48,7 +48,7 @@ Azure AD paid services like Enterprise Mobility + Security complement other web 
 
 **A:** By default, you are assigned the Subscription Administrator role when you sign up for Azure. A subscription admin can use either a Microsoft account or a work or school account from the directory that the Azure subscription is associated with.  This role is authorized to manage services in the Azure portal.
 
-If others need to sign in and access services by using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) and [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
+If others need to sign in and access services by using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) and [How Azure subscriptions are associated with Azure Active Directory](fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 
 Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
