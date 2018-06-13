@@ -202,6 +202,30 @@
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Monitor in-memory
       href: sql-database-in-memory-oltp-monitoring.md
+  - name: Elastic Database Jobs (New)
+    items:
+    - name: Overview
+      href: elastic-jobs-overview.md
+    - name: Create and manage (T-SQL)
+      href: elastic-jobs-tsql.md
+    - name: Create and manage (PowerShell)
+      href: elastic-jobs-powershell.md
+    - name: Migrate to new Elastic Jobs
+      href: elastic-jobs-migrate.md
+    - name: Elastic Jobs (deprecated)
+      items:
+      - name: Overview (deprecated)
+        href: sql-database-elastic-jobs-overview.md
+      - name: Install elastic job (deprecated)
+        href: sql-database-elastic-jobs-service-installation.md
+      - name: Create job - Portal (deprecated)
+        href: sql-database-elastic-jobs-create-and-manage.md
+      - name: Create job - Azure PowerShell (deprecated)
+        href: sql-database-elastic-jobs-powershell.md
+      - name: Create job - Sample app (deprecated)
+        href: sql-database-elastic-jobs-getting-started.md
+      - name: Uninstall elastic job (deprecated)
+        href: sql-database-elastic-jobs-uninstall.md
   - name: Scale out
     items:
     - name: Overview
