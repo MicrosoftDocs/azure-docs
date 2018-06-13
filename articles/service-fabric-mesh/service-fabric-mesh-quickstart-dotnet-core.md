@@ -1,19 +1,18 @@
 ---
-title: Create a .NET Service Fabric application in Azure | Microsoft Docs
-description: In this quickstart, you deploy a .NET Core application to Service Fabric Mesh.
-services: service-fabric
+title: Create an app in Service Fabric Mesh on Azure | Microsoft Docs
+description: In this quickstart, learn how to deploy an application to Service Fabric Mesh in Azure using Visual Studio.
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt
 editor: ''
-
 ms.assetid: 
 ms.service: service-fabric-mesh
 ms.devlang: dotNet
-ms.topic: quickstart
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/04/2018
+ms.date: 06/12/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
 
