@@ -72,7 +72,7 @@ Most Azure AD-related European identity data, for organizations with European-ba
 
 ## Next steps
 For more information about any of the features and functionality described above, see these articles.
-- [Get started with Azure Active Directory](get-started-azure-ad.md)
+- [Get started with Azure Active Directory](fundamentals/get-started-azure-ad.md)
 - [What is Multi-Factor Authentication?](https://docs.microsoft.com/en-us/azure/active-directory/authentication/multi-factor-authentication)
 - [Azure AD self-service password reset](https://docs.microsoft.com/en-us/azure/active-directory/authentication/active-directory-passwords-overview)
 - [What is Azure Active Directory B2C?](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview)
