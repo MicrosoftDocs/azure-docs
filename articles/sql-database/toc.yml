@@ -202,14 +202,14 @@
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Monitor in-memory
       href: sql-database-in-memory-oltp-monitoring.md
-  - name: Elastic Database Jobs (New)
+  - name: Elastic Database Jobs
     items:
     - name: Overview
       href: elastic-jobs-overview.md
-    - name: Create and manage (T-SQL)
-      href: elastic-jobs-tsql.md
     - name: Create and manage (PowerShell)
       href: elastic-jobs-powershell.md
+    - name: Create and manage (T-SQL)
+      href: elastic-jobs-tsql.md
   - name: Scale out
     items:
     - name: Overview

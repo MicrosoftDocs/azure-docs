@@ -270,6 +270,8 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType Hour -IntervalCount 1 -StartTime (
 
 ## Clean up resources
 
+Delete the Azure resources created in this tutorial by deleting the resource group.
+
 > [!TIP]
 > If you plan to continue to work with these jobs, do not clean up the resources created in this article. If you do not plan to continue, use the following steps to delete all resources created in this article.
 >
@@ -294,4 +296,4 @@ In this tutorial, you ran a Transact-SQL script against a set of databases.  You
 > * Monitor the job
 
 > [!div class="nextstepaction"]
->[Elastic Jobs overview](elastic-jobs-overview.md)
+>[Manage Elastic Jobs using Transact-SQL](elastic-jobs-tsql.md)
