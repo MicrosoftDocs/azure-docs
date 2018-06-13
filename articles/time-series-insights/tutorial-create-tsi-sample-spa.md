@@ -20,7 +20,7 @@ This tutorial guides you through the process of creating your own single-page we
 
 ## Prerequisites
 
-Sign up for a [free Azure subscription](https://azure.microsoft.com/en-us/free/), if you don't already have one. 
+Sign up for a [free Azure subscription](https://azure.microsoft.com/free/), if you don't already have one. 
 
 You'll also need to install Visual Studio if you haven't already. For this tutorial, you can [download/install the free Community version, or a free trial](https://www.visualstudio.com/downloads/).
 
