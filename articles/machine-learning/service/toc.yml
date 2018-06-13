@@ -25,7 +25,9 @@
     href: concept-accelerate-with-fpgas.md    
 - name: How-to guides
   items:  
-  - name: Configure compute environment 
+  - name: Create workspace in portal
+    href: how-to-create-workspace-in-portal.md 
+  - name: Configure compute environment
   - name: Acquire and understand data
   - name: Develop models
   - name: Deploy and consume models
