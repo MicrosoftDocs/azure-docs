@@ -69,7 +69,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
 
 1. Open the **ReaderSupportRole.json** file in an editor.
 
-    The following shows the JSON output. For information about the different properties, see [Understand role definitions](role-definitions.md).
+    The following shows the JSON output. For information about the different properties, see [Custom roles](custom-roles.md).
 
     ```json
     {
