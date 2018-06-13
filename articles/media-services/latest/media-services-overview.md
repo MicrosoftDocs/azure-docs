@@ -47,7 +47,7 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 
 ## v3 capabilities
 
-v3 is based on a unified API surface which exposes both management and operations functionality built on **Azure Resource Manager**. 
+v3 is based on a unified API surface, which exposes both management and operations functionality built on **Azure Resource Manager**. 
 
 This version provides the following capabilities:  
 
