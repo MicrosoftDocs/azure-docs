@@ -29,7 +29,7 @@ ms.author: wolfma
 >
 > - - -
 
-## Speech Recognition Using Microphone
+## Speech recognition using the microphone
 
 The code snippet below shows how to recognize speech input from the microphone in the default language (`en-US`).
 
@@ -39,7 +39,7 @@ The code snippet below shows how to recognize speech input from the microphone i
 
 - - -
 
-## Speech Recognition From a File
+## Speech recognition from a file
 
 The following code snippet recognizes speech input from an audio file in the default language (`en-US`), the supported format is single-channel (mono) WAV / PCM with a sampling rate of 16 KHz.
 
@@ -51,7 +51,7 @@ The following code snippet recognizes speech input from an audio file in the def
 
 - - -
 
-## Speech Recognition Using a Customized Model
+## Speech recognition using a customized model
 
 The [Custom Speech Service (CRIS)](https://www.cris.ai/) allows the customization of the Microsoft's speech-to-text engine for your application. The snippet below shows how to recognize speech from a microphone using your CRIS model; fill in your CRIS subscription key and your own deployment identification before running it.
 
@@ -61,7 +61,7 @@ The [Custom Speech Service (CRIS)](https://www.cris.ai/) allows the customizatio
 
 - - -
 
-## Continuous Speech Recognition
+## Continuous speech recognition
 
 [!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionContinuous)]
 
@@ -69,10 +69,9 @@ The [Custom Speech Service (CRIS)](https://www.cris.ai/) allows the customizatio
 
 - - -
 
-## Sample Source Code
+## Sample source code
 
 The latest version of the samples and even more advanced samples are in a dedicated [GitHub repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
-
 
 ## Next steps
 

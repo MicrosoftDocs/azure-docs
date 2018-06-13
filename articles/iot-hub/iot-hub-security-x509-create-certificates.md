@@ -1,21 +1,15 @@
 ---
 title: How to use PowerShell to create X.509 certificates | Microsoft Docs
 description: How to use PowerShell to create X.509 certificates locally and enable the X.509 based security in your Azure IoT hub in a simulated environment.
-services: iot-hub
-documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: dkshir
-
 ---
+
 # PowerShell scripts to manage CA-signed X.509 certificates
 
 The X.509 certificate-based security in the IoT Hub requires you to start with an [X.509 certificate chain](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), which includes the root certificate as well as any intermediate certificates up until the leaf certificate. This *How to* guide walks you through sample PowerShell scripts that use [OpenSSL](https://www.openssl.org/) to create and sign X.509 certificates. We recommend you to use this guide for experimentation only, since many of these steps will happen during manufacturing process in the real world. You can use these certificates to simulate security in your Azure IoT hub using the *X.509 Certificate Authentication*. The steps in this guide create certificates locally on your Windows machine. 

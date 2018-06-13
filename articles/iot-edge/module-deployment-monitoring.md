@@ -1,23 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Deploy modules for Azure IoT Edge | Microsoft Docs 
 description: Learn about how modules get deployed to edge devices
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+services: iot-edge
 ---
 
 # Understand IoT Edge deployments for single devices or at scale - preview
@@ -30,7 +20,7 @@ Azure IoT Edge devices follow a [device lifecycle][lnk-lifecycle] that is simila
 
 Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices: one for development and fast iterations on a single device (that you used in the Azure IoT Edge tutorials), and one for managing large fleets of IoT Edge devices. Both of these approaches are available in the Azure Portal and programmatically.
 
-This article focuses on the configuration and monitoring stages for fleets of devices, collectively referred to as IoT Edge deployments. The overall deployment steps are as follows:   
+This article focuses on the configuration and monitoring stages for fleets of devices, collectively referred to as IoT Edge automatic deployments. The overall deployment steps are as follows:   
 
 1. An operator defines a deployment that describes a set of modules as well as the target devices. Each deployment has a deployment manifest that reflects this information. 
 1. The IoT Hub service communicates with all targeted devices to configure them with the desired modules. 
@@ -41,7 +31,7 @@ This article walks through each component involved in configuring and monitoring
 
 ## Deployment
 
-A deployment assigns IoT Edge module images to run as instances on a targeted set of IoT Edge devices. It works by configuring an IoT Edge deployment manifest to include a list of modules with the corresponding initialization parameters. A deployment can be assigned to a single device (usually based on Device Id) or to a group of devices (based on tags). Once an IoT Edge device receives a deployment manifest, it downloads and installs the module container images from the respective container repositories, and configures them accordingly. Once a deployment is created, an operator can monitor the deployment status to see whether targeted devices are correctly configured.   
+An IoT Edge automatic deployment assigns IoT Edge module images to run as instances on a targeted set of IoT Edge devices. It works by configuring an IoT Edge deployment manifest to include a list of modules with the corresponding initialization parameters. A deployment can be assigned to a single device (usually based on Device Id) or to a group of devices (based on tags). Once an IoT Edge device receives a deployment manifest, it downloads and installs the module container images from the respective container repositories, and configures them accordingly. Once a deployment is created, an operator can monitor the deployment status to see whether targeted devices are correctly configured.   
 
 Devices need to be provisioned as IoT Edge devices to be configured with a deployment. The following are prerequisites, and are not included in the deployment:
 * The base operating system
