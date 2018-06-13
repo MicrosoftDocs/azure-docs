@@ -7,7 +7,7 @@ ms.service: logic-apps
 author: kevinlam1
 ms.author: klam
 manager: jeconnoc
-ms.date: 05/01/2018
+ms.date: 06/18/2018
 ms.topic: reference
 
 # optional metadata
@@ -21,27 +21,29 @@ In [Azure Logic Apps](../logic-apps/logic-apps-overview.md),
 all logic app workflows start with triggers followed by actions. 
 This article describes the trigger and action types you can use 
 when creating logic apps for automating tasks, processes, and workflows. 
-You can visually create logic app workflows with the Logic Apps Designer, 
-or by directly authoring the underlying workflow definitions with the 
+You can create logic app workflows with the Logic Apps Designer, 
+either visually or by authoring the underlying workflow definitions with the 
 [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
 You can create logic apps either in the Azure portal or Visual Studio. 
-The underlying definition for the entire workflow, including the trigger 
-and actions, use Javascript Object Notation (JSON) format.
+The underlying definition for the entire workflow, including the 
+trigger and actions, uses Javascript Object Notation (JSON).
 
 <a name="triggers-overview"></a>
 
 ## Triggers overview
 
-All logic apps start with a trigger, which defines the calls 
-that can instantiate and start a logic app workflow. 
-Here are the types of triggers you can use:
+All logic apps start with a trigger, which defines the 
+calls that instantiate and start a logic app workflow. 
+Here are the general trigger categories:
 
-* A *polling* trigger, which checks a service's HTTP endpoint at regular intervals
+* A *polling* trigger, which checks a service's endpoint at regular intervals
 
-* A *push* trigger, which calls the 
-[Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows)
+* A *push* trigger, which creates a subscription to an endpoint and 
+provides a *callback URL* so the endpoint can return a response 
+when a specific event happens or data is available. The trigger 
+then waits for that response.
  
-All triggers have these top-level elements, although some are optional:  
+Triggers have these top-level elements, although some are optional:  
   
 ```json
 "<trigger-name>": {
@@ -52,7 +54,8 @@ All triggers have these top-level elements, although some are optional:
       "interval": <number-of-time-units>
    },
    "conditions": [ "<array-with-conditions>" ],
-   "splitOn": "<expression-for-creating-multiple-runs>",
+   "runtimeConfiguration": { "<runtime-config-option>" },
+   "splitOn": "<splitOn-expression>",
    "operationOptions": "<operation-option>"
 }
 ```
@@ -62,10 +65,10 @@ All triggers have these top-level elements, although some are optional:
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*trigger-name*> | String | The name for the trigger | 
-| <*trigger-type*> | String | The trigger type, for example, "Http" or "ApiConnection" | 
+| <*trigger-type*> | String | The trigger type such as "Http" or "ApiConnection" | 
 | <*trigger-inputs*> | JSON Object | The inputs that define the trigger's behavior | 
 | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | A positive number that determines how often the trigger fires based on the frequency, which is specifically the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
+| <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
 |||| 
 
 *Optional*
@@ -73,7 +76,8 @@ All triggers have these top-level elements, although some are optional:
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow | 
-| <*expression-for-creating-multiple-runs*> | String | For triggers that return an array, you can specify an expression that [splits or *debatches*](#split-on-debatch) array items into multiple workflow instances for processing. You can add this option only when working on the trigger definition in code view. | 
+| <*runtime-config-option*> | JSON Object | You can change the workflow behavior at run time by setting properties in the [`runtimeConfiguration`](#runtime-config) object. <p>For example, with recurring and polling triggers, the `concurrency` object specifies the maximum number of workflow instances that can run at the same time, or in parallel. This value is useful for limiting the number of requests that backend systems receive. To change the concurrency limit from the default to 10 instances, add the `concurrency` object and use the `runs` property, for example: <p>`"concurrency": { "runs": 10 }` | 
+| <*splitOn-expression*> | String | For triggers that return an array, you can specify an expression that [splits or *debatches*](#split-on-debatch) array items into multiple workflow instances for processing. | 
 | <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting [`operationOptions`](#operation-options). For example, to fire the trigger only after all active runs finish, set `operationOptions` to the `singleInstance` option. For more information, see [Trigger only after active runs finish](#single-instance). | 
 |||| 
 
@@ -108,8 +112,8 @@ Each trigger type has a different interface and inputs that define the trigger's
 This trigger checks or *polls* an endpoint by using 
 [Microsoft-managed APIs](../connectors/apis-list.md) 
 so the parameters for this trigger can differ based on the endpoint. 
-Many sections in this trigger definition are optional, 
-so the trigger's behavior depends on whether or not sections are included.
+Many sections in this trigger definition are optional. The trigger's 
+behavior depends on whether or not sections are included.
 
 ```json
 "<APIConnection_trigger_name>": {
@@ -148,7 +152,7 @@ so the trigger's behavior depends on whether or not sections are included.
 | <*method-type*> | String | The HTTP method for communicating with the managed API: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*api-operation*> | String | The API operation to call | 
 | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | A positive number that determines how often the trigger fires based on the frequency, which is specifically the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
+| <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
 |||| 
 
 *Optional*
@@ -158,7 +162,7 @@ so the trigger's behavior depends on whether or not sections are included.
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
-| <*splitOn-expression*> | For triggers that return arrays, this expression represents the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
 | <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting [`operationOptions`](#operation-options). For example, to fire the trigger only after all active runs finish, set `operationOptions` to the `singleInstance` option. For more information, see [Trigger only after active runs finish](#single-instance). | 
 ||||
 
@@ -243,7 +247,7 @@ and waits for the endpoint to respond. For more information, see
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*splitOn-expression*> | For triggers that return arrays, this expression represents the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
 |||| 
 
 *Example*
@@ -279,8 +283,9 @@ endpoint to respond when a new email arrives.
 
 ### HTTP trigger
 
-This trigger checks or polls the specified endpoint. 
-Based on the response, the trigger determines whether the workflow runs.
+This trigger checks or polls the specified endpoint 
+based on the specified recurrence schedule. 
+The endpoint's response determines whether the workflow runs.
 
 ```json
 "HTTP": {
@@ -314,7 +319,7 @@ Based on the response, the trigger determines whether the workflow runs.
 | <*method-type*> | String | The HTTP method to use for polling the specified endpoint: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*endpoint-URL*> | String | The HTTP or HTTPS URL for the endpoint to poll <p>Maximum string size: 2 KB | 
 | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | A positive number that determines how often the trigger fires based on the frequency, which is specifically the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
+| <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
 |||| 
 
 *Optional*
@@ -340,9 +345,9 @@ Based on the response, the trigger determines whether the workflow runs.
 
 *Requirements for incoming requests*
 
-To work well with your logic app, this trigger requires that the 
-endpoint conform to a specific pattern or contract, 
-and recognizes these properties:  
+To work well with your logic app, the endpoint must 
+conform to a specific trigger pattern or contract, 
+and recognize these properties:  
   
 | Response | Required | Description | 
 |----------|----------|-------------|  
@@ -501,7 +506,7 @@ and provides an easy way for creating a regularly running workflow.
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | A positive number that determines how often the trigger fires based on the frequency, which is specifically the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
+| <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
 |||| 
 
 *Optional*
@@ -708,16 +713,14 @@ For the maximum number of array items that **SplitOn** can process in a single l
 see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!NOTE]
-> You can add **SplitOn** only to triggers by manually defining or overriding 
-> in code view for your logic app's JSON definition. You can't use **SplitOn** 
-> when you want to implement a synchronous response pattern. 
+> You can't use **SplitOn** with a synchronous response pattern. 
 > Any workflow that uses **SplitOn** and includes a response action 
 > runs asynchronously and immediately sends a `202 ACCEPTED` response.
 
 If your trigger's Swagger file describes a payload that is an array, 
 the **SplitOn** property is automatically added to your trigger. 
-Otherwise, add this property inside the response payload that has the array 
-you want to debatch. 
+Otherwise, add this property inside the response payload that has 
+the array you want to debatch. 
 
 *Example*
 
@@ -827,6 +830,22 @@ by setting `operationOptions` to the `singleInstance` option:
 
 Azure Logic Apps provides various action types - each with 
 different inputs that define an action's unique behavior. 
+
+```json
+"<action-name>": {
+    "type": <action-type>,
+
+
+
+    "runtimeConfiguration": {
+    },
+    "operationOptions": "<operation-option>"
+
+}
+```
+
+| <*runtime-config-option*> | JSON Object | You can change the workflow behavior at run time by setting properties in the [`runtimeConfiguration`](#runtime-config) object. <p>For example, with recurring and polling triggers, the `concurrency` object specifies the maximum number of workflow instances that can run at the same time, or in parallel. This value is useful for limiting the number of requests that backend systems receive. To change the concurrency limit from the default to 10 instances, add the `concurrency` object and use the `runs` property, for example: <p>`"concurrency": { "runs": 10 }` | 
+|||| 
 
 ## Action types
 
@@ -1985,7 +2004,8 @@ Learn [how to create "Foreach" loops](../logic-apps/logic-apps-control-flow-loop
       "concurrency": {
          "repetitions": <count>
       }
-    }   
+    },
+    "operationOptions": "<operation-option>"
 }
 ```
 
@@ -2050,7 +2070,7 @@ To avoid a failure if the array doesn't exist, the expression uses the `?` opera
 
 ### If action
 
-This action, which is a *conditional statement*, evaluates a 
+This action, which is a *conditional statement*, evaluates 
 an expression that represents a condition and runs a different 
 branch based on whether the condition is true or false. 
 If the condition is true, the condition is marked with "Succeeded" status. 
