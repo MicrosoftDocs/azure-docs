@@ -40,7 +40,7 @@ The attribute value must follow the following rules:
 
 * Fewer than 60 characters in length
   * Characters not being a-z, A-Z, or 0-9 are encoded and counted as 3 characters
-* Not contain a special character: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* Not contain a special character: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " \@ _
 * Must be globally unique
 * Must be either a string, integer, or binary
 * Should not be based on user's name because these can change
@@ -57,7 +57,7 @@ If you have multiple forests and do not move users between forests and domains, 
 
 If you move users between forests and domains, then you must find an attribute that does not change or can be moved with the users during the move. A recommended approach is to introduce a synthetic attribute. An attribute that could hold something that looks like a GUID would be suitable. During object creation, a new GUID is created and stamped on the user. A custom sync rule can be created in the sync engine server to create this value based on the **objectGUID** and update the selected attribute in ADDS. When you move the object, make sure to also copy the content of this value.
 
-Another solution is to pick an existing attribute you know does not change. Commonly used attributes include **employeeID**. If you consider an attribute that contains letters, make sure there is no chance the case (upper case vs. lower case) can change for the attribute's value. Bad attributes that should not be used include those attributes with the name of the user. In a marriage or divorce, the name is expected to change, which is not allowed for this attribute. This is also one reason why attributes such as **userPrincipalName**, **mail**, and **targetAddress** are not even possible to select in the Azure AD Connect installation wizard. Those attributes also contain the "@" character, which is not allowed in the sourceAnchor.
+Another solution is to pick an existing attribute you know does not change. Commonly used attributes include **employeeID**. If you consider an attribute that contains letters, make sure there is no chance the case (upper case vs. lower case) can change for the attribute's value. Bad attributes that should not be used include those attributes with the name of the user. In a marriage or divorce, the name is expected to change, which is not allowed for this attribute. This is also one reason why attributes such as **userPrincipalName**, **mail**, and **targetAddress** are not even possible to select in the Azure AD Connect installation wizard. Those attributes also contain the "\@" character, which is not allowed in the sourceAnchor.
 
 ### Changing the sourceAnchor attribute
 The sourceAnchor attribute value cannot be changed after the object has been created in Azure AD and the identity is synchronized.
@@ -176,7 +176,7 @@ While integrating your on-premises directory with Azure AD, it is important to u
 ### Choosing the attribute for userPrincipalName
 When you are selecting the attribute for providing the value of UPN to be used in Azure one should ensure
 
-* The attribute values conform to the UPN syntax (RFC 822), that is it should be of the format username@domain
+* The attribute values conform to the UPN syntax (RFC 822), that is it should be of the format username\@domain
 * The suffix in the values matches to one of the verified custom domains in Azure AD
 
 In express settings, the assumed choice for the attribute is userPrincipalName. If the userPrincipalName attribute does not contain the value you want your users to sign in to Azure, then you must choose **Custom Installation**.
@@ -184,7 +184,7 @@ In express settings, the assumed choice for the attribute is userPrincipalName. 
 ### Custom domain state and UPN
 It is important to ensure that there is a verified domain for the UPN suffix.
 
-John is a user in contoso.com. You want John to use the on-premises UPN john@contoso.com to sign in to Azure after you have synced users to your Azure AD directory contoso.onmicrosoft.com. To do so, you need to add and verify contoso.com as a custom domain in Azure AD before you can start syncing the users. If the UPN suffix of John, for example contoso.com, does not match a verified domain in Azure AD, then Azure AD replaces the UPN suffix with contoso.onmicrosoft.com.
+John is a user in contoso.com. You want John to use the on-premises UPN john\@contoso.com to sign in to Azure after you have synced users to your Azure AD directory contoso.onmicrosoft.com. To do so, you need to add and verify contoso.com as a custom domain in Azure AD before you can start syncing the users. If the UPN suffix of John, for example contoso.com, does not match a verified domain in Azure AD, then Azure AD replaces the UPN suffix with contoso.onmicrosoft.com.
 
 ### Non-routable on-premises domains and UPN for Azure AD
 Some organizations have non-routable domains, like contoso.local, or simple single label domains like contoso. You are not able to verify a non-routable domain in Azure AD. Azure AD Connect can sync to only a verified domain in Azure AD. When you create an Azure AD directory, it creates a routable domain that becomes default domain for your Azure AD for example, contoso.onmicrosoft.com. Therefore, it becomes necessary to verify any other routable domain in such a scenario in case you don't want to sync to the default onmicrosoft.com domain.
