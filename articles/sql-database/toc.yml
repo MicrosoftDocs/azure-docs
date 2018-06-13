@@ -99,9 +99,7 @@
         - name: vCore-based resource limits
           href: sql-database-vcore-resource-limits-single-databases.md  
         - name: DTU-based resource limits
-          href: sql-database-dtu-resource-limits-single-databases.md  
-      - name: Create, manage, and scale
-        href: sql-database-servers-databases-manage.md
+          href: sql-database-dtu-resource-limits-single-databases.md
     - name: Elastic pools
       items:
       - name: Overview
