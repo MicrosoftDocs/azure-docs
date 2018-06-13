@@ -485,7 +485,7 @@ In the “Url” property, paste the Request URL endpoints from your Logic Apps 
 - Message – Passing value of `@{activity('CopyBlobtoBlob').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
 - Data Factory Name – Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
 - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name. 
-- Receiver – Passing value of "@pipeline().parameters.receiver"). Accessing the pipeline parameters.
+- Receiver – Passing value of "\@pipeline().parameters.receiver"). Accessing the pipeline parameters.
  
 This code creates a new Activity Dependency, depending on the previous copy activity that it succeeds.
 
