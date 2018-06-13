@@ -210,7 +210,7 @@ GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 
 #### Response
 
-Here is an example of response payloads including the orchestration status and activity outputs (formatted for readability):
+Here is an example of response payloads including the orchestration status (formatted for readability):
 
 ```json
 [
