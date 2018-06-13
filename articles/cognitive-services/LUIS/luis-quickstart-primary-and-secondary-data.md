@@ -43,7 +43,7 @@ The intent is to send a message. The important data of the utterance is the mess
 ## Purpose of the simple entity
 The purpose of a simple entity is to teach LUIS what the entity is and where it can be found in an utterance. The part of the utterance that contains the data changes from utterance to utterance based on word choice and utterance length. LUIS needs examples of entities in any utterance across all intents.  
 
-For this simple app, the entity will be at the end of the utterance. 
+For this simple app, the entity is at the end of the utterance. 
 
 ## Open Human Resources domain app from quickstart and create new intent with example utterances
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the region where you need the LUIS endpoints published.
@@ -95,7 +95,7 @@ hr-create-welldonemessageentity.png
 
 3. Select the message in the next utterance, then select **WellDoneMessageEntity** from the pop-up window. Label all messages in the utterances of this intent. 
 
-    The following tables is marked with square brackets to mark which words are part of the message.
+    The following table is marked with square brackets to mark which words are part of the message.
 
     | Example utterances [marked] with WellDoneMessageEntity entity|
     |--|
@@ -201,7 +201,7 @@ The JSON result identifies the top scoring intent and extracted the data of the 
 Your chatbot now has enough information to determine the primary action and a parameter of that action, the text of the message. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to send the message through a 3rd party API. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to send the message through a third-party API. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
