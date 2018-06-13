@@ -30,7 +30,7 @@ To manage Azure resources with Ansible, you need the following:
 - Azure credentials, and Ansible configured to use them.
     - [Create Azure credentials and configure Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
-    - If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use the [Azure Cloud Shell](/azure/cloud-shell/quickstart) from your web browser.
+    - If you need to upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). You can also use the [Azure Cloud Shell](/azure/cloud-shell/quickstart) from your web browser.
 
 
 ## Create supporting Azure resources

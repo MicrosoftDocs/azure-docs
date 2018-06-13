@@ -22,7 +22,7 @@ ms.author: ramankum
 
 Managed disks offers two storage options: [Premium](../windows/premium-storage.md) (SSD-based) and [Standard](../windows/standard-storage.md) (HDD-based). It allows you to easily switch between the two options with minimal downtime based on your performance needs. This capability is not available for unmanaged disks. But you can easily [convert to managed disks](convert-unmanaged-to-managed-disks.md) to easily switch between the two options.
 
-This article shows you how to convert managed disks from standard to premium, and vice versa by using Azure CLI. If you need to install or upgrade it, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli.md). 
+This article shows you how to convert managed disks from standard to premium, and vice versa by using Azure CLI. If you need to install or upgrade it, see [Install Azure CLI](/cli/azure/install-azure-cli.md). 
 
 ## Before you begin
 

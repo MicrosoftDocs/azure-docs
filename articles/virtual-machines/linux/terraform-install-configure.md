@@ -40,7 +40,7 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Configure [an Azure AD service principal](/cli/azure/create-an-azure-service-principal-azure-cli) to enable Terraform to provision resources into Azure. The service principal grants your Terraform scripts using credentials to provision resources in your Azure subscription.
 
-There are several ways to create an Azure AD application and an Azure AD service principal. The easiest and fastest way today is to use Azure CLI 2.0, which [you can download and install on Windows, Linux, or a Mac](/cli/azure/install-azure-cli).
+There are several ways to create an Azure AD application and an Azure AD service principal. The easiest and fastest way today is to use Azure CLI, which [you can download and install on Windows, Linux, or a Mac](/cli/azure/install-azure-cli).
 
 Sign in to administer your Azure subscription by issuing the following command:
 
