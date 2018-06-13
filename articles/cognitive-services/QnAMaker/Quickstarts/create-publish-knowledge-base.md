@@ -50,11 +50,11 @@ A QnA Maker knowledge base can be created from your own content such as FAQs or 
 
 10. Choose **Add QnA Pair** in the top right to add a new row in the Editorial section of the Knowledge Base. Enter 'Hi' into the 'Question' field and 'Hello. Ask me bitlocker questions.' into the 'Answer' field of the new row you created:
 
-    ![Add a QnA pair](media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![Add a QnA pair](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. Select **Save and train** in the top right to save the edits you just made and to train the QnA Maker model. Edits won't be kept unless they're saved.
    
-    ![Save and train](media/qnamaker-quickstart-kb/add-qna-pair2.png)
+    ![Save and train](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
 
 12. Select **Test** in the top right to test that the changes made have taken effect.
 Type 'hi there' in the box and press enter. You should see the answer you created as a response.
