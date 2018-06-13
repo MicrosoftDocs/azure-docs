@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: dns
 ms.topic: quickstart
-ms.date: 6/8/2018
+ms.date: 6/13/2018
 ms.author: kumud
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS so I can connect to my web server using a friendly name.
 ---
