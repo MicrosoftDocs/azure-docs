@@ -45,10 +45,10 @@
 
 ## Manage users
 ### [Add new users to Azure AD](add-users-azure-active-directory.md)
-### [Manage user profiles](active-directory-users-profile-azure-portal.md)
+### [Manage user profiles](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
-### [Assign users to admin roles](active-directory-users-assign-role-azure-portal.md)
-### [Restore a deleted user](active-directory-users-restore.md)
+### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
+### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
@@ -153,7 +153,7 @@
 ### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Reporting](authentication/howto-sspr-reporting.md)
 ### IT Admins: Reset passwords
-#### [Azure portal](active-directory-users-reset-password-azure-portal.md)
+#### [Azure portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [License SSPR](authentication/concept-sspr-licensing.md)
 ### [Password writeback](authentication/howto-sspr-writeback.md)
 ### [Troubleshoot](authentication/active-directory-passwords-troubleshoot.md)
@@ -298,7 +298,7 @@
 
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
-#### [Assign admin role to a user](active-directory-users-assign-role-azure-portal.md) 
+#### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md) 
 #### [Compare member and guest user permissions](users-default-permissions.md) 
 ### [Securing privileged access](admin-roles-best-practices.md)  
 ### [Create emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md) 
@@ -371,7 +371,7 @@
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
-## [Troubleshoot](active-directory-troubleshooting-support-howto.md)
+## [Troubleshoot](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Deploy Azure AD Proof of Concept (PoC)
 ### [PoC Playbook: Introduction](active-directory-playbook-intro.md)
