@@ -199,7 +199,7 @@ This tutorial integrates with Azure AD, using the signed-in user's identity to a
 > [!div class="nextstepaction"]
 > [Authentication and authorization for Azure Time Series Insights API](time-series-insights-authentication-and-authorization.md)
 
-## Test section1
+## Test section - original
 
    * Display Name.
    * Field Name.
@@ -220,94 +220,6 @@ This tutorial integrates with Azure AD, using the signed-in user's identity to a
     To save the state measurement definition, choose **Save**:
 
     ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
-
-## Test section2 - move the 4 bullets to left by 3
-
-* Display Name.
-* Field Name.
-* Values with optional display labels.
-* Color for each value.
-
-    To configure your **Fan Mode** state, use the information in the following table:
-
-    | Setting              | Value             |
-    | -------------------- | -----------       |
-    | Display Name         | Fan Mode          |
-    | Field Name           | fanmode           |
-    | Value                | 1                 |
-    | Display label        | Operating         |
-    | Value                | 0                 |
-    | Display label        | Stopped           |
-
-    To save the state measurement definition, choose **Save**:
-
-    ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
-
-## Test section2 - move the 4 bullets to left by 3, AND the remainder by 1
-
-* Display Name.
-* Field Name.
-* Values with optional display labels.
-* Color for each value.
-
-   To configure your **Fan Mode** state, use the information in the following table:
-
-   | Setting              | Value             |
-   | -------------------- | -----------       |
-   | Display Name         | Fan Mode          |
-   | Field Name           | fanmode           |
-   | Value                | 1                 |
-   | Display label        | Operating         |
-   | Value                | 0                 |
-   | Display label        | Stopped           |
-
-   To save the state measurement definition, choose **Save**:
-
-   ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
-
-## Test section2 - move the 4 bullets to left by 3, AND the remainder by 2
-
-* Display Name.
-* Field Name.
-* Values with optional display labels.
-* Color for each value.
-
-  To configure your **Fan Mode** state, use the information in the following table:
-
-  | Setting              | Value             |
-  | -------------------- | -----------       |
-  | Display Name         | Fan Mode          |
-  | Field Name           | fanmode           |
-  | Value                | 1                 |
-  | Display label        | Operating         |
-  | Value                | 0                 |
-  | Display label        | Stopped           |
-
-  To save the state measurement definition, choose **Save**:
-
-  ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
-  
-## Test section2 - move the 4 bullets to left by 3, AND the remainder by 3
-
-* Display Name.
-* Field Name.
-* Values with optional display labels.
-* Color for each value.
-
- To configure your **Fan Mode** state, use the information in the following table:
-
- | Setting              | Value             |
- | -------------------- | -----------       |
- | Display Name         | Fan Mode          |
- | Field Name           | fanmode           |
- | Value                | 1                 |
- | Display label        | Operating         |
- | Value                | 0                 |
- | Display label        | Stopped           |
-
- To save the state measurement definition, choose **Save**:
-
- ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
 
 ## Test section2 - move the 4 bullets to left by 3, AND the remainder by 4
 
@@ -331,95 +243,25 @@ To save the state measurement definition, choose **Save**:
 
 ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
 
-## Test section2 - move the 4 bullets to left by 3, AND the remainder by 4, wrap rest in paragraph
+## Test section2 - move the 4 bullets to left by 3, AND use nbsp on the remainder
 
 * Display Name.
 * Field Name.
 * Values with optional display labels.
 * Color for each value.
 
-<p>  To configure your **Fan Mode** state, use the information in the following table:</p>
+&nbsp;&nbsp;To configure your **Fan Mode** state, use the information in the following table:
 
-  | Setting              | Value             |
-  | -------------------- | -----------       |
-  | Display Name         | Fan Mode          |
-  | Field Name           | fanmode           |
-  | Value                | 1                 |
-  | Display label        | Operating         |
-  | Value                | 0                 |
-  | Display label        | Stopped           |
+&nbsp;&nbsp;| Setting              | Value             |
+&nbsp;&nbsp;| -------------------- | -----------       |
+&nbsp;&nbsp;| Display Name         | Fan Mode          |
+&nbsp;&nbsp;| Field Name           | fanmode           |
+&nbsp;&nbsp;| Value                | 1                 |
+&nbsp;&nbsp;| Display label        | Operating         |
+| Value                | 0                 |
+| Display label        | Stopped           |
 
-  To save the state measurement definition, choose **Save**:
+To save the state measurement definition, choose **Save**:
 
-  ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
+![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
 
-
-## Test section2 - move the 4 bullets to left by 3, AND the remainder by 4, add newline and indent 1
-
-* Display Name.
-* Field Name.
-* Values with optional display labels.
-* Color for each value.
-
-
- To configure your **Fan Mode** state, use the information in the following table:
-
- | Setting              | Value             |
- | -------------------- | -----------       |
- | Display Name         | Fan Mode          |
- | Field Name           | fanmode           |
- | Value                | 1                 |
- | Display label        | Operating         |
- | Value                | 0                 |
- | Display label        | Stopped           |
-
- To save the state measurement definition, choose **Save**:
-
- ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
-    
-## Test section2 - move the 4 bullets to left by 3, AND the remainder by 4, add newline and indent 2
-
-* Display Name.
-* Field Name.
-* Values with optional display labels.
-* Color for each value.
-
-
- To configure your **Fan Mode** state, use the information in the following table:
-
-  | Setting              | Value             |
-  | -------------------- | -----------       |
-  | Display Name         | Fan Mode          |
-  | Field Name           | fanmode           |
-  | Value                | 1                 |
-  | Display label        | Operating         |
-  | Value                | 0                 |
-  | Display label        | Stopped           |
-
-  To save the state measurement definition, choose **Save**:
-
-  ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
-    
-## Test section2 - move the 4 bullets to left by 3, AND the remainder by 4, add newline and indent 3
-
-* Display Name.
-* Field Name.
-* Values with optional display labels.
-* Color for each value.
-
-
-   To configure your **Fan Mode** state, use the information in the following table:
-
-   | Setting              | Value             |
-   | -------------------- | -----------       |
-   | Display Name         | Fan Mode          |
-   | Field Name           | fanmode           |
-   | Value                | 1                 |
-   | Display label        | Operating         |
-   | Value                | 0                 |
-   | Display label        | Stopped           |
-
-   To save the state measurement definition, choose **Save**:
-
-   ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
-    
