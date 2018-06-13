@@ -1,30 +1,43 @@
 # [Azure Active Directory Documentation](index.md)
 
 # Overview
+<<<<<<< HEAD
 ## [What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 ## [About Azure identity management](identity-fundamentals.md)
 ## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
+=======
+## [What is Azure Active Directory?](active-directory-whatis.md)
+## [About Azure identity management](fundamentals/identity-fundamentals.md)
+## [Understand Azure identity solutions](fundamentals/understand-azure-identity-solutions.md)
+>>>>>>> 61fc3960c47ca59b5e92f7a92bdbe91786699287
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
-## [Residency and data considerations](active-directory-data-storage-eu.md)
-## [FAQs](active-directory-faq.md)
-## [What's New](whats-new.md)
+## [Residency and data considerations](fundamentals/active-directory-data-storage-eu.md)
+## [FAQs](fundamentals/active-directory-faq.md)
+## [What's New](fundamentals/whats-new.md)
 
 
 # Get started
 ## [Get started with Azure AD](fundamentals/get-started-azure-ad.md)
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
+<<<<<<< HEAD
 ## [Add a custom domain name](fundamentals/add-custom-domain.md)
 ## [Configure company branding](fundamentals/customize-branding.md)
 ## [Add users to Azure AD](fundamentals/add-users-azure-active-directory.md)
 ## [Assign licenses to users](license-users-groups.md)
+=======
+## [Add a custom domain name](add-custom-domain.md)
+## [Configure company branding](customize-branding.md)
+## [Add users to Azure AD](add-users-azure-active-directory.md)
+## [Assign licenses to users](fundamentals/license-users-groups.md)
+>>>>>>> 61fc3960c47ca59b5e92f7a92bdbe91786699287
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
 ## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
 
 
 # How to
 ## Plan and design
-### [Understand Azure AD architecture](active-directory-architecture.md)
+### [Understand Azure AD architecture](fundamentals/active-directory-architecture.md)
 ### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 #### Determine requirements
@@ -86,8 +99,13 @@
 #### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
+<<<<<<< HEAD
 ### [Manage group owners](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
+=======
+### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
+### [Manage group membership](fundamentals/active-directory-groups-membership-azure-portal.md)
+>>>>>>> 61fc3960c47ca59b5e92f7a92bdbe91786699287
 ### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -100,7 +118,7 @@
 ### [Enforce a naming policy for groups](groups-naming-policy.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
-### [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md)
+### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Manage group settings](active-directory-groups-settings-azure-portal.md) 
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
@@ -279,7 +297,7 @@
 ### Custom domain names
 #### [Quickstart](fundamentals/add-custom-domain.md)
 #### [Add custom domain names](active-directory-domains-manage-azure-portal.md)
-### [Administer your directory](active-directory-administer.md)
+### [Administer your directory](fundamentals/active-directory-administer.md)
 ### [Delete a directory](directory-delete-howto.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
 ### [Self-service signup](active-directory-self-service-signup.md)
@@ -299,12 +317,12 @@
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin role to a user](active-directory-users-assign-role-azure-portal.md) 
-#### [Compare member and guest user permissions](users-default-permissions.md) 
+#### [Compare member and guest user permissions](fundamentals/users-default-permissions.md) 
 ### [Securing privileged access](admin-roles-best-practices.md)  
 ### [Create emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md) 
 
 
-#### [Default user permissions](users-default-permissions.md)
+#### [Default user permissions](fundamentals/users-default-permissions.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 ### [Securing privileged roles](admin-roles-best-practices.md)

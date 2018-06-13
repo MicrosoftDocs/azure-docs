@@ -65,7 +65,7 @@ To enable on-premises identity synchronization to Azure AD, you need to install 
 After creating or synchronizing new users, make sure they are visible in Azure AD.
 
 ## Assign licenses
-Although obtaining a subscription is all you need to configure paid capabilities, you must still [assign user licenses](../license-users-groups.md) for Azure AD Premium paid features. Any user who should have access to, or who is managed through, an Azure AD paid feature must be assigned a license. License assignment is a mapping between a user and a purchased service, such as Azure AD Premium, Basic, or Enterprise Mobility + Security.
+Although obtaining a subscription is all you need to configure paid capabilities, you must still [assign user licenses](license-users-groups.md) for Azure AD Premium paid features. Any user who should have access to, or who is managed through, an Azure AD paid feature must be assigned a license. License assignment is a mapping between a user and a purchased service, such as Azure AD Premium, Basic, or Enterprise Mobility + Security.
 
 You can use group-based license assignment to set up rules such as in the following examples:
 
