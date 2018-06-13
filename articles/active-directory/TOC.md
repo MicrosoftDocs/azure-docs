@@ -322,27 +322,29 @@
 
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
-#### [Conditions](active-directory-conditional-access-conditions.md)
-#### [Location conditions](active-directory-conditional-access-locations.md)
-#### [Controls](active-directory-conditional-access-controls.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
-#### [Best practices](active-directory-conditional-access-best-practices.md)
-#### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
-#### [Migrate classic policies](active-directory-conditional-access-migration.md)
-#### [What if tool](active-directory-conditional-access-whatif.md)
-#### Quickstart
+#### Quickstarts
 ##### [Configure per cloud app MFA](active-directory-conditional-access-app-based-mfa.md)
-#### Tasks
+#### Tutorials
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
+#### Concepts
+##### [Conditions](active-directory-conditional-access-conditions.md)
+##### [Location conditions](active-directory-conditional-access-locations.md)
+##### [Controls](active-directory-conditional-access-controls.md)
+##### [What if tool](active-directory-conditional-access-whatif.md)
+##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
+#### How-to guides
+#### [Best practices](active-directory-conditional-access-best-practices.md)
+##### [Configure conditional access policies for access attempts from untrusted networks](active-directory-conditional-access-untrusted-networks.md)
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
 ##### [Provide terms of use for users and apps](active-directory-tou.md)
+##### [Migrate classic policies](active-directory-conditional-access-migration.md)
 ##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
-
 
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
