@@ -33,7 +33,7 @@ For a hands-on overview on using Azure SQL Analytics solution and for typical us
 
 ## Connected sources
 
-Azure SQL Analytics solution supports streaming of diagnostics telemetry for Azure SQL Databases only. As it does not use agents to connect to the Log Analytics service, the solution does not support connectivity with Windows, Linux or SCOM resources - see the compatibility table below.
+Azure SQL Analytics is a cloud solution supporting streaming of diagnostics telemetry for Azure SQL Databases and Elastic Pools only. As it does not use agents to connect to the Log Analytics service, the solution does not support connectivity with Windows, Linux or SCOM resources - see the compatibility table below.
 
 | Connected Source | Support | Description |
 | --- | --- | --- |
