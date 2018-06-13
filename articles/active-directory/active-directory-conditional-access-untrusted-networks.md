@@ -25,7 +25,10 @@ In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables 
 
 ## Prerequisites
 
-This article assumes that you are familiar with the basic concepts of Azure AD conditional access and the related user interface in the Azure portal.
+This article assumes that you are familiar with: 
+
+- The basic concepts of Azure AD conditional access 
+- Configuring conditional access policies in the Azure portal
 
 See:
 
@@ -36,7 +39,7 @@ See:
 
 ## Scenario description
 
-To master the balance between security and productivity, it might be sufficient for you to only require your user to be authenticated using a password. However, when an access attempt is made from an untrusted network location, there is an increased risk for a sign-in to be performed by an attacker who has acquired a valid user’s user name and password. To address this concern you can block access attempts from untrusted networks. Alternatively, you can also require multi-factor authentication (MFA) to gain back additional assurance that an attempt was made by the legitimate owner of the account. 
+To master the balance between security and productivity, it might be sufficient for you to only require your user to be authenticated using a password. However, when an access attempt is made from an untrusted network location, there is an increased risk that sign-ins are not performed by legitimate users. To address this concern, you can block access attempts from untrusted networks. Alternatively, you can also require multi-factor authentication (MFA) to gain back additional assurance that an attempt was made by the legitimate owner of the account. 
 
 With Azure AD conditional access, you can address this requirement with a single policy that grants access: 
 
@@ -53,7 +56,7 @@ With Azure AD conditional access, you can address this requirement with a single
 
 ## Considerations
 
-The challenge of this scenario is the translation of *when an access attempt is made from a location that is not trusted* into a conditional access condition. In a conditional access policy, you can configure the [locations condition](active-directory-conditional-access-locations.md) to address scenarios that are related to network locations. The locations condition enables you to select [named locations](active-directory-conditional-access-locations#named-locations.md), which represent logical groupings of IP address ranges, countries and regions.  
+The challenge of this scenario is to translate *when an access attempt is made from a location that is not trusted* into a conditional access condition. In a conditional access policy, you can configure the [locations condition](active-directory-conditional-access-locations.md) to address scenarios that are related to network locations. The locations condition enables you to select [named locations](active-directory-conditional-access-locations#named-locations.md), which represent logical groupings of IP address ranges, countries and regions.  
 
 Typically, your organization owns one or more address ranges, for example, 199.30.16.0 - 199.30.16.24.
 You can configure a named location by:
@@ -63,7 +66,7 @@ You can configure a named location by:
 - Assigning a descriptive name such as **Corporate Network** 
 
 
-Instead of trying to define what all locations are that are not trusted, in your conditional access policy, you can:
+Instead of trying to define what all locations are that are not trusted, you can:
 
 - Include 
 
