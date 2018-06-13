@@ -261,6 +261,10 @@ Here is an example of response payloads including the orchestration status (form
 ]
 ```
 
+> [!NOTE]
+> This operation can be very expensive in terms of Azure Storage I/O if there are a lot of rows in the Instances table.
+> 
+
 ### Raise event
 
 Sends an event notification message to a running orchestration instance.
