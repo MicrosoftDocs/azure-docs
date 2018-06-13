@@ -91,7 +91,7 @@ The ability for an application to use any broker that is installed on the device
 
 The steps to follow are:
 
-1. Enable broker mode in your application code's call to the MS SDK
+1. Enable broker mode in your application code's calling to the MS SDK
 2. Establish a new redirect URI and provide that to both the app and your app registration
 3. Setting up the correct permissions in the Android manifest
 
