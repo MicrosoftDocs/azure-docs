@@ -18,19 +18,17 @@ ms.author: jamesbak
 
 # Introduction to Azure Data Lake Storage Gen 2 (Preview)
 
-Azure Data Lake Storage Gen 2 (Preview) adds file system directories and related security to [Azure Blob Storage](../blobs/storage-blobs-introduction.md) making it easy to connect analytics frameworks to a durable storage layer. In ADLS, all the qualities of object storage remain while adding the advantages of a file system interface.
-
-For instance, a common object store naming convention employs slashes in the name to mimic a hierarchical folder structure. This structure becomes real with ADLS. Therefore, while in a directory, objects inherit the established permissions or can enforce object-level security.
+Azure Data Lake Storage Gen 2 (Preview) adds file system directories and related security to [Azure Blob Storage](../blobs/storage-blobs-introduction.md) making it easy to connect analytics frameworks to a durable storage layer. In ADLS, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
 
 ## Designed for enterprise big data analytics
 
-ADLS is the foundational storage service for building enterprise data lakes on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabytes of throughput, ADLS gives you an easy way to manage massive amounts of data. 
+ADLS is the foundational storage service for building _enterprise data lakes (EDL)_ on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, ADLS gives you an easy way to manage massive amounts of data. 
 
-A fundamental feature of ADLS is the introduction of the Hierarchical Namespace service (HNS) which organizes blobs into a hierarchy of directories. The HNS is designed to ensure no additional latency of scale limits emerge in the data pipeline. 
+A fundamental feature of ADLS is the introduction of the [Hierarchical Namespace service (HNS)](./storage-blobfs-namespace.md) which organizes blobs into a hierarchy of directories. The HNS is designed to ensure no additional latency of scale limits emerge in the data pipeline. The HNS also enables ADLS to support both object store and file system paradigms at the same time, making ADLS the first cloud-based _multi-modal_ storage service. For instance, a common object store naming convention employs slashes in the name to mimic a hierarchical folder structure. This structure becomes real with ADLS. Operations such as renaming or deleting a directory become single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory. Other capabilities, such as POSIX-compliant permissions (child entries default permissions of the containing directory), are enabled by HNS.
 
 In the past, cloud-based analytics had to compromise in areas of performance, management, and security. ADLS addresses each of these aspects in the following ways:
 
-- **Performance** is optimized because you do not need to copy or transform data as a prerequisite for analysis.
+- **Performance** is optimized because you do not need to copy or transform data as a prerequisite for analysis. The HNS greatly improves the performance of directory management operations which improves overall job performance.
  
 - **Management** is easier because you can manipulate files through directories and subdirectories.
 
@@ -41,28 +39,28 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 ## Key features of ADLS
 
 > [!NOTE]
-> During the public preview of ADLS, some of the features listed below may vary in their availability. As new features and regions become available during the preview program, this information will be communicated via our dedicated Yammer group.  
+> During the public preview of ADLS, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated via our dedicated Yammer group.  
 > 
 - **Hadoop compatible access**: ADLS allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](./storage-blobfs-abfs-driver.md) is available within Apache Hadoop environments to access data stored in ADLS.
  
-- **A superset of POSIX permissions**: The security model fully supports ACL and POSIX permissions along with some extra granularity specific to ADLS. Settings may be configured through admin tools or through frameworks like Hive and Spark. 
+- **A superset of POSIX permissions**: The security model for ADLS fully supports ACL and POSIX permissions along with some extra granularity specific to ADLS. Settings may be configured through admin tools or through frameworks like Hive and Spark. 
 
     Authentication and identities are provided courtesy of integration with [Azure Active Directory](../../active-directory).
 
-- **Multi-protocol and multi-model data access**: ADLS makes Azure Storage the first cloud-based **Multi-Modal** storage service as it provides both object store and file system interfaces to the _same_ data **at the same time**. This is achived by providing multiple protocol endpoints that are able to access the same data. 
+- **Multi-protocol and multi-model data access**: ADLS is considered a **Multi-Modal** storage service as it provides both object store and file system interfaces to the _same_ data **at the same time**. This is achieved by providing multiple protocol endpoints that are able to access the same data. 
     
     Unlike other analytics solutions, data stored in ADLS does not need to move or be transformed before you can run a variety of analytics tools. You can access data via traditional [Blob Storage APIs](../blobs/storage-blobs-introduction.md) (for example: ingest data via [Event Hubs Capture](../../event-hubs/event-hubs-capture-enable-through-portal.md)) and process that data using HDInsight or Azure Databricks at the same time. 
 
 - **Cost effective**: ADLS features low-cost storage capacity and transactions. As data transitions through the data lifecycle, billing rates change keeping costs to a minimum via built-in features such as [Azure Blob Storage Lifecycle](../common/storage-lifecycle-managment-concepts.md).
 
-- **Available in all regions**: ADLS is available for Blob Storage (StorageV2) accounts in all Azure regions. 
+- **Available in all regions**: ADLS is available for Azure Storage (StorageV2) accounts in all Azure regions. 
 
 - **Works with Blob Storage tools, frameworks, and apps**: ADLS is able to interface with a wide array of tools, frameworks, and applications that exist today for Blob Storage. 
 
 - **Optimized protocol**: The `abfs` protocol is [optimized specifically](./storage-blobfs-abfs-driver.md) for big data analytics.
 
 ## Scalability
-Azure Data Lake Storage and Azure Blob Storage are [scalable by design](../common/storage-scalability-targets.md). Each service is able to store and serve *many exabytes of data*. This amount of storage is available with throughput measured in gigabits per second (GBPS) at high levels of input/output operations per second (IOPS). Beyond just persistence, processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
+Azure Data Lake Storage and Azure Blob Storage are scalable by design. Each service is able to store and serve *many exabytes of data*. This amount of storage is available with throughput measured in gigabits per second (Gbps) at high levels of input/output operations per second (IOPS). Beyond just persistence, processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
 
 ## Cost effectiveness
 The architecture of ADLS saves you significant amounts of money. One of the many benefits of building ADLS on top of Azure Blob Storage is the [low cost](https://azure.microsoft.com/pricing/details/storage) of storage capacity and cloud-based object storage transactions.  Unlike other cloud storage services, ADLS enjoys several orders of magnitude of lower costs because data is not moved or transformed before performing analysis.
