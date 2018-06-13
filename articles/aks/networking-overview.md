@@ -85,7 +85,7 @@ When create an AKS cluster, the following parameters are configurable for advanc
 
 **Docker Bridge address**: The IP address and netmask to assign to the Docker bridge. This IP address must not be within the VNet IP address range of your cluster.
 
-## Configure networking CLI
+## Configure networking - CLI
 
 When you create and AKS cluster with the Azure CLI, you can also configuring advanced networking. Use the following commands to create a new AKS cluster with advanced networking features enabled.
 
@@ -97,13 +97,13 @@ $ az network vnet subnet list --resource-group myVnet --vnet-name myVnet --query
 /subscriptions/d5b9d4b7-6fc1-46c5-bafe-38effaed19b2/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Run the following command to create the cluster. Update the `--vnet-subnet-id` value with the subnet ID collected in the last step.
+Use the [az aks create][az-aks-create] command with the `--network-plugin azure` argument to create a cluster with advanced networking. Update the `--vnet-subnet-id` value with the subnet ID collected in the last step.
 
 ```azurecli
 az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin azure --vnet-subnet-id <subnet-id> --docker-bridge-address 172.17.0.1/16 --dns-service-ip 10.2.0.10 --service-cidr 10.2.0.0/24
 ```
 
-## Configure networking portal
+## Configure networking - portal
 
 The following screenshot from the Azure portal shows an example of configuring these settings during AKS cluster creation:
 
@@ -162,4 +162,5 @@ Kubernetes clusters created with ACS Engine support both the [kubenet][kubenet] 
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md
