@@ -42,7 +42,7 @@ type
 
 Operations are specified with strings that have the following format:
 
-- `{Company}.{ProviderName}/{resourceType}/{action}/{actionCategory}`
+- `{Company}.{ProviderName}/{resourceType}/{action}`
 
 The `{action}` portion of an operation string specifies the type of operations you can perform on a resource type. For example, you will see the following substrings in `{action}`:
 
@@ -237,7 +237,7 @@ Built-in roles have `assignableScopes` set to the root scope (`"/"`). The root s
 
 For information about `assignableScopes` for custom roles, see [Custom roles](custom-roles.md).
 
-## See also
+## Next steps
 
 * [Built-in roles](built-in-roles.md)
 * [Custom roles](custom-roles.md)
