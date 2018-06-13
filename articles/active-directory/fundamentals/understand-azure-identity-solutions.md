@@ -114,7 +114,6 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 * [Enabling your directory for hybrid management with Azure AD Connect](../connect/active-directory-aadconnect.md)
 * [Additional security for an ever connected world](../authentication/multi-factor-authentication.md)
 * [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md)
-* [Getting started with Azure AD Reporting](active-directory-reporting-getting-started.md)
 * [Manage your passwords from anywhere](../active-directory-passwords-update-your-own-password.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md)

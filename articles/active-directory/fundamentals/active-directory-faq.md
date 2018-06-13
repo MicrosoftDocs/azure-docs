@@ -31,7 +31,6 @@ For more information, see [What is Azure Active Directory?](../active-directory-
 For more information, see:
 
 * [How Azure subscriptions are associated with Azure Active Directory](../active-directory-how-subscriptions-associated-directory.md)
-* [Manage the directory for your Office 365 subscription in Azure](active-directory-manage-o365-subscription.md)
 
 - - -
 **Q: What’s the relationship between Azure AD, Office 365, and Azure?**
