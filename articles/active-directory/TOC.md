@@ -1,15 +1,9 @@
 # [Azure Active Directory Documentation](index.md)
 
 # Overview
-<<<<<<< HEAD
 ## [What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
-## [About Azure identity management](identity-fundamentals.md)
-## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
-=======
-## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [About Azure identity management](fundamentals/identity-fundamentals.md)
 ## [Understand Azure identity solutions](fundamentals/understand-azure-identity-solutions.md)
->>>>>>> 61fc3960c47ca59b5e92f7a92bdbe91786699287
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
 ## [Residency and data considerations](fundamentals/active-directory-data-storage-eu.md)
@@ -20,17 +14,10 @@
 # Get started
 ## [Get started with Azure AD](fundamentals/get-started-azure-ad.md)
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
-<<<<<<< HEAD
 ## [Add a custom domain name](fundamentals/add-custom-domain.md)
 ## [Configure company branding](fundamentals/customize-branding.md)
 ## [Add users to Azure AD](fundamentals/add-users-azure-active-directory.md)
-## [Assign licenses to users](license-users-groups.md)
-=======
-## [Add a custom domain name](add-custom-domain.md)
-## [Configure company branding](customize-branding.md)
-## [Add users to Azure AD](add-users-azure-active-directory.md)
 ## [Assign licenses to users](fundamentals/license-users-groups.md)
->>>>>>> 61fc3960c47ca59b5e92f7a92bdbe91786699287
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
 ## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
 
@@ -99,13 +86,8 @@
 #### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
-<<<<<<< HEAD
 ### [Manage group owners](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
-=======
-### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
-### [Manage group membership](fundamentals/active-directory-groups-membership-azure-portal.md)
->>>>>>> 61fc3960c47ca59b5e92f7a92bdbe91786699287
 ### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
