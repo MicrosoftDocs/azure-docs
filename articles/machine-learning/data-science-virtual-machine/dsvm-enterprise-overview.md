@@ -1,5 +1,5 @@
 ---
-title: Introduction to the Data Science Virtual Machine-based team environments - Azure | Microsoft Docs
+title: Introduction to Data Science Virtual Machine-based team environments - Azure | Microsoft Docs
 description: Patterns for deploying the Data Science VM in an enterprise team environment.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
