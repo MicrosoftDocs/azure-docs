@@ -138,10 +138,9 @@ This error is due to the virtual machine being under a heavy load during install
 
 Attempt to install the MMA extension when the VM is under a lower load.
 
-###
+## Next steps
 
-#### Issue
+If you did not see your problem or were unable to solve your issue, visit one of the following channels for more support:
 
-#### Cause
-
-#### Resolution
+* Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.

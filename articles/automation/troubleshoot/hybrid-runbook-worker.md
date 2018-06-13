@@ -75,3 +75,10 @@ In the **Application and Services Logs\Operations Manager** event log, you see e
 This can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify the computer has outbound access to *.azure-automation.net on ports 443.
 
 Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue affecting onboarding of the role to Azure Automation or issue while performing normal operations.
+
+## Next steps
+
+If you did not see your problem or were unable to solve your issue, visit one of the following channels for more support:
+
+* Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
