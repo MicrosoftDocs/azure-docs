@@ -1,6 +1,6 @@
 ---
-title: Upload a custom Linux image with Azure CLI 1.0 | Microsoft Docs
-description: Create and upload a virtual hard disk (VHD) to Azure with a custom Linux image using the Resource Manager deployment model and the Azure CLI 1.0.
+title: Upload a custom Linux image with Azure Classic CLI | Microsoft Docs
+description: Create and upload a virtual hard disk (VHD) to Azure with a custom Linux image using the Resource Manager deployment model and the Azure Classic CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -18,21 +18,21 @@ ms.date: 10/10/2016
 ms.author: iainfou
 
 ---
-# Upload and create a Linux VM from custom disk image by using the Azure CLI 1.0
+# Upload and create a Linux VM from custom disk image by using the Azure Classic CLI
 This article shows you how to upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and create Linux VMs from this custom image. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
 
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
+- [Azure Classic CLI](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to upload a VM to Azure. More detailed information and context for each step can be found the rest of the document, [starting here](#requirements).
 
-Make sure that you have [the Azure CLI 1.0](../../cli-install-nodejs.md) logged in and using Resource Manager mode:
+Make sure that you have [the Azure Classic CLI](../../cli-install-nodejs.md) logged in and using Resource Manager mode:
 
 ```azurecli
 azure config mode arm
@@ -98,7 +98,7 @@ To complete the following steps, you need:
   * Create a storage account and container to hold both your custom image and created VMs
   * After you have created all your VMs, you can safely delete your image
 
-Make sure that you have [the Azure CLI 1.0](../../cli-install-nodejs.md) logged in and using Resource Manager mode:
+Make sure that you have [the Azure Classic CLI](../../cli-install-nodejs.md) logged in and using Resource Manager mode:
 
 ```azurecli
 azure config mode arm

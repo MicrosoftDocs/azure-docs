@@ -26,7 +26,7 @@ If you face difficulties troubleshooting SSH or application access to a Linux vi
 You can redeploy a VM using one of the following options. You only need to choose one option to redeploy your VM:
 
 - [Azure CLI](#azure-cli-20)
-- [Azure CLI 1.0](#azure-cli-10)
+- [Azure Classic CLI](#azure-cli-10)
 - [Azure portal](#using-azure-portal)
 
 ## Use the Azure CLI
@@ -38,8 +38,8 @@ Redeploy your VM with [az vm redeploy](/cli/azure/vm#az_vm_redeploy). The follow
 az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
-## Use the Azure CLI 1.0
-Install the [latest Azure CLI 1.0](../../cli-install-nodejs.md) and log in to your Azure account. Make sure that you are in Resource Manager mode (`azure config mode arm`).
+## Use the Azure Classic CLI
+Install the [latest Azure Classic CLI](../../cli-install-nodejs.md) and log in to your Azure account. Make sure that you are in Resource Manager mode (`azure config mode arm`).
 
 The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
 

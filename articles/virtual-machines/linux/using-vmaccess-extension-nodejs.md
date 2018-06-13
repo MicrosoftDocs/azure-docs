@@ -18,7 +18,7 @@ ms.date: 10/25/2016
 ms.author: v-livech
 
 ---
-# Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension with the Azure CLI 1.0
+# Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension with the Azure Classic CLI
 This article shows you how to use the Azure VMAcesss Extension to check or repair a disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux. The article requires:
 
 * an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
@@ -29,17 +29,17 @@ This article shows you how to use the Azure VMAcesss Extension to check or repai
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](#quick-commands)– our CLI for the classic and resource management deployment models (this article)
+- [Azure Classic CLI](#quick-commands)– our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 
 ## Quick commands
 There are two ways to use VMAccess on your Linux VMs:
 
-* Using the Azure CLI 1.0 and the required parameters.
+* Using the Azure Classic CLI and the required parameters.
 * Using raw JSON files that VMAccess processes and then act on.
 
-For the quick command section, we are going to use the Azure CLI 1.0 `azure vm reset-access` method. In the following command examples, replace the values that contain "example" with the values from your own environment.
+For the quick command section, we are going to use the Azure Classic CLI `azure vm reset-access` method. In the following command examples, replace the values that contain "example" with the values from your own environment.
 
 ## Create a Resource Group and Linux VM
 ```bash

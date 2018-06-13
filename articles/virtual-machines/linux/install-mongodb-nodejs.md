@@ -1,5 +1,5 @@
 ---
-title: Install MongoDB on a Linux VM using the Azure CLI 1.0 | Microsoft Docs
+title: Install MongoDB on a Linux VM using the Azure Classic CLI | Microsoft Docs
 description: Learn how to install and configure MongoDB on a Linux virtual machine in Azure using the Resource Manager deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 05/11/2017
 ms.author: iainfou
 
 ---
-# How to install and configure MongoDB on a Linux VM using the Azure CLI 1.0
+# How to install and configure MongoDB on a Linux VM using the Azure Classic CLI
 [MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article shows you how to install and configure MongoDB on a Linux VM in Azure using the Resource Manager deployment model. Examples are shown that detail how to:
 
 * [Manually install and configure a basic MongoDB instance](#manually-install-and-configure-mongodb-on-a-vm)
@@ -28,7 +28,7 @@ ms.author: iainfou
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- Azure CLI 1.0 – our CLI for the classic and resource management deployment models (this article)
+- Azure Classic CLI – our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI](create-cli-complete-nodejs.md) - our next generation CLI for the resource management deployment model
 
 
