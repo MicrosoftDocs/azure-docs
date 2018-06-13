@@ -200,8 +200,8 @@ CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
         targetDedicatedComputeNodes: 1,
-        virtualMachineSize: "small",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>

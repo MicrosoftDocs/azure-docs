@@ -341,8 +341,8 @@ private const string BatchStartTaskTelemetryRunnerAIConfig = "ApplicationInsight
 CloudPool pool = client.PoolOperations.CreatePool(
     topNWordsConfiguration.PoolId,
     targetDedicated: topNWordsConfiguration.PoolNodeCount,
-    virtualMachineSize: "small",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+    virtualMachineSize: "standard_d1_v2",
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 ...
 
 // Create a start task which will run a dummy exe in background that simply emits performance
