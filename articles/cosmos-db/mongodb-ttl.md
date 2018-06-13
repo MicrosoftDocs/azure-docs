@@ -38,7 +38,7 @@ The command in the above example will create an index with TTL functionality. On
 > [!NOTE]
 > **_ts** is a Cosmos DB-specific field and is not accessible from MongoDB clients. It is a reserved (system) property that contains the timestamp of the document's last modification.
 >
-+	
+	
 Additionally, a C# example: 
 ```C# 
 var options = new CreateIndexOptions {ExpireAfter = TimeSpan.FromSeconds(10)}; 
@@ -55,13 +55,15 @@ The TTL value must be an int32. Alternatively, an int64 that fits in an int32, o
 The TTL value for the document is optional; documents without a TTL value can be inserted into the collection.  In this case, the collection's TTL value will be honored. 
 
 The following documents have valid TTL values. Once the documents are insterted, the document TTL values override the collection's TTL values. So, the documents will be removed after 20 seconds. 	
-``JavaScript 
+
+```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.0}) 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberInt(20)}) 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(20)}) 
-``` 
- 
+```
+
 The following documents have invalid TTL values. The documents will be inserted, but the document TTL value will not be honored. So, the documents will be removed after 10 seconds because of the collection's TTL value. 
+
 ```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.5}) //TTL value contains non-zero decimal part. 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(2147483649)}) //TTL value is greater than Int32.MaxValue (2,147,483,648). 
