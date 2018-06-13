@@ -147,7 +147,7 @@ Webhook triggered when a repository or manifest is deleted. Not triggered when a
   }
 ```
 
-Example [Azure CLI 2.0](/cli/azure/acr) commands that trigger a **delete** event webhook:
+Example [Azure CLI](/cli/azure/acr) commands that trigger a **delete** event webhook:
 
 ```azurecli
 # Delete repository
