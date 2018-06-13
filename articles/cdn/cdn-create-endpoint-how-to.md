@@ -40,7 +40,7 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
    
     ![Add endpoint page](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. For **Name**, enter a unique name for the new CDN endpoint. This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.
+3. For **Name**, enter a unique name for the new CDN endpoint. This name is used to access your cached resources at the domain _<endpointname>_.azureedge.net.
 
 4. For **Origin type**, choose one of the following origin types: 
    - **Storage** for Azure Storage
@@ -69,20 +69,20 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
     
 9. For **Optimized for**, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. For more information, see [Optimize Azure CDN for the type of content delivery](cdn-optimization-overview.md).
 
-The following optimization type settings are supported, according to profile type:
-- **Azure CDN Standard from Microsoft** profiles:
-   - **General web delivery**: This optimization the most common optimization type. It's designed for general web content optimization, such as webpages and web applications. It can also be used for media streaming and large file downloads.
+    The following optimization type settings are supported, according to profile type:
+    - **Azure CDN Standard from Microsoft** profiles:
+       - [**General web delivery**](cdn-optimization-overview.md#general-web-delivery)
 
-- **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles:
-   - **General web delivery**: This optimization the most common optimization type. It's designed for general web content optimization, such as webpages and web applications. It can also be used for media streaming and large file downloads.
-   - **Dynamic site acceleration**: Dynamic site acceleration includes various techniques that benefit the latency and performance of dynamic content. This optimization involves an additional fee to use; for more information, see Content Delivery Network pricing. 
+    - **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles:
+       - [**General web delivery**](cdn-optimization-overview.md#general-web-delivery)
+       - [**Dynamic site acceleration**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
-- **Azure CDN Standard from Akamai** profiles:
-   - **General web delivery**: This optimization the most common optimization type. It's designed for general web content optimization, such as webpages and web applications. It can also be used for media streaming and large file downloads.
-   - **General media streaming**: Use this optimization for live streaming and video-on-demand streaming.
-   - **Video on demand media streaming**: Use this optimization to improve video-on-demand streaming content. 
-   - **Large file download**: With this optimization, large file downloads are optimized for content larger than 10 MB. If your average file size is smaller than 10 MB, use general web delivery. 
-   - **Dynamic site acceleration**: Dynamic site acceleration includes various techniques that benefit the latency and performance of dynamic content. This optimization involves an additional fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
+    - **Azure CDN Standard from Akamai** profiles:
+       - [**General web delivery**](cdn-optimization-overview.md#general-web-delivery)
+       - [**General media streaming**](cdn-optimization-overview.md#general-media-streaming)
+       - [**Video on demand media streaming**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Large file download**](cdn-optimization-overview.md#large-file-download)
+       - [**Dynamic site acceleration**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
 10. Select **Add** to create the new endpoint.
    
@@ -95,7 +95,7 @@ The following optimization type settings are supported, according to profile typ
     - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
     - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
    
-    If you attempt to use the CDN domain name before the endpoint configuration has propagated to the point-of-presence (POP) servers, you might receive an HTTP 404 response status. If it's been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
+    If you attempt to use the CDN domain name before the endpoint configuration has propagated to the point-of-presence (POP) servers, you might receive an HTTP 404 response status. If it's been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting Azure CDN endpoints that return a 404 status code](cdn-troubleshoot-endpoint.md).
 
 ## Clean up resources
 To delete an endpoint when it is no longer needed, select it and then select **Delete**. 
