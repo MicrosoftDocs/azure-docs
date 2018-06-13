@@ -24,27 +24,12 @@ ms.reviewer: hectorl
 
 Perform an on-demand backup on Azure Stack with backup in place. If you need to enable the Infrastructure Backup Service, see [Enable Backup for Azure Stack from the administration portal](azure-stack-backup-enable-backup-console.md).
 
+## Setup Rm environment and log into the operator management endpoint
+
 > [!Note]  
 >  For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack ](azure-stack-powershell-install.md).
 
-##  Load the Connect and Infrastructure modules
-
-Open Windows PowerShell with an elevated prompt, and run the following commands:
-
-   ```powershell
-    cd C:\tools\AzureStack-Tools-master\Connect
-    Import-Module .\AzureStack.Connect.psm1
-    
-    cd C:\tools\AzureStack-Tools-master\Infrastructure
-    Import-Module .\AzureStack.Infra.psm1 
-    
-   ```
-> [!NOTE]
-> AzureStack.Connect.psm1 is not needed for this as the AzsBackup functions are in AzureStack.Infra.psm1 but you might need the connect if you are using VPN.
-
-##  Setup Rm environment and log into the operator management endpoint
-
-In the same PowerShell session, Edit the following PowerShell script by adding the variables for your environment. Run the updated script to set up the RM environment and log into the operator management endpoint.
+Edit the following PowerShell script by adding the variables for your environment. Run the updated script to set up the RM environment and log into the operator management endpoint.
 
 | Variable    | Description |
 |---          |---          |
@@ -82,7 +67,6 @@ In the same PowerShell session, Edit the following PowerShell script by adding t
     
    ```
 
-
 ## Start Azure Stack backup
 
 ```powershell
@@ -90,26 +74,25 @@ In the same PowerShell session, Edit the following PowerShell script by adding t
     Start-AzSBackup -Location $location.Name
 ```
 
-
 ## Confirm backup completed via PowerShell
 
 ```powershell
     Get-AzsBackup -Location $location.Name | Select-Object -ExpandProperty BackupInfo
 ```
 
-The result should look like the following output:
+- The result should look like the following output:
 
-```powershell
-    backupDataVersion :
-    backupId          : xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
-    roleStatus        : {@{roleName=NRP; status=Succeeded}, @{roleName=SRP; status=Succeeded}, @{roleName=CRP; status=Succeeded}, @{roleName=KeyVaultInternalControlPlane; status=Succeeded}...}
-    status            : Succeeded
-    createdDateTime   : 2018-05-03T12:16:50.3876124Z
-    timeTakenToCreate : PT22M54.1714666S
-    stampVersion      :
-    oemVersion        :
-    deploymentID      :
-```
+  ```powershell
+      backupDataVersion :
+      backupId          : xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
+      roleStatus        : {@{roleName=NRP; status=Succeeded}, @{roleName=SRP; status=Succeeded}, @{roleName=CRP; status=Succeeded}, @{roleName=KeyVaultInternalControlPlane; status=Succeeded}...}
+      status            : Succeeded
+      createdDateTime   : 2018-05-03T12:16:50.3876124Z
+      timeTakenToCreate : PT22M54.1714666S
+      stampVersion      :
+      oemVersion        :
+      deploymentID      :
+  ```
 
 ## Confirm backup completed in the administration portal
 
