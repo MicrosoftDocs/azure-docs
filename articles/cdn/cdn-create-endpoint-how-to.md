@@ -18,7 +18,7 @@ ms.custom: mvc
 
 ---
 # Create an Azure CDN endpoint
-This article describes all the settings for creating an Azure Content Delivery Network (CDN) endpoint in an existing CDN profile. After you've created a profile and an endpoint, you can start delivering content to your customers. For a quickstart, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md)
+This article describes all the settings for creating an Azure Content Delivery Network (CDN) endpoint in an existing CDN profile. After you've created a profile and an endpoint, you can start delivering content to your customers. For a quickstart on creating a profile and endpoint, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 
 ## Prerequisites
 Before you can create a CDN endpoint, you must have created at least one CDN profile, which can contain one or more CDN endpoints. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. Because CDN pricing is applied at the CDN profile level, you must create multiple CDN profiles if you want to use a mix of Azure CDN pricing tiers. To create a CDN profile, see [Create a new CDN profile](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
@@ -34,23 +34,21 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 2. Select **Endpoint**.
    
-    ![CDN profile](./media/cdn-create-new-endpoint/cdn-profile-settings.png)
+    ![CDN select endpoint](./media/cdn-create-endpoint-how-to/cdn-select-endpoint.png)
    
-    The **Add an endpoint** pane appears.
+    The **Add an endpoint** page appears.
    
-    ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+    ![Add endpoint page](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
 3. For **Name**, enter a unique name for the new CDN endpoint. This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.
 
 4. For **Origin type**, choose one of the following origin types: 
-   - **Storage** for an Azure Storage account
-   - **Cloud service** for an Azure Cloud Service
-   - **Web App** for an Azure Web App
-   - **Custom origin** for any other publicly accessible web server origin (hosted in Azure or elsewhere)
-   
-    ![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
+   - **Storage** for Azure Storage
+   - **Cloud service** for Azure Cloud Services
+   - **Web App** for Azure Web Apps
+   - **Custom origin** for any other publicly accessible origin web server (hosted in Azure or elsewhere)
 
-5. For **Origin hostname**, select or enter your origin domain. The drop-down lists all available origin servers of the type you specified in step 4. If you selected **Custom origin** as your origin type, enter the domain of your custom origin server.
+5. For **Origin hostname**, select or enter your origin server domain. The drop-down lists all available origin servers of the type you specified in step 4. If you selected **Custom origin** as your origin type, enter the domain of your custom origin server.
     
 6. For **Origin path**, enter the path to the resources that you want to cache. To allow caching of any resource at the domain you specified in step 5, leave this setting blank.
     
@@ -88,16 +86,16 @@ The following optimization type settings are supported, according to profile typ
 
 10. Select **Add** to create the new endpoint.
    
-   After the endpoint is created, it appears in the list of endpoints for the profile.
+    After the endpoint is created, it appears in the list of endpoints for the profile.
     
-   ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
+    ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
     Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
-   - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
-   - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-   - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
+    - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
+    - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
+    - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
    
-   If you attempt to use the CDN domain name before the endpoint configuration has propagated to the point-of-presence (POP) servers, you might receive an HTTP 404 response status. If it's been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
+    If you attempt to use the CDN domain name before the endpoint configuration has propagated to the point-of-presence (POP) servers, you might receive an HTTP 404 response status. If it's been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
 
 ## Clean up resources
 To delete an endpoint when it is no longer needed, select it and then select **Delete**. 
