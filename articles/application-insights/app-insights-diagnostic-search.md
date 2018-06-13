@@ -23,7 +23,7 @@ Search is a feature of [Application Insights](app-insights-overview.md) that you
 
 ## Where do you see Search?
 
-### In the Azure Portal
+### In the Azure portal
 
 You can open diagnostic search explicitly from the Application Insights Overview blade of your application:
 
