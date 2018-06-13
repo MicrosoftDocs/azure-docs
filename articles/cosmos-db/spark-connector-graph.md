@@ -3,20 +3,16 @@
 title: 'Azure Cosmos DB: Perform graph analytics by using Spark and Apache TinkerPop Gremlin | Microsoft Docs'
 description: This article presents instructions for setting up and running graph analytics and parallel computation in Azure Cosmos DB with Spark and TinkerPop SparkGraphComputer.
 services: cosmosdb
-documentationcenter: ''
-author: khdang
-manager: shireest
-editor: ''
+author: SnehaGunda
+manager: kfile
 
-ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: gremlin
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2017
-ms.author: khdang
+ms.author: sngun
 
 ---
 # Azure Cosmos DB: Perform graph analytics by using Spark and Apache TinkerPop Gremlin
@@ -174,7 +170,7 @@ When you built TinkerPop3 in the previous step, the process also pulled all jar 
 
 ## Get the Azure Cosmos DB Spark connector
 
-1. Get the Azure Cosmos DB Spark connector `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` and Cosmos DB Java SDK `azure-documentdb-1.10.0.jar` from [Azure Cosmos DB Spark Connector on GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
+1. Get the Azure Cosmos DB Spark connector `azure-cosmosdb-spark-0.0.3-SNAPSHOT.jar` and Cosmos DB Java SDK `azure-documentdb-1.12.0.jar` from [Azure Cosmos DB Spark Connector on GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
 
 2. Alternatively, you can build it locally. Because the latest version of Spark-Gremlin was built with Spark 1.6.1 and is not compatible with Spark 2.0.2, which is currently used in the Azure Cosmos DB Spark connector, you can build the latest TinkerPop3 code and install the jars manually. Do the following:
 

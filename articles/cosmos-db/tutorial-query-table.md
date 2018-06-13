@@ -2,24 +2,22 @@
 title: How to query table data in Azure Cosmos DB? | Microsoft Docs
 description: Learn to query table data in Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: kanshiG
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: ''
 
-ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: ''
+ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
+ms.custom: mvc
 
 ---
 
-# Azure Cosmos DB: How to query table data by using the Table API
+# Tutorial: Query Azure Cosmos DB by using the Table API
 
 The Azure Cosmos DB [Table API](table-introduction.md) supports OData and [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
 
@@ -36,7 +34,7 @@ The queries in this article use the following sample `People` table:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-See [Querying Tables and Entities] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query by using the Table API. 
+See [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query by using the Table API. 
 
 For more information on the premium capabilities that Azure Cosmos DB offers, see [Azure Cosmos DB Table API](table-introduction.md) and [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md). 
 

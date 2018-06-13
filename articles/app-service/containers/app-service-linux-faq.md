@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
+ms.date: 05/25/2018
+ms.author: msangapu
 ---
 # Azure App Service on Linux FAQ
 
@@ -31,7 +31,7 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 
 **What are the expected values for the Startup File section when I configure the runtime stack?**
 
-For Node.js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name. For Ruby, you can specify the Ruby script that you want to initialize your app with.
+For Node.js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name as `dotnet <myapp>.dll`. For Ruby, you can specify the Ruby script that you want to initialize your app with.
 
 ## Management
 
@@ -42,6 +42,10 @@ This action is the same as a Docker restart.
 **Can I use Secure Shell (SSH) to connect to the app container virtual machine (VM)?**
 
 Yes, you can do that through the source control management (SCM) site.
+
+> [!NOTE]
+> You can also connect to the app container directly from your local development machine using SSH, SFTP, or Visual Studio Code (for live debugging Node.js apps). For more information, see [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug).
+>
 
 **How can I create a Linux App Service plan through an SDK or an Azure Resource Manager template?**
 
@@ -60,6 +64,20 @@ Yes.
 **Can I use *web deploy* to deploy my web app?**
 
 Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to *false*.
+
+**Git deployment of my application fails when using Linux web app. How can I workaround the issue?**
+
+If Git deployment fails to your Linux web app, you can choose the following alternate options to deploy your application code:
+
+- Use the Continuous Delivery (Preview) feature: You can store your app’s source code in a Team Services Git repo or GitHub repo to use Azure Continuous Delivery. For more details, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+
+- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) and go to the folder where you want to deploy your code. Run the following:
+
+   ```
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   ```
+
+   If you get an error that the `curl` command is not found, make sure you install curl by using `apt-get install curl` before you run the previous `curl` command.
 
 ## Language support
 
@@ -91,7 +109,7 @@ You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting
 
 **My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.**
 
-You can configure the amount of time the platform will wait before it restarts your container. To do so, set the `WEBSITES_CONTAINER_START_TIME_LIMIT` app setting to the value you want. The default value is 230 seconds, and the maximum value is 600 seconds.
+You can configure the amount of time the platform will wait before it restarts your container. To do so, set the `WEBSITES_CONTAINER_START_TIME_LIMIT` app setting to the value you want. The default value is 230 seconds, and the maximum value is 1800 seconds.
 
 **What is the format for the private registry server URL?**
 

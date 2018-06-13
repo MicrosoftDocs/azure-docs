@@ -2,21 +2,16 @@
 title: Insulating Azure Service Bus applications against outages and disasters | Microsoft Docs
 description: Techniques to protect applications against a potential Service Bus outage.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/06/2017
+ms.date: 06/05/2018
 ms.author: sethm
 
 ---
+
 # Best practices for insulating applications against Service Bus outages and disasters
 
 Mission-critical applications must operate continuously, even in the presence of unplanned outages or disasters. This topic describes techniques you can use to protect Service Bus applications against a potential service outage or disaster.
@@ -28,15 +23,12 @@ A disaster is defined as the permanent loss of a Service Bus scale unit or datac
 ## Current architecture
 Service Bus uses multiple messaging stores to store messages that are sent to queues or topics. A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail.
 
-All Service Bus messaging entities (queues, topics, relays) reside in a service namespace, which is affiliated with a datacenter. Service Bus does not enable automatic geo-replication of data, nor does it allow a namespace to span multiple datacenters.
-
-## Protecting against ACS outages
-If you are using ACS credentials, and ACS becomes unavailable, clients can no longer obtain tokens. Clients that have a token at the time ACS goes down can continue to use Service Bus until the tokens expire. The default token lifetime is 3 hours.
-
-To protect against ACS outages, use Shared Access Signature (SAS) tokens. In this case, the client authenticates directly with Service Bus by signing a self-minted token with a secret key. Calls to ACS are no longer required. For more information about SAS tokens, see [Service Bus authentication][Service Bus authentication].
+All Service Bus messaging entities (queues, topics, relays) reside in a service namespace, which is affiliated with a datacenter. Service Bus now supports [*Geo-disaster recovery* and *Geo-replication*](service-bus-geo-dr.md) at the namespace level.
 
 ## Protecting queues and topics against messaging store failures
-A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue, on the other hand, consists of multiple fragments. Each fragment is stored in a different messaging store. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. If the corresponding messaging store is unavailable, Service Bus writes the message to a different fragment, if possible. For more information about partitioned entities, see [Partitioned messaging entities][Partitioned messaging entities].
+A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue, on the other hand, consists of multiple fragments. Each fragment is stored in a different messaging store. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. If the corresponding messaging store is unavailable, Service Bus writes the message to a different fragment, if possible. Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
+
+For more information about partitioned entities, see [Partitioned messaging entities][Partitioned messaging entities].
 
 ## Protecting against datacenter outages or disasters
 To allow for a failover between two datacenters, you can create a Service Bus service namespace in each datacenter. For example, the Service Bus service namespace **contosoPrimary.servicebus.windows.net** might be located in the United States North/Central region, and **contosoSecondary.servicebus.windows.net** might be located in the US South/Central region. If a Service Bus messaging entity must remain accessible in the presence of a datacenter outage, you can create that entity in both namespaces.
@@ -79,9 +71,14 @@ When using passive replication, in the following scenarios messages can be lost 
 
 The [Geo-replication with Service Bus brokered messages][Geo-replication with Service Bus Brokered Messages] sample demonstrates passive replication of messaging entities.
 
+## Geo-replication
+
+Service Bus supports Geo-disaster recovery and Geo-replication, at the namespace level. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md). The disaster recovery feature, available for the [Premium SKU](service-bus-premium-messaging.md) only, implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces.
+
 ## Next steps
 To learn more about disaster recovery, see these articles:
 
+* [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md)
 * [Azure SQL Database Business Continuity][Azure SQL Database Business Continuity]
 * [Designing resilient applications for Azure][Azure resiliency technical guidance]
 

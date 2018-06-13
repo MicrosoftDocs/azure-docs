@@ -1,27 +1,28 @@
 ---
-title: Cortana Intelligence Gallery custom modules | Microsoft Docs
-description: Discover custom machine learning modules in Cortana Intelligence Gallery.
+title: Azure AI Gallery custom modules | Microsoft Docs
+description: Discover custom machine learning modules in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: roopalik;garye
 
 ---
-# Discover custom machine learning modules in Cortana Intelligence Gallery
+# Discover custom machine learning modules in Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Custom modules for Machine Learning Studio
-Cortana Intelligence Gallery offers several [custom modules](https://gallery.cortanaintelligence.com/customModules) that expand the capabilities of Azure Machine Learning Studio. You can import the modules to use in your experiments, so you can develop even more advanced predictive analytics solutions.
+Azure AI Gallery offers several [custom modules](https://gallery.cortanaintelligence.com/customModules) that expand the capabilities of Azure Machine Learning Studio. You can import the modules to use in your experiments, so you can develop even more advanced predictive analytics solutions.
 
 Currently, the Gallery offers modules on *time series analytics*, *association rules*, *clustering algorithms* (beyond k-means), and *visualizations*, and other workhorse utility modules.
 
@@ -49,7 +50,7 @@ On a custom module details page, in the **Comments** section, you can comment, p
 ## Import
 You can import any custom module from the Gallery to your own experiments.
 
-Cortana Intelligence Gallery offers two ways to import a copy of the module:
+Azure AI Gallery offers two ways to import a copy of the module:
 
 * **From the Gallery**. When you import a custom module from the Gallery, you also get a sample experiment that gives you an example of how to use the module.
 * **From within Machine Learning Studio**. You can import any custom module while you're working in Machine Learning Studio (in this case, you don't get the sample experiment).

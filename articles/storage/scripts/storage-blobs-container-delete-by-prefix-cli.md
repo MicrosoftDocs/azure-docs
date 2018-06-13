@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Delete containers by prefix | Microsoft Docs
 description: Delete Azure Storage blob containers based on a container name prefix.
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
-ms.author: marsma
+ms.author: tamram
 ---
 
 # Delete containers based on container name prefix
@@ -44,14 +44,14 @@ This script uses the following commands to delete containers based on container 
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#create) | Creates an Azure Storage account in the specified resource group. |
-| [az storage container create](/cli/azure/storage/container#create) | Creates a container in Azure Blob storage. |
-| [az storage container list](/cli/azure/storage/container#list) | Lists the containers in an Azure Storage account. |
-| [az storage container delete](/cli/azure/storage/container#delete) | Deletes containers in an Azure Storage account. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates an Azure Storage account in the specified resource group. |
+| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Creates a container in Azure Blob storage. |
+| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Lists the containers in an Azure Storage account. |
+| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Deletes containers in an Azure Storage account. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional storage CLI script samples can be found in the [Azure CLI samples for Azure Storage](../blobs/storage-samples-blobs-cli.md).

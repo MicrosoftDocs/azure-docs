@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
@@ -27,7 +27,7 @@ You get the following benefits when you integrate SAP Business Object Cloud with
 - You can automatically sign in your users to SAP Business Object Cloud by using single sign-on and a user's Azure AD account.
 - You can manage your accounts in one, central location, the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -278,7 +278,7 @@ For more information about the access panel, see [Introduction to the access pan
 ## Additional resources
 
 * [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

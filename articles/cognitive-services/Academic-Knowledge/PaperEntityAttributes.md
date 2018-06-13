@@ -4,9 +4,8 @@ description: Learn the attributes you can use with the Paper entity in the Acade
 services: cognitive-services
 author: alch-msft
 manager: kuansanw
-
 ms.service: cognitive-services
-ms.technology: academic-knowledge
+ms.component: academic-knowledge
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: alch
@@ -56,6 +55,9 @@ S.U		| Source URL
 VFN		| Venue Full Name - full name of the Journal or Conference
 VSN		| Venue Short Name - short name of the Journal or Conference
 V		| Volume - journal volume
+BV		| Journal Name
+BT		| 
+PB		| Journal Abreviations
 I 		| Issue - journal issue
 FP		| FirstPage - first page of paper
 LP 		| LastPage - last page of paper

@@ -1,23 +1,24 @@
 ---
-title: Cortana Intelligence Gallery Jupyter notebooks | Microsoft Docs
-description: Discover Jupyter notebooks in the Cortana Intelligence Gallery.
+title: Azure AI Gallery Jupyter notebooks | Microsoft Docs
+description: Discover Jupyter notebooks in the Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 556e0671-1b50-4bcb-92eb-889962310633
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
 
 ---
-# Discover Jupyter Notebooks in the Cortana Intelligence Gallery
+# Discover Jupyter Notebooks in the Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Jupyter Notebooks

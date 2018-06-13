@@ -1,22 +1,22 @@
 ---
-title: Develop apps for Azure AD | Microsoft Docs'
+title: Register your application to use Azure Active Directory | Microsoft Docs
 description: Written for the IT Pro, this article provides guidelines for integrating Azure applications with Active Directory.
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 editor: ''
 
-ms.assetid: dd69f2bc-37c5-457c-857d-27acb84267fb
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2017
+ms.date: 01/14/2018
 ms.author: kgremban
 
-ms.custom: H1Hack27Feb2017
+ms.custom: seohack1
 ---
 # Develop line-of-business apps for Azure Active Directory
 This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Office 365 global administrators.
@@ -74,7 +74,7 @@ For applications that you trust, you can simplify the user experience by consent
 For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md).
 
 ## Related Articles
-* [Enable secure remote access to on-premises applications with Azure AD Application Proxy](active-directory-application-proxy-get-started.md)
+* [Enable secure remote access to on-premises applications with Azure AD Application Proxy](manage-apps/application-proxy.md)
 * [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azure-portal-get-started.md)
-* [Managing access to apps with Azure AD](active-directory-managing-access-to-apps.md)
+* [Managing access to apps with Azure AD](manage-apps/what-is-access-management.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
 
 ---
 # Paired namespace implementation details and cost implications
+
 The [PairNamespaceAsync][PairNamespaceAsync] method, using a [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] instance, performs visible tasks on your behalf. Because there are cost considerations when using the feature, it is useful to understand those tasks so that you expect the behavior when it happens. The API engages the following automatic behavior on your behalf:
 
 * Creation of backlog queues.

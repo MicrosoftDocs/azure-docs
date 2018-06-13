@@ -4,13 +4,11 @@ description: Learn how you can use a work or school account to leverage the exis
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 
-ms.assetid: 1b7f6dc2-bbdb-4aee-a615-db2f991f46ed
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: fundamentals
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand

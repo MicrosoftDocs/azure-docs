@@ -4,9 +4,8 @@ description: Source code for tutorial showing how to use the Bing Spell Check AP
 services: cognitive-services
 author: v-jaswel
 manager: kamrani
-
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: v-jaswel

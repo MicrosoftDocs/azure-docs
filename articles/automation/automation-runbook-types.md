@@ -1,21 +1,14 @@
 ---
-title: Azure Automation Runbook Types | Microsoft Docs
+title: Azure Automation Runbook Types
 description: 'Describes the different types of runbooks that you can use in Azure Automation and considerations that you should take into account when determining which type to use. '
 services: automation
-documentationcenter: ''
-author: eslesar
-manager: jwhit
-editor: tysonn
-
-ms.assetid: 9265c975-4281-4819-a84f-d86641277f36
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/01/2017
-ms.author: bwren
-
+ms.component: process-automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: conceptual
+manager: carmonm
 ---
 # Azure Automation runbook types
 Azure Automation supports several types of runbooks that are  briefly described in the following table.  The sections below provide further information about each type including considerations on when to use each.
@@ -93,7 +86,7 @@ Python runbooks compile under Python 2.  You can directly edit the code of the r
 ### Known Issues
 Following are current known issues with Python runbooks.
 
-* In order to utilize third-party libraries, the runbook must be run on a [Windows Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) or [Linux Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) with the libraries already installed on the machine before the runbook is started.
+* In order to utilize third-party libraries, the runbook must be run on a [Windows Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install) or [Linux Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install) with the libraries already installed on the machine before the runbook is started.
 
 ## Considerations
 You should take into account the following additional considerations when determining which type to use for a particular runbook.

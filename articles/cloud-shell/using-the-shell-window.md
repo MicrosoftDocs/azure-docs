@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 01/30/2018
 ms.author: juluk
 ---
 
@@ -29,7 +29,7 @@ Use the environment selector in the Cloud Shell toolbar to swap between Bash and
 ## Restart Cloud Shell
 ![](media/using-the-shell-window/restart.png)
 > [!WARNING]
-> Restarting Cloud Shell will reset machine state and any files not persisted by your file share will be lost.
+> Restarting Cloud Shell will reset machine state and any files not persisted by your Azure file share will be lost.
 
 * Click the restart icon in the Cloud Shell toolbar to reset machine state.
 
@@ -43,7 +43,7 @@ Cloud Shell enables multiple concurrent sessions across browser tabs by allowing
 If exiting a session, be sure to exit from each session window as each process runs independently although they run on the same machine.
 
 ## Copy and paste
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ## Resize Cloud Shell window
 * Click and drag the top edge of the toolbar up or down to resize the Cloud Shell window.

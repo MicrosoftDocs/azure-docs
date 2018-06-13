@@ -2,20 +2,15 @@
 title: How to get started with table storage and Visual Studio connected services (ASP.NET Core) | Microsoft Docs
 description: How to get started with Azure Table storage in an ASP.NET Core project in Visual Studio after connecting to a storage account using Visual Studio connected services
 services: storage
-documentationcenter: ''
-author: kraigb
-manager: ghogen
-editor: ''
-
+author: ghogen
+manager: douge
 ms.assetid: c3c451d1-71ff-4222-a348-c41c98a02b85
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/14/2017
-ms.author: kraigb
-
+ms.author: ghogen
 ---
 # How to get started with Azure Table storage and Visual Studio connected services
 
@@ -61,7 +56,7 @@ To access tables in ASP.NET Core projects, you need to include the following ite
 
     ```cs
     // Get a reference to a table named "peopleTable"
-    CloudTable table = tableClient.GetTableReference("peopleTable");
+    CloudTable peopleTable = tableClient.GetTableReference("peopleTable");
     ```
 
 ## Create a table in code
@@ -70,7 +65,7 @@ To create the Azure table, call ``CreateIfNotExistsAsync()`:
 
 ```cs
 // Create the CloudTable if it does not exist
-await table.CreateIfNotExistsAsync();
+await peopleTable.CreateIfNotExistsAsync();
 ```
 
 ## Add an entity to a table

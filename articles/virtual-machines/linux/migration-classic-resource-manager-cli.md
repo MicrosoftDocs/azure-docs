@@ -4,7 +4,7 @@ description: This article walks through the platform-supported migration of reso
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -45,7 +45,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 > 
 
 ## Step 2: Set your subscription and register the provider
-For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../../cli-install-nodejs.md) and [select your subscription](../../xplat-cli-connect.md).
+For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../../cli-install-nodejs.md) and [select your subscription](/cli/azure/authenticate-azure-cli).
 
 Sign-in to your account.
 

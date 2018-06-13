@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integrate Azure Active Directory with vxMaintain | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with vxMaintain | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and vxMaintain.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Integrate Azure Active Directory with vxMaintain
+# Tutorial: Azure Active Directory integration with vxMaintain
 
 In this tutorial, you learn how to integrate vxMaintain with Azure Active Directory (Azure AD).
 
@@ -26,7 +26,7 @@ This integration provides several important benefits. You can:
 - Enable your users to automatically sign in to vxMaintain with single sign-on (SSO) by using their Azure AD accounts.
 - Manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -195,7 +195,7 @@ For more information about the Access Panel, see [Introduction to the Access
 ## Next steps
 
 * [List of tutorials on integrating SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

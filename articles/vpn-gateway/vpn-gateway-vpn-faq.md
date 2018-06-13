@@ -4,7 +4,7 @@ description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2017
-ms.author: cherylmc,yushwang
+ms.date: 06/06/2018
+ms.author: cherylmc
 
 ---
 # VPN Gateway FAQ
@@ -38,7 +38,7 @@ You can connect to multiple sites by using Windows PowerShell and the Azure REST
 The following cross-premises connections are supported:
 
 * Site-to-Site – VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information, see [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
-* Point-to-Site – VPN connection over SSTP (Secure Socket Tunneling Protocol). This connection does not require a VPN device. For more information, see [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* Point-to-Site – VPN connection over SSTP (Secure Socket Tunneling Protocol) or IKE v2. This connection does not require a VPN device. For more information, see [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * VNet-to-VNet – This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device. For more information, see [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multi-Site – This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network. For more information, see [Multi-Site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 * ExpressRoute – ExpressRoute is a direct connection to Azure from your WAN, not a VPN connection over the public Internet. For more information, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
@@ -163,13 +163,13 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## <a name="P2S"></a>Point-to-Site - native Azure certificate authentication
+## <a name="P2S"></a>Point-to-Site using native Azure certificate authentication
 
 This section applies to the Resource Manager deployment model.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Point-to-Site - RADIUS authentication
+## <a name="P2SRADIUS"></a>Point-to-Site using RADIUS authentication
 
 This section applies to the Resource Manager deployment model.
 

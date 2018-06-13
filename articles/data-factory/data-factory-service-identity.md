@@ -3,15 +3,15 @@ title: Azure Data Factory service identity | Microsoft Docs
 description: Learn about data factory service identity in Azure Data Factory. 
 services: data-factory
 author: linda33wj
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/09/2017
+ms.topic: conceptual
+ms.date: 01/15/2018
 ms.author: jingwang
 ---
 
@@ -169,3 +169,5 @@ See the following topics which introduce when and how to use data factory servic
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copy data from/to Azure Data Lake Store using managed service identity authentication](connector-azure-data-lake-store.md)
+
+See [MSI Overview](~/articles/active-directory/msi-overview.md) for more background on Managed Service Identity, which data factory service identity is based upon. 

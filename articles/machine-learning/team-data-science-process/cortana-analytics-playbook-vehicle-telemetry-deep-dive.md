@@ -3,18 +3,19 @@ title: Deep dive into how to predict vehicle health and driving habits - Azure |
 description: Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
-manager: jhubbard
+author: deguhath
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev
+ms.date: 03/14/2018
+ms.author: deguhath
 
 ---
 # Vehicle Telemetry Analytics Solution playbook: Deep dive into the solution

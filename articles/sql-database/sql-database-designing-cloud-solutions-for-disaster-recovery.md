@@ -3,28 +3,25 @@ title: Design highly available service using Azure SQL Database | Microsoft Docs
 description: Learn about application design for highly available services using Azure SQL Database.
 keywords: cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication,business continuity planning
 services: sql-database
-documentationcenter: ''
 author: anosov1960
-manager: jhubbard
-editor: monicar
-
-ms.assetid: e8a346ac-dd08-41e7-9685-46cebca04582
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: "On Demand"
-ms.date: 09/08/2017
+ms.topic: conceptual
+ms.date: 04/04/2018
 ms.author: sashan
+ms.reviewer: carlrab
 
 ---
 # Designing highly available services using Azure SQL Database
 
 When building and deploying highly available services on Azure SQL Database, you use [failover groups and active geo-replication](sql-database-geo-replication-overview.md) to provide resilience to regional outages and catastrophic failures. It also enables fast recovery to the secondary databases. This article focuses on common application patterns and discusses the benefits and trade-offs of each option. For information about active geo-replication with Elastic Pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
+> [!NOTE]
+> If you are using Premium or Business Critical (preview) databases and elastic pools, you can make them resilient to regional outages by converting them to zone redundant deployment configuration (currently in preview). See [Zone-redundant databases](sql-database-high-availability.md).  
+
 ## Scenario 1: Using two Azure regions for business continuity with minimal downtime
-In this scenario the applications has the following characteristics: 
+In this scenario, the applications have the following characteristics: 
 *	Application is active in one Azure region
 *	All database sessions require read and write access (RW) to data
 *	Web tier and data tier must be collocated to reduce latency and traffic cost 

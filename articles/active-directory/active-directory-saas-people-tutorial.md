@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/06/2017
 ms.author: jeedes
 
 ---
@@ -26,7 +26,7 @@ Integrating People with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to People (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -108,14 +108,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_url.png)
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company name>.peoplehr.com/`
+	a. In the **Sign-on URL** textbox, type a URL using the following pattern:  `https://<company name>.peoplehr.net`
 
-    b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.peoplehr.com`
+    b. In the **Identifier** textbox, type the URL: `https://www.peoplehr.com`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
-
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [People Client support team](mailto:customerservices@peoplehr.com) to get these values.
+	c. In the **Reply URL** textbox, type a URL using the following pattern:  `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
+	
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [People Client support team](mailto:customerservices@peoplehr.com) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -217,7 +217,7 @@ When you click the People tile in the Access Panel, you should get automatically
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

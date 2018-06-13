@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/20/2017
+ms.date: 03/16/2018
 ms.author: vturecek
 
 ---
@@ -34,7 +34,7 @@ Launch Visual Studio 2015 or later as an administrator, and then create a new **
 
 ![Service Fabric tools for Visual Studio - new project][1]
 
-In the next dialog box, choose **Actor Service** and enter a name for the service.
+In the next dialog box, choose **Actor Service** under **.Net Core 2.0** and enter a name for the service.
 
 ![Service Fabric project templates][5]
 
@@ -98,7 +98,7 @@ Create a simple console application to call the actor service.
     ![Add New Project dialog][6]    
     
     > [!NOTE]
-    > A console application is not the type of app you would typically use as a client in Service Fabric, but it makes a convenient example for debugging and testing using the local Service Fabric emulator.
+    > A console application is not the type of app you would typically use as a client in Service Fabric, but it makes a convenient example for debugging and testing using the local Service Fabric cluster.
 
 3. The console application must be a 64-bit application to maintain compatibility with the interface project and other dependencies.  In Solution Explorer, right-click the **ActorClient** project, and then click **Properties**.  On the **Build** tab, set **Platform target** to **x64**.
     

@@ -1,20 +1,21 @@
----
+﻿---
 title: 'Azure Machine Learning Web Services: Deployment and consumption | Microsoft Docs'
 description: Resources for deploying and consuming web services.
 services: machine-learning
 documentationcenter: ''
-author: vDonGlover
-manager: raymondl
-editor: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
 
 ---
 # Azure Machine Learning Web Services: Deployment and consumption
@@ -23,6 +24,7 @@ You can use Azure Machine Learning to deploy machine-learning workflows and mode
 The next sections provide links to walkthroughs, code, and documentation to help get you started.
 
 ## Deploy a web service
+
 ### With Azure Machine Learning Studio
 Machine Learning Studio and the Microsoft Azure Machine Learning Web Services portal help you deploy and manage a web service without writing code.
 
@@ -46,7 +48,7 @@ The Azure Machine Learning resource provider for web services enables deployment
 ### With PowerShell cmdlets
 Azure Machine Learning resource provider for web services enables deployment and management of web services by using PowerShell cmdlets.
 
-To use the cmdlets, you must first sign in to your Azure account from within the PowerShell environment by using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. If you are unfamiliar with how to call PowerShell commands that are based on Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md#log-in-to-your-azure-account).
+To use the cmdlets, you must first sign in to your Azure account from within the PowerShell environment by using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet. If you are unfamiliar with how to call PowerShell commands that are based on Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
 
 To export your predictive experiment, use [this sample code](https://github.com/ritwik20/AzureML-WebServices). After you create the .exe file from the code, you can type:
 
@@ -56,7 +58,7 @@ Running the application creates a web service JSON template. To use the template
 
 * Storage account name and key
 
-    You can get the storage account name and key from either the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](http://manage.windowsazure.com/).
+    You can get the storage account name and key from the [Azure portal](https://portal.azure.com/).
 * Commitment plan ID
 
     You can get the plan ID from the [Azure Machine Learning Web Services](https://services.azureml.net) portal by signing in and clicking a plan name.

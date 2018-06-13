@@ -4,10 +4,9 @@ description: Shows how to get started using the Bing Spell Check API.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: AF8EB1F0-386D-4555-9354-735611435F04
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 06/21/2016
 ms.author: scottwhi

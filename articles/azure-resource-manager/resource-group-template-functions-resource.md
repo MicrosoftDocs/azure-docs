@@ -10,10 +10,10 @@ editor: tysonn
 ms.assetid: 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 06/06/2018
 ms.author: tomfitz
 
 ---
@@ -21,7 +21,9 @@ ms.author: tomfitz
 
 Resource Manager provides the following functions for getting resource values:
 
-* [listKeys and list{Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [list*](#list)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -33,12 +35,14 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 <a id="listkeys" />
 <a id="list" />
 
-## listKeys and list{Value}
+## listKeys, listSecrets and list*
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Returns the values for any resource type that supports the list operation. The most common usage is `listKeys`. 
+Returns the values for any resource type that supports the list operation. The most common usages are `listKeys` and `listSecrets`. 
 
 ### Parameters
 
@@ -88,7 +92,7 @@ To determine which resource types have a list operation, you have the following 
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-Specify the resource by using either the [resourceId function](#resourceid), or the format `{providerNamespace}/{resourceType}/{resourceName}`.
+Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using this function in the same template that deploys the referenced resource, use the resource name.
 
 ### Example
 
@@ -248,9 +252,9 @@ Every resource type returns different properties for the reference function. The
 
 ### Remarks
 
-The reference function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template. 
+The reference function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template or [linked template](resource-group-linked-templates.md#link-or-nest-a-template). It cannot be used in the outputs section of a [nested template](resource-group-linked-templates.md#link-or-nest-a-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template. 
 
-By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the dependsOn property. The function is not evaluated until the referenced resource has completed deployment.
+By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You do not need to also use the dependsOn property. The function is not evaluated until the referenced resource has completed deployment.
 
 To see the property names and values for a resource type, create a template that returns the object in the outputs section. If you have an existing resource of that type, your template returns the object without deploying any new resources. 
 

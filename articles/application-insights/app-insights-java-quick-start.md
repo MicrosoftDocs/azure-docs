@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 12/12/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -22,13 +22,15 @@ This quickstart guides you through adding the Application Insights SDK to an exi
 
 To complete this quickstart:
 
-- Install Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
+- Install JRE 1.7 or 1.8
 - Install [Free Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). This quickstart uses Eclipse Oxygen (4.7)
 - You will need an Azure Subscription and an existing Java Dynamic Web Project
  
-If you don't have a Java Dynamic Web Project, you can create one with the [Create a Java web app quickstart](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java).
+If you don't have a Java Dynamic Web Project, you can create one with the [Create a Java web app quickstart](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+If you prefer the Spring framework try the [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## Log in to the Azure portal
 
@@ -38,11 +40,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 Application Insights can gather telemetry data from any internet-connected application, regardless of whether it's running on-premises or in the cloud. Use the following steps to start viewing this data.
 
-1. Select **New** > **Monitoring + Management** > **Application Insights**.
+1. Select **Create a resource** > **Monitoring + Management** > **Application Insights**.
 
    ![Adding Application Insights Resource](./media/app-insights-java-quick-start/001-j.png)
 
-   A configuration box will appear, use the table below to fill out the input fields.
+   A configuration box appears; use the following table to fill out the input fields.
 
     | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
@@ -134,4 +136,4 @@ If you plan to continue on to work with subsequent quickstarts or with the tutor
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Find and diagnose performance problems](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Find and diagnose performance problems](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
