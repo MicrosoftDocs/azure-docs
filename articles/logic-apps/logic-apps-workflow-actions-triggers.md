@@ -53,7 +53,7 @@ All triggers have these top-level elements, although some are optional:
    },
    "conditions": [ "<array-with-conditions>" ],
    "splitOn": "<expression-for-creating-multiple-runs>",
-   "operationOptions": "<trigger-operations>"
+   "operationOptions": "<operation-option>"
 }
 ```
 
@@ -74,7 +74,7 @@ All triggers have these top-level elements, although some are optional:
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow | 
 | <*expression-for-creating-multiple-runs*> | String | For triggers that return an array, you can specify an expression that [splits or *debatches*](#split-on-debatch) array items into multiple workflow instances for processing. You can add this option only when working on the trigger definition in code view. | 
-| <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). | 
+| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting [`operationOptions`](#operation-options). For example, to fire the trigger only after all active runs finish, set `operationOptions` to the `singleInstance` option. For more information, see [Trigger only after active runs finish](#single-instance). | 
 |||| 
 
 ## Trigger types
@@ -135,7 +135,7 @@ so the trigger's behavior depends on whether or not sections are included.
       }
    },
    "splitOn": "<splitOn-expression>",
-   "operationOptions": "<trigger-operations>"
+   "operationOptions": "<operation-option>"
 }
 ```
 
@@ -159,7 +159,7 @@ so the trigger's behavior depends on whether or not sections are included.
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
 | <*splitOn-expression*> | For triggers that return arrays, this expression represents the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
-| <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). <p>For example, you can specify that the trigger fires only after all active runs finish by specifying the `singleInstance` option. See [Triggers: Fire only after active runs finish](#single-instance). |
+| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting [`operationOptions`](#operation-options). For example, to fire the trigger only after all active runs finish, set `operationOptions` to the `singleInstance` option. For more information, see [Trigger only after active runs finish](#single-instance). | 
 ||||
 
 *Outputs*
@@ -303,7 +303,7 @@ Based on the response, the trigger determines whether the workflow runs.
          "runs": <maximum-concurrent-workflow-instances>
       }
    },
-   "operationOptions": "<trigger-operations>"
+   "operationOptions": "<operation-option>"
 }
 ```
 
@@ -327,7 +327,7 @@ Based on the response, the trigger determines whether the workflow runs.
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
  <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. | 
 | <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` |  
-| <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). <p>For example, you can specify that the trigger fires only after all active runs finish by specifying the `singleInstance` option. See [Triggers: Fire only after active runs finish](#single-instance). |
+| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting [`operationOptions`](#operation-options). For example, to fire the trigger only after all active runs finish, set `operationOptions` to the `singleInstance` option. For more information, see [Trigger only after active runs finish](#single-instance). | 
 |||| 
 
 *Outputs*
@@ -514,7 +514,7 @@ and provides an easy way for creating a regularly running workflow.
 | <*one-or-more-minute-marks*> | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
 | weekDays | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
 | <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
-| <*trigger-operations*> | String | For recurring and polling triggers, you can change the default trigger behavior by setting [operation options](#trigger-operation-options). <p>For example, you can specify that the trigger fires only after all active runs finish by specifying the `singleInstance` option. See [Triggers: Fire only after active runs finish](#single-instance). | 
+| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting [`operationOptions`](#operation-options). For example, to fire the trigger only after all active runs finish, set `operationOptions` to the `singleInstance` option. For more information, see [Trigger only after active runs finish](#single-instance). | 
 |||| 
 
 *Example 1*
@@ -786,15 +786,15 @@ So, your trigger outputs look like these examples:
 }
 ```
 
-<a name="trigger-operation-options"></a>
+<a name="operation-options"></a>
 
-## Trigger operation options
+## Operation options
 
-Here are more options for changing the default behavior for these triggers:
+Here are more options for changing the default behavior for triggers:
 
 | Operation option | Description | Triggers | 
 |------------------|-------------|----------|
-| `singleInstance` | Trigger only after all active runs have finished. | [ApiConnection](#apiconnection-trigger), <br>[HTTP](#http-trigger), <br>[Recurrence](#recurrence-trigger) | 
+| [`singleInstance`](#single-instance) | Trigger only after all active runs have finished. | [ApiConnection](#apiconnection-trigger), <br>[HTTP](#http-trigger), <br>[Recurrence](#recurrence-trigger) | 
 ||||
 
 <a name="single-instance"></a>
@@ -806,8 +806,9 @@ fire only after all active workflow instances finish running.
 If a scheduled recurrence happens while a workflow instance is running, 
 the trigger skips and waits until the next scheduled recurrence before checking again. 
 
-Here is an example where the recurrence trigger, which fires every second, 
-waits until the previous instance has finished before firing: 
+This example recurrence trigger, which fires every second, 
+waits until the previous instance has finished before firing 
+by setting `operationOptions` to the `singleInstance` option: 
 
 ```json
 "Recurrence": {
@@ -1966,79 +1967,94 @@ the outputs are empty.
 
 ### Foreach action
 
-This looping action iterates through an array and performs inner actions on each array item. 
-By default, the Foreach loop runs in parallel. For the maximum number of parallel cycles that 
-"for each" loops can run, see [Limits and config](../logic-apps/logic-apps-limits-and-config.md). 
-To run each cycle sequentially, set the `operationOptions` parameter to `Sequential`. 
-Learn more about [Foreach loops in logic apps](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
+This looping action iterates through an array and performs actions on each array item. 
+By default, the "for each" loop runs in parallel up to a maximum number of loops. 
+For this maximum, see [Limits and config](../logic-apps/logic-apps-limits-and-config.md).
+Learn [how to create "foreach" loops](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
 
 ```json
-"<my-forEach-loop-name>": {
-    "type": "Foreach",
-    "actions": {
-        "myInnerAction1": {
-            "type": "<action-type>",
-            "inputs": {}
-        },
-        "myInnerAction2": {
-            "type": "<action-type>",
-            "inputs": {}
-        }
-    },
-    "foreach": "<array>",
-    "runAfter": {}
+"For_each": {
+   "type": "Foreach",
+   "actions": { 
+      "<action-1>": { "<action-definition-1>" },
+      "<action-2>": { "<action-definition-2>" }
+   },
+   "foreach": "<*for-each-expression*>",
+   "runAfter": {},
+   "runtimeConfiguration": {
+      "concurrency": {
+         "repetitions": <count>
+      }
+    }   
 }
 ```
 
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------| 
-| actions | Yes | JSON Object | The inner actions to run inside the loop | 
-| foreach | Yes | String | The array to iterate through | 
-| operationOptions | No | String | Specifies any operation options for customizing behavior. Currently supports only `Sequential` for sequentially running iterations where the default behavior is parallel. |
-||||| 
+*Required* 
 
-For example:
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*action-1...n*> | String | The names of the actions that run on each array item | 
+| <*action-definition-1...n*> | JSON Object | The definitions of the actions that run | 
+| <*for-each-expression*> | String | The expression that references each item in the specified array | 
+|||| 
+
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*count*> | Integer | By default, the "for each" loop runs in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). However, you can override this limit by setting <*count*> to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Or, you can make each loop run sequentially by setting <*count*> to a value of `1`. | 
+|||| 
+
+*Example*
+
+This "for each" loop sends an email for each item in the array, 
+which contains attachments from an incoming email. 
+The loop sends an email, including the attachment, 
+to a person who reviews the attachment.
 
 ```json
-"forEach_EmailAction": {
-    "type": "Foreach",
-    "foreach": "@body('email_filter')",
-    "actions": {
-        "Send_email": {
-            "type": "ApiConnection",
-            "inputs": {
-                "body": {
-                    "to": "@item()",
-                    "from": "me@contoso.com",
-                    "message": "Hello, thank you for ordering"
+"For_each": {
+   "type": "Foreach",
+   "actions": {
+      "Send_an_email": {
+         "type": "ApiConnection",
+         "inputs": {
+            "body": {
+               "Body": "@base64ToString(items('For_each')?['Content'])",
+               "Subject": "Review attachment",
+               "To": "Sophie.Owen@contoso.com"
                 },
-                "host": {
-                    "connection": {
-                        "id": "@parameters('$connections')['office365']['connection']['id']"
-                    }
-                }
-            }
-        }
-    },
-    "foreach": "@body('email_filter')",
-    "runAfter": {
-        "email_filter": [ "Succeeded" ]
-    }
+            "host": {
+               "connection": {
+                  "id": "@parameters('$connections')['office365']['connectionId']"
+               }
+            },
+            "method": "post",
+            "path": "/Mail"
+         },
+         "runAfter": {}
+      }
+   },
+   "foreach": "@triggerBody()?['Attachments']",
+   "runAfter": {}
 }
 ```
+
+To specify only an array that is passed as output from the trigger, 
+this expression gets the <*array-name*> array from the trigger body. 
+To avoid a failure if the array doesn't exist, the expression uses the `?` operator:
+
+`@triggerBody()?['<array-name>']` 
 
 <a name="if-action"></a>
 
 ### If action
 
 This action, which is a *conditional statement*, evaluates a 
-condition and runs a branch based on whether the expression is true. 
+an expression that represents a condition and runs a different 
+branch based on whether the condition is true or false. 
 If the condition is true, the condition is marked with "Succeeded" status. 
-The actions in the `actions` or `else` objects get these values:
-
-* "Succeeded" when they run and succeed
-* "Failed" when they run and fail
-* "Skipped" when the respective branch doesn't run
+Learn [how to create conditional statements](../logic-apps/logic-apps-control-flow-conditional-statement.md).
 
 ``` json
 "Condition": {
@@ -2064,7 +2080,11 @@ The actions in the `actions` or `else` objects get these values:
 | <*action-2*> | JSON Object | The action to run when <*condition*> evaluates to false | 
 |||| 
 
-Learn [how to create conditional statements](../logic-apps/logic-apps-control-flow-conditional-statement.md).
+The actions in the `actions` or `else` objects get these statuses:
+
+* "Succeeded" when they run and succeed
+* "Failed" when they run and fail
+* "Skipped" when the respective branch doesn't run
 
 *Example*
 
@@ -2158,12 +2178,11 @@ status to determine whether other actions run. Learn [how to create scopes](../l
 This action, also known as a *switch statement*, 
 organizes other actions into *cases*, and assigns 
 a value to each case, except for the default case 
-if that exists. When your workflow runs, the **Switch** 
+if one exists. When your workflow runs, the **Switch** 
 action compares the value from an expression, object, 
 or token against the values specified for each case. 
-
 If the **Switch** action finds a matching case, 
-your workflow runs only the actions in that case. 
+your workflow runs only the actions for that case. 
 Each time the **Switch** action runs, either only 
 one matching case exists or no matches exist. 
 If no matches exist, the **Switch** action 
