@@ -12,7 +12,7 @@ ms.component: fundamentals
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand 
-ms.reviewer: kairaz.contractor
+ms.reviewer: krbain
 ms.custom: it-pro
 ---
 
