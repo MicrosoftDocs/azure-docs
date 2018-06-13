@@ -34,7 +34,7 @@ See:
 
 - [What is conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md) - for an overview of conditional access 
 
-- [Quickstart: Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa) - to get some experience with configuring conditional access policies. 
+- [Quickstart: Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md) - to get some experience with configuring conditional access policies. 
 
 
 ## Scenario description
@@ -56,7 +56,7 @@ With Azure AD conditional access, you can address this requirement with a single
 
 ## Considerations
 
-The challenge of this scenario is to translate *when an access attempt is made from a location that is not trusted* into a conditional access condition. In a conditional access policy, you can configure the [locations condition](active-directory-conditional-access-locations.md) to address scenarios that are related to network locations. The locations condition enables you to select [named locations](active-directory-conditional-access-locations#named-locations.md), which represent logical groupings of IP address ranges, countries and regions.  
+The challenge of this scenario is to translate *when an access attempt is made from a location that is not trusted* into a conditional access condition. In a conditional access policy, you can configure the [locations condition](active-directory-conditional-access-locations.md) to address scenarios that are related to network locations. The locations condition enables you to select [named locations](active-directory-conditional-access-locations.md#named-locations), which represent logical groupings of IP address ranges, countries and regions.  
 
 Typically, your organization owns one or more address ranges, for example, 199.30.16.0 - 199.30.16.24.
 You can configure a named location by:
