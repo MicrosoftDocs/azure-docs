@@ -1,5 +1,5 @@
 ---
-title: The ABFS Hadoop Filesystem Driver
+title: The ABFS Hadoop File System Driver
 description: 
 services: storage
 keywords: 
@@ -11,24 +11,24 @@ ms.date: 06/01/2018
 ms.service: storage
 ---
 
-# The ABFS Hadoop Filesystem Driver
+# The ABFS Hadoop File System Driver
 
-One of the primary access methods for data in Azure Data Lake Storage (Preview) is via the [Hadoop Filesystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). ADLS features an associated driver, `ABFS`, that is part of _Apache Hadoop_ **TODO: Check Trademark Usage** and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in ADLS without any code explicitly referencing the ADLS service.
+One of the primary access methods for data in Azure Data Lake Storage (Preview) is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). ADLS features an associated driver, `ABFS`, that is part of _Apache Hadoop_ **TODO: Check Trademark Usage** and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in ADLS without any code explicitly referencing the ADLS service.
 
 ## Prior Capability: The WASB Driver
-The [WASB driver](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) provided the original support for Azure Storage Blobs. This driver performed the complex task of mapping _file system_ semantics (as required by the Hadoop Filesystem interface) to that of the _object store_ style interface exposed by Azure Blob Storage. This driver continues to support this model, providing high performance access to data stored in Blobs, but contains a significant amount of code performing this mapping making it difficult to maintain. Additionally, some operations such as [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) and [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) when applied to directories require the driver to perform a vast number of operations (due to _object stores_ lack of support for directories) which often leads to degraded performance.
+The [WASB driver](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) provided the original support for Azure Storage Blobs. This driver performed the complex task of mapping _file system_ semantics (as required by the Hadoop FileSystem interface) to that of the _object store_ style interface exposed by Azure Blob Storage. This driver continues to support this model, providing high performance access to data stored in Blobs, but contains a significant amount of code performing this mapping making it difficult to maintain. Additionally, some operations such as [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) and [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) when applied to directories require the driver to perform a vast number of operations (due to _object stores_ lack of support for directories) which often leads to degraded performance.
 
 Thus, to overcome the inherent design deficiences of WASB, the new ADLS service was implemented with support from the new ABFS driver.
 
 ## The ABFS Driver
-The [ADLS REST interface](./ADLS_REST_Reference) is designed to support _file system_ semantics. Given that the Hadoop Filesystem is also designed to support the same semantics there is no requirement for a complex mapping in the driver. Thus, the ABFS driver is a mere client shim for the REST API.
+The [ADLS REST interface](./ADLS_REST_Reference) is designed to support _file system_ semantics over Azure Blob Storage. Given that the Hadoop FileSystem is also designed to support the same semantics there is no requirement for a complex mapping in the driver. Thus, the ABFS driver is a mere client shim for the REST API.
 
 However, there are some functions that the driver must still perform:
 
 ### URI Scheme to Reference Data
-Consistent with other FileSystem implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is fully documented [here](./storage-adls-intro-to-uri.md). The structure of the URI is as follows:
+Consistent with other FileSystem implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is fully documented in [Use the Azure Data Lake Storage URI](./storage-adls-intro-to-uri.md). The structure of the URI is as follows:
 
-<pre>abfs[s]://file_system@account_name.dfs.core.widows.net/&lt;path&gt;/&lt;path&gt;/&lt;file_name&gt;</pre> 
+    abfs[s]://file_system@account_name.dfs.core.widows.net/<path>/<path>/<file_name>
 
 Using the above URI format, standard Hadoop tools and frameworks can be used to reference these resources:
 
