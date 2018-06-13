@@ -919,7 +919,7 @@ The script output includes the following information:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI for Linux VMs
 To install the Azure Enhanced Monitoring Extension for SAP by using Azure CLI:
 
-1. Install Azure Classic CLI, as described in [Install the Azure Classic CLI][azure-cli].
+1. Install Azure classic CLI, as described in [Install the Azure classic CLI][azure-cli].
 2. Sign in with your Azure account:
 
   ```

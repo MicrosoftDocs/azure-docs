@@ -1,6 +1,6 @@
 ---
 title: Using cloud-init to customize a Linux VM during creation in Azure | Microsoft Docs
-description: How to use cloud-init to customize a Linux VM during creation with the Azure Classic CLI
+description: How to use cloud-init to customize a Linux VM during creation with the Azure classic CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -18,7 +18,7 @@ ms.date: 10/26/2016
 ms.author: v-livech
 
 ---
-# Use cloud-init to customize a Linux VM during creation with the Azure Classic CLI
+# Use cloud-init to customize a Linux VM during creation with the Azure classic CLI
 This article shows how to make a cloud-init script to set the hostname, update installed packages, and manage user accounts.  The cloud-init scripts are called during the VM creation from Azure CLI.  The article requires:
 
 * an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
@@ -28,7 +28,7 @@ This article shows how to make a cloud-init script to set the hostname, update i
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure Classic CLI](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
+- [Azure classic CLI](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Quick Commands

@@ -1,6 +1,6 @@
 ---
-title: Create a Linux VM using an Azure template with Azure Classic CLI | Microsoft Docs
-description: Create a Linux VM on Azure using the Azure Classic CLI and an Azure Resource Manager template.
+title: Create a Linux VM using an Azure template with Azure classic CLI | Microsoft Docs
+description: Create a Linux VM on Azure using the Azure classic CLI and an Azure Resource Manager template.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -19,11 +19,11 @@ ms.author: v-livech
 ms.custom: H1Hack27Feb2017
 
 ---
-# How to create a Linux VM using the Azure Classic CLI an Azure Resource Manager template
-This article shows you how to quickly deploy a Linux Virtual Machine using the Azure Classic CLI and an Azure Resource Manager template. The article requires:
+# How to create a Linux VM using the Azure classic CLI an Azure Resource Manager template
+This article shows you how to quickly deploy a Linux Virtual Machine using the Azure classic CLI and an Azure Resource Manager template. The article requires:
 
 * an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
-* the [Azure Classic CLI](../../cli-install-nodejs.md) logged in with `azure login`.
+* the [Azure classic CLI](../../cli-install-nodejs.md) logged in with `azure login`.
 * the Azure CLI *must be in* Azure Resource Manager mode `azure config mode arm`.
 
 You can also quickly deploy a Linux VM template by using the [Azure portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -31,7 +31,7 @@ You can also quickly deploy a Linux VM template by using the [Azure portal](quic
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure Classic CLI](#quick-command-summary) – our CLI for the classic and resource management deployment models (this article)
+- [Azure classic CLI](#quick-command-summary) – our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI](create-ssh-secured-vm-from-template.md) - our next generation CLI for the resource management deployment model
 
 ## Quick Command Summary
