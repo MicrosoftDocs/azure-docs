@@ -1,6 +1,6 @@
 ---
-title: Deploy an app to Service Fabric Mesh in Azure | Microsoft Docs
-description: Learn how to deploy an application to Service Fabric Mesh in Azure using the CLI.
+title: Create an app in Service Fabric Mesh on Azure | Microsoft Docs
+description: In this quickstart, learn how to deploy an application to Service Fabric Mesh in Azure using Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77

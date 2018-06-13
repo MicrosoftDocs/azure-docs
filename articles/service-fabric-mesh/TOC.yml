@@ -24,7 +24,7 @@
   - name: Application model
     href: service-fabric-mesh-application-model.md
   - name: Monitoring and diagnostics
-    href: service-fabric-mesh-monitoring-and-diagnostics.md
+    href: service-fabric-mesh-monitoring-diagnostics.md
   - name: Application scaling
     href: service-fabric-mesh-scaling.md
   - name: Storing state

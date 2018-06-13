@@ -19,11 +19,11 @@ ms.custom: mvc, devcenter
 ---
 
 # Monitoring and diagnostics
-Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Monitoring and diagnostics for Service Fabric Mesh is catagorized into three main types of diagnostics data:
+Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Monitoring and diagnostics for Service Fabric Mesh is categorized into three main types of diagnostics data:
 
-1. Application logs - these are defined as the logs from your containerized applications, based on how you have instrumented your application (docker logs)
-2. Platform events - events from the SeaBreeze platform relevant to your container operation, currently including container activation, deactivation, termination.
-3. Container metrics - resource utilization and performance metrics for your containers (docker stats)
+- Application logs - these are defined as the logs from your containerized applications, based on how you have instrumented your application (docker logs)
+- Platform events - events from the SeaBreeze platform relevant to your container operation, currently including container activation, deactivation, termination.
+- Container metrics - resource utilization and performance metrics for your containers (docker stats)
 
 This article discusses the monitoring and diagnostics options for the latest preview version available.
 
@@ -35,7 +35,8 @@ You can view your docker logs from your deployed containers, on a per container 
 az mesh codepackage logs --resource-group <nameOfResourceGroup> --app-name <nameOfCGS> --service-name <nameOfService> --replica-name <nameOfReplica> --code-package-name <nameOfCodePackage>
 ```
 
-*Note: currently, replica names are incrementing numbers from 0.*
+> [!NOTE]
+> Currently, replica names are incrementing numbers from 0.*
 
 Here is what this looks like for seeing the logs from the VotingWeb.Code container from the voting application:
 

@@ -29,8 +29,8 @@ Azure Service Fabric Mesh is a fully managed service enabling developers to depl
 
 **Service Fabric Mesh (SeaBreeze (SB))**: Serverless Service Fabric application hosting platform in Azure. 
 **Service Fabric (SF)**: Service Fabric base product. The orchestrator from Microsoft that powers SeaBreeze. 
-**Azure Service Fabric (SFRP)**: Current Azure hosted Service Fabric offering 
-**Service Fabric Standalone**: Service Fabric clusters running anywhere, not managed by Azure (SFRP) 
+**Azure Service Fabric (SFRP)**: Current Azure hosted Service Fabric offering. 
+**Service Fabric Standalone**: Service Fabric clusters running anywhere, not managed by Azure (SFRP). 
 
 ## Next steps
 To learn more about Service Fabric Mesh, read the overview:

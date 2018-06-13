@@ -33,11 +33,6 @@ Service Fabric currently supports the following resources:
 - Networks
 - Volumes
 
-Additional resources will be available in the future, including:
-- Secrets
-- Traffic routing rules
-- Auto-scale rules
-
 ### Application
 
 An application resource is a collection of constituent services that perform a certain function or functions. The application resource acts as a grouping construct for services that should be deployed and upgraded together as a unit. The lifecycle of each application instance can be managed independently. For example, one application can be upgraded independently from other application. Typically, you keep the number of services in an application fairly small, as the more services you put into an application.
@@ -56,7 +51,8 @@ Use network resource to create private network and configure public connectivity
 
 More than one service from different applications can be part of the same network.
 
-**NOTE: The current preview only supports a one to one mapping between applications and networks**
+> [!NOTE]
+> The current preview only supports a one to one mapping between applications and networks
 
 ### Volume
 
