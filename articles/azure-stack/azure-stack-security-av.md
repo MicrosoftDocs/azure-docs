@@ -1,5 +1,5 @@
 ---
-title: How to update Windows Defender Antivirus on Azure Stack
+title: Update Windows Defender Antivirus on Azure Stack
 description: Details on how antivirus is kept up to date on Azure Stack
 services: azure-stack
 author: PatAltimore
@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/13/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 
@@ -15,23 +15,18 @@ ms.reviewer: fiseraci
 ---
 # Update Windows Defender Antivirus on Azure Stack
 
-Windows Defender Antivirus is a built-in antimalware solution that provides security and antimalware management for desktops, portable computers, and servers. Every Azure Stack component including Hyper-V hosts and Virtual Machines is protected with Windows Defender Antivirus.
+Windows Defender Antivirus is an antimalware solution that provides security and virus protection. Every Azure Stack infrastructure component (Hyper-V hosts and virtual machines) is protected with Windows Defender Antivirus.
 
-There are three AV components that update
+For up-to-date protection, Windows Defender Antivirus definitions, engine, and platform require periodic updates. How updates are applied depends on your configuration. 
 
-Definitions
-Engine
-Platform
+## Connected scenario
 
-Updates are applied depending on your configuration.
+For antimalware definition and engine updates, the Azure Stack [update resource provider](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-updates#the-update-resource-provider) downloads antimalware definitions and engine updates multiple times per day. Each Azure Stack infrastructure component gets the update from the update resource provider and applies the update automatically.
 
-## Connected
+For antimalware platform updates, apply the [monthly Azure Stack update](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-apply-updates). The monthly Azure Stack update includes Windows Defender Antivirus platform updates for the month.
 
-In connected scenarios, antivirus definitions and engine upates are applied multiple times a day.
+## Disconnected scenario
 
-Platform updates occur in monthly updates.
+ Apply the [monthly Azure Stack update](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-apply-updates). The monthly Azure Stack update includes Windows Defender Antivirus definitions, engine, and platform updates for the month.
 
-## Disconnected
-
-In disconnected scenarios, signature updates are released as part of [monthly Azure Stack updates](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-apply-updates).
 
