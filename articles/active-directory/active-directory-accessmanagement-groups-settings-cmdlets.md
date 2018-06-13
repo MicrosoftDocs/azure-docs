@@ -37,7 +37,7 @@ If you know the name of the setting you want to retrieve, you can use the below 
 ```
 
 ## Create settings at the directory level
-These steps create settings at directory level, which apply to all Office 365 groups in the directory.
+These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 1. In the DirectorySettings cmdlets, you must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
   
