@@ -19501,6 +19501,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/role-based-access-control/index.md",
+            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/role-based-access-control/role-assignments-users.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
@@ -21463,11 +21473,6 @@
         {
             "source_path": "articles/hdinsight/storm/index.md",
             "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/role-based-access-control/index.md",
-            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
             "redirect_document_id": false
         },
         {
