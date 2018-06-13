@@ -339,7 +339,7 @@ END
 GO
 ```
 
-### <a name="azure-sql-data-warehouse-as-a-sink"></a> Azure SQL Data Warehouse as a sink
+### <a name="azure-sql-data-warehouse-as-sink"></a> Azure SQL Data Warehouse as sink
 
 To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to **SqlDWSink**. The following properties are supported in the Copy Activity **sink** section.
 
