@@ -16,6 +16,8 @@ ms.author: nolachar
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 
+## Prerequisites
+
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## Get Thumbnail request
@@ -26,7 +28,7 @@ To run the sample, do the following steps:
 
 1. Copy the following and save it to a file such as `thumbnail.html`.
 1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uriBase` value to the location where you obtained your subscription keys.
+1. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
 1. Drag-and-drop the file into your browser.
 1. Click the `Generate thumbnail` button.
 

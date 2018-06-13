@@ -1,28 +1,20 @@
 ---
 title: Provision devices to Remote Monitoring in Node.js - Azure | Microsoft Docs
 description: Describes how to connect a device to the Remote Monitoring solution accelerator using an application written in Node.js.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-
 ---
-# Connect your device to the remote monitoring solution accelerator (Node.js)
+
+# Connect your device to the Remote Monitoring solution accelerator (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the remote monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
+This tutorial shows you how to connect a physical device to the Remote Monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
 
 ## Create a Node.js solution
 
@@ -49,7 +41,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
     var async = require('async');
     ```
 
-1. Add the following variable declarations after the `require` statements. Replace the placeholder value `{device connection string}` with value you noted for the device you provisioned in the remote monitoring solution:
+1. Add the following variable declarations after the `require` statements. Replace the placeholder value `{device connection string}` with value you noted for the device you provisioned in the Remote Monitoring solution:
 
     ```nodejs
     var connectionString = '{device connection string}';

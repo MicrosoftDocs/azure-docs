@@ -1,29 +1,26 @@
 ---
-title: Conditional statements - Run steps based on a condition - Azure Logic Apps | Microsoft Docs
-description: Run steps in your logic app only after meeting a condition. Create decision trees that run workflows based on specified conditions.
+# required metadata
+title: Add conditional statements to workflows - Azure Logic Apps | Microsoft Docs
+description: How to create conditions that control actions in workflows in Azure Logic Apps
 services: logic-apps
-keywords: conditional statements, decision trees
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
+ms.topic: article
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
-# Conditional statements: Run steps based on a condition in logic apps
+# Create conditional statements that control workflow actions in Azure Logic Apps
 
-To perform steps only after passing a specified condition, 
-use a *conditional statement*. This structure compares data 
-in your workflow against specific values or fields. 
-You can then define different steps to run based on 
+To run specific actions in your logic app only after passing a specified condition, 
+add a *conditional statement*. This structure compares the data in your 
+workflow against specific values or fields. 
+You can then define different actions that run based on 
 whether or not the data meets the condition. 
 You can nest conditions inside each other.
 

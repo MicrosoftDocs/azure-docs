@@ -1,24 +1,20 @@
 ---
 title: Get started with the remote monitoring solution - Azure | Microsoft Docs 
 description: This tutorial uses simulated scenarios to introduce the remote monitoring solution accelerator. These scenarios are created when you deploy the remote monitoring solution accelerator for the first time.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
-# Explore the capabilities of the remote monitoring solution accelerator
+# Explore the capabilities of the Remote Monitoring solution accelerator
 
-This tutorial shows you the key capabilities of the remote monitoring solution. To introduce these capabilities, the tutorial showcases common customer scenarios using a simulated IoT application for a company called Contoso.
+This tutorial shows you the key capabilities of the Remote Monitoring solution. To introduce these capabilities, the tutorial showcases common customer scenarios using a simulated IoT application for a company called Contoso.
 
-The tutorial helps you understand the typical IoT scenarios the remote monitoring solution provides out-of-the-box.
+The tutorial helps you understand the typical IoT scenarios the Remote Monitoring solution provides out-of-the-box.
 
 In this tutorial, you learn how to:
 
@@ -29,24 +25,24 @@ In this tutorial, you learn how to:
 > * Organize your assets
 > * Stop and start the simulated devices
 
-The following video shows a walkthrough of the remote monitoring solution:
+The following video shows a walkthrough of the Remote Monitoring solution:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
 ## Prerequisites
 
-To complete this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
+To complete this tutorial, you need a deployed instance of the Remote Monitoring solution in your Azure subscription.
 
-If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) tutorial.
+If you haven't deployed the Remote Monitoring solution yet, you should complete the [Deploy the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 ## The Contoso sample IoT deployment
 
-You can use the Contoso sample IoT deployment to understand the basic scenarios the remote monitoring solution provides out-of-the-box. These scenarios are based on real-life IoT deployments. Most likely, you will choose to customize the remote monitoring solution to meet your specific requirements, but the Contoso sample helps you learn the basics.
+You can use the Contoso sample IoT deployment to understand the basic scenarios the Remote Monitoring solution provides out-of-the-box. These scenarios are based on real-life IoT deployments. Most likely, you will choose to customize the Remote Monitoring solution to meet your specific requirements, but the Contoso sample helps you learn the basics.
 
 > [!NOTE]
 > If you used the CLI to deploy the solution accelerator, the file `deployment-{your deployment name}-output.json` contains information about deployment such as the URL to access the deployed sample.
 
-The Contoso sample provisions a set of simulated devices and rules to act on them. Once you understand the basic scenarios, you can continue exploring more of the solution features in [Perform advanced device monitoring using the remote monitoring solution](iot-accelerators-remote-monitoring-monitor.md).
+The Contoso sample provisions a set of simulated devices and rules to act on them. Once you understand the basic scenarios, you can continue exploring more of the solution features in [Perform advanced device monitoring using the Remote Monitoring solution](iot-accelerators-remote-monitoring-monitor.md).
 
 Contoso is a company that manages a variety of assets in different environments. Contoso plans to use the power of cloud-based IoT applications to remotely monitor and manage multiple assets from a centralized application. The following sections provide a summary of the initial configuration of the Contoso sample:
 
@@ -132,7 +128,7 @@ Finally, confirm that the telemetry values from the chiller are back to normal.
 
 ## Update device firmware
 
-Contoso is testing a new type of device in the field. As part of the testing cycle, you need to ensure that device firmware updates work correctly. The following steps show you how to use the remote monitoring solution to update the firmware on multiple devices.
+Contoso is testing a new type of device in the field. As part of the testing cycle, you need to ensure that device firmware updates work correctly. The following steps show you how to use the Remote Monitoring solution to update the firmware on multiple devices.
 
 To perform the necessary device management tasks, use the **Devices** page. Start by filtering for all prototyping devices:
 
@@ -249,7 +245,7 @@ In this tutorial, you learned to:
 > * Organize your assets
 > * Stop and start the simulated devices
 
-Now that you have explored the remote monitoring solution, the suggested next steps are to learn about the advanced features of the remote monitoring solution:
+Now that you have explored the Remote Monitoring solution, the suggested next steps are to learn about the advanced features of the Remote Monitoring solution:
 
 * [Monitor your devices](./iot-accelerators-remote-monitoring-monitor.md).
 * [Manage your devices](./iot-accelerators-remote-monitoring-manage.md).

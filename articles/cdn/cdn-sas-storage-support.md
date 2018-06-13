@@ -4,7 +4,7 @@ description: Azure CDN supports the use of Shared Access Signature (SAS) to gran
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: 
+manager: cfowler
 editor: ''
 
 ms.assetid: 
@@ -13,11 +13,10 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
 
 ---
-
 # Using Azure CDN with SAS
 
 When you set up a storage account for Azure Content Delivery Network (CDN) to use to cache content, by default anyone who knows the URLs for your storage containers can access the files that you've uploaded. To protect the files in your storage account, you can set the access of your storage containers from public to private. However, if you do so, no one will be able to access your files. 
@@ -69,7 +68,7 @@ This option is the simplest and uses a single SAS token, which is passed from Az
  
 This option is available only for **Azure CDN Premium from Verizon** profiles. With this option, you can secure the blob storage at the origin server. You may want to use this option if you don't need specific access restrictions for the file, but want to prevent users from accessing the storage origin directly to improve Azure CDN offload times. The SAS token, which is unknown to the user, is required for anyone accessing files in the specified container of the origin server. However, because of the URL Rewrite rule, the SAS token is not required on the CDN endpoint.
  
-1. Use the [rules engine](cdn-rules-engine.md) to create a URL Rewrite rule. New rules take about 90 minutes to propagate.
+1. Use the [rules engine](cdn-rules-engine.md) to create a URL Rewrite rule. New rules take about 10 minutes to propagate.
 
    ![CDN Manage button](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
@@ -112,7 +111,7 @@ To use Azure CDN security token authentication, you must have an **Azure CDN Pre
        
    The parameter options for a security token authentication are different than the parameter options for a SAS token. If you choose to use an expiration time when you create a security token, you should set it to the same value as the expiration time for the SAS token. Doing so ensures that the expiration time is predictable. 
  
-2. Use the [rules engine](cdn-rules-engine.md) to create a URL Rewrite rule to enable SAS token access to all blobs in the container. New rules take about 90 minutes to propagate.
+2. Use the [rules engine](cdn-rules-engine.md) to create a URL Rewrite rule to enable SAS token access to all blobs in the container. New rules take about 10 minutes to propagate.
 
    The following sample URL Rewrite rule uses a regular expression pattern with a capturing group and an endpoint named *storagedemo*:
    

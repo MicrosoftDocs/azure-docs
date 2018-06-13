@@ -7,7 +7,7 @@ manager: jpconnock
 
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/18/2018
 ms.author: victorh
 
 ---
@@ -15,7 +15,7 @@ ms.author: victorh
 
 At some point, you'll need to renew your certificates if you configured your application gateway for SSL encryption.
 
-You can renew a certificate associated with a listener using either the Azure portal or Azure PowerShell:
+You can renew a certificate associated with a listener using either the Azure portal, Azure PowerShell, or Azure CLI:
 
 ## Azure portal
 
@@ -29,7 +29,7 @@ Upload your new PFX certificate, give it a name, type the password, and then cli
 
 To renew your certificate using Azure PowerShell, use the following cmdlet:
 
-```PowerShell
+```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
   -ResourceGroupName <ResourceGroup> `
   -Name <AppGatewayName>
@@ -41,6 +41,16 @@ $password = ConvertTo-SecureString `
 
 set-azureRmApplicationGatewaySSLCertificate -Name <oldcertname> `
 -ApplicationGateway $appgw -CertificateFile <newcertPath> -Password $password
+```
+## Azure CLI
+
+```azurecli-interactive
+az network application-gateway ssl-cert update \
+  -n "<CertName>" \
+  --gateway-name "<AppGatewayName>" \
+  -g "ResourceGroupName>" \
+  --cert-file <PathToCerFile> \
+  --cert-password "<password>"
 ```
 
 ## Next steps

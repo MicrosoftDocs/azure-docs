@@ -13,7 +13,7 @@ ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
 ---
-# Restrict web traffic with a web application firewall using Azure PowerShell
+# Enable web application firewall using Azure PowerShell
 
 You can restrict traffic on an [application gateway](overview.md) with a [web application firewall](waf-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
@@ -26,6 +26,8 @@ In this tutorial, you learn how to:
 > * Create a storage account and configure diagnostics
 
 ![Web application firewall example](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
+
+If you prefer, you can complete this tutorial using [Azure CLI](tutorial-restrict-web-traffic-cli.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

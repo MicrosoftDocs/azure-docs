@@ -11,8 +11,6 @@ ms.author: tdykstra
 ms.custom: include file
 ---
 
-### Azure Storage SDK version
+### Azure Storage SDK version in Functions 1.x
 
-The [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) package includes the Azure Storage SDK ([WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage)) as a dependency. If you use the Storage SDK directly in your code, we recommend that you reference the same Storage SDK version that the Functions runtime does.
-
-The Storage SDK version used by the Functions runtime is shown in the dependency list for the `Microsoft.Azure.WebJobs` package. For example, [Microsoft.Azure.WebJobs 2.2](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.2.0) (Functions 1.x) depends on Storage SDK version 7.2.1, and [Microsoft.Azure.WebJobs 3.0.0-beta5](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/3.0.0-beta5) (Functions 2.x) depends on Storage SDK version 8.6.
+In Functions 1.x, the Storage triggers and bindings use version 7.2.1 of the Azure Storage SDK ([WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1) NuGet package). If you reference a different version of the Storage SDK, and you bind to a Storage SDK type in your function signature, the Functions runtime may report that it can't bind to that type. The solution is to make sure your project references [WindowsAzure.Storage 7.2.1](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1).

@@ -42,6 +42,10 @@
      href: How-tos/text-analytics-how-to-keyword-extraction.md
    - name: Recognize linked entities
      href: How-tos/text-analytics-how-to-entity-linking.md   
+   - name: Work with Visual Studio
+     items:
+      - name: Use the Text Analytics Connected Service
+        href: vs-text-connected-service.md
 - name: Reference
   items: 
   - name: Text Analytics API
@@ -52,7 +56,7 @@
     href: text-analytics-resource-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
-  - name: User Voice 
+  - name: UserVoice 
     href: https://cognitive.uservoice.com/forums/555922-text-analytics
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/text-analytics-api

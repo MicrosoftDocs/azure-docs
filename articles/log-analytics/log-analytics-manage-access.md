@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: magoedte
 
 ---
@@ -93,7 +93,7 @@ The following activities also require Azure permissions:
 
 | Action                                                          | Azure Permissions Needed | Notes |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Adding and removing management solutions                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Adding and removing management solutions                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | These permissions need to be granted at resource group or subscription level. |
 | Changing the pricing tier                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Viewing data in the *Backup* and *Site Recovery* solution tiles | Administrator / Co-administrator | Accesses resources deployed using the classic deployment model |
 | Creating a workspace in the Azure portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
@@ -120,11 +120,14 @@ Members of the *Log Analytics Reader* role can:
 
 
 Members of the *Log Analytics Contributor* role can:
-- Read all monitoring data 
-- Creating and configuring Automation accounts
-- Adding and removing management solutions
-- Reading storage account keys 
-- Configure collection of logs from Azure Storage
+- Read all monitoring data  
+- Creating and configuring Automation accounts  
+- Adding and removing management solutions    
+    > [!NOTE] 
+    > In order to successfully perform these two actions, this permission needs to be granted at the resource group or subscription level.  
+
+- Reading storage account keys   
+- Configure collection of logs from Azure Storage  
 - Edit monitoring settings for Azure resources, including
   - Adding the VM extension to VMs
   - Configuring Azure diagnostics on all Azure resources
@@ -152,7 +155,7 @@ Use these roles to give users access at different scopes:
 - Resource Group - Access to all workspace in the resource group
 - Resource - Access to only the specified workspace
 
-Use [custom roles](../active-directory/role-based-access-control-custom-roles.md) to create roles with the specific permissions needed.
+We recommend you perform assignments at the resource level (workspace) to assure accurate access control.  Use [custom roles](../active-directory/role-based-access-control-custom-roles.md) to create roles with the specific permissions needed.
 
 ### Azure user roles and Log Analytics portal user roles
 If you have at least Azure read permission on the Log Analytics workspace, you can open the Log Analytics portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace.

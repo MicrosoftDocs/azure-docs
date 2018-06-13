@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/17/2018
+ms.date: 06/06/2018
 ms.author: ryanwi
 ---
 
@@ -100,17 +100,89 @@ Declares that this service has only one partition.
 |---|---|
 |name|SingletonPartition|
 
+##### XML source
+```xml
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SingletonPartition">
+                <xs:annotation>
+                    <xs:documentation>Declares that this service has only one partition.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType/>
+            </xs:element>
+            
+
+```
+
 #### UniformInt64Partition
 Describes a uniform partitioning scheme based on Int64 keys.
 |Attribute|Value|
 |---|---|
 |name|UniformInt64Partition|
 
+##### XML source
+```xml
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UniformInt64Partition">
+                <xs:annotation>
+                    <xs:documentation>Describes a uniform partitioning scheme based on Int64 keys.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="PartitionCount" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>Total number of partitions (positive integer). Each partition is responsible for a non-overlapping subrange of the overall partition key range.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="LowKey" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>Inclusive low range of the partition key (long).</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="HighKey" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>Inclusive high range of the partition key (long).</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            
+
+```
+
 #### NamedPartition
 Describes a named partitioning scheme based on names for each partition.
 |Attribute|Value|
 |---|---|
 |name|NamedPartition|
+
+##### XML source
+```xml
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NamedPartition">
+                <xs:annotation>
+                    <xs:documentation>Describes a named partitioning scheme based on names for each partition.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence maxOccurs="unbounded">
+                        <xs:element name="Partition">
+                            <xs:annotation>
+                                <xs:documentation>Describes a partition by name.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:attribute name="Name" use="required">
+                                    <xs:annotation>
+                                        <xs:documentation>The name of the partition</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:minLength value="1"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:attribute>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        
+
+```
 
 ## ScalingPolicyMechanismGroup group
 Defines the scaling mechanism.
@@ -184,6 +256,34 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
 |minOccurs|0|
 |maxOccurs|1|
 
+##### XML source
+```xml
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="InstanceCountScalingMechanism" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Defines a mechanism for increasing the instance count of a partition. This is for stateless services only.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="MinInstanceCount" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The minimum number of instances.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="MaxInstanceCount" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The maximum number of instances..</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The number of instances by wich to perform the upshift/downshift.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            
+
+```
+
 #### AddRemoveIncrementalNamedPartitionScalingMechanism
 Defines a mechanism for adding or removing named partitions.
 |Attribute|Value|
@@ -191,6 +291,34 @@ Defines a mechanism for adding or removing named partitions.
 |name|AddRemoveIncrementalNamedPartitionScalingMechanism|
 |minOccurs|0|
 |maxOccurs|1|
+
+##### XML source
+```xml
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AddRemoveIncrementalNamedPartitionScalingMechanism" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Defines a mechanism for adding or removing named partitions.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="MinPartitionCount" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The minimum number of partitions.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="MaxPartitionCount" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The maximum number of partitions.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The number of partitions by wich to perform the upshift/downshift.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        
+
+```
 
 ## ScalingPolicyTriggerGroup group
 Defines the scaling trigger.
@@ -274,6 +402,39 @@ Defines a scaling mechanism based on the average load of replicas of a partition
 |minOccurs|0|
 |maxOccurs|1|
 
+##### XML source
+```xml
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AveragePartitionLoadScalingTrigger" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Defines a scaling mechanism based on the average load of replicas of a partition.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="MetricName" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The name of metric which should be used for scaling operations.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="LowerLoadThreshold" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The lower limit of the load value of a metric.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="UpperLoadThreshold" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The upper limit of the load value of a metric.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="ScaleIntervalInSeconds" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The time interval in seconds to be considered for scaling.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            
+
+```
+
 #### AverageServiceLoadScalingTrigger
 Defines a scaling mechanism based on the average load of partitions of a service.
 |Attribute|Value|
@@ -281,4 +442,37 @@ Defines a scaling mechanism based on the average load of partitions of a service
 |name|AverageServiceLoadScalingTrigger|
 |minOccurs|0|
 |maxOccurs|1|
+
+##### XML source
+```xml
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AverageServiceLoadScalingTrigger" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Defines a scaling mechanism based on the average load of partitions of a service.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="MetricName" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The name of metric which should be used for scaling operations.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="LowerLoadThreshold" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The lower limit of the load value of a metric.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="UpperLoadThreshold" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The upper limit of the load value of a metric.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="ScaleIntervalInSeconds" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The time interval in seconds to be considered for scaling.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        
+
+```
 
