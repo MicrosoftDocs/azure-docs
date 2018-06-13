@@ -6,7 +6,7 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: carlrab
 
@@ -16,8 +16,8 @@ ms.author: carlrab
 
 SQL Database offers three types of databases:
 
-- A single database created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of [compute and storage resources for different workloads](sql-database-service-tiers.md). An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
-- A database created as part of a [pool of databases](sql-database-elastic-pool.md) within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of [compute and storage resources for different workloads](sql-database-service-tiers.md) that are shared among all of the databases in the pool. An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
+- A single database created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a [combined set of compute and storage resources](sql-database-service-tiers-dtu.md) or an [independent scale of compute and storage resources](sql-database-service-tiers-vcore.md). An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
+- A database created as part of a [pool of databases](sql-database-elastic-pool.md) within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a [combined set of compute and storage resources (DTU-based)](sql-database-service-tiers-dtu.md) or an [independent scale of compute and storage resources (vCore-based)](sql-database-service-tiers-vcore.md) that are shared among all of the databases in the pool. An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
 - An [instance of a SQL server](sql-database-managed-instance.md) (a Managed Instance) created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of compute and storage resources for all databases on that server instance. A managed instance contains both system and user databases. Managed Instance is designed to enable database lift-and-shift to a fully managed PaaS, without redesigning the application. Managed Instance provides high compatibility with the on-premises SQL Server programming model and supports the large majority of SQL Server features and accompanying tools and services.  
 
 Microsoft Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later and allows only encrypted TCP/IP connections.
@@ -49,7 +49,7 @@ An Azure Database logical server:
 - Provides a connection endpoint for database access (<serverName>.database.windows.net)
 - Provides access to metadata regarding contained resources via DMVs by connecting to a master database 
 - Provides the scope for management policies that apply to its databases - logins, firewall, audit, threat detection, etc. 
-- Is restricted by a quota within the parent subscription (twenty servers per subscription by default - [see Subscription limits here](../azure-subscription-service-limits.md))
+- Is restricted by a quota within the parent subscription (six servers per subscription by default - [see Subscription limits here](../azure-subscription-service-limits.md))
 - Provides the scope for database quota and DTU or vCore quota for the resources it contains (such as 45,000 DTU)
 - Is the versioning scope for capabilities enabled on contained resources 
 - Server-level principal logins can manage all databases on a server
@@ -62,11 +62,11 @@ To help protect your data, a [SQL Database firewall](sql-database-firewall-confi
 
 ## Manage Azure SQL servers, databases, and firewalls using the Azure portal
 
-You can create the Azure SQL database's resource group ahead of time or while creating the server itself. 
+You can create the Azure SQL database's resource group ahead of time or while creating the server itself. There are multiple methods for getting to a new SQL server form, either by creating a new SQL server or as part of creating a new database. 
 
 ### Create a blank SQL server (logical server)
 
-To create an Azure SQL Database server (without a database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL (logical) server form.  
+To create an Azure SQL Database server (without a database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL server (logical server) form.  
 
 ### Create a blank or sample SQL database
 
@@ -75,7 +75,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> For information on selecting the pricing tier for your database, see [Service tiers](sql-database-service-tiers.md).
+> For information on selecting the pricing tier for your database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md).
 
 To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
 
@@ -88,7 +88,7 @@ To manage an existing database, navigate to the **SQL databases** page and click
    ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> To configure performance properties for a database, see [Service tiers](sql-database-service-tiers.md).
+> To configure performance properties for a database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md).
 >
 
 > [!TIP]
@@ -178,7 +178,7 @@ To create and manage Azure SQL server, databases, and firewalls with Transact-SQ
 
 
 > [!TIP]
-> For quickstart using SQL Server Management Studio on Microsoft Windows, see [Azure SQL Database: Use SQL Server Management Studio to connect and query data](sql-database-connect-query-ssms.md). For a quickstart using Visual Studio Code on the macOS, Linux, or Windows, see [Azure SQL Database: Use Visual Studio Code to connect and query data](sql-database-connect-query-vscode.md).
+> For a quickstart using SQL Server Management Studio on Microsoft Windows, see [Azure SQL Database: Use SQL Server Management Studio to connect and query data](sql-database-connect-query-ssms.md). For a quickstart using Visual Studio Code on the macOS, Linux, or Windows, see [Azure SQL Database: Use Visual Studio Code to connect and query data](sql-database-connect-query-vscode.md).
 
 ## Manage Azure SQL servers, databases, and firewalls using the REST API
 

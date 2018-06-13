@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Government Log Analytics | Microsoft Docs
 description: This article describes how Log Analytics is applicable to US Government agencies and solution providers
 services: azure-government
@@ -81,7 +81,7 @@ For example, you can see that the following threat was caught and automatically 
 ![Figure 4: Log Analytics antimalware assessment solution](./media/documentation-government-oms-figure4.png)
 <p align="center">Figure 4: Log Analytics antimalware assessment solution</p>
 
-More information about antimalware assessment can be found in the article [Malware assessment solution in Log Analytics](https://azure.microsoft.com/en-us/documentation/articles/log-analytics-malware/).
+More information about antimalware assessment can be found in the article [Malware assessment solution in Log Analytics](https://azure.microsoft.com/documentation/articles/log-analytics-malware/).
 
 ### Identity and access
 Another common cybersecurity scenario in the cloud revolves around credential compromise. Not only does your cloud subscription have credentials, but each individual VM has a user and/or secret (usually a certificate or password) that's associated with it.
@@ -109,4 +109,4 @@ This is just one example of an out-of-box Log Analytics solution that can be app
 
 Log Analytics continues to update its machine learning to fight the latest threats automatically for you, and we continue to roll out new solutions to the Azure marketplace as well.
 
-For more information about Log Analytics, see [our documentation page](https://azure.microsoft.com/en-us/documentation/articles/documentation-government-overview/).
+For more information about Log Analytics, see [our documentation page](https://azure.microsoft.com/documentation/articles/documentation-government-overview/).

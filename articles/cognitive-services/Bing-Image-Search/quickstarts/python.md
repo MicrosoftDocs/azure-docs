@@ -14,7 +14,7 @@ ms.author: v-jerkin
 
 The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 
-This walkthrough demonstrates a simple example of calling into the Bing Image Search API and post-processing the resulting JSON object. For more information, see [Bing Image Search documentation](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference).
+This walkthrough demonstrates a simple example of calling into the Bing Image Search API and post-processing the resulting JSON object. For more information, see [Bing Image Search documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 
@@ -47,7 +47,7 @@ Set `search_term` to look for images of puppies.
 search_term = "puppies"
 ```
 
-The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference) documentation.
+The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) documentation.
 
 
 ```python

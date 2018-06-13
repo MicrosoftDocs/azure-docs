@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - IIS with DSC | Microsoft Docs
 description: Azure PowerShell Script Sample - IIS with DSC
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 

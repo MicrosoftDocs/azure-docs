@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 

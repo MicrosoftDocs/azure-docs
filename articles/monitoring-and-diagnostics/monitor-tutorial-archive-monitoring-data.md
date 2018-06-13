@@ -1,16 +1,14 @@
 ---
-title: Archive Azure monitoring data | Microsoft Docs
+title: Archive Azure metric and log data using Azure Storage
 description: Archive log and metric data produced within Azure to a storage account.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
+ms.component: metrics
 ---
 
 # Archive Azure monitoring data

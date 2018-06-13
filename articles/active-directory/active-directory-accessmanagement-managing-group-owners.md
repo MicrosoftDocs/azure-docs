@@ -7,15 +7,13 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: 44350a3c-8ea1-4da1-aaac-7fc53933dd21
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: fundamentals
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: curtand
-
+ms.reviewer: krbain
 ms.custom: it-pro
 
 ---

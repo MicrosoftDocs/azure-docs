@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/29/2018
 ms.author: eugenesh
 robot: noindex
 
@@ -93,8 +93,8 @@ The body of the request contains the data source definition, which should includ
 * **credentials**:
   
   * **connectionString**: Required. Specify the connection info to your Azure Cosmos DB database in the following format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
-  For MongoDB collections, add **ApiKind=MongoDB** to the connection string: 
-`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDB` 
+  For MongoDB collections, add **ApiKind=MongoDb** to the connection string: 
+`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
 * **container**:
   
   * **name**: Required. Specify the id of the database collection to be indexed.
@@ -269,7 +269,7 @@ If you are using a custom query, make sure that the `_ts` property is projected 
 
 <a name="IncrementalProgress"></a>
 ### Incremental progress and custom queries
-Incremental progress during indexing ensures that if indexer execution is interrupted by transient failures or execution time limit, the indexer can pick up where it left off next time it runs, instead of having to re-index the entire collection from scratch. This is especially important when indexing large collections. 
+Incremental progress during indexing ensures that if indexer execution is interrupted by transient failures or execution time limit, the indexer can pick up where it left off next time it runs, instead of having to reindex the entire collection from scratch. This is especially important when indexing large collections. 
 
 To enable incremental progress when using a custom query, ensure that your query orders the results by the `_ts` column. This enables periodic check-pointing that Azure Search uses to provide incremental progress in the presence of failures.   
 

@@ -8,21 +8,19 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: 72686ee9-9f91-4fcc-86da-b990a1b6d4f2
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: fundamentals
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 
 ms.custom: H1Hack27Feb2017;it-pro
-ms.reviewer: piotrci
+ms.reviewer: krbain
 
 ---
 # View or search for your user groups in Azure Active Directory
-This article explains how to view all groups in Azure Active Directory (Azure AD). One of the features of Azure AD user management is that you can use groups to perform management tasks such as assigning licenses or permissions to a number of users at once.
+This article explains how to view groups in Azure Active Directory (Azure AD). One of the features of Azure AD user management is that you can use groups to perform management tasks such as assigning licenses or permissions to a number of users at once.
 
 ## How do I see all the groups?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.

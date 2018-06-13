@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 06/18/2018
 ms.author: raynew
 ---
 
@@ -20,9 +20,9 @@ This article summarizes the supported components and settings for disaster recov
 ## Supported scenarios
 
 **Scenario** | **Details**
---- | --- 
+--- | ---
 Hyper-V with Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that are managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](tutorial-vmm-to-vmm.md).
-Hyper-V without Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that aren't managed by Virtual Machine Manager.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell. 
+Hyper-V without Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that aren't managed by Virtual Machine Manager.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.
 
 
 ## On-premises servers
@@ -36,12 +36,12 @@ Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2016, V
 ## Replicated VMs
 
 
-The following table summarizes VM support. Site Recovery supports any workloads running on a supported operating system. 
+The following table summarizes VM support. Site Recovery supports any workloads running on a supported operating system.
 
  **Component** | **Details**
 --- | ---
 VM configuration | VMs that replicate to Azure must meet [Azure requirements](#failed-over-azure-vm-requirements).
-Guest operating system | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx).<br/><br/> Windows Server 2016 Nano Server isn't supported.
+Guest operating system | Any guest OS supported by Azure.<br/><br/> Windows Server 2016 Nano Server isn't supported.
 
 
 
@@ -75,7 +75,8 @@ Multi-NIC | Yes | Yes
 Reserved IP | Yes | Yes
 IPv4 | Yes | Yes
 Retain source IP address | Yes | Yes
-Azure Virtual Network service endpoints<br/><br/> (Azure Storage firewalls and virtual networks) | No | No
+Azure Virtual Network service endpoints<br/> (without Azure Storage firewalls) | Yes | Yes
+Accelerated Networking | No | No
 
 
 ## Hyper-V host storage
@@ -122,7 +123,7 @@ Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
 Premium storage | Yes | Yes
 Import/export service | No | No
-Azure Virtual Network service endpoints (Azure Storage firewalls and virtual networks) on target to cache storage account used for replication data | No | No
+Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No | No
 
 
 ## Azure compute features
@@ -156,9 +157,9 @@ VM type | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with a
 ## Recovery Services vault actions
 
 **Action** |  **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
---- | --- | --- 
-Move vault across resource groups<br/><br/> Within and across subscriptions | No | No 
-Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No 
+--- | --- | ---
+Move vault across resource groups<br/><br/> Within and across subscriptions | No | No
+Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
 
 
 ## Provider and agent
@@ -176,4 +177,4 @@ Microsoft Azure Recovery Services agent | Coordinates replication between Hyper-
 
 
 ## Next steps
-Learn how to [prepare Azure](tutorial-prepare-azure.md) for disaster recovery of on-premises Hyper-V VMs. 
+Learn how to [prepare Azure](tutorial-prepare-azure.md) for disaster recovery of on-premises Hyper-V VMs.

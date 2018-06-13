@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2017
+ms.topic: conceptual
+ms.date: 04/26/2017
 ms.author: jingwang
 
 ---
@@ -71,7 +71,7 @@ The following properties are supported for Presto linked service:
             "serverVersion" : "0.148-t",
             "catalog" : "<catalog>",
             "port" : "<port>",
-            "authenticationType" : "Anonymous",
+            "authenticationType" : "LDAP",
             "username" : "<username>",
             "password": {
                  "type": "SecureString",

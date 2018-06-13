@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 04/26/2018
 ms.author: seguler
 
 ---
@@ -31,7 +31,7 @@ There are two versions of AzCopy that you can download. AzCopy on Linux targets 
 ### Installation on Linux
 
 > [!NOTE]
-> You might need to install .NET Core 2.1 dependencies highlighted in this [.NET Core Pre-requisites article](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x) depending on your distribution. For mainstream distributions like Ubuntu 16.04, and RHEL 7 this is usually not needed.
+> You might need to install .NET Core 2.1 dependencies highlighted in this [.NET Core Pre-requisites article](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) depending on your distribution. For mainstream distributions like Ubuntu 16.04, and RHEL 7 this is usually not needed.
 
 Installing AzCopy on Linux (v7.2 or later) is as easy as extracting a tar package and running the install script. 
 
@@ -58,7 +58,7 @@ You can remove the extracted files once AzCopy on Linux is installed. Alternativ
 Add apt source for Microsoft Linux product repository and install AzCopy:
 
 ```bash
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
 apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
 ```
@@ -73,7 +73,7 @@ sudo apt-get install azcopy
 Add apt source for Microsoft Linux product repository and install AzCopy:
 
 ```bash
-sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
 apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
 ```

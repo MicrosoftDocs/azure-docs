@@ -43,23 +43,23 @@ Through AppSource, you can list an application or consulting offer that assists 
 *   **Office 365**: The modern workplace in the cloud. Collaborate for free with Microsoft Word, PowerPoint, Excel, and OneNote.
 
 ### Office 365
-Applications for Office are now available in AppSource! Review the [publishing process and guidelines]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store "Office 365 - AppSource").
+Applications for Office are now available in AppSource! Review the [publishing process and guidelines]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store "Office 365 - AppSource").
 
 ### Dynamics 365 for Finance and Operations
-When building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source "Dynamics 365 Enterprise Edition - AppSource").  
+When building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source "Dynamics 365 Enterprise Edition - AppSource").  
 
 ### Dynamics 365 for Customer Engagement
-Review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource "Dynamics 365 - AppSource").
+Review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource "Dynamics 365 - AppSource").
 
 ### Power BI
-Create custom visuals and make them available via AppSource. Review the [publishing process and guidelines](https://docs.microsoft.com/en-us/power-bi/developer/office-store "Power BI - AppSource").
+Create custom visuals and make them available via AppSource. Review the [publishing process and guidelines](https://docs.microsoft.com/power-bi/developer/office-store "Power BI - AppSource").
 
 ### Consulting Offers
 If you offer services to help customers facilitate digital transformation or implement a solution or application, then you can offer this service as a consulting offer on AppSource. 
 [Review the guidelines and learn how to submit your offer](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf "AppSource - Partner Listing Guidelines").
 
 ### Cortana Intelligence
-[Cortana Intelligence AppSource Publishing guide](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Cortana Intelligence AppSource - Publishing guide")
+[Cortana Intelligence AppSource Publishing guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Cortana Intelligence AppSource - Publishing guide")
 
 ## Azure Active Directory Integration
 Some AppSource storefront applications are required to integrate with Azure Active Directory (Azure AD) to be published. Application integration with Azure AD is well documented; Microsoft provides multiple SDKs and additional resources to meet your requirements. 
@@ -77,17 +77,17 @@ Some AppSource storefront applications are required to integrate with Azure Acti
 ###### Table: AppSource offerings that require Azure Active Directory Integration
 
 Initially, we recommend that **you set up a dedicated subscription for your Azure Marketplace publishing*** enabling you to isolate your work from your other initiatives. Additionally, if you have not already installed the following tools, then we recommend that the following tools be added to your Development Environment: 
-*   [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
-*   [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
+*   [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
+*   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
 *   Review the available tools in the [Azure Developer Tools](https://azure.microsoft.com/tools/ "Azure - Developer Tools") page
 *   [Visual Studio Code](https://code.visualstudio.com/ "Visual Studio Code - Main")
 
 If you are getting started with Azure AD, then the following links are your best resources: 
 
 **Documentation**
-*   [Azure Active Directory developers guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide "Azure AD - developers guide")
-*   [Integrating with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate "Integrating - Azure AD")
-*   [Integrating applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications "Integrating applications - Azure AD")
+*   [Azure Active Directory developers guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide "Azure AD - developers guide")
+*   [Integrating with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate "Integrating - Azure AD")
+*   [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications "Integrating applications - Azure AD")
 *   [Azure Roadmap - Security and Identity](https://azure.microsoft.com/roadmap/?category=security-identity "Azure Roadmap - Security and Identity")
 
 **Videos**

@@ -4,14 +4,11 @@ description: This quickstart shows how to use the Azure Cosmos DB Cassandra API 
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: ef611081-0195-4ad8-9b54-b313588e5754
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
@@ -162,7 +159,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     Line 2 of config.properties should now look similar to 
 
-    `cassandra_host=cosmos-db-quickstarts.documents.azure.com`
+    `cassandra_host=cosmos-db-quickstarts.cassandra.cosmosdb.azure.com`
 
 3. Go back to portal and copy the USERNAME value. Past the USERNAME value from the portal over `<cassandra endpoint username>` on line 4.
 

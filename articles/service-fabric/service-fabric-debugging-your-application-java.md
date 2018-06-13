@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
-ms.author: suhuruli;mikhegn
+ms.author: suhuruli
 
 ---
 # Debug your Java Service Fabric application using Eclipse

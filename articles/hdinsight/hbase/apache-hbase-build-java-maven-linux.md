@@ -12,7 +12,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/25/2018
+ms.date: 04/30/2018
 ms.author: larryfr
 
 ---
@@ -38,9 +38,6 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
 * [Maven](http://maven.apache.org/)
 
 * [A Linux-based Azure HDInsight cluster with HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
-
-  > [!NOTE]
-  > The steps in this document have been tested with HDInsight cluster versions 3.4 and 3.5. The default values provided in examples are for a HDInsight 3.5 cluster.
 
 ## Create the project
 

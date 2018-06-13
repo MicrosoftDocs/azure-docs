@@ -1,27 +1,20 @@
 ---
-title: Azure Monitor CLI 2.0 quick start samples. | Microsoft Docs
+title: Azure Monitor CLI quick start samples
 description: Sample CLI 2.0 commands for Azure Monitor features. Azure Monitor is a Microsoft Azure service which allows you to send alert notifications, call web URLs based on values of configured telemetry data, and autoScale Cloud Services, Virtual Machines, and Web Apps.
-author: kamathashwin
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1653aa81-0ee6-4622-9c65-d4801ed9006f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/04/2018
-ms.author: ashwink
-
+author: rboucher
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: robb
+ms.component: ""
 ---
 # Azure Monitor CLI 2.0 quick start samples
 This article shows you sample command-line interface (CLI) commands to help you access Azure Monitor features. Azure Monitor allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
 
 ## Prerequisites
 
-If you haven't already installed the Azure CLI, follow the instructions for [Install the Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use [Azure Cloud Shell](/azure/cloud-shell) to run the CLI as an interactive experience in your browser. 
+If you haven't already installed the Azure CLI, follow the instructions for [Install the Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use [Azure Cloud Shell](/azure/cloud-shell) to run the CLI as an interactive experience in your browser. See a full reference of all available available commands in the [Azure Monitor CLI reference](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest). 
 
 ## Log in to Azure
 The first step is to login to your Azure account.
@@ -85,18 +78,18 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## Work with alerts
+## Work with alerts 
+> [!NOTE]
+> Only alerts (classic) is supported in CLI at this time. 
 
-You can use the information in the section to work with alerts.
-
-### Get alert rules in a resource group
+### Get alert (classic) rules in a resource group
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### Create a metric alert rule
+### Create a metric alert (classic) rule
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -106,7 +99,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### Delete an alert rule
+### Delete an alert (classic) rule
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
@@ -202,7 +195,7 @@ az monitor autoscale list --resource-group <group name>
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### Set auotoscale settings
+### Set autoscale settings
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

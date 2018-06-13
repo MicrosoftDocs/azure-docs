@@ -7,16 +7,14 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: cc5f232a-1e77-45c2-b28b-1fcb4621725c
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: fundamentals
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: curtand
-
-ms.custom: H1Hack27Feb2017                          
+ms.reviewer: krbain
+ms.custom: it-pro                         
 
 ---
 # Create a group and add members in Azure Active Directory
