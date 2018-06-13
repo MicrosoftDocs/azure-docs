@@ -790,7 +790,7 @@ So, your trigger outputs look like these examples:
 
 ## Operation options
 
-Here are more options for changing the default behavior for triggers:
+You can change the default behavior for triggers with operation options:
 
 | Operation option | Description | Triggers | 
 |------------------|-------------|----------|
@@ -849,7 +849,7 @@ Azure Service Bus, Office 365 Outlook, Power BI,
 Azure Blob Storage, OneDrive, GitHub, and more
 
 * [Control workflow action types](#control-workflow-actions) 
-such as **If**, **ForEach**, **Switch**, **Scope**, 
+such as **If**, **Foreach**, **Switch**, **Scope**, 
 and **Until**, which contain other actions and help 
 you organize workflow execution
 
@@ -1970,7 +1970,7 @@ the outputs are empty.
 This looping action iterates through an array and performs actions on each array item. 
 By default, the "for each" loop runs in parallel up to a maximum number of loops. 
 For this maximum, see [Limits and config](../logic-apps/logic-apps-limits-and-config.md).
-Learn [how to create "foreach" loops](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
+Learn [how to create "Foreach" loops](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
 
 ```json
 "For_each": {
