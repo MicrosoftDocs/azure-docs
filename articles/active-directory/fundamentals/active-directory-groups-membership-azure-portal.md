@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 
-ms.custom: H1Hack27Feb2017;it-pro
-ms.reviewer: piotrci
+ms.custom: it-pro
+ms.reviewer: krbain
 
 ---
 # Manage to which groups a group belongs in your Azure Active Directory tenant
@@ -47,8 +47,8 @@ Groups can contain other groups in Azure Active Directory. Here's how to manage 
 ## Additional information
 These articles provide additional information on Azure Active Directory.
 
-* [See existing groups](active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
-* [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)
+* [See existing groups](../active-directory-groups-view-azure-portal.md)
+* [Create a new group and adding members](../active-directory-groups-create-azure-portal.md)
+* [Manage settings of a group](../active-directory-groups-settings-azure-portal.md)
+* [Manage members of a group](../active-directory-groups-members-azure-portal.md)
+* [Manage dynamic rules for users in a group](../active-directory-groups-dynamic-membership-azure-portal.md)

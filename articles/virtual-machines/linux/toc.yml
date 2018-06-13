@@ -222,6 +222,8 @@
       href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
+    - name: Get usage metrics with REST
+      href: metrics-vm-usage-rest.md
   - name: Use Images
     items:
     - name: Find and use images
