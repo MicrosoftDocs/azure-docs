@@ -20,7 +20,7 @@ ms.reviewer: piotrci
 
 ---
 # Manage access to resources with Azure Active Directory groups
-Azure Active Directory (Azure AD) is a comprehensive identity and access management solution that provides a robust set of capabilities to manage access to on-premises and cloud applications and resources including Microsoft online services like Office 365 and a world of non-Microsoft SaaS applications. This article provides an overview, but if you want to start using Azure AD groups right now, follow the instructions in [Managing security groups in Azure AD](../active-directory-groups-create-azure-portal.md). If you want to see how you can use PowerShell to manage groups in Azure Active directory you can read more in [Azure Active Directory cmdlets for group management](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Azure Active Directory (Azure AD) is a comprehensive identity and access management solution that provides a robust set of capabilities to manage access to on-premises and cloud applications and resources including Microsoft online services like Office 365 and a world of non-Microsoft SaaS applications. This article provides an overview, but if you want to start using Azure AD groups right now, follow the instructions in [Managing security groups in Azure AD](../active-directory-groups-create-azure-portal.md). If you want to see how you can use PowerShell to manage groups in Azure Active directory you can read more in [Azure Active Directory cmdlets for group management](../active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 > [!NOTE]
 > To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](https://azure.microsoft.com/pricing/free-trial/).
@@ -74,6 +74,5 @@ Now that you have understood the basics of access management, here are some addi
 
 * [Using attributes to create advanced rules](../active-directory-groups-dynamic-membership-azure-portal.md)
 * [Managing security groups in Azure AD](../active-directory-groups-create-azure-portal.md)
-* [Setting up dedicated groups in Azure AD](active-directory-accessmanagement-dedicated-groups.md)
 * [Graph API reference for groups](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
-* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Azure Active Directory cmdlets for configuring group settings](../active-directory-accessmanagement-groups-settings-cmdlets.md)
