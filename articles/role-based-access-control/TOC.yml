@@ -15,6 +15,10 @@
       href: tutorial-role-assignments-user-powershell.md
     - name: Grant access for a group - PowerShell
       href: tutorial-role-assignments-group-powershell.md
+    - name: Create a custom role - PowerShell
+      href: tutorial-custom-role-powershell.md
+    - name: Create a custom role - CLI
+      href: tutorial-custom-role-cli.md
   - name: Manage role assignments
     items:
     - name: User
