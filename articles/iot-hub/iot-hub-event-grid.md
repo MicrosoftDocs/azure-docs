@@ -1,19 +1,15 @@
 ---
 title: Azure IoT Hub and Event Grid | Microsoft Docs
 description: Use Azure Event Grid to trigger processes based on actions that happen in IoT Hub.  
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
 ---
+
 # React to IoT Hub events by using Event Grid to trigger actions - Preview
 
 Azure IoT Hub integrates with Azure Event Grid so that you can send event notifications to other services and trigger downstream processes. Configure your business applications to listen for IoT Hub events so that you can react to critical events in a reliable, scalable, and secure manner. For example, build an application to perform multiple actions like updating a database, creating a ticket, and delivering an email notification every time a new IoT device is registered to your IoT hub. 

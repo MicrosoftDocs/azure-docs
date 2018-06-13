@@ -9,7 +9,7 @@ editor: tysonn
 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
@@ -164,7 +164,7 @@ The following example uses PowerShell to get the locations for the `Microsoft.We
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-The following example uses Azure CLI 2.0 to get the locations for the `Microsoft.Web\sites` resource type:
+The following example uses Azure CLI to get the locations for the `Microsoft.Web\sites` resource type:
 
 ```azurecli
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"

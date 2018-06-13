@@ -7,7 +7,7 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Create a standalone Azure Automation account

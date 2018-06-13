@@ -10,6 +10,7 @@ manager: cgronlun
 
 ms.assetid: 
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -30,6 +31,17 @@ Some of the key building blocks of an enterprise team analytics environment are:
 * [Auto-scaled pool of Data Science Virtual Machines](dsvm-pools.md)
 * [Common Identity and access to workspace from any of the DSVMs in the pool](dsvm-common-identity.md)
 * [Secure Access to data sources](dsvm-secure-access-keys.md)
-* Governance and Discovery of corporate and open data sets
 
-In this series of articles, guidance and pointers are provided in each of these aspects. The [Azure architecture center](https://docs.microsoft.com/en-us/azure/architecture/) provides more detailed end-to-end architecture for your analytics infrastructure.  
+
+In this series of articles, guidance and pointers are provided in each of these above aspects. Obviously, there are several additional considerations and needs when deploying DSVM in large enterprise configurations that is not yet directly covered in this series of articles. Here are some of the other considerations and pointers to general Azure documentation that can be readily used while implementing it on the DSVM instances in your enterprise. 
+
+* [Network Security](https://docs.microsoft.com/azure/security/azure-network-security)
+* [Monitoring](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) and [Management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
+* [Logging and Auditing](https://docs.microsoft.com/azure/security/azure-log-audit)
+* [Role based access control](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Policy setting and enforcement](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)
+* [Anti-malware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+* [Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
+* [Data Discovery and Governance](https://docs.microsoft.com/azure/data-catalog/)
+
+The [Azure architecture center](https://docs.microsoft.com/en-us/azure/architecture/) is also a great resource that provides detailed end-to-end architecture and patterns for building and managing your cloud based analytics infrastructure. 

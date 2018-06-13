@@ -12,8 +12,6 @@ ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
 

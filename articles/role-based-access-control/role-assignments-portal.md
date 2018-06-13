@@ -7,14 +7,14 @@ author: rolyon
 manager: mtillman
 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/17/2017
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ---
 # Use Role-Based Access Control to manage access to your Azure subscription resources
 > [!div class="op_single_selector"]

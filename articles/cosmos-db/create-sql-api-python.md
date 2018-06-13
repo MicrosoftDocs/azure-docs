@@ -2,15 +2,12 @@
 title: 'Azure Cosmos DB: Build an app with Python and the SQL API | Microsoft Docs'
 description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/13/2018

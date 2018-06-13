@@ -1,10 +1,10 @@
 ---
  title: include file
  description: include file
- services: azure-policy
+ services: active-directory
  author: eross-msft
  
-ms.service: azure-policy
+ms.service: active-directory
  ms.topic: include
  ms.date: 04/24/2018
  ms.author: lizross

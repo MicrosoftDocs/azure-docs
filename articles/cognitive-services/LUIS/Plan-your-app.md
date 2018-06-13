@@ -77,7 +77,7 @@ A regular expression entity allows LUIS to extract data from an utterance based 
 See [Data Extraction](luis-concept-data-extraction.md#regular-expression-entity-data) to learn more about extracting regular expression entities from the endpoint JSON query response. Try the [quickstart](luis-quickstart-intents-regex-entity.md) to learn more about how to use a regular expression entity.
 
 ## After getting endpoint utterances
-After your app gets endpoint utterances, plan to implement [improvements for prediction accuracy](luis-concept-best-practices.md#improving-prediction-accuracy). One of the improvements includes the Pattern.any entity. 
+After your app gets endpoint utterances, plan to implement prediction improvements with [active learning](label-suggested-utterances.md), [phrase lists](luis-concept-feature.md), and [patterns](luis-concept-patterns.md). 
 
 ### Pattern.any entity
 Patterns.any is a variable-length placeholder used only in a [pattern's](luis-concept-patterns.md) template utterance to mark where the entity begins and ends. Template utterances conform to [proper syntax](luis-concept-patterns.md#pattern-syntax) to identify entities, and ignorable text.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Customize HDInsight Clusters using script actions - Azure | Microsoft Docs
 description: Learn how to customize HDInsight clusters using Script Action.
 services: hdinsight
@@ -329,12 +329,10 @@ See [Develop Script Action scripts for HDInsight][hdinsight-write-script].
 * [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
 * [Develop Script Action scripts for HDInsight][hdinsight-write-script]
 * [Install and use Spark on HDInsight clusters][hdinsight-install-spark]
-* [Install and use R on HDInsight clusters][hdinsight-install-r]
 * [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
 * [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs

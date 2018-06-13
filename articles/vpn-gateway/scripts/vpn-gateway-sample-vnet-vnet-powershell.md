@@ -129,6 +129,16 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
  ```
  
+## Clean up resources
+
+When you no longer need the resources you created, use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to delete the resource group. This will delete the resource groups and all of the resources they contain.
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name TestRG1
+Remove-AzureRmResourceGroup -Name TestRG2
+```
+ 
+ 
  ## Script explanation
 
 This script uses the following commands to create the deployment. Each item in the table links to command specific documentation.
@@ -144,8 +154,8 @@ This script uses the following commands to create the deployment. Each item in t
 | [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | Creates a virtual network. |
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Creates a public IP address. |
 | [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) | Creates a new gateway ip configuration. |
-| [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgateway) | Creates a VPN gateway. |
-| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/ new-azurermvirtualnetworkgatewayconnection) | Creates a vnet-to-vnet connection. |
+| [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/new-azurermvirtualnetworkgateway) | Creates a VPN gateway. |
+| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection) | Creates a vnet-to-vnet connection. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |
 | [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) | Sets the subnet configuration for the virtual network. |
 | [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) | Sets the configuration for the VPN gateway. |
