@@ -59,7 +59,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
 
 1. Open ReaderSupportRole.json in an editor and add the following JSON.
 
-    For information about the different sections, see [Understand role definitions](role-definitions.md).
+    For information about the different properties, see [Understand role definitions](role-definitions.md).
 
     ```json
     {
@@ -79,12 +79,12 @@ The easiest way to create a custom role is to start with a JSON template, add yo
     
                            ],
         "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
+                                 "/subscriptions/{subscriptionId1}"
                              ]
     }
     ```
     
-1. Add the following operations to the `Actions` section. These actions allow the user to view everything in the subscription and create support tickets.
+1. Add the following operations to the `Actions` property. These actions allow the user to view everything in the subscription and create support tickets.
 
     ```
     "*/read",
@@ -97,7 +97,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
     az account list --output table
     ```
 
-1. In `AssignableScopes`, replace 00000000-0000-0000-0000-000000000000 with your subscription ID.
+1. In `AssignableScopes`, replace `{subscriptionId1}` with your subscription ID.
 
     You must add explicit subscription IDs, otherwise you won't be allowed to import the role into your subscription.
 

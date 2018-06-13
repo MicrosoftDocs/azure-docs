@@ -69,7 +69,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
 
 1. Open the **ReaderSupportRole.json** file in an editor.
 
-    The following shows the JSON output. For information about the different sections, see [Understand role definitions](role-definitions.md).
+    The following shows the JSON output. For information about the different properties, see [Understand role definitions](role-definitions.md).
 
     ```json
     {
@@ -95,7 +95,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     }
     ```
     
-1. Edit the JSON file to add the `"Microsoft.Support/*"` operation to the `Actions` section. Be sure to include a comma after the read operation. This action will allow the user to create support tickets.
+1. Edit the JSON file to add the `"Microsoft.Support/*"` operation to the `Actions` property. Be sure to include a comma after the read operation. This action will allow the user to create support tickets.
 
 1. Get the ID of your subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) command.
 
