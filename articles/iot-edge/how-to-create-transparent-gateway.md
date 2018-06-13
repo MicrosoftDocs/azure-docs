@@ -173,8 +173,8 @@ These two steps enable your device application to connect to the gateway device.
 [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-tutorial1-win]: quickstart.md
+[lnk-tutorial1-lin]: quickstart-linux.md
 [lnk-edge-as-gateway]: ./iot-edge-as-gateway.md
 [lnk-module-dev]: module-development.md
 [lnk-iothub-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md

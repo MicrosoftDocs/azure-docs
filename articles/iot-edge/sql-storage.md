@@ -20,7 +20,7 @@ This article provides instructions for deploying a SQL Server database to an IoT
 ## Prerequisites 
 
 Before you start the instructions in this article, you should complete the following tutorials:
-* Deploy Azure IoT Edge on a simulated device in [Windows](tutorial-simulate-device-windows.md) or [Linux](tutorial-simulate-device-linux.md)
+* Deploy Azure IoT Edge on a simulated device in [Windows](quickstart.md) or [Linux](quickstart-linux.md)
 * [Deploy Azure Function as an IoT Edge module](tutorial-deploy-function.md)
 
 The following articles aren't required to successfully complete this tutorial, but may provide helpful context:

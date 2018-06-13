@@ -64,7 +64,7 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 2. In the **New Stream Analytics Job** pane, perform the following steps:
 
    1. In the **Job name** box, type a job name.
-
+   
    2. Use the same **Resource group** and **Location** as your IoT hub. 
 
       > [!NOTE]

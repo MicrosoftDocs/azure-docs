@@ -75,6 +75,8 @@ For FTP deployment using [Azure CLI](/cli/azure), see [Create a web app and depl
 
 For FTP deployment using [Azure PowerShell](/cli/azure), see [Upload files to a web app using FTP (PowerShell)](./scripts/app-service-powershell-deploy-ftp.md).
 
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
 ## Troubleshoot FTP deployment
 
 - [How can I troubleshoot FTP deployment?](#how-can-i-troubleshoot-ftp-deployment)

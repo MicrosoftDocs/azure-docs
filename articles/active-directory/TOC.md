@@ -125,7 +125,7 @@
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md
+#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
 
@@ -134,8 +134,6 @@
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Azure Active Directory Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
 ###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
-#### [Audit reference](active-directory-reporting-api-audit-reference.md)
-#### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -188,7 +186,7 @@
 
 ### [User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md) 
 #### [App integration tutorials](active-directory-saas-tutorial-list.md) 
-#### [Automate provisioning to SCIM-enabled apps](active-directory-scim-provisioning.md) 
+#### [Automate provisioning to SCIM-enabled apps](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [Customize attribute mappings](active-directory-saas-customizing-attribute-mappings.md) 
 #### [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
 #### [Use scoping filters](active-directory-saas-scoping-filters.md) 
@@ -227,30 +225,30 @@
 #### Publishing walkthroughs
 ##### [Remote Desktop](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
-##### [Microsoft Teams](application-proxy-teams.md)
-##### [Tableau](active-directory-application-proxy-tableau.md)
+##### [Microsoft Teams](manage-apps/application-proxy-integrate-with-teams.md)
+##### [Tableau](manage-apps/application-proxy-integrate-with-tableau.md)
 ##### [Qlik](active-directory-application-proxy-qlik.md)
 #### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 
 
-#### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
+#### [Troubleshoot](manage-apps/application-proxy-troubleshoot.md)
 
 ### Manage enterprise apps
-#### [Assign users](active-directory-coreapps-assign-user-azure-portal.md)
-#### [Customize branding](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-#### [Disable user sign-ins](active-directory-coreapps-disable-app-azure-portal.md)
-#### [Remove users](active-directory-coreapps-remove-assignment-azure-portal.md)
-#### [View all my apps](active-directory-coreapps-view-azure-portal.md)
-#### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
-#### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
-#### [Advanced certificate signing for SAML apps](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Hide an application from a user's experience](active-directory-coreapps-hide-third-party-app.md)
-### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
+#### [Assign users](manage-apps/assign-user-or-group-access-portal.md)
+#### [Customize branding](manage-apps/change-name-or-logo-portal.md)
+#### [Disable user sign-ins](manage-apps/disable-user-sign-in-portal.md)
+#### [Remove users](manage-apps/remove-user-or-group-access-portal.md)
+#### [View all my apps](manage-apps/view-applications-portal.md)
+#### [Manage user account provisioning](manage-apps/configure-automatic-user-provisioning-portal.md)
+#### [Manage single sign-on for enterprise apps](manage-apps/configure-single-sign-on-portal.md)
+#### [Advanced certificate signing for SAML apps](manage-apps/certificate-signing-options.md)
+#### [Hide an application from a user's experience](manage-apps/hide-application-from-user-portal.md)
+### [Configure Sign-In Auto-Acceleration using HRD Policy](manage-apps/configure-authentication-for-federated-users-portal.md)
 ### [Migrate AD FS apps to Azure AD](migrate-adfs-apps-to-azure.md) 
-### [Manage access to apps](active-directory-managing-access-to-apps.md)
+### [Manage access to apps](manage-apps/what-is-access-management.md)
 #### [SSO access](manage-apps/what-is-single-sign-on.md)
-#### [Certificates for SSO](active-directory-sso-certs.md)
-#### [Tenant restrictions](active-directory-tenant-restrictions.md)
-#### [Use SCIM provision users](active-directory-scim-provisioning.md)
+#### [Certificates for SSO](manage-apps/manage-certificates-for-federated-single-sign-on.md)
+#### [Tenant restrictions](manage-apps/tenant-restrictions.md)
+#### [Use SCIM provision users](manage-apps/use-scim-to-provision-users-and-groups.md)
 
 ### [Troubleshoot](active-directory-application-troubleshoot-content-map.md)
 #### [Application Development](active-directory-application-dev-troubleshoot-content-map.md)
@@ -282,6 +280,7 @@
 #### [Quickstart](add-custom-domain.md)
 #### [Add custom domain names](active-directory-domains-manage-azure-portal.md)
 ### [Administer your directory](active-directory-administer.md)
+### [Delete a directory](directory-delete-howto.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
 ### [Self-service signup](active-directory-self-service-signup.md)
 ### [Take over an unmanaged directory](domains-admin-takeover.md)
@@ -323,27 +322,29 @@
 
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
-#### [Conditions](active-directory-conditional-access-conditions.md)
-#### [Location conditions](active-directory-conditional-access-locations.md)
-#### [Controls](active-directory-conditional-access-controls.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
-#### [Best practices](active-directory-conditional-access-best-practices.md)
-#### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
-#### [Migrate classic policies](active-directory-conditional-access-migration.md)
-#### [What if tool](active-directory-conditional-access-whatif.md)
-#### Quickstart
+#### Quickstarts
 ##### [Configure per cloud app MFA](active-directory-conditional-access-app-based-mfa.md)
-#### Tasks
+#### Tutorials
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
+#### Concepts
+##### [Conditions](active-directory-conditional-access-conditions.md)
+##### [Location conditions](active-directory-conditional-access-locations.md)
+##### [Controls](active-directory-conditional-access-controls.md)
+##### [What if tool](active-directory-conditional-access-whatif.md)
+##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
+#### How-to guides
+##### [Best practices](active-directory-conditional-access-best-practices.md)
+##### [Configure conditional access policies for access attempts from untrusted networks](active-directory-conditional-access-untrusted-networks.md)
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
 ##### [Provide terms of use for users and apps](active-directory-tou.md)
+##### [Migrate classic policies](active-directory-conditional-access-migration.md)
 ##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
-
 
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)

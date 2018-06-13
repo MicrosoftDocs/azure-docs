@@ -31,7 +31,7 @@ This article does not show how to deploy a Resource Manager template to your sub
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-To install and use the CLI locally, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+To install and use the CLI locally, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Set subscription
 
