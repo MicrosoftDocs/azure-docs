@@ -20,27 +20,28 @@ ms.author: t-pepogo
 
 # Service Fabric for Visual Studio Code
 
-The Service Fabric extension for Visual Studio Code provides the tools necessary to create, build, and debug Service Fabric applications on both Windows, Linux, and macOS Oprating Systems.
+The[Service Fabric Reliable Services extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) provides the tools necessary to create, build, and debug Service Fabric applications on Windows, Linux, and macOS operating systems.
 
-This article provides an overview of the requirements and setup of the extension as well as the usage of the various commands that are provided. 
+This article provides an overview of the requirements and setup of the extension as well as the usage of the various commands that are provided by the extension. 
 
 ## Dependencies
 
 As VS Code is a lightweight editor, a number of dependencies must be first installed before Service Fabric applications can be created using VS Code.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Node.js](https://nodejs.org/en/)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Node.js](https://nodejs.org/)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Yeoman Generators
-```sh
-npm install -g yo
-npm install -g generator-azuresfjava
-npm install -g generator-azuresfcsharp
-```
 
-#### Windows Only
+   ```sh
+   npm install -g yo
+   npm install -g generator-azuresfjava
+   npm install -g generator-azuresfcsharp
+   ```
 
-If you are using VS Code on Windows, a bash shell must be installed. Bash on Ubuntu (On Windows) can be installed by following these [instructions](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
+### Windows Only
+
+If you are using VS Code on Windows, a bash shell must be installed. Bash on Ubuntu (On Windows) can be installed by following these [instructions](https://msdn.microsoft.com/commandline/wsl/install_guide).
 
 ## Setup (Debug)
 
@@ -48,20 +49,22 @@ If you are using VS Code on Windows, a bash shell must be installed. Bash on Ubu
 2. Run the command **npm install** inside the extension folder.
 3. Open the VS Code application.
 4. **Windows Only**
-Click on File -> Preferences -> Settings in order to open up the settings file. Add "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe" to the settings file in order to enable VS Code to use bash.
-5. Click on File -> Open Folder and select the folder of the extension.
-6. Press the F5 key to begin debugging the extension, a new VS Code window will open with the title of [Extension Development Host].
-7. In the new VS Code window click on File -> Open Folder and select a folder in which you would like to create your Service Fabric Project.
+
+   Click File -> Preferences -> Settings to open the settings file. Add "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe" to the settings file to enable VS Code to use bash.
+1. Click File -> Open Folder and select the folder of the extension.
+2. Press the F5 key to begin debugging the extension, a new VS Code window will open with the title of [Extension Development Host].
+3. In the new VS Code window, click File -> Open Folder and select a folder in which you would like to create your Service Fabric Project.
 
 ## Setup
 
 1. Open the VS Code application.
 2. **Windows Only**
-Click on File -> Preferences -> Settings in order to open up the settings file. Add "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe" to the settings file in order to enable VS Code to use bash.
-3. Click on the extension icon in the explorer. Search for Service Fabric. Click install for the Service Fabric extension.
+
+   Click File -> Preferences -> Settings to open the settings file. Add "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe" to the settings file to enable VS Code to use bash.
+1. Click the extension icon in the explorer. Search for Service Fabric. Click install for the Service Fabric extension.
 
 ## Commands
-The Service Fabric extension for VS Code helps developers to create and deploy Service Fabric projects using many commands. Commands can be called pressing (Ctrl + Shift + p), typing the command name into the input bar, and selecting the desired command for the prompt list. 
+The Service Fabric Reliable Services extension for Visual Studio Code helps developers to create and deploy Service Fabric projects using many commands. Commands can be called pressing (Ctrl + Shift + p), typing the command name into the input bar, and selecting the desired command for the prompt list. 
 
 * Service Fabric: Create Application 
 * Service Fabric: Publish Application 
@@ -119,24 +122,24 @@ The Service Fabric: Remove Application command can build either Java or C# Servi
 
 ## Debugging
 
-#### Java
+### Java
 [Install Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
 1. Open a Java Service Fabric Project in VS Code
-2. Click on the debug icon in the workspace
-3. Click on the dropdown and select Add Configuration
+2. Click the debug icon in the workspace
+3. Click the dropdown and select Add Configuration
 4. When prompted to select environment, select Java 
 
-6. Update entryPoint.sh of the service you wish to debug, so that it starts the java process with remote debug parameters. This file can be found at the following location: ApplicationName\ServiceNamePkg\Code\entrypoint.sh. Port 8001 is set for debugging in this example. 
+6. Update entryPoint.sh of the service you want to debug so that it starts the java process with remote debug parameters. This file can be found at the following location: ApplicationName\ServiceNamePkg\Code\entrypoint.sh. In the following example, port 8001 is set for debugging. 
 
-```Java
-java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar 
-```
+   ```Java
+   java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar 
+   ```
 
 7.  Enter the Service Fabric: Deploy Application command  
 8.  Place breakpoints to debug 
 
-#### C# 
+### C# 
 
 [Install C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 
@@ -144,12 +147,12 @@ When debugging applications in Visual Studio Code, the application must be runni
 
 To look at what happens in the code, complete the following steps:
 1. Set a breakpoint in the code file that you want to debug.
-2. Click on the debug icon in the workspace to open the debugging view in Visual Studio Code. Select .NET Core Attach from the configuration menu located next to the run button.
+2. Click the debug icon in the workspace to open the debugging view in Visual Studio Code. Select .NET Core Attach from the configuration menu located next to the run button.
 ![Debug Icon in Visual Studio Code Workspace][debug-icon]
-3. In Visual Studio Code click on the run icon beside the .Net Core Attach debug configuration. In the process selection dialog select the process that corresponds to the service that you would like to debug.
+3. In Visual Studio Code click the run icon beside the .Net Core Attach debug configuration. In the process selection dialog select the process that corresponds to the service that you would like to debug.
 4. The breakpoint in the code file will be hit when that line of code is executed.
-5. To continue execution of the program, click on the run icon on the top toolbar of Visual Studio Code.
-6. To end the debugging session, click on the plug icon on the top toolbar of Visual Studio Code.
+5. To continue execution of the program, click the run icon on the top toolbar of Visual Studio Code.
+6. To end the debugging session, click the plug icon on the top toolbar of Visual Studio Code.
 
 
   <!-- Images -->
