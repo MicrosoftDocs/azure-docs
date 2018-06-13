@@ -71,9 +71,9 @@ The IP address plan for an AKS cluster consists of a VNet, at least one subnet f
 
 As mentioned previously, each VNet provisioned for use with the Azure CNI plugin is limited to **4096 configured IP addresses**. Each node in a cluster configured for Advanced networking can host a maximum of **30 pods**.
 
-## Configure advanced networking
+## Deployment parameters
 
-When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure portal, the following parameters are configurable for advanced networking:
+When create an AKS cluster, the following parameters are configurable for advanced networking:
 
 **Virtual network**: The VNet into which you want to deploy the Kubernetes cluster. If you want to create a new VNet for your cluster, select *Create new* and follow the steps in the *Create virtual network* section.
 
@@ -84,6 +84,26 @@ When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure 
 **Kubernetes DNS service IP address**:  The IP address for the cluster's DNS service. This address must be within the *Kubernetes service address range*.
 
 **Docker Bridge address**: The IP address and netmask to assign to the Docker bridge. This IP address must not be within the VNet IP address range of your cluster.
+
+## Configure networking CLI
+
+When you create and AKS cluster with the Azure CLI, you can also configuring advanced networking. Use the following commands to create a new AKS cluster with advanced networking features enabled.
+
+First, get the subnet resource ID for the existing subnet into which the AKS cluster will be joined.
+
+```azurecli
+$ az network vnet subnet list --resource-group myVnet --vnet-name myVnet --query [].id --output tsv
+
+/subscriptions/d5b9d4b7-6fc1-46c5-bafe-38effaed19b2/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
+```
+
+Run the following command to create the cluster. Update the `--vnet-subnet-id` value with the subnet ID collected in the last step.
+
+```azurecli
+az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin azure --vnet-subnet-id <subnet-id> --docker-bridge-address 172.17.0.1/16 --dns-service-ip 10.2.0.10 --service-cidr 10.2.0.0/24
+```
+
+## Configure networking portal
 
 The following screenshot from the Azure portal shows an example of configuring these settings during AKS cluster creation:
 

@@ -44,10 +44,9 @@ This command clones the repository to your local git folder. To open the Visual 
 
 REST means *representational state transfer*. For a specific definition, check out [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
 
-Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It is independent of what’s happening on either side, and what other software is being used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn’t care from what platform it’s
-called – what’s important is the information passed in the request and the data provided in the response.
+Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It is independent of what's happening on either side, and what other software is being used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn't care from what platform it's called – what's important is the information passed in the request and the data provided in the response.
 
-Knowing how to use REST is a useful skill. The Azure product team frequently releases new features. Many times, the new features are accessible through the REST interface, but have not yet been surfaced through **all** of the  storage client libraries or the UI (such as the Azure portal). If you always want to use the latest and greatest, learning REST is a requirement. Also, if you want to write your own library to interact with Azure Storage, or you want to access Azure Storage with a programming language that does not have an SDK or storage client library, you can use the REST API.
+Knowing how to use REST is a useful skill. The Azure product team frequently releases new features. Many times, the new features are accessible through the REST interface, but have not yet been surfaced through **all** of the storage client libraries or the UI (such as the Azure portal). If you always want to use the latest and greatest, learning REST is a requirement. Also, if you want to write your own library to interact with Azure Storage, or you want to access Azure Storage with a programming language that does not have an SDK or storage client library, you can use the REST API.
 
 ## About the sample application
 
@@ -58,8 +57,7 @@ API](/rest/api/storageservices/fileservices/Blob-Service-REST-API), you see all 
 
 ## REST API Reference: List Containers API
 
-Let’s look at the page in the REST API Reference for the [ListContainers](/rest/api/storageservices/fileservices/List-Containers2)
-operation so you understand where some of the fields come from in the request and response in the next section with the code.
+Let's look at the page in the REST API Reference for the [ListContainers](/rest/api/storageservices/fileservices/List-Containers2) operation so you understand where some of the fields come from in the request and response in the next section with the code.
 
 **Request Method**: GET. This verb is the HTTP method you specify as a property of the request object. Other values for this verb include HEAD, PUT, and DELETE, depending on the API you are calling.
 
@@ -144,7 +142,7 @@ Add the request headers for x-ms-date and x-ms-version. This place in the code i
     //   the authorization header. 
 ```
 
-Call the method that creates the authorization header and add it to the request headers. You’ll see how to create the authorization header later in the article. The method name is GetAuthorizationHeader, which you can see in this code snippet:
+Call the method that creates the authorization header and add it to the request headers. You'll see how to create the authorization header later in the article. The method name is GetAuthorizationHeader, which you can see in this code snippet:
 
 ```csharp
     // Get the authorization header and add it.
@@ -156,7 +154,7 @@ At this point, `httpRequestMessage` contains the REST request complete with the 
 
 ## Call the REST API with the request
 
-Now that you have the request, you can call SendAsync to send the REST request. SendAsync calls the API and gets the response back. Examine the response StatusCode (200 is OK), then parse the response. In this case, you get an XML list of containers. Let’s look at the code for calling the GetRESTRequest method to create the request, execute the request, and then examine the response for the list of containers.
+Now that you have the request, you can call SendAsync to send the REST request. SendAsync calls the API and gets the response back. Examine the response StatusCode (200 is OK), then parse the response. In this case, you get an XML list of containers. Let's look at the code for calling the GetRESTRequest method to create the request, execute the request, and then examine the response for the list of containers.
 
 ```csharp 
     // Send the request.
@@ -178,7 +176,7 @@ Now that you have the request, you can call SendAsync to send the REST request. 
 }
 ```
 
-If you run a network sniffer such as [Fiddler](https://www.telerik.com/fiddler) when making the call to SendAsync, you can see the request and response information. Let’s take a look. The name of the storage account is *contosorest*.
+If you run a network sniffer such as [Fiddler](https://www.telerik.com/fiddler) when making the call to SendAsync, you can see the request and response information. Let's take a look. The name of the storage account is *contosorest*.
 
 **Request:**
 
@@ -265,7 +263,7 @@ Content-Length: 1511
 </EnumerationResults>
 ```
 
-Now that you understand how to create the request, call the service, and parse the results, let’s see how to create the authorization header. Creating that header is complicated, but the good news is that once you have the code working, it works for all of the Storage Service REST APIs.
+Now that you understand how to create the request, call the service, and parse the results, let's see how to create the authorization header. Creating that header is complicated, but the good news is that once you have the code working, it works for all of the Storage Service REST APIs.
 
 ## Creating the authorization header
 
@@ -281,7 +279,7 @@ First, use a Shared Key authentication. The authorization header format looks li
 Authorization="SharedKey <storage account name>:<signature>"  
 ```
 
-The signature field is a Hash-based Message Authentication Code (HMAC) created from the request and calculated using the SHA256 algorithm, then encoded using Base64 encoding. Got that? (Hang in there, you haven’t even heard the word *canonicalized* yet.)
+The signature field is a Hash-based Message Authentication Code (HMAC) created from the request and calculated using the SHA256 algorithm, then encoded using Base64 encoding. Got that? (Hang in there, you haven't even heard the word *canonicalized* yet.)
 
 This code snippet shows the format of the Shared Key signature string:
 
@@ -304,9 +302,9 @@ StringToSign = VERB + "\n" +
 
 Most of these fields are rarely used. For Blob storage, you specify VERB, md5, content length, Canonicalized Headers, and Canonicalized Resource. You can leave the others blank (but put in the `\n` so it knows they are blank).
 
-What are CanonicalizedHeaders and CanonicalizedResource? Good question. In fact, what does canonicalized mean? Microsoft Word doesn’t even recognize it as a word. Here’s what [Wikipedia says about canonicalization](http://en.wikipedia.org/wiki/Canonicalization): *In computer science, canonicalization (sometimes standardization or normalization) is a process for converting data that has more than one possible representation into a "standard", "normal", or canonical form.* In normal-speak, this means to take the list of items (such as headers in the case of Canonicalized Headers) and standardize them into a required format. Basically, Microsoft decided on a format and you need to match it.
+What are CanonicalizedHeaders and CanonicalizedResource? Good question. In fact, what does canonicalized mean? Microsoft Word doesn't even recognize it as a word. Here's what [Wikipedia says about canonicalization](http://en.wikipedia.org/wiki/Canonicalization): *In computer science, canonicalization (sometimes standardization or normalization) is a process for converting data that has more than one possible representation into a "standard", "normal", or canonical form.* In normal-speak, this means to take the list of items (such as headers in the case of Canonicalized Headers) and standardize them into a required format. Basically, Microsoft decided on a format and you need to match it.
 
-Let’s start with those two canonicalized fields, because they are required to create the Authorization header.
+Let's start with those two canonicalized fields, because they are required to create the Authorization header.
 
 **Canonicalized Headers**
 
@@ -316,7 +314,7 @@ To create this value, retrieve the headers that start with "x-ms-" and sort them
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
-Here’s the code used to create that output:
+Here's the code used to create that output:
 
 ```csharp 
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
@@ -360,7 +358,7 @@ This part of the signature string represents the storage account targeted by the
 /contosorest/\ncomp:list
 ```
 
-If you have query parameters, this includes those as well. Here’s the code, which also handles additional query parameters and query parameters with multiple values. Remember that you're building this code to work for all of the REST APIs, so you want to include all possibilities, even if the ListContainers method doesn’t need all of them.
+If you have query parameters, this includes those as well. Here's the code, which also handles additional query parameters and query parameters with multiple values. Remember that you're building this code to work for all of the REST APIs, so you want to include all possibilities, even if the ListContainers method doesn't need all of them.
 
 ```csharp 
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
@@ -382,7 +380,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
 }
 ```
 
-Now that the canonicalized strings are set, let’s look at how to create the authorization header itself. You start by creating a string of the message signature in the format of StringToSign previously displayed in this article. This concept is easier to explain using comments in the code, so here it is, the final method that returns the Authorization Header:
+Now that the canonicalized strings are set, let's look at how to create the authorization header itself. You start by creating a string of the message signature in the format of StringToSign previously displayed in this article. This concept is easier to explain using comments in the code, so here it is, the final method that returns the Authorization Header:
 
 ```csharp
 internal static AuthenticationHeaderValue GetAuthorizationHeader(
