@@ -1,20 +1,16 @@
----
-title: 'Azure Active Directory B2C: Add your own attributes to custom policies and use in Profile Edit| Microsoft Docs'
-description: A Walkthrough on using extension properties, custom attributes, and including them in the user interface
+﻿---
+title: Add your own attributes to custom policies in Azure Active Directory B2C | Microsoft Docs
+description: A Walkthrough on using extension properties, custom attributes, and including them in the user interface.
 services: active-directory-b2c
-documentationcenter: ''
-author: rojasja
+author: davidmu1
 manager: mtillman
-editor:
 
-ms.assetid:
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: joroja
+ms.author: davidmu
+ms.component: B2C
 ---
 # Azure Active Directory B2C: Creating and using custom attributes in a custom profile edit policy
 
@@ -148,7 +144,7 @@ Extension properties exist only in the context of a registered  Application in t
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -158,7 +154,7 @@ Extension properties exist only in the context of a registered  Application in t
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>

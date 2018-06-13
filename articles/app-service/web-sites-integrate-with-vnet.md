@@ -54,7 +54,8 @@ Here are some things to keep in mind before connecting your web app to a virtual
 
 * VNet Integration only works with apps in a **Standard**, **Premium**, or **Isolated** pricing plan. If you enable the feature, and then scale your App Service Plan to an unsupported pricing plan your apps lose their connections to the VNets they are using. 
 * If your target virtual network already exists, it must have point-to-site VPN enabled with a Dynamic routing gateway before it can be connected to an app. If your gateway is configured with Static routing, you cannot enable point-to-site Virtual Private Network (VPN).
-* The VNet must be in the same subscription as your App Service Plan(ASP). 
+* The VNet must be in the same subscription as your App Service Plan(ASP).
+* If your gateway already exists with point-to-site enabled, and it is not in the basic SKU, IKEV2 must be disabled in your point-to-site configuration.
 * The apps that integrate with a VNet use the DNS that is specified for that VNet.
 * By default your integrating apps only route traffic into your VNet based on the routes that are defined in your VNet. 
 
@@ -257,6 +258,10 @@ Now if your VNet hosted VM can reach your on-premises system but your app can't 
 * your network security groups are blocking access for your Point to Site IP range
 * your on-premises firewalls are blocking traffic from your Point to Site IP range
 * you have a User Defined Route(UDR) in your VNet that prevents your Point to Site based traffic from reaching your on-premises network
+
+## PowerShell automation
+
+You can integrate App Service with an Azure Virtual Network using PowerShell. For a ready-to-run script, see [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 
 ## Hybrid Connections and App Service Environments
 There are three features that enable access to VNet hosted resources. They are:

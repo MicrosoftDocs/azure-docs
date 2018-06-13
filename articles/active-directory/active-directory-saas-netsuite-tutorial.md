@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/25/2018
 ms.author: jeedes
 
 ---
@@ -26,7 +26,7 @@ Integrating Netsuite with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Netsuite (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -187,7 +187,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     c. Click **New Role**.
 
-    d. Type in a **Name** for your new role, and select the **Single Sign-On Only** checkbox.
+    d. Type in a **Name** for your new role.
       
       ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
@@ -197,7 +197,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
       
        ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
-    g. Select **Set Up SAM Single Sign-on**, and then click **Add**.
+    g. Select **Set Up SAML Single Sign-on**, and then click **Add**.
 
     h. Click **Save**.
 
@@ -219,10 +219,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     m. Click **Save**.
     
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -299,7 +295,7 @@ To test your single sign-on settings, open the Access Panel at [https://myapps.m
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure User Provisioning](active-directory-saas-netsuite-provisioning-tutorial.md)
 
 <!--Image references-->

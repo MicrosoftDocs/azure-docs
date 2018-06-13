@@ -5,20 +5,22 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2017
-ms.topic: article
+ms.date: 06/07/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom:
 ---
 
 # Use Cost Management reports
 
-This article describes how to use various Cost Management reports in the Cloudyn portal. Most Cloudyn reports are intuitive and have a uniform look and feel. For an overview about Cloudyn reports, see [Understanding cost reports](understading-cost-reports.md). The article also describes various options and fields used in most reports.
+This article describes how to use various Cost Management reports in the Cloudyn portal. Most Cloudyn reports are intuitive and have a uniform look and feel. For an overview about Cloudyn reports, see [Understanding cost reports](understanding-cost-reports.md). The article also describes various options and fields used in most reports.
 
 ## Cost Analysis reports
 
 Cost Analysis reports display billing data from your Cloud providers. Using the reports, you can group and drill into various data segments itemized in the billing file. The reports enable granular cost navigation across the cloud vendors' raw billing data.
+
+When viewed as a graph, analysis reports have a Y-axis *cost* and an X-axis for a *category or tag* that you choose. Although there is a range in the graph, the last 30 days for example, the range is used as a filter. Analysis reports are ideal to compare categories. For example, the cost of each subscription over the last 30 days. Or, the cost of services like storage or compute over a specific period.
 
 Cost Analysis reports do not group costs by tags. Tag-based reporting is only available in the Cost Allocation reports set after you create a cost model using Cost Allocation 360.
 
@@ -46,6 +48,8 @@ You can right-click report results to drill into them and view more detailed inf
 ### Actual Cost Over Time
 
 The Actual Cost Over Time report is a standard cost analysis report distributing cost over a defined time resolution. The report displays spending over time to allow you to observe trends and detect spending irregularities. This report shows your main cost contributors including ongoing costs and one-time reserved instance fees that are being spent during a selected time frame.
+
+When viewed as a graph, cost over time reports have a Y-axis *cost* and X-axis *time period*. These reports show the evolution of cost over a period of time.
 
 Use the Actual Cost Over Time report to:
 
@@ -148,7 +152,7 @@ Use the Cost Over Time report to:
 3. Add groups.
 4. Choose a cost model that you created previously.
 5. Select actual costs or amortized costs.
-6. Choose whether to apply allocation rules to view raw billing data view or to recalculated cost by Cloudyn view.
+6. Choose whether to apply allocation rules to view raw billing data view or to recalculated cost view.
 
 Here's an example of the report.
 

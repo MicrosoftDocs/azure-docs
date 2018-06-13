@@ -75,9 +75,9 @@ The following table provides details on the syntax for using mycimprovauth.
 
 | Operation | Example | Description
 |:--|:--|:--|
-| autoupdate *false\|true* | mycimprovauth autoupdate false | Sets whether or not the authentication file will be automatically updated on restart or update. |
+| autoupdate *false or true* | mycimprovauth autoupdate false | Sets whether or not the authentication file will be automatically updated on restart or update. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | Sets the default instance in the MySQL OMI authentication file.<br>The password field should be entered in plain text - the password in the MySQL OMI authentication file will be Base 64 encoded. |
-| delete *default\|port_num* | mycimprovauth 3308 | Deletes the specified instance by either default or by port number. |
+| delete *default or port_num* | mycimprovauth 3308 | Deletes the specified instance by either default or by port number. |
 | help | mycimprov help | Prints out a list of commands to use. |
 | print | mycimprov print | Prints out an easy to read MySQL OMI authentication file. |
 | update port_num *bind-address username password* | mycimprov update 3307 127.0.0.1 root pwd | Updates the specified instance or adds the instance if it does not exist. |

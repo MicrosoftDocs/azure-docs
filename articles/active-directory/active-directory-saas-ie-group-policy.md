@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
-This tutorial shows how to use group policy to remotely install the Access Panel extension for Internet Explorer on your users' machines. This extension is required for Internet Explorer users who need to sign into apps that are configured using [password-based single sign-on](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+This tutorial shows how to use group policy to remotely install the Access Panel extension for Internet Explorer on your users' machines. This extension is required for Internet Explorer users who need to sign into apps that are configured using [password-based single sign-on](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
 
 It is recommended that admins automate the deployment of this extension. Otherwise, users have to download and install the extension themselves, which is prone to user error and requires administrator permissions. This tutorial covers one method of automating software deployments by using group policy. [Learn more about group policy.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
@@ -159,6 +159,6 @@ Follow the steps below to verify if the extension deployment was successful:
 
 ## Related Articles
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 

@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Sync service instances | Microsoft Docs'
 description: This page documents special considerations for Azure AD instances.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 
@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---

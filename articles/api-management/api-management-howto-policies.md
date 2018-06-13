@@ -71,7 +71,7 @@ See [Policy samples](policy-samples.md) for more code examples.
 
 ## Examples
 
-### Appliy policies specified at different scopes
+### Apply policies specified at different scopes
 
 If you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
 
@@ -109,12 +109,6 @@ To limit inbound requests and accept only those from an IP address of 1.2.3.4 mo
     <address>1.2.3.4</address>
 </ip-filter>
 ```
-
-## Video
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
 ## Next steps
 

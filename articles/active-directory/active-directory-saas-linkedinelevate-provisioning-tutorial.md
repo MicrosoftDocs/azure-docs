@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuring LinkedIn Elevate for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure LinkedIn Elevate for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to LinkedIn Elevate.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/28/2018
 ms.author: asmalser-msft
 ---
 
-# Tutorial: Configuring LinkedIn Elevate for Automatic User Provisioning
+# Tutorial: Configure LinkedIn Elevate for automatic user provisioning
 
 
 The objective of this tutorial is to show you the steps you need to perform in LinkedIn Elevate and Azure AD to automatically provision and de-provision user accounts from Azure AD to LinkedIn Elevate. 
@@ -39,7 +39,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling the provisioning service, you will need to decide what users and/or groups in Azure AD represent the users who need access to LinkedIn Elevate. Once decided, you can assign these users to LinkedIn Elevate by following the instructions here:
 
-[Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+[Assign a user or group to an enterprise app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to LinkedIn Elevate
 
@@ -122,10 +122,12 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
 16) Click **Save**. 
 
-This will start the initial synchronization of any users and/or groups assigned to LinkedIn Elevate in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your LinkedIn Elevate app.
+This will start the initial synchronization of any users and/or groups assigned to LinkedIn Elevate in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your LinkedIn Elevate app.
+
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 
 ## Additional Resources
 
-* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Managing user account provisioning for Enterprise Apps](manage-apps/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

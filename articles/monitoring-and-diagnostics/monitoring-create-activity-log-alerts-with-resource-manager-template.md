@@ -1,21 +1,13 @@
 ---
-title: Create an activity log alert with a Resource Manager template  | Microsoft Docs
+title: Create an activity log alert with a Resource Manager template
 description: Get notified when your Azure resources are created.
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/06/2017
 ms.author: ancav
-
+ms.component: alerts
 ---
 # Create an activity log alert with a Resource Manager template
 This article shows you how to use an [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to configure activity log alerts. By using templates, you can easily set up many alerts that activate based on specific activity log event conditions as part of your automated deployment process.
@@ -79,10 +71,10 @@ To create an activity log alert by using a Resource Manager template, you create
               "field": "resourceType",
               "equals": "Microsoft.Resources/deployments"
             }
-          ] 
+          ]
         },
         "actions": {
-          "actionGroups": 
+          "actionGroups":
           [
             {
               "actionGroupId": "[parameters('actionGroupResourceId')]"
@@ -96,6 +88,10 @@ To create an activity log alert by using a Resource Manager template, you create
 ```
 
 Visit our [Azure Quickstart gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) for some examples of activity log alert templates.
+
+> [!NOTE]
+
+> You can also create activity log alert rules using the enhanced user experience in Monitor > [Alerts (Preview)](monitoring-overview-unified-alerts.md). For more information on how to create these, see [this article](monitoring-activity-log-alerts-new-experience.md).
 
 ## Next steps
 - Learn more about [alerts](monitoring-overview-alerts.md).

@@ -3,10 +3,10 @@ title: How to enable nested virtualization in Azure Virtual Machines | Microsoft
 description: How to enable nested virtualization in Azure Virtual Machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: philmea
-manager: timlt
+author: cynthn
+manager: jeconnoc
 
-ms.author: philmea
+ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: howto
 ms.service: virtual-machines-windows
@@ -76,7 +76,7 @@ Create a new virtual network adapter for the guest virtual machine and configure
 2. Create an internal switch.
 
     ```powershell
-    New-VMSwitch -SwitchName "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
     ```
 
 3. View the properties of the switch and note the ifIndex for the new adapter.

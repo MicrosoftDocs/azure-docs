@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 
@@ -114,7 +114,6 @@ The overview blade is the gateway to more information about your app.
 
 ### Essentials tab
 * [Instrumentation key](app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource.
-* Pricing - Make features available and set volume caps.
 
 ### App navigation bar
 ![Left navigation bar](./media/app-insights-dashboards/app-left-nav-bar.png)

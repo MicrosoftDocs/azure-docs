@@ -4,16 +4,10 @@ description: Learn about Azure regional pairing, to ensure that applications are
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-
-ms.assetid: c2d0a21c-2564-4d42-991a-bc31723f61a4
-ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
+manager: carmonm
+ms.service: multiple
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 05/09/2018
 ms.author: raynew
 ---
 
@@ -27,38 +21,38 @@ Each Azure region is paired with another region within the same geography, toget
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Figure 1 – Azure regional pair diagram
+Figure 1 – Azure regional pairs
 
 | Geography | Paired regions |  |
 |:--- |:--- |:--- |
 | Asia |East Asia |Southeast Asia |
 | Australia |Australia East |Australia Southeast |
+| Australia |Australia Central |Australia Central (2) |
+| Brazil |Brazil South (2) |South Central US |
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
+| Europe |North Europe |West Europe |
+| Germany |Germany Central |Germany Northeast |
 | India |Central India |South India |
 | India |West India (1) |South India |
 | Japan |Japan East |Japan West |
 | Korea |Korea Central |Korea South |
-| North America |North Central US |South Central US |
 | North America |East US |West US |
 | North America |East US 2 |Central US |
-| North America |West US 2 |West Central US |
-| Europe |North Europe |West Europe |
-| Japan |Japan East |Japan West |
-| Brazil |Brazil South (2) |South Central US |
+| North America |North Central US |South Central US |
+| North America |West US 2 |West Central US 
+| UK |UK West |UK South |
+| US Department of Defense |US DoD East |US DoD Central |
+| US Government |US Gov Arizona |US Gov Texas |
 | US Government |US Gov Iowa (3) |US Gov Virginia |
 | US Government |US Gov Virginia (4) |US Gov Texas |
-| US Government |US Gov Arizona |US Gov Texas |
-| US Department of Defense |US DoD East |US DoD Central |
-| UK |UK West |UK South |
-| Germany |Germany Central |Germany Northeast |
 
 Table 1 - Mapping of Azure regional pairs
 
-- > (1) West India is different because it is paired with another region in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
-- > (2) Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US, but South Central US’s secondary region is not Brazil South.
-- > (3) US Gov Iowa's secondary region is US Gov Virginia, but US Gov Virginia's secondary region is not US Gov Iowa.
-- > (4) US Gov Virginia's secondary region is US Gov Texas, but US Gov Texas' secondary region is not US Gov Virginia.
+- (1) West India is different because it is paired with another region in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
+- (2) Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US, but South Central US’s secondary region is not Brazil South.
+- (3) US Gov Iowa's secondary region is US Gov Virginia, but US Gov Virginia's secondary region is not US Gov Iowa.
+- (4) US Gov Virginia's secondary region is US Gov Texas, but US Gov Texas' secondary region is not US Gov Virginia.
 
 
 We recommend that you replicate workloads across regional pairs to benefit from Azure’s isolation and availability policies. For example, planned Azure system updates are deployed sequentially (not at the same time) across paired regions. That means that even in the rare event of a faulty update, both regions will not be affected simultaneously. Furthermore, in the unlikely event of a broad outage, recovery of at least one region out of every pair is prioritized.

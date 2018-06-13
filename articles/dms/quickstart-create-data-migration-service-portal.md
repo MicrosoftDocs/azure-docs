@@ -10,7 +10,7 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 05/01/2018
 ---
 
 # Create an instance of the Azure Database Migration Service by using the Azure portal
@@ -19,7 +19,9 @@ In this Quickstart, you use the Azure portal to create an instance of the Azure 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to the Azure portal
-Open your web browser, and navigate to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Open your web browser, navigate to the [Microsoft Azure portal](https://portal.azure.com/), and then enter your credentials to sign in to the portal.
+
+The default view is your service dashboard.
 
 ## Register the resource provider
 Register the Microsoft.DataMigration resource provider before you create your first instance of the Database Migration Service.
@@ -33,9 +35,9 @@ Register the Microsoft.DataMigration resource provider before you create your fi
 ![Register resource provider](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## Create an instance of the service
-1. Click **+ Create a resource** to create an instance of the Azure Database Migration Service, which is currently in preview.
+1. Click **+ Create a resource** to create an instance of the Azure Database Migration Service.
 
-2. Search the marketplace for "migration", select **Azure Database Migration Service**, and then on the **Azure Database Migration Service (preview)** screen, click **Create**.
+2. Search the marketplace for "migration", select **Azure Database Migration Service**, and then on the **Azure Database Migration Service** screen, click **Create**.
 
 3. On the **Database Migration Service** screen: 
 

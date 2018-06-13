@@ -12,10 +12,8 @@ keywords: apache storm,apache storm example,storm java,storm topology example
 ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/01/2017
+ms.topic: conceptual
+ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
@@ -23,9 +21,6 @@ ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 # Create an Apache Storm topology in Java
 
 Learn how to create a Java-based topology for Apache Storm. You create a Storm topology that implements a word-count application. You use Maven to build and package the project. Then, you learn how to define the topology using the Flux framework.
-
-> [!NOTE]
-> The Flux framework is available in Storm 0.10.0 or later. Storm 0.10.0 is available with HDInsight 3.3 and 3.4.
 
 After completing the steps in this document, you can deploy the topology to Apache Storm on HDInsight.
 

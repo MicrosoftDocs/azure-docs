@@ -3,7 +3,7 @@ title: 'Azure AD Connect sync: Prevent accidental deletes | Microsoft Docs'
 description: This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: ''
 
@@ -14,6 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---

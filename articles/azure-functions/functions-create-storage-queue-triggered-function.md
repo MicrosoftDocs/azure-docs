@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Queue storage
 
-Learn how to create a function triggered when messages are submitted to an Azure Storage queue.
+Learn how to create a function that is triggered when messages are submitted to an Azure Storage queue.
 
 ![View message in the logs.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
@@ -29,8 +29,6 @@ Learn how to create a function triggered when messages are submitted to an Azure
 - Download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## Create an Azure Function app
 
@@ -48,13 +46,16 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-2. Select the **QueueTrigger** template for your desired language, and  use the settings as specified in the table.
+2. In the search field, type `queue` and then choose your desired language for the Queue storage trigger template.
 
-    ![Create the storage queue triggered function.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Choose the storage queue trigger template.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+
+3. Use the settings as specified in the table below the image.
+    ![Configure the storage queue triggered function.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
     
     | Setting | Suggested value | Description |
     |---|---|---|
-    | **Name your function** | Unique in your function app | Name of this queue triggered function. |
+    | **Name** | Unique in your function app | Name of this queue triggered function. |
     | **Queue name**   | myqueue-items    | Name of the queue to connect to in your Storage account. |
     | **Storage account connection** | AzureWebJobStorage | You can use the storage account connection already being used by your function app, or create a new one.  |    
 

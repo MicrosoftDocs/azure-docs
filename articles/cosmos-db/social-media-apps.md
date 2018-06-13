@@ -4,18 +4,13 @@ description: Learn about a design pattern for Social Networks by leveraging the 
 keywords: social media apps
 services: cosmos-db
 author: ealsur
-manager: jhubbard
-editor: ''
-documentationcenter: ''
+manager: kfile
 
-ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2017
-ms.author: mimig
+ms.author: maquaran
 
 ---
 # Going social with Azure Cosmos DB
@@ -100,7 +95,7 @@ Creating feeds is just a matter of creating documents that can hold a list of po
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-We could have a “latest” stream with posts ordered by creation date, a “hottest” stream with those posts with more likes in the last 24 hours, we could even implement a custom stream for each user based on logic like followers and interests, and it would still be a list of posts. It’s a matter of how to build these lists, but the reading performance remains unhindered. Once we acquire one of these lists, we issue a single query to Cosmos DB using the [IN operator](documentdb-sql-query.md#WhereClause) to obtain pages of posts at a time.
+We could have a “latest” stream with posts ordered by creation date, a “hottest” stream with those posts with more likes in the last 24 hours, we could even implement a custom stream for each user based on logic like followers and interests, and it would still be a list of posts. It’s a matter of how to build these lists, but the reading performance remains unhindered. Once we acquire one of these lists, we issue a single query to Cosmos DB using the [IN operator](sql-api-sql-query.md#WhereClause) to obtain pages of posts at a time.
 
 The feed streams could be built using [Azure App Services’](https://azure.microsoft.com/services/app-service/) background processes: [Webjobs](../app-service/web-sites-create-web-jobs.md). Once a post is created, background processing can be triggered by using [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](../storage/queues/storage-dotnet-how-to-use-queues.md) and Webjobs triggered using the [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementing the post propagation inside streams based on our own custom logic. 
 
@@ -226,7 +221,7 @@ Cosmos DB supports [dynamic partitioning](https://azure.microsoft.com/blog/10-th
 
 One interesting point worth mentioning is that Cosmos DB will run your queries (including [aggregates](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) across all your partitions transparently, you don't need to add any logic as your data grows.
 
-With time, you will eventually grow in traffic and your resource consumption (measured in [RUs](request-units.md), or Request Units) will increase. You will read and write more frequently as your userbase grows and they will start creating and reading more content; the ability of **scaling your throughput** is vital. Increasing our RUs is very easy, we can do it with a few clicks on the Azure Portal or by [issuing commands through the API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+With time, you will eventually grow in traffic and your resource consumption (measured in [RUs](request-units.md), or Request Units) will increase. You will read and write more frequently as your userbase grows and they will start creating and reading more content; the ability of **scaling your throughput** is vital. Increasing our RUs is very easy, we can do it with a few clicks on the Azure Portal or by [issuing commands through the API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Scaling up and defining a partition key](./media/social-media-apps/social-media-apps-scaling.png)
 
@@ -234,7 +229,7 @@ What happens if things keep getting better and users from another region, countr
 
 But wait... you soon realize their experience with your platform is not optimal; they are so far away from your operational region that the latency is terrible, and you obviously don't want them to quit. If only there was an easy way of **extending your global reach**... but there is!
 
-Cosmos DB lets you [replicate your data globally](../cosmos-db/tutorial-global-distribution-documentdb.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](../cosmos-db/tutorial-global-distribution-documentdb.md). This also means that you can have [multiple failover regions](regional-failover.md). 
+Cosmos DB lets you [replicate your data globally](../cosmos-db/tutorial-global-distribution-sql-api.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](../cosmos-db/tutorial-global-distribution-sql-api.md). This also means that you can have [multiple failover regions](regional-failover.md). 
 
 When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you are using a web frontend or accesing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) and clone your Azure App Service on all the desired regions, using a performance configuration to support your extended global coverage. When your clients access your frontend or APIs, they will be routed to the closest App Service, which in turn, will connect to the local Cosmos DB replica.
 

@@ -3,17 +3,16 @@ title: Transform data using Hadoop Pig activity in Azure Data Factory | Microsof
 description: Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+author: douglaslMS
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/19/2017
-ms.author: shengc
+ms.topic: conceptual
+ms.date: 01/16/2018
+ms.author: douglasl
 
 ---
 # Transform data using Hadoop Pig activity in Azure Data Factory

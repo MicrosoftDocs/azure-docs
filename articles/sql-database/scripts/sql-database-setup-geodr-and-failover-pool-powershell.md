@@ -4,7 +4,7 @@ description: Azure PowerShell example script to set up active geo-replication fo
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
-manager: jhubbard
+manager: craigg
 editor: carlrab
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 11/29/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 ---
 

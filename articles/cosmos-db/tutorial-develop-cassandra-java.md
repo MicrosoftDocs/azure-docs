@@ -2,20 +2,17 @@
 title: 'Azure Cosmos DB: Develop with the Cassandra API in Java | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's Cassandra API using Java
 services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
 tags: ''
 
-ms.assetid: 6732d883-835c-481f-98e1-287893530948
 ms.service: cosmos-db
-ms.devlang: dotnet
+ms.component: cosmosdb-cassandra
+ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 11/15/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
 ---
 
@@ -23,7 +20,7 @@ ms.custom: mvc
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and then create a Cassandra Table(documentdb-partition-data.md#partition-keys) using the [Cassandra API](cassandra-introduction.md). By defining a primary key when you create a Table, your application is prepared to scale effortlessly as your data grows. 
+This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and then create a Cassandra Table(sql-api-partition-data.md#partition-keys) using the [Cassandra API](cassandra-introduction.md). By defining a primary key when you create a Table, your application is prepared to scale effortlessly as your data grows. 
 
 This tutorial covers the following tasks by using the Cassandra API:
 

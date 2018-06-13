@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery industry-specific solutions | Microsoft Docs
-description: Discover industry solutions in the Cortana Intelligence Gallery.
+title: Azure AI Gallery industry-specific solutions | Microsoft Docs
+description: Discover industry solutions in the Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -9,15 +9,16 @@ editor: cgronlun
 
 ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
+ms.author: garye
 
 ---
-# Discover industry-specific solutions in the Cortana Intelligence Gallery
+# Discover industry-specific solutions in the Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Industry-specific Cortana Intelligence solutions

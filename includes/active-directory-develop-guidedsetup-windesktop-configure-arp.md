@@ -7,7 +7,3 @@ In this step, you need to add the Application Id to your project.
 ```csharp
 private static string ClientId = "[Enter the application Id here]";
 ```
-
-### What is Next
-
-[Test and Validate](active-directory-develop-guidedsetup-windowsdesktop-test.md)

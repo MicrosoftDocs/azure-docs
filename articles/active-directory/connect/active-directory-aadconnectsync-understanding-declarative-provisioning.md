@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Understanding Declarative Provisioning | Microsoft Doc
 description: Explains the declarative provisioning configuration model in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 
@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---

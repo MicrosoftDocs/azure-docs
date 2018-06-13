@@ -2,19 +2,14 @@
 title: Common use cases and scenarios for Azure Cosmos DB | Microsoft Docs
 description: 'Learn about the top five use cases for Azure Cosmos DB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).' 
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
-documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 
-ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/15/2017
-ms.author: mimig
+ms.topic: conceptual
+ms.date: 05/7/2017
+ms.author: sngun
 
 ---
 
@@ -103,7 +98,7 @@ JSON, a format supported by Cosmos DB, is an effective format to represent UI la
 ![Azure Cosmos DB web app reference architecture](./media/use-cases/personalization.png)
 
 ## Next steps
-To get started with Azure Cosmos DB, follow our [quick starts](create-documentdb-dotnet.md), which walk you through creating an account and getting started with Cosmos DB. 
+To get started with Azure Cosmos DB, follow our [quick starts](create-sql-api-dotnet.md), which walk you through creating an account and getting started with Cosmos DB. 
 
 Or, if you'd like to read more about customers using Cosmos DB, the following customer stories are available:
 
