@@ -50,9 +50,14 @@ The Search window has features similar to the web portal:
 The Track Operation tab is available when you open a request or a page view. An 'operation' is a sequence of events that is associated with to a single request or page view. For example, dependency calls, exceptions, trace logs, and custom events might be part of a single operation. The Track Operation tab shows graphically the timing and duration of these events in relation to the request or page view. 
 
 ## Inspect individual items
-Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
 
-![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/10-detail.png)
+Select any telemetry item to see key fields and related items.
+
+![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/003.png)
+
+This will launch the end-to-end transaction details view:
+
+![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/004.png)
 
 ## Filter event types
 Open the Filter blade and choose the event types you want to see. (If, later, you want to restore the filters with which you opened the blade, click Reset.)
