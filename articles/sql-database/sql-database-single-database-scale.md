@@ -26,7 +26,7 @@ ms.author: carlrab
 
 ## vCore-based purchasing model: Change compute resources (vCores)
 
-After initially picking the number of vCores, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](single-database-scale.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/azure/sql/db#az_sql_db_update), or the [REST API](/rest/api/sql/databases/update). 
+After initially picking the number of vCores, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](sql-database-single-database-scale.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/azure/sql/db#az_sql_db_update), or the [REST API](/rest/api/sql/databases/update). 
 
 Changing the service tier and/or performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process but during the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. The length of time for the switch-over varies, but is generally under 4 seconds is less than 30 seconds 99% of the time. If there are large numbers of transactions in flight at the moment connections are disabled, the length of time for the switch-over may be longer. 
 

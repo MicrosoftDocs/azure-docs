@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 6/12/2018
 ms.author: carlrab
 
 ---
@@ -18,7 +18,7 @@ ms.author: carlrab
 
 ## Single database: Storage sizes and performance levels
 
-For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-servers-databases-manage.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-servers-databases-manage.md#powershell-manage-logical-servers-and-databases), the [Azure CLI](sql-database-servers-databases-manage.md#azure-cli-manage-logical-servers-and-databases), or the [REST API](sql-database-servers-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [PowerShell](sql-database-servers-databases-manage.md#powershell-manage-logical-servers-and-databases), the [Azure CLI](sql-database-servers-databases-manage.md#azure-cli-manage-logical-servers-and-databases), or the [REST API](sql-database-servers-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
 ### Basic service tier
 | **Performance level** | **Basic** |
@@ -144,7 +144,7 @@ When database space used reaches the max size limit, database inserts and update
 
 When encountering high space utilization, mitigation options include:
 
-- Increasing the max size of the database, or change the performance level to obtain more included storage. See [SQL Database resource limits](sql-database-dtu-resource-limits-single-database.md).
+- Increasing the max size of the database, or change the performance level to obtain more included storage. See [SQL Database resource limits](sql-database-dtu-resource-limits-single-databases.md).
 - Move the database into an [elastic pool](sql-database-elastic-pool.md) so that its storage space is shared with other databases - with a higher overall limit for all databases in the pool.
 
 ### Sessions and workers (requests) 

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: carlrab
 
 ---
@@ -18,7 +18,7 @@ ms.author: carlrab
 - Storage can be provisioned up to the max size limit: 
  - For Standard storage, increase or decrease size in 10 GB increments
  - For Premium storage, increase or decrease size in 250 GB increments
-- Storage for an elastic pool can be provisioned by increasing or decreasing its max size using the [Azure portal](sql-database-elastic-pool.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update), or the [REST API](/rest/api/sql/elasticpools/update).
+- Storage for an elastic pool can be provisioned by increasing or decreasing its max size using the [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update), or the [REST API](/rest/api/sql/elasticpools/update).
 - The price of storage for an elastic pool is the storage amount multiplied by the storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## vCore-based purchasing model: Change elastic pool compute resources (vCores)
