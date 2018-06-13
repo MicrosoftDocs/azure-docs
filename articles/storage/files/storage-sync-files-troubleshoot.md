@@ -157,20 +157,19 @@ If sync fails on a server:
 <a id="replica-not-ready"></a>**Sync fails, with this error: "0x80c8300f - The replica is not ready to perform the required operation"**  
 This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. The change detection job that scans for changes in the Azure file share is scheduled for once every 24 hours.  The time to complete is dependent on the size of the namespace in the Azure file share.  This error should go away once complete.
 
-
-    > [!NOTE]
-    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles
+> [!NOTE]
+> Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
     
- 
-
 We currently do not support resource move to another subscription or, moving to a different Azure AD tenant.  If the subscription moves to a different tenant, the Azure file share becomes inaccessible to our service based on the change in ownership. If the tenant is changed, you will need to delete the server endpoints and the cloud endpoint (see Sync Group Management section for instructions how to clean the Azure file share to be re-used) and recreate the sync group.
 
-   <a id="cannot resolver storage "></a>**Sync fails, with this error: ": 0x80C83060 - error -2134364064 The storage account name used could not be resolved**
-This error occures due two possible scenarios :
-1. First check that you can resolve the storgae dns name from the server,if you can continue to step 2
-2. Make sure your storage account has IAM with the following builtin user :Hybrid Sync Service with owner on the sa.
-then verify sync is working.
+<a id="cannot-resolve-storage"></a>**Sync fails, with this error: ": 0x80C83060 - error -2134364064 The storage account name used could not be resolved**
+This error can occur for two possible reasons:
+1. First check that you can resolve the storage DNS name from the server.
+    ```PowerShell
+    Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
+    ```
 
+2. Under the Access Control (IAM) tab on the storage account, make sure the builtin user **Hybrid File Sync Service** is assigned to the builtin role **Reader and Data Access** and then verify sync is working.
 
 <a id="doesnt-have-enough-free-space"></a>**This PC doesn't have enough free space error**  
 If the portal shows the status "This PC doesn't have enough free space" the issue could be that less than 1 GB of free space remains on the volume.  For example, if there is a 1.5GB volume, sync will only be able to utilize .5GB   If you hit this issue, please expand the size of the volume being used for the server endpoint.
