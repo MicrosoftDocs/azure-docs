@@ -22,7 +22,9 @@ Search is a feature of [Application Insights](app-insights-overview.md) that you
 (For more complex queries over your data, use [Analytics](app-insights-analytics-tour.md).)
 
 ## Where do you see Search?
+
 ### In the Azure Portal
+
 You can open diagnostic search explicitly from the Application Insights Overview blade of your application:
 
 ![Open diagnostic search](./media/app-insights-diagnostic-search/001.png)
@@ -83,14 +85,10 @@ In this example, it's clear that the 'Rpt/Employees' request results in most of 
 
 ![Expand a property and choose a value](./media/app-insights-diagnostic-search/04-failingReq.png)
 
-
-
-
 ## Find events with the same property
 Find all the items with the same property value:
 
 ![Right-click a property](./media/app-insights-diagnostic-search/12-samevalue.png)
-
 
 ## Search the data
 
@@ -120,14 +118,10 @@ Here are the search expressions you can use:
 | `apple OR banana`<br/>`apple banana` |Find events that contain either word. Use "OR", not "or".<br/>Short form. |
 | `apple NOT banana` |Find events that contain one word but not the other. |
 
-
-
 ## Sampling
 If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module automatically reduces the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request are selected or deselected as a group, so that you can navigate between related events. 
 
 [Learn about sampling](app-insights-sampling.md).
-
-
 
 ## Create work item
 You can create a bug in GitHub or Visual Studio Team Services with the details from any telemetry item. 
