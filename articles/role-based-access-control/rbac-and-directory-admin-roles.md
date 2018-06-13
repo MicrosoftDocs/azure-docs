@@ -27,7 +27,7 @@ If you are new to Azure, you may find it challenging to understand all the diffe
 
 ## How the roles are related
 
-To better understand roles in Azure, it helps to know some of the history. When Azure was initially released, access to resources was managed with just three administrator roles: Account administrator, Service administrator, and Co-administrator. Later role-based access control (RBAC) for Azure resources was added. Azure RBAC is a newer authorization system built on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) that provides fine-grained access management to Azure resources. RBAC includes many built-in roles, can be assigned at different scopes, and allows you to create your own custom roles. To manage resources in Azure AD, such as users, groups, and domains, there are several Azure AD administrator roles.
+To better understand roles in Azure, it helps to know some of the history. When Azure was initially released, access to resources was managed with just three administrator roles: Account administrator, Service administrator, and Co-administrator. Later, role-based access control (RBAC) for Azure resources was added. Azure RBAC is a newer authorization system built on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) that provides fine-grained access management to Azure resources. RBAC includes many built-in roles, can be assigned at different scopes, and allows you to create your own custom roles. To manage resources in Azure AD, such as users, groups, and domains, there are several Azure AD administrator roles.
 
 The following diagram is a high-level view of how the classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles are related.
 
@@ -72,7 +72,7 @@ The rest of the built-in roles allow management of specific Azure resources. For
 
 Only the Azure portal and the Azure Resource Manager APIs support RBAC. Users, groups, and applications that are assigned RBAC roles cannot use the [Azure classic deployment model APIs](../azure-resource-manager/resource-manager-deployment-model.md).
 
-In the Azure portal, role assignment using RBAC appears in the **Access control (IAM)** blade. This blade can found throughout the portal, such as subscriptions, resource groups, and various resources.
+In the Azure portal, role assignments using RBAC appear in the **Access control (IAM)** blade. This blade can found throughout the portal, such as subscriptions, resource groups, and various resources.
 
 ![Access control (IAM) blade in the Azure portal](./media/rbac-and-directory-admin-roles/access-control.png)
 

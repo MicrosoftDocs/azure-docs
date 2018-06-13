@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: genli
 
 ---
@@ -24,7 +24,7 @@ To manage access to Azure resources, you must have the appropriate administrator
 
 ## What administrator role do I use?
 
-Azure has several different roles. To manage access to resources, you can use three classic subscription administrator roles (Account administrator, Service administrator, Co-administrator) or a newer authorization system called role-based access control (RBAC). To ensure better control and to simplify access management, we recommend that you use RBAC for all access management needs. If possible, we recommend that you reconfigure existing access policies using RBAC. For more information, see [What is role-based access control (RBAC)](../role-based-access-control/overview.md) and [Understand Azure Active Directory administrator roles and Azure RBAC roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Azure has several different roles. To manage access to resources, you can use three classic subscription administrator roles (Account administrator, Service administrator, Co-administrator) or a newer authorization system called role-based access control (RBAC). To ensure better control and to simplify access management, we recommend that you use RBAC for all access management needs. If possible, we recommend that you reconfigure existing access policies using RBAC. For more information, see [What is role-based access control (RBAC)](../role-based-access-control/overview.md) and [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 <a name="add-an-admin-for-a-subscription"></a>
 
@@ -103,8 +103,8 @@ The Account administrator is the user that initially signed up for the Azure sub
 
 ## Learn more about resource access control and Active Directory
 
-* To learn more about RBAC, see [What is role-based access control?](../role-based-access-control/overview.md)
-* To learn more about all the roles in Azure, see [Understand Azure Active Directory administrator roles and Azure RBAC roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
+* To learn more about RBAC, see [What is role-based access control (RBAC)?](../role-based-access-control/overview.md)
+* To learn more about all the roles in Azure, see [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 * For more information about Azure Active Directory, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) and [Assigning administrator roles in Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
 ## Need help? Contact support.

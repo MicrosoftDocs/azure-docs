@@ -1,6 +1,6 @@
 - name: Manage access overview
   href: manage-access-to-azure-resources.md
-- name: Resource access in Azure
+- name: Understand the different roles
   href: rbac-and-directory-admin-roles.md
 - name: Role-based access control (RBAC)
   href: overview.md
