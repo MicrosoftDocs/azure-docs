@@ -47,7 +47,7 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 
 ## v3 capabilities
 
-v3 is based on a unified API surface, which exposes both management and operations functionality built on **Azure Resource Manager**. 
+v3 is based on a unified API surface, which exposes both management and operations functionality built on Azure Resource Manager. 
 
 This version provides the following capabilities:  
 
@@ -60,13 +60,13 @@ This version provides the following capabilities:
 
 ## Naming conventions
 
-Since Azure Media Services v3 is built on **Azure Resource Manager**, resource names (for example, Assets, Jobs, Transforms) are subject to the **Azure Resource Manager** resource naming constraints.
+Since Azure Media Services v3 is built on Azure Resource Manager, resource names (for example, Assets, Jobs, Transforms) are subject to naming constraints.
 
-In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
+In accordance with Azure Resource Manager, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
 
 Media Services resource names cannot include: '<', '>', '%', '&', ':', '\', '?', '/' OR any control characters. The max length is 260 characters. All other characters are allowed. 
 
-For more information, see: [The Azure Resource Manager naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+For more information, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
 ## How can I get started with v3?
 
