@@ -1,21 +1,13 @@
 ---
-title: How to trigger complex actions with Azure Monitor Alerts and Actions Groups | Microsoft Docs
+title: How to trigger complex actions with Azure Monitor alerts and Actions Groups
 description: Learn how to create a Logic App action to process Azure Monitor Alerts.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
-
+ms.component: alerts
 ---
 # Create a Logic App action
 ## Overview ##
