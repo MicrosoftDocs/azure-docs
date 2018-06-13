@@ -30,7 +30,7 @@ In this tutorial you learn the steps required to run a query across multiple dat
 
 If you don't have already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-Install the latest preview **AzureRM.Sql** module to get the Elastic Job cmdlets. Run the following commands from an elevated command prompt (run your PowerShell session as admistrator).
+Install the latest preview **AzureRM.Sql** module to get the Elastic Job cmdlets. Run the following commands from an elevated command prompt (run as administrator).
 
 ```powershell
 # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
@@ -42,7 +42,9 @@ Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
 
 ## Create required resources
 
-Creating an Elastic Job agent requires a database (S0 or higher) for use as the [Job database](elastic-jobs-overview.md#job-database). The script below creates a new resource group, server, and database that will used as the Job database. The script below also creates a second server with 2 blank databases to exceute jobs against.
+Creating an Elastic Job agent requires a database (S0 or higher) for use as the [Job database](elastic-jobs-overview.md#job-database). 
+
+*The script below creates a new resource group, server, and database for use as the Job database. The script below also creates a second server with 2 blank databases to execute jobs against.*
 
 Elastic Jobs has no specific naming requirements so you can use whatever naming conventions you want, as long as they conform to any [Azure requirements](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -56,9 +58,7 @@ $ResourceGroupName = Read-Host "Please enter a resource group name"
 $Location = Read-Host "Please enter an Azure Region"
 $Rg = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 $Rg
-```
 
-```powershell
 # Create a server
 Write-Output "Creating a server..."
 $AgentServerName = Read-Host "Please enter an agent server name"
@@ -111,7 +111,6 @@ Register-AzureRmProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespac
 ## Create the Elastic Job agent
 
 An Elastic Job agent is an Azure resource for creating, running, and managing jobs. The agent executes jobs based on a schedule or as a one-time job.
-Create an agent using the New-AzureRmSqlElasticJobAgent cmdlet.
 
 The **New-AzureRmSqlElasticJobAgent** cmdlet requires an Azure SQL database to already exist, so the *ResourceGroupName*, *ServerName*, and *DatabaseName* parameters must all point to existing resources.
 
@@ -130,6 +129,8 @@ The database scoped credentials must be created in the job database.
 All target databases must have a login with sufficient permissions for the job to complete successfully.
 
 ![Elastic Jobs credentials](media/elastic-jobs-overview/job-credentials.png)
+
+In addition to the credentials in the image, note the addition of the *GRANT* commands in the following script. These permissions are required for the script we chose for this example job. Because the example creates a new table in the targeted databases,  each target db needs the proper permissions to successfully run.
 
 To create the required job credentials (in the job database), run the following script:
 
@@ -186,9 +187,9 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## Define the target databases you want to run the job against
 
-A [target group](elastic-jobs-overview.md#target-group) defines the set of one or more databases a job step will execute on. This step sets a SQL Database server as the target group. The job step will run against all databases that exist on the server at the time of execution.
+A [target group](elastic-jobs-overview.md#target-group) defines the set of one or more databases a job step will execute on. 
 
-The following snippet creates a new target group, then adds the desired target (the SQL Database server that contains the databases to run the job against) using the Add-AzureRmSqlElasticJobTarget cmdlet:
+The following snippet creates two target groups: *ServerGroup*, and *ServerGroupExcludingDb2*. *ServerGroup* targets all databases that exist on the server at the time of execution, and *ServerGroupExcludingDb2* targets all databases on the server, except *TargetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -213,6 +214,8 @@ $Job
 
 ## Create a job step
 
+This example defines two job steps for the job to run. The first job step (*step1*) creates a new table (*Step1Table*) in every database in target group *ServerGroup*. The second job step (*step2*) creates a new table (*Step2Table*) in every database except for *TargetDb2*, because the target group [defined previously](#define-the-target-databases-you-want-to-run-the-job-against) specified to exclude it.
+
 ```powershell
 Write-Output "Creating job steps"
 $SqlText1 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step1Table')) CREATE TABLE [dbo].[Step1Table]([TestId] [int] NOT NULL);"
@@ -225,13 +228,15 @@ $Job | Add-AzureRmSqlElasticJobStep -Name "step2" -TargetGroupName $ServerGroupE
 
 ## Run the job
 
+To start the job immediately, run the following command:
+
 ```powershell
 Write-Output "Start a new execution of the job..."
 $JobExecution = $Job | Start-AzureRmSqlElasticJob
 $JobExecution
 ```
 
-After successful completion you should see 2 new tables in TargetDB1, and only 1 new table in TargetDb2:
+After successful completion you should see two new tables in TargetDb1, and only one new table in TargetDb2:
 
 
    ![new tables verification in SSMS](media/elastic-jobs-overview/job-execution-verification.png)
@@ -240,6 +245,8 @@ After successful completion you should see 2 new tables in TargetDB1, and only 1
 
 
 ## Monitor status of job executions
+
+The following snippets get job execution details:
 
 ```powershell
 # Get the latest 10 executions run
@@ -253,6 +260,8 @@ $JobExecution | Get-AzureRmSqlElasticJobTargetExecution -Count 2
 ```
 
 ## Schedule the job to run later
+
+To schedule a job to run at a specific time, run the following command:
 
 ```powershell
 # Run every hour starting from now
