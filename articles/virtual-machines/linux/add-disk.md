@@ -3,7 +3,7 @@ title: Add a data disk to Linux VM using the Azure CLI | Microsoft Docs
 description: Learn to add a persistent data disk to your Linux VM with the Azure 
 services: virtual-machines-linux
 documentationcenter: ''
-author: cyntn
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,7 +13,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 06/12/2018
+ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ---
@@ -39,38 +39,10 @@ az vm disk attach \
 To attach an existing disk, find the disk ID and pass the ID to the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command. The following example queries for a disk named *myDataDisk* in *myResourceGroup*, then attaches it to the VM named *myVM*:
 
 ```azurecli
-# find the disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
-
-The output looks something like the following:
-
-```json
-{
-  "accountType": "Standard_LRS",
-  "creationData": {
-    "createOption": "Empty",
-    "imageReference": null,
-    "sourceResourceId": null,
-    "sourceUri": null,
-    "storageAccountId": null
-  },
-  "diskSizeGb": 50,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
-  "location": "westus",
-  "name": "myDataDisk",
-  "osType": null,
-  "ownerId": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
-  "type": "Microsoft.Compute/disks"
-}
-```
-
 
 
 ## Connect to the Linux VM to mount the new disk
@@ -102,7 +74,7 @@ Here, *sdc* is the disk that we want. Partition the disk with `fdisk`, make it a
 sudo fdisk /dev/sdc
 ```
 
-The output is similar to the following example:
+Use the `n` command to add a new partition. In this example, we also choose `p` for a primary partition and accept the res tof the default values. The output will be similar to the following example:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -124,7 +96,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Create the partition by typing `p` at the prompt as follows:
+Print the partitin table by typing `p` and then use `w` to write the table to disk and exit. The output should look similar to the following example:
 
 ```bash
 Command (m for help): p
@@ -253,7 +225,6 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Next steps
-* Remember, that your new disk is not available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
 * To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](optimization.md) recommendations.
 * Expand your storage capacity by adding additional disks and [configure RAID](configure-raid.md) for additional performance.
 
