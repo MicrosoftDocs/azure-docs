@@ -56,8 +56,7 @@ A QnA Maker knowledge base can be created from your own content such as FAQs or 
    
     ![Save and train](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
 
-12. Select **Test** in the top right to test that the changes made have taken effect.
-Type 'hi there' in the box and press enter. You should see the answer you created as a response.
+12. Select **Test** in the top right to test that the changes made have taken effect. Type 'hi there' in the box and press enter. You should see the answer you created as a response.
 
 13. Select **Inspect** to examine the response in more details. The test window is used to test your changes to the KB before they are published.
 
@@ -65,9 +64,9 @@ Type 'hi there' in the box and press enter. You should see the answer you create
 
 14. Dismiss the Test pop-out by selecting 'Test' again.
 
-14. Choose **Publish** in the top menu next to 'Edit', then confirm by selecting **Publish** on the page.
+15. Choose **Publish** in the top menu next to 'Edit', then confirm by selecting **Publish** on the page.
 
-15. The QnA Maker service has now been successfully published. The endpoint can be used in your application or bot code.
+16. The QnA Maker service has now been successfully published. The endpoint can be used in your application or bot code.
 
     ![Publish](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
