@@ -172,9 +172,9 @@ Before building the application, you need to register it with Azure AD. Registra
 
 Error code/condition | Description
 ---------------------| -----------
-Web application has an unstyled, text-only sign-in page, with a white background. | Verify that the paths discussed in step #4.a of [Build and publish the web application](#build-and-publish-the-web-application) are correct. If the web application can't find the .css files, the page won't be styled correctly.
-AADSTS50011: No reply address is registered for the application. | The Azure AD registration is missing the "Reply URL" property. Go to the **Settings** / **Reply URLs** page for your Azure AD application registration. Verify that the **Sign-on** URL specified in step #3 of [Register the application with Azure AD](#register-the-application-with-azure-ad) is present. 
-AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '<Reply URL GUID>'. | The `postLogoutRedirectUri` specified in step #4.b of [Build and publish the web application](#build-and-publish-the-web-application), must match the value specified under the **Settings** / **Reply URLs** property in your Azure AD application registration.
+*AADSTS50011: No reply address is registered for the application.* | The Azure AD registration is missing the "Reply URL" property. Go to the **Settings** / **Reply URLs** page for your Azure AD application registration. Verify that the **Sign-on** URL specified in step #3 of [Register the application with Azure AD](#register-the-application-with-azure-ad) is present. 
+*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in step #4.b of [Build and publish the web application](#build-and-publish-the-web-application), must match the value specified under the **Settings** / **Reply URLs** property in your Azure AD application registration. Be sure to also change **Destination URL** to use `https`, per step #5.e of [Build and publish the web application](#build-and-publish-the-web-application).
+Web application loads, but has an unstyled text-only sign-in page, with a white background. | Verify that the paths discussed in step #4.a of [Build and publish the web application](#build-and-publish-the-web-application) are correct. If the web application can't find the .css files, the page won't be styled correctly.
 
 ## Clean up resources
 
@@ -194,9 +194,9 @@ In this tutorial, you learned how to:
 > * How to register your application with Azure Active Directory (AD)
 > * How to build, publish, and test your web application 
 
-Now that you know how to create your own TSI SPA web application, learn more about shaping your JSON to get the best possible query performance:
+This tutorial showed you how to integrate with Azure AD, using the signed-in user's identity to acquire an access token. To learn how to access the TSI API using the identity of a service/daemon application, see:
 
 > [!div class="nextstepaction"]
-> [How to shape JSON to maximize query performance](how-to-shape-query-json.md)
+> [](time-series-insights-authentication-and-authorization.md)
 
 
