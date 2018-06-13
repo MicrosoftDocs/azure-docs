@@ -27,8 +27,8 @@ The Azure Machine Learning module that you create in this tutorial reads the env
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the quickstart or first tutorial.
-* The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.
+* An IoT hub. 
+* The device that you created and configured in the quickstart for [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin]. You need to know the device connection string and the device ID. 
 * An Azure Machine Learning account. To create an account, follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
 * Module Management for Azure ML on your machine. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
 
@@ -52,7 +52,7 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 
 ### View the container repository
 
-Check that your container image was successfully created and stored in the Azure container repository that is associated with your machine learning environment.
+Check that your container image was successfully created and stored in the Azure Container registry that is associated with your machine learning environment.
 
 1. On the [Azure portal](https://portal.azure.com), go to **All Services** and Select **Container registries**.
 2. Select your registry. The name should start with **mlcr** and it belongs to the resource group, location, and subscription that you used to set up Module Management.
@@ -62,25 +62,15 @@ Check that your container image was successfully created and stored in the Azure
 6. Select **machinelearningmodule**
 7. You now have the full image path of the container. Take note of this image path for the next section. It should look like this:  **<registry_name>.azureacr.io/machinelearningmodule:1**
 
-## Add registry credentials to your Edge device
-
-Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. This command gives the runtime access to pull the container.
-
-Linux:
-   ```cmd
-   sudo iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password>
-   ```
-
-Windows:
-   ```cmd
-   iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password>
-   ```
-
-## Run the solution
+## Deploy to your device
 
 1. On the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-1. Go to **IoT Edge (preview)** and select your IoT Edge device.
+1. Go to **IoT Edge** and select your IoT Edge device.
 1. Select **Set modules**.
+1. In the **Registry Settings** section, add the credentials that you copied from your Azure container registry. 
+
+   ![Add registry credentials](./media/tutorial-deploy-machine-learning/registry-settings.png)
+
 1. If you've previously deployed the tempSensor module to your IoT Edge device, it may autopopulate. If it's not already in your list of modules, add it.
     1. Select **Add IoT Edge Module**.
     2. In the **Name** field, enter `tempSensor`.
