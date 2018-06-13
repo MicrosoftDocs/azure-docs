@@ -45,7 +45,7 @@ The purpose of a simple entity is to teach LUIS what the entity is and where it 
 
 For this simple app, the entity is at the end of the utterance. 
 
-## Open Human Resources domain app from quickstart and create new intent with example utterances
+## Create new intent with example utterances
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the region where you need the LUIS endpoints published.
 
 2. Open the Human Resources domain app created in the [custom domain](luis-quickstart-intents-only.md) quickstart.   
