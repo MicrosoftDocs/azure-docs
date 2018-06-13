@@ -22,23 +22,25 @@ ms.author: gokuma
 
 # Store access credentials on the Data Science Virtual Machine securely
 
-A common challenge when building cloud applications is how to manage the credentials that need to be in your code for authenticating to cloud services. Keeping these credentials secure is an important task. Ideally, they never appear on developer workstations or get checked into source control. 
+A common challenge in building cloud applications is how to manage the credentials that need to be in your code for authenticating to cloud services. Keeping these credentials secure is an important task. Ideally, they never appear on developer workstations or get checked in to source control. 
 
-[Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having any credentials in your code. One common pattern to secure credentials is to use MSI is in combination with the [Azure Keyvault](https://docs.microsoft.com/azure/key-vault/), a managed Azure service to store secrets and cryptographic keys securely. You can access Key vault using the managed service identity and retrieve the authorized secrets and cryptographic keys from the Key Vault. 
+[Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having any credentials in your code. 
 
-The MSI and Key Vault documentation is a comprehensive resource for in-depth information on these services. The rest of this article is a basic primer showing the basic use of MSI and Key Vault on the Data Science Virtual Machine (DSVM). 
+One way to secure credentials is to use MSI in combination with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), a managed Azure service to store secrets and cryptographic keys securely. You can access a key vault by using the managed service identity and retrieve the authorized secrets and cryptographic keys from the key vault. 
 
-## Walkthrough of using MSI to securely access Azure resources
+The MSI and Key Vault documentation is a comprehensive resource for in-depth information on these services. The rest of this article is a primer that shows the basic use of MSI and Key Vault on the Data Science Virtual Machine (DSVM). 
 
-## 1. Create MSI on the DSVM 
+## Walkthrough of using MSI to access Azure resources
+
+## 1. Create a managed identity on the DSVM 
 
 
 ```
-# Pre-requisites: You have already created a Data Science VM in the usual way
+# Prerequisite: You have already created a Data Science VM in the usual way
 
-# Create identity principal for the VM
+# Create an identity principal for the VM
 az vm assign-identity -g <Resource Group Name> -n <Name of the VM>
-# Get the principal id of the DSVM
+# Get the principal ID of the DSVM
 az resource list -n <Name of the VM> --query [*].identity.principalId --out tsv
 ```
 

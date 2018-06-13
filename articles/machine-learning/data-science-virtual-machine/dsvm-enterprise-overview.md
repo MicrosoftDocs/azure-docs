@@ -1,6 +1,6 @@
 ---
-title: Introduction to the Data Science Virtual Machine based Team environments - Azure | Microsoft Docs
-description: Patterns for deploying Data Science VM as enterprise teams environment.
+title: Introduction to the Data Science Virtual Machine-based team environments - Azure | Microsoft Docs
+description: Patterns for deploying the Data Science VM in an enterprise team environment.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 05/08/2018
 ms.author: gokuma
 ---
 
-# Data Science Virtual Machine based team analytics and AI environment 
+# Data Science Virtual Machine-based team analytics and AI environment 
 The [Data Science Virtual Machine](overview.md) (DSVM) provides a rich environment in the Azure platform with prebuilt software for artificial intelligence (AI) and data analytics. 
 
 Traditionally, the DSVM has been used as an individual analytics desktop. Individual data scientists gain productivity with this shared notion of their prebuilt analytics environment. As large analytics teams plan their analytics environments for their data scientists and AI developers, one of the recurring themes is for a shared analytics development and experimentation infrastructure that's managed in line with enterprise IT policies that also facilitate collaboration and consistency across the data science/analytics teams. 
