@@ -1,27 +1,19 @@
 ---
-title: Create and manage action groups in the Azure portal | Microsoft Docs
+title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/20/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/1/2018
 ms.author: dukek
-
+ms.component: alerts
 ---
 # Create and manage action groups in the Azure portal
 ## Overview ##
-This article shows you how to create and manage action groups in the Azure portal.
+An action group is a collection of notification preferences defined by the user. Azure Monitor and Service Health alerts are configured to use a specific action group when the alert is triggered. Various alerts may use the same action group or different action groups depending on the user's requirements.
 
-You can configure a list of actions with action groups. These groups can then be used by each alert you define, ensuring that the same actions are taken each time an alert is triggered.
+This article shows you how to create and manage action groups in the Azure portal.
 
 Each action is made up of the following properties:
 
@@ -66,7 +58,14 @@ For information on how to use Azure Resource Manager templates to configure acti
 <dd>At this time the Azure app action only supports ServiceHealth alerts. Any other alert time will be ignored. See [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
 
 <dt>Email</dt>
-<dd>You may have up to 50 email actions in an Action Group</dd>
+<dd>Emails will be sent from the following email addresses. Ensure that your email filtering is configured appropriately
+
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
+    
+</dd>
+<dd>You may have up to 1000 email actions in an Action Group</dd>
 <dd>See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>
 
 <dt>ITSM</dt>

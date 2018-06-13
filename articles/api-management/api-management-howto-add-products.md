@@ -3,7 +3,7 @@ title: How to create and publish a product in Azure API Management
 description: Learn how to create and publish products in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

@@ -4,6 +4,7 @@ description: This scenario shows how to do distributed tuning of hyperparameters
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo

@@ -7,14 +7,14 @@ author: rolyon
 manager: mtillman
 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/17/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ---
 # Manage role-based access control with Azure PowerShell
 > [!div class="op_single_selector"]

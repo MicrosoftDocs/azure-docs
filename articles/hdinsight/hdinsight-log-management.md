@@ -102,17 +102,6 @@ HDInsight stores its log files both in the cluster file system and in Azure stor
 
 Hadoop runs the work of the jobs as *task attempts* on various nodes in the cluster. HDInsight can initiate speculative task attempts, terminating any other task attempts that do not complete first. This generates significant activity that is logged to the controller, stderr, and syslog log files on-the-fly. In addition, multiple task attempts are running simultaneously, but a log file can only display results linearly.
 
-#### HDInsight logs written to Azure tables
-
-The logs written to Azure Tables provide insights into what is happening with an HDInsight cluster. When you create a Linux-based HDInsight cluster, six tables are automatically created in the default Table storage:
-
-* hdinsightagentlog
-* syslog
-* daemonlog
-* hadoopservicelog
-* ambariserverlog
-* ambariagentlog
-
 #### HDInsight logs written to Azure Blob storage
 
 HDInsight clusters are configured to write task logs to an Azure Blob storage account for any job that is submitted using the Azure PowerShell cmdlets or the .NET job submission APIs.  If you submit jobs through SSH to the cluster, then the execution logging information is stored in the Azure Tables as discussed in the previous section.

@@ -81,10 +81,13 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 ## Additional settings in test panel
 
 ### LUIS endpoint
-If you have several LUIS endpoints, use the **Additional Settings** link on the Published pane to change the endpoint used for testing. If you are not sure which endpoint to use, select the default **Starter_Key**. 
+If you have several LUIS endpoints, use the **Additional Settings** link on the Test's Published pane to change the endpoint used for testing. If you are not sure which endpoint to use, select the default **Starter_Key**. 
+
+![Test panel with Additional Settings link highlighted](./media/luis-how-to-train-test/interactive-with-spell-check-service-key.png)
+
 
 ### View Bing Spell Check corrections in test panel
-You can view the spelling corrections provided by [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API in the JSON view of the **Published** panel. 
+You can view the spelling corrections provided by [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API in the JSON view of the **Published** panel of the Test pane. 
 
 To use this feature, you must have published the app, and have a Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
 
@@ -117,4 +120,4 @@ See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features. 
 
 * [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
-* [Use features to improve your LUIS app's performance](Add-Features.md) 
+* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 

@@ -3,7 +3,7 @@ title: Delete an Azure Kubernetes Service (AKS) cluster
 description: Delete and AKS cluster with the CLI or Azure portal.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

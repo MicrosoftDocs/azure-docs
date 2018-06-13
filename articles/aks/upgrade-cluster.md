@@ -3,7 +3,7 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Upgrade an Azure Kubernetes Service (AKS) cluster
 services: container-service
 author: gabrtv
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

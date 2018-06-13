@@ -62,7 +62,7 @@ In the search box at the top of the portal, enter *network security groups*. Whe
 ### View details of a network security group
 
 1. In the search box at the top of the portal, enter *network security groups*. When **network security groups** appear in the search results, select it.
-2. Select the network security group in the list that you want to view details for. Under **SETTINGS** you can view the **Inbound security rules** and **Outbound security rules**, the **Network interfaces** and **Subnets** the network security group is associated to. You can also enable or disable **Diagnostic logs** and view **Effective security rules**. To learn more, see [Diagnostic logs](virtual-network-nsg-manage-log.md) and [View effective security rules](virtual-network-nsg-troubleshoot-portal.md).
+2. Select the network security group in the list that you want to view details for. Under **SETTINGS** you can view the **Inbound security rules** and **Outbound security rules**, the **Network interfaces** and **Subnets** the network security group is associated to. You can also enable or disable **Diagnostic logs** and view **Effective security rules**. To learn more, see [Diagnostic logs](virtual-network-nsg-manage-log.md) and [View effective security rules](diagnose-network-traffic-filter-problem.md).
 3. To learn more about the common Azure settings listed, see the following articles:
 	*	[Activity log](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
 	*	[Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)

@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
-# About Speech to Text API
+# About the Speech to Text API
 
 The **Speech to Text** API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The APIs can be used either with an SDK client library (for supported platforms and languages) or a REST API.
 
@@ -41,7 +41,7 @@ Some capabilities of the **Speech to Text** API are not available via REST. The 
 | Transcribe streaming audio with optional interim results | No | Yes |
 | Understand speaker intents via LUIS | No\* | Yes |
 
-\* *The SDK can call LUIS for you and provide entity and intent results, all under your Speech subscription. With the REST API, you can call LUIS yourself to derive intents and entities, but you need a separate LUIS subscription.*
+\* *LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results as well as speech transcriptions. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription.*
 
 ## Next steps
 

@@ -1,21 +1,14 @@
 ---
-title: Restore a VM disk with Azure Backup | Microsoft Docs
+title: Restore a VM disk with Azure Backup
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor:
 tags: azure-resource-manager, virtual-machine-backup
-
-ms.assetid: 
 ms.service: backup
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 4/17/2018
-ms.author: iainfou
+ms.author: markgal
 ms.custom: mvc
 ---
 

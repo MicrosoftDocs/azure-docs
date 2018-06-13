@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want container
@@ -28,12 +28,11 @@ In this tutorial, the last in the series:
 > * Display the triggered build
 > * Verify updated application image
 
-> [!IMPORTANT]
-> ACR Build is in currently in preview, and is supported only by Azure container registries in the **East US**  (eastus) and **West Europe** (westeurope) regions. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have the Azure CLI version **2.0.32** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
+If you'd like to use the Azure CLI locally, you must have the Azure CLI version **2.0.32** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
 ## Prerequisites
 
@@ -129,7 +128,7 @@ Use [az acr build-task run][az-acr-build-task-run] to manually trigger the build
 az acr build-task run --registry $ACR_NAME --name buildhelloworld
 ```
 
-Once the build has completed, take note of the **Build ID** (for example, "eastus6") if you wish to complete the following optional step.
+Once the build has completed, take note of the **Build ID** (for example, "aa6") if you wish to complete the following optional step.
 
 ### Optional: Run application container locally
 
@@ -141,7 +140,7 @@ First, log in to your container registry with [az acr login][az-acr-login]:
 az acr login --name $ACR_NAME
 ```
 
-Now, run the container locally with `docker run`. Replace **\<build-id\>** with the Build ID found in the output from the previous step (for example, "eastus5").
+Now, run the container locally with `docker run`. Replace **\<build-id\>** with the Build ID found in the output from the previous step (for example, "aa6").
 
 ```azurecli
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
@@ -163,14 +162,14 @@ If you completed the previous tutorial (and didn't delete the registry), you sho
 
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
-BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ------------  --------------------  ----------
-eastus6     buildhelloworld  Linux       Succeeded  Manual        2018-04-22T00:03:46Z  00:00:40
-eastus5                                  Succeeded  Manual        2018-04-22T00:01:45Z  00:00:25
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-21T23:52:33Z  00:00:30
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:50:10Z  00:00:35
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:46:15Z  00:00:55
-eastus1                                  Succeeded  Manual        2018-04-21T23:24:05Z  00:00:35
+BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+----------  ---------------  ----------  ---------  ----------  --------------------  ----------
+aa6         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual      2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit  2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual      2018-05-10T19:10:14Z  00:00:55
 ```
 
 ## Update base image
@@ -202,18 +201,18 @@ Output is similar to the following. The TRIGGER for the last-executed build shou
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
 BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ----------    --------------------  ----------
-eastus8     buildhelloworld  Linux       Succeeded  Image Update  2018-04-22T00:09:24Z  00:00:50
-eastus7                                  Succeeded  Manual        2018-04-22T00:08:49Z  00:00:40
-eastus6     buildhelloworld  Linux       Succeeded  Image Update  2018-04-20T00:15:30Z  00:00:43
-eastus5     buildhelloworld  Linux       Succeeded  Manual        2018-04-20T00:10:05Z  00:00:45
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-19T23:40:38Z  00:00:40
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:36:37Z  00:00:40
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:35:27Z  00:00:40
-eastus1                                  Succeeded  Manual        2018-04-19T22:51:13Z  00:00:30
+----------  ---------------  ----------  ---------  ------------  --------------------  ----------
+aa8         buildhelloworld  Linux       Succeeded  Image Update  2018-05-10T20:09:52Z  00:00:45
+aa7                          Linux       Succeeded  Manual        2018-05-10T20:09:17Z  00:00:40
+aa6         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual        2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit    2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual        2018-05-10T19:10:14Z  00:00:55
 ```
 
-If you'd like to perform the following optional step of running the newly built container to see the updated version number, take note of the **BUILD ID** value for the Image Update-triggered build (in the preceding output, it's "eastus6").
+If you'd like to perform the following optional step of running the newly built container to see the updated version number, take note of the **BUILD ID** value for the Image Update-triggered build (in the preceding output, it's "aa8").
 
 ### Optional: Run newly built image
 
@@ -253,7 +252,6 @@ In this tutorial, you learned how to use a build task to automatically trigger c
 [code-sample]: https://github.com/Azure-Samples/acr-build-helloworld-node
 [dockerfile-app]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-app
 [dockerfile-base]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-base
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

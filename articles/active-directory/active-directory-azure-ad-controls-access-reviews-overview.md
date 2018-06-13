@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure AD access reviews| Microsoft Docs
 description: You can control group membership and application access to meet governance, risk management, and compliance initiatives in your organization by using Azure Active Directory access reviews.
 services: active-directory
@@ -11,8 +11,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2017
-ms.author: billmath
+ms.component: compliance-reports
+ms.date: 05/02/2018
+ms.author: rolyon
 ---
 
 # Azure AD access reviews

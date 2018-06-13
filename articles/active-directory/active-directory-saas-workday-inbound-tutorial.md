@@ -406,7 +406,7 @@ Directory, with some common expressions**
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Yes** | Written on create only | 
 | **UserID**    |  cn    |   |   Written on create only |
-| **Join("@",[UserID], "contoso.com")**   | userPrincipalName     |     | Written on create only 
+| **Join("\@",[UserID], "contoso.com")**   | userPrincipalName     |     | Written on create only 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Written on create only |
 | **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | Create + update |
 | **FirstName**   | givenName       |     |    Create + update |
@@ -443,7 +443,6 @@ After installing agent, run the Powershell commands below to configure the agent
 **Command #1**
 
 > cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent"
-Agent\\Modules\\AADSyncAgent
 
 > Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
@@ -909,20 +908,13 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 * A previous issue with audit logs not appearing in Azure AD tenants located in the European Union has been resolved. However, additional agent configuration is required for Azure AD tenants in the EU. For details, see [Part 3: Configure the on-premises synchronization agent](#Part 3: Configure the on-premises synchronization agent)
 
-## GDPR compliance
+## GDPR information
 
 [General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents. 
 
-The Azure AD provisioning service is GDPR compliant along with the rest of Microsoft’s services and features. To learn more about Microsoft’s GDPR story, see the [terms of service](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+To learn more about Microsoft’s GDPR story, see the [terms of service](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-However, because the Workday provisioning solution for Active Directory requires a synchronization agent to be installed on a domain-joined server, there are some events you will need to monitor to also stay GDPR compliant.
- 
-The agent creates logs in the **Windows Event log**, which can contain personally-identifiable information.
-
-There are two ways for you to stay GDPR compliant:
-
-1. Upon request, extract data for a person and remove data from that person from the Windows Event logs. 
-2. Keep retention of Windows Event logs sourced from the AADSyncAgent process to under 48 hours
+Please note that the Workday provisioning solution for Active Directory requires a synchronization agent to be installed on a domain-joined server, and this agent creates logs in the **Windows Event log** which can contain personally-identifiable information.
 
 For information on how to configure data retention for the Windows Event logs, see the [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx). For general information on the Windows Event log, see [this article](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
@@ -932,4 +924,3 @@ For information on how to configure data retention for the Windows Event logs, s
 * [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
 * [Learn how to configure single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](active-directory-saas-tutorial-list.md)
-

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 06/05/2018
 ms.author: charwen,cherylmc
 
 ---
@@ -25,7 +25,16 @@ ms.author: charwen,cherylmc
 > 
 > 
 
-Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several advantages. You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute. Alternatively, you can use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. This configuration is not available in the Azure portal.
+Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several advantages:
+
+* You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute. 
+* Alternatively, you can use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. 
+
+The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. This configuration is not available in the Azure portal.
+
+>[!NOTE]
+>If you want to create a Site-to-Site VPN over an ExpressRoute circuit, please see [this article](site-to-site-vpn-over-microsoft-peering.md).
+>
 
 ## Limits and limitations
 * **Transit routing is not supported.** You cannot route (via Azure) between your local network connected via Site-to-Site VPN and your local network connected via ExpressRoute.

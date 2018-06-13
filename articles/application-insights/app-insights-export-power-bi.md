@@ -11,8 +11,8 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 10/18/2016
+ms.topic: conceptual
+ms.date: 06/13/2018
 ms.author: mbullwin
 ---
 
@@ -30,14 +30,25 @@ This method creates a complete dashboard of telemetry for you. The initial datas
 
 ### Get the adapter
 1. Sign in to [Power BI](https://app.powerbi.com/).
-2. Open **Get Data**, **Services**, and then **Application Insights**.
-   
-    ![Screenshots of Get from Application Insights data source](./media/app-insights-export-power-bi/power-bi-adapter.png)
-3. Provide the details of your Application Insights resource.
-   
-    ![Screenshot of Get from Application Insights data source](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
-4. Wait a minute or two for the data to be imported.
-   
+2. Open **Get Data** ![Screenshot of GetData Icon in lower left corner](./media/app-insights-export-power-bi/001.png), **Services**.
+
+    ![Screenshots of Get from Application Insights data source](./media/app-insights-export-power-bi/002.png)
+
+3. Select **Get it now** under Application Insights.
+
+   ![Screenshots of Get from Application Insights data source](./media/app-insights-export-power-bi/003.png)
+4. Provide the details of your Application Insights resource, and then **Sign-in**.
+
+    ![Screenshot of Get from Application Insights data source](./media/app-insights-export-power-bi/005.png)
+
+     This information can be found in the Application Insights Overview pane:
+
+     ![Screenshot of Get from Application Insights data source](./media/app-insights-export-power-bi/004.png)
+
+5. Open the newly created Application Insights Power BI App.
+
+6. Wait a minute or two for the data to be imported.
+
     ![Screenshot of Power BI adapter](./media/app-insights-export-power-bi/010.png)
 
 You can edit the dashboard, combining the Application Insights charts with those of other sources, and with Analytics queries. You can get more charts in the visualization gallery, and each chart has parameters you can set.
@@ -79,10 +90,10 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### Export a Funnel
 1. [Make your Funnel](usage-funnels.md).
-2. Select **Power BI**. 
+2. Select **Power BI**.
 
    ![Screenshot of Power BI button](./media/app-insights-export-power-bi/button.png)
-   
+
 3. In Power BI Desktop, select **Get Data** > **Blank Query**. Then, in the query editor, under **View**, select **Advanced Editor**.
 
    ![Screenshot of Power BI Desktop, with Blank Query button highlighted](./media/app-insights-export-power-bi/blankquery.png)

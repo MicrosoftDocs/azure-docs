@@ -46,5 +46,5 @@ sections:
     - title: Command-Line
       html: <p><a href="https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest">Azure CLI</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/media/">REST API</a></p>
+      html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=873030">REST API</a></p>
       

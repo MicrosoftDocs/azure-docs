@@ -31,7 +31,7 @@ In Azure Media Services, a *channel* represents a pipeline for processing live-s
   > Using a pass-through method is the most economical way to do live streaming.
 
 
-* An on-premises live encoder sends a single-bitrate stream to the channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (fragmented MP4). The channel then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream. Media Services delivers the stream to customers who request it.
+* An on-premises live encoder sends a single-bitrate stream to the channel that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The channel then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream. Media Services delivers the stream to customers who request it.
 
 Starting with the Media Services 2.10 release, when you create a channel, you can specify how you want your channel to receive the input stream. You can also specify whether you want the channel to perform live encoding of your stream. You have two options:
 

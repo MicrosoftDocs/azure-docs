@@ -1,17 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Understand the Azure IoT Edge runtime | Microsoft Docs 
 description: Learn about the Azure IoT Edge runtime and how it empowers your edge devices
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 02/15/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
+services: iot-edge
 ---
 
 # Understand the Azure IoT Edge runtime and its architecture - preview

@@ -1,25 +1,51 @@
 ---
-title: Create a LUIS app to get location data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and a hierarchical entity to extract data in this quickstart. 
+title: Tutorial to create a LUIS app to get location data - Azure | Microsoft Docs 
+description: In this tutorial, learn how to create a simple LUIS app using intents and a hierarchical entity to extract data. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
 
 --- 
 
-# Quickstart: Create app with intents and a hierarchical entity
-In this quickstart, you create an app that demonstrates how to use the parent-child entity named **Hierarchical** entity to extract information out of utterances.
+# Tutorial: Create app that uses hierarchical entity
+In this tutorial, create an app that demonstrates how to find related pieces of data based on context. 
 
-This simple app has two [intents](luis-concept-intent.md) and one hierarchical [entity](luis-concept-entity-types.md). Its purpose is to book flights such as '1 ticket from Seattle to Cairo`. 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand hierarchical entities and contextually learned children 
+> * Create new LUIS app for travel domain with Bookflight intent
+> * Add _None_ intent and add example utterances
+> * Add location hierarchical entity with origin and destination children
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response including hierarchical children 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
+## Purpose of the app with this entity
+This app determines if a user wants to book a flight. It uses the hierarchical entity to determine the locations, origin city, and destination city, within the user's text. 
+
+The hierarchical entity is a good fit for this type of data because the two pieces of data:
+
+* Are both locations, usually expressed as cities or airport codes.
+* Usually have unique word choice around the words to be able to determine which is the origin and which is the destination. These words include: to, headed toward, from, leaving.
+* Both locations are frequently in the same utterance. 
+
+The purpose of the **hierarchical** entity is to find related data within the utterance based on context. Consider the following utterance:
+
+```JSON
+1 ticket from Seattle to Cairo`
+```
+
+The utterance has two locations specified. One is the origin city, Seattle, and the other is the destination city, Cairo. These cities are both important to book a flight. While they could be found using simple entities, they are related to each other and will frequently be found in the same utterance. Therefore, it makes sense that they are both grouped as children of a hierarchical entity, **"Location"**. 
+
+As machine-learned entities, the app needs example utterances with the origin and destination cities labeled. This teaches LUIS where the entities are in utterances, how long they are and the words around them. 
 
 ## App intents
 The intents are categories of what the user wants. This app has two intents: BookFlight and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
@@ -49,7 +75,7 @@ LA to MCO spring break
 The hierarchical entity matches origin and destination location. If only one child (origin or destination) of a hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
 
 ## What LUIS does
-When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chatbot takes that JSON response and fulfills the request -- in whatever way the app or chatbot is designed to do. 
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
@@ -105,9 +131,9 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
     |What is going on?|
 
 ## When the utterance is predicted for the None intent
-In your LUIS-calling application (such as a chat bot), when LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
+In your LUIS-calling application (such as a chatbot), when LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
-Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chat bot, your chat bot can follow up with a question that focuses the customer's intent. 
+Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chatbot, your chatbot can follow up with a question that focuses the customer's intent. 
 
 ## Create a location entity from the Intent page
 Now that the two intents have utterances, LUIS needs to understand what a location is. Navigate back to the `BookFlight` intent and label (mark) the city name in an utterance by following the steps:
@@ -142,7 +168,7 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
     ![Training succeeded](./media/luis-quickstart-intent-and-hier-entity/trained.png)
 
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
+In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
@@ -193,21 +219,21 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 ## What has this LUIS app accomplished?
 This app, with just two intents and a hierarchical entity, identified a natural language query intention and returned the extracted data. 
 
-Your chat bot now has enough information to determine the primary action, `BookFlight`, and the location information found in the utterance. 
+Your chatbot now has enough information to determine the primary action, `BookFlight`, and the location information found in the utterance. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
+> [!div class="nextstepaction"] 
+> [Learn how to add a list entity](luis-quickstart-intent-and-list-entity.md) 
 
-[Learn how to add a regular expression entity](luis-quickstart-intents-regex-entity.md). 
+Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number. 
 
-Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number of seats. 
-
-Add the **datetimeV2** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the date information such as `Friday`.
+Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the date information.
 
 
 <!--References-->

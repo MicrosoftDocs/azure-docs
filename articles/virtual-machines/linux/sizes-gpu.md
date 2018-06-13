@@ -40,6 +40,7 @@ For driver installation and verification steps, see [N-series driver setup for L
 - [Memory optimized](sizes-memory.md)
 - [Storage optimized](sizes-storage.md)
 - [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

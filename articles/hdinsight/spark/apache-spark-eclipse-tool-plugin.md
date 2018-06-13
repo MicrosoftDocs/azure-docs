@@ -226,13 +226,15 @@ To resolve this error, you need [download the executable](http://public-repo-1.h
    ![Spark application local run result](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## Known problems
-To submit an application to Azure Data Lake Store, select **Interactive** mode during the Azure sign-in process. If you select **Automated** mode, you might get an error.
+When link a cluster, I would suggest you to provide credential of storage.
 
-![Interactive sign-in](./media/apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+![Interactive sign-in](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
-You can choose an Azure Data Lake cluster to submit your application with any sign-in method.
+There are two modes to submit the jobs. If storage credential is provided, batch mode will be used to submit the job. Otherwise, interactive mode will be used. If the cluster is busy, you might get the error below.
 
-Currently, viewing Spark outputs directly is not supported.
+![eclipse get error when cluster busy](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+
+![eclipse get error when cluster busy](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
 ## Feedback
 If you have any feedback, or if you encounter any other problems when using this tool, send us an email at hdivstool@microsoft.com.

@@ -6,7 +6,7 @@ manager: craigg
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
 
@@ -41,7 +41,7 @@ The credential is used by the elastic query to connect to your remote databases.
     [;]
 
 > [!NOTE]
-> Ensure that the `<username>` does not include any **"@servername"** suffix. 
+> Ensure that the `<username>` does not include any **"\@servername"** suffix. 
 >
 
 ## Create external data sources
