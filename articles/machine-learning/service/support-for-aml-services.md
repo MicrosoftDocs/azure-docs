@@ -6,7 +6,7 @@ author: j-martens
 ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 07/27/2018 

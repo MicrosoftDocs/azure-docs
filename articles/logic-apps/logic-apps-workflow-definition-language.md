@@ -152,7 +152,7 @@ that can contain one or more [functions](#functions),
 [operators](#operators), variables, explicit values, 
 or constants. In your workflow definition, 
 you can use an expression anywhere in a JSON 
-string value by prefixing the expression with the at-sign (@). 
+string value by prefixing the expression with the at-sign (\@). 
 When evaluating an expression that represents a JSON value, 
 the expression body is extracted by removing the @ character, 
 and always results in another JSON value. 
@@ -191,8 +191,8 @@ These examples show how expressions are evaluated:
 |------------|--------| 
 | "Sophia Owen" | Return these characters: 'Sophia Owen' |
 | "array[1]" | Return these characters: 'array[1]' |
-| "@@" | Return these characters as a one-character string: '@' |   
-| " @" | Return these characters as a two-character string: ' @' |
+| "\@@" | Return these characters as a one-character string: '@' |   
+| " \@" | Return these characters as a two-character string: ' @' |
 |||
 
 For these examples, suppose you define "myBirthMonth" 
@@ -207,12 +207,12 @@ These examples show how the following expressions are evaluated:
 
 | JSON expression | Result |
 |-----------------|--------| 
-| "@parameters('myBirthMonth')" | Return this string: "January" |  
-| "@{parameters('myBirthMonth')}" | Return this string: "January" |  
-| "@parameters('myAge')" | Return this number: 42 |  
-| "@{parameters('myAge')}" | Return this number as a string: "42" |  
+| "\@parameters('myBirthMonth')" | Return this string: "January" |  
+| "\@{parameters('myBirthMonth')}" | Return this string: "January" |  
+| "\@parameters('myAge')" | Return this number: 42 |  
+| "\@{parameters('myAge')}" | Return this number as a string: "42" |  
 | "My age is @{parameters('myAge')}" | Return this string: "My age is 42" |  
-| "@concat('My age is ', string(parameters('myAge')))" | Return this string: "My age is 42" |  
+| "\@concat('My age is ', string(parameters('myAge')))" | Return this string: "My age is 42" |  
 | "My age is @@{parameters('myAge')}" | Return this string, which includes the expression: "My age is @{parameters('myAge')}` | 
 ||| 
 
@@ -295,10 +295,10 @@ Here are some other general ways that you can use functions in expressions:
 
 | Task | Function syntax in an expression | 
 | ---- | -------------------------------- | 
-| Perform work with an item by passing that item to a function. | "@<*functionName*>(<*item*>)" | 
-| 1. Get the *parameterName*'s value by using the nested `parameters()` function. </br>2. Perform work with the result by passing that value to *functionName*. | "@<*functionName*>(parameters('<*parameterName*>'))" | 
-| 1. Get the result from the nested inner function *functionName*. </br>2. Pass the result to the outer function *functionName2*. | "@<*functionName2*>(<*functionName*>(<*item*>))" | 
-| 1. Get the result from *functionName*. </br>2. Given that the result is an object with property *propertyName*, get that property's value. | "@<*functionName*>(<*item*>).<*propertyName*>" | 
+| Perform work with an item by passing that item to a function. | "\@<*functionName*>(<*item*>)" | 
+| 1. Get the *parameterName*'s value by using the nested `parameters()` function. </br>2. Perform work with the result by passing that value to *functionName*. | "\@<*functionName*>(parameters('<*parameterName*>'))" | 
+| 1. Get the result from the nested inner function *functionName*. </br>2. Pass the result to the outer function *functionName2*. | "\@<*functionName2*>(<*functionName*>(<*item*>))" | 
+| 1. Get the result from *functionName*. </br>2. Given that the result is an object with property *propertyName*, get that property's value. | "\@<*functionName*>(<*item*>).<*propertyName*>" | 
 ||| 
 
 For example, the `concat()` function can take two or more string values 
