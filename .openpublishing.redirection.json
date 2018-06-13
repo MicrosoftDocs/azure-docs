@@ -22383,6 +22383,9 @@
         {
             "source_path": "articles/active-directory/get-started-azure-ad.md",
             "redirect_url": "/azure/active-directory/fundamentals/get-started-azure-ad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-administer.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-administer",
             "redirect_document_id": false

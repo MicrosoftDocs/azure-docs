@@ -54,5 +54,5 @@ In this quickstart, you’ve learned how to add new users to Azure AD Premium.
 
 You can use the following link to create a new user in Azure AD from the Azure portal.
 
-> [!div class="nextstepaction"]
-> [Add users to Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All users) 
+>[!div class="nextstepaction"]
+>[Add users to Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/)
