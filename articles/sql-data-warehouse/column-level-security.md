@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Data Warehouse column-level security | Microsoft Docs
-description: Column-Level Security (CLS) enables customers to control access to database table columns based on the user's execution context or their group membership. CLS simplifies the design and coding of security in your application. CLS enables you to implement restrictions on column access. For example, ensuring that specific users can access only certain columns of a table pertinent to their department. The access restriction logic is located in the database tier rather than away from the data in another application tier. The database applies the access restrictions every time that data access is attempted from any tier. This makes your security system more reliable and robust by reducing the surface area of your overall security system. In addition, this also eliminates the need for introducing views to filter out columns for imposing access restrictions on the users.
+description: Column-Level Security (CLS) enables customers to control access to database table columns based on the user's execution context or their group membership. CLS simplifies the design and coding of security in your application. CLS enables you to implement restrictions on column access. 
 services: sql-data-warehouse
 author: KavithaJonnakuti
 manager: craigg-msft
