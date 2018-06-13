@@ -44,5 +44,5 @@ These articles provide additional information on Azure Active Directory.
 * [See existing groups](active-directory-groups-view-azure-portal.md)
 * [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
 * [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
+* [Manage memberships of a group](fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)

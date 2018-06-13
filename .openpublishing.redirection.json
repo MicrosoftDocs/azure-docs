@@ -8494,7 +8494,7 @@
             "source_path": "articles/virtual-network/virtual-network-nsg-troubleshoot-powershell.md",
             "redirect_url": "/azure/virtual-network/diagnose-network-traffic-filter-problem",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/virtual-network/resource-groups-networking.md",
             "redirect_url": "/azure/networking/networking-overview",
@@ -9690,21 +9690,21 @@
             "redirect_url": "how-to-create-a-group",
             "redirect_document_id": false
         },
-       {
-        "source_path": "articles/migrate/migrate-scenarios-overview.md",
-        "redirect_url": "contoso-migration-overview",
-        "redirect_document_id": false
-       },
-       {
-        "source_path": "articles/migrate/migrate-scenarios-assessment.md",
-        "redirect_url": "contoso-migration-assessment",
-        "redirect_document_id": false
-       },
-       {
-        "source_path": "articles/migrate/migrate-scenarios-lift-and-shift.md",
-        "redirect_url": "contoso-migration-rehost-vm-sql-managed-instance",
-        "redirect_document_id": false
-       },
+        {
+            "source_path": "articles/migrate/migrate-scenarios-overview.md",
+            "redirect_url": "contoso-migration-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/migrate/migrate-scenarios-assessment.md",
+            "redirect_url": "contoso-migration-assessment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/migrate/migrate-scenarios-lift-and-shift.md",
+            "redirect_url": "contoso-migration-rehost-vm-sql-managed-instance",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
             "redirect_url": "azure-to-azure-tutorial-migrate",
@@ -11150,7 +11150,6 @@
             "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
             "redirect_document_id": false
         },
-
         {
             "source_path": "articles/active-directory/active-directory-identityprotection-risk-events-types.md",
             "redirect_url": "/azure/active-directory/active-directory-identity-protection-risk-events",
@@ -18257,69 +18256,69 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md",
-          "redirect_url": "/azure/iot-hub/tutorial-routing",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md",
+            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md",
-          "redirect_url": "/azure/iot-hub/tutorial-routing",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md",
+            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md",
-          "redirect_url": "/azure/iot-hub/tutorial-routing",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md",
+            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md",
-          "redirect_url": "/azure/iot-hub/iot-hub-node-node-device-management-get-started",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-node-node-device-management-get-started",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-csharp-node-firmware-update.md",
-          "redirect_url": "/azure/iot-hub/iot-hub-node-node-firmware-update",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-csharp-node-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-node-node-firmware-update",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md",
-          "redirect_url": "/azure/iot-hub/iot-hub-node-node-twin-getstarted",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-node-node-twin-getstarted",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-csharp-node-schedule-jobs.md",
-          "redirect_url": "/azure/iot-hub/iot-hub-node-node-schedule-jobs",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-csharp-node-schedule-jobs.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-node-node-schedule-jobs",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
-          "redirect_url": "/azure/iot-hub/tutorial-routing",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
+            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
-          "redirect_url": "/azure/iot-hub/tutorial-routing",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
+            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md",
-          "redirect_url": "/azure/iot-hub/tutorial-routing",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md",
+            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-java-java-process-d2c.md",
-          "redirect_url": "/azure/iot-hub/tutorial-routing",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-java-java-process-d2c.md",
+            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-node-node-process-d2c.md",
-          "redirect_url": "/azure/iot-hub/tutorial-routing",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-node-node-process-d2c.md",
+            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-python-python-process-d2c.md",
-          "redirect_url": "/azure/iot-hub/tutorial-routing",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-python-python-process-d2c.md",
+            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
@@ -18448,10 +18447,10 @@
         },
         {
             "source_path": "articles/marketplace/marketplace-grow-your-business-with-appsource.md",
-            "redirect_url": "/azure/marketplace/grow-your-business-with-appsource", 
+            "redirect_url": "/azure/marketplace/grow-your-business-with-appsource",
             "redirect_document_id": false
         },
-	{
+        {
             "source_path": "articles/marketplace/seller-guide/cloud-partner-portal-seller-guide.md",
             "redirect_url": "/azure/marketplace/marketplace-publishers-guide",
             "redirect_document_id": false
@@ -19500,6 +19499,16 @@
             "source_path": "articles/active-directory/role-based-access-control-access-change-history-report.md",
             "redirect_url": "/azure/role-based-access-control/change-history-report",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/role-based-access-control/index.md",
+            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/role-based-access-control/role-assignments-users.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
@@ -21467,11 +21476,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/role-based-access-control/index.md",
-            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/storage/blobs/index.md",
             "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
             "redirect_document_id": false
@@ -21835,8 +21839,8 @@
             "source_path": "articles/iot-suite/securing-iot-ground-up.md",
             "redirect_url": "/azure/iot-accelerators/securing-iot-ground-up",
             "redirect_document_id": false
-          },
-          {
+        },
+        {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
             "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-javascriptspa",
             "redirect_document_id": false
@@ -21877,7 +21881,7 @@
             "redirect_document_id": true
         },
         {
-                "source_path": "articles/active-directory/active-directory-b2b-allow-deny-list.md",
+            "source_path": "articles/active-directory/active-directory-b2b-allow-deny-list.md",
             "redirect_url": "/azure/active-directory/b2b/allow-deny-list",
             "redirect_document_id": true
         },
@@ -22081,7 +22085,8 @@
             "redirect_url": "/azure/storage/tables/table-storage-how-to-use-powershell",
             "redirect_document_id": true
         },
-        {   "source_path": "articles/application-gateway/application-gateway-ilb.md",
+        {
+            "source_path": "articles/application-gateway/application-gateway-ilb.md",
             "redirect_url": "/azure/application-gateway/application-gateway-ilb-arm",
             "redirect_document_id": false
         },
@@ -22100,18 +22105,16 @@
             "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-cli",
             "redirect_document_id": false
         },
-            {
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-vpn-connectivity-windows10.md",
             "redirect_url": "https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy",
             "redirect_document_id": true
-        }
-        ,
+        },
         {
             "source_path": "articles/security/azure-security-architecture-overview.md",
             "redirect_url": "https://docs.microsoft.com/azure/security",
             "redirect_document_id": true
-        }
-        ,
+        },
         {
             "source_path": "articles/security/azure-security-getting-started.md",
             "redirect_url": "https://docs.microsoft.com/azure/security",
@@ -22187,7 +22190,7 @@
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-features",
             "redirect_document_id": true
         },
-        {            
+        {
             "source_path": "articles/cognitive-services/LUIS/AzureIbizaSubscription.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
             "redirect_document_id": true
@@ -22197,52 +22200,51 @@
             "redirect_url": "/azure/key-vault/key-vault-overview",
             "redirect_document_id": true
         },
-      {
-        "source_path": "articles/data-factory/how-to-create-event-trigger.md",
-        "redirect_url": "/azure/data-factory/concepts-pipeline-execution-triggers",
-        "redirect_document_id": false
-      },
-      
-      {
+        {
+            "source_path": "articles/data-factory/how-to-create-event-trigger.md",
+            "redirect_url": "/azure/data-factory/concepts-pipeline-execution-triggers",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/connect/active-directory-aadconnect-guest-sync.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
             "redirect_document_id": false
-      },
-      {
+        },
+        {
             "source_path": "articles/azure-stack/asdk/asdk-deploy.md",
             "redirect_url": "/azure/azure-stack/asdk/asdk-install",
-             "redirect_document_id": false
-      },
-      {
-           "source_path": "articles/azure-stack/asdk/asdk-marketplace-item.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/asdk/asdk-marketplace-item.md",
             "redirect_url": "/azure/azure-stack/azure-stack-marketplace-publisher",
             "redirect_document_id": false
-      },
-      {
+        },
+        {
             "source_path": "articles/azure-stack/asdk/asdk-marketplace-item-offline.md",
             "redirect_url": "/azure/azure-stack/azure-stack-create-and-publish-marketplace-item",
             "redirect_document_id": false
-     },
-     {
-             "source_path": "articles/azure-stack/asdk/asdk-offer-services.md",
+        },
+        {
+            "source_path": "articles/azure-stack/asdk/asdk-offer-services.md",
             "redirect_url": "/azure/azure-stack/azure-stack-tutorial-tenant-vm",
             "redirect_document_id": false
-     },
-     {
+        },
+        {
             "source_path": "articles/azure-stack/asdk/asdk-subscribe-services.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-subscribe-services",
             "redirect_document_id": false
-     },
-     {
+        },
+        {
             "source_path": "articles/azure-stack/asdk/asdk-update-offers.md",
             "redirect_url": "/azure/azure-stack/create-add-on-plan",
             "redirect_document_id": false
-     },
-     {
+        },
+        {
             "source_path": "articles/azure-stack/asdk/asdk-create-vm-template.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-create-vm-template",
             "redirect_document_id": false
-     }, 
+        },
         {
             "source_path": "articles/active-directory/application-proxy-teams.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-teams",
@@ -22328,9 +22330,69 @@
             "redirect_url": "/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups",
             "redirect_document_id": true
         },
-	    {
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-administer.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-administer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-architecture.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-data-storage-eu.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-data-storage-eu",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-faq.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/identity-fundamentals.md",
+            "redirect_url": "/azure/active-directory/fundamentals/identity-fundamentals",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/license-users-groups.md",
+            "redirect_url": "/azure/active-directory/fundamentals/license-users-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/sign-up-organization.md",
+            "redirect_url": "/azure/active-directory/fundamentals/sign-up-organization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/understand-azure-identity-solutions.md",
+            "redirect_url": "/azure/active-directory/fundamentals/understand-azure-identity-solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/whats-new.md",
+            "redirect_url": "/azure/active-directory/fundamentals/whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/users-default-permissions.md",
+            "redirect_url": "/azure/active-directory/fundamentals/users-default-permissions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-membership-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-restore-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-restore-azure-portal",
             "redirect_document_id": false
         }
     ]
