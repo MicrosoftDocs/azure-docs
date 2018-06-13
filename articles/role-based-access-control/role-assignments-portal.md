@@ -1,5 +1,5 @@
 ---
-title: Use role-based access control (RBAC) to manage access in the Azure portal | Microsoft Docs
+title: Manage access using RBAC and the Azure portal | Microsoft Docs
 description: Get started with role-based access control (RBAC) in the Azure portal. Use RBAC to manage access for users, groups, and applications.
 services: active-directory
 documentationcenter: ''
