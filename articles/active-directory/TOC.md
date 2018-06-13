@@ -87,7 +87,7 @@
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
-### [Manage group membership](active-directory-groups-membership-azure-portal.md)
+### [Manage group membership](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -100,7 +100,7 @@
 ### [Enforce a naming policy for groups](groups-naming-policy.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
-### [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md)
+### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Manage group settings](active-directory-groups-settings-azure-portal.md) 
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)

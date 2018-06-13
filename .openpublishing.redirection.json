@@ -22379,6 +22379,16 @@
             "source_path": "articles/active-directory/users-default-permissions.md",
             "redirect_url": "/azure/active-directory/fundamentals/users-default-permissions",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-membership-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-restore-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-restore-azure-portal",
+            "redirect_document_id": false
         }
     ]
 }
