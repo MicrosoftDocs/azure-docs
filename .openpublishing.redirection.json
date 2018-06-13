@@ -22328,6 +22328,26 @@
             "redirect_url": "/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups",
             "redirect_document_id": true
         },
+        {
+            "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextensions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/classic/portal-use-docker.md",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextensions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/extensions-customscript-classic.md",
+            "redirect_url": "/azure/virtual-machines/extensions/custom-script-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/join-redhat-linux-vm-to-azure-active-directory-domain-service.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
+            "redirect_document_id": true
+        },
 	    {
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
