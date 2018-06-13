@@ -50,7 +50,7 @@ A *security principal* is an object that represents a user, group, or service pr
 
 ### Role definition
 
-A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete.
+A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
 
 ![Role definition for a role assignment](./media/overview/rbac-role-definition.png)
 

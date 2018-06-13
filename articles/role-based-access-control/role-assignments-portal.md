@@ -17,7 +17,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# Use RBAC to manage access in the Azure portal
+# Manage access using RBAC and the Azure portal
 
 [Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you use RBAC to manage access for users, groups, and applications in the Azure portal.
 
@@ -40,14 +40,6 @@ A role definition is a collection of permissions that you use for role assignmen
    You can see the number of users and groups that are assigned to each role.
 
    ![Roles list](./media/role-assignments-portal/roles-list.png)
-
-   If you have any custom roles, they will have an orange resource icon.
-
-   ![Custom role icon](./media/role-assignments-portal/roles-custom-role-icon.png)
-
-1. Choose a role to see which users and groups have been assigned to the role.
-
-   ![Users and groups assigned to a role](./media/role-assignments-portal/roles-users-groups.png)
 
 ## List access
 
@@ -176,6 +168,6 @@ You can assign roles and manage access with Azure RBAC commands in tools other t
 
 ## Next Steps
 
+* [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
+* [Tutorial: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 * [Built-in roles](built-in-roles.md)
-* [Custom roles](custom-roles.md)
-* [View activity logs for RBAC](change-history-report.md)
