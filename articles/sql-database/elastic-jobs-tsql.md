@@ -158,14 +158,16 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 
 In many data collection scenarios, it can be useful to include some of these scripting variables to help post-process the results of the job.
 
-- $(job_execution_id)
 - $(job_name)
 - $(job_id)
-- $(Job_version)
+- $(job_version)
 - $(step_id)
 - $(step_name)
+- $(job_execution_id)
+- $(job_execution_create_time)
+- $(target_group_name)
 
-For example, to group all results from the same job execution together, use the *$job_execution_id* as shown in the following command:
+For example, to group all results from the same job execution together, use the *$(job_execution_id)* as shown in the following command:
 
 
 ```sql
@@ -387,7 +389,7 @@ The following stored procedures are in the [jobs database](elastic-jobs-overview
 
 ## sp_add_job
 
-  Adds a new job executed by the job agent. 
+Adds a new job. 
   
 ### Syntax  
   
@@ -452,20 +454,20 @@ By default, members of the sysadmin fixed server role can execute this stored pr
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
 ## sp_update_job
-Changes the attributes of a job. within a job agent.
+
+Updates an existing job.
 
 ### Syntax
 
 ```sql
 [jobs].sp_update_job [ @job_name = ] 'job_name'  
-	[ @new_name = ] 'new_name'
+	[ , [ @new_name = ] 'new_name' ]
 	[ , [ @description = ] 'description' ]   
 	[ , [ @enabled = ] enabled ]
 	[ , [ @schedule_interval_type = ] schedule_interval_type ]  
 	[ , [ @schedule_interval_count = ] schedule_interval_count ]   
 	[ , [ @schedule_start_time = ] schedule_start_time ]   
 	[ , [ @schedule_end_time = ] schedule_end_time ]   
-	[ , [ @job_id = ] job_id OUTPUT ]
 ```
 
 ### Arguments
@@ -473,7 +475,7 @@ Changes the attributes of a job. within a job agent.
 The name of the job to be updated. job_name is nvarchar(128).
 
 [ **@new_name =** ] 'new_name'  
-The new name of the job to be updated. new_name is nvarchar(128).
+The new name of the job. new_name is nvarchar(128).
 
 [ **@description =** ] 'description'  
 The description of the job. description is nvarchar(512).
@@ -515,17 +517,22 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 ## sp_delete_job
-Changes the attributes of a job. within a job agent.
+
+Deletes an existing job.
 
 ### Syntax
 
 ```sql
-[jobs].sp_update_job [ @job_name = ] 'job_name'
+[jobs].sp_delete_job [ @job_name = ] 'job_name'
+	[ , [ @force = ] force ]
 ```
 
 ### Arguments
 [ **@job_name =** ] 'job_name'  
 The name of the job to be deleted. job_name is nvarchar(128).
+
+[ **@force =** ] force  
+Specifies whether to delete if the job has any executions in progress and cancel all in-progress executions (1) or fail if any job executions are in progress (0). force is bit.
 
 ### Return Code Values
 0 (success) or 1 (failure)
@@ -542,7 +549,8 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 ## sp_add_jobstep
-Adds a step (operation) to a job.
+
+Adds a step to a job.
 
 ### Syntax
 
@@ -569,7 +577,7 @@ Adds a step (operation) to a job.
      [ , [ @output_database_name = ] 'output_database_name' ]   
      [ , [ @output_schema_name = ] 'output_schema_name' ]   
      [ , [ @output_table_name = ] 'output_table_name' ]
-     [ , [ @job_version = ] 'job_version' ]
+     [ , [ @job_version = ] job_version OUTPUT ]
      [ , [ @max_parallelism = ] 'max_parallelism' ]
 ```
 
@@ -579,16 +587,19 @@ Adds a step (operation) to a job.
 The name of the job to which to add the step. job_name is nvarchar(128).
 
 [ **@step_id =** ] step_id  
-The sequence identification number for the job step. step_id is an int, with a default of 1. Step identification numbers start at 1 and increment without gaps. If not specified, the step_id will be automatically assigned to the last in the sequence of steps, for example if the job currently contains no steps, then this new step will be step 1; if the job currently contains step 1, then this new step will be step 2.
+The sequence identification number for the job step. Step identification numbers start at 1 and increment without gaps. If an existing step already has this id, then that step and all following steps will have their id's incremented so that this new step can be inserted into the sequence. If not specified, the step_id will be automatically assigned to the last in the sequence of steps. step_id is an int.
+
+[ **@step_name =** ] step_name  
+The name of the step. Must be specified, except for the first step of a job which (for convenience) has a default name of 'JobStep'. step_name is nvarchar(128).
 
 [ **@command_type =** ] 'command_type'  
 The type of command that is executed by this jobstep. command_type is nvarchar(50), with a default value of TSql, meaning that the value of the @command_type parameter is a T-SQL script.
-Private preview behavior  
+
 If specified, the value must be TSql.
 
 [ **@command_source =** ] 'command_source'  
 The type of location where the command is stored. command_source is nvarchar(50), with a default value of Inline, meaning that the value of the @command_source parameter is the literal text of the command.
-Private preview behavior  
+
 If specified, the value must be Inline.
 
 [ **@command =** ] 'command'  
@@ -618,7 +629,6 @@ The maximum amount of time allowed for the step to execute. If this time is exce
 [ **@output_type =** ] 'output_type'  
 If not null, the type of destination that the command’s first result set is written to. output_type is nvarchar(50), with a default of NULL.
 
-Preview behavior: 
 If specified, the value must be SqlDatabase.
 
 [ **@output_credential_name =** ] 'output_credential_name'  
@@ -640,13 +650,14 @@ If not null, the name of the database that contains the output destination table
 If not null, the name of the SQL schema that contains the output destination table. If output_type equals SqlDatabase, the default value is dbo. output_schema_name is nvarchar(128).
 
 [ **@output_table_name =** ] 'output_table_name'  
-If not null, the name of the table that the command’s first result set will be written to. Must be specified if output_type equals SqlDatabase. output_table_name is nvarchar(128), with a default value of NULL. The table in the destination database indicated through the parameter output_database_name will be created based on the schema of the returning result-set if it doesn’t already exist.
+If not null, the name of the table that the command’s first result set will be written to. If the table doesn't already exist, it will be created based on the schema of the returning result-set. Must be specified if output_type equals SqlDatabase. output_table_name is nvarchar(128), with a default value of NULL.
 
-[ **@job_version =** ] 'job_version'  
-Needs description.
+[ **@job_version =** ] job_version OUTPUT  
+Output parameter that will be assigned the new job version number. job_version is int.
 
-[ **@max_parallelism =** ] 'max_parallelism'  
-Needs description.
+[ **@max_parallelism =** ] 'max_parallelism' OUTPUT  
+The maximum level of parallelism per elastic pool. If set, then the job step will be restricted to only run on a maximum of that many databases per elastic pool. This applies to each elastic pool that is either directly included in the target group or is inside a server that is included in the target group. max_parallelism is int.
+
 
 ### Return Code Values
 0 (success) or 1 (failure)
@@ -665,13 +676,16 @@ For details about the permissions of these roles, see the Permission section in 
 
 ## sp_update_jobstep
 
-Changes the setting for a step in a job that is used to perform automated activities.
+Updates a job step.
 
 ### Syntax
 
 ```sql
 [jobs].sp_update_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
+     [ , [ @step_name = ] 'step_name' ]   
+     [ , [ @new_id = ] new_id ]   
+     [ , [ @new_name = ] 'new_name' ]   
      [ , [ @command_type = ] 'command_type' ]   
      [ , [ @command_source = ] 'command_source' ]  
      , [ @command = ] 'command'
@@ -687,7 +701,9 @@ Changes the setting for a step in a job that is used to perform automated activi
      [ , [ @output_server_name = ] 'output_server_name' ]   
      [ , [ @output_database_name = ] 'output_database_name' ]   
      [ , [ @output_schema_name = ] 'output_schema_name' ]   
-     [ , [ @output_table_name = ] 'output_table_name' ]
+     [ , [ @output_table_name = ] 'output_table_name' ]   
+     [ , [ @job_version = ] job_version OUTPUT ]
+     [ , [ @max_parallelism = ] 'max_parallelism' ]
 ```
 
 ### Arguments
@@ -695,19 +711,25 @@ Changes the setting for a step in a job that is used to perform automated activi
 The name of the job to which the step belongs. job_name is nvarchar(128).
 
 [ **@step_id =** ] step_id  
-The identification number for the job step to be modified. This number cannot be changed. step_id is an int, with a default of 1.
+The identification number for the job step to be modified. Either step_id or step_name must be specified. step_id is an int.
 
+[ **@step_name =** ] 'step_name'  
+The name of the step to be modified. Either step_id or step_name must be specified. step_name is nvarchar(128).
+
+[ **@new_id =** ] new_id  
+The new sequence identification number for the job step. Step identification numbers start at 1 and increment without gaps. If a step is reordered, then other steps will be automatically renumbered.
+
+[ **@new_name =** ] 'new_name'  
+The new name of the step. new_name is nvarchar(128).
 
 [ **@command_type =** ] 'command_type'  
 The type of command that is executed by this jobstep. command_type is nvarchar(50), with a default value of TSql, meaning that the value of the @command_type parameter is a T-SQL script.
 
-Private preview behavior  
 If specified, the value must be TSql.
 
 [ **@command_source =** ] 'command_source'  
 The type of location where the command is stored. command_source is nvarchar(50), with a default value of Inline, meaning that the value of the @command_source parameter is the literal text of the command.
 
-Private preview behavior  
 If specified, the value must be Inline.
 
 [ **@command =** ] 'command'  
@@ -735,31 +757,37 @@ The number of times to retry execution if the initial attempt fails. For example
 The maximum amount of time allowed for the step to execute. If this time is exceeded, then the job execution will terminate with a lifecycle of TimedOut. step_timeout_seconds is int, with default value of 43,200 seconds (12 hours).
 
 [ **@output_type =** ] 'output_type'  
-If not null, the type of destination that the command’s first result set is written to. output_type is nvarchar(50), with a default of NULL.
+If not null, the type of destination that the command’s first result set is written to. To reset the value of output_type back to NULL, set this parameter's value to '' (empty string). output_type is nvarchar(50), with a default of NULL.
 
-Private preview behavior
 If specified, the value must be SqlDatabase.
 
 [ **@output_credential_name =** ] 'output_credential_name'  
-If not null, the name of the database scoped credential that is used to connect to the output destination database. Must be specified if output_type equals SqlDatabase. output_credential_name is nvarchar(128), with a default value of NULL.
+If not null, the name of the database scoped credential that is used to connect to the output destination database. Must be specified if output_type equals SqlDatabase. To reset the value of output_credential_name back to NULL, set this parameter's value to '' (empty string). output_credential_name is nvarchar(128), with a default value of NULL.
 
 [ **@output_server_name =** ] 'output_server_name'  
-If not null, the fully qualified DNS name of the server that contains the output destination database. Must be specified if output_type equals SqlDatabase. output_server_name is nvarchar(256), with a default of NULL.
+If not null, the fully qualified DNS name of the server that contains the output destination database. Must be specified if output_type equals SqlDatabase. To reset the value of output_server_name back to NULL, set this parameter's value to '' (empty string). output_server_name is nvarchar(256), with a default of NULL.
 
 [ **@output_database_name =** ] 'output_database_name'  
-If not null, the name of the database that contains the output destination table. Must be specified if output_type equals SqlDatabase. output_database_name is nvarchar(128), with a default of NULL.
+If not null, the name of the database that contains the output destination table. Must be specified if output_type equals SqlDatabase. To reset the value of output_database_name back to NULL, set this parameter's value to '' (empty string). output_database_name is nvarchar(128), with a default of NULL.
 
 [ **@output_schema_name =** ] 'output_schema_name'  
-If not null, the name of the SQL schema that contains the output destination table. If output_type equals SqlDatabase, the default value is dbo. output_schema_name is nvarchar(128).
+If not null, the name of the SQL schema that contains the output destination table. If output_type equals SqlDatabase, the default value is dbo. To reset the value of output_schema_name back to NULL, set this parameter's value to '' (empty string). output_schema_name is nvarchar(128).
 
 [ **@output_table_name =** ] 'output_table_name'  
-If not null, the name of the table that the command’s first result set will be written to. Must be specified if output_type equals SqlDatabase. output_table_name is nvarchar(128), with a default value of NULL. The table in the destination database indicated through the parameter output_database_name will be created based on the schema of the returning result-set if it doesn’t already exist.
+If not null, the name of the table that the command’s first result set will be written to. If the table doesn't already exist, it will be created based on the schema of the returning result-set. Must be specified if output_type equals SqlDatabase. To reset the value of output_server_name back to NULL, set this parameter's value to '' (empty string). output_table_name is nvarchar(128), with a default value of NULL.
+
+[ **@job_version =** ] job_version OUTPUT  
+Output parameter that will be assigned the new job version number. job_version is int.
+
+[ **@max_parallelism =** ] 'max_parallelism' OUTPUT  
+The maximum level of parallelism per elastic pool. If set, then the job step will be restricted to only run on a maximum of that many databases per elastic pool. This applies to each elastic pool that is either directly included in the target group or is inside a server that is included in the target group. To reset the value of max_parallelism back to null, set this parameter's value to -1. max_parallelism is int.
+
 
 ### Return Code Values
 0 (success) or 1 (failure)
 
 ### Remarks
-When sp_update_jobstep succeeds, the job’s current version number is incremented. The next time the job is executed, the new version will be used. If the job is currently executing, that execution will not contain the new step.
+Any in-progress executions of the job will not be affected. When sp_update_jobstep succeeds, the job’s version number is incremented. The next time the job is executed, the new version will be used.
 
 ### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
@@ -772,6 +800,7 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 ## sp_delete_jobstep
+
 Removes a job step from a job.
 
 ### Syntax
@@ -780,6 +809,8 @@ Removes a job step from a job.
 ```sql
 [jobs].sp_delete_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]
+     [ , [ @step_name = ] 'step_name' ]   
+     [ , [ @job_version = ] job_version OUTPUT ]
 ```
 
 ### Arguments
@@ -787,13 +818,21 @@ Removes a job step from a job.
 The name of the job from which the step will be removed. job_name is nvarchar(128), with no default.
 
 [ **@step_id =** ] step_id  
-The identification number for the job step to be modified. This number cannot be changed. step_id is an int, with no default.
+The identification number for the job step to be deleted. Either step_id or step_name must be specified. step_id is an int.
+
+[ **@step_name =** ] 'step_name'  
+The name of the step to be deleted. Either step_id or step_name must be specified. step_name is nvarchar(128).
+
+[ **@job_version =** ] job_version OUTPUT  
+Output parameter that will be assigned the new job version number. job_version is int.
 
 ### Return Code Values
 0 (success) or 1 (failure)
 
 ### Remarks
-Since only one job step is supported at this time, sp_delete_jobstep succeeds the job has no steps.
+Any in-progress executions of the job will not be affected. When sp_update_jobstep succeeds, the job’s version number is incremented. The next time the job is executed, the new version will be used.
+
+The other job steps will be automatically renumbered to fill the gap left by the deleted job step.
  
 ### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
@@ -807,22 +846,23 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 ## sp_start_job
-Instructs the Job agent to execute the job immediately.
+
+Starts executing a job.
 
 ### Syntax
 
 
 ```sql
 [jobs].sp_start_job [ @job_name = ] 'job_name'   
-     [ , [ @job_version_number = ] job_version_number ]
+     [ , [ @job_execution_id = ] job_execution_id OUTPUT ]   
 ```
 
 ### Arguments
 [ **@job_name =** ] 'job_name'  
 The name of the job from which the step will be removed. job_name is nvarchar(128), with no default.
 
-[ **@job_version_number =** ] job_version_number
-The version of the job to be executed. job_version_number is an int, defaults to the latest version of the job.
+[ **@job_execution_id =** ] job_execution_id OUTPUT  
+Output parameter that will be assigned the job execution's id. job_version is uniqueidentifier.
 
 ### Return Code Values
 0 (success) or 1 (failure)
@@ -837,7 +877,8 @@ By default, members of the sysadmin fixed server role can execute this stored pr
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
 ## sp_stop_job
-Instructs Job agent to stop the execution of a job.
+
+Stops a job execution.
 
 ### Syntax
 
@@ -849,7 +890,7 @@ Instructs Job agent to stop the execution of a job.
 
 ### Arguments
 [ **@job_execution_id =** ] job_execution_id  
-The identification number of the job to stop. job_execution_id is uniqueidentifier, with default of NULL.
+The identification number of the job execution to stop. job_execution_id is uniqueidentifier, with default of NULL.
 
 ### Return Code Values
 0 (success) or 1 (failure)
@@ -863,36 +904,10 @@ By default, members of the sysadmin fixed server role can execute this stored pr
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-## sp_delete_job
-Deletes a job.
-
-### Syntax
-
-
-```sql
-[jobs].sp_delete_job [ @job_name = ] 'job_name'
-```
-
-
-### Arguments
-[ **@job_name =** ] 'job_name'  
-The name of the job to delete. job_name is nvarchar(128), with default of NULL.
-
-### Return Code Values
-0 (success) or 1 (failure)
-
-### Remarks
-When a job is deleted, all job history is deleted.
-
-### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
-- jobs_reader
-
-For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
-
 
 ## sp_add_target_group
-Add a target group, namely a collection of databases.
+
+Adds a target group.
 
 ### Syntax
 
@@ -923,7 +938,8 @@ By default, members of the sysadmin fixed server role can execute this stored pr
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
 ## sp_delete_target_group
-Deletes a specific target group.
+
+Deletes a target group.
 
 ### Syntax
 
@@ -950,19 +966,21 @@ By default, members of the sysadmin fixed server role can execute this stored pr
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
 ## sp_add_target_group_member
-Adds the specified target group member, database or collection of databases, to the specified target group.
+
+Adds a database or group of databases to a target group.
 
 ### Syntax
 
 ```sql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
          [ @membership_type = ] ‘membership_type’ ]   
-[ , [ @target_type = ] ‘target _type’ ]   
-    	[ , [ @refresh_credential_name = ] ‘refresh_credential_name’ ]   
-     	[ , [ @server_name = ] ‘server_name’ ]   
-    	[ , [ @database_name = ] ‘database_name’ ]   
-     	[ , [ @elastic_pool_name = ] ‘elastic_pool_name’ ]   
-     	[ , [ @target_id = ] ‘target_id’ OUTPUT ]
+        [ , [ @target_type = ] ‘target_type’ ]   
+        [ , [ @refresh_credential_name = ] ‘refresh_credential_name’ ]   
+        [ , [ @server_name = ] ‘server_name’ ]   
+        [ , [ @database_name = ] ‘database_name’ ]   
+        [ , [ @elastic_pool_name = ] ‘elastic_pool_name’ ]   
+        [ , [ @shard_map_name = ] ‘shard_map_name’ ]   
+        [ , [ @target_id = ] ‘target_id’ OUTPUT ]
 ```
 
 ### Arguments
@@ -973,7 +991,7 @@ The name of the target group to which the member will be added. target_group_nam
 Specifies if the target group member will be included or excluded. target_group_name is nvarchar(128), with default of ‘Include’. Valid values for target_group_name are ‘Include’ or ‘Exclude’.
 
 [ **@target_type =** ] 'target_type'  
-The type of target database or collection of databases including all databases in a server, all databases in an Elastic pool or a database. target_type is nvarchar(128), with no default. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’ or ‘SqlDatabase’. 
+The type of target database or collection of databases including all databases in a server, all databases in an Elastic pool, all databases in a shard map, or an individual database. target_type is nvarchar(128), with no default. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’, or ‘SqlShardMap’. 
 
 [ **@refresh_credential_name =** ] 'refresh_credential_name'  
 The name of the logical server. refresh_credential_name is nvarchar(128), with no default.
@@ -986,6 +1004,9 @@ The name of the database that should be added to the specified target group. dat
 
 [ **@elastic_pool_name =** ] ‘elastic_pool_name'  
 The name of the Elastic pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is ‘SqlElasticPool’. elastic_pool_name is nvarchar(128), with no default.
+
+[ **@shard_map_name =** ] ‘shard_map_name'  
+The name of the shard map pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is ‘SqlSqlShardMap’. shard_map_name is nvarchar(128), with no default.
 
 [ **@target_id =** ] target_group_id OUTPUT  
 The target identification number assigned to the target group member if created added to the target group. target_id is an output variable of type uniqueidentifier, with a default of NULL.
@@ -1035,7 +1056,8 @@ GO
 ```
 
 ## sp_delete_target_group_member
-Removes a specified target group member from the target group.
+
+Removes a target group member from a target group.
 
 ### Syntax
 
@@ -1086,6 +1108,7 @@ GO
 ```
 
 ## sp_purge_jobhistory
+
 Removes the history records for a job.
 
 ### Syntax
@@ -1093,8 +1116,8 @@ Removes the history records for a job.
 
 ```sql
 [jobs].sp_purge_jobhistory [ @job_name = ] 'job_name'   
-[ @job_id = ] job_id
-      [ @oldest_date = ] oldest_date
+      [ , [ @job_id = ] job_id ]
+      [ , [ @oldest_date = ] oldest_date []
 ```
 
 ### Arguments
