@@ -138,6 +138,10 @@ LicenseType              :
 az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
 ```
 
+> [!NOTE]
+> Changing the license type on the VM doe snot cause the system to reboot or cause a service interuption.  It is simply an update to a metadata flag.
+> 
+
 ## List all VMs with Azure Hybrid Benefit for Windows Server in a subscription
 To see and count all virtual machines deployed with Azure Hybrid Benefit for Windows Server, you can run the following command from your subscription:
 
