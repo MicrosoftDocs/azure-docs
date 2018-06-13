@@ -22340,7 +22340,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/classic/extensions-customscript-classic.md",
-            "redirect_url": "/azure/virtual-machines/extensions/custom-script-windows",
+            "redirect_url": "/azure/virtual-machines/extensions/custom-script-classic",
             "redirect_document_id": true
         },
         {
