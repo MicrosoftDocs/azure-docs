@@ -134,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
       | Attribute name    |   Attribute value |  
     | ------------------- | -------------------- |    
-	| ATTR_LOGINCLAIM | join([mail],"102938475Z","@" |
+	| ATTR_LOGINCLAIM | `join([mail],"102938475Z","@"` |
 	
 	  a. To open the **Add Attribute** dialog, select **Add attribute**.
 

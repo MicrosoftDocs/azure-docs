@@ -48,7 +48,7 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 |----------------|------------|  
 |"parameters"|The characters 'parameters' are returned.|  
 |"parameters[1]"|The characters 'parameters[1]' are returned.|  
-|"@@"|A 1 character string that contains '@' is returned.|  
+|"\@@"|A 1 character string that contains '@' is returned.|  
 |" @"|A 2 character string that contains ' @' is returned.|  
   
  Expressions can also appear inside strings, using a feature called *string interpolation* where expressions are wrapped in `@{ ... }`. For example: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
@@ -57,12 +57,12 @@ Expressions can appear anywhere in a JSON string value and always result in anot
   
 |JSON value|Result|  
 |----------------|------------|  
-|"@pipeline().parameters.myString"| Returns `foo` as a string.|  
-|"@{pipeline().parameters.myString}"| Returns `foo` as a string.|  
-|"@pipeline().parameters.myNumber"| Returns `42` as a *number*.|  
-|"@{pipeline().parameters.myNumber}"| Returns `42` as a *string*.|  
+|"\@pipeline().parameters.myString"| Returns `foo` as a string.|  
+|"\@{pipeline().parameters.myString}"| Returns `foo` as a string.|  
+|"\@pipeline().parameters.myNumber"| Returns `42` as a *number*.|  
+|"\@{pipeline().parameters.myNumber}"| Returns `42` as a *string*.|  
 |"Answer is: @{pipeline().parameters.myNumber}"| Returns the string `Answer is: 42`.|  
-|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
+|"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
 |"Answer is: @@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### Examples
