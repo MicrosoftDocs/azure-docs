@@ -250,18 +250,18 @@ To save the state measurement definition, choose **Save**:
 * Values with optional display labels.
 * Color for each value.
 
-&nbsp;&nbsp;To configure your **Fan Mode** state, use the information in the following table:
+&nbsp;&nbsp;&nbsp;&nbsp; To configure your **Fan Mode** state, use the information in the following table:
 
-&nbsp;&nbsp;| Setting              | Value             |
-&nbsp;&nbsp;| -------------------- | -----------       |
-&nbsp;&nbsp;| Display Name         | Fan Mode          |
-&nbsp;&nbsp;| Field Name           | fanmode           |
-&nbsp;&nbsp;| Value                | 1                 |
-&nbsp;&nbsp;| Display label        | Operating         |
-&nbsp;&nbsp;| Value                | 0                 |
-&nbsp;&nbsp;| Display label        | Stopped           |
+&nbsp;&nbsp;&nbsp;&nbsp; | Setting              | Value             |
+&nbsp;&nbsp;&nbsp;&nbsp; | -------------------- | -----------       |
+&nbsp;&nbsp;&nbsp;&nbsp; | Display Name         | Fan Mode          |
+&nbsp;&nbsp;&nbsp;&nbsp; | Field Name           | fanmode           |
+&nbsp;&nbsp;&nbsp;&nbsp; | Value                | 1                 |
+&nbsp;&nbsp;&nbsp;&nbsp; | Display label        | Operating         |
+&nbsp;&nbsp;&nbsp;&nbsp; | Value                | 0                 |
+&nbsp;&nbsp;&nbsp;&nbsp; | Display label        | Stopped           |
 
-&nbsp;&nbsp;To save the state measurement definition, choose **Save**:
+&nbsp;&nbsp;&nbsp;&nbsp; To save the state measurement definition, choose **Save**:
 
-&nbsp;&nbsp;![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
+&nbsp;&nbsp;&nbsp;&nbsp; ![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
 
