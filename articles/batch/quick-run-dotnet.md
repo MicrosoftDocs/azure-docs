@@ -23,7 +23,7 @@ This quickstart runs an Azure Batch job from a C# application built on the Azure
 
 ## Prerequisites
 
-* [Visual Studio IDE](https://www.visualstudio.com/vs) or Visual Studio 2017. 
+* [Visual Studio 2017](https://www.visualstudio.com/vs). 
 
 * A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
