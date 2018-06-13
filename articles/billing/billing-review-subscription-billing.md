@@ -106,7 +106,7 @@ Other status codes indicate error conditions. In these cases, the response objec
 }  
 ```  
 
-## See also  
-- [Enterprise reporting overview](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- [Enterprise Billing REST API](https://docs.microsoft.com/rest/api/billing/)   
+## Next steps 
+- Review [Enterprise reporting overview](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
+- Investigate [Enterprise Billing REST API](https://docs.microsoft.com/rest/api/billing/)   
 - [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/)   

@@ -43,9 +43,11 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-manage-portal">Create and manage Load Balancer</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-basic-internal-portal">Load balance internal traffic to VMs</a>
-    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">Create a zone redundant public Standard Load Balancer</a>
-    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">Load balance VMs within a zone</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">Load balance VMs across availability zones</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">Load balance VMs within a specific availability zone</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal">Configure port fowarding in Load Balancer</a>
   
 - title: Free Pluralsight Video Training
   items:
@@ -85,7 +87,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.network#networking">PowerShell</a></p><p><a href="/cli/azure/network">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/azurerm.network#load_balancer">PowerShell</a></p><p><a href="/cli/azure/network/lb">Azure CLI</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/overview/azure/network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.js</a></p><p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
     - title: REST
