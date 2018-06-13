@@ -7,7 +7,7 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/11/2018
 ms.author: manayar
 
 ---
@@ -53,23 +53,23 @@ For the virtual machine that hosts the domain controller or DNS, in Site Recover
 Create a domain controller on the secondary site. When you promote the server to a domain controller role, specify the name of the same domain that is being used on the primary site. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often it occurs. For more information, see [Scheduling replication between sites](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### Site-to-Azure protection
-First, [create a domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
+First, create a domain controller in an Azure virtual network. When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
 
-Then, [reconfigure the DNS server for the virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) to use the DNS server in Azure.
+Then, reconfigure the DNS server for the virtual network to use the DNS server in Azure.
 
 ![Azure Network](./media/site-recovery-active-directory/azure-network.png)
 
 ### Azure-to-Azure protection
-First, [create a domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
+First, create a domain controller in an Azure virtual network. When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
 
-Then, [reconfigure the DNS server for the virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) to use the DNS server in Azure.
+Then, reconfigure the DNS server for the virtual network to use the DNS server in Azure.
 
 ## Test failover considerations
 To avoid impact on production workloads, test failover occurs in a network that's isolated from the production network.
 
 Most applications require the presence of a domain controller or a DNS server. Therefore, before the application fails over, you must create a domain controller in the isolated network to be used for test failover. The easiest way to do this is to use Site Recovery to replicate a virtual machine that hosts a domain controller or DNS. Then, run a test failover of the domain controller virtual machine before you run a test failover of the recovery plan for the application. Here's how you do that:
 
-1. Use Site Recovery to [replicate](site-recovery-replicate-vmware-to-azure.md) the virtual machine that hosts the domain controller or DNS.
+1. Use Site Recovery to [replicate](vmware-azure-tutorial.md) the virtual machine that hosts the domain controller or DNS.
 2. Create an isolated network. Any virtual network that you create in Azure is isolated from other networks by default. We recommend that you use the same IP address range for this network that you use in your production network. Don't enable site-to-site connectivity on this network.
 3. Provide a DNS IP address in the isolated network. Use the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure, provide the IP address for the virtual machine that's used on failover. To enter the IP address, in the replicated virtual machine, in the **Compute and Network** settings, select the **Target IP** settings.
 

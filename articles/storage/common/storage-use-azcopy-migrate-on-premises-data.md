@@ -2,7 +2,7 @@
 title: Migrate on-premises data to Azure Storage by using AzCopy| Microsoft Docs
 description: Use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure Storage.  
 services: storage 
-author: ruthogunnnaike
+author: roygara
 manager: jeconnoc 
 
 ms.service: storage 
@@ -10,7 +10,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
-ms.author: v-ruogun 
+ms.author: rogarana
 --- 
 
 #  Migrate on-premises data to cloud storage by using AzCopy
@@ -19,8 +19,8 @@ AzCopy is a command-line tool for copying data to or from Azure Blob storage, Az
 
 You can download two versions of AzCopy:
 
-* [AzCopy on Linux](storage-use-azcopy.md) is built with .NET Core Framework. It targets Linux platforms by offering POSIX-style command-line options. 
-* [AzCopy on Windows](../storage-use-azcopy.md) is built with .NET Framework. It offers Windows-style command-line options. 
+* [AzCopy on Linux](storage-use-azcopy-linux.md) is built with .NET Core Framework. It targets Linux platforms by offering POSIX-style command-line options. 
+* [AzCopy on Windows](storage-use-azcopy.md) is built with .NET Framework. It offers Windows-style command-line options. 
  
 In this tutorial, you learn how to:
 

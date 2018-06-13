@@ -2,19 +2,16 @@
 title: C++ tutorial for Azure Cosmos DB | Microsoft Docs
 description: A C++ tutorial that creates a C++ database and console application using an Azure Cosmos DB endorsed SDK for C++. Azure Cosmos DB is a planet-scale database service.
 services: cosmos-db
-documentationcenter: cpp
-author: asthana86
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
 
-ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: cpp
-ms.topic: article
-ms.date: 12/25/2016
-ms.author: aasthan
+ms.topic: tutorial
+ms.date: 06/05/2018
+ms.author: sngun
 
 ---
 # Azure Cosmos DB: C++ console application tutorial for the SQL API
@@ -27,8 +24,6 @@ ms.author: aasthan
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Welcome to the C++ tutorial for the Azure Cosmos DB SQL API endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources, including a C++ database.
 
@@ -44,7 +39,7 @@ This quickstart covers:
 * Deleting a document
 * Deleting the C++ Azure Cosmos DB database
 
-Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/stalker314314/sql-apiCpp). See [Get the complete solution](#GetSolution) for quick instructions.
+Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/stalker314314/DocumentDBCpp). See [Get the complete solution](#GetSolution) for quick instructions.
 
 Now let's get started!
 

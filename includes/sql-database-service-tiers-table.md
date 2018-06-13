@@ -52,6 +52,7 @@ sql-database-single-database-resources.md
 | Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
+
 > [!IMPORTANT]
 > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
@@ -59,3 +60,4 @@ sql-database-single-database-resources.md
 > 
 >\*\* Max DTUs per database starting at 200 DTUs and higher in Standard are in preview.
 >
+

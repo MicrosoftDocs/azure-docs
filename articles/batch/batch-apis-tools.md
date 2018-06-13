@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 02/26/2018
+ms.date: 05/15/2018
 ms.author: danlep
 ---
 
@@ -24,11 +24,10 @@ You can efficiently process large-scale workloads for your organization, or prov
 > 
 
 ## Azure accounts for Batch development
-When you develop Batch solutions, you use the following accounts in Microsoft Azure.
+When you develop Batch solutions, you use the following accounts in your Azure subscription:
 
-* **Azure account and subscription** - If you don't already have an Azure subscription, you can activate your [Visual Studio subscriber benefit][msdn_benefits], or sign up for a [free Azure account][free_account]. When you create an account, a default subscription is created for you.
-* **Batch account** - Azure Batch resources, including pools, compute nodes, jobs, and tasks, are associated with an Azure Batch account. When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name, the URL of the account, and either an access key or an Azure Active Directory token. You can [create a Batch account](batch-account-create-portal.md) in the Azure portal, or programmatically.
-* **Storage account** - Batch includes built-in support for working with files in [Azure Storage][azure_storage]. Nearly every Batch scenario uses Azure Blob storage for staging the programs that your tasks run and the data that they process, and for the storage of output data that they generate. To create a Storage account, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
+* **Batch account** - Azure Batch resources, including pools, compute nodes, jobs, and tasks, are associated with an Azure [Batch account](batch-api-basics.md#account). When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name, the URL of the account, and either an access key or an Azure Active Directory token. You can [create a Batch account](batch-account-create-portal.md) in the Azure portal, or programmatically.
+* **Storage account** - Batch includes built-in support for working with files in [Azure Storage][azure_storage]. Nearly every Batch scenario uses Azure Blob storage for staging the programs that your tasks run and the data that they process, and for the storage of output data that they generate. For storage account options in Batch, see the [Batch feature overview](batch-api-basics.md#azure-storage-account).
 
 ## Batch service APIs
 
@@ -58,7 +57,7 @@ The Azure Resource Manager APIs for Batch provide programmatic access to Batch a
 These command-line tools provide the same functionality as the Batch service and Batch Management APIs: 
 
 * [Batch PowerShell cmdlets][batch_ps]: The Azure Batch cmdlets in the [Azure PowerShell](/powershell/azure/overview) module enable you to manage Batch resources with PowerShell.
-* [Azure CLI 2.0](/cli/azure/overview): The Azure Command-Line Interface (Azure CLI) is a cross-platform toolset that provides shell commands for interacting with many Azure services, including the Batch service and Batch Management service. See [Manage Batch resources with Azure CLI](batch-cli-get-started.md) for more information about using the Azure CLI with Batch.
+* [Azure CLI 2.0](/cli/azure): The Azure Command-Line Interface (Azure CLI) is a cross-platform toolset that provides shell commands for interacting with many Azure services, including the Batch service and Batch Management service. See [Manage Batch resources with Azure CLI](batch-cli-get-started.md) for more information about using the Azure CLI with Batch.
 
 ## Other tools for application development
 

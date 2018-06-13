@@ -3,18 +3,20 @@ title: Customizing claims issued in the SAML token for enterprise applications i
 description: Learn how to customize the claims issued in the SAML token for enterprise applications in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: jeevansd
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: jeedes
+ms.author: celested
+ms.reviewer: jeedes
 ms.custom: aaddev
 
 ---
@@ -37,7 +39,7 @@ You can edit any of the default claim values. Select the claim row in the SAML t
 
 ![Edit User Attribute][2]
 
-You can also remove claims (other than NameIdentifier) using the context menu, which opens by clicking on the **...** icon.  You can also add new claims using the **Add attribute** button.
+You can also remove claims (other than NameIdentifier) using the context menu, which opens by clicking on the **...** icon. You can also add new claims using the **Add attribute** button.
 
 ![Edit User Attribute][3]
 

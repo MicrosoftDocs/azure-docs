@@ -1,21 +1,14 @@
 ---
-title: Automating deployment of a VM in Amazon Web Services | Microsoft Docs
+title: Automating deployment of a VM in Amazon Web Services
 description: This article demonstrates how to use Azure Automation to automate creation of an Amazon Web Service VM
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: ''
-
-ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/29/2017
-ms.author: tiandert; bwren
-
+ms.component: process-automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: conceptual
+manager: carmonm
 ---
 # Azure Automation scenario - provision an AWS virtual machine
 In this article, you learn how you can leverage Azure Automation to provision a virtual machine in your Amazon Web Service (AWS) subscription and give that VM a specific name – which AWS refers to as “tagging” the VM.

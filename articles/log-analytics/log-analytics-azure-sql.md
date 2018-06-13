@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
 ---
 
@@ -83,10 +83,6 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## Using the solution
 
->[!NOTE]
-> Please upgrade your Log Analytics to get the latest version of Azure SQL Analytics.
->
-
 When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases and Azure SQL elastic pools that the solution is connected to.
 
 ![Azure SQL Analytics tile](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
@@ -99,7 +95,7 @@ Click on the **Azure SQL Analytics** tile to open the Azure SQL Analytics dashbo
 
 Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, the drill-down report is opened.
 
-![Azure SQL Analytics Timeouts](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+![Azure SQL Analytics Timeouts](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
 Each perspective provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
 
@@ -136,35 +132,29 @@ Through the Query duration and query waits perspectives, you can correlate the p
 
 ### Analyze data and create alerts
 
-You can easily create alerts with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use for alerting:
+You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use use with a log alert:
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 *High DTU on Azure SQL Database*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 *High DTU on Azure SQL Database Elastic Pool*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
-You can use these alert-based queries to alert on specific thresholds for both Azure SQL Database and elastic pools. To configure an alert for your Log Analytics workspace:
 
-#### To configure an alert for your workspace
-
-1. Go to the [OMS portal](http://mms.microsoft.com/) and sign in.
-2. Open the workspace that you have configured for the solution.
-3. On the Overview page, click the **Azure SQL Analytics (Preview)** tile.
-4. Run one of the example queries.
-5. In Log Search, click **Alert**.  
-![create alert in search](./media/log-analytics-azure-sql/create-alert01.png)
-6. On the **Add Alert Rule** page, configure the appropriate properties and the specific thresholds that you want and then click **Save**.  
-![add alert rule](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## Next steps
 

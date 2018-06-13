@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: zivraf
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/09/2018
+ ms.author: zivr
+ ms.custom: include file
+---
 
 ## View VMs scheduled for maintenance in the portal
 

@@ -1,26 +1,22 @@
 ---
-title: Azure SQL Database benchmark overview
+title: Azure SQL Database DTU benchmark overview
 description: This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database.
 services: sql-database
-documentationcenter: na
-author: jan-eng
-manager: jhubbard
-editor: monicar
-
-ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
+author: CarlRabeler
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 06/21/2016
-ms.author: janeng
+ms.topic: conceptual
+ms.date: 04/01/2018
+ms.author: carlrab
 
 ---
-# Azure SQL Database benchmark overview
+# Azure SQL Database DTU benchmark overview
 ## Overview
-Microsoft Azure SQL Database offers three [service tiers](sql-database-service-tiers.md) with multiple performance levels. Each performance level provides an increasing set of resources, or ‘power’, designed to deliver increasingly higher throughput.
+In the DTU-based purchasing model, Microsoft Azure SQL Database offers three [service tiers](sql-database-service-tiers-dtu.md) with multiple performance levels. Each performance level provides an increasing set of resources, or ‘power’, designed to deliver increasingly higher throughput.
+
+> [!IMPORTANT]
+> Azure SQL Database also now supports a vCore-based purchasing model (preview). For information, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
 It is important to be able to quantify how the increasing power of each performance level translates into increased database performance. To do this Microsoft has developed the Azure SQL Database Benchmark (ASDB). The benchmark exercises a mix of basic operations found in all OLTP workloads. We measure the throughput achieved for databases running in each performance level.
 
@@ -126,6 +122,8 @@ The Azure SQL Database Benchmark measures the relative performance of Azure SQL 
 ## Resources
 [Introduction to SQL Database](sql-database-technical-overview.md)
 
-[Service tiers and performance levels](sql-database-service-tiers.md)
+[DTU-based service tiers and performance levels](sql-database-service-tiers-dtu.md)
+
+[vCore-based service tiers and performance levels](sql-database-service-tiers-vcore.md)
 
 [Performance guidance for single databases](sql-database-performance-guidance.md)

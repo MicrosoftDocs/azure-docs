@@ -1,11 +1,11 @@
-﻿---
+---
 
 title: Azure Logging and Auditing | Microsoft Docs
 description: Learn about how you can use logging data to gain deep insights about your application.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 
 ms.assetid: 
@@ -68,11 +68,11 @@ The following table list most important type of logs available in Azure.
 |[Activity Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Control-plane events on Azure Resource Manager resources|	Provide insight into the operations that were performed on resources in your subscription.|	Rest API & [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|frequent data about the operation of Azure Resource Manager resources in subscription|	Provide insight into operations that your resource performed itself| Azure Monitor, [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[AAD Reporting](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Logs and Reports|User sign-in activities & System activity information about users and group management|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Virtual Machine & Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows Event log & Linux Syslog|	Captures system data and logging data on the virtual machines and transfers that data into a storage account of your choice.|	Windows using [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics storage) and Linux in Azure monitor|
+|[Virtual Machine & Cloud Services](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows Event log & Linux Syslog|	Captures system data and logging data on the virtual machines and transfers that data into a storage account of your choice.|	Windows using [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics storage) and Linux in Azure monitor|
 |[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Storage logging and provides metrics data for a storage account|Provides insight into trace requests, analyze usage trends, and diagnose issues with your storage account.|	REST API or the [client library](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG (Network Security Group) Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON format and shows outbound and inbound flows on a per rule basis|View information about ingress and egress IP traffic through a Network Security Group|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logs, exceptions,and custom diagnostics|	Application Performance Management (APM) service for web developers on multiple platforms.|	REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Process Data / Security Alert|	Azure Security Center Alert, OMS Alert|	Security information and alerts.| 	REST APIs, JSON|
+|Process Data / Security Alert|	Azure Security Center Alert, Log Analytics Alert|	Security information and alerts.| 	REST APIs, JSON|
 
 ### Activity Log
 The [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports [control-plane events](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) for your subscriptions. Using the Activity Log, you can determine the “what, who, and when” for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations.
@@ -99,7 +99,7 @@ Integration Scenarios
 
 -	Export the Activity Log with Log Profiles to [log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
-You can use a storage account or [event hub namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) that is not in the same subscription as the one emitting log. The user who configures the setting must have the appropriate [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) access to both subscriptions
+You can use a storage account or [event hub namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) that is not in the same subscription as the one emitting log. The user who configures the setting must have the appropriate [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) access to both subscriptions
 ### Azure Diagnostic Logs
 Azure Diagnostic Logs are emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, [Windows event system logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)are one category of Diagnostic Log for VMs and [blob, table, and queue logs](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) are categories of Diagnostic Logs for storage accounts) and differ from the Activity Log, which provides insight into the operations that were performed on resources in your subscription.
 
@@ -112,7 +112,7 @@ Azure Diagnostics logs offer multiple configuration options that is,Azure portal
 
 -	[Stream them to Event Hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) for ingestion by a third-party service or custom analytics solution such as [PowerBI.](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
--	Analyze them with [OMS Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+-	Analyze them with [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 
 **Supported services, schema for Diagnostic Logs and supported log categories per resource type**
 
@@ -264,7 +264,7 @@ In addition to preceding logging capabilities, Network Watcher currently has the
 
 ### Application insight
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It is automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It automatically detects performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.
 
  It's designed to help you continuously improve performance and usability.
 
@@ -331,11 +331,11 @@ Many security operations and incident response teams rely on a Security Informat
 
 ## Log Analytics
 
-Log Analytics is a service in [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) that helps you collect and analyze data generated by resources in your cloud and on-premises environments. It gives you real-time insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers regardless of their physical location.
+Log Analytics is a service in Azure that helps you collect and analyze data generated by resources in your cloud and on-premises environments. It gives you real-time insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers regardless of their physical location.
 
 ![Log Analytics](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-At the center of Log Analytics is the OMS repository,which is hosted in the Azure cloud. Data is collected into the repository from connected sources by configuring data sources and adding solutions to your subscription. Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the repository. This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
+At the center of Log Analytics is the Log Analytics workspace, which is hosted in the Azure cloud. Data is collected into the workspace from connected sources by configuring data sources and adding solutions to your subscription. Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the workspace. This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
 
 Connected sources are the computers and other resources that generate data collected by Log Analytics. This can include agents installed on [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) and [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) computers that connect directly or agents in [a connected System Center Operations Manager management group.](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents) Log Analytics can also collect data from [Azure storage.](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)
 

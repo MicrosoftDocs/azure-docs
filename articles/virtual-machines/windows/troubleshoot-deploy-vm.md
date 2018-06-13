@@ -4,7 +4,7 @@ description: Troubleshoot deploying Windows virtual machine issues in Azurethe R
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -92,10 +92,6 @@ Drivers for Windows-based VMs are located [here](n-series-driver-setup.md).
 ## I can’t find a GPU instance within my N-Series VM
 
 To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](n-series-driver-setup.md) and [Linux VMs](../linux/n-series-driver-setup.md).
-
-## Are client images supported for N-Series?
-
-Currently, Azure only supports N-Series on VMs running Windows Server and Linux operating systems.
 
 ## Is N-Series VMs available in my region?
 

@@ -1,26 +1,22 @@
 ---
 title: Device firmware update with Azure IoT Hub (Python) | Microsoft Docs
 description: How to use device management on Azure IoT Hub to initiate a device firmware update. You use the Azure IoT SDKs for Python to implement a simulated device app and a service app that triggers the firmware update.
-services: iot-hub
-documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: ''
-
-ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: python
+ms.topic: conceptual
 ms.date: 02/16/2018
-ms.author: v-masebo
-
+ms.author: kgremban
 ---
+
 # Use device management to initiate a device firmware update (Python/Python)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This tutorial shows you how to:
 

@@ -4,8 +4,8 @@ description: This tutorial provides step-by-step instructions for using the Azur
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -299,7 +299,7 @@ You can test run a pipeline before you publish artifacts (linked services, datas
     ![Show notifications](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## Configure code repository
-You can publish the code associated with your data factory artifacts to a Visual Studio Team Services code repository. In this step, you create the code repository. 
+You can publish the code associated with your data factory artifacts to a Visual Studio Team Services code repository. In this step, you create the code repository.  To learn more about visual authoring with VSTS integration, see [Author with VSTS Git integration](author-visually.md#author-with-vsts-git-integration).
 
 If you don't want to work with the Visual Studio Team Services code repository, you can skip this step. You can continue publishing to Data Factory as you did in the previous step. 
 

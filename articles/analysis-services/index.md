@@ -6,7 +6,7 @@ author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

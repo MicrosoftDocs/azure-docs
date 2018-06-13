@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 06/06/2018
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -54,7 +55,7 @@ The [account](#active-directory-account) created for reading and writing to AD D
 
 | Permission | Used for |
 | --- | --- |
-| <li>Replicate Directory Changes</li><li>Replicate Directory Changes All |Password sync |
+| <li>Replicate Directory Changes</li><li>Replicate Directory Changes All |Password hash sync |
 | Read/Write all properties User |Import and Exchange hybrid |
 | Read/Write all properties iNetOrgPerson |Import and Exchange hybrid |
 | Read/Write all properties Group |Import and Exchange hybrid |
@@ -83,10 +84,10 @@ Which permissions you require depends on the optional features you enable. If yo
 | Feature | Permissions |
 | --- | --- |
 | msDS-ConsistencyGuid feature |Write permissions to the msDS-ConsistencyGuid attribute documented in [Design Concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Password sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
+| Password hash sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
 | Exchange hybrid deployment |Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
-| Password writeback |Write permissions to the attributes documented in [Getting started with password management](../active-directory-passwords-writeback.md) for users. |
+| Password writeback |Write permissions to the attributes documented in [Getting started with password management](../authentication/howto-sspr-writeback.md) for users. |
 | Device writeback |Permissions granted with a PowerShell script as described in [device writeback](active-directory-aadconnect-feature-device-writeback.md). |
 | Group writeback |Read, Create, Update, and Delete group objects for synchronized **Office 365 groups**.  For more information see [Group Writeback](active-directory-aadconnect-feature-preview.md#group-writeback).|
 
@@ -181,9 +182,9 @@ The account is also granted permissions to files, registry keys, and other objec
 ### Azure AD service account
 An account in Azure AD is created for the sync service's use. This account can be identified by its display name.
 
-![AD account](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![AD account](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-The name of the server the account is used on can be identified in the second part of the user name. In the picture, the server name is FABRIKAMCON. If you have staging servers, each server has its own account.
+The name of the server the account is used on can be identified in the second part of the user name. In the picture, the server name is DC1. If you have staging servers, each server has its own account.
 
 The service account is created with a long complex password that does not expire. It is granted a special role **Directory Synchronization Accounts** that has only permissions to perform directory synchronization tasks. This special built-in role cannot be granted outside of the Azure AD Connect wizard. The Azure portal shows this account with the role **User**.
 

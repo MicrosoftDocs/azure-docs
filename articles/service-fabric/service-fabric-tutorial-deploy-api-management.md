@@ -1,4 +1,4 @@
----
+﻿---
 title: Integrate Azure Service Fabric with API Management | Microsoft Docs
 description: In this tutorial, you learn how to quickly get started with Azure API Management and Service Fabric.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/26/2018
+ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
 ---
@@ -56,7 +56,7 @@ Now that you have a secure [Windows cluster](service-fabric-tutorial-create-vnet
 Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -113,7 +113,7 @@ For this tutorial deploy a basic web server, which echoes messages back to the u
 
    ```bash
    git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-   cd service-fabric-java-getting-started
+   cd service-fabric-java-getting-started/reliable-services-actor-sample
    ```
 
 2. Edit *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Update the endpoint so the service listens on port 8081.
@@ -133,7 +133,7 @@ For this tutorial deploy a basic web server, which echoes messages back to the u
 
    ```bash
    cd Scripts
-   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   sfctl cluster select --endpoint https://mycluster.southcentralus.cloudapp.azure.com:19080 --pem <full_path_to_pem_on_dev_machine> --no-verify
    ./install.sh
    ```
 

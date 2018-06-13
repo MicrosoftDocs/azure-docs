@@ -10,7 +10,7 @@ editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
@@ -21,7 +21,7 @@ ms.author: mcoskun
 
 ## Transaction
 A transaction is a sequence of operations performed as a single logical unit of work.
-A transaction must exhibit the following ACID properties. (see: https://technet.microsoft.com/en-us/library/ms190612)
+A transaction must exhibit the following ACID properties. (see: https://technet.microsoft.com/library/ms190612)
 * **Atomicity**: A transaction must be an atomic unit of work. In other words, either all its data modifications are performed, or none of them is performed.
 * **Consistency**: When completed, a transaction must leave all data in a consistent state. All internal data structures must be correct at the end of the transaction.
 * **Isolation**: Modifications made by concurrent transactions must be isolated from the modifications made by any other concurrent transactions. The isolation level used for an operation within an ITransaction is determined by the IReliableState performing the operation.

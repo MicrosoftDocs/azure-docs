@@ -4,7 +4,7 @@ title: Azure Health Analytics Blueprint
 description: Guidance for deploying a HIPAA/HITRUST Health Analytics Blueprint 
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
-ms.author: simorjay
+ms.author: jomolesk
 
 ---
 
@@ -69,22 +69,15 @@ HIPAA and HITRUST (through the Common Security Framework
     compliance reviews of any solution built using this foundational
     architecture.
 
-For a quick overview of how this solution works, watch this [video](https://aka.ms/healthblueprintvideo) 
-explaining and demonstrating its deployment.
-
 ## Deploying the automation
 
 - To deploy the solution, follow the instructions provided in the deployment guidance. 
 
 [![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
 
+For a quick overview of how this solution works, watch this [video](https://aka.ms/healthblueprintvideo) explaining and demonstrating its deployment.
+
 - Frequently asked question can be found in the [FAQ](https://aka.ms/healthblueprintfaq) guidance.
-
-
-## Solution components
-
-
-The foundational architecture is composed of the following components:
 
 -   **Architectural diagram.** The diagram shows the reference
     architecture used for the blueprint and the example use case scenario.
@@ -108,6 +101,10 @@ The foundational architecture is composed of the following components:
     solution, provided via a .zip file that contains a pre-built
     demo functions.
 
+## Solution components
+
+
+The foundational architecture is composed of the following components:
 
 -   **[Threat model](https://aka.ms/healththreatmodel)** A comprehensive threat model is provided in tm7
     format for use with the [Microsoft Threat Modeling
@@ -117,12 +114,11 @@ The foundational architecture is composed of the following components:
     the points of potential risk in the system infrastructure when
     developing machine learning components or other modifications.
 
--   **[Customer responsibility matrix](https://aka.ms/healthcrmblueprint)** A Microsoft Excel workbook lists
+-   **[Customer implementation matrix](https://aka.ms/healthcrmblueprint)** A Microsoft Excel workbook lists
     the relevant HITRUST requirements and explains how Microsoft and the
     customer are responsible for meeting each one.
 
--   **[Health review. The solution was reviewed by
-    Coalfire systems, Inc. The Health Compliance (HIPAA, and HITRUST)
+-   **[Health review.](https://aka.ms/healthreviewpaper)** The solution was reviewed by Coalfire systems, Inc. The Health Compliance (HIPAA, and HITRUST)
     Review and guidance for implementation provides an auditor\'s review
     of the solution, and considerations for transforming the blueprint
     to a production-ready deployment.
@@ -141,9 +137,9 @@ sixth role is defined for an auditor to evaluate compliance with HIPAA
 and other regulations. Azure Role-based Access Control (RBAC) enables
 precisely focused access management for each user of the solution
 through built-in and custom roles. See [Get started with Role-Based
-Access Control in the Azure portal](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)
+Access Control in the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview)
 and [Built-in roles for Azure role-based access
-control](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)
+control](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 for detailed information about RBAC, roles, and permissions.
 
 ### Site Administrator
@@ -154,7 +150,7 @@ subscription. They control the overall deployment, but have no access to
 patient records.
 
 -   Default role assignments:
-    [Owner](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+    [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Custom role assignments: N/A
 
@@ -166,9 +162,9 @@ The database analyst administers the SQL Server instance and database.
 They have no access to patient records.
 
 -   Built-in role assignments: [SQL DB
-    Contributor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor),
+    Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor),
     [SQL Server
-    Contributor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+    Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Custom role assignments: N/A
 
@@ -182,7 +178,7 @@ import, export, and manage data, and run reports. The data scientist has
 access to patient data, but does not have administrative privileges.
 
 -   Built-in role assignments: [Storage Account
-    Contributor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+    Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Custom role assignments: N/A
 
@@ -221,7 +217,7 @@ The auditor evaluates the solution for compliance. They have no direct
 access to the network.
 
 -   Built-in role assignments:
-    [Reader](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+    [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Custom role assignments: N/A
 
@@ -323,7 +319,7 @@ built into the Blueprint outlined to:
 - **INGEST** data raw sources including FHIR data source
 - **STORE**  sensitive information
 - **ANALYZE** and predict outcomes
-- **INTERACT** with the results and perditions
+- **INTERACT** with the results and predictions
 - **IDENTITY** management of solution
 - **SECURITY** enabled features
 
@@ -355,7 +351,7 @@ built into the Blueprint outlined to:
     suspicious incidents and takes appropriate action to resolve them.
 
 -   [Azure Role-based Access Control
-    (RBAC)](/azure/active-directory/role-based-access-control-configure)
+    (RBAC)](/azure/role-based-access-control/role-assignments-portal)
     enables precisely focused access management for Azure. Subscription
     access is limited to the subscription administrator, and Azure Key
     Vault access is limited to the site administrator. Strong passwords
@@ -371,7 +367,7 @@ built into the Blueprint outlined to:
 **Roles:**
 
 -   The solution makes use of [built-in
-    roles](/azure/active-directory/role-based-access-built-in-roles)
+    roles](/azure/role-based-access-control/built-in-roles)
     to manage access to resources.
 
 -   All users are assigned specific built-in roles by default.
@@ -533,7 +529,7 @@ routing of all events from any source to any destination, providing:
 -   [Logging is
     enabled](/azure/machine-learning/studio/web-services-logging)
     for Machine Learning web services.
-- using [Machine Learning](/azure/machine-learning/preview/experimentation-service-configuration) workbench requires the development of experiments, that provides the ability to predict to a solution set. [Integrating the workbench](/azure/machine-learning/preview/using-git-ml-project) can help streamline management of experiments.
+- using [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench requires the development of experiments, that provides the ability to predict to a solution set. [Integrating the workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) can help streamline management of experiments.
 
 ## SECURITY
 

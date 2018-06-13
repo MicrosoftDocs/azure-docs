@@ -1,18 +1,14 @@
 ---
-title: Anomaly Detection in Azure Usage Guide (Preview)| Microsoft Docs
-description: Use stream analytics and machine learning to detect anomalies.
+title: Anomaly detection in Azure Stream Analytics (Preview)
+description: This article describes how to use Azure Stream Analytics and Azure Machine Learning together to detect anomalies.
 services: stream-analytics
-documentationcenter: ''
 author: dubansal
-manager: jhubbard
-
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 02/12/2018
 ms.author: dubansal
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/09/2018
 ---
 
 # Anomaly Detection in Azure Stream Analytics
@@ -71,6 +67,8 @@ To extract the individual values out of the record, use the **GetRecordPropertyV
 
 Anomaly of a type is detected when one of the anomaly scores crosses a threshold. The threshold can be any floating-point number >= 0. The threshold is a tradeoff between sensitivity and confidence. For example, a lower threshold would make detection more sensitive to changes and generate more alerts, whereas a higher threshold could make detection less sensitive and more confident but mask some anomalies. The exact threshold value to use depends on the scenario. There is no upper limit, but the recommended range is 3.25-5. 
 
+The value 3.25 shown in the example is just a suggested starting point. Fine-tune the value by running the operations on your own data set, and observe the output value until you reach a tolerable threshold.
+
 ## Anomaly detection algorithm
 
 * AnomalyDetection operator uses an **unsupervised learning** approach where it does not assume any type of distribution in the events. In general, two models are maintained in parallel at any given time, where one of them is used for scoring and the other is trained in the background. The anomaly detection models are trained using data from the current stream rather than using an out-of-band mechanism. The amount of data used for training depends on the window size d specified by the user within the Limit Duration parameter. Each model ends up getting trained based on d to 2d worth of events. It is recommended to have at least 50 events in each window for best results. 
@@ -123,19 +121,19 @@ Let's review the strangeness computation in detail (assume a set of historical w
    - event_value/90th_percentile, if event_value > 90th_percentile  
    - 10th_percentile/event_value, if the event_value is < 10th_percentile  
 
-2. **Slow positive trend:** A trend line over the event values in the history window is calculated and we look for a positive trend within the line. The strangeness value is computed as:  
+2. **Slow positive trend:** A trend line over the event values in the history window is calculated and the operation looks for a positive trend within the line. The strangeness value is computed as:  
 
    - Slope, if slope is positive  
    - 0, otherwise 
 
-1. **Slow negative trend:** A trend line over the event values in the history window is calculated and we look for negative trend within the line. The strangeness value is computed as: 
+3. **Slow negative trend:** A trend line over the event values in the history window is calculated and the operation looks for negative trend within the line. The strangeness value is computed as: 
 
    - Slope, if slope is negative  
    - 0, otherwise  
 
 Once the strangeness value for the incoming event is computed, a martingale value is computed based on the strangeness value (see the [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) for details on how the martingale value is computed). This martingale value is retuned as the anomaly score. The martingale value increases slowly in response to strange values, which allows the detector to remain robust to sporadic changes and reduces false alerts. It also has a useful property: 
 
-Probability [there exists t such that M<sub>t</sub> > λ ] < 1/λ, where M<sub>t</sub> is the martingale value at instant t and λ is a real value. For example, if we alert when M<sub>t</sub>>100, then the probability of false positives is less than 1/100.  
+Probability [there exists t such that M<sub>t</sub> > λ ] < 1/λ, where M<sub>t</sub> is the martingale value at instant t and λ is a real value. For example, if there is an alert when M<sub>t</sub>>100, then the probability of false positives is less than 1/100.  
 
 ## Guidance for using the bi-directional level change detector 
 
@@ -145,7 +143,7 @@ The following points should be considered when using this detector:
 
 1. When the time series suddenly sees an increase or drop in value, the AnomalyDetection operator detects it. But detecting the return to normal requires more planning. If a time series was in steady state before the anomaly, which can be achieved by setting the AnomalyDetection operator’s detection window to at most half the length of the anomaly. This scenario assumes that the minimum duration of the anomaly can be estimated ahead of time, and there are enough events in that time frame to train the model sufficiently (at least 50 events). 
 
-   This is shown in figures 1 and 2 below using an upper limit change (the same logic applies to a lower limit change). In both figures, the waveforms are an anomalous level change. Vertical orange lines denote hop boundaries and the hop size is the same as the detection window specified in the AnomalyDetection operator. The green lines indicate the size of the training window. In Figure 1, the hop size is the same as the time for which anomaly lasts. In Figure 2, the hop size is half the time for which the anomaly lasts. In all cases, an upward change is detected because the model used for scoring was trained on normal data. But based on how the bi-directional level change detector works, we must exclude the normal values from the training window used for the model that scores the return to normal. In Figure 1, the scoring model’s training includes some normal events, so return to normal can't be detected. But in Figure 2, the training only includes the anomalous part, which ensures that the return to normal is detected. Anything smaller than half also works for the same reason, whereas anything bigger will end up including a bit of the normal events. 
+   This is shown in figures 1 and 2 below using an upper limit change (the same logic applies to a lower limit change). In both figures, the waveforms are an anomalous level change. Vertical orange lines denote hop boundaries and the hop size is the same as the detection window specified in the AnomalyDetection operator. The green lines indicate the size of the training window. In Figure 1, the hop size is the same as the time for which anomaly lasts. In Figure 2, the hop size is half the time for which the anomaly lasts. In all cases, an upward change is detected because the model used for scoring was trained on normal data. But based on how the bi-directional level change detector works, it must exclude the normal values from the training window used for the model that scores the return to normal. In Figure 1, the scoring model’s training includes some normal events, so return to normal can't be detected. But in Figure 2, the training only includes the anomalous part, which ensures that the return to normal is detected. Anything smaller than half also works for the same reason, whereas anything bigger will end up including a bit of the normal events. 
 
    ![AD with window size equal anomaly length](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
 

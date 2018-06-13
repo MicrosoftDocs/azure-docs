@@ -1,17 +1,14 @@
 ---
 title: Provision a device using Azure IoT Hub Device Provisioning Service (.NET) | Microsoft Docs
 description: Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (.NET)
-services: iot-dps
-keywords: 
-author: msebolt
-ms.author: v-masebo
+author: bryanla
+ms.author: bryanla
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: csharp
 ms.custom: mvc
 ---
 
@@ -46,7 +43,7 @@ This step involves adding the device's unique security artifacts to the Device P
 
 - For X.509 based devices:
     - The [X.509 certificate issued to the device](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), in the form of either a *.pem* or a *.cer* file. For individual enrollment, you need to use the *leaf certificate* for your X.509 system, while for enrollment groups, you need to use the *root certificate* or an equivalent *signer certificate*.
-    - The *Registration ID* that is used to uniquely identify a device in the namespace/scope. This may or may not be the same as the device ID. The ID is mandatory for every device. For X.509 based devices, the registration ID is derived from the certificate's common name (CN). For further information on these requirements see [Device concepts](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+    - The *Registration ID* that is used to uniquely identify a device in the namespace/scope. This may or may not be the same as the device ID. The ID is mandatory for every device. For X.509 based devices, the registration ID is derived from the certificate's common name (CN). For further information on these requirements see [Device concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
 There are two ways to enroll the device to the Device Provisioning Service:
 

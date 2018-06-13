@@ -4,7 +4,7 @@ description: In this tutorial, you create a sample Azure Data Factory pipeline u
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory
@@ -457,7 +457,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
-## JSON definitions for entities
+## <a name="data-factory-entities-in-the-template"></a> JSON definitions for entities
 The following Data Factory entities are defined in the JSON template: 
 
 - [Azure Storage linked service](#azure-storage-linked-service)

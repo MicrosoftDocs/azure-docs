@@ -10,7 +10,7 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 04/05/2018
 ---
 
 # Migrate SQL Server on-premises to Azure SQL DB using Azure PowerShell
@@ -125,7 +125,7 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
   -TargetType SQLDB `
   -SourceConnection $sourceConnInfo `
   -TargetConnection $targetConnInfo `
-  -DatabaseInfos $dbList
+  -DatabaseInfo $dbList
 ```
 
 ## Create and start a migration task

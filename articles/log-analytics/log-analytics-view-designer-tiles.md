@@ -25,8 +25,6 @@ For more information about View Designer, see:
 * [View Designer](log-analytics-view-designer.md): Provides an overview of View Designer and procedures for creating and editing custom views.
 * [Visualization part reference](log-analytics-view-designer-parts.md): Provides a reference guide to the settings for the visualization parts that are available in your custom views.
 
-> [!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), the queries in all views must be written in the [new query language](https://go.microsoft.com/fwlink/?linkid=856078). Any views that were created before the workspace upgrade are automatically converted.
 
 The available View Designer tiles are described in the following table:  
 

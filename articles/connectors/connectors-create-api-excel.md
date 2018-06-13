@@ -1,23 +1,21 @@
 ---
-title: Add the Excel connector | Microsoft Docs
-description: Overview of the Excel connector with REST API parameters
-services: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: 03af8652-9223-4348-9490-602872a680f0
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+# required metadata
+title: Connect to Microsoft Excel - Azure Logic Apps | Microsoft Docs
+description: Manage data with Microsoft Excel REST APIs and Azure Logic Apps
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
 ms.date: 08/23/2016
-ms.author: mandia; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the Excel connector
 There is no Excel connector in Logic Apps. 
 

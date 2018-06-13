@@ -4,7 +4,7 @@ description: Upload or copy a customized virtual machine using the Resource Mana
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -53,7 +53,7 @@ To complete the following steps, you need:
 > 
 
 
-* Make sure that you have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#az_login).
+* Make sure that you have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *mystorageaccount*, and *mydisks*.
 

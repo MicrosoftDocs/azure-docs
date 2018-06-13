@@ -5,9 +5,10 @@ metadata:
   title: Team Data Science Process Documentation
   description: Learn how to use the Team Data Science Process.
   services: machine-learning
-  author: carolz
-  manager: carolz
+  author: bradsev
+  manager: cgronlun
   ms.service: machine-learning
+  ms.component: team-data-science-process
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -24,8 +25,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href:"overview">Overview</a>
-    - html: <a href:"lifecycle">Lifecycle</a>
+    - html: <a href="overview">Overview</a>
+    - html: <a href="lifecycle">Lifecycle</a>
 
 - title: Step-by-Step Tutorials
   items:

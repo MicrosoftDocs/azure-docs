@@ -3,22 +3,24 @@ title: Understand the OAuth 2.0 authorization code flow in Azure AD
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-
 ---
-# Authorize access to web applications using OAuth 2.0 and Azure Active Directory
-Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
+
+# Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow
+Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our [open-source libraries](active-directory-authentication-libraries.md).
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749#section-4.1). It is used to perform authentication and authorization in most application types, including web apps and natively installed apps.
 
@@ -30,7 +32,7 @@ At a high level, the entire authorization flow for an application looks a bit li
 ![OAuth Auth Code Flow](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## Request an authorization code
-The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client indicates the permissions it needs to acquire from the user. You can get the OAuth 2.0 endpoint for your tenant by selecting **App registrations > Endpoints** in the Azure Portal.
+The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client indicates the permissions it needs to acquire from the user. You can get the OAuth 2.0 authorization endpoint for your tenant by selecting **App registrations > Endpoints** in the Azure portal.
 
 ```
 // Line breaks for legibility only
@@ -38,7 +40,7 @@ The authorization code flow begins with the client directing the user to the `/a
 https://login.microsoftonline.com/{tenant}/oauth2/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&redirect_uri=http%3A%2F%2Flocalhost%3A12345
 &response_mode=query
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &state=12345
@@ -46,30 +48,33 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
-| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure Portal. Click **Active Directory**, click the directory, choose the application, and click **Configure** |
+| tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
+| client_id |required |The Application ID assigned to your app when you registered it with Azure AD. You can find this in the Azure Portal. Click **Azure Active Directory** in the services sidebar, click **App registrations**, and choose the application. |
 | response_type |required |Must include `code` for the authorization code flow. |
-| redirect_uri |recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded.  For native & mobile apps, you should use the default value of `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |recommended |Specifies the method that should be used to send the resulting token back to your app.  Can be `query` or `form_post`. |
-| state |recommended |A value included in the request that is also returned in the token response. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](http://tools.ietf.org/html/rfc6749#section-10.12).  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| resource |optional |The App ID URI of the web API (secured resource). To find the App ID URI of the web API, in the Azure  Portal, click **Active Directory**, click the directory, click the application and then click **Configure**. |
-| prompt |optional |Indicate the type of user interaction that is required.<p> Valid values are: <p> *login*: The user should be prompted to reauthenticate. <p> *consent*: User consent has been granted, but needs to be updated. The user should be prompted to consent. <p> *admin_consent*: An administrator should be prompted to consent on behalf of all users in their organization |
-| login_hint |optional |Can be used to pre-fill the username/email address field of the sign-in page for the user, if you know their username ahead of time.  Often apps use this parameter during reauthentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
+| redirect_uri |recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. For native & mobile apps, you should use the default value of `urn:ietf:wg:oauth:2.0:oob`. |
+| response_mode |recommended |Specifies the method that should be used to send the resulting token back to your app. Can be `query` or `form_post`. `query` provides the code as a query string parameter on your redirect URI, while `form_post` executes a POST containing the code to your redirect URI. |
+| state |recommended |A value included in the request that is also returned in the token response. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](http://tools.ietf.org/html/rfc6749#section-10.12). The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
+| resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure Portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. |
+| scope | **ignored** | For v1 Azure AD apps, scopes must be statically configured in the Azure Portal under the applications **Settings**, **Required Permissions**. |
+| prompt |optional |Indicate the type of user interaction that is required.<p> Valid values are: <p> *login*: The user should be prompted to reauthenticate. <p> *select_account*: The user is prompted to select an account, interrupting single sign on. The user may select an existing signed-in account, enter their credentials for a remembered account, or choose to use a different account altogether. <p> *consent*: User consent has been granted, but needs to be updated. The user should be prompted to consent. <p> *admin_consent*: An administrator should be prompted to consent on behalf of all users in their organization |
+| login_hint |optional |Can be used to pre-fill the username/email address field of the sign-in page for the user, if you know their username ahead of time. Often apps use this parameter during reauthentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
 | domain_hint |optional |Provides a hint about the tenant or domain that the user should use to sign in. The value of the domain_hint is a registered domain for the tenant. If the tenant is federated to an on-premises directory, AAD redirects to the specified tenant federation server. |
+| code_challenge_method | optional    | The method used to encode the `code_verifier` for the `code_challenge` parameter. Can be one of `plain` or `S256`. If excluded, `code_challenge` is assumed to be plaintext if `code_challenge` is included. Azure AAD v1.0 supports both `plain` and `S256`. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | optional    | Used to secure authorization code grants via Proof Key for Code Exchange (PKCE) from a native or public client. Required if `code_challenge_method` is included. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > If the user is part of an organization, an administrator of the organization can consent or decline on the user's behalf, or permit the user to consent. The user is given the option to consent only when the administrator permits it.
 >
 >
 
-At this point, the user is asked to enter their credentials and consent to the permissions indicated in the `scope` query parameter. Once the user authenticates and grants consent, Azure AD sends a response to your app at the `redirect_uri` address in your request.
+At this point, the user is asked to enter their credentials and consent to the permissions requested by the app in the Azure Portal. Once the user authenticates and grants consent, Azure AD sends a response to your app at the `redirect_uri` address in your request with the code.
 
 ### Successful response
 A successful response could look like this:
 
 ```
 GET  HTTP/1.1 302 Found
-Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
+Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
 ```
 
 | Parameter | Description |
@@ -119,7 +124,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code
 &client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA
-&redirect_uri=https%3A%2F%2Flocalhost%2Fmyapp%2F
+&redirect_uri=https%3A%2F%2Flocalhost%3A12345
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=p@ssw0rd
 
@@ -128,15 +133,16 @@ grant_type=authorization_code
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
-| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure portal. The Application Id is displayed in the settings of the app registration.  |
+| tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
+| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure portal. The Application Id is displayed in the settings of the app registration. |
 | grant_type |required |Must be `authorization_code` for the authorization code flow. |
 | code |required |The `authorization_code` that you acquired in the previous section |
 | redirect_uri |required |The same `redirect_uri` value that was used to acquire the `authorization_code`. |
-| client_secret |required for web apps |The application secret that you created in the app registration portal for your app.  It should not be used in a native app, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the `client_secret` securely on the server side. |
-| resource |required if specified in authorization code request, else optional |The App ID URI of the web API (secured resource). |
+| client_secret |required for web apps, not allowed for public clients |The application secret that you created in the Azure Portal for your app under **Keys**. It cannot be used in a native app (public client), because client_secrets cannot be reliably stored on devices. It is required for web apps and web APIs (all confidential clients), which have the ability to store the `client_secret` securely on the server side. |
+| resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure Portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. If in both the authorization request and the token request, the     resource` parameters must match. | 
+| code_verifier | optional | The same code_verifier that was used to obtain the authorization_code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
-To find the App ID URI, in the Azure Management Portal, click **Active Directory**, click the directory, click the application, and then click **Configure**.
+To find the App ID URI, in the Azure Portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**.
 
 ### Successful response
 Azure AD returns an access token upon a successful response. To minimize network calls from the client application and their associated latency, the client application should cache access tokens for the token lifetime that is specified in the OAuth 2.0 response. To determine the token lifetime, use either the `expires_in` or `expires_on` parameter values.
@@ -167,7 +173,7 @@ A successful response could look like this:
 | expires_on |The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
 | resource |The App ID URI of the web API (secured resource). |
 | scope |Impersonation permissions granted to the client application. The default permission is `user_impersonation`. The owner of the secured resource can register additional values in Azure AD. |
-| refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional access tokens after the current access token expires.  Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. |
+| refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional access tokens after the current access token expires. Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. |
 | id_token |An unsigned JSON Web Token (JWT). The app can base64Url decode the segments of this token to request information about the user who signed in. The app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. |
 
 ### JWT Token Claims
@@ -354,7 +360,7 @@ A sample error response could look like this:
 ```
 {
   "error": "invalid_resource",
-  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant.  You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
+  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
   "error_codes": [
     50001
   ],

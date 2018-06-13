@@ -19,7 +19,8 @@ ms.author: kumud
 
 # Log analytics for Azure Load Balancer
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md).
 
 You can use different types of logs in Azure to manage and troubleshoot load balancers. Some of these logs can be accessed through the portal. All logs can be extracted from Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
 

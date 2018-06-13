@@ -10,6 +10,7 @@
 ## [Install Azure AD Connect Health Agent](active-directory-aadconnect-health-agent-install.md)
 ## [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 ## [Errors during synchronization](../active-directory-aadconnect-troubleshoot-sync-errors.md)
+## [Diagnose duplicated attribute synchronization errors](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 # Troubleshoot
 ## [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
@@ -18,7 +19,8 @@
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
-## [GDPR compliance and Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
+## [Azure AD Connect Health Alert Catalog](active-directory-aadconnect-health-alert-catalog.md)
+## [User Privacy and Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # Related
 ## [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md)

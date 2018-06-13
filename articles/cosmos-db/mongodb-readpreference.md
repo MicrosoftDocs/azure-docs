@@ -2,18 +2,14 @@
 title: Using MongoDB Read Preference with the Azure Cosmos DB MongoDB API  | Microsoft Docs
 description: Learn how to use MongoDB Read Preference with the Azure Cosmos DB MongoDB API
 services: cosmos-db
-documentationcenter: ''
 author: vidhoonv
-manager: jhubbard
-editor: ''
+manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom:
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.devlang: 
-ms.topic: article
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: viviswan
 
@@ -36,7 +32,9 @@ Run the following commands to clone the sample repository. Based on your platfor
 
 1. [.NET sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference)
 2. [NodeJS sample application]( https://github.com/Azure-Samples/azure-cosmos-db-mongodb-node-geo-readpreference)
-3. [Java sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+3. [Mongoose sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-mongoose-geo-readpreference)
+4. [Java sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+5. [SpringBoot sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-spring)
 
 
 ```bash

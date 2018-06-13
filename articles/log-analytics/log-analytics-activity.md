@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/26/2018
 ms.author: magoedte
 
 ---
@@ -37,7 +37,7 @@ When you connect your Azure activity logs to Log Analytics, you can:
 - Identify outage or service health issues impacting your resources
 - Use Log Search to correlate user activities, auto-scale operations, authorization changes, and service health to other logs or metrics from your environment
 
-<sup>1</sup>By default, Log Analytics keeps your Azure activity logs for 90 days, even if you are on the Free tier. Or, if you have a workspace retention setting of less than 90 days. If your workspace has retention that is longer than 90 days, the activity logs are kept for the retention period of your workspace.
+<sup>1</sup>By default, Log Analytics keeps your Azure activity logs for 90 days, even if you are on the Free tier. Or, if you have a workspace retention setting of less than 90 days. If your workspace has retention that is longer than 90 days, the activity logs are kept based on the retention period of your workspace.
 
 Log Analytics collects activity logs free of charge and stores the logs for 90 days free of charge. If you store logs for longer than 90 days, you will incur data retention charges for the data stored longer than 90 days.
 

@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/23/2018
 ms.author: raynew
 
 ---
@@ -23,18 +23,25 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 > * Create a replication policy
 > * Enable replication for a server
 
+[review the architecture](concepts-hyper-v-to-azure-architecture.md) for this disaster recovery scenario.
+
 ## Prerequisites
 
 To complete this tutorial:
 
-- Make sure that you understand the [scenario architecture and components](physical-azure-architecture.md).
-- Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
-- Make sure that the servers you want to replicate comply with [Azure VM requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Make sure that you understand the [architecture and components](physical-azure-architecture.md) for this scenario.
+- Review the [support requirements](vmware-physical-secondary-support-matrix.md) for all components.
+- Make sure that the servers you want to replicate comply with [Azure VM requirements](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
 - Prepare an account for automatic installation of the Mobility service on each server you want to replicate.
 
-> [!NOTE]
-> Before you begin, note that after failover to Azure, physical servers can't be failed back to on-premises physical machines. You can only fail back to VMware VMs. 
+Before you begin, note that:
+
+- After failover to Azure, physical servers can't be failed back to on-premises physical machines. You can only fail back to VMware VMs. 
+- This tutorial sets up physical server disaster recovery to Azure with the simplest settings. If you want to learn about other options, read through our How To guides:
+    - Set up the [replication source](physical-azure-set-up-source.md), including the Site Recovery configuration server.
+    - Set up the [replication target](physical-azure-set-up-target.md).
+    - Configure a [replication policy](vmware-azure-set-up-replication.md), and [enable replication](vmware-azure-enable-replication.md).
 
 
 ### Set up an Azure account
@@ -50,7 +57,7 @@ Get a Microsoft [Azure account](http://azure.microsoft.com/).
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [role-based access](../active-directory/role-based-access-control-configure.md) permissions. 
+- Verify and modify [role-based access](../role-based-access-control/role-assignments-portal.md) permissions. 
 
 
 

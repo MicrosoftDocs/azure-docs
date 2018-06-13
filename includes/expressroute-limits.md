@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: expressroute
+ author: cherylmc
+ ms.service: expressroute
+ ms.topic: include
+ ms.date: 06/12/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 #### ExpressRoute Limits
 The following limits apply to ExpressRoute resources per subscription.
 
@@ -11,6 +22,7 @@ The following limits apply to ExpressRoute resources per subscription.
 | Maximum number of routes for Azure public peering with ExpressRoute premium add-on |200 |
 | Maximum number of routes for Azure Microsoft peering with ExpressRoute standard |200 |
 | Maximum number of routes for Azure Microsoft peering with ExpressRoute premium add-on |200 |
+| Maximum number of ExpressRoute circuits linked to the same virtual network in different peering locations |4 |
 | Number of virtual network links allowed per ExpressRoute circuit |see table below |
 
 #### Number of Virtual Networks per ExpressRoute circuit

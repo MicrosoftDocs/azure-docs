@@ -1,28 +1,25 @@
----
+﻿---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Deploy modules to IoT Edge devices using IoT extension for Azure CLI 2.0 | Microsoft Docs 
 description: Deploy modules to an IoT Edge device using IoT extension for Azure CLI 2.0
-services: iot-edge
-keywords: 
 author: chrissie926
-manager: timlt
-
+manager: 
 ms.author: menchi
-ms.date: 02/12/2018
-ms.topic: article
-ms.service: iot-edge
-
-ms.custom: mvc
+ms.date: 03/02/2018
+ms.topic: tutorial
 ms.reviewer: kgremban
+ms.service: iot-edge
+services: iot-edge
+md.custom: mvc
 ---
 
 # Deploy modules to an IoT Edge device using IoT extension for Azure CLI 2.0
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux, and MacOS.
+[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux, and MacOS.
 
 Azure CLI 2.0 enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI 2.0 with features such as device management and full IoT Edge capability.
 
-In this tutorial, you first complete the steps to set up Azure CLI 2.0 and the IoT extension. Then you learn how to deploy modules to an IoT Edge device using the available CLI commands.
+In this article, you set up Azure CLI 2.0 and the IoT extension. Then you learn how to deploy modules to an IoT Edge device using the available CLI commands.
 
 ## Prerequisites
 
@@ -67,7 +64,7 @@ Create an IoT hub called **CLIDemoHub** in the newly created resource group:
 Create an IoT Edge device:
 
    ```cli
-   az iot hub device-identity create --device-id edge001 -hub-name CLIDemoHub --edge-enabled
+   az iot hub device-identity create --device-id edge001 --hub-name CLIDemoHub --edge-enabled
    ```
 
    ![Create IoT Edge device][4]
@@ -95,7 +92,7 @@ Deployment JSON templates should always include the two system modules, edgeAgen
              "edgeAgent": {
                "type": "docker",
                "settings": {
-                 "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
+                 "image": "microsoft/azureiotedge-agent:1.0-preview",
                  "createOptions": "{}"
                }
              },
@@ -104,7 +101,7 @@ Deployment JSON templates should always include the two system modules, edgeAgen
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
+                 "image": "microsoft/azureiotedge-hub:1.0-preview",
                  "createOptions": "{}"
                }
              }
@@ -116,7 +113,7 @@ Deployment JSON templates should always include the two system modules, edgeAgen
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview",
+                 "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
                  "createOptions": "{}"
                }
              }

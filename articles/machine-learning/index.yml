@@ -26,7 +26,7 @@ sections:
     className: cardsA
     items:
 
-    - html: <a href="/azure/machine-learning/preview/">
+    - html: <a href="/azure/machine-learning/service/">
             <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services"> (preview)
             <br><b>Azure Machine Learning services</b></a>
             <p>Learn how these services empower data scientists to develop AI solutions using Python tools and libraries with a variety of Azure data and compute services.</p>
@@ -57,12 +57,12 @@ sections:
     rows:
       - title: Setup
         values:
-        - href: /azure/machine-learning/preview/quickstart-installation
+        - href: /azure/machine-learning/service/quickstart-installation
         - href: /azure/machine-learning/studio/create-workspace
         - href: /azure/machine-learning/data-science-virtual-machine/provision-vm
       - title: Build a model
         values:
-        - href: /azure/machine-learning/preview/quickstart-installation
+        - href: /azure/machine-learning/service/quickstart-installation
         - href: /azure/machine-learning/studio/create-experiment
         - href: 
 
@@ -80,19 +80,19 @@ sections:
     rows:
       - title: Prepare data
         values:
-        - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-1
+        - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1
         - href: /azure/machine-learning/studio/walkthrough-2-upload-data
       - title: Build a model
         values:
-        - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-2
+        - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-2
         - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
       - title: Operationalize a model
         values:
-        - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-3
+        - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-3
         - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
       - title: Consume a model
         values:
-        - href: /azure/machine-learning/preview/model-management-consumption
+        - href: /azure/machine-learning/desktop-workbench/model-management-consumption
         - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
 
 - title: More Microsoft Machine Learning Technologies

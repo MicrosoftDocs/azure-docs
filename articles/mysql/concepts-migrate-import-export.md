@@ -6,9 +6,9 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 06/01/2018
 ---
 
 # Migrate your MySQL database by using import and export
@@ -29,9 +29,9 @@ You do not need to move your import and export files to any special cloud locati
 ## Create a database on the Azure Database for MySQL server
 Create an empty database on the Azure Database for MySQL server where you want to migrate the data. Use a tool such as MySQL Workbench, Toad, or Navicat to create the database. The database can have the same name as the database that contains the dumped data, or you can create a database with a different name.
 
-To get connected, locate the connection information on the **Properties** pane in Azure Database for MySQL.
+To get connected, locate the connection information in the **Overview** of your Azure Database for MySQL.
 
-![Find the connection information in the Azure portal](./media/concepts-migrate-import-export/1_server-properties-name-login.png)
+![Find the connection information in the Azure portal](./media/concepts-migrate-import-export/1_server-overview-name-login.png)
 
 Add the connection information to MySQL Workbench.
 
@@ -109,4 +109,5 @@ You can use the **Data Import** tab to import or restore exported data from the 
 2. Click **Start Import** to begin the import process.
 
 ## Next steps
-As another migration approach, read [Migrate your MySQL database using dump and restore in Azure Database for MySQL](concepts-migrate-dump-restore.md). 
+- As another migration approach, read [Migrate your MySQL database using dump and restore in Azure Database for MySQL](concepts-migrate-dump-restore.md).
+- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](http://aka.ms/datamigration). 

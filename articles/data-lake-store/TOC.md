@@ -5,10 +5,10 @@
 ## [Compare Azure Data Lake Store with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
 ## [Azure Data Lake Store for big data processing](data-lake-store-data-scenarios.md)
 ## [Open source applications working with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+## [Best practices for using Data Lake Store](data-lake-store-best-practices.md)
 
 # Get started
 ## [Using Portal](data-lake-store-get-started-portal.md)
-## [Using Data Lake Store in Storage Explorer](data-lake-store-in-storage-explorer.md)
 ## [Using PowerShell](data-lake-store-get-started-powershell.md)
 ## [Using Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 
@@ -16,7 +16,7 @@
 # How to
 ## Load and move data
 ### [Using Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
-### [Using Data Lake Store in Storage Explorer](data-lake-store-in-storage-explorer.md)
+### [Using Storage Explorer](data-lake-store-in-storage-explorer.md)
 ### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -83,12 +83,12 @@
 ### [Plan for high availability](data-lake-store-disaster-recovery-guidance.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=data-lake-store)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [Python (Account Mgmt.)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+## [Python (Account Mgmt.)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python (Filesystem Mgmt.)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)

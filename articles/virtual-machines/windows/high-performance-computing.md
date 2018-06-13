@@ -4,7 +4,7 @@ description: Learn about Azure solutions for running high performance computing 
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-womdpws
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.date: 01/31/2018
+ms.date: 05/11/2018
 ms.author: danlep
 ---
 

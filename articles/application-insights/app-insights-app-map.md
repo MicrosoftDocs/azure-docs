@@ -3,7 +3,7 @@ title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
@@ -11,8 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
+ms.reviewer: Soubhagya.Dash
 ms.author: mbullwin
 
 ---
@@ -34,7 +35,7 @@ Enable "Composite Application Map" from the [previews list](app-insights-preview
 ![Enable preview map](media/app-insights-app-map/preview-from-classic.png)
 
 >[!Note]
-This preview replaces the prior "Mult-role Application Map" preview. At this time, use this to view the entire topology across multiple levels of application component dependencies. Give us your feedback, we will be adding more capabilities similar to what the classic map supports.
+This preview replaces the prior "Multi-role Application Map" preview. At this time, use this to view the entire topology across multiple levels of application component dependencies. Give us your feedback, we will be adding more capabilities similar to what the classic map supports.
 
 You can see the full application topology across multiple levels of related application components. Components could be different Application Insights resources, or different roles in a single resource. The app map finds components by following HTTP dependency calls made between servers with the Application Insights SDK installed. 
 

@@ -120,4 +120,4 @@ To **disable all future user consent operations in your entire directory**, foll
 6.  Disable all future user consent operations by setting the **Users can allow apps to access their data** toggle to **No** and click the **Save** button.
 
 ## Next steps
-[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Managing Applications with Azure Active Directory](manage-apps/what-is-application-management.md)

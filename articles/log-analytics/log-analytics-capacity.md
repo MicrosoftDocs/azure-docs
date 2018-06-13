@@ -20,6 +20,9 @@ ms.author: magoedte
 
 ![Capacity and Performance symbol](./media/log-analytics-capacity/capacity-solution.png)
 
+> [!NOTE]
+> The Capacity and Performance solution has been deprecated.  Customers who have already installed the solution can continue to use it, but Capacity and Performance can not be added to any new workspaces.
+
 You can use the Capacity and Performance solution in Log Analytics to help you understand the capacity of your Hyper-V servers. The solution provides insights into your Hyper-V environment by showing you the overall utilization (CPU, memory, and disk) of the hosts and the VMs running on those Hyper-V hosts. Metrics are collected for CPU, memory, and disks across all your hosts and the VMs running on them.
 
 The solution:
@@ -116,20 +119,8 @@ To summarize, the solution collects capacity and performance data from a variety
 
 The following table provides sample log searches for capacity and performance data collected and calculated by this solution.
 
+
 | Query | Description |
-|---|---|
-| All host memory configurations | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| All VM memory configurations | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Breakdown of Total Disk IOPS across all VMs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Reads/s" OR CounterName="VHD Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Breakdown of Total Disk Throughput across all VMs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Read MB/s" OR CounterName="VHD Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Breakdown of Total IOPS across all CSVs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Reads/s" OR CounterName="CSV Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Breakdown of Total Throughput across all CSVs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Breakdown of Total Latency across all CSVs | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
-
-> | Query | Description |
 |:--- |:--- |
 | All host memory configurations | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | All VM memory configurations | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
@@ -141,4 +132,4 @@ The following table provides sample log searches for capacity and performance da
 
 
 ## Next steps
-* Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Capacity and Performance data.
+* Use [Log searches in Log Analytics](log-analytics-log-search.md) to view detailed Capacity and Performance data.

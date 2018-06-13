@@ -59,6 +59,6 @@ This script uses the following commands to create a resource group, virtual netw
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional networking CLI script samples can be found in the [Azure Networking Overview documentation](../cli-samples.md)

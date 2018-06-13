@@ -3,7 +3,7 @@ title: Azure Functions HTTP and webhook bindings
 description: Understand how to use HTTP and webhook triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: mattchenderson
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: mahender
+ms.author: tdykstra
 ---
 
 # Azure Functions HTTP and webhook bindings
@@ -28,11 +28,23 @@ An HTTP trigger can be customized to respond to [webhooks](https://en.wikipedia.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
+## Packages - Functions 1.x
+
+The HTTP bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet package, version 1.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) GitHub repository.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+## Packages - Functions 2.x
+
+The HTTP bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub repository.
+
+[!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
+
 ## Trigger
 
 The HTTP trigger lets you invoke a function with an HTTP request. You can use an HTTP trigger to build serverless APIs and respond to webhooks. 
 
-By default, an HTTP trigger responds to the request with an HTTP 200 OK status code and an empty body. To modify the response, configure an [HTTP output binding](#http-output-binding).
+By default, an HTTP trigger returns HTTP 200 OK with an empty body in Functions 1.x, or HTTP 204 No Content with an empty body in Functions 2.x. To modify the response, configure an [HTTP output binding](#http-output-binding).
 
 ## Trigger - example
 
@@ -45,7 +57,7 @@ See the language-specific example:
 
 ### Trigger - C# example
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request.
+The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request. Notice that the return value is used for the output binding, but a return value attribute isn't required.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -76,15 +88,29 @@ public static async Task<HttpResponseMessage> Run(
 
 The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
-Here's the binding data in the *function.json* file:
+Here's the *function.json* file:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 The [configuration](#trigger---configuration) section explains these properties.
@@ -130,22 +156,31 @@ public static string Run(CustomObject req, TraceWriter log)
 public class CustomObject {
      public String name {get; set;}
 }
-}
 ```
 
 ### Trigger - F# example
 
 The following example shows a trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
-Here's the binding data in the *function.json* file:
+Here's the *function.json* file:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 The [configuration](#trigger---configuration) section explains these properties.
@@ -193,15 +228,25 @@ You need a `project.json` file that uses NuGet to reference the `FSharp.Interop.
 
 The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
-Here's the binding data in the *function.json* file:
+Here's the *function.json* file:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 The [configuration](#trigger---configuration) section explains these properties.
@@ -214,7 +259,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -253,15 +298,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 The following example shows a webhook trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs GitHub issue comments.
 
-Here's the binding data in the *function.json* file:
+Here's the *function.json* file:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 The [configuration](#trigger---configuration) section explains these properties.
@@ -293,15 +348,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 The following example shows a webhook trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function logs GitHub issue comments.
 
-Here's the binding data in the *function.json* file:
+Here's the *function.json* file:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 The [configuration](#trigger---configuration) section explains these properties.
@@ -337,11 +402,21 @@ Here's the binding data in the *function.json* file:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 The [configuration](#trigger---configuration) section explains these properties.
@@ -358,7 +433,7 @@ module.exports = function (context, data) {
 
 ## Trigger - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute, defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+In [C# class libraries](functions-dotnet-class-library.md), use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute.
 
 You can set the authorization level and allowable HTTP methods in attribute constructor parameters, and there are properties for webhook type and route template. For more information about these settings, see [Trigger - configuration](#trigger---configuration). Here's an `HttpTrigger` attribute in a method signature:
 
@@ -377,14 +452,13 @@ For a complete example, see [Trigger - C# example](#trigger---c-example).
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `HttpTrigger` attribute.
 
-
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
 | **type** | n/a| Required - must be set to `httpTrigger`. |
 | **direction** | n/a| Required - must be set to `in`. |
 | **name** | n/a| Required - the variable name used in function code for the request or request body. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determines what keys, if any, need to be present on the request in order to invoke the function. The authorization level can be one of the following values: <ul><li><code>anonymous</code>&mdash;No API key is required.</li><li><code>function</code>&mdash;A function-specific API key is required. This is the default value if none is provided.</li><li><code>admin</code>&mdash;The master key is required.</li></ul> For more information, see the section about [authorization keys](#authorization-keys). |
-| **methods** |**Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the http endpoint](#trigger---customize-the-http-endpoint). |
+| **methods** |**Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the http endpoint](#customize-the-http-endpoint). |
 | **route** | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the http endpoint](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. Don't set the `methods` property if you set this property. The webhook type can be one of the following values:<ul><li><code>genericJson</code>&mdash;A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.</li><li><code>github</code>&mdash;The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Do not use the  _authLevel_ property with GitHub webhooks. For more information, see the GitHub webhooks section later in this article.</li><li><code>slack</code>&mdash;The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Do not use the _authLevel_ property with Slack webhooks. For more information, see the Slack webhooks section later in this article.</li></ul>|
 
@@ -462,13 +536,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -527,7 +601,7 @@ Webhook authorization is handled by the webhook receiver component, part of the 
 
 ## Trigger - limits
 
-The HTTP request length is limited to 100K (102,400) bytes, and the URL length is limited to 4k (4,096) bytes. These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+The HTTP request length is limited to 100MB (104,857,600 bytes), and the URL length is limited to 4KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
 If a function that uses the HTTP trigger doesn't complete within about 2.5 minutes, the gateway will timeout and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan). 
 
@@ -539,35 +613,24 @@ The [host.json](functions-host-json.md) file contains settings that control HTTP
 
 ## Output
 
-Use the HTTP output binding to respond to the HTTP request sender. This binding requires an HTTP trigger and allows you to customize the response associated with the trigger's request. If an HTTP output binding is not provided, an HTTP trigger returns HTTP 200 OK with an empty body. 
+Use the HTTP output binding to respond to the HTTP request sender. This binding requires an HTTP trigger and allows you to customize the response associated with the trigger's request. If an HTTP output binding is not provided, an HTTP trigger returns HTTP 200 OK with an empty body in Functions 1.x, or HTTP 204 No Content with an empty body in Functions 2.x.
 
 ## Output - configuration
 
-For C# class libraries, there are no output-specific binding configuration properties. To send an HTTP response, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`.
-
-For other languages, an HTTP output binding is defined as a JSON object in the `bindings` array of function.json, as shown in the following example:
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-The following table explains the binding configuration properties that you set in the *function.json* file.
+The following table explains the binding configuration properties that you set in the *function.json* file. For C# class libraries there are no attribute properties that correspond to these *function.json* properties. 
 
 |Property  |Description  |
 |---------|---------|
 | **type** |Must be set to `http`. |
 | **direction** | Must be set to `out`. |
-|**name** | The variable name used in function code for the response. |
+|**name** | The variable name used in function code for the response, or `$return` to use the return value. |
 
 ## Output - usage
 
-You can use the output parameter to respond to the HTTP or webhook caller. You can also use the language-standard response patterns. For example responses, see the [trigger example](#trigger---example) and the [webhook example](#trigger---webhook-example).
+To send an HTTP response, use the language-standard response patterns. In C# or C# script, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`. In C#, a return value attribute isn't required.
+
+For example responses, see the [trigger example](#trigger---example) and the [webhook example](#trigger---webhook-example).
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+[Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)

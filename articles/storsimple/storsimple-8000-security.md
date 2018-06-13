@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/23/2018
+ms.date: 05/18/2018
 ms.author: alkohli
 
 ---
@@ -201,6 +201,18 @@ StorSimple uses the following encryption algorithms to protect data stored in or
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
+## Managing personal inforamation
+
+The StorSimple Device Manager for both physical and virtual series collects personal information in the follwing key instances:
+
+- Alert user settings where email address of users are configured. This information can be viewed and cleared by the administrator. This applies to both the StorSimple 8000 series devices and StorSimple Virtual Arrays.
+ * To view and clear the settings for StorSimple 8000 series, follow the steps in [View and manage StorSimple alerts](storsimple-8000-manage-alerts.md#configure-alert-settings)
+ * To view and clear the settings for StorSimple Virtual Array, follow the steps in [View and manage StorSimple alerts](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+- Users who can access the data residing on the shares. A list of users who can access the share data is displayed and can be viewed. This list is also deleted when the shares is deleted. This applies only to StorSimple Virtual Arrays.
+ * To view the list of user who can access or to delete a share, follow the steps in [Manage shares on the StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
+
+For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+
 ## Frequently asked questions (FAQ)
 
 The following are some questions and answers about security and Microsoft Azure StorSimple.
@@ -264,6 +276,8 @@ The following are some questions and answers about security and Microsoft Azure 
 **Q:** What happens if a governmental entity asks Microsoft for my data?
 
 **A:** Because all of the data is encrypted on the service and the private key is kept with the device, the governmental entity must ask the customer for the data.
+
+
 
 ## Next steps
 

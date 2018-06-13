@@ -12,9 +12,7 @@ ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
 ---

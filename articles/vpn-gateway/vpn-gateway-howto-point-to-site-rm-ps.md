@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Connect a computer to an Azure virtual network using Point-to-Site and native Azure certificate authentication: PowerShell | Microsoft Docs'
 description: Connect Windows and Mac OS X clients securely to Azure virtual network using P2S and self-signed or CA issued certificates. This article uses PowerShell.
 services: vpn-gateway
@@ -67,7 +67,7 @@ In this section, you log in and declare the values used for this configuration. 
 1. Open your PowerShell console with elevated privileges, and log in to your Azure account. This cmdlet prompts you for the login credentials. After logging in, it downloads your account settings so that they are available to Azure PowerShell.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 2. Get a list of your Azure subscriptions.
 

@@ -36,7 +36,7 @@ This procedure describes how to run a test failover for a recovery plan.
 
 	- Site Recovery attempts to create test VMs in a subnet with the same name and same IP address as that provided in the **Compute and Network** settings of the VM.
 	- If a subnet with the same name isn't available in the Azure virtual network used for test failover, then the test VM is created in the first subnet alphabetically.
-	- If same IP address isn't available in the subnet, then the VM receives another available IP address in the subnet. [Learn more](#creating-a-network-for-test-failover).
+	- If same IP address isn't available in the subnet, then the VM receives another available IP address in the subnet. [Learn more](#create-a-network-for-test-failover).
 4. If you're failing over to Azure and data encryption is enabled, in **Encryption Key**, select the certificate that was issued when you enabled encryption during Provider installation. You can ignore this step encryption isn't enabled.
 5. Track failover progress on the **Jobs** tab. You should be able to see the test replica machine in the Azure portal.
 6. To initiate an RDP connection to the Azure VM, you need to [add a public IP address](https://aka.ms/addpublicip) on the network interface of the failed over VM. 
@@ -85,7 +85,7 @@ We recommended that for test failover, you choose a network that's isolated from
 
 Although we recommended that you use a test network separate from your production network, if you do want to test a disaster recovery drill into your production network, note the following: 
 
-- Make sure that the primary VM is shut down when you run the test failover. Otherewise there will be two VMs with the same identity,  running in the same network at the same time. This can lead to unexpected consequences.
+- Make sure that the primary VM is shut down when you run the test failover. Otherwise there will be two VMs with the same identity,  running in the same network at the same time. This can lead to unexpected consequences.
 - Any changes to VMs created for test failover are lost when you clean up the failover. These changes are not replicated back to the primary VM.
 - Testing in your production environment leads to a downtime of your production application. Users shouldn't use apps running on VMs when the test failover is in progress.  
 
