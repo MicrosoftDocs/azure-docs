@@ -5,18 +5,21 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 11/16/2017
+ms.date: 06/08/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
+
+experimental: false
+experiment_id: 
 ---
 
 # Deploy Azure IoT Edge on a simulated device in Windows -  preview
 
-Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, built from Azure services or custom code, but first you need a device to test. 
+Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, but first you need a device to test. 
 
-In this tutorial you learn how to:
+In this quickstart you learn how to:
 
 1. Create an IoT Hub
 2. Register an IoT Edge device
@@ -25,11 +28,11 @@ In this tutorial you learn how to:
 
 ![Tutorial architecture][2]
 
-The simulated device that you create in this tutorial is a monitor on a wind turbine that generates temperature, humidity, and pressure data. You're interested in this data because your turbines perform at different levels of efficiency depending on the weather conditions. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the data for business insights. 
+The simulated device that you create in this quickstart is a monitor on a wind turbine that generates temperature, humidity, and pressure data. You're interested in this data because your turbines perform at different levels of efficiency depending on the weather conditions. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the data for business insights. 
 
 ## Prerequisites
 
-This tutorial assumes that you're using a computer or virtual machine running Windows to simulate an Internet of Things device. 
+This quickstart assumes that you're using a computer or virtual machine running Windows to simulate an Internet of Things device. 
 
 >[!TIP]
 >If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
@@ -38,7 +41,7 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
    * Windows 10 
    * Windows Server
 2. Install [Docker for Windows][lnk-docker] and make sure it's running.
-3. Install [Python on Windows][lnk-python] and make sure you can use the pip command. This tutorial was tested with Python versions >=2.7.9 and >=3.5.4.  
+3. Install [Python on Windows][lnk-python] and make sure you can use the pip command. This quickstart was tested with Python versions >=2.7.9 and >=3.5.4.  
 4. Run the following command to download the IoT Edge control script.
 
    ```cmd
@@ -59,7 +62,7 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
 
 ## Create an IoT hub
 
-Start the tutorial by creating your IoT Hub.
+Start the quickstart by creating your IoT Hub.
 ![Create IoT Hub][3]
 
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
@@ -101,7 +104,7 @@ docker ps
 
 ## Deploy a module
 
-Manage your Azure IoT Edge device from the cloud to deploy a module which will send telemetry data to IoT Hub.
+Manage your Azure IoT Edge device from the cloud to deploy a module that will send telemetry data to IoT Hub.
 ![Register a device][6]
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -109,7 +112,7 @@ Manage your Azure IoT Edge device from the cloud to deploy a module which will s
 
 ## View generated data
 
-In this tutorial, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials. 
+In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials. 
 
 Open the command prompt on the computer running your simulated device again. Confirm that the module deployed from the cloud is running on your IoT Edge device. 
 
@@ -131,9 +134,9 @@ You can also view the telemetry the device is sending by using the [IoT Hub expl
 
 ## Next steps
 
-In this tutorial, you created a new IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a simulated device generating raw data about its environment. 
+In this quickstart, you created a new IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a simulated device generating raw data about its environment. 
 
-This tutorial is the prerequisite for all of the other IoT Edge tutorials. You can continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
+This quickstart is the prerequisite for all of the IoT Edge tutorials. You can continue on to any of the tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
 
 > [!div class="nextstepaction"]
 > [Filter sensor data using an Azure Function](tutorial-deploy-function.md)

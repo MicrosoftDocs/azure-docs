@@ -17,12 +17,6 @@
       href: quickstart.md
 - name: Tutorials
   items:
-  - name: Install IoT Edge and simulate a sensor
-    items: 
-    - name: Linux/Mac
-      href: tutorial-simulate-device-linux.md
-    - name: Windows
-      href: tutorial-simulate-device-windows.md
   - name: Filter data with Azure Functions
     href: tutorial-deploy-function.md
   - name: Find averages with ASA

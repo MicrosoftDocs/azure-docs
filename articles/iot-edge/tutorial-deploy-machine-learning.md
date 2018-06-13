@@ -130,5 +130,5 @@ In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learn
 > [Filter sensor data using C# code](tutorial-csharp-module.md)
 
 <!--Links-->
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-tutorial1-win]: quickstart.md
+[lnk-tutorial1-lin]: quickstart-linux.md
