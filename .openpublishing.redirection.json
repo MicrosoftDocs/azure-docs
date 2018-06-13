@@ -22374,6 +22374,11 @@
             "source_path": "articles/active-directory/whats-new.md",
             "redirect_url": "/azure/active-directory/fundamentals/whats-new",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/users-default-permissions.md",
+            "redirect_url": "/azure/active-directory/fundamentals/users-default-permissions",
+            "redirect_document_id": false
         }
     ]
 }
