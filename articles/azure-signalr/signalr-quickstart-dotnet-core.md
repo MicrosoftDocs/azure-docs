@@ -89,7 +89,7 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
 
         dotnet restore
 
-3. Add a secret named *Azure__SignalR__ConnectionString* to Secret Manager. This is a hierarchical config value, and a colon (:) may not work on all platforms. Double underscore (__), as used by this secret, is supported by all platforms.  This secret will contain the connection string to access your SignalR Service resource. *Azure__SignalR__ConnectionString* is the default configuration key that SignalR looks for in order to establish a connection. Replace the value in the command below with the connection string for your SignalR Service resource.
+3. Add a secret named *Azure__SignalR__ConnectionString* to Secret Manager. This secret is a hierarchical config value, and a colon (:) may not work on all platforms. Double underscore (__), as used by this secret, is supported by all platforms.  This secret will contain the connection string to access your SignalR Service resource. *Azure__SignalR__ConnectionString* is the default configuration key that SignalR looks for in order to establish a connection. Replace the value in the command below with the connection string for your SignalR Service resource.
 
     This command must be executed in the same directory as the *.csproj* file.
 
@@ -179,7 +179,7 @@ connection.start()
     });
 ```    
 
-The code in *index.html*, calls `HubConnectionBuilder.build()` to make a HTTP connection to the Azure SignalR resource.
+The code in *index.html*, calls `HubConnectionBuilder.build()` to make an HTTP connection to the Azure SignalR resource.
 
 If the connection is successful, that connection is passed to `bindConnectionMessage`, which adds event handlers for incoming content pushes to the client. 
 
