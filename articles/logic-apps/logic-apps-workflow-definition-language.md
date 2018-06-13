@@ -152,7 +152,7 @@ that can contain one or more [functions](#functions),
 [operators](#operators), variables, explicit values, 
 or constants. In your workflow definition, 
 you can use an expression anywhere in a JSON 
-string value by prefixing the expression with the at-sign (@). 
+string value by prefixing the expression with the at-sign (\@). 
 When evaluating an expression that represents a JSON value, 
 the expression body is extracted by removing the @ character, 
 and always results in another JSON value. 
@@ -192,7 +192,7 @@ These examples show how expressions are evaluated:
 | "Sophia Owen" | Return these characters: 'Sophia Owen' |
 | "array[1]" | Return these characters: 'array[1]' |
 | "\@@" | Return these characters as a one-character string: '@' |   
-| " @" | Return these characters as a two-character string: ' @' |
+| " \@" | Return these characters as a two-character string: ' @' |
 |||
 
 For these examples, suppose you define "myBirthMonth" 
