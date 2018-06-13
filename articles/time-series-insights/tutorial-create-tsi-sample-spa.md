@@ -258,10 +258,10 @@ To save the state measurement definition, choose **Save**:
 &nbsp;&nbsp;| Field Name           | fanmode           |
 &nbsp;&nbsp;| Value                | 1                 |
 &nbsp;&nbsp;| Display label        | Operating         |
-| Value                | 0                 |
-| Display label        | Stopped           |
+&nbsp;&nbsp;| Value                | 0                 |
+&nbsp;&nbsp;| Display label        | Stopped           |
 
-To save the state measurement definition, choose **Save**:
+&nbsp;&nbsp;To save the state measurement definition, choose **Save**:
 
-![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
+&nbsp;&nbsp;![TSI SPA app - login](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)
 
