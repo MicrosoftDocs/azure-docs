@@ -27,4 +27,6 @@ For antimalware platform updates, apply the [monthly Azure Stack update](https:/
 
  Apply the [monthly Azure Stack update](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-apply-updates). The monthly Azure Stack update includes Windows Defender Antivirus definitions, engine, and platform updates for the month.
 
+## Next steps
 
+[Learn more about Azure Stack security](azure-stack-security-foundations.md)
