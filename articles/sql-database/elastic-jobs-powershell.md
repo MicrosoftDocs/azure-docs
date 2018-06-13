@@ -22,15 +22,15 @@ In this tutorial you learn the steps required to run a query across multiple dat
 > * Define the targets (servers, elastic pools, databases, shard maps) you want to run the job against
 > * Create database scoped credentials in the target databases so the agent connect and execute jobs
 > * Create a job
-> * Add a job step to the job
-> * Start an execution of the job
-> * Monitor the job
+> * Add job steps to a job
+> * Start execution of a job
+> * Monitor a job
 
 ## Prerequisites
 
 If you don't have already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-Install the latest preview [AzureRM.Sql](https://go.microsoft.com/fwlink/?linkid=846259) module to get the Elastic Job cmdlets.
+Install the latest preview **AzureRM.Sql** module to get the Elastic Job cmdlets. Run the following commands from an elevated command prompt (run your PowerShell session as admistrator).
 
 ```powershell
 # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
@@ -129,10 +129,12 @@ Jobs use database scoped credentials to connect to the target databases specifie
 The database scoped credentials must be created in the job database.  
 All target databases must have a login with sufficient permissions for the job to complete successfully.
 
+![Elastic Jobs credentials](media/elastic-jobs-overview/job-credentials.png)
+
 To create the required job credentials (in the job database), run the following script:
 
 ```powershell
-# In the master database
+# In the master database (target server)
 # - Create the master user login
 # - Create the master user from master user login
 # - Create the job user login
@@ -152,7 +154,7 @@ Invoke-SqlCmd @Params
 
 # For each of the target databases
 # - Create the jobuser from jobuser login
-# - Make sure they have the right permissions for the inteded script execution
+# - Make sure they have the right permissions for successful script execution
 $TargetDatabases = @( $Db1.DatabaseName, $Db2.DatabaseName )
 $CreateJobUserScript =  "CREATE USER jobuser FROM LOGIN jobuser"
 $GrantAlterSchemaScript = "GRANT ALTER ON SCHEMA::dbo TO jobuser"
@@ -186,7 +188,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 A [target group](elastic-jobs-overview.md#target-group) defines the set of one or more databases a job step will execute on. This step sets a SQL Database server as the target group. The job step will run against all databases that exist on the server at the time of execution.
 
-The following snippet uses the New-AzureRmSqlElasticJobTargetGroup cmdlet and creates a new target group, then adds the desired target (the SQL Database server that contains the databases to run the job against) using the Add-AzureRmSqlElasticJobTarget cmdlet:
+The following snippet creates a new target group, then adds the desired target (the SQL Database server that contains the databases to run the job against) using the Add-AzureRmSqlElasticJobTarget cmdlet:
 
 ```powershell
 Write-Output "Creating test target groups..."
