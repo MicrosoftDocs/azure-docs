@@ -11141,6 +11141,17 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-reporting-api-audit-reference.md",
+            "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-sign-in-activity-reference.md",
+            "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path": "articles/active-directory/active-directory-identityprotection-risk-events-types.md",
             "redirect_url": "/azure/active-directory/active-directory-identity-protection-risk-events",
             "redirect_document_id": false
@@ -18261,6 +18272,26 @@
           "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-device-management-get-started",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-firmware-update.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-firmware-update",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-twin-getstarted",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-schedule-jobs.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-node-node-schedule-jobs",
+          "redirect_document_id": false
+        },
+        {
           "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
           "redirect_url": "/azure/iot-hub/tutorial-routing",
           "redirect_document_id": false
@@ -19127,7 +19158,12 @@
         },
         {
             "source_path": "articles/operations-management-suite/operations-management-suite-walkthrough-servicemap.md",
-            "redirect_url": "/azure/monitoring/monitoring-walkthrough-servicemap",
+            "redirect_url": "/azure/monitoring/monitoring-service-map",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring/monitoring-walkthrough-servicemap.md",
+            "redirect_url": "/azure/monitoring/monitoring-service-map",
             "redirect_document_id": false
         },
         {
@@ -19313,6 +19349,11 @@
         {
             "source_path": "articles/azure-stack/azure-stack-deploy.md",
             "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack-install-visual-studio.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-install-visual-studio",
             "redirect_document_id": false
         },
         {
@@ -22166,7 +22207,131 @@
             "source_path": "articles/active-directory/connect/active-directory-aadconnect-guest-sync.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
             "redirect_document_id": false
-       }
-
+      },
+      {
+            "source_path": "articles/azure-stack/asdk/asdk-deploy.md",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-install",
+             "redirect_document_id": false
+      },
+      {
+           "source_path": "articles/azure-stack/asdk/asdk-marketplace-item.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-marketplace-publisher",
+            "redirect_document_id": false
+      },
+      {
+            "source_path": "articles/azure-stack/asdk/asdk-marketplace-item-offline.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-create-and-publish-marketplace-item",
+            "redirect_document_id": false
+     },
+     {
+             "source_path": "articles/azure-stack/asdk/asdk-offer-services.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-tenant-vm",
+            "redirect_document_id": false
+     },
+     {
+            "source_path": "articles/azure-stack/asdk/asdk-subscribe-services.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-subscribe-services",
+            "redirect_document_id": false
+     },
+     {
+            "source_path": "articles/azure-stack/asdk/asdk-update-offers.md",
+            "redirect_url": "/azure/azure-stack/create-add-on-plan",
+            "redirect_document_id": false
+     },
+     {
+            "source_path": "articles/azure-stack/asdk/asdk-create-vm-template.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-create-vm-template",
+            "redirect_document_id": false
+     }, 
+        {
+            "source_path": "articles/active-directory/application-proxy-teams.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-teams",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-tableau.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-tableau",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-troubleshoot.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-troubleshoot",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-assign-user-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/change-name-or-logo-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-disable-app-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/disable-user-sign-in-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-remove-assignment-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/remove-user-or-group-access-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-view-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-provisioning.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-sso.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-enterprise-apps-advance-certificate-options.md",
+            "redirect_url": "/azure/active-directory/manage-apps/certificate-signing-options",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-coreapps-hide-third-party-app.md",
+            "redirect_url": "/azure/active-directory/manage-apps/hide-application-from-user-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-auto-acceleration-using-hrd.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-managing-access-to-apps.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-access-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-sso-certs.md",
+            "redirect_url": "/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-tenant-restrictions.md",
+            "redirect_url": "/azure/active-directory/manage-apps/tenant-restrictions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-scim-provisioning.md",
+            "redirect_url": "/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups",
+            "redirect_document_id": true
+        },
+	    {
+            "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
+            "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+            "redirect_document_id": false
+        }
     ]
 }

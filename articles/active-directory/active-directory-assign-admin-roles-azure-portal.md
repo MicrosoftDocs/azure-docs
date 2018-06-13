@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -30,17 +30,21 @@ To learn how to assign administrative roles to a user in Azure Active Directory,
 ## Available roles
 The following administrator roles are available:
 
+* **Application Administrator**: Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Members of this role are not added as owners when creating new application registrations or enterprise applications.
+
+* **Application Developer**: Users in this role can create application registrations when the “Users can register applications” setting is set to No. This role also allows members to consent on their own behalf when the “Users can consent to apps accessing company data on their behalf” setting is set to No. Members of this role are added as owners when creating new application registrations or enterprise applications.
+
 * **Billing Administrator**: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
 
-* **Compliance Administrator**:Users with this role have management permissions within in the Office 365 Security & Compliance Center and Exchange Admin Center. More information at “[About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).”
+* **Cloud Application Administrator**: Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. This role grants the ability to create and manage all aspects of enterprise applications, application registrations. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Members of this role are not added as owners when creating new application registrations or enterprise applications.
+
+* **Compliance Administrator**: Users with this role have management permissions within in the Office 365 Security & Compliance Center and Exchange Admin Center. More information at “[About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).”
 
 * **Conditional Access Administrator**: Users with this role have the ability to manage Azure Active Directory conditional access settings.
   > [!NOTE]
   > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be Global Administrator.
   
-* **Dynamics 365 Administrator**: Users with this role have global permissions within Microsoft Dynamics 365, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
-
-* **Device Administrators**: Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
+* **Device Administrators**:  This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
 
 * **Directory Readers**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](active-directory-integrating-applications.md). It should not be assigned to any users.
 
@@ -48,9 +52,11 @@ The following administrator roles are available:
 
 * **Directory Writers**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](active-directory-integrating-applications.md). It should not be assigned to any users.
 
+* **Dynamics 365 Administrator**: Users with this role have global permissions within Microsoft Dynamics 365, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+
 * **Exchange Service Administrator**: Users with this role have global permissions within Microsoft Exchange Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Global Administrator / Company Administrator**: Users with this role have access to all administrative features in Azure Active Directory, as well as services that federate to Azure Active Directory like Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
+* **Global Administrator / Company Administrator / Tenant Administrator**: Users with this role have access to all administrative features in Azure Active Directory, as well as services that federate to Azure Active Directory like Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
 
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
@@ -103,11 +109,29 @@ The following administrator roles are available:
 
 ## Administrator permissions
 
+### Application Administrator
+
+| Can do | Cannot do |
+| --- | --- |
+| Read all directory information<br>Create application registrations<br>Update application registration properties<br>Acquire enterprise applications<br>Manage application registration permissions<br>Delete application registrations<br>Manage enterprise application single sign-on settings<br>Manage enterprise application provisioning settings<br>Manage enterprise application self-service settings<br>Manage enterprise application permission settings<br>Manage application access<br>Manage provisioning settings<br>Delete enterprise applications<br>Consent on behalf of everyone for all delegated permission requests<br>Consent on behalf of everyone for all application permission requests except Azure AD Graph or Microsoft Graph<br>Manage application proxy settings<br>Access services settings<br>Monitor service health<br>Manage support tickets<br>Read hidden group membership | Create, edit, and delete groups<br>Manage user licenses<br>Use directory synchronization<br>View sign-in reports and audit logs | 
+
+### Application Developer
+
+| Can do | Cannot do |
+| --- | --- |
+| Read all directory information<br>Create application registrations<br>Consent on behalf of self | View sign-in and audit logs<br>Read hidden group membership |
+
 ### Billing Administrator
 
 | Can do | Cannot do |
 | --- | --- |
-|<p>View company and user information</p><p>Manage Office support tickets</p><p>Perform billing and purchasing operations for Office products</p> |<p>Reset user passwords</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View audit logs</p>|
+|<p>View company and user information</p><p>Manage Office support tickets</p><p>Perform billing and purchasing operations for Office products</p> |<p>Reset user passwords</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View audit logs</p> |
+
+### Cloud Application Administrator
+
+| Can do | Cannot do |
+| --- | --- |
+| Read all directory information<br>Create application registrations<br>Update application registration properties<br>Acquire enterprise applications<br>Manage application registration permissions<br>Delete application registrations<br>Manage enterprise application single sign-on settings<br>Manage enterprise application provisioning settings<br>Manage enterprise application self-service settings<br>Manage enterprise application permission settings<br>Manage application access<br>Manage provisioning settings<br>Delete enterprise applications<br>Consent on behalf of everyone for all delegated permission requests<br>Consent on behalf of everyone for all application permission requests except Azure AD Graph or Microsoft Graph<br>Access services settings<br>Monitor service health<br>Manage support tickets<br>Read hidden group membership | Manage application proxy settings<br>Create, edit, and delete groups<br>Manage user licenses<br>Use directory synchronization<br>View sign-in reports and audit logs |
 
 ### Conditional Access Administrator
 

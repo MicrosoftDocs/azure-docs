@@ -162,6 +162,8 @@ This view provides information on your machines, missing updates, update deploym
 
 You can run a log search that returns information on the machine, update, or deployment by selecting the item in the list. This opens the **Log Search** page with a query for the item selected.
 
+![Update management default view](media/automation-update-management/update-management-view.png)
+
 ## Installing updates
 
 Once updates have been assessed for all of the Linux and Windows computers in your workspace, you can have required updates installed by creating an *Update Deployment*. An Update Deployment is a scheduled installation of required updates for one or more computers. You specify the date and time for the deployment in addition to a computer or group of computers that should be included in the scope of a deployment. To learn more about computer groups, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md). When you include computer groups in your update deployment, group membership is evaluated only once at the time of schedule creation. Subsequent changes to a group are not reflected. To work around this, delete the scheduled update deployment and recreate it.
@@ -193,9 +195,8 @@ Create a new Update Deployment by clicking the **Schedule update deployment** bu
 |Operating System| Linux or Windows|
 | Machines to update |Select a Saved search or pick Machine from the drop-down and select individual machines |
 |Update classifications|Select all the update classifications that you need|
-|Updates to exclude|Enter all the KBs to exclude without the 'KB' prefix|
-|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
-| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
+|Updates to exclude|Enter the updates to exclude. For  Windows enter the KB without the 'KB' prefix. For Linux, enter the package name or use a wildcard.  |
+|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
 
 ## Update classifications
 
@@ -286,7 +287,7 @@ If you encounter issues while attempting to onboard the solution or a virtual ma
 
 | Message | Reason | Solution |
 |----------|----------|----------|
-| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)|
 | Unable to Register Machine for Patch Management, Registration Failed with Exception</br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---></br>System.Net.WebException: The underlying connection</br>was closed: An unexpected error</br>occurred on a receive. ---> System.ComponentModel.Win32Exception:</br>The client and server cannot communicate,</br>because they do not possess a common algorithm | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
 | Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
 | The certificate presented by the service \<wsid\>.oms.opinsights.azure.com</br>was not issued by a certificate authority</br>used for Microsoft services. Contact</br>your network administrator to see if they are running a proxy that intercepts</br>TLS/SSL communication. |Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|

@@ -133,7 +133,7 @@ The code does the following:
                 var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
                 Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                // It is recommended to validate AccestFiles before upload. 
+                // It is recommended to validate AssetFiles before upload. 
                 Console.WriteLine("Start uploading of {0}", assetFile.Name);
                 uploadTasks.Add(assetFile.UploadAsync(filePath, blobTransferClient, locator, CancellationToken.None));
             }

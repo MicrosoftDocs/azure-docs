@@ -12,10 +12,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 06/07/2018
 ms.author: curtand
 
-ms.reviewer: rodejo
+ms.reviewer: krbain
+ms.custom: it-pro
 
 ---
 # Azure Active Directory version 2 cmdlets for group management
@@ -31,8 +32,9 @@ This article contains examples of how to use PowerShell to manage your groups in
 To install the Azure AD PowerShell module, use the following commands:
 
     PS C:\Windows\system32> install-module azuread
+    PS C:\Windows\system32> import-module azuread
 
-To verify that the module was installed, use the following command:
+To verify that the module is ready to use, use the following command:
 
     PS C:\Windows\system32> get-module azuread
 
