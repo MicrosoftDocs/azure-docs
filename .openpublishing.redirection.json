@@ -11582,7 +11582,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/cli-use-docker",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": false
         },
         {
@@ -11697,7 +11697,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/portal-use-docker",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": false
         },
         {
@@ -22331,6 +22331,26 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/classic/portal-use-docker.md",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/extensions-customscript-classic.md",
+            "redirect_url": "/azure/virtual-machines/extensions/custom-script-classic",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/join-redhat-linux-vm-to-azure-active-directory-domain-service.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
+            "redirect_document_id": true
+        },
+	    {
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
             "redirect_document_id": false
