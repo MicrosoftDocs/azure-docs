@@ -15,7 +15,8 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: curtand
 
-ms.reviewer: rodejo
+ms.reviewer: krbain
+ms.custom: it-pro
 
 ---
 # Azure Active Directory version 2 cmdlets for group management

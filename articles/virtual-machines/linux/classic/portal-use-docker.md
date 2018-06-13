@@ -3,7 +3,7 @@ title: Using Docker VM Extension for Linux | Microsoft Docs
 description: Describes Docker and the Azure Virtual Machines extensions, and how to create Azure Virtual Machines that are docker hosts using the Azure CLI in classic deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
-author: squillace
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
-ms.author: rasquill
+ms.author: iainfou
 
 ---
 # Using the Docker VM Extension with the Azure portal
