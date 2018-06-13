@@ -122,7 +122,7 @@ The largest premium cache size is 53 GB. You can create up to 10 shards giving y
 ### Do all Redis clients support clustering?
 At the present time not all clients support Redis clustering. StackExchange.Redis is one that does support for it. For more information on other clients, see the [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) section of the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial). 
 
-The Redis clustering protocol requires that each client connect to each shard directly in clustering mode. Attempting to use a client that doesn't support clustering will likely result in a lot of [MOVED redirection exceptions](https://redis.io/topics/cluster-spec#moved-redirection).
+The Redis clustering protocol requires each client to connect to each shard directly in clustering mode. Attempting to use a client that doesn't support clustering will likely result in a lot of [MOVED redirection exceptions](https://redis.io/topics/cluster-spec#moved-redirection).
 
 > [!NOTE]
 > If you are using StackExchange.Redis as your client, ensure you are using the latest version of [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 or later for clustering to work correctly. If you have any issues with move exceptions, see [move exceptions](#move-exceptions) for more information.
