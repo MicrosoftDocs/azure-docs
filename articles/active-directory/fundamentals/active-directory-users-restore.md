@@ -49,5 +49,5 @@ These articles provide additional information on Azure Active Directory user man
 
 * [Quickstart: Add or delete users to Azure Active Directory](../add-users-azure-active-directory.md)
 * [Manage user profiles](active-directory-users-profile-azure-portal.md)
-* [Add guest users from another directory](active-directory-b2b-what-is-azure-ad-b2b.md) 
+* [Add guest users from another directory](../b2b/what-is-b2b.md) 
 * [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
