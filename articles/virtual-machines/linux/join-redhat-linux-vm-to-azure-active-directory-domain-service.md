@@ -3,7 +3,7 @@ title: Join a RedHat Linux VM to an Azure Active Directory DS | Microsoft Docs
 description: How to join an existing RedHat Enterprise Linux 7 VM to an Azure Active Directory Domain Service.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2016
-ms.author: v-livech
+ms.author: iainfou
 
 ---
 
