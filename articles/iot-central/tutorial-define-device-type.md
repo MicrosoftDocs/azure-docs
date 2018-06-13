@@ -69,9 +69,9 @@ For more information, see [How to create an Azure IoT Central application](howto
 
 As a builder, you can create and edit the device templates in your application. When you create a device template, Azure IoT Central generates a simulated device from the template. The simulated device generates telemetry that enables you to test the behavior of your application before you connect a physical device.
 
-To add a new device template to your application, you need to go to the **Application Builder** page. To do so choose the **Application builder** on the left navigation menu:
+To add a new device template to your application, you need to go to the **Application Builder** page. To do so choose the **Application builder** on the left navigation menu.
 
-    ![Application Builder page](./media/tutorial-define-device-type/builderhome.png)
+![Application Builder page](./media/tutorial-define-device-type/builderhome.png)
 
 ## Add a device and define telemetry
 
