@@ -24,7 +24,7 @@ The Azure SQL Analytics solution in Azure Log Analytics collects and visualizes 
 
 Currently, this preview solution supports up to 150,000 Azure SQL Databases and 5,000 SQL Elastic Pools per workspace.
 
-The Azure SQL Analytics solution, like others available for Log Analytics, helps you monitor and receive notifications about the health of your Azure resources—in this case, Azure SQL Database. Microsoft Azure SQL Database is a scalable relational database service that provides familiar SQL-Server-alike capabilities to applications running in the Azure cloud. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
+The Azure SQL Analytics solution, like others available for Log Analytics, helps you monitor and receive notifications about the health of your Azure resources—in this case, Azure SQL Database. Microsoft Azure SQL Database is a scalable relational database service that provides familiar SQL-Server-like capabilities to applications running in the Azure cloud. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
 
 For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
 
@@ -47,8 +47,8 @@ Azure SQL Analytics is a cloud solution supporting streaming of diagnostics tele
 
 Perform the following steps to add the Azure SQL Analytics solution to your workspace.
 
-1. Add the Azure SQL Analytics solution to your workspace from [Azure marketplace].
-2. In the Azure portal, click **+ (Create a resource)**, then search for "**Azure SQL Analytics**".  
+1. Add the Azure SQL Analytics solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
+2. In the Azure portal, click **+ Create a resource**, then search for **Azure SQL Analytics**.  
     ![Monitoring + Management](./media/log-analytics-azure-sql/monitoring-management.png)
 3. Select **Azure SQL Analytics (Preview)** from the list
 4. In the **Azure SQL Analytics (Preview)** area, click **Create**.  
