@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/11/2018
 ms.author: mabrigg
 
 ---
@@ -21,7 +21,7 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-There aren't any Azure Stack operator-specific tasks that you can perform by using Azure CLI. But before users can manage resources through CLI, Azure Stack operators must provide them with the following:
+You can provide the CA root certificate to users of Azure Stack so that they can use Azure CLI on their development machines. Your users will need the certificate to manage resources through CLI.
 
 * **The Azure Stack CA root certificate** is required if users are using CLI from a workstation outside the Azure Stack Development Kit.  
 
@@ -31,7 +31,7 @@ The following sections describe how to get these values.
 
 ## Export the Azure Stack CA root certificate
 
-The Azure Stack CA root certificate is available on the development kit and on a tenant virtual machine that is running within the development kit environment. To export the Azure Stack root certificate in PEM format, sign in to your development kit or the tenant virtual machine and run the following script:
+You can find the Azure Stack CA root certificate on the development kit and on a tenant virtual machine that is running within the development kit environment. To export the Azure Stack root certificate in PEM format, sign in to your development kit or the tenant virtual machine and run the following script:
 
 ```powershell
 $label = "AzureStackSelfSignedRootCert"

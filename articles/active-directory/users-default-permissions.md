@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 06/12/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ---
@@ -62,9 +62,9 @@ Ability to read other users | This setting is available in PowerShell only. Sett
 ### Application registration owner permissions
 When a user registers an application, they are automatically added as an owner for the application. As an owner, they can manage the metadata of the application, such as the name and permissions the app requests. They can also manage the tenant-specific configuration of the application, such as the SSO configuration and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can only manage applications they own. To assign an application registration owner, see [Azure Active Directory app registration](active-directory-app-registration.md).
 
-<!-- ### Enterprise application owner permissions
+### Enterprise application owner permissions
 
-When a user adds a new enterprise application, they are automatically added as an owner for the tenant-specific configuration of the application. As an owner, they can manage the tenant-specific configuration of the application, such as the SSO configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the applications they own. <!--To assign an enterprise application owner, see *Assigning Owners for an Application*.-->
+When a user adds a new enterprise application, they are automatically added as an owner for the tenant-specific configuration of the application. As an owner, they can manage the tenant-specific configuration of the application, such as the single sign-on configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the applications they own. <!--To assign an enterprise application owner, see *Assigning Owners for an Application*. The target for this link does not seem to exist yet.-->
 
 ### Group owner permissions
 
