@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: load-balancer
 ms.custom: REST
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 06/13/2018
 ms.author: routlaw
 ---
 
