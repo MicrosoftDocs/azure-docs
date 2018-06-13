@@ -1,9 +1,12 @@
 ---
+title: Article requires Azure classic CLI due to lack of Azure CLI support
+description: For content which requires the classic CLI due to lack of feature support in Azure CLI.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.date: 06/12/2018
 ms.topic: include
+ms.custom: include file
 ---
 > [!IMPORTANT]
 > This article contains content which requires the Azure classic CLI. The current release

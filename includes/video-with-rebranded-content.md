@@ -1,9 +1,12 @@
 ---
+title: Video content contains old Azure CLI branding
+description: For content with embedded video that references "Azure CLI 2.0", "Azure CLI 1.0", "Azure cross-platform CLI" etc.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.date: 06/12/2018
 ms.topic: include
+ms.custom: include file
 ---
 > [!IMPORTANT]
 > This video may use old product names for the Azure classic CLI and Azure CLI. Previously

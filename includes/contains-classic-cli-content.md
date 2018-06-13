@@ -1,9 +1,12 @@
 ---
+title: Article contains Azure classic CLI content
+description: For articles which contain Azure classic CLI content which either [1] need to be updated [2] use classic deployment model
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.date: 06/12/2018
 ms.topic: include
+ms.custom: include file
 ---
 > [!IMPORTANT]
 > This article contains content which requires the Azure classic CLI. This is
