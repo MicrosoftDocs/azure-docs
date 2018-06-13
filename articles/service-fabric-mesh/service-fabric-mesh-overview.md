@@ -24,7 +24,7 @@ This article provides an overview of the key benefits of Service Fabric Mesh.
 
 Tooling in Visual Studio and Visual Studio Code provides a powerful editing and debugging experience.  Multiple programing languages and frameworks are supported, giving you the ability to run any code.
 
-You can:
+With Service Fabric Mesh you can:
 
 - "Lift and shift" existing applications into containers.  Take advantage of containerization to modernize your legacy applications. 
 - Build new microservices applications in containers. Deploy new applications at scale and integrate with other Azure services or legacy applications running in containers. Each containerized microservice is part of a secure, network isolated application with resource governance policies defined for CPU cores, memory, disk space, and more.
@@ -35,7 +35,7 @@ You can:
 
 Easily manage running applications, including application upgrades and versioning, monitoring applications and debugging in production environments. These applications can be a single container instance or can consist of multiple containers isolated within their own network. Applications run efficiently with fast deployment, placement, and failover times.
 
-You can:
+With Service Fabric Mesh you can:
 
 - Deploy and manage applications without having to explicitly provision and manage infrastructure.  Service Fabric Mesh provisions, upgrades, patches, and maintains the underlying clusters for you.
 - Setup continuous integration using the integrated tooling to easily package and deploy applications.
@@ -51,7 +51,7 @@ You can:
 
 Service Fabric Mesh creates a collection of clusters that span [Azure Availability Zones](/azure/availability-zones/az-overview) and/or geo-political boundaries. Applications are described with a set of intents such as scale, hardware requirements, durability requirements, and security policies.  When the application deploys, Service Fabric Mesh finds the optimal place to run it.
 
-You can:
+With Service Fabric Mesh you can:
 
 - Take advantage of high availability, scaling in/out, discoverability, orchestration, message routing, reliable messaging, no-downtime upgrades, security/secrets management, disaster recovery, state management, configuration management, and distributed transactions.
 - Choose between multiple application models when creating applications.
