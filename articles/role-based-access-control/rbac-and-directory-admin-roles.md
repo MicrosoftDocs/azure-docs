@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2018
+ms.date: 06/13/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
@@ -116,8 +116,8 @@ Several Azure AD administrator roles span Azure AD and Microsoft Office 365, suc
 
 ![Azure RBAC versus Azure AD administrator roles](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
 
-## Next Steps
+## Next steps
 
-- [Role-based access control overview](overview.md)
+- [What is role-based access control (RBAC)?](overview.md)
 - [Assigning administrator roles in Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
 - [Add or change Azure subscription administrators](/azure/billing/billing-add-change-azure-subscription-administrator)
