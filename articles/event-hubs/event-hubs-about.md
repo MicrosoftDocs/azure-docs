@@ -31,7 +31,7 @@ Following are common scenarios that we see Event Hubs used in,
 
 ## Why use Event Hubs?
 
-Organizations needs data-driven strategies to increase competitive advantage, or to analyze data to get valuable insights, Event Hubs provides a distributed stream processing platform with low latency and seamless integration with data and analytics services in and outside Azure to build a complete Big Data pipeline.
+Organizations need data-driven strategies to increase competitive advantage, or to analyze data to get valuable insights, Event Hubs provides a distributed stream processing platform with low latency and seamless integration with data and analytics services in and outside Azure to build a complete Big Data pipeline.
 
 The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. It provides a synchronized time retention buffer decoupling the event producers from event consumers. 
 
@@ -41,7 +41,7 @@ Event Hubs provides message stream handling capability but has characteristics t
 
 ## Fully managed PaaS 
 
-Event Hubs is a managed service with no configuration or management overhead, so you focus on your business solutions. Event Hubs for Kafka Ecosystems gives you the PaaS Kafka experience without having to manage, configure or run your clusters.
+Event Hubs is a managed service with no configuration or management overhead, so you focus on your business solutions. Event Hubs for Kafka Ecosystems give you the PaaS Kafka experience without having to manage, configure or run your clusters.
 
 ## Scalable 
 
@@ -49,14 +49,14 @@ You can start with megabytes, and grow to gigabytes or terabytes of data streams
 
 ## Real-time and batching
 
-Ingest, buffer, store and process your stream in real-time to get actionable insights. Event Hubs uses a partition consumer model allowing multiple applications to process the stream concurrently and letting you control the velocity of processing.
+Ingest, buffer, store and process your stream in real time to get actionable insights. Event Hubs uses a partition consumer model allowing multiple applications to process the stream concurrently and letting you control the velocity of processing.
 
 [Capture](event-hubs-capture-overview.md) your data in near-real time to your [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or your [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) for long-term retention or micro-batch processing. You can achieve this on the same stream you use for deriving real-time analytics. Setting up Capture is fast, there are no administrative costs to run it, and it scales automatically with Event Hubs throughput units. Event Hubs Capture enables you to focus on data processing rather than on data capture.
 
 
 ## Rich Ecosystem
 
-Event Hubs for Kafka Ecosystems enables Apache Kafka (1.0 and above) clients and applications to talk to Event Hubs without having to manager any cluster. 
+Event Hubs for Kafka Ecosystems enable Apache Kafka (1.0 and above) clients and applications to talk to Event Hubs without having to manager any cluster. 
 With a broad ecosystem available in various [languages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), you can easily start processing your streams from Event Hubs. All supported client languages provide low-level integration.
 
 
