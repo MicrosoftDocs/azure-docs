@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 #  Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you use."]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version 1: GA](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Version 2: Preview](connector-azure-sql-data-warehouse.md)
 
@@ -37,11 +37,11 @@ Specifically, this Azure SQL Data Warehouse connector supports these functions:
 - As a sink, load data by using PolyBase or a bulk insert. We recommend PolyBase for better copy performance.
 
 > [!IMPORTANT]
-> Note that PolyBase supports only SQL authentication but not Azure Active AD authentication.
+> Note that PolyBase supports only SQL authentication but not Azure AD authentication.
 
 > [!IMPORTANT]
-> If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL Server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure Services can access the server.
-> If you copy data by using a self-hosted integration runtime, configure the Azure SQL Server firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure SQL Database.
+> If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure services can access the server.
+> If you copy data by using a self-hosted integration runtime, configure the Azure SQL server firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure SQL Database.
 
 ## Get started
 
@@ -51,7 +51,7 @@ The following sections provide details about properties that define Data Factory
 
 ## Linked service properties
 
-The following properties are supported for an Azure SQL Data Warehouse linked service.
+The following properties are supported for an Azure SQL Data Warehouse linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -62,7 +62,7 @@ The following properties are supported for an Azure SQL Data Warehouse linked se
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal. |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No |
 
-For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively.
+For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
 - [SQL authentication](#sql-authentication)
 - Azure AD application token authentication: [Service principal](#service-principal-authentication)
@@ -93,23 +93,23 @@ For different authentication types, refer to the following sections on prerequis
 
 ### Service principal authentication
 
-To use service principal-based Azure AD application token authentication, follow these steps.
+To use service principal-based Azure AD application token authentication, follow these steps:
 
-1. **[Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)** from the Azure portal. Make note of the application name and the following values that define the linked service.
+1. **[Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)** from the Azure portal. Make note of the application name and the following values that define the linked service:
 
     - Application ID
     - Application key
     - Tenant ID
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL Server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with MSI an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with MSI an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL.
+3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code.
+4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code:
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -152,7 +152,7 @@ A data factory can be associated with a [Managed Service Identity](data-factory-
 > [!IMPORTANT]
 > Note that PolyBase isn't currently supported for MSI authentication.
 
-To use MSI-based Azure AD application token authentication, follow these steps.
+To use MSI-based Azure AD application token authentication, follow these steps:
 
 1. **Create a group in Azure AD.** Make the factory MSI a member of the group.
 
@@ -164,18 +164,18 @@ To use MSI-based Azure AD application token authentication, follow these steps.
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL Server instance on the Azure portal if you haven't already done so.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so.
 
 3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Azure AD group. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL. 
     
     ```sql
-    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
     ```
 
 4. **Grant the Azure AD group needed permissions** as you normally do for SQL users and others. For example, run the following code.
 
     ```sql
-    EXEC sp_addrolemember [role name], [your AAD group name];
+    EXEC sp_addrolemember [role name], [your Azure AD group name];
     ```
 
 5. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
@@ -205,7 +205,7 @@ To use MSI-based Azure AD application token authentication, follow these steps.
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) article. This section provides a list of properties supported by the Azure SQL Data Warehouse dataset.
 
-To copy data from or to Azure SQL Data Warehouse, set the **type** property of the dataset to **AzureSqlDWTable**. The following properties are supported.
+To copy data from or to Azure SQL Data Warehouse, set the **type** property of the dataset to **AzureSqlDWTable**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -237,7 +237,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure SQL Data Warehouse as the source
 
-To copy data from Azure SQL Data Warehouse, set the **type** property in the Copy Activity source to **SqlDWSource**. The following properties are supported in the Copy Activity **source** section.
+To copy data from Azure SQL Data Warehouse, set the **type** property in the Copy Activity source to **SqlDWSource**. The following properties are supported in the Copy Activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -341,7 +341,7 @@ GO
 
 ### <a name="azure-sql-data-warehouse-as-sink"></a> Azure SQL Data Warehouse as sink
 
-To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to **SqlDWSink**. The following properties are supported in the Copy Activity **sink** section.
+To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to **SqlDWSink**. The following properties are supported in the Copy Activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -378,7 +378,7 @@ Learn more about how to use PolyBase to efficiently load SQL Data Warehouse in t
 
 Using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure SQL Data Warehouse with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. See [Performance reference](copy-activity-performance.md#performance-reference) for a detailed comparison. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
 
-* If your source data is in Azure Blob or Azure Data Lake Store, and the format is compatible with PolyBase, copy direct to Azure SQL Data Warehouse by using PolyBase. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
+* If your source data is in Azure Blob storage or Azure Data Lake Store, and the format is compatible with PolyBase, copy direct to Azure SQL Data Warehouse by using PolyBase. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
 * If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format. And it stores the data in Azure Blob storage. It then loads the data into SQL Data Warehouse.
 
 > [!IMPORTANT]
@@ -454,9 +454,9 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 ### Staged copy by using PolyBase
 
-When your source data doesn’t meet the criteria in the previous section, enable data copying via an interim staging Azure Blob Storage instance. It can't be Azure Premium Storage. In this case, Azure Data Factory automatically runs transformations on the data to meet the data format requirements of PolyBase. Then it uses PolyBase to load data into SQL Data Warehouse. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance.md#staged-copy) for details about copying data via a staging Azure Blob instance.
+When your source data doesn’t meet the criteria in the previous section, enable data copying via an interim staging Azure Blob storage instance. It can't be Azure Premium Storage. In this case, Azure Data Factory automatically runs transformations on the data to meet the data format requirements of PolyBase. Then it uses PolyBase to load data into SQL Data Warehouse. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance.md#staged-copy) for details about copying data via a staging Azure Blob storage instance.
 
-To use this feature, create an [Azure Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure Storage Account with the interim blob storage. Then specify the `enableStaging` and `stagingSettings` properties for the Copy Activity as shown in the following code.
+To use this feature, create an [Azure Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account with the interim blob storage. Then specify the `enableStaging` and `stagingSettings` properties for the Copy Activity as shown in the following code:
 
 ```json
 "activities":[
@@ -532,13 +532,13 @@ Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account
 
 ### Columns with default values
 
-Currently, the PolyBase feature in Data Factory accepts only the same number of columns as in the target table. An example is a table with four columns where one of them is defined with a default value. The input data still needs to have four columns. A three-column input dataset yields an error similar to the following message.
+Currently, the PolyBase feature in Data Factory accepts only the same number of columns as in the target table. An example is a table with four columns where one of them is defined with a default value. The input data still needs to have four columns. A three-column input dataset yields an error similar to the following message:
 
 ```
 All columns of the table must be specified in the INSERT BULK statement.
 ```
 
-The NULL value is a special form of the default value. If the column is nullable, the input data in the blob for that column might be empty. But it can't be missing from the input dataset. PolyBase inserts NULL for missing values in the Azure SQL Data Warehouse.
+The NULL value is a special form of the default value. If the column is nullable, the input data in the blob for that column might be empty. But it can't be missing from the input dataset. PolyBase inserts NULL for missing values in Azure SQL Data Warehouse.
 
 ## Data type mapping for Azure SQL Data Warehouse
 
