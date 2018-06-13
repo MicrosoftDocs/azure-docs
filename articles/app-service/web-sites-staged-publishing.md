@@ -248,8 +248,8 @@ Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Calle
 
 - - -
 ### Delete deployment slot
-```
-Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
+```PowerShell
+Remove-AzureRmWebAppSlot -ResourceGroupName [resource group name] –Name [app name] -Slot [slot name]
 ```
 
 - - -
