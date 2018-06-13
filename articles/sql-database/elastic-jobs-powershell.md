@@ -192,12 +192,14 @@ The following snippet creates a new target group, then adds the desired target (
 
 ```powershell
 Write-Output "Creating test target groups..."
-$TargetGroup1 = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name 'Db1Group'
-$TargetGroup1 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
-$TargetGroup1 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -Database $Db2.DatabaseName -Exclude
+# Create ServerGroup target group
+$ServerGroup = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name 'ServerGroup'
+$ServerGroup | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
 
-$TargetGroup2 = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name 'Db2Group'
-$TargetGroup2 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -Database $Db2.DatabaseName
+# Create ServerGroup with an exclusion of Db2
+$ServerGroupExcludingDb2 = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name 'ServerGroupExcludingDb2'
+$ServerGroupExcludingDb2 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
+$ServerGroupExcludingDb2 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -Database $Db2.DatabaseName -Exclude
 ```
 
 ## Create a job
@@ -213,12 +215,13 @@ $Job
 
 ```powershell
 Write-Output "Creating job steps"
-$SqlText1 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Test1')) CREATE TABLE [dbo].[Test1]([TestId] [int] NOT NULL);"
-$SqlText2 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Test2')) CREATE TABLE [dbo].[Test2]([TestId] [int] NOT NULL);"
+$SqlText1 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step1Table')) CREATE TABLE [dbo].[Step1Table]([TestId] [int] NOT NULL);"
+$SqlText2 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step2Table')) CREATE TABLE [dbo].[Step2Table]([TestId] [int] NOT NULL);"
 
-$Job | Add-AzureRmSqlElasticJobStep -Name "step1" -TargetGroupName $TargetGroup1.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText1
-$Job | Add-AzureRmSqlElasticJobStep -Name "step2" -TargetGroupName $TargetGroup2.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText2
+$Job | Add-AzureRmSqlElasticJobStep -Name "step1" -TargetGroupName $ServerGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText1
+$Job | Add-AzureRmSqlElasticJobStep -Name "step2" -TargetGroupName $ServerGroupExcludingDb2.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText2
 ```
+
 
 ## Run the job
 
