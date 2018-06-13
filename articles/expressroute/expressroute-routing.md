@@ -63,6 +63,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 ### IP addresses used for Microsoft peering
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries.
 
+* The IPs listed in the portal for Advertised Public Prefixes for Microsoft Peering will create ACLs for the Microsoft core routers to allow inbound traffic from these IPs. 
 * You must use a unique /29 (IPv4) or /125 (IPv6) subnet or two /30 (IPv4) or /126 (IPv6) subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one).
 * If a /29 subnet is used, it is split into two /30 subnets.
 * The first /30 subnet is used for the primary link and the second /30 subnet will be used for the secondary link.
