@@ -21,7 +21,7 @@ ms.author: barclayn
 
 ## Introduction
 
-Once that you have a key vault, you can start using it to store keys and secrets. Your applications no longer need to persist your keys or secrets, but can request them from the vault as needed. This allows you to update keys and secrets without affecting the behavior of your application, which opens up a breadth of possibilities around your key and secret management.
+After you have a key vault, you can start using it to store keys and secrets. Your applications no longer need to persist your keys or secrets, but can request them from the vault as needed. This allows you to update keys and secrets without affecting the behavior of your application, which opens up a breadth of possibilities around your key and secret management.
 
 >[!IMPORTANT]
 > The examples in this article are provided for illustration purposes only. They are not intended for production use. 
@@ -98,7 +98,7 @@ Now that you have a secret stored, you can use code to retrieve and use it. Ther
 
     ![Create application registration](./media/keyvault-keyrotation/create-app.png)
 
-5. After the application is added to Azure Active Directory, you will be brought into the application page. Select **Settings**  and then select properties. There you find and copy the **Application ID** value. Make note of the Application ID for later steps.
+5. After the application is added to Azure Active Directory, you will be brought into the application page. Select **Settings**  and then select properties. Copy the **Application ID** value. It will be needed in later steps.
 
 Next, generate a key for your application so it can interact with your Azure Active Directory. You can create a key under by navigating to the **Keys** section under **Settings**. Make note of the newly generated key from your Azure Active Directory application for use in a later step. Notice that the key will not be available after you navigate out of this section. 
 
