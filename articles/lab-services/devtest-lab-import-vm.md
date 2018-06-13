@@ -18,7 +18,7 @@ ms.author: spelluru
 
 ---
 # Import VMs from another lab in Azure DevTest Labs
-The Azure DevTest Labs service significantly improves management of virtual machines (VMs) for development and testing activities. It allows you to move a VM from one lab to another as the team or infrastructure requirements change. Here are some common scenarion where you may need to move a VM from one lab to another: 
+The Azure DevTest Labs service significantly improves management of virtual machines (VMs) for development and testing activities. It allows you to move a VM from one lab to another as the team or infrastructure requirements change. Here are some common scenarion where you may need to do so: 
 
 - A person on the team moves to another group within the enterprise and wants to take development VMs to the new team’s lab.
 - The group has reached the subscription-level quota and wants to split up teams into multiple subscriptions.
