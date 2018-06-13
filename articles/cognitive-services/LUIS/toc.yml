@@ -17,6 +17,8 @@
       href: luis-quickstart-intents-only.md
 - name: Tutorials
   items: 
+  - name: Add prebuilt intents and entities
+    href: luis-tutorial-prebuilt-intents-entities.md
   - name: Get data from entity
     items: 
     - name: Simple entity
@@ -101,6 +103,8 @@
     items:
     - name: Prediction score
       href: luis-concept-prediction-score.md
+    - name: Review endpoint utterances
+      href: luis-concept-review-endpoint-utterances.md
     - name: Phrase lists
       href: luis-concept-feature.md
     - name: Patterns

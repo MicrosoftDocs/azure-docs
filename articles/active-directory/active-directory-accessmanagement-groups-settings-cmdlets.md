@@ -13,7 +13,7 @@ ms.component: users-groups-roles
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: curtand
-ms.reviewer: kairaz.contractor
+ms.reviewer: krbain
 ms.custom: it-pro;
 
 ---

@@ -11,9 +11,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/01/2016
-ms.author: mbullwin; olegan
+ms.reviewer: olegan
+ms.author: mbullwin
 
 ---
 # Developer analytics: languages, platforms, and integrations
