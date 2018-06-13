@@ -45,7 +45,7 @@ This method creates a complete dashboard of telemetry for you. The initial datas
 
      ![Screenshot of Get from Application Insights data source](./media/app-insights-export-power-bi/004.png)
 
-5. Open the new created Application Insights PowerBI App.
+5. Open the newly created Application Insights Power BI App.
 
 6. Wait a minute or two for the data to be imported.
 
