@@ -29,7 +29,7 @@ You can open diagnostic search explicitly from the Application Insights Overview
 
 ![Open diagnostic search](./media/app-insights-diagnostic-search/001.png)
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/002.png)
+![Screenshot of diagnostic search graphs](./media/app-insights-diagnostic-search/002.png)
 
 The main body of Diagnostic Search is a list of telemetry items - server requests, page views, custom events that you have coded, and so on. At the top of the list is a summary chart showing counts of events over time.
 
