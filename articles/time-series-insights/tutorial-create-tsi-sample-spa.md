@@ -4,14 +4,14 @@ description: Learn how to create a single-page web application that queries and 
 author: BryanLa
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/13/2018
+ms.date: 06/14/2018
 ms.author: bryanla
 # Customer intent: As a developer, I want learn how to create a Time Series Insights single-page web application (SPA), so I can apply the principles to building my own SPA.
 ---
 
 # Tutorial: Create an Azure Time Series Insights single-page web app
 
-This tutorial guides you through the process of creating your own single-page web app (SPA) to access TSI data, modeled after the [Time Series Insights (TSI) sample application](https://insights.timeseries.azure.com/clientsample). In this tutorial, you'll learn about:
+This tutorial guides you through the process of creating your own single-page web application (SPA) to access TSI data, modeled after the [Time Series Insights (TSI) sample application](https://insights.timeseries.azure.com/clientsample). In this tutorial, you'll learn about:
 
 > [!div class="checklist"]
 > * The application design
@@ -31,7 +31,7 @@ As mentioned, the TSI sample application provides the basis for the design and c
 - **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using JSON-based expressions. The methods are organized under the `TsiClient.server` namespace of the library.
 - **Methods for creating and populating several types of charting controls**: Methods that are used for visualizing the TSI data in a web page. The methods are organized under the `TsiClient.ux` namespace of the library.
 
-This tutorial will also use the data from the sample application's TSI environment. For an overview of the structure of the TSI sample app its use of the TSI Client library, refer to the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md) tutorial.
+This tutorial will also use the data from the sample application's TSI environment. For details on the structure of the TSI sample application and its use of the TSI Client library, refer to the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md) tutorial.
 
 ## Register the application with Azure AD 
 
@@ -158,11 +158,11 @@ Before building the application, you need to register it with Azure AD. Registra
 
       ![VS - Publish profile - add new app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service-create.png)  
 
-   e. When you return to the **Publish** dialog, make sure **Publish method** is set to "Web deploy". Also change the **Destination URL** to use `https`, to match the Azure AD application registration. Then click “Publish” to deploy the web application:  
+   e. When you return to the **Publish** dialog, make sure **Publish method** is set to "Web deploy". Also change the **Destination URL** to use `https` instead of `http`, to match the Azure AD application registration. Then click “Publish” to deploy the web application:  
 
       ![VS - Publish web app - publish the app service](media/tutorial-create-tsi-sample-spa/vs-publish-publish.png)  
 
-   f. You should see a successful publish log in the Visual Studio **Output** window. After deployment is done, Visual Studio will also open the web application in a browser tab, prompting for sign-in. After successful sign-in, you'll see all of the TSI controls populated with data:  
+   f. You should see a successful publish log in the Visual Studio **Output** window. After deployment is done, Visual Studio will also open the web application in a browser tab, prompting for sign-in. After successful sign-in, you'll see all the TSI controls populated with data:  
 
       [![VS - Publish web app - publish log output](media/tutorial-create-tsi-sample-spa/vs-publish-output.png)](media/tutorial-create-tsi-sample-spa/vs-publish-output.png#lightbox)
 
@@ -178,7 +178,7 @@ Web application loads, but has an unstyled text-only sign-in page, with a white 
 
 ## Clean up resources
 
-This tutorial creates several running Azure services. If you plan to abandon or delay completion of this tutorial series, we recommend deleting all resources to avoid incurring unnecessary costs. 
+This tutorial creates several running Azure services. If you don't plan to complete this tutorial series, we recommend deleting all resources to avoid incurring unnecessary costs. 
 
 From the left-hand menu in the Azure portal:
 
@@ -194,9 +194,9 @@ In this tutorial, you learned how to:
 > * How to register your application with Azure Active Directory (AD)
 > * How to build, publish, and test your web application 
 
-This tutorial showed you how to integrate with Azure AD, using the signed-in user's identity to acquire an access token. To learn how to access the TSI API using the identity of a service/daemon application, see:
+This tutorial integrates with Azure AD, using the signed-in user's identity to acquire an access token. To learn how to access the TSI API using the identity of a service/daemon application, see:
 
 > [!div class="nextstepaction"]
-> [](time-series-insights-authentication-and-authorization.md)
+> [Authentication and authorization for Azure Time Series Insights API](time-series-insights-authentication-and-authorization.md)
 
 
