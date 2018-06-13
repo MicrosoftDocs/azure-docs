@@ -18,7 +18,7 @@ ms.custom: mvc
 
 ---
 # Create an Azure CDN endpoint
-This article describes all the settings for creating an Azure Content Delivery Network (CDN) endpoint in an existing CDN profile. After you've created a profile and an endpoint, you can start delivering content to your customers. For a quickstart on creating a profile and endpoint, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
+This article describes all the settings for creating an [Azure Content Delivery Network (CDN)](cdn-overview.md) endpoint in an existing CDN profile. After you've created a profile and an endpoint, you can start delivering content to your customers. For a quickstart on creating a profile and endpoint, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 
 ## Prerequisites
 Before you can create a CDN endpoint, you must have created at least one CDN profile, which can contain one or more CDN endpoints. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. Because CDN pricing is applied at the CDN profile level, you must create multiple CDN profiles if you want to use a mix of Azure CDN pricing tiers. To create a CDN profile, see [Create a new CDN profile](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
