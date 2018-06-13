@@ -1,42 +1,43 @@
 ---
-title: Add a disk to Linux VM using the Azure CLI | Microsoft Docs
-description: Learn to add a persistent disk to your Linux VM with the Azure CLI 1.0 and 2.0.
+title: Add a data disk to Linux VM using the Azure CLI | Microsoft Docs
+description: Learn to add a persistent data disk to your Linux VM with the Azure CLI 1.0 and 2.0.
 keywords: linux virtual machine,add resource disk
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: cyntn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/02/2017
-ms.author: rclaus
+ms.date: 06/12/2018
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ---
 # Add a disk to a Linux VM
 This article shows you how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. 
 
 
-## Use managed disks
-Azure Managed Disks simplifies disk management for Azure VMs by managing the storage accounts associated with the VM disks. You only have to specify the type (Premium or Standard) and the size of disk you need, and Azure creates and manages the disk for you. For more information, see [Managed Disks overview](managed-disks-overview.md).
+## Attach a new disk to a VM
 
-
-### Attach a new disk to a VM
-If you just need a new disk on your VM, use the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command with the `--new` parameter. If your VM is in an Availability Zone, the disk is automatically created in the same zone as the VM. For more information, see [Overview of Availability Zones](../../availability-zones/az-overview.md). The following example creates a disk named *myDataDisk* that is *50*Gb in size:
+If you want to add a new, empty data disk on your VM, use the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command with the `--new` parameter. If your VM is in an Availability Zone, the disk is automatically created in the same zone as the VM. For more information, see [Overview of Availability Zones](../../availability-zones/az-overview.md). The following example creates a disk named *myDataDisk* that is 50Gb in size:
 
 ```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
-  --new --size-gb 50
+az vm disk attach \
+   -g myResourceGroup \
+   --vm-name myVM \
+   --disk myDataDisk \
+   --new \
+   --size-gb 50
 ```
 
-### Attach an existing disk 
-In many cases. you attach disks that have already been created. To attach an existing disk, find the disk ID and pass the ID to the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command. The following example queries for a disk named *myDataDisk* in *myResourceGroup*, then attaches it to the VM named *myVM*:
+## Attach an existing disk 
+
+To attach an existing disk, find the disk ID and pass the ID to the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command. The following example queries for a disk named *myDataDisk* in *myResourceGroup*, then attaches it to the VM named *myVM*:
 
 ```azurecli
 # find the disk id
@@ -44,7 +45,7 @@ diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
-The output looks something like the following (you can use the `-o table` option to any command to format the output in):
+The output looks something like the following:
 
 ```json
 {
@@ -72,17 +73,9 @@ The output looks something like the following (you can use the `-o table` option
 ```
 
 
-## Use unmanaged disks
-Unmanaged disks require additional overhead to create and manage the underlying storage accounts. Unmanaged disks are created in the same storage account as your OS disk. To create and attach an unmanaged disk, use the [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_attach) command. The following example attaches a *50*GB unmanaged disk to the VM named *myVM* in the resource group named *myResourceGroup*:
-
-```azurecli
-az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
-  --new --size-gb 50
-```
-
 
 ## Connect to the Linux VM to mount the new disk
-To partition, format, and mount your new disk so your Linux VM can use it, SSH into your Azure VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public DNS entry of *mypublicdns.westus.cloudapp.azure.com* with the username *azureuser*: 
+To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public DNS entry of *mypublicdns.westus.cloudapp.azure.com* with the username *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
