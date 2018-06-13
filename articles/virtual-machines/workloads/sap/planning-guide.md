@@ -981,7 +981,7 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 * Create a new VM from the VM config with *New-AzureRmVM* - see <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 * Add a data disk to a new VM with *Add-AzureRmVMDataDisk* - see <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
 
-**Azure CLI 2.0**
+**Azure CLI**
 
 * Log in to your subscription with *az login*
 * Select your subscription with *az account set --subscription `<subscription name or id`>*
@@ -1009,7 +1009,7 @@ To upload an existing VM or VHD from the on-premises network in order to use it 
   * Managed Disk Image *Set-AzureRmVMSourceImage* - see <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage>
 * Create a new VM from the VM config with *New-AzureRmVM* - see <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 
-**Azure CLI 2.0**
+**Azure CLI**
 
 * Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
 * Log in to your subscription with *az login*
