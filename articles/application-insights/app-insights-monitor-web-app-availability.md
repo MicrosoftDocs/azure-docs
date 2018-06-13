@@ -181,7 +181,7 @@ View your test results and any failures in the same way as single-url tests.
 
 You can also download the test results to view them in Visual Studio.
 
-To download the test results. Navigate to the Availability test summary, click on a result in the graph to open the Availability test result window, and then click on **Open in Visual Studio** to download the test result).”
+To download the test results. Navigate to the Availability test summary, click on a result in the graph to open the Availability test result window, and then click on **Open in Visual Studio** to download the test result.
 
 #### Too many failures?
 
