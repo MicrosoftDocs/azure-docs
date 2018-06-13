@@ -31,8 +31,6 @@ You can install both free or unlicensed components, and paid or licensed compone
 
 -   Administrative share is currently not supported on the Azure-SSIS IR.
 
--   If you want to map a file share to a drive in your custom setup, the `net use` command is currently not supported. As a result, you can't use a command like `net use d: \\fileshareserver\sharename`. Instead, use the `cmdkey` command - for example, `cmdkey /add:fileshareserver /user:yyy /pass:zzz` - to access the `\\fileshareserver\folder` directly in your packages.
-
 ## Prerequisites
 
 To customize your Azure-SSIS IR, you need the following things:
