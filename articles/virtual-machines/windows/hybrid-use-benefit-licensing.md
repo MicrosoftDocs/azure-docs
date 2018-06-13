@@ -78,7 +78,11 @@ Within your Resource Manager templates, an additional parameter `licenseType` mu
 ```
 
 ## Convert an existing VM using Azure Hybrid Benefit for Windows Server
-If you have an existing VM that you would like to convert to take advantage of Azure Hybrid Benefit for Windows Server, you can update your VM's license type as follows:
+If you have an existing VM that you would like to convert to take advantage of Azure Hybrid Benefit for Windows Server, you can update your VM's license type by following the instructions below.
+
+> [!NOTE]
+> Changing the license type on the VM does not cause the system to reboot or cause a service interuption.  It is simply an update to a metadata flag.
+> 
 
 ### Portal
 From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selecting "Configuration" option and toggle the "Azure hybrid benefit" option
@@ -137,10 +141,6 @@ LicenseType              :
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
 ```
-
-> [!NOTE]
-> Changing the license type on the VM doe snot cause the system to reboot or cause a service interuption.  It is simply an update to a metadata flag.
-> 
 
 ## List all VMs with Azure Hybrid Benefit for Windows Server in a subscription
 To see and count all virtual machines deployed with Azure Hybrid Benefit for Windows Server, you can run the following command from your subscription:
