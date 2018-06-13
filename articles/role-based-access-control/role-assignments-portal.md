@@ -166,7 +166,7 @@ You can assign roles and manage access with Azure RBAC commands in tools other t
 * [Azure CLI](role-assignments-cli.md)
 * [REST API](role-assignments-rest.md)
 
-## Next Steps
+## Next steps
 
 * [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
 * [Tutorial: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
