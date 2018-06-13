@@ -23,7 +23,7 @@ This article shows you how to attach a persistent disk to your VM so that you ca
 
 ## Attach a new disk to a VM
 
-If you want to add a new, empty data disk on your VM, use the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command with the `--new` parameter. If your VM is in an Availability Zone, the disk is automatically created in the same zone as the VM. For more information, see [Overview of Availability Zones](../../availability-zones/az-overview.md). The following example creates a disk named *myDataDisk* that is 50Gb in size:
+If you want to add a new, empty data disk on your VM, use the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command with the `--new` parameter. If your VM is in an Availability Zone, the disk is automatically created in the same zone as the VM. For more information, see [Overview of Availability Zones](../../availability-zones/az-overview.md). The following example creates a disk named *myDataDisk* that is 50 Gb in size:
 
 ```azurecli
 az vm disk attach \
@@ -74,7 +74,7 @@ Here, *sdc* is the disk that we want. Partition the disk with `fdisk`, make it a
 sudo fdisk /dev/sdc
 ```
 
-Use the `n` command to add a new partition. In this example, we also choose `p` for a primary partition and accept the res tof the default values. The output will be similar to the following example:
+Use the `n` command to add a new partition. In this example, we also choose `p` for a primary partition and accept the rest of the default values. The output will be similar to the following example:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -96,7 +96,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Print the partitin table by typing `p` and then use `w` to write the table to disk and exit. The output should look similar to the following example:
+Print the partition table by typing `p` and then use `w` to write the table to disk and exit. The output should look similar to the following example:
 
 ```bash
 Command (m for help): p
@@ -184,7 +184,7 @@ Next, open the */etc/fstab* file in a text editor as follows:
 sudo vi /etc/fstab
 ```
 
-In this example, we use the UUID value for the */dev/sdc1* device that was created in the previous steps, and the mountpoint of */datadrive*. Add the following line to the end of the */etc/fstab* file:
+In this example, use the UUID value for the */dev/sdc1* device that was created in the previous steps, and the mountpoint of */datadrive*. Add the following line to the end of the */etc/fstab* file:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
