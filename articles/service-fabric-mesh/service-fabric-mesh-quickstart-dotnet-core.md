@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create an ASP.NET Core website for Service Fabric Mesh
-description: This quickstart shows you how to create an ASP.NET Core website and deploy it to the local Service Fabric test cluster.
+title: Quickstart - Create and publish an ASP.NET Core website for Service Fabric Mesh
+description: This quickstart shows you how to create an ASP.NET Core website and publish it to Azure.
 services: service-fabric
 documentationcenter: .net
 author: tylermsft
@@ -18,11 +18,11 @@ ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to use visual studio to locally run an ASP.NET Core website on Service Fabric Mesh so that I can see it run.
 ---
 
-# Quickstart: Create an ASP.NET Core website for Service Fabric Mesh
+# Quickstart: Create and publish an ASP.NET Core website for Service Fabric Mesh
 
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy containerized applications without managing VMs, storage, or networking.
 
-In this quickstart you'll create a new Service Fabric Mesh app, an ASP.NET Core website, and run it on the local development cluster.
+In this quickstart you'll create a new Service Fabric Mesh app, an ASP.NET Core website, run it on the local development cluster, and then publish it to run on Azure.
 
 You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
@@ -72,9 +72,54 @@ After the local deployment is finished, and Visual Studio is running your projec
 
 When you're done browsing the deployed service, you can stop debugging your project by pressing **Shift+F5** in Visual Studio.
 
+## Publish to Azure
+
+To publish your Service Fabric Mesh project to Azure, right-click on the **Service Fabric Mesh project** in Visual studio and select **Publish...**
+
+![Visual studio right-click Service Fabric Mesh project](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-right-click-publish.png)
+
+You will see a **Publish Service Fabric Application** dialog.
+
+![Visual studio Service Fabric Mesh publish dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-dialog.png)
+
+Select your Azure account and subscription. Choose a **Location**. This article uses **East US**.
+
+Under **Resource group**, select **\<Create New Resource Group...>**. This will show you a dialog where you will create a new resource group. Choose the **East US** location and name the group **sfmeshTutorial1RG**. Press **Create** to create the resource group and return to the publish dialog.
+
+![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
+
+Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. For **Location**, pick **East US**. Select the **sfmeshTutorial1RG** resource group. Set the **SKU** to **Basic** and then press **Create** to return to the publish dialog.
+
+![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
+
+In the publish dialog, press the **Publish** button to deploy your Service Fabric application to Azure.
+
+When you publish to Azure for the first time, it can take up to 10 or more minutes. Subsequent publishes of the same project generally take around five minutes. These estimates will vary based on your internet connection speed and other factors. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the deployment has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
+
+```json
+Packaging Application...
+Building Images...
+Web1 -> C:\Code\ServiceFabricMesh1\Web1\bin\Any CPU\Release\netcoreapp2.0\Web1.dll
+Uploading the images to Azure Container Registy...
+Deploying application to remote endpoint...
+The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
+```
+
+Open a web browser and navigate to the URL to see the website running in Azure.
+
 ## Clean up resources
 
-Because we did not publish the website to Azure, there are no resources to clean up.
+When you no longer needed, delete all of the resources you created for this quickstart. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group which is an easy way to delete all of the resources  associated with it.
+
+```azurecli
+az group delete --resource-group sfmeshTutorial1RG
+```
+
+```powershell
+Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
+```
+
+Alternatively, you can delete the resource group [from the portal](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources).
 
 ## Next steps
 To learn more about Service Fabric Mesh, read the overview:
