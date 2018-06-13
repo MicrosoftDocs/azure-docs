@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 6/07/2018
+ms.date: 6/13/2018
 ms.author: erikre
  
 ---
@@ -117,6 +117,6 @@ These APIs provide similar sets of data but have different audiences. Informatio
 
 ## Next Steps
 
-- For information about using Azure Billing APIs to programmatically get insight into your Azure usage, see [Azure Billing API Overview](billing-usage-rate-card-overview.md).
+- For information about using Azure APIs to programmatically get insight into your Azure usage, see [Azure Consumption API Overview](billing-consumption-api-overview.md) and [Azure Billing API Overview](billing-usage-rate-card-overview.md).
 - To compare your invoice with the detailed daily usage file and the cost management reports in the Azure portal, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md)
 - If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
