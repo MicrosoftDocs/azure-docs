@@ -45,9 +45,9 @@ Bash completion has been installed to:
 🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
 ```
 
-## Configure Helm
+## Create service account
 
-Before configuring Helm in an RBAC enabled cluster, you need a service account and role binding for the Tiller service. For more informtation on securing Helm / Tiller in an RBAC enabled cluster, see [Tiller, Namespaces, and RBAC][tiller-rbac].
+Before configuring Helm in an RBAC enabled cluster, you need a service account and role binding for the Tiller service. For more information on securing Helm / Tiller in an RBAC enabled cluster, see [Tiller, Namespaces, and RBAC][tiller-rbac]. Note, if your cluster is not RBAC enabled, skip this step.
 
 Create a file named `helm-rbac.yaml` and copy in the following YAML.
 
@@ -72,13 +72,21 @@ subjects:
     namespace: kube-system
 ```
 
-Now install tiller using the [helm init][helm-init] command
+Create the service account and role binding with the `kubectl create` command.
+
+```
+kubectl create -f helm-rbac.yaml
+```
+
+When using an RBAC enabled cluster, you have options on the level of access Tiller has to the cluster. See [Helm: role-based access controls][helm-rbac] for more information on configuration options.
+
+## Configure Helm
+
+Now install tiller using the [helm init][helm-init] command. If your cluster is not RBAC enabled, remove the `--service-account` argument and value.
 
 ```
 helm init --service-account tiller
 ```
-
-When using an RBAC enabled clusters, you have options on the level of access Tiller has to the cluster. See [Helm: role-based access controls][helm-rbac] for more information on configuration options.
 
 ## Find Helm charts
 
