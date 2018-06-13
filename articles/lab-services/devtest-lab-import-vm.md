@@ -76,7 +76,7 @@ POST https://management.azure.com/subscriptions/<ID of the target/destination su
 
 ## Next steps
 
-- For information about resizing a VM, see [Resize a VM](devtest-lab-resize-vm).
-- For information about redeploying a VM, see [Redeploy a VM](devtest-lab-redeploy-vm).
+- For information about resizing a VM, see [Resize a VM](devtest-lab-resize-vm.md).
+- For information about redeploying a VM, see [Redeploy a VM](devtest-lab-redeploy-vm.md).
 
 
