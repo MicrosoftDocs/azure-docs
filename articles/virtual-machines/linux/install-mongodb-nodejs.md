@@ -29,7 +29,7 @@ ms.author: iainfou
 You can complete the task using one of the following CLI versions:
 
 - Azure CLI 1.0 – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](create-cli-complete-nodejs.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI](create-cli-complete-nodejs.md) - our next generation CLI for the resource management deployment model
 
 
 ## Manually install and configure MongoDB on a VM

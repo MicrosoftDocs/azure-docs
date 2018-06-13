@@ -32,7 +32,7 @@ You can also quickly deploy a Linux VM template by using the [Azure portal](quic
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-command-summary) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](create-ssh-secured-vm-from-template.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI](create-ssh-secured-vm-from-template.md) - our next generation CLI for the resource management deployment model
 
 ## Quick Command Summary
 ```azurecli
