@@ -60,7 +60,7 @@ cluster = client.clusters.get(resource_group_name, 'migrated-<region>', cluster_
 client.clusters.delete(resource_group_name, 'migrated-<region>', cluster_name)
 ```
 
-#### Get old file servers 
+#### Get old file server 
 
 ```python
 cluster = client.fileservers.get(resource_group_name, 'migrated-<region>', fileserver_name)
@@ -79,7 +79,7 @@ client.fileservers.delete(resource_group_name, 'migrated-<region>', fileserver_n
 cluster = client.jobs.get(resource_group_name, 'migrated-<region>', 'migrated', job_name)
 ```
 
-#### Delete old jobs  
+#### Delete old job
 
 ```python
 client.jobs.delete(resource_group_name, 'migrated-<region>', 'migrated', job_name)
@@ -106,28 +106,28 @@ az batchai cluster delete -g resource-group-name -w migrated-<region> -n cluster
 #### Get old file server
 
 ```azurecli
-az batchai fileserver show -g resource-group-name -w migrated-<region> -n fileserver-name
+az batchai file-server show -g resource-group-name -w migrated-<region> -n fileserver-name
 ```
 
 
 #### Delete old file server 
 
 ```azurecli
-az batchai fileserver delete -g resource-group-name -w migrated-<region> -n fileserver-name
+az batchai file-server delete -g resource-group-name -w migrated-<region> -n fileserver-name
 ``` 
 
 
 #### Get old job
 
 ```azurecli
-az batchai fileserver show -g resource-group-name -w migrated-<region> -e migrated -n job-name
+az batchai job show -g resource-group-name -w migrated-<region> -e migrated -n job-name
 ```
 
 
 #### Delete old job 
 
 ```azurecli
-az batchai fileserver delete -g resource-group-name -w migrated-<region> -e migrated -n job-name
+az batchai job delete -g resource-group-name -w migrated-<region> -e migrated -n job-name
 ``` 
 
 ## Create Batch AI resources 

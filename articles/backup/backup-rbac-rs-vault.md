@@ -32,7 +32,7 @@ The following table captures the Backup management actions and corresponding min
 | Management Operation | Minimum RBAC role required |
 | --- | --- |
 | Create Recovery Services vault | Contributor on Resource group of vault |
-| Enable backup of Azure VMs | Backup Operator on vault, Virtual machine contributor on VMs |
+| Enable backup of Azure VMs | Backup Operator defined at the scope of Resource group containing the vault, Virtual machine contributor on VMs |
 | On-demand backup of VM | Backup operator |
 | Restore VM | Backup operator, Resource group contributor in which VM and Vnets are going to get deployed |
 | Restore disks, individual files from VM backup | Backup operator, Virtual machine contributor on VMs |

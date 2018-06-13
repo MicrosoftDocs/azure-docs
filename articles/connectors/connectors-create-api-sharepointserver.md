@@ -4,7 +4,7 @@ description: Get started using the the SharePoint Server Connector  in your Logi
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 
