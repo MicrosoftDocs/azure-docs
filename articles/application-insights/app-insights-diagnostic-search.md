@@ -53,11 +53,11 @@ The Track Operation tab is available when you open a request or a page view. An 
 
 Select any telemetry item to see key fields and related items.
 
-![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/003.png)
+![Screenshot of an individual dependency request](./media/app-insights-diagnostic-search/003.png)
 
 This will launch the end-to-end transaction details view:
 
-![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/004.png)
+![Screenshot of end-to-end transaction details view.](./media/app-insights-diagnostic-search/004.png)
 
 ## Filter event types
 Open the Filter blade and choose the event types you want to see. (If, later, you want to restore the filters with which you opened the blade, click Reset.)
