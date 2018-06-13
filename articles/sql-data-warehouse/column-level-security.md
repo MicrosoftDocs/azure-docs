@@ -17,7 +17,7 @@ Column-Level Security (CLS) enables customers to control access to database tabl
 
 CLS simplifies the design and coding of security in your application. CLS enables you to implement restrictions on column access. For example, ensuring that specific users can access only certain columns of a table pertinent to their department. The access restriction logic is located in the database tier rather than away from the data in another application tier. The database applies the access restrictions every time that data access is attempted from any tier. This makes your security system more reliable and robust by reducing the surface area of your overall security system. In addition, this also eliminates the need for introducing views to filter out columns for imposing access restrictions on the users. 
 
-You could implement CLS by using GRANT T-SQL statement.  
+You could implement CLS by using [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL statement.  
 
 ![cls](./media/column-level-security/cls.png)
  
@@ -60,10 +60,9 @@ GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestU
 EXECUTE AS USER = 'TestUser';   
 SELECT * FROM Membership;   
 Msg 230, Level 14, State 1, Line 12 
-```
 
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'. 
- 
+``` 
 ## Use Cases 
 Here are some real-world examples on how CLS can be used: 
 - A financial organization wants to restrict access to columns like SSN to a specific set of employees. 
