@@ -61,6 +61,10 @@ The following shows a custom role for monitoring and restarting virtual machines
 }
 ```
 
+After you create a custom role, it appears in the Azure portal with an orange resource icon.
+
+![Custom role icon](./media/custom-roles/roles-custom-role-icon.png)
+
 ## Steps to create a custom role
 
 1. Determine the permissions you need
@@ -70,7 +74,7 @@ The following shows a custom role for monitoring and restarting virtual machines
 
 2. Create the custom role
 
-    Depending on the language that you use, there are different ways to create the custom role. Typically, you start with a built-in role and then modify it for your needs. Then you use the [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) or [az role definition create](/cli/azure/role/definition#az-role-definition-create) commands to create the custom role. To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `assignableScopes`, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+    You can use Azure PowerShell or Azure CLI to create the custom role. Typically, you start with an existing built-in role and then modify it for your needs. Then you use the [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) or [az role definition create](/cli/azure/role/definition#az-role-definition-create) commands to create the custom role. To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `assignableScopes`, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
 
 3. Test the custom role
 
