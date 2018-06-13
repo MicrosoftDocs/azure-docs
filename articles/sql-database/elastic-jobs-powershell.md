@@ -228,6 +228,14 @@ $JobExecution = $Job | Start-AzureRmSqlElasticJob
 $JobExecution
 ```
 
+After successful completion you should see 2 new tables in TargetDB1, and only 1 new table in TargetDb2:
+
+
+   ![new tables verification in SSMS](media/elastic-jobs-overview/job-execution-verification.png)
+
+
+
+
 ## Monitor status of job executions
 
 ```powershell
