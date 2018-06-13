@@ -1,20 +1,22 @@
 ---
-title: "Create an Azure SQL Elastic Database Job agent using Transact-SQL (T-SQL) | Microsoft Docs"
+title: "Create and manage Elastic Database Jobs using Transact-SQL (T-SQL) | Microsoft Docs"
 description: Run scripts across many databases with Elastic Database Job agent using Transact-SQL (T-SQL).
 services: sql-database
 author: jaredmoo
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 06/14/2018
 ms.author: sstein
 
 ---
-# Elastic Database Jobs Transact-SQL (T-SQL) guide
+# Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs
 
-This article provides many example scenarios to get started working with jobs using T-SQL.
+This article provides many example scenarios to get started working with Elastic Jobs using T-SQL.
 
-Following the example scripts are the system [stored procedures](#job-stored-procedures) and [views](#job-views) available in the [*job database*](elastic-jobs-overview.md#job-database).
+The examples use the [stored procedures](#job-stored-procedures) and [views](#job-views) available in the [*job database*](elastic-jobs-overview.md#job-database).
+
+Transact-SQL (T-SQL) is used to create, configure, execute, and manage jobs. Creating the Elastic Job agent is not supported in T-SQL, so you must first create an *Elastic Job agent* using the portal, or [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
 
 ## Create a credential for job execution
@@ -383,7 +385,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 
 
-## JOB STORED PROCEDURES
+## Job stored procedures
 
 The following stored procedures are in the [jobs database](elastic-jobs-overview.md#job-database).
 
@@ -1176,9 +1178,9 @@ GO
 ```
 
 
-## JOB VIEWS
+## Job views
 
-The following stored procedures are in the [jobs database](elastic-jobs-overview.md#job-database).
+The following views are available in the [jobs database](elastic-jobs-overview.md#job-database).
 
 
 |View  |Description  |

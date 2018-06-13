@@ -6,7 +6,7 @@ author: srinia
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 06/13/2018
+ms.date: 06/14/2018
 ms.author: sstein
 ---
 # Manage groups of databases with Elastic Database Jobs

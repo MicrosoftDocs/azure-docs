@@ -6,7 +6,7 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.topic: tutorial
-ms.date: 06/13/2018
+ms.date: 06/14/2018
 ms.author: sstein
 
 ---
