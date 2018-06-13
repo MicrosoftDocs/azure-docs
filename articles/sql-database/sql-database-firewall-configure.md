@@ -9,13 +9,16 @@ ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/13/2018
 ms.author: carlrab
 
 ---
 # Azure SQL Database and SQL Data Warehouse firewall rules 
 
-Microsoft Azure SQL Database and SQL Data Warehouse provide a relational database service for Azure and other Internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request.
+Microsoft Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) provide a relational database service for Azure and other Internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request.
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
 #### Virtual network rules as alternatives to IP rules
 
