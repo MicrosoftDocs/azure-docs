@@ -4,7 +4,7 @@ description: Optimize Azure CDN for the type of content delivery
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: 
+manager: cfowler
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
-ms.author: rli
+ms.date: 06/13/2018
+ms.author: v-deasim
 ---
 # Optimize Azure CDN for the type of content delivery
 
@@ -101,8 +101,7 @@ For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, 
 For more information about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
 > [!NOTE]
-> If the CDN endpoint primarily serves video-on-demand content, use this optimization type. The major difference between this optimization and the general media streaming optimization is the connection retry time-out. The time-out is much shorter to work with live streaming scenarios.
-
+> If the CDN endpoint primarily serves video-on-demand content, use this optimization type. The major difference between this optimization and the general media streaming optimization is the connection retry time-out. The time-out is much shorter to work with live streaming scenario
 ### Large file download
 
 For **Azure CDN Standard from Akamai** profiles, large file downloads are optimized for content larger than 10 MB. If your average file size is smaller than 10 MB, use general web delivery. If your average files sizes are consistently larger than 10 MB, it might be more efficient to create a separate endpoint for large files. For example, firmware or software updates typically are large files. To deliver files larger than 1.8 GB, the large file download optimization is required.
