@@ -22,6 +22,8 @@ ms.author: subramar
 Is your application and cluster ready to take production traffic? Running and testing your application and your cluster doesn't necessarily mean it's ready to go into production. Keep your application and cluster running smoothly by going through the following checklist. We strongly recommend all these items to be checked off. Obviously, you can choose to use alternative solutions for a particular line item  (for example, your own diagnostics frameworks).
 
 
+## Pre-requisites for production
+
 1. For clusters with more than 20 cores or 10 nodes, create a dedicated primary node type for system services. Add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) to reserve the primary node type for system services. 
 2. Use a D2v2 or higher SKU for the primary node type. 
 2. Production clusters must be [secure](service-fabric-cluster-security.md). For an example of setting up a secure cluster, see this [cluster template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Use common names for certificates and avoid using self signed certs.
@@ -51,11 +53,11 @@ If you're using the Service Fabric Reliable Services or Reliable Actors programm
 24. Maintain offline backup of [Reliable Services and Reliable Actors](service-fabric-reliable-services-backup-restore.md) and test the restoration process. 
 
 
+## Optional best practices
+
 While the above lists are pre-requisites to go into production, the following items should also be considered:
 25. Plug into the [Service Fabric health model](service-fabric-health-introduction.md) for extending the built-in health evaluation and reporting.
 26. Deploy a custom watchdog that is monitoring your application and reports [load](service-fabric-cluster-resource-manager-metrics.md) for [resource balancing](service-fabric-cluster-resource-manager-balancing.md). 
-
-
 
 
 ## Next steps
