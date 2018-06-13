@@ -3,22 +3,22 @@ title: Overview of Azure Service Fabric Mesh
 description: An overview of Azure Service Fabric Mesh. With Service Fabric Mesh, you can deploy and scale your application without worrying about the infrastructure needs of your application.
 services: Azure Service Fabric Mesh
 keywords: 
-author: TylerMSFT
-ms.author: twhitney
-ms.date: 04/30/2018
+author: rwike77
+ms.author: ryanwi
+ms.date: 06/12/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-#Customer intent: As a developer, I need a high-level, technically focused understanding of Service Fabric Mesh, so I can determine if it's something that I (or my company) want to use.
+#Customer intent: As a developer, I want to deploy and manage services in containers on a serverless platform.
 ---
 
 # What is Service Fabric Mesh?
 
-Service Fabric Mesh is a server-less platform that runs on top of [Service Fabric][service-fabric-overview] and is hosted on Microsoft Azure. With Service Fabric Mesh, you can run and scale your microservices without worrying about the infrastructure powering it. Contrast this to pure [Service Fabric][service-fabric-overview] where you not only manage your services, but you also manage the cluster running your services. Service Fabric Mesh automatically allocates the infrastructure needed by your microservices, and also handles infrastructure failures, making sure your services are highly-available.
-
-You worry about your code, Azure takes care of the hardware.
+Azure Service Fabric Mesh is a fully managed service that enables developers to deploy containerized applications without managing virtual machines, storage, or networking. Applications hosted on Service Fabric Mesh run and scale without you worrying about the infrastructure powering it. 
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
+
+Service Fabric Mesh automatically allocates the infrastructure needed by your microservices, and also handles infrastructure failures, making sure your services are highly-available. 
 
 ## Microservices
 
