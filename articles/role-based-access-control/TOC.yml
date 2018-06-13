@@ -21,9 +21,7 @@
       href: tutorial-custom-role-cli.md
   - name: Manage role assignments
     items:
-    - name: User
-      href: role-assignments-users.md
-    - name: Resource
+    - name: Portal
       href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
     - name: Azure CLI
       href: role-assignments-cli.md
