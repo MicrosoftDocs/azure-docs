@@ -123,7 +123,7 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 
 You are now ready to deploy the Azure Stream Analytics job on your IoT Edge device.
 
-1. In the Azure portal, in your IoT hub, go to **IoT Edge (preview)**, and then open the details page for your IoT Edge device.
+1. In the Azure portal, in your IoT hub, go to **IoT Edge**, and then open the details page for your IoT Edge device.
 
 2. Select **Set modules**.  
     If you previously deployed the tempSensor module on this device, it might autopopulate. If it does not, add the module by doing the following:

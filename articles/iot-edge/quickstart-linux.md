@@ -14,7 +14,7 @@ experimental: true
 experiment_id: 
 ---
 
-# Quickstart: Deploy your first IoT Edge module to a Linux or Mac device - preview
+# Quickstart: Deploy your first IoT Edge module to a Linux or Mac device
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this quickstart, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
 
