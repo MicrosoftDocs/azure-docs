@@ -22330,12 +22330,12 @@
         },
         {
             "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
-            "redirect_url": "/azure/virtual-machines/linux/dockerextensions",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/virtual-machines/linux/classic/portal-use-docker.md",
-            "redirect_url": "/azure/virtual-machines/linux/dockerextensions",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": true
         },
         {
