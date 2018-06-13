@@ -75,6 +75,8 @@
     href: speech-synthesis-markup.md
 - name: Resources
   items:
+  - name: Speech to Text FAQ
+    href: faq-stt.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: UserVoice
