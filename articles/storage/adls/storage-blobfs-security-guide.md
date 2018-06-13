@@ -15,7 +15,8 @@ ms.date: 03/26/2018
 ms.author: nitinme
 
 ---
-# Security in Azure Data Lake Store
+# Security in Azure Data Lake Storage (Preview)
+
 Many enterprises are taking advantage of big data analytics for business insights to help them make smart decisions. An organization might have a complex and regulated environment, with an increasing number of diverse users. It is vital for an enterprise to make sure that critical business data is stored more securely, with the correct level of access granted to individual users. Azure Data Lake Store is designed to help meet these security requirements. In this article, learn about the security capabilities of Data Lake Store, including:
 
 * Authentication
@@ -26,7 +27,7 @@ Many enterprises are taking advantage of big data analytics for business insight
 
 ## Authentication and identity management
 
-Authentication is the process by which a user's identity is verified when the user interacts with Data Lake Storage (Preview) or with any service that connects to Data Lake Store. For identity management and authentication, Data Lake Storage uses [Azure Active Directory](../../active-directory/active-directory-whatis.md), a comprehensive identity and access management cloud solution that simplifies the management of users and groups.
+Authentication is the process by which a user's identity is verified when the user interacts with Data Lake Storage (Preview) or with any service that connects to Data Lake Storage. For identity management and authentication, Data Lake Storage uses [Azure Active Directory](../../active-directory/active-directory-whatis.md), a comprehensive identity and access management cloud solution that simplifies the management of users and groups.
 
 Each Azure subscription can be associated with an instance of Azure Active Directory. Only users and service identities that are defined in your Azure Active Directory service can access your Data Lake Storage account, by using the Azure portal or command-line tools. Key advantages of using Azure Active Directory as a centralized access control mechanism are:
 
