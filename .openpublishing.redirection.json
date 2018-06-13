@@ -2501,6 +2501,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-onboard-troubleshoot.md",
+            "redirect_url": "/azure/automation/troubleshoot/onboarding",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-alert-activity-log.md",
             "redirect_url": "/azure/automation/automation-alert-metric",
             "redirect_document_id": false
