@@ -192,7 +192,7 @@ The **HTTP 202** response also includes a **Location** response header that refe
 
 ### Get all instances status
 
-You can also query all instances status. Remove the `instanceId` from the `Get instance status` request. The meanings of the parameter are the same as the `Get instance status.` 
+You can also query all instances status. Remove the `instanceId` from the `Get instance status` request. The parameters are the same as the `Get instance status.` 
 
 #### Request
 
@@ -202,7 +202,7 @@ For Functions 1.0, the request format is as follows:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-The Functions 2.0 format has all the same parameter but has a slightly different URL prefix: 
+The Functions 2.0 format has all the same parameters but a slightly different URL prefix: 
 
 ```http
 GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}

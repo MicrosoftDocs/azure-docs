@@ -97,7 +97,7 @@ public static async Task Run(
 ```
 ## Querying all instances
 
-You can use the GetStatusAsync method queries the statuses of all orchestration instances. It doesn't take any parameter, or you can pass the CancellationToken in case if you want to cancel it. The method returns objects with the same properties as the `GetStatusAsync` with parameters except for not having History. 
+You can use the `GetStatusAsync` method to query the statuses of all orchestration instances. It doesn't take any parameters, or you can pass a `CancellationToken` object in case you want to cancel it. The method returns objects with the same properties as the `GetStatusAsync` method with parameters, except it doesn't return history. 
 
 ```csharp
 [FunctionName("GetAllStatus")]
