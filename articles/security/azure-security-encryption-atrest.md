@@ -229,7 +229,7 @@ It is recommended that whenever possible, IaaS applications leverage Azure Disk 
 
 ## Azure resource providers encryption model support
 
-Microsoft Azure Services each support one or more of the encryption at rest models. For some services, however, one or more of the encryption models may not be applicable. Additionally, services may release support for these scenarios at different schedules. This section describes the encryption at rest support at the time of this writing for each of the major Azure data storage services.
+Microsoft Azure Services each support one or more of the encryption at rest models. For some services, however, one or more of the encryption models may not be applicable. For services that support customer-managed key scenarios, they may support only a subset of the key types that Azure Key Vault supports for key encryption keys. Additionally, services may release support for these scenarios and key types at different schedules. This section describes the encryption at rest support at the time of this writing for each of the major Azure data storage services.
 
 ### Azure disk encryption
 
