@@ -21,7 +21,7 @@ To use Twitter as an identity provider in Azure Active Directory (Azure AD) B2C,
 1. Go to the [Twitter Apps](https://apps.twitter.com/) and sign in with your credentials.
 2. Click **Create New App**. 
 3. In the form, provide a value for the **Name**, **Description**, and **Website**.
-4. For the **Callback URL**, enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`. Make sure to replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com).
+4. For the **Callback URL**, enter `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Make sure to replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com) and {policyId} with your policy id (for example, b2c_1_policy).  Please note that this callback URL needs to be in all lowercase.
 5. Check the box to agree to the **Developer Agreement** and click **Create your Twitter application**.
 6. After the app is created, select it in the list, and then select the **Settings** tab.
 7. Clear the **Enable Callback Locking** box, and then click **Update settings**.
