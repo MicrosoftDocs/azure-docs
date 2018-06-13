@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 06/13/2018
 ms.author: mbullwin
 
 ---
@@ -22,16 +22,12 @@ Search is a feature of [Application Insights](app-insights-overview.md) that you
 (For more complex queries over your data, use [Analytics](app-insights-analytics-tour.md).)
 
 ## Where do you see Search?
-### In the Azure portal
+### In the Azure Portal
 You can open diagnostic search explicitly from the Application Insights Overview blade of your application:
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Open diagnostic search](./media/app-insights-diagnostic-search/001.png)
 
-It also opens when you click through some charts and grid items. In this case, its filters are pre-set to focus on the type of item you selected. 
-
-For example, on the Overview blade, there's a bar chart of requests classified by response time. Click through a performance range to see a list of individual requests in that response time range:
-
-![Click through request performance](./media/app-insights-diagnostic-search/07-open-from-filters.png)
+![Open diagnostic search](./media/app-insights-diagnostic-search/002.png)
 
 The main body of Diagnostic Search is a list of telemetry items - server requests, page views, custom events that you have coded, and so on. At the top of the list is a summary chart showing counts of events over time.
 
@@ -150,8 +146,6 @@ When you've set all the filters you want, you can save the search as a favorite.
 ![Click Favorite, set the name, and click Save](./media/app-insights-diagnostic-search/08-favorite-save.png)
 
 To see the search again, **go to the overview blade** and open Favorites:
-
-![Favorites tile](./media/app-insights-diagnostic-search/09-favorite-get.png)
 
 If you saved with Relative time range, the re-opened blade has the latest data. If you saved with Absolute time range, you see the same data every time. (If 'Relative' isn't available when you want to save a favorite, click Time Range in the header, and set a time range that isn't a custom range.)
 
