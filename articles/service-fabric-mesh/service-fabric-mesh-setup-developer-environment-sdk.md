@@ -1,11 +1,11 @@
 ---
 title: Set up your development environment to build Service Fabric Mesh apps
-description: Details all of the prerequisites required to create a Service Fabric Application that can be deployed to Azure Service Fabric Mesh.
+description: The prerequisites required before you can create a Service Fabric app and deploy it to Azure Service Fabric Mesh.
 services: Azure Service Fabric Mesh
 keywords: 
-author: TylerMSFT
+author: tylermsft
 ms.author: twhitney
-ms.date: 06/5/2018
+ms.date: 06/13/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
@@ -84,7 +84,8 @@ Restart your computer.
 
 Install the Service Fabric runtime, SDK, and tools.
 
-1. Download the [Service Fabric Runtime][download-runtime]. Then run it with the **/AcceptEULA** flag on the command line, e.g. c:\users\<your user name>\downloads\MicrosoftServiceFabric.6.3.116.9494.exe /AcceptEULA
+1. Download the [Service Fabric Runtime][download-runtime]. Then run it with the **/AcceptEULA** flag on the command line, for example:
+`c:\users\<user name>\downloads\MicrosoftServiceFabric.6.3.116.9494.exe /AcceptEULA`
 2. Install the [Service Fabric SDK][download-sdk].
 3. Install the [Service Fabric Mesh SDK][download-sdkmesh].
 4. Install the [Visual Studio Service Fabric Tools (preview)][download-tools].
@@ -95,7 +96,11 @@ For the best debugging performance when you create and run Service Fabric apps, 
 
 Docker **must** be running before you can build a cluster. Test that Docker is running by opening a terminal window and running `docker ps` to see if an error occurs. If the response does not indicate an error, Docker is running and you're ready to build a cluster.
 
-After you install the runtime, SDKs and Visual Studio tools, create a development cluster. Open a **new**, **elevated**, PowerShell window and run the following PowerShell commands:
+After you install the runtime, SDKs and Visual Studio tools, create a development cluster.
+
+1. Close your PowerShell window
+2. Open  new, elevated  PowerShell window. This step is necessary to load the Service Fabric modules you just installed.
+3. Run the following PowerShell commands to create a development cluster:
 
 ```powershell
 . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
