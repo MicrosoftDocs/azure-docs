@@ -75,7 +75,7 @@ Registering your web API with Azure AD B2C defines a trust relationship. Since t
 
 ## Define and configure scopes
 
-[Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, users of the web API could have both read and write access, or users of the web API might have read-only permissions. In this tutorial, you define read and write permissions for the web API.
+[Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, users of the web API could have both read and write access, or users of the web API might have only read access. In this tutorial, you use scopes to define read and write permissions for the web API.
 
 ### Define scopes for the web API
 
