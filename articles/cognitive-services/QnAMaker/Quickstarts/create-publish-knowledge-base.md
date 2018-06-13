@@ -14,7 +14,7 @@ ms.author: saneppal
 
 # Create-Train-Publish your knowledge base
 
-A QnA Maker knowledge base can be created from pre-existing, semi-structured content such as FAQs or product manuals. The QnA Maker knowledge base below is created from a simple FAQ webpage and is able to answer questions on BitLocker key recovery.
+A QnA Maker knowledge base can be created from your own content such as FAQs or product manuals. The QnA Maker knowledge base below will be created from a simple FAQ webpage and is able to answer questions on BitLocker key recovery.
 
 ## Prerequisite
 
@@ -29,7 +29,7 @@ A QnA Maker knowledge base can be created from pre-existing, semi-structured con
 
     ![Create new KB](../media/qna-maker-create-kb.png)
 
-3. In the create page, STEP 1, select **Create a QnA service**. This will direct you to [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) where you need to set up a QnA Maker service in your subscription. If the Azure portal times out, choose **Try again** on the site. Once connected, you should see your Azure dashboard.
+3. In the create page, STEP 1, select **Create a QnA service**. You will be directed to [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) where you need to set up a QnA Maker service in your subscription. If the Azure portal times out, choose **Try again** on the site. Once connected, you should see your Azure dashboard.
 
 4. Once you've successfully created a new QnA Maker service in Azure, return to qnamaker.ai/create and select your QnA Service from the drop-downs in STEP 2. Be sure to refresh the page if you created a new QnA service.
 
@@ -37,7 +37,7 @@ A QnA Maker knowledge base can be created from pre-existing, semi-structured con
 
 5. In STEP 3, name your KB "My Sample QnA KB".
 
-6. To add content to your KB, we will select three types of data sources. Add the 
+6. To add content to your KB, select three types of data sources. Add the 
 [BitLocker Recovery FAQ](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL in the URL box for STEP 4: Populate your KB.
 
     ![Select a QnA service KB](../media/qnamaker-quickstart-kb/add-datasources.png)
@@ -48,11 +48,11 @@ A QnA Maker knowledge base can be created from pre-existing, semi-structured con
 
 9. Once the KB is successfully created, it opens the 'Knowledge Base' page where you can edit the contents of the knowledge base.
 
-10. Choose **Add QnA Pair** in the top right to add a new row in the Editorial section of the Knowledge Base. Enter 'Hi' into the 'Question' field and 'Hello. Ask me bitlocker questions.' into the 'Answer' field of the new row you just created:
+10. Choose **Add QnA Pair** in the top right to add a new row in the Editorial section of the Knowledge Base. Enter 'Hi' into the 'Question' field and 'Hello. Ask me bitlocker questions.' into the 'Answer' field of the new row you created:
 
     ![Add a QnA pair](media/qnamaker-quickstart-kb/add-qna-pair.png)
 
-11. Select **Save and train** in the top right to save the edits your just made and to train the QnA Maker model. Edits will not be retained unless they are saved.
+11. Select **Save and train** in the top right to save the edits you just made and to train the QnA Maker model. Edits won't be kept unless they're saved.
    
     ![Save and train](media/qnamaker-quickstart-kb/add-qna-pair2.png)
 
@@ -63,7 +63,7 @@ Type 'hi there' in the box and press enter. You should see the answer you create
 
     ![Test Panel](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
-14. Dismiss the Test pop-out by clicking on 'Test' again. Open the Publish tab.
+14. Dismiss the Test pop-out by selecting 'Test' again.
 
 14. Choose **Publish** in the top menu next to 'Edit', then confirm by selecting **Publish** on the page.
 
