@@ -52,7 +52,7 @@ Once you have added the DNS entry, you are ready to verify the domain name with 
 3. Select the unverified domain name that you want to verify.
 4. Check your entries and select **Verify** to complete the verification.
 
-Now you can [assign user names that include your custom domain name](active-directory-users-create-azure-portal.md). You can create cloud-based user accounts, or update previously synchronized on-premises user account information, using your custom domain name. You can also change synchronized user account domain suffix information using [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) or the [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
+Now you can [assign user names that include your custom domain name](../active-directory-domains-manage-azure-portal.md). You can create cloud-based user accounts, or update previously synchronized on-premises user account information, using your custom domain name. You can also change synchronized user account domain suffix information using [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) or the [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 
 > [!TIP]
 > You can add up to a maximum of 900 managed domain names. If you are configuring all of your domains for federation on-premises with Active Directory, you can add up to a maximum of 450 domain names in each directory. For more information, see [Federated and managed domain names](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
