@@ -45,7 +45,7 @@ Specifically, the following scenarios require code to handle conditional access 
 * Single page apps using ADAL.js
 * Web Apps calling a resource
 
-Conditional access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a conditional access policy, please see [Getting started with Azure Active Directory Conditional Access](../active-directory-conditional-access-azure-portal-get-started.md).
+Conditional access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a conditional access policy, see [Getting started with Azure Active Directory Conditional Access](../active-directory-conditional-access-azure-portal-get-started.md).
 
 Depending on the scenario, an enterprise customer can apply and remove conditional access policies at any time. In order for your app to continue functioning when a new policy is applied, you need to implement the "challenge" handling. The following examples illustrate challenge handling. 
 
@@ -54,7 +54,7 @@ Depending on the scenario, an enterprise customer can apply and remove condition
 Some scenarios require code changes to handle conditional access whereas others work as is. Here are a few scenarios using conditional access to do multi-factor authentication that gives some insight into the difference.
 
 * You are building a single-tenant iOS app and apply a conditional access policy. The app signs in a user and doesn't request access to an API. When the user signs in, the policy is automatically invoked and the user needs to perform multi-factor authentication (MFA). 
-* You are building a multi-tenant web app that uses Microsoft Graph to access Exchange, among other services. An enterprise customer who adopts this app sets a policy on Exchange. When the web app requests a token for MS Graph, the app will not be challenged to comply with the policy. The end-user is signed in with valid tokens. When the app attempts to use this token against the Microsoft Graph to access Exchange data, a claims "challenge" is returned to the web app through the ```WWW-Authenticate``` header. The app can then use the ```claims``` in a new request, and the end user will be prompted to comply with the conditions. 
+* You are building a multi-tenant web app that uses Microsoft Graph to access Exchange, among other services. An enterprise customer who adopts this app sets a policy on Exchange. When the web app requests a token for MS Graph, the app will not be challenged to comply with the policy. The end user is signed in with valid tokens. When the app attempts to use this token against the Microsoft Graph to access Exchange data, a claims "challenge" is returned to the web app through the ```WWW-Authenticate``` header. The app can then use the ```claims``` in a new request, and the end user will be prompted to comply with the conditions. 
 * You are building a native app that uses a middle tier service to access a downstream API. An enterprise customer at the company using this app applies a policy to the downstream API. When an end-user signs in, the native app requests access to the middle tier and sends the token. The middle tier performs on-behalf-of flow to request access to the downstream API. At this point, a claims "challenge" is presented to the middle tier. The middle tier sends the challenge back to the native app, which needs to comply with the conditional access policy.
 
 ### Complying with a conditional access policy
