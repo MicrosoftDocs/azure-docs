@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 06/13/2018
 ms.author: douglasl
 
 ---
@@ -21,7 +21,7 @@ Join your Azure-SSIS integration runtime (IR) to an Azure virtual network in the
 
 - You want to connect to on-premises data stores from SSIS packages running on an Azure-SSIS integration runtime.
 
-- You are hosting the SQL Server Integration Services (SSIS) catalog database in Azure SQL Database with virtual network (VNet) service endpoints/Managed Instance (Preview).
+- You are hosting the SQL Server Integration Services (SSIS) catalog database in Azure SQL Database with virtual network service endpoints/Managed Instance (Preview).
 
  Azure Data Factory version 2 (Preview) lets you join your Azure-SSIS integration runtime to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model. 
 
@@ -38,11 +38,11 @@ Here are a few important points to note:
 - If there is an existing classic virtual network connected to your on-premises network in a different location from your Azure-SSIS IR, you can first create a [classic virtual network](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for your Azure-SSIS IR to join. Then, configure a [classic-to-classic virtual network](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) connection. Or you can create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network) for your Azure-SSIS integration runtime to join. Then configure a [classic-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) connection.
 - If there is an existing Azure Resource Manager virtual network connected to your on-premises network in a different location from your Azure-SSIS IR, you can first create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md##create-a-virtual-network) for your Azure-SSIS IR to join. Then, configure an Azure Resource Manager-to-Azure Resource Manager virtual network connection. Or, you can create a [classic virtual network](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for your Azure-SSIS IR to join. Then, configure a [classic-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) connection.
 
-## Host the SSIS Catalog database in Azure SQL Database with VNet service endpoints/Managed Instance (Preview)
-If the SSIS catalog is hosted in Azure SQL Database with VNet service endpoints/Managed Instance (Preview), you can join your Azure-SSIS IR to:
+## Host the SSIS Catalog database in Azure SQL Database with virtual network service endpoints/Managed Instance (Preview)
+If the SSIS catalog is hosted in Azure SQL Database with virtual network service endpoints/Managed Instance (Preview), you can join your Azure-SSIS IR to:
 
 - The same virtual network
-- A different virtual network that has a network-to-network connection with the one that is used for Azure SQL Database with VNet service endpoints/Managed Instance (Preview)
+- A different virtual network that has a network-to-network connection with the one that is used for Azure SQL Database with virtual network service endpoints/Managed Instance (Preview)
 
 The virtual network can be deployed through the classic deployment model or the Azure Resource Manager deployment model. If you are planning to join your Azure-SSIS IR to the *same virtual network* that is already joined by Managed Instance (Preview), ensure that your Azure-SSIS IR is in a *different subnet* from the one used for Managed Instance (Preview).   
 
@@ -321,6 +321,6 @@ For more information about the Azure-SSIS runtime, see the following topics:
 
 - [Azure-SSIS integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general, including the Azure-SSIS IR. 
 - [Tutorial: deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md). This article provides step-by-step instructions to create an Azure-SSIS IR. It uses Azure SQL Database to host the SSIS catalog. 
-- [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Database with virtual network (VNet) service endpoints/Managed Instance (Preview) to host the SSIS catalog and joining the IR to a VNet. 
+- [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Database with virtual network service endpoints/Managed Instance (Preview) to host the SSIS catalog and joining the IR to a virtual network. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to retrieve information about an Azure-SSIS IR and descriptions of statuses in the returned information. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or remove an Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding nodes. 
