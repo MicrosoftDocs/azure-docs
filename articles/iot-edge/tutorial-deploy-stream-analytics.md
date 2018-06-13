@@ -108,9 +108,13 @@ An Azure Storage account is required to provide an endpoint to be used as an out
     ```
 
 13. Select **Save**.
+
 14. Under **Configure**, select **IoT Edge settings**.
+
 15. Select your **Storage account** from the drop-down menu.
+
 16. Choose to **Use existing** container, and select the one that you created from the drop-down menu.
+
 17. Select **Save**. 
 
 
