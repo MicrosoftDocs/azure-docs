@@ -149,7 +149,7 @@ EXEC jobs.sp_add_jobstep @job_name='CreateTableTest',
 @command=N'IF NOT EXISTS (SELECT * FROM sys.tables 
            	WHERE object_id = object_id(''Test''))
 CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
-@credential_name=’myjobcred’,
+@credential_name='myjobcred',
 @target_group_name='PoolGroup'
 ```
 
@@ -387,11 +387,33 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 The following stored procedures are in the [jobs database](elastic-jobs-overview.md#job-database).
 
-## sp_add_job
+
+
+|Stored procedure  |Description  |
+|---------|---------|
+|[sp_add_job](#spaddjob)     |     Add a new job.    |
+|[sp_update_job ](#spupdatejob)    |      Update an existing job.   |
+|[sp_delete_job](#spdeletejob)     |      Delete an existing job.   |
+|[sp_add_jobstep](#spaddjobstep)    |    Add a step to a job.     |
+|[sp_update_jobstep](#spupdatejobstep)     |     Update a job step.    |
+|[sp_delete_jobstep](#spdeletejobstep)     |     Delete a job step.    |
+|[sp_start_job](#spstartjob)    |  Start executing a job.       |
+|[sp_stop_job](#spstopjob)     |     Stop job execution.   |
+|[sp_add_target_group](#spaddtargetgroup)    |     Adds a target group.    |
+|[sp_delete_target_group](#spdeletetargetgroup)     |    Deletes a target group.     |
+|[sp_add_target_group_member](#spaddtargetgroupmember)     |    Adds a database or group of databases to a target group.     |
+|[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Removes a target group member from a target group.    |
+|[sp_purge_jobhistory ](#sppurgejobhistory)    |    Removes the history records for a job.     |
+
+
+
+
+
+### sp_add_job
 
 Adds a new job. 
   
-### Syntax  
+#### Syntax  
   
 
 ```sql
@@ -406,7 +428,7 @@ Adds a new job.
 ```
 
   
-### Arguments  
+#### Arguments  
 
 [ **@job_name =** ] 'job_name'  
 The name of the job. The name must be unique and cannot contain the percent (%) character. job_name is nvarchar(128), with no default.
@@ -438,26 +460,26 @@ Date on which job execution can stop. schedule_end_time is DATETIME2, with the d
 [ **@job_id =** ] job_id OUTPUT  
 The job identification number assigned to the job if created successfully. job_id is an output variable of type uniqueidentifier.
 
-### Return Code Values
+#### Return Code Values
 
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 sp_add_job must be run from the job agent database specified when creating the job agent.
 After sp_add_job has been executed to add a job, sp_add_jobstep can be used to add steps that perform the activities for the job. The job’s initial version number is 0, which will be incremented to 1 when the first step is added.
 
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-## sp_update_job
+### sp_update_job
 
 Updates an existing job.
 
-### Syntax
+#### Syntax
 
 ```sql
 [jobs].sp_update_job [ @job_name = ] 'job_name'  
@@ -470,7 +492,7 @@ Updates an existing job.
 	[ , [ @schedule_end_time = ] schedule_end_time ]   
 ```
 
-### Arguments
+#### Arguments
 [ **@job_name =** ] 'job_name'  
 The name of the job to be updated. job_name is nvarchar(128).
 
@@ -502,13 +524,13 @@ Date on which job execution can begin. schedule_start_time is DATETIME2, with th
 [ **@schedule_end_time=** ] schedule_end_time  
 Date on which job execution can stop. schedule_end_time is DATETIME2, with the default of 9999-12-31 11:59:59.0000000. 
 
-### Return Code Values
+#### Return Code Values
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 After sp_add_job has been executed to add a job, sp_add_jobstep can be used to add steps that perform the activities for the job. The job’s initial version number is 0, which will be incremented to 1 when the first step is added.
 
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
@@ -516,31 +538,31 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 
-## sp_delete_job
+### sp_delete_job
 
 Deletes an existing job.
 
-### Syntax
+#### Syntax
 
 ```sql
 [jobs].sp_delete_job [ @job_name = ] 'job_name'
 	[ , [ @force = ] force ]
 ```
 
-### Arguments
+#### Arguments
 [ **@job_name =** ] 'job_name'  
 The name of the job to be deleted. job_name is nvarchar(128).
 
 [ **@force =** ] force  
 Specifies whether to delete if the job has any executions in progress and cancel all in-progress executions (1) or fail if any job executions are in progress (0). force is bit.
 
-### Return Code Values
+#### Return Code Values
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 Job history is automatically deleted when a job is deleted.
 
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
@@ -548,11 +570,11 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 
-## sp_add_jobstep
+### sp_add_jobstep
 
 Adds a step to a job.
 
-### Syntax
+#### Syntax
 
 
 ```sql
@@ -581,7 +603,7 @@ Adds a step to a job.
      [ , [ @max_parallelism = ] 'max_parallelism' ]
 ```
 
-### Arguments
+#### Arguments
 
 [ **@job_name =** ] 'job_name'  
 The name of the job to which to add the step. job_name is nvarchar(128).
@@ -659,13 +681,13 @@ Output parameter that will be assigned the new job version number. job_version i
 The maximum level of parallelism per elastic pool. If set, then the job step will be restricted to only run on a maximum of that many databases per elastic pool. This applies to each elastic pool that is either directly included in the target group or is inside a server that is included in the target group. max_parallelism is int.
 
 
-### Return Code Values
+#### Return Code Values
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 When sp_add_jobstep succeeds, the job’s current version number is incremented. The next time the job is executed, the new version will be used. If the job is currently executing, that execution will not contain the new step.
 
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:  
 
 - jobs_reader
@@ -674,11 +696,11 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 
-## sp_update_jobstep
+### sp_update_jobstep
 
 Updates a job step.
 
-### Syntax
+#### Syntax
 
 ```sql
 [jobs].sp_update_jobstep [ @job_name = ] 'job_name'   
@@ -706,7 +728,7 @@ Updates a job step.
      [ , [ @max_parallelism = ] 'max_parallelism' ]
 ```
 
-### Arguments
+#### Arguments
 [ **@job_name =** ] 'job_name'  
 The name of the job to which the step belongs. job_name is nvarchar(128).
 
@@ -783,13 +805,13 @@ Output parameter that will be assigned the new job version number. job_version i
 The maximum level of parallelism per elastic pool. If set, then the job step will be restricted to only run on a maximum of that many databases per elastic pool. This applies to each elastic pool that is either directly included in the target group or is inside a server that is included in the target group. To reset the value of max_parallelism back to null, set this parameter's value to -1. max_parallelism is int.
 
 
-### Return Code Values
+#### Return Code Values
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 Any in-progress executions of the job will not be affected. When sp_update_jobstep succeeds, the job’s version number is incremented. The next time the job is executed, the new version will be used.
 
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 
 - jobs_reader
@@ -799,11 +821,11 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 
-## sp_delete_jobstep
+### sp_delete_jobstep
 
 Removes a job step from a job.
 
-### Syntax
+#### Syntax
 
 
 ```sql
@@ -813,7 +835,7 @@ Removes a job step from a job.
      [ , [ @job_version = ] job_version OUTPUT ]
 ```
 
-### Arguments
+#### Arguments
 [ **@job_name =** ] 'job_name'  
 The name of the job from which the step will be removed. job_name is nvarchar(128), with no default.
 
@@ -826,15 +848,15 @@ The name of the step to be deleted. Either step_id or step_name must be specifie
 [ **@job_version =** ] job_version OUTPUT  
 Output parameter that will be assigned the new job version number. job_version is int.
 
-### Return Code Values
+#### Return Code Values
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 Any in-progress executions of the job will not be affected. When sp_update_jobstep succeeds, the job’s version number is incremented. The next time the job is executed, the new version will be used.
 
 The other job steps will be automatically renumbered to fill the gap left by the deleted job step.
  
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
@@ -845,11 +867,11 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 
-## sp_start_job
+### sp_start_job
 
 Starts executing a job.
 
-### Syntax
+#### Syntax
 
 
 ```sql
@@ -857,30 +879,30 @@ Starts executing a job.
      [ , [ @job_execution_id = ] job_execution_id OUTPUT ]   
 ```
 
-### Arguments
+#### Arguments
 [ **@job_name =** ] 'job_name'  
 The name of the job from which the step will be removed. job_name is nvarchar(128), with no default.
 
 [ **@job_execution_id =** ] job_execution_id OUTPUT  
 Output parameter that will be assigned the job execution's id. job_version is uniqueidentifier.
 
-### Return Code Values
+#### Return Code Values
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 None.
  
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-## sp_stop_job
+### sp_stop_job
 
 Stops a job execution.
 
-### Syntax
+#### Syntax
 
 
 ```sql
@@ -888,28 +910,28 @@ Stops a job execution.
 ```
 
 
-### Arguments
+#### Arguments
 [ **@job_execution_id =** ] job_execution_id  
 The identification number of the job execution to stop. job_execution_id is uniqueidentifier, with default of NULL.
 
-### Return Code Values
+#### Return Code Values
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 None.
  
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
 
-## sp_add_target_group
+### sp_add_target_group
 
 Adds a target group.
 
-### Syntax
+#### Syntax
 
 
 ```sql
@@ -918,30 +940,30 @@ Adds a target group.
 ```
 
 
-### Arguments
+#### Arguments
 [ **@target_group_name =** ] 'target_group_name'  
 The name of the target group to create. target_group_name is nvarchar(128), with no default.
 
 [ **@target_group_id =** ] target_group_id OUTPUT
  The target group identification number assigned to the job if created successfully. target_group_id is an output variable of type uniqueidentifier, with a default of NULL.
 
-### Return Code Values
+#### Return Code Values
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 Target groups provide an easy way to target a job at a collection of databases.
 
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-## sp_delete_target_group
+### sp_delete_target_group
 
 Deletes a target group.
 
-### Syntax
+#### Syntax
 
 
 ```sql
@@ -949,27 +971,27 @@ Deletes a target group.
 ```
 
 
-### Arguments
+#### Arguments
 [ **@target_group_name =** ] 'target_group_name'  
 The name of the target group to delete. target_group_name is nvarchar(128), with no default.
 
-### Return Code Values
+#### Return Code Values
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 None.
 
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-## sp_add_target_group_member
+### sp_add_target_group_member
 
 Adds a database or group of databases to a target group.
 
-### Syntax
+#### Syntax
 
 ```sql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
@@ -983,7 +1005,7 @@ Adds a database or group of databases to a target group.
         [ , [ @target_id = ] ‘target_id’ OUTPUT ]
 ```
 
-### Arguments
+#### Arguments
 [ **@target_group_name =** ] 'target_group_name'  
 The name of the target group to which the member will be added. target_group_name is nvarchar(128), with no default.
 
@@ -1013,16 +1035,16 @@ The target identification number assigned to the target group member if created 
 Return Code Values
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 A job executes on all databases within a server or Elastic pool at time of execution, when a logical server or Elastic pool is included in the target group.
 
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-### Examples
+#### Examples
 The following example adds all the databases in the London and NewYork servers to the group Servers Maintaining Customer Information. You must connect to the jobs database specified when creating the job agent, in this case ElasticJobs.
 
 ```sql
@@ -1055,11 +1077,11 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-## sp_delete_target_group_member
+### sp_delete_target_group_member
 
 Removes a target group member from a target group.
 
-### Syntax
+#### Syntax
 
 
 ```sql
@@ -1076,19 +1098,19 @@ The name of the target group from which to remove the target group member. targe
 [ @target_id = ] target_id  
  The target identification number assigned to the target group member to be removed. target_id is an uniqueidentifier, with a default of NULL.
 
-### Return Code Values
+#### Return Code Values
 0 (success) or 1 (failure)
 
-### Remarks
+#### Remarks
 Target groups provide an easy way to target a job at a collection of databases.
 
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-### Examples
+#### Examples
 The following example removes the London server from the group Servers Maintaining Customer Information. You must connect to the jobs database specified when creating the job agent, in this case ElasticJobs.
 
 ```sql
@@ -1107,11 +1129,11 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-## sp_purge_jobhistory
+### sp_purge_jobhistory
 
 Removes the history records for a job.
 
-### Syntax
+#### Syntax
 
 
 ```sql
@@ -1120,7 +1142,7 @@ Removes the history records for a job.
       [ , [ @oldest_date = ] oldest_date []
 ```
 
-### Arguments
+#### Arguments
 [ **@job_name =** ] 'job_name'  
 The name of the job for which to delete the history records. job_name is nvarchar(128), with a default of NULL. Either job_id or job_name must be specified, but both cannot be specified.
 
@@ -1130,18 +1152,18 @@ The name of the job for which to delete the history records. job_name is nvarcha
 [ **@oldest_date =** ] oldest_date  
  The oldest record to retain in the history. oldest_date is DATETIME2, with a default of NULL. When oldest_date is specified, sp_purge_jobhistory only removes records that are older than the value specified.
 
-### Return Code Values
+#### Return Code Values
 0 (success) or 1 (failure)
 Remarks
 Target groups provide an easy way to target a job at a collection of databases.
 
-### Permissions
+#### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-### Examples
+#### Examples
 The following example adds all the databases in the London and NewYork servers to the group Servers Maintaining Customer Information. You must connect to the  jobs database specified when creating the job agent, in this case ElasticJobs.
 
 ```sql
@@ -1156,8 +1178,19 @@ GO
 
 ## JOB VIEWS
 
+The following stored procedures are in the [jobs database](elastic-jobs-overview.md#job-database).
 
-## jobs_executions
+
+|View  |Description  |
+|---------|---------|
+|[jobs_executions](#jobsexecutions-view)     |   Returns information about jobs used by Job agent to perform automated activities in Azure SQL Database.      |
+|[jobs](#jobs-view)     |   Returns information about jobs that are used by Elastic jobs to perform automated activities in Azure SQL Database.      |
+|[jobsteps](#jobsteps-view)     |     Returns information for the steps in a job used by Job agent to perform automated activities.    |
+|[target_groups](#targetgroups-view)     |      Lists all target groups.   |
+|[target_group_members](#targetgroups-view)     |   Lists all target group members in the specified group. If no group is specified, Job agent returns information about all target group members.      |
+
+
+### jobs_executions view
 
 [jobs].[jobs_executions]
 
@@ -1186,7 +1219,7 @@ Returns information about jobs used by Job agent to perform automated activities
 |**target_database_name**	|nvarchar(128)|	Name of the database contained in the target group. Specified only when target_type is ‘SqlDatabase’. NULL indicates this is the parent job execution.
 
 
-## jobs
+### jobs view
 
 [jobs].[jobs]
 
@@ -1203,7 +1236,7 @@ Returns information about jobs that are used by Elastic jobs to perform automate
 |**schedule_start_time**	|datetime2(7)|	Date and time the job was last started execution.|
 |**schedule_end_time**|	datetime2(7)|	Date and time the job was last completed execution.|
 
-## jobsteps
+### jobsteps view
 
 [jobs].[jobsteps]
 
@@ -1236,7 +1269,7 @@ Returns information for the steps in a job used by Job agent to perform automate
 |**output_table_name**|	nvarchar(max)|	Name of the table to store the results set from the query results. Table will be created automatically based on the schema of the results set if it doesn’t already exist. Schema must match the schema of the results set.<br>Note: Column size will be changed to nvarchar(128) in future release.|
 
 
-## target_groups
+### target_groups view
 
 [jobs].[target_groups]
 
@@ -1247,7 +1280,7 @@ Lists all target groups.
 |**target_group_name**|	nvarchar(128)	|The name of the target group, a collection of databases. 
 |**target_group_id**	|uniqueidentifier	|Unique ID of the target group.
 
-## target_groups_members
+### target_groups_members view
 
 [jobs].[target_groups_members]
 
