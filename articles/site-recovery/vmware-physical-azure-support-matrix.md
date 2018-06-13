@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 06/11/2018
 ms.author: raynew
 
 ---
@@ -35,7 +35,7 @@ The configuration server is an on-premises machine that runs Site Recovery compo
 **Component** | **Requirements**
 --- |---
 CPU cores | 8
-RAM | 12 GB
+RAM | 16 GB
 Number of disks | 3 disks<br/><br/> Disks include the OS disk, process server cache disk, and retention drive for failback.
 Disk free space | 600 GB of space required for process server cache.
 Disk free space | 600 GB  of space required for retention drive.
@@ -200,7 +200,7 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
-Guest operating system | Verify [supported operating systems](#replicated machines). | Check fails if unsupported.
+Guest operating system | Verify [supported operating systems](#replicated-machines) for replicated machines. | Check fails if unsupported.
 Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
 Operating system disk count | 1 | Check fails if unsupported.  

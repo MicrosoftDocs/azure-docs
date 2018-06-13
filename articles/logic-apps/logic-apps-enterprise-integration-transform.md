@@ -4,7 +4,7 @@ description: Create transforms or mapps to convert XML data between formats in l
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 
 ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde

@@ -39,10 +39,10 @@ Now, add the Service Catalog chart to the Helm repository:
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
-Finally, install Service Catalog with the Helm chart:
+Finally, install Service Catalog with the Helm chart. If your cluster is not RBAC-enabled, add the `--set rbacEnable=false` argument to this command.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false
+helm install svc-cat/catalog --name catalog --namespace catalog
 ```
 
 After the Helm chart has been run, verify that `servicecatalog` appears in the output of the following command:
