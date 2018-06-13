@@ -22336,7 +22336,6 @@
             "redirect_document_id": false
         },
         {
-<<<<<<< HEAD
             "source_path": "articles/active-directory/active-directory-accessmanagement-managing-group-owners.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners",
             "redirect_document_id": false
@@ -22364,7 +22363,6 @@
         {
             "source_path": "articles/active-directory/get-started-azure-ad.md",
             "redirect_url": "/azure/active-directory/fundamentals/get-started-azure-ad",
-=======
             "source_path": "articles/active-directory/active-directory-administer.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-administer",
             "redirect_document_id": false
@@ -22422,7 +22420,6 @@
         {
             "source_path": "articles/active-directory/active-directory-groups-restore-azure-portal.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-restore-azure-portal",
->>>>>>> 61fc3960c47ca59b5e92f7a92bdbe91786699287
             "redirect_document_id": false
         }
     ]
