@@ -5,6 +5,20 @@
 - name: Role-based access control (RBAC)
   href: overview.md
   items:
+  - name: Quickstarts
+    items:
+    - name: Grant access for a user - Portal
+      href: quickstart-assign-role-user-portal.md
+  - name: Tutorials
+    items:
+    - name: Grant access for a user - PowerShell
+      href: tutorial-role-assignments-user-powershell.md
+    - name: Grant access for a group - PowerShell
+      href: tutorial-role-assignments-group-powershell.md
+    - name: Create a custom role - PowerShell
+      href: tutorial-custom-role-powershell.md
+    - name: Create a custom role - CLI
+      href: tutorial-custom-role-cli.md
   - name: Manage role assignments
     items:
     - name: User
@@ -17,15 +31,17 @@
       href: role-assignments-powershell.md
     - name: REST
       href: role-assignments-rest.md
+  - name: Understand role definitions
+    href: role-definitions.md
   - name: Built-in roles
     href: built-in-roles.md
   - name: Custom roles
     href: custom-roles.md
-  - name: Assign custom roles for internal and external users
+  - name: Manage role assignments for external users
     href: role-assignments-external-users.md
   - name: Activity logs
     href: change-history-report.md
-  - name: Elevate tenant admin access
+  - name: Elevate access for Global admin
     href: elevate-access-global-admin.md
   - name: Troubleshoot
     href: troubleshooting.md

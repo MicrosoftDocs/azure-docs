@@ -21,61 +21,57 @@ ms.author: wolfma
 [!include[Get a Subscription Key](includes/get-subscription-key.md)]
 
 > [!NOTE]
-> For all samples below, we assume the following top-level declarations are in place:
+> For all samples below, the following top-level declarations should be in place:
 >
-> [!code-csharp[](code/speech_recognition_samples.cs#toplevel)]
+> [!code-csharp[](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#toplevel)]
 >
-> [!code-cpp[](code/speech_recognition_samples.cpp#toplevel)]
+> [!code-cpp[](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#toplevel)]
 >
 > - - -
 
-## Speech Recognition Using Microphone
+## Speech recognition using the microphone
 
 The code snippet below shows how to recognize speech input from the microphone in the default language (`en-US`).
 
-[!code-csharp[Speech Recognition Using Microphone](code/speech_recognition_samples.cs#recognitionWithMicrophone)]
+[!code-csharp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionWithMicrophone)]
 
-[!code-cpp[Speech Recognition Using Microphone](code/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
+[!code-cpp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
 
 - - -
 
-## Speech Recognition From a File
+## Speech recognition from a file
 
-The code snippet below shows how to recognize speech input from a file in the default language (`en-US`),
-using the factory's `CreateSpeechRecognizerWithFileInput` member function.
-The audio format needs to be WAV / PCM with a single channel (mono) and 16 KHz sampling rate.
+The following code snippet recognizes speech input from an audio file in the default language (`en-US`), the supported format is single-channel (mono) WAV / PCM with a sampling rate of 16 KHz.
 
 [!include[Sample Audio](includes/sample-audio.md)]
 
-[!code-csharp[Speech Recognition From a File](code/speech_recognition_samples.cs?name=recognitionFromFile)]
+[!code-csharp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs?name=recognitionFromFile)]
 
-[!code-cpp[Speech Recognition From a File](code/speech_recognition_samples.cpp?name=SpeechRecognitionWithFile)]
-
-- - -
-
-## Speech Recognition Using a Customized Model
-
-The [Custom Speech Service (CRIS)](https://www.cris.ai/) allows to customize Microsoft's speech-to-text engine for your application.
-The snippet below shows how to recognize speech from a microphone using your CRIS model;
-fill in your CRIS subscription key and your own deployment ID before running it.
-
-[!code-csharp[Speech Recognition Using a Customized Model](code/speech_recognition_samples.cs#recognitionCustomized)]
-
-[!code-cpp[Speech Recognition Using a Customized Model](code/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
+[!code-cpp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp?name=SpeechRecognitionWithFile)]
 
 - - -
 
-## Continuous Speech Recognition
+## Speech recognition using a customized model
 
-[!code-csharp[Continuous Speech Recognition](code/speech_recognition_samples.cs#recognitionContinuous)]
+The [Custom Speech Service (CRIS)](https://www.cris.ai/) allows the customization of the Microsoft's speech-to-text engine for your application. The snippet below shows how to recognize speech from a microphone using your CRIS model; fill in your CRIS subscription key and your own deployment identification before running it.
 
-[!code-cpp[Continuous Speech Recognition](code/speech_recognition_samples.cpp#SpeechContinuousRecognitionUsingEvents)]
+[!code-csharp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionCustomized)]
+
+[!code-cpp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
 
 - - -
 
-## Downloading the sample
+## Continuous speech recognition
 
-The samples in this article are contained in the sample package; please download from [here](https://aka.ms/csspeech/winsample).
+[!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionContinuous)]
+
+[!code-cpp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechContinuousRecognitionUsingEvents)]
+
+- - -
+
+## Sample source code
+
+The latest version of the samples and even more advanced samples are in a dedicated [GitHub repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
 
 ## Next steps
 

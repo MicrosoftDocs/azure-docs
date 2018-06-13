@@ -7,8 +7,8 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
-ms.date: 03/28/2018
+ms.topic: conceptual
+ms.date: 05/09/2018
 ms.author: jingwang
 
 ---
@@ -484,7 +484,7 @@ If you want to parse the Parquet files or write the data in Parquet format, set 
 Note the following points:
 
 * Complex data types are not supported (MAP, LIST)
-* Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
+* Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from Parquet file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
 
 ### Data type mapping for Parquet files
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech using the Speech service C# SDK for Windows | Microsoft Docs'
+title: 'Quickstart: Recognize speech using the Cognitive Services Speech C# SDK for Windows | Microsoft Docs'
 description: Learn how to recognize speech using the C# SDK for Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
 ---
-# Quickstart: Recognize speech using Speech service C# SDK
+# Quickstart: Recognize speech using the Cognitive Services Speech C# SDK
 
-In this article, you learn how to create a C# console application in Windows using the Speech SDK to transcribe speech to text.
+In this article, you learn how to create a C# console application in Windows using the Cognitive Services Speech SDK to transcribe speech to text.
 
 ## Prerequisites
 
-* Make sure you have the required setup for using the Speech service. See [Prepare to use Speech service](get-started.md).
+* A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
 * Visual Studio 2017, Community Edition or higher.
 * The **.NET desktop development** workload in Visual Studio. You can enable it in **Tools** \> **Get Tools and Features**. 
 
@@ -60,36 +60,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 1. In the `Program.cs` for your Visual Studio project, replace the body of the `Program` class with the following. Make sure you replace the subscription key and region with one that you obtained for the service.
 
-    ```csharp
-    static async Task RecoFromMicrophoneAsync()
-    {
-        var subscriptionKey = "<Please replace with your subscription key>";
-        var region = "<Please replace with your service region>";
-
-        var factory = SpeechFactory.FromSubscription(subscriptionKey, region);
-
-        using (var recognizer = factory.CreateSpeechRecognizer())
-        {
-            Console.WriteLine("Say something...");
-            var result = await recognizer.RecognizeAsync();
-
-            if (result.RecognitionStatus == RecognitionStatus.Recognized)
-            {
-                Console.WriteLine($"We recognized: {result.RecognizedText}");
-            }
-            else
-            {
-                Console.WriteLine($"There was an error, status {result.RecognitionStatus}, reason {result.RecognitionFailureReason}");
-            }
-            Console.WriteLine("Please press a key to continue.");
-            Console.ReadLine();
-        }
-    }
-    static void Main(string[] args)
-    {
-        RecoFromMicrophoneAsync().Wait();
-    }
-    ```
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#code)]
 
 2. After pasting the code, the `Main()` method must resemble as shown in the following screenshot:
 
@@ -97,9 +68,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 3. Visual Studio's IntelliSense highlights the references to the Speech SDK's classes that could not be resolved. To fix this error, add the following `using` statement to the beginning of the code (either manually, or using Visual Studio's [quick actions](https://docs.microsoft.com/visualstudio/ide/quick-actions)).
 
-    ```csharp
-    using Microsoft.CognitiveServices.Speech;
-    ```
+    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#usingstatement)]
 
     ![Use the quick action to add the missing using statement](media/sdk/speechsdk-18-vs-cs-add-using.png "Resolve IntelliSense issues")
 
@@ -122,7 +91,7 @@ The result of the recognition is displayed on screen.
 
 ## Download code
 
-The code from this article can be downloaded [here](https://aka.ms/csspeech/winsample).
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 ## Next steps
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Resource provider API versions supported by profiles in Azure Stack | Microsoft Docs
 description: Learn about the Azure Resource Manager version supported by profiles in Azure Stack.
 services: azure-stack
@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
@@ -28,7 +28,7 @@ The API profile uses three naming conventions:
 
 For an explanation of API profiles and version release cadence for Azure Stack, see [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md).
 
-> [!note]  
+> [!Note]  
 > The **latest** API profile contains the latest of the resource provider API version, and is not listed in this article.
 
 ## Overview of 2018 – 03-01-hybrid

@@ -1,19 +1,13 @@
 ---
 title: How to disenroll a device from Azure IoT Hub Device Provisioning Service 
 description: How to disenroll a device to prevent provisioning through Azure IoT Hub Device Provisioning Service
-services: iot-dps
-keywords: 
 author: bryanla
-ms.author: v-jamebr;bryanla
+ms.author: bryanla
 ms.date: 04/05/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: mvc
-
 ---
 
 # How to disenroll a device from Azure IoT Hub Device Provisioning Service

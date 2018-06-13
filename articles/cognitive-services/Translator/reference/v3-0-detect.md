@@ -86,7 +86,7 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `isTranslationSupported`: A boolean value which is true if the detected language is one of the languages supported for text translation.
 
-  * `isTransliterationSupported`: A boolean value which is true if the detected language is one of the languages supported for translatiteration.
+  * `isTransliterationSupported`: A boolean value which is true if the detected language is one of the languages supported for transliteration.
   
   * `alternatives`: An array of other possible languages. Each element of the array is another object with the same properties listed above: `language`, `score`, `isTranslationSupported` and `isTransliterationSupported`.
 
@@ -172,7 +172,7 @@ The following example shows how to retrieve languages supported for text transla
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://dev.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
 ```
 
 ---

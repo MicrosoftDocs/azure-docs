@@ -10,9 +10,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 07/03/2017
-ms.author: mbullwin; pharring
+ms.topic: conceptual
+ms.date: 05/08/2018
+ms.reviewer: pharring
+ms.author: mbullwin
 
 ---
 # Debug snapshots on exceptions in .NET apps
@@ -60,7 +61,7 @@ The following environments are supported:
         <!-- How often we reconnect to the stamp. The default value is 15 minutes.-->
         <ReconnectInterval>00:15:00</ReconnectInterval>
         <!-- How often to reset problem counters. -->
-        <ProblemCounterResetInterval>24:00:00</ProblemCounterResetInterval>
+        <ProblemCounterResetInterval>1.00:00:00</ProblemCounterResetInterval>
         <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
         <SnapshotsPerTenMinutesLimit>1</SnapshotsPerTenMinutesLimit>
         <!-- The maximum number of snapshots allowed per day. -->
@@ -148,7 +149,7 @@ The following environments are supported:
        "MaximumSnapshotsRequired": 3,
        "MaximumCollectionPlanSize": 50,
        "ReconnectInterval": "00:15:00",
-       "ProblemCounterResetInterval":"24:00:00",
+       "ProblemCounterResetInterval":"1.00:00:00",
        "SnapshotsPerTenMinutesLimit": 1,
        "SnapshotsPerDayLimit": 30,
        "SnapshotInLowPriorityThread": true,
@@ -190,11 +191,12 @@ Owners of the Azure subscription can inspect snapshots. Other users must be gran
 
 To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
 
-1. Open the Access Control (IAM) blade.
-1. Click the +Add button.
-1. Select Application Insights Snapshot Debugger from the Roles drop-down list.
+1. Navigate to the Application Insights resource in the Azure portal.
+1. Click **Access Control (IAM)**.
+1. Click the **+Add** button.
+1. Select **Application Insights Snapshot Debugger** from the **Roles** drop-down list.
 1. Search for and enter a name for the user to add.
-1. Click the Save button to add the user to the role.
+1. Click the **Save** button to add the user to the role.
 
 
 > [!IMPORTANT]
@@ -264,22 +266,22 @@ However, in Azure App Services, the Snapshot Collector can deoptimize throwing m
 
 These tips help you troubleshoot problems with the Snapshot Debugger.
 
-## Use the snapshot health check
-If you don't see snapshot available for a particular exception, it could be caused by several reasons including outdate snapshot collector versions, daily threshold hit, the snapshot is just taking time to be uploaded, and so on. In order to assist you diagnosing such issues, we built a Snapshot Health Check service to smartly analyze why there is no snapshot.
+### Use the snapshot health check
+Several common problems result in the Open Debug Snapshot not showing up. Using an outdated Snapshot Collector, for example; reaching the daily upload limit; or perhaps the snapshot is just taking a long time to upload. Use the Snapshot Health Check to troubleshoot common problems.
 
-If you don't see snapshots associated with an exception, there will be a link in the End-to-end trace viewer blade for entering snapshot health check.
+There's a link in the exception pane of the end-to-end trace view that takes you to the Snapshot Health Check.
 
 ![Enter snapshot health check](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
 
-Then, you will see an interactive chat-bot like session running health check on various aspect of your service and offering advices.
+The interactive, chat-like interface looks for common problems and guides you to fix them.
 
 ![Health Check](./media/app-insights-snapshot-debugger/healthcheck.png)
 
-There are also a few manual steps you can do to diagnose the health of your snapshot service. Please refer to sections below:
+If that doesn't solve the problem, then refer to the following manual troubleshooting steps.
 
 ### Verify the instrumentation key
 
-Make sure you're using the correct instrumentation key in your published application. Usually, Application Insights reads the instrumentation key from the ApplicationInsights.config file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
+Make sure you're using the correct instrumentation key in your published application. Usually, the instrumentation key is read from the ApplicationInsights.config file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
 
 ### Upgrade to the latest version of the NuGet package
 
@@ -290,7 +292,7 @@ Use Visual Studio's NuGet Package Manager to make sure you're using the latest v
 After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process creates that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it's deleted from disk. The log files for the uploader process are kept on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles`. Use the Kudu management site for App Service to find these log files.
 
 1. Open your App Service application in the Azure portal.
-2. Select the **Advanced Tools** blade, or search for **Kudu**.
+2. Click **Advanced Tools**, or search for **Kudu**.
 3. Click **Go**.
 4. In the **Debug console** drop-down list box, select **CMD**.
 5. Click **LogFiles**.
@@ -398,7 +400,7 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
 
 ### Use Application Insights search to find exceptions with snapshots
 
-When a snapshot is created, the throwing exception is tagged with a snapshot ID. That snapshot ID is included as a custom property when the exception telemetry is reported to Application Insights. Using the Search blade in Application Insights, you can find all telemetry with the `ai.snapshot.id` custom property.
+When a snapshot is created, the throwing exception is tagged with a snapshot ID. That snapshot ID is included as a custom property when the exception telemetry is reported to Application Insights. Using **Search** in Application Insights, you can find all telemetry with the `ai.snapshot.id` custom property.
 
 1. Browse to your Application Insights resource in the Azure portal.
 2. Click **Search**.

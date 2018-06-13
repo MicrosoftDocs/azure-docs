@@ -43,7 +43,7 @@ $policysetparameters = "https://raw.githubusercontent.com/Azure/azure-policy/mas
 
 $policyset= New-AzureRmPolicySetDefinition -Name "multiple-billing-tags" -DisplayName "Billing Tags Policy Initiative" -Description "Specify cost Center tag and product name tag" -PolicyDefinition $policydefinitions -Parameter $policysetparameters
 
-New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>  -Sku @{"Name"="A1";"Tier"="Standard"}
+New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>
 ```
 
 ### Clean up PowerShell deployment
@@ -59,9 +59,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 After assigning the policies, you can trigger an update to all existing resources to enforce the tag policies you have added. The following script retains any other tags that existed on the resources:
 
 ```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
-
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup"
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName
 
 foreach($r in $resources)
 {
@@ -74,7 +73,6 @@ foreach($r in $resources)
 }
 ```
 
-
 ## Next steps
 
-- Additional Azure Policy template samples are at [Templates for Azure Policy](../json-samples.md).
+- Review more examples at [Azure Policy samples](../json-samples.md).

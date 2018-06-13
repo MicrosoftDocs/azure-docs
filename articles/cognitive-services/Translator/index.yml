@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Translator Text API Documentation
 metadata:
-  title: Translator Text Documentation - Tutorials, API Reference
+  title: Translator Text Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description: Learn how to use Translator Text API to translate text in multiple languages. Tutorials show you how write code that makes use of the Translator service.
   services: cognitive-services
   author: Jann-Skotdal
@@ -14,7 +14,7 @@ metadata:
   ms.date: 10/30/2017
   ms.author: v-jansko
 abstract:
-  description: Microsoft Translator Text API is a cloud-based machine translation service.  With this API you can translate text in near real-time from any app or service through a simple REST API call. The API uses the most modern neural machine translation technology, as well as offering statistical machine translation technology. For the list of supported languages, both for neural MT and statistical MT, please refer to <a href="languages.md">Supported languages</a>.
+  description: Microsoft Translator Text API is a cloud-based machine translation service. With this API you can translate text in near real-time from any app or service through a simple REST API call. The API uses the most modern neural machine translation technology, as well as offering statistical machine translation technology. For the list of supported languages, both for neural MT and statistical MT, please refer to <a href="languages.md">Supported languages</a>.
 sections:
 - title: Reference
   items:

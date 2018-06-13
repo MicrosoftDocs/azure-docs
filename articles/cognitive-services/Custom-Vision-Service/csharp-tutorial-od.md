@@ -16,9 +16,6 @@ Learn how to use a basic Windows application that uses the Computer Vision API t
 
 ## Prerequisites
 
-### Platform requirements
-This example has been developed for the .NET Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
-
 ### Get the Custom Vision SDK and samples
 To build this example, you need the Custom Vision SDK NuGet Packages:
 
@@ -26,6 +23,12 @@ To build this example, you need the Custom Vision SDK NuGet Packages:
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
 You can download the images along with the [C# Samples](https://github.com/areddish/cognitive-services-dotnet-sdk-samples).
+
+## Get the training and prediction keys
+
+To get the keys used in this example, visit the [Custom Vision web page](https://customvision.ai) and select the __gear icon__ in the upper right. In the __Accounts__ section, copy the values from the __Training Key__ and __Prediction Key__ fields.
+
+![Image of the keys UI](./media/csharp-tutorial/training-prediction-keys.png)
 
 ## Step 1: Create a console application
 
@@ -97,46 +100,46 @@ For object detection projects we need to identify the region of the object using
     Dictionary<string, double[]> fileToRegionMap = new Dictionary<string, double[]>()
     {
         // FileName, Left, Top, Width, Height
-        {"fork_1", new double[] { 0.219362751, 0.141781077, 0.5919118, 0.6683006 } },
-        {"fork_2", new double[] { 0.115196079, 0.341127485, 0.819852948, 0.222222224 } },
-        {"fork_3", new double[] { 0.107843138, 0.128709182, 0.727941155, 0.71405226 } },
-        {"fork_4", new double[] { 0.148284316, 0.318251669, 0.7879902, 0.3970588 } },
-        {"fork_5", new double[] { 0.08210784, 0.07805559, 0.759803951, 0.593137264 } },
-        {"fork_6", new double[] { 0.2977941, 0.220212445, 0.5355392, 0.6013072 } },
-        {"fork_7", new double[] { 0.143382356, 0.346029431, 0.590686262, 0.256535947 } },
-        {"fork_8", new double[] { 0.294117659, 0.216944471, 0.49142158, 0.5980392 } },
-        {"fork_9", new double[] { 0.240196079, 0.1385131, 0.5955882, 0.643790841 } },
-        {"fork_10", new double[] { 0.25, 0.149951011, 0.534313738, 0.642156839 } },
-        {"fork_11", new double[] { 0.234068632, 0.445702642, 0.6127451, 0.344771236 } },
-        {"fork_12", new double[] { 0.180147052, 0.239820287, 0.6887255, 0.235294119 } },
-        {"fork_13", new double[] { 0.140931368, 0.480016381, 0.6838235, 0.240196079 } },
-        {"fork_14", new double[] { 0.186274514, 0.0633497, 0.579656839, 0.8611111 } },
-        {"fork_15", new double[] { 0.243872553, 0.212042511, 0.470588237, 0.6683006 } },
-        {"fork_16", new double[] { 0.143382356, 0.218578458, 0.7977941, 0.295751631 } },
-        {"fork_17", new double[] { 0.3345588, 0.07315363, 0.375, 0.9150327 } },
-        {"fork_18", new double[] { 0.05759804, 0.0894935, 0.9007353, 0.3251634 } },
-        {"fork_19", new double[] { 0.05269608, 0.282303959, 0.8088235, 0.452614367 } },
-        {"fork_20", new double[] { 0.18259804, 0.2136765, 0.6335784, 0.643790841 } },
-        {"scissors_1", new double[] { 0.169117644, 0.3378595, 0.780637264, 0.393790841 } },
-        {"scissors_2", new double[] { 0.145833328, 0.06661768, 0.6838235, 0.8153595 } },
-        {"scissors_3", new double[] { 0.3125, 0.09766343, 0.435049027, 0.71405226 } },
-        {"scissors_4", new double[] { 0.432598025, 0.177728787, 0.18259804, 0.576797366 } },
-        {"scissors_5", new double[] { 0.354166657, 0.210408524, 0.305147052, 0.625817 } },
-        {"scissors_6", new double[] { 0.368872553, 0.234918326, 0.3394608, 0.5833333 } },
-        {"scissors_7", new double[] { 0.4007353, 0.184264734, 0.2720588, 0.6862745 } },
-        {"scissors_8", new double[] { 0.319852948, 0.0339379422, 0.455882341, 0.843137264 } },
-        {"scissors_9", new double[] { 0.295343131, 0.259428144, 0.403186262, 0.421568632 } },
-        {"scissors_10", new double[] { 0.341911763, 0.0894935, 0.351715684, 0.828431368 } },
-        {"scissors_11", new double[] { 0.2720588, 0.131977156, 0.4987745, 0.6911765 } },
-        {"scissors_12", new double[] { 0.186274514, 0.14504905, 0.7022059, 0.748366 } },
-        {"scissors_13", new double[] { 0.05759804, 0.05027781, 0.75, 0.882352948 } },
-        {"scissors_14", new double[] { 0.181372553, 0.112369314, 0.629901946, 0.71405226 } },
-        {"scissors_15", new double[] { 0.256127447, 0.190800682, 0.441176474, 0.6862745 } },
-        {"scissors_16", new double[] { 0.261029422, 0.153218985, 0.513480365, 0.6388889 } },
-        {"scissors_17", new double[] { 0.113970585, 0.2643301, 0.6666667, 0.504901946 } },
-        {"scissors_18", new double[] { 0.05514706, 0.159754932, 0.799019635, 0.730392158 } },
-        {"scissors_19", new double[] { 0.204656869, 0.120539248, 0.5245098, 0.743464053 } },
-        {"scissors_20", new double[] { 0.231617644, 0.08459154, 0.504901946, 0.8480392 } }
+        {"scissors_1", new double[] { 0.4007353, 0.194068655, 0.259803921, 0.6617647 } },
+        {"scissors_2", new double[] { 0.426470578, 0.185898721, 0.172794119, 0.5539216 } },
+        {"scissors_3", new double[] { 0.289215684, 0.259428144, 0.403186262, 0.421568632 } },
+        {"scissors_4", new double[] { 0.343137264, 0.105833367, 0.332107842, 0.8055556 } },
+        {"scissors_5", new double[] { 0.3125, 0.09766343, 0.435049027, 0.71405226 } },
+        {"scissors_6", new double[] { 0.379901975, 0.24308826, 0.32107842, 0.5718954 } },
+        {"scissors_7", new double[] { 0.341911763, 0.20714055, 0.3137255, 0.6356209 } },
+        {"scissors_8", new double[] { 0.231617644, 0.08459154, 0.504901946, 0.8480392 } },
+        {"scissors_9", new double[] { 0.170343131, 0.332957536, 0.767156839, 0.403594762 } },
+        {"scissors_10", new double[] { 0.204656869, 0.120539248, 0.5245098, 0.743464053 } },
+        {"scissors_11", new double[] { 0.05514706, 0.159754932, 0.799019635, 0.730392158 } },
+        {"scissors_12", new double[] { 0.265931368, 0.169558853, 0.5061275, 0.606209159 } },
+        {"scissors_13", new double[] { 0.241421565, 0.184264734, 0.448529422, 0.6830065 } },
+        {"scissors_14", new double[] { 0.05759804, 0.05027781, 0.75, 0.882352948 } },
+        {"scissors_15", new double[] { 0.191176474, 0.169558853, 0.6936275, 0.6748366 } },
+        {"scissors_16", new double[] { 0.1004902, 0.279036, 0.6911765, 0.477124184 } },
+        {"scissors_17", new double[] { 0.2720588, 0.131977156, 0.4987745, 0.6911765 } },
+        {"scissors_18", new double[] { 0.180147052, 0.112369314, 0.6262255, 0.6666667 } },
+        {"scissors_19", new double[] { 0.333333343, 0.0274019931, 0.443627447, 0.852941155 } },
+        {"scissors_20", new double[] { 0.158088237, 0.04047389, 0.6691176, 0.843137264 } },
+        {"fork_1", new double[] { 0.145833328, 0.3509314, 0.5894608, 0.238562092 } },
+        {"fork_2", new double[] { 0.294117659, 0.216944471, 0.534313738, 0.5980392 } },
+        {"fork_3", new double[] { 0.09191177, 0.0682516545, 0.757352948, 0.6143791 } },
+        {"fork_4", new double[] { 0.254901975, 0.185898721, 0.5232843, 0.594771266 } },
+        {"fork_5", new double[] { 0.2365196, 0.128709182, 0.5845588, 0.71405226 } },
+        {"fork_6", new double[] { 0.115196079, 0.133611143, 0.676470637, 0.6993464 } },
+        {"fork_7", new double[] { 0.164215669, 0.31008172, 0.767156839, 0.410130739 } },
+        {"fork_8", new double[] { 0.118872553, 0.318251669, 0.817401946, 0.225490168 } },
+        {"fork_9", new double[] { 0.18259804, 0.2136765, 0.6335784, 0.643790841 } },
+        {"fork_10", new double[] { 0.05269608, 0.282303959, 0.8088235, 0.452614367 } },
+        {"fork_11", new double[] { 0.05759804, 0.0894935, 0.9007353, 0.3251634 } },
+        {"fork_12", new double[] { 0.3345588, 0.07315363, 0.375, 0.9150327 } },
+        {"fork_13", new double[] { 0.269607842, 0.194068655, 0.4093137, 0.6732026 } },
+        {"fork_14", new double[] { 0.143382356, 0.218578458, 0.7977941, 0.295751631 } },
+        {"fork_15", new double[] { 0.19240196, 0.0633497, 0.5710784, 0.8398692 } },
+        {"fork_16", new double[] { 0.140931368, 0.480016381, 0.6838235, 0.240196079 } },
+        {"fork_17", new double[] { 0.305147052, 0.2512582, 0.4791667, 0.5408496 } },
+        {"fork_18", new double[] { 0.234068632, 0.445702642, 0.6127451, 0.344771236 } },
+        {"fork_19", new double[] { 0.219362751, 0.141781077, 0.5919118, 0.6683006 } },
+        {"fork_20", new double[] { 0.180147052, 0.239820287, 0.6887255, 0.235294119 } }
     };
 
     // Add all images for fork

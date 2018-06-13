@@ -13,36 +13,43 @@ ms.date: 05/07/2018
 ms.author: wolfma
 ---
 
-# Sample for Translation
+# Sample for translation
 
 > [!NOTE]
 > For instructions to download this sample and others, see [Samples for Speech SDK](samples.md).
 
-> [!IMPORTANT]
-> Currently, the translation service requires different subscription keys. Let us know if you want to use the translation service.
-
 [!include[Get a Subscription Key](includes/get-subscription-key.md)]
 
 > [!NOTE]
-> For all samples below, we assume the following top-level declarations are in place:
+> For all samples below the following top-level declarations should be in place:
 >
-> [!code-csharp [Using Statements](code/translation_samples.cs#toplevel)]
+> [!code-csharp [Using Statements](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#toplevel)]
 >
 > - - -
 
-## Translation Using Microphone
+## Translation using the microphone
 
 The code snippet below shows how to translate speech input from English to German, and also get the voice output of the translated text. It uses the microphone.
 
-[!code-csharp[Translation Using Microphone](code/translation_samples.cs#TranslationWithMicrophoneAsync)]
+[!code-csharp[Translation Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#TranslationWithMicrophoneAsync)]
 
 - - -
 
-## Translation Using File Input
+## Translation using file input
 
 The code snippet below shows how to translate speech input from English to German and French.
 It uses file as input.
 
-[!code-csharp[Translation Using File Input](code/translation_samples.cs#TranslationWithFileAsync)]
+[!code-csharp[Translation Using File Input](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#TranslationWithFileAsync)]
 
 - - -
+
+## Sample source code
+
+The latest version of the samples and even more advanced samples are in a dedicated [GitHub repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+
+## Next steps
+
+- [Speech Recognition](./speech-to-text-sample.md)
+
+- [Intent Recognition](./intent.md)

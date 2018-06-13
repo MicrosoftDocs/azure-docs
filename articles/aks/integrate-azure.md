@@ -3,7 +3,7 @@ title: Integrate with Azure-managed services using Open Service Broker for Azure
 description: Integrate with Azure-managed services using Open Service Broker for Azure (OSBA)
 services: container-service
 author: sozercan
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: overview
@@ -17,7 +17,7 @@ Together with the [Kubernetes Service Catalog][kubernetes-service-catalog], Open
 ## Prerequisites
 * An Azure subscription
 
-* Azure CLI 2.0: [install it locally][azure-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
+* Azure CLI: [install it locally][azure-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
 
 * Helm CLI 2.7+: [install it locally][helm-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
 
@@ -39,10 +39,10 @@ Now, add the Service Catalog chart to the Helm repository:
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
-Finally, install Service Catalog with the Helm chart:
+Finally, install Service Catalog with the Helm chart. If your cluster is not RBAC-enabled, add the `--set rbacEnable=false` argument to this command.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false
+helm install svc-cat/catalog --name catalog --namespace catalog
 ```
 
 After the Helm chart has been run, verify that `servicecatalog` appears in the output of the following command:

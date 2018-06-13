@@ -297,14 +297,12 @@ In the event that an execution failure occurs, the output describing it is also 
 ## See also
 * [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize]
 * [Install and use Spark on HDInsight clusters][hdinsight-install-spark]
-* [Install and use R on HDInsight clusters][hdinsight-r-scripts]
 * [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
 * [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-r-scripts]: hdinsight-hadoop-r-scripts.md
 [powershell-install-configure]: install-configure-powershell.md
 
 <!--Reference links in article-->

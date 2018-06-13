@@ -7,7 +7,7 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: manayar
 
 ---
@@ -75,7 +75,7 @@ By default, the replication traffic does not leave the Azure boundary. Typically
 
 When Azure virtual machines are failed over to a different region, the existing ExpressRoute connection to the source virtual network is not automatically transferred to the target virtual network on the recovery region. A new connection is required to connect ExpressRoute to the target virtual network.
 
-You can replicate Azure virtual machines to any Azure region within the same geographic cluster as detailed [here](azure-to-azure-support-matrix.md#region-support). If the chosen target Azure region is not within the same geopolitical region as the source, you need to enable ExpressRoute Premium if you’re using a single ExpressRoute circuit for source and target region connectivity. For more details, check [ExpressRoute locations](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+You can replicate Azure virtual machines to any Azure region within the same geographic cluster as detailed [here](azure-to-azure-support-matrix.md#region-support). If the chosen target Azure region is not within the same geopolitical region as the source, you need to enable ExpressRoute Premium if you’re using a single ExpressRoute circuit for source and target region connectivity. For more details, check [ExpressRoute locations](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ### Two ExpressRoute circuits in two different ExpressRoute peering locations
 -	This configuration is useful if you want to insure against failure of the primary ExpressRoute circuit and against large-scale regional disasters, which could also impact ExpressRoute peering locations and disrupt your primary ExpressRoute circuit.
