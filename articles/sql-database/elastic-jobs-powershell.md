@@ -246,6 +246,17 @@ $JobExecution | Get-AzureRmSqlElasticJobTargetExecution -Count 2
 $Job | Set-AzureRmSqlElasticJob -IntervalType Hour -IntervalCount 1 -StartTime (Get-Date) -Enable
 ```
 
+## Clean up resources
+
+> [!TIP]
+> If you plan to continue to work with these jobs, do not clean up the resources created in this article. If you do not plan to continue, use the following steps to delete all resources created in this article.
+>
+
+```powershell
+Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
+```
+
+
 ## Next steps
 
 In this tutorial, you ran a Transact-SQL script against a set of databases.  You learned how to do the following tasks:
