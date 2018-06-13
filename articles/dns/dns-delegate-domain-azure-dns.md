@@ -16,7 +16,7 @@ ms.author: kumud
 
 You can use Azure DNS to host your DNS domain and manage your DNS records. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. 
 
-Suppose you buy the domain contoso.net from a domain name registrar and then create a zone with the name contoso.net in Azure DNS. Because you're the owner of the domain, your registrar offers you the option to configure the name server (NS) records for your domain. The registrar stores these NS records in the .net parent zone. Internet users around the world are then directed to your domain in your Azure DNS zone when they're trying to resolve DNS records in contoso.net.
+Suppose you buy the domain contoso.net from a domain name registrar and then create a zone with the name contoso.net in Azure DNS. Because you're the owner of the domain, your registrar offers you the option to configure the name server (NS) records for your domain. The registrar stores the NS records in the .net parent zone. Internet users around the world are then directed to your domain in your Azure DNS zone when they're trying to resolve DNS records in contoso.net.
 
 
 In this tutorial, you learn how to:
@@ -76,7 +76,7 @@ After you complete the delegation, you can verify that it is working by using a 
 
 You do not have to specify the Azure DNS name servers. If the delegation is set up correctly, the normal DNS resolution process finds the name servers automatically.
 
-From a command prompt, type an nslookup command similiar to following:
+From a command prompt, type a nslookup command similar to following:
 
 ```
 nslookup -type=SOA contoso.net
