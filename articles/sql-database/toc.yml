@@ -202,30 +202,14 @@
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Monitor in-memory
       href: sql-database-in-memory-oltp-monitoring.md
-  - name: Elastic Database Jobs
+  - name: Elastic Database Jobs (New)
     items:
     - name: Overview
       href: elastic-jobs-overview.md
-    - name: Create jobs (T-SQL)
+    - name: Create and manage (T-SQL)
       href: elastic-jobs-tsql.md
-    - name: Create jobs (PowerShell)
+    - name: Create and manage (PowerShell)
       href: elastic-jobs-powershell.md
-    - name: Migrate to new Elastic Jobs
-      href: elastic-jobs-migrate.md
-    - name: Old Elastic Jobs (deprecated)
-      items:
-      - name: Overview (deprecated)
-        href: sql-database-elastic-jobs-overview.md
-      - name: Install elastic job (deprecated)
-        href: sql-database-elastic-jobs-service-installation.md
-      - name: Create job - Portal (deprecated)
-        href: sql-database-elastic-jobs-create-and-manage.md
-      - name: Create job - Azure PowerShell (deprecated)
-        href: sql-database-elastic-jobs-powershell.md
-      - name: Create job - Sample app (deprecated)
-        href: sql-database-elastic-jobs-getting-started.md
-      - name: Uninstall elastic job (deprecated)
-        href: sql-database-elastic-jobs-uninstall.md
   - name: Scale out
     items:
     - name: Overview
@@ -236,6 +220,8 @@
       href: sql-database-elastic-query-overview.md
     - name: Elastic transactions
       href: sql-database-elastic-transactions-overview.md
+    - name: Elastic jobs
+      href: sql-database-elastic-jobs-overview.md
     - name: Shard maps
       href: sql-database-elastic-scale-shard-map-management.md
     - name: Query routing
@@ -298,6 +284,16 @@
     items:
     - name: Upgrade elastic database client library
       href: sql-database-elastic-scale-upgrade-client-library.md
+    - name: Install elastic job
+      href: sql-database-elastic-jobs-service-installation.md
+    - name: Create job - Portal
+      href: sql-database-elastic-jobs-create-and-manage.md
+    - name: Create job - Azure PowerShell
+      href: sql-database-elastic-jobs-powershell.md
+    - name: Create job - Sample app
+      href: sql-database-elastic-jobs-getting-started.md
+    - name: Uninstall elastic job
+      href: sql-database-elastic-jobs-uninstall.md
     - name: Query vertically partitioned data
       href: sql-database-elastic-query-getting-started-vertical.md
     - name: Report across scaled-out data tier
