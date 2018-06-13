@@ -56,7 +56,7 @@ Ingest, buffer, store, and process your stream in real time to get actionable in
 
 ## Rich Ecosystem
 
-Event Hubs for Kafka Ecosystems enable Apache Kafka (1.0 and above) clients and applications to talk to Event Hubs without having to manager any cluster. 
+Event Hubs for Kafka Ecosystems enable Apache Kafka (1.0 and above) clients and applications to talk to Event Hubs without having to manage any cluster. 
 With a broad ecosystem available in various [languages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), you can easily start processing your streams from Event Hubs. All supported client languages provide low-level integration.
 
 
