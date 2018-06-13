@@ -19502,6 +19502,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/role-based-access-control/index.md",
+            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/role-based-access-control/role-assignments-users.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
@@ -21467,11 +21477,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/role-based-access-control/index.md",
-            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/storage/blobs/index.md",
             "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
             "redirect_document_id": false
@@ -22195,11 +22200,6 @@
         {
             "source_path": "articles/virtual-machines/extensions/key-vault-windows.md",
             "redirect_url": "/azure/key-vault/key-vault-overview",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/role-based-access-control/role-assignments-users.md",
-            "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
             "redirect_document_id": true
         },
         {
