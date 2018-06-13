@@ -44,7 +44,7 @@ You have 180 days of dual use rights of the license to ensure migrations are run
 
 
 ## How does Azure Hybrid Benefit for SQL Server differ from license mobility?
-Today, we offer SQL Server customers with Software Assurance license mobility benefits which allows re-assignment of their licenses to third-party shared servers. This benefit can be used on Azure IaaS and AWS EC2.
+Today, we offer SQL Server customers with Software Assurance license mobility benefits that allows re-assignment of their licenses to third-party shared servers. This benefit can be used on Azure IaaS and AWS EC2.
 Azure Hybrid Benefit for SQL Server differs from license mobility in two key areas:
 - It provides economic benefits for moving highly virtualized workloads to Azure. SQL EE customers can get 4 cores in Azure in the General Purpose SKU for every core they own on-premises for highly virtualized applications. License mobility does not allow any special cost benefits for moving virtualized workloads to the cloud.
 - It provides for a PaaS destination on Azure that is highly compatible with SQL Server on-premises – SQL Database Managed Instance.
@@ -88,15 +88,15 @@ You can configure the backup retention for PITR between 7 and 35 days. The backu
 Our goal is to enable maximum flexibility so that you can choose a performance configuration that closely matches the needs of the application. The table above shows the differences between Gen4 and Gen5. In particular, Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute much higher. We want to make these differences transparent so that you can achieve the optimal price/performance ratio for your application.
 
 ## Do I need to take my application offline to convert from a DTU-based database to a vCore-based service tier? 
-The new service tiers offer a simple online conversion method that is similar to the existing process of upgrading databases from Standard to Premium service tier and vice versa. This conversion can be initiated using Portal, ARM, PowerShell, Azure CLI or T-SQL. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+The new service tiers offer a simple online conversion method that is similar to the existing process of upgrading databases from Standard to Premium service tier and vice versa. This conversion can be initiated using the Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
 
 ## Can I convert a database from a vCore-based service tier to a DTU-based one? 
-Yes, you can easily convert your database to any supported performance objective using Portal or programmatically using Portal, ARM, PowerShell, Azure CLI or T-SQL. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+Yes, you can easily convert your database to any supported performance objective using Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
 
 ## Can I upgrade or downgrade between the General Purpose and Business Critical service tiers? 
 Yes, with some restrictions. Your destination SKU must meet the maximum database or elastic pool size you configured for your existing deployment. If you are using [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), the Business Critical SKU is only available to customers with Enterprise Edition licenses. Only customers who migrated from on-premises to General Purpose using Azure Hybrid Benefit for SQL Server with Enterprise Edition licenses can upgrade to Business Critical. For details see [What are the specific rights of the Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
 
-This conversion does not result in downtime and can be initiated using Portal, ARM, PowerShell, Azure CLI or T-SQL. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+This conversion does not result in downtime and can be initiated using Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
 
 ## I am using a Premium RS database that will not be Generally Available - can I upgrade it to a new tier and achieve a similar price/performance benefit?
 Because the vCore model allows independent control over the amount of provisioned compute and storage, you can more effectively manage the resulting costs, making it an attractive destination for Premium RS databases. In addition, the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) provides a substantial discount when the vCore-based model is used. 
