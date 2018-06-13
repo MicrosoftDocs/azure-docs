@@ -42,7 +42,7 @@ While patterns require entities, a pattern does not help detect the entity. A pa
 Given enough example utterances, LUIS would be able to increase prediction confidence without patterns. Patterns increase the confidence score without having to provide as many utterances.  
 
 ## Pattern matching
-A pattern is matched based on finding the entities inside the pattern first, then validating the rest of the words and word order of the pattern. Entities are required in the pattern for a pattern to match. 
+A pattern is matched based on detecting the entities inside the pattern first, then validating the rest of the words and word order of the pattern. Entities are required in the pattern for a pattern to match. 
 
 ## Pattern syntax
 Entities in patterns are surrounded by curly brackets. Patterns can include entities, and entities with roles. Pattern.any is an entity only used in patterns. The syntax for each of these is explained in the following sections.

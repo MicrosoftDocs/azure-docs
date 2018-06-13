@@ -160,7 +160,7 @@ For a complete list of the pre-integrated applications, see the [Active Director
 For more information, see:
 
 * [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
+* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
 **Q: How do users sign in to applications by using Azure AD?**
