@@ -25,11 +25,11 @@
     href: sdk.md
   - name: Entity Search C# quickstart
     href: entity-search-sdk-quickstart.md
-  - name: Entity Search Node.js quickstart (preview)
+  - name: Entity Search Node.js quickstart
     href: entity-search-sdk-node-quickstart.md  
-  - name: Entity Search Python quickstart (preview)
+  - name: Entity Search Python quickstart
     href: entity-sdk-python-quickstart.md 
-  - name: Entity Search Java quickstart (preview)
+  - name: Entity Search Java quickstart
     href: entity-sdk-java-quickstart.md
 - name: Tutorials
   items:

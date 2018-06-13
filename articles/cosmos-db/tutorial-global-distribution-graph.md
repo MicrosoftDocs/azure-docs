@@ -7,8 +7,8 @@ author: luisbosquez
 manager: kfile
 editor: cgronlun
 
-ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2018

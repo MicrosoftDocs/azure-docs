@@ -5,10 +5,10 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: a452ffa2-c15d-4b0a-a8c1-ec9b750ce52b
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: reference
 ms.date: 05/18/2018
 ms.author: sngun
 

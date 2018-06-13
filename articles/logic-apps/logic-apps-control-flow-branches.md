@@ -1,26 +1,23 @@
 ---
-title: Parallel branches - Azure Logic Apps | Microsoft Docs
-description: Create or join parallel branches in logic apps
+# required metadata
+title: Create or join parallel branches - Azure Logic Apps | Microsoft Docs
+description: How to create or join parallel branches for workflows in Azure Logic Apps
 services: logic-apps
-keywords: branches, parallel processing
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
+ms.topic: article
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
-# Create or join parallel branches in your logic app
+# Create or join parallel branches for workflow actions in Azure Logic Apps
 
-By default, actions in a logic app run sequentially. 
+By default, your actions in logic app workflows run sequentially. 
 To perform independent actions at the same time, 
 you can create [parallel branches](#parallel-branches), 
 and then [join those branches](#join-branches) later in your flow. 

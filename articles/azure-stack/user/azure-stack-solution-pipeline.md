@@ -219,13 +219,13 @@ Create a Personal Access Token to access VSTS.
 
     ![Download build agent](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
 
-3. Navigate to the folder for the extracted build agent. Run the **run.cmd** file from an elevated command prompt.
+3. Navigate to the folder for the extracted build agent. Run the **config.cmd** file from an elevated command prompt.
 
     ![Extracted build agent](media\azure-stack-solution-hybrid-pipeline\000_20.png)
 
     ![Register build agent](media\azure-stack-solution-hybrid-pipeline\000_21.png)
 
-4. When the run.cmd finishes, the build agent folder is updated with additional files. The folder with the extracted contents should look like the following:
+4. When the config.cmd finishes, the build agent folder is updated with additional files. The folder with the extracted contents should look like the following:
 
     ![Build agent folder update](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 

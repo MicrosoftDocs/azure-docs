@@ -10,13 +10,13 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: curtand
-ms.reviewer: kairaz.contractor
+ms.reviewer: krbain
 
-ms.custom: H1Hack27Feb2017;it-pro
+ms.custom: it-pro
 
 ---
 # Manage the settings for a group in Azure Active Directory

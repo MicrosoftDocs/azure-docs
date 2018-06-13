@@ -11,9 +11,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: mbullwin; Soubhagya.Dash
+ms.reviewer: sdash
+ms.author: mbullwin
 ---
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency

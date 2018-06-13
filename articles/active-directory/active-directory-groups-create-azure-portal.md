@@ -9,12 +9,12 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: curtand
-
-ms.custom: H1Hack27Feb2017                          
+ms.reviewer: krbain
+ms.custom: it-pro                         
 
 ---
 # Create a group and add members in Azure Active Directory

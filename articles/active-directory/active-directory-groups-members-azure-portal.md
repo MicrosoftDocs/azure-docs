@@ -10,13 +10,13 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 
-ms.custom: H1Hack27Feb2017;it-pro
-ms.reviewer: piotrci
+ms.custom: it-pro
+ms.reviewer: krbain
 
 ---
 # Manage group membership for users in your Azure Active Directory tenant

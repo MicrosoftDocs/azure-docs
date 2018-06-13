@@ -7,17 +7,13 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 6/08/2018
 ms.author: nepeters
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
 
 This article addresses frequent questions about Azure Kubernetes Service (AKS).
-
-> [!IMPORTANT]
-> Azure Kubernetes Service (AKS) is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
->
 
 ## Which Azure regions provide the Azure Kubernetes Service (AKS) today?
 
@@ -39,13 +35,9 @@ Azure automatically applies security patches to the nodes in your cluster on a n
 - By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), then bring them back up with the latest Ubuntu image. Update the OS image on your nodes without changing Kubernetes versions by specifying the current cluster version in `az aks upgrade`.
 - Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. It then orchestrates those reboots across the cluster, following the same cordon and drain process described earlier.
 
-## Do you recommend customers use ACS or AKS?
-
-While AKS remains in preview, we recommend creating production clusters using ACS-Kubernetes or [acs-engine](https://github.com/azure/acs-engine). Use AKS for proof-of-concept deployments, and dev/test environments.
-
 ## When will ACS be deprecated?
 
-ACS will be deprecated around the time AKS becomes GA. You will have 12 months after that date to migrate clusters to AKS. During the 12-month period, you can run all ACS operations.
+ACS will be deprecated around the time AKS that becomes GA. You will have 12 months after that date to migrate clusters to AKS. During the 12-month period, you can run all ACS operations.
 
 ## Does AKS support node autoscaling?
 
@@ -72,6 +64,10 @@ To run Windows Server containers, you need to run Windows Server-based nodes. Wi
 Each AKS deployment spans two resource groups. The first is created by you and contains only the AKS resource. The AKS resource provider automatically creates the second one during deployment with a name like *MC_myResourceGroup_myAKSCluster_eastus*. The second resource group contains all of the infrastructure resources associated with the cluster, such as VMs, networking, and storage. It is created to simplify resource cleanup.
 
 If you are creating resources that will be used with your AKS cluster, such as storage accounts or reserved public IP address, you should place them in the automatically generated resource group.
+
+## Does AKS offer a service level agreement?
+
+In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service should the published service level not be met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, we seek to maintain availability of at least 99.5% for the Kubernetes API server.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

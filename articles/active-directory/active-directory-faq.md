@@ -9,10 +9,10 @@ editor: ''
 
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
 
@@ -160,7 +160,7 @@ For a complete list of the pre-integrated applications, see the [Active Director
 For more information, see:
 
 * [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
+* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
 **Q: How do users sign in to applications by using Azure AD?**

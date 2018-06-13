@@ -10,13 +10,13 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 
-ms.custom: H1Hack27Feb2017;it-pro
-ms.reviewer: piotrci
+ms.custom: it-pro
+ms.reviewer: krbain
 
 ---
 # Manage to which groups a group belongs in your Azure Active Directory tenant
