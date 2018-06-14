@@ -20,7 +20,7 @@ Azure AD Password Protection is a new feature in public preview powered by Azure
 
 There are three software components that make up Azure AD Password Protection:
 
-* The Azure AD Password Protection Proxy service runs on any domain-joined machine in the current Active Directory forest. It returns the most recently configured password policy whenever a request is received from a domain controller from any domain in the forest.
+* The Azure AD Password Protection Proxy service runs on any domain-joined machine in the current Active Directory forest. It forwards requests from domain controllers to Azure AD and returns the response from Azure AD back to the domain controller.
 * The Azure AD Password Protection DC Agent service receives password validation requests from the DC Agent password filter dll, processes them using the current locally available password policy, and returns the result (pass\fail). This service is responsible for periodically calling the Azure AD Password Protection Proxy Service to retrieve new versions of the password policy. Communication for calls to and from the Azure AD Password Protection Proxy Service is handled over RPC (Remote Procedure Call) over TCP. Upon retrieval, new policies are stored in a sysvol folder where they can replicate to other domain controllers. It also monitors the sysvol folder for changes in case other domain controllers have written new password policies there.
 * The DC Agent password filter dll receives password validation requests from the operating system and forwards them to the Azure AD Password Protection DC Agent service running locally on the domain controller.
 
@@ -40,6 +40,7 @@ Azure AD Password Protection requires Azure AD Premium licenses. Additional lice
 * No network ports are opened on domain controllers.
 * No Active Directory schema changes are required.
    * The software uses the existing Active Directory container and serviceConnectionPoint schema objects.
+* There is no minimum Active Directory Domain or Forest Functional level (DFL\FFL) requirement.
 * The software does not create or require any accounts in the Active Directory domains it protects.
 * Incremental deployment is supported with the tradeoff that password policy is only enforced where the domain controller agent is installed.
 * Azure AD Password Protection is not a real-time policy application engine. There may be a delay in the time between a password policy configuration change and the time it reaches and is enforced on all domain controllers.
@@ -64,13 +65,15 @@ Azure AD Password Protection is deployed in two basic procedures.
 3. Open a PowerShell window as an Administrator.
    * The Azure AD Password Protection Proxy software includes a new PowerShell module named AzureADPasswordProtection. The following steps are based on running various cmdlets from this PowerShell module, and assume that you have opened a new PowerShell window and have imported the new module as follows:
       * `Import-Module AzureADPasswordProtection`
+
       > [!NOTE]
       > The installation software modifies the host machine’s PSModulePath environment variable. In order for this change to take effect so that the AzureADPasswordProtection powershell module can be imported and used, you may need to open a brand new PowerShell console window.
+
    * Check that the service is running using the following PowerShell command: `Get-Service AzureADPasswordProtectionProxy | fl`.
       * The result should produce a result with the **Status** returning a "Running" result.
 
 4. Register the proxy.
-   * Once step 3 has been completed the Azure AD Password Protection Proxy service is running on the machine, but does not yet have the necessary credentials to communicate with Azure AD. Registration with Azure AD is required to enable that ability using the `Register-AzureADPasswordProtectionProxy` PowerShell cmdlet. The cmdlet requires global administrator credentials for your Azure tenant as well as on-premises Active Directory domain administrator privileges in the forest root domain.
+   * Once step 3 has been completed the Azure AD Password Protection Proxy service is running on the machine, but does not yet have the necessary credentials to communicate with Azure AD. Registration with Azure AD is required to enable that ability using the `Register-AzureADPasswordProtectionProxy` PowerShell cmdlet. The cmdlet requires global administrator credentials for your Azure tenant as well as on-premises Active Directory domain administrator privileges in the forest root domain. Once it has succeeded for a given proxy service, additional invocations of `Register-AzureADPasswordProtectionProxy` continue to succeed but are unnecessary.
       * The cmdlet may be run as follows:
          ```
          $tenantAdminCreds = Get-Credential
@@ -139,7 +142,7 @@ Azure AD Password Protection is deployed in two basic procedures.
    `msiexec.exe /i AzureADPasswordProtectionDCAgent.msi /quiet /qn`
 
    > [!WARNING]
-   > The exanoke msiexec command will result in an immediate reboot; this can be avoided by specifying the `/norestart` flag.
+   > The example msiexec command will result in an immediate reboot; this can be avoided by specifying the `/norestart` flag.
 
 Once installed on a domain controller and rebooted, the Azure AD Password Protection DC Agent software installation is complete. No other configuration is required or possible.
 
@@ -214,21 +217,23 @@ The key password-validation-related events are as follows:
 |   |Password change |Password set|
 | --- | :---: | :---: |
 |Pass |10014 |10015|
-|Fail (did not pass customer BPL)| 10016, 30002| 10017, 30003|
-|Fail (did not pass Microsoft BPL)| 10016, 30004| 10017, 30005|
-|Audit-only Pass (would have failed customer BPL)| 10024, 30008| 10025, 30007|
-|Audit-only Pass (would have failed Microsoft BPL)| 10024, 30010| 10025, 30009|
+|Fail (did not pass customer password policy)| 10016, 30002| 10017, 30003|
+|Fail (did not pass Microsoft password policy)| 10016, 30004| 10017, 30005|
+|Audit-only Pass (would have failed customer password policy)| 10024, 30008| 10025, 30007|
+|Audit-only Pass (would have failed Microsoft password policy)| 10024, 30010| 10025, 30009|
 
 > [!TIP]
 > Incoming passwords are validated against the Microsoft global password list first; if that fails, no further processing is performed. This is the same behavior as performed on password changes in Azure.
 
 An example of a successful 10014 password change event log message is as follows:
+
 The changed password for the specified user was validated as compliant with the current Azure password policy.
 
  UserName: BPL_02885102771
  FullName:
 
 An example of a failed 10017 and 30003 password set event log message pair is as follows:
+
 10017:
 
 The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
@@ -275,8 +280,11 @@ Resolution steps: ensure network connectivity exists to the domain.
 The service is now enforcing the following Azure password policy.
 
  AuditOnly: 1
+
  Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+
  Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+
  Enforce tenant policy: 1
 
 #### DC Agent log locations
@@ -380,7 +388,7 @@ Once the demotion has succeeded, and the domain controller has been rebooted and
 If it is decided to uninstall the public preview software and cleanup all related state from the domain(s) and forest, this can be accomplished using the following steps:
 
 > [!IMPORTANT]
-> It is important to perform these steps in order. If any instance of the Password Protection Proxy service is left running it will periodically re-create its serviceConnectionPoint object.
+> It is important to perform these steps in order. If any instance of the Password Protection Proxy service is left running it will periodically re-create its serviceConnectionPoint object as well as periodically re-create the sysvol state.
 
 1. Uninstall the Password Protection Proxy software from all machines. This step does **not** require a reboot.
 2. Uninstall the DC Agent software from all domain controllers. This step **requires** a reboot.
@@ -395,7 +403,7 @@ If it is decided to uninstall the public preview software and cleanup all relate
 
    The resulting object found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually. 
 
-4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the private preview software was deployed. The location of that object may be discovered with the following Active Directory Powershell command:
+4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the public preview software was deployed. The location of that object may be discovered with the following Active Directory Powershell command:
 
    ```
    $scp = “serviceConnectionPoint”
