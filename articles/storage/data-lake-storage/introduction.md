@@ -64,7 +64,7 @@ The objective for an *Enterprise Data Lake (EDL)* is to refine vast amounts of r
 
 * **Universal Metadata Service:** This facility handles the assignment, management, and querying of metadata tags on any of the data in the EDL. ADFS provides XXXX which meets this requirement.
 
-* **Universal Schema Catalog:** Data stored in an EDL flows through a process of ongoing refinement and enrichment by application of various analytics frameworks (eg. Hive and Spark). Many of the higher level analytics engines apply [Schema on Read](storage-adfs-schema-on-read.md) techniques that, while providing significant flexibility for semi-structured data, do eventually require a definition of the layout, or schema, of files. This schema information must be stored in a schema catalog.
+* **Universal Schema Catalog:** Data stored in an EDL flows through a process of ongoing refinement and enrichment by application of various analytics frameworks (eg. Hive and Spark). Many of the higher level analytics engines apply [Schema on Read] techniques that, while providing significant flexibility for semi-structured data, do eventually require a definition of the layout, or schema, of files. This schema information must be stored in a schema catalog.
 
     In order for this information to be leveraged by the full range of analytics engines available on the platform, the schema information must be able to be accessed in a variety of formats, ranging from the Hadoop-centric [Apache HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog) to those formats required by [SQL Data Warehouse](../../sql-data-warehouse/index.md) and [Analysis Services](../../analysis-services/index.md). 
 
@@ -78,12 +78,12 @@ The objective for an *Enterprise Data Lake (EDL)* is to refine vast amounts of r
 
 The following articles describe some of the main concepts of BlobFS and detail how to store, access, manage, and gain insights from your data:
 
-* [Hierarchical Namespace](./storage-adfs-namespace.md)
-* [Scalability and Performance](./storage-adfs-scalability-and-performance.md)
-* [Benchmark Results](./storage-adfs-performance-benchmarks.md)
+* [Hierarchical Namespace] 
+* [Scalability and Performance] 
+* [Benchmark Results]
 
 ## Next Steps
 
-* [Create a ADFS account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fadfs%2ftoc.json)
-* [Create an HDInsight cluster with ADFS](./storage-adfs-quickstart-hdinsight.md)
-* [Use an ADFS account in Azure Databricks](./storage-adfs-quckstart-databricks.md)
+* [Create a ADFS account] 
+* [Create an HDInsight cluster with ADFS] 
+* [Use an ADFS account in Azure Databricks] 
