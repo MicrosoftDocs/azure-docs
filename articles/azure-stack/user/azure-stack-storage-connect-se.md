@@ -20,7 +20,7 @@ ms.reviewer: xiaofmao
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You'll learn how to connect to your Azure Stack subscriptions and storage accounts using storage explorer in this article,. Azure storage explorer is a standalone app that enables you to easily work with Azure Stack storage data on Windows, macOS, and Linux.
+In this article, you'll learn how to connect to your Azure Stack subscriptions and storage accounts using storage explorer. Azure storage explorer is a standalone app that enables you to easily work with Azure Stack storage data on Windows, macOS, and Linux.
 
 > [!NOTE]  
 > There are several tools available to move data to and from Azure Stack storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
