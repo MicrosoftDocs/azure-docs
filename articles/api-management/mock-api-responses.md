@@ -54,7 +54,7 @@ The steps in this section show how to create a blank API with no backend. It als
 1. Select the API you created in the previous step.
 2. Click **+ Add Operation**.
 
-	![Mocked operation response](./media/mock-api-responses/mock-api-responses-add-operation.jpg)
+	![Mocked operation response](./media/mock-api-responses/mock-api-responses-add-operation.png)
 
     |Setting|Value|Description|
     |---|---|---|
@@ -82,7 +82,7 @@ The steps in this section show how to create a blank API with no backend. It als
 4. In the **Inbound processing** window, click the pencil icon.
 5. In the **Mocking** tab, select **Static responses** for **Mocking behavior**.
 6. In the **API Management returns the following response:** text box, type **200 OK, application/json**. This selection indicates that your API should return the response sample you defined in the previous section.
-    ![Enable response mocking](./media/mock-api-responses/mock-api-responses-set-mocking.jpg)
+    ![Enable response mocking](./media/mock-api-responses/mock-api-responses-set-mocking.png)
 7. Click **Save**.
 
 ## Test the mocked API
@@ -95,7 +95,7 @@ The steps in this section show how to create a blank API with no backend. It als
     > A yellow bar with the text **Mocking is enabled** indicates that responses returned from the API Management, sends a mocking policy and not an actual backend response.
 
 4. Select **Send** to make a test call.
-5. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial. ![Enable response mocking](./media/mock-api-responses/mock-api-responses-test-response.jpg)
+5. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial. ![Enable response mocking](./media/mock-api-responses/mock-api-responses-test-response.png)
 
 ## Video
 
