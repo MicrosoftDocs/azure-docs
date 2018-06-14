@@ -42,10 +42,10 @@ This article explains how to delete or add users in your organization into your 
 
 
 ### Learn more 
-* [Add guest users from another directory](/b2b/what-is-b2b.md) 
-* [Assign a user to a role in your Azure AD](../active-directory-users-assign-role-azure-portal.md)
-* [Manage user profiles](../active-directory-users-profile-azure-portal.md)
-* [Restore a deleted user](../active-directory-users-restore.md)
+* [Add guest users from another directory](../b2b/what-is-b2b.md) 
+* [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Manage user profiles](active-directory-users-profile-azure-portal.md)
+* [Restore a deleted user](active-directory-users-restore.md)
 
 
 

@@ -20,7 +20,7 @@ The article [Azure and the Internet of Things](iot-accelerators-what-is-azure-io
 
 To implement this architecture, Azure IoT offers several options, each appropriate for different sets of customer requirements:
 
-* [Azure IoT solution accelerators](../azure/iot-accelerators/) is an enterprise-grade collection of [solution accelerators](iot-accelerators-what-are-solution-accelerators.md) built on Azure Platform-as-a-Service (PaaS) that enable you to accelerate the development of custom IoT solutions.
+* [Azure IoT solution accelerators](../active-directory-domain-services/index.yml) is an enterprise-grade collection of [solution accelerators](iot-accelerators-what-are-solution-accelerators.md) built on Azure Platform-as-a-Service (PaaS) that enable you to accelerate the development of custom IoT solutions.
 
 * [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) is a Software-as-a-Service (SaaS) solution that uses a model-based approach to enable you to build enterprise-grade IoT solutions without requiring cloud solution development expertise.
 
