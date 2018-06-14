@@ -20,7 +20,7 @@ ms.reviewer: xiaofmao
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-In this article, you'll learn how to connect to your Azure Stack subscriptions and storage accounts using storage explorer. Azure storage explorer is a standalone app that enables you to easily work with Azure Stack storage data on Windows, macOS, and Linux.
+You'll learn how to connect to your Azure Stack subscriptions and storage accounts using storage explorer in this article,. Azure storage explorer is a standalone app that enables you to easily work with Azure Stack storage data on Windows, macOS, and Linux.
 
 > [!NOTE]  
 > There are several tools available to move data to and from Azure Stack storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
@@ -91,7 +91,7 @@ Use the following steps to connect storage explorer to an Azure Stack subscripti
 Use the following steps to connect storage explorer to an Azure Stack subscription which belongs to an AD FS account.
 
 1. Select **Manage Accounts**. The explorer lists the Microsoft subscriptions that you signed in to.
-2. Select **Add an account** to connect to the Azure Stack subscription. 
+2. Select **Add an account** to connect to the Azure Stack subscription.
 
     ![Add an account](media/azure-stack-storage-connect-se/add-an-account.png)
 
