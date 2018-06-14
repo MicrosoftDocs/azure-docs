@@ -22495,5 +22495,11 @@
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-restore-azure-portal",
             "redirect_document_id": false
         }
+        ,
+        {
+            "source_path": "articles/security/azure-security-best-practices-vms.md",
+            "redirect_url": "/azure/security/azure-security-iaas",
+            "redirect_document_id": false
+        }
     ]
 }
