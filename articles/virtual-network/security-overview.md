@@ -166,7 +166,7 @@ Application security groups have the following constraints:
      - **MSDN, Azure Pass, Azure in Open, Education, BizSpark, and Free trial**: Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests are not granted. If you must send email from your virtual machine, you must use an SMTP relay service.
      - **Cloud service provider**: Customers that are consuming Azure resources via a cloud service provider can create a support case with their cloud service provider, and request that the provider create an unblock case on their behalf, if a secure SMTP relay cannot be used.
 
-     If Azure allows you to send email over port 25, Microsoft cannot guarantee email providers will accept inbound email from your virtual machine. If a specific provider rejects mail from your virtual machine, you must work directly with the provider to resolve any message delivery or spam filtering issues, or use an authenticated SMTP relay service.
+  If Azure allows you to send email over port 25, Microsoft cannot guarantee email providers will accept inbound email from your virtual machine. If a specific provider rejects mail from your virtual machine, you must work directly with the provider to resolve any message delivery or spam filtering issues, or use an authenticated SMTP relay service.
 
 ## Next steps
 
