@@ -6,11 +6,11 @@ author: johnpaulkee
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 06/13/2018
-ms.author: sstein
+ms.date: 06/14/2018
+ms.author: johnpaulkee
 
 ---
-# Migrate to the new Elastic Database Jobs
+# Migrate to the new Elastic Database jobs
 
 An upgraded version of [Elastic Database Jobs](elastic-jobs-overview.md) is available.
 

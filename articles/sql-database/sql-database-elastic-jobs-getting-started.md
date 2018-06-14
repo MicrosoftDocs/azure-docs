@@ -7,7 +7,7 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 06/14/2018
 ms.author: sstein
 
 ---
