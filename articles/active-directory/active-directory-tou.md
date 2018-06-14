@@ -37,7 +37,7 @@ Azure AD Terms of Use can be used in the following scenarios:
 Use the following steps to configure Azure AD Terms of Use:
 
 1. Sign in to Azure AD using a global administrator, security administrator, or a conditional access administrator for the directory you want to configure Azure AD Terms of Use.
-2. Ensure that the directory has an Azure AD Premium P1, P2, EMS E3, or EMS E5 subscription.  If you do not, [Get Azure AD Premium](active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
+2. Ensure that the directory has an Azure AD Premium P1, P2, EMS E3, or EMS E5 subscription.  If you do not, [Get Azure AD Premium](fundamentals/active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. View the Azure AD Terms of User dashboard at [https://aka.ms/catou](https://aka.ms/catou).
 
 >[!IMPORTANT]

@@ -21,7 +21,7 @@ ms.custom: it-pro
 ---
 # Azure Active Directory version 2 cmdlets for group management
 > [!div class="op_single_selector"]
-> * [Azure portal](active-directory-groups-create-azure-portal.md)
+> * [Azure portal](fundamentals/active-directory-groups-create-azure-portal.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
