@@ -46,6 +46,7 @@ This article describes changes that were introduced in Azure Media Services (AMS
 
 ## Changes from v2
 
+* In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. 
 * Media Services SDKs decoupled from the Storage SDK which gives more control over the Storage SDK used and avoids versioning issues. 
 * In v3, all of the encoding bit rates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, but in v3 it would be 128000. 
 * AssetFiles, AccessPolicies, IngestManifests do not exist in v3.
