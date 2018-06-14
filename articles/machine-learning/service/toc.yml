@@ -18,7 +18,7 @@
 - name: Tutorials
   items:
   - name: '1: Prepare data'
-    href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
+    href: tutorial-build-train-deploy-with-azure-machine-learning.md
 - name: Concepts   
   items: 
   - name: FPGA accelerations
