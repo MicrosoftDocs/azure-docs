@@ -76,9 +76,9 @@ Triggers have these top-level elements, although some are optional:
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow | 
-| <*runtime-config-options*> | JSON Object | You can change trigger runtime behavior by setting the properties in the [`runtimeConfiguration`](#runtime-config) object. For more information, see [Trigger sequentially] | 
+| <*runtime-config-options*> | JSON Object | You can change trigger runtime behavior by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration options](#runtime-config-options). | 
 | <*splitOn-expression*> | String | For triggers that return an array, you can specify an expression that [splits or *debatches*](#split-on-debatch) array items into multiple workflow instances for processing. | 
-| <*operation-option*> | String | You can change the default behavior by setting the [`operationOptions`](#operation-options) property. For more information, see [Trigger sequentially](#single-instance). | 
+| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
 ## Trigger types
@@ -163,7 +163,7 @@ behavior depends on whether or not sections are included.
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
 | <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
-| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting [`operationOptions`](#operation-options). For example, to fire the trigger only after all active runs finish, set `operationOptions` to the `SingleInstance` option. For more information, see [Trigger only after active runs finish](#single-instance). | 
+| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 ||||
 
 *Outputs*
@@ -332,7 +332,7 @@ The endpoint's response determines whether the workflow runs.
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
  <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. | 
 | <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` |  
-| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting [`operationOptions`](#operation-options). For example, to fire the trigger only after all active runs finish, set `operationOptions` to the `SingleInstance` option. For more information, see [Trigger only after active runs finish](#single-instance). | 
+| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
 *Outputs*
@@ -519,7 +519,7 @@ and provides an easy way for creating a regularly running workflow.
 | <*one-or-more-minute-marks*> | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
 | weekDays | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
 | <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
-| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting [`operationOptions`](#operation-options). For example, to fire the trigger only after all active runs finish, set `operationOptions` to the `SingleInstance` option. For more information, see [Trigger only after active runs finish](#single-instance). | 
+| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
 *Example 1*
@@ -826,8 +826,8 @@ Actions have these high-level elements, though some are optional:
 | Value | Type | Description | 
 |-------|------|-------------|
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](#retry-policies). |  
-| <*runtime-config-options*> | JSON Object | For some actions, you can change the action's behavior at run time by setting properties in the [`runtimeConfiguration`](#runtime-config) object. <p>For example, in a **Foreach** loop action, the `concurrency` object specifies the maximum number of loops that can run at the same time, or in parallel. This value is useful for limiting the number of requests that backend systems receive. To change the concurrency limit from the default to 10 loops, add the `concurrency` object and use the `runs` property, for example: <p>`"concurrency": { "runs": 10 }` | 
-| <*operation-option*> | String | For some actions, you can change the default behavior by setting `operationOptions`. For example, to fire the trigger only after all active runs finish, set `operationOptions` to the `Sequential`option. For more information, see [Run sequentially](#run-sequentially). | 
+| <*runtime-config-options*> | JSON Object | For some actions, you can change the action's behavior at run time by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration options](#runtime-config-options). | 
+| <*operation-option*> | String | For some actions, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
 ## Action types
@@ -2401,110 +2401,41 @@ the specified URL until one of these conditions is met:
 }
 ```
 
-<a name="runtime-config-options"></a>
+<a name="subscribe-unsubscribe"></a>
 
-## Runtime configuration settings
+## Webhooks and subscriptions
 
-You can change the default runtime behavior for triggers 
-and actions with the `runtimeConfiguration` properties.
+Webhook-based triggers and actions don't regularly check endpoints, 
+but wait for specific events or data at those endpoints instead. 
+These triggers and actions *subscribe* to the endpoints by 
+providing a *callback URL* where the endpoint can send responses.
 
-| Property | Type | Description | Trigger or action | 
-|----------|------|-------------|-------------------| 
-| `concurrency.runs` | Integer | By default, logic app instances run at the same time, or in parallel. This property sets the maximum number of logic app instances that can run in parallel, which helps limit the number of requests that backend systems receive. <p>To change the default limit, set the `runs` property to a value between `1` and `50`. To run instances sequentially so that the current instance must finish running before starting the next instance, set this property to  `1`. <p>**Note**: You can set either the `runs` property or the [`SingleInstance` operation option](#operation-options), but not both. Otherwise, you get a validation error. | All triggers | 
-| `concurrency.maximumWaitingRuns` | Integer | This property sets the maximum number of logic app instances that can wait in a queue when your logic app is running the maximum number of instances based on the `concurrency.runs` limit. Any new runs are put into this queue, up to the maximum number in the `maximumWaitingRuns` property. <p>To change the default limit, set the `maximumWaitingRuns` property to a value between `0` and `100`. After your logic app reaches this limit, the Logic Apps engine no longer accepts new runs. Request and webhook triggers return 429 errors, and recurring triggers start skipping polling attempts. | All triggers | 
-| `concurrency.repetitions` | Integer | By default, "for each" loop iterations run at the same time, or in parallel, up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). This property sets the maximum number of "for each" loop iterations that can run at the same time, or in parallel. To change the default limit, set the `repetitions` property up to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To run each iteration sequentially, set the `repetitions` property to `1`. <p>**Note**: You can set either the `repetitions` property or the [`Sequential` operation option](#operation-options), but not both. Otherwise, you get a validation error. | Action: <br>**Foreach** | 
-|||| 
+The `subscribe` call happens when the workflow changes in any way, 
+for example, when credentials are renewed, or when the input 
+parameters change for  a trigger or action. This call uses 
+the same parameters as standard HTTP actions. 
 
- 
+The `unsubscribe` call automatically happens when an operation 
+makes the trigger or action invalid, for example:
 
-By default, the `maximumWaitingRuns` property value is `10`. 
+* Deleting or disabling the trigger. 
+* Deleting or disabling the workflow. 
+* Deleting or disabling the subscription. 
 
-<a name="operation-options"></a>
-
-## Operation options
-
-You can change the default behavior for triggers 
-and actions with the `operationOptions` property.
-
-| Operation option | Description | Trigger or action | 
-|------------------|-------------|----------| 
-| [`DisableAsyncPattern`](#asynchronous-patterns) | By default, HTTP-based actions run asynchronously. To run these actions synchronously, set the `operationOptions` property to `DisableAsyncPattern`. | Actions: <br>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action) | 
-| [`Sequential`](#sequential) | By default, "for each" loop iterations run at the same time, or in parallel, up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To run each iteration sequentially, set the `operationOptions` property to `Sequential`. <p>**Note**: You can set either the `operationOptions` property or the [`concurrency.repetitions` property](#runtime-config-options), but not both. Otherwise, you get a validation error. | Action: [Foreach](#foreach-action) | 
-| [`SingleInstance`](#single-instance) | By default, trigger instances fire in parallel and don't wait for the previous active runs to finish. To trigger each instance sequentially only after all previous runs have finished, set `operationOptions` property to `SingleInstance`. <p>**Note**: You can set either the `operationOptions` property or the `concurrency.runs` property, but not both. Otherwise, you get a validation error. | Triggers: <br>[ApiConnection](#apiconnection-trigger), <br>[HTTP](#http-trigger), <br>[Recurrence](#recurrence-trigger) | 
-||||
-
-| <*count*> | Integer | By default, the "for each" loop runs in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). However, you can override this limit by setting <*count*> to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To make each loop run sequentially, set <*count*> to a value of `1`. <p>**Note**: For sequential runs, you can set either the `concurrency.repetitions` property or the `operationOptions` property, but not both. Otherwise, you get a validation error. | 
-| <*operation-option*> | String | To run a "for each" loop sequentially, rather than in parallel, you can set <*operation-option*> to `Sequential`.  | 
-|||| 
-
-<a name="run-sequentially"></a>
-
-### Run sequentially
-
-
-You can specify that a trigger fire only after all active workflow instances finish running. 
-If a scheduled recurrence happens while a workflow instance is running, 
-the trigger skips and waits until the next scheduled recurrence before checking again. 
-
-This example recurrence trigger, which fires every second, 
-waits until the previous instance has finished before firing 
-by setting `operationOptions` to the `singleInstance` option: 
-
-```json
-"Recurrence": {
-   "type": "Recurrence",
-   "recurrence": {
-      "frequency": "Second",
-      "interval": 1,
-   },
-   "operationOptions": "SingleInstance"
-}
-```
-
-<a name="max-waiting-runs">
-
-### Limit waiting runs
-
-
-
-<a name="asynchronous-patterns"></a>
-
-### Change asynchronous to synchronous
-
-By default, all HTTP-based actions support the standard asynchronous operation pattern. 
-This pattern specifies that when an HTTP-based action sends a request to a specified endpoint, 
-the remote server sends back a "202 ACCEPTED" response. This reply means the server accepted 
-the request for processing. The Logic Apps engine keeps checking the URL specified by the 
-response's location header until processing stops, which is any non-202 response.
-
-Requests have a timeout limit, so for long-running actions, 
-you can disable the asynchronous behavior by setting the 
-optional `operationOptions` property to `DisableAsyncPattern` 
-in the action's inputs, for example:
-  
-```json
-"<some-long-running-action": {
-   "type": "Http",
-   "inputs": {
-      "method": "POST",
-      "uri": "https://host.example.com/resources",
-      "operationOptions": "DisableAsyncPattern"
-   },
-   "runAfter": {}
-}
-```
+To support these calls, the `@listCallbackUrl()` expression returns a 
+unique "callback URL" for the trigger or action. This URL represents 
+a unique identifier for the endpoints that use the service's REST API. 
+The parameters for this function are the same as the webhook trigger or action.
 
 <a name="asynchronous-limits"></a>
 
-## Asynchronous limits
+## Change asynchronous duration
 
-You can limit the duration for an asynchronous pattern to 
-a specific time interval by adding the `limit` object. 
+For both triggers and actions, you can limit the duration for the asynchronous 
+pattern to a specific time interval by adding the `limit.timeout` property. 
 That way, if the action hasn't finished when the interval lapses, 
 the action's status is marked as `Cancelled` with the `ActionTimedOut` code. 
 The `timeout` property uses [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). 
-
-This example shows how you can specify an asynchronous limit:
 
 ``` json
 "<trigger-or-action-name>": {
@@ -2517,31 +2448,202 @@ This example shows how you can specify an asynchronous limit:
 }
 ```
 
-<a name="subscribe-unsubscribe"></a>
+<a name="runtime-config-options"></a>
 
-## Webhooks and subscriptions
+## Runtime configuration settings
 
-Some triggers and actions don't regularly check endpoints, 
-but wait for specific events or data at those endpoints instead. 
-These triggers and actions *subscribe* to the endpoints by 
-providing a *callback URL* where the endpoint can send responses.
+You can change the default runtime behavior for 
+triggers and actions with these `runtimeConfiguration` 
+properties in the trigger or action definition.
 
-The `subscribe` call happens when the workflow changes in any way, 
-for example, when credentials are renewed, or when the input 
-parameters change for  a trigger or action. This call uses 
-the same parameters as standard HTTP actions. 
- 
-The `unsubscribe` call automatically happens when an operation 
-makes the trigger or action invalid, for example:
+| Property | Type | Description | Trigger or action | 
+|----------|------|-------------|-------------------| 
+| `concurrency.runs` | Integer | Change the [default maximum number of logic app instances](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) that can run at the same time, or in parallel. This value helps limit the number of requests that backend systems receive. <p>To change the default limit, see [Change trigger concurrency](#change-trigger-concurrency). | All triggers | 
+| `concurrency.maximumWaitingRuns` | Integer | Change the [default maximum number of logic app runs that can wait in a queue](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). When your logic app is already running the maximum number of instances based on the `concurrency.runs` limit, any new runs are put into this queue, up to the maximum number in the `maximumWaitingRuns` property. <p>To change the default limit, see [Change waiting runs](#change-waiting-runs). | All triggers | 
+| [`concurrency.repetitions`](#change-for-each-concurrency) | Integer | Change the [default maximum number of "for each" loop iterations](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) that can run at the same time, or in parallel. <p>To change the default limit, see [Change "for each" concurrency](#change-for-each-concurrency). | Action: <p>[Foreach](#foreach-action) | 
+||||| 
 
-* Deleting or disabling the trigger. 
-* Deleting or disabling the workflow. 
-* Deleting or disabling the subscription. 
+<a name="operation-options"></a>
 
-To support these calls, the `@listCallbackUrl()` function returns a 
-unique "callback URL" for the trigger or action. This URL represents 
-a unique identifier for the endpoints that use the service's REST API. 
-The parameters for this function are the same as the webhook trigger or action.
+## Operation options
+
+You can change the default behavior for triggers 
+and actions with the `operationOptions` property 
+in trigger or action definition.
+
+| Operation option | Type | Description | Trigger or action | 
+|------------------|------|-------------|-------------------| 
+| [`DisableAsyncPattern`](#asynchronous-patterns) | String | Run HTTP-based actions synchronously, rather than asynchronously. | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action) | 
+| [`OptimizedForHighThroughput`](#run-high-throughput-mode) | String | Raise the [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). | All actions | 
+| [`Sequential`](#sequential-for-each) | String | Run "for each" loop iterations sequentially, rather than all at the same time, concurrently, and in parallel. | Action: <p>[Foreach](#foreach-action) | 
+| [`SingleInstance`](#sequential-trigger) | String | Fire each trigger instance sequentially and wait for the previously active run to finish. | Triggers: <p>[ApiConnection](#apiconnection-trigger), <br>[HTTP](#http-trigger), <br>[Recurrence](#recurrence-trigger) | 
+||||
+
+<a name="change-trigger-concurrency"></a>
+
+### Change trigger concurrency
+
+By default, logic app instances run at the same time, concurrently, or in parallel, up to the 
+[default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+So, each trigger instance fires before the previously active logic app instance finishes running. 
+To limit the number of requests that backend systems received, you can change the concurrency 
+for all triggers and "for each" loops. 
+
+To change the concurrency limit from the default to 10 loops, add the `concurrency` object and use the `runs` property, for example: <p>`"concurrency": { "runs": 10 }`
+
+This property sets the maximum number of logic app instances that can run in parallel, which helps limit the number of requests that backend systems receive. <p>To change the default limit, set the `runs` property to a value between `1` and `50`. To run instances sequentially so that the current instance must finish running before starting the next instance, set this property to  `1`. <p>**Note**: You can set either the `runs` property or the [`SingleInstance`](#operation-options) operation option, but not both. Otherwise, you get a validation error.
+
+<a name="change-waiting-runs"></a>
+
+### Change waiting runs limit
+
+To change the default limit, set the `maximumWaitingRuns` property to a value between `0` and `100`. After your logic app reaches this limit, the Logic Apps engine no longer accepts new runs. Request and webhook triggers return 429 errors, and recurring triggers start skipping polling attempts.
+
+<a name="sequential-trigger"></a>
+
+### Trigger instances sequentially
+
+To trigger each logic app instance only after the previous logic app instance has finished, 
+set either of these properties, but not both, in the trigger definition. 
+Otherwise, you get a validation error. 
+
+For the Recurrence trigger, if the next scheduled 
+recurrence happens while a previous instance is running, 
+the trigger skips that recurrence and waits until 
+the next scheduled recurrence before firing again. 
+
+* Set the `runtimeConfiguration.concurrency.runs` property to `1`:
+
+  ```json
+  "<action-name>": {
+     "type": "<action-type>",
+     "recurrence": {
+        "frequency": "<time-unit>",
+        "interval": <number-of-time-units>,
+     },
+     "runtimeConfiguration": {
+        "concurrency": {
+           "runs": 1
+        }
+     }
+  }
+  ```
+
+  *-or-*
+
+* Set the `operationOptions` property to `SingleInstance`:
+
+  ```json
+  "<action-name>": {
+     "type": "<action-type>",
+     "recurrence": {
+        "frequency": "<time-unit>",
+        "interval": <number-of-time-units>,
+     },
+     "operationOptions": "SingleInstance"
+  }
+  ```
+
+<a name="change-for-each-concurrency"></a>
+
+### Change "for each" concurrency
+
+Also, "for each" loop iterations run at the same time, concurrently, or in parallel, up to the 
+[default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+By default, "for each" loop iterations run at the same time, or in parallel, up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). This property sets the maximum number of "for each" loop iterations that can run at the same time, or in parallel. To change the default limit, set the `repetitions` property up to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+
+<a name="sequential-for-each"></a>
+
+### Run "for each" loops sequentially
+
+To run each "for each" loop iteration only after 
+the previous iteration has finished, 
+set either of these properties, but not both, 
+in the "for each" action definition. 
+Otherwise, you get a validation error. 
+
+* Set the `runtimeConfiguration.concurrency.repetitions` 
+property to `1`:
+
+  ```json
+  "For_each" {
+      "type": "Foreach",
+      "actions": { "<actions-to-run>" },
+      "foreach": "<for-each-expression>",
+      "runAfter": {},
+      "runtimeConfiguration": {
+          "concurrency": {
+              "repetitions": 1
+          }
+      }
+  }
+  ```
+
+  *-or-*
+
+* Set the `operationOptions` property to `Sequential`.
+
+  ```json
+  "For_each" {
+      "type": "Foreach",
+      "actions": { "<actions-to-run>" },
+      "foreach": "<for-each-expression>",
+      "runAfter": {},
+      "operationOptions": "Sequential"
+      }
+  }
+  ```
+
+<a name="asynchronous-patterns"></a>
+
+### Run actions synchronously
+
+By default, all HTTP-based actions follow 
+the standard asynchronous operation pattern. 
+This pattern specifies that when an HTTP-based 
+action sends a request to the specified endpoint, 
+the remote server sends back a "202 ACCEPTED" response. 
+This reply means the server accepted the request for processing. 
+The Logic Apps engine keeps checking the URL specified by the 
+response's location header until processing stops, which is any non-202 response.
+
+However, requests have a timeout limit, so for long-running actions, 
+you can disable the asynchronous behavior by adding and setting 
+the `operationOptions` property to `DisableAsyncPattern` under 
+the action's inputs.
+  
+```json
+"<some-long-running-action>": {
+   "type": "Http",
+   "inputs": { "<action-inputs>" },
+   "operationOptions": "DisableAsyncPattern",
+   "runAfter": {}
+}
+```
+
+<a name="run-high-throughput-mode"></a>
+
+### Run in high throughput mode
+
+For a single logic app run, the number of actions that execute every 5 minutes has a 
+[default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). 
+To raise this limit to the [maximum](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) 
+possible, set the `operationOptions` property to `OptimizedForHighThroughput`. 
+This setting puts your logic app into "high throughput" mode. 
+
+> [!NOTE]
+> High throughput mode is in preview. 
+> You can also distribute a workload 
+> across more than one logic app as necessary.
+
+```json
+"<action-name>": {
+   "type": "<action-type>",
+   "inputs": { "<action-inputs>" },
+   "operationOptions": "OptimizedForHighThroughput",
+   "runAfter": {}
+}
+```
 
 ## Next steps
 

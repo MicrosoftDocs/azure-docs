@@ -52,7 +52,7 @@ Here are the limits for a single logic app run:
 | Name | Limit | Notes | 
 |------|-------|-------| 
 | Run duration | 90 days | To change this limit, see [change run duration](#change-duration). | 
-| Storage retention | 90 days from the run's start time | To change this limit, see [change storage retention](#change-retention). | 
+| Storage retention | 90 days from the run's start time | To change this limit to a value between 7 days and 90 days, see [change storage retention](#change-retention). | 
 | Minimum recurrence interval | 1 second | | 
 | Maximum recurrence interval | 500 days | | 
 |||| 
@@ -62,8 +62,8 @@ Here are the limits for a single logic app run:
 
 ### Change run duration and storage retention
 
-You can change this limit to a value between 7 days and 90 days. 
-To go above the maximum limit, 
+To change the default limit to between 7 days and 90 days, 
+follow these steps. If you need to go above the maximum limit, 
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
 
@@ -77,12 +77,14 @@ choose **Custom**.
 
 <a name="looping-debatching-limits"></a>
 
-## Looping and debatching limits
+## Concurrency, looping, and debatching limits
 
 Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
+| Trigger concurrency | 20 | To change this limit to 50, see [] 
+| Maximum waiting runs in queue | 10 | To change this limit to 100, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
 | Foreach items | 100,000 | To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). | 
 | Foreach iterations | 50 | By default, "for each" loop iterations run at the same time in parallel. The default limit is 20, but you can [change this default limit](#change-foreach-limit). | 
 | SplitOn items | 100,000 | | 
@@ -150,7 +152,7 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Actions executions per 5 minutes | 100,000 | To increase the limit to 300,000, you can run a logic app in `High Throughput` mode. To configure high throughput mode, under the `runtimeConfiguration` of the workflow resource, set the `operationOptions` property to `OptimizedForHighThroughput`. <p>**Note**: High throughput mode is in preview. Also, you can distribute a workload across more than one app as needed. | 
+| Actions executions per 5 minutes | 100,000 | You can raise this limit to 300,000 by [running your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), which is in preview. Or, you can distribute the workload across more than one logic app as necessary. | 
 | Actions concurrent outgoing calls | ~2,500 | Reduce the number of concurrent requests or reduce the duration as needed. | 
 | Runtime endpoint: Concurrent incoming calls | ~1,000 | Reduce the number of concurrent requests or reduce the duration as needed. | 
 | Runtime endpoint: Read calls per 5 minutes  | 60,000 | Can distribute workload across more than one app as needed. | 
