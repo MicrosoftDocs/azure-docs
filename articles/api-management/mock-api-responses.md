@@ -53,8 +53,7 @@ The steps in this section show how to create a blank API with no backend. It als
 
 1. Select the API you created in the previous step.
 2. Click **+ Add Operation**.
-
-	![Mocked operation response](./media/mock-api-responses/mock-api-responses-add-operation.png)
+    ![Mocked operation response](./media/mock-api-responses/mock-api-responses-add-operation.png)
 
     |Setting|Value|Description|
     |---|---|---|
@@ -95,7 +94,8 @@ The steps in this section show how to create a blank API with no backend. It als
     > A yellow bar with the text **Mocking is enabled** indicates that responses returned from the API Management, sends a mocking policy and not an actual backend response.
 
 4. Select **Send** to make a test call.
-5. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial. ![Enable response mocking](./media/mock-api-responses/mock-api-responses-test-response.png)
+5. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
+    ![Enable response mocking](./media/mock-api-responses/mock-api-responses-test-response.png)
 
 ## Video
 
