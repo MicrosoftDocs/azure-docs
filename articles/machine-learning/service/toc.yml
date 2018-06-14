@@ -17,7 +17,7 @@
     href: quickstart-set-up-in-cli.md 
 - name: Tutorials
   items:
-  - name: '1: Prepare data'
+  - name: Train and deploy models
     href: tutorial-build-train-deploy-with-azure-machine-learning.md
 - name: Concepts   
   items: 
