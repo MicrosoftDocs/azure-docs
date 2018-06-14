@@ -87,7 +87,7 @@
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
-### [Manage group membership](active-directory-groups-membership-azure-portal.md)
+### [Manage group membership](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Assign licenses using groups](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
