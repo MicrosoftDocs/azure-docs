@@ -129,7 +129,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                     <div class="cardText">
                         <h3>Save with Reserved VM Instances</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">What are reserved instances?</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">What are reserved instances?</a> <br/>
                         <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Buy a reserved instance</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">How discount is applied</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Software costs not included</a>
@@ -161,12 +161,13 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Troubleshoot</h3>
+                        <h3>Enterprise subscription <br/>Requires EA portal access</h3>
                         <p>
-                        <a href="/azure/billing/billing-no-subscriptions-found">'No subscription found'</a><br/>
-                        <a href="https://support.microsoft.com/help/4042960/troubleshoot-why-your-debit-card-or-credit-card-is-declined-at-azure-s">Declined card</a><br/>
-                        <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">Sign up issues</a><br/>
-                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Sign in issues</a>
+                        <a href="https://ea.azure.com/helpdocs/createADepartment">Manage departments</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>
+                        <a href="https://ea.azure.com/helpdocs/addNewAccount">Manage accounts</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>
+                        <a href="https://ea.azure.com/helpdocs/createANewSubscription">Create subscriptions</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>
+                        <a href="https://ea.azure.com/helpdocs/viewPriceSheet">View price sheet</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>                        
+                        <a href="https://ea.azure.com/helpdocs/usageDetailReport">View usage details</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20">
                         </p>
                     </div>
                 </div>
