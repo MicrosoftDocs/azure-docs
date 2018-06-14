@@ -19,7 +19,7 @@ ROBOTS: NOINDEX
 
 # Connecting to Azure Cosmos DB as a data source
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/overview-what-happened-to-workbench.md).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 
 This article contains a python sample allows you to connect to Cosmos DB in the Azure Machine Learning Workbench.

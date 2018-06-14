@@ -18,7 +18,7 @@ ROBOTS: NOINDEX
 ---
 # Sample of custom source connections (Python) 
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/overview-what-happened-to-workbench.md).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 
 Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).

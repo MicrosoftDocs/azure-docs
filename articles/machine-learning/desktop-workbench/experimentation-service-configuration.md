@@ -16,7 +16,7 @@ ROBOTS: NOINDEX
 ---
 # Configuring Azure Machine Learning Experimentation Service
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## Overview
 Azure Machine Learning Experimentation Service enables data scientists to execute their experiments using the Azure Machine Learning execution and run management capabilities. It provides a framework for agile experimentation with fast iterations. Azure Machine Learning Workbench allows you to start with local runs on your machine and also an easy path for scaling up and out to other environments such as remote Data Science VMs with GPU or HDInsight Clusters running Spark.
