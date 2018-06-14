@@ -21,7 +21,7 @@ You can create two types of labs, **managed labs** with Azure Lab Services, and 
 
 The following sections provide more details about these labs. 
 
-## Managed labs types
+## Managed lab types
 Azure Lab Services allows you to create labs whose infrastructure is managed by Azure. This article refers to them as managed labs. Managed labs offer different types of labs that fit for your specific need. Currently, only type of managed lab that's supported is **classroom lab**. 
 
 Managed labs enable you to get started right away, with minimal setup. The service itself handles all the management of the infrastructure for the lab, from spinning up the VMs to handling errors, and scaling the infrastructure. To create a managed lab such as a classroom lab, you need to create a lab account for your organization first. The lab account serves as the central account in which all labs in the organization are managed. 
