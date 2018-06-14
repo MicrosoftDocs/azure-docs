@@ -304,7 +304,7 @@ Approximate time to Complete: 10 minutes
 | --- | --- |
 | SaaS application (Federated SSO or Password SSO) has been already configured | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) |
 | Cloud Group that is assigned access to the application in #1 is identified | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) <br/>[Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
-| Credentials for the group owner are available | [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md) |
+| Credentials for the group owner are available | [Manage access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md) |
 | Credentials for the information worker accessing the apps has been identified | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -312,7 +312,7 @@ Approximate time to Complete: 10 minutes
 
 | Step | Resources |
 | --- | --- |
-| Identify the group that has been granted access to the application, and configure the owner of given group| [Manage the settings for a group in Azure Active Directory ](active-directory-groups-settings-azure-portal.md) |
+| Identify the group that has been granted access to the application, and configure the owner of given group| [Manage the settings for a group in Azure Active Directory ](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | Log in as the group owner, see the group membership in groups tab of access panel | [Azure Active Directory Groups Management page](https://account.activedirectory.windowsazure.com/r/#/groups) |
 | Add the information worker you want to test |  |
 | Log in as the information worker, confirm the tile is available | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
