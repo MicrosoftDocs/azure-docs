@@ -6,6 +6,7 @@ author: rastala
 ms.author: roastala
 manager: haining
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
