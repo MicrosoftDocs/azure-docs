@@ -877,7 +877,7 @@
         },
 		{
             "source_path": "articles/virtual-machines/linux/key-vault-setup-cli-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup-cli",
+            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup",
             "redirect_document_id": true
         },
 		{
@@ -12223,7 +12223,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-key-vault-setup-cli-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup-cli-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup",
             "redirect_document_id": false
         },
         {
