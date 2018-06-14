@@ -1,15 +1,27 @@
+---
+title: 
+description: 
+services: storage
+keywords: 
+author: roygara
+ms.topic: article
+ms.author: rogarana
+manager: twooley
+ms.date: 06/01/2018
+ms.service: storage
+---
 
-# Comparing Azure Data Lake Storage (Preview) and Azure Data Lake Store
+# Comparing Azure Data Lake Storage Gen2 and Azure Data Lake Storage Gen1
 
-## Comparing Azure Data Lake Storage (Preview) and Azure Data Lake Store
+## Comparing Azure Data Lake Storage Gen2 and Azure Data Lake Storage Gen1
 
-The table in this article summarizes the differences between Azure Data Lake Store and Azure Data Lake Storage (Preview).
+The table in this article summarizes the differences between Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2.
 
-Azure Data Lake Store is a hyper scale repository that is optimized for big data analytics workloads.
+Azure Data Lake Storage Gen1 is a hyper scale repository that is optimized for big data analytics workloads.
 
-In comparison, Azure Data Lake Storage (Preview) offers rich support for the Hadoop Compatible File System along with a full hierarchical namespace optimized for analytics workloads. Additionally it brings all of Azure Blobs offerings to the table so functionality like data tiering and lifecycle management, durability options for HA and DR, eventgrid support, enhanced network security, and compatibility with all of Blob APIs.
+In comparison, Azure Data Lake Storage Gen2 offers rich support for the Hadoop Compatible File System along with a full hierarchical namespace optimized for analytics workloads. Additionally it brings all of Azure Blobs offerings to the table so functionality like data tiering and lifecycle management, durability options for HA and DR, eventgrid support, enhanced network security, and compatibility with all of Blob APIs.
 
-|Azure Data Lake Store  |Azure Data Lake Storage (Preview)  |
+|Azure Data Lake Storage Gen1  |Azure Data Lake Storage Gen2  |
 |---------|---------|
 |Compatible to HDFS standard – customer can perform analysis using the Hadoop analytic framework.  Applications or services that use the Hadoop file system API can easily integrate with ADLS.  ADLS exposes a HDFS-compatible REST interface for applications.     |Hadoop File System Compatible – customers can use Hadoop analytics frameworks that leverage the Hadoop FileSystem API. WASB & Prague is part of the Apache Hadoop project.          |
 |HDFS extensions – customers can use non-destructive concat, set expiry, acquire leases on files being written, etc.       |         |

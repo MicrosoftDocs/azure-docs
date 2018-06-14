@@ -42,4 +42,4 @@ Azure Data Lake Storage Gen2 will be available as a limited public preview in Ju
 
 ## Next steps
 
-If you're interested, proceed to our evaluation article so you can assess whether or not Data Lake Storage Gen2 is a good fit for you.
+If you're interested, proceed to our [evaluation article](evaluation-and-comparison.md) to assess whether or not Data Lake Storage Gen2 is a good fit for you.
