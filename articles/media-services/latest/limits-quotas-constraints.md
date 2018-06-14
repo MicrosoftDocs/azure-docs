@@ -44,10 +44,7 @@ This article describes quotas and limitations in Azure Media Services v3.
 
 Any Job record in your account older than 90 days will be automatically deleted, even if the total number of records is below the maximum quota. 
 
-<sup>3</sup> There is a limit of 1,000,000 StreamingPolicy entries for different Media Services policies (for example, for StreamingLocator policy or ContentKeyAuthorizationPolicy). 
-
->[!NOTE]
-> You should use the same policy name if you are always using the same days / access permissions / etc. 
+<sup>3</sup> When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. You should not be creating a new StreamingPolicy for each StreamingLocator.
 
 <sup>4</sup> The storage accounts must be from the same Azure subscription.
 
