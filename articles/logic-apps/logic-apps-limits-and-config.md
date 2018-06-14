@@ -93,7 +93,15 @@ Here are the limits for a single logic app instance:
 
 ### Change Foreach loop limit
 
-*Logic App Designer*
+You can change the default limit either through 
+Logic Apps Designer or the code view editor.
+Changing the default limit through the designer is 
+equivalent to adding or updating the 
+`runtimeConfiguration.concurrency.repetitions` property 
+in the underlying action definition. 
+To review this definition, open code view editor. 
+
+*Designer*
 
 1. In the **For each** action's upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
@@ -101,17 +109,14 @@ choose the ellipses (...) button, and then choose **Settings**.
 2. Under **Concurrency Control**, set **Override Default** to **On**. 
 
 3. Drag the **Degree of Parallelism** slider to the value you want. 
-To run the loop iterations sequentially, set the value to `1`.
-
+To run loop iterations sequentially, set the value to `1`. 
 
    > [!NOTE]
-   > Changing this setting adds or updates the 
-   > `runtimeConfiguration.concurrency.repetitions` property 
-   > in the underlying action definition. To review this definition, 
-   > open code view editor. 
+   > Changing **Degree of Parallelism** to `1` is equivalent 
+   > to adding the `operationOptions` 
+   > property to `Sequential`.
 
-Setting **Degree of Parallelism** to `1` is equivalent to setting the action's `operationOptions` 
-property to `Sequential`.
+
 
 *Code view editor*
 
