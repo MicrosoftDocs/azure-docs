@@ -1,5 +1,5 @@
 ---
-title: Use the Azure portal to create alerts for Azure services | Microsoft Docs
+title: Use the Azure portal to create classic alerts for Azure services | Microsoft Docs
 description: Trigger emails or notifications, or call website URLs (webhooks) or automation when the conditions that you specify are met.
 author: rboucher
 services: azure-monitor
@@ -44,7 +44,7 @@ You can configure and get information about classic metric alert rules from the 
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## Create an alert rule on a metric with the Azure portal
-1. In the [portal](https://portal.azure.com/), locate the resource that  you want to monitor, and then select it.
+1. In the [portal](https://portal.azure.com/), locate the resource that you want to monitor, and then select it.
 
 2. In the **MONITORING** section, select **Alerts (Classic)**. The text and icon might vary slightly for different resources. If you don't find **Alerts (Classic)** here, you might find it in **Alerts** or **Alert Rules**.
 
@@ -56,7 +56,7 @@ You can configure and get information about classic metric alert rules from the 
 
 4. **Name** your alert rule. Then choose a **Description**, which also appears in notification emails.
 
-5. Select the **Metric** that you want to monitor. Then choose a **Condition** and **Threshold** value for the metric. Also choose the **Period** of time that the metric rule must be satisfied before the alert triggers. For example, if you use the period "Over the last five minutes" and your alert looks for a CPU above 80%, the alert triggers when the CPU has been consistently above 80% for five minutes. After the first trigger occurs, it triggers again when the CPU stays below 80% for five minutes. The CPU metric measurement happens every minute.
+5. Select the **Metric** that you want to monitor. Then choose a **Condition** and **Threshold** value for the metric. Also choose the **Period** of time that the metric rule must be satisfied before the alert triggers. For example, if you use the period "Over the last 5 minutes" and your alert looks for a CPU above 80%, the alert triggers when the CPU has been consistently above 80% for 5 minutes. After the first trigger occurs, it triggers again when the CPU stays below 80% for 5 minutes. The CPU metric measurement happens every minute.
 
 6. Select **Email owners...** if you want administrators and co-administrators to receive email notifications when the alert fires.
 

@@ -1,5 +1,5 @@
 ﻿﻿---
-title: Use PowerShell to create alerts for Azure services| Microsoft Docs
+title: Use PowerShell to create classic alerts for Azure services| Microsoft Docs
 description: Trigger emails, notifications, or call website URLs (webhooks) or automation when the conditions that you specify are met.
 author: rboucher
 services: azure-monitor
@@ -92,7 +92,7 @@ For additional information, you can always type ```Get-Help``` followed by the P
 
      ```
      To get a full list of available options for Get-AzureRmMetricDefinition, run `Get-Help Get-AzureRmMetricDefinition -Detailed`.
-5. The following example sets up an alert on a website resource. The alert triggers whenever it consistently receives any traffic for five minutes and again when it receives no traffic for five minutes.
+5. The following example sets up an alert on a website resource. The alert triggers whenever it consistently receives any traffic for 5 minutes and again when it receives no traffic for 5 minutes.
 
     ```PowerShell
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"

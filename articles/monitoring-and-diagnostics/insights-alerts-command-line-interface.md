@@ -36,13 +36,14 @@ You can receive an alert based on metrics for your Azure services, or based on e
 
 You can configure a classic metric alert to do the following when it triggers:
 
-* Send email to additional email addresses that you specify.
+* Send email notifications to the service administrator and co-administrators. 
+* Send email to email addresses that you specify.
 * Call a webhook.
 * Start execution of an Azure runbook (only from the Azure portal at this time).
 
-You can configure and get information about classic metric alert rules from the following locations: 
+You can configure and get information about classic metric alert rules by using the following: 
 
-* [Azure portal](insights-alerts-portal.md)
+* [The Azure portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [Azure command-line interface (CLI)](insights-alerts-command-line-interface.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -92,13 +93,13 @@ You can also get help for commands by typing a command with**-help** at the end.
      azure insights metrics list /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename PT1M
      ```
 
-     *PT1M* is the granularity of the available measurement (in one-minute intervals). You have different metric options when you use different granularities.
+     *PT1M* is the granularity of the available measurement (in 1-minute intervals). You have different metric options when you use different granularities.
      
 4. To create a metric-based alert rule, use a command in the following format:
 
     **azure insights alerts rule metric set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operator&gt; &lt;threshold&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
 
-    The following example sets up an alert on a website resource. The alert triggers whenever it consistently receives any traffic for five minutes and again when it receives no traffic for five minutes.
+    The following example sets up an alert on a website resource. The alert triggers whenever it consistently receives any traffic for 5 minutes and again when it receives no traffic for 5 minutes.
 
     ```console
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
