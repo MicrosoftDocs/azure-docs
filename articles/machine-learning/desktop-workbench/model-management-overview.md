@@ -7,7 +7,7 @@ ms.author: padou
 manager: mwinkle
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
@@ -16,6 +16,9 @@ ROBOTS: NOINDEX
 ---
 
 # Azure Machine Learning Model Management
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Azure Machine Learning Model Management enables you to manage and deploy machine-learning workflows and models. 
 

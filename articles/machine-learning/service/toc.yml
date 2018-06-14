@@ -8,7 +8,7 @@
   - name: Choose an machine learning solution
     href: overview-more-machine-learning.md    
   - name: What happened to Workbench?
-    href: what-happened-to-workbench.md
+    href: overview-what-happened-to-workbench.md
 - name: Quickstarts
   items:
   - name: Create project - Python
@@ -25,15 +25,17 @@
     href: concept-accelerate-with-fpgas.md    
 - name: How-to guides
   items:  
-  - name: Configure compute environment 
+  - name: Create workspace in portal
+    href: how-to-create-workspace-in-portal.md 
+  - name: Configure compute environment
   - name: Acquire and understand data
   - name: Develop models
   - name: Deploy and consume models
 - name: Reference
   items:  
-  - name: Azure Machine Learning SDK
+  - name: Machine Learning SDK
     href: reference-azure-machine-learning-sdk.md
-  - name: Azure Machine Learning CLI
+  - name: Machine Learning CLI
     href: reference-azure-machine-learning-cli.md
   - name: Domain packages
     href: reference-python-package-overview.md
@@ -76,6 +78,8 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Export or delete account data
     href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+  - name: Get support
+    href: support-for-aml-services.md
   - name: Deprecated docs (pre-GA)
     items:  
     - name: Workbench quickstart
@@ -244,7 +248,7 @@
     - name: FAQs
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Issues
-      href: known-issues-and-troubleshooting-guide.md
+      href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
     - name: Past release notes
       href: ../desktop-workbench/azure-machine-learning-release-notes.md              
     - name: Support

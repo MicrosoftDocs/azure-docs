@@ -7,7 +7,7 @@ ms.author: kefzhou
 manager: akannava
 ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
@@ -15,6 +15,9 @@ ms.date: 09/29/2017
 ROBOTS: NOINDEX
 ---
 # Find runs with the best accuracy and lowest duration
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Given multiple runs, one use case is to find runs with the best accuracy. One approach is to use the command-line interface (CLI) with a [JMESPath](http://jmespath.org/) query. For more information on how to use JMESPath in the Azure CLI, see [Use JMESPath queries with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). In the following example, four runs are created with accuracy values of 0, 0.98, 1, and 1. Runs are filtered if they are in the range `[MaxAccuracy-Threshold, MaxAccuracy]` where `Threshold = .03`.
 
 ## Sample data

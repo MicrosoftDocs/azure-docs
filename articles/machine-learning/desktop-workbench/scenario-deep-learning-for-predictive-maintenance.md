@@ -7,7 +7,7 @@ ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.devlang: 
@@ -18,6 +18,10 @@ ROBOTS: NOINDEX
 ---
 
 # Deep learning for predictive maintenance real-world scenarios
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Deep learning is one of the most popular trends in machine learning and has applications to many areas, including:
 - Driverless cars and robotics.

@@ -10,7 +10,7 @@ editor: miprasad
 ms.assetid: 
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,6 +24,10 @@ ROBOTS: NOINDEX
 
 
 # Sentiment Analysis using Deep Learning with Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Sentiment analysis is a well-known task in the realm of natural language processing. Given a set of texts, the aim is to determine the sentiment of that text. The objective of this solution is to use Deep Learning for predicting sentiment from movie reviews.
 

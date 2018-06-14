@@ -10,7 +10,7 @@ editor: cgronlun
 ms.assetid: 
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,6 +20,10 @@ ms.author: bradsev
 
 ROBOTS: NOINDEX
 ---
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 # Structure projects with the Team Data Science Process template
 

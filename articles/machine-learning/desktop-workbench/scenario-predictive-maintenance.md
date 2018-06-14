@@ -7,7 +7,7 @@ ms.author: jehrling
 manager: jhubbard 
 ms.reviewer: garyericson, jasonwhowell, mldocs 
 ms.service: machine-learning
-ms.component: desktop-workbench 
+ms.component: core 
 ms.workload: data-services 
 ms.topic: article 
 ms.custom: mvc 
@@ -18,6 +18,10 @@ ROBOTS: NOINDEX
 
 
 # Predictive maintenance for real-world scenarios
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 The impact of unscheduled equipment downtime can be detrimental for any business. It's critical to keep field equipment running to maximize utilization and performance, and to minimize costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
 

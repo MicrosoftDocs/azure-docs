@@ -1,1 +1,2 @@
-**This article has been deprecated. Support for this CLI version ends on 2018-1-1.**
+>[!Note]
+>**This article is deprecated.** Support for features that are not in the generally available Azure Machine Learning ends January 1, 2019. Read ['What happened to Workbench'](../articles/machine-learning/service/overview-what-happened-to-workbench.md) for details or [get started](../articles/machine-learning/service/index.yml) with the latest version.

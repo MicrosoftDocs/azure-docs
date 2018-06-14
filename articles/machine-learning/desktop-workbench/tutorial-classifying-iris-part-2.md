@@ -7,7 +7,7 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
@@ -18,6 +18,9 @@ ROBOTS: NOINDEX
 
 
 # Tutorial 2: Classify Iris - Build a model
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning services (preview) are an integrated, data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning services to:

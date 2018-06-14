@@ -8,7 +8,7 @@ manager: hjerez
 editor: jasonwhowell
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
@@ -17,6 +17,8 @@ ms.date: 09/20/2017
 ROBOTS: NOINDEX
 ---
 # Azure Machine Learning Model Management Account API reference
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 For information about setting up the deployment environment, see [Model Management account setup](deployment-setup-configuration.md).
 

@@ -7,7 +7,7 @@ ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
@@ -15,6 +15,10 @@ ms.date: 09/07/2017
 ROBOTS: NOINDEX
 ---
 # How to Use Run History and Model Metrics in Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Azure Machine Learning Workbench supports data science experimentation via its **Run History** and **Model Metrics** features.
 **Run History** provides a means to track the outputs of your machine learning experiments, and then enables filtering and comparison of their results.

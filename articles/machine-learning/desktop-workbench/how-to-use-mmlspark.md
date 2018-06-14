@@ -8,7 +8,7 @@ manager: jhubbard
 
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
@@ -16,6 +16,8 @@ ms.date: 01/12/2018
 ROBOTS: NOINDEX
 ---
 # How to Use Microsoft Machine Learning Library for Apache Spark
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## Introduction
 

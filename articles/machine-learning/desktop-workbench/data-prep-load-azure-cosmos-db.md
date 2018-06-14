@@ -7,7 +7,7 @@ ms.author: cforbe
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
@@ -18,6 +18,10 @@ ROBOTS: NOINDEX
 ---
 
 # Connecting to Azure Cosmos DB as a data source
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 This article contains a python sample allows you to connect to Cosmos DB in the Azure Machine Learning Workbench.
 
 ## Load Azure Cosmos DB data into data preparation

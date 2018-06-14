@@ -7,7 +7,7 @@ ms.author: serinak
 manager: hjerez
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
@@ -17,6 +17,9 @@ ROBOTS: NOINDEX
 ---
 
 # Enable SSL on an Azure Machine Learning Compute (MLC) cluster 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 These instructions allow you to set up SSL for scoring calls on a Machine Learning Compute (MLC) cluster. 
 

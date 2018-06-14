@@ -7,7 +7,7 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
@@ -17,6 +17,8 @@ ROBOTS: NOINDEX
 ---
 
 # Collect model data by using data collection
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 You can use the model data collection feature in Azure Machine Learning to archive model inputs and predictions from a web service.
 
