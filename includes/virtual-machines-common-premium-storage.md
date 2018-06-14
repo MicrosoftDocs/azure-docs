@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: ramankumarlive
+ms.service: storage
+ms.topic: "include"
+ms.date: 06/05/2018
+ms.author: ramankum
+ms.custom: "include file"
+---
+
 # High-performance Premium Storage and managed disks for VMs
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines (VMs) with input/output (I/O)-intensive workloads. VM disks that use Premium Storage store data on solid-state drives (SSDs). To take advantage of the speed and performance of premium storage disks, you can migrate existing VM disks to Premium Storage.
 

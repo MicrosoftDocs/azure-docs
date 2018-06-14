@@ -23,6 +23,24 @@ See the [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azur
 
 ## Features
 
+### Auto Statistics
+Statistics are critical to optimize query plan generation in moderl cost-based optimizers such as the engine in SQL Data Warehouse. When all queries are known in advance, determining what statistics objects need to be created is an achievable task. However, when the system is faced with ad-hoc and random queries which is typical for the data warehousing workloads, system administrators may struggle to predict what statistics need to be created leading to potentially suboptimal query execution plans and longer query response times. One way to mitigate this problem is to create statistics objects on all the table columns in advance. However, that process comes with a penalty as statistics objects need to be maintained during table loading process, causing longer loading times.
+
+SQL Data Warehouse now supports automatic creation of statistics objects providing greater flexibility, productivity, and ease of use for system administrators and developers, while ensuring the system continues to offer quality execution plans and best response times.
+
+To enable or disable automatic statistics creation in SQL Data Warehouse, execute the following statement:
+```sql
+ALTER DATABASE { database_name } SET { AUTO_CREATE_STATISTICS { OFF | ON } } [;]
+```
+
+As a best practice and guidance, we recommend setting `AUTO_CREATE_STATISTICS` option to `ON`.
+
+> [!NOTE]
+> Automatic statistic creation is *enabled by default* for all new data warehouses.
+>  
+
+See the [ALTER DATABASE SET Options](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) article for additional details.
+
 ### Rejected Row Support
 Customers often use [PolyBase (External Tables) to load data](design-elt-data-loading.md) into SQL Data Warehouse because of the high performance, parallel nature of data loading. PolyBase is the default loading model when loading data via [Azure Data Factory](http://azure.com/adf) as well. 
 
