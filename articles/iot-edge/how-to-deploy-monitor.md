@@ -11,7 +11,9 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Deploy and monitor IoT Edge modules at scale - preview
+# Deploy and monitor IoT Edge modules at scale using the Azure portal
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
 Azure IoT Edge enables you to move analytics to the edge and provides a cloud interface so that you can manage and monitor your IoT Edge devices without having to physically access each one. The capability to remotely manage devices is increasingly important as Internet of Things solutions are growing larger and more complex. Azure IoT Edge is designed to support your business goals, no matter how many devices you add.
 
@@ -37,8 +39,8 @@ For more information about device twins and tags, see [Understand and use device
 ## Create a deployment
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **IoT Edge (preview)**.
-1. Select **Add IoT Edge Deployment**.
+1. Select **IoT Edge**.
+2. Select **Add IoT Edge Deployment**.
 
 There are five steps to create a deployment. The following sections walk through each one. 
 
@@ -97,8 +99,8 @@ Use the tags property from your devices to target the specific devices that shou
 
 Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority (higher values indicate higher priority) wins. If two deployments have the same priority number, the one that was created most recently wins. 
 
-1. Enter a positive integer for the deployment **Priority**.
-1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags and should match the expression format. For example, `tags.environment='test'`. 
+1. Enter a positive integer for the deployment **Priority**. In the event that two or more deployments are targeted at the same device, the deployment with the highest numerical value for Priority will apply.
+1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin desired properties and should match the expression format. For example, `tags.environment='test'` or `properties.desired.devicemodel='4000x'`. 
 1. Select **Next** to move on to the final step.
 
 ### Step 5: Review Template
@@ -110,8 +112,8 @@ Review your deployment information, then select **Submit**.
 To view the details of a deployment and monitor the devices running it, use the following steps:
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
-1. Select **IoT Edge (preview)**.
-1. Select **IoT Edge deployments**. 
+1. Select **IoT Edge**.
+2. Select **IoT Edge deployments**. 
 
    ![View IoT Edge deployments][1]
 
@@ -119,11 +121,11 @@ To view the details of a deployment and monitor the devices running it, use the 
    * **ID** - the name of the deployment.
    * **Target condition** - the tag used to define targeted devices.
    * **Priority** - the priority number assigned to the deployment.
-   * **System metrics** - the number of devices that received the deployment, and the number that have applied it. 
-   * **Device metrics** - the number of modules in the deployment reporting success or errors. 
+   * **System metrics** - **Targeted** specifies the number of device twins in IoT Hub that match the targeting condition, and **Applied** specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub. 
+   * **Device metrics** - the number of Edge devices in the deployment reporting success or errors from the IoT Edge client runtime.
    * **Creation time** - the timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority. 
-1. Select the deployment that you want to monitor.  
-1. Inspect the deployment details. You can use tabs to review the details of the deployment.
+2. Select the deployment that you want to monitor.  
+3. Inspect the deployment details. You can use tabs to review the details of the deployment.
 
 ## Modify a deployment
 
@@ -137,8 +139,8 @@ If you update the target condition, the following updates occur:
 To modify a deployment, use the following steps: 
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
-1. Select **IoT Edge (preview)**.
-1. Select **IoT Edge deployments**. 
+1. Select **IoT Edge**.
+2. Select **IoT Edge deployments**. 
 
    ![View IoT Edge deployments][1]
 
@@ -155,8 +157,8 @@ To modify a deployment, use the following steps:
 When you delete a deployment, any devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted. 
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
-1. Select **IoT Edge (preview)**.
-1. Select **IoT Edge deployments**. 
+1. Select **IoT Edge**.
+2. Select **IoT Edge deployments**. 
 
    ![View IoT Edge deployments][1]
 
