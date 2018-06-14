@@ -16,7 +16,7 @@ ms.author: juliako
 
 # Quotas and limitations in Azure Media Services v3
 
-This topic describes quotas and limitations in Azure Media Services v3.
+This article describes quotas and limitations in Azure Media Services v3.
 
 | Resource | Default Limit | 
 | --- | --- | 
@@ -37,7 +37,7 @@ This topic describes quotas and limitations in Azure Media Services v3.
 | TransformOutputs in a Transform| 20|
 | Unique StreamingLocators associated with an Asset at one time | 20<sup>(5)</sup> |
 
-<sup>1</sup>The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. However, additional limits apply in Azure Media Services based on the VM sizes that are used by the service. If your source file is larger than 260 GB your Job will likely fail. If you have 4K content that is larger than 260 GB limit, contact us at amshelp@microsoft.com for potential mitigations to support your scenario.
+<sup>1</sup> The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. However, additional limits apply in Azure Media Services based on the VM sizes that are used by the service. If your source file is larger than 260-GB, your Job will likely fail. If you have 4K content that is larger than 260-GB limit, contact us at amshelp@microsoft.com for potential mitigations to support your scenario.
 
 <sup>2</sup> This number includes queued, finished, active, and canceled Jobs. It does not include deleted Jobs. 
 
@@ -54,7 +54,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 ## Support ticket
 
-For resources that are not fixed, you may ask for the quotas to be raised, by opening a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Please include detailed information in the request on the desired quota changes, use-case scenarios, and regions required. <br/>Do **not** create additional Azure Media Services accounts in an attempt to obtain higher limits.
+For resources that are not fixed, you may ask for the quotas to be raised, by opening a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Include detailed information in the request on the desired quota changes, use-case scenarios, and regions required. <br/>Do **not** create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
 ## Next steps
 
