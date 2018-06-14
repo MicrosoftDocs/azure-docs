@@ -55,7 +55,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Select **Overview** > **Essentials** > Copy your application's **Instrumentation Key**.
 
-   ![New App Insights resource form](./media/app-insights-nodejs-quick-start/instrumentation-key.png)
+   ![New App Insights resource form](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
 
 2. Add the Application Insights SDK for Node.js to your application. From your app's root folder run:
 
