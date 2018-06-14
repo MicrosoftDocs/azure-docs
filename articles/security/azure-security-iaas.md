@@ -202,7 +202,9 @@ Production workloads moved to Azure should integrate with existing backup soluti
 
 ## Monitor
 
-[Security Center](../security-center/security-center-intro.md) provides ongoing evaluation of the security state of your Azure resources to identify potential security vulnerabilities. A list of recommendations guides you through the process of configuring needed controls.
+### [Security Center](../security-center/security-center-intro.md)
+
+Security center provides ongoing evaluation of the security state of your Azure resources to identify potential security vulnerabilities. A list of recommendations guides you through the process of configuring needed controls.
 
 Examples include:
 
@@ -216,7 +218,9 @@ The following image shows some of the options that you can enable in Security Ce
 
 ![Azure Security Center policies](./media/azure-security-iaas/security-center-policies.png)
 
-[Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because Operations Management Suite is implemented as a cloud-based service, it can be deployed quickly and with minimal investment in infrastructure resources.
+### [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) 
+
+Operation Management Suite is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because Operations Management Suite is implemented as a cloud-based service, it can be deployed quickly and with minimal investment in infrastructure resources.
 
 New features are delivered automatically, saving you from ongoing maintenance and upgrade costs. Operations Management Suite also integrates with System Center Operations Manager. It has different components to help you better manage your Azure workloads, including a [Security and Compliance](../operations-management-suite/oms-security-getting-started.md) module.
 
@@ -232,7 +236,7 @@ The following screenshot shows an example of the information that Operations Man
 
 ![Operations Management Suite security baselines](./media/azure-security-iaas/oms-security-baseline.png)
 
-## Monitor VM performance
+### Monitor VM performance
 
 Resource abuse can be a problem when VM processes consume more resources than they should. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. For this reason, it is imperative to monitor VM access not only reactively, while an issue is occurring, but also proactively, against baseline performance as measured during normal operation.
 
