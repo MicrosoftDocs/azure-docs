@@ -481,7 +481,7 @@ OriginalUrl.
 > `headerName: value1,value2,value3`
 >
 > Exceptions include standardized headers, which values:
-> - may contain commas (`User-Agent`, `WWW-Authenticate`),
+> - may contain commas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
 > - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
