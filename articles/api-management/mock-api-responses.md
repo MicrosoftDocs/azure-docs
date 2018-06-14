@@ -78,11 +78,11 @@ The steps in this section show how to create a blank API with no backend. It als
 
 1. Select the API you created in the "Create a test API" step.
 2. Select the test operation that you added.
-2. In the window on the right, click the **Design** tab.
-3. In the **Inbound processing** window, click the pencil icon.
-4. In the **Mocking** tab, select **Static responses** for **Mocking behavior**.
-5. In the **API Management returns the following response:** text box, type **200 OK, application/json**. This selection indicates that your API should return the response sample you defined in the previous section.
-6. Select **Save**.
+3. In the window on the right, click the **Design** tab.
+4. In the **Inbound processing** window, click the pencil icon.
+5. In the **Mocking** tab, select **Static responses** for **Mocking behavior**.
+6. In the **API Management returns the following response:** text box, type **200 OK, application/json**. This selection indicates that your API should return the response sample you defined in the previous section.
+7. Select **Save**.
 
 ## Test the mocked API
 
@@ -93,8 +93,8 @@ The steps in this section show how to create a blank API with no backend. It als
     > [!TIP]
     > A yellow bar with the text **Mocking is enabled** indicates that responses returned from the API Management, sends a mocking policy and not an actual backend response.
 
-3. Select **Send** to make a test call.
-4. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
+4. Select **Send** to make a test call.
+5. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
 
 ## Video
 
