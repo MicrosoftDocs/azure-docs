@@ -24,7 +24,8 @@ This article describes quotas and limitations in Azure Media Services v3.
 | JobInputs per Job | 50 |
 | JobOutputs per Job | 30 (fixed) |
 | File size| In some scenarios, there is a limit on the maximum file size supported for processing in Media Services. <sup>(1)</sup> |
-| Jobs per Media Services account | 1M |
+| Jobs per Media Services account | 1,000,000 <sup>(2)</sup>|
+| Listing Transforms|Paginate the response, with 1000 Transforms per page|
 | Listing Jobs|Paginate the response, with 500 Jobs per page|
 | LiveEvents per Media Services account |5|
 | Media Services accounts in a single subscription | 25 (fixed) |
@@ -46,7 +47,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 <sup>3</sup> There is a limit of 1,000,000 StreamingPolicy entries for different Media Services policies (for example, for StreamingLocator policy or ContentKeyAuthorizationPolicy). 
 
 >[!NOTE]
-> You should use the same policy ID if you are always using the same days / access permissions / etc. 
+> You should use the same policy name if you are always using the same days / access permissions / etc. 
 
 <sup>4</sup> The storage accounts must be from the same Azure subscription.
 
