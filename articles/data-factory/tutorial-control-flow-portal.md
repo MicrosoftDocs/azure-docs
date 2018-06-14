@@ -238,7 +238,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
         - Message – Passing value of `@{activity('Copy1').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
         - Data Factory Name – Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
         - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name. 
-        - Receiver – Passing value of "@pipeline().parameters.receiver"). Accessing the pipeline parameters.
+        - Receiver – Passing value of "\@pipeline().parameters.receiver"). Accessing the pipeline parameters.
     
         ![Settings for the first Web activity](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Connect the **Copy** activity to the **Web** activity by dragging the green button next to the Copy activity and dropping on the Web activity. 
