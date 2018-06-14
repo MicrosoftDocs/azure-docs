@@ -203,7 +203,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 - There's a limit of 50 subscriptions per account. After that, subscriptions can only be created by using Account Center.
 - There needs to be at least one EA or EA Dev/Test subscriptions under the account, which means the Account Owner has gone through manual sign-up at least once.
 - Users who aren't Account Owners, but were added to an enrollment account via RBAC, can't create subscriptions using Account Center.
-- You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](..\active-directory\active-directory-how-subscriptions-associated-directory.md).
+- You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## Next steps
 

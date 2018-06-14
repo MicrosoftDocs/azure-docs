@@ -1,6 +1,6 @@
 ---
 title: Configure a connection string for Azure Storage | Microsoft Docs
-description: Configure a connection string for an Azure storage account. A connection string contains the information needed to authenticate access to a storage account from your application at runtime.
+description: Configure a connection string for an Azure storage account. A connection string contains the information needed to authorize access to a storage account from your application at runtime.
 services: storage
 documentationcenter: ''
 author: craigshoemaker
@@ -28,7 +28,7 @@ A connection string includes the authentication information required for your ap
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 ## Storing your connection string
-Your application needs to access the connection string at runtime to authenticate requests made to Azure Storage. You have several options for storing your connection string:
+Your application needs to access the connection string at runtime to authorize requests made to Azure Storage. You have several options for storing your connection string:
 
 * An application running on the desktop or on a device can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
 * An application running in an Azure cloud service can store the connection string in the [Azure service configuration schema (.cscfg) file](https://msdn.microsoft.com/library/ee758710.aspx). Add the connection string to the **ConfigurationSettings** section of the service configuration file.

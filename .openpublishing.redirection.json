@@ -19487,7 +19487,7 @@
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-configure.md",
-            "redirect_url": "/azure/role-based-access-control/role-assignments-portal?toc=%2fazure%2factive-directory%2ftoc.json",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
             "redirect_document_id": false
         },
         {
@@ -22353,6 +22353,61 @@
 	    {
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-settings-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-view-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-view-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-how-subscriptions-associated-directory.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-whatis-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-manage-groups.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-manage-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-accessmanagement-managing-group-owners.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-whatis.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-whatis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/add-custom-domain.md",
+            "redirect_url": "/azure/active-directory/fundamentals/add-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/add-users-azure-active-directory.md",
+            "redirect_url": "/azure/active-directory/fundamentals/add-users-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/customize-branding.md",
+            "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/get-started-azure-ad.md",
+            "redirect_url": "/azure/active-directory/fundamentals/get-started-azure-ad",
             "redirect_document_id": false
         },
         {

@@ -63,7 +63,7 @@ Prepare VMM for network mapping as follows:
     
 3. If you're controlling access by IP address, make sure that:
     - IP address-based firewall rules can connect to [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
-    - Allow IP address ranges for the Azure region of your subscription, and for West US (used for access control and identity management).
+    - Allow IP address ranges for the Azure region of your subscription.
 
 
 ## Prepare to connect to Azure VMs after failover
