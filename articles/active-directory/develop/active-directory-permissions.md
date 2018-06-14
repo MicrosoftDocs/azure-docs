@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/20/2017
+ms.date: 06/15/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
 ---
 
 # Permissions in Azure AD
-Azure Active Directory (Azure AD) makes extensive use of permissions for both OAuth and OpenID Connect (OIDC) flows. When your app receives an access token from Azure AD, it will include claims that describe the permissions (also known as scopes) that your app has in respect to a particular resource. This makes authorization easy for the resource because it only needs to check that your token contains the appropriate permission for whatever API you are calling. 
+Azure Active Directory (Azure AD) makes extensive use of permissions for both OAuth and OpenID Connect (OIDC) flows. When your app receives an access token from Azure AD, it will include claims that describe the permissions (also known as scopes) that your app has in respect to a particular resource. This makes authorization easy for the resource because it only needs to check that your token contains the appropriate permission for whatever API you're calling. 
 
 ## Types of permissions
 Azure AD defines two kinds of permissions: 
@@ -76,21 +76,25 @@ Applications in Azure AD rely on consent in order to gain access to necessary re
 ## Best practices
 
 ### Resource best practices
-Resources which expose APIs should define permissions that are very specific to the data or actions that they are protecting. This helps to ensure that clients do not end up with permission to access data that they do not need and that users are well informed about what data they are consenting to.
 
-Resources should explicitly define `Read` and `ReadWrite` permissions separately. 
-
-Resources should mark any permissions that allow access to data across user boundaries as `Admin` permissions. 
-
-Resources should follow the following naming pattern `Subject.Permission[.Modifier]` where `Subject` corresponds with the type of data that is available, `Permission` corresponds to the action that a user may take upon that data, and `Modifier` is used optionally to describe specializations of another permission. For example: 
-* Mail.Read - Allows users to read mail. 
-* Mail.ReadWrite - Allows users to read or write mail.
-* Mail.ReadWrite.All - Allows an administrator or user to access all mail in the organization.
+- Resources that expose APIs should define permissions that are very specific to the data or actions that they are protecting. This helps to ensure that clients do not end up with permission to access data that they do not need and that users are well informed about what data they are consenting to.
+- Resources should explicitly define `Read` and `ReadWrite` permissions separately.
+- Resources should mark any permissions that allow access to data across user boundaries as `Admin` permissions.
+- Resources should follow the naming pattern `Subject.Permission[.Modifier]`, where:
+    - `Subject` corresponds with the type of data that is available,
+    - `Permission` corresponds to the action that a user may take upon that data, and 
+    - `Modifier` is used optionally to describe specializations of another permission. 
+    
+    For example: 
+    * Mail.Read - Allows users to read mail.
+    * Mail.ReadWrite - Allows users to read or write mail.
+    * Mail.ReadWrite.All - Allows an administrator or user to access all mail in the organization.
 
 ### Client best practices
-Only request permission for the scopes that your app needs. Apps with too many permissions are at risk of exposing user data if they are compromised.
 
-Clients should not request application permissions and delegated permissions from the same app. This can result in elevation of privilege and allow a user to gain access to data that their own permissions would not allow. 
+- Only request permission for the scopes that your app needs. Apps with too many permissions are at risk of exposing user data if they are compromised.
+- Clients should not request application permissions and delegated permissions from the same app. This can result in elevation of privilege and allow a user to gain access to data that their own permissions would not allow.
+- Always set the static permissions to be the superset of the app's dynamic permissions so that admin consent works correctly.
 
 
 
