@@ -67,17 +67,26 @@ The following table describes the required domains for communication:
 > [!Important]
 > When allowing traffic to &ast;.one.microsoft.com, traffic to more than just the sync service is possible from the server. There are many more Microsoft services available under subdomains.
 
-If &ast;.one.microsoft.com is too broad, you can limit the server's communication by allowing only explicit regional instances of the Azure Files Sync service. Which instance(s) to choose depends on the region of the Storage Sync Service to which you have deployed and registered the server. That is the region you need to allow for the server. Soon there will be more URLs to enable new business continuity features. 
+If &ast;.one.microsoft.com is too broad, you can limit the server's communication by allowing communication to only explicit regional instances of the Azure Files Sync service. Which instance(s) to choose depends on the region of the storage sync service you have deployed and registered the server to. That region is called "Primary endpoint URL" in the table below.
 
-| Region | Azure File Sync regional endpoint URL |
+For business continuity and disaster recovery (BCDR) reasons you may have specified your Azure file shares in a globally redundant (GRS) storage account. If that is the case, then your Azure file shares will fail over to the paired region in the event of a lasting regional outage. Azure File Sync uses the same regional pairings as storage. So if you use GRS storage accounts, you need to enable additional URLs to allow your server to talk to the paired region for Azure File Sync. This is called "Paired region" in the table below. Additionally, there is a traffic manager profile URL that needs to be enabled as well. This will ensure network traffic can be seamlessly re-routed to the paired region in the event of a fail-over and is called "Discovery URL" in the table below.
+
+| Region | Primary endpoint URL | Paired region | Discovery URL |
 |--------|---------------------------------------|
-| Australia East | https://kailani-aue.one.microsoft.com |
-| Canada Central | https://kailani-cac.one.microsoft.com |
-| East US | https://kailani1.one.microsoft.com |
-| Southeast Asia | https://kailani10.one.microsoft.com |
-| UK South | https://kailani-uks.one.microsoft.com |
-| West Europe | https://kailani6.one.microsoft.com |
-| West US | https://kailani.one.microsoft.com |
+| Australia East | https://kailani-aue.one.microsoft.com | Australia South East | https://kailani-aue.one.microsoft.com |
+| Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |
+| East US | https://kailani1.one.microsoft.com | - | - |
+| Southeast Asia | https://kailani10.one.microsoft.com | - | - |
+| UK South | https://kailani-uks.one.microsoft.com | - | - |
+| West Europe | https://kailani6.one.microsoft.com | - | - |
+| West US | https://kailani.one.microsoft.com | - | - |
+
+> [!Info]
+> If you use locally redundant (LRS) or zone redundant (ZRS) storage accounts, you only need to enable the URL listed under "Regional endpoint URL".
+> If you use globally redundant (GRS) storage accounts, enable three URLs. Example: You deploy a storage sync service in "West US" and register your server with it. The URLs to allow the server to communicate to are for this case: 
+> - https://kailani.one.microsoft.com (primary endpoint)
+> - https://kailani1.one.microsoft.com (paired fail-over region East US)
+> - https://tm-kailani.one.microsoft.com (discovery URL of the primary region)
 
 > [!Important]
 > If you define these detailed firewall rules, check this document often and update your firewall rules to avoid service interruptions due to outdated or incomplete URL listings in your firewall settings.
