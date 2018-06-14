@@ -29,7 +29,7 @@ Azure AD includes a full suite of identity management capabilities including the
 The rest of this article tells you how to get started with Azure AD. 
 
 ## Sign up for Azure Active Directory Premium
-To [get started with Azure Active Directory (Azure AD) Premium](../active-directory-get-started-premium.md), you can purchase licenses and associate them with your Azure subscription. If you create a new Azure subscription, you will also need to activate your licensing plan and Azure AD service access. 
+To [get started with Azure Active Directory (Azure AD) Premium](active-directory-get-started-premium.md), you can purchase licenses and associate them with your Azure subscription. If you create a new Azure subscription, you will also need to activate your licensing plan and Azure AD service access. 
 
 To sign up for Active Directory Premium, you have several options: 
 

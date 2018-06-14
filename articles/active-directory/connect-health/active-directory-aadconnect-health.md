@@ -82,7 +82,7 @@ The following video provides an overview of Azure AD Connect Health for AD DS.
 ## Get started with Azure AD Connect Health
 To get started with Azure AD Connect Health, use the following steps:
 
-1. [Get Azure AD Premium](../active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
+1. [Get Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
 2. [Download and install Azure AD Connect Health Agents](#download-and-install-azure-ad-connect-health-agent) on your identity servers.
 3. View the Azure AD Connect Health dashboard at [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth).
 
