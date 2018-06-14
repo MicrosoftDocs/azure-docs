@@ -55,7 +55,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-airwatch-tutorial.png)| [AirWatch](active-directory-saas-airwatch-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-alcumus-info-tutorial.png)| [Alcumus Info Exchange](active-directory-saas-alcumus-info-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-allocadia-tutorial.png)| [Allocadia](active-directory-saas-allocadia-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS)](active-directory-saas-amazon-web-service-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS)](active-directory-saas-amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) - Role Provisioning](active-directory-saas-amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-aws-multi-accounts-tutorial.png)| [Amazon Web Services (AWS) to connect multiple accounts](active-directory-saas-aws-multi-accounts-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-amplitude-tutorial.png)| [Amplitude](active-directory-saas-amplitude-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-anaplan-tutorial.png)| [Anaplan](active-directory-saas-anaplan-tutorial.md)|
