@@ -3,7 +3,7 @@ title: Workflow Definition Language functions - Azure Logic Apps | Microsoft Doc
 description: Learn about functions for creating logic apps with the Workflow Definition Language
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: 
 documentationcenter: 
 

@@ -104,7 +104,7 @@ To monitor the indexer status and execution history (number of items indexed, fa
 The response should look similar to the following:
 
     {
-        "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
+        "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
         "lastResult": {
             "status":"success",

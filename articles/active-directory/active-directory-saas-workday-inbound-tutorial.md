@@ -406,7 +406,7 @@ Directory, with some common expressions**
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Yes** | Written on create only | 
 | **UserID**    |  cn    |   |   Written on create only |
-| **Join("@",[UserID], "contoso.com")**   | userPrincipalName     |     | Written on create only 
+| **Join("\@",[UserID], "contoso.com")**   | userPrincipalName     |     | Written on create only 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Written on create only |
 | **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | Create + update |
 | **FirstName**   | givenName       |     |    Create + update |
@@ -443,7 +443,6 @@ After installing agent, run the Powershell commands below to configure the agent
 **Command #1**
 
 > cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent"
-Agent\\Modules\\AADSyncAgent
 
 > Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 

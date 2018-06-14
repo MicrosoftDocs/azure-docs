@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2018
+ms.date: 6/12/2018
 ms.author: markgal;anuragm
 ms.custom: 
 
@@ -439,6 +439,10 @@ To restore a database
 
 This procedure walks through restoring data to an alternate location. If you want to overwrite the database when restoring, jump to the section, [Restore and overwrite the database](backup-azure-sql-database.md#restore-and-overwrite-the-database). This procedure assumes you have your Recovery Services vault open, and are at the Restore Configuration menu. If you aren't, start with the section, [Restore a SQL database](backup-azure-sql-database.md#restore-a-sql-database).
 
+> [!NOTE]
+> You can restore the database to a SQL Server in the same Azure region and the destination server needs to be registerd to the Recovery Services Vault. 
+>
+
 The **Server** drop-down menu only shows the SQL servers registered with the Recovery Services vault. If the server you want is not in the **Server** list, see the section, [Discover SQL server databases](backup-azure-sql-database.md#discover-sql-server-databases) to find the server. During the discovery database process, any new servers are registered to the Recovery Services vault.
 
 1. In the **Restore Configuration** menu:
@@ -603,10 +607,40 @@ This section provides information about the various Azure Backup management oper
 * Unregister a SQL server
 
 ### Monitor Jobs
+Azure Backup being an Enterprise class solution provides advanced Backup alerts and notification for any failures (refer to Backup Alerts section below). If you still want to monitor specific jobs you can use any of the following options based on your requirement:
 
-Azure Backup uses SQL native APIs for all backup operations. Using the native APIs, you can fetch all job information from the [SQL backupset table](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in the msdb database. Additionally, Azure Backup shows all manually triggered, or adhoc, jobs in the Backup jobs portal. The jobs available in the portal include: all configure backup operations, restore operations, registration and discover database operations, and stop backup operations. All scheduled jobs can also be monitored with OMS Log analytics. Using Log analytics removes jobs clutter, and provides granular flexibility for monitoring or filtering specific jobs.
-
+#### Using Azure portal -> Recovery Services Vault for all ad-hoc operations
+Azure Backup shows all manually triggered, or adhoc, jobs in the Backup jobs portal. The jobs available in the portal include: all configure backup operations, manually triggered backup operations, restore operations, registration and discover database operations, and stop backup operations. 
 ![advanced configuration menu](./media/backup-azure-sql-database/jobs-list.png)
+
+> [!NOTE]
+> All scheduled backup jobs including Full, Differential and Log backup will not be shown in the portal and can be monitored using SQL Server Management Studio as described below.
+>
+
+#### Using SQL Server Management Studio (SSMS) for backup jobs
+Azure Backup uses SQL native APIs for all backup operations. Using the native APIs, you can fetch all job information from the [SQL backupset table](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in the msdb database. 
+
+You can use the below query as an example to fetch all backup jobs for a specific database with name "DB1". You can customize the below query for more advanced monitoring.
+```
+select CAST (
+Case type
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
+server_name,
+machine_name,
+backup_start_date,
+backup_finish_date,
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+ 
+```
 
 ### Backup Alerts
 

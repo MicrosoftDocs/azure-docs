@@ -1,5 +1,5 @@
 ---
-title: "Install paid or licensed components for the Azure-SSIS integration runtime  | Microsoft Docs"
+title: "Install licensed components for the Azure-SSIS integration runtime | Microsoft Docs"
 description: Learn how an ISV can develop and install paid or licensed custom components for the Azure-SSIS integration runtime
 services: data-factory
 documentationcenter: ""
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
 ---
-# Develop paid or licensed custom components for the Azure-SSIS integration runtime
+# Install paid or licensed custom components for the Azure-SSIS integration runtime
 
 This article describes how an ISV can develop and install paid or licensed custom components for SQL Server Integration Services (SSIS) packages that run in Azure in the Azure-SSIS integration runtime.
 
