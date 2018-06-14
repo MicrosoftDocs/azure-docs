@@ -1,6 +1,6 @@
 ---
-title: Set up SAP HANA System Replication on Azure Virtual Machines | Microsoft Docs
-description: Establish High Availability of SAP HANA on Azure Virtual Machines.
+title: Set up SAP HANA System Replication on Azure virtual machines (VMs) | Microsoft Docs
+description: Establish high availability of SAP HANA on Azure virtual machines (VMs).
 services: virtual-machines-linux
 documentationcenter: 
 author: MSSedusch
@@ -16,7 +16,7 @@ ms.date: 03/24/2018
 ms.author: sedusch
 
 ---
-# High Availability of SAP HANA on Azure Virtual Machines
+# High availability of SAP HANA on Azure virtual machines
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -42,7 +42,7 @@ ms.author: sedusch
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
 
 For on-premises development, you can use either HANA System Replication or use shared storage to establish high availability for SAP HANA.
-On Azure Virtual Machines, HANA System Replication on Azure is currently the only supported High Availability function. 
+On Azure virtual machines (VMs), HANA System Replication on Azure is currently the only supported high availability function. 
 SAP HANA Replication consists of one primary node and at least one secondary node. Changes to the data on the primary node are replicated to the secondary node synchronously or asynchronously.
 
 This article describes how to deploy and configure the virtual machines, install the cluster framework, and install and configure SAP HANA System Replication.
@@ -51,8 +51,8 @@ In the example configurations, installation commands, instance number **03**, an
 Read the following SAP Notes and papers first:
 
 * SAP Note [1928533], which has:
-  * The list of Azure Virtual Machines sizes that are supported for the deployment of SAP software.
-  * Important capacity information for Azure Virtual Machines sizes.
+  * The list of Azure VM sizes that are supported for the deployment of SAP software.
+  * Important capacity information for Azure VM sizes.
   * The supported SAP software, and operating system (OS) and database combinations.
   * The required SAP kernel version for Windows and Linux on Microsoft Azure.
 * SAP Note [2015553] lists the prerequisites for SAP-supported SAP software deployments in Azure.
@@ -73,14 +73,14 @@ Read the following SAP Notes and papers first:
 
 To achieve high availability, SAP HANA is installed on two virtual machines. The data is replicated by using HANA System Replication.
 
-![SAP HANA High Availability overview](./media/sap-hana-high-availability/ha-suse-hana.png)
+![SAP HANA high availability overview](./media/sap-hana-high-availability/ha-suse-hana.png)
 
 SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
 
 * Front-end configuration: IP address 10.0.0.13 for hn1-db
 * Back-end configuration: Connected to primary network interfaces of all virtual machines that should be part of HANA System Replication
 * Probe Port: Port 62503
-* Load balancing rules: 30313 TCP, 30315 TCP, 30317 TCP
+* Load-balancing rules: 30313 TCP, 30315 TCP, 30317 TCP
 
 ## Deploy for Linux
 
@@ -93,7 +93,7 @@ You can use one of the quickstart templates that are on GitHub to deploy all the
 To deploy the template, follow these steps:
 
 1. Open the [database template][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
-    The database template creates the load balancing rules for a database only. The converged template also creates the load balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
+    The database template creates the load-balancing rules for a database only. The converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 
 1. Enter the following parameters:
     - **Sap System ID**: Enter the SAP system ID of the SAP system you want to install. The ID is used as a prefix for the resources that are deployed.
@@ -108,22 +108,22 @@ To deploy the template, follow these steps:
 
 ### Manual deployment
 
-1. Create a Resource Group.
-1. Create a Virtual Network.
-1. Create an Availability Set.
+1. Create a resource group.
+1. Create a virtual network.
+1. Create an availability set.
    - Set the max update domain.
 1. Create a load balancer (internal).
-   - Select the Virtual Network created in step 2.
-1. Create Virtual Machine 1.
+   - Select the virtual network created in step 2.
+1. Create virtual machine 1.
    - Use at least SLES4SAP 12 SP1. This example uses the SLES4SAP 12 SP2 image https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
    - Use SLES for SAP 12 SP2 (Premium).
-   - Select the Availability Set created in step 3.
-1. Create Virtual Machine 2.
+   - Select the availability set created in step 3.
+1. Create virtual machine 2.
    - Use at least SLES4SAP 12 SP1. This example uses the SLES4SAP 12 SP1 BYOS image
    https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
    - Use SLES for SAP 12 SP2 (Premium).
-   - Select the Availability Set created in step 3. 
-1. Add Data Disks.
+   - Select the availability set created in step 3. 
+1. Add data disks.
 1. Configure the load balancer. First, create a front-end IP pool:
 
    1. Open the load balancer, select **frontend IP pool**, and select **Add**.
@@ -137,7 +137,7 @@ To deploy the template, follow these steps:
    1. Open the load balancer, select **backend pools**, and select **Add**.
    1. Enter the name of the new back-end pool (for example, **hana-backend**).
    1. Select **Add a virtual machine**.
-   1. Select the Availability Set created in step 3.
+   1. Select the availability set created in step 3.
    1. Select the virtual machines of the SAP HANA cluster.
    1. Select **OK**.
 
@@ -148,7 +148,7 @@ To deploy the template, follow these steps:
    1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
    1. Select **OK**.
 
-1. For SAP HANA 1.0, create the load balancing rules:
+1. For SAP HANA 1.0, create the load-balancing rules:
 
    1. Open the load balancer, select **load balancing rules**, and select **Add**.
    1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**15).
@@ -159,7 +159,7 @@ To deploy the template, follow these steps:
    1. Select **OK**.
    1. Repeat these steps for port 3**03**17.
 
-1. For SAP HANA 2.0, create the load balancing rules for the system database:
+1. For SAP HANA 2.0, create the load-balancing rules for the system database:
 
    1. Open the load balancer, select **load balancing rules**, and select **Add**.
    1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**13).
@@ -170,7 +170,7 @@ To deploy the template, follow these steps:
    1. Select **OK**.
    1. Repeat these steps for port 3**03**14.
 
-1. For SAP HANA 2.0, first create the load balancing rules for the tenant database:
+1. For SAP HANA 2.0, first create the load-balancing rules for the tenant database:
 
    1. Open the load balancer, select **load balancing rules**, and select **Add**.
    1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**40).
@@ -184,7 +184,7 @@ To deploy the template, follow these steps:
 For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
 
 
-## Create Pacemaker cluster
+## Create a Pacemaker cluster
 
 Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) to create a basic Pacemaker cluster for this HANA server. You can use the same Pacemaker cluster for SAP HANA and SAP NetWeaver (A)SCS.
 
@@ -297,7 +297,7 @@ The steps in this section use the following prefixes:
    <b>10.0.0.6 hn1-db-1</b>
    </code></pre>
 
-1. **[A]** Install the HANA High Availability packages:
+1. **[A]** Install the SAP HANA high availability packages:
    ```bash
    sudo zypper install SAPHanaSR 
    ```
@@ -307,28 +307,28 @@ To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Per
 1. **[A]** Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
    * Choose installation: Enter **1**.
    * Select additional components for installation: Enter **1**.
-   * Enter Installation Path [/hana/shared]: Select **Enter**.
-   * Enter Local Host Name [..]: Select **Enter**.
-   * Do you want to add additional hosts to the system? (y/n) [n]: Select **Enter**.
+   * Enter Installation Path [/hana/shared]: Select Enter.
+   * Enter Local Host Name [..]: Select Enter.
+   * Do you want to add additional hosts to the system? (y/n) [n]: Select Enter.
    * Enter SAP HANA System ID: Enter the SID of HANA, for example: **HN1**.
    * Enter Instance Number [00]: Enter the HANA Instance number. Enter **03** if you used the Azure template or followed the manual deployment section of this article.
-   * Select Database Mode / Enter Index [1]: Select **Enter**.
+   * Select Database Mode / Enter Index [1]: Select Enter.
    * Select System Usage / Enter Index [4]: Select the system usage value.
-   * Enter Location of Data Volumes [/hana/data/HN1]: Select **Enter**.
-   * Enter Location of Log Volumes [/hana/log/HN1]: Select **Enter**.
-   * Restrict maximum memory allocation? [n]: Select **Enter**.
-   * Enter Certificate Host Name For Host '...' [...]: Select **Enter**.
+   * Enter Location of Data Volumes [/hana/data/HN1]: Select Enter.
+   * Enter Location of Log Volumes [/hana/log/HN1]: Select Enter.
+   * Restrict maximum memory allocation? [n]: Select Enter.
+   * Enter Certificate Host Name For Host '...' [...]: Select Enter.
    * Enter SAP Host Agent User (sapadm) Password: Enter the host agent user password.
    * Confirm SAP Host Agent User (sapadm) Password: Enter the host agent user password again to confirm.
    * Enter System Administrator (hdbadm) Password: Enter the system administrator password.
    * Confirm System Administrator (hdbadm) Password: Enter the system administrator password again to confirm.
-   * Enter System Administrator Home Directory [/usr/sap/HN1/home]: Select **Enter**.
-   * Enter System Administrator Login Shell [/bin/sh]: Select **Enter**.
-   * Enter System Administrator User ID [1001]: Select **Enter**.
-   * Enter ID of User Group (sapsys) [79]: Select **Enter**.
+   * Enter System Administrator Home Directory [/usr/sap/HN1/home]: Select Enter.
+   * Enter System Administrator Login Shell [/bin/sh]: Select Enter.
+   * Enter System Administrator User ID [1001]: Select Enter.
+   * Enter ID of User Group (sapsys) [79]: Select Enter.
    * Enter Database User (SYSTEM) Password: Enter the database user password.
    * Confirm Database User (SYSTEM) Password: Enter the database user password again to confirm.
-   * Restart system after machine reboot? [n]: Select **Enter**.
+   * Restart system after machine reboot? [n]: Select Enter.
    * Do you want to continue? (y/n): Validate the summary. Enter **y** to continue.
 
 1. **[A]** Upgrade the SAP Host Agent.
