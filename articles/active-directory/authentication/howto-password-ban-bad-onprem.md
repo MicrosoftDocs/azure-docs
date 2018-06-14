@@ -16,7 +16,7 @@ ms.reviewer: jsimmons
 ---
 # Preview: Enforce banned passwords on-premises
 
-Azure AD Password Protection is a new feature in public preview powered by Azure Active Directory (Azure AD) to enhance password policies in an organization. The on-premises deployment of Azure AD Password Protection uses both the global and tenant-specific banned password lists stored in Azure AD, and performs the same checks on-premises as Azure AD cloud-based changes.
+Azure AD Password Protection is a new feature in public preview powered by Azure Active Directory (Azure AD) to enhance password policies in an organization. The on-premises deployment of Azure AD Password Protection uses both the global and custom banned password lists stored in Azure AD, and performs the same checks on-premises as Azure AD cloud-based changes.
 
 There are three software components that make up Azure AD Password Protection:
 
@@ -432,4 +432,4 @@ If it is decided to uninstall the public preview software and cleanup all relate
 
 # Next steps
 
-For more information on the global and tenant-specific banned password lists, see the article [Ban bad passwords](concept-password-ban-bad.md)
+For more information on the global and custom banned password lists, see the article [Ban bad passwords](concept-password-ban-bad.md)

@@ -22,11 +22,13 @@ Industry leaders tell you not to use the same password in multiple places, to ma
 
 Microsoft is always working to stay one step ahead of cyber-criminals. Therefore the Azure AD Identity Protection team continually look for commonly used and compromised passwords. They then block those passwords that are deemed too common in what is called the global banned password list. Cyber-criminals also use similar strategies in their attacks, therefore Microsoft does not publish the contents of this list publicly. These vulnerable passwords are blocked before they become a real threat to Microsoft's customers. For more information about current security efforts, see the [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
 
-## Tenant-specific banned password list
+## Custom banned password list
 
-Some organizations may want to take security one step further by adding their own customizations on top of the (Global banned password list) in what Microsoft calls the tenant-specific banned password list. Enterprise customers like Contoso could then choose to block variants of their brand names, company-specific terms, or other items.
+Some organizations may want to take security one step further by adding their own customizations on top of the global banned password list in what Microsoft calls the custom banned password list. Enterprise customers like Contoso could then choose to block variants of their brand names, company-specific terms, or other items.
 
-The tenant-specific banned password list and the ability to enable on-premises Active Directory integration is managed using the Azure portal.
+The custom banned password list and the ability to enable on-premises Active Directory integration is managed using the Azure portal.
+
+![Modify the custom banned password list under Authentication Methods in the Azure portal](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
 ## On-premises hybrid scenarios
 
@@ -46,7 +48,7 @@ Each time a user resets or changes their Azure AD password it flows through this
 
 The benefits of the global banned password list apply to all cloud-only users of Azure Active Directory (Azure AD).
 
-The customizable tenant-specific banned password list requires Azure AD Premium licenses. Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+The customizable custom banned password list requires Azure AD Premium licenses. Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## What do users see
 
