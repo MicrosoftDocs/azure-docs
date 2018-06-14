@@ -67,7 +67,7 @@ Ready to get started? You should try out some of the basic tasks you can do with
 * [Using a group to manage access to SaaS applications](../active-directory-accessmanagement-group-saasapps.md)
 * [Making a group available for end user self-service](../active-directory-accessmanagement-self-service-group-management.md)
 * [Syncing an on-premises group to Azure using Azure AD Connect](../connect/active-directory-aadconnect.md)
-* [Managing owners for a group](../active-directory-accessmanagement-managing-group-owners.md)
+* [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md)
 
 ## Next steps
 Now that you have understood the basics of access management, here are some additional advanced capabilities available in Azure Active Directory for managing access to your applications and resources.

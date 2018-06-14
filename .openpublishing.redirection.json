@@ -11582,7 +11582,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/cli-use-docker",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": false
         },
         {
@@ -11697,7 +11697,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/portal-use-docker",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": false
         },
         {
@@ -19501,6 +19501,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/role-based-access-control/index.md",
+            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/role-based-access-control/role-assignments-users.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
@@ -21466,11 +21476,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/role-based-access-control/index.md",
-            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/storage/blobs/index.md",
             "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
             "redirect_document_id": false
@@ -22326,6 +22331,26 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/classic/portal-use-docker.md",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/extensions-customscript-classic.md",
+            "redirect_url": "/azure/virtual-machines/extensions/custom-script-classic",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/join-redhat-linux-vm-to-azure-active-directory-domain-service.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
+            "redirect_document_id": true
+        },
+	    {
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
             "redirect_document_id": false
@@ -22353,6 +22378,96 @@
         {
             "source_path": "articles/active-directory/active-directory-manage-groups.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-manage-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-accessmanagement-managing-group-owners.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-whatis.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-whatis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/add-custom-domain.md",
+            "redirect_url": "/azure/active-directory/fundamentals/add-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/add-users-azure-active-directory.md",
+            "redirect_url": "/azure/active-directory/fundamentals/add-users-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/customize-branding.md",
+            "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/get-started-azure-ad.md",
+            "redirect_url": "/azure/active-directory/fundamentals/get-started-azure-ad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-administer.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-administer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-architecture.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-data-storage-eu.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-data-storage-eu",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-faq.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/identity-fundamentals.md",
+            "redirect_url": "/azure/active-directory/fundamentals/identity-fundamentals",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/license-users-groups.md",
+            "redirect_url": "/azure/active-directory/fundamentals/license-users-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/sign-up-organization.md",
+            "redirect_url": "/azure/active-directory/fundamentals/sign-up-organization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/understand-azure-identity-solutions.md",
+            "redirect_url": "/azure/active-directory/fundamentals/understand-azure-identity-solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/whats-new.md",
+            "redirect_url": "/azure/active-directory/fundamentals/whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/users-default-permissions.md",
+            "redirect_url": "/azure/active-directory/fundamentals/users-default-permissions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-membership-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-restore-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-restore-azure-portal",
             "redirect_document_id": false
         }
     ]

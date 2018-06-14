@@ -46,5 +46,5 @@ These articles provide additional information on Azure Active Directory.
 * [Manage access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md)
 * [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [What is Azure Active Directory?](active-directory-whatis.md)
+* [What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 * [Integrate your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
