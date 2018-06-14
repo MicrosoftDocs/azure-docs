@@ -321,6 +321,11 @@ function Format-NewTargetName ($target) {
 function Get-ChildTargets($target) {
   if ($target.TargetType -eq "CustomCollection") {
     $children = Get-AzureSqlJobChildTarget -TargetId $target.TargetId
+    if ($children.Count -eq 1)
+    {
+        $arr = New-Object System.Collections.ArrayList($null)
+        $children = $arr.Add($children)
+    }
     return $children
   }
   else {
