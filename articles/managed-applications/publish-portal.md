@@ -18,7 +18,7 @@ You can use the Azure portal to publish [managed applications](overview.md) that
 
 ## Prerequisites
 
-When publishing a managed application, you specify an identity to manage the resources. We recommend you specify an Azure Active Directory user group. To create an Azure Active Directory user group, see [Create a group and add members in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md). 
+When publishing a managed application, you specify an identity to manage the resources. We recommend you specify an Azure Active Directory user group. To create an Azure Active Directory user group, see [Create a group and add members in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). 
 
 The .zip file that contains the managed application definition must be available through a URI. We recommend that you upload your .zip file to a storage blob. 
 
