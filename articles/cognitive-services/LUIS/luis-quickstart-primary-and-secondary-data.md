@@ -19,7 +19,7 @@ In this tutorial, create an app that demonstrates how to extract machine-learned
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand simple entities 
-> * Open Human Resources domain app from quickstart and create new intent with example utterances
+> * Create new intent with example utterances
 > * Create new entity and label example utterances
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
@@ -29,13 +29,13 @@ For this article, you need a free [LUIS][LUIS] account in order to author your L
 ## Before you begin
 If you do not have the Human Resources app from the [custom domain](luis-quickstart-intents-only.md) quickstart, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS][LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
 
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `prebuilts`. Cloning is a great way to play with various LUIS features without affecting the original version. 
+If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `simple`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## Purpose of the app
 This app demonstrates how to pull data out of an utterance. Consider the following utterance from a chatbot:
 
 ```JSON
-Advise the board that the CEOs meeting went well
+Advise the board that the CEO's meeting went well
 ```
 
 The intent is to send a message. The important data of the utterance is the message itself,  `the CEOs meeting went well`.  
@@ -46,7 +46,7 @@ The purpose of a simple entity is to teach LUIS what the entity is and where it 
 For this simple app, the entity is at the end of the utterance. 
 
 ## Create new intent with example utterances
-1. Log in to the [LUIS][LUIS] website. Make sure to log into the region where you need the LUIS endpoints published.
+1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region](luis-reference-regions.md#luis-website) where you need the LUIS endpoints published.
 
 2. Open the Human Resources domain app created in the [custom domain](luis-quickstart-intents-only.md) quickstart.   
 
@@ -87,11 +87,13 @@ For this simple app, the entity is at the end of the utterance.
     [![](media/luis-quickstart-primary-and-secondary-data/hr-example-utterances.png "Screenshot of LUIS with utterances entered")](media/luis-quickstart-primary-and-secondary-data/hr-example-utterances.png#lightbox)
 
 ## Create new entity and label example utterances
+The following procedure describes how to create an entity from an utterance and continue labeling other utterances. A [short video](#video) shows this procedure at the end of this section.
+
 1. On the top utterance, select the left-most word of the message, enter `WellDoneMessageEntity` in the top field of the pop-up window, then select **Create new entity** on the pop-up window. 
 
 2. A pop-up window displays allowing you to correct the spelling of the entity name and select the type of **Simple** entity. Select **Done**.
 
-hr-create-welldonemessageentity.png
+    ![Create entity dialog](./media/luis-quickstart-primary-and-secondary-data/hr-create-welldonemessageentity.png)
 
 3. Select the message in the next utterance, then select **WellDoneMessageEntity** from the pop-up window. Label all messages in the utterances of this intent. 
 
@@ -100,24 +102,24 @@ hr-create-welldonemessageentity.png
     | Example utterances [marked] with WellDoneMessageEntity entity|
     |--|
     |Advise the board that [_the CEO's meeting went well_]|
-    |Be sure to tell [Valerie Louis that her delivery was well received]|
-    |Brief [Garrett Simons that his trip was well received]|
-    |Convey [our congratulations to Mike Oliver on his show]|
-    |[Good job Brad Jones!]|
-    |[Great performance John Devry]|
-    |Inform [Jack Constantine that he did a great job]|
-    |[Last week the Manager of Sales did a great job at the conference]|
-    |Let it be known that [Irene Bonds is doing a great job in customer service]|
-    |Nice to say [what a great job Denise in Design did yesterday at the meeting]|
-    |Note that [Greg Vining is a great developer]|
-    |Notify [Samantha Garrison that her delivery was amazing and much appreciated]|
-    |Please note that [Joan Diablo was great with the customer today.]|
-    |Please tell [Maggie Gallagher he did a great job with the assignment]|
-    |Say to [Sean Kenny the meeting was amazing]|
-    |Send message to [Jack in Accounting that his presentation was amazing! Good job!]|
-    |Tell [Kim Wexler she did a great job on the presentation]|
-    |Tell [Deborah Klein she did a great job]|
-    |[What a great job Susan Mack did yesterday with the rollout]|
+    |Be sure to tell [_Valerie Louis that her delivery was well received_]|
+    |Brief [_Garrett Simons that his trip was well received_]|
+    |Convey [_our congratulations to Mike Oliver on his show_]|
+    |[_Good job Brad Jones!_]|
+    |[_Great performance John Devry_]|
+    |Inform [_Jack Constantine that he did a great job_]|
+    |[_Last week the Manager of Sales did a great job at the conference_]|
+    |Let it be known that [_Irene Bonds is doing a great job in customer service_]|
+    |Nice to say [_what a great job Denise in Design did yesterday at the meeting_]|
+    |Note that [_Greg Vining is a great developer_]|
+    |Notify [_Samantha Garrison that her delivery was amazing and much appreciated_]|
+    |Please note that [_Joan Diablo was great with the customer today._]|
+    |Please tell [_Maggie Gallagher he did a great job with the assignment_]|
+    |Say to [_Sean Kenny the meeting was amazing_]|
+    |Send message to [_Jack in Accounting that his presentation was amazing! Good job!_]|
+    |Tell [_Kim Wexler she did a great job on the presentation_]|
+    |Tell [_Deborah Klein she did a great job_]|
+    |[_What a great job Susan Mack did yesterday with the rollout_]|
 
 4. Select the Tokens View toggle on the toolbar above the utterances to verify the messages are labeled correctly. 
 
@@ -125,6 +127,7 @@ hr-create-welldonemessageentity.png
 
     View a quick video showing this process to create an entity and label an utterance.
 
+    <a name="video"></a>
     ![Screen capture video showing entity creation and utterance labeling](media/luis-quickstart-primary-and-secondary-data/hr-create-entity-label-utterance.gif)
 
 ## Train the LUIS app
@@ -154,7 +157,7 @@ On the **Publish** page, select the **endpoint** link at the bottom of the page.
 
 [![](media/luis-quickstart-primary-and-secondary-data/hr-publish-select-endpoint.png "Screenshot of Publish page with endpoint highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-publish-select-endpoint.png#lightbox)
 
-This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `Tell John Smith what a great job he did on the presentation`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `WellDoneMessage` utterances.
+This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `Tell John Smith what a great job he did on the presentation`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `WellDoneMessage` intent and `WellDoneMessageEntity`.
 
 ```
 {
