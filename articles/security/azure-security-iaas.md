@@ -1,4 +1,4 @@
-﻿---
+---
   title: Security best practices for IaaS workloads in Azure | Microsoft Docs
   description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
   services: security
@@ -104,7 +104,7 @@ Hosting labs or production systems in Azure means that your systems need to be a
 
 Technologies in Azure can help you limit the access to those administrative endpoints. In Azure, you can use [network security groups](../virtual-network/security-overview.md) (NSGs). When you use Azure Resource Manager for deployment, NSGs limit the access from all networks to just the management endpoints (RDP or SSH). When you think NSGs, think router ACLs. You can use them to tightly control the network communication between various segments of your Azure networks. This is similar to creating networks in perimeter networks or other isolated networks. They do not inspect the traffic, but they do help with network segmentation.
 
-A more dynamic way of limiting access to virtual machines is to use Azure Security center [Just in time administration](../security-center/security-center-just-in-time.md). Security center can lock down your Azure VMs and provides access when needed. The process works by allowing access to a user that requests it after verifying that based on their [Role-Based Access control]((../role-based-access-control/role-assignments-portal.md) (RBAC) they have the necessary permissions. Azure Security center will then make the necessary Network Security Groups (NSGs) to allow inbound traffic.
+A more dynamic way of limiting access to virtual machines is to use Azure Security center [Just in time administration](../security-center/security-center-just-in-time.md). Security center can lock down your Azure VMs and provides access when needed. The process works by allowing access to a user that requests it after verifying that based on their [Role-Based Access control](../role-based-access-control/role-assignments-portal.md) (RBAC) they have the necessary permissions. Azure Security center will then make the necessary Network Security Groups (NSGs) to allow inbound traffic.
 
 ### [Site-to-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
