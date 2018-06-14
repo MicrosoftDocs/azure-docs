@@ -54,7 +54,7 @@ sections:
       - href:
       - href:
       - href:
-    - title: Get alternate transalations and usage
+    - title: Get alternate translations and usage
       values:
       - href: quickstart-csharp-dictionary
       - href:
