@@ -1,6 +1,6 @@
 ---
-title: Article contains Azure classic CLI content
-description: For articles which contain Azure classic CLI content which either [1] need to be updated [2] use classic deployment model
+title: include file
+description: include file
 author: sptramer
 ms.author: sttramer
 manager: carmonm
