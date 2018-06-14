@@ -592,13 +592,13 @@ $steps = $jobs | Get-AzureRmSqlElasticJobStep
 
 To test that jobs are executing correctly, start them:
 
-```
+```powershell
 $jobs | Start-AzureRmSqlElasticJob
 ```
 
 For any jobs that were running on a schedule, remember to enable them so that they can run in the background:
 
-```
+```powershell
 $jobs | Set-AzureRmSqlElasticJob -Enable
 ```
 
