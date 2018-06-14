@@ -25,7 +25,7 @@ Using Azure Active Directory (Azure AD), you can designate separate administrato
 The Global Administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
 
 ## Assign or remove administrator roles
-To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory](fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Available roles
 The following administrator roles are available:
@@ -212,7 +212,7 @@ The following roles should not be used. They been deprecated and will be removed
 
 * To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Manage users](active-directory-create-users.md)
 * [Manage passwords](active-directory-manage-passwords.md)
-* [Manage groups](active-directory-manage-groups.md)
+* [Manage groups](fundamentals/active-directory-manage-groups.md)
