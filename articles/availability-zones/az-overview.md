@@ -50,6 +50,8 @@ The Azure services that support Availability Zones are:
 - Public IP address
 - Zone-redundant storage
 - SQL Database
+- Event Hubs
+- Service Bus
 
 
 ## Pricing
