@@ -28,7 +28,7 @@ With Service Fabric Mesh you can:
 
 - "Lift and shift" existing applications into containers.  Take advantage of containerization to modernize your legacy applications. 
 - Build new microservices applications in containers. Deploy new applications at scale and integrate with other Azure services or legacy applications running in containers. Each containerized microservice is part of a secure, network isolated application with resource governance policies defined for CPU cores, memory, disk space, and more.
-- Integrate with and extend existing applications without making changes to those applications. Bring your own virtual network that provides connectivity to the existing application from the new application.  
+- Integrate with and extend existing applications without making changes to those applications. Use your own virtual network to connect existing application to the new application.  
 - Modernize your existing Cloud Services applications by migrating into containers.  
 
 ## Simple operational lifecycle
@@ -39,7 +39,7 @@ With Service Fabric Mesh you can:
 
 - Deploy and manage applications without having to explicitly provision and manage infrastructure.  Service Fabric Mesh provisions, upgrades, patches, and maintains the underlying clusters for you.
 - Setup continuous integration using the integrated tooling to easily package and deploy applications.
-- Leverage all the features of Azure Resource Manager resources (for example, audit trail and RBAC) because containers, services and applications are Resource Manager resources.
+- Leverage all the features of Azure Resource Manager resources (for example, audit trail and [role-based access control (RBAC)](/azure/role-based-access-control/overview)) because containers, services and applications are Resource Manager resources.
 - Deploy and manage resources using the [Azure portal](https://portal.azure.com), Resource Manager templates, or Azure CLI/PowerShell libraries.
 - Set up operational monitoring and alerting using [Application Insights](/azure/application-insights/) (or your tool of choice) to capture operational and diagnostic traces from the platform. 
 - Access application diagnostics information emitted from the application model using [Application Insights](/azure/application-insights/) or your tool of choice.
