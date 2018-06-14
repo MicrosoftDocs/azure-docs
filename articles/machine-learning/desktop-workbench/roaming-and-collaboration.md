@@ -18,7 +18,7 @@ ROBOTS: NOINDEX
 
 # Roaming and collaboration in Azure Machine Learning Workbench
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/overview-what-happened-to-workbench.md).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 This article describes how you can use Azure Machine Learning Workbench to set up projects for roaming between computers and collaborate with team members. 
 

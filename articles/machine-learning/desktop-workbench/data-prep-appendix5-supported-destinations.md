@@ -19,7 +19,7 @@ ROBOTS: NOINDEX
 
 # Supported data exports for this preview 
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Read more about [what happened to the desktop Workbench app](../service/overview-what-happened-to-workbench.md).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 
 It is possible to export to several different formats. You can use these formats to retain the intermediate results of data preparation before you integrate the results into the rest of the Machine Learning workflow.

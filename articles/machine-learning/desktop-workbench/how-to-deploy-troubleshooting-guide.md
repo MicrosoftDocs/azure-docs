@@ -18,7 +18,7 @@ ROBOTS: NOINDEX
 
 # Troubleshooting service deployment and environment setup
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 The following information can help determine the cause of errors when setting up the model management environment.
 

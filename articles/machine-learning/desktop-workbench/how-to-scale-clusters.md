@@ -18,7 +18,7 @@ ROBOTS: NOINDEX
 
 # Scaling the cluster to manage web service throughput
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] **Find the new quickstarts and tutorials on this [landing page](../service/index.yml).**
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 
 ## Why scale the cluster?
