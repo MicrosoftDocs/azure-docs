@@ -1307,4 +1307,10 @@ Lists all target group members in the specified group. If no group is specified,
 ## Resources
 
  - ![Topic link icon](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+
+
+## Next steps
+
+- [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell.md)
+- [Authorization and Permissions SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
   

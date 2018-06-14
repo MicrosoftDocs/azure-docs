@@ -2,17 +2,17 @@
 title: "Create an Azure SQL Database Elastic Job agent using PowerShell | Microsoft Docs"
 description: Learn how to create an Elastic Job agent using PowerShell.
 services: sql-database
-author: stevestein
+author: johnpaulkee
 manager: craigg
 ms.service: sql-database
 ms.topic: tutorial
 ms.date: 06/14/2018
-ms.author: sstein
+ms.author: joke
 
 ---
 # Create an Elastic Job agent using PowerShell
 
-[Elastic Jobs](elastic-jobs-overview.md) enable the running of one or more T-SQL scripts in parallel across many databases.
+[Elastic jobs](elastic-jobs-overview.md) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
 
 In this tutorial you learn the steps required to run a query across multiple databases:
 
