@@ -14,7 +14,7 @@ ms.custom: mvc
 
 ---
 
-# Develop a C# IoT Edge module and deploy to your simulated device - preview
+# Develop a C# IoT Edge module and deploy to your simulated device
 
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. In this tutorial, you learn how to:    
 
@@ -41,7 +41,8 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Bugbash-only Prerequisites
 * [Azure IoT Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
-* [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/bugbash-rc/azure-iot-edge-0.5.0-private.vsix).
+
+* [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private2](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/v0.5.0-private2/azure-iot-edge-0.5.0-private2.vsix).
     Download and save the VSIX file locally using the link provided. In VS Code, go to the **Extensions** view. Click the **...** then select **Install from VSIX...**. Reload the VS Code window to enable the extension.
 
     ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
@@ -296,8 +297,8 @@ In this tutorial, you created an IoT Edge module that contains code to filter ra
 
 
 <!-- Links -->
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-tutorial1-win]: quickstart.md
+[lnk-tutorial1-lin]: quickstart-linux.md
 
 <!-- Images -->
 [1]: ./media/tutorial-csharp-module/programcs.png

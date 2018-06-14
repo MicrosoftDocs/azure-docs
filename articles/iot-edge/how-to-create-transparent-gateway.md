@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Create an IoT Edge device that acts as a transparent gateway - preview
+# Create an IoT Edge device that acts as a transparent gateway
 
 This article provides detailed instructions for using an IoT Edge device as a transparent gateway. For the rest of this article, the term *IoT Edge gateway* refers to an IoT Edge device used as a transparent gateway. For more detailed information, see [How an IoT Edge device can be used as a gateway][lnk-edge-as-gateway], which gives a conceptual overview. 
 
@@ -173,8 +173,8 @@ These two steps enable your device application to connect to the gateway device.
 [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-tutorial1-win]: quickstart.md
+[lnk-tutorial1-lin]: quickstart-linux.md
 [lnk-edge-as-gateway]: ./iot-edge-as-gateway.md
 [lnk-module-dev]: module-development.md
 [lnk-iothub-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md

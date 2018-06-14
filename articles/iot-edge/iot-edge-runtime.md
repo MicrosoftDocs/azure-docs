@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Understand the Azure IoT Edge runtime and its architecture - preview
+# Understand the Azure IoT Edge runtime and its architecture
 
 The IoT Edge runtime is a collection of programs that need to be installed on a device for it to be considered an IoT Edge device. Collectively, the components of the IoT Edge runtime enable IoT Edge devices to receive code to run at the edge, and communicate the results. 
 

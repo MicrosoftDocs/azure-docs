@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Learn how to use deployment manifests to deploy modules and establish routes - preview
+# Learn how to use deployment manifests to deploy modules and establish routes
 
 Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which make up the IoT Edge runtime. In addition to those standard two, any IoT Edge device can run multiple modules to perform any number of processes. When you deploy all these modules to a device at once, you need a way to declare which modules are included and how they interact with each other. 
 

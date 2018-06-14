@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Develop an IoT Edge solution with multiple modules in Visual Studio Code (preview)
+# Develop an IoT Edge solution with multiple modules in Visual Studio Code
 
 You can use Visual Studio Code to develop your Azure IoT Edge solution with multiple modules. This article shows you how to create, update, and deploy an IoT Edge solution that pipes sensor data on a simulated IoT Edge device in VS Code. 
 
