@@ -79,6 +79,9 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
 
     ![Microsoft Authenticator app, allowing you to scan your QR code](./media/authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
+    >[!NOTE]
+    >For more info about how to get a QR code, see the [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) article.
+
 ## Troubleshooting backup and recovery problems
 There are a few reasons why your backup might not be available:
 
