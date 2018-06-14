@@ -1,22 +1,22 @@
 # [Azure Active Directory Documentation](index.md)
 
 # Overview
-## [What is Azure Active Directory?](active-directory-whatis.md)
+## [What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 ## [About Azure identity management](fundamentals/identity-fundamentals.md)
 ## [Understand Azure identity solutions](fundamentals/understand-azure-identity-solutions.md)
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
-## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
+## [Associate Azure subscriptions](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Residency and data considerations](fundamentals/active-directory-data-storage-eu.md)
 ## [FAQs](fundamentals/active-directory-faq.md)
 ## [What's New](fundamentals/whats-new.md)
 
 
 # Get started
-## [Get started with Azure AD](get-started-azure-ad.md)
-## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
-## [Add a custom domain name](add-custom-domain.md)
-## [Configure company branding](customize-branding.md)
-## [Add users to Azure AD](add-users-azure-active-directory.md)
+## [Get started with Azure AD](fundamentals/get-started-azure-ad.md)
+## [Sign up for Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
+## [Add a custom domain name](fundamentals/add-custom-domain.md)
+## [Configure company branding](fundamentals/customize-branding.md)
+## [Add users to Azure AD](fundamentals/add-users-azure-active-directory.md)
 ## [Assign licenses to users](fundamentals/license-users-groups.md)
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
 ## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
@@ -44,11 +44,11 @@
 #### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Manage users
-### [Add new users to Azure AD](add-users-azure-active-directory.md)
-### [Manage user profiles](active-directory-users-profile-azure-portal.md)
+### [Add new users to Azure AD](fundamentals/add-users-azure-active-directory.md)
+### [Manage user profiles](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
-### [Assign users to admin roles](active-directory-users-assign-role-azure-portal.md)
-### [Restore a deleted user](active-directory-users-restore.md)
+### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
+### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
@@ -80,15 +80,15 @@
 #### [Compare B2B collaboration to B2C](b2b/compare-with-b2c.md)
 #### [Getting support for B2B](b2b/get-support.md)
 
-## [Manage groups and members](active-directory-manage-groups.md)
+## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### Manage groups
-#### [Azure portal](active-directory-groups-create-azure-portal.md)
+#### [Azure portal](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
-### [Manage group members](active-directory-groups-members-azure-portal.md)
-### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
+### [Manage group members](fundamentals/active-directory-groups-members-azure-portal.md)
+### [Manage group owners](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
+### [Assign licenses using groups](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
@@ -98,10 +98,10 @@
 #### [Reference for products and service plans in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Set up Office 365 groups expiration](active-directory-groups-lifecycle-azure-portal.md)
 ### [Enforce a naming policy for groups](groups-naming-policy.md)
-### [View all groups](active-directory-groups-view-azure-portal.md)
+### [View all groups](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
 ### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [Manage group settings](active-directory-groups-settings-azure-portal.md) 
+### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
@@ -153,7 +153,7 @@
 ### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Reporting](authentication/howto-sspr-reporting.md)
 ### IT Admins: Reset passwords
-#### [Azure portal](active-directory-users-reset-password-azure-portal.md)
+#### [Azure portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [License SSPR](authentication/concept-sspr-licensing.md)
 ### [Password writeback](authentication/howto-sspr-writeback.md)
 ### [Troubleshoot](authentication/active-directory-passwords-troubleshoot.md)
@@ -277,7 +277,7 @@
 ## Manage your directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
-#### [Quickstart](add-custom-domain.md)
+#### [Quickstart](fundamentals/add-custom-domain.md)
 #### [Add custom domain names](active-directory-domains-manage-azure-portal.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
 ### [Delete a directory](directory-delete-howto.md)
@@ -294,11 +294,9 @@
 
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## [Manage access to Azure](../role-based-access-control/toc.yml)
-
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
-#### [Assign admin role to a user](active-directory-users-assign-role-azure-portal.md) 
+#### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md) 
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md) 
 ### [Securing privileged access](admin-roles-best-practices.md)  
 ### [Create emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md) 
@@ -325,6 +323,7 @@
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### Quickstarts
 ##### [Configure per cloud app MFA](active-directory-conditional-access-app-based-mfa.md)
+##### [Require terms of use to be accepted](active-directory-conditional-access-tou.md)
 #### Tutorials
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 #### Concepts
@@ -371,7 +370,7 @@
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
-## [Troubleshoot](active-directory-troubleshooting-support-howto.md)
+## [Troubleshoot](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Deploy Azure AD Proof of Concept (PoC)
 ### [PoC Playbook: Introduction](active-directory-playbook-intro.md)
