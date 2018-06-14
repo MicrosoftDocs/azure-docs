@@ -44,7 +44,7 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
    
    ![Selecting the Add command](./media/add-user.png)
     
-    d. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must either be the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](../../active-directory/add-custom-domain.md) such as "contoso.com."
+    d. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must either be the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](../../active-directory/fundamentals/add-custom-domain.md) such as "contoso.com."
     
     e. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
     
