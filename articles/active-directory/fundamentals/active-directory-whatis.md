@@ -22,9 +22,9 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant, cloud-based dir
 
 ![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png)
 
-- **For IT admins.** Azure AD provides a more secure solution for your organization through the use of stronger identity management and single sign-on (SSO) access to thousands of [cloud-based SaaS apps](active-directory-saas-tutorial-list.md) and on-premises apps. Through these apps, you'll also get cloud-based app security, seamless access, enhanced collaboration, and automation of the identity lifecycle for your employees, helping to increase both security and compliance.
+- **For IT admins.** Azure AD provides a more secure solution for your organization through the use of stronger identity management and single sign-on (SSO) access to thousands of [cloud-based SaaS apps](../active-directory-saas-tutorial-list.md) and on-premises apps. Through these apps, you'll also get cloud-based app security, seamless access, enhanced collaboration, and automation of the identity lifecycle for your employees, helping to increase both security and compliance.
 
-    Additionally, with just [four clicks](./connect/active-directory-aadconnect-get-started-express.md), you can integrate Azure AD with an existing Windows Server Active Directory, letting your organization use your existing on-premises identity investments to manage cloud-based SaaS app access.
+    Additionally, with just [four clicks](./../connect/active-directory-aadconnect-get-started-express.md), you can integrate Azure AD with an existing Windows Server Active Directory, letting your organization use your existing on-premises identity investments to manage cloud-based SaaS app access.
 
 - **For app developers.** Azure AD lets you focus on building your apps by letting you integrate with an identity management solution that's used by millions of organizations around the world.
 
@@ -52,7 +52,7 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
 > A number of Azure Active Directory capabilities are available through "pay as you go" editions:
 >
 > * Active Directory B2C is the identity and access management solution for your consumer-facing applications. For more information, see [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
-> * Azure Multi-Factor Authentication can be used through per user or per authentication providers. For more information, see [What is Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md)
+> * Azure Multi-Factor Authentication can be used through per user or per authentication providers. For more information, see [What is Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
 >
 
 ## How can I get started?
@@ -65,7 +65,7 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
 
 **If you are a developer:**
  
-* Check out the [Developers Guide](active-directory-developers-guide.md) to Azure Active Directory
+* Check out the [Developers Guide](../develop/active-directory-developers-guide.md) to Azure Active Directory
 
 * [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30-day trial today and  start integrating your apps with Azure AD
 

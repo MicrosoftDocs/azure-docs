@@ -29,7 +29,7 @@ Azure AD includes a full suite of identity management capabilities including the
 The rest of this article tells you how to get started with Azure AD. 
 
 ## Sign up for Azure Active Directory Premium
-To [get started with Azure Active Directory (Azure AD) Premium](active-directory-get-started-premium.md), you can purchase licenses and associate them with your Azure subscription. If you create a new Azure subscription, you will also need to activate your licensing plan and Azure AD service access. 
+To [get started with Azure Active Directory (Azure AD) Premium](../active-directory-get-started-premium.md), you can purchase licenses and associate them with your Azure subscription. If you create a new Azure subscription, you will also need to activate your licensing plan and Azure AD service access. 
 
 To sign up for Active Directory Premium, you have several options: 
 
@@ -65,7 +65,7 @@ To enable on-premises identity synchronization to Azure AD, you need to install 
 After creating or synchronizing new users, make sure they are visible in Azure AD.
 
 ## Assign licenses
-Although obtaining a subscription is all you need to configure paid capabilities, you must still [assign user licenses](fundamentals/license-users-groups.md) for Azure AD Premium paid features. Any user who should have access to, or who is managed through, an Azure AD paid feature must be assigned a license. License assignment is a mapping between a user and a purchased service, such as Azure AD Premium, Basic, or Enterprise Mobility + Security.
+Although obtaining a subscription is all you need to configure paid capabilities, you must still [assign user licenses](license-users-groups.md) for Azure AD Premium paid features. Any user who should have access to, or who is managed through, an Azure AD paid feature must be assigned a license. License assignment is a mapping between a user and a purchased service, such as Azure AD Premium, Basic, or Enterprise Mobility + Security.
 
 You can use group-based license assignment to set up rules such as in the following examples:
 
@@ -77,7 +77,7 @@ You can use group-based license assignment to set up rules such as in the follow
 Review assigned and available licenses under **Azure Active Directory** > **Licenses** > **All products**.
 
 ## Configure self-service password reset
-[Self-service password reset (SSPR)](authentication/quickstart-sspr.md) offers a simple means for IT administrators to enable users to reset or unlock their passwords or accounts. The system includes detailed reporting to track when users use the system along with notifications to alert you to misuse or abuse.
+[Self-service password reset (SSPR)](../authentication/quickstart-sspr.md) offers a simple means for IT administrators to enable users to reset or unlock their passwords or accounts. The system includes detailed reporting to track when users use the system along with notifications to alert you to misuse or abuse.
 
 ### Verification step
 Review enabled SSPR properties under **Azure Active Directory** > **Password reset** to ensure the proper user and group assignments have been made. 

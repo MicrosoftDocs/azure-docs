@@ -1,7 +1,7 @@
 # [Azure Active Directory Documentation](index.md)
 
 # Overview
-## [What is Azure Active Directory?](active-directory-whatis.md)
+## [What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 ## [About Azure identity management](fundamentals/identity-fundamentals.md)
 ## [Understand Azure identity solutions](fundamentals/understand-azure-identity-solutions.md)
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
@@ -12,11 +12,11 @@
 
 
 # Get started
-## [Get started with Azure AD](get-started-azure-ad.md)
+## [Get started with Azure AD](fundamentals/get-started-azure-ad.md)
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
-## [Add a custom domain name](add-custom-domain.md)
-## [Configure company branding](customize-branding.md)
-## [Add users to Azure AD](add-users-azure-active-directory.md)
+## [Add a custom domain name](fundamentals/add-custom-domain.md)
+## [Configure company branding](fundamentals/customize-branding.md)
+## [Add users to Azure AD](fundamentals/add-users-azure-active-directory.md)
 ## [Assign licenses to users](fundamentals/license-users-groups.md)
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
 ## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
@@ -44,7 +44,7 @@
 #### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Manage users
-### [Add new users to Azure AD](add-users-azure-active-directory.md)
+### [Add new users to Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](active-directory-users-assign-role-azure-portal.md)
@@ -86,8 +86,8 @@
 #### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
-### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
-### [Manage group membership](fundamentals/active-directory-groups-membership-azure-portal.md)
+### [Manage group owners](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
+### [Manage group membership](active-directory-groups-membership-azure-portal.md)
 ### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -277,7 +277,7 @@
 ## Manage your directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
-#### [Quickstart](add-custom-domain.md)
+#### [Quickstart](fundamentals/add-custom-domain.md)
 #### [Add custom domain names](active-directory-domains-manage-azure-portal.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
 ### [Delete a directory](directory-delete-howto.md)

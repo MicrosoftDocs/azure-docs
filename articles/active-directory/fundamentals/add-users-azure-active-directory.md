@@ -26,7 +26,7 @@ This article explains how to delete or add users in your organization into your 
    ![Selecting the Add command](./media/add-users-azure-active-directory/add-user.png)
 4. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must either be the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](add-custom-domain.md) such as "contoso.com."
 5. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
-6. Optionally, you can open and fill out the information in **Profile**, **Groups**, or **Directory role** for the user. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles-azure-portal.md).
+6. Optionally, you can open and fill out the information in **Profile**, **Groups**, or **Directory role** for the user. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](../active-directory-assign-admin-roles-azure-portal.md).
 7. On **User**, select **Create**.
 8. Securely distribute the generated password to the new user so that the user can sign in.
 
@@ -42,10 +42,10 @@ This article explains how to delete or add users in your organization into your 
 
 
 ### Learn more 
-* [Add guest users from another directory](active-directory-b2b-what-is-azure-ad-b2b.md) 
-* [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
-* [Manage user profiles](active-directory-users-profile-azure-portal.md)
-* [Restore a deleted user](active-directory-users-restore.md)
+* [Add guest users from another directory](/b2b/what-is-b2b.md) 
+* [Assign a user to a role in your Azure AD](../active-directory-users-assign-role-azure-portal.md)
+* [Manage user profiles](../active-directory-users-profile-azure-portal.md)
+* [Restore a deleted user](../active-directory-users-restore.md)
 
 
 
@@ -54,5 +54,5 @@ In this quickstart, you’ve learned how to add new users to Azure AD Premium.
 
 You can use the following link to create a new user in Azure AD from the Azure portal.
 
-> [!div class="nextstepaction"]
-> [Add users to Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All users) 
+>[!div class="nextstepaction"]
+>[Add users to Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/)

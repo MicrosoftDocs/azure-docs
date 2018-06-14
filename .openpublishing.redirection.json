@@ -22356,6 +22356,36 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-accessmanagement-managing-group-owners.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-whatis.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-whatis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/add-custom-domain.md",
+            "redirect_url": "/azure/active-directory/fundamentals/add-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/add-users-azure-active-directory.md",
+            "redirect_url": "/azure/active-directory/fundamentals/add-users-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/customize-branding.md",
+            "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/get-started-azure-ad.md",
+            "redirect_url": "/azure/active-directory/fundamentals/get-started-azure-ad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-administer.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-administer",
             "redirect_document_id": false
