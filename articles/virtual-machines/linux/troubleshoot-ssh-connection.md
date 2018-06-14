@@ -46,7 +46,7 @@ Continue reading for more detailed troubleshooting steps and explanations.
 You can reset credentials or SSH configuration using one of the following methods:
 
 * [Azure portal](#use-the-azure-portal) - great if you need to quickly reset the SSH configuration or SSH key and you don't have the Azure tools installed.
-* [Azure CLI](#use-the-azure-cli-20) - if you are already on the command line, quickly reset the SSH configuration or credentials. You can also use the [Azure CLI 1.0](#use-the-azure-cli-10)
+* [Azure CLI](#use-the-azure-cli-20) - if you are already on the command line, quickly reset the SSH configuration or credentials. You can also use the [Azure classic CLI](#use-the-azure-cli-10)
 * [Azure VMAccessForLinux extension](#use-the-vmaccess-extension) - create and reuse json definition files to reset the SSH configuration or user credentials.
 
 After each troubleshooting step, try connecting to your VM again. If you still cannot connect, try the next step.
@@ -145,8 +145,8 @@ az vm extension set --resource-group philmea --vm-name Ubuntu \
     --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
-## Use the Azure CLI 1.0
-If you haven't already, [install the Azure CLI 1.0 and connect to your Azure subscription](../../cli-install-nodejs.md). Make sure that you are using Resource Manager mode as follows:
+## Use the Azure classic CLI
+If you haven't already, [install the Azure classic CLI and connect to your Azure subscription](../../cli-install-nodejs.md). Make sure that you are using Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm
@@ -188,7 +188,7 @@ To restart a VM using the Azure portal, select your VM and click the **Restart**
 
 ![Restart a VM in the Azure portal](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
-### Azure CLI 1.0
+### Azure classic CLI
 The following example restarts the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
@@ -216,7 +216,7 @@ To redeploy a VM using the Azure portal, select your VM and scroll down to the *
 
 ![Redeploy a VM in the Azure portal](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
-### Azure CLI 1.0
+### Azure classic CLI
 The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
