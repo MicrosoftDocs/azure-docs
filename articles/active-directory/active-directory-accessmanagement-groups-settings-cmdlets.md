@@ -11,10 +11,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro;
+ms.custom: it-pro
 
 ---
 # Azure Active Directory cmdlets for configuring group settings
@@ -37,7 +37,7 @@ If you know the name of the setting you want to retrieve, you can use the below 
 ```
 
 ## Create settings at the directory level
-These steps create settings at directory level, which apply to all Office 365 groups in the directory.
+These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 1. In the DirectorySettings cmdlets, you must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
   
@@ -216,5 +216,5 @@ You can find more Azure Active Directory PowerShell documentation at [Azure Acti
 
 ## Additional reading
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
