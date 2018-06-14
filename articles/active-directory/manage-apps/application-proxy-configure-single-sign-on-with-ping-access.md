@@ -34,7 +34,7 @@ Since the Application Proxy connectors direct remote traffic to all apps regardl
 
 Since this scenario is offered through a partnership between Azure Active Directory and PingAccess, you need licenses for both services. However, Azure Active Directory Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can purchase an additional license from PingAccess. 
 
-For more information, see [Azure Active Directory editions](../active-directory-whatis.md).
+For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
 ## Publish your application in Azure
 
@@ -180,4 +180,4 @@ When you've completed all these steps, your app should be up and running. To tes
 
 - [Configure PingAccess for Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [How does Azure AD Application Proxy provide single sign-on?](application-proxy-single-sign-on.md)
-- [Troubleshoot Application Proxy](../active-directory-application-proxy-troubleshoot.md)
+- [Troubleshoot Application Proxy](application-proxy-troubleshoot.md)

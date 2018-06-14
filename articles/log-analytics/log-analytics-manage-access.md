@@ -24,7 +24,7 @@ To create a workspace, you need to:
 
 1. Have an Azure subscription.
 2. Choose a workspace name.
-3. Associate the workspace with your subscription.
+3. Associate the workspace with one of your subscriptions and resource groups.
 4. Choose a geographical location.
 
 ## Determine the number of workspaces you need
@@ -35,15 +35,14 @@ You can have multiple workspaces per Azure subscription and you can have access 
 Today, a workspace provides:
 
 * A geographic location for data storage
-* Granularity for billing
-* Data isolation
-* Scope for configuration
+* Data isolation to define different user access rights
+* Scope for configuration of settings like retention and data capping
 
-Based on the preceding characteristics, you may want to create multiple workspaces if:
+From consumption point of view, we recommend to create as few workspaces as possible. It makes the administration and query experiences easier and quicker. But, based on the preceding characteristics, you may want to create multiple workspaces if:
 
 * You are a global company and you need data stored in specific regions for data sovereignty or compliance reasons.
 * You are using Azure and you want to avoid outbound data transfer charges by having a workspace in the same region as the Azure resources it manages.
-* You want to allocate charges to different departments or business groups based on their usage. When you create a workspace for each department or business group, your Azure bill and usage statement shows the charges for each workspace separately.
+* You want to allocate charges to different departments or business groups based on their usage. When you create a workspace for each department or business group in its own Azure subscription.
 * You are a managed service provider and need to keep the Log Analytics data for each customer you manage isolated from other customer’s data.
 * You manage multiple customers and you want each customer / department / business group to see their own data but not the data for others.
 
@@ -53,7 +52,7 @@ If you are using System Center Operations Manager, each Operations Manager manag
 
 ### Workspace information
 
-You can view details about your workspace in the Azure portal. You can also view details in the OMS portal.
+You can view details about your workspace in the Azure portal. 
 
 #### View workspace information in the Azure portal
 
@@ -66,28 +65,8 @@ You can view details about your workspace in the Azure portal. You can also view
 
 
 ## Manage accounts and users
-Each workspace can have multiple accounts associated with it, and each account (Microsoft account or Organizational account) can have access to multiple workspaces.
+Each workspace can have multiple accounts associated with it, and each account can have access to multiple workspaces. Access is managed via [Azure role-based access](../active-directory/role-based-access-control-configure.md). These access rights applies both on the Azure portal and on the API access.
 
-By default, the Microsoft account or Organizational account that creates the workspace becomes the Administrator of the workspace.
-
-There are two permission models that control access to a Log Analytics workspace:
-
-1. Legacy Log Analytics user roles
-2. [Azure role-based access](../active-directory/role-based-access-control-configure.md)
-
-The following table summarizes the access that can be set using each permission model:
-
-|                          | Log Analytics portal | Azure portal | API (including PowerShell) |
-|--------------------------|----------------------|--------------|----------------------------|
-| Log Analytics user roles | Yes                  | No           | No                         |
-| Azure role-based access  | Yes                  | Yes          | Yes                        |
-
-> [!NOTE]
-> Log Analytics is moving to use Azure role-based access as the permissions model, replacing the Log Analytics user roles.
->
->
-
-The legacy Log Analytics user roles only control access to activities performed in the [Log Analytics portal](https://mms.microsoft.com).
 
 The following activities also require Azure permissions:
 

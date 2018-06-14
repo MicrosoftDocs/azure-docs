@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: arluca
+ms.author: daveba
 ---
 
 # Tutorial: Use a Windows VM MSI to access Azure Cosmos DB
