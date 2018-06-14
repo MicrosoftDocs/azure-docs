@@ -65,7 +65,7 @@ You can view details about your workspace in the Azure portal.
 
 
 ## Manage accounts and users
-Each workspace can have multiple accounts associated with it, and each account can have access to multiple workspaces. Access is managed via [Azure role-based access](../active-directory/role-based-access-control-configure.md). These access rights applies both on the UI and on the API access.
+Each workspace can have multiple accounts associated with it, and each account can have access to multiple workspaces. Access is managed via [Azure role-based access](../active-directory/role-based-access-control-configure.md). These access rights applies both on the Azure portal and on the API access.
 
 
 The following activities also require Azure permissions:
