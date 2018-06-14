@@ -47,8 +47,7 @@ This Azure CLI script example creates everything needed to run several Ubuntu vi
    az network public-ip create \
     --resource-group myResourceGroup \
     --name myPublicIP \
-    --sku Standard
-    --zone 1
+    --sku Standard    
 
   # Create an Azure Load Balancer.
    az network lb create \
@@ -124,7 +123,7 @@ This Azure CLI script example creates everything needed to run several Ubuntu vi
      --access allow \
      --priority 2000
 
-  # Create three virtual network cards and associate with public IP address and NSG.
+  # Create three virtual network cards and associate with load balancer and NSG.
   for i in `seq 1 3`; do
    az network nic create \
      --resource-group myResourceGroup \
@@ -142,7 +141,7 @@ for i in `seq 1 3`; do
   az vm create \
     --resource-group myResourceGroup \
     --name myVM$i \
-    --zone 1 \
+    --zone $i \
     --nics myNic$i \
     --image UbuntuLTS \
     --generate-ssh-keys \
