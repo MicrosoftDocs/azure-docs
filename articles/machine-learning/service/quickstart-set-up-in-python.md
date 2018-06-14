@@ -41,84 +41,88 @@ Open command line editor, and install the azureml-sdk Python package
 pip install azureml-sdk
 ```
 
+## Log in to your Azure Subscription and create resource group
+
+1. Log in to your Azure subscription.
+
+   From command line, run following command and follow the prompts for interactive login:
+
+   ```azurecli
+   az login
+   ```
+
+ 2. Check which Azure subscriptions are available to you, and set an active one. 
+ 
+    Select the SubscriptionId value from the output of *az account list* command.
+
+    ```azurecli
+    az account list --output table
+    az account set --subscription <SubscriptionId>
+    az account show
+    ```
+
+   3. Create Azure resource group to hold your Workspace
+
+      Supported location choices are eastus2, others TBD
+
+      ```azurecli
+      az group create --name myrg --location eastus2
+      ```
+
 ## Create Workspace and attach Project
 
 Azure ML Workspace is the top-level Azure resource that contains your run histories, compute resources, models, and deployments.
 
-1. Log in to your Azure subscription.
-
-From command line, run following command and follow the prompts for interactive login:
-
-```azurecli
-az login
-```
-
-Select the Azure subscription to use for creating the workspace
-
-```azurecli
-az account list
-az account set --subscription <my subscription>
-az account show
-```
-
-1. Create Azure resource group to hold your Workspace
-
-Supported location choices are eastus2, others TBD
-
-```azurecli
-az group create --name myrg --location eastus2
-```
+A project is a local folder. It contain the scripts you use to solve your machine learning problem, and configuration files that attach it to your workspace in Azure Cloud.
 
 1. Create folder for your Azure ML Project
 
-In Azure Machine Learning, a project is a local folder. It contain the scripts you use to solve your machine learning problem, and configuration files that attach it to your workspace in Azure Cloud.
+   ```
+   mkdir myproject
+   cd myproject
+   ```
 
-```
-mkdir myproject
-cd myproject
-```
+2. Create Workspace and Project under the resource group 
 
-1. Create Workspace and Project under the resource group 
+   Open Python editor and run following commands. Use the SubscriptionId you selected when creating resource group earlier.
 
-Open Python editor and run following commands:
+   ```python
+   from azureml.core import Workspace, Project
 
-```python
-from azureml.core import Workspace, Project
+   # Create workspace
+   ws = Workspace.create(name="myws", subscription_id=<SubscriptionId>, resource_group="myrg")
 
-# Create workspace
-ws = Workspace.create(name="myws", subscription_id=<my_subscription>, resource_group="myrg")
+   # Attach current folder as project
+   proj = Project.attach(workspace_object="ws", run_history_name="myhistory")
+   ```
 
-# Attach current folder as project
-proj = Project.attach(workspace_object="ws", run_history_name="myhistory")
+   The *run_history_name* argument specifies the name of run history used to group together and track your runs.
 
-```
-
-The *run_history_name* argument specifies the name of run history used to group together and track your runs.
-
->[!NOTE]
->In addition to Azure ML Workspace, the *Workspace.create* command creates storage account, Azure Container Registry, Azure Key Vault and AppInsights resources under your resource group.
+   >[!NOTE]
+   >In addition to Azure ML Workspace, the *Workspace.create* command creates storage account, Azure Container Registry, Azure Key Vault and AppInsights resources under your resource group.
 
 ## Run a Python code
 
 1. Track metrics from Python code
 
-Run following commands in Python editor to track few metrics.
+   Run following commands in Python editor to track few metrics.
 
-```python
-run = Run.start_logging(workspace = ws, run_history_name = "myhistory")
-run.log(TBD)
-run.log(TBD)
-run.complete()
-```
+   ```python
+   run = Run.start_logging(workspace = ws, run_history_name = "myhistory")
+   run.log(SCALAR METRIC TBD)
+   run.log(VECTOR METRIC TBD)
+   run.upload_file(TBD)
+   run.complete()
+   ```
 
-1. View run history from web portal.
+2. View run history from web portal.
 
-Use following command to get a link to web portal to view your run history.
+   Use following command to get a link to web portal to view your run history.
 
-```python
-import helpers
-print(helpers.get_run_history_url(run))
-```
+   ```python
+   import helpers
+   print(helpers.get_run_history_url(run))
+   ```
 
 SCREENSHOT TBD
 
