@@ -73,7 +73,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
 4. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
-   3. Choose **C# Module** as the module template. 
+   3. Choose **Python Module** as the module template. 
    4. Name your module **PythonModule**. 
    5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/pythonmodule**.
  
