@@ -6,6 +6,7 @@ author: rastala
 ms.author: roastala
 manager: haining
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
@@ -42,33 +43,38 @@ On your computer, open command line editor and install the Azure ML CLI extensio
 az extension add <EXACT COMMAND TBD>
 ```
 
-## Create Azure ML Workspace
+## Log in to your Azure Subscription and create resource group
 
-Azure ML Workspace is the top-level Azure resource that contains your run histories, compute resources, models, and deployments.
 
 1. Log in to your Azure subscription.
 
-    From command line, run following command and follow the prompts for interactive login:
-    
+   From command line, run following command and follow the prompts for interactive login:
+
+   ```azurecli
+   az login
+   ```
+
+ 2. Check which Azure subscriptions are available to you, and set an active one. 
+ 
+    Select the SubscriptionId value from the output of *az account list* command.
+
     ```azurecli
-    az login
-    ```
-    
-    Select the Azure subscription to use for creating the workspace:
-    
-    ```azurecli
-    az account list
-    az account set --subscription <my subscription>
+    az account list --output table
+    az account set --subscription <SubscriptionId>
     az account show
     ```
-    
-1. Create Azure resource group to hold your Workspace
 
-    Supported location choices are eastus2, others TBD
+   3. Create Azure resource group to hold your Workspace
 
-    ```azurecli
-    az group create --name myrg --location eastus2
-    ```
+      Supported location choices are eastus2, others TBD
+
+      ```azurecli
+      az group create --name myrg --location eastus2
+      ```
+
+## Create Azure ML Workspace
+
+Azure ML Workspace is the top-level Azure resource that contains your run histories, compute resources, models, and deployments.
 
 1. Create Workspace under the resource group 
 
@@ -90,7 +96,7 @@ In Azure Machine Learning, a project is a local folder. It contain the scripts y
     cd myproject
     ```
 
-1. Attach the folder as a Azure ML project. The *history* argument specifies the name of run history used to group together and track your runs.
+2. Attach the folder as a Azure ML project. The *history* argument specifies the name of run history used to group together and track your runs.
 
     ```azurecli
     az ml project attach --history myhistory -w myws
@@ -102,13 +108,13 @@ In Azure Machine Learning, a project is a local folder. It contain the scripts y
 
     Copy hello.py (Location and content TBD) script to your project folder.
 
-1. Run hello.py script on your local computer.
+2. Run hello.py script on your local computer.
 
     ```azurecli
     az ml run submit -c local hello.py
     ```
 
-1. View results of your run.
+3. View results of your run.
 
     The run should output a web link to your console. Copy-paste this link to your web browser and open it. This opens a web portal view that shows the results of your run.
 
