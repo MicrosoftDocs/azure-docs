@@ -406,6 +406,8 @@
         href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md    
     - name: Build an ASP.NET Core service
       href: service-fabric-add-a-web-frontend.md
+    - name: Build an Apache Tomcat server container on Linux
+      href: service-fabric-get-started-tomcat.md
     - name: Configure security
       items:
       - name: Manage application secrets
@@ -630,6 +632,11 @@
       href: service-fabric-troubleshoot-local-cluster-setup.md
     - name: Diagnose common scenarios
       href: service-fabric-diagnostics-common-scenarios.md
+  - name: Best practices
+    items:
+    - name: Production readiness checklist
+      href: service-fabric-production-readiness-checklist.md
+
 - name: Reference
   items:
   - name: Azure PowerShell
