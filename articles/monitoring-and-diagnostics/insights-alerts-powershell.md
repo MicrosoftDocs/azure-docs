@@ -1,5 +1,5 @@
 ﻿﻿---
-title: Use PowerShell to create classic alerts for Azure services| Microsoft Docs
+title: Use PowerShell to create classic alerts for Azure services | Microsoft Docs
 description: Trigger emails, notifications, or call website URLs (webhooks) or automation when the conditions that you specify are met.
 author: rboucher
 services: azure-monitor
