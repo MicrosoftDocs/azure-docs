@@ -122,7 +122,7 @@ Job execution history is stored in the *Job database*. A system cleanup job purg
 
 ### Create and configure the agent
 
-1. Create or identify an empty S0 or higher SQL database. This will be used this as the *Job database* during Elastic Job agent creation.
+1. Create or identify an empty S0 or higher SQL database. This will be used as the *Job database* during Elastic Job agent creation.
 2. Create an Elastic Job agent in the [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent), or with [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
    ![Elastic Job agent create](media/elastic-jobs-overview/create-elastic-job-agent.png)
