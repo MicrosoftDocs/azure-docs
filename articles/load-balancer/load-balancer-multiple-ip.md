@@ -23,7 +23,6 @@ ms.author: kumud
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 In this article, we're going to show you how to use Azure Load Balancer with multiple IP addresses on a secondary network interface controller (NIC). The following diagram illustrates our scenario:
 
@@ -85,7 +84,7 @@ Create your load balancer for the configuration:
 
 1. Browse to the Azure portal: http://portal.azure.com. Sign in with your Azure account.
 
-2. In the upper left of the screen, select **New** > **Networking** > **Load Balancer**. Next, select **Create**.
+2. In the upper left of the screen, select **Create a resource** > **Networking** > **Load Balancer**. Next, select **Create**.
 
 3. Under **Create load balancer**, type a name for your load balancer. In this scenario, we're using the name **mylb**.
 
@@ -117,7 +116,7 @@ For each website (contoso.com and fabrikam.com), configure the front-end IP pool
 
 4. Select the load balancer (**mylb**) that you want to add the front-end IP pool to.
 
-5. Under **Settings**, select **Frontend Pools**. In the next pane, near the top, select **Add**.
+5. Under **Settings**, select **Frontend IP configuration**. In the next pane, near the top, select **Add**.
 
 6. Type a name for your front-end IP address (for example, **contosofe** or **fabrikamfe**).
 
@@ -125,7 +124,7 @@ For each website (contoso.com and fabrikam.com), configure the front-end IP pool
 
 8. Create the second front-end IP address by repeating <a href="#step3-3">step 3</a> through <a href="#step3-7">step 7</a> in this section.
 
-After the front-end pool is configured, the IP addresses are displayed under your load balancer **Frontend IP Pool** settings. 
+After the front-end pool is configured, the IP addresses are displayed under your load balancer **Frontend IP configuration** settings. 
     
 ### Step 4: Configure the back-end pool
 
@@ -169,7 +168,7 @@ Configure a health probe for your load balancer:
 
 For each website (contoso.com and fabrikam.com), configure the load balancing rules:
     
-1. <a name="step6-1"></a>Under **Settings**, select **Health probe**. In the next pane, near the top, select **Add**. 
+1. <a name="step6-1"></a>Under **Settings**, select **Load balancing rules**. In the next pane, near the top, select **Add**. 
 
 2. For **Name**, type a name for the load balancing rule (for example, **HTTPc** for contoso.com, or **HTTPf** for fabrikam.com).
 

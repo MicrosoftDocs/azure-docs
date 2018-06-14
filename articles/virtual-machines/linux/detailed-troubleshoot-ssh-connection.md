@@ -36,7 +36,7 @@ The following steps help you isolate the source of the failure and figure out so
 
 2. Select **Settings** to examine endpoints, IP addresses, network security groups, and other settings.
 
-   The VM should have an endpoint defined for SSH traffic that you can view in **Endpoints** or **[Network security group](../../virtual-network/virtual-networks-nsg.md)**. Endpoints in VMs that were created by using Resource Manager are stored in a network security group. Verify that the rules have been applied to the network security group and are referenced in the subnet.
+   The VM should have an endpoint defined for SSH traffic that you can view in **Endpoints** or **[Network security group](../../virtual-network/security-overview.md)**. Endpoints in VMs that were created by using Resource Manager are stored in a network security group. Verify that the rules have been applied to the network security group and are referenced in the subnet.
 
 To verify network connectivity, check the configured endpoints and see if you can connect to the VM through another protocol, such as HTTP or another service.
 
@@ -108,7 +108,7 @@ To eliminate the endpoint as a source of the problem, remove the current endpoin
 
 ## Source 4: Network security groups
 Network security groups enable you to have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Check your network security group rules to ensure that SSH traffic to and from the Internet is allowed.
-For more information, see [About network security groups](../../virtual-network/virtual-networks-nsg.md).
+For more information, see [About network security groups](../../virtual-network/security-overview.md).
 
 You can also use IP Verify to validate the NSG configuration. For more information, see [Azure network monitoring overview](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
@@ -117,7 +117,7 @@ The last source of possible problems is the Azure virtual machine itself.
 
 ![Diagram that highlights Linux-based Azure virtual machine](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-If you haven't done so already, follow the instructions [to reset a password or SSH for Linux-based virtual machines](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+If you haven't done so already, follow the instructions [to reset a password Linux-based virtual machines](reset-password.md).
 
 Try connecting from your computer again. If it still fails, the following are some of the possible issues:
 

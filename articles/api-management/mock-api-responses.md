@@ -3,7 +3,7 @@ title: Mock API responses with the Azure portal  | Microsoft Docs
 description: This tutorial shows you how to use API Management (APIM) to set a policy on an API so it returns a mocked response. This method endables developers to proceed with implementation and testing of the API Management instance in case the backend is not available to send real responses.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -37,8 +37,6 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## Create a test API 
 

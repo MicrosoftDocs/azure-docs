@@ -292,7 +292,7 @@ Log into the virtual machine using the hostname (hk-cas-template.cloudapp.net) a
 Execute the following sequence of actions to capture the image:
 
 ##### 1. Deprovision
-Use the command “sudo waagent –deprovision+user” to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](capture-image.md) to Use as a Template more details on the image capture process.
+Use the command “sudo waagent –deprovision+user” to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](capture-image-classic.md) to Use as a Template more details on the image capture process.
 
 ##### 2: Shut down the VM
 Make sure that the virtual machine is highlighted and click the SHUTDOWN link from the bottom command bar.
@@ -357,7 +357,7 @@ The above process can be executed using Azure portal; use a Windows machine (use
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
         #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
         #fundamental variables - change these to reflect your subscription
         $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
@@ -607,7 +607,7 @@ You should see the same display as seen for the West region:
 Execute a few more inserts and see that those get replicated to west-us part of the cluster.
 
 ## Test Cassandra Cluster from Node.js
-Using one of the Linux VMs crated in the "web" tier previously, you execute a simple Node.js script to read the previously inserted data
+Using one of the Linux VMs created in the "web" tier previously, you execute a simple Node.js script to read the previously inserted data
 
 **Step 1: Install Node.js and Cassandra Client**
 

@@ -11,12 +11,10 @@ editor: cgronlun
 ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
-ms.author: nitinme
+ms.date: 01/09/2018
+ms.author: maxluk
 ---
 # Run Spark from the Spark Shell
 

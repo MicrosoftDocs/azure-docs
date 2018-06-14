@@ -3,7 +3,7 @@ title: Monitor Azure Kubernetes cluster - Sysdig
 description: Monitoring Kubernetes cluster in Azure Container Service using Sysdig
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -56,7 +56,7 @@ To monitor your containers, Sysdig runs a process on each machine using a Kubern
 DaemonSets are Kubernetes API objects that run a single instance of a container per machine.
 They're perfect for installing tools like the Sysdig's monitoring agent.
 
-To install the Sysdig daemonset, you should first download [the template](https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/kubernetes/sysdig-daemonset.yaml) 
+To install the Sysdig daemonset, you should first download [the template](https://github.com/draios/sysdig-cloud-scripts/tree/master/agent_deploy/kubernetes) 
 from sysdig. Save that file as `sysdig-daemonset.yaml`.
 
 On Linux and OS X you can run:

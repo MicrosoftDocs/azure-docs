@@ -3,7 +3,7 @@ title: Azure Security MVP Program | Microsoft Docs
 description: The article provides an overview of the Azure Security contribution area in the MVP Program.
 services: security
 documentationcenter: na
-author: TomShinder
+author: barclayn
 manager: Mbaldwin
 editor: TomSh
 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
+ms.date: 04/26/2018
+ms.author: barclayn
 
 ---
 # Azure Security MVP Program
+
 Microsoft Most Valuable Professionals (MVPs) are community leaders who have demonstrated an exemplary commitment to helping others get the most out of their experience with Microsoft technologies. They share their passion, real-world knowledge, and technical expertise with the community and with Microsoft.
 
 Microsoft Azure now recognizes community experts with special expertise in Azure security. Microsoft MVPs can be awarded the MVP in Microsoft Azure in the Azure Security contribution area.

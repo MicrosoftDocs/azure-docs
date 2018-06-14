@@ -3,8 +3,8 @@ title: Working with XML messages in your workflows - Azure Logic Apps | Microsof
 description: Process, validate, transform, and enrich XML messages in logic apps and business-to scenarios using the Enterprise Integration Pack
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
-manager: anneta
+author: divyaswarnkar
+manager: jeconnoc
 editor: 
 
 ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017 
 ms.date: 02/27/2017
-ms.author: LADocs; mandia
+ms.author: LADocs; divswa
 ---
 
 # Validate and transform XML, encode and decode flat files, and enrich messages features in logic apps

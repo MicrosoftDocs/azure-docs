@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Troubleshoot connectivity issues | Microsoft Docs'
 description: Explains how to troubleshoot connectivity issues with Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 
@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---

@@ -2,19 +2,12 @@
 title: Azure SQL Database single database | Microsoft Docs
 description: Manage the service tier, performance level, and amount of storagea for a single Azure SQL database.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 12/14/2017
+ms.topic: conceptual
+ms.date: 04/04/2018
 ms.author: carlrab
 
 ---
@@ -37,7 +30,7 @@ Click **Overview** to monitor and/or cancel an ongoing operation.
 ![Cancel operation](./media/sql-database-single-database-resources/cancel-operation.png)
 
 > [!IMPORTANT]
-> Review [Current limitations of P11 and P15 databases with 4-TB maximum size](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
+> Review [Current limitations of P11 and P15 databases with 4-TB maximum size](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
 >
 
 ## Manage single database resources using PowerShell
@@ -112,6 +105,6 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 
 ## Next steps
 
-- Learn about service tiers, performance levels, and storage amounts, see [Service tiers](sql-database-service-tiers.md).
+- Learn about service tiers, performance levels, and storage amounts, see [[DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md).
 - Learn about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)

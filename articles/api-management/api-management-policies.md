@@ -3,7 +3,7 @@ title: Azure API Management policies | Microsoft Docs
 description: Learn about the policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
  
@@ -43,7 +43,7 @@ This section provides a reference for the following API Management policies. For
     -   [Set variable](api-management-advanced-policies.md#set-variable) - Persist a value in a named context variable for later access.  
     -   [Set request method](api-management-advanced-policies.md#SetRequestMethod) - Allows you to change the HTTP method for a request.  
     -   [Set status code](api-management-advanced-policies.md#SetStatus) - Changes the HTTP status code to the specified value.  
-    -   [Trace](api-management-advanced-policies.md#Trace) - Adds a string into the [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) output.  
+    -   [Trace](api-management-advanced-policies.md#Trace) - Adds a string into the [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) output.  
     -   [Wait](api-management-advanced-policies.md#Wait) - Waits for enclosed [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](api-management-advanced-policies.md#choose) policies to complete before proceeding.  
 -   [Authentication policies](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) - Authenticate with a backend service using Basic authentication.  
@@ -70,11 +70,7 @@ This section provides a reference for the following API Management policies. For
     -   [Rewrite URL](api-management-transformation-policies.md#RewriteURL) - Converts a request URL from its public form to the form expected by the web service.  
     -   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) - Applies an XSL transformation to XML in the request or response body.  
 
-## Video
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
 ## Next steps
 For more information working with policies, see:

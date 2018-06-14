@@ -3,18 +3,19 @@ title: Move Data to and from Azure Blob Storage | Microsoft Docs
 description: Move Data to and from Azure Blob Storage
 services: machine-learning,storage
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: d6681e30-ab45-45ea-a9fb-ac8acefe544d
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;sachouks
+ms.author: deguhath
 
 ---
 # Move data to and from Azure Blob Storage

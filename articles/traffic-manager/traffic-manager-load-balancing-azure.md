@@ -60,8 +60,8 @@ The following diagram shows the architecture of this scenario:
 
 ### Step 1: Create a Traffic Manager profile
 
-1. In the Azure portal, click **New**, and then search the marketplace for "Traffic Manager profile."
-2. On the **Create Traffic Manager profile** blade, enter the following basic information:
+1. In the Azure portal, click **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
+2. Enter the following basic information:
 
   * **Name**: Give your Traffic Manager profile a DNS prefix name.
   * **Routing method**: Select the traffic-routing method policy. For more information about the methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
@@ -75,7 +75,7 @@ The following diagram shows the architecture of this scenario:
 
 ### Step 2: Create the application gateways
 
-1. In the Azure portal, in the left pane, click **New** > **Networking** > **Application Gateway**.
+1. In the Azure portal, in the left pane, click **Create a resource** > **Networking** > **Application Gateway**.
 2. Enter the following basic information about the application gateway:
 
   * **Name**: The name of the application gateway.
@@ -97,15 +97,15 @@ When you choose a back-end pool, an application gateway that's configured with a
 
 1. From your resource group, go to the instance of the application gateway that you created in the preceding section.
 2. Under **Settings**, select **Backend pools**, and then select **Add** to add the VMs that you want to associate with the web-tier back-end pools.
-3. On the **Add backend pool** blade, enter the name of the back-end pool and all the IP addresses of the machines that reside in the pool. In this scenario, we are connecting two back-end server pools of virtual machines.
+3. Enter the name of the back-end pool and all the IP addresses of the machines that reside in the pool. In this scenario, we are connecting two back-end server pools of virtual machines.
 
-  ![Application Gateway "Add backend pool" blade](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+  ![Application Gateway "Add backend pool"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Under **Settings** of the application gateway, select **Rules**, and then click the **Path based** button to add a rule.
 
   ![Application Gateway Rules "Path based" button](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
-5. On the **Add path-based rule** blade, configure the rule by providing the following information.
+5. Configure the rule by providing the following information.
 
    Basic settings:
 
@@ -135,13 +135,13 @@ In this scenario, Traffic Manager is connected to application gateways (as confi
 
   ![Traffic Manager Endpoints "Add" button](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
-3. On the **Add endpoint** blade, create an endpoint by entering the following information:
+3. Create an endpoint by entering the following information:
 
   * **Type**: Select the type of endpoint to load-balance. In this scenario, select **Azure endpoint** because we are connecting it to the application gateway instances that were configured previously.
   * **Name**: Enter the name of the endpoint.
   * **Target resource type**: Select **Public IP address** and then, under **Target resource**, select the public IP of the application gateway that was configured previously.
 
-   ![Traffic Manager "Add endpoint" blade](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
+   ![Traffic Manager "Add endpoint"](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
 4. Now you can test your setup by accessing it with the DNS of your Traffic Manager profile (in this example: TrafficManagerScenario.trafficmanager.net). You can resend requests, bring up or bring down VMs and web servers that were created in different regions, and change the Traffic Manager profile settings to test your setup.
 
@@ -153,8 +153,8 @@ If your high-availability database cluster is using SQL Server AlwaysOn, refer t
 
 For more information about configuring an internal load balancer, see [Create an Internal load balancer in the Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. In the Azure portal, in the left pane, click **New** > **Networking** > **Load balancer**.
-2. On the **Create load balancer** blade, choose a name for your load balancer.
+1. In the Azure portal, in the left pane, click **Create a resource** > **Networking** > **Load balancer**.
+2. Choose a name for your load balancer.
 3. Set the **Type** to **Internal**, and choose the appropriate virtual network and subnet for the load balancer to reside in.
 4. Under **IP address assignment**, select either **Dynamic** or **Static**.
 5. Under **Resource group**, choose the resource group for the load balancer.
@@ -166,18 +166,18 @@ For more information about configuring an internal load balancer, see [Create an
 1. From your resource group, find the load balancer that was created in the previous steps.
 2. Under **Settings**, click **Backend pools**, and then click **Add** to add a back-end pool.
 
-  ![Load Balancer "Add backend pool" blade](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+  ![Load Balancer "Add backend pool"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
-3. On the **Add backend pool** blade, enter the name of the back-end pool.
+3. Enter the name of the back-end pool.
 4. Add either individual machines or an availability set to the back-end pool.
 
 #### Configure a probe
 
 1. In your load balancer, under **Settings**, select **Probes**, and then click **Add** to add a probe.
 
- ![Load Balancer "Add probe" blade](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+ ![Load Balancer "Add probe"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
-2. On the **Add probe** blade, enter the name for the probe.
+2. Enter the name for the probe.
 3. Select the **Protocol** for the probe. For a database, you might want a TCP probe rather than an HTTP probe. To learn more about load-balancer probes, refer to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Enter the **Port** of your database to be used for accessing the probe.
 5. Under **Interval**, specify how frequently to probe the application.
@@ -187,7 +187,7 @@ For more information about configuring an internal load balancer, see [Create an
 #### Configure the load-balancing rules
 
 1. Under **Settings** of your load balancer, select **Load balancing rules**, and then click **Add** to create a rule.
-2. On the **Add load balancing rule** blade, enter the **Name** for the load-balancing rule.
+2. Enter the **Name** for the load-balancing rule.
 3. Choose the **Frontend IP Address** of the load balancer, **Protocol**, and **Port**.
 4. Under **Backend port**, specify the port to be used in the back-end pool.
 5. Select the **Backend pool** and the **Probe** that were created in the previous steps to apply the rule to.
@@ -198,7 +198,7 @@ For more information about configuring an internal load balancer, see [Create an
 
 ### Step 5: Connect web-tier VMs to the load balancer
 
-Now we configure the IP address and load-balancer front-end port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the front end, in the Azure portal, go to the front-end IP pool on the **Load balancer settings** blade.
+Now we configure the IP address and load-balancer front-end port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the front end, in the Azure portal, go to the front-end IP pool on the **Load balancer settings**.
 
 ![Load Balancer "Frontend IP pool" navigation pane](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 

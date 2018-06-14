@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+---
+
 There are various reasons when you cannot start or connect to an application running on an Azure virtual machine (VM). Reasons include the application not running or listening on the expected ports, the listening port blocked, or networking rules not correctly passing traffic to the application. This article describes a methodical approach to find and correct the problem.
 
 If you are having issues connecting to your VM using RDP or SSH, see one of the following articles first:
@@ -99,7 +111,7 @@ If you cannot access the application, verify the following settings:
   
   * Verify that the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
   * Verify that Network Security Groups are allowing the inbound request and outbound response traffic.
-  * For more information, see [What is a Network Security Group (NSG)?](../articles/virtual-network/virtual-networks-nsg.md)
+  * For more information, see [What is a network security group?](../articles/virtual-network/security-overview.md)
 
 If the virtual machine or endpoint is a member of a load-balanced set:
 

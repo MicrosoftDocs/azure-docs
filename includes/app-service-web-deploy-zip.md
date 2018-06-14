@@ -1,9 +1,19 @@
-## Deploy uploaded ZIP file
+---
+title: "include file"
+description: "include file"
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: "include"
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: "include file"
+---
 
-In the Cloud Shell, deploy the uploaded ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) command. Be sure to replace *\<app_name>* with the name of your web app.
+## Deploy ZIP file
 
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip
-```
+In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeploy`.
 
-This command deploys the files and directories from the ZIP file to your default App Service application folder (`\home\site\wwwroot`) and restarts the app. If any additional custom build process is configured, it is run as well.
+Upload the ZIP file you created in [Create a project ZIP file](#create-a-project-zip-file) by dragging it to the file explorer area on the web page.
+
+When deployment is in progress, an icon in the top right corner shows you the progress in percentage. The page also shows verbose messages for the operation below the explorer area. When it is finished, the last deployment message should say `Deployment successful`.

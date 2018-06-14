@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
 
 ---
@@ -24,8 +24,6 @@ ExpressRoute supports using Microsoft peering with route filters for Azure PaaS 
 
 This article helps you move a public peering configuration to Microsoft peering with no downtime. For more information about routing domains and peerings, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
 
-> [!IMPORTANT]
-> You must have the ExpressRoute premium add-on in order to use Microsoft peering. For more information about the premium add-on, see the [ExpressRoute FAQ](expressroute-faqs.md#expressroute-premium).
 
 ## <a name="before"></a>Before you begin
 
@@ -70,7 +68,11 @@ After verifying that the Microsoft peering is configured and the prefixes you wi
   * [Delete Azure public peering using Azure portal](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [Delete Azure public peering using Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)
   * [Delete Azure public peering using CLI](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5. View peerings
+  
+You can see a list of all ExpressRoute circuits and peerings in the Azure portal. For more information, see [View Microsoft peering details](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
-## Next Steps
+## Next steps
 
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

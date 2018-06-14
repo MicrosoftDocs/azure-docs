@@ -2,7 +2,7 @@ This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Ap
 [Configuring a custom domain name for an Azure cloud service](../articles/cloud-services/cloud-services-custom-domain-name.md).
 
 > [!NOTE]
-> If you app is load-balanced by [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), 
+> If your app is load-balanced by [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), 
 > click the selector at the top of this article to get specific steps.
 > 
 > **Custom domain names are not enabled for Free tier**. You must 

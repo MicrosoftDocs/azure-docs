@@ -11,8 +11,8 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 12/13/2017
+ms.topic: conceptual
+ms.date: 05/09/2018
 ms.author: mbullwin
 
 ---
@@ -45,12 +45,7 @@ Status Monitor Configuration - needed only when making changes.
 | Configuration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuration |`auth.gfx.ms` | |`443` |
 | Configuration |`login.live.com` | |`443` |
-| Installation |`packages.nuget.org` | |`443` |
-
-## HockeyApp
-| Purpose | URL | IP | Ports |
-| --- | --- | --- | --- |
-| Crash data |gate.hockeyapp.net |104.45.136.42 |80, 443 |
+| Installation |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet Downloads) | |`443` |
 
 ## Availability tests
 This is the list of addresses from which [availability web tests](app-insights-monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
@@ -58,44 +53,34 @@ This is the list of addresses from which [availability web tests](app-insights-m
 Open ports 80 (http) and 443 (https) for incoming traffic from these addresses (IP addresses are grouped by location):
 
 ```
-AU : Sydney
+Australia East
 13.70.83.252
 13.75.150.96
 13.75.153.9
 13.75.158.185
-BR : Sao Paulo
+Brazil South
 191.232.32.122
 191.232.172.45
 191.232.176.218
 191.232.191.225
-CH : Zurich
-94.245.66.43
-94.245.66.44
-94.245.66.45
-94.245.66.48
+France South
 52.136.140.221
 52.136.140.222
 52.136.140.223
 52.136.140.226
-FR : Paris
-94.245.72.44
-94.245.72.45
-94.245.72.46
-94.245.72.49
-94.245.72.52
-94.245.72.53
-52.143.140.242 
+France Central
+52.143.140.242
 52.143.140.246
 52.143.140.247
 52.143.140.249
-HK : Hong Kong
+East Asia
 13.75.121.122
 23.99.115.153
 23.99.123.38
 23.102.232.186
 52.175.38.49
 52.175.39.103
-IE : Dublin
+North Europe
 13.74.184.101
 13.74.185.160
 40.69.200.198
@@ -104,12 +89,12 @@ IE : Dublin
 52.169.14.11
 52.169.237.149
 52.178.183.105
-JP : Kawaguchi
+Japan East
 52.243.33.33
 52.243.33.141
 52.243.35.253
 52.243.41.117
-NL : Amsterdam
+West Europe
 52.174.166.113
 52.174.178.96
 52.174.31.140
@@ -118,32 +103,24 @@ NL : Amsterdam
 52.178.109.190
 52.178.111.139
 52.233.166.221
-RU : Moscow
-94.245.82.32
-94.245.82.33
-94.245.82.37
-94.245.82.38
+UK South
 51.140.79.229
 51.140.84.172
 51.140.87.211
 51.140.105.74
-SE : Stockholm
-94.245.78.40
-94.245.78.41
-94.245.78.42
-94.245.78.45
+UK West
 51.141.25.219
 51.141.32.101
 51.141.35.167
 51.141.54.177
-SG : Singapore
+Southeast Asia
 52.187.29.7
 52.187.179.17
 52.187.76.248
 52.187.43.24
 52.163.57.91
 52.187.30.120
-US : CA-San Jose
+West US
 104.45.228.236
 104.45.237.251
 13.64.152.110
@@ -154,15 +131,7 @@ US : CA-San Jose
 40.118.131.182
 40.83.189.192
 40.83.215.122
-US : FL-Miami
-65.54.78.49
-65.54.78.50
-65.54.78.51
-65.54.78.54
-65.54.78.57
-65.54.78.58
-65.54.78.59
-65.54.78.60
+Central US
 52.165.130.58
 52.173.142.229
 52.173.147.190
@@ -171,7 +140,7 @@ US : FL-Miami
 52.173.244.190
 52.173.36.222
 52.176.1.226
-US : IL-Chicago
+North Central US
 23.96.247.139
 23.96.249.113
 52.162.124.242
@@ -184,7 +153,7 @@ US : IL-Chicago
 52.237.156.14
 52.237.157.218
 52.237.157.37
-US : TX-San Antonio
+South Central US
 104.210.145.106
 13.84.176.24
 13.84.49.16
@@ -195,7 +164,7 @@ US : TX-San Antonio
 52.171.141.253
 52.171.57.172
 52.171.58.140
-US : VA-Ashburn
+East US
 13.82.218.95
 13.90.96.71
 13.90.98.52
@@ -241,7 +210,7 @@ Note: *.applicationinsights.io domain is owned by Application Insights team.
 
 Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
-## Application Insights Azure Portal Extension
+## Application Insights Azure portal Extension
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
@@ -259,14 +228,17 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | dynamic | 443
+| Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443
 
 ## Snapshot Debugger
 
+> [!NOTE]
+> Profiler and Snapshot Debugger share the same set of IP addresses.
+
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | dynamic | 443
+| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443

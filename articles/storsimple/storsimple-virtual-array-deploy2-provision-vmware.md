@@ -123,7 +123,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 17. On the **Storage** page, select a datastore you want to use to provision your VM.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. On the **Virtual Machine Version** page, select **Virtual Machine Version: 8**. Versions 8 to 11 are all supported.
+18. On the **Virtual Machine Version** page, select **Virtual Machine Version: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. On the **Guest Operating System** page, select the **Guest Operating System** as **Windows**. For **Version**, from the dropdown list, select **Microsoft Windows Server 2012 (64-bit)**.

@@ -7,16 +7,14 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: cc5f232a-1e77-45c2-b28b-1fcb4621725c
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: fundamentals
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: curtand
-
-ms.custom: H1Hack27Feb2017                          
+ms.reviewer: krbain
+ms.custom: it-pro                         
 
 ---
 # Create a group and add members in Azure Active Directory
@@ -30,7 +28,7 @@ This article explains how to create and populate a new group in Azure Active Dir
 
 ## How do I create a group?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter **User and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **User and groups** in the text box, and then select **Enter**.
 
    ![Opening user management](./media/active-directory-groups-create-azure-portal/search-user-management.png)
 3. On the **Users and groups** blade, select **All groups**.
@@ -52,8 +50,8 @@ This article explains how to create and populate a new group in Azure Active Dir
 ## Next steps
 These articles provide additional information on Azure Active Directory.
 
-* [See existing groups](active-directory-groups-view-azure-portal.md)
-* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
+* [See existing groups](fundamentals/active-directory-groups-view-azure-portal.md)
+* [Manage settings of a group](fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
+* [Manage memberships of a group](fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)

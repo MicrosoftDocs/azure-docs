@@ -61,7 +61,7 @@ Secure key management is essential for protecting data in the cloud. Customers s
 * Application code and templates should only contain URI references to the secrets (which means the actual secrets are not in code, configuration or source code repositories). This prevents key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
 * Utilize strong RBAC controls within Key Vault. If a trusted operator leaves the company or transfers to a new group within the company, they should be prevented from being able to access the secrets.
 
-For more information [Azure Key Vault public documentation](../key-vault/index.md).
+For more information [Azure Key Vault public documentation](../key-vault/index.yml).
 
 ## Understanding isolation
 Isolation in Azure US Government is achieved through the implementation of trust boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications.  Azure US Government supports environment, and per-customer isolation controls and capabilities. 

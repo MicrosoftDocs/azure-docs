@@ -4,9 +4,8 @@ description: How to moderate images using Azure Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
@@ -214,6 +213,11 @@ Add the following code to the **Main** method.
 
 The following JSON object contains output for the program.
 
+> [!NOTE]
+> `isImageAdultClassified` represents the potential presence of images that may be considered sexually explicit or adult in certain situations.
+> `isImageRacyClassified` represents the potential presence of images that may be considered sexually suggestive or mature in certain situations.
+>
+
 	[
 	{
     "ImageUrl": "https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg",
@@ -395,3 +399,8 @@ The following JSON object contains output for the program.
     }
 	}
 	]
+
+
+## Next steps - get the source code
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.

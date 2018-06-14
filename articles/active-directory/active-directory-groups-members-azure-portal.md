@@ -8,17 +8,15 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: d399a97d-fd2a-4b2d-b73d-0975db83f41b
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: fundamentals
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 
-ms.custom: H1Hack27Feb2017;it-pro
-ms.reviewer: piotrci
+ms.custom: it-pro
+ms.reviewer: krbain
 
 ---
 # Manage group membership for users in your Azure Active Directory tenant
@@ -26,7 +24,7 @@ This article explains how to manage the members for a group in Azure Active Dire
 
 ## How do I find the members and manage them?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![Opening user management](./media/active-directory-groups-members-azure-portal/search-user-management.png)
 3. On the **Users and groups** blade, select **All groups**.
@@ -49,8 +47,8 @@ This article explains how to manage the members for a group in Azure Active Dire
 ## Additional information
 These articles provide additional information on Azure Active Directory.
 
-* [See existing groups](active-directory-groups-view-azure-portal.md)
+* [See existing groups](fundamentals/active-directory-groups-view-azure-portal.md)
 * [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
-* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
+* [Manage settings of a group](fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Manage memberships of a group](fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)

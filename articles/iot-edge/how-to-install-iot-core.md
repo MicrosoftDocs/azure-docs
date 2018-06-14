@@ -1,17 +1,14 @@
 ---
 title: Install Azure IoT Edge on IoT Core | Microsoft Docs 
 description: Install the Azure IoT Edge runtime on a Windows IoT Core device
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 12/06/2017
-ms.topic: article
+ms.date: 03/05/2018
+ms.topic: conceptual
 ms.service: iot-edge
-
+services: iot-edge
 ---
 
 # Install the IoT Edge runtime on Windows IoT Core - preview
@@ -28,7 +25,7 @@ This article walks through provisioning the runtime on a [MinnowBoard Turbot][ln
 1. In the PowerShell console, install the container runtime: 
 
    ```powershell
-   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-17.06.0-dev.zip -o temp.zip
+   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-0.0.0-dev.zip -o temp.zip
    Expand-Archive .\temp.zip $env:ProgramFiles -f
    Remove-Item .\temp.zip
    $env:Path += ";$env:programfiles\docker"

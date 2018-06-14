@@ -3,11 +3,11 @@ title: Best practices in Azure Container Registry
 description: Learn how to use your Azure container registry effectively by following these best practices.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/20/2017
+ms.date: 04/10/2018
 ms.author: marsma
 ---
 
@@ -24,7 +24,7 @@ Additionally, all public clouds, Azure included, implement network egress fees. 
 
 ## Geo-replicate multi-region deployments
 
-Use Azure Container Registry's [geo-replication](container-registry-geo-replication.md) feature if you're deploying containers to multiple regions. Whether you're serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. Currently in preview, this feature is available with [Premium](container-registry-skus.md) registries.
+Use Azure Container Registry's [geo-replication](container-registry-geo-replication.md) feature if you're deploying containers to multiple regions. Whether you're serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. Geo-replication is available only with [Premium](container-registry-skus.md) registries.
 
 To learn how to use geo-replication, see the three-part tutorial, [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md).
 
@@ -98,7 +98,7 @@ Azure Container Registry is available in several tiers, called SKUs, that each p
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
-[azure-cli]: /cli/azure/overview
+[azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-skus]: container-registry-skus.md

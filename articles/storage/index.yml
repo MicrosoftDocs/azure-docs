@@ -24,6 +24,9 @@ sections:
     style: dataMatrix
     columns:
       - image:
+          src: media/index/portal.svg
+          text: Portal
+      - image:
           src: media/index/logo_powershell.svg
           text: Powershell
       - image:
@@ -40,14 +43,16 @@ sections:
     rows:
       - title: Create storage account
         values:
-        - href: /azure/storage/common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - href: /azure/storage/common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - href: /azure/storage/common/storage-quickstart-create-account?tabs=portal
+        - href: /azure/storage/common/storage-quickstart-create-account?tabs=powershell
+        - href: /azure/storage/common/storage-quickstart-create-account?tabs=azure-cli
         - href: 
         - href: 
         - href: 
         - href: 
       - title: Blob quickstarts
         values:
+        - href: /azure/storage/blobs/storage-quickstart-blobs-portal
         - href: /azure/storage/blobs/storage-quickstart-blobs-powershell
         - href: /azure/storage/blobs/storage-quickstart-blobs-cli
         - href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
@@ -115,6 +120,6 @@ sections:
     - title: Command-Line
       html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Azure CLI</a></p>
     - title: Languages
-      html: <p><a href="/java/api/">Java</a></p><p><a href="http://azure.github.io/azure-storage-node">Node​.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
+      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node​.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST
       html: <p><a href="/rest/api/storageservices">Blobs, Queues, Tables, and Files</a></p><p><a href="/rest/api/storagerp">Resource provider</a></p><p><a href="/rest/api/storageimportexport">Import/export</a></p>

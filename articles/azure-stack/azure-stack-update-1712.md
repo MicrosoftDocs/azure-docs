@@ -3,7 +3,7 @@ title: Azure Stack 1712 Update | Microsoft Docs
 description: Learn about what's in the 1712 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
-author: andredm7
+author: brenduns
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
-ms.author: andredm
+ms.date: 05/24/2018
+ms.author: brenduns
 
 ---
 
@@ -41,11 +41,14 @@ The Azure Stack 1712 update build number is **180106.1**. If a customer has depl
 You must first install the Azure Stack [1711 Update](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) before applying this update.
 
 ### Post-update steps
+- After the installation of 1712, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+  - [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/help/4103348)
 
-This update also requires that you install firmware updates from the OEM partner after you complete the 1712 Azure Stack update installation.
 
-> [!NOTE]
-> Please refer to your OEM partner website to download the updates.
+- Update 1712 also requires that you install firmware updates from the OEM partner after you complete the 1712 Azure Stack update installation.
+
+  > [!NOTE]
+  > Please refer to your OEM partner website to download the updates.
 
 ### New features and fixes
 
@@ -56,7 +59,7 @@ This update includes the following improvements and fixes for Azure Stack.
 - Test-AzureStack cmdlet to validate Azure Stack Cloud available via privileged endpoint
 - Ability to register a disconnected deployment of Azure Stack
 - Monitoring alerts for certificate and user account expiration
-- Added Update-BMCCredential cmdlet in PEP for BMC password rotation
+- Added Set-BmcPassword cmdlet in PEP for BMC password rotation
 - Network logging updates to support on-demand logging
 - Support reimage operation for Virtual Machine Scales Sets (VMSS)
 - Enable kiosk mode on ERCS VM for CloudAdmin login
@@ -107,10 +110,29 @@ This section contains post-installation known issues with build **180106.1**.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
+- The **Service Health** blade fails to load. When you open the Service Health blade in either the admin or user portal, Azure Stack displays an error and does not load information. This is expected behavior. Although you can select and open Service Health, this feature is not yet available but will be implemented in a future version of Azure Stack.
 
 #### Health and monitoring
 
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alert #1:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+
+  Alert #2:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+
+  Both alerts can be safely ignored. They will close automatically over time.  
+
 - If you reboot an infrastructure role instance, you may receive a message indicating that the reboot failed. However, the reboot actually succeeded.
+
+
 
 #### Marketplace
 - Some marketplace items are being removed in this release due to compatibility concerns. These will be re-enabled after further validation.

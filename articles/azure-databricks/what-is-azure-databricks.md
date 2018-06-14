@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/15/2017
+ms.date: 05/29/2018
 ms.author: nitinme
 ms.custom: mvc
 

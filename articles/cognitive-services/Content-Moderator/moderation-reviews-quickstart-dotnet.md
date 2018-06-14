@@ -4,9 +4,8 @@ description: How to create reviews using Azure Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
@@ -471,3 +470,8 @@ You see a response like the following example:
 			"r": "False",
 		}
 	}
+
+
+## Next steps
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.

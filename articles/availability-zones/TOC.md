@@ -22,16 +22,26 @@
 ### Virtual machine scale sets
 #### [Create a scale set in an Availability Zone](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Load balancer
-#### [What is Load balancer?](../load-balancer/load-balancer-standard-overview.md)
-#### [Create a zone redundant Public Load Balancer Standard with Azure portal](../load-balancer/load-balancer-get-started-internet-az-portal.md)
-#### [Create a zone redundant Load Balancer Standard with PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
-#### [Create a zone redundant Public Load Balancer Standard with CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+### Load Balancer
+#### [What is Load Balancer?](../load-balancer/load-balancer-standard-overview.md)
+#### [Load Balancer Standard and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md)
 
-### Public IP address
-#### [Create a public IP address in an availability zone with Azure portal](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [Create a public IP address in an availability zone with PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [Create a public IP address in an availability zone with CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
+#### [Create a zone redundant public Standard Load Balancer](../load-balancer/load-balancer-get-started-internet-az-portal.md)
+##### [Create a zone redundant public Standard Load Balancer (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
+##### [Create a zone redundant public Standard Load Balancer (CLI)](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+#### [Create a zonal public Standard Load Balancer](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+##### [Create a zonal public Standard Load Balancer (PowerShell)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+##### [Create a zonal redundant public Standard Load Balancer (CLI)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+#### [Load balance VMs across availability zones](../load-balancer/load-balancer-standard-public-availability-zones-portal.md)
+##### [Load balance VMs across availability zones with Azure (CLI)](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+
+### [Public IP address](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+
+### SQL Database
+#### [Availability zones with SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
+
+### Storage
+#### [Zone-redundant storage](../storage/common/storage-redundancy-zrs.md)
 
 # Disaster Recovery
 ## [Use Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

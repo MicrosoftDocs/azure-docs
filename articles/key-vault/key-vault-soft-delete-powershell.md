@@ -3,13 +3,13 @@ ms.assetid:
 title: Azure Key Vault - How to use soft-delete with PowerShell
 description: Use case examples of soft-delete with PowerShell code snips
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/21/2017
-ms.author: bruceper
+ms.author: alleonar
 ---
 # How to use Key Vault soft-delete with PowerShell
 

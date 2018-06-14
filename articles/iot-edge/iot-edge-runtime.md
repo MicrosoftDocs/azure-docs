@@ -1,17 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Understand the Azure IoT Edge runtime | Microsoft Docs 
 description: Learn about the Azure IoT Edge runtime and how it empowers your edge devices
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
-ms.date: 10/05/2017
-ms.topic: article
+ms.date: 02/15/2018
+ms.topic: conceptual
 ms.service: iot-edge
-
+services: iot-edge
 ---
 
 # Understand the Azure IoT Edge runtime and its architecture - preview
@@ -63,14 +59,18 @@ Edge Hub facilitates module to module communication. Using Edge Hub as a message
 
 To send data to the Edge hub, a module calls the SendEventAsync method. The first argument specifies on which output to send the message. The following pseudocode sends a message on output1:
 
-    DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
-    await client.OpenAsync(); 
-    await client.SendEventAsync(“output1”, message); 
+   ```csharp
+   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
+   ```
 
 To receive a message, register a callback that processes messages coming in on a specific input. The following pseudocode registers the function messageProcessor to be used for processing all messages received on input1:
 
-    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
-    
+   ```csharp
+   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   ```
+
 The solution developer is responsible for specifying the rules that determine how Edge hub passes messages between modules. Routing rules are defined in the cloud and pushed down to Edge hub in its device twin. The same syntax for IoT Hub routes is used to define routes between modules in Azure IoT Edge. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
@@ -119,8 +119,8 @@ The IoT Edge agent plays a critical role in the security of an IoT Edge device. 
 - [Understand Azure IoT Edge modules][lnk-modules]
 
 <!-- Images -->
-[1]: ./media/iot-edge-runtime/pipeline.png
-[2]: ./media/iot-edge-runtime/gateway.png
+[1]: ./media/iot-edge-runtime/Pipeline.png
+[2]: ./media/iot-edge-runtime/Gateway.png
 [3]: ./media/iot-edge-runtime/ModuleEndpoints.png
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
