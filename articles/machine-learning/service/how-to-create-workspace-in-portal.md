@@ -36,7 +36,7 @@ Once you click on create, a new window will appear. Here, you need to complete s
 
 ![png](media/how-to-create-workspace-in-portal/workspace_create_name.PNG)
 
-After clicking on create, a request will be submitted to Azure to provision the workspace. You can check the deployment progress by clicking on the notifications icon in top right section of portal. 
+After clicking on create, a request will be submitted to Azure to provision the workspace. You can check the deployment progress by clicking on the notifications icon in top right section of portal.
 
 ![png](media/how-to-create-workspace-in-portal/deployment_in_progress.PNG)
 
