@@ -86,10 +86,10 @@
 ### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
 
-## [Security from the ground up](/azure/iot-fundamentals/iot-hub-security-ground-up.md)
-## [Security best practices](/azure/iot-fundamentals/iot-security-best-practices.md)
-## [Security architecture](/azure/iot-fundamentals/iot-security-architecture.md)
-## [Secure your IoT deployment](/azure/iot-fundamentals/iot-security-deployment.md)
+## [Security from the ground up](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/render-context)
+## [Security best practices](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/render-context)
+## [Security architecture](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/render-context)
+## [Secure your IoT deployment](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/render-context)
 ## Secure using X.509 CA certificates
 ### [X.509 CA certificate security overview](iot-hub-x509ca-overview.md)
 #### [X.509 CA certificate security concepts](iot-hub-x509ca-concept.md)

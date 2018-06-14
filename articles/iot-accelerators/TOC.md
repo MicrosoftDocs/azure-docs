@@ -94,10 +94,10 @@
 # Reference
 ## [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [Security from the ground up](/azure/iot-fundamentals/iot-hub-security-ground-up.md)
-## [Security best practices](/azure/iot-fundamentals/iot-security-best-practices.md)
-## [Security architecture](/azure/iot-fundamentals/iot-security-architecture.md)
-## [Secure your IoT deployment](/azure/iot-fundamentals/iot-security-deployment.md)
+## [Security from the ground up](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/render-context)
+## [Security best practices](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/render-context)
+## [Security architecture](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/render-context)
+## [Secure your IoT deployment](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/render-context)
 
 # Related
 ## Solutions 

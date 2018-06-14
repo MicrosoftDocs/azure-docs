@@ -203,4 +203,4 @@ You can also explore some of the other features and capabilities of the IoT solu
 
 * [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
 * [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
-* [IoT security from the ground up](securing-iot-ground-up.md)
+* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)
