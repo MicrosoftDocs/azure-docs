@@ -251,9 +251,9 @@
 #### [Use SCIM provision users](manage-apps/use-scim-to-provision-users-and-groups.md)
 
 
-### Troubleshoot application development
+### Troubleshoot
 
-#### Configuration and registration
+#### Configuration and registration - development
 ##### Configure my application
 ######[I don’t know what the authentication endpoints are for my application](application-dev-registration-config-how-to.md)
 ######[I don't know how to configure single sign-on to my application](application-dev-registration-config-sso-how-to.md)
@@ -269,18 +269,8 @@
 ######[I am confused about how application consent works](application-dev-consent-framework.md)
 ######[I don't know how to grant permissions to my application](application-dev-registration-config-grant-permissions-how-to.md)
 ######[I don't understand the difference between delegated and application permissions](application-dev-delegated-and-app-perms.md)
-  
-#### Development
-##### Configure my application
-###### [I don't know how to change the token lifetime defaults for my application](application-dev-registration-config-change-token-lifetime-how-to.md)
-##### Application permissions
-###### [I am confused about how application consent works](application-dev-consent-framework.md)
-###### [I don't know how to grant permissions to my application](application-dev-registration-config-grant-permissions-how-to.md)
-###### [I don't understand the difference between delegated and application permissions](application-dev-delegated-and-app-perms.md)
 
-### Troubleshoot application management
-
-#### Configuration
+#### Configuration - app management
 ##### Configure single sign-on
 ######[I don't know how to configure federated single sign-on for a non-gallery application](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 ######[I don't know how to configure federated single sign-on for an Azure AD Gallery application](application-config-sso-how-to-configure-federated-sso-gallery.md)
@@ -297,7 +287,8 @@
 ######[I encountered a problem when configuring password single sign-on for a non-gallery application](application-config-sso-problem-configure-password-sso-non-gallery.md)
 ######[I encountered a problem when configuring password single sign-on for an Azure AD Gallery application](application-config-sso-problem-configure-password-sso-gallery.md)
 
-#### Unexpected prompt
+#### Sign-in
+##### Unexpected prompt
 ###### [A user sees an unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt.md)
 ###### [A user sees an unexpected error when performing consent to an application](application-sign-in-unexpected-user-consent-error.md)
 ##### Common problems
