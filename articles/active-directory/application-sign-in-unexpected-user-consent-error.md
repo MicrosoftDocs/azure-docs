@@ -19,7 +19,7 @@ ms.author: asteen
 
 # Unexpected error when performing consent to an application
 
-This article discusses errors that can occur during the process of consenting to an application. If you are Troubleshoot unexpected consent prompts that do not contain any error messages, see [Authentication Scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+This article discusses errors that can occur during the process of consenting to an application. If you are troubleshooting unexpected consent prompts that do not contain any error messages, see [Authentication Scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
 
 Many applications that integrate with Azure Active Directory require permissions to access other resources in order to function. When these resources are also integrated with Azure Active Directory, permissions to access them is often requested using the common consent framework. 
 
