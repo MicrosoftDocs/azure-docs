@@ -97,7 +97,7 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
 
-**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (512 GB)?**
+**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (256 GB)?**
 
 Yes.
 
