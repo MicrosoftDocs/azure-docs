@@ -78,13 +78,13 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 
 | Region | Primary endpoint URL | Paired region | Discovery URL |
 |--------|---------------------------------------||--------||---------------------------------------|
-| Australia East | https://kailani-aue.one.microsoft.com | Australia South East | https://kailani-aue.one.microsoft.com |
-| Australia South East | https://kailani-aus.one.microsoft.com | Australia East | https://tm-kailani-aus.one.microsoft.com |
+| Australia East | https://kailani-aue.one.microsoft.com | Australia Souteast | https://kailani-aue.one.microsoft.com |
+| Australia Southeast | https://kailani-aus.one.microsoft.com | Australia East | https://tm-kailani-aus.one.microsoft.com |
 | Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |
 | Canada East | https://kailani-cae.one.microsoft.com | Canada Central | https://tm-kailani.cae.one.microsoft.com |
 | Central US | https://kailani-cus.one.microsoft.com | East US 2 | https://tm-kailani-cus.one.microsoft.com |
 | Central US EUAP | https://kailani-euap.one.microsoft.com | East US 2 EUAP | https://tm-kailani-euap.one.microsoft.com |
-| East Asia | https://kailani11.one.microsoft.com | South East Asia | https://tm-kailani11.one.microsoft.com |
+| East Asia | https://kailani11.one.microsoft.com | Southeast Asia | https://tm-kailani11.one.microsoft.com |
 | East US | https://kailani1.one.microsoft.com | West US | https://tm-kailani1.one.microsoft.com |
 | East US 2 | https://kailani-ess.one.microsoft.com | Central US | https://tm-kailani-ess.one.microsoft.com |
 | East US 2 EUAP | https://kailani-cuap.one.microsoft.com | Central US EUAP | https://tm-kailani-cuap.one.microsoft.com |
@@ -96,16 +96,21 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 | West Europe | https://kailani6.one.microsoft.com | North Europe | https://tm-kailani6.one.microsoft.com |
 | West US | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
 
-> If you use locally redundant (LRS) or zone redundant (ZRS) storage accounts, you only need to enable the URL listed under "Primary endpoint URL".<br />If you use globally redundant (GRS) storage accounts, enable three URLs. **Example:** You deploy a storage sync service in `"West US"` and register your server with it. The URLs to allow the server to communicate to for this case are:
-> - https://kailani.one.microsoft.com (primary endpoint)
-> - https://kailani1.one.microsoft.com (paired fail-over region East US)
+- If you use locally redundant (LRS) or zone redundant (ZRS) storage accounts, you only need to enable the URL listed under "Primary endpoint URL".
+
+- If you use globally redundant (GRS) storage accounts, enable three URLs.
+
+**Example:** You deploy a storage sync service in `"West US"` and register your server with it. The URLs to allow the server to communicate to for this case are:
+
+> - https://kailani.one.microsoft.com (primary endpoint: West US)
+> - https://kailani1.one.microsoft.com (paired fail-over region: East US)
 > - https://tm-kailani.one.microsoft.com (discovery URL of the primary region)
 
 ## Summary and risk limitation
 
-The lists earlier in this document contain the URLs Azure File Sync currently communicates with. Firewalls must be able to allow traffic outbound to these domains as well as responses from them. Microsoft strives to keep this list updated.
+The lists earlier in this document contain the URLs Azure File Sync currently communicates with. Firewalls must be able to allow traffic outbound to these domains. Microsoft strives to keep this list updated.
 
-Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs will be added and changed over time. Therefore it is a prudent measure to check the tables in this document as part of a change management process from one Azure File Sync agent version to another on a test-deployment of the latest agent. This way you can ensure that your firewall is configured to allow traffic to domains the most recent agent requires.
+Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs will be added and might even change over time. Check this article periodically.
 
 ## Next steps
 
