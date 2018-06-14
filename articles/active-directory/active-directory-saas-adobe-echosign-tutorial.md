@@ -22,247 +22,233 @@ In this tutorial, you learn how to integrate Adobe Sign with Azure Active Direct
 
 Integrating Adobe Sign with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Adobe Sign
-- You can enable your users to automatically get signed-on to Adobe Sign (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+- You can control in Azure AD who has access to Adobe Sign.
+- You can enable your users to automatically get signed-on to Adobe Sign (single sign-on) with their Azure AD accounts.
+- You can manage your accounts in one central location--the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
+For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Adobe Sign, you need the following items:
+To configure Azure AD integration with Adobe Sign, you need:
 
 - An Azure AD subscription
 - An Adobe Sign single sign-on enabled subscription
 
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
+To test the steps in this tutorial, follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Adobe Sign from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Adding Adobe Sign from the gallery.
+2. Configuring and testing Azure AD single sign-on.
 
-## Adding Adobe Sign from the gallery
+## Add Adobe Sign from the gallery
 To configure the integration of Adobe Sign into Azure AD, you need to add Adobe Sign from the gallery to your list of managed SaaS apps.
 
-**To add Adobe Sign from the gallery, perform the following steps:**
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** icon. 
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+	![Screenshot of the Azure Active Directory icon][1]
 
-	![Active Directory][1]
+2. Browse to **Enterprise applications** > **All applications**.
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
-
-	![Applications][2]
+	![Screenshot of Azure Active Directory menus, with Enterprise applications and All applications highlighted][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, select **New application** at the top of the dialog box.
 
-	![Applications][3]
+	![Screenshot of New application option at the top of the dialog box][3]
 
 4. In the search box, type **Adobe Sign**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_search.png)
+	![Screenshot of search box](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_search.png)
 
-5. In the results panel, select **Adobe Sign**, and then click **Add** button to add the application.
+5. In the results panel, select **Adobe Sign**, and then select **Add**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_addfromgallery.png)
+	![Screenshot of results panel](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_addfromgallery.png)
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Adobe Sign based on a test user called "Britta Simon."
+##  Configure and test Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with Adobe Sign, based on a test user called "Britta Simon."
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Adobe Sign is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Adobe Sign needs to be established.
+For single sign-on to work, Azure AD needs to recognize a linked relationship between an Azure AD user and the related user in Adobe Sign.
 
-In Adobe Sign, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+To establish the linked relationship, in Adobe Sign, assign the value of the **user name** in Azure AD as the value of the **Username**.
 
-To configure and test Azure AD single sign-on with Adobe Sign, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Adobe Sign, complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating an Adobe Sign test user](#creating-an-adobe-sign-test-user)** - to have a counterpart of Britta Simon in Adobe Sign that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. [Configure Azure AD single sign-on](#configuring-azure-ad-single-sign-on) to enable your users to use this feature.
+2. [Create an Azure AD test user](#creating-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
+3. [Create an Adobe Sign test user](#creating-an-adobe-sign-test-user) to have a counterpart of Britta Simon in Adobe Sign who is linked to the Azure AD representation of user.
+4. [Assign the Azure AD test user](#assigning-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
+5. [Test single sign-On](#testing-single-sign-on) to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Adobe Sign application.
+In this section, you enable Azure AD single sign-on in the Azure portal, and configure single sign-on in your Adobe Sign application.
 
-**To configure Azure AD single sign-on with Adobe Sign, perform the following steps:**
+1. In the Azure portal, on the **Adobe Sign** application integration page, select **Single sign-on**.
 
-1. In the Azure portal, on the **Adobe Sign** application integration page, click **Single sign-on**.
+	![Screenshot of Adobe Sign application integration page, with Single sign-on highlighted][4]
 
-	![Configure Single Sign-On][4]
+2. On the **Single sign-on** dialog box, for **Mode**, select **SAML-based Sign-on** to enable single sign-on.
 
-2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+	![Screenshot of Single sign-on dialog box, with Mode box highlighted](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
+3. In the **Adobe Sign Domain and URLs** section, perform the following steps:
 
-3. On the **Adobe Sign Domain and URLs** section, perform the following steps:
+	![Screenshot of Adobe Sign Domain and URLs section](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_url.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_url.png)
+    a. In the **Sign-on URL** text box, type a URL that uses the following pattern: `https://<companyname>.echosign.com/`
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.echosign.com/`
-
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.echosign.com`
+	b. In the **Identifier** text box, type a URL that uses the following pattern: `https://<companyname>.echosign.com`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to get these values.
+	> These values are not real. Update these values with the actual sign-on URL and identifier. Contact [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to get these values.
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+4. In the **SAML Signing Certificate** section, select **Certificate(Base64)**, and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
+	![Screenshot of SAML Signing Certificate section](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
 
-5. Click **Save** button.
+5. Select **Save**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_400.png)
+	![Screenshot of Save button](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_400.png)
 
-6. On the **Adobe Sign Configuration** section, click **Configure Adobe Sign** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. In the **Adobe Sign Configuration** section, select **Configure Adobe Sign** to open the **Configure sign-on** window. Copy the **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** from the **Quick Reference** section.
 
-	![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png)
+	![Screenshot of Adobe Sign Configuration section, with Configure Adobe Sign highlighted](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png)
 
-7. Before configuration you need to contact [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to whitelist your domain in the Adobe Sign. Follow the below steps to add the domain:
+7. Before configuration, contact the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to whitelist your domain in the Adobe Sign. Here's how to add the domain:
 
-	a. [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) will send you a randomly generated token. For your domain, token will be like: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
+	a. The [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) sends you a randomly generated token. For your domain, the token will be like the following: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
-	b. You will need to publish the verification token in a DNS text record and notify [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html).
+	b. Publish the verification token in a DNS text record, and notify the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html).
 	
 	> [!NOTE]
-	> You can expect that this may take a few days or perhaps longer. Note that DNS propagation delays mean that a value published in DNS may not be visible for an hour or more. We expect your IT administrator should be knowledgeable about how to publish this token in a DNS text record.
+	> This can take a few days, or longer. Note that DNS propagation delays mean that a value published in DNS might not be visible for an hour or more. Your IT administrator should be knowledgeable about how to publish this token in a DNS text record.
 	
-	c. Once you notify [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) through the support ticket, after the token is published, they will validate the domain and add it to your account.
+	c. When you notify the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) through the support ticket, after the token is published, they validate the domain and add it to your account.
 	
-	d. General steps you can take to publish the token on a DNS record-
+	d. Generally, here's how to publish the token on a DNS record:
 
-	* Log in to your domain account
-	* Find the page for updating the DNS record. This page may be called DNS Management, Name Server Management, or Advanced Settings.
+	* Sign in to your domain account
+	* Find the page for updating the DNS record. This page might be called DNS Management, Name Server Management, or Advanced Settings.
 	* Find the TXT records for your domain.
-	* Add a TXT record with the full token value supplied by Adobe
+	* Add a TXT record with the full token value supplied by Adobe.
 	* Save your changes.
 
-8. In a different web browser window, log in to your Adobe Sign company site as an administrator.
+8. In a different web browser window, sign in to your Adobe Sign company site as an administrator.
 
-9. In the SAML menu, click **Account Settings**, and then, click **SAML Settings**.
+9. In the SAML menu, select **Account Settings** > **SAML Settings**.
    
-	![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Account")
+	![Screenshot of Adobe Sign SAML Settings page](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Account")
 
 10. In the **SAML Settings** section, perform the following steps:
   
-	![SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML Settings")
+	![Screenshot of SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML Settings")
    
-    a. As **SAML Mode**, select **SAML Mandatory**.
+    a. Under **SAML Mode**, select **SAML Mandatory**.
    
-    b. Select **Allow Adobe sign Account Administrators to log in using their  Adobe Sign Credentials**.
+    b. Select **Allow Echosign Account Administrators to log in using their Echosign Credentials**.
    
-    c. As **User Creation**, select **Automatically add users authenticated through SAML**.
+    c. Under **User Creation**, select **Automatically add users authenticated through SAML**.
 
-	d. Paste **SAML Entity ID**, which you have copied from Azure portal into the **Entity ID/Issuer URL** textbox.
+	d. Paste **SAML Entity ID**, which you have copied from the Azure portal into the **Entity ID/Issuer URL** text box.
    	
-	e. Paste **SAML Single Sign-On Service URL**, which you have copied from Azure portal into the **Login URL/SSO Endpoint** textbox.
+	e. Paste **SAML Single Sign-On Service URL**, which you have copied from Azure portal into the **Login URL/SSO Endpoint** text box.
    
-    f. Paste **Sign-Out URL**, which you have copied from Azure portal into the **Logout URL/SLO Endpoint** textbox.
+    f. Paste **Sign-Out URL**, which you have copied from the Azure portal into the **Logout URL/SLO Endpoint** text box.
 
-	g. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Certificate** textbox
+	g. Open your downloaded **Certificate(Base64)** file in Notepad. Copy the content of it into your clipboard, and then paste it to the **IdP Certificate** text box.
 
-	h. Click **Save Changes**.
+	h. Select **Save Changes**.
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+### Create an Azure AD test user
+The objective of this section is to create a test user, named Britta Simon, in the Azure portal.
 
-![Create Azure AD User][100]
+![Screenshot of test user name in the Azure portal][100]
 
-**To create a test user in Azure AD, perform the following steps:**
+1. In the **Azure portal**, in the left pane, select the **Azure Active Directory** icon.
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+	![Screenshot of the Azure AD icon](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_01.png) 
 
-	![Creating an Azure AD test user](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_01.png) 
-
-2. To display the list of users, go to **Users and groups** and click **All users**.
+2. To display the list of users, go to **Users and groups**, and select **All users**.
 	
-	![Creating an Azure AD test user](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_02.png) 
+	![Screenshot of Azure AD menus, with Users and groups and All users highlighted](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_02.png) 
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
+3. To open the **User** dialog box, select **Add**.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_03.png) 
+	![Screenshot of top of All users dialog box, with Add option highlighted](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+4. On the **User** dialog box, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_04.png) 
+	![Screenshot of User dialog box](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_04.png) 
 
-    a. In the **Name** textbox, type **BrittaSimon**.
+    a. In the **Name** text box, type **BrittaSimon**.
 
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+    b. In the **User name** text box, type the email address of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+	c. Select **Show Password**, and write down the value of the **Password**.
 
-    d. Click **Create**.
+    d. Select **Create**.
  
-### Creating an Adobe Sign test user
+### Create an Adobe Sign test user
 
-To enable Azure AD users to log in to Adobe Sign, they must be provisioned into Adobe Sign. In the case of Adobe Sign, provisioning is a manual task.
+To enable Azure AD users to sign in to Adobe Sign, they must be provisioned into Adobe Sign. This is a manual task.
 
 >[!NOTE]
->You can use any other Adobe Sign user account creation tools or APIs provided by Adobe Sign to provision AAD user accounts. 
+>You can use any other Adobe Sign user account creation tools or APIs provided by Adobe Sign to provision Azure AD user accounts. 
 
-**To provision a user account, perform the following steps:**
+1. Sign in to your **Adobe Sign** company site as an administrator.
 
-1. Log in to your **Adobe Sign** company site as administrator.
-
-2. In the menu on the top, click **Account**, and then, in the navigation pane on the left side, click **Users & Groups**, and then, click **Create a new user**.
+2. In the menu on the top, select **Account**. Then, in the left pane, select **Users & Groups** > **Create a new user**.
    
-	![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "Account")
+	![Screenshot of Adobe Sign company site, with Account, Users &Groups, and Create a new user highlighted](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "Account")
    
 3. In the **Create New User** section, perform the following steps:
    
-	![Create User](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "Create User")
+	![Screenshot of Create New User section](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "Create User")
    
-    a. Type the **Email Address**, **First Name**, and **Last Name** of a valid AAD account you want to provision into the related textboxes.
+    a. Type the **Email Address**, **First Name**, and **Last Name** of a valid Azure AD account you want to provision into the related text boxes.
    
-    b. Click **Create User**.
+    b. Select **Create User**.
 
 >[!NOTE]
->The Azure Active Directory account holder receives an email that includes a link to confirm the account before it becomes active. 
+>The Azure Active Directory account holder receives an email that includes a link to confirm the account, before it becomes active. 
 
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Adobe Sign.
+In this section, you enable Britta Simon to use Azure single sign-on, by granting access to Adobe Sign.
 
-![Assign User][200] 
+![Screenshot of Azure portal single sign-on][200] 
 
-**To assign Britta Simon to Adobe Sign, perform the following steps:**
+1. In the Azure portal, open the applications view. Then browse to the directory view, go to **Enterprise applications**, and select **All applications**.
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
+	![Screenshot of Azure portal applications view, with Enterprise applications and All applications highlighted][201] 
 
 2. In the applications list, select **Adobe Sign**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_app.png) 
+	![Screenshot of applications list, with Adobe Sign highlighted](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+3. In the menu on the left, select **Users and groups**.
 
-	![Assign User][202] 
+	![Screenshot of menu, with Users and groups highlighted][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Select **Add**. Then, in the **Add Assignment** section, select **Users and groups**.
 
-	![Assign User][203]
+	![Screenshot of Users and groups page and Add Assignment section][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. In **Users and groups** dialog box, in the users list, select **Britta Simon**.
 
-6. Click **Select** button on **Users and groups** dialog.
+6. In the **Users and groups** dialog box, click **Select**.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+7. In the **Add Assignment** dialog box, select **Assign**.
 	
-### Testing single sign-on
+### Test single sign-on
 
-When you click the Adobe Sign tile in the Access Panel, you should get automatically signed-on to your Adobe Sign application.
- For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+When you select the Adobe Sign tile in the Access Panel, you should get automatically signed on to your Adobe Sign application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

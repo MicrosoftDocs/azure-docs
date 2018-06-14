@@ -90,13 +90,16 @@ If you built the SDK to use attestation from a physical TPM/HSM:
 If you built the SDK to use attestation from a simulated TPM or X.509 certificate:
 
 - For a simulated TPM device:
-   1. In a separate/new command prompt, navigate to the `azure-iot-sdk-c` subdirectory, and run the TPM simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of the following Quickstart. 
+   1. Open a Windows Command Prompt, navigate to the `azure-iot-sdk-c` subdirectory, and run the TPM simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of the following Quickstart. 
 
       From the `azure-iot-sdk-c` subdirectory, run the following command to start the simulator:
 
       ```cmd/sh
       .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
       ```
+
+      > [!NOTE]
+      > If you use the Git Bash command prompt for this step, you'll need to change the backslashes to forward slashes, for example: `./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe`.
 
    2. Using Visual Studio, open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it using the "Build solution" command on the "Build" menu.
 

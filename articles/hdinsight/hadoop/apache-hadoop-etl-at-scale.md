@@ -80,7 +80,7 @@ For uploading datasets in the terabyte range, network latency can be a major pro
 
 * Azure ExpressRoute:  Azure ExpressRoute lets you create private connections between Azure datacenters and your on-premise infrastructure. These connections provide a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
-* "Offline" upload of data. You can use [Azure Import/Export service](../../storage/common/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center. Your data is first uploaded to Azure Storage Blobs. You can then use [Azure Data Factory](../../data-factory/v1/data-factory-azure-datalake-connector.md) or the [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) tool to copy data from Azure Storage blobs to Data Lake Store.
+* "Offline" upload of data. You can use [Azure Import/Export service](../../storage/common/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center. Your data is first uploaded to Azure Storage Blobs. You can then use [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) or the [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) tool to copy data from Azure Storage blobs to Data Lake Store.
 
 ### Azure SQL Data Warehouse
 
