@@ -7,7 +7,7 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: sstein
 
