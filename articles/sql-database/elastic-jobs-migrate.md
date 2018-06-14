@@ -324,7 +324,8 @@ function Get-ChildTargets($target) {
     if ($children.Count -eq 1)
     {
         $arr = New-Object System.Collections.ArrayList($null)
-        $children = $arr.Add($children)
+        $arr.Add($children)
+        $children = $arr
     }
     return $children
   }
