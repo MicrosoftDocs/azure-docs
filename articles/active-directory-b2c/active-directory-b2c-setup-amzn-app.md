@@ -1,19 +1,18 @@
----
-title: 'Azure Active Directory B2C: Amazon configuration | Microsoft Docs'
+﻿---
+title: Amazon configuration in Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to consumers with Amazon accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Amazon accounts
 ## Create an Amazon application
 To use Amazon as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an Amazon application and supply it with the right parameters. You need an Amazon account to do this. If you don’t have one, you can get it at [http://www.amazon.com/](http://www.amazon.com/).

@@ -7,14 +7,13 @@ author: SnehaGunda
 manager: kfile
 tags: azure-service-management
 
-ms.assetid:
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 06/02/2017
+ms.date: 05/23/2018
 ms.author: sngun
 ---
 
@@ -29,6 +28,24 @@ If you choose to install and use the CLI locally, this topic requires that you a
 ## Sample script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-throughput/scale-cosmosdb-throughput.sh?highlight=40-46 "Scale Azure Cosmos DB throughput")]
+
+Above sample script lets you create and scale a fixed collection. If you want to create and scale a collection with unlimited storage capacity, you must: 
+ 
+* Create the collection with at least 1000 RU/s and 
+* Specify a partition key while creating the collection. 
+
+The following command shows an example to create a collection with unlimited storage capacity:
+
+```cli
+az cosmosdb collection create \
+	--collection-name $collectionName \
+	--name $name \
+	--db-name $databaseName \
+	--resource-group $resourceGroupName \
+	--throughput 1000
+	--partition-key-path /deviceId
+
+```
 
 ## Clean up deployment
 

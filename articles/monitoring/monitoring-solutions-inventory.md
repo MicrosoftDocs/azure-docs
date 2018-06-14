@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/09/2018
 ms.author: bwren
 
 ---
@@ -50,7 +50,7 @@ Explanations of the columns are as follows:
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | [Azure Network Security Group Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | on notification |
 | [Azure SQL Analytics (Preview)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minute |
-| [Backup](../backup/backup-introduction-to-azure-backup.md) | Azure |  |  |  |  |  | n/a |
+| [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | on notification |
 | [Capacity and Performance (Preview)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |on arrival |
 | [Change Tracking](../log-analytics/log-analytics-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |hourly |
 | [Change Tracking](../log-analytics/log-analytics-change-tracking.md) |Linux |&#8226; | | | | |hourly |

@@ -1,22 +1,17 @@
 ---
-
 title: Azure AD self-service password reset overview | Microsoft Docs
 description: What can Azure AD self-service password reset do for your organization? 
+
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 01/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.assetid: 
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
 
 ---
 # Azure AD self-service password reset for the IT professional

@@ -152,15 +152,17 @@
     - name: Computer vision
       items:
       - name: Package overview and install
-        href: https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision
+        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
       - name: Build and deploy image classification models
         href: how-to-build-deploy-image-classification-models.md
+      - name: Build and deploy object detection models
+        href: how-to-build-deploy-object-detection-models.md        
       - name: Model accuracy
         href: how-to-improve-accuracy-for-computer-vision-models.md
     - name: Forecasting
       items:
       - name: Overview and install
-        href: https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/forecasting
+        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
       - name: Build and deploy forecast models
         href: how-to-build-deploy-forecast-models.md
     - name: FPGA acceleration
@@ -168,7 +170,7 @@
     - name: Text analytics
       items:
       - name: Overview and install
-        href: https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/text-analytics
+        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
       - name: Build and deploy text classification models
         href: how-to-build-deploy-text-classification-models.md    
   - name: Data preparation
@@ -197,8 +199,6 @@
       href: ../desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md  
     - name: Data preparation execution API
       href: ../desktop-workbench/data-prep-python-execution-api.md
-    - name: Data preparation operationalization
-      href: ../desktop-workbench/data-prep-operationalization.md
   - name: Experimentation    
     items:
     - name: Experimentation Service configuration
@@ -221,6 +221,8 @@
     href: ../desktop-workbench/frequently-asked-questions.md
   - name: Issues and troubleshooting
     href: known-issues-and-troubleshooting-guide.md
+  - name: Export or delete account data
+    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
   - name: Support and training
     href: support-for-aml-services.md
   - name: Azure roadmap

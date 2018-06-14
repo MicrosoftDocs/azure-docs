@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/03/2018
 ms.author: glenga
 
 ---
@@ -60,9 +60,9 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
 3. Install the Core Tools package:
 
-  ```bash
-  npm install -g azure-functions-core-tools@core
-  ```
+    ```bash
+    npm install -g azure-functions-core-tools@core
+    ```
 
 #### <a name="brew"></a>MacOS with Homebrew
 
@@ -70,9 +70,9 @@ The following steps use Homebrew to install the Core Tools on macOS.
 
 1. Install [.NET Core 2.0 for macOS](https://www.microsoft.com/net/download/macos).
 
-1. Install [Homebrew](https://brew.sh/), if it's not already installed.
+2. Install [Homebrew](https://brew.sh/), if it's not already installed.
 
-2. Install the Core Tools package:
+3. Install the Core Tools package:
 
     ```bash
     brew tap azure/functions
@@ -85,42 +85,43 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 1. Install [.NET Core 2.0 for Linux](https://www.microsoft.com/net/download/linux).
 
-1. Register the Microsoft product key as trusted:
+2. Register the Microsoft product key as trusted:
 
-  ```bash
-  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-  ```
+    ```bash
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    ```
 
-2.  Set up the package feed, replacing `<version>` in the following command with the appropriate version name from the table:
+3. Verify your Ubuntu server is running one of the appropriate versions from the table below. To add the apt source, run:
 
-  ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
-  sudo apt-get update
-  ```
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo apt-get update
+    ```
 
-  | Linux distribution | `<version>` |
-  | --------------- | ----------- |
-  | Ubuntu 17.10    | `artful`    |
-  | Ubuntu 17.04    | `zesty`     |
-  | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+    | Linux distribution | Version |
+    | --------------- | ----------- |
+    | Ubuntu 17.10    | `artful`    |
+    | Ubuntu 17.04    | `zesty`     |
+    | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-3. Install the Core Tools package:
+4. Install the Core Tools package:
 
-  ```bash
-  sudo apt-get install azure-functions-core-tools
-  ```
+    ```bash
+    sudo apt-get install azure-functions-core-tools
+    ```
 
 ## Run Azure Functions Core Tools
- 
+
 Azure Functions Core Tools adds the following command aliases:
-* **func**
-* **azfun**
-* **azurefunctions**
+
++ **func**
++ **azfun**
++ **azurefunctions**
 
 Any of these aliases can be used where `func` is shown in the examples.
 
-```
+```bash
 func init MyFunctionProj
 ```
 
@@ -130,13 +131,13 @@ When running locally, a Functions project is a directory that has the files [hos
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
-```
+```bash
 func init MyFunctionProj
 ```
 
 The output looks like the following example:
 
-```
+```output
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
@@ -148,7 +149,7 @@ To create the project without a local Git repository, use the `--no-source-contr
 
 ## Register extensions
 
-In version 2.x of the Azure Functions runtime, you must explicitly register the [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) that you use in your function app. 
+In version 2.x of the Azure Functions runtime, you have to explicitly register the binding extensions (binding types) that you use in your function app.
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
@@ -162,8 +163,9 @@ The file local.settings.json stores app settings, connection strings, and settin
 {
   "IsEncrypted": false,   
   "Values": {
-    "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>" 
+    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsDashboard": "<connection-string>",
+    "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
     "LocalHttpPort": 7071, 
@@ -174,16 +176,17 @@ The file local.settings.json stores app settings, connection strings, and settin
   }
 }
 ```
+
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings used when running locally. **AzureWebJobsStorage** and **AzureWebJobsDashboard** are examples; for a complete list, see [app settings reference](functions-app-settings.md). Many triggers and bindings have a property that refers to an app setting, such as **Connection** for the Blob storage trigger. For such properties, you need an application setting defined in the **Values** array. This also applies to any binding property that you set to an app setting name by wrapping the value in percent signs, for example `%AppSettingName%`. |
-| **Host** | Settings in this section customize the Functions host process when running locally. | 
+| **Values** | Collection of application settings and connection strings used when running locally. These correspond to app settings in your function app in Azure, such as **AzureWebJobsStorage** and **AzureWebJobsDashboard**. Many triggers and bindings have a property that refers to a connection string app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. <br/>**AzureWebJobsStorage** is a required app setting for triggers other than HTTP. When you have the [Azure storage emulator](../storage/common/storage-use-emulator.md) installed locally, you can set **AzureWebJobsStorage** to `UseDevelopmentStorage=true` and Core Tools uses the emulator. This is useful during development, but you should test with an actual storage connection before deployment. |
+| **Host** | Settings in this section customize the Functions host process when running locally. |
 | **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
 | **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
-| **ConnectionStrings** | Contains the database connection strings for your functions. Connection strings in this object are added to the environment with the provider type of **System.Data.SqlClient**.  | 
+| **ConnectionStrings** | Do not use this collection for the connection strings used by your function bindings. This collection is only used by frameworks that must get connection strings from the **ConnectionStrings** section of a configuration file, such as [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Connection strings in this object are added to the environment with the provider type of [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in this collection are not published to Azure with other app settings. You must explicitly add these values to the **Connection strings** section of the **Application settings** for your function app. |
 
-These settings can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
+The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
 
 + [C# precompiled](functions-dotnet-class-library.md#environment-variables)
 + [C# script (.csx)](functions-reference-csharp.md#environment-variables)
@@ -191,26 +194,37 @@ These settings can also be read in your code as environment variables. For more 
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure.
+Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure. Values in **ConnectionStrings** are never published.
 
-When no valid storage connection string is set for **AzureWebJobsStorage**, the following error message is shown:  
+When no valid storage connection string is set for **AzureWebJobsStorage** and the emulator isn't being used, the following error message is shown:  
 
 >Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
-  
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-### Configure app settings
+### Get your storage connection strings
 
-To set a value for connection strings, you can do one of the following options:
-* Enter the connection string from [Azure Storage Explorer](http://storageexplorer.com/).
-* Use one of the following commands:
+Even when using the storage emulator for development, you may want to test with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-create-storage-account.md), you can get a valid storage connection string in one of the following ways:
 
-    ```
++ From the [Azure portal]. Navigate to your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
+
+  ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
+
++ Use [Azure Storage Explorer](http://storageexplorer.com/) to connect to your Azure account. In the **Explorer**, expand your subscription, select your storage account, and copy the primary or secondary connection string. 
+
+  ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
+
++ Use Core Tools to download the connection string from Azure with one of the following commands:
+
+    + Download all settings from an existing function app:
+
+    ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    ```
+    + Get the Connection string for a specific storage account:
+
+    ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
+    
     Both commands require you to first sign in to Azure.
 
 <a name="create-func"></a>
@@ -218,7 +232,7 @@ To set a value for connection strings, you can do one of the following options:
 
 To create a function, run the following command:
 
-```
+```bash
 func new
 ``` 
 `func new` supports the following optional arguments:
@@ -231,21 +245,21 @@ func new
 
 For example, to create a JavaScript HTTP trigger, run:
 
-```
-func new --language JavaScript --template "HttpTrigger" --name MyHttpTrigger
+```bash
+func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
 To create a queue-triggered function, run:
 
-```
-func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
-```
+```bash
+func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
+```bash
 <a name="start"></a>
 ## Run functions locally
 
 To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
-```
+```bash
 func host start
 ```
 
@@ -264,7 +278,7 @@ func host start
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
-```
+```bash
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
@@ -272,7 +286,7 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### Debug in VS Code or Visual Studio
+### <a name="vs-debug"></a>Debug in VS Code or Visual Studio
 
 To attach a debugger, pass the `--debug` argument. To debug JavaScript functions, use Visual Studio Code. For C# functions, use Visual Studio.
 
@@ -280,7 +294,7 @@ To debug C# functions, use `--debug vs`. You can also use [Azure Functions Visua
 
 To launch the host and set up JavaScript debugging, run:
 
-```
+```bash
 func host start --debug vscode
 ```
 
@@ -310,12 +324,12 @@ Make sure to use the same server name and port that the Functions host is listen
 
 The following cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string. 
 
-```
+```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 The following example is the same function called from a POST request passing _name_ in the request body:
 
-```
+```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
@@ -337,7 +351,7 @@ To pass test data to the administrator endpoint of a function, you must supply t
 ```` 
 The `<trigger_input>` value contains data in a format expected by the function. The following cURL example is a POST to a `QueueTriggerJS` function. In this case, the input is a string that is equivalent to the message expected to be found in the queue.      
 
-```
+```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
 ```
 
@@ -360,7 +374,7 @@ You can also invoke a function directly by using `func run <FunctionName>` and p
 
 For example, to call an HTTP-triggered function and pass content body, run the following command:
 
-```
+```bash
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -372,7 +386,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 To publish a Functions project to a function app in Azure, use the `publish` command:
 
-```
+```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
@@ -380,7 +394,7 @@ You can use the following options:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.|
+| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the storage emulator, you change the app setting to an [actual storage connection](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
 
 This command publishes to an existing function app in Azure. An error occurs when the `<FunctionAppName>` doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md).

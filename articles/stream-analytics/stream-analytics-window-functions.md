@@ -8,14 +8,14 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 ---
 # Introduction to Stream Analytics windowing functions
 In time-streaming scenarios, performing operations on the data contained in temporal windows is a common pattern. Stream Analytics has native support for windowing functions, enabling developers to author complex stream processing jobs with minimal effort.
 
-There are four kinds of temporal windows to choose from: [**Tumbling**](https://msdn.microsoft.com/library/dn835055.aspx), [**Hopping**](https://msdn.microsoft.com/library/dn835041.aspx), [**Sliding**](https://msdn.microsoft.com/library/dn835051.aspx), and **Session** windows.  You use the window functions in the [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) clause of the query syntax in your Stream Analytics jobs.
+There are four kinds of temporal windows to choose from: [**Tumbling**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**Hopping**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**Sliding**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), and [**Session**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) windows.  You use the window functions in the [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) clause of the query syntax in your Stream Analytics jobs.
 
-All the [windowing](https://msdn.microsoft.com/library/dn835019.aspx) operations output results at the **end** of the window. The output of the window will be single event based on the aggregate function used. The output event will have the time stamp of the end of the window and all window functions are defined with a fixed length. 
+All the [windowing](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) operations output results at the **end** of the window. The output of the window will be single event based on the aggregate function used. The output event will have the time stamp of the end of the window and all window functions are defined with a fixed length. 
 
 ![Stream Analytics window functions concepts](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 

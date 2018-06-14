@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2018
+ms.date: 04/24/2018
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -47,14 +47,26 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 
 ## v3 capabilities
 
-v3 is based on a unified API surface which exposes both management and operations functionality built on **Azure Resource Manager**. This version provides the following capabilities:  
+v3 is based on a unified API surface, which exposes both management and operations functionality built on Azure Resource Manager. 
+
+This version provides the following capabilities:  
 
 * **Transforms** that help you define simple workflows of media processing or analytics tasks. Transform is a recipe for processing your video and audio files. You can then apply it repeatedly to process all the files in your content library, by submitting jobs to the Transform.
 * **Jobs** to process (encode or analyze) your videos. An input content can be specified on a job using HTTP(s) URLs, SAS URLs, or paths to files located in Azure Blob storage. 
-* **Notifications** that monitor job progress or states, or Live Channel start/stop and error events. Notivications are integrated with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. 
+* **Notifications** that monitor job progress or states, or Live Channel start/stop and error events. Notifications are integrated with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. 
 * **Azure Resource Management** templates can be used to create and deploy Transforms, Streaming Endpoints, Channels, and more.
 * **Role-based access control** can be set at the resource level, allowing you to lock down access to specific resources like Transforms, Channels, and more.
 * **Client SDKs** in multiple languages: .NET, .NET core, Python, Go, Java, and Node.js.
+
+## Naming conventions
+
+Since Azure Media Services v3 is built on Azure Resource Manager, resource names (for example, Assets, Jobs, Transforms) are subject to naming constraints.
+
+In accordance with Azure Resource Manager, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
+
+Media Services resource names cannot include: '<', '>', '%', '&', ':', '\', '?', '/' OR any control characters. The max length is 260 characters. All other characters are allowed. 
+
+For more information, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
 ## How can I get started with v3?
 
@@ -62,26 +74,9 @@ As a developer, you can use Media Services [REST API](https://go.microsoft.com/f
 
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [.NET languages](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
-* .NET Core 
-* Java
-
-  Add following dependency in your project:
-  
-  ```
-  <dependency>
-    <groupId>com.microsoft.azure.media-2018-03-30-preview</groupId>
-    <artifactId>azure-mgmt- media</artifactId>
-    <version>0.0.1-beta</version>
-  </dependency> 
-  ```
-* Node.js 
-
-  Use the following command:
-  
-  ```
-  npm install azure-arm-mediaservices
-  ```
-  
+* [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (Choose the **.NET CLI** tab)
+* [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)
+* [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)
 * [Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)
 * [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)
 

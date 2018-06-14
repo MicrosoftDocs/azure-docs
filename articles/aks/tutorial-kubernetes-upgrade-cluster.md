@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - update cluster
 description: Kubernetes on Azure tutorial - update cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial

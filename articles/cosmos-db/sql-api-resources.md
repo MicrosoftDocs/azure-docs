@@ -3,16 +3,13 @@ title: Azure Cosmos DB resource model and concepts | Microsoft Docs
 description: Learn about Azure Cosmos DB’s hierarchical model of databases, collections, user defined function (UDF), documents, permissions to manage resources, and more.
 keywords: Hierarchical model, cosmosdb, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
 
-ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
@@ -47,7 +44,7 @@ As the following diagram illustrates, the Azure Cosmos DB hierarchical **resourc
 ![Azure Cosmos DB hierarchical resource model][1]  
 **Hierarchical resource model**   
 
-To start working with resources, you must [create a database account](create-sql-api-dotnet.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in turn contain **stored procedures, triggers, UDFs, documents, and related **attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents, or attachments. While databases, users, permissions, and collections are system-defined resources with well-known schemas, documents, and attachments contain arbitrary, user-defined JSON content.  
+To start working with resources, you must [create a database account](create-sql-api-dotnet.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in turn contain **stored procedures, triggers, UDFs, documents, and related attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents, or attachments. While databases, users, permissions, and collections are system-defined resources with well-known schemas, documents, and attachments contain arbitrary, user-defined JSON content.  
 
 | Resource | Description |
 | --- | --- |

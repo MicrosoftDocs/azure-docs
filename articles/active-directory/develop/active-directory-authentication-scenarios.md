@@ -3,18 +3,20 @@ title: Authentication scenarios for Azure AD | Microsoft Docs
 description: Provides an overview of the five most common authentication scenarios for Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2018
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
 
 ---
@@ -46,7 +48,7 @@ With the diagram above in mind, here’s what you need to know about its various
 * Azure AD is the identity provider, responsible for verifying the identity of users and applications that exist in an organization’s directory, and ultimately issuing security tokens upon successful authentication of those users and applications.
 * An application that wants to outsource authentication to Azure AD must be registered in Azure AD, which registers and uniquely identifies the app in the directory.
 * Developers can use the open-source Azure AD authentication libraries to make authentication easy by handling the protocol details for you. For more information, see [Azure Active Directory Authentication Libraries](active-directory-authentication-libraries.md).
-* Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful.  We have samples of what the application must do in a variety of languages and frameworks on [GitHub](https://github.com/Azure-Samples?q=active-directory).  If you're building a web app in ASP.NET, see the [add sign-in for an ASP.NET web app guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp).  If you’re building a web API resource in ASP.NET, see the [web API getting started guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
+* Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful. We have samples of what the application must do in a variety of languages and frameworks on [GitHub](https://github.com/Azure-Samples?q=active-directory). If you're building a web app in ASP.NET, see the [add sign-in for an ASP.NET web app guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). If you’re building a web API resource in ASP.NET, see the [web API getting started guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
 * The flow of requests and responses for the authentication process is determined by the authentication protocol that was used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0. These protocols are discussed in more detail in the [Azure Active Directory authentication protocols](active-directory-authentication-protocols.md) article and in the sections below.
 
 > [!NOTE]
@@ -132,7 +134,7 @@ This section describes an application that authenticates a user in a web browser
 1. When a user visits the application and needs to sign in, they are redirected via a sign-in request to the authentication endpoint in Azure AD.
 1. The user signs in on the sign-in page.
 1. If authentication is successful, Azure AD creates an authentication token and returns a sign-in response to the application’s Reply URL that was configured in the Azure portal. For a production application, this Reply URL should be HTTPS. The returned token includes claims about the user and Azure AD that are required by the application to validate the token.
-1. The application validates the token by using a public signing key and issuer information available at the federation metadata document for Azure AD. After the application validates the token, Azure AD starts a new session with the user. This session allows the user to access the application until it expires.
+1. The application validates the token by using a public signing key and issuer information available at the federation metadata document for Azure AD. After the application validates the token, it starts a new session with the user. This session allows the user to access the application until it expires.
 
 #### Code samples
 
@@ -186,7 +188,7 @@ Using ADAL.js helps with:
 * refreshing an expired token
 * requesting an access token to call a web API resource
 
-After a successful authentication, Azure AD writes a cookie in the user's browser to establish a session.  Note the session exists between the user and Azure AD (not between the user and the web application). When a token expires, ADAL.js uses this session to silently obtain another token. ADAL.js uses a hidden iFrame to send and receive the request using the OAuth Implicit Grant protocol. ADAL.js can also use this same mechanism to silently obtain access tokens for other web API resources the application calls as long as these resources support cross-origin resource sharing (CORS), are registered in the user’s directory, and any required consent was given by the user during sign-in.
+After a successful authentication, Azure AD writes a cookie in the user's browser to establish a session. Note the session exists between the user and Azure AD (not between the user and the web application). When a token expires, ADAL.js uses this session to silently obtain another token. ADAL.js uses a hidden iFrame to send and receive the request using the OAuth Implicit Grant protocol. ADAL.js can also use this same mechanism to silently obtain access tokens for other web API resources the application calls as long as these resources support cross-origin resource sharing (CORS), are registered in the user’s directory, and any required consent was given by the user during sign-in.
 
 ### Native application to web API
 
@@ -257,7 +259,7 @@ Both the application identity and delegated user identity types are discussed in
 
 1. A user is already signed in to a web application, whose authentication mechanism is independent of Azure AD.
 1. The web application requires an authorization code to acquire an access token, so it issues a request through the browser to Azure AD’s authorization endpoint, providing the Application ID and redirect URI for the web application after successful authentication. The user signs in to Azure AD.
-1. If the user of the web application has not yet consented to allowing the web application to call the web API on its behalf, the user will need to consent. The application will display the permissions it requires, and if any of these are administrator-level permissions, a normal user in the directory will not be able to consent. This consent applies to both single and multi-tenant application.  In the single tenant case, an admin can perform admin consent to consent on behalf of their users.  This can be done using the `Grant Permissions` button in the [Azure Portal](https://portal.azure.com). 
+1. If the user of the web application has not yet consented to allowing the web application to call the web API on its behalf, the user will need to consent. The application will display the permissions it requires, and if any of these are administrator-level permissions, a normal user in the directory will not be able to consent. This consent applies to both single and multi-tenant application. In the single tenant case, an admin can perform admin consent to consent on behalf of their users. This can be done using the `Grant Permissions` button in the [Azure Portal](https://portal.azure.com). 
 1. After the user has consented, the web application receives the authorization code that it needs to acquire an access token.
 1. Using the authorization code issued by Azure AD, the web application sends a request to Azure AD’s token endpoint that includes the authorization code, details about the client application (Application ID and redirect URI), and the desired resource (application ID URI for the web API).
 1. The authorization code and information about the web application and web API are validated by Azure AD. Upon successful validation, Azure AD returns two tokens: a JWT access token and a JWT refresh token.

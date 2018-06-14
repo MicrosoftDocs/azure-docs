@@ -3,7 +3,7 @@ title: Use Draft with AKS and Azure Container Registry
 description: Use Draft with AKS and Azure Container Registry
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -35,7 +35,7 @@ The Draft CLI is a client that runs on your development system and allows you to
 > [!NOTE]
 > If you've installed Draft prior to version 0.12, you should first delete Draft from your cluster using `helm delete --purge draft` and then remove your local configuration by running `rm -rf ~/.draft`. If you are on MacOS, run `brew upgrade draft`.
 
-To install the Draft CLI on a Mac use `brew`. For additional installation options see, the [Draft Install guide][install-draft].
+To install the Draft CLI on a Mac use `brew`. For additional installation options see, the [Draft Install guide][draft-documentation].
 
 ```console
 brew tap azure/draft
@@ -285,7 +285,6 @@ For more information about using Draft, see the Draft documentation on GitHub.
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
-[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
 [kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 

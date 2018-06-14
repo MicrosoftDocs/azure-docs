@@ -6,8 +6,8 @@ author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: tomfitz
 ---
 
@@ -59,7 +59,7 @@ Event Grid uses an exponential backoff retry policy for event delivery. If your 
 
 Event Grid adds a small randomization to all retry intervals. After one hour, event delivery is retried once an hour.
 
-By default, Event Grid expires all events that are not delivered within 24 hours.
+Event Grid stops attempting to deliver all events that are not delivered within 24 hours.
 
 ## Next steps
 

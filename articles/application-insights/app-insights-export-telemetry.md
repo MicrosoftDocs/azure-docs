@@ -1,4 +1,4 @@
-﻿---
+---
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
 services: application-insights
@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2017
 ms.author: mbullwin
 
@@ -19,7 +19,7 @@ ms.author: mbullwin
 # Export telemetry from Application Insights
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
 
-Using Continuous Export may incur an additional charge. Check your [pricing model](http://azure.microsoft.com/pricing/details/application-insights/).
+Using Continuous Export may incur an additional charge. Check your [pricing model](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Before you set up continuous export, there are some alternatives you might want to consider:
 

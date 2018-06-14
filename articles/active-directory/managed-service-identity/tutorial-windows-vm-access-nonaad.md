@@ -8,6 +8,7 @@ manager: mtillman
 editor: daveba
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,7 +17,7 @@ ms.date: 11/20/2017
 ms.author: daveba
 ---
 
-# Use a Windows VM Managed Service Identity (MSI) to access Azure Key Vault 
+# Tutorial: Use a Windows VM Managed Service Identity (MSI) to access Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -134,8 +135,9 @@ First, we use the VM’s MSI to get an access token to authenticate to Key Vault
     
 Once you’ve retrieved the secret from the Key Vault, you can use it to authenticate to a service that requires a name and password. 
 
-## Related content
+## Next steps
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
+In this tutorial, you learned how to create a Managed Service Identity to access Azure Key Vault.  To learn more about Azure Key Vault see:
 
-Use the following comments section to provide feedback and help us refine and shape our content.
+> [!div class="nextstepaction"]
+>[Azure Key Vault](/azure/key-vault/key-vault-whatis)

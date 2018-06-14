@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial - Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
@@ -22,9 +22,9 @@ ms.custom: mvc
 # Tutorial: Configure HTTPS on an Azure CDN custom domain
 
 > [!IMPORTANT]
-> This feature is not available with **Azure CDN Standard from Akamai** products. For a comparison of CDN features, see [Azure CDN overview](cdn-features.md).
+> This feature is not available with **Azure CDN Standard from Akamai** products. For a comparison of Azure Content Delivery Network (CDN) features, see [Compare Azure CDN product features](cdn-features.md).
 
-This tutorial shows how to enable the HTTPS protocol for a custom domain that is associated with an Azure Content Delivery Network (CDN) endpoint. By using the HTTPS protocol on your custom domain (for example, https:\//www.contoso.com), you ensure that your sensitive data is delivered securely via SSL encryption when it is sent across the internet. HTTPS provides trust, authentication, and protects your web applications from attacks. 
+This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with an Azure CDN endpoint. By using the HTTPS protocol on your custom domain (for example, https:\//www.contoso.com), you ensure that your sensitive data is delivered securely via TLS/SSL encryption when it is sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site’s security certificate and verifies it’s issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
 
 Azure CDN supports HTTPS on a CDN endpoint hostname, by default. For example, if you create a CDN endpoint (such as https:\//contoso.azureedge.net), HTTPS is automatically enabled.  
 
@@ -50,9 +50,15 @@ Before you can complete the steps in this tutorial, you must first create a CDN 
 
 In addition, you must associate an Azure CDN custom domain on your CDN endpoint. For more information, see [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
 
-## Option 1 (default): Enable the HTTPS feature with a CDN-managed certificate  
+---
 
-With this option, the custom HTTPS feature can be turned on with just a few clicks. Azure CDN completely handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately. If the custom domain is already mapped to the CDN endpoint, no further action is required. Azure CDN will process the steps and complete your request automatically. However, if your custom domain is mapped elsewhere, you must use email to validate your domain ownership.
+## SSL certificates
+To enable the HTTPS protocol for securely delivering content on an Azure CDN custom domain, you must use an SSL certificate. You can choose to use a certificate that is managed by Azure CDN or use your own certificate.
+
+
+# [Option 1 (default): Enable HTTPS with a CDN-managed certificate](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
+
+When you use a CDN-managed certificate, the HTTPS feature can be turned on with just a few clicks. Azure CDN completely handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately. If the custom domain is already mapped to the CDN endpoint, no further action is required. Azure CDN will process the steps and complete your request automatically. However, if your custom domain is mapped elsewhere, you must use email to validate your domain ownership.
 
 To enable HTTPS on a custom domain, follow these steps:
 
@@ -72,31 +78,51 @@ To enable HTTPS on a custom domain, follow these steps:
 
 4. Under Certificate management type, select **CDN managed**.
 
-4. Select **On** to enable HTTPS.
+5. Select **On** to enable HTTPS.
 
     ![Custom domain HTTPS status](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
+6. Proceed to [Validate the domain](#validate-the-domain).
 
-## Option 2: Enable the HTTPS feature with your own certificate 
+
+# [Option 2: Enable HTTPS with your own certificate](#tab/option-2-enable-https-with-your-own-certificate)
+
+> [!IMPORTANT]
+> This option is available only with **Azure CDN Standard from Microsoft** profiles. 
+>
  
-You can use your own certificate on Azure CDN to deliver content via HTTPS. This process is done through an integration with Azure Key Vault. Azure Key Vault allows customers to store their certificates securely. Azure CDN service leverages this secure mechanism to get the certificate. Using your own certificate requires a few additional steps.
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few additional steps. When you create your SSL certificate, you must create it with an allowed certificate authority (CA). Otherwise, if you use a non-allowed CA, your request will be rejected. For a list of allowed CAs, see [Allowed certificate authorities for enabling custom HTTPS on Azure CDN](cdn-troubleshoot-allowed-ca.md).
 
-### Step 1: Prepare your Azure Key vault account and certificate
+### Prepare your Azure Key vault account and certificate
  
 1. Azure Key Vault: You must have a running Azure Key Vault account under the same subscription as the Azure CDN profile and CDN endpoints that you want to enable custom HTTPS. Create an Azure Key Vault account if you don’t have one.
  
-2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner Certificate Authorities (CA) that Azure Key Vault integrates with. 
+2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner CAs that Azure Key Vault integrates with. 
 
-### Step 2: Grant Azure CDN access to your key vault
+### Register Azure CDN
+
+Register Azure CDN as an app in your Azure Active Directory via PowerShell.
+
+1. If needed, install [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) in PowerShell on your local machine.
+
+2. In PowerShell, run the following command:
+
+     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+
+    ![Register Azure CDN in PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
+              
+
+### Grant Azure CDN access to your key vault
  
-You must grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
+Grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
+
 1. In your key vault account, under SETTINGS, select **Access policies**, then select **Add new** to create a new policy.
 
     ![Create new access policy](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-    ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
+2. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, and choose **Microsoft.Azure.Cdn**. Click **Select**.
 
-2. In **Select principal**, search, and select **Azure CDN**.
+    ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
 3. In **Secret permissions**, select **Get** to allow CDN to perform these permissions to get and list the certificates. 
 
@@ -104,7 +130,7 @@ You must grant Azure CDN permission to access the certificates (secrets) in your
 
     Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault.
  
-### Step 3: Select the certificate for Azure CDN to deploy
+### Select the certificate for Azure CDN to deploy
  
 1. Return to the Azure CDN portal and select the profile and CDN endpoint you want to enable custom HTTPS. 
 
@@ -124,16 +150,21 @@ You must grant Azure CDN permission to access the certificates (secrets) in your
     - The available certificate versions. 
  
 5. Select **On** to enable HTTPS.
+  
+6. When you use your own certificate, domain validation is not required. Proceed to [Wait for propagation](#wait-for-propagation).
 
+---
 
 ## Validate the domain
 
-If you already have a custom domain in use that is mapped to your custom endpoint with a CNAME record, proceed to  
+If you already have a custom domain in use that is mapped to your custom endpoint with a CNAME record or you're using your own certificate, proceed to  
 [Custom domain is mapped to your CDN endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). Otherwise, if the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, proceed to [Custom domain is not mapped to your CDN endpoint](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
 ### Custom domain is mapped to your CDN endpoint by a CNAME record
 
-When you added a custom domain to your endpoint, you created a CNAME record in the DNS table of your domain registrar to map it to your CDN endpoint hostname. If that CNAME record still exists and does not contain the cdnverify subdomain, the DigiCert certificate authority (CA) uses it to validate ownership of your custom domain. 
+When you added a custom domain to your endpoint, you created a CNAME record in the DNS table of your domain registrar to map it to your CDN endpoint hostname. If that CNAME record still exists and does not contain the cdnverify subdomain, the DigiCert CA uses it to automatically validate ownership of your custom domain. 
+
+If you're using your own certificate, domain validation is not required.
 
 Your CNAME record should be in the following format, where *Name* is your custom domain name and *Value* is your CDN endpoint hostname:
 
@@ -145,7 +176,7 @@ For more information about CNAME records, see [Create the CNAME DNS record](http
 
 If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and adds it to the Subject Alternative Names (SAN) certificate. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
 
-The automatic validation typically takes a few mins. If you don’t see your domain validated within an hour, open a support ticket.
+Automatic validation typically takes a few mins. If you don’t see your domain validated within an hour, open a support ticket.
 
 >[!NOTE]
 >If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
@@ -154,7 +185,7 @@ The automatic validation typically takes a few mins. If you don’t see your dom
 
 If the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, follow the rest of the instructions in this step.
 
-After you enable HTTPS on your custom domain, the DigiCert certificate authority (CA) validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days are automatically canceled. 
+After you enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days are automatically canceled. 
 
 ![WHOIS record](./media/cdn-custom-ssl/whois-record.png)
 
@@ -206,7 +237,7 @@ The following table shows the operation progress that occurs when you enable HTT
 | | The certificate has been successfully deployed to CDN network. |
 | 4 Complete | HTTPS has been successfully enabled on your domain. |
 
-\* This message does not appear unless an error has occurred. 
+\* This message doesn't appear unless an error has occurred. 
 
 If an error occurs before the request is submitted, the following error message is displayed:
 
@@ -258,7 +289,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 2. Do you use IP-based or SNI TLS/SSL?
 
-    **Azure CDN from Verizon** uses IP-based TLS/SSL. **Azure CDN Standard from Microsoft** used SNI TLS/SSL.
+    **Azure CDN from Verizon** uses IP-based TLS/SSL. **Azure CDN Standard from Microsoft** uses SNI TLS/SSL.
 
 3. *What if I don't receive the domain verification email from DigiCert?*
 

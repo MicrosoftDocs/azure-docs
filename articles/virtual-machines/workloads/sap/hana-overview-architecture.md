@@ -4,7 +4,7 @@ description: Architectural overview of how to deploy SAP HANA on Azure (Large In
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/02/2018
+ms.date: 06/12/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -64,8 +64,8 @@ Several common definitions are widely used in the Architecture and Technical Dep
    Domain users of the on-premises domain can access the servers and run services on those VMs (such as DBMS services). Communication and name resolution between VMs deployed on-premises and Azure-deployed VMs is possible. This scenario is typical of the way in which most SAP assets are deployed. For more information, see [Plan and design for Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual network with a site-to-site connection by using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Tenant**: A customer deployed in HANA Large Instance stamp gets isolated into a *tenant.* A tenant is isolated in the networking, storage, and compute layer from other tenants. Storage and compute units assigned to the different tenants can't see each other or communicate with each other on the HANA Large Instance stamp level. A customer can choose to have deployments into different tenants. Even then, there is no communication between tenants on the HANA Large Instance stamp level.
 - **SKU category**: For HANA Large Instance, the following two categories of SKUs are offered:
-    - **Type I class**: S72, S72m, S144, S144m, S192, and S192m
-    - **Type II class**: S384, S384m, S384xm, S576m, S768m, and S960m
+    - **Type I class**: S72, S72m, S144, S144m, S192, S192m, and S192xm
+    - **Type II class**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm , and S960m
 
 
 A variety of additional resources are available on how to deploy an SAP workload in the cloud. If you plan to execute a deployment of SAP HANA in Azure, you need to be experienced with and aware of the principles of Azure IaaS and the deployment of SAP workloads on Azure IaaS. Before you continue, see [Use SAP solutions on Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information. 
@@ -144,7 +144,10 @@ As of July 2017, SAP HANA on Azure (Large Instances) is available in several con
 |---| SAP HANA on Azure S576m<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU cores and 576 CPU threads |  12.0 TB |  28 TB | Available |
 |---| SAP HANA on Azure S768m<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU cores and 768 CPU threads |  16.0 TB |  36 TB | Available |
 |---| SAP HANA on Azure S960m<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 CPU cores and 960 CPU threads |  20.0 TB |  46 TB | Available |
-
+| Optimized for OLTP **TDIv5**: SAP Business Suite<br /> on SAP HANA or S/4HANA (OLTP),<br /> generic OLTP | SAP HANA on Azure S192xm<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU cores and 192 CPU threads |  6.0 TB |  16 TB | Available |
+|---| SAP HANA on Azure S384xxm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  12.0 TB |  28 TB | Available |
+|---| SAP HANA on Azure S576xm<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU cores and 576 CPU threads |  18.0 TB |  41 TB | Available |
+|---| SAP HANA on Azure S768xm<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU cores and 768 CPU threads |  24.0 TB |  56 TB | Available |
 - CPU cores = sum of non-hyper-threaded CPU cores of the sum of the processors of the server unit.
 - CPU threads = sum of compute threads provided by hyper-threaded CPU cores of the sum of the processors of the server unit. All units are configured by default to use Hyper-Threading Technology.
 
@@ -153,8 +156,8 @@ The specific configurations chosen are dependent on workload, CPU resources, and
 
 The hardware base for all the offers are SAP HANA TDI-certified. Two different classes of hardware divide the SKUs into:
 
-- S72, S72m, S144, S144m, S192, and S192m, which are referred to as the "Type I class" of SKUs.
-- S384, S384m, S384xm, S576m, S768m, and S960m, which are referred to as the "Type II class" of SKUs.
+- S72, S72m, S144, S144m, S192, S192m, and S192xm, which are referred to as the "Type I class" of SKUs.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm and S960m, which are referred to as the "Type II class" of SKUs.
 
 A complete HANA Large Instance stamp isn't exclusively allocated for a single customer&#39;s use. This fact applies to the racks of compute and storage resources connected through a network fabric deployed in Azure as well. HANA Large Instance infrastructure, like Azure, deploys different customer &quot;tenants&quot; that are isolated from one another in the following three levels:
 
@@ -302,6 +305,8 @@ This list assembles requirements for running SAP HANA on Azure (Larger Instances
 
 For the support matrix of the different SAP HANA versions with the different Linux versions, see [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
+For the compatibility matrix of the operating system and HLI firmware/driver versions, refer [OS Upgrade for HLI](os-upgrade-hana-large-instance.md).
+
 
 **Database**
 
@@ -333,17 +338,21 @@ The HANA Large Instance of the Type I class comes with four times the memory vol
 
 See the following table in terms of storage allocation. The table lists the rough capacity for the different volumes provided with the different HANA Large Instance units.
 
-| HANA Large Instance SKU | hana/data | hana/log | hana/shared | hana/log/backup |
+| HANA Large Instance SKU | hana/data | hana/log | hana/shared | hana/logbackups |
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
 | S192 | 4,608 GB | 1,024 GB | 1,536 GB | 1,024 GB |
 | S192m | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
+| S192xm |  11,520 GB |  1,536 GB |  1,792 GB |  1,536 GB |
 | S384 | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S384m | 12,000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
 | S384xm | 16,000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
+| S384xxm |  20,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
 | S576m | 20,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
+| S576xm | 31,744 GB | 4,096 GB | 2,048 GB | 4,096 GB |
 | S768m | 28,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
+| S768xm | 40,960 GB | 6,144 GB | 4,096 GB | 6,144 GB |
 | S960m | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
 
 

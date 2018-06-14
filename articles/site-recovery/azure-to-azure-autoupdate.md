@@ -1,6 +1,6 @@
 ---
 title: Automatic update of Mobility Service in Azure to Azure disaster recovery | Microsoft Docs
-description: Provides an overview of Automatic update of Mobility Service, which is used for replication of Azure VMs using Azure Site Recovery.
+description: Provides an overview of automatic update of Mobility Service, when replicating Azure VMs using Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram 
 manager: rochakm
@@ -10,7 +10,7 @@ ms.date: 06/14/2018
 ms.author: rajanaki
 
 ---
-# Automatic update of Mobility Service extension in Azure to Azure replication
+# Automatic update of the Mobility Service in Azure to Azure replication
 
 Azure Site Recovery has a monthly release cadence where enhancements to existing features or new ones are added, and known issues if any are fixed. This would mean that to remain current with the service, you need to plan for deployment of these patches, monthly. In order to avoid the over head associated with the upgrade, users can instead choose to allow Site Recovery to manage updates of the components. As detailed in the [architecture reference](azure-to-azure-architecture.md) for Azure to Azure disaster recovery, Mobility Service gets installed on all Azure virtual machines for which replication is enabled while replicating virtual machines from one Azure region to another. Once you enable automatic update, the Mobility service extension gets updated with every new release. This document details the following:
 

@@ -6,8 +6,8 @@ author: rimman
 manager: kfile
 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 
@@ -15,11 +15,30 @@ ms.author: rimman
 
 # Multi-master at global scale with Azure Cosmos DB 
  
-Developing globally distributed applications that respond with local latencies while maintaining consistent views of data worldwide is a challenging problem. Customers use globally distributed databases, because they need to improve data access latency, achieve high data availability, and ensure guaranteed disaster recovery and, (4) to meet their business requirements. Multi-master in Azure Cosmos DB provides high levels of availability (99.999%), single-digit millisecond latency to write data and scalability with built-in comprehensive and flexible conflict resolution support. These features significantly simplifies development of globally distributed applications. For globally distributed applications, multi-master support is crucial. 
+Developing globally distributed applications that respond with local latencies while maintaining consistent views of data worldwide is a challenging problem. Customers use globally distributed databases, because they need to improve data access latency, achieve high data availability, ensure guaranteed disaster recovery, and to meet their business requirements. Multi-master in Azure Cosmos DB provides high levels of availability (99.999%), single-digit millisecond latency to write data and scalability with built-in comprehensive and flexible conflict resolution support. These features significantly simplify development of globally distributed applications. For globally distributed applications, multi-master support is crucial. 
 
 ![Multi-master architecture](./media/multi-region-writers/multi-master-architecture.png)
 
 With Azure Cosmos DB multi-master support, you can perform writes on containers of data (for example, collections, graphs, tables) distributed anywhere in the world. You can update data in any region that is associated with your database account. These data updates can propagate asynchronously. In addition to providing fast access and write latency to your data, multi-master also provides a practical solution for failover and load-balancing issues. In summary, with Azure Cosmos DB you get write latency of <10 ms at the 99th percentile anywhere in the world, 99.999% write and read availability anywhere in the world, and the ability to scale both write and read throughput anywhere around the world.   
+
+> [!IMPORTANT]
+> Multi-master support is in private preview, to use the preview version, [sign up](#sign-up-for-multi-master-support) now.
+
+## Sign up for multi-master support
+
+If you already have an Azure subscription, you can sign up to join the multi-master preview program in the Azure portal. If you’re new to Azure, sign up for a [free trial](https://azure.microsoft.com/free) where you get 12 months of free access to Azure Cosmos DB. Complete the following steps to request access to the multi-master preview program.
+
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Databases** > **Azure Cosmos DB**.  
+
+2. In the New Account page, provide a name for your Azure Cosmos DB account, choose the API, Subscription, Resource Group and Location.  
+
+3. Next select **Sign up to preview today** under the Multi Mater Preview field.  
+
+   ![Sign up for multi-master preview](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. In the **Sign up to preview today** pane, click **OK**. After you submit the request, the status changes to **Pending approval** in the account creation blade.  
+
+After you submit the request, you will receive an email notification that your request has been approved. Due to the high volume of requests, you should receive notification within a week. You do not need to create a support ticket to complete the request. Requests will be reviewed in the order in which they were received.
 
 ## A simple multi-master example – content publishing  
 
@@ -91,7 +110,7 @@ With multi-master, the challenge is often that two (or more) replicas of the sam
 
 **Example** - Let’s assume that you are using Azure Cosmos DB as the persistence store for a shopping cart application and this application is deployed in two regions: East US and West US.  If approximately at the same time, a user in San Francisco adds an item to his shopping cart (for example, a book) while an inventory management process in the East US invalidates a different shopping cart item (for example, a new phone) for that same user in response to a supplier notification that the release date had been delayed. At time T1, the shopping cart records in the two regions are different. The database will use its replication and conflict resolution mechanism to resolve this inconsistency and eventually one of the two versions of the shopping cart will be selected. Using the conflict resolution heuristics most often applied by multi-master databases (for example, last write wins), it is impossible for the user or application to predict which version will be selected. In either case, data is lost or unexpected behavior may occur. If the East region version is selected, then the user’s selection of a new purchase item (that is, a book) is lost and if the West region is selected, then the previously chosen item (that is, phone) is still in the cart. Either way, information is lost. Finally, any other process inspecting the shopping cart between times T1 and T2 is going to see non-deterministic behavior as well. For example, a background process that selects the fulfillment warehouse and updates the cart shipping costs would produce results that conflict with the eventual contents of the cart. If the process is running in the West region and alternative 1 becomes reality, it would compute the shipping costs for two items, even though the cart may soon have just one item, the book. 
 
-Azure Cosmos DB implements the logic for handling conflicting writes inside the database engine itself. Azure Cosmos DB offers **comprehensive and flexible conflict resolution support** by offering several conflict resolution models, including Automatic (CRDT- conflict-free replicated data types), Last Write Wins (LWW), Custom (Stored Procedure) and Manual for automatic conflict resolution. The conflict resolution models provide correctness and consistency guarantees and remove the burden from developers to have to think about consistency, availability, performance, replication latency, and complex combinations of events under geo-failovers and cross-region write conflicts.  
+Azure Cosmos DB implements the logic for handling conflicting writes inside the database engine itself. Azure Cosmos DB offers **comprehensive and flexible conflict resolution support** by offering several conflict resolution models, including Automatic (CRDT- conflict-free replicated data types), Last Write Wins (LWW), and Custom (Stored Procedure) for automatic conflict resolution. The conflict resolution models provide correctness and consistency guarantees and remove the burden from developers to have to think about consistency, availability, performance, replication latency, and complex combinations of events under geo-failovers and cross-region write conflicts.  
 
   ![Mult-master conflict resolution](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
@@ -109,7 +128,7 @@ In this article you learnt how to use globally distributed multi-master with Azu
 
 * [Learn about how Azure Cosmos DB supports global distribution](distribute-data-globally.md)  
 
-* [Learn about automatic and manual failovers in Azure Cosmos DB](regional-failover.md)  
+* [Learn about automatic failovers in Azure Cosmos DB](regional-failover.md)  
 
 * [Learn about global consistency with Azure Cosmos DB](consistency-levels.md)  
 

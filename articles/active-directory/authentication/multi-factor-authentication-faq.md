@@ -1,24 +1,21 @@
 ---
 title: Azure Multi-Factor Authentication FAQ | Microsoft Docs
-description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions.
+description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. 
+
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 06/16/2017
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
 
-ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/16/2017
-ms.author: joflore
-
-ms.custom: H1Hack27Feb2017
 ---
 # Frequently asked questions about Azure Multi-Factor Authentication
+
 This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
 
 ## General

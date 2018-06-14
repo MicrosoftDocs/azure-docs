@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 05/08/2018
 ms.author: juliako;anilmur
 
 ---
@@ -26,7 +26,7 @@ ms.author: juliako;anilmur
 ## Overview
 In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in one of two ways:
 
-* An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
+* An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 * An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster encoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
   
   > [!NOTE]
@@ -77,7 +77,7 @@ Starting with January 25, 2016, Media Services rolled out an update that automat
 The threshold for an unused period is nominally 12 hours, but is subject to change.
 
 ## Live Encoding Workflow
-The following diagram represents a live streaming workflow where a channel receives a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS); it then encodes the stream to a multi-bitrate stream. 
+The following diagram represents a live streaming workflow where a channel receives a single bitrate stream in one of the following protocols: RTMP or Smooth Streaming; it then encodes the stream to a multi-bitrate stream. 
 
 ![Live workflow][live-overview]
 
@@ -89,7 +89,7 @@ The following are general steps involved in creating common live streaming appli
 > 
 > 
 
-1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). 
+1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP or Smooth Streaming. 
    
     This step could also be performed after you create your Channel.
 2. Create and start a Channel. 
@@ -123,48 +123,8 @@ The following are general steps involved in creating common live streaming appli
 ### <a id="Ingest_Protocols"></a>Ingest streaming protocol
 If the **Encoder Type** is set to **Standard**, valid options are:
 
-* **RTP** (MPEG-TS): MPEG-2 Transport Stream over RTP.  
 * Single bitrate **RTMP**
 * Single bitrate **Fragmented MP4** (Smooth Streaming)
-
-#### RTP (MPEG-TS) - MPEG-2 Transport Stream over RTP.
-Typical use case: 
-
-Professional broadcasters typically work with high-end on-premises live encoders from vendors like Elemental Technologies, Ericsson, Ateme, Imagine or Envivio to send a stream. Often used in conjunction with  an IT department and private networks.
-
-Considerations:
-
-* The use of a single program transport stream (SPTS) input is strongly recommended. 
-* You can input up to 8 audio streams using MPEG-2 TS over RTP. 
-* The video stream should have an average bitrate below 15 Mbps
-* The aggregate average bitrate of the audio streams should be below 1 Mbps
-* Following are the supported codecs:
-  
-  * MPEG-2 / H.262 Video 
-    
-    * Main Profile (4:2:0)
-    * High Profile (4:2:0, 4:2:2)
-    * 422 Profile (4:2:0, 4:2:2)
-  * MPEG-4 AVC / H.264 Video  
-    
-    * Baseline, Main, High Profile (8-bit 4:2:0)
-    * High 10 Profile (10-bit 4:2:0)
-    * High 422 Profile (10-bit 4:2:2)
-  * MPEG-2 AAC-LC Audio 
-    
-    * Mono, Stereo, Surround (5.1, 7.1)
-    * MPEG-2 style ADTS packaging
-  * Dolby Digital (AC-3) Audio 
-    
-    * Mono, Stereo, Surround (5.1, 7.1)
-  * MPEG Audio (Layer II and III) 
-    
-    * Mono, Stereo
-* Recommended broadcast encoders include:
-  
-  * Imagine Communications Selenio ENC 1
-  * Imagine Communications Selenio ENC 2
-  * Elemental Live
 
 #### <a id="single_bitrate_RTMP"></a>Single bitrate RTMP
 Considerations:
@@ -230,36 +190,21 @@ You can define the IP addresses that are allowed to connect to the preview endpo
 This section describes how the settings for the live encoder within the Channel can be adjusted, when the **Encoding Type** of a Channel is set to **Standard**.
 
 > [!NOTE]
-> When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
+> Your contribution feed can only contain a single audio track – ingesting of multiple audio tracks is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), you can send a contribution feed in the Smooth Streaming protocol containing multiple audio tracks.
 > 
 > 
 
 ### Ad marker source
 You can specify the source for ad markers signals. Default value is **Api**, which indicates that the live encoder within the Channel should listen to an asynchronous **Ad Marker API**.
 
-The other valid option is **Scte35** (allowed only if the ingest streaming protocol is set to RTP (MPEG-TS). When Scte35 is specified, the live encoder will parse SCTE-35 signals from the input RTP (MPEG-TS) stream.
-
 ### CEA 708 Closed Captions
 An optional flag which tells the live encoder to ignore any CEA 708 captions data embedded in the incoming video. When the flag is set to false (default), the encoder will detect and re-insert CEA 708 data into the output video streams.
-
-### Video Stream
-Optional. Describes the input video stream. If this field is not specified, the default value is used. This setting is allowed only if the input streaming protocol is set to RTP (MPEG-TS).
-
-#### Index
-A zero-based index that specifies which input video stream should be processed by the live encoder within the Channel. This setting applies only if ingest streaming protocol is RTP (MPEG-TS).
-
-Default value is zero. It is recommended to send in a single program transport stream (SPTS). If the input stream contains multiple programs, the live encoder parses the Program Map Table (PMT) in the input, identifies the inputs that have a stream type name of MPEG-2 Video or H.264, and arranges them in the order specified in the PMT. The zero-based index is then used to pick up the n-th entry in that arrangement.
-
-### Audio Stream
-Optional. Describes the input audio streams. If this field is not specified, the default values specified apply. This setting is allowed only if the input streaming protocol is set to RTP (MPEG-TS).
 
 #### Index
 It is recommended to send in a single program transport stream (SPTS). If the input stream contains multiple programs, the live encoder within the Channel parses the Program Map Table (PMT) in the input, identifies the inputs that have a stream type name of MPEG-2 AAC ADTS or AC-3 System-A or AC-3 System-B or MPEG-2 Private PES or MPEG-1 Audio or MPEG-2 Audio, and arranges them in the order specified in the PMT. The zero-based index is then used to pick up the n-th entry in that arrangement.
 
 #### Language
 The language identifier of the audio stream, conforming to ISO 639-2, such as ENG. If not present, the default is UND (undefined).
-
-There can be up to 8 audio stream sets specified if the input to the Channel is MPEG-2 TS over RTP. However, there can be no two entries with the same value of Index.
 
 ### <a id="preset"></a>System Preset
 Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
@@ -386,13 +331,11 @@ The following table shows how Channel states map to the billing mode.
 * You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
 * Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived@microsoft.com if you need to run a Channel for longer periods of time.
 * Make sure to have the streaming endpoint from which you want to stream content in the **Running** state.
-* When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
-* The encoding preset uses the notion of "max frame rate" of 30 fps. So if the input is 60fps/59.97i, the input frames are dropped/de-interlaced to 30/29.97 fps. If the input is 50fps/50i, the input frames are dropped/de-interlaced to 25 fps. If the input is 25 fps, output remains at 25 fps.
+* The encoding preset uses the notion of "max frame rate" of 30 fps. So if the input is 60fps/59.94i, the input frames are dropped/de-interlaced to 30/29.97 fps. If the input is 50fps/50i, the input frames are dropped/de-interlaced to 25 fps. If the input is 25 fps, output remains at 25 fps.
 * Don't forget to STOP YOUR CHANNELS when done. If you don't, billing will continue.
 
 ## Known Issues
 * Channel start up time has been improved to an average of 2 minutes, but at times of increased demand could still take up to 20+ minutes.
-* RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 * Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
 * Once again....don't forget to STOP YOUR CHANNELS when you are done streaming. If you don't, billing will continue.
 

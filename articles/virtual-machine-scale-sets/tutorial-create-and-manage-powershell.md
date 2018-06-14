@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.6.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
 
 
 ## Create a resource group
@@ -142,7 +142,7 @@ Once logged in to the VM instance, you could perform some manual configuration c
 
 
 ## Understand VM instance images
-When you defined a scale set configuration with [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) in a previous step, you used a Windows Server 2016 Datacenter image. The Azure marketplace includes many images that can be used to create VM instances. To see a list of available publishers, use the [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) command.
+The Azure marketplace includes many images that can be used to create VM instances. To see a list of available publishers, use the [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) command.
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"
@@ -185,7 +185,7 @@ New-AzureRmVmss `
   -SubnetName "mySubnet2" `
   -PublicIpAddressName "myPublicIPAddress2" `
   -LoadBalancerName "myLoadBalancer2" `
-  -UpgradePolicy "Automatic" `
+  -UpgradePolicyMode "Automatic" `
   -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest" `
   -Credential $cred
 ```
@@ -242,7 +242,7 @@ New-AzureRmVmss `
   -SubnetName "mySubnet3" `
   -PublicIpAddressName "myPublicIPAddress3" `
   -LoadBalancerName "myLoadBalancer3" `
-  -UpgradePolicy "Automatic" `
+  -UpgradePolicyMode "Automatic" `
   -VmSize "Standard_F1" `
   -Credential $cred
 ```

@@ -12,8 +12,6 @@
   items:
   - name: Authenticate with OAuth
     href: signalr-authenticate-oauth.md  
-  - name: Integration with Azure Functions
-    href: signalr-integrate-functions.md
 - name: Samples
   items:
   - name: Code samples

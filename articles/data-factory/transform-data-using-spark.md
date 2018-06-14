@@ -10,8 +10,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/16/2018
+ms.topic: conceptual
+ms.date: 05/31/2018
 ms.author: douglasl
 
 ---
@@ -47,7 +47,6 @@ Here is the sample JSON definition of a Spark Activity:
         },
         "rootPath": "adfspark\\pyFiles",
         "entryFilePath": "test.py",
-        "arguments": [ "arg1", "arg2" ],
         "sparkConfig": {
             "ConfigItem1": "Value"
         },
@@ -69,7 +68,7 @@ The following table describes the JSON properties used in the JSON definition:
 | linkedServiceName     | Name of the HDInsight Spark Linked Service on which the Spark program runs. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | SparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. The value of this property can only be an Azure Storage linked service. | No       |
 | rootPath              | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. Refer to folder structure section (next section) for details about the structure of this folder. | Yes      |
-| entryFilePath         | Relative path to the root folder of the Spark code/package. | Yes      |
+| entryFilePath         | Relative path to the root folder of the Spark code/package. The entry file must be either a Python file or a .jar file. | Yes      |
 | className             | Application's Java/Spark main class      | No       |
 | arguments             | A list of command-line arguments to the Spark program. | No       |
 | proxyUser             | The user account to impersonate to execute the Spark program | No       |

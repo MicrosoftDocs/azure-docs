@@ -13,11 +13,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
 #Customer intent: As an ASP.NET Core developer, I want to push real-time data in my ASP.NET Core apps. So that my clients are updated without the need to poll, or request updates.
 ---
 # Quickstart: Create a chat room with SignalR Service
+
+Microsoft Azure SignalR Service is currently in [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 
@@ -81,18 +83,18 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
 
 1. Add a reference to the `Microsoft.Azure.SignalR` NuGet package by executing the following command:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10007
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
 
 2. Execute the following command to restore packages for your project.
 
         dotnet restore
 
-3. Add a secret named *Azure:SignalR:ConnectionString* to Secret Manager. This secret will contain the connection string to access your SignalR Service resource. *Azure:SignalR:ConnectionString* is the default configuration key that SignalR looks for in order to establish a connection. Replace the value in the command below with the connection string for your SignalR Service resource.
+3. Add a secret named *Azure__SignalR__ConnectionString* to Secret Manager. This secret is a hierarchical config value, and a colon (:) may not work on all platforms. Double underscore (__), as used by this secret, is supported by all platforms.  This secret will contain the connection string to access your SignalR Service resource. *Azure__SignalR__ConnectionString* is the default configuration key that SignalR looks for in order to establish a connection. Replace the value in the command below with the connection string for your SignalR Service resource.
 
     This command must be executed in the same directory as the *.csproj* file.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
+    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager will only be used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the chat web app to Azure. Once the web app is deployed to Azure, you will use an application setting instead of storing the connection string with Secret Manager.
@@ -107,7 +109,7 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
     }
     ```
 
-    By not passing a parameter to `AddAzureSignalR()`, this code uses the default configuration key, *Azure:SignalR:ConnectionString*, for the SignalR Service resource connection string.
+    By not passing a parameter to `AddAzureSignalR()`, this code uses the default configuration key, *Azure__SignalR__ConnectionString*, for the SignalR Service resource connection string.
 
 5. Also in *Startup.cs*, update the `Configure` method by replacing the call to `app.UseStaticFiles()` with the following code and save the file.
 
@@ -177,7 +179,7 @@ connection.start()
     });
 ```    
 
-The code in *index.html*, calls `HubConnectionBuilder.build()` to make a HTTP connection to the Azure SignalR resource.
+The code in *index.html*, calls `HubConnectionBuilder.build()` to make an HTTP connection to the Azure SignalR resource.
 
 If the connection is successful, that connection is passed to `bindConnectionMessage`, which adds event handlers for incoming content pushes to the client. 
 

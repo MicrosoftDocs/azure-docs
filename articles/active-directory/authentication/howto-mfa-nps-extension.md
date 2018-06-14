@@ -1,21 +1,18 @@
 ---
 title: Use existing NPS servers to provide Azure MFA capabilities | Microsoft Docs
-description: The Network Policy Server extension for Azure Multi-Factor Authentication is a simple solution to add cloud-based two-step vericiation capabilities to your existing authentication infrastructure.
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
+description: Add cloud-based two-step vericiation capabilities to your existing authentication infrastructure
 
-ms.assetid:
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 05/01/2018
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: H1Hack27Feb2017; it-pro
+
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
 

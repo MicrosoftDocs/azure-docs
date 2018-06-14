@@ -7,13 +7,12 @@ author: brenduns
 manager: femila
 editor: ''
 
-ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 05/23/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 
@@ -33,6 +32,10 @@ ms.reviewer: jeffgo
        /Contoso.TodoList/Strings/
        /Contoso.TodoList/DeploymentTemplates/
 3. [Create an Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item uses this template to create a resource.
+
+    > [!Note]  
+    > Never hard code any secrets like product keys, password or any customer identifiable information in the Azure Resource Manager template. Template json files are accessible without the need for authentication once published in the gallery.  Store all secrets in [Key Vault](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-keyvault-parameter) and call them from within the template.
+
 4. To make sure that the resource can be deployed successfully, test the template with the Microsoft Azure Stack APIs.
 5. If your template relies on a virtual machine image, follow the instructions to [add a virtual machine image to Azure Stack](azure-stack-add-vm-image.md).
 6. Save your Azure Resource Manager template in the **/Contoso.TodoList/DeploymentTemplates/** folder.
@@ -87,6 +90,12 @@ ms.reviewer: jeffgo
    > 
    > 
 5. Your Marketplace item has now been saved to the Azure Stack Marketplace. You can choose to delete it from your Blob storage location.
+    > [!Caution]  
+    > All default gallery artifacts and your custom gallery artifacts are now accessible without authentication under the following URLs:  
+`https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`  
+`https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`  
+`https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
+
 6. You can remove a Marketplace item by using the **Remove-AzureRMGalleryItem** cmdlet. Example:
    
         Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose

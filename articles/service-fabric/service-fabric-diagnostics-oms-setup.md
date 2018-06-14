@@ -10,11 +10,11 @@ editor: ''
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
-ms.author: dekapur; srrengar
+ms.author: srrengar
 
 ---
 
@@ -48,7 +48,7 @@ If you are using Windows, continue with the following steps to connect OMS to th
 
 ### Connect the Log Analytics Workspace to your cluster 
 
-1. The workspace needs to be connected to the diagnostics data coming from your cluster. Go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfWorkspace\>** and go to its overview page. From there, you can change solution settings, workspace settings, and access the OMS portal.
+1. The workspace needs to be connected to the diagnostics data coming from your cluster. Go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfWorkspace\>** and go to its overview page. From there, you can change solution settings, workspace settings, and access the OMS Workspace.
 
 2. On the left navigation menu, under **Workspace Data Sources**, select **Storage accounts logs**.
 

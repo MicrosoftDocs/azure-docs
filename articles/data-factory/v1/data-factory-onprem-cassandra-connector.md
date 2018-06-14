@@ -12,8 +12,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/07/2018
 ms.author: jingwang
 
 robots: noindex
@@ -31,7 +31,7 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 You can copy data from an on-premises Cassandra data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a Cassandra data store to other data stores, but not for moving data from other data stores to a Cassandra data store. 
 
 ## Supported versions
-The Cassandra connector supports the following versions of Cassandra: 2.X.
+The Cassandra connector supports the following versions of Cassandra: 2.x and 3.x. For activity running on Self-hosted Integration Runtime, Cassandra 3.x is supported since IR version 3.7 and above.
 
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises Cassandra database, you must install a Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a component that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. See [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
@@ -72,6 +72,9 @@ The following table provides description for JSON elements specific to Cassandra
 | password |Specify password for the user account. |Yes, if authenticationType is set to Basic. |
 | gatewayName |The name of the gateway that is used to connect to the on-premises Cassandra database. |Yes |
 | encryptedCredential |Credential encrypted by the gateway. |No |
+
+>[!NOTE]
+>Currently connection to Cassandra using SSL is not supported.
 
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).

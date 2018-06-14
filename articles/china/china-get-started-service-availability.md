@@ -33,7 +33,7 @@ The following tables compare services available in global Azure and Microsoft Az
 | Azure Cloud Services       | GA                                                                                                                                                                                 | GA                                                                                                                           |
 | Azure Batch                | GA                                                                                                                                                                                 | GA                                                                                                                           |
 | Azure Service Fabric       | GA                                                                                                                                              | GA                                                                                      |
-| Azure Functions            | GA                                                                                                                                                                                 | *Not available*                                                                                                              |
+| Azure Functions            | GA                                                                                                                                                                                 | GA                                                                                                              |
 | Azure Kubernetes Service (AKS)    | GA                                                                                                                                                                                 | *Not available*                                                                                                              |
 | Azure Container Registry   | GA                                                                                                                                                                                 | *Not available*                                                                                                              |
 | Azure Container Instances  | Preview                                                                                                                                                                            | *Not available*                                                                                                              |
@@ -156,11 +156,11 @@ The following tables compare services available in global Azure and Microsoft Az
 |------------------------|----------------------------------------------|--------------------------|
 | Azure portal           | GA                                           | GA                       |
 | Azure Resource Manager | GA                                           | GA                       |
-| Marketplace            | GA                                           | Preview                  |
+| Marketplace            | GA                                           | GA                  |
 | Scheduler              | GA                        | GA    |
 | Automation             | GA | GA               |
 | Log Analytics          | GA                              | *Not available*          |
-| Azure Monitor          | GA                                           | *Not available*          |
+| Azure Monitor          | GA                                           | GA          |
 | Azure Advisor          | GA                                         | *Not available*          |
 
 

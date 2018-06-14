@@ -44,6 +44,6 @@ Batch testing is a way to see how many example utterances are scored by LUIS. Th
 
 ## Next steps
 
-See [Intents in LUIS](luis-concept-intent.md) to learn more about intents in your LUIS app.
+Learn concepts about [collaboration](luis-concept-collaborator.md).
 
 [luis-reference-prebuilt-domains]:luis-reference-prebuilt-domains.md

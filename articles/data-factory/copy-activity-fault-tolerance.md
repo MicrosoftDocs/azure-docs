@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 
@@ -29,8 +29,7 @@ The copy activity in Azure Data Factory offers you two ways to handle incompatib
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [copy activity fault tolerance in V1](v1/data-factory-copy-activity-fault-tolerance.md).
 
-
- ## Supported scenarios
+## Supported scenarios
 Copy Activity supports three scenarios for detecting, skipping, and logging incompatible data:
 
 - **Incompatibility between the source data type and the sink native type**. 

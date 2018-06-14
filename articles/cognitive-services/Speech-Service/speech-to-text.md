@@ -12,9 +12,9 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
-# About Speech to Text API
+# About the Speech to Text API
 
-The **Speech to Text** API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The APIs can be used either with an SDK client library (for supported platforms and languages) or a REST or WebSockets API.
+The **Speech to Text** API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The APIs can be used either with an SDK client library (for supported platforms and languages) or a REST API.
 
 The **Speech to Text** API offers the following features:
 
@@ -34,14 +34,14 @@ The **Speech to Text** API offers the following features:
 
 Some capabilities of the **Speech to Text** API are not available via REST. The following table summarizes the capabilities of each method of accessing the API.
 
-| Use case | REST | WebSockets | SDKs |
+| Use case | REST | SDKs |
 |-----|-----|-----|----|
-| Transcribe a short utterance, such as a command (length < 15 s); no interim results | Yes | Yes | Yes |
-| Transcribe a longer utterance (> 15 s) | No | Yes | Yes |
-| Transcribe streaming audio with optional interim results | No | Yes | Yes |
-| Understand speaker intents via LUIS | No\* | No\* | Yes |
+| Transcribe a short utterance, such as a command (length < 15 s); no interim results | Yes | Yes |
+| Transcribe a longer utterance (> 15 s) | No | Yes |
+| Transcribe streaming audio with optional interim results | No | Yes |
+| Understand speaker intents via LUIS | No\* | Yes |
 
-\* *The SDK can call LUIS for you and provide entity and intent results, all under your Speech subscription. With REST and WebSockets APIs, you can call LUIS yourself to derive intents and entities, but you need a separate LUIS subscription.*
+\* *LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results as well as speech transcriptions. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription.*
 
 ## Next steps
 

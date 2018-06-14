@@ -26,7 +26,7 @@ Integrating HR2day by Merces with Azure AD provides you with the following benef
 - You can enable your users to automatically get signed in to HR2day by Merces with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
-For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -134,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
       | Attribute name    |   Attribute value |  
     | ------------------- | -------------------- |    
-	| ATTR_LOGINCLAIM | join([mail],"102938475Z","@" |
+	| ATTR_LOGINCLAIM | `join([mail],"102938475Z","@"` |
 	
 	  a. To open the **Add Attribute** dialog, select **Add attribute**.
 
@@ -150,7 +150,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. For **String2**, type the unique identifier that's provided by your HR2day team.
 
-	f. In the **Separator** box, type **@**.
+	f. In the **Separator** box, type **\@**.
 	
 	g. Select **Ok**.
 
@@ -248,7 +248,7 @@ When you select the HR2day by Merces tile in the Access Panel, you automatically
 ## Additional resources
 
 * [List of tutorials about how to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

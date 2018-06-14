@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory conditional access | Microsoft Docs
 description: Learn how conditional access in Azure Active Directory can help you to manage access control from a central location.
 services: active-directory
@@ -10,11 +10,12 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -28,6 +29,7 @@ Security is a top concern for organizations using the cloud. A key aspect of clo
 ![Control](./media/active-directory-conditional-access-azure-portal/81.png)
 
 This article provides you with a conceptual overview of conditional access in Azure AD.
+
 
 
 ## Common scenarios
@@ -57,7 +59,7 @@ Conditional access is a capability of Azure Active Directory that enables you to
 
 ## Conditional access policies
 
-A conditional access policy is definition of an access scenario using the following pattern:
+A conditional access policy is a definition of an access scenario using the following pattern:
 
 ![Control](./media/active-directory-conditional-access-azure-portal/10.png)
 
@@ -80,32 +82,8 @@ With Azure AD conditional access, you can control how authorized users can acces
 
 One benefit of using a policy-based approach to protect access to your cloud apps is that you can start drafting the policy requirements for your environment using the structure outlined in this article without worrying about the technical implementation. 
 
-## What you need to know
 
-### General requirements for using conditional access
-
-You can use Azure AD conditional access to protect cloud apps when an authentication attempt comes from:
-
-- A web browser
-
-- A client app that uses modern authentication
-
-- Exchange ActiveSync
-
-For more information, see [client apps](active-directory-conditional-access-conditions.md#client-apps).
-
-Some [cloud apps](active-directory-conditional-access-conditions.md#cloud-apps) also support legacy authentication protocols. This applies, for example, to SharePoint Online and Exchange Online. When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a conditional access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps.
-
-Examples for client apps conditional access does not apply to are:
-
-- Office 2010 and earlier
-
-- Office 2013 when modern authentication is not enabled
-
-For more information, see [Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access](active-directory-conditional-access-no-modern-authentication.md).
-
-
-### License requirements for using conditional access
+## License requirements for using conditional access
 
 Using conditional access requires a Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -117,6 +95,8 @@ Using conditional access requires a Azure AD Premium license. To find the right 
 
     - Access controls, see [Access controls in Azure Active Directory conditional access](active-directory-conditional-access-controls.md).
 
-- If you want to get some experience with configuring conditional access policies, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- If you want to get some experience with configuring conditional access policies, see [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+
+- If you would like a step-by-step deployment plan with recommended policies, see the [conditional access deployment plan](http://aka.ms/conditionalaccessdeploymentplan)
