@@ -8,7 +8,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 06/14/2018
 ms.author: jingwang
 
 ---
@@ -79,11 +79,11 @@ You also can create a Storage linked service by using a shared access signature.
 
 A shared access signature provides delegated access to resources in your storage account. You can use a shared access signature to grant a client limited permissions to objects in your storage account for a specified time. You don't have to share your account access keys. The shared access signature is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the shared access signature, the client only needs to pass in the shared access signature to the appropriate constructor or method. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-> [!IMPORTANT]
-> Data Factory now supports only service shared access signatures but not account shared access signatures. For more information about these two types and how to construct them, see [Types of shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). The shared access signature URL generated from the Azure portal or Azure Storage Explorer is an account shared access signature, which isn't supported.
+> [!NOTE]
+> Data Factory now supports both service shared access signatures and account shared access signatures. For more information about these two types and how to construct them, see [Types of shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
 
 > [!TIP]
-> You can execute the following PowerShell commands to generate a service shared access signature for your storage account. Replace the placeholders and grant the needed permission.
+> To generate a service shared access signature for your storage account, you can execute the following PowerShell commands. Replace the placeholders and grant the needed permission.
 > `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
