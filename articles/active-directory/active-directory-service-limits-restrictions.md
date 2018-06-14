@@ -24,4 +24,4 @@ This article contains the usage constraints and other service limits for the Azu
 
 ## What's next
 * [Sign up for Azure as an organization](fundamentals/sign-up-organization.md)
-* [How Azure subscriptions are associated with Azure AD](active-directory-how-subscriptions-associated-directory.md)
+* [How Azure subscriptions are associated with Azure AD](fundamentals/active-directory-how-subscriptions-associated-directory.md)
