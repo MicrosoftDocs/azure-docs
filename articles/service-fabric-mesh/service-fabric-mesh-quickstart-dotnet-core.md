@@ -1,10 +1,10 @@
 ---
-title: Create an app in Service Fabric Mesh on Azure | Microsoft Docs
-description: In this quickstart, learn how to deploy an application to Service Fabric Mesh in Azure using Visual Studio.
-services: service-fabric-mesh
+title: Quickstart - Deploy an Azure Service Fabric Mesh app
+description: This quickstart shows you how to create an ASP.NET Core website and publish it to Azure Service Fabric Mesh.
+services: service--fabric-mesh
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: tylermsft
+manager: jeconnoc
 editor: ''
 ms.assetid: 
 ms.service: service-fabric-mesh
@@ -13,128 +13,115 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2018
-ms.author: ryanwi
+ms.author: twhitney
 ms.custom: mvc, devcenter
-
+#Customer intent: As a developer, I want to use visual studio to locally run an ASP.NET Core website on Service Fabric Mesh so that I can see it run.
 ---
 
-# Quickstart: Deploy a Service Fabric application in Azure
-Azure Service Fabric Mesh is a fully managed service that enables developers to deploy containerized applications without managing VMs, storage, or networking. 
+# Quickstart: Deploy an Azure Service Fabric Mesh app
 
-This quickstart shows how to deploy your first .NET Core application to Service Fabric Mesh. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
+Azure Service Fabric Mesh is a fully managed service that enables developers to deploy containerized applications without managing VMs, storage, or networking.
 
-You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
+In this quickstart you'll create a new Service Fabric Mesh app (an ASP.NET Core website), run it on the local development cluster, and then publish it to run on Azure.
+
+You'll need an Azure subscription. If you don't have one, you can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+## Create a Service Fabric Mesh project
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you're running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install]. 
+Open Run Visual Studio and select **File** > **New** > **Project...**
 
+In the **New Project** dialog, type **mesh** into the **Search** box at the top. Select the **Service Fabric Mesh Application** template.
 
-## Deploy the application
-Login to Azure and set your subscription to the one that has been white-listed for the preview.
+In the **Name** box, type **ServiceFabricMesh1** and in the **Location** box, set the folder path of where the files for the project will be stored.
 
-```azurecli-interactive
-az login
-az account set --subscription "<subscriptionName>"
-```
+Make sure that **Create directory for solution** is checked, and press **OK** to create the Service Fabric Mesh project.
 
-Create a resource group to deploy the application to. You can use an existing resource group and skip this step. 
+![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
 
-```azurecli-interactive
-az group create --name <resourceGroupName> --location eastus 
-```
+### Create a service
 
-Create your application in the resource group using the `deployment create` command:
+After you click **OK** create a Service Fabric Application project, the **New Service Fabric Service** dialog appears. Select the **ASP.NET Core** project type, make sure **Container OS** is set to **Windows**.
 
-```azurecli-interactive
-az mesh deployment create --resource-group <resourceGroupName> --template-uri https://seabreezequickstart.blob.core.windows.net/templates/quickstart/sbz_rp.linux.json
-```
+You must set the **Service Name** to something unique because the name of the service is used as the repository name of the Docker image. If you have an existing Docker image with the same repository name, it will be overwritten by Visual Studio. Open a terminal and use the Docker command `docker images` to make sure your project name isn't already being used.
 
-In a few seconds, your command should return with `"provisioningState": "Succeeded"` . 
+Press **OK** to create the ASP.NET Core project. 
 
-## Check the application deployment status
-Your application is now deployed. You can check the application's status using the `app show` command. The application name for the deployed quickstart application is "SbzVoting", so fetch its details. 
+![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-service-fabric-service.png)
 
-```azurecli-interactive
-az mesh app show --resource-group <resourceGroupName> --name SbzVoting
-```
+A new dialog is displayed, **New ASP.NET Core Web Application** dialog. Select **Web Application** and then press **OK**.
 
-## List the deployed applications
-You can use the "app list" command to get a list of applications you have deployed to your subscription. 
+![Visual studio new ASP.NET core application](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-aspnetcore-app.png)
 
-```azurecli-interactive
-az mesh app list -o table
-```
+Visual Studio will create both the Service Fabric Application project and the ASP.NET Core project.
 
-## Open the application
-Once the application status is returned as ""provisioningState": "Succeeded", get the ingress endpoint of the service.  Query the network resource to find the IP address of the container where the service is deployed.
+## Build and publish to your local cluster
 
-The network resource for the quickstart application is "SbzVotingNetwork", so fetch its details.
+A Docker image will automatically be built and published to your local cluster as soon as your project loads. This process may take some time. You can monitor the progress of the Service Fabric tools in the **Output** pane if you want. Select the **Service Fabric Tools** item in the pane.
 
-```azurecli-interactive
-az mesh network show --resource-group <resourceGroupName> --name SbzVotingNetwork
-```
-The command should now return with the following information:
+After the project has been created, press **F5** to compile and run your service locally. Whenever the project is run and debugged locally, Visual Studio will: 
+
+* Make sure that Docker for Windows is running and set to use Windows as the container operating system.
+* Download any missing Docker base images. This part may take some time.
+* Build (or rebuild) the Docker image used to host your code project.
+* Deploy and run the container on the local Service Fabric development cluster.
+* Run your service and hit any breakpoints you have set.
+
+After the local deployment is finished, and Visual Studio is running your project, a browser window will open with a sample webpage.
+
+When you're done browsing the deployed service, you can stop debugging your project by pressing **Shift+F5** in Visual Studio.
+
+## Publish to Azure
+
+To publish your Service Fabric Mesh project to Azure, right-click on the **Service Fabric Mesh project** in Visual studio and select **Publish...**
+
+![Visual studio right-click Service Fabric Mesh project](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-right-click-publish.png)
+
+You will see a **Publish Service Fabric Application** dialog.
+
+![Visual studio Service Fabric Mesh publish dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-dialog.png)
+
+Select your Azure account and subscription. Choose a **Location**. This article uses **East US**.
+
+Under **Resource group**, select **\<Create New Resource Group...>**. This will show you a dialog where you will create a new resource group. Choose the **East US** location and name the group **sfmeshTutorial1RG**. Press **Create** to create the resource group and return to the publish dialog.
+
+![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
+
+Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. For **Location**, pick **East US**. Select the **sfmeshTutorial1RG** resource group. Set the **SKU** to **Basic** and then press **Create** to return to the publish dialog.
+
+![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
+
+In the publish dialog, press the **Publish** button to deploy your Service Fabric application to Azure.
+
+When you publish to Azure for the first time, it can take up to 10 or more minutes. Subsequent publishes of the same project generally take around five minutes. These estimates will vary based on your internet connection speed and other factors. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the deployment has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
 
 ```json
-{
-  "addressPrefix": "10.0.0.4/22",
-  "description": "Private network for application",
-  "id": "/subscriptions/<subscription-id>/resourcegroups/votinggroup/providers/Microsoft.ServiceFabric/networks/SbzVotingNetwork",
-  "ingressConfig": {
-    "layer4": [
-      {
-        "applicationName": "SbzVoting",
-        "endpointName": "Endpoint1",
-        "publicPort": "80",
-        "serviceName": "VotingWeb"
-      }
-    ],
-    "publicIpAddress": "52.226.32.193",
-    "qosLevel": "Bronze"
-  },
-  "location": "eastus",
-  "name": "SbzVotingNetwork",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "votinggroup",
-  "tags": {},
-  "type": "Microsoft.ServiceFabric/networks"
-}
+Packaging Application...
+Building Images...
+Web1 -> C:\Code\ServiceFabricMesh1\Web1\bin\Any CPU\Release\netcoreapp2.0\Web1.dll
+Uploading the images to Azure Container Registy...
+Deploying application to remote endpoint...
+The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```
 
-From the output, copy the public IP address of the service (52.226.32.193 in the preceding example) and open in a browser.
-
-![Voting application](./media/service-fabric-mesh-quickstart-dotnet-core/VotingApplication.png)
-
-You can now add voting options to the application and vote on it, or delete the voting options.
-
-
-## Walk through the voting sample application
-The voting application consists of two services:
-- Web front-end service (VotingWeb)- An ASP.NET Core web front-end service, which serves the web page and exposes web APIs to communicate with the backend service.
-- Back-end service (VotingData)- An ASP.NET Core web service, which exposes an API to store the vote results in a reliable dictionary persisted on disk.
-
-![Application Diagram](./media/service-fabric-mesh-quickstart-dotnet-core/application-diagram.png)
-
-
-When you vote in the application, the following events occur:
-1. A JavaScript sends the vote request to the web API in the web front-end service as an HTTP PUT request.
-2. The web front-end service uses a proxy to locate and forward an HTTP PUT request to the back-end service.
-3. The back-end service takes the incoming request, and stores the updated result in a reliable dictionary, which gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
+Open a web browser and navigate to the URL to see the website running in Azure.
 
 ## Clean up resources
-When you no longer need the application and it's related resources, delete the resource group containing them. 
 
-```azurecli-interactive
-az group delete --resource-group <resourceGroupName>  
+When you no longer needed, delete all of the resources you created for this quickstart. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group which is an easy way to delete all of the resources  associated with it.
+
+```azurecli
+az group delete --resource-group sfmeshTutorial1RG
 ```
+
+```powershell
+Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
+```
+
+Alternatively, you can delete the resource group [from the portal](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources).
 
 ## Next steps
 To learn more about Service Fabric Mesh, read the overview:
 > [!div class="nextstepaction"]
 > [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
-
-
-[azure-cli-install]: /cli/azure/install-azure-cli

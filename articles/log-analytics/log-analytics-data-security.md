@@ -126,7 +126,7 @@ The following diagram shows a cloud security architecture as the flow of informa
 ## 1. Sign up for Log Analytics and collect data
 For your organization to send data to Log Analytics, you configure a Windows or Linux agent running on Azure virtual machines, or on virtual or physical computers in your environment or other cloud provider.  If you use Operations Manager, from the management group you configure the Operations Manager agent. Users (which might be you, other individual users, or a group of people) create one or more Log Analytics workspaces, and register agents by using one of the following accounts:
 
-* [Organizational ID](../active-directory/sign-up-organization.md)
+* [Organizational ID](../active-directory/fundamentals/sign-up-organization.md)
 * [Microsoft Account - Outlook, Office Live, MSN](http://www.microsoft.com/account/default.aspx)
 
 A Log Analytics workspace is where data is collected, aggregated, analyzed, and presented. A workspace is primarily used as a means to partition data, and each workspace is unique. For example, you might want to have your production data managed with one workspace and your test data managed with another workspace. Workspaces also help an administrator control user access to the data. Each workspace can have multiple user accounts associated with it, and each user account can access multiple Log Analytics workspaces. You create workspaces based on datacenter region. Each workspace is replicated to other datacenters in the region, primarily for Log Analytics service availability.
