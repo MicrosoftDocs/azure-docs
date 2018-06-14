@@ -158,7 +158,7 @@ To help you manage who should have access to which resources, Azure Active Direc
 |:---:| --- |
 | An overview of Azure AD access management features |[Introduction to Managing Access to Apps](manage-apps/what-is-access-management.md)<br /><br />[How Access Management Works in Azure AD](active-directory-manage-groups.md)<br /><br />[How to Use Groups to Manage Access to SaaS Applications](active-directory-accessmanagement-group-saasapps.md) |
 | Enable self-service management of apps and groups |[Self-Service Application Management](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](active-directory-accessmanagement-self-service-group-management.md) |
-| Instructions for setting up your groups in Azure AD |[How to Create Security Groups](active-directory-groups-create-azure-portal.md)<br /><br />[How to Designate Owners for a Group](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[How to Use the "All Users" Group](active-directory-accessmanagement-dedicated-groups.md) |
+| Instructions for setting up your groups in Azure AD |[How to Create Security Groups](active-directory-groups-create-azure-portal.md)<br /><br />[How to Designate Owners for a Group](fundamentals/active-directory-accessmanagement-managing-group-owners.md)<br /><br />[How to Use the "All Users" Group](active-directory-accessmanagement-dedicated-groups.md) |
 | Use dynamic groups to automatically populate group membership using attribute-based membership rules |[Dynamic Group Membership: Advanced Rules](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
 
 Group-based application access management is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Self-service group management, self-service application management, and dynamic groups are [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) features.
@@ -201,7 +201,7 @@ Azure Active Directory provides several reports and alerts to help you monitor y
 To see which reports are included with different editions of Azure Active Directory, [click here](active-directory-view-access-usage-reports.md).
 
 ## See also
-[What is Azure Active Directory?](active-directory-whatis.md)
+[What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
 

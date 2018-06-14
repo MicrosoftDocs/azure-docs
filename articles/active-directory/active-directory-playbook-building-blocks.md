@@ -97,10 +97,10 @@ Approximate time to Complete: 15 minutes
 | Step | Resources |
 | --- | --- |
 | Go to Azure AD Management Portal | [Azure AD Management Portal - Company Branding](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Upload the assets for the login page (hero logo, small logo, labels, etc.). Optionally if  you have AD FS, align the same assets with ADFS login pages | [Add company branding to your sign-in and Access Panel pages: Customizable Elements](customize-branding.md) |
+| Upload the assets for the login page (hero logo, small logo, labels, etc.). Optionally if  you have AD FS, align the same assets with ADFS login pages | [Add company branding to your sign-in and Access Panel pages: Customizable Elements](fundamentals/customize-branding.md) |
 | Wait a couple of minutes for the change to fully take effect |  |
 | Log in with the POC user credential to https://myapps.microsoft.com |  |
-| Confirm the look and feel in browser | [Add company branding to your sign-in and Access Panel pages](customize-branding.md) |
+| Confirm the look and feel in browser | [Add company branding to your sign-in and Access Panel pages](fundamentals/customize-branding.md) |
 | Optionally, confirm the look and feel in other devices |  |
 
 ### Considerations
@@ -239,7 +239,7 @@ Approximate time to Complete: 20 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| A Microsoft Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator | [Azure Active Directory editions](active-directory-whatis.md) |
+| A Microsoft Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator | [Azure Active Directory editions](fundamentals/active-directory-whatis.md) |
 | A web application hosted on-prem that you would like to configure for remote access |  |
 | A server running Windows Server 2012 R2, or Windows 8.1 or higher, on which you can install the Application Proxy Connector | [Understand Azure AD Application Proxy connectors](manage-apps/application-proxy-connectors.md) |
 | If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy | [Enable Application Proxy in the Azure portal: Application Proxy prerequisites](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
