@@ -75,6 +75,17 @@ The [Geo-replication with Service Bus brokered messages][Geo-replication with Se
 
 Service Bus supports Geo-disaster recovery and Geo-replication, at the namespace level. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md). The disaster recovery feature, available for the [Premium SKU](service-bus-premium-messaging.md) only, implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces.
 
+## Availability Zones (preview)
+
+The Service Bus Premium SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
+
+> [!NOTE]
+> The Availability Zones preview is supported only in the **Central US** region.
+
+You can enable Availability Zones on new namespaces only, using the Azure portal. Service Bus does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
+
+![1][]
+
 ## Next steps
 To learn more about disaster recovery, see these articles:
 
@@ -90,3 +101,5 @@ To learn more about disaster recovery, see these articles:
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
+
+[1]: ./media/service-bus-outages-disasters/az.png
