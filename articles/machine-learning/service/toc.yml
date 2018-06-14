@@ -21,6 +21,8 @@
     href: tutorial-build-train-deploy-with-azure-machine-learning.md
 - name: Concepts   
   items: 
+  - name: Architecture and terms
+    href: concept-azure-machine-learning-architecture.md    
   - name: FPGA accelerations
     href: concept-accelerate-with-fpgas.md    
 - name: How-to guides
