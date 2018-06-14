@@ -23,7 +23,7 @@ In this tutorial, you learn how to integrate Adobe Sign with Azure Active Direct
 Integrating Adobe Sign with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Adobe Sign.
-- You can enable your users to automatically get signed-on to Adobe Sign (Single Sign-On) with their Azure AD accounts.
+- You can enable your users to automatically get signed-on to Adobe Sign (single sign-on) with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
 For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
@@ -79,11 +79,11 @@ To establish the linked relationship, in Adobe Sign, assign the value of the **u
 
 To configure and test Azure AD single sign-on with Adobe Sign, complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** to enable your users to use this feature.
+1. **[Configure Azure AD single sign-on](#configuring-azure-ad-single-sign-on)** to enable your users to use this feature.
 2. **[Create an Azure AD test user](#creating-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 3. **[Create an Adobe Sign test user](#creating-an-adobe-sign-test-user)** to have a counterpart of Britta Simon in Adobe Sign who is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assigning-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test Single Sign-On](#testing-single-sign-on)** to verify whether the configuration works.
+5. **[Test single sign-On](#testing-single-sign-on)** to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -127,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal, and con
 	b. Publish the verification token in a DNS text record, and notify the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html).
 	
 	> [!NOTE]
-	> This may take a few days, or longer. Note that DNS propagation delays mean that a value published in DNS might not be visible for an hour or more. Your IT administrator should be knowledgeable about how to publish this token in a DNS text record.
+	> This can take a few days, or longer. Note that DNS propagation delays mean that a value published in DNS might not be visible for an hour or more. Your IT administrator should be knowledgeable about how to publish this token in a DNS text record.
 	
 	c. When you notify the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) through the support ticket, after the token is published, they validate the domain and add it to your account.
 	
