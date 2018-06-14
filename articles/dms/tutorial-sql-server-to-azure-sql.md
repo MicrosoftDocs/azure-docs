@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 06/15/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database using DMS
