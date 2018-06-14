@@ -78,7 +78,7 @@ To set up the Azure Stack environment for the first tenant, use the steps in fol
 Before you start configuring Azure Stack, you need:
 
 * An Azure Stack integrated system deployment or an Azure Stack Development Kit (ASDK) deployment. For information about deploying the ASDK, see the [Azure Stack Development Kit deployment quickstart](azure-stack-deploy-overview.md).
-* An offer in Azure Stack that your users can subscribe to. For more information, see [plans, offers, and subscriptions](azure-stack-plan-offer-quota-overview).
+* An offer in Azure Stack that your users can subscribe to. For more information, see [plans, offers, and subscriptions](azure-stack-plan-offer-quota-overview.md).
 
 ### Create network resources in Azure Stack
 
