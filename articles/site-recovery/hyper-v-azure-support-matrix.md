@@ -29,7 +29,7 @@ Hyper-V without Virtual Machine Manager | You can perform disaster recovery to A
 
 **Server** | **Requirements** | **Details**
 --- | --- | ---
-Hyper-V (running without Virtual Machine Manager) | Windows Server 2016, Windows Server 2012 R2 with latest updates | When you configure a Hyper-V site in Site Recovery, mixing hosts running Windows Server 2016 and 2012 R2 isn't supported.<br/><br/> For VMs located on a host running Windows Server 2016, recovery to an alternate location isn't supported.
+Hyper-V (running without Virtual Machine Manager) | Windows Server 2016 (including server core installation), Windows Server 2012 R2 with latest updates | When you configure a Hyper-V site in Site Recovery, mixing hosts running Windows Server 2016 and 2012 R2 isn't supported.<br/><br/> For VMs located on a host running Windows Server 2016, recovery to an alternate location isn't supported.
 Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | If Virtual Machine Manager is used, Windows Server 2016 hosts should be managed in Virtual Machine Manager 2016.<br/><br/> A Virtual Machine Manager cloud that mixes Hyper-V hosts running on Windows Server 2016 and 2012 R2 isn't currently supported.<br/><br/> Environments that include an upgrade of an existing Virtual Machine Manager 2012 R2 server to 2016 aren't supported.
 
 

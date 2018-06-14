@@ -6,7 +6,6 @@
 ``time.nist.gov`` and ``time.windows.com``. Used to check time synchronization between system and global time.
 <br/><br/>
 URLs for Azure Government cloud:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>-
-https://login-us.microsoftonline.com<br/>-
 https://login.microsoftonline.us<br/>-
 https://login.microsoftonline.com<br/>
 
