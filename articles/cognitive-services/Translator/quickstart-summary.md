@@ -30,4 +30,4 @@ The code in each sample is similar, but they highlight different Translator Text
 Explore the Translator Text APIs used to identify language from text, translate text from one language to another, and convert text from one script to another.
 
 > [!div class="nextstepaction"]
-> [Explore Translator Text APIs](./reference/v3-0-reference)
+> [Explore Translator Text APIs](./reference/v3-0-reference.md)

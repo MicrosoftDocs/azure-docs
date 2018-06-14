@@ -145,7 +145,7 @@ A successful response is returned in JSON as shown in the following example:
 
 ## Dictionary Examples request
 
-The following gets contextual examples of how to use a term in the dictionary using the [Dictionary Examples](../reference/v3-0-dictionary-examples.md) method.
+The following gets contextual examples of how to use a term in the dictionary using the [Dictionary Examples](./reference/v3-0-dictionary-examples.md) method.
 
 1. Create a new C# project in your favorite IDE.
 2. Add the code provided below.

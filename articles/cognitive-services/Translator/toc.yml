@@ -11,15 +11,15 @@
       href: quickstart-summary.md
     - name: C#
       items:
-      - name: Translate text from one language to another
+      - name: Translate text
         href: quickstart-csharp-translate.md
-      - name: Convert text from one script to another
+      - name: Convert text script
         href: quickstart-csharp-transliterate.md
       - name: Identify language from text
         href: quickstart-csharp-detect.md
-      - name: Get alternate transalations and usage
+      - name: Get alternate transalations
         href: quickstart-csharp-dictionary.md
-      - name: Get a list of supported languages
+      - name: Get supported languages
         href: quickstart-csharp-languages.md
       - name: Get sentence lengths in text
         href: quickstart-csharp-sentences.md
