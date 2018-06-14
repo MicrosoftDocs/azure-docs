@@ -836,6 +836,96 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machines/linux/dockerextension-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/capture-image-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/capture-image",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/change-vm-size-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/change-vm-size",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/copy-vm-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/copy-vm",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/create-ssh-secured-vm-from-template-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/create-ssh-secured-vm-from-template",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/encrypt-disks-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/encrypt-disks",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/expand-disks-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/expand-disks",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/install-mongodb-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/install-mongodb",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/key-vault-setup-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/multiple-nics-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/nsg-quickstart-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/nsg-quickstart",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/static-dns-name-resolution-for-linux-on-azure-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/static-dns-name-resolution-for-linux-on-azure",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/tag-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/tag",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/troubleshoot-recovery-disks-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/troubleshoot-recovery-disks",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/upload-vhd-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/upload-vhd",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/using-cloud-init-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/using-cloud-init",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/using-vmaccess-extension-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/using-vmaccess-extension",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-machines/linux/classic/mysql-on-opensuse.md",
             "redirect_url": "/azure/virtual-machines/linux/mysql-on-opensuse",
             "redirect_document_id": true
@@ -12003,7 +12093,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-expand-disks-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/expand-disks-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/expand-disks",
             "redirect_document_id": false
         },
         {
@@ -12133,7 +12223,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-key-vault-setup-cli-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup-cli-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup",
             "redirect_document_id": false
         },
         {
