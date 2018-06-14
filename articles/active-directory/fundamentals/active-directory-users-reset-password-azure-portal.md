@@ -41,7 +41,7 @@ Administrators may need to reset a user's password in cases where they forgot, w
    > This temporary password does not have an expiration time so it will be valid until they log in and are then are forced to change it. 
 
 ## Next steps
-* [Add a user](active-directory-users-create-azure-portal.md)
+* [Add a user](../add-users-azure-active-directory.md)
 * [Assign administrator roles to a user](active-directory-users-assign-role-azure-portal.md)
 * [Manage user profiles](active-directory-users-profile-azure-portal.md)
-* [Delete a user in Azure AD](active-directory-users-delete-user-azure-portal.md)
+* [Delete a user in Azure AD](../add-users-azure-active-directory.md)

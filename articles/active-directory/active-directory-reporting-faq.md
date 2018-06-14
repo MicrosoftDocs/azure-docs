@@ -80,7 +80,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How do I get a premium license?**
 
-**A:** See [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md) for an answer to this question.
+**A:** See [Getting started with Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) for an answer to this question.
 
 ---
 
