@@ -9387,7 +9387,7 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-overview.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-options",
+            "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
             "redirect_document_id": false
         },
         {
@@ -18337,8 +18337,13 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators",
+            "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md",
+          "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
@@ -21637,18 +21642,23 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-deploy.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy",
+            "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-suite/iot-suite-what-are-solution-accelerators.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators",
-            "redirect_document_id": false
+          "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-what-is-azure-iot.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-is-azure-iot",
+            "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md",
+          "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
@@ -21662,8 +21672,13 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-explore.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore",
+            "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-maintain.md",
@@ -21807,8 +21822,13 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-options.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-options",
+            "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-options.md",
+          "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-permissions.md",
