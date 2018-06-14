@@ -98,7 +98,12 @@ Azure IoT Hub service SDK for iOS:
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
 
 
+
 ## Next steps
+
+Azure IoT SDKs also provide a set of tools to help with development:
+* [iothub-diagnostics](https://github.com/Azure/iothub-diagnostics): a cross-platform command line tool to help diagnose issues related to connection with IoT Hub.
+* [device-explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer): a Windows desktop application to connect to your IoT Hub.
 
 Other reference topics in this IoT Hub developer guide include:
 
