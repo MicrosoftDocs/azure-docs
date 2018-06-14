@@ -19,7 +19,7 @@ ms.custom: mvc, devcenter
 ---
 
 # Monitoring and diagnostics
-Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Monitoring and diagnostics for Service Fabric Mesh is categorized into three main types of diagnostics data:
+Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. Monitoring and diagnostics for Service Fabric Mesh is categorized into three main types of diagnostics data:
 
 - Application logs - these are defined as the logs from your containerized applications, based on how you have instrumented your application (docker logs)
 - Platform events - events from the SeaBreeze platform relevant to your container operation, currently including container activation, deactivation, termination.

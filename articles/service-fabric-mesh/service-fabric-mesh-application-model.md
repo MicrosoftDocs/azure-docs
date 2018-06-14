@@ -19,7 +19,7 @@ ms.custom: mvc, devcenter
 ---
 
 # Application model for Service Fabric Mesh applications
-Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Service Fabric Applications are the new, simple way to describe and deploy applications to everywhere Service Fabric runs, whether it's Service Fabric Mesh or your own clusters hosted in Azure, on prem, or on your laptop. 
+Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. Service Fabric Applications are the new, simple way to describe and deploy applications to everywhere Service Fabric runs, whether it's Service Fabric Mesh or your own clusters hosted in Azure, on prem, or on your laptop. 
 
 Service Fabric Applications are a drastic departure from the ApplicationManifest and ServiceManifest Reliable Services XML model. With Service Fabric Applications, you no longer need to decide up front whether your service should be a Guest EXE, Guest Container, Enlighted Container, Reliable Service, etc. You simply write your application code like you normally would in any language or framework, describe how it should run in a simple YAML definition, and run it on Service Fabric. 
 

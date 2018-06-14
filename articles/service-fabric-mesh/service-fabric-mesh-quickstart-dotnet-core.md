@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 
 # Quickstart: Deploy an Azure Service Fabric Mesh app
 
-Azure Service Fabric Mesh is a fully managed service that enables developers to deploy containerized applications without managing VMs, storage, or networking.
+Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking.
 
 In this quickstart you'll create a new Service Fabric Mesh app (an ASP.NET Core website), run it on the local development cluster, and then publish it to run on Azure.
 

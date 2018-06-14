@@ -12,7 +12,7 @@ manager: timlt
 ---
 # Scaling applications deployed to Azure Service Fabric Mesh
 
-Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Applications scale on demand. You optimize resource usage by specifying auto-scale rules for the container(s) in the application definition.  
+Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. Applications scale on demand. You optimize resource usage by specifying auto-scale rules for the container(s) in the application definition.  
 
 Auto scaling is a capability of Service Fabric Mesh to dynamically scale your services based on the load that services are reporting, or based on their usage of resources. Auto scaling gives great elasticity and enables provisioning of additional instances or partitions of your service on demand. The entire auto scaling process is automated and transparent, and once you set up your policies on a service there is no need for manual scaling operations at the service level. 
 
