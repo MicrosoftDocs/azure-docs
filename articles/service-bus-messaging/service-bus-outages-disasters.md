@@ -80,7 +80,7 @@ Service Bus supports Geo-disaster recovery and Geo-replication, at the namespace
 The Service Bus Premium SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
 
 > [!NOTE]
-> The Availability Zones preview is supported only in the **Central US** region.
+> The Availability Zones preview is supported only in the **Central US**, **East US 2**, and **France Central** regions.
 
 You can enable Availability Zones on new namespaces only, using the Azure portal. Service Bus does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
 
