@@ -50,7 +50,7 @@ A *security principal* is an object that represents a user, group, or service pr
 
 ### Role definition
 
-A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete.
+A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
 
 ![Role definition for a role assignment](./media/overview/rbac-role-definition.png)
 
@@ -96,5 +96,7 @@ You can create role assignments using the Azure portal, Azure CLI, Azure PowerSh
 Only the Azure portal and the Azure Resource Manager APIs support Azure RBAC. Users and applications that are assigned RBAC roles cannot use the [Azure classic deployment model APIs](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Next steps
-- [View access for users and groups in the Azure portal](role-assignments-users.md)
-- [Manage access to resources in the Azure portal](role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json)
+
+- [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
+- [Tutorial: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+- [Manage access using RBAC and the Azure portal](role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json)
