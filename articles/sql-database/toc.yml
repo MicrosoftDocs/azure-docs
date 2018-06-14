@@ -210,7 +210,7 @@
       href: elastic-jobs-powershell.md
     - name: Create and manage (T-SQL)
       href: elastic-jobs-tsql.md
-    - name: migrate (from old Elastic jobs)
+    - name: Migrate (from old Elastic jobs)
       href: elastic-jobs-migrate.md
     - name: Elastic jobs (deprecated)
       items:
