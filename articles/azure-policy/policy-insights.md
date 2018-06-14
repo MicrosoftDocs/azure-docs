@@ -107,15 +107,19 @@ Use the following procedure to create a policy definition.
   }
   ```
 
-2. Create the policy definition using the following call:
+2. Create the policy definition using one of the following calls:
 
   ```
-  armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+  # For defining a policy in a subscription
+  armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+
+  # For defining a policy in a management group
+  armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
   ```
 
-  Replace the preceding &lt;subscriptionId&gt; with the ID of your intended subscription.
+  Replace the preceding {subscriptionId} with the ID of your subscription or {managementGroupId} with the ID of your [management group](../azure-resource-manager/management-groups-overview.md).
 
-For more information about the structure of the query, see [Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate).
+  For more information about the structure of the query, see [Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate) and [Policy Definitions – Create or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Use the following procedure to create a policy assignment and assign the policy definition at the resource group level.
 
@@ -202,3 +206,4 @@ Review the following articles for more information about the commands and querie
 - [Azure RM PowerShell Modules](/powershell/module/azurerm.resources/#policies)
 - [Azure CLI Policy Commands](/cli/azure/policy?view=azure-cli-latest)
 - [Policy Insights resource provider REST API reference](/rest/api/policy-insights)
+- [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md)

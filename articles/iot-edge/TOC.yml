@@ -17,12 +17,6 @@
       href: quickstart.md
 - name: Tutorials
   items:
-  - name: Install IoT Edge and simulate a sensor
-    items: 
-    - name: Linux/Mac
-      href: tutorial-simulate-device-linux.md
-    - name: Windows
-      href: tutorial-simulate-device-windows.md
   - name: Filter data with Azure Functions
     href: tutorial-deploy-function.md
   - name: Find averages with ASA
@@ -60,16 +54,20 @@
   items:
   - name: Register an Edge device
     items: 
+    - name: Azure portal
+      href: how-to-register-device-portal.md
     - name: Azure CLI
       href: how-to-register-device-cli.md
   - name: Develop and test modules
     items:
     - name: C#
-      href: how-to-develop-csharp-module-vscode.md
+      href: how-to-develop-csharp-module.md
     - name: Azure Functions
-      href: how-to-vscode-debug-azure-function.md
+      href: how-to-develop-csharp-function.md
   - name: Deploy modules
     items:
+    - name: Azure portal
+      href: how-to-deploy-modules-portal.md
     - name: Azure CLI
       href: how-to-deploy-modules-cli.md
   - name: Deploy and monitor at scale
