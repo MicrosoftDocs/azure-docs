@@ -166,7 +166,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <a href="https://ea.azure.com/helpdocs/createADepartment">Manage departments&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"></a><br/>
                         <a href="https://ea.azure.com/helpdocs/addNewAccount">Manage accounts&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"></a><br/>
                         <a href="https://ea.azure.com/helpdocs/createANewSubscription">Create subscriptions</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>
-                        <a href="https://ea.azure.com/helpdocs/viewPriceSheet">View price sheet</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>               
+                        <a href="https://ea.azure.com/helpdocs/viewPriceSheet">View price sheet</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>              
                         <a href="https://ea.azure.com/helpdocs/usageDetailReport">View usage details</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20">
                         </p>
                     </div>
