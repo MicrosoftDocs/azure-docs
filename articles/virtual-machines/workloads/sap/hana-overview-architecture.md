@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/12/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -344,7 +344,7 @@ See the following table in terms of storage allocation. The table lists the roug
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
 | S192 | 4,608 GB | 1,024 GB | 1,536 GB | 1,024 GB |
 | S192m | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
-| S192xm |  12,000 GB |  2,050 GB |  2,050 GB |  2.040 GB |
+| S192xm |  11,520 GB |  1,536 GB |  1,792 GB |  1,536 GB |
 | S384 | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S384m | 12,000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
 | S384xm | 16,000 GB | 2,050 GB | 2,050 GB | 2,040 GB |

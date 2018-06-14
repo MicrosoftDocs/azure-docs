@@ -231,9 +231,9 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [!div class="nextstepaction"] 
 > [Learn how to add a list entity](luis-quickstart-intent-and-list-entity.md) 
 
-Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number of seats for a flight. 
+Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number. 
 
-Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the date information such as `Friday`.
+Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the date information.
 
 
 <!--References-->

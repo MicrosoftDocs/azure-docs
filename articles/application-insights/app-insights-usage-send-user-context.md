@@ -10,9 +10,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: mbullwin;abgreg
+ms.reviewer: abgreg
+ms.author: mbullwin
 ---
 
 #  Send user context IDs to enable usage experiences in Azure Application Insights

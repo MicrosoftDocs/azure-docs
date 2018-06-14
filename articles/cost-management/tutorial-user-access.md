@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/31/2018
+ms.date: 06/13/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom:

@@ -149,7 +149,7 @@ sections:
             <p><a class="barLink" href="/azure/cognitive-services/bing-visual-search"><img src="../media/index/API_Bing_Visual_Search.svg" alt="" />Bing Visual Search</a></p>
     - title: Labs
       html: <p><a class="barLink" href="https://docs.microsoft.com/gestures/"><img src="../media/index/labs-hand-gesture.svg" alt="" />Project Gesture</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/project-personality-chat/overview"><img src="media/index/personality-chat-icon.png" alt="" />Project Personality Chat</a></p>
+            <p><a class="barLink" href="/azure/cognitive-services/project-personality-chat/overview"><img src="media/index/project-personality-chat-icon.svg" alt="" />Project Personality Chat</a></p>
             <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview"><img src="../media/index/labs-event-tracker.svg" alt="" />Project Event Tracking</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="../media/index/API_Know_Academic.svg" alt="" />Project Academic Knowledge</a></p>
             <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation"><img src="../media/index/labs-local-insight.svg" alt="" />Project Local Insights</a></p>
