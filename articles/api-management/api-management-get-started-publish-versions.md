@@ -59,16 +59,15 @@ Azure API Management allows you to choose the way in which you allow callers to 
     > [!TIP]
     > If you select **header** or **query string** as a versioning scheme, you need to provide an additional value - the name of the header or query string parameter.
 
-3. Provide a description if you wish.
-4. Select **Create** to set up your new version.
-5. Underneath **Demo Conference API** in the API List, you now see two distinct APIs - **Original**, and **v1**.
+3. Select **Create** to set up your new version.
+4. Underneath **Demo Conference API** in the API List, you now see two distinct APIs - **Original**, and **v1**.
 
     ![Versions listed under an API in the Azure portal](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > If you add a version to a non-versioned API, an **Original** will be automatically created - responding on the default URL. This ensures that any existing callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an Original is not created.
 
-6. You can now edit and configure **v1** as an API that is separate to **Original**. Changes to one version do not affect another.
+5. You can now edit and configure **v1** as an API that is separate to **Original**. Changes to one version do not affect another.
 
 ## Add the version to a product
 
