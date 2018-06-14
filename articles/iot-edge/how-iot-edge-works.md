@@ -8,11 +8,11 @@ ms.reviewer: chipalost
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/12/2018
 ms.author: kgremban
 ---
 
-# What is Azure IoT Edge - preview
+# What is Azure IoT Edge
 
 Azure IoT Edge moves cloud analytics and custom business logic to devices so that your organization can focus on business insights instead of data management. Enable your solution to truly scale by configuring your IoT software, deploying it to devices via standard containers, and monitoring it all from the cloud.
 

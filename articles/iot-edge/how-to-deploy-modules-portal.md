@@ -25,7 +25,7 @@ This article shows how the Azure portal guides you through creating a deployment
 ## Select your device
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
-2. Select **IoT Edge (preview)** from the menu.
+2. Select **IoT Edge** from the menu.
 3. Click on the ID of the target device from the list of devices. 
 4. Select **Set Modules**.
 

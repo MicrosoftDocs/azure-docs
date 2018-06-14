@@ -11,7 +11,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Deploy and monitor IoT Edge modules at scale - preview
+# Deploy and monitor IoT Edge modules at scale
 
 Azure IoT Edge enables you to move analytics to the edge and provides a cloud interface so that you can manage and monitor your IoT Edge devices without having to physically access each one. The capability to remotely manage devices is increasingly important as Internet of Things solutions are growing larger and more complex. Azure IoT Edge is designed to support your business goals, no matter how many devices you add.
 
@@ -37,7 +37,7 @@ For more information about device twins and tags, see [Understand and use device
 ## Create a deployment
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **IoT Edge (preview)**.
+1. Select **IoT Edge**.
 1. Select **Add IoT Edge Deployment**.
 
 There are five steps to create a deployment. The following sections walk through each one. 
@@ -110,7 +110,7 @@ Review your deployment information, then select **Submit**.
 To view the details of a deployment and monitor the devices running it, use the following steps:
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
-1. Select **IoT Edge (preview)**.
+1. Select **IoT Edge**.
 1. Select **IoT Edge deployments**. 
 
    ![View IoT Edge deployments][1]
@@ -137,7 +137,7 @@ If you update the target condition, the following updates occur:
 To modify a deployment, use the following steps: 
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
-1. Select **IoT Edge (preview)**.
+1. Select **IoT Edge**.
 1. Select **IoT Edge deployments**. 
 
    ![View IoT Edge deployments][1]
@@ -155,7 +155,7 @@ To modify a deployment, use the following steps:
 When you delete a deployment, any devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted. 
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
-1. Select **IoT Edge (preview)**.
+1. Select **IoT Edge**.
 1. Select **IoT Edge deployments**. 
 
    ![View IoT Edge deployments][1]
