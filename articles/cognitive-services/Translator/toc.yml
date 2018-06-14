@@ -17,7 +17,7 @@
         href: quickstart-csharp-transliterate.md
       - name: Identify language from text
         href: quickstart-csharp-detect.md
-      - name: Get alternate transalations
+      - name: Get alternate translations
         href: quickstart-csharp-dictionary.md
       - name: Get supported languages
         href: quickstart-csharp-languages.md
