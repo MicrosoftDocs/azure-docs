@@ -54,10 +54,12 @@ API Management emits metrics every minute, giving you near real-time visibility 
 To access metrics:
 
 1. Select **Metrics** from the menu near the bottom of the page.
-2. From the drop-down, select metrics you are interested in (you can add multiple metrics). 
 
+    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+
+2. From the drop-down, select metrics you are interested in (you can add multiple metrics).  
     For example, select **Total Gateway Requests** and **Failed Gateway Requests** from the list of available metrics.
-3. The chart shows the total number of API calls. It also shows the number of API calls that failed. 
+3. The chart shows the total number of API calls. It also shows the number of API calls that failed.
 
 ## Set up an alert rule for unauthorized request
 
