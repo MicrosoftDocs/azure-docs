@@ -259,5 +259,6 @@ When no longer needed, delete the test user and the conditional access policy:
 
 ## Next steps
 
-If you would like to learn more about conditional access, see [Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md).
+> [!div class="nextstepaction"]
+> [Require MFA for specific apps](./active-directory-conditional-access-app-based-mfa.md)
 
