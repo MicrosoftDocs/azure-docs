@@ -1,4 +1,4 @@
-﻿---
+---
 title: Integrate Azure Service Fabric with API Management | Microsoft Docs
 description: In this tutorial, you learn how to quickly get started with Azure API Management and Service Fabric.
 services: service-fabric
@@ -209,7 +209,7 @@ The [backend configuration for Service Fabric](/azure/api-management/api-managem
     <set-backend-service 
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
   </inbound>
   <backend>
     <base/>
@@ -257,7 +257,7 @@ In *inbound_policy*, replace the *sf-service-instance-name* value with `fabric:/
     <set-backend-service 
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
   </inbound>
   <backend>
     <base/>
