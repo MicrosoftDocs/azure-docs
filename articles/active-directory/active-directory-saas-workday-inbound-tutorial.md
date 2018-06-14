@@ -406,7 +406,7 @@ Directory, with some common expressions**
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Yes** | Written on create only | 
 | **UserID**    |  cn    |   |   Written on create only |
-| **Join("@",[UserID], "contoso.com")**   | userPrincipalName     |     | Written on create only 
+| **Join("\@",[UserID], "contoso.com")**   | userPrincipalName     |     | Written on create only 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Written on create only |
 | **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | Create + update |
 | **FirstName**   | givenName       |     |    Create + update |
