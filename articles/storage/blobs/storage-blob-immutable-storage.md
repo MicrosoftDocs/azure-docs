@@ -13,9 +13,11 @@ ms.author: sangsinh
 ---
 # Immutable Storage feature of Azure Blob storage (Preview)
 
-The Immutable Storage feature for Azure Blobs feature allows users to store business-critical data in Azure blob storage in a WORM (Write Once Read Many) state. This state makes it non-erasable, and non-modifiable for a user-specified interval of time. Blobs can be created and read, but not modified or deleted for the duration of the retention interval. This feature enables organizations in many regulated industries, particularly broker-dealer organizations to store data in a manner compliant with SEC 17a-4(f) and other regulations.
+The Immutable Storage feature for Azure Blobs feature allows users to store business-critical data in Azure blob storage in a WORM (Write Once Read Many) state. This state makes it non-erasable, and non-modifiable for a user-specified interval of time. Blobs can be created and read, but not modified or deleted for the duration of the retention interval.
 
 ## Overview
+
+Write Once Read Many enables organizations in many regulated industries, particularly broker-dealer organizations, to store data in a manner compliant with SEC 17a-4(f) and other regulations.
 
 Typical applications include:
 
