@@ -27,8 +27,8 @@ experience for handling errors and exceptions.
 
 ## Retry policies
 
-For the most basic exception and error handling, you can use the 
-"retry policy" capability in any action or trigger where supported. 
+For the most basic exception and error handling, you can use a 
+*retry policy* in any action or trigger where supported. 
 A retry policy specifies whether and how the action or trigger 
 retries a request when the original request times out or fails, 
 which is any request that results in a 408, 429, or 5xx response. 
@@ -41,7 +41,7 @@ Here are the retry policy types:
 | [**Default**](#default-retry) | This policy sends up to four retries at [*exponentially increasing*](#exponential-retry) intervals, which scale by 7.5 seconds but are capped between 5 and 45 seconds. | 
 | [**Exponential interval**](#exponential-retry)  | This policy waits a random interval selected from an exponentially growing range before sending the next request. | 
 | [**Fixed interval**](#fixed-retry)  | This policy waits the specified interval before sending the next request. | 
-| [**None**](#no-retry)  | Do not retry sending the request. | 
+| [**None**](#no-retry)  | Don't resend the request. | 
 ||| 
 
 For information about retry policy limits, 
@@ -51,7 +51,7 @@ see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-co
 
 To select a different retry policy, follow these steps: 
 
-1. Open yor logic app in Logic App Designer. 
+1. Open your logic app in Logic App Designer. 
 
 2. Open the **Settings** for an action or trigger.
 
@@ -93,8 +93,8 @@ specify a retry policy, the action uses the default policy.
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*minimum-interval*> | String | For the exponential interval policy, the minimum interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <*minimum-interval*> | String | For the exponential interval policy, the maximum interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*minimum-interval*> | String | For the exponential interval policy, the smallest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*maximum-interval*> | String | For the exponential interval policy, the largest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 Here is more information about the different policy types.
@@ -277,126 +277,133 @@ For limits on scopes, see [Limits and config](../logic-apps/logic-apps-limits-an
 Although catching failures from a scope is useful, 
 you might also want context to help you understand 
 exactly which actions failed plus any errors or status codes that were returned. 
-The **@result()** workflow function provides context about the result of all actions in a scope.
+The "@result()" expression provides context about the result of all actions in a scope.
 
-The **@result()** function accepts a single parameter (the scope's name) 
+The "@result()" expression accepts a single parameter (the scope's name) 
 and returns an array of all the action results from within that scope. 
 These action objects include the same attributes as the **@actions()** object, 
 such as the action's start time, end time, status, inputs, correlation IDs, and outputs. 
 To send context for any actions that failed within a scope, 
 you can easily pair an **@result()** function with a **runAfter** property.
 
-To run an action *for each* action in a scope that has a **Failed** result, 
+To run an action for each action in a scope that has a **Failed** result, 
 and to filter the array of results down to the failed actions, 
 you can pair **@result()** with a **[Filter Array](../connectors/connectors-native-query.md)** action 
-and a **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)** loop. 
-You can take the filtered result array and perform an action for each failure using the **ForEach** loop. 
+and a [**For each**](../logic-apps/logic-apps-control-flow-loops.md) loop. 
+You can take the filtered result array and perform an action for each failure using the **For each** loop. 
 
-Here's an example, followed by a detailed explanation, that sends an HTTP POST request 
-with the response body of any actions that failed within the scope "My_Scope":
+Here's an example, followed by a detailed explanation, 
+that sends an HTTP POST request with the response body 
+for any actions that failed within the scope "My_Scope":
 
 ```json
 "Filter_array": {
-    "inputs": {
-        "from": "@result('My_Scope')",
-        "where": "@equals(item()['status'], 'Failed')"
-    },
-    "runAfter": {
-        "My_Scope": [
-            "Failed"
-        ]
-    },
-    "type": "Query"
+   "type": "Query",
+   "inputs": {
+      "from": "@result('My_Scope')",
+      "where": "@equals(item()['status'], 'Failed')"
+   },
+   "runAfter": {
+      "My_Scope": [
+         "Failed"
+      ]
+    }
 },
 "For_each": {
-    "actions": {
-        "Log_Exception": {
-            "inputs": {
-                "body": "@item()['outputs']['body']",
-                "method": "POST",
-                "headers": {
-                    "x-failed-action-name": "@item()['name']",
-                    "x-failed-tracking-id": "@item()['clientTrackingId']"
-                },
-                "uri": "http://requestb.in/"
+   "type": "foreach",
+   "actions": {
+      "Log_exception": {
+         "type": "Http",
+         "inputs": {
+            "method": "POST",
+            "body": "@item()['outputs']['body']",
+            "headers": {
+               "x-failed-action-name": "@item()['name']",
+               "x-failed-tracking-id": "@item()['clientTrackingId']"
             },
-            "runAfter": {},
-            "type": "Http"
-        }
-    },
-    "foreach": "@body('Filter_array')",
-    "runAfter": {
-        "Filter_array": [
-            "Succeeded"
-        ]
-    },
-    "type": "Foreach"
+            "uri": "http://requestb.in/"
+         },
+         "runAfter": {}
+      }
+   },
+   "foreach": "@body('Filter_array')",
+   "runAfter": {
+      "Filter_array": [
+         "Succeeded"
+      ]
+   }
 }
 ```
 
 Here's a detailed walkthrough that describes what happens in this example:
 
-1. To get the result of all actions within "My_Scope", 
-the **Filter Array** action filters **@result('My_Scope')**.
+1. To get the result from all actions inside "My_Scope", 
+the **Filter Array** action uses this filter expression: "@result('My_Scope')"
 
-2. The condition for **Filter Array** is any **@result()** item that has a status equal to **Failed**. 
-This condition filters the array of all the action results from "My_Scope" down to an array with 
-only failed action results.
+2. The condition for **Filter Array** is any "@result()" 
+item that has a status equal to **Failed**. 
+This condition filters the array that has all the action 
+results from "My_Scope" down to an array with only the failed action results.
 
-3. Perform a **For Each** loop action on the *filtered array* outputs. 
-This step performs an action *for each* failed action result that was previously filtered.
+3. Perform a **For each** loop action on the *filtered array* outputs. 
+This step performs an action for each failed 
+action result that was previously filtered.
 
    If a single action in the scope failed, 
-   the actions in the **foreach** run only once. 
+   the actions in the **For each** loop run only once. 
    Multiple failed actions cause one action per failure.
 
-4. Send an HTTP POST on the **foreach** item response body, which is **@item()['outputs']['body']**. 
-The **@result()** item shape is the same as the **@actions()** shape and can be parsed the same way.
+4. Send an HTTP POST on the **For each** item response body, 
+which is the "@item()['outputs']['body']" expression. 
 
-5. Include two custom headers with the failed action name **@item()['name']** 
-and the failed run client tracking ID **@item()['clientTrackingId']**.
+   The "@result()" item shape is the same as the 
+   "@actions()" shape and can be parsed the same way.
 
-For reference, here's an example of a single **@result()** item, 
-showing the **name**, **body**, and **clientTrackingId** properties that are parsed in the previous example. 
-Outside of a **foreach** action, **@result()** returns an array of these objects.
+5. Include two custom headers with the failed action name ("@item()['name']") 
+and the failed run client tracking ID ("@item()['clientTrackingId']").
+
+For reference, here's an example of a single "@result()" item, 
+showing the **name**, **body**, and **clientTrackingId** 
+properties that are parsed in the previous example. 
+Outside a **For each** action, "@result()" returns an array of these objects.
 
 ```json
 {
-    "name": "Example_Action_That_Failed",
-    "inputs": {
-        "uri": "https://myfailedaction.azurewebsites.net",
-        "method": "POST"
-    },
-    "outputs": {
-        "statusCode": 404,
-        "headers": {
-            "Date": "Thu, 11 Aug 2016 03:18:18 GMT",
-            "Server": "Microsoft-IIS/8.0",
-            "X-Powered-By": "ASP.NET",
-            "Content-Length": "68",
-            "Content-Type": "application/json"
-        },
-        "body": {
-            "code": "ResourceNotFound",
-            "message": "/docs/folder-name/resource-name does not exist"
-        }
-    },
-    "startTime": "2016-08-11T03:18:19.7755341Z",
-    "endTime": "2016-08-11T03:18:20.2598835Z",
-    "trackingId": "bdd82e28-ba2c-4160-a700-e3a8f1a38e22",
-    "clientTrackingId": "08587307213861835591296330354",
-    "code": "NotFound",
-    "status": "Failed"
+   "name": "Example_Action_That_Failed",
+   "inputs": {
+      "uri": "https://myfailedaction.azurewebsites.net",
+      "method": "POST"
+   },
+   "outputs": {
+      "statusCode": 404,
+      "headers": {
+         "Date": "Thu, 11 Aug 2016 03:18:18 GMT",
+         "Server": "Microsoft-IIS/8.0",
+         "X-Powered-By": "ASP.NET",
+         "Content-Length": "68",
+         "Content-Type": "application/json"
+      },
+      "body": {
+         "code": "ResourceNotFound",
+         "message": "/docs/folder-name/resource-name does not exist"
+      }
+   },
+   "startTime": "2016-08-11T03:18:19.7755341Z",
+   "endTime": "2016-08-11T03:18:20.2598835Z",
+   "trackingId": "bdd82e28-ba2c-4160-a700-e3a8f1a38e22",
+   "clientTrackingId": "08587307213861835591296330354",
+   "code": "NotFound",
+   "status": "Failed"
 }
 ```
 
 To perform different exception handling patterns, 
 you can use the expressions previously described in this article. 
 You might choose to execute a single exception handling action outside the scope 
-that accepts the entire filtered array of failures, and remove the **foreach** action. 
+that accepts the entire filtered array of failures, and remove the **For each** action. 
 You can also include other useful properties from the **@result()** response as previously described.
 
-## Azure Diagnostics and telemetry
+## Azure Diagnostics and metrics
 
 The previous patterns are great way to handle errors and exceptions within a run, 
 but you can also identify and respond to errors independent of the run itself. 

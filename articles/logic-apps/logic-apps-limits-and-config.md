@@ -79,12 +79,12 @@ choose **Custom**.
 
 ## Looping and debatching limits
 
-Here are the limits for a single logic app instance:
+Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
 | Foreach items | 100,000 | To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). | 
-| Foreach parallelism | 50 | By default, "for each" loop iterations run at the same time in parallel. The default limit is 20, but you can [change this default limit](#change-foreach-limit). | 
+| Foreach iterations | 50 | By default, "for each" loop iterations run at the same time in parallel. The default limit is 20, but you can [change this default limit](#change-foreach-limit). | 
 | SplitOn items | 100,000 | | 
 | Until iterations | 5,000 | | 
 |||| 
@@ -149,7 +149,7 @@ property and set the value to `Sequential`.
 Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
-| ----- | ----- | ----- | 
+| ---- | ----- | ----- | 
 | Actions executions per 5 minutes | 100,000 | To increase the limit to 300,000, you can run a logic app in `High Throughput` mode. To configure high throughput mode, under the `runtimeConfiguration` of the workflow resource, set the `operationOptions` property to `OptimizedForHighThroughput`. <p>**Note**: High throughput mode is in preview. Also, you can distribute a workload across more than one app as needed. | 
 | Actions concurrent outgoing calls | ~2,500 | Reduce the number of concurrent requests or reduce the duration as needed. | 
 | Runtime endpoint: Concurrent incoming calls | ~1,000 | Reduce the number of concurrent requests or reduce the duration as needed. | 
