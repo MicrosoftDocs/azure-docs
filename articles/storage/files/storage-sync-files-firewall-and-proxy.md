@@ -79,16 +79,24 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 | Region | Primary endpoint URL | Paired region | Discovery URL |
 |--------|---------------------------------------||--------||---------------------------------------|
 | Australia East | https://kailani-aue.one.microsoft.com | Australia South East | https://kailani-aue.one.microsoft.com |
+| Australia South East | https://kailani-aus.one.microsoft.com | Australia East | https://tm-kailani-aus.one.microsoft.com |
 | Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |
-| East US | https://kailani1.one.microsoft.com | - | - |
-| Southeast Asia | https://kailani10.one.microsoft.com | - | - |
-| UK South | https://kailani-uks.one.microsoft.com | - | - |
-| West Europe | https://kailani6.one.microsoft.com | - | - |
-| West US | https://kailani.one.microsoft.com | - | - |
+| Canada East | https://kailani-cae.one.microsoft.com | Canada Central | https://tm-kailani.cae.one.microsoft.com |
+| Central US | https://kailani-cus.one.microsoft.com | East US 2 | https://tm-kailani-cus.one.microsoft.com |
+| Central US EUAP | https://kailani-euap.one.microsoft.com | East US 2 EUAP | https://tm-kailani-euap.one.microsoft.com |
+| East Asia | https://kailani11.one.microsoft.com | South East Asia | https://tm-kailani11.one.microsoft.com |
+| East US | https://kailani1.one.microsoft.com | West US | https://tm-kailani1.one.microsoft.com |
+| East US 2 | https://kailani-ess.one.microsoft.com | Central US | https://tm-kailani-ess.one.microsoft.com |
+| East US 2 EUAP | https://kailani-cuap.one.microsoft.com | Central US EUAP | https://tm-kailani-cuap.one.microsoft.com |
+| North Europe | https://kailani7.one.microsoft.com | West Europe | https://tm-kailani7.one.microsoft.com |
+| Southeast Asia | https://kailani10.one.microsoft.com | East Asia | https://tm-kailani10.one.microsoft.com |
+| UK South | https://kailani-uks.one.microsoft.com | UK West | https://tm-kailani-uks.one.microsoft.com |
+| UK West | https://kailani-ukw.one.microsoft.com | UK South | https://tm-kailani-ukw.one.microsoft.com |
+| West Central US | https://kailani-flight-pri.one.microsoft.com | West US 2 | https://tm-kailani-flight-pri.one.microsoft.com |
+| West Europe | https://kailani6.one.microsoft.com | North Europe | https://tm-kailani6.one.microsoft.com |
+| West US | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
 
-> [!Info]
-> If you use locally redundant (LRS) or zone redundant (ZRS) storage accounts, you only need to enable the URL listed under "Regional endpoint URL".
-> If you use globally redundant (GRS) storage accounts, enable three URLs. Example: You deploy a storage sync service in "West US" and register your server with it. The URLs to allow the server to communicate to are for this case:
+> If you use locally redundant (LRS) or zone redundant (ZRS) storage accounts, you only need to enable the URL listed under "Primary endpoint URL".<br />If you use globally redundant (GRS) storage accounts, enable three URLs. **Example:** You deploy a storage sync service in `"West US"` and register your server with it. The URLs to allow the server to communicate to for this case are:
 > - https://kailani.one.microsoft.com (primary endpoint)
 > - https://kailani1.one.microsoft.com (paired fail-over region East US)
 > - https://tm-kailani.one.microsoft.com (discovery URL of the primary region)
