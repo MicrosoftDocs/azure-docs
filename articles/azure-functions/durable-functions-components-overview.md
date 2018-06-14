@@ -68,3 +68,55 @@ More information and examples of error handling [can be found here](durable-func
 
 ### Cross-function app communication
 
+While a durable orchestration generally lives within a context of a single function app, there are patterns to enable you to coordinate orchestrations across multiple function apps.  It involves an activity that can start an external orchestration, and one tht can then check the status.  Even though cross-app communication may be happening over HTTP, by orchestrating the communication through the durable framework you can still maintain a durable process across two apps.
+
+An example of a cross-function app orchestration in C# is provided below.
+
+```csharp
+[FunctionName("OrchestratorA")]
+public static async Task RunRemoteOrchestrator(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    // Do some work...
+
+    // Call a remote orchestration
+    string statusUrl = await context.CallActivityAsync<string>(
+        "StartRemoteOrchestration", "OrchestratorB");
+
+    // Wait for the remote orchestration to complete
+    while (true)
+    {
+        bool isComplete = await context.CallActivityAsync<bool>("CheckIsComplete", statusUrl);
+        if (isComplete)
+        {
+            break;
+        }
+
+        await context.CreateTimer(context.CurrentUtcDateTime.AddMinutes(1), CancellationToken.None);
+    }
+
+    // B is done. Now go do more work...
+}
+
+[FunctionName("StartRemoteOrchestration")]
+public static async Task<string> StartRemoteOrchestration([ActivityTrigger] string orchestratorName)
+{
+    using (var response = await HttpClient.PostAsync(
+        $"https://appB.azurewebsites.net/orchestrations/{orchestratorName}",
+        new StringContent("")))
+    {
+        string statusUrl = await response.Content.ReadAsAsync<string>();
+        return statusUrl;
+    }
+}
+
+[FunctionName("CheckIsComplete")]
+public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUrl)
+{
+    using (var response = await HttpClient.GetAsync(statusUrl))
+    {
+        // 200 = Complete, 202 = Running
+        return response.StatusCode == HttpStatusCode.OK;
+    }
+}
+```
