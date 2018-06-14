@@ -16,7 +16,7 @@ Azure Blob Storage now offers static website hosting (Preview), providing a cost
 ## How does it work?
 When you enable static websites on your storage account, a new web service endpoint is created of the form
 
-```bash
+```
 <account-name>.<zone-name>.web.core.windows.net
 ```
 
@@ -24,19 +24,19 @@ The web service endpoint supports only publicly readable content, returns format
 
 Content for your static website is hosted in a special container named "$web". As a part of the enablement process, "$web" is created for you if it does not already exist. Content in "$web" can be accessed at the account root using the web endpoint. For example
 
-```bash
+```
 https://contoso.z4.web.core.windows.net/
 ```
 
 returns the index document you configured for your website. When uploading content to your website, use the blob storage endpoint. To upload a blob named 'image.jpg' use the following URL
 
-```bash
+```
 https://contoso.blob.core.windows.net/$web/image.jpg
 ```
 
 which can be viewed in a web browser at the corresponding web endpoint
 
-```bash
+```
 https://contoso.z4.web.core.windows.net/image.jpg
 ```
 
@@ -58,7 +58,7 @@ The "$web" container is created for you as a part of enabling static websites. N
 
 Finally, navigate to your web endpoint to test your website. In this case, the web endpoint is
 
-```bash
+```
 https://newfeaturetests.z4.web.core.windows.net/
 ```
 
