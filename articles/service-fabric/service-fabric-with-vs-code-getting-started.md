@@ -20,7 +20,7 @@ ms.author: t-pepogo
 
 # Service Fabric for Visual Studio Code
 
-The[Service Fabric Reliable Services extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) provides the tools necessary to create, build, and debug Service Fabric applications on Windows, Linux, and macOS operating systems.
+The[Service Fabric Reliable Services extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) provides the tools necessary to create, build, and debug Service Fabric applications on Windows, Linux, and macOS operating systems.
 
 This article provides an overview of the requirements and setup of the extension as well as the usage of the various commands that are provided by the extension. 
 
@@ -60,7 +60,7 @@ If you are using VS Code on Windows, a bash shell must be installed. Bash on Ubu
 1. Click the extension icon in the explorer. Search for Service Fabric. Click install for the Service Fabric extension.
 
 ## Commands
-The Service Fabric Reliable Services extension for VSCode provides many commands to help developers create and deploy Service Fabric projects. You can call commands from the **Command Palette** by pressing `(Ctrl + Shift + p)`, typing the command name into the input bar, and selecting the desired command from the prompt list. 
+The Service Fabric Reliable Services extension for VS Code provides many commands to help developers create and deploy Service Fabric projects. You can call commands from the **Command Palette** by pressing `(Ctrl + Shift + p)`, typing the command name into the input bar, and selecting the desired command from the prompt list. 
 
 * **Service Fabric: Create Application** 
 * **Service Fabric: Publish Application** 

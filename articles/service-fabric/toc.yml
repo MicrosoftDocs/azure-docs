@@ -458,6 +458,13 @@
       href: service-fabric-debugging-your-application-java.md
     - name: Monitor and diagnose locally
       href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+  - name: Work in a VS Code environment
+    href: service-fabric-with-vs-code-getting-started.md
+    items:
+    - name: Create C# Service Fabric applications with VS Code
+      href: service-fabric-creating-csharp-applications-with-vs-code.md
+    - name: Create Java Service Fabric applications with VS Code
+      href: service-fabric-creating-java-applications-with-vs-code.md
   - name: Migrate from Cloud Services
     items:
     - name: Compare Cloud Services with Service Fabric
