@@ -9,5 +9,6 @@ ms.author: tedway
 author: tedway
 ms.date: 07/27/2018
 
-# Title
 ---
+
+# Azure Machine Learning Services architecture and key terms in 
