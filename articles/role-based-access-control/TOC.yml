@@ -5,6 +5,8 @@
   items:
   - name: What is RBAC?
     href: overview.md
+  - name: Understand the different roles
+    href: rbac-and-directory-admin-roles.md
 - name: Quickstarts
   items:
   - name: Grant access for a user
@@ -33,8 +35,6 @@
     href: pim-azure-resource.md
   - name: Conditional access for Azure management
     href: conditional-access-azure-management.md
-  - name: Resource access in Azure
-    href: rbac-and-directory-admin-roles.md
 - name: How-to guides
   items:
   - name: Manage access
