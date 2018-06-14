@@ -37,7 +37,7 @@ Time series data is data in which the values have a time index. The time index c
 
 In this quickstart guide we will be working with California dairy production and pricing data. This data includes monthly information on the production of several dairy products and the price of milk fat, a benchmark commodity.
 
-The data used in this article, along with R scripts, can be [downloaded here][download]. This data was originally synthesized from information available from the University of Wisconsin at http://future.aae.wisc.edu/tab/production.html.
+The data used in this article, along with R scripts, can be [downloaded here](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). This data was originally synthesized from information available from the University of Wisconsin at https://dairymarkets.com.
 
 ### Organization
 We will progress through several steps as you learn how to create, test and execute analytics and data manipulation R code in the Azure Machine Learning environment.  
