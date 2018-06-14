@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2018
+ms.date: 06/14/2018
 ms.author: genli
 
 ---
@@ -24,7 +24,7 @@ To manage access to Azure resources, you must have the appropriate administrator
 
 ## What administrator role do I use?
 
-Azure has several different roles. To manage access to resources, you can use three classic subscription administrator roles (Account administrator, Service administrator, Co-administrator) or a newer authorization system called role-based access control (RBAC). To ensure better control and to simplify access management, we recommend that you use RBAC for all access management needs. If possible, we recommend that you reconfigure existing access policies using RBAC. For more information, see [What is role-based access control (RBAC)](../role-based-access-control/overview.md) and [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Azure has several different roles. To manage access to resources, you can use the classic subscription administrator roles, such as Service administrator and Co-administrator, or a newer authorization system called role-based access control (RBAC). To ensure better control and to simplify access management, we recommend that you use RBAC for all access management needs. If possible, we recommend that you reconfigure existing access policies using RBAC. For more information, see [What is role-based access control (RBAC)](../role-based-access-control/overview.md) and [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 <a name="add-an-admin-for-a-subscription"></a>
 
