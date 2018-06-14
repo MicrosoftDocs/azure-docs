@@ -22356,6 +22356,31 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-groups-settings-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-view-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-view-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-how-subscriptions-associated-directory.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-whatis-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-manage-groups.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-manage-groups",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-accessmanagement-managing-group-owners.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners",
             "redirect_document_id": false
