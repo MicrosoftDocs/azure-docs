@@ -111,7 +111,6 @@ public static async Task Run(
     {
         log.Info(JsonConvert.SerializeObject(instance));
     };
-    // do something based on the retrun statuses
 }
 ```
 
