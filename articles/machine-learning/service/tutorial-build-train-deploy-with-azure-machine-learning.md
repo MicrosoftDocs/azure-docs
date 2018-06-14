@@ -1,10 +1,9 @@
 ﻿---
-title: Installation Quickstart for Azure Machine Learning Python SDK | Microsoft Docs
-description: In this Quickstart, you can learn how to install and get started with Azure Machine Learning using the Python SDK.
+title: Tutorial - Build, train, deploy models in Azure Machine Learning | Microsoft Docs
+description: In this tutorial, you can learn how build, train, and deploy a model with Azure Machine Learning in Python.
 services: machine-learning
-author: rastala
-ms.author: roastala
-manager: haining
+author: haining
+ms.author: haining
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
