@@ -13,7 +13,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 06/08/2018
+  ms.date: 06/14/2018
   ms.author: barclayn
 
 
@@ -32,15 +32,6 @@ Security requirements vary depending on a number of factors including different 
 This article discusses various VM security best practices, each derived from customer and Microsoft's own direct experiences with VMs.
 
 The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time,  this article will be updated reflect those changes.
-
-
-> [!div class="checklist"]
-> * Create a Key Vault.
-> * Store a secret in Key Vault.
-> * Create an Azure Web Application.
-> * Enable managed service identities
-> * Grant the required permissions for the application to read data from Key vault.
-
 
 ## Use Privileged Access Workstations
 
@@ -113,20 +104,22 @@ Hosting labs or production systems in Azure means that your systems need to be a
 
 Technologies in Azure can help you limit the access to those administrative endpoints. In Azure, you can use [network security groups](../virtual-network/security-overview.md) (NSGs). When you use Azure Resource Manager for deployment, NSGs limit the access from all networks to just the management endpoints (RDP or SSH). When you think NSGs, think router ACLs. You can use them to tightly control the network communication between various segments of your Azure networks. This is similar to creating networks in perimeter networks or other isolated networks. They do not inspect the traffic, but they do help with network segmentation.
 
-### [Site-to-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 
+A more dynamic way of limiting access to virtual machines is to use Azure Security center [Just in time administration](../security-center/security-center-just-in-time.md). Security center can lock down your Azure VMs and provides access when needed. The process works by allowing access to a user that requests it after verifying that based on their [Role-Based Access control]((../role-based-access-control/role-assignments-portal.md) (RBAC) they have the necessary permissions. Azure Security center will then make the necessary Network Security Groups (NSGs) to allow inbound traffic.
+
+### [Site-to-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
 A site-to-site VPN extends your on-premises network to the cloud. This gives you another opportunity to use NSGs, because you can also modify the NSGs to not allow access from anywhere other than the local network. You can then require that administration is done by first connecting to the Azure network via VPN.
 
 The site-to-site VPN option might be most attractive in cases where you are hosting production systems that are closely integrated with your on-premises resources in Azure.
 
-### [Point-to-site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md) 
+### [Point-to-site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 In situations where you want to manage systems that don't need access to on-premises resources. Those systems can be isolated in their own Azure virtual network. Administrators can VPN into the Azure hosted environment from their administrative workstation.
 
 >[!NOTE]
 >You can use either VPN option to reconfigure the ACLs on the NSGs to not allow access to management endpoints from the Internet.
 
-### [Remote Desktop Gateway](../active-directory/authentication/howto-mfaserver-nps-rdg.md). 
+### [Remote Desktop Gateway](../active-directory/authentication/howto-mfaserver-nps-rdg.md)
 
 You can use Remote Desktop Gateway to securely connect to Remote Desktop servers over HTTPS, while applying more detailed controls to those connections.
 
@@ -137,17 +130,11 @@ Features that you would have access to include:
 - Control over which systems someone can connect to via the gateway.
 - Control over device and disk redirection.
 
-### VM availability and network access
+### VM availability
 
 If a VM runs critical applications that need to have high availability, it is strongly recommend that multiple VMs are used. For better availability, create at least two VMs in the [availability set](../virtual-machines/windows/tutorial-availability-sets.md).
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) also requires that load-balanced VMs belong to the same availability set. If these VMs must be accessed from the Internet, you must configure an [Internet-facing load balancer](../load-balancer/load-balancer-internet-overview.md).
-
-When VMs are exposed to the Internet, it is important that you [control network traffic flow with network security groups (NSGs)](../virtual-network/security-overview.md). Because NSGs can be applied to subnets, you can minimize the number of NSGs by grouping your resources by subnet and then applying NSGs to the subnets. The intent is to create a layer of network isolation, which you can do by properly configuring the [network security](../best-practices-network-security.md) capabilities in Azure.
-
-You can also use the just-in-time (JIT) VM-access feature from Azure Security Center to control who has remote access to a specific VM, and for how long.
-
-Organizations that don't enforce network-access restrictions to Internet-facing VMs are exposed to security risks, such as a Remote Desktop Protocol (RDP) Brute Force attack.
 
 ## Use a key management solution
 
@@ -156,7 +143,6 @@ Secure key management is essential to protecting data in the cloud. With [Azure 
 Microsoft processes your keys in FIPS 140-2 Level 2 validated HSMs (hardware and firmware). Monitor and audit key use with Azure logging: pipe logs into Azure or your Security Information and Event Management (SIEM) system for additional analysis and threat detection.
 
 Anyone with an Azure subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by an administrator who is responsible for managing Azure services in an organization.
-
 
 ## Encrypt virtual disks and disk storage
 
@@ -200,7 +186,6 @@ Compare your standards to industry best practices, customize them, and create ne
 
 For environments that are hosted separately from your production environment, you can use an antimalware extension to help protect your virtual machines and cloud services. It integrates with [Azure Security Center](../security-center/security-center-intro.md).
 
-
 [Microsoft Antimalware](azure-security-antimalware.md) includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, exclusion event collection, and [PowerShell support](https://msdn.microsoft.com/library/dn771715.aspx).
 
 ![Azure Antimalware](./media/azure-security-iaas/azantimalware.png)
@@ -214,7 +199,6 @@ Some of the first workloads that customers move to Azure are labs and external-f
 Just like security updates, a backup needs to be handled the same way that you handle any other operation. This is true of systems that are part of your production environment extending to the cloud. Test and dev systems must follow backup strategies that provide restore capabilities that are similar to what users have grown accustomed to, based on their experience with on-premises environments.
 
 Production workloads moved to Azure should integrate with existing backup solutions when possible. Or, you can use [Azure Backup](../backup/backup-azure-arm-vms.md) to help address your backup requirements.
-
 
 ## Monitor
 
@@ -247,6 +231,16 @@ You can use the security and compliance features in Operations Management Suite 
 The following screenshot shows an example of the information that Operations Management Suite can display.
 
 ![Operations Management Suite security baselines](./media/azure-security-iaas/oms-security-baseline.png)
+
+## Monitor VM performance
+
+Resource abuse can be a problem when VM processes consume more resources than they should. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. For this reason, it is imperative to monitor VM access not only reactively, while an issue is occurring, but also proactively, against baseline performance as measured during normal operation.
+
+By analyzing [Azure diagnostic log files](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), you can monitor your VM resources and identify potential issues that might compromise performance and availability. The Azure Diagnostics Extension provides monitoring and diagnostics capabilities on Windows-based VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md).
+
+You can also use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) to gain visibility into your resources' health.
+
+Organizations that don't monitor VM performance are unable to determine whether certain changes in performance patterns are normal or abnormal. If the VM is consuming more resources than normal, such an anomaly could indicate a potential attack from an external resource or a compromised process running in the VM.
 
 ## Next steps
 
