@@ -201,7 +201,13 @@
     - name: Use Remote Desktop
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory
-      href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+      items:
+        - name: Red Hat Enteprise Linux
+          href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+        - name: CentOS
+          href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+        - name: Ubuntu
+          href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
     - name: Log in with Azure Active Directory credentials
       href: login-using-aad.md
     - name: Updates and patches
