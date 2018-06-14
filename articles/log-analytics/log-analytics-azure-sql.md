@@ -16,7 +16,7 @@ ms.date: 05/03/2018
 ms.author: magoedte
 ---
 
-# Monitor Azure SQL Database using Azure SQL Analytics (Preview)
+# Monitor Azure SQL Databases using Azure SQL Analytics (Preview)
 
 ![Azure SQL Analytics symbol](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
@@ -33,7 +33,7 @@ For a hands-on overview on using Azure SQL Analytics solution and for typical us
 
 ## Connected sources
 
-Azure SQL Analytics is a cloud monitoring solution supporting streaming of diagnostics telemetry for Azure SQL Databases and elastic pools. As it does not use agents to connect to the Log Analytics service, the solution does not support connectivity with Windows, Linux or SCOM resources - see the compatibility table below.
+Azure SQL Analytics is a cloud monitoring solution supporting streaming of diagnostics telemetry for Azure SQL Databases and elastic pools. As it does not use agents to connect to the Log Analytics service, the solution does not support connectivity with Windows, Linux or SCOM resources, see the compatibility table below.
 
 | Connected Source | Support | Description |
 | --- | --- | --- |
