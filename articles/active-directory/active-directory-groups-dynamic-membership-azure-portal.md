@@ -381,7 +381,7 @@ ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.display
 These articles provide additional information on groups in Azure Active Directory.
 
 * [See existing groups](fundamentals/active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
+* [Create a new group and adding members](fundamentals/active-directory-groups-create-azure-portal.md)
 * [Manage settings of a group](fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Manage memberships of a group](fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)
