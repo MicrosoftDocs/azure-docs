@@ -41,14 +41,14 @@ sections:
         src: media/index/blue_globe_icon.png
       title: Web
     rows:
-    - title: Computer Vision - Analyze image
+    - title: Computer Vision - Analyze an image
       values:
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
       - href:
-    - title: Custom Vision - Build a classifier
+    - title: Custom Vision - Build an image classifier
       values:
       - href:
       - href:
@@ -69,7 +69,7 @@ sections:
       - href: /azure/cognitive-services/translator-speech/quickstarts/nodejs
       - href: /azure/cognitive-services/translator-speech/quickstarts/python
       - href:
-    - title: LUIS - Prebuilt home automation 
+    - title: LUIS - Use prebuilt home automation 
       values:
       - href: 
       - href: 
