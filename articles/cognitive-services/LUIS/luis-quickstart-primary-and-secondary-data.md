@@ -125,10 +125,14 @@ The following procedure describes how to create an entity from an utterance and 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-labeled-utterances.png "Screenshot of LUIS with utterances labeled in tokens view")](media/luis-quickstart-primary-and-secondary-data/hr-labeled-utterances.png#lightbox)
 
+<!--
+
     View a quick video showing this process to create an entity and label an utterance.
 
     <a name="video"></a>
     ![Screen capture video showing entity creation and utterance labeling](media/luis-quickstart-primary-and-secondary-data/hr-create-entity-label-utterance.gif)
+
+-->
 
 ## Train the LUIS app
 LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
