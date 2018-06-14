@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Update Management
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/17/2018
+ms.date: 06/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -15,7 +15,9 @@ This article discusses solutions to resolve issues that you may encounter when u
 
 ## Onboarding issues
 
-If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log on the local machine for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each. For other onboarding issues see, [troubleshoot solution onboarding](onboarding.md).
+If you encounter issues while attempting to onboard the solution on a virtual machine, check the **Operations Manager** event log under **Application and Services Logs** on the local machine for events with event ID **4502** and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
+
+The following section highlights specific error messages and a possible resolution for each. For other onboarding issues see, [troubleshoot solution onboarding](onboarding.md).
 
 ### Machine is already registered to a different account
 
@@ -77,7 +79,7 @@ The Hybrid Runbook Worker was not able to generate a self-signed certificate
 
 #### Resolution
 
-Verify system account has read access to folder and try again: **C:\ProgramData\Microsoft\Crypto\RSA**
+Verify system account has read access to folder **C:\ProgramData\Microsoft\Crypto\RSA** and try again.
 
 ## Next steps
 

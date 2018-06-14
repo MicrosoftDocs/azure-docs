@@ -4,7 +4,7 @@ description: Learn how to troubleshoot onboarding errors with the Update Managem
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/25/2018
+ms.date: 06/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
