@@ -77,7 +77,7 @@ To see the original response:
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
 
-    ![Policies](./media/transform-api/set-policy.jpg)
+    ![Policies](./media/transform-api/set-policy.png)
 8. Click the **Save** button.
 
 
