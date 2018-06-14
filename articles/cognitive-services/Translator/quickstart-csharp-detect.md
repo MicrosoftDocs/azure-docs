@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
 ---
-# Quickstart: Identify Language from Text with C&#35;
+# Quickstart: Identify language from text with C&#35;
 
 In this quickstart, you identify the language of the source text using the Translator Text API.
 

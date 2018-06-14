@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
 ---
-# Quickstart: Translate Text with C&#35;
+# Quickstart: Translate text with C&#35;
 
 In this quickstart, you translate text from one language to another using the Translator Text API.
 

@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
 ---
-# Quickstart: Get Sentence Lengths with C&#35;
+# Quickstart: Get sentence lengths with C&#35;
 
 In this quickstart, you find the lengths of sentences in text using the Translator Text API.
 

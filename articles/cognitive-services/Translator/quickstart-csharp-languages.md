@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
 ---
-# Quickstart: Get Supported Languages with C&#35;
+# Quickstart: Get supported languages with C&#35;
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API.
 
