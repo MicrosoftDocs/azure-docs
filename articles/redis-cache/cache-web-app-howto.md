@@ -20,8 +20,7 @@ ms.custom: mvc
 #Customer intent: As an ASP.NET developer, new to Azure Redis Cache, I want to create a new ASP.NET Web app that uses Redis Cache.
 
 ---
-# Quickstart: Create an ASP.NET Web App with Azure Redis Cache
-
+# Quickstart: Create an ASP.NET Web App 
 
 ## Introduction
 
@@ -41,16 +40,16 @@ To complete the quickstart, you need to install [Visual Studio 2017](https://www
 
 1. Open Visual Studio, and then and select **File** >**New** > **Project**.
 
-    ![Create project](./media/cache-web-app-howto/cache-create-project.png)
-
 2. In the **New Project** dialog box, take the following steps:
 
-    1. In the **Templates** list, expand the **Visual C#** node.
-    2. Select **Cloud**.
-    3. Select **ASP.NET Web Application**.
-    4. Verify that **.NET Framework 4.5.2** or higher is selected.
-    5. In the **Name** box, give the project a name. For this example, we used **ContosoTeamStats**.
-    6. Select **OK**.
+    ![Create project](./media/cache-web-app-howto/cache-create-project.png)
+
+1. In the **Templates** list, expand the **Visual C#** node.
+2. Select **Cloud**.
+3. Select **ASP.NET Web Application**.
+4. Verify that **.NET Framework 4.5.2** or higher is selected.
+5. In the **Name** box, give the project a name. For this example, we used **ContosoTeamStats**.
+6. Select **OK**.
    
 3. Select **MVC** as the project type.
 
@@ -250,7 +249,7 @@ By default, the project is configured to host the app locally in [IIS Express](h
 
 3. In the following example, the `Message` key previously had a cached value, which was set by using the Azure Redis Cache console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-![Simple test completed local](./media/cache-web-app-howto/cache-simple-test-complete-local.png)
+    ![Simple test completed local](./media/cache-web-app-howto/cache-simple-test-complete-local.png)
 
 ## Publish and run in Azure
 
@@ -281,7 +280,7 @@ After you successfully test the app locally, you can deploy the app to Azure and
 
 5. Monitor the **Output** window in Visual Studio to see the publishing status. After the app has been published, the URL for the app is logged as shown below:
 
-![Publishing output](./media/cache-web-app-howto/cache-publishing-output.png)
+    ![Publishing output](./media/cache-web-app-howto/cache-publishing-output.png)
 
 ### Add the app setting for the cache
 
@@ -320,7 +319,7 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 
 2. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group, in the results list, select **...**, and then select **Delete resource group**.
 
-![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
+    ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.
 
