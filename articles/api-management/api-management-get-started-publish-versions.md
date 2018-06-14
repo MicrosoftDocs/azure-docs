@@ -105,4 +105,4 @@ In this tutorial, you learn how to:
 Advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Upgrade and scale](upgrade-and-scale.md)
+> [Customize the style of the Developer portal pages](api-management-customize-styles.md)
