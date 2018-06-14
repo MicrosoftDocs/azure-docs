@@ -196,11 +196,11 @@ Depending on the time required to get the response from the orchestration instan
 
 ## Retrieving HTTP Management Webhook URLs
 
-External systems can communicate with Durable Functions via the Webhook URLs that are part of the default response described in **HTTP API URL discovery**. However, the Webhook URLs also can be accessed programmatically in the orchestration client or in an activity function via the [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. 
+External systems can communicate with Durable Functions via the webhook URLs that are part of the default response described in [HTTP API URL discovery](durable-functions-http-api.md). However, the webhook URLs also can be accessed programmatically in the orchestration client or in an activity function via the [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. 
 
 [CreateHttpManagementPayload]((https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) has one parameter:
 
-* **InstanceId**: The unique ID of the instance.
+* **instanceId**: The unique ID of the instance.
 
 The method returns an instance of the [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) with the following string properties:
 
@@ -216,10 +216,16 @@ Activity functions can send an instance of [HttpManagementPayload](https://azure
 
 public static void SendInstanceInfo(
     [ActivityTrigger] DurableActivityContext ctx,
-    [OrchestrationClient] DurableOrchestrationClient client)
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [DocumentDB(
+        databaseName: "MonitorDB",
+        collectionName: "HttpManagementPayloads",
+        ConnectionStringSetting = "CosmosDBConnection")]out dynamic document)
 {
-    var payload = client.CreateHttpManagementPayload(ctx.InstanceId);
-    // send the payload to some external destination
+    HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
+
+    // send the payload to Cosmos DB
+    document = new { Payload = payload, id = ctx.InstanceId };
 }
 ```
 
