@@ -30,9 +30,9 @@ In this article, you learn how to add cluster-specific management solutions to a
 
 The following procedure demonstrates how to add a Hadoop cluster management solution to an existing Log Analytics workspace.
 
-1. Open the OMS dashboard that you have configured for your HDInsight cluster. For the instructions, see [Open the OMS dashboard](./hdinsigt-hadoop-oms-log-analytics-tutorial.md#open-the-oms-dashboard).
+1. Open the OMS dashboard that you have configured for your HDInsight cluster. For the instructions, see [Open the OMS dashboard](./hdinsight-hadoop-oms-log-analytics-tutorial.md#open-the-oms-dashboard).
 
-1. In the dashboard, select **Solutions Gallery** and then select **HDInsight Hadoop Monitoring**:
+1. On the dashboard, select **Solutions Gallery** and then select **HDInsight Hadoop Monitoring**:
 
     ![Add management solution in Log Analytics](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-add-management-solution-oms-portal.png "Add management solution in Operations Management Suite")
 

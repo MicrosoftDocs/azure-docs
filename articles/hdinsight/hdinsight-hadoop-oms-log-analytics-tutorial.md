@@ -63,17 +63,17 @@ Enable-AzureRmHDInsightOperationsManagementSuite
       [-Name] <CLUSTER NAME>
       [-WorkspaceId] <LOG ANALYTICS WORKSPACE NAME>
       [-PrimaryKey] <LOG ANALYTICS WORKSPACE PRIMARY KEY>
-      [-ResourceGroupName <RESOURCE GROUIP NAME>]
+      [-ResourceGroupName] <RESOURCE GROUIP NAME>
 ```
 
 See [Enable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/Enable-AzureRmHDInsightOperationsManagementSuite?view=azurermps-5.0.0).
 
-To disable, the cmdlet is 
+To disable, the cmdlet is:
 
 ```powershell
 Disable-AzureRmHDInsightOperationsManagementSuite
        [-Name] <CLUSTER NAME>
-       [-ResourceGroupName <RESOURCE GROUP NAME>]
+       [-ResourceGroupName] <RESOURCE GROUP NAME>
 ```
 
 See [Disable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/disable-azurermhdinsightoperationsmanagementsuite?view=azurermps-5.0.0).
