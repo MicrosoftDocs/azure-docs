@@ -10,54 +10,67 @@ ms.author: yahajiza
 author: YasinMSFT
 ms.date: 04/10/2018
 ---
-# Create a Workspace using Azure portal
+# Use the Azure portal to create an Azure Machine Learning Workspace
 
-To get started using Azure Machine Learning, you need a workspace. This page shows how you can quickly and easily create a workspace using the Azure portal.
+Get started using Azure Machine Learning Services by creating an Azure Machine Learning Workspace. In this article, you will create your workspace using the Azure portal.
 
 ## Prerequisites
 
-To step through this how-to guide, you need an Azure account.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a Workspace 
 
-The workspace creation experience starts in the Azure portal. You should click on Create a resource in the top left corner of screen. In the “Search the Marketplace” box, type Machine Learning and select Machine Learning Workplace from the list of suggestions.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using the credentials for the Azure subscription you'll use. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-![png](media/how-to-create-workspace-in-portal/search_for_workspace.PNG)
+   ![Azure portal](./media/how-to-create-workspace-in-portal/portal-dashboard.png)
 
-You can also press enter and select Machine Learning Workspace from search results.
+1. Select the **Create a resource** button (+) in the upper-left corner of the portal.
 
-![png](media/how-to-create-workspace-in-portal/search_result_workspace.PNG)
+   ![Create a resource in Azure portal](./media/how-to-create-workspace-in-portal/portal-create-a-resource.png)
 
-To create a workspace, click on Machine Learning Workspace to open the creation page. 
+1. Enter **Machine Learning** in the search bar. Select the search result named **Machine Learning Workspace**.
 
-![png](media/how-to-create-workspace-in-portal/workspace_create.PNG)
+    ![search for workspace](media/how-to-create-workspace-in-portal/workspace_create.PNG)
 
-Once you click on create, a new window will appear. Here, you need to complete some basic fields to create a workspace. The first step is to name the workspace that will be created. In this example, let's name it _MyWorkspace_. Next, you need to select a subscription. Third, you need to either create a new resource group or use an existing one. In this example, let's use an existing resource group called _Group_. Finally, you need to select the geographical region where the workspace will be created. Once all these input fields are completed, then click on Create.
+1. In the **Machine Learning Workspace** pane, scroll to the bottom and select **Create** to begin.
 
-![png](media/how-to-create-workspace-in-portal/workspace_create_name.PNG)
+    ![create](./media/how-to-create-workspace-in-portal/portal-create-button.png)
 
-After clicking on create, a request will be submitted to Azure to provision the workspace. You can check the deployment progress by clicking on the notifications icon in top right section of portal.
+1. In the **ML Workspace** pane, configure your workspace. 
+    + Name the workspace that will be created. In this example, let's name it _MyWorkspace_.
+    + Select a subscription
+    + Either create a new resource group or use an existing one. In this example, let's use an existing resource group called _Group_.
+    + Select the geographical region where the workspace will be created.
 
-![png](media/how-to-create-workspace-in-portal/deployment_in_progress.PNG)
+    ![create workspace](media/how-to-create-workspace-in-portal/workspace_create_name.PNG)
 
-When this stage is complete, you will see a message informing you that the deployment has succeeded.
+1. Select **Create** to begin the creation process.
 
-![png](media/how-to-create-workspace-in-portal/deployment_succeeded.PNG)
+     It can take a few moments to create the workspace. You can check on the status of the deployment process by clicking the Notifications icon (bell) on the Azure portal toolbar.
 
-## View a Workspace
+    ![deployment in progress](media/how-to-create-workspace-in-portal/deployment_in_progress.PNG)
 
-To check your newly created workspace, you can click on All service in top left corner of the portal, search, and select Machine Learning Workspace. 
+1.  When this stage is complete, a message will inform you that the deployment has succeeded.
 
-![png](media/how-to-create-workspace-in-portal/allservices-search.PNG)
+    ![deployment succeeded](media/how-to-create-workspace-in-portal/deployment_succeeded.PNG)
 
-You are now able to see all Machine Learning Workspaces that have been created. You can filter based on subscription, resource groups, and locations.  In this example, you can see the MyWorkspace you created in the previous step.
+## View a workspace
 
-![png](media/how-to-create-workspace-in-portal/allservices_view_workspace.PNG)
+1. Check your newly created workspace with the  **All service** link in top left corner of the portal.  
 
-You can select and click on a workspace to display its complete properties.
+    ![search for workspace](media/how-to-create-workspace-in-portal/allservices-search.PNG)
+
+2. Type **Machine Learning Workspace** in the search field.  Select **Machine Learning Workspace** to view all your Machine Learning Workspaces. You can filter based on subscription, resource groups, and locations.  In this example, you can see the MyWorkspace you created in the previous step.
+
+    ![png](media/how-to-create-workspace-in-portal/allservices_view_workspace.PNG)
+
+3. You can select and click on a workspace to display its complete properties.
 
 ![png](media/how-to-create-workspace-in-portal/allservices_view_workspace_full.PNG)
 
+## Clean up resources 
+[!INCLUDE aml-delete-resource-group]
+
 ## Next steps
 
-For information about machine learning, see Workbench UX documentation.
+You can also use the [Quickstart: Create a project and get started with Azure Machine Learning Services SDK for Python]() or the [Quickstart: Create a project and get started with Azure Machine Learning Services CLI]() to create workspaces and projects.
