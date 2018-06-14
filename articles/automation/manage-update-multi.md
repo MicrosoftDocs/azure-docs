@@ -132,7 +132,7 @@ In the **New update deployment** pane, specify the following:
   - Tools
   - Updates
 
-- **Updates to exclude** - This opens the **Exclude** page. Enter in the KBs or package names to exclude.
+- **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on seperate tabs. For additional information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior)
 
 - **Schedule settings**: You can accept the default date and time, which is 30 minutes after the current time. Or you can specify a different time.
    You can also specify whether the deployment occurs once or on a recurring schedule. To set up a recurring schedule, select the **Recurring** option under **Recurrence**.
@@ -140,6 +140,15 @@ In the **New update deployment** pane, specify the following:
    ![Schedule Settings dialog box](./media/manage-update-multi/update-set-schedule.png)
 
 - **Maintenance window (minutes)**: Specify the period of time for when you want the update deployment to occur. This setting helps ensure that changes are performed within your defined service windows.
+
+- **Reboot control** - This setting determines how reboots are handled for the update deployment.
+
+   |Option|Description|
+   |---|---|
+   |Reboot if required| **(Default)** If required, a reboot is intitated if the maintenance window allows.|
+   |Always reboot|A reboot is initiated regardless of whether one is required. |
+   |Never reboot|Regardless of if a reboot is reuired, reboots are surpressed.|
+   |Don't install updates and reboot|This option ignores installing updates, and only initiates a reboot.|
 
 After you finish configuring the schedule, return to the status dashboard by selecting the **Create** button. The **Scheduled** table shows the deployment schedule that you just created.
 
