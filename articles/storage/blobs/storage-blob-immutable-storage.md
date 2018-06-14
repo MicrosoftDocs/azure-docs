@@ -17,7 +17,7 @@ The Immutable Storage feature for Azure Blobs feature allows users to store busi
 
 ## Overview
 
-Write Once Read Many enables organizations in many regulated industries, particularly broker-dealer organizations, to store data in a manner compliant with SEC 17a-4(f) and other regulations.
+The Immutable Storage feature enables organizations in many regulated industries, particularly broker-dealer organizations, to store data in a manner compliant with SEC 17a-4(f) and other regulations.
 
 Typical applications include:
 
