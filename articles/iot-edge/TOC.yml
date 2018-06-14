@@ -78,9 +78,9 @@
       href: how-to-deploy-modules-cli.md
   - name: Deploy and monitor at scale
     items:
-      name: Azure portal 
+    - name: Azure portal
       href: how-to-deploy-monitor.md
-      name: Azure CLI
+    - name: Azure CLI
       href: how-to-deploy-monitor-cli.md
   - name: Use Edge devices as gateways
     items:
