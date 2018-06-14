@@ -31,6 +31,8 @@ The extension lets you define stateful workflows in a new type of function calle
 
 The primary use case for Durable Functions is simplifying complex, stateful coordination problems in serverless applications. The following sections describe some typical application patterns that can benefit from Durable Functions.
 
+An overview of the concepts and types of actions in a durable function [can be found here](durable-functions-components-overview.md).
+
 ## Pattern #1: Function chaining
 
 *Function chaining* refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function.

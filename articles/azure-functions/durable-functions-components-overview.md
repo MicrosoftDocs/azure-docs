@@ -26,25 +26,25 @@ Azure Durable Functions provides stateful orchestration of function execution.  
 
 Activity functions are the basic unit of work in a durable orchestration.  Activity functions are the functions and tasks being orchestrated in the process.  For example, you may create a durable function to process an order - check the inventory, charge the customer, and create a shipment.  Each one of those tasks would be an activity function.  Activity functions don't have any restrictions in the type of work you can do in them.  They can be written in any language supported by the app.  The durable task framework guarantees that each called activity function will be executed at-least-once during an orchestration.
 
-An activity function must be triggered by an [activity trigger](durable-functions-bindings.md#activity-triggers).  This trigger will receive a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter. You can also bind the trigger to any other object to pass in inputs to the function.  Your activity function can also return values back to the orchestrator.  If sending or returning many values from an activity function, you can [leverage tuples or arrays](durable-functions-bindings#passing-multiple-parameters).  Activity functions can only be triggered from an orchestration instance.  Code can be shared within an app between an activity function and another function (like an HTTP function), but you would need to create two distinct functions - 1 function per trigger.
+An activity function must be triggered by an [activity trigger](durable-functions-bindings.md#activity-triggers).  This trigger will receive a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter. You can also bind the trigger to any other object to pass in inputs to the function.  Your activity function can also return values back to the orchestrator.  If sending or returning many values from an activity function, you can [leverage tuples or arrays](durable-functions-bindings.md#passing-multiple-parameters).  Activity functions can only be triggered from an orchestration instance.  Code can be shared within an app between an activity function and another function (like an HTTP function), but you would need to create two distinct functions - 1 function per trigger.
 
 More information and examples of activity functions [can be found here](durable-functions-bindings.md#activity-triggers).
 
 ### Orchestrator functions
 
-Orchestrator functions are the heart of a durable function.  Orchestrator functions describe the way and order actions are executed.  Orchestrator functions can describe the orchestration in code (C# or JavaScript) as shown in the [durable functions overview](durable-functions-overview).  An orchestration can have many different types of actions, like [activity Functions](#activity-functions), [sub-orchestrations](#sub-orchestrations), [waiting for external events](#external-events), and timers.  
+Orchestrator functions are the heart of a durable function.  Orchestrator functions describe the way and order actions are executed.  Orchestrator functions can describe the orchestration in code (C# or JavaScript) as shown in the [durable functions overview](durable-functions-overview.md).  An orchestration can have many different types of actions, like [activity Functions](#activity-functions), [sub-orchestrations](#sub-orchestrations), [waiting for external events](#external-events), and timers.  
 
-An orchestrator function must be triggered by an [orchestration trigger](durable-functions-bindings#orchestration-triggers).  This trigger will receive a [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html).
+An orchestrator function must be triggered by an [orchestration trigger](durable-functions-bindings.md#orchestration-triggers).  This trigger will receive a [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html).
 
-An orchestrator is started by an [orchestrator client](#entry-or-client-functions) which could itself be triggered from any source (HTTP, queues, event streams).  Each instance of an orchestration has an instance identifier, which can be auto-generated (recommended) or user-generated.  This identifier can be used to [managed instances](durable-functions-instance-management) of the orchestration.
+An orchestrator is started by an [orchestrator client](#entry-or-client-functions) which could itself be triggered from any source (HTTP, queues, event streams).  Each instance of an orchestration has an instance identifier, which can be auto-generated (recommended) or user-generated.  This identifier can be used to [managed instances](durable-functions-instance-management.md) of the orchestration.
 
-More information and examples of orchestrator functions [can be found here](durable-functions-bindings#orchestration-triggers).
+More information and examples of orchestrator functions [can be found here](durable-functions-bindings#orchestration-triggers.md).
 
 ### Entry or client functions
 
-Entry functions are the triggered functions that will create new instances of an orchestration.  Entry functions can be triggered by any trigger (HTTP, queues, event streams, etc.) and written in any language supported by the app.  In addition to the trigger, entry functions have an [orchestration client](durable-functions-bindings#orchestration-client) binding that allows them to create and manage durable orchestrations.  The most basic example of an entry function is an HTTP triggered function that starts an orchestrator function and returns a check status response as [shown in this following example](durable-functions-http-api#http-api-url-discovery).
+Entry functions are the triggered functions that will create new instances of an orchestration.  Entry functions can be triggered by any trigger (HTTP, queues, event streams, etc.) and written in any language supported by the app.  In addition to the trigger, entry functions have an [orchestration client](durable-functions-bindings.md#orchestration-client) binding that allows them to create and manage durable orchestrations.  The most basic example of an entry function is an HTTP triggered function that starts an orchestrator function and returns a check status response as [shown in this following example](durable-functions-http-api.md#http-api-url-discovery).
 
-More information and examples of entry or client functions [can be found here](durable-functions-bindings#orchestration-client).
+More information and examples of entry or client functions [can be found here](durable-functions-bindings.md#orchestration-client).
 
 ## Features and patterns
 
@@ -52,19 +52,19 @@ More information and examples of entry or client functions [can be found here](d
 
 In addition to calling activity functions, orchestrator functions can call other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or you can run multiple instances of an orchestrator function in parallel.
 
-More information and examples of sub-orchestrations [can be found here](durable-functions-sub-orchestrations).
+More information and examples of sub-orchestrations [can be found here](durable-functions-sub-orchestrations.md).
 
 ### External events
 
 Orchestrator functions can wait and listen for external events. This feature of Durable Functions is often useful for handling human interaction or other external triggers.
 
-More information and examples of handling external events [can be found here](durable-functions-external-events).
+More information and examples of handling external events [can be found here](durable-functions-external-events.md).
 
 ### Error handling
 
 Durable Function orchestrations are implemented in code and can use the error-handling features of the programming language.  This means patterns like "try/catch" will work in your orchestration.  Durable functions also come with some built-in retry policies.  An action can delay and retry activities automatically on exceptions.  Retries allow you to handle transient exceptions without having to abandon the orchestration.
 
-More information and examples of error handling [can be found here](durable-functions-error-handling).
+More information and examples of error handling [can be found here](durable-functions-error-handling.md).
 
 ### Cross-function app communication
 
