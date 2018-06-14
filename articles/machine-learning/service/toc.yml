@@ -33,9 +33,9 @@
   - name: Deploy and consume models
 - name: Reference
   items:  
-  - name: Azure Machine Learning SDK
+  - name: Machine Learning SDK
     href: reference-azure-machine-learning-sdk.md
-  - name: Azure Machine Learning CLI
+  - name: Machine Learning CLI
     href: reference-azure-machine-learning-cli.md
   - name: Domain packages
     href: reference-python-package-overview.md
