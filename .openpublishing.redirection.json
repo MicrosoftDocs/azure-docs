@@ -21566,6 +21566,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-accelerators/iot-security-architecture.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
+            "redirect_document_id": false
+        },   
+        {
+            "source_path": "articles/iot-hub/iot-hub-security-architecture.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path": "articles/iot-accelerators/iot-security-best-practices.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/iot-hub/iot-hub-security-best-practices.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path": "articles/iot-accelerators/iot-accelerators-security-deployment.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-deployment",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path": "articles/iot-hub/iot-hub-security-deployment.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-deployment",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/iot-accelerators/securing-iot-groud-up.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+            "redirect_document_id": false
+        },   
+        {
+            "source_path": "articles/iot-hub/iot-hub-security-groud-up.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+            "redirect_document_id": false
+        },         
+        {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
