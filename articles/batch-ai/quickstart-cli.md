@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
-ms.date: 10/06/2017
+ms.date: 06/14/2018
 ms.author: Alexander.Yukhanov
 ---
 
@@ -23,20 +23,20 @@ ms.author: Alexander.Yukhanov
 Azure CLI 2.0 allows you to create and manage Batch AI resources - create/delete Batch AI file servers and clusters,
 and submit/terminate/delete/monitor training jobs.
 
-This quickstart shows how to create a GPU cluster and run a training job using Microsoft Cognitive Toolkit.
+This quickstart shows how to create a GPU cluster and run a training job using Microsoft Cognitive Toolkit (CNTK).
 
 The training script [ConvNet_MNIST.py](https://raw.githubusercontent.com/Azure/BatchAI/master/recipes/CNTK/CNTK-GPU-Python/ConvNet_MNIST.py)
-is available at Batch AI GitHub page. This script trains convolutional neural network on MNIST database of handwritten
+is available at Batch AI GitHub page. This script trains a convolutional neural network on the MNIST database of handwritten
 digits.
 
-The official CNTK example has been modified to accept location of the training dataset and the output directory location via
+The official CNTK example has been modified to accept the location of the training dataset and the output directory location via
 command-line arguments.
 
 ## Quickstart Overview
 
 * Create a single node GPU cluster (with `Standard_NC6` VM size) with name `nc6`;
 * Create a storage account to store job input and output;
-* Create an Azure File Share with two folders `logs` and `scripts` to store jobs output and training scripts;
+* Create an Azure File Share with two folders `logs` and `scripts` to store job output and training scripts;
 * Create an Azure Blob Container `data` to store training data;
 * Deploy the training script and the training data to the created file share and container;
 * Configure the job to mount the Azure File Share and Azure Blob Container on the cluster's node and make them available as regular
@@ -50,8 +50,8 @@ file system at `$AZ_BATCHAI_JOB_MOUNT_ROOT/logs`, `$AZ_BATCHAI_JOB_MOUNT_ROOT/sc
 
 * Azure subscription - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 before you begin.
-* Access to Azure CLI 2.0 with version 2.0.31 or higher. You can either use Azure CLI 2.0 available in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
-or install it locally following [these instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Access to Azure CLI 2.0 with version 2.0.31 or higher. You can either use Azure CLI 2.0 available in [Azure Cloud Shell](../cloud-shell/overview.md)
+or install it locally following [these instructions](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
   If you are using Cloud Shell, change the working directory to `/usr/$USER/clouddrive` because your home directory has no empty space:
 
@@ -100,7 +100,7 @@ Example output:
   "creationTime": "2018-04-11T20:12:10.758000+00:00",
   "currentNodeCount": 0,
   "errors": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/clusters/nc6",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/workspaces/quickstart/clusters/nc6",
   "location": "eastus",
   "name": "nc6",
   "nodeSetup": null,
@@ -128,7 +128,7 @@ Example output:
   "type": "Microsoft.BatchAI/Clusters",
   "userAccountSettings": {
     "additionalProperties": {},
-    "adminUserName": "alex",
+    "adminUserName": "myuser",
     "adminUserPassword": null,
     "adminUserSshPublicKey": "<YOUR SSH PUBLIC KEY HERE>"
   },
@@ -158,7 +158,7 @@ az storage account create -n <storage account name> --sku Standard_LRS -g batcha
 ```
 
 
-## Data deployment
+## Deploy data
 
 ### Download the training script and training data
 
@@ -206,7 +206,7 @@ az storage blob upload-batch -s . --pattern '*28x28_cntk*' --destination data --
 
 ### Create a Batch AI experiment
 
-An experiment is a container for related Batch AI jobs. Use the following command to create an experiment in your workspace:
+An experiment is a logical container for related Batch AI jobs. Use the following command to create an experiment in your workspace:
 
 ```azurecli
 az batchai experiment create -g batchai.quickstart -w quickstart -n quickstart
@@ -270,29 +270,21 @@ via `--storage-account-name parameter` or `AZURE_BATCHAI_STORAGE_ACCOUNT` enviro
 
 ### Submit the Job
 
-****Currently does not run. Error: 
-
-Use the following command to submit the job on the cluster: Selected GPU[0] Tesla K80 as the process wide default device.
-bash: line 1: 20057 Segmentation fault      (core dumped) python -u /mnt/batch/tasks/shared/LS_root/jobs/cntk_python_2/mounts/scripts/cntk/ConvNet_MNIST.py /mnt/batch/tasks/shared/LS_root/jobs/cntk_python_2/mounts/data/mnist_cntk /mnt/batch/tasks/shared/LS_root/jobs/cntk_python_2/mounts/logs/e44f251c-c67e-4760-9ed6-bf99a306ecff/batchai.quickstart/jobs/cntk_python_2/a30c5f1e-98b0-4ac0-9f29-c3e6210e240f/outputs
-***
-
 ```azurecli
-az batchai job create -n cntk_python_1 -r nc6 -g batchai.quickstart -e quickstart -c job.json --storage-account-name <storage account name>
+az batchai job create -n cntk_python_1 -c nc6 -g batchai.quickstart -w quickstart -e quickstart  -f job.json --storage-account-name <storage account name>
 ```
 
 Example output:
 ```
 {
-  "additionalProperties": {},
+  "caffe2Settings": null,
   "caffeSettings": null,
   "chainerSettings": null,
   "cluster": {
-    "additionalProperties": {},
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/clusters/nc6",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/workspaces/quickstart/clusters/nc6",
     "resourceGroup": "batchai.quickstart"
   },
   "cntkSettings": {
-    "additionalProperties": {},
     "commandLineArgs": "$AZ_BATCHAI_JOB_MOUNT_ROOT/data/mnist_cntk $AZ_BATCHAI_OUTPUT_MODEL",
     "configFilePath": null,
     "languageType": "Python",
@@ -301,33 +293,34 @@ Example output:
     "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/cntk/ConvNet_MNIST.py"
   },
   "constraints": {
-    "additionalProperties": {},
     "maxWallClockTime": "7 days, 0:00:00"
   },
   "containerSettings": null,
-  "creationTime": "2018-04-11T21:48:10.303000+00:00",
+  "creationTime": "2018-06-14T22:22:57.543000+00:00",
+  "customMpiSettings": null,
   "customToolkitSettings": null,
   "environmentVariables": null,
-  "executionInfo": null,
-  "executionState": "queued",
-  "executionStateTransitionTime": "2018-04-11T21:48:10.303000+00:00",
-  "experimentName": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/jobs/cntk_python_1",
+  "executionInfo": {
+    "endTime": null,
+    "errors": null,
+    "exitCode": null,
+    "startTime": "2018-06-14T22:22:59.838000+00:00"
+  },
+  "executionState": "running",
+  "executionStateTransitionTime": "2018-06-14T22:22:59.838000+00:00",
+  "horovodSettings": null,
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/workspaces/quickstart/experiments/quickstart/jobs/cntk_python_1",
   "inputDirectories": null,
-  "jobOutputDirectoryPathSegment": "00000000-0000-0000-0000-000000000000/batchai.quickstart/jobs/cntk_python_1/b9576bae-e878-4fb2-9390-2e962356b5b1",
+  "jobOutputDirectoryPathSegment": "00000000-0000-0000-0000-000000000000/batchai.quickstart/workspaces/quickstart/experiments/quickstart/jobs/cntk_python_1/f2d6ff09-7549-4e1a-8cd8-ec839f042a61",
   "jobPreparation": null,
-  "location": null,
   "mountVolumes": {
-    "additionalProperties": {},
     "azureBlobFileSystems": [
       {
-        "accountName": "<YOU STORAGE ACCOUNT NAME>",
-        "additionalProperties": {},
+        "accountName": "<YOUR STORAGE ACCOUNT NAME>",
         "containerName": "data",
         "credentials": {
           "accountKey": null,
-          "accountKeySecretReference": null,
-          "additionalProperties": {}
+          "accountKeySecretReference": null
         },
         "mountOptions": null,
         "relativeMountPath": "data"
@@ -335,26 +328,22 @@ Example output:
     ],
     "azureFileShares": [
       {
-        "accountName": "<YOU STORAGE ACCOUNT NAME>,
-        "additionalProperties": {},
-        "azureFileUrl": "https://<YOU STORAGE ACCOUNT NAME>.file.core.windows.net/logs",
+        "accountName": "<YOUR STORAGE ACCOUNT NAME>",
+        "azureFileUrl": "https://<YOUR STORAGE ACCOUNT NAME>.file.core.windows.net/logs",
         "credentials": {
           "accountKey": null,
-          "accountKeySecretReference": null,
-          "additionalProperties": {}
+          "accountKeySecretReference": null
         },
         "directoryMode": "0777",
         "fileMode": "0777",
         "relativeMountPath": "logs"
       },
       {
-        "accountName": "<YOU STORAGE ACCOUNT NAME>",
-        "additionalProperties": {},
-        "azureFileUrl": "https://<YOU STORAGE ACCOUNT NAME>.file.core.windows.net/scripts",
+        "accountName": "<YOUR STORAGE ACCOUNT NAME>",
+        "azureFileUrl": "https://<YOUR STORAGE ACCOUNT NAME>.file.core.windows.net/scripts",
         "credentials": {
           "accountKey": null,
-          "accountKeySecretReference": null,
-          "additionalProperties": {}
+          "accountKeySecretReference": null
         },
         "directoryMode": "0777",
         "fileMode": "0777",
@@ -368,26 +357,23 @@ Example output:
   "nodeCount": 1,
   "outputDirectories": [
     {
-      "additionalProperties": {},
-      "createNew": true,
       "id": "MODEL",
       "pathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
-      "pathSuffix": null,
-      "type": "custom"
+      "pathSuffix": null
     }
   ],
-  "priority": 0,
   "provisioningState": "succeeded",
-  "provisioningStateTransitionTime": "2018-04-11T21:48:11.577000+00:00",
+  "provisioningStateTransitionTime": "2018-06-14T22:22:58.625000+00:00",
   "pyTorchSettings": null,
-  "resourceGroup": "batchai.quickstart",
+  "resourceGroup": "danlep0614b",
+  "schedulingPriority": "normal",
   "secrets": null,
   "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
-  "tags": null,
   "tensorFlowSettings": null,
   "toolType": "cntk",
-  "type": "Microsoft.BatchAI/Jobs"
+  "type": "Microsoft.BatchAI/workspaces/experiments/jobs"
 }
+
 ```
 
 ## Monitor job execution
@@ -395,7 +381,7 @@ Example output:
 The training script reports the training progress in the `stderr.txt` file in the standard output directory. Monitor the progress using the following command:
 
 ```azurecli
-az batchai job file stream -n cntk_python_1 -g batchai.quickstart -f stderr.txt
+az batchai job file stream -j cntk_python_1 -g batchai.quickstart -w quickstart -e quickstart -f stderr.txt
 ```
 
 Example output:
@@ -427,7 +413,7 @@ Finished Epoch[1 of 40]: [Training] loss = 0.405960 * 60000, metric = 13.01% * 6
 Finished Epoch[2 of 40]: [Training] loss = 0.106030 * 60000, metric = 3.09% * 60000 3.638s (16492.6 samples/s);
 Finished Epoch[3 of 40]: [Training] loss = 0.078542 * 60000, metric = 2.32% * 60000 3.477s (17256.3 samples/s);
 ...
-Final Results: Minibatch[1-11]: errs = 0.54% * 10000
+Final Results: Minibatch[1-11]: errs = 0.62% * 10000
 ```
 
 The streaming is stopped when the job is completed (succeeded or failed).
@@ -438,7 +424,7 @@ The job stores the generated model files in the output directory with `id` attri
 model files and get download URLs using the following command:
 
 ```azurecli
-az batchai job file list -n cntk_python_1 -g batchai.quickstart -d MODEL
+az batchai job file list -j cntk_python_1 -w quickstart -e quickstart -g batchai.quickstart -d MODEL
 ```
 
 Example output:
@@ -465,16 +451,16 @@ Example output:
 ```
 
 Alternatively, use the Azure portal or Azure Storage Explorer to inspect the generated files. To distinguish output
-from the different jobs, Batch AI creates a unique folder structure for each of them. YFind the path to the
+from the different jobs, Batch AI creates a unique folder structure for each of them. Find the path to the
 folder containing the output using the `jobOutputDirectoryPathSegment` attribute of the submitted job:
 
 ```azurecli
-az batchai job show -n cntk_python_1 -g batchai.quickstart --query jobOutputDirectoryPathSegment
+az batchai job show -n cntk_python_1 -g batchai.quickstart -w quickstart -e quickstart --query jobOutputDirectoryPathSegment
 ```
 
 Example output:
 ```
-"00000000-0000-0000-0000-000000000000/batchai.quickstart/jobs/cntk_python_1/<JOB's UUID>"
+"00000000-0000-0000-0000-000000000000/batchai.quickstart/workspaces/quickstart/experiments/quickstart/jobs/cntk_python_1/<JOB's UUID>"
 ```
 
 ## Clean up resources
