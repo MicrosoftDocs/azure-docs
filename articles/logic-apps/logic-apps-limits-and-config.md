@@ -84,7 +84,7 @@ Here are the limits for a single logic app instance:
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
 | Foreach items | 100,000 | To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). | 
-| Foreach parallel iterations | 50 | By default, "for each" loop iterations run at the same time, or in parallel. The default limit is 20, but you can [change this default limit](#change-foreach-limit). | 
+| Foreach parallelism | 50 | By default, "for each" loop iterations run at the same time in parallel. The default limit is 20, but you can [change this default limit](#change-foreach-limit). | 
 | SplitOn items | 100,000 | | 
 | Until iterations | 5,000 | | 
 |||| 
@@ -94,11 +94,10 @@ Here are the limits for a single logic app instance:
 ### Change Foreach loop limit
 
 You can change the default limit either through 
-Logic Apps Designer or the code view editor.
-Changing the default limit through the designer is 
-equivalent to adding or updating the 
-`runtimeConfiguration.concurrency.repetitions` property 
-in the underlying action definition. 
+Logic Apps Designer or the code view editor. 
+Changing the default limit through the designer 
+adds or updates the `runtimeConfiguration.concurrency.repetitions` 
+property in the underlying `For_each` action definition. 
 To review this definition, open code view editor. 
 
 *Designer*
@@ -112,22 +111,36 @@ choose the ellipses (...) button, and then choose **Settings**.
 To run loop iterations sequentially, set the value to `1`. 
 
    > [!NOTE]
-   > Changing **Degree of Parallelism** to `1` is equivalent 
-   > to adding the `operationOptions` 
-   > property to `Sequential`.
-
-
+   > Setting **Degree of Parallelism** to `1` is 
+   > equivalent to adding and setting the 
+   > `operationOptions` property to `Sequential`. 
+   > For sequential runs, you can use either the 
+   > concurrency control or the `operationOptions` property, 
+   > but not both. Otherwise, you get a validation error.
 
 *Code view editor*
 
-In the `For_each` action definition, set only one of these properties. 
-Otherwise you get a validation error. 
+In the underlying `For_each` action definition, 
+add or update the `runtimeConfiguration.concurrency.repetitions` 
+property to a value inclusively between `1` and `50`. 
 
-* Add the `operationOptions` property and set the value to `Sequential`. 
-  -or-
-* Add the `runtimeConfiguration` property and set `concurrency.repetitions` property to a value between `1` and `50`.
-In code view editor, Set the `runtimeConfiguration` property to a value between `1` and `50` in the `Foreach` action. <p>To sequentially run a ForEach loop, set the `operationOptions` property to "Sequential" in the `foreach` action.
+To run loop iterations sequentially, follow one of these steps:
 
+* Set `repetitions` to `1`.
+
+  *-or-*
+
+* Add or update the `operationOptions` 
+property and set the value to `Sequential`. 
+
+> [!NOTE]
+> Setting `repetitions` to `1` is 
+> equivalent to adding and setting the 
+> `operationOptions` property to `Sequential`. 
+> For sequential runs, you can use either 
+> the `repetitions` property or the 
+> `operationOptions` property, but not both. 
+> Otherwise, you get a validation error.
 
 <a name="throughput-limits"></a>
 
