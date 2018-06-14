@@ -1,5 +1,5 @@
 ---
-title: "Compare default user permissions in Azure Active Directory"
+title: Compare default user permissions in Azure Active Directory | Microsoft Docs
 description: Compare member, guest, app owner, and group owner permissions
 services: active-directory
 documentationcenter: ''
@@ -62,7 +62,7 @@ When a user adds a new enterprise application, they are automatically added as a
 
 ### Group owner permissions
 
-When a user creates a group, they are automatically added as an owner for that group. As an owner, they can manage properties of the group such as the name, as well as manage membership. An owner can also add or remove other owners. Unlike Global Administrators and User Account Administrators, owners can only manage groups they own. To assign a group owner, see [Managing owners for a group](../active-directory-accessmanagement-managing-group-owners.md).
+When a user creates a group, they are automatically added as an owner for that group. As an owner, they can manage properties of the group such as the name, as well as manage membership. An owner can also add or remove other owners. Unlike Global Administrators and User Account Administrators, owners can only manage groups they own. To assign a group owner, see [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md).
 
 ## Next steps
 
