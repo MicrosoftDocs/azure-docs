@@ -64,6 +64,8 @@ This section contains name/value pairs that your web app will load on start up.
 * For .NET apps, these settings are injected into your .NET configuration `AppSettings` at runtime, overriding existing settings. 
 * PHP, Python, Java and Node applications can access these settings as environment variables at runtime. For each app setting, two environment variables are created; one with the name specified by the app setting entry, and another with a prefix of APPSETTING_. Both contain the same value.
 
+App settings are always encrypted when stored (encrypted-at-rest).
+
 ### Connection strings
 Connection strings for linked resources. 
 
@@ -77,6 +79,8 @@ For PHP, Python, Java and Node applications, these settings will be available as
 * Custom: `CUSTOMCONNSTR_`
 
 For example, if a MySql connection string were named `connectionstring1`, it would be accessed through the environment variable `MYSQLCONNSTR_connectionString1`.
+
+Connection strings are always encrypted when stored (encrypted-at-rest).
 
 ### Default documents
 The default document is the web page that is displayed at the root URL for a website.  The first matching file in the list is used. 

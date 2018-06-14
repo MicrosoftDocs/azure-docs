@@ -4,8 +4,8 @@ description: Learn how to use Azure Storage Explorer to manage Azure Files.
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: jeconnoc
-editor: 
+manager: aungoo
+editor: tamram
 
 ms.assetid: 
 ms.service: storage

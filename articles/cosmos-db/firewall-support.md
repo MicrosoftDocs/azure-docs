@@ -6,14 +6,10 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-documentationcenter: ''
 
-ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
 

@@ -13,63 +13,55 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2017
+ms.date: 06/12/2018
 ms.author: cawa
 
 ---
 # Microsoft Azure Storage Explorer release notes
 
-This article contains the release notes for Azure Storage Explorer 1.0.0 release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 1.2.0 release, as well as release notes for previous versions.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-## Version 1.0.0
-04/16/2018
+## Version 1.2.0
+06/12/2018
 
-### Download Azure Storage Explorer 1.0.0
-- [Azure Storage Explorer 1.0.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.0.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.0.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### Download Azure Storage Explorer 1.2.0
+- [Azure Storage Explorer 1.2.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.2.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.2.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### New
-* Enhanced authentication that allows Storage Explorer to use the same account store as Visual Studio 2017. To use this feature, you will need to re-login to your accounts and re-set your filtered subscriptions.
-* For Azure Stack accounts backed by AAD, Storage Explorer will now retrieve Azure Stack subscriptions when 'Target Azure Stack' is enabled. You no longer need to create a custom login environment.
-* Several shortcuts were added to enable faster navigation. These include toggling various panels and moving between editors. See the View menu for more details.
-* Storage Explorer feedback now lives on GitHub. You can reach our issues page by clicking the Feedback button in the bottom left or by going to [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). Feel free to make suggestions, report issues, ask questions, or leave any other form of feedback.
-* If you are running into SSL Certificate issues and are unable to find the offending certificate, you can now launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore SSL certificate errors.
-* There is now a 'Download' option in the context menu for blob and file items.
-* Improved accessibility and screen reader support. If you rely on accessibility features, see our [accessibility documentation](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) for more information.
-* Storage Explorer now uses Electron 1.8.3
-
-### Breaking Changes
-* Storage Explorer has switched to a new authentication library. As part of the switch to the library, you will need to re-login to your accounts and re-set your filtered subscriptions
-* The method used to encrypt sensitive data has changed. This may result in some of your Quick Access items needing to be re-added and/or some of you attached resources needing to be reattached.
+* If Storage Explorer fails to load subscriptions from only a subset of your tenants, then any successfully loaded subscriptions will be shown along with an error message specifically for the tenants that failed. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
+* On Windows, when an update is available, you can now choose to "Update on Close". When this option is picked, the installer for the update will run after you close Storage Explorer. [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
+* Restore Snapshot has been added to the context menu of the file share editor when viewing a file share snapshot.[#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
+* The Clear Queue button is now always enabled.[#135](https://github.com/Microsoft/AzureStorageExplorer/issues/135)
+* Support for signing in to ADFS Azure Stack has been re-enabled. Azure Stack version 1804 or greater is required. [#150](https://github.com/Microsoft/AzureStorageExplorer/issues/150)
 
 ### Fixes
-* Some users behind proxies would have group blob uploads or downloads interrupted by an 'Unable to resolve' error message. This has been fixed.
-* If sign in was needed while using a direct link, clicking on the 'Sign In' prompt would pop up a blank dialog. This has been fixed.
-* On Linux, if Storage Explorer is unable to launch because of a GPU process crash, you will now be informed of the crash, told to use the '--disable-gpu' switch, and Storage Explorer will then automatically restart with the switch enabled.
-* Invalid access policies were hard to identity in the Access Policies dialog. Invalid access policy IDs are now outlined in red for more visibility.
-* The activity log would sometimes have large areas of whitespace between the different parts of an activity. This has been fixed.
-* In the table query editor, if you left a timestamp clause in an invalid state and then attempted to modify another clause, the editor would freeze. The editor will now restore the timestamp clause to its last valid state when a change in another clause is detected.
-* If you paused while typing in your search query in the tree view, the search would begin and focus would be stolen from the text box. Now, you must explicitly start searching by pressing the 'Enter' key, or by clicking on the start search button.
-* The 'Get Shared Access Signature' command would sometimes be disabled when right clicking on a file in a File Share. This has been fixed.
-* If the resource tree node with focus was filtered out during search, you could not tab into the resource tree and use the arrow keys to navigate the resource tree. Now, if the focused resource tree node is hidden, the first node in the resource tree will be automatically focused.
-* An extra separator would sometimes be visible in the editor toolbar. This has been fixed.
-* The breadcrumb text box would sometimes overflow. This has been fixed.
-* The Blob and File Share editors would sometimes constantly refresh when uploading many files at once. This has been fixed.
-* The 'Folder Statistics' feature had no purpose in the File Share Snapshots Management view. It has now been disabled.
-* On Linux, the File menu did not appear. This has been fixed.
-* When uploading a folder to a File Share, by default, only the contents of the folder were uploaded. Now, the default behavior is to upload the contents of the folder into a matching folder in the File Share.
-* The ordering of buttons in several dialogs had been reversed. This has been fixed.
-* Various security related fixes.
+* If you viewed snapshots for a file share whose name was a prefix of another file share in the same storage account, then the snapshots for the other file share would also be listed. This issue has been fixed. [#255](https://github.com/Microsoft/AzureStorageExplorer/issues/255)
+* When attached via SAS, restoring a file from a file share snapshot would result in an error. This issue has been fixed. [#211](https://github.com/Microsoft/AzureStorageExplorer/issues/211)
+* When viewing snapshots for a blob, the Promote Snapshot action was enabled when the base blob and a single snapshot were selected. The action is now only enabled if a single snapshot is selected. [#230](https://github.com/Microsoft/AzureStorageExplorer/issues/230)
+* If a single job (such as downloading a blob) was started and later failed, it would not automatically retry until you started another job of the same type. All jobs should now auto retry, regardless of how many jobs you have queued.
+* Editors opened for newly created blob containers in GPV2 and Blob Storage accounts did not have an Access Tier column. This issue has been fixed. [#109](https://github.com/Microsoft/AzureStorageExplorer/issues/109)
+* An Access Tier column would sometimes not appear when a Storage account or blob container was attached via SAS. The column will now always be shown, but with an empty value if there is no Access Tier set. [#160](https://github.com/Microsoft/AzureStorageExplorer/issues/160)
+* Setting the Access Tier of a newly uploaded block blob was disabled. This issue has been fixed. [#171](https://github.com/Microsoft/AzureStorageExplorer/issues/171)
+* If the "Keep Tab Open" button was invoked using keyboard, then keyboard focus would be lost. Now, the focus will move onto the tab that was kept open. [#163](https://github.com/Microsoft/AzureStorageExplorer/issues/163)
+* For a query in the Query Builder, VoiceOver was not giving a usable description of the current operator. It is now more descriptive. [#207](https://github.com/Microsoft/AzureStorageExplorer/issues/207)
+* The pagination links for the various editors were not descriptive. They have been changed to be more descriptive. [#205](https://github.com/Microsoft/AzureStorageExplorer/issues/205)
+* In the Add Entity dialog, VoiceOver was not announcing what column an input element was part of. The name of the current column is now included in the description of the element. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Radio buttons and checkboxes did not have a visible border when focused. This issue has been fixed. [#237](https://github.com/Microsoft/AzureStorageExplorer/issues/237)
 
 ### Known Issues
+* When using emulators, such as Azure Storage Emulator or Azurite, you will need to have them listen for connections on their default ports. Otherwise, Storage Explorer will not be able to connect to them.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, please comment on [this issue](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here. 
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
@@ -78,7 +70,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 ```
 
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
-* For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -93,8 +85,17 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 	sudo apt-get install libgconf-2-4
 	```
 
+
+
+
+
+
+
+
 ## Previous releases
 
+* [Version 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
 * [Version 0.9.6](#version-096)
 * [Version 0.9.5](#version-095)
 * [Version 0.9.4 and 0.9.3](#version-094-and-093)
@@ -118,6 +119,134 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
 
+
+## Version 1.1.0
+05/09/2018
+
+### Download Azure Storage Explorer 1.1.0
+- [Azure Storage Explorer 1.1.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.1.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.1.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### New
+* Storage Explorer now supports the use of Azurite. Note: the connection to Azurite is hardcoded to the default development endpoints.
+* Storage Explorer now supports Access Tiers for Blob Only and GPV2 Storage Accounts. Learn more about Access Tiers [here](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* A start time is no longer required when generating a SAS.
+
+### Fixes
+* Retrieving of subscriptions for US Government accounts was broken. This issue has been fixed. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
+* The expiry time for access policies was not correctly being saved. This issue has been fixed. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
+* When generating a SAS URL for an item in a container, the name of the item was not being appended to the URL. This issue has been fixed. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
+* When creating a SAS, expiry times that are in the past would sometimes be the default value. This was due to Storage Explorer using the last used start and expiry time as default values. Now, every time you open the SAS dialog, a new set of default values is generated. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
+* When copying between Storage Accounts, a 24-hour SAS is generated. If the copy lasted more than 24 hours, then the copy would fail. We've increased the SAS's to last 1 week to reduce the chance of a copy failing due to an expired SAS. [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
+* For some activities clicking on "Cancel" would not always work. This issue has been fixed. [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
+* For some activities the transfer speed was wrong. This issue has been fixed. [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
+* The spelling of "Previous" in the View menu was wrong. It is now properly spelled. [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
+* The final page of the Windows installer had a "Next" button. It has been changed to a "Finish" button. [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
+* Tab focus was not visible for buttons in dialogs when using the HC Black theme. It is now visible.[#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
+* The casing of "Auto-Resolve" for actions in the activity log was wrong. It is now correct. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
+* When deleting an entity from a table, the dialog asking you for confirmation displayed an error icon. The dialog now uses a warning icon. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+
+### Known Issues
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, please comment on [this issue](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
+* In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
+* Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
+
+## Version 1.0.0
+04/16/2018
+
+### Download Azure Storage Explorer 1.0.0
+
+### New
+* Enhanced authentication that allows Storage Explorer to use the same account store as Visual Studio 2017. To use this feature, you will need to re-login to your accounts and re-set your filtered subscriptions.
+* For Azure Stack accounts backed by AAD, Storage Explorer will now retrieve Azure Stack subscriptions when 'Target Azure Stack' is enabled. You no longer need to create a custom login environment.
+* Several shortcuts were added to enable faster navigation. These include toggling various panels and moving between editors. See the View menu for more details.
+* Storage Explorer feedback now lives on GitHub. You can reach our issues page by clicking the Feedback button in the bottom left or by going to [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). Feel free to make suggestions, report issues, ask questions, or leave any other form of feedback.
+* If you are running into SSL Certificate issues and are unable to find the offending certificate, you can now launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore SSL certificate errors.
+* There is now a 'Download' option in the context menu for blob and file items.
+* Improved accessibility and screen reader support. If you rely on accessibility features, see our [accessibility documentation](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) for more information.
+* Storage Explorer now uses Electron 1.8.3
+
+### Breaking Changes
+* Storage Explorer has switched to a new authentication library. As part of the switch to the library, you will need to re-login to your accounts and re-set your filtered subscriptions
+* The method used to encrypt sensitive data has changed. This may result in some of your Quick Access items needing to be re-added and/or some of you attached resources needing to be reattached.
+
+### Fixes
+* Some users behind proxies would have group blob uploads or downloads interrupted by an 'Unable to resolve' error message. This issue has been fixed.
+* If sign-in was needed while using a direct link, clicking on the 'Sign-In' prompt would pop up a blank dialog. This issue has been fixed.
+* On Linux, if Storage Explorer is unable to launch because of a GPU process crash, you will now be informed of the crash, told to use the '--disable-gpu' switch, and Storage Explorer will then automatically restart with the switch enabled.
+* Invalid access policies were hard to identity in the Access Policies dialog. Invalid access policy IDs are now outlined in red for more visibility.
+* The activity log would sometimes have large areas of whitespace between the different parts of an activity. This issue has been fixed.
+* In the table query editor, if you left a timestamp clause in an invalid state and then attempted to modify another clause, the editor would freeze. The editor will now restore the timestamp clause to its last valid state when a change in another clause is detected.
+* If you paused while typing in your search query in the tree view, the search would begin and focus would be stolen from the text box. Now, you must explicitly start searching by pressing the 'Enter' key, or by clicking on the start search button.
+* The 'Get Shared Access Signature' command would sometimes be disabled when right clicking on a file in a File Share. This issue has been fixed.
+* If the resource tree node with focus was filtered out during search, you could not tab into the resource tree and use the arrow keys to navigate the resource tree. Now, if the focused resource tree node is hidden, the first node in the resource tree will be automatically focused.
+* An extra separator would sometimes be visible in the editor toolbar. This issue has been fixed.
+* The breadcrumb text box would sometimes overflow. This issue has been fixed.
+* The Blob and File Share editors would sometimes constantly refresh when uploading many files at once. This issue has been fixed.
+* The 'Folder Statistics' feature had no purpose in the File Share Snapshots Management view. It has now been disabled.
+* On Linux, the File menu did not appear. This issue has been fixed.
+* When uploading a folder to a File Share, by default, only the contents of the folder were uploaded. Now, the default behavior is to upload the contents of the folder into a matching folder in the File Share.
+* The ordering of buttons in several dialogs had been reversed. This issue has been fixed.
+* Various security related fixes.
+
+### Known Issues
+* In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
+* Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
 ## Version 0.9.6
 02/28/2018
 
@@ -127,8 +256,8 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 - [Azure Storage Explorer 0.9.6 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### Fixes
-* An issue prevented expected blobs/files from being listed in the editor. This has been fixed.
-* An issue caused switching between snapshot views to display items incorrectly. This has been fixed.
+* An issue prevented expected blobs/files from being listed in the editor. This issue has been fixed.
+* An issue caused switching between snapshot views to display items incorrectly. This issue has been fixed.
 
 ### Known Issues
 * Storage Explorer does not support ADFS accounts.
@@ -136,7 +265,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 * After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * The account settings panel may show that you need to reenter credentials to filter subscriptions.
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
@@ -144,7 +273,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -190,7 +319,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 * After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * The account settings panel may show that you need to reenter credentials to filter subscriptions.
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
@@ -198,7 +327,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -231,9 +360,9 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 	* For Mac, there is a 'New Window' option under App Menu.
 
 ### Fixes
-* Fixed a security issue. Please upgrade to 0.9.4 at you earliest convenience.
+* Fixed a security issue. Please upgrade to 0.9.4 at your earliest convenience.
 * Old activities were not appropriately being cleaned up. This affected the performance of long running jobs. They are now being cleaned up correctly.
-* Actions involving large numbers of files and directories would occasionally cause Storage Explorer to freeze. Requests to Azure for File Shares are now trottled to limit system resource use.
+* Actions involving large numbers of files and directories would occasionally cause Storage Explorer to freeze. Requests to Azure for File Shares are now throttled to limit system resource use.
 
 ### Known Issues
 * Storage Explorer does not support ADFS accounts.
@@ -242,13 +371,13 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 * After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * The account settings panel may show that you need to reenter credentials to filter subscriptions.
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 ```
 ./StorageExplorer --disable-gpu
 ```
-* For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -268,7 +397,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 
 ### Hotfixes
 * Unexpected data changes were possible when editing Edm.DateTime values for table entities depending on the local time zone. The editor now uses a plain text box, giving precise, consistent control over Edm.DateTime values.
-* Uploading/downloading a group of blobs when attached with name and key would not start. This has been fixed.
+* Uploading/downloading a group of blobs when attached with name and key would not start. This issue has been fixed.
 * Previously Storage Explorer would only prompt you to reauthenticate a stale account if one or more of the account's subscriptions was selected. Now Storage Explorer will prompt you even if the account is fully filtered out.
 * The endpoints domain for Azure US Government was wrong. It has been fixed.
 * The apply button on the Manage Accounts panel was sometimes hard to click. This should no longer happen.
@@ -279,7 +408,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 	* Create databases and collections
 	* Manipulate data
 	* Query, create, or delete documents
-	* Update stored procedures, user defined functions, or triggers
+	* Update stored procedures, user-defined functions, or triggers
 	* Use connection strings to connect to and manage your databases
 * Improved the performance of uploading/downloading many small blobs.
 * Added a "Retry All" action if there are failures in a blob upload group or blob download group.
@@ -293,7 +422,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 
 ### Fixes
 * If you tried to open or download a blob with an invalid Windows file name, the operation would fail. Storage Explorer will now detect if a blob name is invalid and ask if you would like to either encode it or skip the blob. Storage Explorer will also detect if a file name appears to be encoded and ask you if want to decode it before uploading.
-* During blob upload, the editor for the target blob container would sometimes not properly refresh. This has been fixed.
+* During blob upload, the editor for the target blob container would sometimes not properly refresh. This issue has been fixed.
 * The support for several forms of connection strings and SAS URIs regressed. We have addressed all known issues, but please send feedback if you encounter further issues.
 * The update notification was broken for some users in 0.9.0. This issue has been fixed, and for those affected by the bug, you can manually download the latest version of Storage Explorer [here](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -304,13 +433,13 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 * After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * The account settings panel may show that you need to reenter credentials to filter subscriptions.
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 ```
 ./StorageExplorer --disable-gpu
 ```
-* For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -333,7 +462,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 	* Create databases and collections
 	* Manipulate data
 	* Query, create, or delete documents
-	* Update stored procedures, user defined functions, or triggers
+	* Update stored procedures, user-defined functions, or triggers
 	* Use connection strings to connect to and manage your databases
 * Improved the performance of uploading/downloading many small blobs.
 * Added a "Retry All" action if there are failures in a blob upload group or blob download group.
@@ -347,7 +476,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 
 ### Fixes
 * If you tried to open or download a blob with an invalid Windows file name, the operation would fail. Storage Explorer will now detect if a blob name is invalid and ask if you would like to either encode it or skip the blob. Storage Explorer will also detect if a file name appears to be encoded and ask you if want to decode it before uploading.
-* During blob upload, the editor for the target blob container would sometimes not properly refresh. This has been fixed.
+* During blob upload, the editor for the target blob container would sometimes not properly refresh. This issue has been fixed.
 * The support for several forms of connection strings and SAS URIs regressed. We have addressed all known issues, but please send feedback if you encounter further issues.
 * The update notification was broken for some users in 0.9.0. This issue has been fixed, and for those affected by the bug, you can manually download the latest version of Storage Explorer [here](https://azure.microsoft.com/features/storage-explorer/)
 
@@ -358,13 +487,13 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 * After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * The account settings panel may show that you need to reenter credentials to filter subscriptions.
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 ```
 ./StorageExplorer --disable-gpu
 ```
-* For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -402,9 +531,9 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 * After completing a blob upload, the tab which initiated the upload is refreshed. This is a change from previous behavior, and will also cause you to be taken back to the root of the container you are in.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * The account settings panel may show that you need to reenter credentials to filter subscriptions.
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
-* For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
 	```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -435,7 +564,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 * If you choose the wrong PIN/Smartcard certificate then you will need to restart in order to have Storage Explorer forget the decision
 * Having more than 3 groups of blobs or files uploading at the same time may cause errors
 * The account settings panel may show that you need to reenter credentials in order to filter subscriptions
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support File Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * Ubuntu 14.04 install needs gcc version updated or upgraded – steps to upgrade are below:
 
@@ -457,7 +586,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 #### Fixes
 
 * Fixed: File upload had a high chance of causing an out of memory error
-* Fixed: You can now sign in with PIN/Smartcard
+* Fixed: You can now sign-in with PIN/Smartcard
 * Fixed: Open in Portal now works with Azure China, Azure Germany, Azure US Government, and Azure Stack
 * Fixed: While uploading a folder to a blob container, an "Illegal operation" error would sometimes occur
 * Fixed: Select all was disabled while managing snapshots
@@ -469,7 +598,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 * While zoomed in or out, the zoom level may momentarily reset to the default level
 * Having more than 3 groups of blobs or files uploading at the same time may cause errors
 * The account settings panel may show that you need to reenter credentials in order to filter subscriptions
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * Ubuntu 14.04 install needs gcc version updated or upgraded – steps to upgrade are below:
 
@@ -512,7 +641,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 * While zoomed in or out, the zoom level may momentarily reset to the default level.
 * Having more than 3 groups of blobs or files uploading at the same time may cause errors.
 * The account settings panel may show that you need to reenter credentials in order to filter subscriptions.
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * Ubuntu 14.04 install needs gcc version updated or upgraded – steps to upgrade are below:
 
@@ -537,7 +666,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 * Storage Explorer 0.8.9 will automatically download the latest version for updates.
 * Hotfix: using a portal generated SAS URI to attach a storage account would result in an error.
 * You can now create, manage, and promote blob snapshots.
-* You can now sign in to Azure China, Azure Germany, and Azure US Government accounts.
+* You can now sign-in to Azure China, Azure Germany, and Azure US Government accounts.
 * You can now change the zoom level. Use the options in the View menu to Zoom In, Zoom Out, and Reset Zoom.
 * Unicode characters are now supported in user metadata for blobs and files.
 * Accessibility improvements.
@@ -832,7 +961,7 @@ This article contains the release notes for Azure Storage Explorer 1.0.0 release
 #### New
 
 * macOS, and Windows versions
-* Sign in to view your Storage Accounts – use your Org Account, Microsoft Account, 2FA, etc.
+* Sign-in to view your Storage Accounts – use your Org Account, Microsoft Account, 2FA, etc.
 * Local development storage (use storage emulator, Windows-only)
 * Azure Resource Manager and Classic resource support
 * Create and delete blobs, queues, or tables

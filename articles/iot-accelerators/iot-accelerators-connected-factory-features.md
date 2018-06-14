@@ -10,9 +10,9 @@ ms.date: 04/20/2018
 ms.author: dobett
 ---
 
-# What is Azure IoT Suite Connected Factory?
+# What is Connected Factory IoT solution accelerator?
 
-Connected Factory is an implementation of Microsoft's Azure Industrial IoT reference architecture, packaged as on open-source solution. You can use it as a starting point for a commercial product. You can deploy a pre-built version of the Connected Factory solution into your Azure subscription from [Azure IoT Suite](https://www.azureiotsuite.com/#solutions/types/CF).
+Connected Factory is an implementation of Microsoft's Azure Industrial IoT reference architecture, packaged as on open-source solution. You can use it as a starting point for a commercial product. You can deploy a pre-built version of the Connected Factory solution into your Azure subscription from [Azure IoT solution accelerators](https://www.azureiotsolutions.com/#solutions/types/CF).
 
 ![Connected Factory solution dashboard](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
@@ -53,7 +53,7 @@ Connected Factory includes the following features:
 
 ## Customizability
 
-- [Customize](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) the solution to meet specific business requirements.
+- Customize the solution to meet specific business requirements.
 - Full solution source-code available on GitHub. See the [Connected Factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory) repository.
 
 ## Next steps

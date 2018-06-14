@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/05/2018
+ms.date: 06/04/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -65,7 +65,7 @@ Before subscribing to the topic, let's create the endpoint for the event message
 
    ![Create function](./media/custom-event-quickstart-portal/create-function.png)
 
-1. Provide a unique name for the Azure Function. Do not use the name shown in the image. Select the resource group you created in this article. For hosting plan, use **Consumption Plan**. Use the suggested new storage account. After providing the values, select **Create**.
+1. Provide a unique name for the Azure Function. Do not use the name shown in the image. Select the resource group you created in this article. For hosting plan, use **Consumption Plan**. Use the suggested new storage account. You can turn off Application Insights. After providing the values, select **Create**.
 
    ![Provide function values](./media/custom-event-quickstart-portal/provide-function-values.png)
 

@@ -7,8 +7,8 @@ author: SnehaGunda
 manager: kfile
 tags: azure-service-management
 
-ms.assetid:
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample

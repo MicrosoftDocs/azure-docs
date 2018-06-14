@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -46,7 +47,7 @@ To manage the web services associated with this workspace, use the Machine Learn
 > [!NOTE]
 > To deploy or manage New web services you must be assigned a contributor or administrator role on the subscription to which the web service is deployed. If you invite another user to a machine learning workspace, you must assign them to a contributor or administrator role on the subscription before they can deploy or manage web services. 
 > 
->For more information on setting access permissions, see [View access assignments for users and groups in the Azure portal](../../role-based-access-control/role-assignments-users.md).
+>For more information on setting access permissions, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 * Learn more about [deploy Machine Learning with Azure Resource Manager Templates](deploy-with-resource-manager-template.md). 

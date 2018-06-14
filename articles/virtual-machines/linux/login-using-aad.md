@@ -109,6 +109,9 @@ az role assignment create \
     --scope $vm
 ```
 
+> [!NOTE]
+> If your AAD domain and logon username domain do not match, you must specify the object ID of your user account with the *--assignee-object-id*, not just the username for *--assignee*. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+
 For more information on how to use RBAC to manage access to your Azure subscription resources, see using the [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure portal](../../role-based-access-control/role-assignments-portal.md), or [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 You can also configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine. For more information, see [Get started with Azure Multi-Factor Authentication in the cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
@@ -171,4 +174,4 @@ Share your feedback about this preview feature or report issues using it on the 
 
 ## Next steps
 
-For more information on Azure Active Directory, see [What is Azure Active Directory](../../active-directory/active-directory-whatis.md) and [How to get started with Azure Active Directory](../../active-directory/get-started-azure-ad.md)
+For more information on Azure Active Directory, see [What is Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) and [How to get started with Azure Active Directory](../../active-directory/fundamentals/get-started-azure-ad.md)

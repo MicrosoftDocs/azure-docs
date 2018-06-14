@@ -49,6 +49,6 @@ Select **Stop** on the tile that represents the classroom lab. When the VM is st
 Get started with setting up a lab using Azure Lab Services:
 
 - [Set up a classroom lab](how-to-manage-classroom-labs.md)
-- [Set up a custom lab](../tutorial-create-custom-lab.md)
+- [Set up a lab](../tutorial-create-custom-lab.md)
 
  

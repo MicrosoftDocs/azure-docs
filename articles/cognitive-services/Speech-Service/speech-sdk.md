@@ -1,5 +1,5 @@
 ---
-title: About the Speech SDK | Microsoft Docs
+title: About the Cognitive Services Speech SDK | Microsoft Docs
 description: An overview of the SDKs available for the Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
@@ -13,9 +13,9 @@ ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
 
-# About the Speech SDK
+# About the Cognitive Services Speech SDK
 
-The Speech Software Development Kit (SDK) provides your applications native access to the functions of the Speech service, making it easier to develop software. Currently, the SDK provides access to **Speech to Text** and **Speech Translation**. **Text to Speech** is currently not supported by the SDK.
+The Cognitive Services Speech Software Development Kit (SDK) provides your applications native access to the functions of the Speech service, making it easier to develop software. Currently, the SDK provides access to **Speech to Text**, **Speech Translation**, and **Intent Recognition**.
 
 The table lists the currently supported programming languages and operating systems.
 
