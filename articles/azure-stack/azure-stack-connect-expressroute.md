@@ -25,7 +25,7 @@ ms.reviewer:
 
 This article shows you how to connect an Azure Stack  virtual network to an Azure virtual network by using a Microsoft Azure ExpressRoute direct connection.
 
-You can use this article as a tutorial and walkthrough the examples to set up the same test environment. Or, use this artcile as a guide for setting up your own ExpressRoute environment.
+You can use this article as a tutorial and use the examples to set up the same test environment. Or, you can use the article as a walkthrough that guides you through setting up your own ExpressRoute environment.
 
 ## Overview and prerequisites
 
