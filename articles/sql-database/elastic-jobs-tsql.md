@@ -1286,6 +1286,7 @@ Shows all steps in the current version of each job.
 |**output_database_name**	|nvarchar(128)|	Name of the destination database for the results set.|
 |**output_schema_name**	|nvarchar(max)|	Name of the destination schema. Defaults to dbo, if not specified.|
 |**output_table_name**|	nvarchar(max)|	Name of the table to store the results set from the query results. Table will be created automatically based on the schema of the results set if it doesn’t already exist. Schema must match the schema of the results set.|
+|**max_parallelism**|	int|	The maximum number of databases per elastic pool that the job step will be run on at a time. The default is NULL, meaning no limit. |
 
 
 ### jobstep_versions view
