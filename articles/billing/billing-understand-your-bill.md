@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 06/14/2018
 ms.author: tonguyen
 
 ---
@@ -136,7 +136,7 @@ Once the VM is created, each one of the meters above will begin emitting usage r
 > The example meters above may only be a subset of the meters created a VM that is created.
 
 ## What is the difference between Azure 1st party charges and Azure Marketplace charges?
-Azure 1st party charges are for resources that are directly developed and offered by Azure. Azure Marketplace charges are for resources that have been created by third party software vendors that are available for use via the Azure marketplace. For example, a Barracuda Firewall is an Azure marketplace resource offered by a third party. All charges for the firewall and its corresponding meters will appear as marketplace charges. However, the virtual machine that the Barracuda firewall is installed on will appear as an Azure 1st party charge.
+Azure 1st party charges are for resources that are directly developed and offered by Azure. Azure Marketplace charges are for resources that have been created by third party software vendors that are available for use via the Azure marketplace. For example, a Barracuda Firewall is an Azure marketplace resource offered by a third party. All charges for the firewall and its corresponding meters will appear as marketplace charges. 
 
 ## Tips for cost management
 - Estimate costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) and [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and get the [detailed pricing information for each service](https://azure.microsoft.com/pricing/).
