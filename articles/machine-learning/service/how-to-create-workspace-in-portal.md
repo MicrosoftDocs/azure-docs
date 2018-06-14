@@ -52,11 +52,11 @@ To check your newly created workspace, you can click on All service in top left 
 
 You are now able to see all Machine Learning Workspaces that have been created. You can filter based on subscription, resource groups, and locations.  In this example, you can see the MyWorkspace you created in the previous step.
 
-![png](media/how-to-create-workspace-in-portal/allservices-view_workspace.PNG)
+![png](media/how-to-create-workspace-in-portal/allservices_view_workspace.PNG)
 
 You can select and click on a workspace to display its complete properties.
 
-![png](media/how-to-create-workspace-in-portal/allservices-view_workspace_full.PNG)
+![png](media/how-to-create-workspace-in-portal/allservices_view_workspace_full.PNG)
 
 ## Next steps
 
