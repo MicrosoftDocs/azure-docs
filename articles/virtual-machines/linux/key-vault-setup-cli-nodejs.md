@@ -1,6 +1,6 @@
 ---
-title: Set up Key Vault for Linux VMs with the Azure CLI 1.0 | Microsoft Docs
-description: How to set up Key Vault for use with an Azure Resource Manager virtual machine with the Azure CLI 1.0.
+title: Set up Key Vault for Linux VMs with the Azure classic CLI | Microsoft Docs
+description: How to set up Key Vault for use with an Azure Resource Manager virtual machine with the Azure classic CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
@@ -18,13 +18,13 @@ ms.date: 02/24/2017
 ms.author: singhkay
 
 ---
-# Set up Key Vault for virtual machines in Azure Resource Manager with the Azure CLI 1.0
+# Set up Key Vault for virtual machines in Azure Resource Manager with the Azure classic CLI
 In the Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the resource provider of Key Vault. To learn more about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md) In order for Key Vault to be used with Azure Resource Manager virtual machines, the *EnabledForDeployment* property on Key Vault must be set to true. You can do this in various clients. This article shows you how to set up Key Vault for use with Azure Virtual Machines.
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions
 
-- [Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
+- [Azure classic CLI](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI](../windows/key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Use CLI 1.0 to set up Key Vault

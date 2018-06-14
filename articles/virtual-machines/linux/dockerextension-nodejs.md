@@ -1,5 +1,5 @@
 ---
-title: Use the Azure Docker VM extension with the Azure CLI 1.0 | Microsoft Docs
+title: Use the Azure Docker VM extension with the Azure classic CLI | Microsoft Docs
 description: Learn how to use the Docker VM extension to quickly and securely deploy a Docker environment in Azure using Resource Manager templates.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 05/11/2017
 ms.author: iainfou
 
 ---
-# Create a Docker environment in Azure using the Docker VM extension with the Azure CLI 1.0
+# Create a Docker environment in Azure using the Docker VM extension with the Azure classic CLI
 Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux (and Windows as well). In Azure, there are various ways you can deploy Docker according to your needs. This article focuses on using the Docker VM extension and Azure Resource Manager templates. 
 
 For more information about the different deployment methods, including using Docker Machine and Azure Container Services, see the following articles:
@@ -29,7 +29,7 @@ For more information about the different deployment methods, including using Doc
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](#azure-docker-vm-extension-overview) – our CLI for the classic and resource management deployment models (this article)
+- [Azure classic CLI](#azure-docker-vm-extension-overview) – our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI](dockerextension.md) - our next generation CLI for the resource management deployment model 
 
 ## Azure Docker VM extension overview

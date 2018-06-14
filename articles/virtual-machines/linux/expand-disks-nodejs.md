@@ -1,6 +1,6 @@
 ---
-title: Expand OS disk on Linux VM with the Azure CLI 1.0 | Microsoft Docs
-description: Learn how to expand the operating system (OS) virtual disk on a Linux VM using the Azure CLI 1.0 and the Resource Manager deployment model
+title: Expand OS disk on Linux VM with the Azure classic CLI | Microsoft Docs
+description: Learn how to expand the operating system (OS) virtual disk on a Linux VM using the Azure classic CLI and the Resource Manager deployment model
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -18,17 +18,17 @@ ms.author: iainfou
 
 ---
 
-# Expand OS disk on a Linux VM using the Azure CLI with the Azure CLI 1.0
-The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux virtual machine (VM) in Azure. You can [add data disks](add-disk.md) to provide for additional storage space, but you may also wish to expand the OS disk. This article details how to expand the OS disk for a Linux VM using unmanaged disks with the Azure CLI 1.0.
+# Expand OS disk on a Linux VM using the Azure CLI with the Azure classic CLI
+The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux virtual machine (VM) in Azure. You can [add data disks](add-disk.md) to provide for additional storage space, but you may also wish to expand the OS disk. This article details how to expand the OS disk for a Linux VM using unmanaged disks with the Azure classic CLI.
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](#prerequisites) – our CLI for the classic and resource management deployment models (this article)
+- [Azure classic CLI](#prerequisites) – our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI](expand-disks.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
-You need the [latest Azure CLI 1.0](../../cli-install-nodejs.md) installed and logged in to an [Azure account](https://azure.microsoft.com/pricing/free-trial/) using the Resource Manager mode as follows:
+You need the [latest Azure classic CLI](../../cli-install-nodejs.md) installed and logged in to an [Azure account](https://azure.microsoft.com/pricing/free-trial/) using the Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm

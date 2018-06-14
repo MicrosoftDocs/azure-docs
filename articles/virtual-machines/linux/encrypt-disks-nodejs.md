@@ -1,6 +1,6 @@
 ---
-title: Encrypt disks on a Linux VM with the Azure CLI 1.0 | Microsoft Docs
-description: How to encrypt disks on a Linux VM using the Azure CLI 1.0 and the Resource Manager deployment model
+title: Encrypt disks on a Linux VM with the Azure classic CLI | Microsoft Docs
+description: How to encrypt disks on a Linux VM using the Azure classic CLI and the Resource Manager deployment model
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -18,19 +18,19 @@ ms.date: 03/06/2017
 ms.author: iainfou
 
 ---
-# Encrypt disks on a Linux VM using the Azure CLI 1.0
-For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted at rest. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI 1.0 and the Resource Manager deployment model.
+# Encrypt disks on a Linux VM using the Azure classic CLI
+For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted at rest. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure classic CLI and the Resource Manager deployment model.
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
+- [Azure classic CLI](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to encrypt virtual disks on your VM. More detailed information and context for each step can be found the rest of the document, [starting here](#overview-of-disk-encryption).
 
-You need the [latest Azure CLI 1.0](../../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
+You need the [latest Azure classic CLI](../../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm
@@ -160,7 +160,7 @@ Disk encryption is not currently supported in the following scenarios:
 * Updating the cryptographic keys on an already encrypted Linux VM.
 
 ## Create the Azure Key Vault and keys
-To complete the remainder of this guide, you need the [latest Azure CLI 1.0](../../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
+To complete the remainder of this guide, you need the [latest Azure classic CLI](../../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm
