@@ -84,7 +84,7 @@ A linked service defines the information needed for Azure Data Factory to connec
 2. Azure Blob Storage
 3. Azure SQL database
 
-The step-by-step procedure for creating linked services is provided in [Create linked services](../../data-factory/https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
+The step-by-step procedure for creating linked services is provided in [Create linked services](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 
 
 ## <a name="adf-tables"></a>Define and create tables to specify how to access the datasets
@@ -107,7 +107,7 @@ Three table definitions are needed for this ADF pipeline:
 3. [SQL Azure Table](#adf-table-azure-sql)
 
 > [!NOTE]
-> These procedures use Azure PowerShell to define and create the ADF activities. But these tasks can also be accomplished using the Azure portal. For details, see [Create datasets](../../data-factory/https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
+> These procedures use Azure PowerShell to define and create the ADF activities. But these tasks can also be accomplished using the Azure portal. For details, see [Create datasets](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 >
 >
 
@@ -215,7 +215,7 @@ Specify the activities that belong to the pipeline and create the pipeline with 
 
 > [!NOTE]
 > The following procedures use Azure PowerShell to define and create the ADF pipeline. But this task can also be accomplished using the
-> Azure portal. For details, see [Create pipeline](../../data-factory/https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
+> Azure portal. For details, see [Create pipeline](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 >
 >
 
