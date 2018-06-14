@@ -601,3 +601,8 @@ For any jobs that were running on a schedule, remember to enable them so that th
 ```
 $jobs | Set-AzureRmSqlElasticJob -Enable
 ```
+
+## Next steps
+
+- [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell.md)
+- [Create and manage Elastic Jobs using Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
