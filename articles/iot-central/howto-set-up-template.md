@@ -156,28 +156,6 @@ After choosing **Save**, device location appears as a tile:
 > [!NOTE]
 > After creating a new tile, you can change the property value. First, switch off design mode at the top right of the screen.
 
-## Commands
-
-Commands are used to remotely manage a device. They enable operators of your application to instantaneously run commands on the device. You can add multiple commands to your device template that appear as tiles on the **Commands** tab for operators to use. As the Builder of the device you have the flexibility to define your command as per your requirements.
-
-How is a **Command** different from a **Setting**? 
-
-**Setting** : Setting is a configuration you want to apply to a device, > and you want the device to persist that configuration until you > change it.For example, you want to set the temperature of your freezer and you want that setting even when the freezer restarted. 
-
-**Command** : You use Commands to instantaneously run a command on the device remotely from IoTCentral, if a device is not connected then the command time-out and fails.For example, you want to restart/reboot a device.  
-
-Commands when executed can be in one of three states, depending on whether the device received the command, 
-
-For example, you can add a new echo command:
-
-![Settings form](./media/tutorial-define-device-type/commandsecho.png)
-
-After choosing **Save**, the **Echo** command appears as a tile and is ready for to be used to Echo the device.
-
-After you create a new tile, you can try out your new command. First, switch off design mode at the top right of the screen.
-
-![Settings tile](./media/howto-set-up-template/settingstile.png)
-
 ### Create a Location Property powered by Azure Maps
 You can give geographic context to your location data in Azure IoT Central and map any latitude and longitude coordinates of a street address, or simply latitude and longitude coordinates. This capability In Azure IoT Central is powered by Azure Maps.
 
@@ -228,7 +206,29 @@ The field name must exactly match to the name of the property the device reports
 
 ![Location Property operator view](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Now that you have configured your location property, you will be able to add a Map to visualize the location in the Device Dashboard. See how to [Add Location Azure Map in Dashboard](howto-set-up-template.md).
+Now that you have configured your location property, you will be able to add a Map to visualize the location in the Device Dashboard. See how to [Add Location Azure Map in Dashboard](howto-set-up-template.md#add-location-azure-map-in-dashboard).
+
+## Commands
+
+Commands are used to remotely manage a device. They enable operators of your application to instantaneously run commands on the device. You can add multiple commands to your device template that appear as tiles on the **Commands** tab for operators to use. As the Builder of the device you have the flexibility to define your command as per your requirements.
+
+How is a **Command** different from a **Setting**? 
+
+**Setting** : Setting is a configuration you want to apply to a device, > and you want the device to persist that configuration until you > change it.For example, you want to set the temperature of your freezer and you want that setting even when the freezer restarted. 
+
+**Command** : You use Commands to instantaneously run a command on the device remotely from IoTCentral, if a device is not connected then the command time-out and fails.For example, you want to restart/reboot a device.  
+
+Commands when executed can be in one of three states, depending on whether the device received the command, 
+
+For example, you can add a new echo command:
+
+![Settings form](./media/tutorial-define-device-type/commandsecho.png)
+
+After choosing **Save**, the **Echo** command appears as a tile and is ready for to be used to Echo the device.
+
+After you create a new tile, you can try out your new command. First, switch off design mode at the top right of the screen.
+
+![Settings tile](./media/howto-set-up-template/settingstile.png)
 
 ## Rules
 
