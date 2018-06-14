@@ -161,10 +161,10 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Enterprise subscription<br/>(Requires EA portal access)</h3>
+                        <h3>Enterprise subscription: requires EA portal access</h3>
                         <p>
-                        <a href="https://ea.azure.com/helpdocs/createADepartment">Manage departments&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"></a><br/>
-                        <a href="https://ea.azure.com/helpdocs/addNewAccount">Manage accounts&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"></a><br/>
+                        <a href="https://ea.azure.com/helpdocs/createADepartment">Manage departments</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>
+                        <a href="https://ea.azure.com/helpdocs/addNewAccount">Manage accounts</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>
                         <a href="https://ea.azure.com/helpdocs/createANewSubscription">Create subscriptions</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>
                         <a href="https://ea.azure.com/helpdocs/viewPriceSheet">View price sheet</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>              
                         <a href="https://ea.azure.com/helpdocs/usageDetailReport">View usage details</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20">
