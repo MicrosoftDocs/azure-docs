@@ -6,6 +6,12 @@
     href: sql-data-warehouse-overview-what-is.md
   - name: Cheat sheet
     href: cheat-sheet.md
+- name: Release Notes
+  items:
+  - name: May 2018
+    href: release-notes-may-2018.md
+  - name: April 2018
+    href: release-notes-april-2018.md
 - name: Quickstarts
   expanded: true
   items:
@@ -57,6 +63,8 @@
       href: sql-data-warehouse-overview-manage-security.md
     - name: Authentication
       href: sql-data-warehouse-authentication.md
+    - name: Column-level security
+      href: column-level-security.md
   - name: Migrate to SQL Data Warehouse
     items:
     - name: Overview

@@ -4,7 +4,7 @@ description: Create Logic apps with Azure App service. Outlook.com connector all
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 

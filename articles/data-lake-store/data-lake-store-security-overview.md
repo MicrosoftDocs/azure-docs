@@ -25,7 +25,7 @@ Many enterprises are taking advantage of big data analytics for business insight
 * Auditing
 
 ## Authentication and identity management
-Authentication is the process by which a user's identity is verified when the user interacts with Data Lake Store or with any service that connects to Data Lake Store. For identity management and authentication, Data Lake Store uses [Azure Active Directory](../active-directory/active-directory-whatis.md), a comprehensive identity and access management cloud solution that simplifies the management of users and groups.
+Authentication is the process by which a user's identity is verified when the user interacts with Data Lake Store or with any service that connects to Data Lake Store. For identity management and authentication, Data Lake Store uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), a comprehensive identity and access management cloud solution that simplifies the management of users and groups.
 
 Each Azure subscription can be associated with an instance of Azure Active Directory. Only users and service identities that are defined in your Azure Active Directory service can access your Data Lake Store account, by using the Azure portal, command-line tools, or through client applications your organization builds by using the Azure Data Lake Store SDK. Key advantages of using Azure Active Directory as a centralized access control mechanism are:
 

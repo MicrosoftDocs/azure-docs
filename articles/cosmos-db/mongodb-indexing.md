@@ -7,6 +7,7 @@ manager: kfile
 editor: ''
 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018

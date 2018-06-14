@@ -34,7 +34,7 @@ To complete this tutorial:
 
 * Install [Visual Studio 2017](https://azure.microsoft.com/downloads/) and ensure that the **Azure development** workload is also installed.
 
-* If you installed the Azure development workload with Visual Studio 2017 version 15.4 or earlier, you will need to [update your Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
+* Make sure you have the [latest Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

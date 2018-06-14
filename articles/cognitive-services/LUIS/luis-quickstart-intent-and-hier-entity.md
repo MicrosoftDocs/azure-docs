@@ -75,7 +75,7 @@ LA to MCO spring break
 The hierarchical entity matches origin and destination location. If only one child (origin or destination) of a hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
 
 ## What LUIS does
-When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chatbot takes that JSON response and fulfills the request -- in whatever way the app or chatbot is designed to do. 
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
@@ -131,9 +131,9 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
     |What is going on?|
 
 ## When the utterance is predicted for the None intent
-In your LUIS-calling application (such as a chat bot), when LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
+In your LUIS-calling application (such as a chatbot), when LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
-Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chat bot, your chat bot can follow up with a question that focuses the customer's intent. 
+Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chatbot, your chatbot can follow up with a question that focuses the customer's intent. 
 
 ## Create a location entity from the Intent page
 Now that the two intents have utterances, LUIS needs to understand what a location is. Navigate back to the `BookFlight` intent and label (mark) the city name in an utterance by following the steps:
@@ -168,7 +168,7 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
     ![Training succeeded](./media/luis-quickstart-intent-and-hier-entity/trained.png)
 
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
+In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
@@ -219,21 +219,21 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 ## What has this LUIS app accomplished?
 This app, with just two intents and a hierarchical entity, identified a natural language query intention and returned the extracted data. 
 
-Your chat bot now has enough information to determine the primary action, `BookFlight`, and the location information found in the utterance. 
+Your chatbot now has enough information to determine the primary action, `BookFlight`, and the location information found in the utterance. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Learn how to add a regular expression entity](luis-quickstart-intents-regex-entity.md) 
+> [Learn how to add a list entity](luis-quickstart-intent-and-list-entity.md) 
 
-Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number of seats for a flight. 
+Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number. 
 
-Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the date information such as `Friday`.
+Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the date information.
 
 
 <!--References-->
