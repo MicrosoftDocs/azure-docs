@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.topic: overview
 ms.date: 06/14/2018
-ms.author: sstein
+ms.author: srinia
 ---
 # Manage groups of databases with Elastic Database Jobs
 
@@ -119,7 +119,7 @@ The outcome of a job's steps on each target database are recorded in detail, and
 
 Job execution history is stored in the *Job database*. A system cleanup job purges execution history that is older than 45 days. To remove history less than 45 days old, call the **sp_purge_history** stored procedure in the *Job database*.
 
-## End-to-end workflow for creating, configuring, and managing jobs
+## Workflow to create, configure, and manage jobs
 
 ### Create and configure the agent
 
@@ -158,9 +158,9 @@ The following image is designed to assist in understanding and setting up the pr
 
 A few best practice considerations for working with Elastic Jobs:
 
-1. Limit usage of the APIs to trusted individuals.
-2. Credentials should have the least privileges necessary to perform the job step. For additional information, see [Authorization and Permissions SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
-3. When using a server and/or pool target group member, it is highly suggested to create a separate credential with rights on the master database to view/list databases which is used to expand the database lists of the server(s) and/or pool(s) prior to the job execution.
+- Limit usage of the APIs to trusted individuals.
+- Credentials should have the least privileges necessary to perform the job step. For additional information, see [Authorization and Permissions SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- When using a server and/or pool target group member, it is highly suggested to create a separate credential with rights on the master database to view/list databases which is used to expand the database lists of the server(s) and/or pool(s) prior to the job execution.
 
 
 
@@ -185,7 +185,7 @@ It is worth noting a couple of differences between SQL Server Agent (available o
 |  |Elastic Jobs  |SQL Server Agent |
 |---------|---------|---------|
 |Scope     |  Any Azure SQL Database or data warehouse, spanning multiple logical servers, subscriptions, regions etc. <br>Target groups can be composed of individual database or data warehouses, servers, pools, all databases of a ShardMap.<br> Dynamically enumerate target groups (servers and pools) at runtime. |  The SQL Server instance. Jobs can be executed against databases only in that server instance.  |
-|Supported APIs and Tools     |  Portal, PowerShell, CLI, T-SQL, ARM       |   T-SQL, SSMS     |
+|Supported APIs and Tools     |  Portal, PowerShell, CLI, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 
 

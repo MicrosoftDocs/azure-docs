@@ -1,5 +1,5 @@
 ---
-title: "Create and manage Elastic Database Jobs using Transact-SQL (T-SQL) | Microsoft Docs"
+title: "Create and manage Azure SQL Elastic Database Jobs using Transact-SQL (T-SQL) | Microsoft Docs"
 description: Run scripts across many databases with Elastic Database Job agent using Transact-SQL (T-SQL).
 services: sql-database
 author: jaredmoo
@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: sstein
+ms.author: jaredmoo
 
 ---
 # Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs
@@ -1261,14 +1261,14 @@ Returns information for the steps in a job used by Job agent to perform automate
 |**retry_interval_backoff_multiplier**	|real|	The multiplier to apply to the retry delay if multiple job step execution attempts fail. Default value is 2.0.|
 |**retry_attempts**	|int|	The number of retry attempts to use if this step fails. Default of 10, which indicates no retry attempts.|
 |**step_timeout_seconds**	|int|	The amount of time in minutes between retry attempts. The default is 0, which indicates a 0-minute interval.|
-|**output_type**	|nvarchar(11)|	Location of the command. For v1, ‘Inline’ is the default and only accepted value.<br>Note: Column size will be changed to nvarchar(50) in future release.|
+|**output_type**	|nvarchar(11)|	Location of the command. In the current preview, 'Inline' is the default and only accepted value.|
 |**output_credential_name**|	nvarchar(128)	|Name of the credentials to be used to connect to the destination server to store the results set.|
 |**output_subscription_id**|	uniqueidentifier|	Unique ID of the subscription of the destination server\database for the results set from the query execution.|
 |**output_resource_group_name**	|nvarchar(128)|	Resource group name where the destination server resides.|
 |**output_server_name**|	nvarchar(256)	|Name of the destination server for the results set.|
 |**output_database_name**	|nvarchar(128)|	Name of the destination database for the results set.|
 |**output_schema_name**	|nvarchar(max)|	Name of the destination schema. Defaults to dbo, if not specified.|
-|**output_table_name**|	nvarchar(max)|	Name of the table to store the results set from the query results. Table will be created automatically based on the schema of the results set if it doesn’t already exist. Schema must match the schema of the results set.<br>Note: Column size will be changed to nvarchar(128) in future release.|
+|**output_table_name**|	nvarchar(max)|	Name of the table to store the results set from the query results. Table will be created automatically based on the schema of the results set if it doesn’t already exist. Schema must match the schema of the results set.|
 
 
 ### target_groups view
