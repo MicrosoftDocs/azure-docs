@@ -49,8 +49,6 @@
       href: sql-data-warehouse-manage-compute-overview.md
     - name: Backup and restore
       href: backup-and-restore.md
-    - name: Auditing
-      href: sql-data-warehouse-auditing-overview.md
     - name: Capacity limits
       href: sql-data-warehouse-service-capacity-limits.md
     - name: Maintenance
@@ -75,6 +73,8 @@
       href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Multi-factor auth
       href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Auditing
+      href: sql-data-warehouse-auditing-overview.md
   - name: Migrate to SQL Data Warehouse
     items:
     - name: Overview
