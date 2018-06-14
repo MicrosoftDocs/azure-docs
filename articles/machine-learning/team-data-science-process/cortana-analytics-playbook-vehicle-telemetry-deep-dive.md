@@ -669,6 +669,6 @@ This document contains a detailed drill-down of the Vehicle Telemetry Analytics 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 * [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [Azure Event Hubs SDK for stream ingestion](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-* [Azure Data Factory data movement capabilities](../../data-factory/v1/data-factory-data-movement-activities.md)
-* [Azure Data Factory .NET activity](../../data-factory/v1/data-factory-use-custom-activities.md)
+* [Azure Data Factory data movement capabilities](../../data-factory/copy-activity-overview.md)
+* [Azure Data Factory .NET activity](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [Azure Data Factory .NET activity Visual Studio solution used to prepare sample data](http://go.microsoft.com/fwlink/?LinkId=717077) 

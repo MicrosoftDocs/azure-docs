@@ -56,8 +56,6 @@
   - name: IaaS security
     href: security-virtual-machines-overview.md
     items:
-    - name: Best practices - Azure VMs
-      href: azure-security-best-practices-vms.md
     - name: Best practices - IaaS workloads
       href: azure-security-iaas.md
     - name: Azure marketplace images
