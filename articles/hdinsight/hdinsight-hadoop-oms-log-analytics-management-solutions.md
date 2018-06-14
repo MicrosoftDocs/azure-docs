@@ -12,7 +12,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 06/14/2018
 ms.author: nitinme
 
 ---
@@ -28,31 +28,26 @@ In this article, you learn how to add cluster-specific management solutions to a
 
 ## Add cluster-specific management solutions
 
-In this section, you add an HBase cluster management solution to an existing Log Analytics workspace.
+The following procedure demonstrates how to add a Hadoop cluster management solution to an existing Log Analytics workspace.
 
-1. Open an HDInsight cluster in the Azure portal, click **Monitoring**, and then click **Open OMS Dashboard**.
+1. Open the OMS dashboard that you have configured for your HDInsight cluster. For the instructions, see [Open the OMS dashboard](./hdinsigt-hadoop-oms-log-analytics-tutorial.md#open-the-oms-dashboard).
 
-    ![Open Operations Management Suite dashboard](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS dashboard")
-
-1. In the dashboard, click **Solutions Gallery** or the **View Designer** icon from the left pane.
+1. In the dashboard, select **Solutions Gallery** and then select **HDInsight Hadoop Monitoring**:
 
     ![Add management solution in Log Analytics](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-add-management-solution-oms-portal.png "Add management solution in Operations Management Suite")
 
-2. In the Solutions Gallery, click one of the following tiles:
+    These are the available HDInsight solutions:
 
     - HDInsight Hadoop Monitoring
     - HDInsight HBase Monitoring (Preview)
     - HDInsight Kafka Monitoring
     - HDInsight Storm Monitoring
     - HDInsight Spark Monitoring
+    - HDInsight InteractiveQueryMonitoring
 
-3. In the next screen, click **Add**.  The following screenshot shows the Add button for the HBase Monitoring.
+3. In the next screen, select **Add**. It takes a few moments to add the solution. When it is done, you can see a tile on the dashboard for the Hadoop management solution. 
 
-     ![Add HBase management solution](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/add-hbase-management-solution.png "Add HBase management solution")
-
-4. You can see a tile on the dashboard for the HBase management solution. If the cluster you associated with Operations Management Suite (as part of the prerequisite for this article) is an HBase cluster, the tile shows the name of the cluster and the number of nodes in the cluster.
-
-    ![HBase management solution added](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/added-hbase-management-solution.png "HBase management solution added")
+    ![Hadoop management solution added](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/added-Hadoop-management-solution.png "Hadoop management solution added")
 
 ## Next steps
 
