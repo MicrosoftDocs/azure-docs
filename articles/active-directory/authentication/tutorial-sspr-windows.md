@@ -63,7 +63,7 @@ To enable users to reset their Azure AD password from the Windows 10 login scree
    * Click **Select**
 4. Click **Create**
 
-More information on creating groups can be found in the article [Manage access to resources with Azure Active Directory groups](../active-directory-manage-groups.md).
+More information on creating groups can be found in the article [Manage access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md).
 
 #### Assign device configuration policy to device group
 

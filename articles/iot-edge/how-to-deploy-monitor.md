@@ -40,7 +40,11 @@ For more information about device twins and tags, see [Understand and use device
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
 1. Select **IoT Edge**.
+<<<<<<< HEAD
 2. Select **Add IoT Edge Deployment**.
+=======
+1. Select **Add IoT Edge Deployment**.
+>>>>>>> 21dbd2615127a0a76675ab60464d273a904d81ce
 
 There are five steps to create a deployment. The following sections walk through each one. 
 
@@ -113,7 +117,11 @@ To view the details of a deployment and monitor the devices running it, use the 
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
 1. Select **IoT Edge**.
+<<<<<<< HEAD
 2. Select **IoT Edge deployments**. 
+=======
+1. Select **IoT Edge deployments**. 
+>>>>>>> 21dbd2615127a0a76675ab60464d273a904d81ce
 
    ![View IoT Edge deployments][1]
 
@@ -140,7 +148,11 @@ To modify a deployment, use the following steps:
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
 1. Select **IoT Edge**.
+<<<<<<< HEAD
 2. Select **IoT Edge deployments**. 
+=======
+1. Select **IoT Edge deployments**. 
+>>>>>>> 21dbd2615127a0a76675ab60464d273a904d81ce
 
    ![View IoT Edge deployments][1]
 
@@ -158,7 +170,11 @@ When you delete a deployment, any devices take on their next highest priority de
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
 1. Select **IoT Edge**.
+<<<<<<< HEAD
 2. Select **IoT Edge deployments**. 
+=======
+1. Select **IoT Edge deployments**. 
+>>>>>>> 21dbd2615127a0a76675ab60464d273a904d81ce
 
    ![View IoT Edge deployments][1]
 
