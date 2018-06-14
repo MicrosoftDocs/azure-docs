@@ -13,14 +13,14 @@ ms.author: tamram
 
 # Configure a custom domain name for your Azure Storage account
 
-You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for Blob storage is `<storage-account-name>.blob.core.windows.net`. You can also use the web endpoint generated as a part of the [static websites feature (preview)](storage-blob.static-website.md). If you map a custom domain and subdomain like **www.contoso.com** to the blob or web endpoint for your storage account, your users can then access blob data in your storage account using that domain.
+You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for Blob storage is `<storage-account-name>.blob.core.windows.net`. You can also use the web endpoint generated as a part of the [static websites feature (preview)](storage-blob-static-website.md). If you map a custom domain and subdomain like **www.contoso.com** to the blob or web endpoint for your storage account, your users can then access blob data in your storage account using that domain.
 
 > [!IMPORTANT]
 > Azure Storage does not yet natively support HTTPS with custom domains. You can currently [Use the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md).
 >
 
 > [!NOTE]  
-> Storage accounts currently support only one custom domain name per account. That means you cannot map a custom domain name to both the web and blob service endpoints. 
+> Storage accounts currently support only one custom domain name per account. That means you cannot map a custom domain name to both the web and blob service endpoints.
 
 The following table shows a few sample URLs for blob data located in a storage account named **mystorageaccount**. The custom domain registered for the storage account is **www.contoso.com**:
 
@@ -161,4 +161,4 @@ Use the [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azure
 ## Next steps
 * [Map a custom domain to an Azure Content Delivery Network (CDN) endpoint](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
-* [static websites feature (preview)](storage-blob.static-website.md)
+* [static websites feature (preview)](storage-blob-static-website.md)

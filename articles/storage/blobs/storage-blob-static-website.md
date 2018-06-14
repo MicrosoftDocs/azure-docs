@@ -50,7 +50,7 @@ For more details on prices for Azure Blob Storage, check out the [Azure Blob Sto
 
 ## Quickstart
 ### Azure portal
-Navigate to your storage account in [Azure Portal](portal.azure.com) and click on "Static website (preview)" under "Settings" in the left navigation bar. Click enabled and enter the name of the index document and (optionally) the custom error document path.
+Navigate to your storage account in Azure Portal and click on "Static website (preview)" under "Settings" in the left navigation bar. Click enabled and enter the name of the index document and (optionally) the custom error document path.
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
