@@ -22333,5 +22333,11 @@
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
             "redirect_document_id": false
         }
+        ,
+        {
+            "source_path": "articles/security/azure-security-best-practices-vms.md",
+            "redirect_url": "/azure/security/azure-security-iaas",
+            "redirect_document_id": false
+        }
     ]
 }
