@@ -19487,7 +19487,7 @@
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-configure.md",
-            "redirect_url": "/azure/role-based-access-control/role-assignments-portal?toc=%2fazure%2factive-directory%2ftoc.json",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
             "redirect_document_id": false
         },
         {
