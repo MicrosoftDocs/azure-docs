@@ -7877,11 +7877,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-service-tiers.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/sql-database/sql-database-server-overview.md",
             "redirect_url": "/azure/sql-database/sql-database-servers-databases",
             "redirect_document_id": false
