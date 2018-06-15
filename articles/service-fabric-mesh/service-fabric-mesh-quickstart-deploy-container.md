@@ -155,7 +155,7 @@ The command will return with information like the json snippet below when runnin
 From the output, copy the IP address.
 
 ```json
-    "publicIpAddress": "40.121.59.94",
+    "publicIpAddress": "40.121.47.57",
     "qosLevel": "Bronze"
   },
   "location": "eastus",
@@ -204,7 +204,7 @@ Advance to the next article to learn more about Service Fabric Mesh
 > [Next steps button](service-fabric-mesh-overview.md)
 
 <!-- Images -->
-[sfm-app-browser]: ./media/service-fabric-mesh-quickstart-containers-01.png
+[sfm-app-browser]: ./media/service-fabric-mesh-quickstart-deploy-container/HelloWorld.png
 
 <!-- Links / Internal -->
 [az-group-delete]: /cli/azure/group#az_group_delete
