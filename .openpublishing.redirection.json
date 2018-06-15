@@ -1971,6 +1971,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/app-service/containers/tutorial-ruby-mysql-app.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-ruby-postgres-app",
+            "redirect_document_id": false
+        },
+        
+        {
             "source_path": "articles/app-service/app-service-move-resources.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
             "redirect_document_id": false
@@ -19356,6 +19362,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/azure-stack-manage-windows-azure-pack.md", 
+            "redirect_url": "/azure/azure-stack/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/monitoring/management-overview-monitoring.md",
             "redirect_url": "/azure/monitoring/",
             "redirect_document_id": false
@@ -19427,7 +19438,12 @@
         },
         {
             "source_path": "articles/active-directory/manage-access-to-azure-resources.md",
-            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
+            "redirect_url": "/azure/role-based-access-control/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/role-based-access-control/manage-access-to-azure-resources.md",
+            "redirect_url": "/azure/role-based-access-control/index",
             "redirect_document_id": false
         },
         {
@@ -19498,11 +19514,6 @@
         {
             "source_path": "articles/active-directory/role-based-access-control-access-change-history-report.md",
             "redirect_url": "/azure/role-based-access-control/change-history-report",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/role-based-access-control/index.md",
-            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
             "redirect_document_id": false
         },
         {
@@ -22350,7 +22361,7 @@
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
             "redirect_document_id": true
         },
-	    {
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
             "redirect_document_id": false
@@ -22493,6 +22504,26 @@
         {
             "source_path": "articles/active-directory/active-directory-groups-restore-azure-portal.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-restore-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/azure-security-best-practices-vms.md",
+            "redirect_url": "/azure/security/azure-security-iaas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-get-started-premium.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-get-started-premium",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-create-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-members-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal",
             "redirect_document_id": false
         }
     ]

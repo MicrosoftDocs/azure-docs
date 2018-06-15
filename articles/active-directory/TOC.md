@@ -13,7 +13,7 @@
 
 # Get started
 ## [Get started with Azure AD](fundamentals/get-started-azure-ad.md)
-## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
+## [Sign up for Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Add a custom domain name](fundamentals/add-custom-domain.md)
 ## [Configure company branding](fundamentals/customize-branding.md)
 ## [Add users to Azure AD](fundamentals/add-users-azure-active-directory.md)
@@ -82,10 +82,10 @@
 
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### Manage groups
-#### [Azure portal](active-directory-groups-create-azure-portal.md)
+#### [Azure portal](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
-### [Manage group members](active-directory-groups-members-azure-portal.md)
+### [Manage group members](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Assign licenses using groups](fundamentals/active-directory-licensing-whatis-azure-portal.md)

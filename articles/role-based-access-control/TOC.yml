@@ -1,5 +1,5 @@
-- name: Manage access overview
-  href: manage-access-to-azure-resources.md
+- name: Role-Based Access Control Documentation
+  href: index.yml
   items:
 - name: Overview
   items:
@@ -36,6 +36,7 @@
   - name: Conditional access for Azure management
     href: conditional-access-azure-management.md
 - name: How-to guides
+  expanded: true
   items:
   - name: Manage access
     items:
