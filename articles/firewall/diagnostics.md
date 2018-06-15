@@ -1,36 +1,33 @@
 ---
 title: Monitor logs for Azure Firewall
-description: Learn how to enable and manage firewall logs and audit logs for Azure Firewall
+description: Learn how to enable and manage logs for Azure Firewall
 services: firewall
 author: vhorne
-tags: azure-resource-manager
-
 ms.service: firewall
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/25/2018
+ms.date: 6/15/2018
 ms.author: victorh
-
 ---
 # Monitor Azure Firewall logs
 
-You can monitor Azure Firewall  in the following ways:
+You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 
-* [Logs](#diagnostic-logging): You can save firewall logs for monitoring purposes. You can also use activity logs to audit operations on Azure Firewall resources.
+You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and Power BI.
 
+## Diagnostic logs
 
+ 
 
-## <a name="diagnostic-logging"></a>Diagnostic logs
-
-You can use different types of logs in Azure to manage and troubleshoot Azure Firewalls. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and Power BI. The following logs are available for Azure Firewall:
+The following logs are available for Azure Firewall:
 
 * Activity log
 
-   You can use [Azure activity logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
+   You can use [Azure activity logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription. Activity log entries are collected by default, and you can view them in the Azure portal.
 
 * Application rule log
 
-   The Application rule log is saved to your storage account, streamed to Event hubs and/or sent Log Analytics only if you have enabled it for each Azure Firewall, as detailed in the preceding steps. Each new connection that matches one of your configured application rules, will result in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+   The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```
    Category: access logs are either application or network rule logs.
@@ -48,7 +45,7 @@ You can use different types of logs in Azure to manage and troubleshoot Azure Fi
 
 * Network rule log
 
-   The Network rule log is saved to your storage account, streamed to Event hubs and/or sent Log Analytics only if you have enabled it for each Azure Firewall, as detailed in the preceding steps. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+   The Network rule log is saved to a storage account, streamed to Event hubs and/or sent Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```
    Example TBD
@@ -67,7 +64,7 @@ You have three options for storing your logs:
 
 1. In the Azure portal, find your resource and click **Diagnostic logs**.
 
-   For Azure Firewall, two logs are available:
+   For Azure Firewall, two service-specific logs are available:
 
    * Application rule log
    * Network rule log
@@ -89,7 +86,7 @@ You have three options for storing your logs:
    ![Diagnostics settings blade with selections][4]
 
 
-### Enable logging through PowerShell
+### Enable logging with PowerShell
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, use the following steps:
 
@@ -108,13 +105,13 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 3. Enable diagnostic logging by using the following PowerShell cmdlet:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/firewall/<Firewall name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/firewall/<Firewall name> `
+   -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
+   -Enabled $true     
     ```
     
 > [!TIP] 
 >Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
-
-
 
 ### View and analyze the activity log
 
