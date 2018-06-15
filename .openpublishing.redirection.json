@@ -5247,6 +5247,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/hdinsight/hdinsight-hadoop-oms-log-analytics-management-solutions.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hbase/apache-hbase-monitor-with-oms.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/documentdb/documentdb-automation-region-management.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/cli-samples",
             "redirect_document_id": false
@@ -19362,6 +19372,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/azure-stack-manage-windows-azure-pack.md", 
+            "redirect_url": "/azure/azure-stack/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/monitoring/management-overview-monitoring.md",
             "redirect_url": "/azure/monitoring/",
             "redirect_document_id": false
@@ -19433,7 +19448,12 @@
         },
         {
             "source_path": "articles/active-directory/manage-access-to-azure-resources.md",
-            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
+            "redirect_url": "/azure/role-based-access-control/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/role-based-access-control/manage-access-to-azure-resources.md",
+            "redirect_url": "/azure/role-based-access-control/index",
             "redirect_document_id": false
         },
         {
@@ -19504,11 +19524,6 @@
         {
             "source_path": "articles/active-directory/role-based-access-control-access-change-history-report.md",
             "redirect_url": "/azure/role-based-access-control/change-history-report",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/role-based-access-control/index.md",
-            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
             "redirect_document_id": false
         },
         {

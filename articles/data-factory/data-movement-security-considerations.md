@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 06/15/2018
 ms.author: abnarain
 
 ---
@@ -29,7 +29,7 @@ This article describes basic security infrastructure that data movement services
 
 In a Data Factory solution, you create one or more data [pipelines](concepts-pipelines-activities.md). A pipeline is a logical grouping of activities that together perform a task. These pipelines reside in the region where the data factory was created. 
 
-Even though Data Factory is only available in the East US, East US 2, and West Europe regions (version 2 preview), the data movement service is available [globally in several regions](concepts-integration-runtime.md#azure-ir). If the data movement service is not yet deployed to that region, the Data Factory service ensures that data does not leave a geographical area or region unless you explicitly instruct the service to use an alternate region. 
+Even though Data Factory is only available in few regions, the data movement service is [available globally](concepts-integration-runtime.md#integration-runtime-location) to ensure data compliance, efficiency, and reduced network egress costs. 
 
 Azure Data Factory does not store any data except for linked service credentials for cloud data stores, which are encrypted by using certificates. With Data Factory, you create data-driven workflows to orchestrate movement of data between [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats), and processing of data by using [compute services](compute-linked-services.md) in other regions or in an on-premises environment. You can also monitor and manage workflows by using SDKs and Azure Monitor.
 
