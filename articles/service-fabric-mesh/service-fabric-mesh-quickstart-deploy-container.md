@@ -7,7 +7,7 @@ services: service-fabric-mesh
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: rwike77
 ms.author: ryanwi
-ms.date: 04/05/2018
+ms.date: 06/15/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
@@ -49,42 +49,39 @@ In just over a minute, your command should return with `"provisioningState": "Su
 
 ```json
 {
-  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Resources/deployments/test",
-  "name": "test",
+  "id": "/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/myResourceGroup/providers/Microsoft.Resources/deployments/container-configuration",
+  "name": "container-configuration",
   "properties": {
-    "additionalProperties": {
-      "duration": "PT1M9.2142639S",
-      "outputResources": [
-        {
-          "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
-          "resourceGroup": "myResourceGroup"
-        },
-        {
-          "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
-          "resourceGroup": "myResourceGroup"
-        }
-      ],
-      "templateHash": "252151383102766848"
-    },
-    "correlationId": "a72d1e06-564c-45c0-ba85-5447b18b04c1",
+    "correlationId": "58ff52cf-3c99-4c8a-bda4-e7fa0b49a61a",
     "debugSetting": null,
     "dependencies": [
       {
         "dependsOn": [
           {
-            "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
+            "id": "/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
             "resourceGroup": "myResourceGroup",
             "resourceName": "helloWorldNetwork",
             "resourceType": "Microsoft.ServiceFabric/networks"
           }
         ],
-        "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
+        "id": "/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
         "resourceGroup": "myResourceGroup",
         "resourceName": "helloWorldApp",
         "resourceType": "Microsoft.ServiceFabric/applications"
       }
     ],
+    "duration": "PT2M7.2777699S",
     "mode": "Incremental",
+    "outputResources": [
+      {
+        "id": "/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
+        "resourceGroup": "myResourceGroup"
+      },
+      {
+        "id": "/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
+        "resourceGroup": "myResourceGroup"
+      }
+    ],
     "outputs": null,
     "parameters": {
       "location": {
@@ -122,8 +119,12 @@ In just over a minute, your command should return with `"provisioningState": "Su
     ],
     "provisioningState": "Succeeded",
     "template": null,
-    "templateLink": null,
-    "timestamp": "2018-04-05T00:37:57.139252+00:00"
+    "templateHash": "252151383102766848",
+    "templateLink": {
+      "contentVersion": "1.0.0.0",
+      "uri": "https://raw.githubusercontent.com/Azure-Samples/service-fabric-configuration/master/container-configuration.json"
+    },
+    "timestamp": "2018-06-15T20:43:48.626129+00:00"
   },
   "resourceGroup": "myResourceGroup"
 }
@@ -154,7 +155,7 @@ The command will return with information like the json snippet below when runnin
 From the output, copy the IP address.
 
 ```json
-    "publicIpAddress": "40.121.196.175",
+    "publicIpAddress": "40.121.59.94",
     "qosLevel": "Bronze"
   },
   "location": "eastus",
@@ -166,7 +167,7 @@ From the output, copy the IP address.
 }
 ```
 
-In the example above, the service end point IP is 40.121.196.175.  Take your corresponding IP address and open it in your favorite browser.
+In the example above, the service end point IP is 40.121.59.94.  Take your corresponding IP address and open it in your favorite browser.
 
 ## See all the application you have currently deployed to your subscription
 
@@ -179,7 +180,7 @@ az mesh app list --output table
 ## See the application logs
 
 ```azurecli-interactive
-az mesh codepackage logs -g $rg --app-name helloWorldApp --code-package-name <needToFindThis>
+az mesh code-package-log get --resource-group $rg --application-name helloWorldApp --service-name helloWorldService --replica-name 0 --code-package-name helloWorldCode
 ```
 
 ## Clean up resources
