@@ -1,6 +1,6 @@
 ---
-title: Create an ASP.NET Web App with Azure Redis Cache | Microsoft Docs
-description: In this quickstart, you learn how to create an ASP.NET Web App with Azure Redis Cache
+title: Create an ASP.NET web app with Azure Redis Cache | Microsoft Docs
+description: In this quickstart, you learn how to create an ASP.NET web app with Azure Redis Cache
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -17,14 +17,14 @@ ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
 
-#Customer intent: As an ASP.NET developer, new to Azure Redis Cache, I want to create a new ASP.NET Web app that uses Redis Cache.
+#Customer intent: As an ASP.NET developer, new to Azure Redis Cache, I want to create a new ASP.NET web app that uses Redis Cache.
 
 ---
-# Quickstart: Create an ASP.NET Web App 
+# Quickstart: Create an ASP.NET web app 
 
 ## Introduction
 
-This quickstart shows how to create and deploy an ASP.NET web application to Azure App Service by using Visual Studio 2017. The sample application connects to an Azure Redis Cache to store and retrieve data from the cache. After you finish the quickstart, you'll have a running web app, hosted in Azure, that reads and writes to an Azure Redis Cache.
+This quickstart shows how to create and deploy an ASP.NET web application to Azure App Service by using Visual Studio 2017. The sample application connects to Azure Redis Cache to store and retrieve data from the cache. After you finish the quickstart, you'll have a running web app, hosted in Azure, that reads and writes to Azure Redis Cache.
 
 ![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -44,23 +44,23 @@ To complete the quickstart, you need to install [Visual Studio 2017](https://www
 
     ![Create project](./media/cache-web-app-howto/cache-create-project.png)
 
-3. In the **Templates** list, expand the **Visual C#** node.
+    a. In the **Templates** list, expand the **Visual C#** node.
 
-4. Select **Cloud**.
+    b. Select **Cloud**.
 
-5. Select **ASP.NET Web Application**.
+    c. Select **ASP.NET Web Application**.
 
-6. Verify that **.NET Framework 4.5.2** or higher is selected.
+    d. Verify that **.NET Framework 4.5.2** or higher is selected.
 
-7. In the **Name** box, give the project a name. For this example, we used **ContosoTeamStats**.
+    e. In the **Name** box, give the project a name. For this example, we used **ContosoTeamStats**.
 
-8. Select **OK**.
+    f. Select **OK**.
    
-9. Select **MVC** as the project type.
+    g. Select **MVC** as the project type.
 
-10. Make sure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default **Authentication** setting might be something else. To change it, select **Change Authentication** and then **No Authentication**.
+    h. Make sure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default **Authentication** setting might be something else. To change it, select **Change Authentication** and then **No Authentication**.
 
-11. Select **OK** to create the project.
+    j. Select **OK** to create the project.
 
 ## Create a cache
 
