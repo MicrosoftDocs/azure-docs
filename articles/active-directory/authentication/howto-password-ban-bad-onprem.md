@@ -18,7 +18,7 @@ ms.reviewer: jsimmons
 
 |     |
 | --- |
-| Azure AD password protection and the custom banned password list are public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## Deployment strategy
@@ -28,16 +28,20 @@ Microsoft suggests that any deployment start in audit mode. Audit mode is the de
 During the audit stage, many organizations find:
 
 * They need to improve existing operational processes to use more secure passwords.
-* Users are accustomed to choosing regularly unsecure passwords
+* Users are accustomed to regularly choosing unsecure passwords
 * They need to inform users about the upcoming change in security enforcement, the impact it may have on them, and help them better understand how they can choose more secure passwords.
 
 Once the feature has been running in audit mode for a reasonable time, the enforcement configuration can be flipped from **Audit** to **Enforce**. Focused monitoring during this time is a good idea.
 
 ## Single forest deployment
 
-The preview of Azure AD password protection is deployed with the proxy service on up to two servers, and the DC agent service is deployed to all domain controllers in the Active Directory forest.
+The preview of Azure AD password protection is deployed with the proxy service on up to two servers, and the DC agent service can be incrementally deployed to all domain controllers in the Active Directory forest.
 
 ![How Azure AD password protection components work together](./media/concept-password-ban-bad-onprem/azure-ad-password-protection.png)
+
+### Download the software
+
+There are two required installers for Azure AD password protection that can be downloaded from the [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=57071)
 
 ### Install and configure the Azure AD password protection proxy service
 
@@ -65,6 +69,7 @@ The preview of Azure AD password protection is deployed with the proxy service o
 4. Register the proxy.
    * Once step 3 has been completed the Azure AD password protection proxy service is running on the machine, but does not yet have the necessary credentials to communicate with Azure AD. Registration with Azure AD is required to enable that ability using the `Register-AzureADPasswordProtectionProxy` PowerShell cmdlet. The cmdlet requires global administrator credentials for your Azure tenant as well as on-premises Active Directory domain administrator privileges in the forest root domain. Once it has succeeded for a given proxy service, additional invocations of `Register-AzureADPasswordProtectionProxy` continue to succeed but are unnecessary.
       * The cmdlet may be run as follows:
+
          ```
          $tenantAdminCreds = Get-Credential
          Register-AzureADPasswordProtectionProxy -AzureCredential $tenantAdminCreds
@@ -76,7 +81,7 @@ The preview of Azure AD password protection is deployed with the proxy service o
    > There may be a considerable delay (many seconds) the first time this cmdlet is run for a given Azure tenant before the cmdlet completes execution. Unless a failure is reported this delay should not be considered alarming.
 
    > [!NOTE]
-   > Registration of the Azure AD password protection proxy service is expected to be a one-time step in the lifetime of the service. The proxy service will automatically perform any other necessary maintainenance from this point onwards.
+   > Registration of the Azure AD password protection proxy service is expected to be a one-time step in the lifetime of the service. The proxy service will automatically perform any other necessary maintainenance from this point onwards. Once it has succeeded for a given forest, additional invocations of 'Register-AzureADPasswordProtectionProxy' continue to succeed but are unnecessary.
 
 5. Register the forest.
    * The on-premises Active Directory forest must be initialized with the necessary credentials to communicate with Azure using the `Register-AzureADPasswordProtectionForest` Powershell cmdlet. The cmdlet requires global administrator credentials for your Azure tenant as well as on-premises Active Directory domain administrator privileges in the forest root domain. This step is run once per forest.
@@ -103,21 +108,27 @@ The preview of Azure AD password protection is deployed with the proxy service o
       * To configure the service to run under a static port, use the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
          ```
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
-         WARNING: You must stop and restart the service for these changes to take effect.
          ```
+
+         > [!WARNING]
+         > You must stop and restart the service for these changes to take effect.
+
       * To configure the service to run under a dynamic port, use the same procedure but set StaticPort back to zero, like so:
          ```
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
-         WARNING: You must stop and restart the service for these changes to take effect.
          ```
+
+         > [!WARNING]
+         > You must stop and restart the service for these changes to take effect.
 
    > [!NOTE]
    > The Azure AD password protection proxy service requires a manual restart after any change in port configuration. It is not necessary to restart the DC agent service software running on domain controllers after making configuration changes of this nature.
 
    * The current configuration of the service may be queried using the `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet as the following example shows:
-      `Get-AzureADPasswordProtectionProxyConfiguration | fl`
 
       ```
+      Get-AzureADPasswordProtectionProxyConfiguration | fl
+
       ServiceName : AzureADPasswordProtectionProxy
       DisplayName : Azure AD password protection Proxy
       StaticPort  : 0 
@@ -148,7 +159,7 @@ Password changes\sets are never processed and persisted on read-only domain cont
 ## High availability
 
 The main concern with ensuring high availability of Azure AD password protection is the availability of the proxy servers, when domain controllers in a forest are attempting to download new policies or other data from Azure. The public preview supports a maximum of two proxy servers per forest. Each DC agent uses a simple round-robin style algorithm when deciding which proxy server to call, and skips over proxy servers that are not responding.
-The usual problems associated with high availability are mitigated by the design of the DC agent software. The DC agent maintains a local cache of the most recently downloaded password policy. Even if all registered proxy servers become unavailable for any reason, the DC agent(s) continue to enforce their cached password policy. A reasonable update frequency for password policies in a large deployment could be days, not hours or less, brief outages of the proxy servers do not cause significant impact to the operation of the Azure AD password protection feature or its security benefits.
+The usual problems associated with high availability are mitigated by the design of the DC agent software. The DC agent maintains a local cache of the most recently downloaded password policy. Even if all registered proxy servers become unavailable for any reason, the DC agent(s) continue to enforce their cached password policy. A reasonable update frequency for password policies in a large deployment is usually on the order of days, not hours or less.   Therefore brief outages of the proxy servers do not cause significant impact to the operation of the Azure AD password protection feature or its security benefits.
 
 ## Next steps
 

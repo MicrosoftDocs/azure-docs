@@ -14,11 +14,11 @@ manager: mtillman
 ms.reviewer: jsimmons
 
 ---
-# Preview: Enforce banned passwords on-premises
+# Preview: Enforce Azure AD password protection for Windows Server Active Directory
 
 |     |
 | --- |
-| Azure AD password protection and the custom banned password list are public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Azure AD password protection is a new feature in public preview powered by Azure Active Directory (Azure AD) to enhance password policies in an organization. The on-premises deployment of Azure AD password protection uses both the global and custom banned password lists stored in Azure AD, and performs the same checks on-premises as Azure AD cloud-based changes.
@@ -33,7 +33,7 @@ There are three software components that make up Azure AD password protection:
 
 ## Requirements
 
-Azure AD password protection requires Azure AD Premium licenses. Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses. Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 1. All machines where Azure AD password protection components are installed including domain controllers must be running Windows Server 2012 or later.
 1. Network connectivity must exist between at least one domain controller in each domain and at least one server hosting the Azure AD password protection proxy service.
@@ -41,7 +41,11 @@ Azure AD password protection requires Azure AD Premium licenses. Additional lice
 1. A global administrator account to register the Azure AD password protection proxy service with Azure AD.
 1. An account with Active Directory domain administrator privileges in the forest root domain.
 
-### Answers to common questions
+## Download
+
+There are two required installers for Azure AD password protection that can be downloaded from the [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=57071)
+
+## Answers to common questions
 
 * No internet connectivity required from the domain controllers. The machine(s) running the Azure AD password protection proxy service are the only machines requiring internet connectivity.
 * No network ports are opened on domain controllers.
