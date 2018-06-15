@@ -253,41 +253,52 @@
 
 ### Troubleshoot
 
-#### Configuration and registration - development
-##### Configure my application
-######[I don’t know what the authentication endpoints are for my application](application-dev-registration-config-how-to.md)
-######[I don't know how to configure single sign-on to my application](application-dev-registration-config-sso-how-to.md)
-######[I don't know how to fill out a specific field on the application object](application-dev-registration-config-specific-application-property-how-to.md)
-##### Multi-tenant create and configure
-######[I don’t know how to set up a multi-tenant application](application-dev-setup-multi-tenant-app.md)
-######[I don't know how to add my multi-tenant application to the Azure AD application gallery](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
-##### Permissions
-######[I don't know which permissions to select for a given API](application-dev-perms-for-given-api.md)
-##### Find an API
-######[I can't find the API I need to use for my application](application-dev-api-find-an-api-how-to.md)
-######[I don't know how to change the token lifetime defaults for my application](application-dev-registration-config-change-token-lifetime-how-to.md)
-######[I am confused about how application consent works](application-dev-consent-framework.md)
-######[I don't know how to grant permissions to my application](application-dev-registration-config-grant-permissions-how-to.md)
-######[I don't understand the difference between delegated and application permissions](application-dev-delegated-and-app-perms.md)
+#### Adding an app
+##### [Choose app type](application-config-add-app-problem-how-to-choose-application-type.md)
+##### [Common problems - gallery apps](application-config-add-app-problem-problem-adding-gallery-app.md)
+##### [Common problems - non-gallery apps](application-config-add-app-problem-problem-adding-non-gallery-app.md)
 
-#### Configuration - app management
-##### Configure single sign-on
-######[I don't know how to configure federated single sign-on for a non-gallery application](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-######[I don't know how to configure federated single sign-on for an Azure AD Gallery application](application-config-sso-how-to-configure-federated-sso-gallery.md)
-######[I don't know how to configure password single sign-on for a non-gallery application](application-config-sso-how-to-configure-password-sso-non-gallery.md)
-######[I don't know how to configure password single sign-on for an Azure AD Gallery application](application-config-sso-how-to-configure-password-sso-gallery.md)
-######[I don't know how to determine what single-sign on method to use](application-config-sso-how-to-choose-sign-on-method.md)
-##### Adding an application
-######[I don't know how to choose which application type to use when adding an application](application-config-add-app-problem-how-to-choose-application-type.md)
-######[I encountered a problem when adding a non-gallery application](application-config-add-app-problem-problem-adding-non-gallery-app.md)
-######[I encountered a problem when adding an Azure AD Gallery application](application-config-add-app-problem-problem-adding-gallery-app.md)
-##### Configure single sign-on for an application
-######[I encountered a problem when configuring federated single sign-on for a non-gallery application](application-config-sso-problem-configure-federated-sso-non-gallery.md)
-######[I encountered a problem when configuring federated single sign-on for an Azure AD Gallery application](application-config-sso-problem-configure-federated-sso-gallery.md)
-######[I encountered a problem when configuring password single sign-on for a non-gallery application](application-config-sso-problem-configure-password-sso-non-gallery.md)
-######[I encountered a problem when configuring password single sign-on for an Azure AD Gallery application](application-config-sso-problem-configure-password-sso-gallery.md)
 
-#### Sign-in
+#### Authentication
+##### [Configure endpoints](application-dev-registration-config-how-to.md)
+
+#### Registration
+##### [Enter fields for the application object](application-dev-registration-config-specific-application-property-how-to.md)
+##### [Change token lifetime defaults](application-dev-registration-config-change-token-lifetime-how-to.md)
+
+#### Single sign-on
+##### [Choose a method](application-config-sso-how-to-choose-sign-on-method.md)
+##### [Configure](application-dev-registration-config-sso-how-to.md)
+##### [Configure federated - gallery apps](application-config-sso-how-to-configure-federated-sso-gallery.md)
+######[Configuring federated common problems - gallery apps](application-config-sso-problem-configure-federated-sso-gallery.md)
+##### [Configure federated - non-gallery apps](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+##### [Configure federated common problems - non-gallery apps](application-config-sso-problem-configure-federated-sso-non-gallery.md)
+##### [Configure password - gallery apps](application-config-sso-how-to-configure-password-sso-gallery.md)
+##### [Configure password common problems - gallery apps](application-config-sso-problem-configure-password-sso-gallery.md)
+##### [Configure password - non-gallery apps](application-config-sso-how-to-configure-password-sso-non-gallery.md)
+##### [Configure password common problems - non-gallery apps](application-config-sso-problem-configure-password-sso-non-gallery.md)
+
+
+#### Multi-tenant
+##### [Configure a new app](application-dev-setup-multi-tenant-app.md)
+######[Add to the app gallery](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+
+#### Permissions
+##### [Choose permissions for an API](application-dev-perms-for-given-api.md)
+##### [Grant permissions to my app](application-dev-registration-config-grant-permissions-how-to.md)
+##### [Delegated vs application permissions](application-dev-delegated-and-app-perms.md)
+##### [Application consent](application-dev-consent-framework.md)
+
+
+#### Find an API
+##### [Find an API](application-dev-api-find-an-api-how-to.md)
+
+
+
+
+
+
+#### User sign-in
 ##### Unexpected prompt
 ###### [A user sees an unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt.md)
 ###### [A user sees an unexpected error when performing consent to an application](application-sign-in-unexpected-user-consent-error.md)
