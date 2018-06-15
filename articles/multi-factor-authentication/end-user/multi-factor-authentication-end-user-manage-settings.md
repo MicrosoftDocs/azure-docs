@@ -1,5 +1,5 @@
 ---
-title: Manage your two-step verification settings | Microsoft Docs
+title: Manage two-step verification settings - Azure AD | Microsoft Docs
 description: Manage how you use Azure Multi-Factor Authentication including changing your contact information or configuring your devices.
 services: multi-factor-authentication
 keywords: multifactor authentication client, authentication problem, correlation ID
