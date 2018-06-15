@@ -28,7 +28,7 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 > [!IMPORTANT]
 >HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Learn how to [delete a cluster.](../../hdinsight/hdinsight-delete-cluster.md)
 
-Data Lake Storage is used as the data layer in this quickstart. With its Hierarchical Namespace Service and [Hadoop driver](link-to-driver-article.md), Data Lake Storage is optimized for distributed processing and analysis. Data stored in Data Lake Storage persists even after an HDInsight cluster is deleted.
+Data Lake Storage is used as the data layer in this quickstart. With its Hierarchical Namespace Service and [Hadoop driver](introduction.md), Data Lake Storage is optimized for distributed processing and analysis. Data stored in Data Lake Storage persists even after an HDInsight cluster is deleted.
 
 ## Cluster setup methods
 The following table shows the different methods you can use to set up an HDInsight cluster.

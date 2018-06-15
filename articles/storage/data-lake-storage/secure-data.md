@@ -30,7 +30,7 @@ This article provides instructions on how to use the Azure portal to perform the
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **An Azure Data Lake Storage Gen2 account**. For instructions on how to create one, see [Create Azure Data Lake Storage Account](create-account.md)
+* **An Azure Data Lake Storage Gen2 account**. For instructions on how to create one, see [Create Azure Data Lake Storage Account](quickstart-create-account.md)
 
 ## Create security groups in Azure Active Directory
 For instructions on how to create Azure AD security groups and how to add users to the group, see [Managing security groups in Azure Active Directory](/active-directory/active-directory-groups-create-azure-portal.md).

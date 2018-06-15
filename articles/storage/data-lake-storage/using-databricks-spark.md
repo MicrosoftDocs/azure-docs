@@ -40,7 +40,7 @@ This tutorial demonstrates how to consume and query airline flight data, which i
 
 ## Create an Azure Data Lake Storage account
 
-To begin, create a new [Azure Data Data Lake storage account](create-account.md) and give it a unique name. Once created, navigate to the storage account to retrieve configuration settings.
+To begin, create a new [Azure Data Data Lake storage account](quickstart-create-account.md) and give it a unique name. Once created, navigate to the storage account to retrieve configuration settings.
 
 1. Under **Settings**, click  **Access keys**
 3. Click the **Copy** button next to **key1** to copy the key value
