@@ -40,7 +40,24 @@ This page is updated monthly, so revisit it regularly.
 
 
 ## May 2018
+
+### ExpressRoute support changes
+
+**Type:** Plan for change  
+**Service category:** Authentications (Logins)  
+**Product capability:** Platform  
+
+Software as a Service offering, like Azure Active Directory (Azure AD) are designed to work best by going directly through the Internet, without requiring ExpressRoute or any other private VPN tunnels. Because of this, on **August 1, 2018**, we will stop supporting ExpressRoute for Azure AD services using Azure public peering and Azure communities in Microsoft peering. Any services impacted by this change might notice Azure AD traffic gradually shifting from ExpressRoute to the Internet.
+
+While we're changing our support, we also know there are still situations where you might need to use a dedicated set of circuits for your authentication traffic. Because of this, Azure AD will continue to support per-tenant IP range restrictions using ExpressRoute and services already on Microsoft peering with the "Other Office 365 Online services" community. If your services are impacted, but you require ExpressRoute, you must do the following:
+
+- **If you're on Azure public peering.** You must move to Microsoft peering and sign up for the **Other Office 365 Online services (12076:5100)** community. For more info about how to move from Azure public peering to Microsoft peering, see the [Move a public peering to Microsoft peering](https://docs.microsoft.com/azure/expressroute/how-to-move-peering) article.
+
+- **If you're on Microsoft peering.** You must sign up for the **Other Office 365 Online service (12076:5100)** community. For more info about routing requirements, see the [Support for BGP communities section](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp) of the ExpressRoute routing requirements article.
+
+If you must continue to use dedicated circuits, you'll need to send a request to Microsoft's Office team, the MS-managed review board for using the **Other Office 365 Online service (12076:5100)** community. This review board will verify whether you need those circuits and make sure you understand the technical implications of keeping them.
  
+---
 
 
 ### Microsoft Graph API's for administrative scenarios for TOU

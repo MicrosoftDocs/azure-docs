@@ -44,6 +44,6 @@ Yes, to turn off notifications related to anomalous sign-ins within the Azure po
 
 ## What's next
 * Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
-* [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
+* [Getting started with Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md)
 * [Add company branding to your Sign In and Access Panel pages](fundamentals/customize-branding.md)
 
