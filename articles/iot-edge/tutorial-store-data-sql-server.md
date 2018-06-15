@@ -68,7 +68,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
    2. Provide a name for your solution or accept the default **EdgeSolution**.
    3. Choose **Azure Functions - C#** as the module template. 
    4. Name your module **sqlFunction**. 
-   5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/csharpfunction**.
+   5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/sqlFunction**.
 
 4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder, and a deployment manifest template file. Open **modules** > **sqlFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
 
@@ -149,7 +149,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
    }
    ```
 
-6. In line 24, replace the string **\<sql connection string\>** with the following string. The **Data Source** property references the SQL Server container name, which is **SQL** in this tutorial. 
+6. In line 24, replace the string **\<sql connection string\>** with the following string. The **Data Source** property references the SQL Server container name, which you will create with the name **SQL** in the next section. 
 
    ```C#
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
@@ -235,4 +235,84 @@ You can set modules on a device through the IoT Hub, but you can also access you
 4. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
 5. Right-click on the device that you want to target with your deployment and select **Create deployment for IoT Edge device**. 
 6. In the file explorer, navigate to the **config** folder inside your solution and choose **deployment.json**. Click **Select Edge deployment manifest**. 
+
+If the deployment is successful, and confirmation message is printed in the VS Code output. You can also check to see that all the modules are up and running on your device. 
+
+On your IoT Edge device, run the following command to see the status of the modules. It may take a few minutes.
+
+   ```bash
+   sudo iotedge list
+   ```
+
+## Create the SQL database
+
+When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. 
+
+This section guides you through setting up the SQL database to store the temperature data. 
+
+1. In a command-line too, connect to your database. 
+   * Windows container:
+   
+      ```cmd
+      docker exec -it sql cmd
+      ```
+    
+   * Linux container: 
+
+      ```bash
+      docker exec -it sql bash
+      ```
+
+2. Open the SQL command tool.
+   * Windows container:
+
+      ```cmd
+      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      ```
+
+   * Linux container: 
+
+      ```bash
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Password'
+      ```
+
+3. Create your database: 
+
+   * Windows container
+      ```sql
+      CREATE DATABASE MeasurementsDB
+      ON
+      (NAME = MeasurementsDB, FILENAME = 'C:\mssql\measurementsdb.mdf')
+      GO
+      ```
+
+   * Linux container
+      ```sql
+      CREATE DATABASE MeasurementsDB
+      ON
+      (NAME = MeasurementsDB, FILENAME = '/var/opt/mssql/measurementsdb.mdf')
+      GO
+      ```
+
+4. Define your table.
+
+   ```sql
+   CREATE TABLE MeasurementsDB.dbo.TemperatureMeasurements (measurementTime DATETIME2, location NVARCHAR(50), temperature FLOAT)
+   GO
+   ```
+
+You can customize your SQL Server docker file to automatically set up your SQL Server to be deployed on multiple IoT Edge devices. For more information, see the [Microsoft SQL Server container demo project](https://github.com/twright-msft/mssql-node-docker-demo-app). 
+
+## View the local data
+
+Once your table is created, the sqlFunction module starts storing data in a local SQL Server 2017 database on your IoT Edge device. 
+
+From inside the SQL command tool, run the following command to view your formatted table data: 
+
+   ```sql
+   SELECT * FROM MeasurementsDB.dbo.TemperatureMeasurements
+   GO
+   ```
+
+   ![View local data](./media/tutorial-store-data-sql-server/view-data.png)
 
