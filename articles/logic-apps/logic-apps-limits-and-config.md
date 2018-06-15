@@ -83,66 +83,13 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Trigger concurrency | 20 | To change this limit to 50, see [] 
-| Maximum waiting runs in queue | 10 | To change this limit to 100, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Trigger concurrency | 20 | To change this limit to a value between 1 and 50 inclusively, see [Change trigger concurrency](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |  
+| Maximum waiting runs in queue | 10 | To change this limit to a value between 0 and 100 inclusively, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
 | Foreach items | 100,000 | To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). | 
-| Foreach iterations | 50 | By default, "for each" loop iterations run at the same time in parallel. The default limit is 20, but you can [change this default limit](#change-foreach-limit). | 
+| Foreach iterations | 20 | To change this limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | SplitOn items | 100,000 | | 
 | Until iterations | 5,000 | | 
 |||| 
-
-<a name="change-foreach-limit"></a>
-
-### Change Foreach loop limit
-
-You can change the default limit either through 
-Logic Apps Designer or the code view editor. 
-Changing the default limit through the designer 
-adds or updates the `runtimeConfiguration.concurrency.repetitions` 
-property in the underlying `For_each` action definition. 
-To review this definition, open code view editor. 
-
-*Designer*
-
-1. In the **For each** action's upper-right corner, 
-choose the ellipses (...) button, and then choose **Settings**.
-
-2. Under **Concurrency Control**, set **Override Default** to **On**. 
-
-3. Drag the **Degree of Parallelism** slider to the value you want. 
-To run loop iterations sequentially, set the value to `1`. 
-
-   > [!NOTE]
-   > Setting **Degree of Parallelism** to `1` is 
-   > equivalent to adding and setting the 
-   > `operationOptions` property to `Sequential`. 
-   > For sequential runs, you can use either the 
-   > concurrency control or the `operationOptions` property, 
-   > but not both. Otherwise, you get a validation error.
-
-*Code view editor*
-
-In the underlying `For_each` action definition, 
-add or update the `runtimeConfiguration.concurrency.repetitions` 
-property to a value inclusively between `1` and `50`. 
-
-To run loop iterations sequentially, follow one of these steps:
-
-* Set `repetitions` to `1`.
-
-  *-or-*
-
-* Add or update the `operationOptions` 
-property and set the value to `Sequential`. 
-
-> [!NOTE]
-> Setting `repetitions` to `1` is 
-> equivalent to adding and setting the 
-> `operationOptions` property to `Sequential`. 
-> For sequential runs, you can use either 
-> the `repetitions` property or the 
-> `operationOptions` property, but not both. 
-> Otherwise, you get a validation error.
 
 <a name="throughput-limits"></a>
 

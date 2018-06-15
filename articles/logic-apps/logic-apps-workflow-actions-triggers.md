@@ -2458,9 +2458,9 @@ properties in the trigger or action definition.
 
 | Property | Type | Description | Trigger or action | 
 |----------|------|-------------|-------------------| 
-| `concurrency.runs` | Integer | Change the [default maximum number of logic app instances](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) that can run at the same time, or in parallel. This value helps limit the number of requests that backend systems receive. <p>To change the default limit, see [Change trigger concurrency](#change-trigger-concurrency). | All triggers | 
-| `concurrency.maximumWaitingRuns` | Integer | Change the [default maximum number of logic app runs that can wait in a queue](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). When your logic app is already running the maximum number of instances based on the `concurrency.runs` limit, any new runs are put into this queue, up to the maximum number in the `maximumWaitingRuns` property. <p>To change the default limit, see [Change waiting runs](#change-waiting-runs). | All triggers | 
-| [`concurrency.repetitions`](#change-for-each-concurrency) | Integer | Change the [default maximum number of "for each" loop iterations](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) that can run at the same time, or in parallel. <p>To change the default limit, see [Change "for each" concurrency](#change-for-each-concurrency). | Action: <p>[Foreach](#foreach-action) | 
+| `concurrency.runs` | Integer | Change the maximum number of logic app instances that can run at the same time, or in parallel from the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). This value can help limit the number of requests that backend systems receive. <p>To change the default limit, see [Change trigger concurrency](#change-trigger-concurrency) or [Trigger instances sequentially](#sequential-trigger). | All triggers | 
+| `concurrency.maximumWaitingRuns` | Integer | Change the maximum number of logic app runs that can wait in a queue from the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). When your logic app is already running the maximum number of instances, which you can change based on the `concurrency.runs` property, any new runs are put into this queue up to the default limit. <p>To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | All triggers | 
+| `concurrency.repetitions` | Integer | Change the maximum number of "for each" loop iterations that can run at the same time, or in parallel from the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). <p>To change the default limit, see [Change "for each" concurrency](#change-for-each-concurrency) or [Run "for each" loops sequentially](#sequential-for-each). | Action: <p>[Foreach](#foreach-action) | 
 ||||| 
 
 <a name="operation-options"></a>
@@ -2473,126 +2473,268 @@ in trigger or action definition.
 
 | Operation option | Type | Description | Trigger or action | 
 |------------------|------|-------------|-------------------| 
-| [`DisableAsyncPattern`](#asynchronous-patterns) | String | Run HTTP-based actions synchronously, rather than asynchronously. | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action) | 
-| [`OptimizedForHighThroughput`](#run-high-throughput-mode) | String | Raise the [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). | All actions | 
-| [`Sequential`](#sequential-for-each) | String | Run "for each" loop iterations sequentially, rather than all at the same time, concurrently, and in parallel. | Action: <p>[Foreach](#foreach-action) | 
-| [`SingleInstance`](#sequential-trigger) | String | Fire each trigger instance sequentially and wait for the previously active run to finish. | Triggers: <p>[ApiConnection](#apiconnection-trigger), <br>[HTTP](#http-trigger), <br>[Recurrence](#recurrence-trigger) | 
+| `DisableAsyncPattern` | String | Run HTTP-based actions synchronously, rather than asynchronously. <p>For more information, see [Run actions synchronously](#asynchronous-patterns). | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
+| `OptimizedForHighThroughput` | String | Change the number of action executions per 5 minutes from the [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p>For more information, see [Run in high throughput mode](#run-high-throughput-mode). | All actions | 
+| `Sequential` | String | Run "for each" loop iterations one at a time, rather than all at the same time in parallel. <p>For more information, see [Run "for each" loops sequentially](#sequential-for-each).| Action: <p>[Foreach](#foreach-action) | 
+| `SingleInstance` | String | Run each logic app instance sequentially and wait for the previously active run to finish before triggering the next logic app instance. <p>For more information, see [Trigger instances sequentially](#sequential-trigger). | All triggers | 
 ||||
 
 <a name="change-trigger-concurrency"></a>
 
 ### Change trigger concurrency
 
-By default, logic app instances run at the same time, concurrently, or in parallel, up to the 
+By default, logic app instances run at the same time, concurrently, or in parallel up to the 
 [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 So, each trigger instance fires before the previously active logic app instance finishes running. 
-To limit the number of requests that backend systems received, you can change the concurrency 
-for all triggers and "for each" loops. 
+This limit helps control the number of requests that backend systems receive. 
 
-To change the concurrency limit from the default to 10 loops, add the `concurrency` object and use the `runs` property, for example: <p>`"concurrency": { "runs": 10 }`
+To change the default limit, you can use either the code view editor or Logic Apps Designer 
+because changing the concurrency setting through the designer adds or updates the 
+`runtimeConfiguration.concurrency.runs` property in the underlying trigger definition 
+and vice versa. This property controls the maximum number of logic app instances that can run in parallel. 
 
-This property sets the maximum number of logic app instances that can run in parallel, which helps limit the number of requests that backend systems receive. <p>To change the default limit, set the `runs` property to a value between `1` and `50`. To run instances sequentially so that the current instance must finish running before starting the next instance, set this property to  `1`. <p>**Note**: You can set either the `runs` property or the [`SingleInstance`](#operation-options) operation option, but not both. Otherwise, you get a validation error.
+> [!NOTE] 
+> If you set the trigger to run sequentially 
+> either by using the designer or the code view editor,
+> don't set the trigger's `operationOptions` property 
+> to `SingleInstance` in the code view editor. 
+> Otherwise, you get a validation error. 
+> For more information, see [Trigger instances sequentially](#sequential-trigger).
 
-<a name="change-waiting-runs"></a>
+#### Edit in code view 
 
-### Change waiting runs limit
+In the underlying trigger definition, add or update the 
+`runtimeConfiguration.concurrency.runs` property to a 
+value between `1` and `50` inclusively.
 
-To change the default limit, set the `maximumWaitingRuns` property to a value between `0` and `100`. After your logic app reaches this limit, the Logic Apps engine no longer accepts new runs. Request and webhook triggers return 429 errors, and recurring triggers start skipping polling attempts.
+Here is an example that limits concurrent runs to 10 instances:
 
-<a name="sequential-trigger"></a>
+```json
+"<trigger-name>": {
+   "type": "<trigger-name>",
+   "recurrence": {
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>,
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": 10
+      }
+   }
+}
+```
 
-### Trigger instances sequentially
+#### Edit in Logic Apps Designer
 
-To trigger each logic app instance only after the previous logic app instance has finished, 
-set either of these properties, but not both, in the trigger definition. 
-Otherwise, you get a validation error. 
+1. In the trigger's upper-right corner, 
+choose the ellipses (...) button, and then choose **Settings**.
 
-For the Recurrence trigger, if the next scheduled 
-recurrence happens while a previous instance is running, 
-the trigger skips that recurrence and waits until 
-the next scheduled recurrence before firing again. 
+2. Under **Concurrency Control**, set **Override Default** to **On**. 
 
-* Set the `runtimeConfiguration.concurrency.runs` property to `1`:
-
-  ```json
-  "<action-name>": {
-     "type": "<action-type>",
-     "recurrence": {
-        "frequency": "<time-unit>",
-        "interval": <number-of-time-units>,
-     },
-     "runtimeConfiguration": {
-        "concurrency": {
-           "runs": 1
-        }
-     }
-  }
-  ```
-
-  *-or-*
-
-* Set the `operationOptions` property to `SingleInstance`:
-
-  ```json
-  "<action-name>": {
-     "type": "<action-type>",
-     "recurrence": {
-        "frequency": "<time-unit>",
-        "interval": <number-of-time-units>,
-     },
-     "operationOptions": "SingleInstance"
-  }
-  ```
+3. Drag the **Degree of Parallelism** slider to the value you want. 
 
 <a name="change-for-each-concurrency"></a>
 
 ### Change "for each" concurrency
 
-Also, "for each" loop iterations run at the same time, concurrently, or in parallel, up to the 
+By default, "for each" loop iterations run at the same time, or in parallel, up to the 
 [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
-By default, "for each" loop iterations run at the same time, or in parallel, up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). This property sets the maximum number of "for each" loop iterations that can run at the same time, or in parallel. To change the default limit, set the `repetitions` property up to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+To change the default limit, you can use either the code view editor or Logic Apps Designer 
+because changing the concurrency setting through the designer adds or updates the 
+`runtimeConfiguration.concurrency.repetitions` property in the underlying "for each" 
+action definition and vice versa. This property controls the maximum number of iterations that can run in parallel.
+
+> [!NOTE] 
+> If you set the "for each" action to run sequentially 
+> either by using the designer or the code view editor,
+> don't set the action's `operationOptions` property 
+> to `Sequential` in the code view editor. 
+> Otherwise, you get a validation error. 
+> For more information, see [Run "for each" loops sequentially](#sequential-for-each).
+
+#### Edit in code view 
+
+In the underlying "for each" definition, add or update the 
+`runtimeConfiguration.concurrency.repetitions` property to a 
+value between `1` and `50` inclusively. 
+
+Here is an example that limits concurrent runs to 10 iterations:
+
+```json
+"For_each" {
+   "type": "Foreach",
+   "actions": { "<actions-to-run>" },
+   "foreach": "<for-each-expression>",
+   "runAfter": {},
+   "runtimeConfiguration": {
+      "concurrency": {
+         "repetitions": 10
+      }
+   }
+}
+```
+
+#### Edit in Logic Apps Designer
+
+1. In the **For each** action's upper-right corner, 
+choose the ellipses (...) button, and then choose **Settings**.
+
+2. Under **Concurrency Control**, set **Override Default** to **On**. 
+
+3. Drag the **Degree of Parallelism** slider to the value you want. 
+
+<a name="change-waiting-runs"></a>
+
+### Change waiting runs limit
+
+When your logic app is already running the maximum number of 
+instances based on the `runtimeConfiguration.concurrency.runs` property, 
+any new runs are put into this queue up to the 
+[default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+To change the default limit, in the underlying trigger definition, 
+add and set the `runtimeConfiguration.concurency.maximumWaitingRuns` property 
+to a value between `0` and `100`. After your logic app reaches this limit, 
+the Logic Apps engine no longer accepts new runs. 
+Request and webhook triggers return 429 errors, 
+and recurring triggers start skipping polling attempts.
+
+```json
+"<trigger-name>": {
+   "type": "<trigger-name>",
+   "recurrence": {
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>,
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "maximumWaitingRuns": 50
+      }
+   }
+}
+```
+
+<a name="sequential-trigger"></a>
+
+### Trigger instances sequentially
+
+To run each logic app instance only after the previous instance finishes running, 
+set the trigger to run sequentially. You can use either the code view editor 
+or Logic Apps Designer because changing the concurrency setting through designer 
+also adds or updates the `runtimeConfiguration.concurrency.runs` 
+property in the underlying trigger definition and vice versa. 
+
+> [!NOTE] 
+> When you set a trigger to run sequentially 
+> either by using the designer or the code view editor, 
+> don't set the trigger's `operationOptions` property 
+> to `Sequential` in the code view editor. 
+> Otherwise, you get a validation error. 
+
+#### Edit in code view
+
+In the trigger definition, set either of these properties, but not both. 
+
+Set the `runtimeConfiguration.concurrency.runs` property to `1`:
+
+```json
+"<trigger-name>": {
+   "type": "<trigger-name>",
+   "recurrence": {
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>,
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": 1
+      }
+   }
+}
+```
+
+*-or-*
+
+Set the `operationOptions` property to `SingleInstance`:
+
+```json
+"<trigger-name>": {
+   "type": "<trigger-name>",
+   "recurrence": {
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>,
+   },
+   "operationOptions": "SingleInstance"
+}
+```
+
+#### Edit in Logic Apps Designer
+
+1. In the trigger's upper-right corner, 
+choose the ellipses (...) button, and then choose **Settings**.
+
+2. Under **Concurrency Control**, set **Override Default** to **On**. 
+
+3. Drag the **Degree of Parallelism** slider to the number `1`. 
 
 <a name="sequential-for-each"></a>
 
 ### Run "for each" loops sequentially
 
-To run each "for each" loop iteration only after 
-the previous iteration has finished, 
-set either of these properties, but not both, 
-in the "for each" action definition. 
-Otherwise, you get a validation error. 
+To run a "for each" loop iteration only after the previous iteration finishes running, 
+set the "for each" action to run sequentially. You can use either the code view editor 
+or Logic Apps Designer because changing the action's concurrency through designer 
+also adds or updates the `runtimeConfiguration.concurrency.repetitions` 
+property in the underlying action definition and vice versa. 
 
-* Set the `runtimeConfiguration.concurrency.repetitions` 
-property to `1`:
+> [!NOTE] 
+> When you set a "for each" action to run sequentially 
+> either by using the designer or code view editor,
+> don't set the action's `operationOptions` property 
+> to `Sequential` in the code view editor. 
+> Otherwise, you get a validation error. 
 
-  ```json
-  "For_each" {
-      "type": "Foreach",
-      "actions": { "<actions-to-run>" },
-      "foreach": "<for-each-expression>",
-      "runAfter": {},
-      "runtimeConfiguration": {
-          "concurrency": {
-              "repetitions": 1
-          }
+#### Edit in code view
+
+In the action definition, set either of these properties, but not both. 
+
+Set the `runtimeConfiguration.concurrency.repetitions` property to `1`:
+
+```json
+"For_each" {
+   "type": "Foreach",
+   "actions": { "<actions-to-run>" },
+   "foreach": "<for-each-expression>",
+   "runAfter": {},
+   "runtimeConfiguration": {
+      "concurrency": {
+         "repetitions": 1
       }
-  }
-  ```
+   }
+}
+```
 
-  *-or-*
+*-or-*
 
-* Set the `operationOptions` property to `Sequential`.
+Set the `operationOptions` property to `Sequential`:
 
-  ```json
-  "For_each" {
-      "type": "Foreach",
-      "actions": { "<actions-to-run>" },
-      "foreach": "<for-each-expression>",
-      "runAfter": {},
-      "operationOptions": "Sequential"
-      }
-  }
-  ```
+```json
+"For_each" {
+   "type": "Foreach",
+   "actions": { "<actions-to-run>" },
+   "foreach": "<for-each-expression>",
+   "runAfter": {},
+   "operationOptions": "Sequential"
+}
+```
+
+#### Edit in Logic Apps Designer
+
+1. In the **For each** action's upper-right corner, 
+choose the ellipses (...) button, and then choose **Settings**.
+
+2. Under **Concurrency Control**, set **Override Default** to **On**. 
+
+3. Drag the **Degree of Parallelism** slider to the number `1`. 
 
 <a name="asynchronous-patterns"></a>
 
