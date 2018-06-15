@@ -56,17 +56,17 @@ Is this your first Azure AD license plan you've purchase from Microsoft? If so, 
 
 1. To start the activation, click either **Sign In** or **Sign Up**.
    
-    ![Sign in][1]
+    ![Sign in](media/active-directory-get-started-premium/MOLSEmail.png)
 
     - If you have an existing tenant, click **Sign In** to sign in with your existing administrator account. Sign in with global administrator credentials for the tenant where the licenses must be activated.
 
     - If you want to create a new Azure AD tenant to use with your licensing plan, click **Sign Up** to open the **Create Account Profile** dialog.
 
-        ![Create account profile][2]
+        ![Create account profile](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
 When you are done, the following dialog shows up as confirmation for the activation of the license plan for your tenant:
 
-![Confirmation][3]
+![Confirmation](media/active-directory-get-started-premium/MOLSThankYou.png)
 
 ## Activate your Azure Active Directory access
 If you are adding new Azure AD Premium licenses to an existing subscription, your Azure AD access should already be activated. Otherwise, you need to activate Azure AD access after you receive the **Welcome email**.  
@@ -80,10 +80,10 @@ When the licenses you purchased have been provisioned in your directory, a **Wel
 
 1. In your **Welcome email**, click **Sign In**. 
    
-    ![Welcome email][4]
+    ![Welcome email](media/active-directory-get-started-premium/AADEmail.png)
 2. After signing in successfully, you also need to complete a second factor authentication using a mobile device:
    
-    ![Mobile verification][5]
+    ![Mobile verification](media/active-directory-get-started-premium/SignUppage.png)
 
 The activation should only take a few minutes and then you will have access to manage your Azure AD. 
 
@@ -93,18 +93,4 @@ In this quickstart, you’ve learned how to sign up for Azure AD Premium and act
 If you already have an Azure subscription, you can use the following link to start a trial or purchase Azure AD Premium licenses from the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Activate Azure AD Premium licenses](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/TryBuyProductBlade) 
-
-<!--Image references-->
-[1]: ./media/active-directory-get-started-premium/MOLSEmail.png
-[2]: ./media/active-directory-get-started-premium/MOLSAccountProfile.png
-[3]: ./media/active-directory-get-started-premium/MOLSThankYou.png
-[4]: ./media/active-directory-get-started-premium/AADEmail.png
-[5]: ./media/active-directory-get-started-premium/SignUppage.png
-[6]: ./media/active-directory-get-started-premium/Subscriptionspage.png
-[7]: ./media/active-directory-get-started-premium/Premiuminportal.png
-[8]: ./media/active-directory-get-started-premium/Premiuminportal_large.png
-[9]: ./media/active-directory-get-started-premium/Signuppage_oops.png
-[10]: ./media/active-directory-get-started-premium/contosolicenseplan.png
-[11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
-[12]: ./media/active-directory-get-started-premium/Usagelocation.png
+> [Activate Azure AD Premium licenses](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/TryBuyProductBlade)
