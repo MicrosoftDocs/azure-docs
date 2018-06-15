@@ -855,13 +855,14 @@ Actions have these high-level elements, though some are optional:
 | <*action-type*> | String | The action type, for example, "Http" or "ApiConnection"| 
 | <*input-name*> | String | The name for an input that defines the action's behavior | 
 | <*input-value*> | Various | The input value, which can be a string, integer, JSON object, and so on | 
+| <*previous-trigger-or-action-status*> | JSON Object | The name and resulting status for the trigger or action that must run immediately before this current action can run | 
 |||| 
 
 *Optional*
 
 | Value | Type | Description | 
 |-------|------|-------------|
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](#retry-policies). |  
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](#retry-policies). | 
 | <*runtime-config-options*> | JSON Object | For some actions, you can change the action's behavior at run time by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration settings](#runtime-config-options). | 
 | <*operation-option*> | String | For some actions, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
@@ -1960,47 +1961,95 @@ This action definition pauses the workflow until the specified time:
 
 ### Workflow action
 
-This action lets you nest a workflow. The Logic Apps engine performs 
-an access check on the child workflow, more specifically, the trigger, 
-so you must have access to the child workflow. For example:
+This action calls another previously created logic app, 
+which means you can include and reuse other logic app workflows. 
+You can also use the outputs from the child or *nested* logic app 
+in actions that follow the nested logic app, provided that the 
+child logic app returns a response.
+
+The Logic Apps engine checks access to the trigger 
+you want to call, so make sure you can access that trigger. 
+Also, the nested logic app must meet these criteria:
+
+* A trigger makes the nested logic app callable, 
+such as a [Request](#request-trigger) or [HTTP](#http-trigger) trigger
+
+* The same Azure subscription as your parent logic app
+
+* To use the outputs from the nested logic app in your 
+parent logic app, the nested logic app must have a 
+[Response](#response-action) action 
 
 ```json
-"<my-nested-workflow-action-name>": {
-    "type": "Workflow",
-    "inputs": {
-        "host": {
-            "id": "/subscriptions/<my-subscription-ID>/resourceGroups/<my-resource-group-name>/providers/Microsoft.Logic/<my-nested-workflow-action-name>",
-            "triggerName": "mytrigger001"
-        },
-        "queries": {
-            "extrafield": "specialValue"
-        },  
-        "headers": {
-            "x-ms-date": "@utcnow()",
-            "Content-type": "application/json"
-        },
-        "body": {
-            "contentFieldOne": "value100",
-            "anotherField": 10.001
-        }
-    },
-    "runAfter": {}
+"<nested-logic-app-name>": {
+   "type": "Workflow",
+   "inputs": {
+      "body": { "<body-content" },
+      "headers": { "<header-content>" },
+      "host": {
+         "triggerName": "<trigger-name>",
+         "workflow": {
+            "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Logic/<nested-logic-app-name>"
+         }
+      }
+   },
+   "runAfter": {}
 }
 ```
 
-| Element | Required | Type | Description | 
-|---------|----------|------|-------------|  
-| host id | Yes | String| The resource ID for the workflow that you want to call | 
-| host triggerName | Yes | String | The name of the trigger that you want to invoke | 
-| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
-| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | JSON Object | Represents the payload that is sent to the endpoint. | 
-||||| 
+*Required*
 
-This action's outputs are based on what you define 
-in the `Response` action for the child workflow. 
-If the child workflow doesn't define a `Response` action, 
-the outputs are empty.
+| Value | Type | Description | 
+|-------|------|-------------| 
+| <*nested-logic-app-name*> | String | The name for the logic app you want to call | 
+| <*trigger-name*> | String | The name for the trigger in the nested logic app you want to call | 
+| <*Azure-subscription-ID*> | String | The Azure subscription ID for the nested logic app |
+| <*Azure-resource-group*> | String | The Azure resource group name for the nested logic app |
+| <*nested-logic-app-name*> | String | The name for the logic app you want to call |
+||||
+
+*Optional*
+
+| Value | Type | Description | 
+|-------|------|-------------|  
+| <*header-content*> | JSON Object | Any headers to send with the call | 
+| <*body-content*> | JSON Object | Any message content to send with the call | 
+||||
+
+*Outputs*
+
+This action's outputs vary based on the nested logic app's Response action. 
+If the nested logic app doesn't include a Response action, the outputs are empty.
+
+*Example*
+
+After the "Start_search" action finishes successfully, 
+this workflow action definition calls another logic app 
+named "Get_product_information", which passes in the specified inputs: 
+
+```json
+"actions": {
+   "Start_search": { <action-definition> },
+   "Get_product_information": {
+      "type": "Workflow",
+      "inputs": {
+         "body": {
+            "ProductID": "24601",
+         },
+         "host": {
+            "id": "/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/InventoryManager-RG/providers/Microsoft.Logic/Get_product_information",
+            "triggerName": "Find_product"
+         },
+         "headers": {
+            "content-type": "application/json"
+         }
+      },
+      "runAfter": { 
+         "Start_search": [ "Succeeded" ]
+      }
+   }
+},
+```
 
 ## Control workflow action details
 
@@ -2020,7 +2069,7 @@ Learn [how to create "Foreach" loops](../logic-apps/logic-apps-control-flow-loop
       "<action-1>": { "<action-definition-1>" },
       "<action-2>": { "<action-definition-2>" }
    },
-   "foreach": "<*for-each-expression*>",
+   "foreach": "<for-each-expression>",
    "runAfter": {},
    "runtimeConfiguration": {
       "concurrency": {
