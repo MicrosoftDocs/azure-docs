@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/13/2018
 ms.author: raynew
 ---
 
@@ -245,7 +245,7 @@ Contoso perform these steps as follows:
 5. In the tool, they specify a name to register the configuration server in the vault.
 6. The tool checks that the VM can connect to Azure. After the connection is established, they sign in to the Azure subscription. The credentials must have access to the vault in which they'll register the configuration server.
 
-    [Register configuration server](./media/contoso-migration-rehost-vm/config-server-register2.png)
+    ![Register configuration server](./media/contoso-migration-rehost-vm/config-server-register2.png)
 
 7. The tool performs some configuration tasks and then reboots.
 8. They sign in to the machine again, and the Configuration Server Management Wizard starts automatically.
