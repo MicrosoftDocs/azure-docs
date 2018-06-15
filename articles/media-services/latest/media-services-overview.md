@@ -47,7 +47,7 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 
 ## v3 capabilities
 
-v3 is based on a unified API surface which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
+v3 is based on a unified API surface, which exposes both management and operations functionality built on Azure Resource Manager. 
 
 This version provides the following capabilities:  
 
@@ -58,32 +58,25 @@ This version provides the following capabilities:
 * **Role-based access control** can be set at the resource level, allowing you to lock down access to specific resources like Transforms, Channels, and more.
 * **Client SDKs** in multiple languages: .NET, .NET core, Python, Go, Java, and Node.js.
 
+## Naming conventions
+
+Since Azure Media Services v3 is built on Azure Resource Manager, resource names (for example, Assets, Jobs, Transforms) are subject to naming constraints.
+
+In accordance with Azure Resource Manager, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
+
+Media Services resource names cannot include: '<', '>', '%', '&', ':', '\', '?', '/' OR any control characters. The max length is 260 characters. All other characters are allowed. 
+
+For more information, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+
 ## How can I get started with v3?
 
 As a developer, you can use Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. Microsoft generates and supports the following client libraries: 
 
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [.NET languages](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
-* [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (choose the **.NET CLI** tab)
-* Java
-
-  Add following dependency in your project:
-  
-  ```
-  <dependency>
-    <groupId>com.microsoft.azure.media-2018-03-30-preview</groupId>
-    <artifactId>azure-mgmt- media</artifactId>
-    <version>0.0.1-beta</version>
-  </dependency> 
-  ```
-* Node.js 
-
-  Use the following command:
-  
-  ```
-  npm install azure-arm-mediaservices
-  ```
-  
+* [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (Choose the **.NET CLI** tab)
+* [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)
+* [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)
 * [Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)
 * [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)
 

@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
 ---
-# Enterprise Edition of the Azure-SSIS Integration Runtime
+# Provision Enterprise Edition for the Azure-SSIS Integration Runtime
 
 The Enterprise Edition of the Azure-SSIS Integration Runtime lets you use the following advanced and premium features:
 -   Change Data Capture (CDC) components

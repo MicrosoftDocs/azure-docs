@@ -46,7 +46,7 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-Download the sample device simulator Node.js project from https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip and extract the ZIP archive.
+Download the sample device simulator Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
 

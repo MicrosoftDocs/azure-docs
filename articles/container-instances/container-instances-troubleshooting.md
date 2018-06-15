@@ -73,7 +73,7 @@ To resolve, delete the container and retry your deployment, paying close attenti
 
 If your container runs to completion and automatically restarts, you might need to set a [restart policy](container-instances-restart-policy.md) of **OnFailure** or **Never**. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
 
-The Container Instances API includes a `restartCount` property. To check the number of restarts for a container, you can use the [az container show][az-container-show] command in the Azure CLI 2.0. In following example output (which has been truncated for brevity), you can see the `restartCount` property at the end of the output.
+The Container Instances API includes a `restartCount` property. To check the number of restarts for a container, you can use the [az container show][az-container-show] command in the Azure CLI. In following example output (which has been truncated for brevity), you can see the `restartCount` property at the end of the output.
 
 ```json
 ...

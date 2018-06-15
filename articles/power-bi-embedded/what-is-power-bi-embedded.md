@@ -28,7 +28,7 @@ Do you have an existing app with embedded Power BI content using Power BI Premiu
 
 **Power BI Embedded** is for independent software vendors (ISVs) and for developers who build applications for their customers. It can be used as a third-party business intelligence service that enables you to visualize application data, rather than building that service yourself. Power BI Embedded is a platform-as-a-service (PaaS) analytics solution, where developers can embed reports and dashboards into an application for their customers. **Power BI Premium** is a software-as-a-service (SaaS) analytics solution that gives your organization a single view of their most critical business data. 
 
-[Power BI Embedded](https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/)  is a pay-as-you-go feature, while [Power BI Premium](https://powerbi.microsoft.com/en-us/calculator/) requires a monthly fee. You can view this [video](https://www.youtube.com/watch?v=0y2oJikC6Xc&t=0s&list=PLv2BtOtLblH1dQPV49Ni12olDcUoW-GEl&index=3) to learn more about how they compare.
+[Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded/)  is a pay-as-you-go feature, while [Power BI Premium](https://powerbi.microsoft.com/calculator/) requires a monthly fee. You can view this [video](https://www.youtube.com/watch?v=0y2oJikC6Xc&t=0s&list=PLv2BtOtLblH1dQPV49Ni12olDcUoW-GEl&index=3) to learn more about how they compare.
 
 ## Easy-to-use tools
 
