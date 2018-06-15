@@ -22535,6 +22535,11 @@
             "source_path": "articles/active-directory/active-directory-groups-members-azure-portal.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-application-recommendations.md",
+            "redirect_url": "/azure/security-center/security-center-virtual-machine-recommendations",
+            "redirect_document_id": false
         }
     ]
 }
