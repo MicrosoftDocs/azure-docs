@@ -41,7 +41,7 @@ You can log in to Azure and run Azure CLI commands in one of two ways:
 - You can run CLI commands from within the Azure portal, in Azure Cloud Shell 
 - You can install the CLI and run CLI commands locally  
 
-## Use Azure Cloud Shell
+#### Use Azure Cloud Shell
 
 Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right of the Azure portal:
 
@@ -51,7 +51,7 @@ The button launches an interactive shell that you can use to run the steps in th
 
 [![Screenshot showing the Cloud Shell window in the portal](./media/quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
-## Install the CLI locally
+#### Install the CLI locally
 
 You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
@@ -170,7 +170,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 
 ![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/create-account-portal.png)
 
-### PowerShell(#tab/powershell)
+### PowerShell
 
 To create a general-purpose v2 storage account from PowerShell with locally-redundant storage (LRS), use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command: 
 
@@ -259,19 +259,6 @@ az group delete --name myResourceGroup
 
 In this quick start, you've created a general-purpose standard storage account. To learn how to upload and download blobs to and from your storage account, continue to the Blob storage quickstart.
 
-# [Portal](#tab/portal)
-
-> [!div class="nextstepaction"]
-> [Transfer objects to/from Azure Blob storage using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
-
-# [PowerShell](#tab/powershell)
-
-> [!div class="nextstepaction"]
-> [Transfer objects to/from Azure Blob storage using PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
-
-# [Azure CLI](#tab/azure-cli)
-
-> [!div class="nextstepaction"]
-> [Transfer objects to and from Azure Blob storage using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
-
----
+* [Transfer objects to/from Azure Blob storage using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
+* [Transfer objects to/from Azure Blob storage using PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+* [Transfer objects to and from Azure Blob storage using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
