@@ -103,7 +103,7 @@
     - name: Require secure transfer
       href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Shared key authentication
-      href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
+      href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
     - name: Shared access signatures (SAS)
       href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
   - name: Monitor and troubleshoot

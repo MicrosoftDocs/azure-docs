@@ -37,13 +37,13 @@ The email is sent if 10 new irregular sign-in activities occur in the last 30 da
 When you click on the link, you will be redirected to the report page within the Azure portal. In order to access the report, you need to be both:
 
 * An admin or co-admin of your Azure subscription
-* A global administrator in the directory, and assigned an Active Directory Premium license. For more information, see [Azure Active Directory editions](active-directory-whatis.md).
+* A global administrator in the directory, and assigned an Active Directory Premium license. For more information, see [Azure Active Directory editions](fundamentals/active-directory-whatis.md).
 
 ## Can I turn off these emails?
 Yes, to turn off notifications related to anomalous sign-ins within the Azure portal, click **Configure**, and then select **Disabled** under the **Notifications** section.
 
 ## What's next
 * Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
-* [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Add company branding to your Sign In and Access Panel pages](customize-branding.md)
+* [Getting started with Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md)
+* [Add company branding to your Sign In and Access Panel pages](fundamentals/customize-branding.md)
 
