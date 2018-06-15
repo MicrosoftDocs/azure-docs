@@ -892,9 +892,10 @@ Azure Service Bus, Office 365 Outlook, Power BI,
 Azure Blob Storage, OneDrive, GitHub, and more
 
 * [Control workflow action types](#control-workflow-actions) 
-such as **If**, **Foreach**, **Switch**, **Scope**, 
-and **Until**, which contain other actions and help 
-you organize workflow execution
+such as [**If**](#if-action), [**Foreach**](#foreach-action), 
+[**Switch**](#switch-action), [**Scope**](#scope-action), 
+and [**Until**](#until-action), which contain other actions 
+and help you organize workflow execution
 
 <a name="built-in-actions"></a>
 
@@ -2056,7 +2057,7 @@ named "Get_product_information", which passes in the specified inputs:
 
 <a name="foreach-action"></a>
 
-### For each action
+### Foreach action
 
 This looping action iterates through an array 
 and performs actions on each array item. 
