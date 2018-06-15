@@ -113,13 +113,13 @@ You can set a certain location of an Azure IR, in which case the data movement o
 
 If you choose to use the auto-resolve Azure IR which is the default, 
 
-- For copy activity, ADF will make a best effort to automatically detect your sink and source data store and choose the best location either in the same region if available or the closest one in the same geography, or if not detectable to use the data factory region as alternative.
+- For copy activity, ADF will make a best effort to automatically detect your sink and source data store to choose the best location either in the same region if available or the closest one in the same geography, or if not detectable to use the data factory region as alternative.
 - For transformation activity dispatching, ADF will use the IR in the data factory region.
 
 You can monitor which IR location takes effect during activity execution in pipeline activity monitoring view on UI or activity monitoring payload.
 
 >[!TIP]
->If you are a customer who has strict data compliance requirements and needs to ensure that data does not leave a certain geography, explicitly create an Azure IR in a certain region and point the Linked Service to this IR using ConnectVia property. For example, if you are trying to copy from Blob in UK South to SQL DW in UK South and want to ensure data do not leave UK, create an Azure IR in UK South and link both Linked Services to this IR.
+>If you have strict data compliance requirements and need ensure that data do not leave a certain geography, you can explicitly create an Azure IR in a certain region and point the Linked Service to this IR using ConnectVia property. For example, if you want to copy data from Blob in UK South to SQL DW in UK South and want to ensure data do not leave UK, create an Azure IR in UK South and link both Linked Services to this IR.
 
 ### Self-hosted IR location
 The self-hosted IR is logically registered to the Data Factory and the compute used to support its functionalities is provided by you. Therefore there is no explicit location property for self-hosted IR. 
