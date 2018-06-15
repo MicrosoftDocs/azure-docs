@@ -206,10 +206,11 @@ Microsoft currently supports free and bring-your-own-license (BYOL) licensing mo
 
 | Requirement | Details |  
 |:--- |:--- |  
-| Billing and metering | Support either the free or BYOL billing model. |  
-|Image built from Dockerfile    |   Container images must be based on the Docker image specification and must be built from a Dockerfile. Learn more about building docker images [here].(https://docs.docker.com/engine/reference/builder/#usage) |
-|Hosting in ACR    |   Container images must be hosted in an Azure Container Registry (ACR) repository. Learn more about working with ACR [here].(https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)   |
-|Image tagging    |   Container images must contain at least 1 tag (maximum tags: 16). Learn more about tagging an image [here].(https://docs.docker.com/engine/reference/commandline/tag/)    |
+|Billing and metering  |  Your container must support either free or Bring Your Own License billing models.       |  
+|Image built from Dockerfile   |   Container images must be based on the Docker image specification and must be built from a Dockerfile. Learn more about building docker images [here].(https://docs.docker.com/engine/reference/builder/#usage)
+|Hosting in ACR   |   Container images must be hosted in an Azure Container Registry (ACR) repository. Learn more about working with ACR [here].(https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     
+|Image tagging   |   Container images must contain at least 1 tag (maximum tags: 16). Learn more about tagging an image [here].(https://docs.docker.com/engine/reference/commandline/tag/)     | 
+
 
 
 #### Requirements: Azure Marketplace: Transact: SaaS app  
@@ -221,10 +222,11 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 
 | Requirement | Details |  
 |:--- |:--- |  
-| Billing and metering | Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based *true-up* options are not supported at this time. |  
-| Cancelation | Your offer is cancelable by the customer at any time. |  
-|Transaction landing page     |   You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account.      |    Transaction     |
-|Subscription API    |   You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically.      |     Transaction    |
+|Billing and metering   |   Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based "true-up" capabilities are not supported at this time.      |  
+|Cancelation  |   Your offer is cancelable by the customer at any time.      |  
+|Transaction landing page   |   You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account.      |   
+|Subscription API    |   You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically.      | 
+
 
 
 #### Requirements: Azure Marketplace: Transact: Virtual machine  

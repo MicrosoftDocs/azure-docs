@@ -1,21 +1,13 @@
 ---
-title: Get started with auto scale by custom metric in Azure | Microsoft Docs
+title: Autoscale in Azure using a custom metric
 description: Learn how to scale your resource by custom metric in Azure.
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
-
+ms.component: autoscale
 ---
 # Get started with auto scale by custom metric in Azure
 This article describes how to scale your resource by a custom metric in Azure portal.

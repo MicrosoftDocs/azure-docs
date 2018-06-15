@@ -1,21 +1,13 @@
 ---
-title: Overview of classic alerts in Microsoft Azure and Azure Monitor | Microsoft Docs
+title: Overview of classic alerts in Microsoft Azure and Azure Monitor
 description: Alerts enable you to monitor Azure resource metrics, events, or logs and be notified when a condition you specify is met.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: a6dea224-57bf-43d8-a292-06523037d70b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: robb
-
+ms.component: alerts
 ---
 # What are classic alerts in Microsoft Azure?
 

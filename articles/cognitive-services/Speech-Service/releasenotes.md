@@ -13,21 +13,21 @@ ms.date: 06/07/2018
 ms.author: wolfma
 ---
 
-# Release Notes
+# Release notes
 
-## Cognitive Services Speech SDK 0.4.0 - Release 2018-June
+## Cognitive Services Speech SDK 0.4.0: 2018-June release
 
-**Functional Changes**
+**Functional changes**
 
 - AudioInputStream
 
   A recognizer can now consume a stream as the audio source. For detailed information, see the related [how-to guide](how-to-use-audio-input-streams.md).
 
-- Detailed Output Format
+- Detailed output format
 
   While creating a `SpeechRecognizer`, you can request `Detailed` or `Simple` output format. The `DetailedSpeechRecognitionResult` contains a confidence score, recognized text, raw lexical form, normalized form, and normalized form with masked profanity.
 
-**Breaking Change**
+**Breaking change**
 
 - Change to `SpeechRecognitionResult.Text` from `SpeechRecognitionResult.RecognizedText` in C#.
 
@@ -51,6 +51,6 @@ ms.author: wolfma
 
 More samples have been added and are constantly being updated. For the latest set of samples, see the [Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
-## Cognitive Services Speech SDK 0.2.12733 - Release 2018-May
+## Cognitive Services Speech SDK 0.2.12733: 2018-May release
 
 The first public preview release of the Cognitive Services Speech SDK.

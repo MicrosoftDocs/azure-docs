@@ -80,7 +80,7 @@ To redeploy Azure Stack, you must start over from scratch as described below. Th
 
 3. After the development kit host reboots into the base operating system, log in as a local administrator. Locate and delete the **C:\CloudBuilder.vhdx** file that was used as part of the previous deployment. 
 
-4. Repeat the same steps that you took to first [deploy the ASDK](asdk-deploy.md).
+4. Repeat the same steps that you took to first [deploy the ASDK](asdk-install.md).
 
 ### Redeploy the ASDK without using the installer
 If you did not use the asdk-installer.ps1 script to install the ASDK, you must manually reconfigure the development kit host computer before redeploying the ASDK.

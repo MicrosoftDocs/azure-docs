@@ -1,6 +1,6 @@
 ---
-title: "Enterprise Edition of the Azure-SSIS Integration Runtime | Microsoft Docs"
-description: "This article describes the features and configuration of Enterprise Edition for the Azure-SSIS Integration Runtime"
+title: "Provision Enterprise Edition for the Azure-SSIS Integration Runtime | Microsoft Docs"
+description: "This article describes the features of Enterprise Edition for the Azure-SSIS Integration Runtime and how to provision it"
 services: data-factory
 documentationcenter: ""
 author: douglaslMS 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
 ---
-# Enterprise Edition of the Azure-SSIS Integration Runtime
+# Provision Enterprise Edition for the Azure-SSIS Integration Runtime
 
 The Enterprise Edition of the Azure-SSIS Integration Runtime lets you use the following advanced and premium features:
 -   Change Data Capture (CDC) components

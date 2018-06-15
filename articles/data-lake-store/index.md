@@ -7,9 +7,8 @@ manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-store
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: landing-page
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: carolz
 ---

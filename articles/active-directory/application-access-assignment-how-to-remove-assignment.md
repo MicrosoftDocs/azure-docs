@@ -69,4 +69,4 @@ To **disable all future user consent operations in your entire directory**, foll
 
 
 # Next steps
-[Managing access to apps](active-directory-managing-access-to-apps.md)
+[Managing access to apps](manage-apps/what-is-access-management.md)
