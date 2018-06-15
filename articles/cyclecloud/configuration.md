@@ -67,7 +67,7 @@ To give CycleCloud the required access to your Azure Application Registration, y
 5. In Step 2, search for "MyAzureApplication" and select the appropriate item. Click **Select**.
 
 > [!NOTE]
->You must be the owner of the subscription to assign the Contributor role. 
+>You must be the owner or have owner rights of the subscription to assign the Contributor role. 
 
 ### Creating a Network Security Group
 
