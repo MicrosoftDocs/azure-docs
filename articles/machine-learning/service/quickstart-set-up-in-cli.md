@@ -122,7 +122,8 @@ az extension add <EXACT COMMAND TBD>
     The run outputs a web link to your console. Copy-paste the link into your web browser. This opens a web portal view that shows the results of your run.
 
 ## Clean up resources 
-[!INCLUDE aml-delete-resource-group]
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

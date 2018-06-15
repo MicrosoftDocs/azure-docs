@@ -69,7 +69,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ![png](media/how-to-create-workspace-in-portal/allservices_view_workspace_full.PNG)
 
 ## Clean up resources 
-[!INCLUDE aml-delete-resource-group]
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 
