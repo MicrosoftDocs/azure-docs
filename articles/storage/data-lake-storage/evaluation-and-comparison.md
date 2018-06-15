@@ -13,8 +13,6 @@ ms.service: storage
 
 # Comparing Azure Data Lake Storage Gen2 and Azure Data Lake Storage Gen1
 
-## Comparing Azure Data Lake Storage Gen2 and Azure Data Lake Storage Gen1
-
 The table in this article summarizes the differences between Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2.
 
 Azure Data Lake Storage Gen1 is a hyper scale repository that is optimized for big data analytics workloads.
@@ -52,5 +50,6 @@ In comparison, Azure Data Lake Storage Gen2 offers rich support for the Hadoop C
 |APIs – customer can use REST APIs over HTTPS.     |APIs – customer can use REST APIs over HTTP/HTTPS.         |
 |Many ways to read and write data – customer can use SDKs (.NET, Java, Python, R), Azure portal, and tools (Powershell, Azure CLI, AdlCopy, Distcp, ADF, Azure Import/Export) to read and write their data.     |Many ways to read and write data – Azure portal, and tools (Azure Storage Explorer, Powershell, Azure CLI, AzCopy, Distcp, ADF, Azure Import/Export, Azure Databox) to read and write their data.         |
 
+## Next step
 
-To Do: Add a couple transition sentences to the migration article.
+If you think that Data Lake Storage Gen2 might suit your needs, proceed to the [migration guide](evaluation-and-migration-guide.md) to begin planning a migration.
