@@ -114,17 +114,15 @@ To use Log Analytics to store the logs, follow these steps:
 
 9. Select **OK** to complete the configuration.
 
-    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/08_Workspace-resource.png)
-
 10. After your workspace is created, you're returned to the **Diagnostic logs** page. Confirm the name of your new Log Analytics workspace.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/09_Return-to-logging.png)
 
 11. Select **CoreAnalytics**, then select **Save**.
 
-12. To view your new Log Analytics workspace, select **Core analytics** from your CDN endpoint page.
+12. To view the new Log Analytics workspace, select **Core analytics** from your CDN endpoint page.
 
-    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
+    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
     Your Log Analytics workspace is now ready to log data. In order to consume that data, you must use a [Log Analytics Solution](#consuming-diagnostics-logs-from-a-log-analytics-workspace), covered later in this article.
 
