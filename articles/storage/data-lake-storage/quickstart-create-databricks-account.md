@@ -108,21 +108,20 @@ Perform the following tasks to create a notebook in Databricks, configure the no
     >
     > To use the mounting approach, you must create a Spark cluster with Databricks runtime version **4.0**, which is what you chose in this article.
 
-    In the following snippet, replace `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}`, and `{YOUR SAS TOKEN QUERY STRING}` with the appropriate values for your Azure Storage account. Paste the snippet in an empty cell in the notebook and then press SHIFT + ENTER to run the code cell.
+    In the following snippet, replace `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}`, and `{YOUR STORAGE ACCOUNT ACCESS KEY}` with the appropriate values for your Azure Storage account. Paste the snippet in an empty cell in the notebook and then press SHIFT + ENTER to run the code cell.
 
     * **Mount the storage account with DBFS (recommended)**. In this snippet, the Azure Storage account path is mounted to `/mnt/mypath`. So, in all future occurrences where you access the Azure Storage account you don't need to give the full path. You can just use `/mnt/mypath`.
 
           dbutils.fs.mount(
             source = "abfs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.dfs.core.windows.net/",
             mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR CONTAINER NAME}.dfs.core.windows.net" -> "{YOUR SAS TOKEN QUERY STRING}"))
+            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
 
     * **Directly access the storage account**
 
-          spark.conf.set("fs.azure.sas.<your-container-name>.<your-storage-account-name>.dfs.core.windows.net",
-            "<complete-query-string-of-your-sas-for-the-container>")
+          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    For instructions on how to create a SAS token, see [Using Shared Access Signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
+     For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../common/storage-create-storage-account.md#manage-your-storage-account).
 
 4. Run a SQL statement to create a temporary table using data from the sample JSON data file, **small_radio_json.json**. In the following snippet, replace the placeholder values with your container name and storage account name. Paste the snippet in a code cell in the notebook, and then press SHIFT + ENTER. In the snippet, `path` denotes the location of the sample JSON file that you uploaded to your Azure Storage account.
 
