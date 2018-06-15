@@ -110,7 +110,7 @@ Copy jobs can be triggered by Apache Oozie workflows using frequency or data tri
 
 ### Use Azure Data Factory to schedule copy jobs 
 
-Azure Data Factory can also be used to schedule copy jobs using a **Copy Activity**, and can even be set up on a frequency via the **Copy Wizard**. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Store accounts, so folders like Hive tables would require a complete copy to replicate. Refer to the [Copy Activity tuning guide](../data-factory/v1/data-factory-copy-activity-performance.md) for more information on copying with Data Factory. 
+Azure Data Factory can also be used to schedule copy jobs using a **Copy Activity**, and can even be set up on a frequency via the **Copy Wizard**. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Store accounts, so folders like Hive tables would require a complete copy to replicate. Refer to the [Copy Activity tuning guide](../data-factory/copy-activity-performance.md) for more information on copying with Data Factory. 
 
 ### AdlCopy
 
