@@ -24,10 +24,12 @@ This guide provides high-level guidance for designing resilient device applicati
 - managing reconnection due to service transient connection errors
 
 Implementation details may vary by language, so be sure to refer to the linked API documentation or specific SDK for more details.
-- [C/Python/iOS SDK][lnk-c-retry-md]
-- [.NET SDK][lnk-csharp- retry-md]
-- [Java SDK][lnk-java-retry-md]
-- [Node SDK][lnk-node-retry-md]
+
+- [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
+- [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
+- [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
+- [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
+
 
 ## Designing for resiliency
 
@@ -102,6 +104,7 @@ If the service is responding with a throttling error, the retry policy is differ
 The retry mechanism will stop after `DefaultOperationTimeoutInMilliseconds`, which is currently set at 4 minutes.
 
 [C/Python/iOS SDK]:
-[.NET SDK]:https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md
+
+[.NET SDK]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md
 [Java SDK]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md
-[Node SDK]:https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them
+[Node SDK]: https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them
