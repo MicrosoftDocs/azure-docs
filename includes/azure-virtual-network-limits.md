@@ -46,7 +46,7 @@ The following limits apply only for networking resources managed through Azure R
 | Network Security Groups (NSG) |100 |5000 |
 | NSG rules per NSG |1000** |1000 |
 | IP addresses and ranges specified for source or destination in a security group |2000 |4000 |
-| Application security groups |200 |500 |
+| Application security groups |500 |3000 |
 | Application security groups per IP configuration, per NIC |10 |20 |
 | IP configurations per application security group |1000 |4000 |
 | Application security groups that can be specified within all security rules of a network security group |50 |100 |

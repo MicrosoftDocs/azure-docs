@@ -1,6 +1,6 @@
 ---
-title: Build a Ruby and MySQL web app in Azure App Service on Linux | Microsoft Docs 
-description: Learn how to get a Ruby app working in Azure, with connection to a MySQL database in Azure.
+title: Build a Ruby and Postgres web app in Azure App Service on Linux | Microsoft Docs 
+description: Learn how to get a Ruby app working in Azure, with connection to a PostgreSQL database in Azure.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -9,21 +9,21 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: ruby
 ms.topic: tutorial
-ms.date: 12/21/2017
+ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Build a Ruby and MySQL web app in Azure App Service on Linux
+# Build a Ruby and Postgres web app in Azure App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Ruby web app and connect it to a MySQL database. When you're finished, you'll have a [Ruby on Rails](http://rubyonrails.org/) app running on App Service on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Ruby web app and connect it to a PostgreSQL database. When you're finished, you'll have a [Ruby on Rails](http://rubyonrails.org/) app running on App Service on Linux.
 
-![Ruby on Rails app running in Azure App Service](./media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
+![Ruby on Rails app running in Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a MySQL database in Azure
-> * Connect a Ruby on Rails app to MySQL
+> * Create a PostgreSQL database in Azure
+> * Connect a Ruby on Rails app to PostgreSQL
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream diagnostic logs from Azure
@@ -38,28 +38,28 @@ To complete this tutorial:
 * [Install Git](https://git-scm.com/)
 * [Install Ruby 2.3](https://www.ruby-lang.org/documentation/installation/)
 * [Install Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
-* [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+* [Install and run PostgreSQL](https://www.postgresql.org/download/)
 
-## Prepare local MySQL
+## Prepare local Postgres
 
-In this step, you create a database in your local MySQL server for your use in this tutorial.
+In this step, you create a database in your local Postgres server for your use in this tutorial.
 
-### Connect to local MySQL server
+### Connect to local Postgres server
 
-In a terminal window, connect to your local MySQL server. You can use this terminal window to run all the commands in this tutorial.
+Open the terminal window and run `psql` to connect to your local Postgres server.
 
 ```bash
-mysql -u root -p
+sudo -u postgres psql
 ```
 
-If you're prompted for a password, enter the password for the `root` account. If you don't remember your root account password, see [MySQL: How to Reset the Root Password](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+If your connection is successful, your Postgres database is running. If not, make sure that your local Postgres database is started by following the steps at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
 
-If your command runs successfully, then your MySQL server is running. If not, make sure that your local MySQL server is started by following the [MySQL post-installation steps](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+Type `\q` to exit the Postgres client. 
 
-Exit your server connection by typing `quit`.
+Create a Postgres user that can create databases by running the following command, using your signed-in Linux username.
 
-```sql
-quit
+```bash
+sudo -u postgres createuser -d <signed_in_user>
 ```
 
 <a name="step2"></a>
@@ -84,20 +84,6 @@ cd rubyrails-tasks
 bundle install --path vendor/bundle
 ```
 
-### Configure MySQL connection
-
-In the repository, open _config/database.yml_ and supply the local MySQL root user name and password (line 13). If you installed MySQL using a tool like [Homebrew](https://brew.sh/), then the credentials in the file are already set to the default values (which is `root` and an empty password).
-
-```txt
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  socket: /tmp/mysql.sock
-```
-
 ### Run the sample locally
 
 Run [the Rails migrations](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations) to create the tables the application needs. To see which tables are created in the migrations, look in the _db/migrate_ directory in the Git repository.
@@ -115,70 +101,77 @@ rails server
 
 Navigate to `http://localhost:3000` in a browser. Add a few tasks in the page.
 
-![Ruby on Rails connects successfully to MySQL](./media/tutorial-ruby-mysql-app/mysql-connect-success.png)
+![Ruby on Rails connects successfully to Postgres](./media/tutorial-ruby-postgres-app/postgres-connect-success.png)
 
 To stop the Rails server, type `Ctrl + C` in the terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Create MySQL in Azure
+## Create Postgres in Azure
 
-In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you configure the Ruby on Rails application to connect to this database.
+In this step, you create a Postgres database in [Azure Database for PostgreSQL](/azure/postgresql/). Later, you configure the Ruby on Rails application to connect to this database.
 
 ### Create a resource group
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
-### Create a MySQL server
+### Create a Postgres server
 
-Create a server in Azure Database for MySQL (Preview) with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) command.
+Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) command.
 
-In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.mysql.database.azure.com`), it needs to be globally unique.
+Run the following command in the Cloud Shell, and substitute a unique server name for the *\<postgres_server_name>* placeholder. The server name needs to be unique across all servers in Azure. 
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
+az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres_server_name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
 ```
 
-When the MySQL server is created, the Azure CLI shows information similar to the following example:
+When the Azure Database for PostgreSQL server is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
   "administratorLogin": "adminuser",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql_server_name>.database.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
-  "location": "northeurope",
-  "name": "<mysql_server_name>",
+  "earliestRestoreDate": "2018-06-15T12:38:25.280000+00:00",
+  "fullyQualifiedDomainName": "<postgres_server_name>.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgres_server_name>",
+  "location": "westeurope",
+  "name": "<postgres_server_name>",
   "resourceGroup": "myResourceGroup",
-  ...
+  "sku": {
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  < Output has been truncated for readability >
 }
 ```
 
 ### Configure server firewall
 
-Create a firewall rule for your MySQL server to allow client connections by using the [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
+In the Cloud Shell, create a firewall rule for your Postgres server to allow client connections by using the [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az_postgres_server_firewall_rule_create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. Substitute a unique server name for the *\<postgres_server_name>* placeholder.
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres_server_name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!TIP] 
 > You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-### Connect to production MySQL server locally
+### Connect to production Postgres server locally
 
-In the terminal window, connect to the MySQL server in Azure. Use the value you specified previously for _&lt;mysql_server_name>_.
+In the Cloud Shell, connect to the Postgres server in Azure. Use the value you specified previously for the _&lt;postgres_server_name>_ placeholders.
 
 ```bash
-mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
+psql -U adminuser@<postgres_server_name> -h <postgres_server_name>.postgres.database.azure.com postgres
 ```
 
 When prompted for a password, use _My5up3r$tr0ngPa$w0rd!_, which you specified when you created the database server.
 
 ### Create a production database
 
-At the `mysql` prompt, create a database.
+At the `postgres` prompt, create a database.
 
 ```sql
 CREATE DATABASE sampledb;
@@ -189,55 +182,45 @@ CREATE DATABASE sampledb;
 Create a database user called _railsappuser_ and give it all privileges in the `sampledb` database.
 
 ```sql
-CREATE USER 'railsappuser' IDENTIFIED BY 'MySQLAzure2017'; 
-GRANT ALL PRIVILEGES ON sampledb.* TO 'railsappuser';
+CREATE USER railsappuser WITH PASSWORD 'MyPostgresAzure2017'; 
+GRANT ALL PRIVILEGES ON DATABASE sampledb TO railsappuser;
 ```
 
-Exit the server connection by typing `quit`.
+Exit the server connection by typing `\q`.
 
-```sql
-quit
-```
+## Connect app to Azure Postgres
 
-## Connect app to Azure MySQL
-
-In this step, you connect the Ruby on Rails application to the MySQL database you created in Azure Database for MySQL (Preview).
+In this step, you connect the Ruby on Rails application to the Postgres database you created in Azure Database for PostgreSQL.
 
 <a name="devconfig"></a>
 
 ### Configure the database connection
 
-In the repository, open _config/database.yml_. At the bottom of the file, replace the production variables with the following code. For the _&lt;mysql_server_name>_ placeholder, use the name of the MySQL server you created.
+In the repository, open _config/database.yml_. At the bottom of the file, replace the production variables with the following code. 
 
 ```txt
 production:
   <<: *default
   host: <%= ENV['DB_HOST'] %>
-  port: 3306
   database: <%= ENV['DB_DATABASE'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-  sslca: ssl/BaltimoreCyberTrustRoot.crt.pem
 ```
 
 Save the changes.
 
-> [!NOTE]
-> The `sslca` is added and points to  an existing _.pem_ file in the sample repository. By default, Azure Database for MySQL enforces SSL connections from clients. This `.pem` certificate is how you make SSL connections to Azure Database for MySQL. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
->
-
 ### Test the application locally
 
-In the local terminal, set the following environment variables:
+Back in the local terminal, set the following environment variables:
 
 ```bash
-export DB_HOST=<mysql_server_name>.mysql.database.azure.com
+export DB_HOST=<postgres_server_name>.postgres.database.azure.com
 export DB_DATABASE=sampledb 
-export DB_USERNAME=railsappuser@<mysql_server_name>
-export DB_PASSWORD=MySQLAzure2017
+export DB_USERNAME=railsappuser@<postgres_server_name>
+export DB_PASSWORD=MyPostgresAzure2017
 ```
 
-Run Rails database migrations with the production values you just configured to create the tables in your MySQL database in Azure Database for MySQL (Preview). 
+Run Rails database migrations with the production values you just configured to create the tables in your Postgres database in Azure Database for PostgreSQL. 
 
 ```bash
 rake db:migrate RAILS_ENV=production
@@ -274,11 +257,11 @@ Run the sample application in the production environment.
 rails server -e production
 ```
 
-Navigate to `http://localhost:3000`. If the page loads without errors, the Ruby on Rails application is connecting to the MySQL database in Azure.
+Navigate to `http://localhost:3000`. If the page loads without errors, the Ruby on Rails application is connecting to the Postgres database in Azure.
 
 Add a few tasks in the page.
 
-![Ruby on Rails connects successfully to Azure Database for MySQL (Preview)](./media/tutorial-ruby-mysql-app/azure-mysql-connect-success.png)
+![Ruby on Rails connects successfully to Azure Database for PostgreSQL](./media/tutorial-ruby-postgres-app/azure-postgres-connect-success.png)
 
 To stop the Rails server, type `Ctrl + C` in the terminal.
 
@@ -295,7 +278,7 @@ Your app is ready to be deployed.
 
 ## Deploy to Azure
 
-In this step, you deploy the MySQL-connected Rails application to Azure App Service.
+In this step, you deploy the Postgres-connected Rails application to Azure App Service.
 
 ### Configure a deployment user
 
@@ -313,10 +296,10 @@ In this step, you deploy the MySQL-connected Rails application to Azure App Serv
 
 In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the Cloud Shell.
 
-The following Cloud Shell command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_ and _&lt;mysql_server_name>_.
+The following Cloud Shell command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_ and _&lt;postgres_server_name>_.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<postgres_server_name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres_server_name>" DB_PASSWORD="MyPostgresAzure2017"
 ```
 
 ### Configure Rails environment variables
@@ -372,7 +355,7 @@ remote: Running deployment command...
 
 Browse to `http://<app_name>.azurewebsites.net` and add a few tasks to the list.
 
-![Ruby on Rails app running in Azure App Service](./media/tutorial-ruby-mysql-app/ruby-mysql-in-azure.png)
+![Ruby on Rails app running in Azure App Service](./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png)
 
 Congratulations, you're running a data-driven Ruby on Rails app in Azure App Service.
 
@@ -389,7 +372,7 @@ In the terminal, navigate to the root of the Git repository.
 Generate a new migration that adds a boolean column called `Done` to the `Tasks` table:
 
 ```bash
-rails generate migration add_Done_to_Tasks Done:boolean
+rails generate migration AddDoneToTasks Done:boolean
 ```
 
 This command generates a new migration file in the _db/migrate_ directory.
@@ -461,7 +444,7 @@ rails server
 
 To see the task status change, navigate to `http://localhost:3000` and add or edit items.
 
-![Added check box to task](./media/tutorial-ruby-mysql-app/complete-checkbox.png)
+![Added check box to task](./media/tutorial-ruby-postgres-app/complete-checkbox.png)
 
 To stop the Rails server, type `Ctrl + C` in the terminal.
 
@@ -483,7 +466,7 @@ git push azure master
 
 Once the `git push` is complete, navigate to the Azure web app and test the new functionality.
 
-![Model and database changes published to Azure](media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
+![Model and database changes published to Azure](media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 If you added any tasks, they are retained in the database. Updates to the data schema leave existing data intact.
 
@@ -510,8 +493,8 @@ The left menu provides pages for configuring your app.
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a MySQL database in Azure
-> * Connect a Ruby on Rails app to MySQL
+> * Create a Postgres database in Azure
+> * Connect a Ruby on Rails app to Postgres
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream diagnostic logs from Azure
