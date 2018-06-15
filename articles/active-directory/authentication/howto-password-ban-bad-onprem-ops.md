@@ -37,7 +37,7 @@ Follow the guidance in the article [Configuring the custom banned password list]
    * After you are comfortable with the feature, you can switch the **Mode** to **Enforced**
 1. Click **Save**
 
-![Enabling Azure AD password protection components in the Azure portal](authentication-methods-password-protection-on-prem.png)
+![Enabling Azure AD password protection components in the Azure portal](./media/howto-password-ban-bad-onprem-ops/authentication-methods-password-protection-on-prem.png)
 
 ## Audit Mode
 
