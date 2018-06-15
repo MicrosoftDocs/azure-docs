@@ -28,18 +28,20 @@ ms.author: jdial
     - A Log Analytics (OMS) Workspace, with read and write access
     - User must be assigned with either one of the following roles at subscription level:
     
-    1.	User must be any one of the following classic administrator 
-        a.	Account administrator
-        b.	Service administrator 
-        c.	Co-administrator
+    1.	You must be any one of the following classic administrator
+    
+        - Account administrator
+        - Service administrator 
+        - Co-administrator
         
-    2.	User must have any one of following RBAC roles at subscription scope
-        a.	Owner
-        b.	Contributor
-        c.	Reader
-        d.	Network Contributor
+    2.	Your account must have any one of the following RBAC roles at subscription scope
+    
+        - Owner
+        - Contributor
+        - Reader
+        - Network Contributor
 
-    3. User must have any custom RBAC roles with permission to all of the following mentioned actions at subscription level
+    3. Your account must have any custom RBAC roles with permission to all of the following mentioned actions at subscription level
             
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
@@ -54,12 +56,12 @@ ms.author: jdial
         
     To check roles assigned to a user for a subscription, please follow below the steps:
 
-    Login to Azure using Login-AzureRmAccount 
+    Login to Azure using **Login-AzureRmAccount** 
 
-    Select the required subscription using Select-AzureRmSubscription 
+    Select the required subscription using **Select-AzureRmSubscription** 
 
     Now to list all the roles that are assigned to a specified user, use
-    Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators 
+    **Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators** 
 
     If you are not seeing any output after executing commends then please reach out to respective Subscription admin, to get access to execute the commands.  
 
@@ -165,3 +167,47 @@ ms.author: jdial
         - `ESC` collapses the expanded selection.
         - The `UP Arrow` key performs the same action as `ESC`. The `Down arrow` key performs the same action as `Enter`.
         - Use `Shift+Plus` to zoom in, and `Shift+Minus` to zoom out.
+
+17. How can I navigate using Keyboard in VNet Topology View?
+
+    The virtual networks topology page contains two main sections:
+    
+    - **Banner**: The banner placed in the top of the Virtual Networks Topology provides the capability to select traffic distribution filters via buttons like Connected VNets/Disconnected VNets/Active/Inactive/On-Premise/Azure region/Public IPs/Heavy/Medium/Low/Allowed/Blocked, and legend information. On the selection of defined buttons, the respective filter is applied on the topology, like if a user selects the “Active” filter button under the banner, then the topology highlights the “Active” VNets in your deployment.
+    - **Topology**: The Topology section placed below the banner shows traffic distribution among VNets.
+    
+    **Keyboard Navigation on Banner**
+    
+    - By default, the selection on the virtual networks topology page for the banner is the filter “Connected VNets” button.
+    - To navigate to another filters button, you can use the `Tab` key to move next. To navigate backward, use `Shift+Tab` key. Forward navigation direction precedence is left to right, followed by top to bottom.
+    - Press the `Enter` arrow key to apply the selected filter. Based on filter selection and deployment, one or multiple nodes (VNet) under the Topology section are highlighted.
+        - To switch between **Banner** and **Topology**, press `Ctrl+F6`.
+        
+    **Keyboard Navigation on Topology**
+    
+    - Once you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**VNet**) in the topology view.
+    - To navigate to other highlighted nodes in the topology view you can use the `Shift+Right arrow` key for forward movement. 
+    - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to “More details” button on the **Information Tool Box**. To further navigate inside **Box** view, use `Right` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
+    - On selection of any such nodes, it’s all connections can be visited, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
+    
+
+18. How can I navigate using Keyboard in Subnet Topology View?
+
+    The virtual subnetworks topology page contains two main sections:
+    
+    - **Banner**: The banner placed in the top of the Virtual Subnetworks Topology provides the capability to select traffic distribution filters via buttons like Active/Inactive/External Connections/On-Premise/Azure region/Public IPs/Active Flows/Heavy/Medium/Low/Malicious Traffic/Allowed/Blocked, Gateway subnets/Backend subnets and Frontend subnets. On the selection of defined buttons, the respective filter is applied on the topology, like if a user selects the “Active” filter button under the banner, then the topology highlights the “Active” Virtual Subnetwork in your deployment.
+    - **Topology**: The Topology section placed below the banner shows traffic distribution among Virtual Subnetworks.
+    
+    **Keyboard Navigation on Banner**
+    
+    - By default, the selection on the Virtual Subnetworks Topology page for the banner is the filter “Subnets” button.
+    - To navigate to another filters button, you can use the `Tab` key to move next. To navigate backward, use `Shift+Tab` key. Forward navigation direction precedence is left to right, followed by top to bottom.
+    - Press the `Enter` arrow key to apply the selected filter. Based on filter selection and deployment, one or multiple nodes (Subnet) under the Topology section are highlighted.
+        - To switch between **Banner** and **Topology**, press `Ctrl+F6`.
+        
+    **Keyboard Navigation on Topology**
+    
+    - Once you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**Subnet**) in the topology view.
+    - To navigate to other highlighted nodes in the topology view you can use the `Shift+Right arrow` key for forward movement. 
+    - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to “More details” button on the **Information Tool Box**. To further navigate inside **Box** view, use `Right` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
+    - On selection of any such nodes, it’s all connections can be visited, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.    
+

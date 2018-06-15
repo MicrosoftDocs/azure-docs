@@ -39,7 +39,7 @@ To complete the scenario in this quickstart, you need:
 
 - **Access to an Azure AD Premium edition** - Azure AD conditional access is an Azure AD Premium capability. 
 
-- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](add-users-azure-active-directory.md#add-cloud-based-users).
+- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
 
 
 ## Test your sign-in
@@ -206,7 +206,7 @@ To test your policy, try to sign-in to your [Azure portal](https://portal.azure.
 
 When no longer needed, delete the test user and the conditional access policy:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
 
 - To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 
@@ -215,5 +215,7 @@ When no longer needed, delete the test user and the conditional access policy:
 
 ## Next steps
 
-If you would like to learn more about conditional access, see [Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md).
+> [!div class="nextstepaction"]
+> [Require terms of use to be accepted](./active-directory-conditional-access-tou.md)
+
 
