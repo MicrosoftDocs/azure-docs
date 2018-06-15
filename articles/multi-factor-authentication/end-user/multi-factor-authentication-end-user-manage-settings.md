@@ -4,7 +4,7 @@ description: Manage how you use Azure Multi-Factor Authentication including chan
 services: multi-factor-authentication
 keywords: multifactor authentication client, authentication problem, correlation ID
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: barlan
+ms.author: lizross
 ms.custom: end-user
 ---
 # Manage your settings for two-step verification
