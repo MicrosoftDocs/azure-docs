@@ -15,6 +15,8 @@ ms.author: tomfitz
 
 When creating an event subscription, you can customize the settings for event delivery. You can set how long Event Grid tries to deliver the message. You can set a storage account to use for storing events that can't be delivered to an endpoint.
 
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+
 ## Set retry policy
 
 When creating an Event Grid subscription, you can set values for how long Event Grid should try to deliver the event. By default, Event Grid attempts for 24 hours (1440 minutes), and tries a maximum of 30 times. You can set either of these values for your event grid subscription.
@@ -22,6 +24,10 @@ When creating an Event Grid subscription, you can set values for how long Event 
 To set the event time-to-live to a value other than 1440 minutes, use:
 
 ```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
