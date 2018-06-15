@@ -91,15 +91,7 @@ These are the available HDInsight solutions:
 * HDInsight Spark Monitoring
 * HDInsight Storm Monitoring
 
-In this tutorial, you install an HDInsight Hadoop monitoring solution. For more information, see [Management solutions in Azure](../monitoring/monitoring-solutions.md).
-
-1. Open the Log Analytics workspace that is associated to your HDInsight cluster from the Azure portal.
-2. Select the **Overview** tile.
-3. Select **Add**.  It opens a **Management Solutions** pane on the right.
-4. Select **HDInsight Hadoop Monitoring**. You might need to select **Load more** at the bottom a couple of times before you can find the solution.
-5. Select **Create**.
-6. Verify it is the correct OME workspace, and then select **Create**. When it is done, you see an **HDInsightHadoop** tile listed under **Summary**.
-7. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
+For the instructions to install a management solution, see [Management solutions in Azure](../monitoring/monitoring-solutions.md#install-a-management-solution). To experiment, install a HDInsight Hadoop Monotiring solution. When it is done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
 
     ![HDInsight OMS Hadoop monitoring solution view](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

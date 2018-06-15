@@ -26,9 +26,7 @@ Learn some basic scenarios on how to use Azure Log Analytics to monitor Azure HD
 
 ## Prerequisites
 
-* You must have configured an HDInsight cluster to use Azure Log Analytics. For instructions, see [Use Azure Log Analytics with HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
-
-* You must have added the HDInsight cluster-specific management solutions to the [Log Analytics](../operations-management-suite/operations-management-suite-overview.md) workspace as described in [Add HDInsight cluster management solutions to Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+* You must have configured an HDInsight cluster to use Azure Log Analytics, and added the HDInsight cluster-specific Log Analytics management solutions to the workspace. For instructions, see [Use Azure Log Analytics with HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 ## Analyze HDInsight cluster metrics
 
@@ -46,10 +44,10 @@ Learn how to look for specific metrics for your HDInsight cluster.
 
     ![Search all metrics output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "Search all metrics output")
 
-5. From the left pane, under **Type**, select a metric that you want to dig deep into, and then click **Apply**. The following screenshot shows the `metrics_resourcemanager_queue_root_default_CL` type is selected.
+5. From the left pane, under **Type**, select a metric that you want to dig deep into, and then select **Apply**. The following screenshot shows the `metrics_resourcemanager_queue_root_default_CL` type is selected.
 
     > [!NOTE]
-    > You may need to click the **[+]More** button to find the metric you are looking for. Also, the **Apply** button is at the bottom of the list so you must scroll down to see it.
+    > You may need to select the **[+]More** button to find the metric you are looking for. Also, the **Apply** button is at the bottom of the list so you must scroll down to see it.
 
     Notice that the query in the text box changes to one shown in the highlighted box in the following screenshot:
 
@@ -77,7 +75,7 @@ Learn how to  look error messages during a specific time window. The steps here 
 
     ![Search all errors output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Search all errors output")
 
-5. From the left pane, under **Type** category, select an error type that you want to dig deep into, and then click **Apply**.  Notice the results are refined to only show the error of the type you selected.
+5. From the left pane, under **Type** category, select an error type that you want to dig deep into, and then select **Apply**.  Notice the results are refined to only show the error of the type you selected.
 7. You can dig deeper into this specific error list by using the options available in the left pane. For example:
 
     - To see error messages from a specific worker node:
@@ -88,7 +86,7 @@ Learn how to  look error messages during a specific time window. The steps here 
 
         ![Search for specific errors output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "Search for specific errors output")
 
-9. To see the specific error. You can click **[+]show more** to look at the actual error message.
+9. To see the specific error. You can select **[+]show more** to look at the actual error message.
 
     ![Search for specific errors output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Search for specific errors output")
 
@@ -108,7 +106,7 @@ The first step to create an alert is to arrive at a query based on which the ale
 
     ![Enter query to create an alert](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Enter query to create an alert")
 
-4. In the **Create rule** window, enter the query and other details to create an alert, and then click **Create alert rule**.
+4. In the **Create rule** window, enter the query and other details to create an alert, and then select **Create alert rule**.
 
     ![Enter query to create an alert](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Enter query to create an alert")
 
