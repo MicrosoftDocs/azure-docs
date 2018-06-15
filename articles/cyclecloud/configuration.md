@@ -66,6 +66,9 @@ To give CycleCloud the required access to your Azure Application Registration, y
 4. Click **+ Add**. On the new panel that appears, click on **Contributor** to set the role.
 5. In Step 2, search for "MyAzureApplication" and select the appropriate item. Click **Select**.
 
+> [!NOTE]
+>You must be the owner of the subscription to assign the Contributor role. 
+
 ### Creating a Network Security Group
 
 From your Azure Dashboard, click on **Network Security Groups**. If you don't see the option, click on **All Services** and search for or scroll down to **Network Security Groups**.
