@@ -28,8 +28,6 @@ ms.author: carlrab
 
 ## What happens when database resource limits are reached?
 
-### What happens when database and elastic pool resource limits are reached?
-
 ### Compute (DTUs and eDTUs / vCores)
 
 When database compute utilization (measured by DTUs and eDTUs, or vCores) becomes high, query latency increases and can even time out. Under these conditions, queries may be queued by the service and are provided resources for execution as resource become free.

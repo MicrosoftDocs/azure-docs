@@ -906,11 +906,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-resource-limits.md",
-            "redirect_url": "/azure/sql-database/sql-database-dtu-resource-limits-single-databases",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/sql-database/sql-database-single-database-resources.md",
             "redirect_url": "/azure/sql-database/sql-database-single-database-scaling",
             "redirect_document_id": false
