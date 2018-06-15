@@ -37,13 +37,10 @@
   - name: HBase cluster replication in Azure VNet
     href: ../hbase/apache-hbase-replication.md
     maintainContext: true
-- name: Monitoring using OMS
+- name: Monitoring using Log Analytics
   items:
   - name: Use Azure Log Analytics
     href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-    maintainContext: true
-  - name: Cluster-specific dashboards
-    href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
     maintainContext: true
   - name: Use queries with Log Analytics
     href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
