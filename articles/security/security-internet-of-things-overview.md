@@ -60,7 +60,7 @@ You can learn about Internet of Things security best practices by reading [Inter
 
 The article discusses the following topics:
 
-* [IoT hardware manufacturer/integrator](/azure/iot-fundamentals/iot-security-best-practices.md#iot-hardware-manufacturerintegrator)
-* [IoT solution developer](/azure/iot-fundamentals/iot-security-best-practices.md#iot-solution-developer)
-* [IoT solution deployer](/azure/iot-fundamentals/iot-security-best-practices.md#iot-solution-deployer)
-* [IoT solution operator](/azure/iot-fundamentals/iot-security-best-practices.md#iot-solution-operator)
+* [IoT hardware manufacturer/integrator](/azure/iot-fundamentals/iot-security-best-practices#iot-hardware-manufacturerintegrator)
+* [IoT solution developer](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-developer)
+* [IoT solution deployer](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-deployer)
+* [IoT solution operator](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-operator)
