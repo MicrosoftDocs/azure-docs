@@ -54,29 +54,29 @@ When you assign users or security groups to Data Lake Storage accounts, you cont
 
 2. Click **Access Control (IAM)** to list the subscription owners.
 
-    ![Assign security group to Data Lake Storage account](./media/how-to-secure-data/permission-add-new.png "Assign security group to Data Lake Storage account")
+    ![Assign security group to Data Lake Storage account](./media/secure-data/permission-add-new.png "Assign security group to Data Lake Storage account")
 
 3. Click **Add** to add a new permission **Add permissions**.
 4. Select a **Role** for the user/group. Select the [security group](../common/storage-auth-aad-rbac.md) you created earlier in Azure Active Directory. If you have a lot of users and groups, use the **Select** text box to filter on the group name.
 
-    ![Add a role for the user](./media/how-to-secure-data/permission-add-new-2.png "Add a role for the user")
+    ![Add a role for the user](./media/secure-data/permission-add-new-2.png "Add a role for the user")
    
 	The **Owner** and **Contributor** role provide access to a variety of administration functions on the data lake account. For users who  interact with data, but still need to view account management information, you can add them to the **Reader** role. The scope of these roles is limited to the management operations related to the Data Lake Storage account.
 
 4. If you want to add a group/user that is not listed in the **Add permissions** screen, you can invite them by typing their email address in the **Select** text box and then selecting them from the list.
    
-	![Add a security group](./media/how-to-secure-data/permission-add-new-search.png "Add a security group")
+	![Add a security group](./media/secure-data/permission-add-new-search.png "Add a security group")
    
 5. Once you click **Save**, you should see the security group added to the account.
    
-    ![Security group added](./media/how-to-secure-data/permission-user-groups-added.png "Security group added")
+    ![Security group added](./media/secure-data/permission-user-groups-added.png "Security group added")
 
 6. Your user/security group now has access to the Data Lake Storage account. If you want to provide access to specific users, you can add them to the security group. Similarly, if you want to revoke access for a user, you can remove them from the security group. You can also assign multiple security groups to an account. 
 
 ## Allow IPs or a virtual network for data access
 Data Lake Storage enables you to further lock down access to your data store at network level. You can enable firewall, specify an IP address, or define an IP address range for your trusted clients. Once enabled, only clients that have the IP addresses within defined range can connect to the store.
 
-![Firewall settings: IP addresses and virtual networks](./media/how-to-secure-data/firewall-ip-access2.png "Firewall settings: IP addresses and virtual networks")
+![Firewall settings: IP addresses and virtual networks](./media/secure-data/firewall-ip-access2.png "Firewall settings: IP addresses and virtual networks")
 
 ## Remove security groups for a Data Lake Storage account
 When you remove security groups from  Data Lake Storage accounts, you are only changing access to the management operations on the account using the Azure Portal and Azure Resource Manager APIs.
@@ -85,7 +85,7 @@ When you remove security groups from  Data Lake Storage accounts, you are only c
 
 2. In the **Access Control (IAM)** blade, click the security group(s) you want to remove. Click **Remove**.
 
-    ![Security group removed](./media/how-to-secure-data/permission-user-groups-remove.png "Security group removed")
+    ![Security group removed](./media/secure-data/permission-user-groups-remove.png "Security group removed")
 
 ## Next steps
 * [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](quickstart-create-connect-hdi-cluster.md)
