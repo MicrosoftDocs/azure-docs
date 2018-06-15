@@ -52,7 +52,7 @@ It is important to configure a secondary authentication phone number.  Because y
 
 **To change your primary phone number:**  
 
-1. On the Additional security **verification** page, select the text box with your current phone number and edit it with your new phone number.  
+1. On the **Additional security verification** page, select the text box with your current phone number and edit it with your new phone number.  
 2. Select **Save**.  
 3. If this phone number is the number that you use for your preferred verification option, you must verify the new number before you can save it.  
 
