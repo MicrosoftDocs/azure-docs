@@ -13,15 +13,15 @@ ms.service: storage
 
 # The ABFS Hadoop File System Driver
 
-One of the primary access methods for data in Azure Data Lake Storage Gen2 is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). ADLS features an associated driver, `ABFS`, that is part of _Apache Hadoop_ **TODO: Check Trademark Usage** and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in ADLS without any code explicitly referencing the ADLS service.
+One of the primary access methods for data in Azure Data Lake Storage Gen2 is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Azure Data Lake Storage features an associated driver, `ABFS`, that is part of _Apache Hadoop_ **TODO: Check Trademark Usage** and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in Azure Data Lake Storage without any code explicitly referencing the Azure Data Lake Storage service.
 
 ## Prior Capability: The WASB Driver
 The [WASB driver](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) provided the original support for Azure Storage Blobs. This driver performed the complex task of mapping _file system_ semantics (as required by the Hadoop FileSystem interface) to that of the _object store_ style interface exposed by Azure Blob Storage. This driver continues to support this model, providing high performance access to data stored in Blobs, but contains a significant amount of code performing this mapping making it difficult to maintain. Additionally, some operations such as [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) and [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) when applied to directories require the driver to perform a vast number of operations (due to _object stores_ lack of support for directories) which often leads to degraded performance.
 
-Thus, to overcome the inherent design deficiences of WASB, the new ADLS service was implemented with support from the new ABFS driver.
+Thus, to overcome the inherent design deficiences of WASB, the new Azure Data Lake Storage service was implemented with support from the new ABFS driver.
 
 ## The ABFS Driver
-The [ADLS REST interface](./ADLS_REST_Reference) is designed to support _file system_ semantics over Azure Blob Storage. Given that the Hadoop FileSystem is also designed to support the same semantics there is no requirement for a complex mapping in the driver. Thus, the ABFS driver is a mere client shim for the REST API.
+The [Azure Data Lake Storage REST interface](https://docs.microsoft.com/en-us/rest/api/datalakestorage/) is designed to support _file system_ semantics over Azure Blob Storage. Given that the Hadoop FileSystem is also designed to support the same semantics there is no requirement for a complex mapping in the driver. Thus, the ABFS driver is a mere client shim for the REST API.
 
 However, there are some functions that the driver must still perform:
 
@@ -37,11 +37,11 @@ hdfs dfs -mkdir -p abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorial
 hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data/ 
 ```
 
-Internally, the ABFS driver translates the resource(s) specified in the URI to files and directories and makes calls to the ADLS REST API with those references.
+Internally, the ABFS driver translates the resource(s) specified in the URI to files and directories and makes calls to the Azure Data Lake Storage REST API with those references.
 
 ### Authentication
 
-The ABFS driver supports two forms of authentication so that the Hadoop application may securely access resources contained within an ADLS account. Full details of the available authentication schemes are provided in the [Azure Storage security guide](../security-guide.md). They are:
+The ABFS driver supports two forms of authentication so that the Hadoop application may securely access resources contained within an Azure Data Lake Storage account. Full details of the available authentication schemes are provided in the [Azure Storage security guide](../common/storage-security-guide.md). They are:
 
 - **Shared Key:** This permits users access to ALL resources in the account. The key is encrypted and stored in Hadoop configuration.
 
