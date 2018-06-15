@@ -58,8 +58,8 @@
     #href: 
 - name: How-to guides
   items:
-  #- name: Use HDInsight clusters with blobFS (working title)
-    #href: 
+  - name: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
+    href: use-hdi-cluster.md
   #- name: Connect to Azure Databricks
     #href: 
   - name: Secure data
