@@ -19362,6 +19362,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/azure-stack-manage-windows-azure-pack.md", 
+            "redirect_url": "/azure/azure-stack/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/monitoring/management-overview-monitoring.md",
             "redirect_url": "/azure/monitoring/",
             "redirect_document_id": false
