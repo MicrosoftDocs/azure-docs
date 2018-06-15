@@ -222,7 +222,7 @@ Do the following to create a new space:
 2. Set a breakpoint in this updated block of code (you may already have one set from before).
 3. Hit F5 to start the `mywebapi` service. This will start the service in your cluster using the selected space, which in this case is `scott`.
 
-Here is a diagram that will help you understand how the different spaces work. The blue path shows a request via the `default` space, which is the default path used if no space is prepended to the URL. The green path shows a request via the `scott` space.
+Here is a diagram that will help you understand how the different spaces work. The purple path shows a request via the `default` space, which is the default path used if no space is prepended to the URL. The pink path shows a request via the `scott` space.
 
 ![](media/common/Space-Routing.png)
 
