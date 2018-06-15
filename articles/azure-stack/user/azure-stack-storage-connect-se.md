@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/14/2018
+ms.date: 06/15/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
@@ -86,7 +86,7 @@ Use the following steps to connect storage explorer to an Azure Stack subscripti
 
 ## Connect to an Azure Stack subscription with AD FS account
 
-> ![Note]  
+> [!Note]  
 > The Azure Federated Service (AD FS) sign-in experience supports Storage Explorer 1.2.0 or newer versions with Azure Stack 1804 or newer update.
 Use the following steps to connect storage explorer to an Azure Stack subscription which belongs to an AD FS account.
 
@@ -95,7 +95,7 @@ Use the following steps to connect storage explorer to an Azure Stack subscripti
 
     ![Add an account](media/azure-stack-storage-connect-se/add-an-account.png)
 
-3. Select **Use Custom Environment**, under **Azure environment** in **Connect to Azure Storage**. Select **Next**.
+3. Select **Next**. In the Connect to Azure Storage dialog box, under **Azure environment**, select **Use Custom Environment**, then click **Next**.
 
     ![Connect to Azure Storage](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
 
