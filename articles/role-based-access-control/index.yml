@@ -19,28 +19,28 @@ abstract:
   aside:
     image:
       alt: 
-      height: 110
+      height: 112
       src: media/index/video-thumb-get-started.png
-      width: 250  
-    title: Locking down access to Azure (1:16:44)
+      width: 200  
+    title: Lock down access to Azure (1:16:44)
     href: https://www.youtube.com/embed/FKBoWWKRnvI
-    width: 250
+    width: 200
 sections:
 - title: 5-Minute Quickstarts
   items:
   - type: list
     style: unordered
     items: 
-    - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Grant access for a user using RBAC and the Azure portal</a>
+    - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Grant access for a user</a>
 - title: Step-by-Step Tutorials
   items:
   - type: list
     style: unordered
     items: 
-    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-user-powershell">Grant access for a user using RBAC and Azure PowerShell</a>
-    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Grant access for a group using RBAC and Azure PowerShell</a>
-    - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Create a custom role using Azure PowerShell</a>
-    - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Create a custom role using Azure CLI</a>
+    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-user-powershell">Grant access for a user - PowerShell</a>
+    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Grant access for a group - PowerShell</a>
+    - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Create a custom role - PowerShell</a>
+    - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Create a custom role - CLI</a>
 - title: Reference
   items:
   - type: list
