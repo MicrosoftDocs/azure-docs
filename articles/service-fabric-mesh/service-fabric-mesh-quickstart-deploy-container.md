@@ -2,7 +2,7 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 #Intent: I want to use my existing containers as is and deploy them to Azure. (Windows or Linux) 
 title: Quickstart - Deploy an container to Azure Service Fabric Mesh | Microsoft Docs
-description: This quickstart shows you how to deploy an existing container on Service Fabric Mesh.
+description: This quickstart shows you how to deploy a container on Service Fabric Mesh.
 services: service-fabric-mesh
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: rwike77
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
 ---
-# Quickstart: Deploy a container
+# Quickstart: Deploy a container to Service Fabric Mesh
 
 Service Fabric Mesh makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines. In this quickstart, you create a container in Azure and expose it to the internet. This operation is completed in a single command. Within just a couple minutes, you'll see this in your browser:
 
