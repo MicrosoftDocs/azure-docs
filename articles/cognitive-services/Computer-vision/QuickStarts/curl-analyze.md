@@ -11,9 +11,9 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze a Remote Image with cURL
+# Quickstart: Analyze a remote image with cURL
 
-In this quickstart, you analyze a remote image to extract visual features using Computer Vision. To analyze a local image, see [Analyze a Local Image with cURL](curl-disk.md).
+In this quickstart, you analyze a remote image to extract visual features using Computer Vision. To analyze a local image, see [Analyze a local image with cURL](curl-disk.md).
 
 ## Prerequisites
 
