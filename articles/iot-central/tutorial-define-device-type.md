@@ -54,11 +54,17 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 4. To create a new Azure IoT Central application:
 
     * Choose a friendly application name, such as **Contoso Air Conditioners**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
+    
     * Choose an Azure Active Directory and Azure subscription to use. For more information about directories and subscriptions, see [Create an Azure IoT Central application](howto-create-application.md).
+    
     * Either use an existing resource group, or create a new resource group with a name of your choice. For example, **contoso-rg**.
+    
     * Choose the region geographically closest to you.
+    
     * Choose the **Custom Application** application template.
+    
     * Choose the **Free 30 Day Trial Application** payment plan.
+    
     * Choose **Create**.
 
     ![Azure IoT Central Create Application page](./media/tutorial-define-device-type/iotcentralcreate.png)
@@ -92,9 +98,13 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 4. In the **Connected Air Conditioner** device template, make sure you are on the **Measurements** page where you define the telemetry. Each device template you define has separate pages for you to:
 
     * Specify the measurements, such as telemetry, event, and state, sent by the device.
+    
     * Define the settings used to control the device.
+    
     * Define the properties used to record information about the device.
+    
     * Define the rules associated with the device.
+    
     * Customize the device dashboard for your operators.
 
     ![Air conditioner measurements](./media/tutorial-define-device-type/airconmeasurements.png)
@@ -109,7 +119,9 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 6. Each type of telemetry you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
     * Display options.
+
     * Details of the telemetry.
+
     * Simulation parameters.
 
     To configure your **Temperature** telemetry, use the information in the following table:
@@ -146,7 +158,9 @@ You can use Event to define point-in-time data that is sent by the device to sig
 2. Each type of Event you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
    * Display Name.
+
    * Field Name.
+
    * Severity.
 
     To configure your **Fan Motor Error** event, use the information in the following table:
@@ -180,8 +194,11 @@ You can use State to define and visualize the state of the device or its compone
 2. Each type of State you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
    * Display Name.
+
    * Field Name.
+
    * Values with optional display labels.
+
    * Color for each value.
 
     To configure your **Fan Mode** state, use the information in the following table:
