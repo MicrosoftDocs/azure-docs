@@ -3,7 +3,7 @@ title: Build and deploy a forecasting model using Azure Machine Learning Package
 description: Learn how to build, train, test and deploy a forecasting model using the Azure Machine Learning Package for Forecasting. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: service
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
