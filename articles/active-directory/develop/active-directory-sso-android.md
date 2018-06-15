@@ -33,10 +33,10 @@ The document preceding assumes you know how to integrate your application with t
 
 ## SSO Concepts in the Microsoft Identity Platform
 ### Microsoft Identity Brokers
-Microsoft provides applications for every mobile platform that allow for the bridging of credentials across applications from different vendors and allows for special enhanced features that require a single secure place from where to validate credentials. The SDK calls these **brokers**. On iOS and Android, these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages some or all of the device for their employee. These brokers support managing security just for some applications or the entire device based on what IT Administrators desire. In Windows, this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
+Microsoft provides applications for every mobile platform that allow for the bridging of credentials across applications from different vendors and allows for special enhanced features that require a single secure place from where to validate credentials. The SDK calls these **brokers**. On iOS and Android, the brokers are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages some or all of the device for their employee. These brokers support managing security just for some applications or the entire device based on what IT Administrators desire. In Windows, this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
 
 #### Broker assisted logins
-Broker-assisted logins are login experiences that occur within the broker application and use the storage and security of the broker to share credentials across all applications on the device that apply the Microsoft Identity platform. This means that your applications rely on the broker to sign users in. On iOS and Android, these brokers are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages the device for their user. An example of this type of application is the Microsoft Authenticator application on iOS. In Windows, this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
+Broker-assisted logins are login experiences that occur within the broker application and use the storage and security of the broker to share credentials across all applications on the device that apply the Microsoft Identity platform. The implication being your applications will rely on the broker to sign users in. On iOS and Android, these brokers are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages the device for their user. An example of this type of application is the Microsoft Authenticator application on iOS. In Windows, this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
 The experience varies by platform and can sometimes be disruptive to users if not managed correctly. You're probably most familiar with this pattern if you have the Facebook application installed and use Facebook Connect from another application. The Microsoft Identity platform uses the same pattern.
 
 On Android, the account chooser is displayed on top of your application, which is less disruptive to the user.
@@ -46,7 +46,7 @@ If a compatible broker is installed on the device, like the Microsoft Authentica
  
  #### How Microsoft ensures the application is valid
  
- The need to ensure the identity of an application call the broker is crucial to the security provided in broker assisted logins. Neither iOS nor Android enforces unique identifiers that are valid only for a given application, so malicious applications may "spoof" a legitimate application's identifier and receive the tokens meant for the legitimate application. To ensure Microsoft is always communicating with the right application at runtime, the developer is asked to provide a custom redirectURI when registering their application with Microsoft. **How developers should craft this redirect URI is discussed in detail below.** This custom redirectURI contains the certificate thumbprint of the application and is ensured to be unique to the application by the Google Play Store. When an application calls the broker, the broker asks the Android operating system to provide it with the certificate thumbprint that called the broker. The broker provides this certificate thumbprint to Microsoft in the call to the identity system. If the certificate thumbprint of the application does not match the certificate thumbprint provided to us by the developer during registration, access is denied to the tokens for the resource the application is requesting. This check ensures that only the application registered by the developer receives tokens.
+ The need to ensure the identity of an application call the broker is crucial to the security provided in broker assisted logins. iOS and Android do not enforce unique identifiers that are valid only for a given application, so malicious applications may "spoof" a legitimate application's identifier and receive the tokens meant for the legitimate application. To ensure Microsoft is always communicating with the right application at runtime, the developer is asked to provide a custom redirectURI when registering their application with Microsoft. **How developers should craft this redirect URI is discussed in detail below.** This custom redirectURI contains the certificate thumbprint of the application and is ensured to be unique to the application by the Google Play Store. When an application calls the broker, the broker asks the Android operating system to provide it with the certificate thumbprint that called the broker. The broker provides this certificate thumbprint to Microsoft in the call to the identity system. If the certificate thumbprint of the application does not match the certificate thumbprint provided to us by the developer during registration, access is denied to the tokens for the resource the application is requesting. This check ensures that only the application registered by the developer receives tokens.
 
 Brokered-SSO logins have the following benefits:
 
@@ -85,7 +85,7 @@ Here is a representation of how the Microsoft Identity SDKs work with the broker
 Armed with this background information you should be able to better understand and implement SSO within your application using the Microsoft Identity platform and SDKs.
 
 ### Turning on SSO for broker assisted SSO
-The ability for an application to use any broker that is installed on the device is **turned off by default**. In order to use your application with the broker you must do some additional configuration and add some code to your application.
+The ability for an application to use any broker that is installed on the device is **turned off by default**. In order to use your application with the broker, you must do some additional configuration and add some code to your application.
 
 The steps to follow are:
 
@@ -94,14 +94,14 @@ The steps to follow are:
 3. Setting up the correct permissions in the Android manifest
 
 #### Step 1: Enable broker mode in your application
-The ability for your application to use the broker is turned on when you create the "settings" or initial setup of your Authentication instance. You do this by setting your ApplicationSettings type in your code:
+The ability for your application to use the broker is turned on when you create the "settings" or initial setup of your Authentication instance. To do this in your app:
 
 ```
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
 #### Step 2: Establish a new redirect URI with your URL Scheme
-In order to ensure that the right application recevies the returned the credential tokens, there is a need to make sure the call back to your application in a way that the Android operating system can verify. The Android operating system uses the hash of the certificate in the Google Play store. This cannot be spoofed by a rogue application. Along with the URI of the broker application, Microsoft ensures that the tokens are returned to the correct application. We require you to establish this unique redirect URI both in your application and set as a Redirect URI in the developer portal.
+In order to ensure that the right application recevies the returned the credential tokens, there is a need to make sure the call back to your application in a way that the Android operating system can verify. The Android operating system uses the hash of the certificate in the Google Play store. This hash of the certificate cannot be spoofed by a rogue application. Along with the URI of the broker application, Microsoft ensures that the tokens are returned to the correct application. A unique redirect URI is required to be registered on the application.
 
 Your redirect URI must be in the proper form of:
 
@@ -109,10 +109,10 @@ Your redirect URI must be in the proper form of:
 
 ex: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-This Redirect URI needs to be specified in your app registration using the [Azure portal](https://portal.azure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
+You can register this redirect URI in your app registration using the [Azure portal](https://portal.azure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
 
 #### Step 3: Set up the correct permissions in your application
-The broker application in Android uses the Accounts Manager feature of the Android OS to manage credentials across applications. In order to use the broker in Android your app manifest must have permissions to use AccountManager accounts. This is discussed in detail in the [Google documentation for Account Manager here](http://developer.android.com/reference/android/accounts/AccountManager.html)
+The broker application in Android uses the Accounts Manager feature of the Android OS to manage credentials across applications. In order to use the broker in Android your app manifest must have permissions to use AccountManager accounts. These permissions are discussed in detail in the [Google documentation for Account Manager here](http://developer.android.com/reference/android/accounts/AccountManager.html)
 
 In particular, these permissions are:
 
