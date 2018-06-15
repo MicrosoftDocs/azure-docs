@@ -18,15 +18,15 @@ This article shows how to register a new IoT Edge device using Visual Studio Cod
 
 ## Prerequisites
 
-* An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription. 
+* An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code
 
 ## Sign in to your IoT hub
 
-You can use the Azure IoT extensions for Visual Studio code to perform operations with your IoT hub. For these operations to work, you need to sign in to your Azure account and select the IoT hub that you are working on.
+You can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. For these operations to work, you need to sign in to your Azure account and select the IoT hub that you are working on.
 
-1. In Visual Studio code, open the **Explorer** view.
+1. In Visual Studio Code, open the **Explorer** view.
 
 2. At the bottom of the Explorer, expand the **Azure IoT Hub Devices** section. 
 
@@ -56,7 +56,7 @@ In the output screen, you see the result of the command. The device info is prin
 
 ## View all devices
 
-All the devices that connect to your IoT hub are listed in the **Azure IoT Hub Devices** section of the Visual Studio Code explorer. IoT Edge devices are distinguishable from non-edge devices with a different icon, and the fact that they can be expanded to show the modules deployed to each device. 
+All the devices that connect to your IoT hub are listed in the **Azure IoT Hub Devices** section of the Visual Studio Code Explorer. IoT Edge devices are distinguishable from non-Edge devices with a different icon, and the fact that they can be expanded to show the modules deployed to each device. 
 
    ![View devices in VS Code](./media/how-to-register-device-vscode/view-devices.png)
 
@@ -74,4 +74,4 @@ You can also select **Get Device Info** from the right-click menu to see all the
 
 ## Next steps
 
-Learn how to [Deploy modules to a device with the Azure portal](how-to-deploy-modules-portal.md)
+Learn how to [Deploy modules to a device with the Azure portal](how-to-deploy-modules-portal.md).
