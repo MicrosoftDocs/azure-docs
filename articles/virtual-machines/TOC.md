@@ -1,3 +1,5 @@
+# [Virtual Machines Documentation](index.md)
+
 # [Linux Virtual Machines in Azure](linux/overview.md)
 # [Windows Virtual Machines in Azure](windows/overview.md)
 # [VM Extensions Documentation](extensions/overview.md)
