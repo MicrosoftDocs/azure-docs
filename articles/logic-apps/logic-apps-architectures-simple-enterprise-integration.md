@@ -51,7 +51,7 @@ Your requirements might differ from the architecture described here. Use the rec
 
 ## Azure API Management tier
 
-Use the Basic, Standard or Premium tiers because they offer a production SLA and support scale out within the Azure region (number of units varies by tier). Premium tier also supports scale out across multiple Azure regions. Base the tier you chose on your level of throughput required and feature set. For more information, see [API Management pricing](https://azure.microsoft.com/en-us/pricing/details/api-management/).
+Use the Basic, Standard or Premium tiers because they offer a production SLA and support scale-out within the Azure region (number of units varies by tier). Premium tier also supports scale-out across multiple Azure regions. Base the tier you chose on your level of throughput required and feature set. For more information, see [API Management pricing](https://azure.microsoft.com/en-us/pricing/details/api-management/).
 
 You are charged for all API Management instances when they are running. If you have scaled up and don’t need that level of performance all the time, consider taking advantage of API Management’s hourly billing and scale down.
 
@@ -99,7 +99,7 @@ The configuration of Azure API Management should be [backed up regularly](../api
 1. In a DR event, a new API Management instance is provisioned, the backup is restored to it, and DNS records are repointed.
 2. Customers keep a passive copy of their service in another Azure region (incurring additional cost) Backups are regularly restored to it. In a DR event, only DNS records need be repointed to restore the service.
 
-As Logic Apps can be recreated very quickly and are serverless, they are backed up by saving a copy of the associated Azure Resource Manager (ARM) template. These can be saved to source control/integrated into a customers’ continuous integration/continuous deployment (CI/CD) process.
+As Logic Apps can be recreated very quickly and are serverless, they are backed up by saving a copy of the associated Azure Resource Manager template. These can be saved to source control/integrated into a customers’ continuous integration/continuous deployment (CI/CD) process.
 
 Logic Apps that have been published through API Management will need their locations updated should they move to a different data center. This can be accomplished through a simple PowerShell script to update the Backend property of the API.
 
@@ -117,20 +117,20 @@ For more information, see [resource group](../azure-resource-manager/resource-gr
 
 ## Deployment
 
-We recommend that you use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to deploy both Azure API Management and Azure Logic Apps. Templates make it easier to automate deployments via PowerShell or the Azure command line interface (CLI).
+We recommend that you use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to deploy both Azure API Management and Azure Logic Apps. Templates make it easier to automate deployments via PowerShell or the Azure command-line interface (CLI).
 
-We recommend putting Azure API Management and any individual Logic Apps in their own separate ARM templates. This will allow storing them in source control systems. These templates can then be deployed together or individually as part of a continuous integration/continuous (CI/CD) deployment process.
+We recommend putting Azure API Management and any individual Logic Apps in their own separate Resource Manager templates. This will allow storing them in source control systems. These templates can then be deployed together or individually as part of a continuous integration/continuous (CI/CD) deployment process.
 
 ## Versions
 
-Each time you make a configuration change to a Logic App (or deploy an update through an ARM template), a copy of that version is kept for your convenience (all versions that have a run history will be kept). You can use these versions to track historical changes, and also promote a version to be the current configuration of the logic app; doing so means you can effectively roll-back a Logic App, for example.
+Each time you make a configuration change to a Logic App (or deploy an update through a Resource Manager template), a copy of that version is kept for your convenience (all versions that have a run history will be kept). You can use these versions to track historical changes, and also promote a version to be the current configuration of the logic app; doing so means you can effectively roll-back a Logic App, for example.
 
 API Management has two distinct (but complimentary) [versioning concepts](https://blogs.msdn.microsoft.com/apimanagement/2018/01/11/versions-revisions-general-availibility/):
 
 - Versions used to provide your API consumers with a choice of the API they could consume based on their needs (e.g. v1, v2 or beta, production).
 - Revisions allowing API Administrators to safely make changes to an API and deploy them to users with optional commentary.
 
-In the context of deployment – API Management revisions should be considered as a way to make changes safely, keep a change history, and make API consumers aware of those changes. A revision can be created in a development environment and deployed between other environments using ARM templates.
+In the context of deployment – API Management revisions should be considered as a way to make changes safely, keep a change history, and make API consumers aware of those changes. A revision can be created in a development environment and deployed between other environments using Resource Manager templates.
 
 Whilst revisions can be used to test an API before it is made ‘current’ and made accessible to users, we do not recommend using this mechanism for load or integration testing – separate test or pre-production environments should be used instead.
 
@@ -138,7 +138,7 @@ Whilst revisions can be used to test an API before it is made ‘current’ and 
 
 Never check passwords, access keys, or connection strings in to source control. If they are needed, use the appropriate technique to deploy and secure these values. 
 
-In Logic Apps, any sensitive values needed within the logic app (that cannot be created in the form of a connection) should be stored in Azure Key Vault and referred to from an ARM template. We also suggest using deployment template parameters along with parameter files for each environment. More guidance on [securing parameters and inputs within a workflow](logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow).
+In Logic Apps, any sensitive values needed within the logic app (that cannot be created in the form of a connection) should be stored in Azure Key Vault and referred to from a Resource Manager template. We also suggest using deployment template parameters along with parameter files for each environment. More guidance on [securing parameters and inputs within a workflow](logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow).
 
 In API Management, secrets are managed using objects called Named Values/Properties. These securely store values that can be accessed in API Management policies. See how to [manage secrets in API Management](../api-management/api-management-howto-properties.md).
 
@@ -158,7 +158,7 @@ This section lists security considerations that are specific to the Azure servic
 - Use role-based access control (RBAC) to ensure appropriate levels of access for users.
 - Secure public API endpoints in API Management using OAuth/Open IDConnect. Do this by configuring an identity provider and adding a JWT validation policy.
 - Connect to backend services from API Management using mutual certificates
-- Secure HTTP trigger-based Logic Apps by creating a IP Address whitelist pointing to the IP Address of API Management. This prevents calling the logic app from the public internet without first going through API Management.
+- Secure HTTP trigger-based Logic Apps by creating an IP Address whitelist pointing to the IP Address of API Management. This prevents calling the logic app from the public internet without first going through API Management.
 
 This reference architecture showed how to build a simple enterprise integration platform using Azure Integration Services.
 

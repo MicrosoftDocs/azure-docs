@@ -78,7 +78,7 @@ The resource group also has a region, which specifies where deployment metadata 
 
 # Scalability considerations
 
-Azure Service Bus premium tier can scale out the number of messaging units to achieve higher scalability. Premium can have 1, 2, or 4 messaging units. For further guidance on scaling Azure Service Bus, see [Best Practices for performance improvements using Service Bus Messaging](../service-bus-messaging/service-bus-performance-improvements.md).
+Azure Service Bus premium tier can scale-out the number of messaging units to achieve higher scalability. Premium can have 1, 2, or 4 messaging units. For further guidance on scaling Azure Service Bus, see [Best Practices for performance improvements using Service Bus Messaging](../service-bus-messaging/service-bus-performance-improvements.md).
 
 # Availability considerations
 
@@ -104,9 +104,9 @@ For more information, see [resource group](../azure-resource-manager/resource-gr
 
 ## Deployment
 
-We recommend that you use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to deploy Azure API Management, Logic Apps, Event Grid and Service Bus. Templates make it easier to automate deployments via PowerShell or the Azure command line interface (CLI).
+We recommend that you use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to deploy Azure API Management, Logic Apps, Event Grid and Service Bus. Templates make it easier to automate deployments via PowerShell or the Azure command-line interface (CLI).
 
-We recommend putting Azure API Management, any individual Logic Apps, Event Grid topics and Service Bus Namespaces in their own separate ARM templates. This will allow storing them into source control systems for. These templates can then be deployed together or individually as part of a continuous integration/continuous (CI/CD) deployment process.
+We recommend putting Azure API Management, any individual Logic Apps, Event Grid topics and Service Bus Namespaces in their own separate Resource Manager templates. This will allow storing them into source control systems for. These templates can then be deployed together or individually as part of a continuous integration/continuous (CI/CD) deployment process.
 
 ## Diagnostics and monitoring
 
