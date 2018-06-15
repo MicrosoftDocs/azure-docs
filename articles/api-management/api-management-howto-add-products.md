@@ -72,7 +72,7 @@ Developers must first subscribe to a product to get access to the API. When they
 
 ### Add an API to an existing product
 
-![add product API](media/api-management-howto-add-products/add-product-api.jpg)
+![add product API](media/api-management-howto-add-products/add-product-api.png)
 
 1. From the **Products** tab, select a product.
 2. Navigate to the **APIs** tab.
