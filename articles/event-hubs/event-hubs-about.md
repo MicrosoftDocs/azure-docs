@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/22/2018
+ms.date: 06/15/2018
 ms.author: shvija
 #Customer intent: As a developer, how do I build data telemetry pipelines for real-time business scenarios?
 
@@ -18,12 +18,12 @@ ms.author: shvija
 
 Azure Event Hubs is a Big Data streaming service that ingests millions of events per second, and provides low latency and high throughput for real-time analytics, batch ingestion, and visualization. 
 
-Following are common scenarios that we see Event Hubs used in,
+Event Hubs is used in some of the following common scenarios:
 
 - Anomaly detection (fraud/outliers)
 - Application logging
 - Analytics pipelines, such as clickstreams
-- Live Dashboarding
+- Live dashboarding
 - Archiving data
 - Transaction processing
 - User telemetry processing
@@ -31,7 +31,7 @@ Following are common scenarios that we see Event Hubs used in,
 
 ## Why use Event Hubs?
 
-Organizations need data-driven strategies to increase competitive advantage, or to analyze data to get valuable insights, Event Hubs provides a distributed stream processing platform with low latency and seamless integration with data and analytics services in and outside Azure to build a complete Big Data pipeline.
+Organizations need data-driven strategies to increase competitive advantage, or to analyze data to get valuable insights. Event Hubs provides a distributed stream processing platform with low latency and seamless integration with data and analytics services inside and outside Azure to build a complete Big Data pipeline.
 
 The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. It provides a synchronized time retention buffer decoupling the event producers from event consumers. 
 
@@ -41,7 +41,7 @@ Event Hubs provides message stream handling capability but has characteristics t
 
 ## Fully managed PaaS 
 
-Event Hubs is a managed service with no configuration or management overhead, so you focus on your business solutions. Event Hubs for Kafka Ecosystems give you the PaaS Kafka experience without having to manage, configure, or run your clusters.
+Event Hubs is a managed service with no configuration or management overhead, so you focus on your business solutions. [Event Hubs for Kafka ecosystems](event-hubs-for-kafka-ecosystem-overview.md) gives you the PaaS Kafka experience without having to manage, configure, or run your clusters.
 
 ## Scalable 
 
@@ -49,16 +49,15 @@ You can start with megabytes, and grow to gigabytes or terabytes of data streams
 
 ## Real-time and batching
 
-Ingest, buffer, store, and process your stream in real time to get actionable insights. Event Hubs uses a partition consumer model allowing multiple applications to process the stream concurrently and letting you control the velocity of processing.
+Ingest, buffer, store, and process your stream in real time to get actionable insights. Event Hubs uses a partitioned consumer model allowing multiple applications to process the stream concurrently and letting you control the velocity of processing.
 
 [Capture](event-hubs-capture-overview.md) your data in near-real time to your [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or your [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) for long-term retention or micro-batch processing. You can achieve this on the same stream you use for deriving real-time analytics. Setting up Capture is fast, there are no administrative costs to run it, and it scales automatically with Event Hubs throughput units. Event Hubs Capture enables you to focus on data processing rather than on data capture.
 
+## Rich ecosystem
 
-## Rich Ecosystem
-
-Event Hubs for Kafka Ecosystems enable Apache Kafka (1.0 and above) clients and applications to talk to Event Hubs without having to manage any cluster. 
+Event Hubs for Kafka ecosystems enables Apache Kafka (1.0 and above) clients and applications to talk to Event Hubs without having to manage any clusters.
+ 
 With a broad ecosystem available in various [languages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), you can easily start processing your streams from Event Hubs. All supported client languages provide low-level integration.
-
 
 ## Next steps
 
