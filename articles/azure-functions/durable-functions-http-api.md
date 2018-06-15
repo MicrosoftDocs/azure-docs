@@ -192,7 +192,7 @@ The **HTTP 202** response also includes a **Location** response header that refe
 
 ### Get all instances status
 
-You can also query all instances status. Remove the `instanceId` from the `Get instance status` request. The parameters are the same as the `Get instance status.` 
+You can also query all instances status. Remove the `instanceId` from the 'Get instance status' request. The parameters are the same as the 'Get instance status.' 
 
 #### Request
 
