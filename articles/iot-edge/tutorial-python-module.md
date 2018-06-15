@@ -200,17 +200,16 @@ You can see the full container image address with tag in the VS Code integrated 
 2. In Azure IoT Hub Devices explorer, right-click your IoT Edge device, then click **Create Deployment for IoT Edge device**. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**.
 
 3. Click the refresh button. You should see the new **PythonModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
-
-       > [!NOTE]
-       > **Bugbash-only** The Python Device SDK is a wrapper of the C SDK and C SDK domain sockets aren’t present yet. This means in your config.yaml on your IoT Edge device, you’ll need to tell edgelet lo listen on HTTP. In the sample below, replace the IP’s with the IP of the device itself.  (It needs to be IP – just using the device name WILL NOT WORK because of the way that docker & /etc/hosts interact).
-       > ```yaml
-       > connect:
-       >   management_uri: "http://10.91.136.196:8080"
-       >   workload_uri: http://10.91.136.196:8081
-       > listen:
-       >   management_uri: "http://0.0.0.0:8080"
-       >   workload_uri: "http://0.0.0.0:8081"
-       > ```
+> [!IMPORTANT]
+> **Bugbash-only** The Python Device SDK is a wrapper of the C SDK and C SDK domain sockets aren’t present yet. This means in your config.yaml on your IoT Edge device, you’ll need to tell edgelet lo listen on HTTP. In the sample below, replace the IP’s with the IP of the device itself.  (It needs to be IP – just using the device name WILL NOT WORK because of the way that docker & /etc/hosts interact).
+> ```yaml
+> connect:
+>   management_uri: "http://10.91.136.196:8080"
+>   workload_uri: http://10.91.136.196:8081
+> listen:
+>   management_uri: "http://0.0.0.0:8080"
+>   workload_uri: "http://0.0.0.0:8081"
+> ```
 
 
 ## View generated data
