@@ -1,6 +1,6 @@
 ---
-title: Copy data to/from Azure SQL Database using Data Factory | Microsoft Docs
-description: Learn how to copy data from supported source data stores to Azure SQL Database (or) from SQL Database to supported sink data stores by using Data Factory.
+title: Copy data to or from Azure SQL Database by using Data Factory | Microsoft Docs
+description: Learn how to copy data from supported source data stores to Azure SQL Database or from SQL Database to supported sink data stores by using Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -17,57 +17,57 @@ ms.author: jingwang
 
 ---
 # Copy data to or from Azure SQL Database by using Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-azure-sql-connector.md)
-> * [Version 2 - Preview](connector-azure-sql-database.md)
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
+> * [Version 1, GA](v1/data-factory-azure-sql-connector.md)
+> * [Version 2, Preview](connector-azure-sql-database.md)
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to an Azure SQL Database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article explains how to use the Copy Activity in Azure Data Factory to copy data from and to an Azure SQL Database. It builds on the [Copy Activity overview](copy-activity-overview.md) article, which presents a general overview of Copy Activity.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Azure SQL Database connector in V1](v1/data-factory-azure-sql-connector.md).
+> This article applies to version 2 of Data Factory, currently in preview. If you use version 1 of the Data Factory service, generally available (GA), see [Azure SQL Database connector in V1](v1/data-factory-azure-sql-connector.md).
 
 ## Supported capabilities
 
-You can copy data from/to Azure SQL Database to any supported sink data store, or copy data from any supported source data store to Azure SQL Database. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from or to Azure SQL Database to any supported sink data store. And you can copy data from any supported source data store to Azure SQL Database. For a list of data stores that are supported as sources or sinks by Copy Activity, see the [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this Azure SQL Database connector supports:
+Specifically, this Azure SQL Database connector supports these functions:
 
-- Copying data using **SQL authentication**, and **Azure Active Directory Application token authentication** with Service Principal or Managed Service Identity (MSI).
-- As source, retrieving data using SQL query or stored procedure.
-- As sink, appending data to destination table or invoking a stored procedure with custom logic during copy.
+- Copy data by using **SQL authentication** and **Azure Active Directory (Azure AD) Application token authentication** with a service principal or Managed Service Identity (MSI).
+- As a source, retrieve data by using a SQL query or stored procedure.
+- As a sink, append data to a destination table or invoke a stored procedure with custom logic during the copy.
 
 > [!IMPORTANT]
-> If you copy data using Azure Integration Runtime, configure [Azure SQL Server Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). 
-> If you copy data using Self-hosted Integration Runtime, configure the Azure SQL Server firewall to allow appropriate IP range including the machine's IP that is used to connect to Azure SQL Database.
+> If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure Services can access the server.
+> If you copy data by using a self-hosted integration runtime, configure the Azure SQL server firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure SQL Database.
 
-## Getting started
+## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Azure SQL Database connector.
+The following sections provide details about properties that are used to define Data Factory entities specific to an Azure SQL Database connector.
 
 ## Linked service properties
 
-The following properties are supported for Azure SQL Database linked service:
+These properties are supported for an Azure SQL Database linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to: **AzureSqlDatabase** | Yes |
-| connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| servicePrincipalId | Specify the application's client ID. | Yes when using AAD authentication with Service Principal. |
-| servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when using AAD authentication with Service Principal. |
-| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes when using AAD authentication with Service Principal. |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
+| type | The **type** property must be set to **AzureSqlDatabase**. | Yes |
+| connectionString | Specify information needed to connect to the Azure SQL Database instance for the **connectionString** property. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal. |
+| servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal. |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal. |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No |
 
-For different authentication types, refer to the following sections on prerequisites and JSON samples respectively:
+For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
-- [Using SQL authentication](#using-sql-authentication)
-- [Using AAD Application token authentication - service principal](#using-service-principal-authentication)
-- [Using AAD Application token authentication - managed service identity](#using-managed-service-identity-authentication)
+- [SQL authentication](#sql-authentication)
+- [Azure AD Application token authentication: Service principal](#service-principal-authentication)
+- [Azure AD Application token authentication: Managed Service Identity](#managed-service-identity-authentication)
 
 ### Using SQL authentication
 
-**Linked service example using SQL authentication:**
+#### Linked service example that uses SQL authentication
 
 ```json
 {
@@ -88,34 +88,34 @@ For different authentication types, refer to the following sections on prerequis
 }
 ```
 
-### Using service principal authentication
+### Service principal authentication
 
-To use service principal based AAD application token authentication, follow these steps:
+To use a service principal-based Azure AD application token authentication, follow these steps:
 
-1. **[Create an Azure Active Directory application from Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Make note of the application name, and the following values which you use to define the linked service:
+1. **[Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)** from the Azure portal. Make note of the application name and the following values that define the linked service:
 
     - Application ID
     - Application key
     - Tenant ID
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL Server on Azure portal if you haven't done so. The AAD administrator has to be an AAD user or AAD group, but cannot be a service principal. This step is done so that, in the subsequent step, you can use an AAD identity to create a contained database user for the service principal.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator must be an Azure AD user or Azure AD group, but it can't be a service principal. This step is done so that, in the next step, you can use an Azure AD identity to create a contained database user for the service principal.
 
-3. **Create a contained database user for the service principal**, by connecting to the database from/to which you want to copy data using tools like SSMS, with an AAD identity having at least ALTER ANY USER permission, and executing the following T-SQL. Learn more on contained database user from [here](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Grant the service principal needed permissions** as you normally do for SQL users, e.g. by executing below:
+4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code:
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. In ADF, configure an Azure SQL Database linked service.
+5. **Configure an Azure SQL Database linked service** in Azure Data Factory.
 
 
-**Linked service example using service principal authentication:**
+#### Linked service example that uses service principal authentication
 
 ```json
 {
@@ -142,15 +142,15 @@ To use service principal based AAD application token authentication, follow thes
 }
 ```
 
-### Using managed service identity authentication
+### Managed Service Identity authentication
 
-A data factory can be associated with a [managed service identity (MSI)](data-factory-service-identity.md), which represents this specific data factory. You can use this service identity for Azure SQL Database authentication, which allows this designated factory to access and copy data from/to your database.
+A data factory can be associated with a [Managed Service Identity](data-factory-service-identity.md) that represents the specific data factory. You can use this service identity for Azure SQL Database authentication. The designated factory can access and copy data from or to your database by using this identity.
 
-To use MSI based AAD application token authentication, follow these steps:
+To use MSI-based Azure AD application token authentication, follow these steps:
 
-1. **Create a group in Azure AD and make the factory MSI a member of the group**.
+1. **Create a group in Azure AD.** Make the factory MSI a member of the group.
 
-    a. Find the data factory service identity from Azure portal. Go to your data factory -> Properties -> copy the **SERVICE IDENTITY ID**.
+    a. Find the data factory service identity from the Azure portal. Go to your data factory **Properties** and copy the **SERVICE IDENTITY ID**.
 
     b. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module, sign in using `Connect-AzureAD` command, and run the following commands to create a group and add the data factory MSI as a member.
     ```powershell
@@ -158,7 +158,7 @@ To use MSI based AAD application token authentication, follow these steps:
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL Server on Azure portal if you haven't done so. The AAD administrator can be an AAD user or AAD group. If you grant the group with MSI an admin role, skip step 3 and 4 below as the administrator would have full access to the DB.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL Server on Azure portal if you haven't done so. The AAD administrator can be an AAD user or AAD group. If you grant the group with MSI an admin role, skip step 3 and 4 below as the administrator would have full access to the database.
 
 3. **Create a contained database user for the AAD group**, by connecting to the database from/to which you want to copy data using tools like SSMS, with an AAD identity having at least ALTER ANY USER permission, and executing the following T-SQL. Learn more on contained database user from [here](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -554,8 +554,8 @@ In your database, define the table type with the same name as sqlWriterTableType
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
-    [State] [varchar](256) NOT NULL，
-    [Category] [varchar](256) NOT NULL，
+    [State] [varchar](256) NOT NULL,
+    [Category] [varchar](256) NOT NULL,
 )
 ```
 
