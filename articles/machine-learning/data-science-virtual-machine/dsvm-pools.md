@@ -40,7 +40,7 @@ After you create a Batch AI cluster, you can use the same CLI or Python SDK to s
 For more information, see:
 * Step-by-step walkthrough of using [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) to manage Batch AI
 * Step-by-step walkthrough of using [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) to manage Batch AI
-* [Batch AI recipes](https://github.com/Azure/BatchAI) that demonstrate how to use various AI and deep learning frameworks with Batch AI.
+* [Batch AI recipes](https://github.com/Azure/BatchAI) that demonstrate how to use various AI and deep learning frameworks with Batch AI
 
 ## Interactive VM pool
 
