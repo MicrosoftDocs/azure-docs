@@ -1,5 +1,5 @@
 ---
-title: Use the cross-platform Azure CLI to create alerts for Azure services | Microsoft Docs
+title: Use the cross-platform Azure CLI to create classic alerts for Azure services | Microsoft Docs
 description: Trigger emails, notifications, or call websites URLs (webhooks), or automation when the conditions you specify are met.
 author: rboucher
 services: azure-monitor
