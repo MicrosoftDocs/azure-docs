@@ -1971,6 +1971,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/app-service/containers/tutorial-ruby-mysql-app.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-ruby-postgres-app",
+            "redirect_document_id": false
+        },
+        
+        {
             "source_path": "articles/app-service/app-service-move-resources.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
             "redirect_document_id": false
@@ -22350,7 +22356,7 @@
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
             "redirect_document_id": true
         },
-	    {
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
             "redirect_document_id": false
@@ -22494,11 +22500,25 @@
             "source_path": "articles/active-directory/active-directory-groups-restore-azure-portal.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-restore-azure-portal",
             "redirect_document_id": false
-        }
-        ,
+        },
         {
             "source_path": "articles/security/azure-security-best-practices-vms.md",
             "redirect_url": "/azure/security/azure-security-iaas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-get-started-premium.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-get-started-premium",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-create-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-members-azure-portal.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal",
             "redirect_document_id": false
         }
     ]
