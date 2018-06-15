@@ -186,15 +186,15 @@ In the tutorial, you work with Visual Studio solution that connects to the solut
 
 When you modify the device simulation service, you can run it locally to test your changes. Before you run the device simulation service locally, you must stop the instance running in the virtual machine as follows:
 
-1. To find the **CONTAINER ID** of the **device-simulation** service, run the following command in the SSH session connected to the virtual machine:
+1. To find the **CONTAINER ID** of the **device-simulation-dotnet** service, run the following command in the SSH session connected to the virtual machine:
 
     ```sh
     docker ps
     ```
 
-    Make a note of the container ID of the **device-simulation** service.
+    Make a note of the container ID of the **device-simulation-dotnet** service.
 
-1. To stop the **device-simulation** container, run the following command:
+1. To stop the **device-simulation-dotnet** container, run the following command:
 
     ```sh
     docker stop container-id-from-previous-step
@@ -243,12 +243,6 @@ You now have everything in place, and you are ready to start adding a new simula
 ## Create a simulated device type
 
 The easiest way to create a new device type in the device simulation service is to copy and modify an existing type. The following steps show you how to copy the built-in **Chiller** device to create a new **Lightbulb** device:
-
-1. In Visual Studio, open the **device-simulation.sln** solution file in your local clone of the **device-simulation** repository.
-
-1. In Solution Explorer, right-click the **SimulationAgent** project, choose **Properties**, and then choose **Debug**.
-
-1. In the **Environment variables** section, edit the value of the **PCS\_IOTHUB\_CONNSTRING** variable to be the IoT Hub connection string you noted previously. Then save your changes.
 
 1. In Solution Explorer, right-click the **WebService** project, choose **Properties**, and then choose **Debug**.
 
@@ -380,18 +374,21 @@ The **scripts/lightbulb-01-state.js** file defines the simulation behavior of th
 1. Edit the **main** function to implement the behavior as shown in the following snippet:
 
     ```js
-    function main(context, previousState) {
+    function main(context, previousState, previousProperties) {
 
-      // Restore the global state before generating the new telemetry, so that
-      // the telemetry can apply changes using the previous function state.
-      restoreState(previousState);
+        // Restore the global device properties and the global state before
+        // generating the new telemetry, so that the telemetry can apply changes
+        // using the previous function state.
+        restoreSimulation(previousState, previousProperties);
 
-      state.temperature = vary(200, 5, 150, 250);
+        state.temperature = vary(200, 5, 150, 250);
 
-      // Make this flip every so often
-      state.status = flip(state.status);
+        // Make this flip every so often
+        state.status = flip(state.status);
 
-      return state;
+        updateState(state);
+
+        return state;
     }
     ```
 
@@ -600,7 +597,7 @@ This section describes how to modify an existing simulated device type to suppor
 
 The following steps show you how to find the files that define the built-in **Chiller** device:
 
-1. If you have not already done so, use the following command to clone the **device-simulation** GitHub repository to your local machine:
+1. If you have not already done so, use the following command to clone the **device-simulation-dotnet** GitHub repository to your local machine:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -668,9 +665,9 @@ The following steps show you how to add a new **Internal Temperature** type to t
 
 ### Test the Chiller device type
 
-To test the updated **Chiller** device type, first run a local copy of the **device-simulation** service to test your device type behaves as expected. When you have tested and debugged your updated device type locally, you can rebuild the container and redeploy the **device-simulation** service to Azure.
+To test the updated **Chiller** device type, first run a local copy of the **device-simulation-dotnet** service to test your device type behaves as expected. When you have tested and debugged your updated device type locally, you can rebuild the container and redeploy the **device-simulation-dotnet** service to Azure.
 
-When you run the **device-simulation** service locally, it sends telemetry to your Remote Monitoring solution. On the **Devices** page, you can provision instances of your updated type.
+When you run the **device-simulation-dotnet** service locally, it sends telemetry to your Remote Monitoring solution. On the **Devices** page, you can provision instances of your updated type.
 
 To test and debug your changes locally, see the previous section [Test the Lightbulb device type locally](#test-the-lightbulb-device-type-locally).
 

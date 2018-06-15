@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/24/2018
+ms.date: 06/14/2018
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -60,13 +60,11 @@ This version provides the following capabilities:
 
 ## Naming conventions
 
-Since Azure Media Services v3 is built on Azure Resource Manager, resource names (for example, Assets, Jobs, Transforms) are subject to naming constraints.
+Azure Media Services v3 resource names (for example, Assets, Jobs, Transforms) are subject to Azure Resource Manager naming constraints. In accordance with Azure Resource Manager, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
 
-In accordance with Azure Resource Manager, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
+Media Services resource names cannot include: '<', '>', '%', '&', ':', '\', '?', '/', '*', '+', '.', asterisk, or any control characters. All other characters are allowed. The max length of a resource name is 260 characters. 
 
-Media Services resource names cannot include: '<', '>', '%', '&', ':', '\', '?', '/' OR any control characters. The max length is 260 characters. All other characters are allowed. 
-
-For more information, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+For more information about Azure Resource Manager naming, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
 ## How can I get started with v3?
 
