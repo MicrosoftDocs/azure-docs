@@ -13,11 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-<<<<<<< HEAD
 ms.date: 06/14/2018
-=======
-ms.date: 06/08/2018
->>>>>>> 42e6003747fd026af10cb6964f114655e5348a8a
 ms.author: brenduns
 ms.reviewer:  
 
