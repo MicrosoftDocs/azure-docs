@@ -345,7 +345,7 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 [net_list_skus]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listnodeagentskus.aspx
 [net_pool_ops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.aspx
 [net_ssh_key]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.sshpublickey.aspx
-[nuget_batch_net]: https://www.nuget.org/packages/Azure.Batch/
+[nuget_batch_net]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
