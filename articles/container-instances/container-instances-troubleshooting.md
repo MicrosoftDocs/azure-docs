@@ -169,6 +169,10 @@ This error indicates that due to heavy load in the region in which you are attem
 * Deploy to a different Azure region
 * Deploy at a later time
 
+## Cannot connect to underlying Docker API or run privileged containers
+
+Azure Container Instances does not expose direct access to the underlying infrastructure which hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check our [REST reference documentation](https://aka.ms/aci/rest) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
+
 ## Next steps
 Learn how to [retrieve container logs & events](container-instances-get-logs.md) to help debug your containers.
 

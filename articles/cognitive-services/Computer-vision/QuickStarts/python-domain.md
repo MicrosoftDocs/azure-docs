@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Use a Domain Model with Python
+# Quickstart: Use a domain model with Python
 
 In this quickstart, you use domain models to identify celebrities and landmarks in an image using Computer Vision.
 

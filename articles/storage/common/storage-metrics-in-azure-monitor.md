@@ -318,7 +318,7 @@ The following shows the format for specifying the Resource ID for each of the st
 `
 * File service resource ID
 `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
 `
 
 ### Resource ID in Azure Monitor REST API
