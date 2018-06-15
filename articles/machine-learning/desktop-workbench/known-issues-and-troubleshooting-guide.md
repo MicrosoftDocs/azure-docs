@@ -88,7 +88,7 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
 ## Can't update Workbench
 When a new update is available, the Workbench app homepage displays a message informing you about the new update. You should see an update badge appearing on the lower left corner of the app on the bell icon. Click on the badge and follow the installer wizard to install the update. 
 
-![update image](./media/known-issues-and-troubleshooting-guide/update.png)
+![update image](../service/media/known-issues-and-troubleshooting-guide/update.png)
 
 If you don't see the notification, try to restart the app. If you still don't see the update notification after restart, there might be a few causes.
 

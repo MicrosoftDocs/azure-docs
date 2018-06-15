@@ -11,9 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
+
+ROBOTS: NOINDEX
 ---
 
+
 # Customize the container image used for Azure ML Models
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 This article describes how to customize a container image for Azure Machine Learning models.  Azure ML Workbench uses containers for deploying machine learning models. The models are deployed along with their dependencies, and Azure ML builds an image from the model, the dependencies, and associated files.
 

@@ -11,9 +11,15 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017 
+
+ROBOTS: NOINDEX
 ---
 
+
 # Azure Machine Learning - Concepts
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 This article defines and describes the concepts you need to know to use Azure Machine Learning. 
 

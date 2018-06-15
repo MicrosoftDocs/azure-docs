@@ -11,8 +11,14 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
+
+ROBOTS: NOINDEX
 ---
 # Deploy an Azure Machine Learning model to an Azure IoT Edge device
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 All Azure Machine Learning models containerized as Docker-based web services can also run on Azure IoT Edge devices. Additional scripts and instructions can be found in the [AI Toolkit for Azure IoT Edge](http://aka.ms/AI-toolkit).
 

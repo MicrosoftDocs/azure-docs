@@ -12,10 +12,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
+
+ROBOTS: NOINDEX
 ---
 
 
+
 # Tutorial: Use Azure Machine Learning Workbench for advanced data preparation (Bike share data)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
 In this tutorial, you use Machine Learning (preview) to learn how to:
@@ -32,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* A local installation of Azure Machine Learning Workbench. For more information, follow the [installation quickstart](../service/quickstart-installation.md).
+* A local installation of Azure Machine Learning Workbench. For more information, follow the [installation quickstart](quickstart-installation.md).
 * If you don't have the Azure CLI installed, follow the instructions to [install the latest Azure CLI version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * An [HDInsights Spark cluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) created in Azure.
 * An Azure storage account.

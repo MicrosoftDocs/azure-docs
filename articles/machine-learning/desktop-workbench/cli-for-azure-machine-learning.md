@@ -12,8 +12,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2018
+
+ROBOTS: NOINDEX
 ---
 # Install and use the machine learning CLI for top tasks in Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Azure Machine Learning services are an integrated, end-to-end data science and advanced analytics solution. Professional data scientists can use Azure Machine Learning services to prepare data, develop experiments, and deploy models at cloud scale. 
 
@@ -196,7 +200,7 @@ az ml env set -n <environment name> -g <resource group name>​
 ## Next steps
 
 Get started with one of these articles: ​
-+ [Install and start using Azure Machine Learning](../service/quickstart-installation.md)
++ [Install and start using Azure Machine Learning](quickstart-installation.md)
 + [Classifying Iris Data Tutorial: Part 1](tutorial-classifying-iris-part-1.md)
 
 Dig deeper with one of these articles:
