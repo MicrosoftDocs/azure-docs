@@ -4,7 +4,7 @@ description: Logic Apps B2B disaster recovery
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c

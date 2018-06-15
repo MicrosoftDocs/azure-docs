@@ -31,6 +31,8 @@
       href: how-to-translate-speech.md
     - name: Prepare transcripts
       href: prepare-transcription.md
+    - name: Use custom audio streams
+      href: how-to-use-audio-input-streams.md
     - name: Get the Speech Devices SDK
       href: get-speech-devices-sdk.md
     - name: Customize device wake word
@@ -73,6 +75,8 @@
     href: speech-synthesis-markup.md
 - name: Resources
   items:
+  - name: Speech to Text FAQ
+    href: faq-stt.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: UserVoice

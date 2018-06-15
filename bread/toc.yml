@@ -113,7 +113,7 @@
   - name: Batch AI
     tocHref: /azure/batch-ai/
     topicHref: /azure/batch-ai/
-  - name: Billing
+  - name: Billing + cost management
     tocHref: /azure/billing/
     topicHref: /azure/billing/
   - name: Biztalk Services
@@ -469,6 +469,9 @@
   - name: Resiliency
     tocHref: /azure/resiliency/
     topicHref: /azure/resiliency/
+  - name: Role-based access control
+    tocHref: /azure/role-based-access-control/
+    topicHref: /azure/role-based-access-control/
   - name: Service Health
     tocHref: /azure/service-health/
     topicHref: /azure/service-health/

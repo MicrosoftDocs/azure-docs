@@ -56,12 +56,17 @@ The following table shows a list of supported operating systems:
 
 |Operating system  |Notes  |
 |---------|---------|
+<<<<<<< HEAD
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
 |Windows Server 2008 R2 SP1 and later     |Windows PowerShell 4.0 or later is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br/> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
+=======
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments         |
+|Windows Server 2008 R2 SP1 and higher     |.NET Framework 4.5 or higher is required ([Download .NET Framework](/dotnet/framework/install/guide-for-developers)).</br> Windows PowerShell 4.0 or higher is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
+>>>>>>> 939e8fa60077fb7e7436f68df47f919c92cd24ed
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+|Ubuntu 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
 ### Unsupported client types
 
@@ -167,11 +172,21 @@ It can take between 30 minutes and 6 hours for the dashboard to display updated 
 
 ## View update assessments
 
+<<<<<<< HEAD
 In your Automation account, select **Update Management** to view the status of your machines.
+=======
+This view provides information on your machines, missing updates, update deployments, and scheduled update deployments. In addition to these details, you can see the last time the machine was assessed in the **COMPLIANCE COLUMN** and can see if the health of the updage agent in the **UPDATE AGENT READINESS** column. If there is an issue, clicking the link takes you to troubleshooting documentation to provide you with steps on how to correct the problem.
+>>>>>>> 939e8fa60077fb7e7436f68df47f919c92cd24ed
 
 This view provides information about your machines, missing updates, update deployments, and scheduled update deployments.
 
+<<<<<<< HEAD
 To run a log search that returns information about the machine, update, or deployment, select the item in the list. This opens the **Log Search** pane, with a query for the item selected.
+=======
+![Update management default view](media/automation-update-management/update-management-view.png)
+
+## Installing updates
+>>>>>>> 939e8fa60077fb7e7436f68df47f919c92cd24ed
 
 ## Install updates
 
@@ -203,12 +218,11 @@ To create a new update deployment, select **Schedule update deployment**. The **
 | Property | Description |
 | --- | --- |
 |Name |Unique name to identify the update deployment. |
-|Operating System| Select Linux or Windows.|
-|Machines to update |Select a saved search or select **Machine** from the drop-down list, and then select individual machines. |
+|Operating System| Linux or Windows|
+|Machines to update |Select **Saved search**, or select **Machine** from the drop-down list, and then select individual machines. |
 |Update classifications|Select all the update classifications that you need.|
-|Updates to exclude|Enter all the knowledge base articles (KBs) to exclude without using the *KB* prefix.|
-|Schedule settings|Select the time to start, and then select either **Once** or **Recurring** for the recurrence|
-| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes or more than 6 hours. |
+|Updates to exclude|Enter the updates to exclude. For Windows, enter the KB article without the **KB** prefix. For Linux, enter the package name or use a wildcard.  |
+|Schedule settings|Select the time to start, and then select either **Once** or **Recurring** for the recurrence.|| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes or more than 6 hours. |
 
 ## Update classifications
 
@@ -302,11 +316,11 @@ If you encounter issues when you  attempt to onboard the solution or a virtual m
 
 | Message | Reason | Solution |
 |----------|----------|----------|
-| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>System.InvalidOperationException: {"Message":"Machine is already<br/>registered to a different account. "} | Machine is already onboarded to another workspace for update management. | Perform cleanup of old artifacts by [deleting the Hybrid Runbook group](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups).|
-| Unable to Register Machine for Patch Management, Registration Failed with Exception<br/>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br/>System.Net.WebException: The underlying connection<br/>was closed: An unexpected error<br/>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br/>The client and server can't communicate,<br/>because they don't possess a common algorithm | Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
-| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
-| The certificate presented by the service \<wsid\>.oms.opinsights.azure.com<br/>wasn't issued by a certificate authority<br/>used for Microsoft services. Contact<br/>your network administrator to see if they're running a proxy that intercepts<br/>TLS/SSL communication. |Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
-| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>AgentService.HybridRegistration.<br/>PowerShell.Certificates.CertificateCreationException:<br/>Failed to create a self-signed certificate. ---><br/>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure. | Verify system account has<br/>read access to folder:<br /> **C:\ProgramData\Microsoft\\** <br />**Crypto\RSA**.|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the Hybrid Runbook group](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)|
+| Unable to Register Machine for Patch Management, Registration Failed with Exception</br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---></br>System.Net.WebException: The underlying connection</br>was closed: An unexpected error</br>occurred on a receive. ---> System.ComponentModel.Win32Exception:</br>The client and server cannot communicate,</br>because they do not possess a common algorithm | Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
+| The certificate presented by the service \<wsid\>.oms.opinsights.azure.com</br>was not issued by a certificate authority</br>used for Microsoft services. Contact</br>your network administrator to see if they are running a proxy that intercepts</br>TLS/SSL communication. |Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Failed to create a self-signed certificate. ---></br>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure | Verify system account has</br>read access to folder:</br>**C:\ProgramData\Microsoft\**</br>**Crypto\RSA**|
 
 ## Next steps
 

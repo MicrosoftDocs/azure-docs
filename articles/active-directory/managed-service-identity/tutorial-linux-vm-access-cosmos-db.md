@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: skwan
+ms.author: daveba
 
 ---
 # Tutorial: Use a Linux VM MSI to access Azure Cosmos DB 

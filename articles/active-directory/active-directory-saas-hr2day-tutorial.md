@@ -134,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
       | Attribute name    |   Attribute value |  
     | ------------------- | -------------------- |    
-	| ATTR_LOGINCLAIM | join([mail],"102938475Z","@" |
+	| ATTR_LOGINCLAIM | `join([mail],"102938475Z","@"` |
 	
 	  a. To open the **Add Attribute** dialog, select **Add attribute**.
 
@@ -150,7 +150,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. For **String2**, type the unique identifier that's provided by your HR2day team.
 
-	f. In the **Separator** box, type **@**.
+	f. In the **Separator** box, type **\@**.
 	
 	g. Select **Ok**.
 

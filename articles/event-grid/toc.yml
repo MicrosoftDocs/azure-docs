@@ -21,6 +21,8 @@
     href: custom-event-quickstart-portal.md
   - name: Send events to Queue storage
     href: custom-event-to-queue-storage.md
+  - name: Send events to Event Hubs
+    href: custom-event-to-eventhub.md
 - name: Tutorials
   items:
   - name: Email when VM changes
@@ -47,6 +49,8 @@
     href: powershell-samples.md
   - name: Resource Manager templates
     href: template-samples.md
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid
 - name: Concepts
   items:
   - name: Event Grid concepts
@@ -65,6 +69,8 @@
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
+  - name: Manage event delivery
+    href: manage-event-delivery.md
   - name: Monitor event delivery
     href: monitor-event-delivery.md
   - name: Query event subscriptions

@@ -21,7 +21,7 @@ In the Speech to Text API, only the endpoints used differ from the previous Spee
 
 Region|	Speech to Text endpoint
 -|-
-West US| `https://westus.stt.speech.microsoft.com/cognitiveservices/recognition/conversation/cognitiveservices/v1`
+West US| `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 East Asia| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 North Europe| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 

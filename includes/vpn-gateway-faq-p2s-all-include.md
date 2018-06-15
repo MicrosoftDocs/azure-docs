@@ -15,7 +15,6 @@ The following client operating systems are supported:
 
 * Windows 7 (32-bit and 64-bit)
 * Windows Server 2008 R2 (64-bit only)
-* Windows 8 (32-bit and 64-bit)
 * Windows 8.1 (32-bit and 64-bit)
 * Windows Server 2012 (64-bit only)
 * Windows Server 2012 R2 (64-bit only)
@@ -25,6 +24,10 @@ The following client operating systems are supported:
 * Mac OS X version 10.12 (Sierra)
 * Linux (StrongSwan)
 * iOS
+
+>[!NOTE]
+>[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
+>
 
 ### How many VPN client endpoints can I have in my Point-to-Site configuration?
 

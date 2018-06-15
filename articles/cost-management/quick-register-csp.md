@@ -28,9 +28,9 @@ For more information, see [Connect to the Partner Center API](https://msdn.micro
 >
 >Access to Cloudyn can be made available to CSP Indirect Resellers after their CSP Indirect Provider registers with Cloudyn. CSP Indirect Resellers can then provide Cloudyn access to Azure customers and subscriptions.
 
-## Log in to Azure
+## Sign in to Azure
 
-- Log in to the Azure portal at http://portal.azure.com.
+- Sign in to the Azure portal at http://portal.azure.com.
 
 ## Register with Azure Cost Management
 

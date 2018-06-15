@@ -1,5 +1,5 @@
 ---
-title: Microsoft sigin-in experience updates
+title: Microsoft sign-in experience updates
 description: Learn about the new updates coming to the Microsoft sign-in experience
 services: multi-factor-authentication
 documentationcenter: ''
