@@ -66,7 +66,7 @@ Extension properties exist only in the context of a registered  Application in t
 
 When you completed the steps in [Get Started with Custom Policies](active-directory-b2c-get-started-custom.md), you downloaded and modified [files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) named *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, and *PasswordReset.xml*. In the following steps, you continue to make modifications to these files.
 
-1. Open the *TrustFrameworkBase.xml* file and add the `Metadata` section as shown in the following example: 
+1. Open the *TrustFrameworkBase.xml* file and add the `Metadata` section as shown in the following example. Insert the Object ID that you previously recorded for the `ApplicationObjectId` value and the Application ID that you recorded for the `ClientId` value: 
 
     ```xml
     <ClaimsProviders>
