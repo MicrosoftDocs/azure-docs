@@ -6,8 +6,8 @@
     href: introduction.md
 - name: Quickstarts
   items:
-  #- name: Create/connect HDI cluster (Known)
-    #href: 
+  - name: Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more
+    href: quickstart-create-connect-hdi-cluster.md
   - name: Create/Connect Databricks account
     href: quickstart-create-databricks-account.md
   - name: Create a storage account
