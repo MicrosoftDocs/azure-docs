@@ -85,7 +85,7 @@ You can install the SDK on a Windows, Linux, or MacOS computer with following pr
     az account show
     ```
 
- 1. Create a resource group to hold your workspace.
+1. Create a resource group to hold your workspace.
 
      * The only supported location choice is eastus2.  
      * In this example, the resource group is named *myrg*.
