@@ -1,3 +1,4 @@
+### YamlMime:ManagedReference
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
@@ -6,27 +7,6 @@
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/
     items:  
-    - name: IoT Fundamentals
-      tocHref: /azure/iot-fundamentals/
-      topicHref: /azure/iot-fundamentals/
-    - name: IoT Edge
-      tocHref: /azure/iot-edge/
-      topicHref: /azure/iot-edge/
     - name: IoT Hub
-      tocHref: /azure/iot-hub/
-      topicHref: /azure/iot-hub/ 
-    - name: IoT Hub Device Provisioning Service
-      tocHref: /azure/iot-dps/
-      topicHref: /azure/iot-dps/
-    - name: IoT solution accelerators
-      tocHref: /azure/iot-accelerators/
-      topicHref: /azure/iot-accelerators/
-    - name: IoT Central
-      tocHref: /azure/iot-central/
-      topicHref: /azure/iot-central/         
-    - name: Maps
-      tocHref: /azure/azure-maps/
-      topicHref: /azure/azure-maps/
-    - name: Time Series Insights
-      tocHref: /azure/time-series-insights/
-      topicHref: /azure/time-series-insights/                     
+      tocHref: /azure/iot-fundamentals/
+      topicHref: /azure/iot-hub/
