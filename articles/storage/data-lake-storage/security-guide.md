@@ -64,7 +64,7 @@ For instructions, see [Assign users or security groups to Data Lake Storage acco
 
 Data Lake Storage offers a hierarchical file system like Hadoop Distributed File System (HDFS), and it supports [POSIX ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). It controls read (r), write (w), and execute (x) permissions to resources for the Owner role, for the Owners group, and for other users and groups. In Data Lake Storage, ACLs can be enabled on the root folder, on subfolders, and on individual files. For more information on how ACLs work in context of Data Lake Storage, see [Access control in Data Lake Storage](../../data-lake-store/data-lake-store-access-control.md).
 
-We recommend that you define ACLs for multiple users by using [security groups](../active-directory/active-directory-groups-create-azure-portal.md). Add users to a security group, and then assign the ACLs for a file or folder to that security group. This is useful when you want to provide assigned permissions, because you are limited to a maximum of 28 entries for assigned permissions. For more information about how to better secure data stored in Data Lake Storage by using Azure Active Directory security groups, see [Assign users or security group as ACLs to the Azure Data Lake Storage file system](../../data-lake-store/data-lake-store-secure-data.md#filepermissions).
+We recommend that you define ACLs for multiple users by using [security groups](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Add users to a security group, and then assign the ACLs for a file or folder to that security group. This is useful when you want to provide assigned permissions, because you are limited to a maximum of 28 entries for assigned permissions. For more information about how to better secure data stored in Data Lake Storage by using Azure Active Directory security groups, see [Assign users or security group as ACLs to the Azure Data Lake Storage file system](../../data-lake-store/data-lake-store-secure-data.md#filepermissions).
 
 ![List access permissions](./media/data-lake-store-security-overview/adl.acl.2.png "List access permissions")
 
@@ -76,7 +76,7 @@ Azure Data Lake Storage protects your data throughout its life cycle. For data i
 
 Data Lake Storage also provides encryption for data that is stored in the account. You can chose to have your data encrypted or opt for no encryption. If you opt in for encryption, data stored in Data Lake Stprage is encrypted prior to storing on persistent media. In such a case, Data Lake Storage automatically encrypts data prior to persisting and decrypts data prior to retrieval, so it is completely transparent to the client accessing the data. There is no code change required on the client side to encrypt/decrypt data.
 
-For key management, Data Lake Storage provides two modes for managing your master encryption keys (MEKs), which are required for decrypting any data that is stored in the Data Lake Storage. You can either let Data Lake Storage manage the MEKs for you, or choose to retain ownership of the MEKs using your Azure Key Vault account. You specify the mode of key management while while creating a Data Lake Storage account. For more information on how to provide encryption-related configuration, see [Get started with Azure Data Lake Storage using the Azure Portal](../../quickstartlinkhere).
+For key management, Data Lake Storage provides two modes for managing your master encryption keys (MEKs), which are required for decrypting any data that is stored in the Data Lake Storage. You can either let Data Lake Storage manage the MEKs for you, or choose to retain ownership of the MEKs using your Azure Key Vault account. You specify the mode of key management while while creating a Data Lake Storage account. For more information on how to provide encryption-related configuration, see Get started with Azure Data Lake Storage using the Azure Portal.
 
 ## Summary
 
@@ -86,6 +86,6 @@ If you want to see new features in Data Lake Storage, send us your feedback in t
 
 ## See also
 
-* [Overview of Azure Data Lake Storage](linkhere)
-* [Get started with Data Lake Storage](linkhere)
-* [Secure data in Data Lake Storage](linkhere)
+* Overview of Azure Data Lake Storage
+* Get started with Data Lake Storage
+* Secure data in Data Lake Storage
