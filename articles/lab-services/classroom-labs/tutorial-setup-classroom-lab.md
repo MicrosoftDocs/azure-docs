@@ -18,7 +18,7 @@ ms.author: spelluru
 
 ---
 # Tutorial: Set up a classroom lab 
-In this tutorial, you set up a classroom lab with a set of virtual machines that are used by students in the classroom.  
+In this tutorial, you set up a classroom lab with virtual machines that are used by students in the classroom.  
 
 In this tutorial, you do the following actions:
 
