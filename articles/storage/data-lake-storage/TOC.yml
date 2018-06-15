@@ -30,13 +30,8 @@
     href: intro-to-uri.md
   - name: Security
     items:
-<<<<<<< HEAD
       - name: Security Overview
         href: security-guide.md
-=======
-      #- name: Security Overview
-        #href: security-guide.md
->>>>>>> 6899718cb54e05082dbd2957aca8153162eb782f
       - name: Access Control in Data Lake Store
         href: ../../data-lake-store/data-lake-store-access-control.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
       - name: Encryption for data at rest
