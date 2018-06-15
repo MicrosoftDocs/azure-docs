@@ -74,4 +74,4 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Next steps
 
-You can also use the [Quickstart: Create a project and get started with Azure Machine Learning Services SDK for Python]() or the [Quickstart: Create a project and get started with Azure Machine Learning Services CLI]() to create workspaces and projects.
+You can also use the [Quickstart: Create a project and get started with Azure Machine Learning Services SDK for Python](quickstart-set-up-in-python.md) or the [Quickstart: Create a project and get started with Azure Machine Learning Services CLI](quickstart-set-up-in-cli.md) to create workspaces and projects.
