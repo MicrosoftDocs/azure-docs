@@ -18,7 +18,7 @@ ms.author: jamesbak
 
 # Introduction to Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 adds qualities from [Azure Data Lake Storage Gen1](../../data-lake-store), such as file system directories and file-level security to [Azure Blob Storage](../blobs/storage-blobs-introduction.md) making it easy to connect analytics frameworks to a durable storage layer. In Azure Data Lake Storage, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
+Azure Data Lake Storage Gen2 adds qualities from [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), such as file system directories and file-level security to [Azure Blob Storage](../blobs/storage-blobs-introduction.md) making it easy to connect analytics frameworks to a durable storage layer. In Azure Data Lake Storage, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
 
 ## Designed for enterprise big data analytics
 
@@ -45,7 +45,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
  
 - **A superset of POSIX permissions**: The security model for Azure Data Lake Storage fully supports ACL and POSIX permissions along with some extra granularity specific to Azure Data Lake Storage. Settings may be configured through admin tools or through frameworks like Hive and Spark. 
 
-    Authentication and identities are provided courtesy of integration with [Azure Active Directory](../../active-directory).
+    Authentication and identities are provided courtesy of integration with [Azure Active Directory](../../active-directory/index.md).
 
 - **Multi-protocol and multi-model data access**: Azure Data Lake Storage is considered a **Multi-Modal** storage service as it provides both object store and file system interfaces to the _same_ data **at the same time**. This is achieved by providing multiple protocol endpoints that are able to access the same data. 
     
