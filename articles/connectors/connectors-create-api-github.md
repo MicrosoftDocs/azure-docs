@@ -3,7 +3,7 @@
 title: Connect to GitHub - Azure Logic Apps | Microsoft Docs
 description: Monitor GitHub events with GitHub REST APIs and Azure Logic Apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 03/02/2018
 ms.topic: article

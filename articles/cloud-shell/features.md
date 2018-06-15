@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 06/13/2018
 ms.author: juluk
 ---
 
@@ -32,16 +32,12 @@ Bash in Cloud Shell runs on `Ubuntu 16.04 LTS`.
 
 Bash in Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0.
 
-### SSH into Azure Linux virtual machines
-
-Creating a Linux VM from Azure CLI 2.0 can create a default SSH key and place it in your `$Home` directory. Placing SSH keys in `$Home` enables SSH connections to Azure Linux VMs directly from Cloud Shell. Keys are held in acc_<user>.img in your file share, use best practices when using or sharing access to your file share or keys.
-
 ### $Home persistence across sessions
 
 To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
 Once completed, Cloud Shell will automatically attach your storage (mounted as `$Home\clouddrive`) for all future sessions.
 Additionally, in Bash in Cloud Shell your `$Home` directory is persisted as an .img in your Azure File share.
-Files outside of `$Home` and machine state are not persisted across sessions.
+Files outside of `$Home` and machine state are not persisted across sessions. Use best practices when storing secrets such as SSH keys. Services like [Azure Key Vault have tutorials for setup](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
 [Learn more about persisting files in Bash in Cloud Shell.](persisting-shell-storage.md)
 
@@ -53,7 +49,7 @@ Bash in Cloud Shell includes pre-configured authentication for open-source tools
 
 |Category   |Name   |
 |---|---|
-|Linux tools            |bash<br> sh<br> tmux<br> dig<br>               |
+|Linux tools            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Text editors           |vim<br> nano<br> emacs       |
 |Source control         |git                    |

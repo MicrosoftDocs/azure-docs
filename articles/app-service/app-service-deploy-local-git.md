@@ -144,6 +144,8 @@ Once deployment is finished, you can find the build progress at `https://<vsts_a
 
 Browse to your app to verify that the content is deployed.
 
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
 ## Troubleshooting Kudu deployment
 
 The following are common errors or problems when using Git to publish to an App Service app in Azure:

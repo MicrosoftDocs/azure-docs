@@ -1,5 +1,5 @@
 ---
-title: How to schedule Azure SSIS integration runtime | Microsoft Docs
+title: How to schedule the Azure SSIS integration runtime | Microsoft Docs
 description: This article describes how to schedule starting and stopping of an Azure SSIS integration runtime by using Azure Automation and Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -16,8 +16,8 @@ ms.date: 06/01/2018
 ms.author: douglasl
 
 ---
-# How to schedule starting and stopping of an Azure SSIS integration runtime 
-This article describes how to schedule starting and stopping of an Azure SSIS integration runtime (IR) by using Azure Automation and Azure Data Factory. Running an Azure SSIS (SQL Server Integration Services) integration runtime (IR) has a charge associated with it. Therefore, you want to run the IR only when you need to run SSIS packages in Azure and stop it when you don't need it. You can use the Data Factory UI or Azure PowerShell to [manually start or stop an Azure SSIS IR](manage-azure-ssis-integration-runtime.md)).
+# How to start and stop the Azure SSIS integration runtime on a schedule
+This article describes how to schedule starting and stopping of an Azure SSIS integration runtime (IR) by using Azure Automation and Azure Data Factory. Running an Azure SSIS (SQL Server Integration Services) integration runtime (IR) has a cost associated with it. Therefore, you typically want to run the IR only when you need to run SSIS packages in Azure, and stop the IR when you don't need it. You can use the Data Factory UI or Azure PowerShell to [manually start or stop an Azure SSIS IR](manage-azure-ssis-integration-runtime.md)).
 
 For example, you can create Web activities with webhooks to an Azure Automation PowerShell runbook and chain an Execute SSIS Package activity between them. The Web activities can start and stop your Azure-SSIS IR just in time before and after your package runs. For more info about the Execute SSIS Package activity, see [Run an SSIS package using the SSIS Activity in Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).
 

@@ -32,6 +32,10 @@
       href: contoso-migration-rehost-vm.md
     - name: 6. Contoso-Rehost an app on Azure VMs and Azure SQL AlwaysOn
       href: contoso-migration-rehost-vm-sql-ag.md
+    - name: 7. Contoso-Rehost a Linux app on Azure VMs
+      href: contoso-migration-rehost-linux-vm.md
+    - name: 8. Contoso-Rehost a Linux app on Azure VMs and Azure MySQL
+      href: contoso-migration-rehost-linux-vm-mysql.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines

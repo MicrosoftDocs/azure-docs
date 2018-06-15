@@ -1,21 +1,13 @@
 ---
-title: SMS Alert behavior in Action Groups | Microsoft Docs
+title: SMS Alert behavior in Action Groups
 description: SMS message format and responding to SMS messages to unsubscribe, resubscribe or request help.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
-
+ms.component: alerts
 ---
 # SMS Alert Behavior in Action Groups
 ## Overview ##
