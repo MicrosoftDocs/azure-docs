@@ -13,17 +13,18 @@ ms.service: storage
 
 # Migration transition article
 
-If you have finished your evaluation and feel ready to begin planning a migration to Azure Data Lake Storage Gen2. Be aware that the ease of a migration depends on the complexity of your app.
+If you have finished your evaluation and feel ready to begin planning a migration to Azure Data Lake Storage Gen2. Be aware that the ease of a migration depends on a variety of factors, including the complexity of your app, the volume of data, cross-regional migration, mode of migration (live, one time migration, continuous, etc.), ACLs, associated data such as metastores, and post migration setup.
 
-We recommend copying some data into Azure Data Lake Storage Gen2 so you can get a good sense of it but, before you do that, there are some things which you should think about. Cheif among them being the pattern you follow when migrating.
+For an initial evaluation, we recommend copying some data into Azure Data Lake Storage Gen2 so you can get a good sense of it but, before you do that, there are some things which you should consider. Chief among them being the pattern you follow when migrating.
 
-You could follow:
+## Migration Patterns
 
-Typically copying large amounts of data from source to destination will cost a lot of time, and so you would do it in two stages.
-A Bulk (or full) load and then an incremental copy.
+Typically copying large amounts of data from source to destination will cost a lot of time, and so you would do it in two stages. A Bulk (or full) load and then an incremental copy.
 
 * Bulk / full load - Copy all the data out of source into destination, settings some sort of marker for the last data copied.
 * Incremental copy - Copy all the new data after the bulk load.
+
+The incremental copy can be done via a scheduled job which migrates the incremental copy on a regular cycle, continuously catching up in a batch window. If you already have a data pipeline, then the *Dual Channel* mode can be leveraged. This mode will continuously catchup the data being ingested while the catchup hapens for the initial load.
 
 Be aware that if you intend on migrating an application over you typically stop accepting writes to the source system after the bulk load. Ater which you update the app to point at the new store once the incremental copy has completed. This will involve some app downtime.
 
