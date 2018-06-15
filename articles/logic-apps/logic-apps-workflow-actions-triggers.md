@@ -1,21 +1,21 @@
 ---
 # required metadata
-title: Workflow trigger and action types reference - Azure Logic Apps | Microsoft Docs
+title: Trigger and action types reference - Azure Logic Apps | Microsoft Docs
 description: Learn about trigger and action types in Azure Logic Apps as described by the Workflow Definition Language schema
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 06/18/2018
 ms.topic: reference
+ms.date: 06/22/2018
 
 # optional metadata
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Workflow Definition Language trigger and action types in Azure Logic Apps
+# Trigger and action type reference for Workflow Definition Language in Azure Logic Apps
 
 In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
 all logic app workflows start with triggers followed by actions. 
@@ -746,7 +746,7 @@ Debatching splits up the array items and starts a new logic app instance
 that runs for each array item. This approach is useful, for example, 
 when you want to poll an endpoint that might return multiple new items between polling intervals.
 For the maximum number of array items that **SplitOn** can process in a single logic app run, 
-see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
+see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.mdlooping-debatching-limits). 
 
 > [!NOTE]
 > You can't use **SplitOn** with a synchronous response pattern. 
@@ -873,20 +873,21 @@ Here are some commonly used action types:
 
 * [Built-in action types](#built-in-actions) such as these examples and more: 
 
-  * **HTTP** for calling endpoints over HTTP or HTTPS
+  * [**HTTP**](#http-action) for calling endpoints over HTTP or HTTPS
 
-  * **Response** for responding to requests
+  * [**Response**](#response-action) for responding to requests
 
-  * **Function** for calling Azure Functions
+  * [**Function**](#function-action) for calling Azure Functions
 
-  * Data operation actions such as **Join**, **Compose**, 
-  **Table**, **Select**, and others for creating or transforming data from various inputs
+  * Data operation actions such as [**Join**](#join-action), [**Compose**](#compose-action), 
+  [**Table**](#table-action), [**Select**](#select-action), and others that create 
+  or transform data from various inputs
 
-  * **Workflow** for calling another logic app workflow
+  * [**Workflow**](#workflow-action) for calling another logic app workflow
 
 * [Standard action types](#standard-actions) such as 
-**ApiConnection** and **ApiConnectionWebHook** for 
-calling various APIs managed by Microsoft, for example, 
+[**ApiConnection**](#apiconnection-action) and [**ApiConnectionWebHook**](#apiconnectionwebhook-action) 
+that call various connectors and APIs managed by Microsoft, for example, 
 Azure Service Bus, Office 365 Outlook, Power BI, 
 Azure Blob Storage, OneDrive, GitHub, and more
 
@@ -2055,12 +2056,14 @@ named "Get_product_information", which passes in the specified inputs:
 
 <a name="foreach-action"></a>
 
-### Foreach action
+### For each action
 
-This looping action iterates through an array and performs actions on each array item. 
-By default, the "for each" loop runs in parallel up to a maximum number of loops. 
-For this maximum, see [Limits and config](../logic-apps/logic-apps-limits-and-config.md).
-Learn [how to create "Foreach" loops](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
+This looping action iterates through an array 
+and performs actions on each array item. 
+By default, the "for each" loop runs in parallel 
+up to a maximum number of loops. For this maximum, see 
+[Limits and config](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+Learn [how to create "for each" loops](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
 
 ```json
 "For_each": {
