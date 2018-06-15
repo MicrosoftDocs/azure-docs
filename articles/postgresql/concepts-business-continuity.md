@@ -2,8 +2,8 @@
 title: Overview of business continuity with Azure Database for PostgreSQL
 description: Overview of business continuity with Azure Database for PostgreSQL.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
