@@ -63,9 +63,9 @@ While running, it displays information similar to the following example:
 
 ```bash
 Cloning into 'html-docs-hello-world'...
-remote: Counting objects: 40, done.
-remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
-Unpacking objects: 100% (40/40), done.
+remote: Counting objects: 43, done.
+remote: Total 43 (delta 0), reused 0 (delta 0), pack-reused 43
+Unpacking objects: 100% (43/43), done.
 Checking connectivity... done.
 ````
 
@@ -82,36 +82,30 @@ az webapp up -n <app_name>
 This command may take a few minutes to run. While running, it displays information similar to the following example:
 
 ```json
-Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
+Creating Resource group 'appsvc_rg_Windows_CentralUS' ...
 Resource group creation complete
-Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
+Creating App service plan 'appsvc_asp_Windows_CentralUS' ...
 App service plan creation complete
 Creating app '<app_name>' ....
 Webapp creation complete
-Updating app settings to enable build after deployment
 Creating zip with contents of dir /home/username/quickstart/html-docs-hello-world ...
-Preparing to deploy and build contents to app.
+Preparing to deploy  contents to app.
 Fetching changes.
-
-Generating deployment script.
-Generating deployment script.
+Preparing deployment for commit id 'e1689cb9d1'.
 Generating deployment script.
 Running deployment command...
-Running deployment command...
-Running deployment command...
-Deployment successful.
 All done.
 {
   "app_url": "https://<app_name>.azurewebsites.net",
   "location": "Central US",
   "name": "<app_name>",
-  "os": "Linux",
-  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
-  "serverfarm": "appsvc_asp_Linux_CentralUS",
-  "sku": "STANDARD",
+  "os": "Windows",
+  "resourcegroup": "appsvc_rg_Windows_CentralUS ",
+  "serverfarm": "appsvc_asp_Windows_CentralUS",
+  "sku": "FREE",
   "src_path": "/home/username/quickstart/html-docs-hello-world ",
-  "version_detected": "6.9",
-  "version_to_create": "node|6.9"
+  "version_detected": "-",
+  "version_to_create": "-"
 }
 ```
 
@@ -151,8 +145,6 @@ az webapp up -n <app_name>
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
-![Updated sample app running in Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
-
 ![Updated sample app home page](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
 ## Manage your new Azure web app
@@ -163,13 +155,21 @@ From the left menu, click **App Services**, and then click the name of your Azur
 
 ![Portal navigation to Azure web app](./media/app-service-web-get-started-html/portal1.png)
 
-You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
+You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
 ![App Service blade in Azure portal](./media/app-service-web-get-started-html/portal2.png)
 
-The left menu provides different pages for configuring your app. 
+The left menu provides different pages for configuring your app.
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
+
+```bash
+az group delete --name appsvc_rg_Windows_CentralUS
+```
+
+This command may take a minute to run.
 
 ## Next steps
 
