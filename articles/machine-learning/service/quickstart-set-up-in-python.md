@@ -102,7 +102,10 @@ pip install azureml-sdk
    The `run_history_name` argument specifies the name of the run history used to group together and track your runs.
 
    >[!NOTE]
-   >In addition to a workspace, the `Workspace.create` command creates storage account, Azure Container Registry, Azure Key Vault, and AppInsights resources under your resource group.
+   >When the workspace is created, four resources are automatically added to your account for your convenience. They are [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
+
+
+
 
 ## Run Python code
 
