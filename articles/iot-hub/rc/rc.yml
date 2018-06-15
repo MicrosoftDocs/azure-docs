@@ -1,4 +1,4 @@
 ### YamlMime:ContextObject
 brand: Azure
-breadcrumb_path: ../../bread/toc.yml
-toc_rel: ./TOC.md
+breadcrumb_path: bread.yml
+toc_rel: ../TOC.md
