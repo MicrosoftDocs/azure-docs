@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Data Lake Storage Comparison
+description: Comparing Data Lake Stoarge Gen1 to Gen2
 services: storage
 keywords: 
 author: roygara
@@ -53,4 +53,4 @@ In comparison, Azure Data Lake Storage Gen2 offers rich support for the Hadoop C
 
 ## Next step
 
-If you think that Data Lake Storage Gen2 might suit your needs, proceed to the [migration guide](evaluation-and-migration-guide.md) to begin planning a migration.
+If you think that Data Lake Storage Gen2 might suit your needs, proceed to the [migration guide](evaluation-migration-guide.md) to begin planning a migration.

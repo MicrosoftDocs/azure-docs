@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Data Lake Storage Overview
+description: Overview of Azure Data Lake Storage
 services: storage
 keywords: 
 author: roygara
@@ -30,7 +30,7 @@ Topics we recommend keeping in mind when proceeding through these evaluation and
 - Are the key features that you require currently in place?
 - Do the current methods of securing your data meet your needs?
   - Encrypting Data at rest using either Microsoft supplied keys or your own
-  - ACLS (Coming soon)
+  - ACLS
 - Are your applications dependent on any Data Lake Storage Gen1 SDKs at the moment?
 - Does your workflow use either PowerShell or CLI?
 - What other ways do you interact with your analytics data beyond just the hadoop driver?
@@ -39,4 +39,4 @@ Azure Data Lake Storage Gen2 will be available as a limited public preview in Ju
 
 ## Next steps
 
-If you're interested, proceed to our [evaluation article](evaluation-and-comparison.md) to assess whether or not Data Lake Storage Gen2 is a good fit for you.
+If you're interested, proceed to our [evaluation article](evaluation-comparison.md) to assess whether or not Data Lake Storage Gen2 is a good fit for you.

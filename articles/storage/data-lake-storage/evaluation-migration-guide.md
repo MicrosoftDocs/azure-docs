@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Migration planning article
+description: Planning a migration to Data Lake Storage
 services: storage
 keywords: 
 author: roygara
@@ -47,6 +47,6 @@ This setup may require bulk load in order to initialize the data. we recommend d
 
 Additionally, if you are using Azure Data Factory, you may only need to replace the connector from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2. This would only be available if Azure Data Factory was already in use.
 
-# Next step
+## Next step
 
-If you're ready to move a small amount of data over, proceed to the [copying some data into Azure Data Lake Storage] article.
+If you're ready to move a small amount of data over, proceed to the copying some data into Azure Data Lake Storage article.

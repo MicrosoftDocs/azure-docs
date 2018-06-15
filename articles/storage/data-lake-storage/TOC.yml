@@ -43,9 +43,9 @@
       - name: Overview
         href: evaluation-migration-overview.md
       - name: Evaluation
-        href: evaluation-and-comparison.md
+        href: evaluation-comparison.md
       - name: Migration Planning
-        href: evaluation-and-migration-guide.md
+        href: evaluation-migration-guide.md
   #- name: Hierarchical Namespace
     #href:
   #- name: Scalability and Perf
