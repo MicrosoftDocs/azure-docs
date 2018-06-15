@@ -27,7 +27,7 @@ after you've integrated your Azure storage account with Azure Content Delivery N
 2.  [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md)
 
 ## Shared Access Signatures
-If your blob storage endpoint is configured to disallow anonymous read access, you must provide a [Shared Access Signature (SAS)](cdn-sas-storage-support.md) token in each request you make to your custom domain. By default, blob storage endpoints disallow anonymous read access. For more information about SAS, see [Managing anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
+If your blob storage endpoint is configured to disallow anonymous read access, you must provide a [Shared Access Signature (SAS)](cdn-sas-storage-support.md) token in each request you make to your custom domain. By default, blob storage endpoints disallow anonymous read access. For more information about SAS, see [Managing anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md).
 
 Azure CDN ignores any restrictions added to the SAS token. For example, all SAS tokens have an expiration time, which means that content can still be accessed with an expired SAS until that content is purged from the CDN point-of-presence (POP) servers. You can control how long data is cached on Azure CDN by setting the cache response header. For more information, see [Managing expiration of Azure Storage blobs in Azure CDN](cdn-manage-expiration-of-blob-content.md).
 

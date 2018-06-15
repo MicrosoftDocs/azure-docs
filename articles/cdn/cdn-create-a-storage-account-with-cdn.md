@@ -142,5 +142,5 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 To learn about adding a custom domain and enable HTTPS on your CDN endpoint, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Access storage blobs using an Azure CDN custom domain over HTTPS](cdn-storage-custom-domain.md)
+> [Tutorial: Access storage blobs using an Azure CDN custom domain over HTTPS](cdn-storage-custom-domain-https.md)
 
