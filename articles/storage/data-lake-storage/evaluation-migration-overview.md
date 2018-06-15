@@ -9,13 +9,10 @@ ms.author: rogarana
 manager: twooley
 ms.date: 06/01/2018
 ms.service: storage
+ms.component: data-lake-storage-gen2
 ---
 
 # Azure Data Lake Storage Gen2 Evaluation Overview
-
-Azure Data Lake Storage Gen2 is now directly integrated with the Azure Storage platform. This integration combines the scale and security of Azure Data Lake Storage Gen1 (previously Azure Data Lake Store) with the capabilities and low cost of Azure Blob Storage.
-
-Azure Data Lake Storage Gen2 includes rich support for the Hadoop Compatible File System along with a full hierarchical namespace optimized for analytics workloads. Azure Data Lake Storage Gen2 is currently available in two Azure regions (West US 2 and West Central US) and includes other capabilities of Azure’s Storage such as Blob API compatibility, data tiering, lifecycle management, durability options for HA as well as DR, eventgrid support, enhanced network security, and a rich ecosystem of Storage partners.
 
 For the preview phase, we developed migration guidance and tooling to help Azure Data Lake Storage Gen1 customers evaluate Azure Data Lake Storage Gen2 and start planning a migration strategy as appropriate. The Azure CAT team will work closely with customers on developing this strategy. Existing Azure Data Lake Storage Gen1 customers will be fully supported indefinitely on the existing Azure Data Lake Storage Gen1 platform, allowing customers to plan their migration to ADLSv2 at their convenience.
 
