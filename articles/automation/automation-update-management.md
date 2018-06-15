@@ -158,7 +158,7 @@ It can take anywhere from 30 minutes up to 6 hours for the dashboard to display 
 
 Click on the **Update Management** on your automation account to view the status of your machines.
 
-This view provides information on your machines, missing updates, update deployments, and scheduled update deployments.
+This view provides information on your machines, missing updates, update deployments, and scheduled update deployments. In addition to these details, you can see the last time the machine was assessed in the **COMPLIANCE COLUMN** and can see if the health of the updage agent in the **UPDATE AGENT READINESS** column. If there is an issue, clicking the link takes you to troubleshooting documentation to provide you with steps on how to correct the problem.
 
 You can run a log search that returns information on the machine, update, or deployment by selecting the item in the list. This opens the **Log Search** page with a query for the item selected.
 

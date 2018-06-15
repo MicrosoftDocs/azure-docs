@@ -216,5 +216,5 @@ You can find more Azure Active Directory PowerShell documentation at [Azure Acti
 
 ## Additional reading
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
