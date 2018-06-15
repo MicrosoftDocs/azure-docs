@@ -26,7 +26,7 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
-## I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc). Should I remove and recreate my server endpoint?
+## I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc.). Should I remove and recreate my server endpoint?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
 ## Storage Sync Service object management
@@ -169,7 +169,7 @@ This error can occur for two possible reasons:
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 
-2. Under the Access Control (IAM) tab on the storage account, make sure the builtin user **Hybrid File Sync Service** is assigned to the builtin role **Reader and Data Access** and then verify sync is working.
+2. Under the Access Control (IAM) tab on the storage account, make sure the built-in user **Hybrid File Sync Service** is assigned to the built-in role **Reader and Data Access** and then verify sync is working.
 
 <a id="doesnt-have-enough-free-space"></a>**This PC doesn't have enough free space error**  
 If the portal shows the status "This PC doesn't have enough free space" the issue could be that less than 1 GB of free space remains on the volume.  For example, if there is a 1.5GB volume, sync will only be able to utilize .5GB   If you hit this issue, please expand the size of the volume being used for the server endpoint.
@@ -178,13 +178,13 @@ If the portal shows the status "This PC doesn't have enough free space" the issu
 There are two paths for failures in cloud tiering:
 
 - Files can fail to tier, which means that Azure File Sync unsuccessfully attempts to tier a file to Azure Files.
-- Files can fail to recall, which means that the Azure File Sync file system filter (StorageSync.sys) fails to download data when a user attemptes to access a file which has been tiered.
+- Files can fail to recall, which means that the Azure File Sync file system filter (StorageSync.sys) fails to download data when a user attempts to access a file which has been tiered.
 
 There are two main classes of failures that can happen via either failure path:
 
 - Cloud storage failures
     - *Transient storage service availability issues*. See [Service Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) for more information.
-    - *Inaccessible Azure file share*. This failure typically happens when you delete the Azure file share when it is is still a cloud endpoint in a sync group.
+    - *Inaccessible Azure file share*. This failure typically happens when you delete the Azure file share when it is still a cloud endpoint in a sync group.
     - *Inaccessible storage account*. This failure typically happens when you delete the storage account while it still has an Azure file share which is a cloud endpoint in a sync group. 
 - Server failures 
     - *Azure File Sync file system filter (StorageSync.sys) is not loaded*. In order to respond to tiering/recall requests, the Azure File Sync file system filter must be loaded. The filter not being loaded can happen for several reasons, but the most common reason is that an administrator unloaded it manually. The Azure File Sync file system filter must be loaded at all times for Azure File Sync to properly function.
