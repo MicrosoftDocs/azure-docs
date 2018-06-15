@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
+ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer:  
 
@@ -138,7 +138,7 @@ Use the following procedures to create the required network resources in Azure S
 
 The purpose of the Local network gateway resource is to indicate the remote gateway at the other end of the VPN connection. For this example, the remote side is the LAN subinterface of the ExpressRoute router. For Tenant 1 in this example, the remote address is 10.60.3.255 as shown in Diagram 2.
 
-1. Log in to the Azure Stack physical machine.
+1. Sign in to the Azure Stack physical machine.
 2. Sign in to the user portal with your user account and click **New**.
 3. Select **Networking** from the Marketplace menu.
 4. Select **local network gateway** from the list of resources.
@@ -205,7 +205,7 @@ infrastructure. You must configure NAT on the AzS-BGPNAT01 virtual machine to al
 
 #### Configure the NAT
 
-1. Log in to the Azure Stack physical machine with your administrator account.
+1. Sign in to the Azure Stack physical machine with your administrator account.
 2. Copy and edit the following PowerShell script and run in an elevated Windows PowerShell ISE. Replace your administrator password. The address returned is your *External BGPNAT address*.
 
    ```
