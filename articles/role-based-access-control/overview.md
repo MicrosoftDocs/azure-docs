@@ -99,4 +99,4 @@ Only the Azure portal and the Azure Resource Manager APIs support Azure RBAC. Us
 
 - [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
 - [Tutorial: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-- [Manage access using RBAC and the Azure portal](role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json)
+- [Manage access using RBAC and the Azure portal](role-assignments-portal.md)
