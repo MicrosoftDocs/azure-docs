@@ -173,9 +173,14 @@ The Local network gateway resource identifies the remote gateway at the other en
 9. In the **Shared key (PSK)** field, enter **abc123** and then select **OK**.
 10. Under **Summary**, select **OK**.
 
-    After the connection is created, you can see the public IP address used by the virtual network gateway. To find the address in the Azure Stack portal, browse to your Virtual network gateway. In **Overview**, find the **Public IP address**. Make a note of this address because you'll use it as the ***Internal IP address*** in the next section (if applicable for your deployment.)
+**Get the Virtual network gateway public IP address**
 
-    ![Virtual network gateway with public IP address](media/azure-stack-connect-expressroute/GWPublicIP.png)
+After you create the Virtual network gateway you can get the gateway's public IP address. Make note of this address in case you need it later for your deployment. Depending on your deployment, this address is used as the ***Internal IP address***.
+
+1. In the Azure Stack user portal, select **All resources**.
+2. Under **All resources**, select the virtual network gateway, which is **GW1** in the example.
+3. Under **Virtual network gateway**, select **Overview**. from the list of resources. Alternatively, you can select **Properties**.
+4. The IP address that you want to note is listed under **Public IP address**. For the example configuration, this address is 192.68.102.1.
 
 #### Create a virtual machine
 
