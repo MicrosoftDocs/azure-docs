@@ -60,7 +60,7 @@ To complete the quickstart, you need to install [Visual Studio 2017](https://www
 
     h. Make sure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default **Authentication** setting might be something else. To change it, select **Change Authentication** and then **No Authentication**.
 
-    j. Select **OK** to create the project.
+    i. Select **OK** to create the project.
 
 ## Create a cache
 
@@ -93,7 +93,7 @@ Next, you create the cache for the app.
 
 ## Update the MVC application
 
-In this section, you update the application to support a new view that displays a simple test against an Azure Redis Cache.
+In this section, you update the application to support a new view that displays a simple test against Azure Redis Cache.
 
 * [Update the web.config file with an app setting for the cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * [Configure the application to use the StackExchange.Redis client](#configure-the-application-to-use-stackexchangeredis)
