@@ -93,7 +93,7 @@ These are the available HDInsight solutions:
 
 In this tutorial, you install an HDInsight Hadoop monitoring solution. For more information, see [Management solutions in Azure](../monitoring/monitoring-solutions.md).
 
-1. Open the OMS workspace that is associated to your HDInsight cluster from the Azure portal.
+1. Open the Log Analytics workspace that is associated to your HDInsight cluster from the Azure portal.
 2. Select the **Overview** tile.
 3. Select **Add**.  It opens a **Management Solutions** pane on the right.
 4. Select **HDInsight Hadoop Monitoring**. You might need to select **Load more** at the bottom a couple of times before you can find the solution.
