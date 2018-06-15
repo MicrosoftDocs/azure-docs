@@ -112,7 +112,7 @@
           href: sql-database-dtu-resource-limits-elastic-pools.md  
     - name: Connectivity architecture
       href: sql-database-connectivity-architecture.md 
-    - name: T-SQL details
+    - name: T-SQL differences
       href: sql-database-transact-sql-information.md
   - name: Managed Instances
     items:
@@ -128,7 +128,7 @@
       href: blah.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
-    - name: T-SQL details
+    - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
   - name: SQL Server common features
     href: sql-database-features.md
