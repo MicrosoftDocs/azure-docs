@@ -21,9 +21,11 @@ ms.reviewer: jsimmons
 | Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
+Now that we have an understanding of [how to enforce Azure AD password protection for Windows Server Active Directory](concept-password-ban-bad-onprem.md), the next step is to plan and execute the deployment.
+
 ## Deployment strategy
 
-Microsoft suggests that any deployment start in audit mode. Audit mode is the default initial setting. Once proxy server(s) and DC agents are fully deployed in audit mode, regular monitoring should be done in order to determine what impact password policy enforcement would have on users and the environment if the policy was enforced.
+Microsoft suggests that any deployment start in audit mode. Audit mode is the default initial setting where passwords can continue to be set and any that would be blocked create entries in the event log. Once proxy server(s) and DC agents are fully deployed in audit mode, regular monitoring should be done in order to determine what impact password policy enforcement would have on users and the environment if the policy was enforced.
 
 During the audit stage, many organizations find:
 
@@ -31,7 +33,7 @@ During the audit stage, many organizations find:
 * Users are accustomed to regularly choosing unsecure passwords
 * They need to inform users about the upcoming change in security enforcement, the impact it may have on them, and help them better understand how they can choose more secure passwords.
 
-Once the feature has been running in audit mode for a reasonable time, the enforcement configuration can be flipped from **Audit** to **Enforce**. Focused monitoring during this time is a good idea.
+Once the feature has been running in audit mode for a reasonable time, the enforcement configuration can be flipped from **Audit** to **Enforce** thereby requiring more secure passwords. Focused monitoring during this time is a good idea.
 
 ## Single forest deployment
 

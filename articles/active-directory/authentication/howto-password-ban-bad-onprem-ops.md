@@ -21,8 +21,6 @@ ms.reviewer: jsimmons
 | Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-## Post-deployment operations and reporting
-
 After you have completed the [installation of Azure AD password protection](howto-password-ban-bad-onprem.md) on-premises, there are a couple items that must be configured in the Azure portal.
 
 ## Configure the custom banned password list
@@ -82,4 +80,4 @@ The scope of the cmdlet’s reporting may be influenced using one of the –Fore
 
 ## Next steps
 
-[Troubleshooting and logging information for Azure AD password protection]()
+[Troubleshooting and logging information for Azure AD password protection](howto-password-ban-bad-onprem-ts.md)
