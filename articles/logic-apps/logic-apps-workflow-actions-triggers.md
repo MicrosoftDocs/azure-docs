@@ -38,11 +38,11 @@ Here are the general trigger categories:
 
 * A *polling* trigger, which checks a service's endpoint at regular intervals
 
-* A *push* trigger, which creates a subscription to an endpoint and 
-provides a *callback URL* so the endpoint can return a response 
-when a specific event happens or data is available. The trigger 
-then waits for that response.
- 
+* A *push* trigger, which creates a subscription to an endpoint 
+and provides a *callback URL* so the endpoint can notify the 
+trigger when the specified event happens or data is available. 
+The trigger then waits for the endpoint's response before firing. 
+
 Triggers have these top-level elements, although some are optional:  
   
 ```json
@@ -76,7 +76,7 @@ Triggers have these top-level elements, although some are optional:
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow | 
-| <*runtime-config-options*> | JSON Object | You can change trigger runtime behavior by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration options](#runtime-config-options). | 
+| <*runtime-config-options*> | JSON Object | You can change trigger runtime behavior by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration settings](#runtime-config-options). | 
 | <*splitOn-expression*> | String | For triggers that return an array, you can specify an expression that [splits or *debatches*](#split-on-debatch) array items into multiple workflow instances for processing. | 
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
@@ -135,7 +135,8 @@ behavior depends on whether or not sections are included.
    },
    "runtimeConfiguration": {
       "concurrency": {
-         "runs": <maximum-concurrent-workflow-instances>
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-runs-queue>
       }
    },
    "splitOn": "<splitOn-expression>",
@@ -160,10 +161,11 @@ behavior depends on whether or not sections are included.
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | JSON Object | Any query parameters to include with the API call. <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
+| <*query-parameters*> | JSON Object | Any query parameters to include with the API call. For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
+| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
-| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
+| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 ||||
 
 *Outputs*
@@ -185,7 +187,7 @@ inside the inbox for an Office 365 Outlook account:
    "inputs": {
       "host": {
          "connection": {
-            "name": "@parameters('$connections')['office365'].['connectionId']"
+            "name": "@parameters('$connections')['office365']['connectionId']"
          }     
       },
       "method": "get",
@@ -229,7 +231,14 @@ and waits for the endpoint to respond. For more information, see
       "retryPolicy": { "<retry-behavior>" },
       "queries": "<query-parameters>"
    },
-   "splitOn": "<splitOn-expression>"
+   "runTimeConfiguration": {
+      "concurrency": {
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-run-queue>
+      }
+   },
+   "splitOn": "<splitOn-expression>",
+   "operationOptions": "<operation-option>"
 }
 ```
 
@@ -247,7 +256,10 @@ and waits for the endpoint to respond. For more information, see
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
+| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
+| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
 *Example*
@@ -305,7 +317,8 @@ The endpoint's response determines whether the workflow runs.
    },
    "runtimeConfiguration": {
       "concurrency": {
-         "runs": <maximum-concurrent-workflow-instances>
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-runs-queue>
       }
    },
    "operationOptions": "<operation-option>"
@@ -331,8 +344,9 @@ The endpoint's response determines whether the workflow runs.
 | <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://login.windows.net`, but you can use a different value, such as`https://login.windows\-ppe.net`. |
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
  <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. | 
-| <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` |  
-| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
+| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
+| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
 *Outputs*
@@ -402,7 +416,14 @@ The trigger's behavior depends on the sections that you use or omit.
          "body": "<body-content>",
          "authentication": { "<authentication-method>" }
       }
-   }
+   },
+   "runTimeConfiguration": {
+      "concurrency": {
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-runs-queue>
+      }
+   },
+   "operationOptions": "<operation-option>"
 }
 ```
 
@@ -426,6 +447,9 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 | <*body-content*> | String | Any message content to send in the subscription or cancellation request | 
 | <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
+| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
 *Outputs* 
@@ -494,10 +518,11 @@ and provides an easy way for creating a regularly running workflow.
    },
    "runtimeConfiguration": {
       "concurrency": {
-         "runs": <maximum-concurrent-workflow-instances>
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-runs-queue>
       }
    },
-   "operationOptions": "SingleInstance"
+   "operationOptions": "<operation-option>"
 }
 ```
 
@@ -518,8 +543,9 @@ and provides an easy way for creating a regularly running workflow.
 | <*one-or-more-hour-marks*> | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
 | <*one-or-more-minute-marks*> | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
 | weekDays | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
-| <*maximum-concurrent-workflow-instances*> | Integer | For recurring and polling triggers, this number specifies the maximum number of workflow instances that can run at the same time. This value is useful for limiting the number of requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
-| <*operation-option*> | String | For recurring and polling triggers, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
+| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
+| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
 *Example 1*
@@ -608,7 +634,14 @@ To learn how to use this trigger as an HTTP endpoint, see
          },
          "required": [ "<required-properties>" ]
       }
-   }
+   },
+   "runTimeConfiguration": {
+      "concurrency": {
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-run-queue>
+      },
+   },
+   "operationOptions": "<operation-option>"
 }
 ```
 
@@ -627,6 +660,9 @@ To learn how to use this trigger as an HTTP endpoint, see
 | <*method-type*> | String | The method that incoming requests must use to call your logic app: "GET", "PUT", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | String | The relative path for the parameter that your endpoint's URL can accept | 
 | <*required-properties*> | Array | One or more properties that require values | 
+| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
+| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
 *Example*
@@ -826,7 +862,7 @@ Actions have these high-level elements, though some are optional:
 | Value | Type | Description | 
 |-------|------|-------------|
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](#retry-policies). |  
-| <*runtime-config-options*> | JSON Object | For some actions, you can change the action's behavior at run time by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration options](#runtime-config-options). | 
+| <*runtime-config-options*> | JSON Object | For some actions, you can change the action's behavior at run time by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration settings](#runtime-config-options). | 
 | <*operation-option*> | String | For some actions, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
@@ -2008,8 +2044,8 @@ Learn [how to create "Foreach" loops](../logic-apps/logic-apps-control-flow-loop
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*count*> | Integer | By default, the "for each" loop runs in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). However, you can override this limit by setting <*count*> to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To make each loop run sequentially, set <*count*> to a value of `1`. <p>**Note**: For sequential runs, you can set either the `concurrency.repetitions` property or the `operationOptions` property, but not both. Otherwise, you get a validation error. | 
-| <*operation-option*> | String | To run a "for each" loop sequentially, rather than in parallel, you can set <*operation-option*> to `Sequential`. <p>**Note**: You can set either the `operationOptions` property or the `concurrency.repetitions` property, but not both. Otherwise, you get a validation error. | 
+| <*count*> | Integer | By default, the "for each" loop iterations run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change "for each" loop concurrency](#change-for-each-concurrency). | 
+| <*operation-option*> | String | To run a "for each" loop sequentially, rather than in parallel, set either <*operation-option*> to `Sequential` or <*count*> to `1`, but not both. For more information, see [Run "for each" loops sequentially](#sequential-for-each). | 
 |||| 
 
 *Example*
