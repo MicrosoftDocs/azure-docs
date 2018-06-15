@@ -14247,6 +14247,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-reporting-notifications.md",
+            "redirect_url": "/azure/active-directory/active-directory-identityprotection-notifications",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/application-insights/app-insights-understand-usage-patterns.md",
             "redirect_url": "/azure/application-insights/usage-funnels",
             "redirect_document_id": false
