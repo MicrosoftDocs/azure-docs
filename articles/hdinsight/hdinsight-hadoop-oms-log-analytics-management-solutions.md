@@ -36,7 +36,7 @@ The following procedure demonstrates how to add a Hadoop cluster management solu
 
     ![Add management solution in Log Analytics](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-add-management-solution-oms-portal.png "Add management solution in Operations Management Suite")
 
-    These are the available HDInsight solutions:
+    The following list shows the available HDInsight solutions:
 
     - HDInsight Hadoop Monitoring
     - HDInsight HBase Monitoring (Preview)
@@ -45,7 +45,7 @@ The following procedure demonstrates how to add a Hadoop cluster management solu
     - HDInsight Spark Monitoring
     - HDInsight InteractiveQueryMonitoring
 
-3. In the next screen, select **Add**. It takes a few moments to add the solution. When it is done, you can see a tile on the dashboard for the Hadoop management solution. 
+3. In the next screen, select **Add**. It takes a few moments to add the solution. When it is done, you can see a tile on the dashboard for the Hadoop management solution.
 
     ![Hadoop management solution added](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/added-Hadoop-management-solution.png "Hadoop management solution added")
 

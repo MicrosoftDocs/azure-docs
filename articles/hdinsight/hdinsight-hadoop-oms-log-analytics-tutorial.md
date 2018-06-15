@@ -82,16 +82,16 @@ See [Disable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.c
 
 HDInsight provides cluster-specific management solutions that you can add for Azure Log Analytics. [Management solutions](../log-analytics/log-analytics-add-solutions.md) add functionality to Log Analytics, providing additional data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters and provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.
 
-    These are the available HDInsight solutions:
+These are the available HDInsight solutions:
 
-    - HDInsight Hadoop Monitoring
-    - HDInsight HBase Monitoring (Preview)
-    - HDInsight InteractiveQueryMonitoring
-    - HDInsight Kafka Monitoring
-    - HDInsight Spark Monitoring
-    - HDInsight Storm Monitoring
+* HDInsight Hadoop Monitoring
+* HDInsight HBase Monitoring (Preview)
+* HDInsight InteractiveQueryMonitoring
+* HDInsight Kafka Monitoring
+* HDInsight Spark Monitoring
+* HDInsight Storm Monitoring
 
-In this tutorial, you install an HDInsight Hadoop monitoring solution. For more information, see [Management solutions in Azure](../monitoring/monitoring-solution.md).
+In this tutorial, you install an HDInsight Hadoop monitoring solution. For more information, see [Management solutions in Azure](../monitoring/monitoring-solutions.md).
 
 1. Open the OMS workspace that is associated to your HDInsight cluster from the Azure portal.
 2. Select the **Overview** tile.
@@ -107,4 +107,4 @@ In this tutorial, you install an HDInsight Hadoop monitoring solution. For more 
 
 ## Next steps
 
-* [Add HDInsight cluster management solutions to Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
+* [Query Azure Log Analytics to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)

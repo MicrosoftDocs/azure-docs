@@ -12,7 +12,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 06/15/2018
 ms.author: nitinme
 
 ---
@@ -34,8 +34,12 @@ Learn some basic scenarios on how to use Azure Log Analytics to monitor Azure HD
 
 Learn how to look for specific metrics for your HDInsight cluster.
 
+1. Open the OMS workspace that is associated to your HDInsight cluster from the Azure portal.
+2. Select the **Overview** tile.
+3. Select the **HDInsightHadoop** tile.  
+
 1. Open an HDInsight cluster that you have associated with Azure Log Analytics in the Azure portal.
-2. Click **Monitoring**, and then click **Open OMS Dashboard**.
+1. Click **Monitoring**, and then click **Open OMS Dashboard**.
 
     ![Open OMS dashboard](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS dashboard")
 
