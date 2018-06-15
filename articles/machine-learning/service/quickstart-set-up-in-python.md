@@ -130,7 +130,8 @@ pip install azureml-sdk
 SCREENSHOT TBD
 
 ## Clean up resources 
-[!INCLUDE aml-delete-resource-group]
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 
