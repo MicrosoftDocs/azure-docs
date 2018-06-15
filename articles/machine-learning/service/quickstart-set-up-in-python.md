@@ -41,11 +41,29 @@ You can install the SDK on a Windows, Linux, or MacOS computer with following pr
 
 ## Install the SDK
 
-Open your command-line editor, and install the azureml-sdk Python package
+1. Open your command-line editor, and set up your environment.
+    ```
+    # create a new conda environment with Python 3.6, numpy and cython
+    conda create -n myenv Python=3.6 cython numpy
+    ```
+1. Activate your environment.
+    
+    * If you are on a device running Windows, active the conda environment with
 
-```
-pip install azureml-sdk
-```
+    ```
+    activate myenv
+    ```
+
+   * If you are running Mac OS, active the conda environment with
+
+    ```
+    source activate myenv
+    ```
+1. Install the azureml-sdk Python package
+
+    ```
+    pip install azureml-sdk
+    ```
 
 ## Create a resource group
 
