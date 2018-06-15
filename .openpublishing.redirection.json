@@ -19427,7 +19427,12 @@
         },
         {
             "source_path": "articles/active-directory/manage-access-to-azure-resources.md",
-            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
+            "redirect_url": "/azure/role-based-access-control/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/role-based-access-control/manage-access-to-azure-resources.md",
+            "redirect_url": "/azure/role-based-access-control/index",
             "redirect_document_id": false
         },
         {
@@ -19498,11 +19503,6 @@
         {
             "source_path": "articles/active-directory/role-based-access-control-access-change-history-report.md",
             "redirect_url": "/azure/role-based-access-control/change-history-report",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/role-based-access-control/index.md",
-            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
             "redirect_document_id": false
         },
         {
