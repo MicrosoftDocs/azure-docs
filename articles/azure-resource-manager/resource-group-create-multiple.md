@@ -342,14 +342,14 @@ With either approach, the copy element is an array so you can specify more than 
     "name": "first-variable",
     "count": 5,
     "input": {
-      "demoProperty": "[concat('myProperty', copyIndex('first-varialbe'))]",
+      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
     }
   },
   {
     "name": "second-variable",
     "count": 3,
     "input": {
-      "demoProperty": "[concat('myProperty', copyIndex('second-varialbe'))]",
+      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
     }
   },
 ]
