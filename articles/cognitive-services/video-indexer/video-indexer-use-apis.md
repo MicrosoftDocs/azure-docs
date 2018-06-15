@@ -32,7 +32,7 @@ This article shows how the developers can take advantage of the [Video Indexer A
     > [!Important]
     > 1. You must use the same provider you used when you signed up for Video Indexer.
     > 2. Personal Google and Microsoft (outlook/live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
-    > 3. There can be only one active account per E-Mail. If a user tries to sign-in with `user@gmail.com` for LinkedIn and after that with `user@gmail.com` for Google the later will display an error page, saying the user already exist.
+    > 3. There can be only one active account per E-Mail. If a user tries to sign-in with user@gmail.com for LinkedIn and after that with user@gmail.com for Google the later will display an error page, saying the user already exist.
 
 
 2. Subscribe.
