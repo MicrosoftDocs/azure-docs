@@ -20,7 +20,7 @@ ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Queue storage
 
-Learn how to create a function triggered when messages are submitted to an Azure Storage queue.
+Learn how to create a function that is triggered when messages are submitted to an Azure Storage queue.
 
 ![View message in the logs.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 

@@ -1,28 +1,25 @@
 ---
-title: Switch statements - Run steps based on specific values - Azure Logic Apps | Microsoft Docs
-description: Run different steps based on the values from objects, expressions, or tokens in logic apps
+# required metadata
+title: Add switch statements to workflows - Azure Logic Apps | Microsoft Docs
+description: How to create switch statements that control workflow actions based on specific values in Azure Logic Apps
 services: logic-apps
-keywords: switch statement
-author: ecfan
-manager: anneta
-editor: ''
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
+ms.topic: article
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
-# Switch statements: Run different steps based on specific values in logic apps
+# Create switch statements that run workflow actions based on specific values in Azure Logic Apps
 
-To perform different steps based on the values of an object, expression, or token, 
-use a *switch* statement. This structure evaluates the object, expression, or token, 
-chooses the case that matches the result, and runs steps for only that case. 
+To run specific actions based on the values of objects, expressions, or tokens, 
+add a *switch* statement. This structure evaluates the object, expression, or token, 
+chooses the case that matches the result, and runs specific actions only for that case. 
 When the switch statement runs, only one case should match the result.
 
 For example, suppose you want a logic app that takes different steps 

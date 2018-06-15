@@ -282,7 +282,7 @@ Now that you’ve deployed a working solution accelerator, you can continue gett
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]:iot-accelerators-what-are-solution-accelerators.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md

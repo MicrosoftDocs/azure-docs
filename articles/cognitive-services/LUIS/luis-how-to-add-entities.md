@@ -17,7 +17,7 @@ After you identify your app's [intents](luis-concept-intent.md), you need to [la
 
 You can add, edit, or delete entities in your app through the **Entities list** on the **Entities** page. LUIS offers two main types of entities: [prebuilt entities](luis-reference-prebuilt-entities.md), and your own custom entities.
 
-The following sections are only available inside a LUIS app, from the **Build** section. The **Build** link is in the top navigation bar. Once inside the **Build** section, select **Entities** from the left navigation menu. Once an entity is added to the application, if the entity is machine-learned, you can [label the entity](add-example-utterances.md) inside the utterance. Once the app is trained and published, you can receive entity data [extracted](luis-concept-data-extraction.md) from the prediction. 
+The following sections are only available inside a LUIS app, from the **Build** section. The **Build** link is in the top navigation bar. Once inside the **Build** section, select **Entities** from the left navigation menu. Once an entity is added to the application, if the entity is machine-learned, you can [label the entity](luis-how-to-add-example-utterances.md) inside the utterance. Once the app is trained and published, you can receive entity data [extracted](luis-concept-data-extraction.md) from the prediction. 
 
 ## Add prebuilt entity
 Prebuilt entities are defined in the [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Common prebuilt entities added to an application are *number* and *datetimeV2*. 

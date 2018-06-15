@@ -5,10 +5,10 @@ services: cosmos-db
 author: alekseys
 manager: kfile
 
-ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
 experimental: true

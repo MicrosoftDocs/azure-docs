@@ -3,15 +3,16 @@ title: Perform access reviews in Azure resources by using Privileged Identity Ma
 description: Explains how to start an access review in Privileged Identity Management for Azure Resources
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
 ---
 

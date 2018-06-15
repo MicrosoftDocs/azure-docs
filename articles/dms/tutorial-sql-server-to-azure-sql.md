@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/08/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database using DMS
@@ -54,9 +54,9 @@ Before you can migrate data from an on-premises SQL Server instance to Azure SQL
 
     Both report types are selected by default.
 
-4.	In the Data Migration Assistant, on the **Options** screen, select **Next**.
-5.  On the **Select sources** screen, in the **Connect to a server** dialog box, provide the connection details to your SQL Server, and then select **Connect**.
-6.	In the **Add sources** dialog box, select **AdventureWorks2012**, select **Add**, and then select **Start Assessment**.
+3.	In the Data Migration Assistant, on the **Options** screen, select **Next**.
+4.  On the **Select sources** screen, in the **Connect to a server** dialog box, provide the connection details to your SQL Server, and then select **Connect**.
+5.	In the **Add sources** dialog box, select **AdventureWorks2012**, select **Add**, and then select **Start Assessment**.
 
     When the assessment is complete, the results display as shown in the following graphic:
 
@@ -67,7 +67,7 @@ Before you can migrate data from an on-premises SQL Server instance to Azure SQL
     - The **SQL Server feature parity** category provides a comprehensive set of recommendations, alternative approaches available in Azure, and mitigating steps to help you plan the effort into your migration projects.
     - The **Compatibility issues** category identifies partially supported or unsupported features that reflect compatibility issues that might block migrating on-premises SQL Server database(s) to Azure SQL Database. Recommendations are also provided to help you address those issues.
 
-7.	Review the assessment results for migration blocking issues and feature parity issues by selecting the specific options.
+6.	Review the assessment results for migration blocking issues and feature parity issues by selecting the specific options.
 
 ## Migrate the sample schema
 After you are comfortable with the assessment and satisfied that the selected database is a viable candidate for migration to Azure SQL Database, use the Data Migration Assistant to migrate the schema to Azure SQL Database.
@@ -78,33 +78,33 @@ After you are comfortable with the assessment and satisfied that the selected da
 To migrate the **AdventureWorks2012** schema to Azure SQL Database, perform the following steps:
 
 1.	In the Data Migration Assistant, select the New (+) icon, and then under **Project type**, select **Migration**.
-3.	Specify a project name, in the **Source server type** text box, select **SQL Server**, and then in the **Target server type** text box, select **Azure SQL Database**.
-4.	Under **Migration Scope**, select **Schema only**.
+2.	Specify a project name, in the **Source server type** text box, select **SQL Server**, and then in the **Target server type** text box, select **Azure SQL Database**.
+3.	Under **Migration Scope**, select **Schema only**.
 
     After performing the previous steps, the Data Migration Assistant interface should appear as shown in the following graphic:
     
     ![Create Data Migration Assistant Project](media\tutorial-sql-server-to-azure-sql\dma-create-project.png)
 
-5.	Select **Create** to create the project.
-6.	In the Data Migration Assistant, specify the source connection details for your SQL Server, select **Connect**, and then select the **AdventureWorks2012** database.
+4.	Select **Create** to create the project.
+5.	In the Data Migration Assistant, specify the source connection details for your SQL Server, select **Connect**, and then select the **AdventureWorks2012** database.
 
     ![Data Migration Assistant Source Connection Details](media\tutorial-sql-server-to-azure-sql\dma-source-connect.png)
 
-7.	Select **Next**, under **Connect to target server**, specify the target connection details for the Azure SQL database, select **Connect**, and then select the **AdventureWorksAzure** database you had pre-provisioned in Azure SQL database.
+6.	Select **Next**, under **Connect to target server**, specify the target connection details for the Azure SQL database, select **Connect**, and then select the **AdventureWorksAzure** database you had pre-provisioned in Azure SQL database.
 
     ![Data Migration Assistant Target Connection Details](media\tutorial-sql-server-to-azure-sql\dma-target-connect.png)
 
-8.	Select **Next** to advance to the **Select objects** screen, on which you can specify the schema objects in the **AdventureWorks2012** database that need to be deployed to Azure SQL Database.
+7.	Select **Next** to advance to the **Select objects** screen, on which you can specify the schema objects in the **AdventureWorks2012** database that need to be deployed to Azure SQL Database.
 
     By default, all objects are selected.
 
     ![Generate SQL Scripts](media\tutorial-sql-server-to-azure-sql\dma-assessment-source.png)
 
-9.	Select **Generate SQL script** to create the SQL scripts, and then review the scripts for any errors.
+8.	Select **Generate SQL script** to create the SQL scripts, and then review the scripts for any errors.
 
     ![Schema Script](media\tutorial-sql-server-to-azure-sql\dma-schema-script.png)
 
-10.	Select **Deploy schema** to deploy the schema to Azure SQL Database, and then after the schema is deployed, check the target server for any anomalies.
+9.	Select **Deploy schema** to deploy the schema to Azure SQL Database, and then after the schema is deployed, check the target server for any anomalies.
 
     ![Deploy Schema](media\tutorial-sql-server-to-azure-sql\dma-schema-deploy.png)
 
@@ -167,7 +167,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 5.	Select **Create** to create the project.
 
 ## Specify source details
-1. On the **Source details** screen, specify the connection details for the source SQL Server instance name.
+1. On the **Source details** screen, specify the connection details for the source SQL Server instance.
  
     Make sure to use a Fully Qualified Domain Name (FQDN) for the source SQL Server instance name. You can also use the IP Address for situations in which DNS name resolution is not possible.
 
@@ -212,13 +212,13 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 4. Select **Save**, on the **Select tables** screen, expand the table listing, and then review the list of affected fields.
 
-    Note that the Azure Database Migration Service auto selects all the empty source tables that exist on the target Azure SQL Database instance. If you want to re-migrate tables that already include data, you need to explicitly select the tables on this blade.
+    Note that the Azure Database Migration Service auto selects all the empty source tables that exist on the target Azure SQL Database instance. If you want to remigrate tables that already include data, you need to explicitly select the tables on this blade.
 
     ![Select tables](media\tutorial-sql-server-to-azure-sql\dms-configure-setting-activity1.png)
 
 5.	Select **Save**, on the **Migration summary** screen, in the **Activity name** text box, specify a name for the migration activity.
 
-6. Expand the **Validation option** section to display the **Choose validation option** screen, specific whether to validate the migrated databases for Schema comparison, Data consistency, and Query correctness.
+6. Expand the **Validation option** section to display the **Choose validation option** screen, specify whether to validate the migrated databases for **Schema comparison**, **Data consistency**, and **Query correctness**.
     
     ![Choose validation option](media\tutorial-sql-server-to-azure-sql\dms-configuration1.png)
 
@@ -233,13 +233,13 @@ After the service is created, locate it within the Azure portal, open it, and th
     ![Activity Status](media\tutorial-sql-server-to-azure-sql\dms-activity-status1.png)
 
 ## Monitor the migration
-1. On the migration activity screen, select **Refresh** to update the display until you see that the **Status** of the migrations shows as **Completed**.
+1. On the migration activity screen, select **Refresh** to update the display until the **Status** of the migration shows as **Completed**.
 
     ![Activity Status Completed](media\tutorial-sql-server-to-azure-sql\dms-completed-activity1.png)
 
 2. After the migration completes, select **Download report** to get a report listing the details associated with the migration process.
 
-3. Verify the target database(s) on the target Azure SQL database.
+3. Verify the target database(s) on the target Azure SQL Database server.
 
 ### Additional resources
 

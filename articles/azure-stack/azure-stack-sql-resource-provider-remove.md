@@ -1,6 +1,6 @@
 ---
-title: Using SQL databases on Azure Stack | Microsoft Docs
-description: Learn how you can deploy SQL databases as a service on Azure Stack and the quick steps to deploy the SQL Server resource provider adapter.
+title: Removing the SQL resource provider on Azure Stack | Microsoft Docs
+description: Learn how you can remove the SQL resource provider from your Azure Stack deployment.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
 
-# Remove the SQL resource provider
-To remove the SQL resource provider:
+# Removing the MySQL resource provider  
+Before removing the SQL resource provider, it is essential to first remove any dependencies.
 
-1. Remove any existing SQL resource provider dependencies.
+## Remove the MySQL resource provider 
+
+1. Verify that you have removed any existing SQL resource provider dependencies.
 
   > [!NOTE]
   > Uninstalling the SQL resource provider will proceed even if dependent resources are currently using the resource provider. 
@@ -32,3 +34,5 @@ To remove the SQL resource provider:
     - The credential for the cloud administrator, necessary for accessing the privileged endpoint.
     - The credentials for the Azure Stack service admin account. Use the same credentials as you used for deploying Azure Stack.
 
+## Next steps
+[Offer App Services as PaaS](azure-stack-app-service-overview.md)

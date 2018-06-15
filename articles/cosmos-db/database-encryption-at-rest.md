@@ -5,10 +5,9 @@ services: cosmos-db
 author: voellm
 manager: kfile
 
-ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: voellm
 

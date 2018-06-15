@@ -4,7 +4,7 @@ description: Set up the on-premises data gateway so you can access data sources 
 keywords: access data, on premises, data transfer, encryption, data sources
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 

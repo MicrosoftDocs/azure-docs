@@ -50,7 +50,7 @@ SaaS applications are available in both Azure Storefronts The following table de
 | **PowerBI / Dynamics** | Yes | Yes (Azure AD integration) |  
 | **SaaS Apps**| Yes | Yes (Azure AD integration) |     
 
-For more information about the Marketplace storefronts and a descripiton of each publishing option, see the [Marketplace Publisher Guide](https://aka.ms/sellerguide) and [Publishing Options](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+For more information about the Marketplace storefronts and a descripiton of each publishing option, see the [Marketplace Publisher Guide](https://aka.ms/sellerguide) and [Publishing Options](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
 ## Business requirements
 The SaaS offer business requirements can be completed in parallel with the technical requirements. Most of the business requirements and information is collected when building the SaaS Offer in the Cloud Partner Portal. The business requirements are the following: 
@@ -61,7 +61,7 @@ The SaaS offer business requirements can be completed in parallel with the techn
 * Setting up privacy policy and terms of use
 * Defining the Support contacts  
 
-For more information, you  can be found in the topic [Prerequisites for marketplace publishing](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
+For more information, you  can be found in the topic [Prerequisites for marketplace publishing](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
 
 ## Technical requirements
 
@@ -71,11 +71,11 @@ To start, we recommend that you have a subscription dedicated for your Azure Mar
 
 The best Azure Active Directory documentation, samples and guidance are located at the following sites: 
 
-* [Azure Active Directory Developer's Guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+* [Azure Active Directory Developer's Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Integrating with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Integrating with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Azure Roadmap - Security and Identity](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -124,7 +124,7 @@ The following table describes each of the main publishing steps:
 
 ## Using Azure Active Directory to enable trials  
 
-Microsoft authenticates all Marketplace users with Azure AD, hence when an authenticated user clicks through your Trial listing in Marketplace and is redirected to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The token that your app receives from Azure AD during authentication includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. For more information about the token, see [Sample Tokens](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft authenticates all Marketplace users with Azure AD, hence when an authenticated user clicks through your Trial listing in Marketplace and is redirected to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The token that your app receives from Azure AD during authentication includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. For more information about the token, see [Sample Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Using Azure AD to enable 1-click authentication to your app or Trial does the following:  
 * Streamlines the customer experience from Marketplace to Trial.  
@@ -140,15 +140,15 @@ You can certify your Azure AD integration in a few different ways, depending on 
 
 If you already support Azure AD, do the following:
 1.	Register your application in the Azure portal
-2.	Enable the multi-tenancy support feature in Azure AD to get a 'one-click' trial experience. More specific information can be found [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+2.	Enable the multi-tenancy support feature in Azure AD to get a 'one-click' trial experience. More specific information can be found [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 If you are new to Azure AD Federated SSO, do the following: 
 1.  Register your application in the Azure portal
-2.  Develop SSO with Azure AD using [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) or [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Enable multi-tenancy support feature in AAD to get 'one-click' trial experience More specific information can be found [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Develop SSO with Azure AD using [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) or [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Enable multi-tenancy support feature in AAD to get 'one-click' trial experience More specific information can be found [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
 
 **For single-tenant application, use any of the following options:**  
-* Add users to your directory as guest users using [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Add users to your directory as guest users using [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 * Manually provision trials for customers by using 'Contact Me'
 * Develop a per-customer 'Test Drive'
 * Build a multi-tenant sample demo app with SSO

@@ -71,5 +71,5 @@ Once the NSGs are created and configured, we recommend running a [test failover]
 ## Next steps
 -	Learn more about [Network Security Groups](../virtual-network/security-overview.md#network-security-groups).
 -	Learn more about NSG [security rules](../virtual-network/security-overview.md#security-rules).
--	Learn more about [effective security rules](../virtual-network/virtual-network-nsg-troubleshoot-portal.md#nsg) for an NSG.
+-	Learn more about [effective security rules](../virtual-network/diagnose-network-traffic-filter-problem.md) for an NSG.
 -	Learn more about [recovery plans](site-recovery-create-recovery-plans.md) to automate application failover.

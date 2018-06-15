@@ -6,10 +6,10 @@ author: rnagpal
 manager: kfile
 editor: cgronlun
 
-ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: reference
 ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017

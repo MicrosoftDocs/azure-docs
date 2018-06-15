@@ -1,6 +1,6 @@
 ---
 title: Tutorial learning how to add utterances to a LUIS app using Python | Microsoft Docs
-description: In this tutorial, you learn to call a LUIS app using Python in this quickstart.
+description: In this tutorial, you learn to call a LUIS app using Python.
 services: cognitive-services
 author: v-geberr
 manager: Kaiqb
@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 
 # Tutorial: Add utterances to app using Python
-In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in Python.
+In this tutorial, write a program to add an utterance to an intent using the Authoring APIs in Python.
 
 <!-- green checkmark -->
 > [!div class="checklist"]

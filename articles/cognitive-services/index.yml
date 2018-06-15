@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/09/2018
+  ms.date: 05/29/2018
   ms.author: cgronlun
 
 abstract:
@@ -22,21 +22,82 @@ sections:
   items:
   - type: paragraph
     text: 'Learn how to add cognitive intelligence to your first app:'
-  - type: list
-    style: icon48
-    items: 
+  - type: table
+    style: dataMatrix
+    columns: 
     - image: 
-        src: ../media/index/API_Custom_Vision.svg
-      text: Build an image classifier 
-      href: /azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier
+        src: media/index/logo_Csharp.svg
+      title: C#
     - image: 
-        src: ../media/index/API_Luis.svg
-      text: Build a home automation app 
-      href: /azure/cognitive-services/luis/luis-get-started-create-app
+        src: media/index/logo_java.svg
+      title: Java
     - image: 
-        src: ../media/index/API_TextAnalytics.svg
-      text:  Build a .NET app with text analytics
-      href: /azure/cognitive-services/text-analytics/quickstarts/csharp
+        src: media/index/logo_nodejs.svg
+      title: Node.js
+    - image: 
+        src: media/index/logo_python.svg
+      title: Python
+    - image:
+        src: media/index/blue_globe_icon.png
+      title: Web
+    rows:
+    - title: Computer Vision - API
+      values:
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp-analyze
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
+      - href:
+    - title: Custom Vision - Build a Classifier
+      values:
+      - href:
+      - href:
+      - href:
+      - href:
+      - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
+    - title: Speech Service - Recognize speech
+      values: 
+      - href: /azure/cognitive-services/speech-service/quickstart-csharp-windows
+      - href: 
+      - href: 
+      - href:
+      - href: /azure/cognitive-services/speech-service/get-started 
+    - title: Translator Speech - API
+      values: 
+      - href: /azure/cognitive-services/translator-speech/quickstarts/csharp
+      - href: /azure/cognitive-services/translator-speech/quickstarts/java
+      - href: /azure/cognitive-services/translator-speech/quickstarts/nodejs
+      - href: /azure/cognitive-services/translator-speech/quickstarts/python
+      - href:
+    - title: LUIS - Use prebuilt domain
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href:
+      - href: /azure/cognitive-services/luis/luis-get-started-create-app
+    - title: Translator Text - API sign up
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href:
+      - href: /azure/cognitive-services/translator/translator-text-how-to-signup
+    - title: Bing Web Search - Call and Response
+      values: 
+      - href: /azure/cognitive-services/bing-web-search/quickstarts/csharp
+      - href: /azure/cognitive-services/bing-web-search/quickstarts/java
+      - href: /azure/cognitive-services/bing-web-search/quickstarts/nodejs
+      - href: /azure/cognitive-services/bing-web-search/quickstarts/python
+      - href:
+    - title: Bing Image Search - Call and Response
+      values:
+      - href: /azure/cognitive-services/bing-image-search/quickstarts/csharp
+      - href: /azure/cognitive-services/bing-image-search/quickstarts/java
+      - href: /azure/cognitive-services/bing-image-search/quickstarts/nodejs
+      - href: /azure/cognitive-services/bing-image-search/quickstarts/python
+      - href:
+
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -54,11 +115,11 @@ sections:
     className: cardsD
     items:
     - title: Vision
-      html: <p><a class="barLink" href="/azure/cognitive-services/computer-vision/Home"><img src="../media/index/API_Computer_Vision.svg" alt="" />Computer Vision</a></p>
+      html: <p><a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="../media/index/API_Computer_Vision.svg" alt="" />Computer Vision</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="../media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="../media/index/API_Custom_Vision.svg" alt="" /><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
             <p><a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="../media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/face/Overview"><img src="../media/index/API_Face.svg" alt="" />Face API</a></p>
+            <p><a class="barLink" href="/azure/cognitive-services/face/"><img src="../media/index/API_Face.svg" alt="" />Face API</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="../media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>      
     - title: Speech
       html: <p><a class="barLink" href="/azure/cognitive-services/speech-service"><img src="../media/index/API_Speech_Service.svg" alt="" />Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></a></p>
@@ -88,7 +149,7 @@ sections:
             <p><a class="barLink" href="/azure/cognitive-services/bing-visual-search"><img src="../media/index/API_Bing_Visual_Search.svg" alt="" />Bing Visual Search</a></p>
     - title: Labs
       html: <p><a class="barLink" href="https://docs.microsoft.com/gestures/"><img src="../media/index/labs-hand-gesture.svg" alt="" />Project Gesture</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/project-personality-chat/overview"><img src="../media/index/API_QnAMaker.svg" alt="" /><span>Project Personality Chat</a></p>
+            <p><a class="barLink" href="/azure/cognitive-services/project-personality-chat/overview"><img src="media/index/project-personality-chat-icon.svg" alt="" />Project Personality Chat</a></p>
             <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview"><img src="../media/index/labs-event-tracker.svg" alt="" />Project Event Tracking</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="../media/index/API_Know_Academic.svg" alt="" />Project Academic Knowledge</a></p>
             <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation"><img src="../media/index/labs-local-insight.svg" alt="" />Project Local Insights</a></p>

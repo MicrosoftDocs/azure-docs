@@ -7,9 +7,9 @@ manager: kfile
 editor: ''
 tags: ''
 
-ms.assetid: 6732d883-835c-481f-98e1-287893530948
 ms.service: cosmos-db
-ms.devlang: dotnet
+ms.component: cosmosdb-cassandra
+ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun

@@ -103,7 +103,7 @@ You can view any management group you have a direct or inherited RBAC role on.
 ### View in the portal
 1. Log into the [Azure portal](https://portal.azure.com)
 2. Select **All services** > **Management groups** 
-3. The Management Group hierarchy page loads where you can explore all the management groups and subscriptions you have access to. Selecting the group name takes you down a level in the hierarchy. The navigation works the same as a file explorer does. 
+3. The management group hierarchy page loads where you can explore all the management groups and subscriptions you have access to. Selecting the group name takes you down a level in the hierarchy. The navigation works the same as a file explorer does. 
     ![Main](media/management-groups/main.png)
 4. To see the details of the management group, select the **(details)** link next to the title of the management group. If this link isn't available, you don't have permissions to view that management group.  
 

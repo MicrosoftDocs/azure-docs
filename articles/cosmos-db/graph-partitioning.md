@@ -5,10 +5,10 @@ services: cosmos-db
 author: luisbosquez
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.devlang: dotnet
-ms.topic: article
+ms.component: cosmosdb-graph
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
 

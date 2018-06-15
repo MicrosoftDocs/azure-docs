@@ -74,7 +74,9 @@
     - name: Firewall rules
       href: concepts-firewall-rules.md
     - name: Configuring SSL
-      href: concepts-ssl-connection-security.md 
+      href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-and-security-vnet.md 
   - name: Business continuity
     items:
     - name: Overview
@@ -155,6 +157,12 @@
       href: howto-troubleshoot-query-performance.md
     - name: How to use views in sys schema
       href: howto-troubleshoot-sys-schema.md
+  - name: Virtual Network
+    items:
+    - name: Azure portal
+      href: howto-manage-vnet-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-using-cli.md
 - name: Reference
   items:
   - name: Azure CLI

@@ -69,7 +69,7 @@ You can also explore some of the other features and capabilities of the IoT solu
 
 [lnk-remote-monitoring]: iot-accelerators-remote-monitoring-explore.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

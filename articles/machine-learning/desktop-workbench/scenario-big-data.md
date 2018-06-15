@@ -10,6 +10,7 @@ editor: daden
 ms.assetid: 
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

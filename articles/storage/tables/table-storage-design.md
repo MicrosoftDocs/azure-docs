@@ -1,6 +1,6 @@
 ---
-title: Design scalable and performant tables | Microsoft Docs
-description: Design scalable and performant tables in Azure Table storage.
+title: Design scalable and performant tables in Azure table storage. | Microsoft Docs
+description: Design scalable and performant tables in Azure table storage.
 services: storage
 documentationcenter: na
 author: SnehaGunda

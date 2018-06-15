@@ -14,7 +14,7 @@ ms.author: dobett
 
 ## What happens when you sign in
 
-The first time you sign in at [azureiotsuite.com][lnk-azureiotsuite], the site determines the permission levels you have based on the currently selected Azure Active Directory (AAD) tenant and Azure subscription.
+The first time you sign in at [azureiotsuite.com][lnk-azureiotsolutions], the site determines the permission levels you have based on the currently selected Azure Active Directory (AAD) tenant and Azure subscription.
 
 1. First, to populate the list of tenants seen next to your username, the site finds out from Azure which AAD tenants you belong to. Currently, the site can only obtain user tokens for one tenant at a time. Therefore, when you switch tenants using the dropdown in the top right corner, the site logs you in to that tenant to obtain the tokens for that tenant.
 
@@ -63,7 +63,7 @@ Find out more about the Azure admin roles in the article [How to add or change A
 
 ### I'm a service administrator and I'd like to change the directory mapping between my subscription and a specific AAD tenant. How do I complete this task?
 
-See [To add an existing subscription to your Azure AD directory](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
+See [To add an existing subscription to your Azure AD directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
 ### I want to change a Service Administrator or Co-Administrator when logged in with an organizational account
 
@@ -93,8 +93,8 @@ To continue learning about IoT solution accelerators, see how you can [customize
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles-azure-portal.md
 [lnk-portal]: https://portal.azure.com
-[lnk-create-edit-users]: ../active-directory/active-directory-users-profile-azure-portal.md
-[lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md
+[lnk-create-edit-users]:../active-directory/fundamentals/active-directory-users-profile-azure-portal.md
+[lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs

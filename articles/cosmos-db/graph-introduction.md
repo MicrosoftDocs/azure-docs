@@ -5,10 +5,10 @@ services: cosmos-db
 author: LuisBosquez
 manager: kfile
 
-ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
-ms.devlang: dotnet
-ms.topic: article
+ms.component: cosmosdb-graph
+ms.devlang: na
+ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
 experimental: true

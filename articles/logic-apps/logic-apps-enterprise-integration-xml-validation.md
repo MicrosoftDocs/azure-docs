@@ -4,7 +4,7 @@ description: Validate XML with schemas for Azure Logic Apps and B2B scenarios by
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 
 ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760

@@ -311,6 +311,8 @@ This section documents the possible error responses. A "200 OK" status is a succ
 
 ## Retry guidance 
 
+It is recommended to retry if you receive a 404, 429, or 5xx error code (see [Error handling](#error-handling) above).
+
 Throttling limits apply to the number of calls made to the IMDS endpoint. When the throttling threshold is exceeded, IMDS endpoint limits any further requests while the throttle is in effect. During this period, the IMDS endpoint will return the HTTP status code 429 ("Too many requests"), and the requests fail. 
 
 For retry, we recommend the following strategy: 

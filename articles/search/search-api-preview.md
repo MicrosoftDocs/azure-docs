@@ -25,17 +25,19 @@ This article describes the `api-version=2017-11-11-Preview` version of Azure Sea
 
 [Cognitive search](cognitive-search-concept-intro.md), a new enrichment capability in Azure Search finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
 
-The following two operations are introduced or modified in the preview REST API. All other REST APIs are the same whether you call the generally available or preview version.
+The following reources are introduced or modified in the preview REST API. All other REST APIs are the same whether you call the generally available or preview version.
 
-+ [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)
++ [Create Skillset (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 
-+ [Create Indexer (api-version=2017-11-11-Preview)](ref-create-indexer.md)
++ [Create Indexer (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-All other REST APIs are the same whether you call the generally available or preview version. For example, `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11-Preview` and `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11` (without `Preview`) are functionally equivalent.
++ [Predefined skills](cognitive-search-predefined-skills.md)
+
+All other REST APIs are the same regardless of how you set the api-version. For example, `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11-Preview` and `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11` (without `Preview`) are functionally equivalent.
 
 ## Other preview features
 
-Features from earlier previews are still in public preview. If you're calling this API with an earlier api-version, you can continue to use that version or switch to `2017-11-11-Preview` with no changes to expected behavior.
+Features announced in earlier previews are still in public preview. If you're calling an API with an earlier preview api-version, you can continue to use that version or switch to `2017-11-11-Preview` with no changes to expected behavior.
 
 + [CSV files in Azure Blob indexing](search-howto-index-csv-blobs.md), introduced in `api-version=2015-02-28-Preview`, remains a preview feature. This feature is part of Azure Blob indexing and is invoked through a parameter setting. Each line in a CSV file is indexed as a separate document.
 

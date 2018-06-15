@@ -16,6 +16,10 @@ ms.author: nolachar
 
 In this quickstart, you extract handwritten text from an image using Computer Vision.
 
+You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+
 ## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
@@ -50,7 +54,7 @@ assert subscription_key
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-text_recognition_url = vision_base_url + "RecognizeText"
+text_recognition_url = vision_base_url + "recognizeText"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" + \

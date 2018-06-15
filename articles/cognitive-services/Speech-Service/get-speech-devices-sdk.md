@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
-# Get the Speech Devices SDK
+# Get the Cognitive Services Speech Devices SDK
 
 ## Requesting access
 

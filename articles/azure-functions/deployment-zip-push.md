@@ -12,7 +12,7 @@ ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.workload: na 
 ms.date: 05/29/2018
 ms.author: glenga
 
@@ -37,11 +37,11 @@ The .zip file that you use for push deployment must contain all of the project f
 >[!IMPORTANT]
 > When you use .zip push deployment, any files from an existing deployment that aren't found in the .zip file are deleted from your function app.  
 
-### Function app folder structure
-
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-### Download your function app project
+A function app includes all of the files and folders in the `wwwroot` directory. A .zip file deployment includes the contents of the `wwwroot` directory, but not the directory itself.  
+
+## Download your function app files
 
 When you are developing on a local computer, it's easy to create a .zip file of the function app project folder on your development computer. 
 

@@ -1,6 +1,6 @@
 ---
 title: Tutorial learning how to add utterances to a LUIS app using PHP | Microsoft Docs
-description:  In this tutorial, you learn to call a LUIS app using PHP in this quickstart.
+description:  In this tutorial, you learn to call a LUIS app using PHP.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 
 # Tutorial: Add utterances to app using PHP 
-In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in PHP.
+In this tutorial, write a program to add an utterance to an intent using the Authoring APIs in PHP.
 
 <!-- green checkmark -->
 > [!div class="checklist"]

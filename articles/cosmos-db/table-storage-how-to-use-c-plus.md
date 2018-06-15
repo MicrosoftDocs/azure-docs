@@ -5,10 +5,10 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-table
+ms.devlang: cpp
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
 ---

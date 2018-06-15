@@ -6,10 +6,9 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: fdbdbc39-5a46-4129-b4ed-b049d1c9ccab
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
 

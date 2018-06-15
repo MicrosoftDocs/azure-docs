@@ -98,9 +98,9 @@ Currently, only REST APIs are provided. Use `api-version=2017-11-11-Preview` on 
 | REST API | Description |
 |-----|-------------|
 | [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external data source providing source data used to create enriched documents.  |
-| [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
+| [Create Skillset (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
 | [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
-| [Create Indexer (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
+| [Create Indexer (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
 
 **Checklist: A typical workflow**
 
@@ -108,11 +108,11 @@ Currently, only REST APIs are provided. Use `api-version=2017-11-11-Preview` on 
 
 1. Create a [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) in Azure Search to provide a connection string for data retrieval.
 
-1. Create a [skillset](ref-create-skillset.md) with enrichment steps.
+1. Create a [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) with enrichment steps.
 
 1. Define the [index schema](https://docs.microsoft.com/rest/api/searchservice/create-index). The *Fields* collection includes fields from source data. You should also stub out additional fields to hold generated values for content created during enrichment.
 
-1. Define the [indexer](ref-create-skillset.md) referencing the data source, skillset, and index.
+1. Define the [indexer](https://docs.microsoft.com/rest/api/searchservice/create-skillset) referencing the data source, skillset, and index.
 
 1. Within the indexer, add *outputFieldMappings*. This section maps output from the skillset (in step 3) to the inputs fields in the index schema (in step 4).
 

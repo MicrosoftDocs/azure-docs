@@ -14,11 +14,7 @@ ms.author: v-jerkin
 ---
 # Samples for the Cognitive Services Speech SDK
 
-You can download compressed archives of the Windows and Linux samples and tutorials.
-
-- [Download samples for Windows](https://aka.ms/csspeech/winsample)
-- [Download samples for Linux](https://aka.ms/csspeech/linuxsample)
-- [Sample Source Code GitHub Repository for Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 - [Download sample for Android (only for the Speech Devices SDK)](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
 
@@ -26,7 +22,7 @@ All samples are provided under the MIT License.
 
 - [Sign up for the Speech Devices SDK](get-speech-devices-sdk.md)
 
-## Next steps
+# Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 * [See how to recognize speech in C#](quickstart-csharp-windows.md)

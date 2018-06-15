@@ -5,10 +5,10 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: ef611081-0195-4ad8-9b54-b313588e5754
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
-ms.devlang: na
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun

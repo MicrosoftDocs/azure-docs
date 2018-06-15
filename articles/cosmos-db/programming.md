@@ -6,10 +6,9 @@ services: cosmos-db
 author: aliuy
 manager: kfile
 
-ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
 

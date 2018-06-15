@@ -7,8 +7,8 @@ manager: kfile
 editor: ''
 tags: ''
 
-ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/15/2017

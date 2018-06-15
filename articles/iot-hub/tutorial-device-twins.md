@@ -268,4 +268,4 @@ In this tutorial, you learned how to synchronize state information between your 
 Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
 
 > [!div class="nextstepaction"]
-[Use device management to initiate a device firmware update](iot-hub-node-node-firmware-update.md)
+[Use a simulated device to test connectivity with your IoT hub](tutorial-connectivity.md)

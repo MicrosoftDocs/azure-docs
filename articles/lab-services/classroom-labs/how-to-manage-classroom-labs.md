@@ -95,4 +95,4 @@ Once you set the visibility of a template to **Public**, Azure Lab Services crea
 Get started with setting up a lab using Azure Lab Services:
 
 - [Set up a classroom lab](how-to-manage-classroom-labs.md)
-- [Set up a custom lab](../tutorial-create-custom-lab.md)
+- [Set up a lab](../tutorial-create-custom-lab.md)

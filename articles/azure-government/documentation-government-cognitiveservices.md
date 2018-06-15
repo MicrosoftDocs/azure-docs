@@ -357,7 +357,7 @@ A successful response is returned in JSON. Following is an example of a successf
    }
 }
 ```
-For more information, please see [public documentation](../cognitive-services/computer-vision/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
+For more information, please see [public documentation](../cognitive-services/computer-vision/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
 
 ## Face API
 ### Prerequisites
@@ -601,7 +601,7 @@ Response:
    }
 ]
 ```
-For more information, please see [public documentation](../cognitive-services/Face/index.md), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, please see [public documentation](../cognitive-services/Face/index.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 ## Text Translation API 
 ### Prerequisites

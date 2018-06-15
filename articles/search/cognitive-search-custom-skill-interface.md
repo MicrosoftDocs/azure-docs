@@ -142,5 +142,5 @@ When you create a Web API enricher, you can describe HTTP headers and parameters
 
 + [Example: Creating a custom skill for the Translate Text API](cognitive-search-create-custom-skill-example.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](ref-create-skillset.md)
++ [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

@@ -101,7 +101,7 @@
 
 # Related
 ## Solutions 
-### [Iot Suite Preconfigured Solutions](/azure/iot-suite) 
+### [IoT solution accelerators](/azure/iot-suite) 
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Platform Services 
 ### [IoT Hub](/azure/iot-hub) 

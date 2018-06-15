@@ -39,8 +39,8 @@ To run the sample, do the following steps:
 
 ```java
 // This sample uses the following libraries:
-//  - Apache HTTP client(org.apache.httpcomponents:httpclient:4.5.5)
-//  - Apache HTTP core(org.apache.httpcomponents:httpccore:4.4.9)
+//  - Apache HTTP client (org.apache.httpcomponents:httpclient:4.5.5)
+//  - Apache HTTP core (org.apache.httpcomponents:httpccore:4.4.9)
 //  - JSON library (org.json:json:20180130).
 
 import java.net.URI;
@@ -83,7 +83,7 @@ public class Main {
             URIBuilder uriBuilder = new URIBuilder(uriBase);
 
             uriBuilder.setParameter("language", "unk");
-            uriBuilder.setParameter("detectOrientation ", "true");
+            uriBuilder.setParameter("detectOrientation", "true");
 
             // Request parameters.
             URI uri = uriBuilder.build();

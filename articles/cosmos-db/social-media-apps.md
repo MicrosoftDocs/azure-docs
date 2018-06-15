@@ -6,10 +6,9 @@ services: cosmos-db
 author: ealsur
 manager: kfile
 
-ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2017
 ms.author: maquaran
 
@@ -147,7 +146,7 @@ Let’s take user information as an example:
         "address":"742 Evergreen Terrace",
         "birthday":"1983-05-07",
         "email":"john@doe.com",
-        "twitterHandle":"@john",
+        "twitterHandle":"\@john",
         "username":"johndoe",
         "password":"some_encrypted_phrase",
         "totalPoints":100,
@@ -172,7 +171,7 @@ Why would we split the user and even store this information in different places?
         "surname":"Doe",
         "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john"
+        "twitterHandle":"\@john"
     }
 
 And a Post would look like:

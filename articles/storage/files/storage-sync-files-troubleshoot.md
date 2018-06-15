@@ -3,9 +3,8 @@ title: Troubleshoot Azure File Sync (preview) | Microsoft Docs
 description: Troubleshoot common issues with Azure File Sync.
 services: storage
 documentationcenter: ''
-author: wmgries
-manager: klaasl
-editor: jgerend
+author: jeffpatt24
+manager: aungoo
 
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
@@ -13,8 +12,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
-ms.author: wgries
+ms.date: 05/31/2018
+ms.author: jeffpatt
 ---
 
 # Troubleshoot Azure File Sync (preview)
@@ -26,6 +25,9 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 2. [Azure Storage Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
+
+## I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc). Should I remove and recreate my server endpoint?
+[!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
 ## Storage Sync Service object management
 If you do a resource move from one subscription to another subscription, file sync (Storage Sync Service) resources will be blocked from being moved. 
@@ -123,7 +125,7 @@ To determine whether your user account role has the required permissions:
 This issue occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
 
 <a id="server-endpoint-deletejobexpired"></a>**Server endpoint deletion fails, with this error: "MgmtServerJobExpired"**                
-This issue occurs if the server is offline or doesn’t have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+This issue occurs if the server is offline or doesn't have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Unable to open server endpoint properties page or update cloud tiering policy**
 
@@ -153,7 +155,7 @@ If sync fails on a server:
     2. Verify that the Azure File Sync service is running on the server. To do this, open the Services MMC snap-in and verify that the Storage Sync Agent service (FileSyncSvc) is running.
 
 <a id="replica-not-ready"></a>**Sync fails, with this error: "0x80c8300f - The replica is not ready to perform the required operation"**  
-This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. The change detection job that scans for changes in the Azure File Share is scheduled for once every 24 hours.  The time to complete is dependent on the size of the namespace in the Azure File Share.  This error should go away once complete.
+This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. The change detection job that scans for changes in the Azure file share is scheduled for once every 24 hours.  The time to complete is dependent on the size of the namespace in the Azure file share.  This error should go away once complete.
 
 
     > [!NOTE]

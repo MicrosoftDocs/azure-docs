@@ -7,9 +7,9 @@ author: dennyglee
 manager: kfile
 editor: ''
 
-ms.assetid: 273aeae9-e31c-4a43-b216-5751c46f212e
 ms.service: cosmos-db
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: denlee
 

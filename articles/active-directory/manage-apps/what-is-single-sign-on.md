@@ -56,7 +56,7 @@ In this scenario, when you have already been logged into Azure AD, and you want 
 
 Azure AD can support federated single sign-on with applications that support the SAML 2.0, WS-Federation, or OpenID connect protocols.
 
-See also: [Managing Certificates for Federated Single Sign-On](../active-directory-sso-certs.md)
+See also: [Managing Certificates for Federated Single Sign-On](manage-certificates-for-federated-single-sign-on.md)
 
 ### Password-based single sign-on
 Configuring password-based single sign-on enables the users in your organization to be automatically signed in to a third-party SaaS application by Azure AD using the user account information from the third-party SaaS application. When you enable this feature, Azure AD collects and securely stores the user account information and the related password.
@@ -191,7 +191,7 @@ These links use the same access control mechanisms as the access panel and Offic
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](../active-directory-saas-tutorial-list.md)
 * [Finding unsanctioned cloud applications with Cloud App Discovery](cloud-app-discovery.md)
-* [Introduction to Managing Access to Apps](../active-directory-managing-access-to-apps.md)
+* [Introduction to Managing Access to Apps](what-is-access-management.md)
 * [Comparing Capabilities for Managing External Identities in Azure AD](../active-directory-b2b-compare-b2c.md)
 
 
