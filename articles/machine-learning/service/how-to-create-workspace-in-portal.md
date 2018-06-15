@@ -12,7 +12,7 @@ ms.date: 04/10/2018
 ---
 # Use the Azure portal to create an Azure Machine Learning Workspace
 
-Get started using Azure Machine Learning Services by creating an Azure Machine Learning Workspace. In this article, you will create your workspace using the Azure portal.
+Get started with Azure Machine Learning Services by creating an Azure Machine Learning Workspace. In this article, you will create your workspace using the Azure portal.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. In the **ML Workspace** pane, configure your workspace. 
     + Name the workspace that will be created. In this example, let's name it _MyWorkspace_.
-    + Select a subscription
+    + Select a subscription.
     + Either create a new resource group or use an existing one. In this example, let's use an existing resource group called _Group_.
     + Select the geographical region where the workspace will be created.
 
@@ -50,13 +50,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     ![deployment in progress](media/how-to-create-workspace-in-portal/deployment_in_progress.PNG)
 
-1.  When this stage is complete, a message will inform you that the deployment has succeeded.
+1. When finished, you'll see a message that the deployment has succeeded.
 
     ![deployment succeeded](media/how-to-create-workspace-in-portal/deployment_succeeded.PNG)
 
 ## View a workspace
 
-1. Check your newly created workspace with the  **All service** link in top left corner of the portal.  
+1. Check your newly created workspace with the  **All services** link in top left corner of the portal.  
 
     ![search for workspace](media/how-to-create-workspace-in-portal/allservices-search.PNG)
 
