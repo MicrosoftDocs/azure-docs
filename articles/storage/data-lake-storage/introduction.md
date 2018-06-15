@@ -18,13 +18,17 @@ ms.author: jamesbak
 
 # Introduction to Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 adds qualities from [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), such as file system directories and file-level security to [Azure Blob Storage](../blobs/storage-blobs-introduction.md) making it easy to connect analytics frameworks to a durable storage layer. In Azure Data Lake Storage, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
+Azure Data Lake Storage Gen2 is Microsoft's hyperscale storage service designed for big data analytics workloads. This is the storage service that is expected to underpin all first and third party analytics engines on Azure.
+
+Azure Data Lake Storage allows you to interface with your data using both file system and object storage paradigms. This makes Azure Data Lake Storage the only cloud-based _multi-modal_ storage service, allowing you to extract analytics value from all of your data.
+
+Azure Data Lake Storage Gen2 features all qualities that are required for the full lifecycle of analytics data. This results from converging the capabilities of our two existing storage services. Features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), such as file system semantics, file-level security and scale are combined with regional availability, low-cost, tiered storage, high availability/disaster recovery capabilities and a large SDK/tooling ecosystem from [Azure Blob Storage](../blobs/storage-blobs-introduction.md). In Azure Data Lake Storage, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
 
 ## Designed for enterprise big data analytics
 
 Azure Data Lake Storage is the foundational storage service for building _enterprise data lakes (EDL)_ on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Azure Data Lake Storage gives you an easy way to manage massive amounts of data. 
 
-A fundamental feature of Azure Data Lake Storage is the introduction of the [Hierarchical Namespace service (HNS)](./namespace.md) which organizes blobs into a hierarchy of directories. The HNS is designed to ensure no additional latency or scale limits emerge in the data pipeline. The HNS also enables Azure Data Lake Storage to support both object store and file system paradigms at the same time, making Azure Data Lake Storage the first cloud-based _multi-modal_ storage service. For instance, a common object store naming convention employs slashes in the name to mimic a hierarchical folder structure. This structure becomes real with Azure Data Lake Storage. Operations such as renaming or deleting a directory become single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory. Other capabilities, such as POSIX-compliant permissions (child entries default permissions of the containing directory), are enabled by HNS.
+A fundamental feature of Azure Data Lake Storage is the introduction of the [Hierarchical Namespace service (HNS)](./namespace.md) which organizes blobs into a hierarchy of directories for performant data access. The HNS also enables Azure Data Lake Storage to support both object store and file system paradigms at the same time. For instance, a common object store naming convention employs slashes in the name to mimic a hierarchical folder structure. This structure becomes real with Azure Data Lake Storage. Operations such as renaming or deleting a directory become single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory. POSIX-compliant permissions are also enabled by HNS.
 
 In the past, cloud-based analytics had to compromise in areas of performance, management, and security. Azure Data Lake Storage addresses each of these aspects in the following ways:
 
@@ -32,14 +36,15 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
  
 - **Management** is easier because you can manipulate files through directories and subdirectories.
 
-- **Security** is enforceable because you can define inheritable ACL and POSIX permissions on folders or individuals files.
+- **Security** is enforceable because you can define POSIX permissions on folders or individuals files.
 
-- **Cost Effective** is made possible by building on top of the low-cost [Azure Blob Storage](../blobs/storage-blobs-introduction.md) and then adding key features to reduce analytics job latency, thus lowering even further the total cost of ownership for running big data analytics on Azure.
+- **Cost Effective** is made possible as Azure Data Lake Storage is built on top of the low-cost [Azure Blob Storage](../blobs/storage-blobs-introduction.md). The additional features further lower the total cost of ownership for running big data analytics on Azure.
 
 ## Key features of Azure Data Lake Storage
 
 > [!NOTE]
-> During the public preview of Azure Data Lake Storage, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated via our dedicated Yammer group.  
+> During the public preview of Azure Data Lake Storage, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated.
+> Sign up to the public preview of Azure Data Lake Storage Gen 2 [here](https://aka.ms/adlsgen2signup).  
 > 
 - **Hadoop compatible access**: Azure Data Lake Storage allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](./abfs-driver.md) is available within Apache Hadoop environments to access data stored in Azure Data Lake Storage.
  
@@ -63,7 +68,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 Azure Data Lake Storage and Azure Blob Storage are scalable by design. Each service is able to store and serve *many exabytes of data*. This amount of storage is available with throughput measured in gigabits per second (Gbps) at high levels of input/output operations per second (IOPS). Beyond just persistence, processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
 
 ## Cost effectiveness
-The architecture of Azure Data Lake Storage saves you significant amounts of money. One of the many benefits of building Azure Data Lake Storage on top of Azure Blob Storage is the [low cost](https://azure.microsoft.com/pricing/details/storage) of storage capacity and cloud-based object storage transactions.  Unlike other cloud storage services, Azure Data Lake Storage enjoys several orders of magnitude of lower costs because data is not moved or transformed before performing analysis.
+The architecture of Azure Data Lake Storage saves you significant amounts of money. One of the many benefits of building Azure Data Lake Storage on top of Azure Blob Storage is the [low-cost](https://azure.microsoft.com/pricing/details/storage) of storage capacity and cloud-based object storage transactions.  Unlike other cloud storage services, Azure Data Lake Storage enjoys several orders of magnitude of lower costs because data is not moved or transformed before performing analysis.
 
 Additionally, features such as the [Hierarchical Namespace Service](./namespace.md) significantly improve the overall performance of many analytics jobs. This improvement in performance means that you require less compute power to process the same amount of data, resulting in a lower total cost of ownership (TCO) for the end to end analytics job.
 
