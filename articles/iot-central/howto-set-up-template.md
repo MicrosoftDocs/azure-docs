@@ -170,18 +170,18 @@ For example, you can add the device installation address.
 
 1. Navigate to the Device Property tab; Ensure Design Mode is turned On.
 
-![Location Property](./media/howto-set-up-template/locationcloudproperty1.png)
+   ![Location Property](./media/howto-set-up-template/locationcloudproperty1.png)
 
 2. On the Property tab, click Location.
 3. Configure Display Name, Field Name and the initial value of the location optionally. 
 
-![Location Property form](./media/howto-set-up-template/locationcloudproperty2.png)
+   ![Location Property form](./media/howto-set-up-template/locationcloudproperty2.png)
 
-There are two supported formats to add a location:
-- **Location as an address**
-- **Location as coordinates** 
+   There are two supported formats to add a location:
+   - **Location as an address**
+   - **Location as coordinates** 
 
-4. Click Save. 
+4.  Click **Save**. 
 
 ![Location Property field](./media/howto-set-up-template/locationcloudproperty3.png)
 
@@ -255,21 +255,21 @@ If you have configured a location property as in the steps [Create a Location Pr
 1.	Navigate to the Device Dashboard tab; ensure Design Mode is turned On.
 2.	On Device Dashboard, select Map from the Library. 
 
-![Dashboard Location Azure Map select](./media/howto-set-up-template/locationcloudproperty4map.png)
+    ![Dashboard Location Azure Map select](./media/howto-set-up-template/locationcloudproperty4map.png)
 
 3.	Give a title and choose the location property you have previously configured as part of your Device Property.
 
-![Dashboard Location Azure Map Configure](./media/howto-set-up-template/locationcloudproperty5map.png)
+    ![Dashboard Location Azure Map Configure](./media/howto-set-up-template/locationcloudproperty5map.png)
 
 4.	Save and you will see the map tile displaying the location you have selected. 
 
-![Dashboard Location Azure Map Visualize](./media/howto-set-up-template/locationcloudproperty6map.png) 
+    ![Dashboard Location Azure Map Visualize](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-You will be able to resize the map to your desired size.
+    You will be able to resize the map to your desired size.
 
-Now when an operator views the dashboard, they can see this all the Dashboard tiles you have configured including a location Map!
+    Now when an operator views the dashboard, they can see this all the Dashboard tiles you have configured including a location Map!
 
-![Dashboard Location Azure Map Dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
+    ![Dashboard Location Azure Map Dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
 
 ## Next steps
 
