@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 06/14/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze a Local Image with C&#35;
+# Quickstart: Analyze a local image with C&#35;
 
 In this quickstart, you analyze a local image to extract visual features using Computer Vision.
 
