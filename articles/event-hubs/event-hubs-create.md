@@ -8,20 +8,12 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-<<<<<<< HEAD
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/28/2018
-=======
 ms.date: 05/29/2017
->>>>>>> 9d600a3b80451b534375400a5aacfa21bea973a8
 ms.author: sethm
 
 ---
 
 # Create an Event Hubs namespace and an event hub using the Azure portal
-
-This article describes how to create an Event Hubs namespace and an event hub, using the Azure portal. These two resources are required before streaming data into an event hub.
 
 ## Create an Event Hubs namespace
 
