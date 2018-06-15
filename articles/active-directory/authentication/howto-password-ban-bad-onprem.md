@@ -24,6 +24,8 @@ There are three software components that make up Azure AD Password Protection:
 * The Azure AD Password Protection DC Agent service receives password validation requests from the DC Agent password filter dll, processes them using the current locally available password policy, and returns the result (pass\fail). This service is responsible for periodically calling the Azure AD Password Protection Proxy Service to retrieve new versions of the password policy. Communication for calls to and from the Azure AD Password Protection Proxy Service is handled over RPC (Remote Procedure Call) over TCP. Upon retrieval, new policies are stored in a sysvol folder where they can replicate to other domain controllers. It also monitors the sysvol folder for changes in case other domain controllers have written new password policies there.
 * The DC Agent password filter dll receives password validation requests from the operating system and forwards them to the Azure AD Password Protection DC Agent service running locally on the domain controller.
 
+![How Azure AD password protection components work together](./media/howto-password-ban-bad-onprem/azure-ad-password-protection.png)
+
 ## Requirements
 
 Azure AD Password Protection requires Azure AD Premium licenses. Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
