@@ -6,7 +6,7 @@ author: hning86
 ms.author: haining
 manager: mwinkle
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018

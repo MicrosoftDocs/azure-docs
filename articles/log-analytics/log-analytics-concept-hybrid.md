@@ -92,7 +92,7 @@ For example:
 `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> If you use special characters such as “@” in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
+> If you use special characters such as “\@” in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
 
 ## Install and configure agent 
 Connecting your on-premises computers directly with Log Analytics can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best in your organization.

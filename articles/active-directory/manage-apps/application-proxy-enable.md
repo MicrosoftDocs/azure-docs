@@ -27,7 +27,7 @@ If you're not yet aware of the security and productivity benefits Application Pr
 ## Application Proxy prerequisites
 Before you can enable and use Application Proxy services, you need to have:
 
-* A [Microsoft Azure AD basic or premium subscription](../active-directory-whatis.md) and an Azure AD directory for which you are a global administrator.
+* A [Microsoft Azure AD basic or premium subscription](../fundamentals/active-directory-whatis.md) and an Azure AD directory for which you are a global administrator.
 * A server running Windows Server 2012 R2 or 2016, on which you can install the Application Proxy Connector. The server needs to be able to connect to the Application Proxy services in the cloud, and the on-premises applications that you are publishing.
   * For single sign-on to your published applications using Kerberos Constrained Delegation, this machine should be domain-joined in the same AD domain as the applications that you are publishing. For information, see [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
