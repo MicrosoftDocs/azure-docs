@@ -23,7 +23,7 @@ For an initial evaluation, we recommend copying some data into Azure Data Lake S
 
 ## Migration Patterns
 
-There are two main patterns, which we will discuss here, bulk load and active / active synchronization.
+There are two main patterns, which we will discuss here, bulk load and active / active replication.
 
 ### Bulk load
 
@@ -35,7 +35,7 @@ There is also an enhanced incremental copy approach that you could take. It's su
 
 If you intend on migrating an application over you typically stop accepting writes to the source system after the bulk load. After which you update the app to point at the new store once the incremental copy has completed. This will involve some app downtime.
 
-### Active / active synchronization
+### Active / active replication
 
 If you want to avoid downtime and you have some ability to keep source and destination systems in sync, then you can synchronize your datasets and begin moving apps one at a time.
 
