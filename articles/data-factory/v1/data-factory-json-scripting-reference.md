@@ -3550,7 +3550,7 @@ To define an FTP linked service, set the **type** of the linked service to **Ftp
 | username |User who has access to the FTP server |No |&nbsp; |
 | password |Password for the user (username) |No |&nbsp; |
 | encryptedCredential |Encrypted credential to access the FTP server |No |&nbsp; |
-| gatewayName |Name of the Data Management Gateway gateway to connect to an on-premises FTP server |No |&nbsp; |
+| gatewayName |Name of the Data Management Gateway to connect to an on-premises FTP server |No |&nbsp; |
 | port |Port on which the FTP server is listening |No |21 |
 | enableSsl |Specify whether to use FTP over SSL/TLS channel |No |true |
 | enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when using FTP over SSL/TLS channel |No |true |
