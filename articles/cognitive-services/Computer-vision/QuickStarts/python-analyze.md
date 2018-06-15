@@ -12,9 +12,9 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze a Remote Image with Python
+# Quickstart: Analyze a remote image with Python
 
-In this quickstart, you analyze a remote image using Computer Vision. To analyze a local image, see [Analyze a Local Image with Python](python-disk.md).
+In this quickstart, you analyze a remote image using Computer Vision. To analyze a local image, see [Analyze a local image with Python](python-disk.md).
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 

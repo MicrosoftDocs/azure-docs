@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Handwritten Text with Python
+# Quickstart: Extract handwritten text with Python
 
 In this quickstart, you extract handwritten text from an image using Computer Vision.
 
