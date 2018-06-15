@@ -16,28 +16,32 @@ ms.author: jamesbak
 
 Azure Data Lake Storage Gen2 accounts [support an Hierarchical Namespace Service](introduction.md) which provides a native directory-based file sytem tailored to work with the Hadoop Distributed File System (HNS). Access to Azure Data Lake Storage data from the HNS is available through the [ABFS driver](introduction.md).
 
+** todo ** add link for survey
+
+To enable Azure Data Lake Storage Gen2 capabilities on your storage account, fill out this survey to request access once the account is created.
+
 This quickstart demonstrates how to create a Data Lake Storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-# [Portal](#tab/portal)
+### Portal
 
 None.
 
-# [PowerShell](#tab/powershell)
+### PowerShell
 
 This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-# [Azure CLI](#tab/azure-cli)
+### Azure CLI
 
 You can log in to Azure and run Azure CLI commands in one of two ways:
 
 - You can run CLI commands from within the Azure portal, in Azure Cloud Shell 
 - You can install the CLI and run CLI commands locally  
 
-### Use Azure Cloud Shell
+## Use Azure Cloud Shell
 
 Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right of the Azure portal:
 
@@ -47,19 +51,18 @@ The button launches an interactive shell that you can use to run the steps in th
 
 [![Screenshot showing the Cloud Shell window in the portal](./media/quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
-### Install the CLI locally
+## Install the CLI locally
 
 You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
----
 
 ## Log in to Azure
 
-# [Portal](#tab/portal)
+### Portal
 
 Log in to the [Azure portal](https://portal.azure.com).
 
-# [PowerShell](#tab/powershell)
+### PowerShell
 
 Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions to authenticate.
 
@@ -67,7 +70,7 @@ Log in to your Azure subscription with the `Connect-AzureRmAccount` command and 
 Connect-AzureRmAccount
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### Azure CLI
 
 To launch Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
 
@@ -77,13 +80,11 @@ To log into your local installation of the CLI, run the login command:
 az login
 ```
 
----
-
 ## Create a resource group
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. For more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
-# [Portal](#tab/portal)
+### Portal
 
 To create a resource group in the Azure portal, follow these steps:
 
@@ -96,7 +97,7 @@ To create a resource group in the Azure portal, follow these steps:
 
 ![Screen shot showing resource group creation in the Azure portal](./media/quickstart-create-account/create-resource-group.png)
 
-# [PowerShell](#tab/powershell)
+### PowerShell
 
 To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
 
@@ -114,7 +115,7 @@ Get-AzureRmLocation | select Location
 $location = "westus"
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### Azure CLI
 
 To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command. 
 
@@ -153,7 +154,7 @@ When naming your storage account, keep these rules in mind:
 - Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 - Your storage account name must be unique within Azure. No two storage accounts can have the same name.
 
-# [Portal](#tab/portal)
+### Portal
 
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
@@ -167,13 +168,9 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 8. Choose the location for your new storage account.
 9. Click **Create** to create the storage account.
 
-__*TODO*__: Update screenshot to show enable HNS
-
 ![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/create-account-portal.png)
 
-# [PowerShell](#tab/powershell)
-
-__*TODO*__: Update PS args
+### PowerShell(#tab/powershell)
 
 To create a general-purpose v2 storage account from PowerShell with locally-redundant storage (LRS), use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command: 
 
@@ -195,11 +192,9 @@ To create a general-purpose v2 storage account with zone-redundant storage (ZRS 
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
 
-# [Azure CLI](#tab/azure-cli)
+### Azure CLI
 
 To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
-
-__*TODO*__: Update CLI args
 
 ```azurecli-interactive
 az storage account create \
@@ -234,7 +229,7 @@ For more information about the different types of replication available, see [St
 
 If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account, and any other resources associated with the resource group.
 
-# [Portal](#tab/portal)
+### Portal
 
 To remove a resource group using the Azure portal:
 
@@ -242,7 +237,7 @@ To remove a resource group using the Azure portal:
 2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
 3. Select **Delete resource group**, and confirm.
 
-# [PowerShell](#tab/powershell)
+### PowerShell
 
 To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command: 
 
@@ -250,7 +245,7 @@ To remove the resource group and its associated resources, including the new sto
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### Azure CLI
 
 To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group#az_group_delete) command.
 
