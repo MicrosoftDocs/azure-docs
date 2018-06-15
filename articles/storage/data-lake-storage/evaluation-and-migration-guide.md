@@ -1,8 +1,21 @@
+---
+title: 
+description: 
+services: storage
+keywords: 
+author: roygara
+ms.topic: article
+ms.author: rogarana
+manager: twooley
+ms.date: 06/01/2018
+ms.service: storage
+---
+
 # Migration transition article
 
-This article is intended for those who have finished their evaluation and feel ready to migrate to Azure Data Lake Storage (Preview). Be aware that the ease of migration will depend on the complexity of your app.
+If you have finished your evaluation and feel ready to begin planning a migration to Azure Data Lake Storage Gen2. Be aware that the ease of a migration depends on the complexity of your app.
 
-We recommend copying some data into Azure Data Lake Storage (Preview) so you can get a good sense of it but, before you do that, there are some things which you should think about. Cheif among them being the pattern you follow when migrating.
+We recommend copying some data into Azure Data Lake Storage Gen2 so you can get a good sense of it but, before you do that, there are some things which you should think about. Cheif among them being the pattern you follow when migrating.
 
 You could follow:
 
