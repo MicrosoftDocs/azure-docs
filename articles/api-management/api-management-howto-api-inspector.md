@@ -41,6 +41,9 @@ In this tutorial, you learn how to:
 3. Select **GetSpeakers** operation.
 4. Switch to the **Test** tab.
 5. Make sure to include an HTTP header named **Ocp-Apim-Trace** with the value set to **true**.
+
+    ![API tracing header](media/api-management-howto-api-inspector/api-management-tracing-header.png)
+
 6. Click **"Send"** to make an API call. 
 7. Wait for the call to complete. 
 8. Go to the **Trace** tab in the **API console**. You can click any of the following links to jump to detailed trace info: **inbound**, **backend**, **outbound**.
