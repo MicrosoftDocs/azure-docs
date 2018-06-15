@@ -74,20 +74,16 @@
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: Service tiers
+  - name: Service tiers and resources
     items: 
     - name: Overview of service tiers
       href: sql-database-service-tiers.md
-      name: vCore-based
+      name: vCore-based purchasing model
       href: sql-database-service-tiers-vcore.md
-    - name: DTU-based
-      items:
-      - name: Overview
-        href: sql-database-service-tiers-dtu.md
-      - name: DTUs and eDTUs - merged  - need to add forwarding link 
-        href: sql-database-what-is-a-dtu.md
-      - name: DTU benchmark - merged - need to add forwarding link
-        href: sql-database-benchmark-overview.md
+    - name: DTU-based purchasing model
+      href: sql-database-service-tiers-dtu.md
+    - name: Overview of resource limits
+      href: sql-database-resource-limits.md
   - name: Logical servers, pools, and databases
     items:
     - name: Logical servers and single databases
@@ -96,7 +92,7 @@
         href: sql-database-servers-databases.md
       - name: Manage
         href: sql-database-servers-databases-manage.md
-      - name: Resource limits
+      - name: Single database resource limits
         items:
         - name: vCore-based resource limits
           href: sql-database-vcore-resource-limits-single-databases.md  
@@ -108,7 +104,7 @@
         href: sql-database-elastic-pool.md
       - name: Manage
         href: sql-database-elastic-pool-manage.md
-      - name: Resource limits
+      - name: Elastic pool resource limits
         items:
         - name: vCore-based resource limits
           href: sql-database-vcore-resource-limits-elastic-pools.md  

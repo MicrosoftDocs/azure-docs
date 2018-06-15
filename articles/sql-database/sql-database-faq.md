@@ -19,7 +19,7 @@ The current version of SQL Database is V12. Version V11 has been retired.
 ## What is the SLA for SQL Database?
 We guarantee at least 99.99% of the time, you have connectivity between your Microsoft Azure SQL Database and our Internet gateway, regardless of your service tier. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
 
-## Whatis the new vCore-based purchasing model (preview) for Azure SQL Database?
+## What is the new vCore-based purchasing model (preview) for Azure SQL Database?
 
 The new purchasing model is in addition to the existing DTU-based model. The vCore-based model is designed to give customers flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. It also allows customers to scale compute and storage based upon their workload needs. Single database and elastic pool options using the vCore model are also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). See [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) for more information. 
 
@@ -188,3 +188,4 @@ In the [Azure portal](https://portal.azure.com), click **SQL databases**, select
 
 ## To move a database between subscriptions
 In the [Azure portal](https://portal.azure.com), click **SQL servers** and then select the server that hosts your database from the list. Click **Move**, and then pick the resources to move and the subscription to move to.
+

@@ -112,34 +112,6 @@ For single databases, the following tables show the resources available for a si
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
-
-## What happens when single database resource limits are reached?
-
-### Compute (vCores)
-
-When database compute utilization (measured by vCore utilization) becomes high, query latency increases and can even time out. Under these conditions, queries may be queued by the service and are provided resources for execution as resource become free.
-When encountering high compute utilization, mitigation options include:
-
-- Increasing the performance level of the database to provide the database with more vCores. See [Single database: change cVcores](#single-database-change-vcores).
-- Optimizing queries to reduce the resource utilization of each query. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
-
-### Storage
-
-When database space used reaches the max size limit, database inserts and updates that increase the data size fail and clients receive an [error message](sql-database-develop-error-messages.md). Database SELECTS and DELETES continue to succeed.
-
-When encountering high space utilization, mitigation options include:
-
-- Increasing the max size of the database, or change the performance level to increase the maximum storage. 
-- If the database is in an elastic pool, then alternatively the database can be moved outside of the pool so that its storage space is not shared with other databases.
-
-### Sessions and workers (requests) 
-
-The maximum number of sessions and workers are determined by the service tier and performance level. New requests are rejected when session or worker limits are reached, and clients receive an error message. While the number of connections available can be controlled by the application, the number of concurrent workers is often harder to estimate and control. This is especially true during peak load periods when database resource limits are reached and workers pile up due to longer running queries. 
-
-When encountering high session or worker utilization, mitigation options include:
-- Increasing the service tier or performance level of the database. See [Single database: change storage size](#single-database-change-storage-size) and [Single database: change vCores](#single-database-change-vcores).
-- Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
-
 ## Next steps
 
 - See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.

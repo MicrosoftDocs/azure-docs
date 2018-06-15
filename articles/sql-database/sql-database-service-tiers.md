@@ -11,8 +11,7 @@ manager: craigg
 ms.author: carlrab
 
 ---
-# Service tier purchasing models for Azure SQL Database 
-
+# Service tier purchasing models and resources 
 
 Logical servers in [Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model (preview). 
 
