@@ -42,7 +42,7 @@ The QnA Maker stack consists of the following parts:
 
 1. **QnA Maker management services (control plane)**: The management experience for a QnA Maker knowledge base, which includes the initial creation, updating, training, and publishing. These activities can be done through the [portal](https://qnamaker.ai) or the [management APIs](https://aka.ms/qnamaker-v4-apis). The management services talk to the runtime component below.
 
-2. **QnA Maker runtime (data plane)**: The data and runtime are deployed in the user's Azure subscription in a region of their choosing. Customer question/answer content is stored in [Azure Search](https://azure.microsoft.com/en-us/services/search/), and the runtime is deployed as an [App service](https://azure.microsoft.com/en-us/services/app-service/). Optionally, you can also choose to deploy an [Application insights](https://azure.microsoft.com/en-us/services/application-insights/) resource for analytics.
+2. **QnA Maker runtime (data plane)**: The data and runtime are deployed in the user's Azure subscription in a region of their choosing. Customer question/answer content is stored in [Azure Search](https://azure.microsoft.com/services/search/), and the runtime is deployed as an [App service](https://azure.microsoft.com/services/app-service/). Optionally, you can also choose to deploy an [Application insights](https://azure.microsoft.com/services/application-insights/) resource for analytics.
 
 ![Architecture](../media/qnamaker-overview-learnabout/architecture.png)
 
