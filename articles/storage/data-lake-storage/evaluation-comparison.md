@@ -1,5 +1,5 @@
 ---
-title: Data Lake Storage Comparison
+title: Azure Data Lake Storage Comparison
 description: Comparing Data Lake Stoarge Gen1 to Gen2
 services: storage
 keywords: 
@@ -51,6 +51,6 @@ In comparison, Azure Data Lake Storage Gen2 offers rich support for the Hadoop C
 |APIs – customer can use REST APIs over HTTPS.     |APIs – customer can use REST APIs over HTTP/HTTPS.         |
 |Many ways to read and write data – customer can use SDKs (.NET, Java, Python, R), Azure portal, and tools (Powershell, Azure CLI, AdlCopy, Distcp, ADF, Azure Import/Export) to read and write their data.     |Many ways to read and write data – Azure portal, and tools (Azure Storage Explorer, Powershell, Azure CLI, AzCopy, Distcp, ADF, Azure Import/Export, Azure Data box) to read and write their data.         |
 
-## Next step
+**Next step**
 
 If you think that Data Lake Storage Gen2 might suit your needs, proceed to the [migration guide](evaluation-migration-guide.md) to begin planning a migration.

@@ -1,5 +1,5 @@
 ---
-title: Migration planning article
+title: Azure Data Lake Storage Migration planning article
 description: Planning a migration to Data Lake Storage
 services: storage
 keywords: 

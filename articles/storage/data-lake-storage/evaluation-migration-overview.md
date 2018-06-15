@@ -1,5 +1,5 @@
 ---
-title: Data Lake Storage Overview
+title: Azure Data Lake Storage Overview
 description: Overview of Azure Data Lake Storage
 services: storage
 keywords: 
