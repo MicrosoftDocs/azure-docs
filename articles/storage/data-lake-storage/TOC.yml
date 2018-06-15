@@ -46,16 +46,16 @@
         #href:
       #- name: Migration Planning
         #href:
-  #- name: Hierarchical Namespace
-    #href:
+  - name: Hierarchical Namespace
+    href: namespace.md
   #- name: Scalability and Perf
     #items:
       #- name: Best Practices
         #href: 
   #- name: Benchmark results
     #href:
-  #- name: ABFS Driver (Working title)
-    #href: 
+  - name: Hadoop ABFS Driver
+    href: abfs-driver.md
 - name: How-to guides
   items:
   #- name: Use HDInsight clusters with blobFS (working title)
