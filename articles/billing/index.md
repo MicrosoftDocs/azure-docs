@@ -162,12 +162,17 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                 <div class="card">
                     <div class="cardText">
                         <h3>Enterprise subscription: requires EA portal access</h3>
+                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
-                        <a href="https://ea.azure.com/helpdocs/createADepartment">Manage departments</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>
-                        <a href="https://ea.azure.com/helpdocs/addNewAccount">Manage accounts</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>
-                        <a href="https://ea.azure.com/helpdocs/createANewSubscription">Create subscriptions</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>
-                        <a href="https://ea.azure.com/helpdocs/viewPriceSheet">View price sheet</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20"><br/>              
-                        <a href="https://ea.azure.com/helpdocs/usageDetailReport">View usage details</a>&nbsp;<img src="./media/index/index-linkout-icon.png" alt="link icon" height="20" width="20">
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">Manage departments</a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/addNewAccount" data-linktype="external">Manage accounts</a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createANewSubscription" data-linktype="external">Create subscriptions</a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/viewPriceSheet" data-linktype="external">View price sheet</a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/usageDetailReport" data-linktype="external">View usage details</a>
                         </p>
                     </div>
                 </div>
