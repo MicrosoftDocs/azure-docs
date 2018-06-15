@@ -3,7 +3,7 @@ title: What's new? Release notes for Azure Active Directory | Microsoft Docs
 description: Learn what is new with Azure Active Directory (Azure AD), such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
 editor: ''
 featureFlags:
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: dhanyahk
 
 ---
@@ -55,7 +55,7 @@ While we're changing our support, we also know there are still situations where 
 
 - **If you're on Microsoft peering.** You must sign up for the **Other Office 365 Online service (12076:5100)** community. For more info about routing requirements, see the [Support for BGP communities section](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp) of the ExpressRoute routing requirements article.
 
-If you must continue to use dedicated circuits, you'll need to send a request to Microsoft's Office team, the MS-managed review board for using the **Other Office 365 Online service (12076:5100)** community. This review board will verify whether you need those circuits and make sure you understand the technical implications of keeping them.
+If you must continue to use dedicated circuits, you'll need to talk to your Microsoft Account team about how to get authorization to use the Other Office 365 Online service (12076:5100) community. The MS Office managed review board will verify whether you need those circuits and make sure you understand the technical implications of keeping them. Unauthorized subscriptions trying to create route filters for Office 365 will receive an error message. 
  
 ---
 
