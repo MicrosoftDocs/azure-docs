@@ -70,7 +70,7 @@ With Microsoft Azure AD Application Proxy, you can provide access to application
 ### Integrating applications with Azure AD
 The following articles discuss the different ways applications integrate with Azure AD, and provide some guidance.
 
-* [Determining which Active Directory to use](../active-directory-administer.md)
+* [Determining which Active Directory to use](../fundamentals/active-directory-administer.md)
 * [Using applications in the Azure application gallery](what-is-single-sign-on.md)
 * [Integrating SaaS applications tutorials list](../active-directory-saas-tutorial-list.md)
 
