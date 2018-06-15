@@ -58,6 +58,8 @@
       href: how-to-register-device-portal.md
     - name: Azure CLI
       href: how-to-register-device-cli.md
+    - name: Visual Studio Code
+      href: how-to-register-device-vscode.md
   - name: Develop and test modules
     items:
     - name: C#
