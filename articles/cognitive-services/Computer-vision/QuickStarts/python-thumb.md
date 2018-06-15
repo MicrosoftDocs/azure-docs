@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a Thumbnail Image with Python
+# Quickstart: Generate a thumbnail with Python
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 
