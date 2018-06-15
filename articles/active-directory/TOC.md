@@ -258,7 +258,6 @@
 ##### [Common problems - gallery apps](application-config-add-app-problem-problem-adding-gallery-app.md)
 ##### [Common problems - non-gallery apps](application-config-add-app-problem-problem-adding-non-gallery-app.md)
 
-
 #### Authentication
 ##### [Configure endpoints](application-dev-registration-config-how-to.md)
 
@@ -270,7 +269,7 @@
 ##### [Choose a method](application-config-sso-how-to-choose-sign-on-method.md)
 ##### [Configure](application-dev-registration-config-sso-how-to.md)
 ##### [Configure federated - gallery apps](application-config-sso-how-to-configure-federated-sso-gallery.md)
-######[Configuring federated common problems - gallery apps](application-config-sso-problem-configure-federated-sso-gallery.md)
+##### [Configuring federated common problems - gallery apps](application-config-sso-problem-configure-federated-sso-gallery.md)
 ##### [Configure federated - non-gallery apps](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 ##### [Configure federated common problems - non-gallery apps](application-config-sso-problem-configure-federated-sso-non-gallery.md)
 ##### [Configure password - gallery apps](application-config-sso-how-to-configure-password-sso-gallery.md)
@@ -281,7 +280,7 @@
 
 #### Multi-tenant
 ##### [Configure a new app](application-dev-setup-multi-tenant-app.md)
-######[Add to the app gallery](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+##### [Add to the app gallery](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
 
 #### Permissions
 ##### [Choose permissions for an API](application-dev-perms-for-given-api.md)
@@ -289,96 +288,69 @@
 ##### [Delegated vs application permissions](application-dev-delegated-and-app-perms.md)
 ##### [Application consent](application-dev-consent-framework.md)
 
-
 #### Find an API
 ##### [Find an API](application-dev-api-find-an-api-how-to.md)
 
-
-
-
-
-
-#### User sign-in
-##### Unexpected prompt
-###### [A user sees an unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt.md)
-###### [A user sees an unexpected error when performing consent to an application](application-sign-in-unexpected-user-consent-error.md)
-##### Common problems
-###### [I can sign in to an application directly, but I can't sign in to it from a deeplink on my custom portal](application-sign-in-other-problem-deeplink.md)
-###### [I can sign in to an application directly, but I can't sign in to it from the access panel](application-sign-in-other-problem-access-panel.md)
-##### Application 
-###### [I can complete Azure AD sign in, but afterwards I'm seeing an error on the application's sign in page](application-sign-in-problem-application-error.md)
-###### [I can’t sign in to a non-gallery application configured for password single sign-on](application-sign-in-problem-password-sso-non-gallery.md)
-###### [I can’t sign in to an Azure AD Gallery application configured for password single sign-on](application-sign-in-problem-password-sso-gallery.md)
-###### [I can't sign in to a Microsoft application](application-sign-in-problem-first-party-microsoft.md)
-###### [I can't sign in to a non-gallery application configured for federated single sign-on](application-sign-in-problem-federated-sso-non-gallery.md)
-###### [I can't sign in to an Azure AD Gallery application configured for federated single sign-on](application-sign-in-problem-federated-sso-gallery.md)
-###### [I can't sign in to an custom-developed application](application-sign-in-problem-custom-dev.md)
-###### [I can't sign in to an on-premises application using the Azure AD application proxy](application-sign-in-problem-on-premises-application-proxy.md)
+#### User sign-in problems
+##### [Unexpected consent prompt](application-sign-in-unexpected-user-consent-prompt.md)
+##### [User consent error](application-sign-in-unexpected-user-consent-error.md)
+##### [Problems signing in from custom portal](application-sign-in-other-problem-deeplink.md)
+##### [Problems signing in from access panel](application-sign-in-other-problem-access-panel.md)
+##### [Error on application sign-in page](application-sign-in-problem-application-error.md)
+##### [Problem with password single sign-on - non-gallery app](application-sign-in-problem-password-sso-non-gallery.md)
+##### [Problem with password single sign-on - gallery app](application-sign-in-problem-password-sso-gallery.md)
+##### [Problem signing into a Microsoft app](application-sign-in-problem-first-party-microsoft.md)
+##### [Problem with federated single sign-on - non-gallery app](application-sign-in-problem-federated-sso-non-gallery.md)
+##### [Problem with federated single sign-on - gallery app](application-sign-in-problem-federated-sso-gallery.md)
+##### [Problem with custom-developed app](application-sign-in-problem-custom -dev.md)
+##### [Problem with on-premises app - Application Proxy](application-sign-in-problem-on-premises-application-proxy.md)
 
 #### Provisioning
-##### How long it takes
-###### [I don't know how to find out when a specific user will be able to access an application](application-provisioning-when-will-provisioning-finish-specific-user.md)
-###### [Provisioning to my Azure AD Gallery application is working, but the provisioning process is taking hours or more](application-provisioning-when-will-provisioning-finish.md)
-##### Configuring to an application
-###### [I don't know how to configure user provisioning to an Azure AD Gallery application](application-provisioning-config-how-to.md)
-###### [I encountered a problem when configuring user provisioning to an Azure AD Gallery application](application-provisioning-config-problem.md)
-###### [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](application-provisioning-config-problem-storage-limit.md)
-###### [I've set up provisioning to my Azure AD Gallery application, but no users are being provisioned](application-provisioning-config-problem-no-users-provisioned.md)
-###### [Provisioning to my Azure AD Gallery application is working, but the wrong set of users are being provisioned](application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [How long it takes](application-provisioning-when-will-provisioning-finish-specific-user.md)
+##### [Taking hours - gallery app](application-provisioning-when-will-provisioning-finish.md)
+##### [Configure user provisioning - gallery app](application-provisioning-config-how-to.md)
+##### [Problem configuring user provisioning - gallery app](application-provisioning-config-problem.md)
+##### [Problem saving administrator credentials while configuring user provisioning gallery app](application-provisioning-config-problem-storage-limit.md)
+##### [Users are not provisioned - gallery app](application-provisioning-config-problem-no-users-provisioned.md)
+##### [Wrong users provisioned - galler app](application-provisioning-config-problem-wrong-users-provisioned.md)
    
 #### Managing access
-##### Assigning users or groups to an application
-######[I don't know how to assign users and groups to an application](application-access-assignment-how-to-add-assignment.md)
-######[I want to remove a user's access to an application but I don't know how](application-access-assignment-how-to-remove-assignment.md)
-##### Configure self-service application access
-######[I don't know how to configure self-service application assignment](application-access-self-service-how-to.md)
-##### Unexpected application or application assignment 
-######[I don't know how a user was assigned to an application](application-access-unexpected-user-assignment.md)
-######[I see an unexpected application in my applications list and want to know more about it](application-access-unexpected-application.md)
-
+##### [Assign users and groups to an app](application-access-assignment-how-to-add-assignment.md)
+##### [Remove a users access to an app](application-access-assignment-how-to-remove-assignment.md)
+##### [Configure self-service app assignment](application-access-self-service-how-to.md)
+##### [Unexpected user assigned](application-access-unexpected-user-assignment.md)
+##### [Unexpected app in the applications list](application-access-unexpected-application.md)
   
 #### Access Panel
-##### Don't see apps I expect
-######[I don't know why an application I assigned is not appearing on the access panel](application-access-panel-unexpected-application-not-appearing.md)
-######[I don't know why an application is appearing on the access panel](application-access-panel-unexpected-application-appears.md)
-##### Sign-in to the application access panel
-######[I cannot sign in to the access panel website](application-access-panel-web-sign-in-problem.md)
-##### Application access panel browser extension
-######[I saw an error when installing the application access panel browser extension](application-access-panel-extension-problem-installing.md)
-##### Problems with a feature
-######[I don't know how to use self-service application access](application-access-panel-self-service-applications-how-to.md)
-######[I encountered a problem when using self-service application access](application-access-panel-self-service-applications-problem.md)
+##### [app is not appearing](application-access-panel-unexpected-application-not-appearing.md)
+##### [unexpected app appearing](application-access-panel-unexpected-application-appears.md)
+##### [Can't sign in](application-access-panel-web-sign-in-problem.md)
+##### [Error installing browser extension](application-access-panel-extension-problem-installing.md)
+##### [How to use self-service app access](application-access-panel-self-service-applications-how-to.md)
+##### [Error using self-service app access](application-access-panel-self-service-applications-problem.md)
 
 #### Application Proxy
-##### Loading
-###### [I can get to my application, but the application page isn't displaying correctly](application-proxy-page-appearance-broken-problem.md)
-###### [I can get to my application, but the application takes too long to load](application-proxy-page-load-speed-problem.md)
-###### [I can get to my application, but the links on the application page do not work](application-proxy-page-links-broken-problem.md)
-##### Connectivity
-###### [I don't know what ports to open for my application](application-proxy-connectivity-ports-how-to.md)
-###### [I encountered a problem because there was no working connector in a connector group for my application](application-proxy-connectivity-no-working-connector.md)
-##### Configuring in admin portal
-###### [I am having difficulty configuring an application Proxy application](application-proxy-config-how-to.md)
-###### [I don't know how to configure single sign-on to my application Proxy application](application-proxy-config-sso-how-to.md)
-###### [I encountered a problem when creating my application in admin portal](application-proxy-config-problem.md)
-##### Back-end authentication
-###### [I don't know how to configure Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-###### [I don't know how to configure my application with PingAccess](application-proxy-back-end-ping-access-how-to.md)
-##### Sign-in
-###### [I get a "Can't Access this Corporate Application" error](application-proxy-sign-in-bad-gateway-timeout-error.md)
-##### Connector
-###### [I am having issues installing the Application Proxy Agent Connector ](application-proxy-connector-installation-problem.md)
+##### [Problem displaying app page](application-proxy-page-appearance-broken-problem.md)
+##### [Application load is too long](application-proxy-page-load-speed-problem.md)
+##### [Links on application page not working](application-proxy-page-links-broken-problem.md)
+##### [What ports to open for my app](application-proxy-connectivity-ports-how-to.md)
+##### [No working connector in a connector group for my app](application-proxy-connectivity-no-working-connector.md)
+##### [Configure in admin portal](application-proxy-config-how-to.md)
+##### [Configure single sign-on to my app](application-proxy-config-sso-how-to.md)
+##### [Problem creating an app in admin portal](application-proxy-config-problem.md)
+##### [Configure Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+##### [Configure with PingAccess](application-proxy-back-end-ping-access-how-to.md)
+##### ["Can't Access this Corporate Application" error](application-proxy-sign-in-bad-gateway-timeout-error.md)
+##### [Problem installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
 
 #### Conditional Access
-##### Configured, but not working right
-######[Conditional Access isn't working because customer did not meet Device Registration pre-reqs](active-directory-conditional-access.md)
-######[Tenant is getting blocked due to incorrect setting of Conditional Access policies](active-directory-conditional-access-device-remediation.md)
-##### Configure conditional access  
-######[How and when do off corpnet rules take effect?](https://aka.ms/calocation)
-######[How to increase the number of devices that user is allowed to register in Azure AD?](active-directory-azureadjoin-setup.md)
-######[How to set up Conditional Access for Exchange Online?](https://aka.ms/csforexchange)
-######[How to set up Conditional Access for Windows 7 devices?](active-directory-conditional-access.md#device-based-conditional-access)
-######[Which applications are supported with conditional access?](active-directory-conditional-access-supported-apps.md)
+##### [Customer did not meet Device Registration pre-reqs](active-directory-conditional-access.md)
+##### [Tenant is getting blocked due to incorrect setting of Conditional Access policies](active-directory-conditional-access-device-remediation.md)
+##### [How and when do off corpnet rules take effect?](https://aka.ms/calocation)
+##### [How to increase the number of devices that user is allowed to register in Azure AD?](active-directory-azureadjoin-setup.md)
+##### [How to set up Conditional Access for Exchange Online?](https://aka.ms/csforexchange)
+##### [How to set up Conditional Access for Windows 7 devices?](active-directory-conditional-access.md#device-based-conditional-access)
+##### [Which applications are supported with conditional access?](active-directory-conditional-access-supported-apps.md)
 
 
 
