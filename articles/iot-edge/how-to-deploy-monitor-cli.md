@@ -39,7 +39,7 @@ Here's a basic deployment manifest with one module as an example:
    ```json
    {
         "content": {
-         "moduleContent": {
+         "modulesContent": {
            "$edgeAgent": {
              "properties.desired": {
                "schemaVersion": "1.0",
@@ -161,13 +161,12 @@ Inspect the deployment in the command window. The **metrics** property lists a 
 You can show a list of device IDs or objects for each of the metrics by using the following command:
 
    ```cli
-az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name] --metric-type [system or user]
+az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name] 
    ```
 
 * **--deployment-id** - The name of the deployment that exists in the IoT hub.
 * **--metric-id** - The name of the metric for which you want to see the list of device IDs, for example `reportedFailedCount`
 * **--hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
-* **--metric-type** - Denotes where to search for the metric. Can be `system` or `user`. Use `system` for all metrics that are created automatically when the deployment is created, like `appliedCount` and `reportedFailedCount`, and the command will return a list of device IDs. For metrics of type `user` the command will return a list of objects.
 
 ## Modify a deployment
 
