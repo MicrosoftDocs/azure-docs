@@ -150,31 +150,31 @@ To use MSI-based Azure AD application token authentication, follow these steps:
 
 1. **Create a group in Azure AD.** Make the factory MSI a member of the group.
 
-    a. Find the data factory service identity from the Azure portal. Go to your data factory **Properties** and copy the **SERVICE IDENTITY ID**.
+    a. Find the data factory service identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
 
-    b. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module, sign in using `Connect-AzureAD` command, and run the following commands to create a group and add the data factory MSI as a member.
+    b. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Sign in by using the `Connect-AzureAD` command. Run the following commands to create a group and add the data factory MSI as a member.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL Server on Azure portal if you haven't done so. The AAD administrator can be an AAD user or AAD group. If you grant the group with MSI an admin role, skip step 3 and 4 below as the administrator would have full access to the database.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with MSI an admin role, skip step 3 and 4 below as the administrator would have full access to the database.
 
-3. **Create a contained database user for the AAD group**, by connecting to the database from/to which you want to copy data using tools like SSMS, with an AAD identity having at least ALTER ANY USER permission, and executing the following T-SQL. Learn more on contained database user from [here](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Azure AD group. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
     
     ```sql
     CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Grant the AAD group needed permissions** as you normally do for SQL users, e.g. by executing below:
+4. **Grant the Azure AD group needed permissions** as you normally do for SQL users and others. For example, run the following code:
 
     ```sql
     EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
-5. In ADF, configure an Azure SQL Database linked service.
+5. **Configure an Azure SQL Database linked service** in Azure Data Factory.
 
-**Linked service example using MSI authentication:**
+#### Linked service example that uses MSI authentication
 
 ```json
 {
@@ -197,16 +197,16 @@ To use MSI-based Azure AD application token authentication, follow these steps:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Azure SQL Database dataset.
+For a full list of sections and properties available for defining datasets, see the [Datasets](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) article. This section provides a list of properties supported by the Azure SQL Database dataset.
 
-To copy data from/to Azure SQL Database, set the type property of the dataset to **AzureSqlTable**. The following properties are supported:
+To copy data from or to Azure SQL Database, set the **type** property of the dataset to **AzureSqlTable**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **AzureSqlTable** | Yes |
-| tableName |Name of the table or view in the Azure SQL Database instance that linked service refers to. | Yes |
+| type | The **type** property of the dataset must be set to **AzureSqlTable**. | Yes |
+| tableName | The name of the table or view in the Azure SQL Database instance that the linked service refers to. | Yes |
 
-**Example:**
+#### Dataset properties example
 
 ```json
 {
@@ -225,28 +225,28 @@ To copy data from/to Azure SQL Database, set the type property of the dataset to
 }
 ```
 
-## Copy activity properties
+## Copy Activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure SQL Database source and sink.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by the Azure SQL Database source and sink.
 
-### Azure SQL Database as source
+### Azure SQL Database as the source
 
-To copy data from Azure SQL Database, set the source type in the copy activity to **SqlSource**. The following properties are supported in the copy activity **source** section:
+To copy data from Azure SQL Database, set the source type in the Copy Activity to **SqlSource**. The following properties are supported in the Copy Activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **SqlSource** | Yes |
-| sqlReaderQuery |Use the custom SQL query to read data. Example: `select * from MyTable`. |No |
-| sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. |No |
-| storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are: name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
+| type | The **type** property of the Copy Activity source must be set to **SqlSource**. | Yes |
+| sqlReaderQuery | Use the custom SQL query to read data. Example: `select * from MyTable`. | No |
+| sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No |
+| storedProcedureParameters | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 
-**Points to note:**
+### Points to note
 
-- If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the Azure SQL Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
-- If you do not specify either "sqlReaderQuery" or "sqlReaderStoredProcedureName", the columns defined in the "structure" section of the dataset JSON are used to construct a query (`select column1, column2 from mytable`) to run against the Azure SQL Database. If the dataset definition does not have the "structure", all columns are selected from the table.
+- If the **sqlReaderQuery** is specified for the **SqlSource**, the Copy Activity runs this query against the Azure SQL Database source to get the data. Or you can specify a stored procedure. Specify the **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
+- If you don't specify either **sqlReaderQuery** or **sqlReaderStoredProcedureName**, the columns defined in the **structure** section of the dataset JSON are used to construct a query. `select column1, column2 from mytable` runs against Azure SQL Database. If the dataset definition doesn't have the **structure**, all columns are selected from the table.
 - When you use **sqlReaderStoredProcedureName**, you still need to specify a dummy **tableName** property in the dataset JSON.
 
-**Example: using SQL query**
+#### SQL query example
 
 ```json
 "activities":[
@@ -278,7 +278,7 @@ To copy data from Azure SQL Database, set the source type in the copy activity t
 ]
 ```
 
-**Example: using stored procedure**
+#### Stored procedure example
 
 ```json
 "activities":[
@@ -314,7 +314,7 @@ To copy data from Azure SQL Database, set the source type in the copy activity t
 ]
 ```
 
-**The stored procedure definition:**
+### Stored procedure definition
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -335,15 +335,15 @@ GO
 
 ### Azure SQL Database as sink
 
-To copy data to Azure SQL Database, set the sink type in the copy activity to **SqlSink**. The following properties are supported in the copy activity **sink** section:
+To copy data to Azure SQL Database, set the sink type in the Copy Activity to **SqlSink**. The following properties are supported in the Copy Activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity sink must be set to: **SqlSink** | Yes |
-| writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: integer (number of rows). |No (default is 10000) |
-| writeBatchTimeout |Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes). |No |
-| preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into Azure SQL Database. It will only be invoked once per copy run. You can use this property to clean up the pre-loaded data. |No |
-| sqlWriterStoredProcedureName |Name of the stored procedure that defines how to apply source data into target table, e.g. to do upserts or transform using your own business logic. <br/><br/>Note this stored procedure will be **invoked per batch**. If you want to do operation that only runs once and has nothing to do with source data e.g. delete/truncate, use `preCopyScript` property. |No |
+| type | The **type** property of the Copy Activity sink must be set to **SqlSink**. | Yes |
+| writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**.<br/> The allowed value is integer (number of rows). | No. The default is 10000. |
+| writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/> The allowed value is timespan. Example: “00:30:00” (30 minutes). | No |
+| preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Database. It's only invoked once per copy run. Use this property to clean up the preloaded data. | No |
+| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. An example is to do upserts or transform by using your own business logic. <br/><br/>Note that this stored procedure is **invoked per batch**. If you want to do operation that only runs once and has nothing to do with source data e.g. delete/truncate, use `preCopyScript` property. |No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are: name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 | sqlWriterTableType |Specify a table type name to be used in the stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. |No |
 
