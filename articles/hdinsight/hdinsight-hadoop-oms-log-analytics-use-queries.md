@@ -36,7 +36,7 @@ Learn how to look for specific metrics for your HDInsight cluster.
 2. Select the **Log Search** tile.
 3. Type the following query in the search box to search for all metrics for all available metrics for all HDInsight clusters configured to use Azure Log Analytics, and then select **RUN**.
 
-        `search *
+        search *
 
     ![Search all metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Search all metrics")
 
@@ -75,8 +75,8 @@ Learn how to  look error messages during a specific time window. The steps here 
 
     ![Search all errors output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Search all errors output")
 
-5. From the left pane, under **Type** category, select an error type that you want to dig deep into, and then select **Apply**.  Notice the results are refined to only show the error of the type you selected.
-7. You can dig deeper into this specific error list by using the options available in the left pane. For example:
+4. From the left pane, under **Type** category, select an error type that you want to dig deep into, and then select **Apply**.  Notice the results are refined to only show the error of the type you selected.
+5. You can dig deeper into this specific error list by using the options available in the left pane. For example:
 
     - To see error messages from a specific worker node:
 
@@ -86,7 +86,7 @@ Learn how to  look error messages during a specific time window. The steps here 
 
         ![Search for specific errors output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "Search for specific errors output")
 
-9. To see the specific error. You can select **[+]show more** to look at the actual error message.
+6. To see the specific error. You can select **[+]show more** to look at the actual error message.
 
     ![Search for specific errors output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Search for specific errors output")
 
@@ -98,7 +98,7 @@ The first step to create an alert is to arrive at a query based on which the ale
 2. Select the **Log Search** tile.
 3. Run the following query on which you want to create an alert, and then select **RUN**.
 
-        search in (metrics_resourcemanager_queue_root_default_CL) * | where AppsFailed_d > 0
+        metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
 
     The query provides list of failed applications running on HDInsight clusters.
 
@@ -106,7 +106,7 @@ The first step to create an alert is to arrive at a query based on which the ale
 
     ![Enter query to create an alert](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Enter query to create an alert")
 
-4. In the **Create rule** window, enter the query and other details to create an alert, and then select **Create alert rule**.
+5. In the **Create rule** window, enter the query and other details to create an alert, and then select **Create alert rule**.
 
     ![Enter query to create an alert](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Enter query to create an alert")
 

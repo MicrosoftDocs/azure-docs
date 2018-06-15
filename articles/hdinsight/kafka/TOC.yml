@@ -223,7 +223,7 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using OMS
+  - name: Monitoring using Log Analytics
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md

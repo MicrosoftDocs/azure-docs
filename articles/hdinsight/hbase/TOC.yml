@@ -249,7 +249,7 @@
       href: apache-hbase-replication.md
     - name: Set up backup and replication for HBase and Phoenix
       href: apache-hbase-backup-replication.md
-  - name: Monitoring using OMS
+  - name: Monitoring using Log Analytics
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
