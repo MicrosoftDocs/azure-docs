@@ -945,7 +945,7 @@ Here's the JavaScript code:
 
 [Skip input examples](#input---attributes)
 
-#### HTTP trigger, look up ID from query string (C# script)
+#### HTTP trigger, look up ID from query string (JavaScript)
 
 The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -1382,28 +1382,6 @@ namespace CosmosDBSamplesV1
 Here's the function.json file:
 
 ```json
-using System;
-
-public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
-
-    foreach (ToDoItem toDoItem in toDoItemsIn)
-    {
-        log.Info($"Description={toDoItem.Description}");
-        await toDoItemsOut.AddAsync(toDoItem);
-    }
-}
-public class ToDoItem
-{
-    public string Id { get; set; }
-    public string Description { get; set; }
-}
-```
-
-Here's the C# script code:
-
-```cs
 {
   "bindings": [
     {
@@ -1423,6 +1401,23 @@ Here's the C# script code:
     }
   ],
   "disabled": false
+}
+```
+
+Here's the C# script code:
+
+```cs
+using System;
+
+public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+
+    foreach (ToDoItem toDoItem in toDoItemsIn)
+    {
+        log.Info($"Description={toDoItem.Description}");
+        await toDoItemsOut.AddAsync(toDoItem);
+    }
 }
 ```
 
