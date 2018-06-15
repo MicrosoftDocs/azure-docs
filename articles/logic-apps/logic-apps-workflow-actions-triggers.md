@@ -746,7 +746,7 @@ Debatching splits up the array items and starts a new logic app instance
 that runs for each array item. This approach is useful, for example, 
 when you want to poll an endpoint that might return multiple new items between polling intervals.
 For the maximum number of array items that **SplitOn** can process in a single logic app run, 
-see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.mdlooping-debatching-limits). 
+see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
 > You can't use **SplitOn** with a synchronous response pattern. 
