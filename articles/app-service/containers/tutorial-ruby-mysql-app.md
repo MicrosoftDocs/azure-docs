@@ -95,7 +95,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password:
-  socket: /tmp/mysql.sock
+  #socket: /tmp/mysql.sock
 ```
 
 ### Run the sample locally
@@ -136,7 +136,7 @@ Create a server in Azure Database for MySQL (Preview) with the [`az mysql server
 In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.mysql.database.azure.com`), it needs to be globally unique.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2 --version 5.7
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
@@ -215,7 +215,7 @@ production:
   host: <%= ENV['DB_HOST'] %>
   port: 3306
   database: <%= ENV['DB_DATABASE'] %>
-  username: <%= ENV['DB_USERNAME'] %>
+  username: <%= ENV['DB_USERNAME'] %>@<%= ENV['DB_DATABASE'] %>
   password: <%= ENV['DB_PASSWORD'] %>
   sslca: ssl/BaltimoreCyberTrustRoot.crt.pem
 ```
