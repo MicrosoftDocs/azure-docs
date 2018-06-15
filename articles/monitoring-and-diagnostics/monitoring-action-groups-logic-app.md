@@ -40,7 +40,7 @@ The process is similar if you want the logic app to perform a different action.
 
 4.  Select **Create** to create the logic app. A pop-up message indicates that the logic app is created. Select **Launch Resource** to open the **Logic Apps Designer**.
 
-5.  Select the **When a HTTP request is received** trigger.
+5.  Select the trigger: **When a HTTP request is received**.
 
     ![Logic app triggers](media/monitoring-action-groups/logic-app-triggers.png "Logic app triggers")
 
@@ -95,7 +95,7 @@ The process is similar if you want the logic app to perform a different action.
 
     ![Set the Content-Type header](media/monitoring-action-groups/content-type-header.png "Set the Content-Type header")
 
-10. Select **New Step** and then choose **Add an action**.
+10. Select **+** **New Step** and then choose **Add an action**.
 
     ![Add an action](media/monitoring-action-groups/add-action.png "Add an action")
 
@@ -185,7 +185,7 @@ Azure Service Health entries are part of the activity log. The process to create
 -  Steps 9 and 10 are the same.
 -  For steps 11 through 14, use the following process instead:
 
-   1. Select **New Step** and then choose **Add a condition**. Set the following conditions to ensure that the logic app executes only when the input data matches these values:
+   1. Select **+** **New Step** and then choose **Add a condition**. Set the following conditions to ensure that the logic app executes only when the input data matches these values:
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
        - `version == 0.1.1`
@@ -226,7 +226,7 @@ Azure Service Health entries are part of the activity log. The process to create
 The process to create a metric alert is similar to [creating an activity log alert](#create-an-activity-log-alert-administrative), but with the following changes:
 
 - Steps 1 through 7 are the same.
-- For step 8, use the following sample schema for the HTTP reqeust trigger:
+- For step 8, use the following sample schema for the HTTP request trigger:
 
     ```json
     {
@@ -273,7 +273,7 @@ The process to create a metric alert is similar to [creating an activity log ale
 - Steps 9 and 10 are the same.
 - For steps 11 through 14, use the following process instead:
 
-   1. Select **New Step** and then choose **Add a condition**. Set the following conditions to ensure that the logic app executes only when the input data matches these values:
+   1. Select **+** **New Step** and then choose **Add a condition**. Set the following conditions to ensure that the logic app executes only when the input data matches these values:
        - `schemaId == AzureMonitorMetricAlert`
        - `version == 2.0`
 
