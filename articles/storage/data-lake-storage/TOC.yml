@@ -10,8 +10,8 @@
     #href: 
   - name: Create/Connect Databricks account
     href: quickstart-create-databricks-account.md
-  #- name: Creating a XHDFS account - CLI, PS, Portal (Known)
-    #href:
+  - name: Create a storage account
+    href: quickstart-create-account.md
 - name: Tutorials
   items:
   #- name: Access Blob Storage from Spark (Known)
