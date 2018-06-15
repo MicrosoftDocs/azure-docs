@@ -4,7 +4,7 @@ description: You can use CDN caching rules to set or modify default cache expira
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
 ---
 
 # Control Azure CDN caching behavior with caching rules
 
 > [!NOTE] 
-> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai**. For **Azure CDN Premium from Verizon**, you can use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
+> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Verizon** profiles, you must use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
  
 Azure Content Delivery Network (CDN) offers two ways to control how your files are cached: 
 
@@ -102,7 +102,12 @@ Global and custom caching rules are processed in the following order:
 When these rules are set, a request for _&lt;endpoint hostname&gt;_.azureedge.net/home/index.html triggers custom caching rule #2, which is set to: **Set if missing** and 3 days. Therefore, if the *index.html* file has `Cache-Control` or `Expires` HTTP headers, they are honored; otherwise, if these headers are not set, the file is cached for 3 days.
 
 > [!NOTE] 
-> Files that are cached before a rule change maintain their origin cache duration setting. To reset their cache durations, you must [purge the file](cdn-purge-endpoint.md). For **Azure CDN from Verizon** endpoints, it can take up to 90 minutes for new caching rules to take effect.
+> Files that are cached before a rule change maintain their origin cache duration setting. To reset their cache durations, you must [purge the file](cdn-purge-endpoint.md). 
+>
+> Azure CDN configuration changes can take some time to propagate through the network: 
+> - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
+> - For **Azure CDN Standard from Verizon** profiles, propagation usually completes in 10 minutes.  
+>
 
 ## See also
 

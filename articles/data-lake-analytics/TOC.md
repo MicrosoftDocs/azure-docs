@@ -6,6 +6,7 @@
 # Get started
 ## [Azure portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
@@ -13,13 +14,17 @@
 
 ## Manage Data Lake Analytics
 ### [Azure portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
-### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### Command line
+#### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+#### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+### SDKs
+#### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+#### [Python](data-lake-analytics-manage-use-python-sdk.md)
+#### [Java](data-lake-analytics-manage-use-java-sdk.md)
+#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Add users](data-lake-analytics-add-users.md)
 ### [Policies](data-lake-analytics-policies.md)
+### [Secure job folders](data-lake-analytics-secure.md)
 ### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
 ### [Adjust quota limits](data-lake-analytics-quota-limits.md)
 
@@ -35,13 +40,19 @@
 #### [Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
 #### [Programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
 
+### U-SQL SDK
+#### [Local run & debug](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Run & test](data-lake-analytics-u-sql-sdk.md) 
+
 ### Visual Studio
+#### [Install](data-lake-analytics-data-lake-tools-install.md)
 #### [Browse and view jobs](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Debug custom C# code](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Troubleshoot recurring jobs](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 #### [Vertex execution details](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 #### [Export U-SQL database](data-lake-analytics-data-lake-tools-export-database.md)
 #### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
+#### [Resolve data-skew](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
 #### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ### Visual Studio Code
@@ -60,7 +71,7 @@
 # Resources
 ## [Azure Data Lake Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Request changes](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

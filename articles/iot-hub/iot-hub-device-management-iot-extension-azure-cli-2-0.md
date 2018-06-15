@@ -1,23 +1,17 @@
 ﻿---
 title: Azure IoT device management with IoT extension for Azure CLI 2.0 | Microsoft Docs
 description: Use the IoT extension for Azure CLI 2.0 tool for Azure IoT Hub device management, featuring the Direct methods and the Twin’s desired properties management options.
-services: iot-hub
-documentationcenter: ''
 author: chrissie926
-manager: timlt
-tags: ''
-keywords: 'azure iot device management, azure iot hub device management, device management iot, iot hub device management'
-
-ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
+manager: 
+keywords: azure iot device management, azure iot hub device management, device management iot, iot hub device management
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-
 ---
+
 # Use the IoT extension for Azure CLI 2.0 for Azure IoT Hub device management
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
@@ -93,10 +87,10 @@ This property can be read from your device.
 Get the reported properties of the device by running the following command:
 
 ```bash
-az iot hub device-twin update -n <your hub name> -d <your device id> --set properties.reported.interval = 3000
+az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-One of the properties is $metadata.$lastUpdated which shows the last time this device sends or receives a message.
+One of the twin reported properties is $metadata.$lastUpdated which shows the last time the device app updated its reported property set.
 
 ## Device twin tags
 

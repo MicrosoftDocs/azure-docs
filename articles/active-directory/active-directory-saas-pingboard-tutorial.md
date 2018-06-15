@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/15/2018
 ms.author: jeedes
 
 ---
@@ -27,7 +27,7 @@ Integrating Pingboard with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Pingboard (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure the integration of Pingboard into Azure AD, you need to add Pingboa
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications][2]
-	
+
 3. Click **Add** button on the top of the dialog.
 
 	![The New application button][3]
@@ -98,8 +98,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2.  On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2.  On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Single sign-on dialog box](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_samlbase.png)
 
 3. On the **Pingboard Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
@@ -116,12 +116,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
      In the **Sign-on URL** textbox, type the URL using the following pattern: `https://<sub-domain>.pingboard.com/sign_in`
 
-	> [!NOTE] 
+	> [!NOTE]
 	> Please note that these values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Pingboard Client support team](https://support.pingboard.com/) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
-	![Pingboard metadata xml](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png) 
+	![Pingboard metadata xml](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png)
 
 6. Click **Save** button.
 
@@ -133,7 +133,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-pingboard-tutorial/Pingboard_integration.png)
 
-9.	On the **Integrations** page, find the **"Azure Active Directory"** tile, and click it.
+9. On the **Integrations** page, find the **"Azure Active Directory"** tile, and click it.
 
 	![Pingboard Single Sign-On Integration](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
 
@@ -160,16 +160,16 @@ The objective of this section is to create a test user in the Azure portal calle
 	![The Azure Active Directory button](./media/active-directory-saas-pingboard-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![The "Users and groups" and "All users" links](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png) 
+
+	![The "Users and groups" and "All users" links](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png)
 
 3. At the top of the dialog, click **Add** to open the **User** dialog.
- 
+
 	![Add button](./media/active-directory-saas-pingboard-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
- 
-	![The User dialog box](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png) 
+
+	![The User dialog box](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png)
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -178,12 +178,12 @@ The objective of this section is to create a test user in the Azure portal calle
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Create a Pingboard test user
 
-In order to enable Azure AD users to log into Pingboard, they must be provisioned into Pingboard. For Pingboard, provisioning is a manual task.
+The objective of this section is to create a user called Britta Simon in Pingboard. Pingboard supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-pingboard-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
-**To provision a user account, perform the following steps:**
+**If you need to create user manually, perform following steps:**
 
 1. Log in to your Pingboard company site as an administrator.
 
@@ -202,13 +202,13 @@ In order to enable Azure AD users to log into Pingboard, they must be provisione
 	c. In the **Job Title** textbox, type the job title of Britta Simon.
 
 	d. In the **Location** dropdown, select the location  of Britta Simon.
-	
-	e. Click **Add**.	
+
+	e. Click **Add**.
 
 4. A confirmation screen comes up to confirm the addition of user.
-	
+
 	![confirm](./media/active-directory-saas-pingboard-tutorial/create_testuser_confirm.png)
-		
+
 	> [!NOTE]
     > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
 
@@ -245,16 +245,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 When you click the Pingboard tile in the Access Panel, you should get automatically signed-on to your Pingboard application.
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Configure User Provisioning](active-directory-saas-pingboard-provisioning-tutorial.md)
 
 <!--Image references-->
 

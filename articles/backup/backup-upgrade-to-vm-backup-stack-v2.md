@@ -1,21 +1,17 @@
----  
-title: Upgrade to the Azure Resource Manager deployment model for Azure VM backup stack | Microsoft Docs 
-description: Upgrade process and FAQs for VM backup stack, Resource Manager deployment model 
-services: backup, virtual-machines 
-documentationcenter: '' 
-author: trinadhk  
-manager: vijayts 
-tags: azure-resource-manager, virtual-machine-backup 
-ms.assetid:  
-ms.service: backup, virtual-machines 
-ms.devlang: na 
-ms.topic: article 
-ms.workload: storage-backup-recovery 
-ms.date: 03/08/2018 
-ms.author: trinadhk, sogup
+---
+title: Upgrade to the Azure VM Backup Stack V2
+description: Upgrade process and FAQs for VM backup stack, Resource Manager deployment model
+services: backup, virtual-machines
+author: trinadhk
+manager: vijayts
+tags: azure-resource-manager, virtual-machine-backup
+ms.service: backup, virtual-machines
+ms.topic: conceptual
+ms.date: 03/08/2018
+ms.author: trinadhk
 --- 
 
-# Upgrade to the Azure Resource Manager deployment model for Azure VM backup stack
+# Upgrade to Azure VM Backup stack V2
 The Resource Manager deployment model for the upgrade to virtual machine (VM) backup stack provides the following feature enhancements:
 * Ability to see snapshots taken as part of a backup job that's available for recovery without waiting for data transfer to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore. Also, this ability eliminates the additional storage requirement for backing up premium VMs, except for the first backup.  
 
@@ -42,15 +38,13 @@ By default, snapshots are kept for seven days. This feature allows the restore t
 ## Considerations before upgrade
 * The upgrade of the VM backup stack is one directional. So all backups go into this flow. Because it's enabled at the subscription level, all VMs go into this flow. All new feature additions are based on the same stack. Ability to control this at policy level is coming in future releases.
 
-* For VMs with premium disks, during and until the first backup finishes, make sure there's enough storage space in the storage account. It should be equal to the size of the VM.
-
 * Snapshots are stored locally to boost recovery point creation and also to speed up restore. Therefore, you see storage costs that correspond to snapshots during the seven-day period.
 
 * Incremental snapshots are stored as page blobs. All customers that use unmanaged disks are charged for the seven days the snapshots are stored in the customer's local storage account. According to the current pricing model, there is no cost for customers on managed disks.
 
 * If you do a restore from a snapshot recovery point for a premium VM, you see a temporary storage location that is used while the VM is created as part of the restore.
 
-* For premium storage accounts, the snapshots that are taken for instant recovery occupy 10 TB of allocated space.
+* For premium storage accounts, the snapshots that are taken for instant recovery will count towards the limit of 10 TB of allocated space.
 
 ## Upgrade
 ### The Azure portal

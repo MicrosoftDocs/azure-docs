@@ -1,6 +1,6 @@
 ---
-title: Prepay for Azure virtual machines to save money | Microsoft Docs
-description: Learn how to buy Azure Reserved Virtual Machine Instances to save on your compute costs.
+title: Prepay for Azure virtual machines to save money - Azure Billing | Microsoft Docs
+description: Learn how to buy Azure Reserved Instances to save on your compute costs.
 services: virtual-machines-windows
 documentationcenter: ''
 author: yashar
@@ -12,7 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+
+ms.date: 06/14/2018
 ms.author: yashar
 
 ---

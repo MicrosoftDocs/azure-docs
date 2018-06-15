@@ -3,7 +3,7 @@ title: PowerShell example-Sync between SQL Database and SQL Server on-premises |
 description: Azure PowerShell example script to sync between an Azure SQL Database and a SQL Server on-premises database
 services: sql-database
 documentationcenter: sql-database
-author: jognanay
+author: allenwux
 manager: craigg
 editor: ''
 tags:
@@ -16,7 +16,7 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: jognanay
+ms.author: xiaochen.wu
 ms.reviewer: douglasl
 ---
 # Use PowerShell to sync between a SQL Database and a SQL Server on-premises database

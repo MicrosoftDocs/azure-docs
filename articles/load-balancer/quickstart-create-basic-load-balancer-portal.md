@@ -161,7 +161,7 @@ To allow the Basic load balancer to monitor the status of your app, you use a he
 
 ### Create a load balancer rule
 
-You use a load balancer rule to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. 
+You use a load balancer rule to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. 
 
 Create a load balancer rule named **myLoadBalancerRuleWeb** for listening to port 80 in the front end **LoadBalancerFrontEnd**. The rule is also for sending load-balanced network traffic to the back-end address pool **myBackEndPool**, also by using port 80. 
 
@@ -190,4 +190,7 @@ You can delete the resource group, load balancer, and all related resources when
 
 ## Next steps
 
-In this quickstart, you created a resource group, network resources, and back-end servers. You then used those resources to create a load balancer. To learn more about load balancers and their associated resources, continue to the tutorial articles.
+In this quickstart, you created a resource group, network resources, and back-end servers. You then used those resources to create a Basic Load Balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer tutorials](tutorial-load-balancer-basic-internal-portal.md)

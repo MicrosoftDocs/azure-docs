@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial  - Scale Application
 description: AKS tutorial - Scale Application
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
@@ -12,7 +12,7 @@ ms.author: danlep
 ms.custom: mvc
 ---
 
-# Tutorial: Scale application in Azure Container Service (AKS)
+# Tutorial: Scale application in Azure Kubernetes Service (AKS)
 
 If you've been following the tutorials, you have a working Kubernetes cluster in AKS and you deployed the Azure Voting app.
 

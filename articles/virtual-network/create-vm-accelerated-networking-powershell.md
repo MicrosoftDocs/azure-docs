@@ -3,8 +3,8 @@ title: Create an Azure virtual machine with Accelerated Networking | Microsoft D
 description: Learn how to create a Linux virtual machine with Accelerated Networking.
 services: virtual-network
 documentationcenter: ''
-author: jdial
-manager: jeconnoc
+author: gsilva5
+manager: gedegrac
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
-ms.author: jimdial
+ms.author: gsilva
 
 ---
 # Create a Windows virtual machine with Accelerated Networking
@@ -267,7 +267,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
 
 Please note, a VMSS has VM upgrades that apply updates using three different settings, automatic, rolling and manual.  In these instructions the policy is set to automatic so that the VMSS will pick up the changes immediately after restarting.  To set it to automatic so that the changes are immediately picked up: 
 
-```azurecli
+```azurepowershell
 $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
 
 Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
@@ -277,7 +277,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
 
 Finally, restart the VMSS:
 
-```azurecli
+```azurepowershell
 Start-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
     -VMScaleSetName "myScaleSet"
 ```

@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/23/2016
-ms.author: mbullwin; borooji
+ms.author: mbullwin
 
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK
@@ -132,17 +132,6 @@ You can pass string values from the .config file by providing public named prope
 ```
 
 TelemetryClients created after this point will use your processors.
-
-The following code shows how to add a telemetry initializer in ASP.NET Core.
-
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-    var initializer = new SuccessfulDependencyFilter();
-    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
-    configuration.TelemetryInitializers.Add(initializer);
-}
-```
 
 ### Example filters
 #### Synthetic requests

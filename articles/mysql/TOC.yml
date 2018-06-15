@@ -74,7 +74,9 @@
     - name: Firewall rules
       href: concepts-firewall-rules.md
     - name: Configuring SSL
-      href: concepts-ssl-connection-security.md 
+      href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-and-security-vnet.md 
   - name: Business continuity
     items:
     - name: Overview
@@ -89,6 +91,10 @@
       href: concepts-compatibility.md
     - name: Application development
       href: concepts-database-application-development.md
+  - name: Replication
+    items:
+    - name: Data-in replication
+      href: concepts-data-in-replication.md
 - name: How-to guides
   items:
   - name: Manage a Server
@@ -141,18 +147,30 @@
     items:
     - name: Create alerts on metrics
       href: howto-alert-on-metric.md
+  - name: Replication
+    items:
+    - name: Configure data-in replication
+      href: howto-data-in-replication.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot query performance
       href: howto-troubleshoot-query-performance.md
     - name: How to use views in sys schema
       href: howto-troubleshoot-sys-schema.md
+  - name: Virtual Network
+    items:
+    - name: Azure portal
+      href: howto-manage-vnet-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-using-cli.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/mysql
   - name: REST API
     href: /rest/api/mysql
+  - name: Data-in replication stored procedures
+    href: reference-data-in-stored-procedures.md
 - name: Resources
   items:
   - name: Deployment templates

@@ -1,7 +1,7 @@
 - name: Custom Vision Service Documentation
 - name: Overview
   items:
-  - name: What is Custom Vision Service
+  - name: What is Custom Vision Service?
     href: home.md
 - name: How-to guides
   items:
@@ -9,20 +9,30 @@
     items:
     - name: Build a classifier
       href: getting-started-build-a-classifier.md
-    - name: Improve your classifier
-      href: getting-started-improving-your-classifier.md
     - name: Test your model
       href: test-your-model.md
+    - name: Improve your classifier
+      href: getting-started-improving-your-classifier.md
     - name: Use the prediction API
       href: use-prediction-api.md
     - name: Export your model to mobile
       href: export-your-model.md
+    - name: Run TensorFlow model in Python
+      href: export-model-python.md
   - name: Build apps
     items:
-    - name: C# tutorial
-      href: csharp-tutorial.md
-    - name: Python tutorial
-      href: python-tutorial.md
+    - name: Image Classification
+      items:
+      - name: C# tutorial
+        href: csharp-tutorial.md
+      - name: Python tutorial
+        href: python-tutorial.md
+    - name: Object Detection
+      items:
+      - name: C# tutorial
+        href: csharp-tutorial-od.md
+      - name: Python tutorial
+        href: python-tutorial-od.md
 - name: Reference
   items:
   - name: Custom Vision Training API  
@@ -43,6 +53,8 @@
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/
+  - name: Export or delete account data
+    href: ./export-delete-data.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
   - name: Stack Overflow

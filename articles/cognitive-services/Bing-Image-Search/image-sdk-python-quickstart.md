@@ -15,6 +15,8 @@ ms.author: v-gedod
 
 The Bing Image Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
+The [source code for Python Bing Image Search SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py) is available on Git Hub.
+
 ## Application dependencies
 If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
 
@@ -42,7 +44,7 @@ Create an instance of the `CognitiveServicesCredentials`, and instantiate the cl
 ```
 client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Search images on query (Yosemite), filtered for animated gifs and wide aspect, then verify number of results and print out insightsToken, thumbnail URL, and web URL of first result.
+Search images on query (Yosemite), filtered for animated gifs and wide aspect. Verify number of results and print out insightsToken, thumbnail URL, and web URL of first result.
 ```
 image_results = client.images.search(
         query="Yosemite",
@@ -61,7 +63,7 @@ image_results = client.images.search(
         print("Couldn't find image results!")
 
 ```
-Search images for (Yosemite), filtered for animated gifs and wide aspect, then verify number of results and print out `insightsToken`, `thumbnail url` and `web url` of first result.
+Search images for (Yosemite), filtered for animated gifs and wide aspect.  Verify number of results.  Print out `insightsToken`, `thumbnail url` and `web url` of first result.
 ```
 image_results = client.images.search(
     query="Yosemite",

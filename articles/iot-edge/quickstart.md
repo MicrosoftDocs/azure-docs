@@ -1,23 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Quickstart Azure IoT Edge + Windows | Microsoft Docs 
 description: Try out Azure IoT Edge by running analytics on a simulated edge device
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
-ms.date: 11/15/2017
-ms.topic: article
+ms.date: 05/03/2018
+ms.topic: quickstart
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
@@ -34,7 +25,7 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
    * Windows 10 
    * Windows Server
 2. Install [Docker for Windows][lnk-docker] and make sure it's running.
-3. Install [Python 2.7 on Windows][lnk-python] and make sure you can use the pip command.
+3. Install [Python on Windows][lnk-python] and make sure you can use the pip command. This quickstart was tested with Python versions >=2.7.9 and >=3.5.4.  
 4. Run the following command to download the IoT Edge control script.
 
    ```cmd

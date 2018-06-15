@@ -3,9 +3,9 @@ title: Register the current user for push notifications by using Web API | Micro
 description: Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API.
 services: notification-hubs
 documentationcenter: ios
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
 # Register the current user for push notifications by using ASP.NET
@@ -108,7 +108,7 @@ This topic shows you how to request push notification registration with Azure No
    > 
 8. In the PushToUserAppDelegate.m file, add the following handler method:
    
-   * (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+   * (void) application:(UIApplication *) application didReceiveRemoteNotification:(NSDictionary *)userInfo {
        NSLog(@"%@", userInfo);
        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
                              [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:

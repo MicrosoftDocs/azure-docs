@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Bing Custom Search Documentation 
 metadata:
-  title: Bing Custom Search Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Bing Custom Search Documentation - Tutorials, API reference - Microsoft Cognitive Services | Microsoft Docs
   description: Learn how to use the Bing Custom Search portal to create custom search instances
   services: cognitive-services
   author: v-deken
@@ -12,10 +12,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  ms.date: 05/07/2018
   ms.author: v-deken
 abstract:
-  description: Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a bicycle website that provides a search experience, you can specify the domains, subsites, and webpages that Bing searches. Your users see search results that are tailored to the content they care about instead of having to page through general search results that may contain irrelevant content.  Learn how to use the Bing Custom Search portal to create custom search instances with our quickstarts, and reference.
+  description: Learn how to use Bing Custom Search to create tailored search experiences for topics that you care about. For example, if you own a bicycle website that provides a search experience, you can specify the domains, subsites, and webpages that Bing searches. Quickstarts, tutorials, and API reference guides show you how.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -26,21 +26,21 @@ sections:
     items:
       - image:
           src: media/logo_Csharp.svg
-        href: quickstarts/csharp
+        href: call-endpoint-csharp
         text: "C&#35;"
       - image:
           src: media/logo_java.svg
-        href: quickstarts/java
+        href: call-endpoint-java
         text: "Java"
       - image:
           src: media/logo_nodejs.svg
-        href: quickstarts/nodejs
+        href: call-endpoint-nodejs
         text: "Node.js"
       - image:
           src: media/logo_python.svg
-        href: quickstarts/python
+        href: call-endpoint-python
         text: "Python"
-- title: Step-by-Step Tutorials
+- title: Step-by-Step Tutorial
   items:
   - type: paragraph
     text: 'Learn how to develop applications using the Bing Custom Search API:'
@@ -53,6 +53,6 @@ sections:
     className: cardsD
     items:
     - title: APIs
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Bing Custom Search API v7</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Bing Custom Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">Bing Custom Autosuggest API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">Bing Custom Image Search API v7</a></p>    
     - title: SDKs
       html: <p><a href="sdk.md">Bing Search SDK</a></p>

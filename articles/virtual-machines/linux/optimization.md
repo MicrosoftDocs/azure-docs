@@ -129,6 +129,6 @@ Remember, as with all optimization discussions, you need to perform tests before
 Some useful links to additional resources: 
 
 * [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](premium-storage.md)
-* [Azure Linux Agent User Guide](agent-user-guide.md)
+* [Azure Linux Agent User Guide](../extensions/agent-linux.md)
 * [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md)
 * [Configure Software RAID on Linux](configure-raid.md)

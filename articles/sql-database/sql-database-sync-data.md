@@ -6,7 +6,7 @@ author: douglaslms
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
@@ -48,15 +48,15 @@ Data Sync is useful in cases where data needs to be kept up-to-date across sever
 
 -   **Globally Distributed Applications:** Many businesses span several regions and even several countries. To minimize network latency, it's best to have your data in a region close to you. With Data Sync, you can easily keep databases in regions around the world synchronized.
 
-Data Sync is not appropriate for the following scenarios:
+Data Sync is not the best solution for the following scenarios:
 
--   Disaster Recovery
-
--   Read Scale
-
--   ETL (OLTP to OLAP)
-
--   Migration from on-premises SQL Server to Azure SQL Database
+| Scenario | Some recommended solutions |
+|----------|----------------------------|
+| Disaster Recovery | [Azure geo-redundant backups](sql-database-automated-backups.md) |
+| Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](sql-database-read-scale-out.md) |
+| ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+|||
 
 ## How does Data Sync work? 
 
@@ -77,6 +77,8 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 
 #### Performance impact
 Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
+
+Provisioning and deprovisioning during sync group creation, update, and deletion may also impact the database performance. 
 
 ### General requirements
 

@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Secure back end | Microsoft Docs
 description: Azure PowerShell Script Sample - Secure back end
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

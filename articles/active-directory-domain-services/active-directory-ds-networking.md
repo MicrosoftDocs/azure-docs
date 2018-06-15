@@ -8,7 +8,8 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -93,7 +94,7 @@ AAD Domain Services needs outbound access to various other Azure services in ord
 
 
 ## Network Security Groups
-A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
+A [Network Security Group (NSG)](../virtual-network/security-overview.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
 
 ### Sample NSG for virtual networks with Azure AD Domain Services
 The following table illustrates a sample NSG you can configure for a virtual network with an Azure AD Domain Services managed domain. This rule allows inbound traffic over the required ports to ensure your managed domain stays patched, updated and can be monitored by Microsoft. The default 'DenyAll' rule applies to all other inbound traffic from the internet.
@@ -139,5 +140,5 @@ You can connect a Resource Manager-based virtual network to the Azure classic vi
 ## Related Content
 * [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Configure a VNet-to-VNet connection for the classic deployment model](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* [Azure Network Security Groups](../virtual-network/virtual-networks-nsg.md)
+* [Azure Network Security Groups](../virtual-network/security-overview.md)
 * [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

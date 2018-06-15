@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: tdykstra
 ---
 
@@ -42,38 +42,39 @@ For information about which bindings are in preview or are approved for producti
 
 ## Register binding extensions
 
-In version 2.x of the Azure Functions runtime, you must explicitly register the [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) that you use in your function app. 
+In version 2.x of the Azure Functions runtime, you have to explicitly register the binding extensions (binding types) that you use in your function app. 
 
-Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  The way you install and register binding extensions depends on how you develop your functions: 
+Version 2.x of the Functions runtime is currently in preview. For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+
+There is a core set of bindings in version 2.x that are automatically registered, so you don't have to register them explicitly: HTTP, timer, and Azure Storage (blobs, queues, and tables). 
+
+Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  The way you register binding extensions depends on how you develop your functions: 
 
 + [Locally in C# using Visual Studio or VS Code](#local-c-development-using-visual-studio-or-vs-code)
 + [Locally using Azure Functions Core Tools](#local-development-azure-functions-core-tools)
 + [In the Azure portal](#azure-portal-development) 
 
-There is a core set of bindings in version 2.x that are not provided as extensions. You do not need to register extensions for the following triggers and bindings: HTTP, timer, and Azure Storage. 
+The package versions shown in this section are provided only as examples. Check the [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) to determine which version of a given extension is required by the other dependencies in your function app.    
 
-For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md). Version 2.x of the Functions runtime is currently in preview. 
+### <a name="local-csharp"></a>Local C# development using Visual Studio or VS Code
 
-The package versions shown in this section are provided only as examples. Check the [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) to determine which version of a given extension are required by the other dependencies in your function app.    
-
-###  Local C# development using Visual Studio or VS Code 
-
-When you use Visual Studio or Visual Studio Code to locally develop functions in C#, you simply need to add the NuGet package for the extension. 
+When you use Visual Studio or Visual Studio Code to locally develop functions in C#, install the NuGet package for the extension. 
 
 + **Visual Studio**: Use the NuGet Package Manager tools. The following [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command installs the Azure Cosmos DB extension from the Package Manager Console:
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
     ```
+
 + **Visual Studio Code**: You can install packages from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET CLI, as follows:
 
-    ```
+    ```terminal
     dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
     ```
 
 ### Local development Azure Functions Core Tools
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 ### Azure portal development
 

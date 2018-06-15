@@ -1,21 +1,13 @@
 ---
-title: Use PowerShell to back up Windows Server to Azure | Microsoft Docs
+title: Use PowerShell to back up Windows Server to Azure
 description: Learn how to deploy and manage Azure Backup using PowerShell
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-
-ms.assetid: 65218095-2996-44d9-917b-8c84fc9ac415
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2016
-ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-
+ms.topic: conceptual
+ms.date: 5/24/2018
+ms.author: saurse
 ---
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
 This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
@@ -142,7 +134,7 @@ This, and other cmdlets used for backup, are from the MSONLINE module which the 
 The Agent installer does not update the $Env:PSModulePath variable. This means module auto-load fails. To resolve this you can do the following:
 
 ```
-PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules
+PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
 ```
 
 Alternatively, you can manually load the module in your script as follows:
@@ -156,8 +148,8 @@ Once you load the Online Backup cmdlets, you register the vault credentials:
 
 
 ```
-PS C:\> $cred = $credspath + $credsfilename
-PS C:\> Start-OBRegistration-VaultCredentials $cred -Confirm:$false
+
+PS C:\> Start-OBRegistration -VaultCredentials $credsfilename.FilePath -Confirm:$false
 CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
 ServiceResourceName: testvault

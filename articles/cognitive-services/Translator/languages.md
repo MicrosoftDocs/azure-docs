@@ -12,100 +12,75 @@ ms.author: v-jansko
 ---
 
 # Supported languages in the Microsoft Translator Text API 
-The Microsoft Translator Text API supports the following languages for text to text translation using statistical machine translation (SMT). 
+The Microsoft Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. Neural machine translation is available in V2 by using the "generalnn" category. 
 
-| Language    | Language code |
-|:----------- |:-------------:|
-| Afrikaans      | `af`          |
-| Arabic       | `ar`          |
-| Bangla      | `bn`          |
-| Bosnian (Latin)      | `bs`          |
-| Bulgarian      | `bg`          |
-| Cantonese (Traditional)      | `yue`          |
-| Catalan      | `ca`          |
-| Chinese Simplified      | `zh-Hans`          | 
-| Chinese Traditional      | `zh-Hant`          |
-| Croatian      | `hr`          |
-| Czech      | `cs`          |
-| Danish      | `da`          |
-| Dutch      | `nl`          |
-| English      | `en`          |
-| Estonian      | `et`          |
-| Fijian      | `fj`          |
-| Filipino      | `fil`          |
-| Finnish      | `fi`          |
-| French      | `fr`          |
-| German      | `de`          |
-| Greek      | `el`          |
-| Haitian Creole      | `ht`          |
-| Hebrew      | `he`          |
-| Hindi      | `hi`          |
-| Hmong Daw      | `mww`          |
-| Hungarian      | `hu`          |
-| Indonesian      | `id`          |
-| Italian      | `it`          |
-| Japanese      | `ja`          |
-| Kiswahili      | `sw`          |
-| Klingon      | `tlh`          |
-| Klingon (plqaD)      | `tlh-Qaak`          |
-| Korean      | `ko`          |
-| Latvian      | `lv`          |
-| Lithuanian      | `lt`          |
-| Malagasy      | `mg`          |
-| Malay      | `ms`          |
-| Maltese      | `mt`          |
-| Norwegian      | `nb`          |
-| Persian      | `fa`          |
-| Polish      | `pl`          |
-| Portuguese      | `pt`          |
-| Queretaro Otomi      | `otq`          |
-| Romanian      | `ro`          |
-| Russian      | `ru`          |
-| Samoan      | `sm`          |
-| Serbian (Cyrillic)      | `sr-Cyrl`          |
-| Serbian (Latin)      | `sr-Latn`          |
-| Slovak     | `sk`          |
-| Slovenian      | `sl`          |
-| Spanish      | `es`          |
-| Swedish      | `sv`          |
-| Tahitian      | `ty`          |
-| Tamil      | `ta`          |
-| Thai      | `th`          |
-| Tongan      | `to`          |
-| Turkish      | `tr`          |
-| Ukrainian      | `uk`          |
-| Urdu      | `ur`          |
-| Vietnamese      | `vi`          |
-| Welsh      | `cy`          |
-| Yucatec Maya      | `yua`          |
+[Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
 
-## Neural Machine Translation systems
-
-The following languages are supported for Neural Machine Translation. The neural system can be used by adding "generalnn" to the category parameter of the API call. You may use the "generalnn" category for any of the supported languages, even if there's no neural translation system handling it. 
-
-| Language    | Language code |
-|:----------- |:-------------:|
-| Arabic       | `ar`          |
-| Bulgarian       | `bg`          |
-| Chinese Simplified      | `zh-Hans`          | 
-| Czech      | `cs`          |
-| Danish      | `da`          |
-| Dutch      | `nl`          |
-| English      | `en`          |
-| French      | `fr`          |
-| German      | `de`          |
-| Hindi      | `hi`          |
-| Italian      | `it`          |
-| Japanese      | `ja`          |
-| Korean      | `ko`          |
-| Norwegian      | `nb`          |
-| Polish      | `pl`          |
-| Portuguese      | `pt`          |
-| Romanian      | `ro`          |
-| Russian      | `ru`          |
-| Spanish      | `es`          |
-| Swedish      | `sv`          |
-| Turkish      | `tr`          |
+| Language    | Translation Type |Language code |
+|:----------- |:-------:|:-------------:|
+| Afrikaans      | Statistical |`af`          |
+| Arabic      | Neural | `ar`          |
+| Bangla      | Neural |`bn`          |
+| Bosnian (Latin)      | Statistical |`bs`          |
+| Bulgarian     |  Neural |`bg`          |
+| Cantonese (Traditional)      | Statistical |`yue`          |
+| Catalan      | Statistical |`ca`          |
+| Chinese Simplified        |  Neural |`zh-Hans`          | 
+| Chinese Traditional        |  Neural |`zh-Hant`          |
+| Croatian      | Neural |`hr`          |
+| Czech        |  Neural |`cs`          |
+| Danish        |  Neural |`da`          |
+| Dutch        |  Neural |`nl`          |
+| English       |  Neural |`en`          |
+| Estonian      | Neural |`et`          |
+| Fijian      | Statistical |`fj`          |
+| Filipino      | Statistical |`fil`          |
+| Finnish      | Neural |`fi`          |
+| French        |  Neural |`fr`          |
+| German       |  Neural |`de`          |
+| Greek      | Neural |`el`          |
+| Haitian Creole      | Statistical |`ht`          |
+| Hebrew      | Neural |`he`          |
+| Hindi        |  Neural |`hi`          |
+| Hmong Daw      | Statistical |`mww`          |
+| Hungarian      | Neural |`hu`          |
+| Icelandic      |  Neural |`is`           |
+| Indonesian      | Statistical |`id`          |
+| Italian        |  Neural |`it`          |
+| Japanese        |  Neural |`ja`          |
+| Kiswahili      | Statistical |`sw`          |
+| Klingon      | Statistical |`tlh`          |
+| Klingon (plqaD)      | Statistical |`tlh-Qaak`          |
+| Korean        |  Neural |`ko`          |
+| Latvian      | Neural |`lv`          |
+| Lithuanian      | Neural |`lt`          |
+| Malagasy      | Statistical |`mg`          |
+| Malay      | Statistical |`ms`          |
+| Maltese      | Statistical |`mt`          |
+| Norwegian        |  Neural |`nb`          |
+| Persian      | Statistical |`fa`          |
+| Polish        |  Neural |`pl`          |
+| Portuguese        |  Neural |`pt`          |
+| Queretaro Otomi      | Statistical |`otq`          |
+| Romanian        |  Neural |`ro`          |
+| Russian        |  Neural |`ru`          |
+| Samoan      | Statistical |`sm`          |
+| Serbian (Cyrillic)      | Statistical |`sr-Cyrl`          |
+| Serbian (Latin)      | Statistical |`sr-Latn`          |
+| Slovak     | Neural |`sk`          |
+| Slovenian      | Neural |`sl`          |
+| Spanish        |  Neural |`es`          |
+| Swedish        |  Neural |`sv`          |
+| Tahitian      | Statistical |`ty`          |
+| Tamil      | Statistical |`ta`          |
+| Thai      | Neural |`th`          |
+| Tongan      | Statistical |`to`          |
+| Turkish       |  Neural |`tr`          |
+| Ukrainian      | Neural |`uk`          |
+| Urdu      | Statistical |`ur`          |
+| Vietnamese      | Neural |`vi`          |
+| Welsh      | Neural |`cy`          |
+| Yucatec Maya      | Statistical |`yua`          |
 
 ## Transliteration
 
@@ -161,7 +136,7 @@ The dictionary supports the following languages to or from English using the Loo
 | Hindi      | `hi`          |
 | Hmong Daw      | `mww`          |
 | Hungarian      | `hu`          |
-| Icelandic    | is  |
+| Icelandic    | `is`  |
 | Indonesian      | `id`          |
 | Italian      | `it`          |
 | Japanese      | `ja`          |

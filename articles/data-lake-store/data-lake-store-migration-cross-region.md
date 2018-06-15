@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Data Lake Store cross-region migration | Microsoft Docs
 description: Learn about cross-region migration for Azure Data Lake Store.
 services: data-lake-store
@@ -11,8 +11,6 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
 
@@ -30,7 +28,7 @@ As Azure Data Lake Store becomes available in new regions, you might choose to d
 
 ## Migration considerations
 
-First, identify the migration strategy that works best for your application that writes, reads, or processes data in Data Lake Store. When you choose a strategy, consider your application’s availability requirements, and the downtime that occurs during a migration. For example, your simplest approach might be to use the “lift-and-shift” cloud migration model. In this approach, you pause the application in your existing region while all your data is copied to the new region. When the copy process is finished, you resume your application in the new region, and then delete the old Data Lake Store account. Downtime during the migration is required.
+First, identify the migration strategy that works best for your application that writes, reads, or processes data in Data Lake Store. When you choose a strategy, consider your application's availability requirements, and the downtime that occurs during a migration. For example, your simplest approach might be to use the "lift-and-shift" cloud migration model. In this approach, you pause the application in your existing region while all your data is copied to the new region. When the copy process is finished, you resume your application in the new region, and then delete the old Data Lake Store account. Downtime during the migration is required.
 
 To reduce downtime, you might immediately start ingesting new data in the new region. When you have the minimum data needed, run your application in the new region. In the background, continue to copy older data from the existing Data Lake Store account to the new Data Lake Store account in the new region. By using this approach, you can make the switch to the new region with little downtime. When all the older data has been copied, delete the old Data Lake Store account.
 

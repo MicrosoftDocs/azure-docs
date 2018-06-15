@@ -68,7 +68,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Clarizen. Once decided, you can assign these users and/or groups to Clarizen by following the instructions here:
 
-*   [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Assign a user or group to an enterprise app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Clarizen
 
@@ -158,8 +158,8 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Managing user account provisioning for Enterprise Apps](manage-apps/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

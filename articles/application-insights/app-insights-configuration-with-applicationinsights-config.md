@@ -3,8 +3,7 @@ title: ApplicationInsights.config reference - Azure | Microsoft Docs
 description: Enable or disable data collection modules, and add performance counters and other parameters.
 services: application-insights
 documentationcenter: ''
-author: OlegAnaniev-MSFT
-editor: mrbullwinkle
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
@@ -12,8 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2017
+ms.reviewer: olegan
 ms.author: mbullwin
 
 ---
@@ -296,7 +296,7 @@ We provide two implementations in the [Microsoft.ApplicationInsights](https://ww
 
 ### ApplicationInsightsApplicationIdProvider
 
-This is a wrapper around our Profile Api. It will throttle requests and cache results.
+This is a wrapper around our Profile API. It will throttle requests and cache results.
 
 This provider is added to your config file when you install either [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) or [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)
 

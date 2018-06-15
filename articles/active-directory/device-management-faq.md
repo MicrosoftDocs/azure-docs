@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -39,7 +40,7 @@ ms.reviewer: jairoc
 **Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal?**
 
 **A:** Windows 10 devices that are hybrid Azure AD joined do not show up under the USER devices.
-You need to use PowerShell to see all devices. 
+You need to use All devices view in Azure portal. You can also use PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Only the following devices are listed under the USER devices:
 
@@ -47,27 +48,23 @@ Only the following devices are listed under the USER devices:
 - All non-Windows 10 / Windows Server 2016 devices.
 - All non-Windows devices 
 
----
-
-**Q: Why can I not see all the devices registered in Azure Active Directory in the Azure portal?** 
-
-**A:** You can now see them under Azure AD Directory -> all devices menu. 
-You can also use Azure PowerShell to find all devices. 
-For more details, see the [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
-
 --- 
 
 **Q: How do I know what the device registration state of the client is?**
 
-**A:** For Windows 10 and Windows Server 2016 or later devices, run dsregcmd.exe /status.
+**A:** You can use the Azure portal, go to All devices and search for the device using device ID. Check the value under the join type column.
 
-For down-level OS versions, run "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
+If you want to check the local device registration state from a registered device:
+
+- For Windows 10 and Windows Server 2016 or later devices, run dsregcmd.exe /status.
+- For down-level OS versions, run "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
 
 ---
 
-**Q: Why is a device I have deleted in the Azure portal or using Windows PowerShell still listed as registered?**
+**Q: I have deleted in the Azure portal or using Windows PowerShell, but the local state on the device says that it is still registered?**
 
 **A:** This is by design. The device will not have access to resources in the cloud. 
+
 If you want to re-register again, a manual action must be to be taken on the device. 
 
 To clear the join state from Windows 10 and Windows Server 2016 that are on-premises AD domain-joined:
@@ -118,7 +115,7 @@ Please evaluate the conditional access policy rules and ensure that the device i
 ---
 
 
-**Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the client. Am I setup correctly for using conditional access?**
+**Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the device. Am I setup correctly for using conditional access?**
 
 **A:** The device join state, reflected by deviceID, must match with that on Azure AD and meet any evaluation criteria for conditional access. 
 For more details, see [Get started with Azure Active Directory Device Registration](active-directory-device-registration.md).
@@ -147,7 +144,7 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 
 **Q: Why did my attempt to join a PC fail although I didn't get any error information?**
 
-**A:** A likely cause is that the user is logged in to the device using the built-in administrator account. 
+**A:** A likely cause is that the user is logged in to the device using the local built-in administrator account. 
 Please create a different local account before using Azure Active Directory Join to complete the setup. 
 
 ---

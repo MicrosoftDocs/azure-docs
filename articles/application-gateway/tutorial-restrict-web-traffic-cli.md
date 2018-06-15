@@ -1,5 +1,5 @@
 ---
-title: Restrict web traffic with a web application firewall - Azure CLI
+title: Enable web application firewall - Azure CLI
 description: Learn how to restrict web traffic with a web application firewall on an application gateway using the Azure CLI.
 services: application-gateway
 author: vhorne
@@ -12,7 +12,7 @@ ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
 ---
-# Tutorial: Restrict web traffic with a web application firewall using the Azure CLI
+# Tutorial: Enable web application firewall using the Azure CLI
 
 You can restrict traffic on an [application gateway](overview.md) with a [web application firewall](waf-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
@@ -130,7 +130,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## Create a storage account and configure diagnostics

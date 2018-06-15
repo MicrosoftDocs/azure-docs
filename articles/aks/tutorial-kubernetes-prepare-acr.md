@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Prepare ACR
 description: AKS tutorial - Prepare ACR
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial

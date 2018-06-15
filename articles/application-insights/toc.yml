@@ -53,6 +53,8 @@
       href: app-insights-asp-net-core.md
     - name: Console
       href: application-insights-console.md
+    - name: Application dashboard
+      href: app-insights-overview-dashboard.md
   - name: Monitor Java apps
     items:
     - name: Web apps
@@ -160,6 +162,8 @@
         href: app-insights-proactive-low-utilization-cloud-resources.md
       - name: Security detection
         href: app-insights-proactive-application-security-detection-pack.md
+      - name: Azure Cloud Services
+        href: app-insights-proactive-cloud-services.md
     - name: Create a resource
       href: app-insights-create-new-resource.md
   - name: Analyze
@@ -228,6 +232,8 @@
       href: app-insights-automate-with-flow.md
     - name: Automate with an Azure Logic App
       href: automate-with-logic-apps.md
+    - name: Custom email reports
+      href: automate-custom-reports.md
   - name: Develop
     items:
     - name: API for custom events and metrics
@@ -264,6 +270,8 @@
       href: app-insights-export-power-bi.md
   - name: Secure
     items:
+    - name: Personal data handling
+      href: app-insights-customer-data.md
     - name: Data collection, retention, and storage
       href: app-insights-data-retention-privacy.md
     - name: Resources, roles, and access control

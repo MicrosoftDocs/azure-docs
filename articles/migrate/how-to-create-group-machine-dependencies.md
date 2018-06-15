@@ -4,7 +4,7 @@ description: Describes how to create an assessment using machine dependencies wi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/25/2017
+ms.date: 05/15/2018
 ms.author: raynew
 ---
 
@@ -48,7 +48,7 @@ To install the agent on a Linux machine:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Learn more](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) about operating systems supported by the Dependency agent. 
+[Learn more](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) about operating systems supported by the Dependency agent. 
 
 ## Create a group
 
