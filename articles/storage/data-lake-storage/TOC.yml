@@ -58,17 +58,10 @@
     #href: 
 - name: How-to guides
   items:
-<<<<<<< HEAD
-  #- name: Use HDInsight clusters with Data Lake Storage(working title)
-    #href: 
-  #- name: Connect to Azure Databricks
-    #href: 
-=======
   - name: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
     href: use-hdi-cluster.md
   - name: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark
     href: using-databricks-spark.md
->>>>>>> 16edeeb814b32bc70fe713428a4e152ee4b050bf
   - name: Secure data
     items:
       - name: Secure data in Azure Data Lake Storage
