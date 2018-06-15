@@ -27,11 +27,19 @@ This article shows you how to connect an Azure Stack  virtual network to an Azur
 
 You can use this article as a tutorial and use the examples to set up the same test environment. Or, you can use the article as a walkthrough that guides you through setting up your own ExpressRoute environment.
 
-## Overview and prerequisites
+## Overview, assumptions, and prerequisites
 
 Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection supplied by a connectivity provider. ExpressRoute is not a VPN connection over the public Internet.
 
 For more information about Azure ExpressRoute, see the [ExpressRoute overview](../expressroute/expressroute-introduction.md).
+
+### Assumptions
+
+This article assumes that:
+
+* You have a working knowledge of Azure.
+* You have a basic understanding of Azure Stack.
+* You have a basic understanding of networking.
 
 ### Prerequisites
 
@@ -60,7 +68,7 @@ The next architecture diagram shows how multiple tenants connect from the Azure 
 
 ![Multi-tenant connections with ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
 
-The example in this article uses the same multi-tenant architecture to connect Azure Stack to Azure using ExpressRoute private peering. It's done using a Site-to-Site VPN connection from the virtual network gateway in Azure Stack to an ExpressRoute router.
+The example in this article uses the same multi-tenant architecture shown in *Figure 2* to connect Azure Stack to Azure using ExpressRoute private peering. It's done using a Site-to-Site VPN connection from the virtual network gateway in Azure Stack to an ExpressRoute router.
 
 The steps in this article show you how to create an end-to-end connection between two VNets from two different tenants in Azure Stack to corresponding VNets in Azure. Setting up two tenants is optional, you can also use these steps for a single tenant.
 
