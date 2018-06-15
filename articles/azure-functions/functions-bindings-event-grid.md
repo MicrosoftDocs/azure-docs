@@ -342,33 +342,22 @@ When you're done testing, you can use the same subscription for production by up
 
 To simplify capturing event messages, you can deploy a [pre-built web app](https://github.com/dbarkol/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
-Replace `<your-site-name>` with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
+Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-```azurecli-interactive
-sitename=<your-site-name>
-
-az group deployment create \
-  --resource-group gridResourceGroup \
-  --template-uri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" \
-  --parameters siteName=$sitename hostingPlanName=viewerhost
-```
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`
 
+You see the site but no events have been posted to it yet.
+
+![View new site](media/functions-bindings-event-grid/view-site.png)
+
 ### Create an Event Grid subscription
 
-Create an Event Grid subscription of the type you want to test, and give it the URL from your web app as the endpoint for event notification. The endpoint for your web app must include the suffix `/api/updates/`.
+Create an Event Grid subscription of the type you want to test, and give it the URL from your web app as the endpoint for event notification. The endpoint for your web app must include the suffix `/api/updates/`. So, the full URL is `https://<your-site-name>.azurewebsites.net/api/updates`
 
-```azurecli-interactive
-storageid=$(az storage account show --name <storage-account-name> --resource-group <resource_group_name> --query id --output tsv)
-endpoint=https://$sitename.azurewebsites.net/api/updates
-
-az eventgrid event-subscription create \
-  --resource-id $storageid \
-  --name <event_subscription_name> \
-  --endpoint $endpoint
-```
+For information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
 
 ### Generate a request
 
@@ -481,7 +470,11 @@ If you use an HTTP trigger, you have to write code for what the Event Grid trigg
 * Sends a validation response to a [subscription validation request](../event-grid/security-authentication.md#webhook-event-delivery).
 * Invokes the function once per element of the event array contained in the request body.
 
-The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior.  Use this example for events delivered in the **Event Grid schema**.
+For information about the URL to use for invoking the function locally or when it runs in Azure, see the [HTTP trigger binding reference documentation](functions-bindings-http-webhook.md)
+
+### Event Grid schema
+
+The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the Event Grid schema.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -519,45 +512,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior.  Use this example for events delivered in the **CloudEvents schema**.
-
-```csharp
-[FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
-{
-    log.Info("C# HTTP trigger function processed a request.");
-
-    var requestmessage = await req.Content.ReadAsStringAsync();
-    var messages = JToken.Parse(requestmessage);
-
-    if (messages.Type == JTokenType.Array)
-    {
-        // If the request is for subscription validation, send back the validation code.
-        if (string.Equals((string)messages[0]["eventType"],
-        "Microsoft.EventGrid.SubscriptionValidationEvent",
-        System.StringComparison.OrdinalIgnoreCase))
-        {
-            log.Info("Validate request received");
-            return req.CreateResponse<object>(new
-            {
-                validationResponse = messages[0]["data"]["validationCode"]
-            });
-        }
-    }
-    else
-    {
-        // The request is not for subscription validation, so it's for an event.
-        // CloudEvents schema delivers one event at a time.
-        log.Info($"Source: {messages["source"]}");
-        log.Info($"Time: {messages["eventTime"]}");
-        log.Info($"Event data: {messages["data"].ToString()}");
-    }
-
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the **Event Grid schema**.
+The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the Event Grid schema.
 
 ```javascript
 module.exports = function (context, req) {
@@ -587,23 +542,63 @@ module.exports = function (context, req) {
 
 Your event-handling code goes inside the loop through the `messages` array.
 
-The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the **CloudEvents schema**.
+### CloudEvents schema
+
+The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior.  Use this example for events delivered in the CloudEvents schema.
+
+```csharp
+[FunctionName("HttpTrigger")]
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    var requestmessage = await req.Content.ReadAsStringAsync();
+    var message = JToken.Parse(requestmessage);
+
+    if (message.Type == JTokenType.Array)
+    {
+        // If the request is for subscription validation, send back the validation code.
+        if (string.Equals((string)message[0]["eventType"],
+        "Microsoft.EventGrid.SubscriptionValidationEvent",
+        System.StringComparison.OrdinalIgnoreCase))
+        {
+            log.Info("Validate request received");
+            return req.CreateResponse<object>(new
+            {
+                validationResponse = message[0]["data"]["validationCode"]
+            });
+        }
+    }
+    else
+    {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        log.Info($"Source: {message["source"]}");
+        log.Info($"Time: {message["eventTime"]}");
+        log.Info($"Event data: {message["data"].ToString()}");
+    }
+
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the CloudEvents schema.
 
 ```javascript
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-    var messages = req.body;
+    var message = req.body;
     // If the request is for subscription validation, send back the validation code.
-    if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
+    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
         context.log('Validate request received');
-        var code = messages[0].data.validationCode;
+        var code = message[0].data.validationCode;
         context.res = { status: 200, body: { "ValidationResponse": code } };
     }
     else {
         // The request is not for subscription validation, so it's for an event.
         // CloudEvents schema delivers one event at a time.
-        var event = JSON.parse(messages);
+        var event = JSON.parse(message);
         context.log('Source: ' + event.source);
         context.log('Time: ' + event.eventTime);
         context.log('Data: ' + JSON.stringify(event.data));
@@ -611,8 +606,6 @@ module.exports = function (context, req) {
     context.done();
 };
 ```
-
-For information about the URL to use for invoking the function locally or when it runs in Azure, see the [HTTP trigger binding reference documentation](functions-bindings-http-webhook.md) 
 
 ## Next steps
 
