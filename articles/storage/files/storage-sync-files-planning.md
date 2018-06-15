@@ -176,6 +176,7 @@ Azure File Sync is available only in the following regions in preview:
 | Region | Datacenter location |
 |--------|---------------------|
 | Australia East | New South Wales |
+| Australia Southeast | Victoria |
 | Canada Central | Toronto |
 | Canada East | Quebec City |
 | Central US | Iowa |

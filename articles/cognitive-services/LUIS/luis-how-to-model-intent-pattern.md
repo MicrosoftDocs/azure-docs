@@ -9,12 +9,12 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/08/2018
 ms.author: v-geberr;
 ---
 
 # How to add Patterns to improve prediction accuracy
-After a LUIS app receives endpoint utterances, use Patterns to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use [entities](luis-concept-entity-types.md) and their roles to extract data using specific pattern syntax. 
+After a LUIS app receives endpoint utterances, use the [concept](luis-concept-patterns.md) of Patterns to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use [entities](luis-concept-entity-types.md) and their roles to extract data using specific pattern syntax. 
 
 ## Add template utterance to create pattern
 1. Open your app by selecting its name on **My Apps** page, and then select **Patterns** in the left panel, under **Improve app performance**.
@@ -132,5 +132,5 @@ After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn how to train your app](luis-how-to-train.md)
+* Learn how to [build a pattern](luis-tutorial-pattern.md) with a pattern.any and roles.
+* Learn how to [train](luis-how-to-train.md) your app.

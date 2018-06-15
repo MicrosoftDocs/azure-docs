@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

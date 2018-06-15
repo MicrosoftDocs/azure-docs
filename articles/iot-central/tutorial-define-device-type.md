@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# 1 - Define a new device type in your Azure IoT Central application
+# Tutorial: Define a new device type in your Azure IoT Central application
 
 This tutorial shows you, as a builder, how to use a device template to define a new type of device in your Microsoft Azure IoT Central application. A device template defines the telemetry, state, properties, and settings for your device type.
 
@@ -39,27 +39,27 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this quickstart, you need an Azure IoT Central application. If you completed the [Create an Azure IoT Central application](quick-deploy-iot-central.md) quickstart, you can reuse the application you created in the quickstart. Otherwise, complete the following steps to create an empty Azure IoT Central application:
+To complete this tutorial, you need an Azure IoT Central application. If you completed the [Create an Azure IoT Central application](quick-deploy-iot-central.md) quickstart, you can reuse the application you created in the quickstart. Otherwise, complete the following steps to create an empty Azure IoT Central application:
 
 1. Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page.
 
-1. Enter the email address and password you use to access your Azure subscription:
+2. Enter the email address and password you use to access your Azure subscription:
 
    ![Enter your organization account](media/tutorial-define-device-type/sign-in.png)
 
-1. To start creating a new Azure IoT Central application, choose **New Application**:
+3. To start creating a new Azure IoT Central application, choose **New Application**:
 
     ![Azure IoT Central Application Manager page](media/tutorial-define-device-type/iotcentralhome.png)
 
-1. To create a new Azure IoT Central application:
+4. To create a new Azure IoT Central application:
 
-    1. Choose a friendly application name, such as **Contoso Air Conditioners**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
-    1. Choose an Azure Active Directory and Azure subscription to use. For more information about directories and subscriptions, see [Create an Azure IoT Central application](howto-create-application.md).
-    1. Either use an existing resource group, or create a new resource group with a name of your choice. For example, **contoso-rg**.
-    1. Choose the region geographically closest to you.
-    1. Choose the **Custom Application** application template.
-    1. Choose the **Free 30 Day Trial Application** payment plan.
-    1. Then choose **Create**.
+    * Choose a friendly application name, such as **Contoso Air Conditioners**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
+    * Choose an Azure Active Directory and Azure subscription to use. For more information about directories and subscriptions, see [Create an Azure IoT Central application](howto-create-application.md).
+    * Either use an existing resource group, or create a new resource group with a name of your choice. For example, **contoso-rg**.
+    * Choose the region geographically closest to you.
+    * Choose the **Custom Application** application template.
+    * Choose the **Free 30 Day Trial Application** payment plan.
+    * Choose **Create**.
 
     ![Azure IoT Central Create Application page](media/tutorial-define-device-type/iotcentralcreate.png)
 
@@ -81,15 +81,15 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
     ![Application Builder page, Create Device Template](media/tutorial-define-device-type/builderhomedevices.png)
 
-1. On the **Device Templates** page, choose **Custom**. A **Custom** device template enables you to define all the characteristics and behaviors of your connected air conditioner:
+2. On the **Device Templates** page, choose **Custom**. A **Custom** device template enables you to define all the characteristics and behaviors of your connected air conditioner:
 
     ![Devices](media/tutorial-define-device-type/builderhomedevicescustom.png)
 
-1. On the **New Device Template** page, enter **Connected Air Conditioner** as the name of your device, and then choose **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
+3. On the **New Device Template** page, enter **Connected Air Conditioner** as the name of your device, and then choose **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
 
     ![Custom Device](media/tutorial-define-device-type/createcustomdevice.png)
 
-1. In the **Connected Air Conditioner** device template, make sure you are on the **Measurements** page where you define the telemetry. Each device template you define has separate pages for you to:
+4. In the **Connected Air Conditioner** device template, make sure you are on the **Measurements** page where you define the telemetry. Each device template you define has separate pages for you to:
 
     * Specify the measurements, such as telemetry, event, and state, sent by the device.
     * Define the settings used to control the device.
@@ -102,11 +102,11 @@ The following steps show you how to create a new **Connected Air Conditioner** d
     > [!NOTE]
     > To change the name of the device or device template, click on the text at the top of the page.
 
-1. To add the temperature telemetry measurement, choose **New Measurement**. Then choose **Telemetry** as the measurement type:
+5. To add the temperature telemetry measurement, choose **New Measurement**. Then choose **Telemetry** as the measurement type:
 
     ![Connected air conditioner measurements](media/tutorial-define-device-type/airconmeasurementsnew.png)
 
-1. Each type of telemetry you define for a device template includes [configuration options](howto-set-up-template.md) such as:
+6. Each type of telemetry you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
     * Display options.
     * Details of the telemetry.
@@ -127,22 +127,23 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
     ![Configure Temperature simulation](media/tutorial-define-device-type/temperaturesimulation.png)
 
-1. After a short while, the **Measurements** page shows a chart of the temperature telemetry from your simulated connected air conditioner device. Use the controls to manage visibility, aggregation, or to edit the telemetry definition:
+7. After a short while, the **Measurements** page shows a chart of the temperature telemetry from your simulated connected air conditioner device. Use the controls to manage visibility, aggregation, or to edit the telemetry definition:
 
     ![View temperature simulation](media/tutorial-define-device-type/viewsimulation.png)
 
-1. You can also customize the chart using the **Line**, **Stacked**, and **Edit Time Range** controls:
+8. You can also customize the chart using the **Line**, **Stacked**, and **Edit Time Range** controls:
 
     ![Customize the chart](media/tutorial-define-device-type/customizechart.png)
 
 ## Define Event measurement
+
 You can use Event to define point-in-time data that is sent by the device to signify something of significance like an error or a component failure. Like telemetry measurements, Azure IoT Central can simulate device events to enable you to test the behavior of your application before you connect a physical device. You define event measurements for your device type in the **Measurements** view.
 
 1. To add the **Fan Motor Error** event measurement, choose **New Measurement**. Then choose **Event** as the measurement type:
 
     ![Connected air conditioner measurements](media/tutorial-define-device-type/eventnew.png)
 
-1. Each type of Event you define for a device template includes [configuration options](howto-set-up-template.md) such as:
+2. Each type of Event you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
     * Display Name.
     * Field Name.
@@ -160,23 +161,23 @@ You can use Event to define point-in-time data that is sent by the device to sig
 
     ![Configure Event measurement](media/tutorial-define-device-type/eventconfiguration.png)
 
-1. After a short while, the **Measurements** page shows a chart of the events randomly generated from your simulated connected air conditioner device. Use the controls to manage visibility, or to edit the event definition:
+3. After a short while, the **Measurements** page shows a chart of the events randomly generated from your simulated connected air conditioner device. Use the controls to manage visibility, or to edit the event definition:
 
     ![View event simulation](media/tutorial-define-device-type/eventview.png)
 
-1. To see additional details about the event, click on the event on the chart:
+1. To see additional details about the event, click the event on the chart:
 
     ![View Event Details](media/tutorial-define-device-type/eventviewdetail.png)
 
-
 ## Define State measurement
+
 You can use State to define and visualize the state of the device or its component over a period of time. Like telemetry measurements, Azure IoT Central can simulate device state to enable you to test the behavior of your application before you connect a physical device. You define state measurements for your device type in the **Measurements** view.
 
 1. To add **Fan Mode** measurement, choose **New Measurement**. Then choose **State** as the measurement type:
 
     ![Connected air conditioner state measurements](media/tutorial-define-device-type/statenew.png)
 
-1. Each type of State you define for a device template includes [configuration options](howto-set-up-template.md) such as:
+2. Each type of State you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
     * Display Name.
     * Field Name.
@@ -198,11 +199,11 @@ You can use State to define and visualize the state of the device or its compone
 
     ![Configure State measurement](media/tutorial-define-device-type/stateconfiguration.png)
 
-1. After a short while, the **Measurements** page shows a chart of the states randomly generated from your simulated connected air conditioner device. Use the controls to manage visibility, or to edit the state definition:
+3. After a short while, the **Measurements** page shows a chart of the states randomly generated from your simulated connected air conditioner device. Use the controls to manage visibility, or to edit the state definition:
 
     ![View state simulation](media/tutorial-define-device-type/stateview.png)
 
-1. In case, there are too many data points sent by the device within a small duration, the state measurement is shown with a different visual as shown below. If you click on the chart, then all the data points within that time period are displayed in a chronological order. You can also narrow down the time range so see the measurement plotted on the chart.
+4. In case, there are too many data points sent by the device within a small duration, the state measurement is shown with a different visual as shown below. If you click on the chart, then all the data points within that time period are displayed in a chronological order. You can also narrow down the time range so see the measurement plotted on the chart.
 
     ![View state Details](media/tutorial-define-device-type/stateviewdetail.png)
 
@@ -211,12 +212,14 @@ You can use State to define and visualize the state of the device or its compone
 Properties, device properties, and settings are different values defined in a device template and associated with each individual device:
 
 * You use _settings_ to send configuration data to a device from your application. For example, an operator could use a setting to change the device's telemetry interval from two seconds to five seconds. When an operator changes a setting, the setting is marked as pending in the UI until the device acknowledges that it has actioned the setting change.
+
 * You use _properties_ to record information about your device in your application. For example, you can use properties to record a device's serial number or the device manufacturer's phone number. Properties are stored in the application and do not synchronize with the device. An operator can assign values to properties.
+
 * You use _device properties_ to enable a device to send property values to your application. These properties can only be changed by the device. For an operator, device properties are read-only.
 
 ## Use settings
 
-You use _settings_ to enable an operator to send configuration data to a device. In this section, you add a setting to your **Connected Air Conditioner** device template that enables an operator to set the target temperature of the connected air conditioner.
+You use *settings* to enable an operator to send configuration data to a device. In this section, you add a setting to your **Connected Air Conditioner** device template that enables an operator to set the target temperature of the connected air conditioner.
 
 1. Navigate to the **Settings** page for your **Connected Air Conditioner** device template:
 
@@ -224,9 +227,9 @@ You use _settings_ to enable an operator to send configuration data to a device.
 
     You can create settings of different types such as numbers or text.
 
-1. Choose **Number** to add a number setting to your device.
+2. Choose **Number** to add a number setting to your device.
 
-1. To configure your **Set Temperature** setting, use the information in the following table:
+3. To configure your **Set Temperature** setting, use the information in the following table:
 
     | Field                | Value           |
     | -------------------- | -----------     |
@@ -246,13 +249,13 @@ You use _settings_ to enable an operator to send configuration data to a device.
     > [!NOTE]
     > When the device acknowledges a setting change, the status of the setting changes to **synced**.
 
-1. You can customize the layout of the **Settings** page by moving and resizing settings tiles:
+4. You can customize the layout of the **Settings** page by moving and resizing settings tiles:
 
     ![Customize settings layout](media/tutorial-define-device-type/settingslayout.png)
 
 ## Use properties
 
-You use _properties_ to store information about your device in the application. In this section, you add properties to your **Connected Air Conditioner** device template to store the device serial number and firmware version for each device.
+You use *properties* to store information about your device in the application. In this section, you add properties to your **Connected Air Conditioner** device template to store the device serial number and firmware version for each device.
 
 1. Navigate to the **Properties** page for your **Connected Air Conditioner** device template:
 
@@ -260,7 +263,7 @@ You use _properties_ to store information about your device in the application. 
 
     You can create properties of different types such as numbers or text. To add a serial number property to your device template, choose **Text**.
 
-1. To configure your serial number property, use the information in the following table:
+2. To configure your serial number property, use the information in the following table:
 
     | Field                | Value                |
     | -------------------- | -------------------- |
@@ -275,9 +278,9 @@ You use _properties_ to store information about your device in the application. 
 
     Then choose **Save**.
 
-1. To add a firmware version property to your device template, choose **Text**
+3. To add a firmware version property to your device template, choose **Text**
 
-1. To configure your firmware version property, use the information in the following table:
+4. To configure your firmware version property, use the information in the following table:
 
     | Field                | Value                   |
     | -------------------- | ----------------------- |
@@ -290,7 +293,7 @@ You use _properties_ to store information about your device in the application. 
 
     Then choose **Save**.
 
-1. You can customize the layout of the **Properties** page by moving and resizing properties tiles:
+5. You can customize the layout of the **Properties** page by moving and resizing properties tiles:
 
     ![Customize properties layout](media/tutorial-define-device-type/propertieslayout.png)
 
@@ -302,11 +305,11 @@ Now you have defined your **Connected Air Conditioner** device template, you can
 
     ![Connected air conditioner dashboards](media/tutorial-define-device-type/aircondashboards.png)
 
-1. Choose **Line Chart** to add the component onto the **Dashboard**:
+2. Choose **Line Chart** to add the component onto the **Dashboard**:
 
     ![Dashboard components](media/tutorial-define-device-type/dashboardcomponents1.png)
 
-1. Configure the **Line Chart** component using the information in the following table:
+3. Configure the **Line Chart** component using the information in the following table:
 
     | Setting      | Value       |
     | ------------ | ----------- |
@@ -318,7 +321,7 @@ Now you have defined your **Connected Air Conditioner** device template, you can
 
     Then choose **Save**.
 
-1. Configure the **Event Chart** component using the information in the following table:
+4. Configure the **Event Chart** component using the information in the following table:
 
     | Setting      | Value       |
     | ------------ | ----------- |
@@ -330,7 +333,7 @@ Now you have defined your **Connected Air Conditioner** device template, you can
 
     Then choose **Save**.
 
-1. Configure the **State Chart** component using the information in the following table:
+5. Configure the **State Chart** component using the information in the following table:
 
     | Setting      | Value       |
     | ------------ | ----------- |
@@ -342,11 +345,11 @@ Now you have defined your **Connected Air Conditioner** device template, you can
 
     Then choose **Save**.
 
-1. To add the set temperature setting to the dashboard, choose **Settings and Properties**:
+6. To add the set temperature setting to the dashboard, choose **Settings and Properties**:
 
     ![Dashboard components](media/tutorial-define-device-type/dashboardcomponents4.png)
 
-1. Configure the **Settings and Properties** component using the information in the following table:
+7. Configure the **Settings and Properties** component using the information in the following table:
 
     | Setting                 | Value         |
     | ----------------------- | ------------- |
@@ -357,11 +360,11 @@ Now you have defined your **Connected Air Conditioner** device template, you can
 
     Then choose **Save**.
 
-1. To add to the device serial number to the dashboard, choose **Settings and Properties**:
+8. To add to the device serial number to the dashboard, choose **Settings and Properties**:
 
     ![Dashboard components](media/tutorial-define-device-type/dashboardcomponents3.png)
 
-1. Configure the **Settings and Properties** component using the information in the following table:
+9. Configure the **Settings and Properties** component using the information in the following table:
 
     | Setting                 | Value         |
     | ----------------------- | ------------- |
@@ -372,11 +375,11 @@ Now you have defined your **Connected Air Conditioner** device template, you can
 
     Then choose **Save**.
 
-1. To add to the device firmware version to the dashboard, choose **Settings and Properties**:
+10. To add to the device firmware version to the dashboard, choose **Settings and Properties**:
 
     ![Dashboard components](media/tutorial-define-device-type/dashboardcomponents4.png)
 
-1. Configure the **Settings and Properties** component using the information in the following table:
+11. Configure the **Settings and Properties** component using the information in the following table:
 
     | Setting                 | Value            |
     | ----------------------- | ---------------- |
@@ -387,7 +390,7 @@ Now you have defined your **Connected Air Conditioner** device template, you can
 
     Then choose **Save**.
 
-1. To view the dashboard as an operator, switch off **Design Mode** on the top right of the page.
+12. To view the dashboard as an operator, switch off **Design Mode** on the top right of the page.
 
 ## Next steps
 

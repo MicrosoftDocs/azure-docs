@@ -9,8 +9,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
+ms.reviewer: mbullwin
 ms.author: sdash
 ---
 

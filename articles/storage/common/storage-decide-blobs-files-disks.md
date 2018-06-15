@@ -54,7 +54,7 @@ The following table compares Azure Files with Azure Disks.
 |-|-|-|  
 |**Attribute**|**Azure Disks**|**Azure Files**|  
 |Scope|Exclusive to a single virtual machine|Shared access across multiple virtual machines|  
-|Snapshots and Copy|Yes|No|  
+|Snapshots and Copy|Yes|Yes|  
 |Configuration|Connected at startup of the virtual machine|Connected after the virtual machine has started|  
 |Authentication|Built-in|Set up with net use|  
 |Cleanup|Automatic|Manual|  

@@ -1,7 +1,7 @@
 ---
-title: Computer Vision Python quickstart analyze online image | Microsoft Docs
+title: Computer Vision Python quickstart analyze a remote image | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze an image using Computer Vision with Python in Cognitive Services.
+description: In this quickstart, you analyze a remote image using Computer Vision with Python in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -12,9 +12,9 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with Python
+# Quickstart: Analyze a Remote Image with Python
 
-In this quickstart, you analyze an image using Computer Vision.
+In this quickstart, you analyze a remote image using Computer Vision. To analyze a local image, see [Analyze a Local Image with Python](python-disk.md).
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
@@ -24,7 +24,7 @@ You can run this quickstart in a step-by step fashion using a Jupyter notebook o
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Analyze an image
+## Analyze a remote image
 
 With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 

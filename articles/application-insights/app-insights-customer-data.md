@@ -10,9 +10,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: Evgeny.Ternovsky;mbullwin
+ms.reviewer: Evgeny.Ternovsky
+ms.author: mbullwin
 
 ---
 

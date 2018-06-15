@@ -78,7 +78,7 @@ The Microsoft Translator Text API supports the following languages for text to t
 | Turkish       |  Neural |`tr`          |
 | Ukrainian      | Neural |`uk`          |
 | Urdu      | Statistical |`ur`          |
-| Vietnamese      | Statistical |`vi`          |
+| Vietnamese      | Neural |`vi`          |
 | Welsh      | Neural |`cy`          |
 | Yucatec Maya      | Statistical |`yua`          |
 

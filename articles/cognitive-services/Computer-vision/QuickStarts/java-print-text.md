@@ -83,7 +83,7 @@ public class Main {
             URIBuilder uriBuilder = new URIBuilder(uriBase);
 
             uriBuilder.setParameter("language", "unk");
-            uriBuilder.setParameter("detectOrientation ", "true");
+            uriBuilder.setParameter("detectOrientation", "true");
 
             // Request parameters.
             URI uri = uriBuilder.build();
