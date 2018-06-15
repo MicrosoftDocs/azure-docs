@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
 ---
-# Service Fabric Mesh: Deploy a container
+# Quickstart: Deploy a container
 
 Service Fabric Mesh makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines. In this quickstart, you create a container in Azure and expose it to the internet. This operation is completed in a single command. Within just a couple minutes, you'll see this in your browser:
 
@@ -26,7 +26,7 @@ If you don't already have an Azure account, [create a free account](https://azur
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you're running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you're running the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
 
 ## Create a resource group
 
@@ -199,9 +199,9 @@ az group delete --name $rg
 
 ## Next steps
 
-Advance to the next article to learn more about Service Fabric Mesh
+To learn more about Service Fabric Mesh, take a look at this tutorial.
 > [!div class="nextstepaction"]
-> [Next steps button](service-fabric-mesh-overview.md)
+> [Next steps button](service-fabric-mesh-tutorial-create-dotnetcore.md)
 
 <!-- Images -->
 [sfm-app-browser]: ./media/service-fabric-mesh-quickstart-deploy-container/HelloWorld.png
