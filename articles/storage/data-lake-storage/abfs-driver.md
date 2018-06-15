@@ -13,7 +13,7 @@ ms.service: storage
 
 # The ABFS Hadoop File System Driver
 
-One of the primary access methods for data in Azure Data Lake Storage (Preview) is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). ADLS features an associated driver, `ABFS`, that is part of _Apache Hadoop_ **TODO: Check Trademark Usage** and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in ADLS without any code explicitly referencing the ADLS service.
+One of the primary access methods for data in Azure Data Lake Storage Gen2 is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). ADLS features an associated driver, `ABFS`, that is part of _Apache Hadoop_ **TODO: Check Trademark Usage** and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in ADLS without any code explicitly referencing the ADLS service.
 
 ## Prior Capability: The WASB Driver
 The [WASB driver](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) provided the original support for Azure Storage Blobs. This driver performed the complex task of mapping _file system_ semantics (as required by the Hadoop FileSystem interface) to that of the _object store_ style interface exposed by Azure Blob Storage. This driver continues to support this model, providing high performance access to data stored in Blobs, but contains a significant amount of code performing this mapping making it difficult to maintain. Additionally, some operations such as [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) and [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) when applied to directories require the driver to perform a vast number of operations (due to _object stores_ lack of support for directories) which often leads to degraded performance.
@@ -26,7 +26,7 @@ The [ADLS REST interface](./ADLS_REST_Reference) is designed to support _file sy
 However, there are some functions that the driver must still perform:
 
 ### URI Scheme to Reference Data
-Consistent with other FileSystem implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is fully documented in [Use the Azure Data Lake Storage URI](./storage-adls-intro-to-uri.md). The structure of the URI is as follows:
+Consistent with other FileSystem implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is fully documented in [Use the Azure Data Lake Storage URI](./intro-to-uri.md). The structure of the URI is as follows:
 
     abfs[s]://file_system@account_name.dfs.core.widows.net/<path>/<path>/<file_name>
 
@@ -59,6 +59,6 @@ The ABFS driver is fully documented in the **TODO: Update link** [Official Hadoo
 
 ## Next Steps
 
-- [Setup HDInsight Clusters](./storage-adls-create-connect-hdi-cluster.md)
-- [Create an Azure Databricks Cluster](./storage-adls-create-databricks.md)
-- [Use the Azure Data Lake Storage URI](./storage-adls-intro-to-uri.md)
+- [Setup HDInsight Clusters](./quickstart-create-connect-hdi-cluster.md)
+- [Create an Azure Databricks Cluster](./quickstart-create-databricks-account.md)
+- [Use the Azure Data Lake Storage URI](./intro-to-uri.md)

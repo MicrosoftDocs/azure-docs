@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Hierarchical Namespace Service
-description:  Describes the concept of the hierarchical namespace for ADLS
+description:  Describes the concept of the hierarchical namespace for Azure Data Lake Storage
 services: storage
 documentationcenter: ''
 author: jamesbak
@@ -16,14 +16,14 @@ ms.date: 06/01/2018
 ms.author: jamesbak
 ---
 
-# Azure Data Lake Storage Hierarchical Namespace Service
+# Azure Data Lake Storage Gen2 Hierarchical Namespace Service
 
-A key mechanism that allows Azure Data Lake Storage (ADLS) to provide file system performance at object storage scale and prices is the introduction of the **Hierarchical Namespace Service (HNS)**. The HNS allows the collection of blobs within an account to be organized into a hierarchy of directories and nested subdirectories in the same way that the file system on your computer is organized. With the HNS enabled, ADLS provides the scalability, cost-effectiveness, and availability that you expect from a cloud storage service. The HNS provides an access model that is familiar to all users of a computer - and more importantly, familiar to all of the analytics engines and frameworks that are designed to expect file system semantics.
+A key mechanism that allows Azure Data Lake Storage Gen2 to provide file system performance at object storage scale and prices is the introduction of the **Hierarchical Namespace Service (HNS)**. The HNS allows the collection of blobs within an account to be organized into a hierarchy of directories and nested subdirectories in the same way that the file system on your computer is organized. With the HNS enabled, Azure Data Lake Storage provides the scalability, cost-effectiveness, and availability that you expect from a cloud storage service. The HNS provides an access model that is familiar to all users of a computer - and more importantly, familiar to all of the analytics engines and frameworks that are designed to expect file system semantics.
 
 ## The benefits of the Hierarchical Namespace Service
 
 > [!NOTE]
-> During the public preview of ADLS, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated via our dedicated Yammer group.  
+> During the public preview of Azure Data Lake Storage, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated via our dedicated Yammer group.  
 > 
 
 The following benefits are associated with file systems that implement a hierarchical namespace over blob data:
@@ -32,11 +32,11 @@ The following benefits are associated with file systems that implement a hierarc
 
     This dramatic optimization is especially significant for many big data analytics frameworks. Tools like Hive, Spark, etc. often write output to temporary locations and then rename the location at the conclusion of the job. Without the HNS, this rename can often take longer than the analytics process itself. Lower job latency equals lower total cost of ownership (TCO) for analytics workloads.
 
-- **POSIX-Compliant Object-Level Access Control Lists (ACLs):** Enabling the HNS on your account provides a platform to implement [POSIX-compliant ACLs](./storage-blobfs-security-guide.md). ACLs rely on the ability to set default permissions on parent directories and any files or subdirectories created within that directory will 'inherit' those permissions. This is only possible with a strong hierarchical structure. Many applications, including almost all well-known analytics frameworks, are designed to support POSIX-compliant ACLs so that shared storage spaces may be partitioned and secured appropriately as per the enterprise's requirements.
+- **POSIX-Compliant Object-Level Access Control Lists (ACLs):** Enabling the HNS on your account provides a platform to implement [POSIX-compliant ACLs](./security-guide.md). ACLs rely on the ability to set default permissions on parent directories and any files or subdirectories created within that directory will 'inherit' those permissions. This is only possible with a strong hierarchical structure. Many applications, including almost all well-known analytics frameworks, are designed to support POSIX-compliant ACLs so that shared storage spaces may be partitioned and secured appropriately as per the enterprise's requirements.
 
-- **Familiar Interface Style:** File systems are well-understood by developers and users alike. There is no need to learn a new storage paradigm when you move to the cloud as the file system interface exposed by ADLS is the same paradigm used by computers, large and small.
+- **Familiar Interface Style:** File systems are well-understood by developers and users alike. There is no need to learn a new storage paradigm when you move to the cloud as the file system interface exposed by Azure Data Lake Storage is the same paradigm used by computers, large and small.
 
-One of the reasons that object stores have not historically supported hierarchical namespaces is that it limited scale. However, the ADLS HNS scales linearly and does not degrade either scale or performance.
+One of the reasons that object stores have not historically supported hierarchical namespaces is that it limited scale. However, the Azure Data Lake Storage HNS scales linearly and does not degrade either scale or performance.
 
 ## When should you enable the Hierarchical Namespace?
 
@@ -51,10 +51,9 @@ The reasons for enabling HNS are determined by a TCO analysis. Generally speakin
 There are a number of 'classic' object store workloads that will most likely not gain any benefit by enabling HNS. Examples of these workloads are; backups, image storage and other applications where object organization is stored separately to the objects themselves (eg. in a separate database).
 
 > [!NOTE]
-> Even though you may have the HNS enabled on your account, data stored in ADLS is still fully interoperable with the Azure Storage Blobs interface.
+> Even though you may have the HNS enabled on your account, data stored in Azure Data Lake Storage is still fully interoperable with the Azure Storage Blobs interface.
 
 ## Next Steps
 
-- [Introduction to Azure Blob File System](./storage-blobfs-introduction.md)
-
-- [Create a storage account](./storage-adls-create-account.md)
+- [Introduction to Azure Data Lake Storage Gen2](./introduction.md)
+- [Create a Storage account](./quickstart-create-account.md)
