@@ -91,10 +91,6 @@ The code sample below shows how to define and set the default retry policy:
 
 To avoid high CPU usage, the retries are throttled if the code fails immediately (e.g. when there is no network or route to destination) so that the minimum time to execute the next retry is 1 second. 
 
-The following graph shows how much delay is *added* after the initial I/O call failed with a transport error:
-
-   ![Retry graph](media/how-to-manage-connectivity-and-reliable-messaging/retry-graph.png "Retry graph showing the delay added after call fail with transport error")
-
 If the service is responding with a throttling error, the retry policy is different and cannot be changed via public API:
 
    ```csharp
@@ -105,7 +101,7 @@ If the service is responding with a throttling error, the retry policy is differ
 
 The retry mechanism will stop after `DefaultOperationTimeoutInMilliseconds`, which is currently set at 4 minutes.
 
-- [C/Python/iOS SDK]:
-- [.NET SDK]:https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md
-- [Java SDK]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md
-- [Node SDK]:https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them
+[C/Python/iOS SDK]:
+[.NET SDK]:https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md
+[Java SDK]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md
+[Node SDK]:https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them
