@@ -1,6 +1,6 @@
 ---
 title: Deploy an application to Service Fabric Mesh on Azure | Microsoft Docs
-description: Learn how to deploy a .NET Core application to Service Fabric Mesh using the Azure CLI.
+description: Learn how to deploy a .NET Core application to Service Fabric Mesh from a template using the Azure CLI.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -18,10 +18,8 @@ ms.author: ryanwi
 ms.custom: mvc, devcenter
 
 ---
-# Deploy an application to Service Fabric Mesh using CLI
-Azure Service Fabric Mesh is a fully managed service that enables developers to deploy containerized applications without managing VMs, storage, or networking. 
-
-This article shows how to deploy your first .NET Core application to Service Fabric Mesh. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
+# Deploy an application to Service Fabric Mesh from a template
+This article shows how to deploy a .NET Core application to Service Fabric Mesh using a template. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
 
 You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
@@ -29,7 +27,7 @@ You can easily create a free Azure subscription, [create a free account](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete these steps. If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install]. 
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete these steps. If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install]. 
 
 
 ## Deploy the application
@@ -37,28 +35,28 @@ Login to Azure and set your subscription to the one that has been white-listed f
 
 ```azurecli-interactive
 az login
-az account set --subscription "<subscriptionName>"
+az account set --subscription "<subscriptionID>"
 ```
 
 Create a resource group to deploy the application to. You can use an existing resource group and skip this step. 
 
 ```azurecli-interactive
-az group create --name <resourceGroupName> --location eastus 
+az group create --name MeshTest-rg --location eastus 
 ```
 
 Create your application in the resource group using the `deployment create` command:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group <resourceGroupName> --template-uri https://seabreezequickstart.blob.core.windows.net/templates/quickstart/sbz_rp.linux.json
+az mesh deployment create --resource-group MeshTest-rg --template-file C:\templates\votingapp\quickstart-linux.json
 ```
 
-In a few seconds, your command should return with `"provisioningState": "Succeeded"` . 
+In a few seconds, your command should return with `"provisioningState": "Succeeded"`. 
 
 ## Check the application deployment status
 Your application is now deployed. You can check the application's status using the `app show` command. The application name for the deployed application is "SbzVoting", so fetch its details. 
 
 ```azurecli-interactive
-az mesh app show --resource-group <resourceGroupName> --name SbzVoting
+az mesh app show --resource-group MeshTest-rg --name SbzVoting
 ```
 
 ## List the deployed applications
@@ -74,15 +72,16 @@ Once the application status is returned as ""provisioningState": "Succeeded", ge
 The network resource for the application is "SbzVotingNetwork", so fetch its details.
 
 ```azurecli-interactive
-az mesh network show --resource-group <resourceGroupName> --name SbzVotingNetwork
+az mesh network show --resource-group MeshTest-rg --name SbzVotingNetwork
 ```
+
 The command should now return with the following information:
 
 ```json
 {
   "addressPrefix": "10.0.0.4/22",
   "description": "Private network for application",
-  "id": "/subscriptions/<subscription-id>/resourcegroups/votinggroup/providers/Microsoft.ServiceFabric/networks/SbzVotingNetwork",
+  "id": "/subscriptions/<subscriptionID>/resourcegroups/MeshTest-rg/providers/Microsoft.ServiceFabric/networks/SbzVotingNetwork",
   "ingressConfig": {
     "layer4": [
       {
@@ -92,43 +91,29 @@ The command should now return with the following information:
         "serviceName": "VotingWeb"
       }
     ],
-    "publicIpAddress": "52.226.32.193",
+    "publicIpAddress": "13.68.129.22",
     "qosLevel": "Bronze"
   },
   "location": "eastus",
   "name": "SbzVotingNetwork",
   "provisioningState": "Succeeded",
-  "resourceGroup": "votinggroup",
+  "resourceGroup": "MeshTest-rg",
   "tags": {},
   "type": "Microsoft.ServiceFabric/networks"
 }
 ```
 
-From the output, copy the public IP address of the service (52.226.32.193 in the preceding example) and open in a browser.
+From the output, copy the public IP address of the service (13.68.129.22 in the preceding example) and open in a browser.
 
-![Voting application](./media/service-fabric-mesh-quickstart-dotnet-core/VotingApplication.png)
+![Voting application](./media/service-fabric-mesh-deploy-app-template/VotingApplication.png)
 
 You can now add voting options to the application and vote on it, or delete the voting options.
-
-
-## Walk through the voting sample application
-The voting application consists of two services:
-- Web front-end service (VotingWeb)- An ASP.NET Core web front-end service, which serves the web page and exposes web APIs to communicate with the backend service.
-- Back-end service (VotingData)- An ASP.NET Core web service, which exposes an API to store the vote results in a reliable dictionary persisted on disk.
-
-![Application Diagram](./media/service-fabric-mesh-quickstart-dotnet-core/application-diagram.png)
-
-
-When you vote in the application, the following events occur:
-1. A JavaScript sends the vote request to the web API in the web front-end service as an HTTP PUT request.
-2. The web front-end service uses a proxy to locate and forward an HTTP PUT request to the back-end service.
-3. The back-end service takes the incoming request, and stores the updated result in a reliable dictionary, which gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
 
 ## Clean up resources
 When you no longer need the application and it's related resources, delete the resource group containing them. 
 
 ```azurecli-interactive
-az group delete --resource-group <resourceGroupName>  
+az group delete --resource-group MeshTest-rg  
 ```
 
 ## Next steps
