@@ -1,19 +1,18 @@
----
+﻿---
 title: Tutorial - Register an application to enable sign-up and sign-in using Azure Active Directory B2C | Microsoft Docs
 description: Use the Azure portal to create an Azure AD B2C tenant and register an application with it.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: patricka
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Tutorial: Register an application to enable sign-up and sign-in using Azure Active Directory B2C
 
 This tutorial helps you create a Microsoft Azure Active Directory (Azure AD) B2C tenant and register an application with it in just a few minutes.
@@ -50,10 +49,7 @@ Congratulations, you have created an Azure Active Directory B2C tenant. You are 
 
 You need to link your Azure AD B2C tenant to your Azure subscription to enable all B2C functionality and pay for usage charges. To learn more, read [this article](active-directory-b2c-how-to-enable-billing.md). If you don't link your Azure AD B2C tenant to your Azure subscription, some functionality is blocked and, you see a warning message ("No Subscription linked to this B2C tenant or the Subscription needs your attention.") in the B2C settings. It is important that you take this step before you ship your apps into production.
 
-
 [!INCLUDE [active-directory-b2c-find-service-settings](../../includes/active-directory-b2c-find-service-settings.md)]
-
-You can also access the blade by entering `Azure AD B2C` in **Search resources** at the top of the portal. In the results list, select **Azure AD B2C** to access the B2C settings blade.
 
 ## Register your application
 
@@ -65,11 +61,7 @@ This article uses examples that will help you get started with our samples. You 
 
 ### Navigate to B2C settings
 
-Log in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant. 
-
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
-
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
+[!INCLUDE [active-directory-b2c-find-service-settings](../../includes/active-directory-b2c-find-service-settings.md)]
 
 ### Choose next steps based on your application type
 

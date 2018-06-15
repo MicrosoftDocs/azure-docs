@@ -5,7 +5,7 @@ keywords: access data, on premises, data transfer, encryption, data sources
 services: logic-apps
 documentationcenter: ''
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d

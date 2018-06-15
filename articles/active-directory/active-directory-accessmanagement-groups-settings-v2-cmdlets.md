@@ -1,4 +1,4 @@
-﻿---
+---
 title: PowerShell examples for managing groups in Azure Active Directory  | Microsoft Docs
 description: This page provides PowerShell examples to help you manage your groups in Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
@@ -12,15 +12,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 06/07/2018
 ms.author: curtand
 
-ms.reviewer: rodejo
+ms.reviewer: krbain
+ms.custom: it-pro
 
 ---
 # Azure Active Directory version 2 cmdlets for group management
 > [!div class="op_single_selector"]
-> * [Azure portal](active-directory-groups-create-azure-portal.md)
+> * [Azure portal](fundamentals/active-directory-groups-create-azure-portal.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
@@ -31,8 +32,9 @@ This article contains examples of how to use PowerShell to manage your groups in
 To install the Azure AD PowerShell module, use the following commands:
 
     PS C:\Windows\system32> install-module azuread
+    PS C:\Windows\system32> import-module azuread
 
-To verify that the module was installed, use the following command:
+To verify that the module is ready to use, use the following command:
 
     PS C:\Windows\system32> get-module azuread
 
@@ -262,5 +264,5 @@ When a group is created, certain endpoints allow the end user to specify a mailN
 ## Next steps
 You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

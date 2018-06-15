@@ -3,20 +3,24 @@ title: "Virtual Network service endpoints and rules for Azure SQL Database | Mic
 description: "Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your Azure SQL Database. You SQL Database then accepts communication from all virtual machines and other nodes on the subnet."
 services: sql-database
 ms.service: sql-database
-author: MightyPen
+ms.prod_service: sql-database, sql-data-warehouse
+author: DhruvMsft
 manager: craigg
 ms.custom: "VNet Service endpoints"
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 06/13/2018
 ms.reviewer: genemi
 ms.author: dmalik
+ms.reviewer: carlrab
 ---
-# Use Virtual Network service endpoints and rules for Azure SQL Database
+# Use Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse
 
-*Virtual network rules* are one firewall security feature that controls whether your Azure SQL Database server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database.
+*Virtual network rules* are one firewall security feature that controls whether your Azure [SQL Database](sql-database-technical-overview.md) or [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database.
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
-
 
 #### How to create a virtual network rule
 
@@ -182,7 +186,7 @@ Blob auditing pushes audit logs to your own storage account. If this storage acc
 
 ## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
 
-Long ago before this feature was enhanced, you were required you to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to an Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingServiceEndpoint** flag.
+Long ago, before this feature was enhanced, you were required to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to an Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingServiceEndpoint** flag.
 
 Merely setting a Firewall rule does not help secure the server. You must also turn VNet service endpoints On for the security to take effect. When you turn service endpoints On, your VNet-subnet experiences downtime until it completes the transition from Off to On. This is especially true in the context of large VNets. You can use the **IgnoreMissingServiceEndpoint** flag to reduce or eliminate the downtime during transition.
 

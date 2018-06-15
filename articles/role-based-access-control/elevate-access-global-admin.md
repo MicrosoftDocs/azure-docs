@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: rqureshi
+editor: bagovind
 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2018
 ms.author: rolyon
+ms.reviewer: bagovind
 
 ---
 # Elevate access for a Global administrator in Azure Active Directory
@@ -216,4 +217,5 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 ## Next steps
 
 - [Role-based access control with REST](role-assignments-rest.md)
-- [Manage access assignments](role-assignments-users.md)
+- [Manage access to Azure resources with Privileged Identity Management](pim-azure-resource.md)
+- [Manage access to Azure management with conditional access](conditional-access-azure-management.md)

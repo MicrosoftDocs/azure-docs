@@ -7,6 +7,7 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article

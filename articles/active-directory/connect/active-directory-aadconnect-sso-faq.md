@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure AD Connect: Seamless Single Sign-On - Frequently asked questions | Microsoft Docs'
 description: Answers to frequently asked questions about Azure Active Directory Seamless Single Sign-On.
 services: active-directory
@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 

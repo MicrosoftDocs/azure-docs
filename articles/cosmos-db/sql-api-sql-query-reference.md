@@ -5,8 +5,8 @@ services: cosmos-db
 author: LalithaMV
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: na 
 ms.topic: reference
 ms.date: 10/18/2017

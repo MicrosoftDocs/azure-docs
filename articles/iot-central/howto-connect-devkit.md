@@ -23,7 +23,9 @@ To complete the steps in this article, you need the following:
 
 An application created from the **Sample Devkits** application template includes a **MXChip** device template with the following characteristics:
 
-### Telemetry measurements
+### Measurements
+
+#### Telemetry 
 
 | Field name     | Units  | Minimum | Maximum | Decimal places |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -39,6 +41,20 @@ An application created from the **Sample Devkits** application template includes
 | gyroscopeX     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeY     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+#### States 
+
+| Name          | Display name   | NORMAL | CAUTION | DANGER | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Device State   | Green  | Orange  | Red    | 
+
+#### Events 
+
+| Name             | Display name      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Button B Pressed  | 
+
+
 
 ### Settings
 
@@ -63,17 +79,6 @@ Toggle settings
 | Device property | Die number   | dieNumber  | number    |
 | Text            | Location     | location   | N/A       |
 
-### States 
-
-| Name          | Display name   | NORMAL | CAUTION | DANGER | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Device State   | Green  | Orange  | Red    | 
-
-### Events 
-
-| Name             | Display name      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Button B Pressed  | 
 
 ### Add a real device
 

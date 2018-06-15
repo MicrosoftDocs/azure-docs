@@ -5,11 +5,9 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
