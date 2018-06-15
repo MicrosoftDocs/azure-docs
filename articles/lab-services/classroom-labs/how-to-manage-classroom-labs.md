@@ -19,6 +19,9 @@ ms.author: spelluru
 # Manage classroom labs in Azure Lab Services 
 This article describes how to create and configure a classroom lab, view all classroom labs, or delete a classroom lab.
 
+## Prerequisites
+To set up a classroom lab in a lab account, you must be a member of the **Lab Creator** role in the lab account. A lab owner can add a user to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+
 ## Create a classroom lab
 
 1. Navigate to [Azure Lab Services website](https://labs.azure.com).
@@ -53,17 +56,23 @@ A template in a lab is a base virtual machine image from which all users’ virt
 
     ![Classroom lab description](../media/how-to-manage-classroom-labs/lab-description.png)
 
-### Make instances of the template public 
-Once you set the visibility of a template to **Public**, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process is same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template.  
+### Publish the template 
+To publish a template VM, you set the availability of the template to **public**. When you do so, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process is same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template. 
 
-1. Select **Visibility** in the **Template** section. 
-2. In the **Availability** page, select **Public**.
+1. Wait until the template VM is ready. 
+2. Select **Publish** in the **Template** section. 
+3. In the **Availability** page, select **Public**.
     
     > [!IMPORTANT]
     > Once a template is publicly available, its access can't be changed to private. 
-3. Select **Save**.
+4. Select **Save**.
 
     ![Availability](../media/how-to-manage-classroom-labs/public-access.png)
+4. Switch to the **Virtual machines** page, and confirm that you see five virtual machines that are in **Unassigned** state. 
+
+    ![Virtual machines](../media/how-to-manage-classroom-labs/virtual-machines.png)
+
+Optionally, you can **start** the template VM, **connect** to it and install any software required for the lab, and **stop** the template VM before making it public.
 
 ## Send registration link to students
 
