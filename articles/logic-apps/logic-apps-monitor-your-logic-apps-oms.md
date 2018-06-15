@@ -87,11 +87,11 @@ and choose **Log Analytics** as shown:
 
    ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
-4. On the Overview page, choose **Add** to open the Management Solutions tile. This step is optional and can be skipped if you have already installed Logic Apps Managment solution.
+4. On the Overview page, choose **Add** to open the Management Solutions tile. 
 
    ![Choose "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. Scroll through the list of **Management Solutions**, choose **Logic Apps Management** solution and choose **Create** to install it to the Overview page.
+5. Scroll through the list of **Management Solutions**, choose **Logic Apps Management** solution, and choose **Create** to install it to the Overview page.
 
    ![Choose "Add" for "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
