@@ -31,7 +31,7 @@
   - name: Security
     items:
       - name: Security Overview
-        href: ../../data-lake-store/data-lake-store-security-overview.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+        href: security-guide.md
       - name: Access Control in Data Lake Store
         href: ../../data-lake-store/data-lake-store-access-control.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
       - name: Encryption for data at rest
