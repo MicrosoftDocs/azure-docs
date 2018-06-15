@@ -1,47 +1,46 @@
 ---
-title: Introduction to the Azure Blob File System URI
+title: Use the Azure Data Lake Storage URI
 description: 
 services: storage
 keywords: 
-author: craigshoemaker
+author: jamesbak
 ms.topic: article
-ms.author: cshoe
-manager: twooley
+ms.author: jamesbak
+manager: jahogg
 ms.date: 06/01/2018
 ms.service: storage
 ---
 
-# Introduction to the Azure Blob File System URI
+# Use the Azure Data Lake Storage Gen2 URI
 
-Azure Blob File System (BlobFS) adds a filesystem layer on top of Azure Blob Storage. The hierarchical folder structure is made available to the outside world through the URI.
+The [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) driver that is compatible with Azure Data Lake Storage Gen2 is known by its scheme identifier `abfs` (Azure Blob File System). Consistent with other Hadoop Filesystem drivers, the ABFS driver employs a URI format to address files and directories within a Data Lake Storage account.
 
 ## URI syntax 
 
-The BlobFS file system can be accessed by using the fully qualified URI, for example:
+The URI syntax for Data Lake Storage is dependent on whether or not your storage account is set up to have Data Lake Storage as the default file system.
 
-    hdfs://<name_node_host>/<path>
+If the Data Lake Storage account you wish to address is set as the default file system, then the shorthand URI syntax is:
 
-The URI syntax for BlobFS is:
+<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
-<pre>blobfs[s]<sup>1</sup>://&lt;container_name&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.blob.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
+1. **Path**: A forward slash delimited (`/`) representation of the directory structure.
 
-1. **Scheme identifier**: The `blobfs` protocol is used as the scheme identifier. You have the option to connect with or without a secure socket layer (SSL) connection.
+2. **File Name**: The name of the individual file.
 
-2. **Container name**: The parent container that holds the files and folders. 
+If the Data Lake Storage account you wish to address *not* the default file system, the URI syntax is:
 
-3. **Account name**: The name given to your storage account during creation. The name must be the fully qualified DNS name of the account.
+<pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.widows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
+
+1. **Scheme identifier**: The `abfs` protocol is used as the scheme identifier. You have the option to connect with or without a secure socket layer (SSL) connection. Use `abfss` to connect with a secure socket layer connection.
+
+2. **File system**: The parent location that holds the files and folders. This is the same as Containers in the Azure Storage Blobs service.
+
+3. **Account name**: The name given to your storage account during creation.
 
 4. **Paths**: A forward slash delimited (`/`) representation of the directory structure.
 
-5. **File name**: The name of the individual file.
+5. **File name**: The name of the individual file. This parameter is optional if you are addressing a directory.
 
-The following items are important to consider when using BlobFS:
+## Next steps
 
-* **Cluster access**: Since the account name and key are associated with the cluster during creation, you have full access to the files and folders when accessing a cluster.
-
-* **Read-only access to disconnected folders**: Public folders or blobs not connected to a cluster are available only through read-only permissions.
-  
-  > [!NOTE]
-  > You can list all blobs in a folder and retieve folder metadata of a public folder. For more information, see: [Restrict access to containers and blobs](../storage-manage-access-to-resources.md).
-
-The storage accounts that are defined in the creation process and their keys are stored in *%HADOOP_HOME%/conf/core-site.xml* on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the *core-site.xml* file. You can modify this setting using [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md)
+- [Use Azure Data Lake Storage with Azure HDInsight clusters](use-hdi-cluster.md)
