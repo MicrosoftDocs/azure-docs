@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/23/2018
+ms.date: 06/15/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -185,7 +185,7 @@ Click the **Update Deployments** tab to view the list of existing Update Deploym
 
 ![Overview of Update Deployment Results](./media/automation-update-management/update-deployment-run.png)
 
-## Create or edit an Update Deployment
+## Create or edit an update deployment
 
 Create a new Update Deployment by clicking the **Schedule update deployment** button at the top of the screen to open the **New Update Deployment** page. You must provide values for the properties in the following table:
 
@@ -233,7 +233,7 @@ The following tables provide a listing of the Update classifications in Update M
 
 For Linux, Update Management can distinguish between critical and security updates in the cloud while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available out of the box. If you have CentOS machines configured in a way to return security data for the following command, Update Management will be able to patch based on classifications.
 
-```
+```bash
 sudo yum -q --security check-update
 ```
 
