@@ -27,6 +27,8 @@ The **Azure Machine Learning Workspace** is the top-level resource that can be u
 
 The **project**, which is a local folder, contains  the scripts that solve your machine learning problem as well as the configuration files to attach the project to your workspace in Azure Cloud.
 
+This CLI was build on top of the [Python-based SDK for Azure Machine Learning services](reference-azure-machine-learning-sdk.md).
+
 ## Prerequisites
 
 To create a workspace, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
