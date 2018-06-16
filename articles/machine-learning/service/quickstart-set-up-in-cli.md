@@ -44,7 +44,7 @@ Before you can install the CLI extension on Windows, Linux, or MacOS, install th
 On your computer, open a command-line editor and install the machine learning extension to Azure CLI.  The installation can take several minutes to complete.
 
 ```azurecli
-az extension add <EXACT COMMAND TBD>
+az extension add @@@
 ```
 
 ## Create a resource group
