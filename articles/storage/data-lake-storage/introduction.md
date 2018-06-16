@@ -46,7 +46,8 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 > [!NOTE]
 > During the public preview of Azure Data Lake Storage, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated.
 > Sign up to the public preview of Azure Data Lake Storage Gen 2 [here](https://aka.ms/adlsgen2signup).  
-> 
+ 
+
 - **Hadoop compatible access**: Azure Data Lake Storage allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](./abfs-driver.md) is available within Apache Hadoop environments to access data stored in Azure Data Lake Storage.
  
 - **A superset of POSIX permissions**: The security model for Azure Data Lake Storage fully supports ACL and POSIX permissions along with some extra granularity specific to Azure Data Lake Storage. Settings may be configured through admin tools or through frameworks like Hive and Spark. 
