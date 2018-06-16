@@ -54,7 +54,11 @@ Dashboards in Cloudy provide a high-level view of reports. Dashboards are made u
 
 Many cost management reports show budget information after you've manually created one. So reports won't show budget information until you create a budget. For more information, see [Budget settings](#budget-settings).
 
-## Cost Navigator report
+## Reports and reporting features
+
+Clouydn includes the following reports and reporting features.
+
+### Cost Navigator report
 
 The Cost Navigator report is a quick way to view your billing consumption using a dashboard view. It has a subset of filters and basic views to immediately show a summarized view of organization's costs. Costs are shown by date. Because the report is intended as an initial view of your costs, it's not as flexible or as comprehensive as many other reports or custom dashboards that you create yourself.
 
@@ -66,7 +70,7 @@ By default, major views in the report show:
 - Expenditures by cost entities, using a pie chart.
 - Cost total, per date in a list view.
 
-## Cost Analysis report
+### Cost Analysis report
 
 The Cost Analysis report is a calculation of showback and chargeback, based on your policy. It aggregates your cloud consumption during a selected time frame, after having applied all allocation rules to your cost. For example, it calculates the costs by tags, reassigns the costs of untagged resources and optionally allocates the utilization of reserved instances.
 
@@ -88,7 +92,7 @@ To use the Cost Analysis report:
 3. Add groups.
 4. Choose a cost model that you created previously.
 
-## Cost Over Time report
+### Cost Over Time report
 
 The Cost over Time report displays the results of cost allocation as time series. It allows you to observe trends and detect irregularities in your deployment. It essentially shows costs distributed over a defined period. The report includes your main cost contributors including ongoing costs and one-time reserved instance fees that are being spent during a selected time frame. Policies set in [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in this report.
 
@@ -107,7 +111,7 @@ To use the Cost Over Time report:
 5. Select actual costs or amortized costs.
 6. Choose whether to apply allocation rules to view raw billing data view or to recalculated cost view.
 
-## Actual Cost Analysis report
+### Actual Cost Analysis report
 
 The Actual Cost Analysis report shows provider costs with no modifications. It shows your main cost contributors, including ongoing costs and one-time fees.
 
@@ -117,7 +121,7 @@ Use the Actual Cost Analysis report to:
 - Schedule a threshold alert.
 - Analyze unmodified costs incurred by your accounts and entities.
 
-## Actual Cost Over Time report
+### Actual Cost Over Time report
 
 The Actual Cost Over Time report is a standard cost analysis report distributing cost over a defined time resolution. The report displays spending over time to allow you to observe trends and detect spending irregularities. This report shows your main cost contributors including ongoing costs and one-time reserved instance fees that are being spent during a selected time frame.
 
@@ -127,7 +131,7 @@ Use the Actual Cost Over Time report to:
 - Find irregularities in cost.
 - Find all cost-related questions related to cloud providers.
 
-## Amortized cost reports
+### Amortized cost reports
 
 This set of amortized cost reports shows linearized non-usage based service fees, or one-time payable costs and spread their cost over time evenly during their lifespan. For example, one-time fees might include:
 
@@ -143,7 +147,7 @@ Amortized cost reports include:
 - Amortized cost analysis
 - Amortized cost over time
 
-## Cost Analysis report
+### Cost Analysis report
 
 The Cost Analysis report provides insight into your cloud consumption and spending during a selected time frame. The policies set in the [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in the Cost Analysis report.
 
@@ -156,7 +160,7 @@ Use the Cost Analysis report to:
 - Display an aggregated view of your entire deployment for a specific time frame.
 - View costs by tag categories based on policies created in the cost model.
 
-## Cost Over Time report
+### Cost Over Time report
 
 The Cost Over Time report displays spending over time so you can spot trends and notice irregularities in your deployment. It essentially shows costs distributed over a defined period. The report includes your main cost contributors including ongoing costs and one-time reserved instance fees that are being spent during a selected time frame. Policies set in [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in this report.
 
@@ -166,7 +170,7 @@ Use the Cost Over Time report to:
 - Analyze costs over time for a specific instance.
 - Understand why there was a cost increase for a specific instance.
 
-## Custom Charges report
+### Custom Charges report
 
 Enterprise and CSP users often find themselves providing added services to their external or internal customers, in addition to their own cloud resource consumption. You define custom charges for added services or discounts that are added to customer's billing or chargeback reports as custom line items.
 
@@ -191,17 +195,17 @@ To view custom charges:
 
 Custom charges are shown in Cost reports. For example, open the Actual Cost Analysis report, then under **Extended Filters**, select **Standalone**. Then filter to show **Custom Charges**.
 
-## Cost Allocation 360
+### Cost Allocation 360
 
 You use Cost Allocation 360 to create custom cost allocation models to assign costs to consumed cloud resources. Many reports show information from custom cost models that you've created with custom cost models. And, some reports only show information after you've created a custom cost model with cost allocation.
 
 For more information about creating custom cost models, see [Tutorial: Manage costs by using Azure Cost Management](tutorial-manage-costs.md).
 
-## Cost vs. Budget Over Time report
+### Cost vs. Budget Over Time report
 
 The Cost vs. Budget Over Time report allows you to compare the main cost contributors against your budget. The assigned budget appears in the report so that you can view your (over/under/par) budget consumption over time. Using Show/Hide Fields at the top of the report, you can select to view cost, budget, accumulated cost, and total budget.
 
-## Current Month Projected Cost report
+### Current Month Projected Cost report
 
 The Current Month Projected Cost report provides insight into your current month-to-date cost summary. This report displays your costs from the beginning of month, from the previous month, and the total projected cost for the current month. The current month projected cost is calculated as sum of the up-to-date monthly cost and a projection based on the cost monitored in the last 30 days.
 
@@ -210,11 +214,11 @@ Use the Current Month Projected Cost report to:
 - Project monthly costs by service
 - Project monthly costs by account
 
-## Annual Projected Cost report
+### Annual Projected Cost report
 
 The Annual Projected Costs report allows you to view annual projected costs based on previous spending trends. It shows the next 12 months of overall projected costs. The projections are made using a trend function extrapolated over the next 12 months, based on the costs associated with the last 30 days of usage.
 
-## Budget Management settings
+### Budget Management settings
 
 Budget Management allows you to set a budget for your fiscal year.
 
@@ -235,15 +239,15 @@ To export your completed budget as a CSV file, under **Actions**, select **Expor
 
 When completed, your budget is shown in Cost Analysis reports and in the Cost vs. Budget Over Time report. You can also schedule reports based on budget thresholds.
 
-## Azure Resource Explorer report
+### Azure Resource Explorer report
 
 The Azure Resource Explorer report shows a bulk list of all the Azure resources available in Cost Management. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cost Management access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](azure-vm-extended-metrics.md).
 
-## Azure Resources Over Time report
+### Azure Resources Over Time report
 
 The Azure Resources Over Time report shows a breakdown of all resources running over a specific period. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cost Management access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](azure-vm-extended-metrics.md).
 
-## Instance Explorer report
+### Instance Explorer report
 
 The Instance Explorer report is used to view various metrics for assets of your virtual machines. You can drill-into specific instances to view information such as:
 - Instance running intervals
@@ -264,15 +268,15 @@ Use Instance Explorer report to:
 - View all currently stopped machines.
 - View the tags of each machine.
 
-## Instances Over Time report
+### Instances Over Time report
 
 Using the Instances Over Time report, you can see the maximum number of machines that were active each during the selected time range. If the defined resolution is by week or month, results are the maximum number of machines active on any given day during that month. Select a date range to select the filters that you want displayed in the report.
 
-## Instance Utilization Over Time report
+### Instance Utilization Over Time report
 
 This report shows a breakdown of CPU or memory use over time for all your instances.
 
-## Compute Power Cost Over Time report
+### Compute Power Cost Over Time report
 
 The Compute Power Over Time report provides a breakdown of compute power over a specified date range. Although other reports show the number of running machines or the runtime hours, this report shows Core hours, Compute unit hours, or GB RAM hours.
 
@@ -283,33 +287,33 @@ Use the report to:
 
 This report is linked to your [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) policies so results are shown based on the defined tagging and policies your selected cost policy. When you don't have a policy created, then results aren't shown.
 
-## Compute Power Average Cost Over Time report
+### Compute Power Average Cost Over Time report
 
 You use the Compute Power Average Cost Over Time report to view more than just the cost of each running machine. The report shows your average cost per instance hour, core hour, compute unit hour, and GB RAM hour. The report provides insight into the efficiency of your deployment.
 
 This report is linked to your [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) policies so results are displayed based on the defined tagging and policies your selected cost policy. When you don't have a policy created, then results aren't shown.
 
-## S3 Cost Over Time report
+### S3 Cost Over Time report
 
 The S3 Cost Over Time report provides a breakdown of Amazon Simple Storage Service (S3) costs per bucket over time for a specified time frame. The report helps you find the buckets that are your main cost drivers and it shows you trends in your S3 usage and spending.
 
-## S3 Distribution of Cost report
+### S3 Distribution of Cost report
 
 Use the report to analyze your S3 cost for the last month by bucket and storage class. You can use the pie chart view to set the visibility threshold. Or, you can use the table view to see subtotals.
 
-## S3 Bucket Properties report
+### S3 Bucket Properties report
 
 Use the report to view S3 bucket properties. You can use the pie chart view to set the visibility threshold. Or, you can use the table view to see subtotals.
 
-## RDS Instances Over Time report
+### RDS Instances Over Time report
 
 Use the report to view a breakdown of all Amazon Relational Database Service (RDS) instances running during the specified period.
 
-## RDS Active Instances report
+### RDS Active Instances report
 
 Use the report to analyze RDS active instances. In the report, expand the line item to view additional information.
 
-## Azure Reserved Instances report
+### Azure Reserved Instances report
 
 The Azure Reserved Instances report provides you with a single view of all your Azure reserved instances. This report displays each purchase as is its own line item. The report also shows details about that purchase such as the account that purchased it, the type of purchase and instance type, days remaining and so on. You can show or hide report data using Show/Hide Fields.
 
@@ -320,7 +324,7 @@ Use the Azure Reserved Instances report to view:
 - One-time fees.
 - The account that purchased RIs, and when.
 
-## AWS Reserved Instances report
+### AWS Reserved Instances report
 
 The AWS Reserved Instances report provides you with a single view of all AWS reserved instances. This report displays each purchase is its own line item and details about that purchase such as the account that purchased it, the type of purchase and instance type, days remaining and so on. You can show or hide report data using Show/Hide Fields.
 
@@ -332,7 +336,7 @@ Use the AWS Reserved Instances report to view:
 - Original purchase ID (reservation ID).
 - The account that purchased RIs and when.
 
-## EC2 RI Buying Recommendations report
+### EC2 RI Buying Recommendations report
 
 The foundation of cloud resource consumption is the on-demand model, where resources incur cost only when used. There are no up-front commitments — you pay only for what you use, when you use it.
 
@@ -359,7 +363,7 @@ Each tab opens as a full report. Notable sections in tabs include:
 - **Instances Over Time** - This section displays a breakdown of all instances associated with the recommendation, OnDemand, Reserved Instances, and Spot. Click  **Zoom In**  to open the detailed report.
 - **Breakeven Points** - This section displays a table of all the possible recommended deployments and the ROI and the month when the ROI occurs. Click  **Zoom In** to open the detailed report.
 
-## EC2 Reservations Over Time report
+### EC2 Reservations Over Time report
 
 The EC2 Reservations Over Time report tracks the status of your usage of your purchased EC2 RIs. You can set the resolution of the report to hour, day, or week.
 
@@ -368,7 +372,7 @@ Use the report to:
 - Display reservations purchased that are used and not used.
 - Drill in to the resolution by hour to see RI usage per hour.
 
-## Savings Over Time report
+### Savings Over Time report
 
 Use the Savings Over Time report to view the savings achieved using reserved instances as well as spot instances. The report shows the ROI achieved over time resulting from RI purchases.
 
@@ -376,7 +380,7 @@ To view savings from RIs, group the results by **Price Model** and select **Rese
 
 To see savings from Spot instance use, filter the **Price Model** to **Spot**. The default filter for this report is RI and Spot Instances.
 
-## RDS RI Buying Recommendations report
+### RDS RI Buying Recommendations report
 
 RDS RI Buying Recommendations report recommends when to use RDS RIs instead of on-demand instances.
 
@@ -390,15 +394,15 @@ Each tab opens as a full report. Notable sections in tabs include:
 
 - **Breakeven Points** – This section displays a table of all the possible recommended deployments and the ROI and the month when the ROI occurs. Click **Zoom In** to open the detailed report.
 
-## RDS Reservations Over Time
+### RDS Reservations Over Time report
 
 Use the RDS Reservation Over Time report to view a breakdown of both your used and unused reservations during the specified period.
 
-## Reserved Instance Purchase Impact report
+### Reserved Instance Purchase Impact report
 
 The EC2 RI Purchase Impact report allows you to simulate reserved instance cost versus on-demand cost over time. It can help you make better purchasing decisions. Adjust the filters such as average runtime, term, platform, and others to make informed decisions when you consider RI purchases.
 
-## Cost-Effective Sizing Recommendations report
+### Cost-Effective Sizing Recommendations report
 
 The Cost-Effective Sizing Recommendations report provides results for AWS and Azure. For AWS users, your RI purchases are taken into consideration and the results don't include machines running as RI's. This report provides a list of underutilized instances that are candidates to downsize. Recommendations are based on your usage and performance data from the last 30 days. In each recommendation is a list of candidates to downsize, the justification to downsize, and a link to view complete details and performance metrics of the instance. And when relevant recommendations advise changing to newer generation instance types.
 
@@ -416,7 +420,7 @@ To view cost-effective sizing justifications, click + to expand the line item. I
 - The **Cost Impact** section displays the calculation used to determine potential savings.
 - The **Potential Annual Savings** section displays the potential annual savings when downsizing per Cost Management's recommendation.
 
-## All Sizing Recommendations report
+### All Sizing Recommendations report
 
 This report provides a list of underutilized instances that are candidates to downsize. The recommendations are based on your usage and performance data from the last 30 days. In each recommendation, you can view complete details and performance metrics of the instance.
 
@@ -450,7 +454,7 @@ The **Network Input Traffic** section displays a snapshot over time of the netwo
 
 The **Network Output Traffic** section displays a snapshot of the network output traffic for the selected instance. Hover over the lines to see the date and maximum traffic for that time. Click **Zoom In** to open the Network Output Traffic report.
 
-## Instance Metrics Explorer report
+### Instance Metrics Explorer report
 
 The Instance Metrics Explorer report shows cross-cloud performance metrics per instance. Use the report to view instances that are over or under-utilized based on CPU, memory, and network metric thresholds.
 
@@ -470,11 +474,11 @@ To view a specific instance's metrics over time:
 
 - Go to the Instance Metrics Explorer report and click **+** to view details.
 
-## RDS Sizing Recommendations report
+### RDS Sizing Recommendations report
 
 The RDS Sizing Recommendations report provides RDS sizing recommendations to optimize your cloud usage. It provides a list of underutilized instances that are candidates to downsize. Cost Management recommendations are based on the usage and performance data of the last 30 days. You can filter recommendations by Account Name, Region, Instance Type, and Status.
 
-## Sizing Threshold Manager report
+### Sizing Threshold Manager report
 
 Cost Management's built-in sizing recommendations are calculated using a complex algorithm to provide accurate sizing suggestions. You can adjust the thresholds for downsizing recommendations.
 
@@ -492,7 +496,7 @@ To restore default thresholds:
 
 - In Sizing Threshold Manager, click **Restore Defaults**.
 
-## Compute Instance Types report
+### Compute Instance Types report
 
 Use the Instance Types report to:
 
