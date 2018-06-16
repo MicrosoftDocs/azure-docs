@@ -37,7 +37,7 @@ The immutable storage feature enables:
 
 - **Container level configuration:** The immutable  Storage feature  allows users to configure time-based retention policies and legal hold tags at the container level.  Users can create, and lock time-based retention policies, extend retention intervals, set, and clear legal holds etc. through simple container level settings.  These policies will apply to all the blobs in the container, both existing and new.
 
-- **Audit Logging support:** Each container contains an audit log showing up to five time-based retention commands for locked time-based retention policies and up to 10 legal hold commands.  For time-based retention, the log contains the user ID, command type, timestamps, and the retention interval. For legal holds, the log contains the user ID, command type, timestamps, and the legal hold tags. This log is retained for the life time of the container per the SEC 17a-4(f) regulatory guidelines. A more comprehensive log of all the control plane activities can be found in the [Azure Activity log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). It is the user’s responsibility to store those logs persistently as may be required for regulatory or other purposes.
+- **Audit Logging support:** Each container contains an audit log showing up to five time-based retention commands for locked time-based retention policies with a maximum of three logs for retention interval extensions.  For time-based retention, the log contains the user ID, command type, timestamps, and the retention interval. For legal holds, the log contains the user ID, command type, timestamps, and the legal hold tags. This log is retained for the life time of the container per the SEC 17a-4(f) regulatory guidelines. A more comprehensive log of all the control plane activities can be found in the [Azure Activity log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). It is the user’s responsibility to store those logs persistently as may be required for regulatory or other purposes.
 
  The feature is enabled in all Azure public regions.
 
@@ -160,8 +160,8 @@ The Immutable Storage for Azure blobs feature is supported in the following clie
 - For a given storage account, the maximum number of containers with a legal hold setting is 1000
 - For a given container, the maximum number of legal hold tags is 10
 - The maximum length of a legal hold tag is 23 alphanumeric characters, minimum length is three characters
-- For a given container, the maximum number of allowable retention interval extensions for locked immutable policies is 5
-- For a given container with a locked immutable policy, there is a maximum of five time-based retention  policy logs and a maximum of 10 legal hold policy logs that are retained for the duration of the container.
+- For a given container, the maximum number of allowable retention interval extensions for locked immutable policies is three
+- For a given container with a locked immutable policy, there is a maximum of five time-based retention policy logs and a maximum of 10 legal hold policy logs that are retained for the duration of the container.
 
 ## FAQ
 
