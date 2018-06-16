@@ -92,7 +92,6 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 | Southeast Asia | https://kailani10.one.microsoft.com | East Asia | https://tm-kailani10.one.microsoft.com |
 | UK South | https://kailani-uks.one.microsoft.com | UK West | https://tm-kailani-uks.one.microsoft.com |
 | UK West | https://kailani-ukw.one.microsoft.com | UK South | https://tm-kailani-ukw.one.microsoft.com |
-| West Central US | https://kailani-flight-pri.one.microsoft.com | West US 2 | https://tm-kailani-flight-pri.one.microsoft.com |
 | West Europe | https://kailani6.one.microsoft.com | North Europe | https://tm-kailani6.one.microsoft.com |
 | West US | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
 
