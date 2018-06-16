@@ -1,6 +1,6 @@
 ---
-title: Release notes for the Azure File Sync agent (preview) | Microsoft Docs
-description: Release notes for the Azure File Sync agent (preview).
+title: Release notes for the Azure File Sync agent | Microsoft Docs
+description: Release notes for the Azure File Sync agent.
 services: storage
 author: wmgries
 manager: aungoo
@@ -38,7 +38,7 @@ The following versions are supported for the Azure File Sync agent:
 The following release notes are for version 3.0.12.0 of the Azure File Sync agent (released May 22, 2018).
 
 ### Agent installation and server configuration
-For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync (preview) deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
+For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent is not supported on Windows Server Core or Nano Server deployment options.
@@ -47,7 +47,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
 ### Interoperability
-- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync (preview)](storage-sync-files-troubleshoot.md).
+- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md).
 - Don't use File Server Resource Manager (FSRM) or other file screens. File screens can cause endless sync failures when files are blocked because of the file screen.
 - Running sysprep on a server which has the Azure File Sync agent installed is not supported and can lead to unexpected results. Agent installation and server registration should occur after deploying the server image and completing sysprep mini-setup.
 - Data deduplication and cloud tiering aren't supported on the same volume.
@@ -108,7 +108,7 @@ This release includes the following changes:
 The following release notes are for version 2.0.11.0 of the Azure File Sync agent (released February 9, 2018). 
 
 ### Agent installation and server configuration
-For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync (preview) deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
+For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 
 - The agent installation package (MSI) must be installed with elevated (admin) permissions.
 - The agent isn't supported on Windows Server Core or Nano Server deployment options.
@@ -116,7 +116,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent requires at least 2 GB of physical memory.
 
 ### Interoperability
-- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync (preview)](storage-sync-files-troubleshoot.md).
+- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md).
 - This release adds support for DFS-R. For more information, see the [Planning guide](storage-sync-files-planning.md#distributed-file-system-dfs).
 - Don't use File Server Resource Manager (FSRM) or other file screens. File screens can cause endless sync failures when files are blocked because of the file screen.
 - The duplication of Registered Servers (including VM cloning) can lead to unexpected results. In particular, sync might never converge.
@@ -159,7 +159,7 @@ The following items don't sync, but the rest of the system continues to operate 
 The following release notes are for version 1.1.0.0 of the Azure File Sync agent (released September 9, 2017, initial preview). 
 
 ### Agent installation and server configuration
-For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync (preview) deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
+For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 
 - The agent installation package (MSI) must be installed with elevated (admin) permissions.
 - The agent isn't supported on Windows Server Core or Nano Server deployment options.
@@ -167,7 +167,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent requires at least 2 GB of physical memory.
 
 ### Interoperability
-- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync (preview)](storage-sync-files-troubleshoot.md).
+- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md).
 - Don't use FSRM or other file screens. File screens can cause endless sync failures when files are blocked because of the file screen.
 - The duplication of Registered Servers (including VM cloning) can lead to unexpected results. In particular, sync might never converge.
 - Data deduplication and cloud tiering aren't supported on the same volume.

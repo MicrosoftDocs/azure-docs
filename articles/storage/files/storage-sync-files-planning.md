@@ -1,5 +1,5 @@
 ---
-title: Planning for an Azure File Sync (preview) deployment | Microsoft Docs
+title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
 documentationcenter: ''
@@ -17,8 +17,8 @@ ms.date: 12/04/2017
 ms.author: wgries
 ---
 
-# Planning for an Azure File Sync (preview) deployment
-Use Azure File Sync (preview) to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
+# Planning for an Azure File Sync deployment
+Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
 This article describes important considerations for an Azure File Sync deployment. We recommend that you also read [Planning for an Azure Files deployment](storage-files-planning.md). 
 
