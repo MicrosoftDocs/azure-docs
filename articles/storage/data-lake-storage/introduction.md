@@ -96,8 +96,7 @@ The objective for an *Enterprise Data Lake (EDL)* is to refine vast amounts of r
 The following articles describe some of the main concepts of Azure Data Lake Storage and detail how to store, access, manage, and gain insights from your data:
 
 * [Hierarchical Namespace](./namespace.md)
-<!---
-TODO: Update links when articles available
+<!--- TODO: Update links when articles available
 * Scalability and Performance(./scalability-checklist.md)
 * Benchmark Results(./benchmarks.md)
 -->
