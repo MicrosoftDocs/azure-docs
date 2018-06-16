@@ -17,11 +17,16 @@ This article addresses frequent questions about Azure Kubernetes Service (AKS).
 
 ## Which Azure regions provide the Azure Kubernetes Service (AKS) today?
 
+- Australia East
 - Canada Central
 - Canada East
 - Central US
 - East US
+- North Europe
+- UK South
 - West Europe
+- West US 2
+- West US
 
 ## When will additional regions be added?
 
