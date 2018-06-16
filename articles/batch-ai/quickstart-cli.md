@@ -50,7 +50,7 @@ file system at `$AZ_BATCHAI_JOB_MOUNT_ROOT/logs`, `$AZ_BATCHAI_JOB_MOUNT_ROOT/sc
 
 * Azure subscription - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 before you begin.
-* Access to Azure CLI 2.0 with version 2.0.31 or higher. You can either use Azure CLI 2.0 available in [Azure Cloud Shell](../cloud-shell/overview.md)
+* Access to Azure CLI 2.0 with version 0.3 or higher of the batchai module. You can either use Azure CLI 2.0 available in [Azure Cloud Shell](../cloud-shell/overview.md)
 or install it locally following [these instructions](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
   If you are using Cloud Shell, change the working directory to `/usr/$USER/clouddrive` because your home directory has no empty space:
@@ -69,7 +69,7 @@ az group create -n batchai.quickstart -l eastus
 ```
 ## Create Batch AI workspace
 
-The following command creates a Batch AI workspace in the resource group:
+The following command creates a Batch AI workspace in the resource group. A Batch AI workspace is a top-level collection of all types of Batch AI resources:
 
 ```azurecli
 az batchai workspace create -g batchai.quickstart -n quickstart
@@ -150,7 +150,7 @@ Example output:
 
 ## Create a storage account
 
-The following command creates a storage account in the same resource group used to create the Batch AI cluster. Update the
+The following command creates a storage account in the same resource group used to create the Batch AI cluster. You use the storage account to store job input and output. Update the
 command with a unique storage account name.
 
 ```azurecli
@@ -162,7 +162,7 @@ az storage account create -n <storage account name> --sku Standard_LRS -g batcha
 
 ### Download the training script and training data
 
-* Download and extract preprocessed MNIST Database from [this location](https://batchaisamples.blob.core.windows.net/samples/mnist_dataset.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=PmhL%2BYnYAyNTZr1DM2JySvrI12e%2F4wZNIwCtf7TRI%2BM%3D)
+* Download and extract a preprocessed MNIST database from [this location](https://batchaisamples.blob.core.windows.net/samples/mnist_dataset.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=PmhL%2BYnYAyNTZr1DM2JySvrI12e%2F4wZNIwCtf7TRI%2BM%3D)
 into the current folder.
 
 For GNU/Linux or Cloud Shell:
@@ -184,8 +184,8 @@ wget https://raw.githubusercontent.com/Azure/BatchAI/master/recipes/CNTK/CNTK-GP
 
 ### Create Azure file share and deploy the training script
 
-The following commands create Azure File Shares `scripts` and `logs` and copies training script into `cntk`
-folder inside of `scripts` share:
+The following commands create Azure File shares `scripts` and `logs` and copy the training script into the `cntk`
+folder in the `scripts` share:
 
 ```azurecli
 az storage share create -n scripts --account-name <storage account name>
@@ -196,7 +196,8 @@ az storage file upload -s scripts --source ConvNet_MNIST.py --path cntk --accoun
 
 ## Create a blob container and deploy training data
 
-The following commands create an Azure blob container named `data` and copy training data into `mnist_cntk` folder:
+The following commands create an Azure blob container named `data` and copy training data into the `mnist_cntk` folder:
+
 ```azurecli
 az storage container create -n data --account-name <storage account name>
 az storage blob upload-batch -s . --pattern '*28x28_cntk*' --destination data --destination-path mnist_cntk --account-name <storage account name>
@@ -233,17 +234,17 @@ Create a training job configuration file `job.json` with the following content. 
         "mountVolumes": {
             "azureFileShares": [
                 {
-                    "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/logs",
+                    "azureFileUrl": "https://<YOUR_STORAGE_ACCOUNT>.file.core.windows.net/logs",
                     "relativeMountPath": "logs"
                 },
                 {
-                    "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/scripts",
+                    "azureFileUrl": "https://<YOUR_STORAGE_ACCOUNT>.file.core.windows.net/scripts",
                     "relativeMountPath": "scripts"
                 }
             ],
             "azureBlobFileSystems": [
                 {
-                    "accountName": "<AZURE_BATCHAI_STORAGE_ACCOUNT>",
+                    "accountName": "<YOUR_STORAGE_ACCOUNT>",
                     "containerName": "data",
                     "relativeMountPath": "data"
                 }
@@ -255,16 +256,16 @@ Create a training job configuration file `job.json` with the following content. 
 
 This configuration file specifies:
 
-* `nodeCount` - number of nodes required by the job (1 for this quickstart);
-* `cntkSettings` - specifies the path of the training script and command-line arguments. Command-line arguments include
+* `nodeCount` - number of nodes required by the job (1 for this quickstart)
+* `cntkSettings` - specifies the path of the training script and command-line arguments. Command-line arguments include the
 path to training data and the destination path for storing generated models. `AZ_BATCHAI_OUTPUT_MODEL`
-is an environment variable set by Batch AI based on output directory configuration (see below);
-* `stdOutErrPathPrefix` - path where Batch AI creates directories containing job output and logs;
+is an environment variable set by Batch AI based on output directory configuration (see below)
+* `stdOutErrPathPrefix` - path where Batch AI creates directories containing job output and logs
 * `outputDirectories` - collection of output directories to be created by Batch AI. For each directory,
 Batch AI creates an environment variable with name `AZ_BATCHAI_OUTPUT_<id>`, where `<id>` is the directory
-identifier;
+identifier
 * `mountVolumes` - list of filesystems to be mounted during the job execution. The filesystems are mounted under
-`AZ_BATCHAI_JOB_MOUNT_ROOT/<relativeMountPath>`. `AZ_BATCHAI_JOB_MOUNT_ROOT` is an environment variable set by Batch AI;
+`AZ_BATCHAI_JOB_MOUNT_ROOT/<relativeMountPath>`. `AZ_BATCHAI_JOB_MOUNT_ROOT` is an environment variable set by Batch AI
 * `<AZURE_BATCHAI_STORAGE_ACCOUNT>` - the storage account name to be specified during job submission
 via `--storage-account-name parameter` or `AZURE_BATCHAI_STORAGE_ACCOUNT` environment variable on your computer.
 
@@ -416,11 +417,11 @@ Finished Epoch[3 of 40]: [Training] loss = 0.078542 * 60000, metric = 2.32% * 60
 Final Results: Minibatch[1-11]: errs = 0.62% * 10000
 ```
 
-The streaming is stopped when the job is completed (succeeded or failed).
+The streaming stops when the job is completed (succeeded or failed).
 
 ## Inspect generated model files
 
-The job stores the generated model files in the output directory with `id` attribute equals to `MODEL`, you can list
+The job stores the generated model files in the output directory with `id` attribute equals to `MODEL`. List
 model files and get download URLs using the following command:
 
 ```azurecli
@@ -465,7 +466,7 @@ Example output:
 
 ## Clean up resources
 
-Delete the resource group and all allocated resources with the following command:
+When no longer needed, delete the resource group and all allocated resources with the following command:
 
 ```azurecli
 az group delete -n batchai.quickstart -y
