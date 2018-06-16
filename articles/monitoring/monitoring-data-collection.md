@@ -124,4 +124,4 @@ Service Map provides a visual representation of virtual machines with their proc
 
 ## Next steps
 
-- Learn about the [monitoring data available](monitoring-data-collection-sources.md) for different resources in Azure. 
+- Learn about the [monitoring data available](monitoring-data-sources.md) for different resources in Azure. 
