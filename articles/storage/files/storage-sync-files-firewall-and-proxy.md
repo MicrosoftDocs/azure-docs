@@ -13,12 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 06/16/2018
 ms.author: fauhse
 ---
 
 # Azure File Sync proxy and firewall settings
-
 Azure File Sync connects your on-premises servers to Azure Files, enabling multi-site synchronization and cloud tiering features. As such, an on-premises server must be connected to the internet. An IT admin needs to decide the best path for the server to reach into Azure cloud services.
 
 This article will provide insight into specific requirements and options available to successfully and securely connect your server to Azure File Sync.
@@ -27,7 +26,6 @@ This article will provide insight into specific requirements and options availab
 > Azure File Sync does not yet support firewalls and virtual networks for a storage account.
 
 ## Overview
-
 Azure File Sync acts as an orchestration service between your Windows Server, your Azure file share, and several other Azure services to sync data as described in your sync group. For Azure File Sync to work correctly, you will need to configure your servers to communicate with the following Azure services:
 
 - Azure Storage
@@ -39,24 +37,20 @@ Azure File Sync acts as an orchestration service between your Windows Server, yo
 > The Azure File Sync agent on Windows Server initiates all requests to cloud services which results in only having to consider outbound traffic from a firewall perspective. <br /> No Azure service initiates a connection to the Azure File Sync agent.
 
 ## Ports
-
 Azure File Sync moves file data and metadata exclusively over HTTPS and requires port 443 to be open outbound.
 As a result all traffic is encrypted.
 
 ## Networks and special connections to Azure
-
 The Azure File Sync agent has no requirements regarding special channels like [ExpressRoute](../../expressroute/expressroute-introduction.md), etc. to Azure.
 
 Azure File Sync will work through any means available that allow reach into Azure, automatically adapting to various network characteristics like bandwidth, latency as well as offering admin control for fine-tuning. Not all features are available at this time. If you would like to configure specific behavior, let us know via [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
 ## Proxy
-
 Azure File Sync currently supports machine-wide proxy settings. This proxy setting is transparent to the Azure File Sync agent as the entire traffic of the server is routed through this proxy.
 
 App-specific proxy settings are currently under development and will be supported in a future release of the Azure File Sync agent. This will allow configuration of a proxy specifically for Azure File Sync traffic.
 
 ## Firewall
-
 As mentioned in a previous section, port 443 needs to be open outbound. Based on policies in your datacenter, branch or region, further restricting traffic over this port to specific domains may be desired or required.
 
 The following table describes the required domains for communication:
@@ -106,12 +100,10 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 > - https://tm-kailani.one.microsoft.com (discovery URL of the primary region)
 
 ## Summary and risk limitation
-
 The lists earlier in this document contain the URLs Azure File Sync currently communicates with. Firewalls must be able to allow traffic outbound to these domains. Microsoft strives to keep this list updated.
 
 Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs will be added and might even change over time. Check this article periodically.
 
 ## Next steps
-
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
 - [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
