@@ -99,11 +99,11 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Actions executions per 5 minutes | 300,000 | The default limit is 100,000. To change the default limit, see [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), which is in preview. Or, you can distribute the workload across more than one logic app as necessary. | 
-| Actions concurrent outgoing calls | ~2,500 | Reduce the number of concurrent requests or reduce the duration as needed. | 
-| Runtime endpoint: Concurrent incoming calls | ~1,000 | Reduce the number of concurrent requests or reduce the duration as needed. | 
-| Runtime endpoint: Read calls per 5 minutes  | 60,000 | Can distribute workload across more than one app as needed. | 
-| Runtime endpoint: Invoke calls per 5 minutes| 45,000 | Can distribute workload across more than one app as needed. | 
+| Action: Executions per 5 minutes | 300,000 | The default limit is 100,000. To change the default limit, see [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), which is in preview. Or, you can distribute the workload across more than one logic app as necessary. | 
+| Action: Concurrent outgoing calls | ~2,500 | You can reduce the number of concurrent requests or reduce the duration as necessary. | 
+| Runtime endpoint: Concurrent incoming calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. | 
+| Runtime endpoint: Read calls per 5 minutes  | 60,000 | You can distribute workload across more than one app as necessary. | 
+| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute workload across more than one app as necessary. | 
 |||| 
 
 To go above these limits in normal processing, 
