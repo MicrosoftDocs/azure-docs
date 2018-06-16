@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 7/27/2018
 ---
 
-# Quickstart: Get started with the Azure Machine Learning CLI extension
+# Quickstart: Create a workspace and project with Azure Machine Learning's CLI extension
 
 Azure Machine Learning Services is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
@@ -23,7 +23,7 @@ In this quickstart, you'll get started with Azure Machine Learning Services usin
 + Create a project and attach it to the workspace
 + Run a small Python script in the project and view the output
 
-The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
+The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights, and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
 
 The **project**, which is a local folder, contains  the scripts that solve your machine learning problem as well as the configuration files to attach the project to your workspace in Azure Cloud.
 
@@ -75,7 +75,7 @@ A resource group is a container that holds related resources for an Azure soluti
 
 ## Create a workspace and attach a project
 
-1. In the command-line window, create a Azure Machine Learning Workspace under the resource group. In this quickstart, the workspace name is `myws`.
+1. In the command-line window, create an Azure Machine Learning Workspace under the resource group. In this quickstart, the workspace name is `myws`.
    ```
    az ml workspace create --name myws --group myrg
    ```
@@ -113,7 +113,7 @@ A resource group is a container that holds related resources for an Azure soluti
 ## Next steps
 You have now created the necessary resources to start experimenting and deploying models. You have also created a project, ran a script, and explored the run history of the script.
 
-For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for building, training and deploying models with Azure Machine Learning Services. 
+For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for building, training, and deploying models with Azure Machine Learning Services. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)

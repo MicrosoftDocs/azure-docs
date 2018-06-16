@@ -10,13 +10,13 @@ ms.author: yahajiza
 author: YasinMSFT
 ms.date: 04/10/2018
 ---
-# Use the Azure portal to create an Azure Machine Learning Workspace
+# Use the Azure Portal to create an Azure Machine Learning Workspace
 
 Azure Machine Learning Services is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
 In this quickstart, you'll get started with Azure Machine Learning Services by creating an Azure Machine Learning Workspace in the Azure portal.
 
-The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
+The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights, and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ For a quickstart showing you how to create a project, run a script, and explore 
 + [Quickstart: Create a project and get started with Azure Machine Learning Services SDK for Python](quickstart-set-up-in-python.md)
 + [Quickstart: Create a project and get started with Azure Machine Learning Services CLI](quickstart-set-up-in-cli.md)
 
-For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for building, training and deploying models with Azure Machine Learning Services. 
+For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for building, training, and deploying models with Azure Machine Learning Services. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)

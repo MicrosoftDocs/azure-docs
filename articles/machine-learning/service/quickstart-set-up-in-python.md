@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 7/27/2018
 ---
 
-# Quickstart: Get started with Azure Machine Learning SDK for Python
+# Quickstart: Create a workspace and project with Azure Machine Learning's Python SDK
 
 Azure Machine Learning Services is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
@@ -23,7 +23,7 @@ In this quickstart, you'll get started with Azure Machine Learning Services usin
 + Create a project and attach it to the workspace
 + Run Python code in the project and view the output
 
-The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
+The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights, and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
 
 The **project**, which is a local folder, contains  the scripts that solve your machine learning problem as well as the configuration files to attach the project to your workspace in Azure Cloud.
 
@@ -40,9 +40,9 @@ Before you can install the SDK on Windows, Linux, or MacOS, install these prereq
 
 ## Install the SDK
 
-Install the Azure Machine Learning SDK for Python you will use later to create your workspace, run code, train and deploy models.
+Install the Azure Machine Learning SDK for Python you will use later to create your workspace, run code, train, and deploy models.
 
-1. In a command-line window, set your environment with numpy and cython. In this example, we install Python 3.6.
+1. In a command-line window, set your environment with numpy and cython. This example uses Python 3.6.
    ```
    conda create -n myenv Python=3.6 cython numpy
    ```
@@ -144,7 +144,7 @@ A resource group is a container that holds related resources for an Azure soluti
 ## Next steps
 You have now created the necessary resources to start experimenting and deploying models. You have also created a project, ran a script, and explored the run history of the script.
 
-For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for building, training and deploying models with Azure Machine Learning Services. 
+For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for building, training, and deploying models with Azure Machine Learning Services. 
 
-> [!div class="nextstepaction"]
+> training, and"nextstepaction"]
 > [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)
