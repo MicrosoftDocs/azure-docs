@@ -22,12 +22,12 @@ ms.author: v-viban
 >
 >
 
-Use the following steps to enable disk encryption on Azure Service Fabric Linux cluster nodes. You will need to do these for each of the node types or virtual machine scale sets. To encrypt the nodes, you'll use the Azure Disk Encryption capability on virtual machine scale sets.
+Use the following steps to enable disk encryption on Azure Service Fabric Linux cluster nodes. You'll need to do these for each of the node types or virtual machine scale sets. To encrypt the nodes, you'll use the Azure Disk Encryption capability on virtual machine scale sets.
 
 The guide covers the following procedures:
 
 * Key concepts for enabling disk encryption on virtual machine scale sets for Service Fabric Linux clusters.
-* Prerequisites steps to follow before you enable disk encryption on virtual machine scale sets for Service Fabric Linux clusters.
+* Prerequisite steps to follow before you enable disk encryption on virtual machine scale sets for Service Fabric Linux clusters.
 * Steps to enable disk encryption on virtual machine scale sets for Service Fabric Linux clusters.
 
 
@@ -173,7 +173,7 @@ Before you proceed with encryption on the Linux virtual machine scale set, make 
 The output should show the added data disk on a mount point column.
 
 
-### Deploy an application to your Linux Service Fabric cluster
+### Deploy an application to the Linux Service Fabric cluster
 Follow steps and guidance to [deploy application to your cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-containers-linux).
 
 
@@ -199,7 +199,7 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 ```
 
 ## Validate that disk encryption is enabled for the virtual machine scale set
-Use the following commands to get the status of an entire virtual machine scale set or any instance VM in a scale set. You can also can log in to the Linux cluster VM and run the LSBLK command. The output should show that added data disk on mount point column and Type column as Crypt for added data disk.
+Use the following commands to get the status of an entire virtual machine scale set or any instance VM in a scale set. You can also log in to the Linux cluster VM and run the LSBLK command. The output should show that added data disk on mount point column and Type column as Crypt for added data disk.
 
 ```Powershell
 
