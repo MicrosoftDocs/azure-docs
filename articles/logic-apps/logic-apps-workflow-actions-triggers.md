@@ -2676,17 +2676,22 @@ choose the ellipses (...) button, and then choose **Settings**.
 
 ### Change waiting runs limit
 
-When your logic app is already running the maximum number of 
-instances based on the `runtimeConfiguration.concurrency.runs` property, 
-any new runs are put into this queue up to the 
-[default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+By default, logic app instances run at the same time, concurrently, or in parallel 
+up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+Each trigger instance fires before the previously active logic app instance finishes running.  
+Although you can [change this default limit](#change-trigger-concurrency), 
+when the number of logic app instances reaches the new concurrency limit, 
+any other new instances must wait to run. 
 
-To change the default limit, in the underlying trigger definition, 
-add and set the `runtimeConfiguration.concurency.maximumWaitingRuns` property 
-to a value between `0` and `100`. After your logic app reaches this limit, 
-the Logic Apps engine no longer accepts new runs. 
-Request and webhook triggers return 429 errors, 
+The number of runs that can wait also has a 
+[default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), 
+which you can change. However, after your logic app reaches the limit on waiting runs, 
+the Logic Apps engine no longer accepts new runs. Request and webhook triggers return 429 errors, 
 and recurring triggers start skipping polling attempts.
+
+To change the default limit on waiting runs, in the underlying trigger definition, 
+add and set the `runtimeConfiguration.concurency.maximumWaitingRuns` property 
+to a value between `0` and `100`. 
 
 ```json
 "<trigger-name>": {
