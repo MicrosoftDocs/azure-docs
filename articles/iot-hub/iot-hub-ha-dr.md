@@ -17,12 +17,13 @@ This article discusses the HA and DR features offered specifically by the IoT Hu
 
 - Intra-region HA
 - Cross region DR
-- Achieving automatic failover 
+- Achieving cross region HA 
 
 Depending on the uptime goals you define for your IoT solutions, you should determine which of the options outlined below best suit your business objectives. Incorporating any of these HA/DR alternatives into your IoT solution requires a careful evaluation of the trade-offs between the:
 - Level of resiliency you require. 
-- Cost to operationalize the solution. 
 - Implementation and maintenance complexity.
+- COGS impact. 
+
 
 ## Intra-region HA
 The IoT Hub service provides intra-region HA by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](_https://azure.microsoft.com/support/legal/sla/iot-hub) is achieved by making use of these redundancies. No additional work is required by the developers of an IoT solution to take advantage of these HA features. Although IoT Hub offers a reasonably high uptime guarantee, transient failures can still be expected as with any distributed computing platform. If you are just getting started with migrating your solutions to the cloud from an on-premise solution, your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry policies](_https://channel9.msdn.com/Shows/Internet-of-Things-Show/Retry-logic-in-device-SDKs-for-Azure-IoT-Hub) must be built in to the components interacting with a cloud application to deal with transient failures. 
@@ -88,9 +89,9 @@ While the FQDN (and therefore the connection string) of the IoT hub instance rem
 Time to recover = RTO [10 min - 2 hours for manual failover | 2 - 26 hours for Microsoft initiated failover] + DNS propagation delay + Time taken by the client application to refresh any cached IoT Hub IP address. 
 
 > [!IMPORTANT]
-> The IoT SDKs do not cache the IP address of the IoT hub. We recommend that user code interfacing with the SDKs do not cache the IP address of the IoT hub. 
+> The IoT SDKs do not cache the IP address of the IoT hub. We recommend that user code interfacing with the SDKs should not cache the IP address of the IoT hub. 
 
-## Achieving automatic failover
+## Achieving cross region HA
 If your business uptime goals are not satisfied by the RTO that either Microsoft initiated failover or manual failover options provide, you should consider implementing a per-device automatic cross region failover mechanism. 
 A complete treatment of deployment topologies in IoT solutions is outside the scope of this article. The article discusses the *regional failover* deployment model for the purpose of high availability and disaster recovery.
 
@@ -101,10 +102,19 @@ At a high level, to implement a regional failover model with IoT Hub, you need t
 * **A secondary IoT hub and device routing logic**: If service in your primary region is disrupted, devices must start connecting to your secondary region. Given the state-aware nature of most services involved, it is common for solution administrators to trigger the inter-region failover process. The best way to communicate the new endpoint to devices, while maintaining control of the process, is to have them regularly check a *concierge* service for the current active endpoint. The concierge service can be a web application that is replicated and kept reachable using DNS-redirection techniques (for example, using [Azure Traffic Manager][Azure Traffic Manager]).
 
 > [!NOTE]
-> IoT hub service is not a supported endpoint type in Azure Traffic Manager. The recommendation is to integrate the concierge service with Azure traffic manager by making it implement the endpoint health probe API.
+> IoT hub service is not a supported endpoint type in Azure Traffic Manager. The recommendation is to integrate the proposed concierge service with Azure traffic manager by making it implement the endpoint health probe API.
 
 * **Identity registry replication**: To be usable, the secondary IoT hub must contain all device identities that can connect to the solution. The solution should keep geo-replicated backups of device identities, and upload them to the secondary IoT hub before switching the active endpoint for the devices. The device identity export functionality of IoT Hub is useful in this context. For more information, see [IoT Hub developer guide - identity registry][IoT Hub developer guide - identity registry].
 * **Merging logic**: When the primary region becomes available again, all the state and data that have been created in the secondary site must be migrated back to the primary region. This state and data mostly relate to device identities and application metadata, which must be merged with the primary IoT hub and any other application-specific stores in the primary region. To simplify this step, you should use idempotent operations. Idempotent operations minimize the side-effects from the eventual consistent distribution of events, and from duplicates or out-of-order delivery of events. In addition, the application logic should be designed to tolerate potential inconsistencies or slightly out-of-date state. This situation can occur due to the additional time it takes for the system to heal based on recovery point objectives (RPO).
+
+## How to choose the right HA/DR option?
+Heres a summary of the HA/DR options presented in this article which can be used as a frame of reference to choose the right option that works for your solution
+
+| HA/DR Option | RTO | RPO | Requires manual intervention? | Implementation complexity | Cogs impact|
+| --- | --- | --- | --- | --- | --- | --- |
+| Microsoft initiated failover |2 - 26 hours|Refer RPO table above|No|None|None
+| Manual failover |10 min - 2 hours|Refer RPO table above|Yes|Very low. You only need to trigger this operation from the portal.|None
+| Cross region HA |< 1 min|Depends on the replication frequency of your custom HA solution|No|High|2x
 
 ## Next steps
 Follow these links to learn more about Azure IoT Hub:
