@@ -242,21 +242,29 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**.
 
+<!---
     ![The Azure Active Directory link](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
+-->
 
 2. To display a list of current users, select **Users and groups** > **All users**.
 
+<!---
     ![The "Users and groups" and "All users" links](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
+-->
 
 3. At the top of the **All Users** window, select **Add**.
 
+<!---
     ![The Add button](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
-    
+-->
+
     The **User** window opens.
 
 4. In the **User** window, do the following:
 
+<!---
     ![The User window](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
+-->
 
     a. In the **Name** box, type **BrittaSimon**.
 
