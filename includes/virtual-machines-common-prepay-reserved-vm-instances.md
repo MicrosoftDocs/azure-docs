@@ -10,7 +10,14 @@ You can buy Azure Reserved Instances in the [Azure portal](https://portal.azure.
 -	For Enterprise subscriptions, Reserved Instance purchases must be enabled in the [EA portal](https://ea.azure.com).
 -   For Cloud Solution Provider (CSP) program only the admin agents or sales agents can purchase the Reserved Instances.
 
-## Buy a Reserved Instance
+[!IMPORTANT]
+You must use one of the methods described below to identify the correctly VM size for a reservation purchase.
+
+## Determine the right VM size before purchase
+1. Refer to the AdditionalInfo field in your usage file or usage API to determine the correct VM size for a reservation purchase. Do not use the values from Meter Sub-category or Product fields since these fields do not differentiate between S and Non-S versions of a VM.
+2. You can also get accurate VM size information using Powershell, Azure Resource Manager or from VM details in the Azure portal.
+
+## Buy a Reserved Virtual Machine Instance
 1. Log in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select **Add** to purchase a new Reserved Instance.
