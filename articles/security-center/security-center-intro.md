@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2018
+ms.date: 06/14/2018
 ms.author: terrylan
 
 ---
@@ -57,7 +57,7 @@ This section displays your overall compliance ratio and your least compliant sub
 
 ![Policy management][10]
 
-A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Security Center, you define policies and tailor them to your type of workload or the sensitivity of your data, determining which controls Security Center monitors and recommends. You can edit the security policy in Security Center. You can also use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
+A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Security Center, you define policies and tailor them to your type of workload or the sensitivity of your data, determining which controls Security Center monitors and recommends. You can edit the security policy in Security Center by clicking on a management group or subscription. You can also use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
 
 Selecting **Edit settings >** lets you edit the following Security Center settings at the subscription, management group, resource group, or work space level:
 

@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/13/2018
+ms.date: 03/29/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
@@ -19,131 +19,136 @@ In this tutorial, create an app that demonstrates how to extract machine-learned
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand simple entities 
-> * Create new intent with example utterances
-> * Create new entity and label example utterances
+> * Create new LUIS app for the communication domain with SendMessage intent
+> * Add _None_ intent and add example utterances
+> * Add simple entity to extract message contents from utterance
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
-## Before you begin
-If you do not have the Human Resources app from the [custom domain](luis-quickstart-intents-only.md) quickstart, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS][LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
-
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `simple`. Cloning is a great way to play with various LUIS features without affecting the original version. 
-
 ## Purpose of the app
 This app demonstrates how to pull data out of an utterance. Consider the following utterance from a chatbot:
 
 ```JSON
-Advise the board that the CEO's meeting went well
+Send a message telling them to stop
 ```
 
-The intent is to send a message. The important data of the utterance is the message itself,  `the CEOs meeting went well`.  
+The intent is to send a message. The important data of the utterance is the message itself,  `telling them to stop`.  
 
 ## Purpose of the simple entity
-The purpose of a simple entity is to teach LUIS what the entity is and where it can be found in an utterance. The part of the utterance that contains the data changes from utterance to utterance based on word choice and utterance length. LUIS needs examples of entities in any utterance across all intents.  
+The purpose of the simple entity is to teach LUIS what a message is and where it can be found in an utterance. The part of the utterance that is the message can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of messages in any utterance across all intents.  
 
-For this simple app, the entity is at the end of the utterance. 
+For this simple app, the message will be at the end of the utterance. 
 
-## Create new intent with example utterances
-1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region](luis-reference-regions.md#luis-website) where you need the LUIS endpoints published.
+## Create a new app
+1. Log in to the [LUIS][LUIS] website. Make sure to log into the region where you need the LUIS endpoints published.
 
-2. Open the Human Resources domain app created in the [custom domain](luis-quickstart-intents-only.md) quickstart.   
+2. On the [LUIS][LUIS] website, select **Create new app**.  
 
-3. On the **Intents** page, select **Create new intent**. 
+    ![LUIS apps list](./media/luis-quickstart-primary-and-secondary-data/app-list.png)
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-intent.png "Screenshot of LUIS with 'Create new intent' button highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-intent.png#lightbox)
+3. In the pop-up dialog, enter the name `MyCommunicator`. 
 
-2. Enter the new intent name `WellDoneMessage`. This intent should be selected any time a user wants to send a message of congratulations on a job well done to an employee.
+    ![LUIS apps list](./media/luis-quickstart-primary-and-secondary-data/create-new-app-dialog.png)
+
+4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/intents-list.png "Screenshot of LUIS Intents page with None intent")](media/luis-quickstart-primary-and-secondary-data/intents-list.png#lightbox)
+
+## Create a new intent
+
+1. On the **Intents** page, select **Create new intent**. 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png "Screenshot of LUIS with 'Create new intent' button highlighted")](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png#lightbox)
+
+2. Enter the new intent name `SendMessage`. This intent should be selected any time a user wants to send a message.
 
     By creating an intent, you are creating the primary category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer or take appropriate action. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
 
-    ![Enter intent name WellDoneMessage](./media/luis-quickstart-primary-and-secondary-data/hr-create-well-done-message-ddl.png)
+    ![Enter intent name SendMessage](./media/luis-quickstart-primary-and-secondary-data/create-new-intent-popup-dialog.png)
 
-3. Add several utterances to the `WellDoneMessage` intent that you expect a user to ask for, such as:
+3. Add seven utterances to the `SendMessage` intent that you expect a user to ask for, such as:
 
     | Example utterances|
     |--|
-    |Advise the board that the CEO's meeting went well|
-    |Be sure to tell Valerie Louis that her delivery was well received|
-    |Brief Garrett Simons that his trip was well received|
-    |Convey our congratulations to Mike Oliver on his show|
-    |Good job Brad Jones!|
-    |Great performance John Devry|
-    |Inform Jack Constantine that he did a great job|
-    |Last week the Manager of Sales did a great job at the conference|
-    |Let it be known that Irene Bonds is doing a great job in customer service|
-    |Nice to say what a great job Denise in Design did yesterday at the meeting|
-    |Note that Greg Vining is a great developer|
-    |Notify Samantha Garrison that her delivery was amazing and much appreciated|
-    |Please note that Joan Diablo was great with the customer today.|
-    |Please tell Maggie Gallagher he did a great job with the assignment|
-    |Say to Sean Kenny the meeting was amazing|
-    |Send message to Jack in Accounting that his presentation was amazing! Good job!|
-    |Tell Kim Wexler she did a great job on the presentation|
-    |Tell Deborah Klein she did a great job|
-    |What a great job Susan Mack did yesterday with the rollout|
+    |Reply with I got your message, I will have the answer tomorrow|
+    |Send message of When will you be home?|
+    |Text that I am busy|
+    |Tell them that it needs to be done today|
+    |IM that I am driving and will respond later|
+    |Compose message to David that says When was that?|
+    |say greg hello|
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-example-utterances.png "Screenshot of LUIS with utterances entered")](media/luis-quickstart-primary-and-secondary-data/hr-example-utterances.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png "Screenshot of LUIS with utterances entered")](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png#lightbox)
 
-## Create new entity and label example utterances
-The following procedure describes how to create an entity from an utterance and continue labeling other utterances. A [short video](#video) shows this procedure at the end of this section.
+## Add utterances to None intent
 
-1. On the top utterance, select the left-most word of the message, enter `WellDoneMessageEntity` in the top field of the pop-up window, then select **Create new entity** on the pop-up window. 
+The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
+    
+1. Select **Intents** from the left panel. 
 
-2. A pop-up window displays allowing you to correct the spelling of the entity name and select the type of **Simple** entity. Select **Done**.
+    [![](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png "Screenshot of LUIS with 'Intents' button highlighted")](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png#lightbox)
 
-    ![Create entity dialog](./media/luis-quickstart-primary-and-secondary-data/hr-create-welldonemessageentity.png)
+2. Select the **None** intent. 
 
-3. Select the message in the next utterance, then select **WellDoneMessageEntity** from the pop-up window. Label all messages in the utterances of this intent. 
+    [![](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png "Screenshot of Selecting None intent")](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png#lightbox)
 
-    The following table is marked with square brackets to mark which words are part of the message.
+3. Add three utterances that your user might enter but are not relevant to your app. Some good **None** utterances are:
 
-    | Example utterances [marked] with WellDoneMessageEntity entity|
+    | Example utterances|
     |--|
-    |Advise the board that [_the CEO's meeting went well_]|
-    |Be sure to tell [_Valerie Louis that her delivery was well received_]|
-    |Brief [_Garrett Simons that his trip was well received_]|
-    |Convey [_our congratulations to Mike Oliver on his show_]|
-    |[_Good job Brad Jones!_]|
-    |[_Great performance John Devry_]|
-    |Inform [_Jack Constantine that he did a great job_]|
-    |[_Last week the Manager of Sales did a great job at the conference_]|
-    |Let it be known that [_Irene Bonds is doing a great job in customer service_]|
-    |Nice to say [_what a great job Denise in Design did yesterday at the meeting_]|
-    |Note that [_Greg Vining is a great developer_]|
-    |Notify [_Samantha Garrison that her delivery was amazing and much appreciated_]|
-    |Please note that [_Joan Diablo was great with the customer today._]|
-    |Please tell [_Maggie Gallagher he did a great job with the assignment_]|
-    |Say to [_Sean Kenny the meeting was amazing_]|
-    |Send message to [_Jack in Accounting that his presentation was amazing! Good job!_]|
-    |Tell [_Kim Wexler she did a great job on the presentation_]|
-    |Tell [_Deborah Klein she did a great job_]|
-    |[_What a great job Susan Mack did yesterday with the rollout_]|
+    |Cancel!|
+    |Good bye|
+    |What is going on?|
+    
+    In your LUIS-calling application, such as a chatbot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
-4. Select the Tokens View toggle on the toolbar above the utterances to verify the messages are labeled correctly. 
+    [![](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png "Screenshot of LUIS with utterances for None intent")](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png#lightbox)
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-labeled-utterances.png "Screenshot of LUIS with utterances labeled in tokens view")](media/luis-quickstart-primary-and-secondary-data/hr-labeled-utterances.png#lightbox)
+## Create a simple entity to extract message 
+1. Select **Intents** from the left menu.
 
-<!--
+    ![Select Intents link](./media/luis-quickstart-primary-and-secondary-data/select-intents-from-none-intent.png)
 
-    View a quick video showing this process to create an entity and label an utterance.
+2. Select `SendMessage` from the intents list.
 
-    <a name="video"></a>
-    ![Screen capture video showing entity creation and utterance labeling](media/luis-quickstart-primary-and-secondary-data/hr-create-entity-label-utterance.gif)
+    ![Select SendMessage intent](./media/luis-quickstart-primary-and-secondary-data/select-sendmessage-intent.png)
 
--->
+3. In the utterance, `Reply with I got your message, I will have the answer tomorrow`, select the first word of the message body, `I`, and the last word of the message body, `tomorrow`. All these words are selected for the message and a drop-down menu appears with a text box at the top.
+
+    [![](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png "Screenshot of Select words in utterance for message")](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png#lightbox)
+
+4. Enter the entity name `Message` in the text box.
+
+    [![](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png "Screenshot of Enter entity name in box")](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png#lightbox)
+
+5. Select **Create new entity** in the drop-down menu. The purpose of the entity is to pull out the text that is the body of the message. In this LUIS app, the text message is at the end of the utterance, but the utterance can be any length, and the message can be any length. 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png "Screenshot of creating new entity from utterance")](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png#lightbox)
+
+6. In the pop-up window, the default entity type is **Simple** and the entity name is `Message`. Keep these settings and select **Done**.
+
+    ![Verify entity type](./media/luis-quickstart-primary-and-secondary-data/entity-type.png)
+
+7. Now that the entity is created, and one utterance is labeled, label the rest of the utterances with that entity. Select an utterance, then select the first and last word of a message. In the drop-down menu, select the entity, `Message`. The message is now labeled in the entity. Continue to label all message phrases in the remaining utterances.
+
+    [![](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png "Screenshot of all message utterances labeled")](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png#lightbox)
+
+    The default view of the utterances is **Entities view**. Select the **Entities view** control above the utterances. The **Tokens view** displays the utterance text. 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png "Screenshot of utterances in Tokens view")](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png#lightbox)
 
 ## Train the LUIS app
 LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-    ![Select train button](./media/luis-quickstart-primary-and-secondary-data/hr-train-button.png)
+    ![Select train button](./media/luis-quickstart-primary-and-secondary-data/train-button.png)
 
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
-    ![Training success notification](./media/luis-quickstart-primary-and-secondary-data/hr-trained.png)
+    ![Training success notification](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## Publish the app to get the endpoint URL
 In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
@@ -152,63 +157,57 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
 2. Select the Production slot and the **Publish** button.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-publish-to-production.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 On the **Publish** page, select the **endpoint** link at the bottom of the page. 
 
-[![](media/luis-quickstart-primary-and-secondary-data/hr-publish-select-endpoint.png "Screenshot of Publish page with endpoint highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-publish-select-endpoint.png#lightbox)
+[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Screenshot of Publish page with endpoint highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
 
-This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `Tell John Smith what a great job he did on the presentation`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `WellDoneMessage` intent and `WellDoneMessageEntity`.
+This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `text I'm driving and will be 30 minutes late to the meeting`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `SendMessage` utterances.
 
 ```
 {
-  "query": "Tell John Smith what a great job he did on the presentation",
+  "query": "text I'm driving and will be 30 minutes late to the meeting",
   "topScoringIntent": {
-    "intent": "WellDoneMessage",
-    "score": 0.9911686
+    "intent": "SendMessage",
+    "score": 0.987501
   },
   "intents": [
     {
-      "intent": "WellDoneMessage",
-      "score": 0.9911686
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.0119273383
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.0100734336
+      "intent": "SendMessage",
+      "score": 0.987501
     },
     {
       "intent": "None",
-      "score": 0.00442946469
+      "score": 0.111048922
     }
   ],
   "entities": [
     {
-      "entity": "john smith what a great job he did on the presentation",
-      "type": "WellDoneMessageEntity",
+      "entity": "i ' m driving and will be 30 minutes late to the meeting",
+      "type": "Message",
       "startIndex": 5,
       "endIndex": 58,
-      "score": 0.7065823
+      "score": 0.162995353
     }
   ]
 }
 ```
 
 ## What has this LUIS app accomplished?
-This app, with a new intent and entity, identified a natural language query intention and returned the message data. 
+This app, with just two intents and one entity, identified a natural language query intention and returned the message data. 
 
-The JSON result identifies the top scoring intent and extracted the data of the message.
+The JSON result identifies the top scoring intent `SendMessage` with a score of 0.987501. All scores are between 1 and 0, with the better score being close to 1. The `None` intent's score is 0.111048922, much closer to zero. 
 
-Your chatbot now has enough information to determine the primary action and a parameter of that action, the text of the message. 
+The message data has a type, `Message`, as well as a value, `i ' m driving and will be 30 minutes late to the meeting`. 
+
+Your chatbot now has enough information to determine the primary action, `SendMessage`, and a parameter of that action, the text of the message. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to send the message through a third-party API. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to send the message through a 3rd party API. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.

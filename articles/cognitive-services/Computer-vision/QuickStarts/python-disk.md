@@ -12,9 +12,9 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze a Local Image with Python
+# Quickstart: Analyze a local image with Python
 
-In this quickstart, you analyze a local image using Computer Vision. To analyze a remote image, see [Analyze a Remote Image with Python](python-analyze.md).
+In this quickstart, you analyze a local image using Computer Vision. To analyze a remote image, see [Analyze a remote image with Python](python-analyze.md).
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
@@ -26,7 +26,7 @@ To use Computer Vision, you need a subscription key; see [Obtaining Subscription
 
 ## Analyze a local image
 
-This sample is similar to [Analyze a Remote Image with Python](python-analyze.md) except the image to analyze is read locally from disk. Two changes are required:
+This sample is similar to [Analyze a remote image with Python](python-analyze.md) except the image to analyze is read locally from disk. Two changes are required:
 
 - Add a `{"Content-Type": "application/octet-stream"}` header to the request.
 - Add the image data (byte array) to the body of the request.
