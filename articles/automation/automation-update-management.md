@@ -52,7 +52,7 @@ The following table shows a list of supported operating systems:
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments         |
 |Windows Server 2008 R2 SP1 and higher     |.NET Framework 4.5 or higher is required ([Download .NET Framework](/dotnet/framework/install/guide-for-developers)).</br> Windows PowerShell 4.0 or higher is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
-|CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
+|CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS does not have out of the box.     |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
 |Ubuntu 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
@@ -117,7 +117,7 @@ Heartbeat
 
 ```
 Heartbeat
-| where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table`
+| where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
 On a Windows computer, you can review the following to verify agent connectivity with Log Analytics:
@@ -185,7 +185,7 @@ Click the **Update Deployments** tab to view the list of existing Update Deploym
 
 ![Overview of Update Deployment Results](./media/automation-update-management/update-deployment-run.png)
 
-## Creating an Update Deployment
+## Create or edit an Update Deployment
 
 Create a new Update Deployment by clicking the **Schedule update deployment** button at the top of the screen to open the **New Update Deployment** page. You must provide values for the properties in the following table:
 
@@ -193,10 +193,19 @@ Create a new Update Deployment by clicking the **Schedule update deployment** bu
 | --- | --- |
 | Name |Unique name to identify the update deployment. |
 |Operating System| Linux or Windows|
-| Machines to update |Select a Saved search or pick Machine from the drop-down and select individual machines |
-|Update classifications|Select all the update classifications that you need|
+| Machines to update |Select a Saved search or pick Machine from the drop-down and select individual machines. |
+|Update classifications|Select all the update classifications that you need. Patching is done based on classification data and updates available on the machine at run time. CentOS does not support this out of the box.|
 |Updates to exclude|Enter the updates to exclude. For  Windows enter the KB without the 'KB' prefix. For Linux, enter the package name or use a wildcard.  |
-|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
+|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
+| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
+
+When you have a combination of classification and exclusion settings, the final set of updates that get installed can be visualized as the following set operation:
+
+```
+Updates to be installed = (Classification) - Exclusions
+```
+
+If classification is not specified, all available updates are used in their place before removing exclusions.
 
 ## Update classifications
 
@@ -222,6 +231,14 @@ The following tables provide a listing of the Update classifications in Update M
 |Critical and security updates     | Updates for a specific problem or a product-specific, security-related issue.         |
 |Other updates     | All other updates that are not critical in nature or security updates.        |
 
+For Linux, Update Management can distinguish between critical and security updates in the cloud while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available out of the box. If you have CentOS machines configured in a way to return security data for the following command, Update Management will be able to patch based on classifications.
+
+```
+sudo yum -q --security check-update
+```
+
+There is currently no method supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who may have enabled this on their own.
+
 ## Ports
 
 The following addresses are required specifically for Update Management. Communication to these addresses is done over port 443.
@@ -244,7 +261,7 @@ The following table provides sample log searches for update records collected by
 
 | Query | Description |
 | --- | --- |
-|Update</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; project Computer, Title, KBID, Classification, PublishedDate |All computers with missing updates</br>Add one of the following to limit the OS:</br>OSType = "Windows"</br>OSType == "Linux" |
+|Update</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; project Computer, Title, KBID, Classification, PublishedDate |All computers with missing updates</br>Add one of the following to limit the OS:</br>OSType != "Linux"</br>OSType == "Linux" |
 | Update</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; where Computer == "ContosoVM1.contoso.com"</br>&#124; project Computer, Title, KBID, Product, PublishedDate |Missing updates for a specific computer (replace value with your own computer name)|
 | Event</br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")</br>&#124; where UpdateState == "Needed" and Optional == false </br>&#124; distinct Computer)) |Error events for machines that have missing critical or security required updates |
 | Update</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; distinct Title |Distinct missing updates across all computers |
@@ -262,7 +279,7 @@ To learn how to integrate the management solution with System Center Configurati
 
 The following sections explain potential issues with Linux patching.
 
-### Package exclusion
+### Unexpected OS-level upgrades
 
 On some Linux variants, such as Red Hat Enterprise Linux, OS-level upgrades can occur via packages. This can lead to Update Management runs where the OS version number changes. Since Update Management uses the same methods to update packages as an administrator would locally on the Linux computer, this behavior is intentional.
 
@@ -273,25 +290,45 @@ redhat-release-server.x86_64
 
 ![Packages to exclude for Linux](./media/automation-update-management/linuxpatches.png)
 
-### Security patches not being applied
+### Critical and Security patches not being applied
 
 When deploying updates to a Linux machine, you can select update classifications. This filters the updates that are applied to those that meet the specified criteria. This filter is applied locally on the machine when the update is deployed. Because Update Management performs update enrichment in the cloud, some updates may be flagged in Update Management as having security impact although the local machine does not have that information. As a result, if you apply critical updates to a Linux machine, there may be updates, which are not marked as having security impact on that machine, and do not get applied. However, Update Management may still report that machine as being non-compliant because it has additional information about the relevant update.
 
-Deploying updates by update classification may not work on openSUSE Linux due to the different patching model used.
+Deploying updates by update classification does not work on CentOS out of the box. For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This is a limitation of zypper. In some cases, you may be required to re-run the update deployment, to verify check the update log.
 
 ## Troubleshooting
 
 This section provides information to help troubleshoot issues with the Update Management solution.
 
+### Windows
+
 If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log on the local machine for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each.
 
 | Message | Reason | Solution |
-|----------|----------|----------|
+|----------|----------|----------|    
 | Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)|
 | Unable to Register Machine for Patch Management, Registration Failed with Exception</br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---></br>System.Net.WebException: The underlying connection</br>was closed: An unexpected error</br>occurred on a receive. ---> System.ComponentModel.Win32Exception:</br>The client and server cannot communicate,</br>because they do not possess a common algorithm | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
 | Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
 | The certificate presented by the service \<wsid\>.oms.opinsights.azure.com</br>was not issued by a certificate authority</br>used for Microsoft services. Contact</br>your network administrator to see if they are running a proxy that intercepts</br>TLS/SSL communication. |Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
 | Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Failed to create a self-signed certificate. ---></br>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure | Verify system account has</br>read access to folder:</br>**C:\ProgramData\Microsoft\**</br>**Crypto\RSA**|
+
+### Linux
+
+If update runs fail to start on a Linux machine, make a copy of the following log file and preserve it for troubleshooting purposes:
+
+```
+/var/opt/microsoft/omsagent/run/automationworker/worker.log
+```
+
+If failes occur during an update run after it starts successfully on Linux, check the job output from the affected machine in the run. You may find specific error messages from your machines package manager that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
+
+In some cases, package updates can interfere with Update Management preventing an update deployment from completing. If you see that, you'll have to either exclude these packages from future update runs or install them manually yourself.
+
+If you cannot resolve a patching issue, make a copy of the following log file and preserve it **before** the next update deployment starts for troubleshooting purposes:
+
+```
+/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
+```
 
 ## Next steps
 
