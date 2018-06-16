@@ -264,15 +264,15 @@ If you want to test your single sign-on settings, open the Access Panel. For mor
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_04.png
+[1]: ./media/teamseer-tutorial/tutorial_general_01.png
+[2]: ./media/teamseer-tutorial/tutorial_general_02.png
+[3]: ./media/teamseer-tutorial/tutorial_general_03.png
+[4]: ./media/teamseer-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_100.png
+[100]: ./media/teamseer-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_203.png
+[200]: ./media/teamseer-tutorial/tutorial_general_200.png
+[201]: ./media/teamseer-tutorial/tutorial_general_201.png
+[202]: ./media/teamseer-tutorial/tutorial_general_202.png
+[203]: ./media/teamseer-tutorial/tutorial_general_203.png
 

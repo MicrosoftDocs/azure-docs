@@ -162,6 +162,6 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 * [Learn how to review logs and get reports on provisioning activity](../../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saas-xmatters-ondemand-provisioning-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-xmatters-ondemand-provisioning-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-xmatters-ondemand-provisioning-tutorial/tutorial_general_03.png
+[1]: ./media/xmatters-ondemand-provisioning-tutorial/tutorial_general_01.png
+[2]: ./media/xmatters-ondemand-provisioning-tutorial/tutorial_general_02.png
+[3]: ./media/xmatters-ondemand-provisioning-tutorial/tutorial_general_03.png

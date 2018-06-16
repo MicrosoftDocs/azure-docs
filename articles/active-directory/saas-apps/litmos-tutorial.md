@@ -275,22 +275,22 @@ When you click the Litmos tile in the Access Panel, you should get automatically
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_04.png
-[21]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_60.png
-[22]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_61.png
-[23]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_62.png
-[24]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_63.png
-[25]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_64.png
-[26]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_65.png
-[27]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_66.png
+[1]: ./media/litmos-tutorial/tutorial_general_01.png
+[2]: ./media/litmos-tutorial/tutorial_general_02.png
+[3]: ./media/litmos-tutorial/tutorial_general_03.png
+[4]: ./media/litmos-tutorial/tutorial_general_04.png
+[21]: ./media/litmos-tutorial/tutorial_litmos_60.png
+[22]: ./media/litmos-tutorial/tutorial_litmos_61.png
+[23]: ./media/litmos-tutorial/tutorial_litmos_62.png
+[24]: ./media/litmos-tutorial/tutorial_litmos_63.png
+[25]: ./media/litmos-tutorial/tutorial_litmos_64.png
+[26]: ./media/litmos-tutorial/tutorial_litmos_65.png
+[27]: ./media/litmos-tutorial/tutorial_litmos_66.png
 
-[100]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_100.png
+[100]: ./media/litmos-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_203.png
+[200]: ./media/litmos-tutorial/tutorial_general_200.png
+[201]: ./media/litmos-tutorial/tutorial_general_201.png
+[202]: ./media/litmos-tutorial/tutorial_general_202.png
+[203]: ./media/litmos-tutorial/tutorial_general_203.png
 

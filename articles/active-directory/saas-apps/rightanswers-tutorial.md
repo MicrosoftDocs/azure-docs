@@ -212,15 +212,15 @@ If you want to test your SSO settings, open the Access Panel. For more informati
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_04.png
+[1]: ./media/rightanswers-tutorial/tutorial_general_01.png
+[2]: ./media/rightanswers-tutorial/tutorial_general_02.png
+[3]: ./media/rightanswers-tutorial/tutorial_general_03.png
+[4]: ./media/rightanswers-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_100.png
+[100]: ./media/rightanswers-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_203.png
+[200]: ./media/rightanswers-tutorial/tutorial_general_200.png
+[201]: ./media/rightanswers-tutorial/tutorial_general_201.png
+[202]: ./media/rightanswers-tutorial/tutorial_general_202.png
+[203]: ./media/rightanswers-tutorial/tutorial_general_203.png
 

@@ -252,22 +252,22 @@ When you click the PerformanceCentre tile in the Access Panel, you should get au
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_general_04.png
-[10]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_06.png
-[11]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_07.png
-[12]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_08.png
-[13]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_09.png
-[14]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_10.png
+[1]: ./media/performancecentre-tutorial/tutorial_general_01.png
+[2]: ./media/performancecentre-tutorial/tutorial_general_02.png
+[3]: ./media/performancecentre-tutorial/tutorial_general_03.png
+[4]: ./media/performancecentre-tutorial/tutorial_general_04.png
+[10]: ./media/performancecentre-tutorial/tutorial_performancecentre_06.png
+[11]: ./media/performancecentre-tutorial/tutorial_performancecentre_07.png
+[12]: ./media/performancecentre-tutorial/tutorial_performancecentre_08.png
+[13]: ./media/performancecentre-tutorial/tutorial_performancecentre_09.png
+[14]: ./media/performancecentre-tutorial/tutorial_performancecentre_10.png
 
-[100]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_general_100.png
+[100]: ./media/performancecentre-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_general_203.png
-[400]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_11.png
-[401]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_12.png
+[200]: ./media/performancecentre-tutorial/tutorial_general_200.png
+[201]: ./media/performancecentre-tutorial/tutorial_general_201.png
+[202]: ./media/performancecentre-tutorial/tutorial_general_202.png
+[203]: ./media/performancecentre-tutorial/tutorial_general_203.png
+[400]: ./media/performancecentre-tutorial/tutorial_performancecentre_11.png
+[401]: ./media/performancecentre-tutorial/tutorial_performancecentre_12.png
 

@@ -342,34 +342,34 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_general_04.png
+[1]: ./media/aws-multi-accounts-tutorial/tutorial_general_01.png
+[2]: ./media/aws-multi-accounts-tutorial/tutorial_general_02.png
+[3]: ./media/aws-multi-accounts-tutorial/tutorial_general_03.png
+[4]: ./media/aws-multi-accounts-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_general_100.png
+[100]: ./media/aws-multi-accounts-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_general_203.png
-[11]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic795031.png
-[12]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic795032.png
-[13]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic795033.png
-[14]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic795034.png
-[15]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic795035.png
-[16]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic795022.png
-[17]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic795023.png
-[18]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic795024.png
-[19]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic795025.png
-[32]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic7950251.png
-[33]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic7950252.png
-[35]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning.png
-[34]: ./media/active-directory-saas-aws-multi-accounts-tutorial/ic7950253.png
-[36]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_amazonwebservices_securitycredentials.png
-[37]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_amazonwebservices_securitycredentials_continue.png
-[38]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_amazonwebservices_createnewaccesskey.png
-[39]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
-[40]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
-[41]: ./media/active-directory-saas-aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_on.png
+[200]: ./media/aws-multi-accounts-tutorial/tutorial_general_200.png
+[201]: ./media/aws-multi-accounts-tutorial/tutorial_general_201.png
+[202]: ./media/aws-multi-accounts-tutorial/tutorial_general_202.png
+[203]: ./media/aws-multi-accounts-tutorial/tutorial_general_203.png
+[11]: ./media/aws-multi-accounts-tutorial/ic795031.png
+[12]: ./media/aws-multi-accounts-tutorial/ic795032.png
+[13]: ./media/aws-multi-accounts-tutorial/ic795033.png
+[14]: ./media/aws-multi-accounts-tutorial/ic795034.png
+[15]: ./media/aws-multi-accounts-tutorial/ic795035.png
+[16]: ./media/aws-multi-accounts-tutorial/ic795022.png
+[17]: ./media/aws-multi-accounts-tutorial/ic795023.png
+[18]: ./media/aws-multi-accounts-tutorial/ic795024.png
+[19]: ./media/aws-multi-accounts-tutorial/ic795025.png
+[32]: ./media/aws-multi-accounts-tutorial/ic7950251.png
+[33]: ./media/aws-multi-accounts-tutorial/ic7950252.png
+[35]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning.png
+[34]: ./media/aws-multi-accounts-tutorial/ic7950253.png
+[36]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_securitycredentials.png
+[37]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_securitycredentials_continue.png
+[38]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_createnewaccesskey.png
+[39]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
+[40]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
+[41]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_on.png
 

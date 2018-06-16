@@ -228,16 +228,16 @@ Go to Asana login page. In the Email address textbox, insert the email address b
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-asana-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-asana-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-asana-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-asana-tutorial/tutorial_general_04.png
+[1]: ./media/asana-tutorial/tutorial_general_01.png
+[2]: ./media/asana-tutorial/tutorial_general_02.png
+[3]: ./media/asana-tutorial/tutorial_general_03.png
+[4]: ./media/asana-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-asana-tutorial/tutorial_general_100.png
+[100]: ./media/asana-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-asana-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-asana-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-asana-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-asana-tutorial/tutorial_general_203.png
-[10]: ./media/active-directory-saas-asana-tutorial/tutorial_general_060.png
-[11]: ./media/active-directory-saas-asana-tutorial/tutorial_general_070.png
+[200]: ./media/asana-tutorial/tutorial_general_200.png
+[201]: ./media/asana-tutorial/tutorial_general_201.png
+[202]: ./media/asana-tutorial/tutorial_general_202.png
+[203]: ./media/asana-tutorial/tutorial_general_203.png
+[10]: ./media/asana-tutorial/tutorial_general_060.png
+[11]: ./media/asana-tutorial/tutorial_general_070.png

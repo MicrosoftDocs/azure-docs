@@ -246,14 +246,14 @@ When you click the Zscaler Private Access (ZPA) tile in the Access Panel, you sh
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_04.png
+[1]: ./media/zscalerprivateaccess-tutorial/tutorial_general_01.png
+[2]: ./media/zscalerprivateaccess-tutorial/tutorial_general_02.png
+[3]: ./media/zscalerprivateaccess-tutorial/tutorial_general_03.png
+[4]: ./media/zscalerprivateaccess-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_100.png
+[100]: ./media/zscalerprivateaccess-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_203.png
+[200]: ./media/zscalerprivateaccess-tutorial/tutorial_general_200.png
+[201]: ./media/zscalerprivateaccess-tutorial/tutorial_general_201.png
+[202]: ./media/zscalerprivateaccess-tutorial/tutorial_general_202.png
+[203]: ./media/zscalerprivateaccess-tutorial/tutorial_general_203.png

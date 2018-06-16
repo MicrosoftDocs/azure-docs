@@ -246,16 +246,16 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_04.png
-[21]:./media/active-directory-saas-workfront-tutorial/tutorial_attask_08.png
-[23]:./media/active-directory-saas-workfront-tutorial/tutorial_attask_06.png
-[100]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_100.png
+[1]: ./media/workfront-tutorial/tutorial_general_01.png
+[2]: ./media/workfront-tutorial/tutorial_general_02.png
+[3]: ./media/workfront-tutorial/tutorial_general_03.png
+[4]: ./media/workfront-tutorial/tutorial_general_04.png
+[21]:./media/workfront-tutorial/tutorial_attask_08.png
+[23]:./media/workfront-tutorial/tutorial_attask_06.png
+[100]: ./media/workfront-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_203.png
+[200]: ./media/workfront-tutorial/tutorial_general_200.png
+[201]: ./media/workfront-tutorial/tutorial_general_201.png
+[202]: ./media/workfront-tutorial/tutorial_general_202.png
+[203]: ./media/workfront-tutorial/tutorial_general_203.png
 

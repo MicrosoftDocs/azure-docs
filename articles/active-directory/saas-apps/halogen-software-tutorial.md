@@ -263,24 +263,24 @@ When you click the Halogen Software tile in the Access Panel, you should get aut
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_general_04.png
+[1]: ./media/halogen-software-tutorial/tutorial_general_01.png
+[2]: ./media/halogen-software-tutorial/tutorial_general_02.png
+[3]: ./media/halogen-software-tutorial/tutorial_general_03.png
+[4]: ./media/halogen-software-tutorial/tutorial_general_04.png
 
-[12]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_12.png
+[12]: ./media/halogen-software-tutorial/tutorial_halogen_12.png
 
-[13]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_13.png
+[13]: ./media/halogen-software-tutorial/tutorial_halogen_13.png
 
-[14]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_14.png
+[14]: ./media/halogen-software-tutorial/tutorial_halogen_14.png
 
-[100]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_general_100.png
+[100]: ./media/halogen-software-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_general_203.png
+[200]: ./media/halogen-software-tutorial/tutorial_general_200.png
+[201]: ./media/halogen-software-tutorial/tutorial_general_201.png
+[202]: ./media/halogen-software-tutorial/tutorial_general_202.png
+[203]: ./media/halogen-software-tutorial/tutorial_general_203.png
 
-[300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
+[300]: ./media/halogen-software-tutorial/tutorial_halogen_300.png
 
-[301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
+[301]: ./media/halogen-software-tutorial/tutorial_halogen_301.png

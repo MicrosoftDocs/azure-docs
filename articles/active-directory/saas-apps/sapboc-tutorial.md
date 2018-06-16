@@ -283,15 +283,15 @@ For more information about the access panel, see [Introduction to the access pan
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_04.png
+[1]: ./media/sapboc-tutorial/tutorial_general_01.png
+[2]: ./media/sapboc-tutorial/tutorial_general_02.png
+[3]: ./media/sapboc-tutorial/tutorial_general_03.png
+[4]: ./media/sapboc-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_100.png
+[100]: ./media/sapboc-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_203.png
+[200]: ./media/sapboc-tutorial/tutorial_general_200.png
+[201]: ./media/sapboc-tutorial/tutorial_general_201.png
+[202]: ./media/sapboc-tutorial/tutorial_general_202.png
+[203]: ./media/sapboc-tutorial/tutorial_general_203.png
 

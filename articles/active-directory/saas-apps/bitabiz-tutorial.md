@@ -278,15 +278,15 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-bitabiz-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-bitabiz-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-bitabiz-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-bitabiz-tutorial/tutorial_general_04.png
+[1]: ./media/bitabiz-tutorial/tutorial_general_01.png
+[2]: ./media/bitabiz-tutorial/tutorial_general_02.png
+[3]: ./media/bitabiz-tutorial/tutorial_general_03.png
+[4]: ./media/bitabiz-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-bitabiz-tutorial/tutorial_general_100.png
+[100]: ./media/bitabiz-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-bitabiz-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-bitabiz-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-bitabiz-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-bitabiz-tutorial/tutorial_general_203.png
+[200]: ./media/bitabiz-tutorial/tutorial_general_200.png
+[201]: ./media/bitabiz-tutorial/tutorial_general_201.png
+[202]: ./media/bitabiz-tutorial/tutorial_general_202.png
+[203]: ./media/bitabiz-tutorial/tutorial_general_203.png
 

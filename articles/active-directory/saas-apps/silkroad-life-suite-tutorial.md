@@ -277,22 +277,22 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_04.png
+[1]: ./media/silkroad-life-suite-tutorial/tutorial_general_01.png
+[2]: ./media/silkroad-life-suite-tutorial/tutorial_general_02.png
+[3]: ./media/silkroad-life-suite-tutorial/tutorial_general_03.png
+[4]: ./media/silkroad-life-suite-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_100.png
+[100]: ./media/silkroad-life-suite-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_203.png
-[10]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_06.png
-[11]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_07.png
-[12]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_08.png
-[13]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_09.png
-[14]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_10.png
-[15]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_11.png
-[16]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_12.png
-[17]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_13.png
+[200]: ./media/silkroad-life-suite-tutorial/tutorial_general_200.png
+[201]: ./media/silkroad-life-suite-tutorial/tutorial_general_201.png
+[202]: ./media/silkroad-life-suite-tutorial/tutorial_general_202.png
+[203]: ./media/silkroad-life-suite-tutorial/tutorial_general_203.png
+[10]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png
+[11]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png
+[12]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png
+[13]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png
+[14]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png
+[15]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png
+[16]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png
+[17]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png

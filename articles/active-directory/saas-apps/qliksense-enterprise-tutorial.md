@@ -325,35 +325,35 @@ When you click the Qlik Sense Enterprise tile in the Access Panel, you should ge
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_04.png
+[1]: ./media/qliksense-enterprise-tutorial/tutorial_general_01.png
+[2]: ./media/qliksense-enterprise-tutorial/tutorial_general_02.png
+[3]: ./media/qliksense-enterprise-tutorial/tutorial_general_03.png
+[4]: ./media/qliksense-enterprise-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_100.png
+[100]: ./media/qliksense-enterprise-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_203.png
+[200]: ./media/qliksense-enterprise-tutorial/tutorial_general_200.png
+[201]: ./media/qliksense-enterprise-tutorial/tutorial_general_201.png
+[202]: ./media/qliksense-enterprise-tutorial/tutorial_general_202.png
+[203]: ./media/qliksense-enterprise-tutorial/tutorial_general_203.png
 
-[qs6]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_06.png
-[qs7]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_07.png
-[qs8]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_08.png
-[qs9]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_09.png
-[qs10]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_10.png
-[qs11]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_11.png
-[qs12]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_12.png
-[qs13]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_13.png
-[qs14]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_14.png
-[qs15]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_15.png
-[qs16]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_16.png
-[qs17]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_17.png
-[qs18]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_18.png
-[qs19]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_19.png
-[qs20]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_20.png
-[qs24]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_24.png
-[qs51]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_51.png
-[qs52]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_52.png
-[qs53]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_53.png
+[qs6]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_06.png
+[qs7]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_07.png
+[qs8]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_08.png
+[qs9]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_09.png
+[qs10]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_10.png
+[qs11]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_11.png
+[qs12]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_12.png
+[qs13]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_13.png
+[qs14]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_14.png
+[qs15]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_15.png
+[qs16]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_16.png
+[qs17]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_17.png
+[qs18]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_18.png
+[qs19]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_19.png
+[qs20]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_20.png
+[qs24]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_24.png
+[qs51]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_51.png
+[qs52]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_52.png
+[qs53]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_53.png
 

@@ -210,15 +210,15 @@ When you click the TiViTz tile in the Access Panel, you should get automatically
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-tivitz-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-tivitz-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-tivitz-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-tivitz-tutorial/tutorial_general_04.png
+[1]: ./media/tivitz-tutorial/tutorial_general_01.png
+[2]: ./media/tivitz-tutorial/tutorial_general_02.png
+[3]: ./media/tivitz-tutorial/tutorial_general_03.png
+[4]: ./media/tivitz-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-tivitz-tutorial/tutorial_general_100.png
+[100]: ./media/tivitz-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-tivitz-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-tivitz-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-tivitz-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-tivitz-tutorial/tutorial_general_203.png
+[200]: ./media/tivitz-tutorial/tutorial_general_200.png
+[201]: ./media/tivitz-tutorial/tutorial_general_201.png
+[202]: ./media/tivitz-tutorial/tutorial_general_202.png
+[203]: ./media/tivitz-tutorial/tutorial_general_203.png
 

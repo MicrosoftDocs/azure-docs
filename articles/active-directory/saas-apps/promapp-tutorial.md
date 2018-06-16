@@ -246,18 +246,18 @@ To test your application in **SP** initiated mode, you will need to initiate the
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_04.png
-[12]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_05.png
-[13]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_06.png
-[14]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_07.png
+[1]: ./media/promapp-tutorial/tutorial_general_01.png
+[2]: ./media/promapp-tutorial/tutorial_general_02.png
+[3]: ./media/promapp-tutorial/tutorial_general_03.png
+[4]: ./media/promapp-tutorial/tutorial_general_04.png
+[12]: ./media/promapp-tutorial/tutorial_promapp_05.png
+[13]: ./media/promapp-tutorial/tutorial_promapp_06.png
+[14]: ./media/promapp-tutorial/tutorial_promapp_07.png
 
-[100]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_100.png
+[100]: ./media/promapp-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_203.png
+[200]: ./media/promapp-tutorial/tutorial_general_200.png
+[201]: ./media/promapp-tutorial/tutorial_general_201.png
+[202]: ./media/promapp-tutorial/tutorial_general_202.png
+[203]: ./media/promapp-tutorial/tutorial_general_203.png
 

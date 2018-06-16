@@ -212,16 +212,16 @@ When you click the **IBM Kenexa Survey Enterprise** tile in the Access Panel, yo
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_04.png
+[1]: ./media/kenexasurvey-tutorial/tutorial_general_01.png
+[2]: ./media/kenexasurvey-tutorial/tutorial_general_02.png
+[3]: ./media/kenexasurvey-tutorial/tutorial_general_03.png
+[4]: ./media/kenexasurvey-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_100.png
+[100]: ./media/kenexasurvey-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_203.png
+[200]: ./media/kenexasurvey-tutorial/tutorial_general_200.png
+[201]: ./media/kenexasurvey-tutorial/tutorial_general_201.png
+[202]: ./media/kenexasurvey-tutorial/tutorial_general_202.png
+[203]: ./media/kenexasurvey-tutorial/tutorial_general_203.png
 
  

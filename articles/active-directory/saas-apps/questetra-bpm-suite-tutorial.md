@@ -259,19 +259,19 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_04.png
-[10]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/questera_bpm_suite_03.png
-[11]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/questera_bpm_suite_04.png
-[15]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/questera_bpm_suite_08.png
+[1]: ./media/questetra-bpm-suite-tutorial/tutorial_general_01.png
+[2]: ./media/questetra-bpm-suite-tutorial/tutorial_general_02.png
+[3]: ./media/questetra-bpm-suite-tutorial/tutorial_general_03.png
+[4]: ./media/questetra-bpm-suite-tutorial/tutorial_general_04.png
+[10]: ./media/questetra-bpm-suite-tutorial/questera_bpm_suite_03.png
+[11]: ./media/questetra-bpm-suite-tutorial/questera_bpm_suite_04.png
+[15]: ./media/questetra-bpm-suite-tutorial/questera_bpm_suite_08.png
 
-[100]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_100.png
+[100]: ./media/questetra-bpm-suite-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_203.png
-[300]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/questera_bpm_suite_11.png 
+[200]: ./media/questetra-bpm-suite-tutorial/tutorial_general_200.png
+[201]: ./media/questetra-bpm-suite-tutorial/tutorial_general_201.png
+[202]: ./media/questetra-bpm-suite-tutorial/tutorial_general_202.png
+[203]: ./media/questetra-bpm-suite-tutorial/tutorial_general_203.png
+[300]: ./media/questetra-bpm-suite-tutorial/questera_bpm_suite_11.png 
 

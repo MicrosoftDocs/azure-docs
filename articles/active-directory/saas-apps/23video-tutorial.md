@@ -233,18 +233,18 @@ When you click the 23 Video tile in the Access Panel, you should get automatical
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-23video-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-23video-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-23video-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-23video-tutorial/tutorial_general_04.png
+[1]: ./media/23video-tutorial/tutorial_general_01.png
+[2]: ./media/23video-tutorial/tutorial_general_02.png
+[3]: ./media/23video-tutorial/tutorial_general_03.png
+[4]: ./media/23video-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-23video-tutorial/tutorial_general_100.png
+[100]: ./media/23video-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-23video-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-23video-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-23video-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-23video-tutorial/tutorial_general_203.png
+[200]: ./media/23video-tutorial/tutorial_general_200.png
+[201]: ./media/23video-tutorial/tutorial_general_201.png
+[202]: ./media/23video-tutorial/tutorial_general_202.png
+[203]: ./media/23video-tutorial/tutorial_general_203.png
 
-[400]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_10.png
-[401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
-[402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
+[400]: ./media/23video-tutorial/tutorial_23video_10.png
+[401]: ./media/23video-tutorial/tutorial_23video_11.png
+[402]: ./media/23video-tutorial/tutorial_23video_12.png

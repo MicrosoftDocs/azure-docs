@@ -309,22 +309,22 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_04.png
+[1]: ./media/successfactors-tutorial/tutorial_general_01.png
+[2]: ./media/successfactors-tutorial/tutorial_general_02.png
+[3]: ./media/successfactors-tutorial/tutorial_general_03.png
+[4]: ./media/successfactors-tutorial/tutorial_general_04.png
 
-[11]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_07.png
-[12]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_08.png
-[13]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_09.png
-[14]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_05.png
-[15]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_06.png
-[29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
+[11]: ./media/successfactors-tutorial/tutorial_successfactors_07.png
+[12]: ./media/successfactors-tutorial/tutorial_successfactors_08.png
+[13]: ./media/successfactors-tutorial/tutorial_successfactors_09.png
+[14]: ./media/successfactors-tutorial/tutorial_general_05.png
+[15]: ./media/successfactors-tutorial/tutorial_general_06.png
+[29]: ./media/successfactors-tutorial/tutorial_successfactors_10.png
 
-[100]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_100.png
+[100]: ./media/successfactors-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_203.png
+[200]: ./media/successfactors-tutorial/tutorial_general_200.png
+[201]: ./media/successfactors-tutorial/tutorial_general_201.png
+[202]: ./media/successfactors-tutorial/tutorial_general_202.png
+[203]: ./media/successfactors-tutorial/tutorial_general_203.png
 

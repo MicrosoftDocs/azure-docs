@@ -237,17 +237,17 @@ When you click the QuickHelp tile in the Access Panel, you should get automatica
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_04.png
+[1]: ./media/quickhelp-tutorial/tutorial_general_01.png
+[2]: ./media/quickhelp-tutorial/tutorial_general_02.png
+[3]: ./media/quickhelp-tutorial/tutorial_general_03.png
+[4]: ./media/quickhelp-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_100.png
+[100]: ./media/quickhelp-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_203.png
-[21]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_05.png
-[22]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_06.png
-[23]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_07.png
+[200]: ./media/quickhelp-tutorial/tutorial_general_200.png
+[201]: ./media/quickhelp-tutorial/tutorial_general_201.png
+[202]: ./media/quickhelp-tutorial/tutorial_general_202.png
+[203]: ./media/quickhelp-tutorial/tutorial_general_203.png
+[21]: ./media/quickhelp-tutorial/tutorial_quickhelp_05.png
+[22]: ./media/quickhelp-tutorial/tutorial_quickhelp_06.png
+[23]: ./media/quickhelp-tutorial/tutorial_quickhelp_07.png

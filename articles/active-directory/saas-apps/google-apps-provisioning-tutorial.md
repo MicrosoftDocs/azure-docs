@@ -180,14 +180,14 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 <!--Image references-->
 
-[10]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-security.png
-[15]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-api.png
-[16]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-api-enabled.png
-[20]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-domains.png
-[21]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-add-domain.png
-[22]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-add-another.png
-[24]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-provisioning.png
-[25]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-provisioning-auth.png
-[26]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-admin.png
-[27]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-admin-privileges.png
-[28]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-auth.png
+[10]: ./media/google-apps-provisioning-tutorial/gapps-security.png
+[15]: ./media/google-apps-provisioning-tutorial/gapps-api.png
+[16]: ./media/google-apps-provisioning-tutorial/gapps-api-enabled.png
+[20]: ./media/google-apps-provisioning-tutorial/gapps-domains.png
+[21]: ./media/google-apps-provisioning-tutorial/gapps-add-domain.png
+[22]: ./media/google-apps-provisioning-tutorial/gapps-add-another.png
+[24]: ./media/google-apps-provisioning-tutorial/gapps-provisioning.png
+[25]: ./media/google-apps-provisioning-tutorial/gapps-provisioning-auth.png
+[26]: ./media/google-apps-provisioning-tutorial/gapps-admin.png
+[27]: ./media/google-apps-provisioning-tutorial/gapps-admin-privileges.png
+[28]: ./media/google-apps-provisioning-tutorial/gapps-auth.png

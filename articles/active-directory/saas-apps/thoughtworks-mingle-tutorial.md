@@ -246,15 +246,15 @@ When you click the Thoughtworks Mingle tile in the Access Panel, you should get 
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_04.png
+[1]: ./media/thoughtworks-mingle-tutorial/tutorial_general_01.png
+[2]: ./media/thoughtworks-mingle-tutorial/tutorial_general_02.png
+[3]: ./media/thoughtworks-mingle-tutorial/tutorial_general_03.png
+[4]: ./media/thoughtworks-mingle-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_100.png
+[100]: ./media/thoughtworks-mingle-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_203.png
+[200]: ./media/thoughtworks-mingle-tutorial/tutorial_general_200.png
+[201]: ./media/thoughtworks-mingle-tutorial/tutorial_general_201.png
+[202]: ./media/thoughtworks-mingle-tutorial/tutorial_general_202.png
+[203]: ./media/thoughtworks-mingle-tutorial/tutorial_general_203.png
 

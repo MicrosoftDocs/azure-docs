@@ -264,15 +264,15 @@ When you click the SkyDesk Email tile in the Access Panel, you should get automa
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_04.png
+[1]: ./media/skydeskemail-tutorial/tutorial_general_01.png
+[2]: ./media/skydeskemail-tutorial/tutorial_general_02.png
+[3]: ./media/skydeskemail-tutorial/tutorial_general_03.png
+[4]: ./media/skydeskemail-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_100.png
+[100]: ./media/skydeskemail-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_203.png
+[200]: ./media/skydeskemail-tutorial/tutorial_general_200.png
+[201]: ./media/skydeskemail-tutorial/tutorial_general_201.png
+[202]: ./media/skydeskemail-tutorial/tutorial_general_202.png
+[203]: ./media/skydeskemail-tutorial/tutorial_general_203.png
 

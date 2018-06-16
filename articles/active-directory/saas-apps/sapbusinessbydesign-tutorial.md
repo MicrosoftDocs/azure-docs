@@ -262,15 +262,15 @@ When you click the SAP Business ByDesign tile in the Access Panel, you should ge
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_04.png
+[1]: ./media/sapbusinessbydesign-tutorial/tutorial_general_01.png
+[2]: ./media/sapbusinessbydesign-tutorial/tutorial_general_02.png
+[3]: ./media/sapbusinessbydesign-tutorial/tutorial_general_03.png
+[4]: ./media/sapbusinessbydesign-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_100.png
+[100]: ./media/sapbusinessbydesign-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_203.png
+[200]: ./media/sapbusinessbydesign-tutorial/tutorial_general_200.png
+[201]: ./media/sapbusinessbydesign-tutorial/tutorial_general_201.png
+[202]: ./media/sapbusinessbydesign-tutorial/tutorial_general_202.png
+[203]: ./media/sapbusinessbydesign-tutorial/tutorial_general_203.png
 

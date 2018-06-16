@@ -234,18 +234,18 @@ When you click the Workrite tile in the Access Panel, you should get automatical
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_04.png
+[1]: ./media/workrite-tutorial/tutorial_general_01.png
+[2]: ./media/workrite-tutorial/tutorial_general_02.png
+[3]: ./media/workrite-tutorial/tutorial_general_03.png
+[4]: ./media/workrite-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_100.png
+[100]: ./media/workrite-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_203.png
-[400]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_400.png
-[401]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_401.png
-[402]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_402.png
+[200]: ./media/workrite-tutorial/tutorial_general_200.png
+[201]: ./media/workrite-tutorial/tutorial_general_201.png
+[202]: ./media/workrite-tutorial/tutorial_general_202.png
+[203]: ./media/workrite-tutorial/tutorial_general_203.png
+[400]: ./media/workrite-tutorial/tutorial_workrite_400.png
+[401]: ./media/workrite-tutorial/tutorial_workrite_401.png
+[402]: ./media/workrite-tutorial/tutorial_workrite_402.png
 

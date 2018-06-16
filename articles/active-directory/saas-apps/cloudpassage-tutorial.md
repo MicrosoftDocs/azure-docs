@@ -287,22 +287,22 @@ When you click the CloudPassage tile in the Access Panel, you should get automat
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_04.png
-[12]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_07.png
-[13]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_08.png
-[14]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_09.png
-[15]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_10.png
-[22]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_15.png
-[23]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_16.png
-[24]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_17.png
+[1]: ./media/cloudpassage-tutorial/tutorial_general_01.png
+[2]: ./media/cloudpassage-tutorial/tutorial_general_02.png
+[3]: ./media/cloudpassage-tutorial/tutorial_general_03.png
+[4]: ./media/cloudpassage-tutorial/tutorial_general_04.png
+[12]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_07.png
+[13]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_08.png
+[14]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_09.png
+[15]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_10.png
+[22]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_15.png
+[23]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_16.png
+[24]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_17.png
 
-[100]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_100.png
+[100]: ./media/cloudpassage-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_203.png
+[200]: ./media/cloudpassage-tutorial/tutorial_general_200.png
+[201]: ./media/cloudpassage-tutorial/tutorial_general_201.png
+[202]: ./media/cloudpassage-tutorial/tutorial_general_202.png
+[203]: ./media/cloudpassage-tutorial/tutorial_general_203.png
 

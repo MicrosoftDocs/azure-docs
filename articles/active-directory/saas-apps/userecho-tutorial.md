@@ -269,15 +269,15 @@ When you click the UserEcho tile in the Access Panel, you should get automatical
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_04.png
+[1]: ./media/userecho-tutorial/tutorial_general_01.png
+[2]: ./media/userecho-tutorial/tutorial_general_02.png
+[3]: ./media/userecho-tutorial/tutorial_general_03.png
+[4]: ./media/userecho-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_100.png
+[100]: ./media/userecho-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_203.png
+[200]: ./media/userecho-tutorial/tutorial_general_200.png
+[201]: ./media/userecho-tutorial/tutorial_general_201.png
+[202]: ./media/userecho-tutorial/tutorial_general_202.png
+[203]: ./media/userecho-tutorial/tutorial_general_203.png
 

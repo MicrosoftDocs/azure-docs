@@ -268,25 +268,25 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_04.png
-[51]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_21.png
-[52]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_22.png
-[53]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_23.png
-[54]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_19.png
-[55]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_20.png
-[56]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_24.png
-[57]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_25.png
-[58]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_26.png
-[59]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_27.png
-[60]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_28.png
-[61]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_29.png
-[100]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_100.png
+[1]: ./media/docusign-tutorial/tutorial_general_01.png
+[2]: ./media/docusign-tutorial/tutorial_general_02.png
+[3]: ./media/docusign-tutorial/tutorial_general_03.png
+[4]: ./media/docusign-tutorial/tutorial_general_04.png
+[51]: ./media/docusign-tutorial/tutorial_docusign_21.png
+[52]: ./media/docusign-tutorial/tutorial_docusign_22.png
+[53]: ./media/docusign-tutorial/tutorial_docusign_23.png
+[54]: ./media/docusign-tutorial/tutorial_docusign_19.png
+[55]: ./media/docusign-tutorial/tutorial_docusign_20.png
+[56]: ./media/docusign-tutorial/tutorial_docusign_24.png
+[57]: ./media/docusign-tutorial/tutorial_docusign_25.png
+[58]: ./media/docusign-tutorial/tutorial_docusign_26.png
+[59]: ./media/docusign-tutorial/tutorial_docusign_27.png
+[60]: ./media/docusign-tutorial/tutorial_docusign_28.png
+[61]: ./media/docusign-tutorial/tutorial_docusign_29.png
+[100]: ./media/docusign-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_203.png
+[200]: ./media/docusign-tutorial/tutorial_general_200.png
+[201]: ./media/docusign-tutorial/tutorial_general_201.png
+[202]: ./media/docusign-tutorial/tutorial_general_202.png
+[203]: ./media/docusign-tutorial/tutorial_general_203.png
 
