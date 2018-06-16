@@ -56,11 +56,11 @@ To complete the quickstart, you need to install [Visual Studio 2017](https://www
 
     f. Select **OK**.
    
-    g. Select **MVC** as the project type.
+3. Select **MVC** as the project type.
 
-    h. Make sure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default **Authentication** setting might be something else. To change it, select **Change Authentication** and then **No Authentication**.
+4. Make sure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default **Authentication** setting might be something else. To change it, select **Change Authentication** and then **No Authentication**.
 
-    i. Select **OK** to create the project.
+5. Select **OK** to create the project.
 
 ## Create a cache
 
@@ -274,8 +274,8 @@ After you successfully test the app locally, you can deploy the app to Azure and
 
     | Setting | Recommended value | Description |
     | ------- | :---------------: | ----------- |
-    | **App name** | Use default | The app name is the host name for the app when it's deployed to Azure. The name might have a timestamp suffix added to it to make it unique if necessary. |
-    | **Subscription** | Choose your Azure subscription | This subscription is charged for any related hosting costs. If you have multiple Azure subscriptions, verify that the subscription that you want is selected.|
+    | **App name** | Use the default. | The app name is the host name for the app when it's deployed to Azure. The name might have a timestamp suffix added to it to make it unique if necessary. |
+    | **Subscription** | Choose your Azure subscription. | This subscription is charged for any related hosting costs. If you have multiple Azure subscriptions, verify that the subscription that you want is selected.|
     | **Resource group** | Use the same resource group where you created the cache (for example, *TestResourceGroup*). | The resource group helps you manage all resources as a group. Later, when you want to delete the app, you can just delete the group. |
     | **App Service plan** | Select **New**, and then create a new App Service plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
 
@@ -283,7 +283,7 @@ After you successfully test the app locally, you can deploy the app to Azure and
 
 4. After you configure the App Service hosting settings, select **Create**.
 
-5. Monitor the **Output** window in Visual Studio to see the publishing status. After the app has been published, the URL for the app is logged as shown below:
+5. Monitor the **Output** window in Visual Studio to see the publishing status. After the app has been published, the URL for the app is logged:
 
     ![Publishing output](./media/cache-web-app-howto/cache-publishing-output.png)
 
