@@ -114,7 +114,7 @@ Heres a summary of the HA/DR options presented in this article which can be used
 | --- | --- | --- | --- | --- | --- | --- |
 | Microsoft initiated failover |2 - 26 hours|Refer RPO table above|No|None|None
 | Manual failover |10 min - 2 hours|Refer RPO table above|Yes|Very low. You only need to trigger this operation from the portal.|None
-| Cross region HA |< 1 min|Depends on the replication frequency of your custom HA solution|No|High|2x
+| Cross region HA |< 1 min|Depends on the replication frequency of your custom HA solution|No|High|>2x the cost of 1 IoT hub 
 
 ## Next steps
 Follow these links to learn more about Azure IoT Hub:
