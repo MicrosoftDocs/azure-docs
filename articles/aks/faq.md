@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 6/08/2018
+ms.date: 6/15/2018
 ms.author: nepeters
 ---
 
