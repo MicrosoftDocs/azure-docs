@@ -8,13 +8,13 @@ ms.author: jmartens
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 02/28/2018
+ms.date: 07/27/2018
 ---
 
-If you're not going to continue to use this app, delete all resources created by this quickstart with the following steps so you don't incur any charges:
+If you're not going to continue to use what you've created here, delete all resources created by this quickstart with the following steps so you don't incur any charges:
 
->[!NOTE]
->These resources are useful when following the other Azure Machine Learning services tutorials now.
+>[!IMPORTANT]
+>The resources you created can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. 
 
 1. In the Azure portal, select **Resource groups** on the far left.  
  
