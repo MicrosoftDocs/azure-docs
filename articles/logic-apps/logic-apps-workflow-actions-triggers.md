@@ -2678,7 +2678,7 @@ choose the ellipses (...) button, and then choose **Settings**.
 
 By default, logic app instances run at the same time, concurrently, or in parallel 
 up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
-Each trigger instance fires before the previously active logic app instance finishes running.  
+Each trigger instance fires before the previously active logic app instance finishes running. 
 Although you can [change this default limit](#change-trigger-concurrency), 
 when the number of logic app instances reaches the new concurrency limit, 
 any other new instances must wait to run. 
