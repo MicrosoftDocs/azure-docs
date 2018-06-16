@@ -191,6 +191,30 @@ Azure File Sync is available only in the following regions in preview:
 
 In preview, we support syncing only with an Azure file share that's in the same region as the Storage Sync Service.
 
+### Azure disaster recovery
+To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will fail over storage to the paired region. 
+
+To support the failover integration between geo-redundant storage and Azure File Sync, all Azure File Sync regions are paired with a secondary region that matches the secondary region used by storage. These pairs are as follows:
+
+| Primary region      | Paired Region      |
+|---------------------|--------------------|
+| Australia East      | Australia Southest |
+| Australia Southeast | Australia East     |
+| Canada Central      | Canada East        |
+| Canada East         | Canada Central     |
+| Central US          | East US 2          |
+| Central US EUAP     | East US 2 EUAP     |
+| East Asia           | Southeast Asia     |
+| East US             | West US            |
+| East US 2           | Central US         |
+| East US 2 EUAP      | Central US EUAP    |
+| North Europe        | West Europe        |
+| Southeast Asia      | East Asia          |
+| UK South            | UK West            |
+| UK West             | UK South           |
+| West Europe         | North Europe       |
+| West US             | East US            |
+
 ## Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
