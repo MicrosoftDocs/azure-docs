@@ -1,14 +1,15 @@
 ---
 title: Use the Azure Data Lake Storage URI
-description: 
+description: Use the Azure Data Lake Storage URI
 services: storage
 keywords: 
 author: jamesbak
 ms.topic: article
 ms.author: jamesbak
 manager: jahogg
-ms.date: 06/01/2018
+ms.date: 06/27/2018
 ms.service: storage
+ms.component: data-lake-storage-gen2
 ---
 
 # Use the Azure Data Lake Storage Gen2 URI

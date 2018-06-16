@@ -12,8 +12,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/27/2018
 ms.author: jamesbak
+ms.component: data-lake-storage-gen2
 ---
 
 # Azure Data Lake Storage Gen2 Hierarchical Namespace Service

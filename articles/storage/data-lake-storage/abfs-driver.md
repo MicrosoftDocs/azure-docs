@@ -1,14 +1,15 @@
 ---
 title: The ABFS Hadoop File System Driver
-description: 
+description: The ABFS Hadoop File System Driver
 services: storage
 keywords: 
 author: jamesbak
 ms.topic: article
 ms.author: jamesbak
 manager: jahogg
-ms.date: 06/01/2018
+ms.date: 06/27/2018
 ms.service: storage
+ms.component: data-lake-storage-gen2
 ---
 
 # The ABFS Hadoop File System Driver
