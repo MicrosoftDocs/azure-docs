@@ -144,7 +144,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Cornerstone OnDemand.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./../../active-directory-saas-provisioning-reporting.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
 ## Connector Limitations
 
 * The Cornerstone OnDemand **Position** attribute expects a value that corresponds to the roles on the Cornerstone OnDemand portal. The list of valid **Position** values can be obtained by navigating to **Edit User Record > Organization Structure > Position** in the Cornerstone OnDemand portal.
@@ -161,7 +161,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../../active-directory-saas-provisioning-reporting.md)
+* [Learn how to review logs and get reports on provisioning activity](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/cornerstone-ondemand-provisioning-tutorial/tutorial_general_01.png
