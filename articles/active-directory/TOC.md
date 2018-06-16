@@ -302,7 +302,7 @@
 ##### [Problem signing into a Microsoft app](application-sign-in-problem-first-party-microsoft.md)
 ##### [Problem with federated single sign-on - non-gallery app](application-sign-in-problem-federated-sso-non-gallery.md)
 ##### [Problem with federated single sign-on - gallery app](application-sign-in-problem-federated-sso-gallery.md)
-##### [Problem with custom-developed app](application-sign-in-problem-custom -dev.md)
+##### [Problem with custom-developed app](application-sign-in-problem-custom-dev.md)
 ##### [Problem with on-premises app - Application Proxy](application-sign-in-problem-on-premises-application-proxy.md)
 
 #### Provisioning
