@@ -88,7 +88,7 @@ az extension add <EXACT COMMAND TBD>
     ```
 
     >[!NOTE]
-    >When the workspace is created, four resources are automatically added to your account for your convenience. They are [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
+   >For your convenience, these resources are added automatically to the workspace, if regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
 
 
 ## Attach a project
