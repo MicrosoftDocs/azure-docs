@@ -227,14 +227,14 @@ Even when using the storage emulator for development, you may want to test with 
     
     Both commands require you to first sign in to Azure.
 
-<a name="create-func"></a>
-## Create a function
+## <a name="create-func"></a>Create a function
 
 To create a function, run the following command:
 
 ```bash
 func new
-``` 
+```
+
 `func new` supports the following optional arguments:
 
 | Argument     | Description                            |
@@ -253,9 +253,9 @@ To create a queue-triggered function, run:
 
 ```bash
 func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```bash
-<a name="start"></a>
-## Run functions locally
+```
+
+## <a name="start"></a>Run functions locally
 
 To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
@@ -268,12 +268,12 @@ func host start
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 |**`--port -p`** | The local port to listen on. Default value: 7071. |
-| **`--debug <type>`** | The options are `VSCode` and `VS`. |
+| **`--debug <type>`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from Visual Studio Code or Visual Studio. The options are `VSCode` and `VS`.  |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
 | **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
 | **`--debugLevel -d`** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
-| **`--useHttps`** | Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.|
+| **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
 | **`--pause-on-error`** | Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).|
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
@@ -285,25 +285,6 @@ Host.Functions.MyHttpTrigger
 Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
-
-### <a name="vs-debug"></a>Debug in VS Code or Visual Studio
-
-To attach a debugger, pass the `--debug` argument. To debug JavaScript functions, use Visual Studio Code. For C# functions, use Visual Studio.
-
-To debug C# functions, use `--debug vs`. You can also use [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/). 
-
-To launch the host and set up JavaScript debugging, run:
-
-```bash
-func host start --debug vscode
-```
-
-> [!IMPORTANT]
-> For debugging, only Node.js 8.x is supported. Node.js 9.x is not supported. 
-
-Then, in Visual Studio Code, in the **Debug** view, select **Attach to Azure Functions**. You can attach breakpoints, inspect variables, and step through code.
-
-![JavaScript debugging with Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
 
 ### Passing test data to a function
 
@@ -336,6 +317,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool.  
 
 #### Non-HTTP triggered functions
+
 For all kinds of functions other than HTTP triggers and webhooks, you can test your functions locally by calling an administration endpoint. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can optionally pass test data to the execution in the body of the POST request. This functionality is similar to the **Test** tab in the Azure portal.  
 
 You call the following administrator endpoint to trigger non-HTTP functions:
@@ -403,7 +385,8 @@ The `publish` command uploads the contents of the Functions project directory. I
 
 >[!IMPORTANT]  
 > When you create a function app in Azure, it uses version 1.x of the Function runtime by default. To make the function app use version 2.x of the runtime, add the application setting `FUNCTIONS_EXTENSION_VERSION=beta`.  
-Use the following Azure CLI code to add this setting to your function app: 
+Use the following Azure CLI code to add this setting to your function app:
+
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
@@ -413,7 +396,7 @@ az functionapp config appsettings set --name <function_app> \
 ## Next steps
 
 Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli).  
-To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues). 
+To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->
 
