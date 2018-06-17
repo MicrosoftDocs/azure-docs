@@ -70,7 +70,7 @@ For more information about Azure Resource Manager naming, see: [Naming requireme
 
 As a developer, you can use Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. Microsoft generates and supports the following client libraries: 
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [.NET languages](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
 * [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (Choose the **.NET CLI** tab)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)
