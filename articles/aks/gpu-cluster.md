@@ -133,6 +133,8 @@ In order to demonstrate the GPUs are indeed working, schedule a GPU enabled work
 
 The following job manifest includes a resource limit of `alpha.kubernetes.io/nvidia-gpu: 1`. The appropriate CUDA libraries and debug tools will be available on the node at `/usr/local/nvidia` and must be mounted into the pod using the appropriate volume specification as seen below.
 
+[!NOTE] Host drivers currently support CUDA 8.0. Using 9.0 and above will most likely throw a version mismatch error when calling into drivers, for example: `CUDA driver version is insufficient for CUDA runtime version`.
+
 Copy the manifest and save as **samples-tf-mnist-demo.yaml**.
 ```
 apiVersion: batch/v1
