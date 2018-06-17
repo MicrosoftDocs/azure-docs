@@ -37,6 +37,6 @@ Topics we recommend keeping in mind when proceeding through these evaluation and
 
 Azure Data Lake Storage Gen2 will be available as a limited public preview in June, with general availability in CY2018Q4. We invite you to participate in a private preview so you can begin evaluating Data Lake Storage Gen2 and provide feedback through the private yammer.
 
-## Next steps
+**Next steps**
 
 If you're interested, proceed to our [evaluation article](evaluation-comparison.md) to assess whether or not Data Lake Storage Gen2 is a good fit for you.
