@@ -15,7 +15,7 @@ ms.author: sujayt
 
 
 
-This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region.
+This article summarizes supported configurations and components when you replicate and recovering Azure virtual machines from one region to another region, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 ## User interface options
 
