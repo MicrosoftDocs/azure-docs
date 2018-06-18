@@ -6,7 +6,7 @@ services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: cfowler
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/25/2018
 

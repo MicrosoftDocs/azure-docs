@@ -1,21 +1,15 @@
 ---
 title: Understand Azure IoT Hub device-to-cloud messaging | Microsoft Docs
 description: Developer guide - how to use device-to-cloud messaging with IoT Hub. Includes information about sending both telemetry and non-telemtry data, and using routing to deliver messages.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-
 ---
+
 # Send device-to-cloud messages to IoT Hub
 
 To send time-series telemetry and alerts from your devices to your solution back end, send device-to-cloud messages from your device to your IoT hub. For a discussion of other device-to-cloud options supported by IoT Hub, see [Device-to-cloud communications guidance][lnk-d2c-guidance].
@@ -62,8 +56,8 @@ The **ConnectionAuthMethod** property contains a JSON serialized object, with th
 
 ```json
 {
-  "scope": "{ hub | device}",
-  "type": "{ symkey | sas}",
+  "scope": "{ hub | device }",
+  "type": "{ symkey | sas | x509 }",
   "issuer": "iothub"
 }
 ```
@@ -87,4 +81,4 @@ The [Get Started][lnk-get-started] tutorials show you how to send device-to-clou
 [lnk-compatible-endpoint]: iot-hub-devguide-messages-read-builtin.md
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md

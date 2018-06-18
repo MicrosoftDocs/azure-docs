@@ -18,10 +18,10 @@ ms.custom: it-pro
 
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
-This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" signup for a service, see [What is self-service signup for Azure Active Directory?]()
+This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" signup for a service, see [What is self-service signup for Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
 
 ## Decide how you want to take over an unmanaged directory
-During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
+During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](fundamentals/add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
 
 * When you perform an ["internal" admin takeover](#internal-admin-takeover) of an unmanaged Azure directory, you are added as the global administrator of the unmanaged directory. No users, domains, or service plans are migrated to any other directory you administer.
 
@@ -71,7 +71,7 @@ When you complete the preceding steps, you are now the global administrator of t
 
 ## External admin takeover
 
-If you already manage a tenant with Azure services or Office 365, you cannot add a custom domain name if it is already verified in another Azure AD tenant. However, from your managed tenant in Azure AD you can take over an unmanaged tenant as an external admin takeover. The general procedure follows the article [Add a custom domain to Azure AD](add-custom-domain.md).
+If you already manage a tenant with Azure services or Office 365, you cannot add a custom domain name if it is already verified in another Azure AD tenant. However, from your managed tenant in Azure AD you can take over an unmanaged tenant as an external admin takeover. The general procedure follows the article [Add a custom domain to Azure AD](fundamentals/add-custom-domain.md).
 
 When you verify ownership of the domain name, Azure AD removes the domain name from the unmanaged tenant and moves it to your existing tenant. External admin takeover of an unmanaged directory requires the same DNS TXT validation process as internal admin takeover. The difference is that the following are also moved over with the domain name:
 
@@ -163,7 +163,7 @@ cmdlet | Usage
 A successful challenge returns you to the prompt without an error.
 
 ## Next steps
-* [Add a custom domain name to Azure AD](add-custom-domain.md)
+* [Add a custom domain name to Azure AD](fundamentals/add-custom-domain.md)
 * [How to install and configure Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Cmdlet Reference](/powershell/azure/get-started-azureps)

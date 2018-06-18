@@ -91,5 +91,5 @@ Learn more about the Connected Factory solution accelerator by reading the follo
 
 [lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
-[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
-[lnk-faq]: ../iot-suite/iot-suite-v1-faq.md
+[lnk-permissions]: iot-accelerators-permissions.md
+[lnk-faq]: iot-accelerators-faq.md

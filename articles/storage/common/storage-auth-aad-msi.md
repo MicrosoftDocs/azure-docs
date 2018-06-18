@@ -47,7 +47,7 @@ The code example assumes that you have an MSI access token. The access token is 
 In Visual Studio, install the preview version of the Azure Storage client library. From the **Tools** menu, select **Nuget Package Manager**, then **Package Manager Console**. Type the following command into the console:
 
 ```
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0-Preview  
+Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0  
 ```
 
 Add the following using statements to your code:
@@ -69,9 +69,12 @@ StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
 ``` 
 
+> [!NOTE]
+> Azure AD integration with Azure Storage requires that you use HTTPS for Azure Storage operations.
+
 ## Next steps
 
 - To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
 - To learn how to authorize access to containers and queues from within your storage applications, see [Use Azure AD with storage applications](storage-auth-aad-app.md).
 - To learn how to log into Azure CLI and PowerShell with an Azure AD identity, see [Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)](storage-auth-aad-script.md).
-- For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage//).
+- For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

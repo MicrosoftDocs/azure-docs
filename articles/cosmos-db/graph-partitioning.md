@@ -3,15 +3,12 @@ title: 'Graph API Partitioning | Microsoft Docs'
 description: Learn how you can use a partitioned Graph in Azure Cosmos DB.
 services: cosmos-db
 author: luisbosquez
-documentationcenter: ''
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
+ms.component: cosmosdb-graph
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
 
@@ -64,7 +61,7 @@ The following are details that need to be understood when creating a partitioned
 The following are guidelines that should be followed to ensure the most efficient performance and scalability when using partitioned graphs in unlimited collections:
 - **Always specify the partition key value when querying a vertex**. Obtaining a vertex from a known partition is the most efficient way in terms of performance.
 - **Use the outgoing direction when querying edges whenever it's possible**. As mentioned above, edges are stored with their source vertices in the outgoing direction. This means that the chances of resorting to cross-partition queries are minimized when the data and queries are designed with this pattern in mind.
-- **Choose a partition key that will evenly distribute data across partitions**. This decision heavily depends on the data model of the solution. Read more about creating an appropriate partition key in [Partitining and scale in Azure Cosmos DB](partition-data.md).
+- **Choose a partition key that will evenly distribute data across partitions**. This decision heavily depends on the data model of the solution. Read more about creating an appropriate partition key in [Partitioning and scale in Azure Cosmos DB](partition-data.md).
 - **Optimize queries to obtain data within the boundaries of a partition when possible**. An optimal partitioning strategy would be aligned to the querying patterns. Queries that obtain data from a single partition provide the best possible performance.
 
 ## Next steps

@@ -1,20 +1,15 @@
 ---
 title: Control a device from Azure IoT Hub quickstart (Python) | Microsoft Docs
 description: In this quickstart, you run two sample Python applications. One application is a back-end application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
@@ -157,4 +152,4 @@ In this quickstart, you've called a direct method on a device from a back-end ap
 To learn how to route device-to-cloud messages to different destinations in the cloud, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Route telemetry to different endpoints for processing](iot-hub-python-python-process-d2c.md)
+> [Tutorial: Route telemetry to different endpoints for processing](tutorial-routing.md)

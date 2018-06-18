@@ -6,7 +6,7 @@ services: logic-apps
 ms.service: logic-apps
 author: kevinlam1
 ms.author: klam
-manager: cfowler
+manager: jeconnoc
 ms.topic: reference
 ms.date: 05/08/2018
 

@@ -1,6 +1,6 @@
 ---
-title: Encrypt table data | Microsoft Docs
-description: Learn about table data encryption.
+title: Encrypt Azure storage table data | Microsoft Docs
+description: Learn about table data encryption in Azure storage.
 services: storage
 documentationcenter: na
 author: MarkMcGeeAtAquent

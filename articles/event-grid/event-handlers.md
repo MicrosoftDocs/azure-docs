@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 06/07/2018
 ms.author: tomfitz
 ---
 
@@ -38,6 +38,14 @@ When using Azure Functions as the handler, use the Event Grid trigger instead of
 | [Stream big data into a data warehouse](event-grid-event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
 | [Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
 
+## Event Hubs
+
+Use Event Hubs when your solution gets events faster than it can process the events. Your application processes the events from Event Hubs at it own schedule. You can scale your event processing to handle the incoming events.
+
+|Title  |Description  |
+|---------|---------|
+| [Route custom events to Azure Event Hubs with Azure CLI and Event Grid](custom-event-to-eventhub.md) | Sends a custom event to an event hub for processing by an application. |
+
 ## Hybrid Connections
 
 Use Azure Relay Hybrid Connections to send events to applications that are within an enterprise network and don't have a publicly accessible endpoint.
@@ -58,7 +66,7 @@ Use Logic Apps to automate business processes for responding to events.
 
 ## Queue Storage
 
-Use Queue storage to receive events that need to be pulled.
+Use Queue storage to receive events that need to be pulled. You might use Queue storage when you have a long running process that takes too long to respond. By sending events to Queue storage, the app can pull and process events on its own schedule.
 
 |Title  |Description  |
 |---------|---------|

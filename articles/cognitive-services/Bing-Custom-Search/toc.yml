@@ -18,7 +18,7 @@
       href: call-endpoint-nodejs.md 
     - name: Python
       href: call-endpoint-python.md
-- name: Bing Search SDK
+- name: SDK Quickstarts
   items:
     - name: SDK samples overview 
       href: sdk.md

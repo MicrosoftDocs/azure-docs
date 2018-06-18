@@ -7,7 +7,7 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 06/06/2018
 ms.author: alkohli
 
 ---
@@ -75,7 +75,7 @@ For import jobs, only the first data volume on the drive is processed. The data 
 
 ### Supported external USB adaptors
 
-Following is a list of external USB adaptors used to copy data to internal HDDs. 
+When preparing hard drives and copying the data using the WAImportExport tool, you can use following (off-the-shelf) external USB adaptors: 
 - Anker 68UPSATAA-02BU
 - Anker 68UPSHHDS-BU
 - Startech SATADOCK22UE

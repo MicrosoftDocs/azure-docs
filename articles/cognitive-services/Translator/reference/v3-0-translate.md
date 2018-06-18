@@ -118,7 +118,6 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 25 elements.
-* The text value of an array element cannot exceed 1,000 characters including spaces.
 * The entire text included in the request cannot exceed 5,000 characters including spaces.
 
 ## Response body

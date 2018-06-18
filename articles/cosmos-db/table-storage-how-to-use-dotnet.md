@@ -1,17 +1,14 @@
 ---
-title: Get started with Azure Table storage and Cosmos DB Table API using .NET | Microsoft Docs
+title: Get started with Azure Table storage and Azure Cosmos DB Table API using .NET | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
 
@@ -140,13 +137,13 @@ To configure your connection string, open the `app.config` file from Solution Ex
 For example, if you're using an Azure Storage account, your configuration settings appear similar to:
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>" />
 ```
 
 If you're using an Azure Cosmos DB account, your configuration settings appear similar to:
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=<account-key>;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
 ```
 
 To target the storage emulator, you can use a shortcut that maps to the well-known account name and key. In that case, your connection string setting is:

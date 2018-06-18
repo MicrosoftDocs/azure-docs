@@ -1,11 +1,13 @@
 ---
-# required metadata
 title: Customer data request features​ in Azure Time Series Insights
+description: Summary of customer data request features.
 author: dominicbetts
 ms.author: dobett
+manager: timlt
 ms.date: 05/17/2018
 ms.topic: conceptual
 ms.service: time-series-insights
+services: time-series-insights
 ---
 
 # Summary of customer data request features

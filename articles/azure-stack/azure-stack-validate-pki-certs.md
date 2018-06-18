@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -77,11 +77,14 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     
     $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
     ````
-
- - Place your certificate(s) in the appropriate directories created in the previous step. For example:  
-    - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
-    - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
-    - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
+    
+    > [!Note]  
+    > AD FS and Graph are required if you are using AD FS as your identity system.
+    
+     - Place your certificate(s) in the appropriate directories created in the previous step. For example:  
+        - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
+        - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
+        - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
 
 3. In the PowerShell window, change the values of **RegionName** and **FQDN** appropriate to the Azure Stack environment and run the following:
 

@@ -51,11 +51,11 @@ The following table shows a list of supported operating systems:
 |Operating System  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments         |
-|Windows Server 2008 R2 SP1 and higher     |Windows PowerShell 4.0 or higher is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
+|Windows Server 2008 R2 SP1 and higher     |.NET Framework 4.5 or higher is required ([Download .NET Framework](/dotnet/framework/install/guide-for-developers)).</br> Windows PowerShell 4.0 or higher is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+|Ubuntu 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
 ### Unsupported client types
 
@@ -158,9 +158,11 @@ It can take anywhere from 30 minutes up to 6 hours for the dashboard to display 
 
 Click on the **Update Management** on your automation account to view the status of your machines.
 
-This view provides information on your machines, missing updates, update deployments, and scheduled update deployments.
+This view provides information on your machines, missing updates, update deployments, and scheduled update deployments. In addition to these details, you can see the last time the machine was assessed in the **COMPLIANCE COLUMN** and can see if the health of the updage agent in the **UPDATE AGENT READINESS** column. If there is an issue, clicking the link takes you to troubleshooting documentation to provide you with steps on how to correct the problem.
 
 You can run a log search that returns information on the machine, update, or deployment by selecting the item in the list. This opens the **Log Search** page with a query for the item selected.
+
+![Update management default view](media/automation-update-management/update-management-view.png)
 
 ## Installing updates
 
@@ -193,9 +195,8 @@ Create a new Update Deployment by clicking the **Schedule update deployment** bu
 |Operating System| Linux or Windows|
 | Machines to update |Select a Saved search or pick Machine from the drop-down and select individual machines |
 |Update classifications|Select all the update classifications that you need|
-|Updates to exclude|Enter all the KBs to exclude without the 'KB' prefix|
-|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
-| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
+|Updates to exclude|Enter the updates to exclude. For  Windows enter the KB without the 'KB' prefix. For Linux, enter the package name or use a wildcard.  |
+|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
 
 ## Update classifications
 
@@ -282,11 +283,11 @@ Deploying updates by update classification may not work on openSUSE Linux due to
 
 This section provides information to help troubleshoot issues with the Update Management solution.
 
-If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each.
+If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log on the local machine for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each.
 
 | Message | Reason | Solution |
 |----------|----------|----------|
-| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)|
 | Unable to Register Machine for Patch Management, Registration Failed with Exception</br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---></br>System.Net.WebException: The underlying connection</br>was closed: An unexpected error</br>occurred on a receive. ---> System.ComponentModel.Win32Exception:</br>The client and server cannot communicate,</br>because they do not possess a common algorithm | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
 | Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
 | The certificate presented by the service \<wsid\>.oms.opinsights.azure.com</br>was not issued by a certificate authority</br>used for Microsoft services. Contact</br>your network administrator to see if they are running a proxy that intercepts</br>TLS/SSL communication. |Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|

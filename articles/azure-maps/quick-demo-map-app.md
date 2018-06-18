@@ -70,3 +70,11 @@ In this Quickstart, you created your Maps account and launched a demo app. To le
 
 > [!div class="nextstepaction"]
 > [Search for points of interest with Maps](./tutorial-search-location.md)
+
+For more code examples and an interactive coding experience, see below How-to guides.
+
+> [!div class="nextstepaction"]
+> [How to search for an address using Azure Maps REST APIs](./how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [How to use Azure Maps map control](./how-to-use-map-control.md)

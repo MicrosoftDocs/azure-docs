@@ -2,7 +2,7 @@
 title: Tutorial - Connect to Azure Analysis Services with Power BI Desktop | Microsoft Docs
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: tutorial
 ms.date: 05/23/2018
 ms.author: owend

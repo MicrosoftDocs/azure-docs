@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 05/30/2018
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function as do built-in features. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -19,7 +19,7 @@ PostgreSQL extensions must be installed in your database before you can use them
 Azure Database for PostgreSQL currently supports a subset of key extensions as listed below. Extensions beyond the ones listed are not supported; you cannot create your own extension with Azure Database for PostgreSQL service.
 
 ## Extensions supported by Azure Database for PostgreSQL
-The following tables list the standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. This information is also available by querying `pg\_available\_extensions`.
+The following tables list the standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. This information is also available by running `SELECT * FROM pg_available_extensions;`.
 
 ### Data types extensions
 
@@ -81,6 +81,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Provides a means for showing row-level locking information. |
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Provides a means for showing tuple-level statistics. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Foreign-data wrapper used to access data stored in external PostgreSQL servers. |
+| [hypopg](https://hypopg.readthedocs.io/en/latest/) | Provides a means of creating hypothetical indexes that don't cost CPU or disk. |
 
 ### PostGIS extensions
 

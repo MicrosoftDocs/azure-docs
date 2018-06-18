@@ -58,7 +58,7 @@ The Machine Learning component uses a model derived from data collected from rea
 
 
 ## Next steps
-Now you've seen the key components of the Predictive Maintenance solution accelerator, you may want to customize it. See [Guidance on customizing solution accelerators][lnk-customize].
+Now you've seen the key components of the Predictive Maintenance solution accelerator, you may want to customize it.
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
@@ -67,10 +67,9 @@ You can also explore some of the other features and capabilities of the IoT solu
 
 [img-architecture]: media/iot-accelerators-predictive-walkthrough/architecture.png
 
-[lnk-remote-monitoring]: ../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md
+[lnk-remote-monitoring]: iot-accelerators-remote-monitoring-explore.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
-[lnk-faq]: ../iot-suite/iot-suite-v1-faq.md
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
+[lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

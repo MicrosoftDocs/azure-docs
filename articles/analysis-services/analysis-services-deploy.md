@@ -3,7 +3,7 @@ title: Deploy to Azure Analysis Services by using SSDT | Microsoft Docs
 description: Learn how to deploy a tabular model to an Azure Analysis Services server by using SSDT.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend

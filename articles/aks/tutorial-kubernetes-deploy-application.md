@@ -14,14 +14,14 @@ ms.custom: mvc
 
 # Tutorial: Run applications in Azure Kubernetes Service (AKS)
 
-In this tutorial, part four of eight, a sample application is deployed into a Kubernetes cluster. Steps completed include:
+In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
 > [!div class="checklist"]
 > * Update Kubernetes manifest files
 > * Run application in Kubernetes
 > * Test the application
 
-In subsequent tutorials, this application is scaled out, updated, and Log Analytics is configured to monitor the Kubernetes cluster.
+In subsequent tutorials, this application is scaled out and updated.
 
 This tutorial assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation][kubernetes-documentation].
 

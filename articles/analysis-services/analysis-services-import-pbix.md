@@ -3,7 +3,7 @@ title: Import a Power BI Desktop file into Azure Analysis Services | Microsoft D
 description: Describes how to import a Power BI Desktop file (pbix) by using Azure portal.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: owend

@@ -33,6 +33,7 @@ ms.author: jonbeck
 - [Storage optimized](sizes-storage.md)
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

@@ -3,7 +3,7 @@ title: Connect to Azure Analysis Services with Excel | Microsoft Docs
 description: Learn how to connect to an Azure Analysis Services server by using Excel.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: owend

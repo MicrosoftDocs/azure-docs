@@ -18,7 +18,7 @@ ms.author: spelluru
 
 ---
 # Tutorial: Set up a lab account with Azure Lab Services
-In this tutorial, you act as a lab administrator to create a lab account with Azure Lab Services. Then, you provide educators the permission to create labs for their classes in this lab account. An educator can set up a lab for a class by using the [Azure Lab Services website](https://labs.azure.com).   
+In Azure Lab Services, a lab account serves as the central account in which your organization's labs are managed. In your lab account, give permission to others to create labs, and set policies that apply to all labs under the lab account. In this tutorial, learn how to create a lab account as a lab administrator. 
 
 In this tutorial, you do the following actions:
 
@@ -52,7 +52,7 @@ The following steps illustrate how to use the Azure portal to create a lab accou
     ![Lab account page](../media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## Add a user to the Lab Creator role
-To provide educators the permission to create labs for their classes, add them to the Lab Creator role:
+To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role:
 
 1. On the **Lab Account** page, select **Access control (IAM)**, and click **+ Add** on the toolbar. 
 

@@ -89,7 +89,7 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
     - **TCP custom probe**: This probe relies on establishing a successful TCP session to a defined probe port. As long as the specified listener on the VM exists, this probe succeeds. If the connection is refused, the probe fails. This probe overrides the default guest agent probe.
 
-    - **Guest agent probe (on platform as a service [PaaS] VMs only)**: The load balancer can also utilize the guest agent inside the VM. The guest agent listens and responds with an HTTP 200 OK response only when the instance is in the ready state. If the agent fails to respond with an HTTP 200 OK, the load balancer marks the instance as unresponsive and stops sending traffic to that instance. The load balancer continues to attempt to reach the instance. If the guest agent responds with an HTTP 200, the load balancer sends traffic to that instance again. Guest agent probes are a last resort and not recommended when HTTP or TCP custom probe configurations are possible. 
+    - **Guest agent probe**: The load balancer can also utilize the guest agent inside the VM. The guest agent listens and responds with an HTTP 200 OK response only when the instance is in the ready state. If the agent fails to respond with an HTTP 200 OK, the load balancer marks the instance as unresponsive and stops sending traffic to that instance. The load balancer continues to attempt to reach the instance. If the guest agent responds with an HTTP 200, the load balancer sends traffic to that instance again. Guest agent probes are a _last resort and not recommended_ when HTTP or TCP custom probe configurations are possible. 
     
 * **Outbound connections (SNAT)**
 
