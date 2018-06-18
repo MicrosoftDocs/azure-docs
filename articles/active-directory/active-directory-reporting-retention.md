@@ -38,8 +38,8 @@ This article provides you with answers to the most common questions in conjuncti
 
 **A:**
 
-- **Immediately** - If you have already been working with reports in the Azure Portal
-- **Within 2 hours** - If you haven’t turned on reporting in the Azure Portal
+- **Immediately** - If you have already been working with reports in the Azure portal.
+- **Within 2 hours** - If you haven’t turned on reporting in the Azure portal.
 
 ---
 
