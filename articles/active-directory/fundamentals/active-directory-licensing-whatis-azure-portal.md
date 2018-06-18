@@ -5,7 +5,7 @@
   services: active-directory
   keywords: Azure AD licensing
   documentationcenter: ''
-  author: curtand
+  author: eross-msft
   manager: mtillman
   editor: ''
 
@@ -14,7 +14,7 @@
   ms.topic: article
   ms.workload: identity
   ms.date: 06/13/2018
-  ms.author: curtand
+  ms.author: lizross
   ms.reviewer: krbain
 
   ms.custom: it-pro

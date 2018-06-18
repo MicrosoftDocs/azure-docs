@@ -3,7 +3,7 @@ title: Get help with accessing and using the My Apps portal in Azure Active Dire
 description: Get help with signing in to and performing common tasks in the access panel.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: japere
 
 ---

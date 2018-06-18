@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integrate Azure Active Directory with Palo Alto Networks - Admin UI | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Palo Alto Networks - Admin UI | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Palo Alto Networks - Admin UI.
 services: active-directory
 documentationCenter: na
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 06/12/2018
 ms.author: jeedes
 
 ---
@@ -242,29 +242,21 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**.
 
-<!---
     ![The Azure Active Directory link](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
--->
 
 2. To display a list of current users, select **Users and groups** > **All users**.
 
-<!---
     ![The "Users and groups" and "All users" links](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
--->
 
 3. At the top of the **All Users** window, select **Add**.
 
-<!---
     ![The Add button](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
--->
-
+    
     The **User** window opens.
 
 4. In the **User** window, do the following:
 
-<!---
     ![The User window](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
--->
 
     a. In the **Name** box, type **BrittaSimon**.
 
