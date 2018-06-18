@@ -108,11 +108,11 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 * [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
 * [Learn batch testing concepts](luis-concept-batch-test.md).
 
-[true-positive]:luis-glossary.md#true-positive
-[true-negative]:luis-glossary.md#true-negative
-[false-positive]:luis-glossary.md#false-positive
-[false-negative]:luis-glossary.md#false-negative
-[f-measure]:luis-glossary.md#f-measure
-[recall]: luis-glossary.md#recall
-[precision]: luis-glossary.md#precision
+[true-positive](luis-glossary.md#true-positive)
+[true-negative](luis-glossary.md#true-negative)
+[false-positive](luis-glossary.md#false-positive)
+[false-negative](luis-glossary.md#false-negative)
+[f-measure](luis-glossary.md#f-measure)
+[recall](luis-glossary.md#recall)
+[precision](luis-glossary.md#precision)
 

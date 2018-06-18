@@ -3,21 +3,19 @@ title: How to add an existing Azure subscription to your Azure AD directory | Mi
 description: How to add an existing subscription to your Azure AD directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/12/2017
-ms.author: curtand
-
+ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-
 ---
+
 # How to associate or add an Azure subscription to Azure Active Directory
 
 This article covers information about the relationship between an Azure subscription and Azure Active Directory (Azure AD), and how to add an existing subscription to your Azure AD directory. Your Azure subscription has a trust relationship with Azure AD, which means that it trusts the directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but each subscription trusts only one directory. 

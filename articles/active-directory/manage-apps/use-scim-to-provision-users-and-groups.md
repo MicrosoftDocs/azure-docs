@@ -696,7 +696,7 @@ The following illustration shows the messages that Azure AcD sends to a SCIM ser
 * [Writing Expressions for Attribute Mappings](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Scoping Filters for User Provisioning](../active-directory-saas-scoping-filters.md)
 * [Account Provisioning Notifications](../active-directory-saas-app-provisioning.md)
-* [List of Tutorials on How to Integrate SaaS Apps](../active-directory-saas-tutorial-list.md)
+* [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

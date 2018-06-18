@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 06/18/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 
@@ -211,7 +211,8 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![Barracuda Web Application Firewall (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web Application Firewall (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | Security and DDoS Protection Against Automated & Targeted Attacks. | Barracuda Networks, Inc. |
 | ![Check Point vSEC Security Management](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC Security Management](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC delivers advanced, multi-layered threat prevention to protect customer assets in Azure from malware and sophisticated threats. <b>Download both Check Point vSEC marketplace items.</b> | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Build, deploy, and manage with Chef Automate, the Continuous Automation Platform. <b>Download both Chef marketplace items</b> | Chef Software, Inc |
-| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Control, monitor, and encrypt VMs with ease and confidence. <b>Download all CloudLink SecureVM items.<b> | Dell EMC |
+| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Control, monitor, and encrypt VMs with ease and confidence. <b>Download all CloudLink SecureVM items.<b> | Dell EMC |
+| ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM is a comprehensive security platform that delivers advanced security tools with audit-ready compliance capabilities. | EventTracker |
 | ![f5](media/azure-stack-marketplace-azure-items/f5.png) | [ f5 Big-IP Virtual Edition ](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Advanced Load Balancing, GSLB, Network Firewall, DNS, WAF and App Access. | F5 Networks |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Powered by HDP 2.5 100% open-source platform for Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![KEMP LoadMaster Load Balancer ADC Content Switch](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Layer 4-7 Application Delivery Controller (ADC) Load Balancer, Content Switch, and Traffic Manager. | KEMP Technologies Inc. |
