@@ -650,7 +650,7 @@ VALUES
     ]
     ```
 
-## Monitor the pipeline
+## Monitor the pipeline again
 
 1. Switch to the **Monitor** tab on the left. You see the pipeline run triggered by the **manual trigger**. Click **Refresh** button to refresh the list. Links in the **Actions** column allow you to view activity runs associated with the pipeline run, and to rerun the pipeline. 
 

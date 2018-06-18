@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/15/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Handwritten Text with Java
+# Quickstart: Extract handwritten text with Java
 
 In this quickstart, you extract handwritten txt from an image using Computer Vision.
 
