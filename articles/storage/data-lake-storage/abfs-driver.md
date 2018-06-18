@@ -27,7 +27,7 @@ The [Azure Data Lake Storage REST interface](https://docs.microsoft.com/en-us/re
 However, there are some functions that the driver must still perform:
 
 ### URI scheme to reference data
-Consistent with other FileSystem implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is fully documented in [Use the Azure Data Lake Storage URI](./intro-to-uri.md). The structure of the URI is as follows:
+Consistent with other FileSystem implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is fully documented in [Use the Azure Data Lake Storage URI](./introduction-abfs-uri.md). The structure of the URI is as follows:
 
     abfs[s]://file_system@account_name.dfs.core.widows.net/<path>/<path>/<file_name>
 
@@ -62,4 +62,4 @@ The ABFS driver is fully documented in the [Official Hadoop documentation](http:
 
 - [Setup HDInsight Clusters](./quickstart-create-connect-hdi-cluster.md)
 - [Create an Azure Databricks Cluster](./quickstart-create-databricks-account.md)
-- [Use the Azure Data Lake Storage URI](./intro-to-uri.md)
+- [Use the Azure Data Lake Storage URI](./introduction-abfs-uri.md)
