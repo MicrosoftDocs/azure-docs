@@ -3,7 +3,7 @@ title: Next steps for access management using groups | Microsoft Docs
 description: Advanced How-to's for managing security groups and how to use these groups to manage access to a resource.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 
@@ -12,8 +12,7 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: curtand
-
+ms.author: lizross
 ms.custom: it-pro
 
 ---
