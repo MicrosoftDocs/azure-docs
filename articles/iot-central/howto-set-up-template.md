@@ -128,8 +128,7 @@ For example, you can add a new fan speed setting:
 
 After choosing **Save**, the **Fan speed** setting appears as a tile and is ready for to be used to change the fan speed of the device.
 
-> [!NOTE]
-> After you create a new tile, you can try out your new setting. First, switch off design mode at the top right of the screen:
+After you create a new tile, you can try out your new setting. First, switch off design mode at the top right of the screen.
 
 ![Settings tile](./media/howto-set-up-template/settingstile.png)
 
@@ -183,7 +182,7 @@ For example, you can add the device installation address.
 
 4.  Click **Save**. 
 
-![Location Property field](./media/howto-set-up-template/locationcloudproperty3.png)
+    ![Location Property field](./media/howto-set-up-template/locationcloudproperty3.png)
 
 Now an operator can update the location value in the location field form. 
 
@@ -193,18 +192,19 @@ You can create a location property as a device property that is reported by the 
 For example, you want to track the device location.
 
 1.	Navigate to the Device Property tab; ensure Design Mode is turned On.
+
 2.	Click Device Property from the Library.
 
-![Location Property field](./media/howto-set-up-template/locationdeviceproperty1.png)
+    ![Location Property field](./media/howto-set-up-template/locationdeviceproperty1.png)
 
 3.	Configure display name, field name, and choose “location” as a data type. 
 
-> [!NOTE]
-The field name must exactly match to the name of the property the device reports. 
+    > [!NOTE]
+    > The field name must exactly match to the name of the property the device reports. 
 
-![Location Property field](./media/howto-set-up-template/locationdeviceproperty2.png)
+    ![Location Property field](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-![Location Property operator view](./media/howto-set-up-template/locationdeviceproperty2.png)
+    ![Location Property operator view](./media/howto-set-up-template/locationdeviceproperty2.png)
 
 Now that you have configured your location property, you will be able to add a Map to visualize the location in the Device Dashboard. See how to [Add Location Azure Map in Dashboard](howto-set-up-template.md#add-location-azure-map-in-dashboard).
 
@@ -214,7 +214,7 @@ Commands are used to remotely manage a device. They enable operators of your app
 
 How is a **Command** different from a **Setting**? 
 
-* Setting : Setting is a configuration you want to apply to a device, > and you want the device to persist that configuration until you > change it.For example, you want to set the temperature of your freezer and you want that setting even when the freezer restarted. 
+* Setting : Setting is a configuration you want to apply to a device, and you want the device to persist that configuration until you change it.For example, you want to set the temperature of your freezer and you want that setting even when the freezer restarted. 
 
 * Command : You use Commands to instantaneously run a command on the device remotely from IoTCentral, if a device is not connected then the command time-out and fails.For example, you want to restart/reboot a device.  
 
@@ -251,6 +251,7 @@ Now when an operator views the dashboard, they can see this tile that displays t
 If you have configured a location property as in the steps [Create a Location Property powered by Azure Maps]((howto-set-up-template.md), you will be able to visualize the location using a map right in your device dashboard.
 
 1.	Navigate to the Device Dashboard tab; ensure Design Mode is turned On.
+
 2.	On Device Dashboard, select Map from the Library. 
 
     ![Dashboard Location Azure Map select](./media/howto-set-up-template/locationcloudproperty4map.png)
