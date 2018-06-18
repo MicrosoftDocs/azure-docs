@@ -30,7 +30,7 @@ We do not currently support the Microsoft Graph v2 endpoint - make sure to acces
 
 ## Error: Failed to get user roles from AD Graph
 
-You may get this error message when trying to access sign-ins using Graph Explorer. Make sure you are signed in to your test account using both of the sign-in buttons in the Graph Explorer UI, as shown in the following image. 
+You may get this error message when trying to access sign-ins using Graph Explorer. Make sure you are signed in to your account using both of the sign-in buttons in the Graph Explorer UI, as shown in the following image. 
 
 ![Graph Explorer](./media/active-directory-reporting-troubleshooting-graph-api/graph-explorer.png)
 
@@ -41,7 +41,7 @@ If you run into this error message while trying to access sign-ins using Graph E
 ![Modify permissions UI](./media/active-directory-reporting-troubleshooting-graph-api/modify-permissions.png)
 
 
-## Error: Neither tenant is B2V or tenant doesn't have premium license
+## Error: Neither tenant is B2C or tenant doesn't have premium license
 
 Accessing sign-in reports requires an Azure Active Directory premium 1 (P1) license. If you see this error message while accessing sign-ins, make sure that your tenant is licensed with an Azure AD P1 license.
 
