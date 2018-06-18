@@ -49,7 +49,7 @@ In just over a minute, your command should return with `"provisioningState": "Su
 
 ```json
 {
-  "id": "/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/myResourceGroup/providers/Microsoft.Resources/deployments/container-configuration",
+  "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Resources/deployments/container-configuration",
   "name": "container-configuration",
   "properties": {
     "correlationId": "58ff52cf-3c99-4c8a-bda4-e7fa0b49a61a",
@@ -58,13 +58,13 @@ In just over a minute, your command should return with `"provisioningState": "Su
       {
         "dependsOn": [
           {
-            "id": "/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
+            "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
             "resourceGroup": "myResourceGroup",
             "resourceName": "helloWorldNetwork",
             "resourceType": "Microsoft.ServiceFabric/networks"
           }
         ],
-        "id": "/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
+        "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
         "resourceGroup": "myResourceGroup",
         "resourceName": "helloWorldApp",
         "resourceType": "Microsoft.ServiceFabric/applications"
@@ -74,11 +74,11 @@ In just over a minute, your command should return with `"provisioningState": "Su
     "mode": "Incremental",
     "outputResources": [
       {
-        "id": "/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
+        "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
         "resourceGroup": "myResourceGroup"
       },
       {
-        "id": "/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
+        "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
         "resourceGroup": "myResourceGroup"
       }
     ],
