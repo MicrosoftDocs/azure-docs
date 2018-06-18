@@ -4,9 +4,8 @@ description: Use the Microsoft Speech Recognition API in Cognitive Services to d
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: zhouwang

@@ -5,7 +5,7 @@ keywords: linux virtual machine,add resource disk
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

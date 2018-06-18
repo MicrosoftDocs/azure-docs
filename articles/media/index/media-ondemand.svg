@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="media-ondemand" viewBox="0 0 50 50">
+    <path fill="#59B4D9" d="M50,44c0,3.314-2.686,6-6,6H6c-3.314,0-6-2.686-6-6V6c0-3.314,2.686-6,6-6h38c3.314,0,6,2.686,6,6V44z"/>
+    <path opacity="0.15" fill="#FFFFFF" d="M14,50H6c-3.314,0-6-2.686-6-6V6c0-3.314,2.686-6,6-6h34L14,50z"/>
+    <path fill="#FFFFFF" d="M16,38.333V11.667l21.302,13.347L16,38.333z"/>
+</svg>

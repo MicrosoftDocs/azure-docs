@@ -1,18 +1,19 @@
 ---
-title: Problems using the application access panel website or mobile application"
-description: Problems using the application access panel website or mobile application"
+title: Problems using the application access panel website or mobile application
+description: Problems using the application access panel website or mobile application
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: eross-msft
 manager: mtillman
 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: lizross
 
 ---
 

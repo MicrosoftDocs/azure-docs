@@ -1,23 +1,21 @@
 ---
-title: Use the Office 365 Video connector in your Logic apps | Microsoft Docs
-description: Get started using the Office 365 Video connector in your Microsoft Azure App service Logic apps
-services: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: 738e5aa7-2523-4116-8b65-211b9063852d
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+# required metadata
+title: Connect to Office 365 Video - Azure Logic Apps | Microsoft Docs
+description: Manage videos with Office 365 Video REST APIs and Azure Logic Apps 
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the Office365 Video connector
 Connect to Office 365 Video to get information about an Office 365 video, get a list of videos, and more. With Office 365 Video, you can:
 

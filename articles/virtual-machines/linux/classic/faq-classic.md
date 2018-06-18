@@ -4,7 +4,7 @@ description: Answers to some common questions about Azure Linux virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX

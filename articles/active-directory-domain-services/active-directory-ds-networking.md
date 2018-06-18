@@ -8,12 +8,13 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
 
 ---
@@ -50,6 +51,7 @@ The following guidelines help you select a virtual network to use with Azure AD 
 * Do not apply NSGs to the dedicated subnet for your managed domain. If you must apply NSGs to the dedicated subnet, ensure you **do not block the ports required to service and manage your domain**.
 * Do not overly restrict the number of IP addresses available within the dedicated subnet for your managed domain. This restriction prevents the service from making two domain controllers available for your managed domain.
 * **Do not enable Azure AD Domain Services in the gateway subnet** of your virtual network.
+* Do not block outbound access from the subnet in which your managed domain is enabled.
 
 > [!WARNING]
 > When you associate an NSG with a subnet in which Azure AD Domain Services is enabled, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain is disrupted. **The SLA does not apply to deployments where an NSG has been applied that blocks Azure AD Domain Services from updating and managing your domain.**
@@ -88,9 +90,12 @@ The following ports are required for Azure AD Domain Services to service and mai
 * Opening this port through your NSG is optional. Open the port only if you have secure LDAP access over the internet enabled.
 * You can restrict inbound access to this port to the source IP addresses from which you expect to connect over secure LDAP.
 
+**Outbound access**
+AAD Domain Services needs outbound access to various other Azure services in order to manage, backup & monitor your managed domain. Do not block outbound access from the dedicated subnet in which your managed domain is enabled.
+
 
 ## Network Security Groups
-A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
+A [Network Security Group (NSG)](../virtual-network/security-overview.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
 
 ### Sample NSG for virtual networks with Azure AD Domain Services
 The following table illustrates a sample NSG you can configure for a virtual network with an Azure AD Domain Services managed domain. This rule allows inbound traffic over the required ports to ensure your managed domain stays patched, updated and can be monitored by Microsoft. The default 'DenyAll' rule applies to all other inbound traffic from the internet.
@@ -136,5 +141,5 @@ You can connect a Resource Manager-based virtual network to the Azure classic vi
 ## Related Content
 * [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Configure a VNet-to-VNet connection for the classic deployment model](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* [Azure Network Security Groups](../virtual-network/virtual-networks-nsg.md)
+* [Azure Network Security Groups](../virtual-network/security-overview.md)
 * [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

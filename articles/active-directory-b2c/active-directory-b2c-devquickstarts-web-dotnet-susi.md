@@ -1,22 +1,18 @@
----
-title: Authentication, sign-up, password reset ASP.NET Azure Active Directory B2C
+﻿---
+title: Authentication, sign-up, password reset in Azure Active Directory B2C | Microsoft Docs
 description: How to build a web application that has sign-up/sign-in, profile edit, and password reset using Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: barbaraselden
 
-ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Create an ASP.NET web app with Azure Active Directory B2C sign-up, sign-in, profile edit, and password reset
 
 This tutorial shows you how to:
@@ -28,7 +24,7 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-- You must connect your B2C Tenant to an Azure account. You can create a free Azure account [here](https://azure.microsoft.com/en-us/).
+- You must connect your B2C Tenant to an Azure account. You can create a free Azure account [here](https://azure.microsoft.com/).
 - You need [Microsoft Visual Studio](https://www.visualstudio.com/) or a similar program to view and modify the sample code.
 
 ## Create an Azure AD B2C directory
@@ -195,7 +191,7 @@ public partial class Startup
                 },
 
                 // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
-                Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
+                Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
             }
         );
     }

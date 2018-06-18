@@ -1,10 +1,10 @@
----
+﻿---
 title: Add network interfaces to or remove from Azure virtual machines | Microsoft Docs
 description: Learn how to add network interfaces to or remove network interfaces from virtual machines.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -27,12 +27,12 @@ If you need to add, change, or remove IP addresses for a network interface, see 
 
 ## Before you begin
 
-Complete the following tasks before you perform the steps in any section of this article:
+Complete the following tasks before completing steps in any section of this article:
 
-- Sign in to the Azure [portal](https://portal.azure.com), Azure CLI, or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [free trial](https://azure.microsoft.com/free).
-- If you use PowerShell commands to complete tasks in this article, [install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`. 
-- Alternatively, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free PowerShell that you can run directly within the Azure portal. It has PowerShell preinstalled and configured to use with your account. To use this option, select the Cloud Shell **>_** button at the top of the [portal](https://portal.azure.com) and select PowerShell in the upper-left corner.
-- If you use Azure CLI commands to complete tasks in this article, [install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. 
+- If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
+- If using the portal, open https://portal.azure.com, and log in with your Azure account.
+- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.2.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.26 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 
 ## Add existing network interfaces to a new VM
 
@@ -73,7 +73,7 @@ Before you create the VM, create a network interface by using the steps in [Crea
 
 You can view the network interfaces currently attached to a VM to learn about each network interface's configuration, and the IP addresses assigned to each network interface. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. To learn more about how to assign roles to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. To learn more about how to assign roles to accounts, see [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. In the box that contains the text **Search resources** at the top of the Azure portal, type **virtual machines**. When **virtual machines** appears in the search results, select it.
 3. Select the name of the VM for which you want to view network interfaces.
 4. In the **SETTINGS** section for the VM you selected, select **Networking**. To learn about network interface settings and how to change them, see [Manage network interfaces](virtual-network-network-interface.md). To learn about how to add, change, or remove IP addresses assigned to a network interface, see [Manage network interface IP addresses](virtual-network-network-interface-addresses.md).

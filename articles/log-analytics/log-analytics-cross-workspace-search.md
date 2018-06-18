@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 04/17/2018
 ms.author: magoedte
 
 ---
@@ -27,7 +27,7 @@ Now you can query not only across multiple Log Analytics workspaces, but also da
 To reference another workspace in your query, use the [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) identifier, and for an app from Application Insights, use the [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()) identifier.  
 
 ### Identifying workspace resources
-The following examples demonstrate queries across Log Analytics workspaces to return summarized counts of updates needed by their classification from the Update table from both the current workspace, and another workspace named *contosoretail-it*. 
+The following examples demonstrate queries across Log Analytics workspaces to return summarized counts of updates from the Update table on a workspace named *contosoretail-it*. 
 
 Identifying a workspace can be accomplished one of several ways:
 

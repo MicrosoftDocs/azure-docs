@@ -3,8 +3,8 @@ title: Set up MySQL on a Linux VM in Azure| Microsoft Docs
 description: Learn how to install the MySQL stack on a Linux virtual machine (Ubuntu or RedHat family OS) in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: SuperScottz
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
-ms.author: mingzhan
+ms.author: iainfou
 
 ---
 # How to install MySQL on Azure

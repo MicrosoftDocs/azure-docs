@@ -4,7 +4,7 @@ description: Learn how to deploy a NAT firewall using FreeBSD’s PF in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: KylieLiang
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -32,7 +32,7 @@ The Azure Resource Manager template set up a FreeBSD virtual machine that perfor
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### Deploy through Azure CLI
-You need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#az_login). Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group name `myResourceGroup` in the `West US` location.
+You need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login). Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group name `myResourceGroup` in the `West US` location.
 
 ```azurecli
 az group create --name myResourceGroup --location westus

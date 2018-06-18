@@ -2,22 +2,15 @@
 title: Replicate a multi-tier IIS-based web application using Azure Site Recovery | Microsoft Docs
 description: Learn how to replicate IIS web farm virtual machines using Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: gauravd
-editor:
-
-ms.assetid:
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
 
 ---
-# Replicate a multi-tier, IIS-based web application by using Site Recovery
+# Replicate a multi-tier IIS-based web application
 
 Application software is the engine of business productivity in an organization. Various web applications can serve different purposes in an organization. Some applications, like applications used for payroll processing, financial applications, and customer-facing websites, might be critical to an organization. To prevent loss of productivity, it's important for the organization to have these applications continuously up and running. More importantly, having these applications consistently available can help prevent damage to the brand or image of the organization.
 
@@ -33,7 +26,7 @@ This article describes how to protect a web application that's based on Internet
 
 Before you begin, ensure that you know how to do the following tasks:
 
-* [Replicate a virtual machine to Azure](site-recovery-vmware-to-azure.md)
+* [Replicate a virtual machine to Azure](vmware-azure-tutorial.md)
 * [Design a recovery network](site-recovery-network-design.md)
 * [Do a test failover to Azure](site-recovery-test-failover-to-azure.md)
 * [Do a failover to Azure](site-recovery-failover.md)
@@ -72,7 +65,7 @@ Azure|NA|Yes
 
 To start replicating all the IIS web farm virtual machines to Azure, follow the guidance in [Test failover to Azure in Site Recovery](site-recovery-test-failover-to-azure.md).
 
-If you are using a static IP address, you can specify the IP address that you want the virtual machine to take. To set the IP address, go to  **Compute and Network settings** > [**TARGET IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties).
+If you are using a static IP address, you can specify the IP address that you want the virtual machine to take. To set the IP address, go to  **Compute and Network settings** > **TARGET IP**.
 
 ![Screenshot that shows how to set the target IP in the Site Recovery Compute and Network pane](./media/site-recovery-active-directory/dns-target-ip.png)
 

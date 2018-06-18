@@ -3,7 +3,7 @@ title: Manage developer accounts using groups in Azure API Management | Microsof
 description: Learn how to manage developer accounts using groups in Azure API Management
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -28,7 +28,7 @@ In addition to these system groups, administrators can create custom groups or [
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
 
-In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) entity.
+In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ Once the association is added between the developer and the group, you can view 
 ## <a name="next-steps"> </a>Next steps
 
 * Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How create and publish a product in Azure API Management][How create and publish a product in Azure API Management],
-* In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) entity.
+* In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

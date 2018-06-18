@@ -26,7 +26,7 @@ This article describes how to check the status of provisioning jobs after they h
 
 ## Overview
 
-Provisioning connectors are primarily set up and configured using the [Azure management portal](https://portal.azure.com), by following the [provided documentation](active-directory-saas-tutorial-list.md) for the application where user account provisioning is desired. Once configured and running, provisioning jobs for an application can be reported on using one of two methods:
+Provisioning connectors are primarily set up and configured using the [Azure management portal](https://portal.azure.com), by following the [provided documentation](saas-apps/tutorial-list.md) for the application where user account provisioning is desired. Once configured and running, provisioning jobs for an application can be reported on using one of two methods:
 
 * **Azure management portal** - This article primarily describes retrieving report information from the [Azure management portal](https://portal.azure.com), which provides both a provisioning summary report as well as detailed provisioning audit logs for a given application.
 
@@ -129,5 +129,5 @@ For scenario-based guidance on how to troubleshoot automatic user provisioning, 
 
 ## Additional Resources
 
-* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Managing user account provisioning for Enterprise Apps](manage-apps/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

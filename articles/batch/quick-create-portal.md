@@ -34,7 +34,7 @@ Follow these steps to create a sample Batch account for test purposes. You need 
 
 2. Enter values for **Account name** and **Resource group**. The account name must be unique within the Azure **Location** selected, use only lowercase characters or numbers, and contain 3-24 characters. 
 
-3. In **Storage account**, select an existing general-purpose storage account or create a new one.
+3. In **Storage account**, select an existing storage account or create a new one.
 
 4. Keep the defaults for remaining settings, and click **Create** to create the account.
 

@@ -1,31 +1,27 @@
 ---
 title: Import export of Azure IoT Hub device identities | Microsoft Docs
 description: How to use the Azure IoT service SDK to perform bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-
 ---
+
 # Manage your IoT Hub device identities in bulk
 
 Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Import and export operations take place in the context of *Jobs* that enable you to execute bulk service operations against an IoT hub.
 
 The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub identity registry.
 
 This topic discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub’s identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation][lnk-dps].
+
 
 ## What are jobs?
 
@@ -190,9 +186,6 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
   }
 }
 ```
-
-> [!NOTE]
-> You can also use the **GetDevicesAsync** method of the **RegistryManager** class to fetch a list of your devices. However, this approach has a hard cap of 1000 on the number of device objects that are returned. The expected use case for the **GetDevicesAsync** method is for development scenarios to aid debugging and is not recommended for production workloads.
 
 ## Import devices
 

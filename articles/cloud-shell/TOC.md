@@ -4,10 +4,9 @@
 ## [Bash - Quickstart](quickstart.md)
 ## [PowerShell - Quickstart](quickstart-powershell.md)
 
-# Concepts
+# Features & tooling
 ## [Bash - Features & tools](features.md)
 ## [PowerShell - Features & tools](features-powershell.md)
-## [Limitations](limitations.md)
 
 # How-to
 ## [Bash - Persisting storage](persisting-shell-storage.md)
@@ -19,8 +18,9 @@
 ## [Bash - Run Ansible playbooks](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Embed Cloud Shell](embed-cloud-shell.md)
+# [Use MSI in Cloud Shell](msi-authorization.md)
 
-# [Troubleshooting](troubleshooting.md)
+# [Troubleshooting & limitations](troubleshooting.md)
 
 # Reference
 ## [Azure CLI](/cli/azure)

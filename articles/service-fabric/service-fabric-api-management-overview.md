@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017

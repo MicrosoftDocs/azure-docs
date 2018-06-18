@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 5/22/2018
 ms.author: nachandr
 
 ---
@@ -134,7 +134,9 @@ Automatic Windows updates might lead to availability loss because multiple clust
 
 ## Download the app package
 
-Download the application from the [download link](https://go.microsoft.com/fwlink/P/?linkid=849590).
+Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=869566).
+
+Application in sfpkg format can be downloaded from [sfpkg link](https://go.microsoft.com/fwlink/?linkid=869567). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -316,6 +318,10 @@ Q. **Why do I see some updates in Windows Update results obtained via REST API, 
 
 A. Some product updates would only appear in their respective update/patch history. For example, Windows Defender updates do not show up in Windows Update history on Windows Server 2016.
 
+Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node cluster) ?**
+
+A. No, Patch orchestration app cannot be used to patch one-node cluster. This limitation is by design, as [service fabric system services](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) or any customer apps will face downtime and hence any repair job for patching would never get approved by repair manager.
+
 ## Disclaimers
 
 - The patch orchestration app accepts the End-User License Agreement of Windows Update on behalf of the user. Optionally, the setting can be turned off in the configuration of the application.
@@ -362,8 +368,12 @@ An administrator must intervene and determine why the application or cluster bec
 ### Version 1.1.1
 - Fixed a bug in SetupEntryPoint of NodeAgentService that prevented installation of NodeAgentNTService.
 
-### Version 1.2.0 (Latest)
+### Version 1.2.0
 
 - Bug fixes around system restart workflow.
 - Bug fix in creation of RM tasks due to which health check during preparing repair tasks wasn't happening as expected.
 - Changed the startup mode for windows service POANodeSvc from auto to delayed-auto.
+
+### Version 1.2.1 (Latest)
+
+- Bug fix in cluster scale-down workflow. Introduced garbage collection logic for POA repair tasks belonging to non-existent nodes.

@@ -1,20 +1,13 @@
 ---
 title: Search Traffic Analytics for Azure Search | Microsoft Docs
 description: Enable Search traffic analytics for Azure Search, a cloud hosted search service on Microsoft Azure, to unlock insights about your users and your data.
+author: HeidiSteen
+manager: cgronlun
 services: search
-documentationcenter: ''
-author: bernitorres
-manager: jlembicz
-editor: ''
-
-ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
 ms.service: search
-ms.devlang: multiple
-ms.workload: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/05/2017
-ms.author: betorres
+ms.author: heidist
 ---
 
 # What is search traffic analytics
@@ -164,7 +157,7 @@ Every time that a user clicks on a document, that's a signal that must be logged
 
 *JavaScript*
 
-    appInsights.TrackEvent("Click", {
+    appInsights.trackEvent("Click", {
     	SearchServiceName: <service name>,
     	SearchId: <search id>,
     	ClickedDocId: <clicked document id>,

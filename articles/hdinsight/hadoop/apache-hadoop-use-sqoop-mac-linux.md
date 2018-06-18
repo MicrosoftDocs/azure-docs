@@ -12,11 +12,9 @@ keywords: hadoop sqoop,sqoop
 ms.assetid: 303649a5-4be5-4933-bf1d-4b232083c354
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2018
+ms.topic: conceptual
+ms.date: 03/26/2018
 ms.author: larryfr
 
 ---
@@ -68,7 +66,7 @@ GO
 1. Use SSH to connect to the HDInsight cluster. For example, the following command connects to the primary headnode of a cluster named `mycluster`:
 
     ```bash
-    ssh CLUSTERNAME-ssh.azurehdinsight.net
+    ssh mycluster-ssh.azurehdinsight.net
     ```
 
     For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).

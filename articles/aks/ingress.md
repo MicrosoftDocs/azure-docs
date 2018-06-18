@@ -1,40 +1,51 @@
 ---
-title: Configure ingress with Azure Container Service (AKS) cluster
-description: Install and configure an NGINX ingress controller in an Azure Container Service (AKS) cluster.
+title: Configure ingress with Azure Kubernetes Service (AKS) cluster
+description: Install and configure an NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 2/21/2018
+ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
-# HTTPS Ingress on Azure Container Service (AKS)
+# HTTPS Ingress on Azure Kubernetes Service (AKS)
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single external address can be used to route traffic to multiple services in a Kubernetes cluster.
 
-This document walks through a sample deployment of the [NGINX ingress controller][nginx-ingress] in an Azure Container Service (AKS) cluster. Additionally, the [KUBE-LEGO][kube-lego] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
+This document walks through a sample deployment of the [NGINX ingress controller][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. Additionally, the [KUBE-LEGO][kube-lego] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
+
+## Prerequisite
+
+Install Helm CLI - See the Helm CLI [documentation][helm-cli] for install instructions.
 
 ## Install an ingress controller
 
-Use Helm to install the NGINX ingress controller. See the NGINX ingress controller [documentation][nginx-ingress] for detailed deployment information. 
+Use Helm to install the NGINX ingress controller. See the NGINX ingress controller [documentation][nginx-ingress] for detailed deployment information.
+
+Update the chart repository.
+
+```console
+helm repo update
+```
+
+Install the NGINX ingress controller. This example installs the controller in the `kube-system` namespace, this can be modified to a namespace of your choice.
 
 ```
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 During the installation, an Azure public IP address is created for the ingress controller. To get the public IP address, use the kubectl get service command. It may take some time for the IP address to be assigned to the service.
 
 ```console
-$ kubectl get service
+$ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                          TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
-kubernetes                                    ClusterIP      10.0.0.1       <none>           443/TCP                      3d
-toned-spaniel-nginx-ingress-controller        LoadBalancer   10.0.236.223   52.224.125.195   80:30927/TCP,443:31144/TCP   18m
-toned-spaniel-nginx-ingress-default-backend   ClusterIP      10.0.5.86      <none>           80/TCP                       18m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
 Because no ingress rules have been created, if you browse to the public IP address, you are routed to the NGINX ingress controllers default 404 page.
@@ -49,26 +60,19 @@ Because HTTPS certificates are used, you need to configure an FQDN name for the 
 #!/bin/bash
 
 # Public IP address
-IP="52.224.125.195"
+IP="51.145.155.210"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"
 
-# Get resource group and public ip name
-RESOURCEGROUP=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
-PIPNAME=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[name]" --output tsv)
+# Get the resource-id of the public ip
+PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
 
 # Update public ip address with dns name
-az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
+az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
 ```
 
-If needed, run the following command to retrieve the FQDN. Update the IP address value with that of your ingress controller.
-
-```azurecli
-az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
-```
-
-The ingress controller is now accessible through the FQDN.
+The ingress controller should now be accessible through the FQDN.
 
 ## Install KUBE-LEGO
 
@@ -125,7 +129,7 @@ metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/tls-acme: "true"
-    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
   - hosts:
@@ -167,12 +171,14 @@ Also notice that the connection is encrypted and that a certificate issued by Le
 
 ## Next steps
 
-Learn more about the software demonstrated in this document. 
+Learn more about the software demonstrated in this document.
 
+- [Helm CLI][helm-cli]
 - [NGINX ingress controller][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

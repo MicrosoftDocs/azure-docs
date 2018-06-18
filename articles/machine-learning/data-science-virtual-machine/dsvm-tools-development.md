@@ -4,18 +4,19 @@ description: Data Science Virtual machine development tools.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
+
 
 ms.assetid: 
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma;bradsev
+ms.author: gokuma
 
 ---
 
@@ -29,7 +30,7 @@ The Data Science Virtual Machine (DSVM) provides a productive environment for yo
 | What is it?   | General Purpose IDE      |
 | Supported DSVM Versions      | Windows      |
 | Typical Uses      | Software Development    |
-| How is it configured / installed on the DSVM?      | Data Science Workload (Python and R tools), Azure workload (Hadoop, Data Lake), Node.js, SQL Server tools    |
+| How is it configured / installed on the DSVM?      | Data Science Workload (Python and R tools), Azure workload (Hadoop, Data Lake), Node.js, SQL Server tools, [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai)    |
 | How to use / run it?      | Desktop Shortcut (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | Related Tools on the DSVM      |     Visual Studio Code, RStudio, Juno  |
 

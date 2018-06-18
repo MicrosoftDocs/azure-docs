@@ -50,7 +50,7 @@ View the full tooling list for the [Bash experience](features.md#tools) and [Pow
 Cloud Shell is a flexible tool that can be used from:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI 2.0 "Try It" documentation](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+* [Azure CLI 2.0 "Try It" documentation](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 * [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [VS Code Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

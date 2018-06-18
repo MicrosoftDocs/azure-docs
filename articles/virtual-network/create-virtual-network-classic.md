@@ -3,10 +3,10 @@ title: Create an Azure virtual network (classic) with multiple subnets | Microso
 description: Learn how to create a virtual network (classic) with multiple subnets in Azure.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: ''
-tags: azure-resource-manager
+tags: azure-service-management
 
 ms.assetid: 
 ms.service: virtual-network
@@ -14,19 +14,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: jdial
+ms.date: 06/15/2018
+ms.author: genli
 ms.custom: 
 
 ---
 # Create a virtual network (classic) with multiple subnets
 
 > [!IMPORTANT]
-> Azure has two [different deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Microsoft recommends creating most new virtual networks through the [Resource Manager](virtual-networks-create-vnet-arm-pportal.md) deployment model.
+> Azure has two [different deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Microsoft recommends creating most new virtual networks through the [Resource Manager](quick-create-portal.md) deployment model.
 
 In this tutorial, learn how to create a basic Azure virtual network (classic) that has separate public and private subnets. You can create Azure resources, like Virtual machines and Cloud services in a subnet. Resources created in virtual networks (classic) can communicate with each other, and with resources in other networks connected to a virtual network.
 
-Learn more about all [virtual network](virtual-network-manage-network.md) and [subnet](virtual-network-manage-subnet.md) settings.
+Learn more about all [virtual network](manage-virtual-network.md) and [subnet](virtual-network-manage-subnet.md) settings.
 
 > [!WARNING]
 > Virtual networks (classic) are immediately deleted by Azure when a [subscription is disabled](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Virtual networks (classic) are deleted regardless of whether resources exist in the virtual network. If you later re-enable the subscription, resources that existed in the virtual network must be recreated.
@@ -158,8 +158,7 @@ You can create a virtual network (classic) by using the [Azure portal](#portal),
 
 ## Next steps
 
-- To learn about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md) and [Manage virtual network subnets](virtual-network-manage-subnet.md). You have various options for using virtual networks and subnets in a production environment to meet different requirements.
-- To filter inbound and outbound subnet traffic, create and apply [network security groups](virtual-networks-nsg.md) to subnets.
+- To learn about all virtual network and subnet settings, see [Manage virtual networks](manage-virtual-network.md) and [Manage virtual network subnets](virtual-network-manage-subnet.md). You have various options for using virtual networks and subnets in a production environment to meet different requirements.
 - Create a [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or a [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine, and then connect it to an existing virtual network.
 - To connect two virtual networks in the same Azure location, create a  [virtual network peering](create-peering-different-deployment-models.md) between the virtual networks. You can peer a virtual network (Resource Manager) to a virtual network (classic), but you cannot create a peering between two virtual networks (classic).
 - Connect the virtual network to an on-premises network by using a [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuit.

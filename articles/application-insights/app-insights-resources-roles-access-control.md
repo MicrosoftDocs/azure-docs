@@ -1,4 +1,4 @@
-﻿---
+---
 title: Resources, roles and access control in Azure Application Insights | Microsoft Docs
 description: Owners, contributors and readers of your organization's insights.
 services: application-insights
@@ -11,13 +11,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: mbullwin
 
 ---
 # Resources, roles, and access control in Application Insights
-You can control who has read and update access to your data in Azure [Application Insights][start], by using [Role-based access control in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+You can control who has read and update access to your data in Azure [Application Insights][start], by using [Role-based access control in Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Assign access to users in the **resource group or subscription** to which your application resource belongs - not in the resource itself. Assign the **Application Insights component contributor** role. This ensures uniform control of access to web tests and alerts along with your application resource. [Learn more](#access).
@@ -55,7 +55,7 @@ To control access to these resources it's therefore recommended to:
 ## To provide access to another user
 You must have Owner rights to the subscription or the resource group.
 
-The user must have a [Microsoft Account][account], or access to their [organizational Microsoft Account](../active-directory/sign-up-organization.md). You can provide access to individuals, and also to user groups defined in Azure Active Directory.
+The user must have a [Microsoft Account][account], or access to their [organizational Microsoft Account](../active-directory/fundamentals/sign-up-organization.md). You can provide access to individuals, and also to user groups defined in Azure Active Directory.
 
 #### Navigate to the resource group
 Add the user there.
@@ -88,7 +88,7 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 
 ## Related content
 
-* [Role based access control in Azure](../active-directory/role-based-access-control-configure.md)
+* [Role based access control in Azure](../role-based-access-control/role-assignments-portal.md)
 
 <!--Link references-->
 

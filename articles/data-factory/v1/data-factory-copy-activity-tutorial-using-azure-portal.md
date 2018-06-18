@@ -3,9 +3,9 @@ title: 'Tutorial: Create an Azure Data Factory pipeline to copy data (Azure port
 description: In this tutorial, you use Azure portal to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage to an Azure SQL database.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 
 ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 
 robots: noindex
 ---
@@ -96,7 +96,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
    6. Click **Create**.
       
       > [!IMPORTANT]
-      > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
+      > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
       > 
       > The name of the data factory may be registered as a DNS name in the future and hence become publically visible.                
       > 

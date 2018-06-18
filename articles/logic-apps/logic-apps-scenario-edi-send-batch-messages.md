@@ -3,7 +3,7 @@ title: Batch process EDI messages as a group or collection - Azure Logic Apps | 
 description: Send EDI messages for batch processing in logic apps
 keywords: batch, batch process, batch encode
 author: divswa
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''

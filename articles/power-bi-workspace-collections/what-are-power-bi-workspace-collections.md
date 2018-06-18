@@ -3,8 +3,8 @@ title: What are Power BI Workspace Collections?
 description: Power BI Embedded enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
+ms.author: maghan
 ---
 # What are Power BI Workspace Collections?
 

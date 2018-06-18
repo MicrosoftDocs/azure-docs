@@ -3,8 +3,8 @@
 # Overview
 ## [What is Resource Manager?](resource-group-overview.md)
 ## [Resource providers and types](resource-manager-supported-services.md)
-## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
-## [Subscription governance](resource-manager-subscription-governance.md)
+## [Resource Manager and classic deployment](resource-manager-deployment-model.md)
+## [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Organize resources with management groups](management-groups-overview.md)
 
 # Get started
@@ -17,6 +17,7 @@
 ### [Template sections](resource-group-authoring-templates.md)
 #### [Parameters](resource-manager-templates-parameters.md)
 #### [Variables](resource-manager-templates-variables.md)
+#### [Functions](resource-group-authoring-templates.md#functions)
 #### [Resources](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
 ### [Linked and nested templates](resource-group-linked-templates.md)
@@ -47,9 +48,10 @@
 ### [Azure portal](resource-group-portal.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
+### [Create EA subscriptions](programmatically-create-subscription.md)
+### [Grant access to create EA subscriptions](grant-access-to-create-subscription.md)
 ### [Create management groups](management-groups-create.md)
 ### [Manage your management groups](management-groups-manage.md)
-### [Governance examples](resource-manager-subscription-examples.md)
 
 ## Control Access
 ### Create service principal
@@ -64,21 +66,20 @@
 ### [View deployment operations](resource-manager-deployment-operations.md)
 
 ## Troubleshoot
-### [Common deployment errors](resource-manager-common-deployment-errors.md)
-#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
-#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
-#### [Linux deployment issues](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
-#### [NotFound](resource-manager-not-found-errors.md)
-#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
-#### [Provisioning and allocation issues for Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-#### [Provisioning and allocation issues for Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
-#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
-#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
-#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-#### [Windows deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
+### [Troubleshoot deployment errors](resource-manager-common-deployment-errors.md)
+### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+### [Linux deployment issues](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+### [NotFound](resource-manager-not-found-errors.md)
+### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+### [Provisioning and allocation issues for Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+### [Provisioning and allocation issues for Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### [ReservedResourceName](resource-manager-reserved-resource-name.md)
+### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
+### [Windows deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Reference
 ## [Template format](/azure/templates/)
@@ -102,6 +103,7 @@
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Manage personal data](resource-manager-personal-data.md)
 ## [Throttling requests](resource-manager-request-limits.md)
 ## [Track asynchronous operations](resource-manager-async-operations.md)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

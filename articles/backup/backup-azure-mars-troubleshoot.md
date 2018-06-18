@@ -1,26 +1,20 @@
 ---
-title: Troubleshoot Azure Backup Agent | Microsoft Docs
+title: Troubleshoot Azure Backup Agent
 description: Troubleshoot installation and registration of Azure Backup Agent
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: ''
-
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/4/2017
-ms.author: saurse;markgal;
-
+ms.author: saurse
 ---
 
 # Troubleshoot Azure Backup Agent configuration and registration issues
 ## Recommended steps
 Refer to the recommended actions in the following tables to resolve errors that you might encounter during the configuration or registration of Azure Backup Agent.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service.
 | Error details | Possible causes | Recommended actions |

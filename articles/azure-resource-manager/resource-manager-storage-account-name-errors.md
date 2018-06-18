@@ -1,7 +1,7 @@
 ---
 title: Azure storage account name errors | Microsoft Docs
 description: Describes the errors you may encounter when specifying a storage account name.
-services: azure-resource-manager,azure-portal
+services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
 manager: timlt
@@ -11,8 +11,8 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
-ms.date: 09/13/2017
+ms.topic: troubleshooting
+ms.date: 03/09/2018
 ms.author: tomfitz
 
 ---
@@ -45,16 +45,12 @@ Storage account names must be between 3 and 24 characters in length and use numb
 
 ## Solution
 
-### Solution 1
-
 Make sure the storage account name is unique. You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions-string.md#uniquestring) function.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
-
-### Solution 2
 
 Make sure your storage account name does not exceed 24 characters. The [uniqueString](resource-group-template-functions-string.md#uniquestring) function returns 13 characters. If you concatenate a prefix or postfix to the **uniqueString** result, provide a value that is 11 characters or less.
 
@@ -70,7 +66,5 @@ Make sure your storage account name does not exceed 24 characters. The [uniqueSt
     }
 }
 ```
-
-### Solution 3
 
 Make sure your storage account name does not include any upper-case letters or special characters.

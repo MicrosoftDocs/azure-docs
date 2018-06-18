@@ -6,20 +6,23 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: v-gedod
 ---
 # Video Search SDK Python quickstart
 
-The Bing Image Search SDK contains the functionality of the REST API for web queries and parsing results. 
+The Bing Image Search SDK contains the functionality of the REST API for web queries and parsing results.
+
+The [source code for Python Bing Video Search SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) is available on Git Hub.
+
 
 ## Application dependencies
 If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
 
 The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). 
-Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install virtualenv for Python 2.7.
+Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7.
 ```
 python -m venv mytestenv
 ```
@@ -38,13 +41,13 @@ Create an instance of the `CognitiveServicesCredentials`, and instantiate the cl
 ```
 client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Search videos for (Nasa CubeSat), then verify number of results. Print out `ID`, `name` and `URL` of first video result.
+Search videos for (SwiftKey), then verify number of results. Print out `ID`, `name` and `URL` of first video result.
 ```
 client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 
 try:
-    video_result = client.videos.search(query="Nasa CubeSat")
-    print("Search videos for query \"Nasa CubeSat\"")
+    video_result = client.videos.search(query="SwiftKey")
+    print("Search videos for query \"SwiftKey\"")
 
     if video_result.value:
         first_video_result = video_result.value[0]
@@ -59,7 +62,7 @@ except Exception as err:
     print("Encountered exception. {}".format(err))
 
 ```
-Search videos for (Interstellar Trailer) that is free, short and 1080p resolution. Verify number of results, and print out `ID`, `name` and `URL` of first video result.
+Search videos for (Bellevue Trailer) that is free, short, and 1080p resolution. Verify number of results, and print out `ID`, `name` and `URL` of first video result.
 ```
 def video_search_with_filtering(subscription_key):
 
@@ -67,12 +70,12 @@ def video_search_with_filtering(subscription_key):
 
     try:
         video_result = client.videos.search(
-            query="Interstellar Trailer",
+            query="Bellevue Trailer",
             pricing=VideoPricing.free,  # Can use the str "free" too
             length=VideoLength.short,   # Can use the str "short" too
             resolution=VideoResolution.hd1080p  # Can use the str "hd1080p" too
         )
-        print("Search videos for query \"Interstellar Trailer\" that is free, short and 1080p resolution")
+        print("Search videos for query \"Bellevue Trailer\" that is free, short and 1080p resolution")
 
         if video_result.value:
             first_video_result = video_result.value[0]
@@ -132,18 +135,18 @@ def video_trending(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Search videos for (Interstellar Trailer), and then search for detail information of the first video.
+Search videos for (Bellevue Trailer), and then search for detailed information of the first video.
 ```
 def video_detail(subscription_key):
 
     client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 
     try:
-        video_result = client.videos.search(query="Interstellar Trailer")
+        video_result = client.videos.search(query="Bellevue Trailer")
         first_video_result = video_result.value[0]
 
         video_details = client.videos.details(
-            query="Interstellar Trailer",
+            query="Bellevue Trailer",
             id=first_video_result.video_id,
             modules=[VideoInsightModule.all]  # Can use ["all"] too
         )

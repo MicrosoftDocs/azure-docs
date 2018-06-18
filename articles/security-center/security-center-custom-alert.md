@@ -3,7 +3,7 @@ title: Custom Alert Rules in Azure Security Center  | Microsoft Docs
 description: This document helps you to create custom alert rules in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 
