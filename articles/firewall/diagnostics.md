@@ -38,7 +38,7 @@ The following logs are available for Azure Firewall:
    {
      "category": "AzureFirewallApplicationRule",
      "time": "2018-04-16T23:45:04.8295030Z",
-     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/SECUREGATEWAYS /{resourceName}",
+     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
      "operationName": "AzureFirewallApplicationRuleLog",
      "properties": "{\"msg\":\"HTTPS request from 10.1.0.5 to mydestination.com was allowed. Action: Allow. Rule Collection: collection1000. Rule: rule1002\"}"
    }
@@ -57,7 +57,7 @@ The following logs are available for Azure Firewall:
    {
       "category": "AzureFirewallNetworkRule",
       "time": "2018-06-14T23:44:11.0590400Z",
-      "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/SECUREGATEWAYS/{resourceName}",
+      "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
       "operationName": "AzureFirewallNetworkRuleLog",
       "properties": "{\"msg\":\"TCP request from 111.35.136.173:12518 to 13.78.143.217:2323 was blocked\"}",
 
@@ -118,7 +118,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 3. Enable diagnostic logging by using the following PowerShell cmdlet:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/firewall/<Firewall name> `
+    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```
