@@ -347,7 +347,7 @@
     - name: Sync data
       href: sql-database-get-started-sql-data-sync.md
     - name: Replicate schema changes for SQL Data Sync
-      href: sql-database-update-sync-schema
+      href: sql-database-update-sync-schema.md
     - name: Monitor SQL Data Sync with OMS Log Analytics
       href: sql-database-sync-monitor-oms.md
     - name: Best practices for SQL Data Sync
