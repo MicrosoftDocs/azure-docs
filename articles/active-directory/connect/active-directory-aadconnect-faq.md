@@ -168,7 +168,7 @@ You will not be notified of the result of the upgrade. The feature is being eval
 **Q: Do you publish a timeline for when you plan to push out auto upgrades?**  
 Auto upgrade is the first step in the release process of a newer version. Whenever there is a new release, upgrades are pushed automatically. Newer versions of Azure AD Connect are pre-announced in the [Azure AD Roadmap](../fundamentals/whats-new.md).
 
-**Q: Does auto upgrade upgrade Azure AD Connect Health?**  
+**Q: Does auto upgrade also upgrade Azure AD Connect Health?**  
 Yes, auto upgrade also upgrades Azure AD Connect Health.
 
 **Q: Do you also auto-upgrade Azure AD Connect servers in staging mode?**  
