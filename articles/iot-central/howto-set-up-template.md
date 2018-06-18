@@ -214,9 +214,9 @@ Commands are used to remotely manage a device. They enable operators of your app
 
 How is a **Command** different from a **Setting**? 
 
-* Setting : Setting is a configuration you want to apply to a device, and you want the device to persist that configuration until you change it.For example, you want to set the temperature of your freezer and you want that setting even when the freezer restarted. 
+* Setting: Setting is a configuration you want to apply to a device, and you want the device to persist that configuration until you change it. For example, you want to set the temperature of your freezer and you want that setting even when the freezer restarted. 
 
-* Command : You use Commands to instantaneously run a command on the device remotely from IoTCentral, if a device is not connected then the command time-out and fails. For example, you want to restart/reboot a device.  
+* Command: You use Commands to instantaneously run a command on the device remotely from IoTCentral, if a device is not connected then the command time-out and fails. For example, you want to restart/reboot a device.  
 
 Commands when executed can be in one of three states, depending on whether the device received the command. 
 
