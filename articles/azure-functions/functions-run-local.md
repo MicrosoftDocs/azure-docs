@@ -1,6 +1,6 @@
 ---
 title: Develop and run Azure functions locally | Microsoft Docs
-description: Learn how to code and test Azure functions on your local computer before you run them on Azure Functions.
+description: Learn how to code and test Azure functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -13,26 +13,26 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/03/2018
+ms.date: 06/18/2018
 ms.author: glenga
 
 ---
 # Code and test Azure Functions locally
 
-While the [Azure portal] provides a full set of tools for developing and testing Azure Functions, many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime.
+While you are able to develop and test Azure Functions in the [Azure portal], many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime.
 
 ## Local development environments
 
-The way in which you develop functions on your local computer depends on your language and tooling preferences. The environments in the following table are the best way to create and test functions locally, and then publish them to Azure.
+The way in which you develop functions on your local computer depends on your language and tooling preferences. The environments in the following table support local development:
 
 |Environment                              |[Languages](supported-languages.md)         |Description|
 |-----------------------------------------|------------|---|
-| Command prompt or terminal | [C# (script)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Azure Functions Core Tools]() provides core runtime and function templates that enable local development. Version 2.x support development on Linux, MacOS, and Windows. All environments rely on Core Tools for the local Functions runtime.|
+| Command prompt or terminal | [C# (script)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Azure Functions Core Tools] provides core runtime and function templates that enable local development. Version 2.x support development on Linux, MacOS, and Windows. All environments rely on Core Tools for the local Functions runtime.|
 |[Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)| [C# (script)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Azure Functions Core Tools. Supports development on Linux, MacOS, and Windows, when using version 2.x of the Core Tools. To learn more, see [Deploy to Azure using Azure Functions](https://code.visualstudio.com/tutorials/functions-extension/getting-started).  |
 | [Visual Studio 2017](functions-develop-vs.md) | [C# (class library)](functions-dotnet-class-library.md) | The Azure Functions tools are included in the **Azure development** workload of [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) and later versions. Let you compile functions in a class library and publish the .dll to Azure. |
 | [Maven](functions-create-first-java-maven.md) | [Java](functions-reference-java.md) | Integrates with Core Tools to enable development of Java functions. Version 2.x supports development on Linux, MacOS, and Windows. For more information, see [Create your first function with Java and Maven](functions-create-first-java-maven.md).|
 
-The rest of this topic is focused on installing and using the Core Tools for local development and publishing from the command prompt or terminal.
+The rest of this article is focused on installing and using the Core Tools to create, test, and deploy your functions.
 
 >[!IMPORTANT]  
 > Do not mix local development with portal development in the same function app. When you create and publish functions from a local project, you should not try to maintain or modify project code in the portal.
@@ -41,15 +41,15 @@ The rest of this topic is focused on installing and using the Core Tools for loc
 
 There are two versions of Azure Functions Core Tools. The version you use depends on your local development environment, choice of language, and level of support required:
 
-+ [Version 1.x](#v1): supports version 1.x of the runtime, which is generally supported. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm). This version lets you create functions using templates for several languages that are considered experimental and are not officially supported. For more information, see [Supported languages in Azure Functions](supported-languages.md)
++ [Version 1.x](#v1): supports version 1.x of the runtime, which is fully supported. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm). With this version, you can create functions in experimental languages that are not officially supported. For more information, see [Supported languages in Azure Functions](supported-languages.md)
 
 + [Version 2.x](#v2): supports version 2.x of the runtime. This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation. Like the 2.x runtime, this version of the core tools is currently in preview.
 
-Unless otherwise noted, the examples in this topic are for version 2.x.
+Unless otherwise noted, the examples in this article are for version 2.x.
 
 ## Install the Azure Functions Core Tools
 
-[Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local development computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. 
+[Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
 ### <a name="v1"></a>Version 1.x
 
@@ -131,9 +131,9 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 ## Create a local Functions project
 
-When running locally, a Functions project is a directory that has the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file). This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+A functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
-Version 2.x requires you to select a default language for your project when it is initialized; all functions added use a template for the default language. Version 1.x doesn't have this requirement, and you must specify the language when you create a function.
+Version 2.x requires you to select a default language for your project when it is initialized, and all functions added use default language templates. Version 1.x doesn't have this requirement, and you must specify the language when you create a function.
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
@@ -195,7 +195,7 @@ The file local.settings.json stores app settings, connection strings, and settin
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings used when running locally. These correspond to app settings in your function app in Azure, such as **AzureWebJobsStorage** and **AzureWebJobsDashboard**. Many triggers and bindings have a property that refers to an app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. <br/>**AzureWebJobsStorage** is a required app setting for triggers other than HTTP. When you have the [Azure storage emulator](../storage/common/storage-use-emulator.md) installed locally, you can set **AzureWebJobsStorage** to `UseDevelopmentStorage=true` and Core Tools uses the emulator. This is useful during development, but you should test with an actual storage connection before deployment. |
+| **Values** | Collection of application settings used when running locally. These values correspond to app settings in your function app in Azure, such as **AzureWebJobsStorage** and **AzureWebJobsDashboard**. Many triggers and bindings have a property that refers to an app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. <br/>**AzureWebJobsStorage** is a required app setting for triggers other than HTTP. When you have the [Azure storage emulator](../storage/common/storage-use-emulator.md) installed locally, you can set **AzureWebJobsStorage** to `UseDevelopmentStorage=true` and Core Tools uses the emulator. This is useful during development, but you should test with an actual storage connection before deployment. |
 | **Host** | Settings in this section customize the Functions host process when running locally. |
 | **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
 | **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
@@ -250,7 +250,7 @@ To create a function, run the following command:
 func new
 ```
 
-In version 2.x when you run `func new`, you are prompted to choose a template in the default language of your function app, then you are also promoted to choose a name for your function. In version 1.x you are also prompted to choose the language.
+In version 2.x, when you run `func new` you are prompted to choose a template in the default language of your function app, then you are also promoted to choose a name for your function. In version 1.x, you are also prompted to choose the language.
 
 ```output
 Select a language: Select a template:
@@ -265,7 +265,7 @@ Service Bus Topic trigger
 Timer trigger
 ```
 
-Function code is generated in a sub-folder with the provided function name, as you can see in the following queue trigger output:
+Function code is generated in a subfolder with the provided function name, as you can see in the following queue trigger output:
 
 ```output
 Select a language: Select a template: Queue trigger
@@ -281,19 +281,19 @@ You can also specify these options in the command using the following arguments:
 | Argument     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--language -l`** | The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x, do not use this option or choose the default language of your project. |
-| **`--template -t`** | The template name, which can be one of the following:<br/><ul><li>Blob trigger</li><li>Cosmos DB trigger</li><li>Event Grid trigger</li><li>HTTP trigger</li><li>Queue trigger</li><li>SendGrid</li><li>Service Bus Queue trigger</li><li>Service Bus Topic trigger</li><li>Timer trigger</li></ul> |
+| **`--template -t`** | The template name, which can be one of the  values:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
 | **`--name -n`** | The function name. |
 
 For example, to create a JavaScript HTTP trigger in a single command, run:
 
 ```bash
-func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
+func new --template "Http Trigger" --name MyHttpTrigger
 ```
 
 To create a queue-triggered function in a single command, run:
 
 ```bash
-func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
+func new --template "Queue Trigger" --name QueueTriggerJS
 ```
 
 ## <a name="start"></a>Run functions locally
@@ -309,7 +309,7 @@ func host start
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 |**`--port -p`** | The local port to listen on. Default value: 7071. |
-| **`--debug <type>`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from Visual Studio Code or Visual Studio. The options are `VSCode` and `VS`.  |
+| **`--debug <type>`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from Visual Studio Code or Visual Studio. The *\<type\>* options are `VSCode` and `VS`.  |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
 | **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
 | **`--debugLevel -d`** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
