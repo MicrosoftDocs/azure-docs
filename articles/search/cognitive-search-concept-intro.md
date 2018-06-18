@@ -25,7 +25,7 @@ Skills used during indexing can be predefined or custom:
 + [Custom skills](cognitive-search-create-custom-skill-example.md) can be developed by you for any specialized processing that you  require. Examples of custom skills might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
 > [!NOTE]
-> Cognitive Search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
+> Cognitive search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
 
 ## Components of cognitive search
 
