@@ -189,7 +189,7 @@ These links use the same access control mechanisms as the access panel and Offic
 
 ## Related articles
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](../active-directory-saas-tutorial-list.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Finding unsanctioned cloud applications with Cloud App Discovery](cloud-app-discovery.md)
 * [Introduction to Managing Access to Apps](what-is-access-management.md)
 * [Comparing Capabilities for Managing External Identities in Azure AD](../active-directory-b2b-compare-b2c.md)
