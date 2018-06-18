@@ -33,19 +33,11 @@ Update Management is supported on the following operating systems:
 |Operating system  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
-<<<<<<< HEAD
 |Windows Server 2008 R2 SP1 and later     |Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 is recommended for increased reliability. ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
 |CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
 |Ubuntu 12.04 LTS, 14.04 LTS, and 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
-=======
-|Windows Server 2008 R2 SP1 and later     |Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability. ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
-|Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
->>>>>>> 05401365e29698806a2ef18f276b4efa6eb31bc2
 
 > [!NOTE]
 > To prevent updates from being applied outside a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For more information, see the [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
@@ -142,16 +134,11 @@ In the **New update deployment** pane, specify the following information:
   - Definition updates
   - Tools
   - Updates
-<<<<<<< HEAD
 
 - **Updates to exclude** - Selecting this option opens the **Exclude** page. Enter the KB articles or package names to exclude.
 
 - **Schedule settings**: You can accept the default date and time, which is 30 minutes after the current time. You can also specify a different time.
 
-=======
-- **Updates to exclude** - This opens the **Exclude** page. Enter in the KBs or package names to exclude.
-- **Schedule settings**: You can leave the default date and time, which is 30 minutes after the current time. Or, you can specify a different time.
->>>>>>> 05401365e29698806a2ef18f276b4efa6eb31bc2
    You can also specify whether the deployment occurs once or on a recurring schedule. To set up a recurring schedule, under **Recurrence**, select **Recurring**.
 
    ![Schedule Settings dialog box](./media/manage-update-multi/update-set-schedule.png)

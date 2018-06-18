@@ -13,11 +13,7 @@ manager: carmonm
 
 # Onboard Update Management, Change Tracking, and Inventory solutions from an Azure virtual machine
 
-<<<<<<< HEAD
 Azure Automation provides solutions to help you manage operating system security updates, track changes, and inventory what's installed on your computers. There are multiple ways to onboard machines. You can onboard the solution from a virtual machine, [from your Automation account](automation-onboard-solutions-from-automation-account.md), [from browsing multiple machines](automation-onboard-solutions-from-browse.md), or by using a [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions from an Azure virtual machine.
-=======
-Azure Automation provides solutions to help you manage operating system security updates, track changes, and inventory what's installed on your computers. You can choose from multiple ways to onboard machines. You can onboard the solution from a virtual machine, [from your Automation account](automation-onboard-solutions-from-automation-account.md), [from browsing multiple machines](automation-onboard-solutions-from-browse.md), or by using a [runbook](automation-onboard-solutions.md). This article describes how to onboard these solutions from an Azure virtual machine.
->>>>>>> 05401365e29698806a2ef18f276b4efa6eb31bc2
 
 ## Sign in to Azure
 
@@ -27,16 +23,9 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 Go to an existing virtual machine. Under **OPERATIONS**, select **Update management**, **Inventory**, or **Change tracking**.
 
-<<<<<<< HEAD
 To enable the solution for the VM only, ensure that the **Enable for this VM** radio button is selected. To onboard multiple machines to the solution, select **Enable for VMs in this subscription** and click **Click to select machines to enable**. To view the steps on how to onboard multiple machines at once, see [Onboard Update Management, Change Tracking, and Inventory solutions](automation-onboard-solutions-from-automation-account.md).
 
-Choose the Log analytics workspace and automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
-=======
-To enable the solution for the VM only, ensure that the **Enable for this VM** radio button is selected. To onboard multiple machines to the solution, select **Enable for VMs in this subscription**, and then select **Click to select machines to enable**. To view the steps to onboard multiple machines at once, see [Onboard update management, change tracking, and inventory solutions](automation-onboard-solutions-from-automation-account.md). 
-
-Select the Azure Log analytics workspace and Automation account, and then select **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
-
->>>>>>> 05401365e29698806a2ef18f276b4efa6eb31bc2
+Select the Azure Log Analytics workspace and Automation account, and then select **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
 ![Onboard the Update Management solution](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 

@@ -11,7 +11,7 @@ ms.author: luisca
 ---
 # Predefined skills for content enrichment (Azure Search)
 
-In this article, you learn about the cognitive skills provided with Cognitive Search. A *cognitive skill* is an operation that transforms content in some way. Often, it is a component that extracts data or infers structure, and therefore augments our understanding of the input data. Almost always, the output is text-based. A *skillset* is collection of skills that define the enrichment pipeline. 
+In this article, you learn about the cognitive skills provided with Azure Search. A *cognitive skill* is an operation that transforms content in some way. Often, it is a component that extracts data or infers structure, and therefore augments our understanding of the input data. Almost always, the output is text-based. A *skillset* is collection of skills that define the enrichment pipeline. 
 
 ## Predefined skills
 
