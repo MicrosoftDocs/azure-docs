@@ -72,6 +72,8 @@
       href: how-to-deploy-modules-portal.md
     - name: Azure CLI
       href: how-to-deploy-modules-cli.md
+    - name: Visual Studio Code
+      href: how-to-deploy-modules-vscode.md  
   - name: Deploy and monitor at scale
     items:
     - name: Azure portal
