@@ -107,7 +107,7 @@ To use the tool:
 > 
 
 ### Use the Azure Cosmos DB request charge response header
-Every response from the Azure Cosmos DB service includes a custom header (`x-ms-request-charge`) that contains the request units consumed for a given request. You can also access this header through the Azure Cosmos DB SDKs. In the .NET SDK, **RequestCharge** is a property of the **ResourceResponse** object. For queries, the Azure Cosmos DB Data Explorer in the Azure portal provides request charge information for executed queries.
+Every response from the Azure Cosmos DB service includes a custom header (`x-ms-request-charge`) that contains the request units consumed for a given request. You can also access this header through the Azure Cosmos DB SDKs. In the .NET SDK, **RequestCharge** is a property of the **ResourceResponse** object. For queries, the Azure Cosmos DB Data Explorer in the Azure portal provides request charge information for executed queries. To learn about how to get and set throughput by using different multi-model APIs see [set and get throughput in Azure Cosmos DB](set-throughput.md) article.
 
 One method for estimating the amount of reserved throughput required by your application is to record the request unit charge associated with running typical operations against a representative item that's used by your application. Then, estimate the number of operations you anticipate to perform each second. Be sure to also measure and include typical queries and Azure Cosmos DB script usage.
 
