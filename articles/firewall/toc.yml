@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Firewall
+  - name: What is Azure Firewall?
     href: overview.md
 - name: Tutorials
   items:

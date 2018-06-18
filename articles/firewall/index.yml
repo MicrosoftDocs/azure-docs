@@ -19,7 +19,7 @@ sections:
   - type: paragraph
     text: Learn how to deploy, manage, and monitor Azure Firewall
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/firewall/tutorial-firewall-rules-portal">Configure Azure Firewall application and network rules using the Azure portal</a>
 - title: Samples
