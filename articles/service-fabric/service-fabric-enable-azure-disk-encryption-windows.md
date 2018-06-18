@@ -32,30 +32,37 @@ The guide covers the following procedures:
 
 
 ## Prerequisites
-1. Self-register your subscription by entering the following command: 
-   ```Powershell
+1. Self-register your subscription by entering the following command:
+
+   ```PowerShell
    Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
    ```
-   Wait around 10 minutes until the state is `Registered`. You can check the state by running the following commands: 
-   ```Powershell
+   
+   Wait around 10 minutes until the state is `Registered`. You can check the state by running the following commands:
+
+   ```PowerShell
    Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
    ```
-2. Create a key vault in the same subscription and region as the scale set. Set the access policy `EnabledForDiskEncryption` on the key vault by using its PowerShell cmdlet. You can also set the policy by using the Azure Key Vault UI in the Azure portal. 
-   ```Powershell
+
+2. Create a key vault in the same subscription and region as the scale set. Set the access policy `EnabledForDiskEncryption` on the key vault by using its PowerShell cmdlet. You can also set the policy by using the Azure Key Vault UI in the Azure portal.
+
+   ```PowerShell
    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
    ```
+
 3. Install [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), which has the latest encryption commands.
+
 4. Install the latest version of the [Azure SDK from Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Use the following cmdlets to enable ([Set](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) encryption, retrieve ([Get](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) encryption status, and remove ([disable](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) encryption on a scale set instance:
 
 | Command | Version |  Source  |
 | ------------- |-------------| ------------|
-| Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 or above | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryptionStatus   | 3.4.0 or above | AzureRM.Compute |
-| Disable-AzureRmVmssDiskEncryption   | 3.4.0 or above | AzureRM.Compute |
-| Get-AzureRmVmssDiskEncryption   | 3.4.0 or above | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryption   | 3.4.0 or above | AzureRM.Compute |
-| Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 or above | AzureRM.Compute |
+| Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 or later | AzureRM.Compute |
+| Get-AzureRmVmssVMDiskEncryptionStatus   | 3.4.0 or later | AzureRM.Compute |
+| Disable-AzureRmVmssDiskEncryption   | 3.4.0 or later | AzureRM.Compute |
+| Get-AzureRmVmssDiskEncryption   | 3.4.0 or later | AzureRM.Compute |
+| Get-AzureRmVmssVMDiskEncryption   | 3.4.0 or later | AzureRM.Compute |
+| Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 or later | AzureRM.Compute |
 
 
 ## Supported scenarios for disk encryption
@@ -70,7 +77,7 @@ Use the following commands to create a cluster and enable disk encryption by usi
 
 ### Log in to Azure 
 
-```Powershell
+```PowerShell
 
 Login-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
@@ -90,7 +97,7 @@ If you need to author a custom template to suit your needs, we recommend that yo
 
 If you already have a custom template, make sure that all the three certificate-related parameters in the template and the parameter file are named as follows. Also make sure that values are null as follows.
 
-```Json
+```JSON
    "certificateThumbprint": {
       "value": ""
     },
@@ -103,7 +110,7 @@ If you already have a custom template, make sure that all the three certificate-
 ```
 
 
-```Powershell
+```PowerShell
 
 
 $resourceGroupLocation="westus"
@@ -143,10 +150,10 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 Follow steps and guidance to [deploy an application to your cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications).
 
 
-## Enable disk encryption for the virtual machine scale set
+## Enable disk encryption for a virtual machine scale set
 Enable disk encryption for the virtual machine scale set that you created earlier for the Service Fabric Windows cluster.
  
-```Powershell
+```PowerShell
 
 $VmssName = "nt1vm"
 $vaultName = "mykeyvault"
@@ -166,10 +173,10 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 ```
 
 
-## Validate that disk encryption is enabled for the virtual machine scale set
+## Validate that disk encryption is enabled for a virtual machine scale set
 Use the following commands to get the status of an entire virtual machine scale set or any instance VM in a scale set. You can also log in to a VM in the scale set and make sure that drives are encrypted.
 
-```Powershell
+```PowerShell
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
@@ -190,7 +197,7 @@ az vmss encryption show -g <resourceGroupName> -n <VMSS name>
 If you need to disable disk encryption for the virtual machine scale set for a Service Fabric Windows cluster, use the following commands. Disabling disk encryption applies to the entire virtual machine scale set and not by instance. 
 
 
-```Powershell
+```PowerShell
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"

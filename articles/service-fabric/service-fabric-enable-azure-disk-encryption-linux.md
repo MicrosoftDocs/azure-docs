@@ -33,30 +33,37 @@ The guide covers the following procedures:
 
 ## Prerequisites
 
-1. Self-register your subscription by entering the following command: 
-   ```Powershell
+1. Self-register your subscription by entering the following command:
+
+   ```PowerShell
    Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
    ```
+   
    Wait around 10 minutes until the state is `Registered`. You can check the state by running the following commands: 
-   ```Powershell
+
+   ```PowerShell
    Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
    ```
-2. Create a key vault in the same subscription and region as the scale set. Set the access policy `EnabledForDiskEncryption` on the key vault by using its PowerShell cmdlet. You can also set the policy by using the Azure Key Vault UI in the Azure portal. 
-   ```Powershell
+
+2. Create a key vault in the same subscription and region as the scale set. Set the access policy `EnabledForDiskEncryption` on the key vault by using its PowerShell cmdlet. You can also set the policy by using the Azure Key Vault UI in the Azure portal.
+
+   ```PowerShell
    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
    ```
+
 3. Install [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), which has the latest encryption commands.
+
 4. Install the latest version of the [Azure SDK from Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Use the following cmdlets to enable ([Set](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) encryption, retrieve ([Get](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) encryption status, and remove ([disable](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) encryption on a scale set instance: 
 
    | Command | Version |  Source  |
    | ------------- |-------------| ------------|
-   | Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 or above | AzureRM.Compute |
-   | Get-AzureRmVmssVMDiskEncryptionStatus   | 3.4.0 or above | AzureRM.Compute |
-   | Disable-AzureRmVmssDiskEncryption   | 3.4.0 or above | AzureRM.Compute |
-   | Get-AzureRmVmssDiskEncryption   | 3.4.0 or above | AzureRM.Compute |
-   | Get-AzureRmVmssVMDiskEncryption   | 3.4.0 or above | AzureRM.Compute |
-   | Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 or above | AzureRM.Compute |
+   | Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 or later | AzureRM.Compute |
+   | Get-AzureRmVmssVMDiskEncryptionStatus   | 3.4.0 or later | AzureRM.Compute |
+   | Disable-AzureRmVmssDiskEncryption   | 3.4.0 or later | AzureRM.Compute |
+   | Get-AzureRmVmssDiskEncryption   | 3.4.0 or later | AzureRM.Compute |
+   | Get-AzureRmVmssVMDiskEncryption   | 3.4.0 or later | AzureRM.Compute |
+   | Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 or later | AzureRM.Compute |
 
 
 ## Supported scenarios for disk encryption
@@ -71,7 +78,7 @@ Use the following commands to create a cluster and enable disk encryption by usi
 
 ### Log in to Azure  
 
-```Powershell
+```PowerShell
 
 Login-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
@@ -91,7 +98,7 @@ If you need to author a custom template to suit your needs, we recommend that yo
 
 If you already have a custom template, make sure that all three certificate-related parameters in the template and the parameter file are named as follows. Also make sure that values are null as follows.
 
-```Json
+```JSON
    "certificateThumbprint": {
       "value": ""
     },
@@ -105,7 +112,7 @@ If you already have a custom template, make sure that all three certificate-rela
 
 For Linux virtual machine scale sets, only data disk encryption is supported. So you need to add a data disk by using an Azure Resource Manager template. Update your template for data disk provisioning as follows:
 
-```Json
+```JSON
    
    "storageProfile": { 
             "imageReference": { 
@@ -130,7 +137,7 @@ For Linux virtual machine scale sets, only data disk encryption is supported. So
 ```
  
 
-```Powershell
+```PowerShell
 
 
 $resourceGroupLocation="westus"
@@ -177,10 +184,10 @@ The output should show the added data disk on a mount point column.
 Follow steps and guidance to [deploy application to your cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-containers-linux).
 
 
-## Enable disk encryption for the virtual machine scale set
+## Enable disk encryption for a virtual machine scale set
 Enable disk encryption for the virtual machine scale set that you created earlier for the Service Fabric Linux cluster.
  
-```Powershell
+```PowerShell
 $VmssName = "nt1vm"
 $vaultName = "mykeyvault"
 $resourceGroupName = "mycluster"
@@ -198,10 +205,10 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 
 ```
 
-## Validate that disk encryption is enabled for the virtual machine scale set
+## Validate that disk encryption is enabled for a virtual machine scale set
 Use the following commands to get the status of an entire virtual machine scale set or any instance VM in a scale set. You can also log in to the Linux cluster VM and run the LSBLK command. The output should show the added data disk on the mount point column and `Type` column as `Crypt`.
 
-```Powershell
+```PowerShell
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
@@ -222,7 +229,7 @@ az vmss encryption show -g <resourceGroupName> -n <VMSS name>
 ## Disable disk encryption for a virtual machine scale set 
 If you need to disable disk encryption for the virtual machine scale set for a Service Fabric Linux cluster, use the following commands. Disabling disk encryption applies to the entire virtual machine scale set and not by instance. 
 
-```Powershell
+```PowerShell
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
