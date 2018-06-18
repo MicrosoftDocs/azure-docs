@@ -38,7 +38,13 @@ Install the NGINX ingress controller. This example installs the controller in th
 helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
-During the installation, an Azure public IP address is created for the ingress controller. To get the public IP address, use the kubectl get service command. It may take some time for the IP address to be assigned to the service.
+During the installation, an Azure public IP address is created for the ingress controller. If you need to use a private IP address with an internal LoadBalancer you can add an annotation.
+
+```
+helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"='"true"'
+```
+
+To get the external IP address, use the kubectl get service command. It may take some time for the IP address to be assigned to the service.
 
 ```console
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
@@ -48,7 +54,7 @@ eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.
 eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
-Because no ingress rules have been created, if you browse to the public IP address, you are routed to the NGINX ingress controllers default 404 page.
+Because no ingress rules have been created, if you browse to the external IP address, you are routed to the NGINX ingress controllers default 404 page.
 
 ![Default NGINX backend](media/ingress/default-back-end.png)
 
