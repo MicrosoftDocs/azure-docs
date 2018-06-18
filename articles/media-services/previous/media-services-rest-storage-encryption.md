@@ -107,12 +107,12 @@ The following are general steps for generating content keys that you associate w
 
     Request body property    | Description
     ---|---
-    Id | The ContentKey Id is generated using the following format, “nb:kid:UUID:<NEW GUID>”.
+    Id | The ContentKey ID is generated using the following format, “nb:kid:UUID:<NEW GUID>”.
     ContentKeyType | The content key type is an integer that defines the key. For storage encryption format, the value is 1.
     EncryptedContentKey | We create a new content key value that is a 256-bit (32 bytes) value. The key is encrypted using the storage encryption X.509 certificate that we retrieve from Microsoft Azure Media Services by executing an HTTP GET request for the GetProtectionKeyId and GetProtectionKey Methods. As an example, see the following .NET code: the  **EncryptSymmetricKeyData** method defined [here](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-    ProtectionKeyId | This is the protection key id for the storage encryption X.509 certificate that was used to encrypt our content key.
+    ProtectionKeyId | This is the protection key ID for the storage encryption X.509 certificate that was used to encrypt our content key.
     ProtectionKeyType | This is the encryption type for the protection key that was used to encrypt the content key. This value is StorageEncryption(1) for our example.
-    Checksum |The MD5 calculated checksum for the content key. It is computed by encrypting the content Id with the content key. The example code demonstrates how to calculate the checksum.
+    Checksum |The MD5 calculated checksum for the content key. It is computed by encrypting the content ID with the content key. The example code demonstrates how to calculate the checksum.
 
 
 ### Retrieve the ProtectionKeyId
@@ -185,7 +185,7 @@ After you have retrieved the X.509 certificate and used its public key to encryp
 
 One of the values that you must set when create the content key is the type. When using storage encryption, the value should be set to '1'. 
 
-The following example shows how to create a **ContentKey** with a **ContentKeyType** set for storage encryption ("1") and the **ProtectionKeyType** set to "0" to indicate that the protection key Id is the X.509 certificate thumbprint.  
+The following example shows how to create a **ContentKey** with a **ContentKeyType** set for storage encryption ("1") and the **ProtectionKeyType** set to "0" to indicate that the protection key ID is the X.509 certificate thumbprint.  
 
 Request
 
