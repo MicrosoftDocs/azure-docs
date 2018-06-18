@@ -7,14 +7,13 @@ manager: twooley
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/19/2018
 ms.author: tamram
 ---
 
 # Azure Files access with Azure AD credentials over SMB (Preview)
 
-Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (also known as Common Internet File System or CIFS). Azure Files supports integration with Azure Active Directory (Azure AD) leveraging [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)
-in preview. Azure AD integration enables access to Azure Files shares over SMB from Windows Virtual Machines (VMs). Azure Files supports preserving and enforcing [NTFS DACLs](https://technet.microsoft.com/library/2006.01.howitworksntfs.aspx) on all files and directories under a file share.
+[!INCLUDE [storage-files-aad-integration-include](../../../includes/storage-files-aad-integration-include.md)]
 
 ## Glossary 
 
@@ -27,34 +26,24 @@ in preview. Azure AD integration enables access to Azure Files shares over SMB f
 
 -   **Azure AD Domain Services**
 
-    Azure AD Domain Services provides managed domain services such as domain
-    join, group policy, LDAP, Kerberos/NTLM authentication that are fully
+    Azure AD Domain Services provides managed-domain services such as domain join, group policies, LDAP, and Kerberos/NTLM authentication. These services are fully
     compatible with Windows Server Active Directory.
 
 -   **Azure Role Based Access Control (RBAC)**
 
-    Azure Role-Based Access Control (RBAC) enables fine-grained access
-    management for Azure. Using RBAC, you can grant only the amount of access
-    that users need to perform their jobs. This article helps you get up and
-    running with RBAC in the Azure portal.
+    Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access
+    that users need to perform their jobs. This article helps you get started with RBAC in the Azure portal.
 
 -   **Kerberos Authentication**
 
-    Kerberos is an authentication protocol that is used to verify the identity
-    of a user or host.
+    Kerberos is an authentication protocol that is used to verify the identity of a user or host.
 
 ## Advantages of using Azure AD integration with Azure Files
 
--   Extend the traditional identity based file share access experience to cloud
+-   Extend the traditional identity-based file share access experience to the cloud
     with Azure AD
 
-    If you have lift and shift your application to cloud replacing traditional
-    file servers with Azure Files, you would likely want to have the similar
-    share access experience with identity based authentication. With Azure AD
-    integration, we support the same workflow for your Azure domain joined VMs
-    to access Azure Files using Azure AD credentials. You can choose to sync all of
-    your on-prem Active Directory objects to Azure AD to preserve the same usernames,
-    passwords and other group assignments.
+    If you have "lifted and shifted" your application to cloud, replacing traditional file servers with Azure Files, then you may prefer to offer a share access experience with identity-based authentication. With Azure AD integration, Azure Files supports the same workflow for your Azure domain-joined VMs to access Azure Files using Azure AD credentials. You can choose to sync all of your on-prem Active Directory objects to Azure AD to preserve the same usernames, passwords, and other group assignments.
 
 -   Enforce granular access control on Azure File shares
 

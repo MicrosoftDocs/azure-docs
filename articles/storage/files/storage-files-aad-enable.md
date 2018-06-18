@@ -13,12 +13,7 @@ ms.author: tamram
 
 # Enable Azure Active Directory integration for Azure Files SMB access
 
-Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (also known as Common Internet File System or CIFS). Azure File shares can be mounted
-concurrently by cloud or on-premises deployments of Windows, Linux, and macOS using Storage account name and key. We recently announced the Public Preview of
-Azure Files Azure AD Integration leveraging [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)
-(AAD DS). This enables share access using Azure AD credentials over SMB for Windows Virtual Machine. Besides, Azure Files will support preserving and enforcing
-[NTFS DACLs](https://technet.microsoft.com/library/2006.01.howitworksntfs.aspx) on all files and directories under a file share.
-
+[!INCLUDE [storage-files-aad-integration-include](../../../includes/storage-files-aad-integration-include.md)]
 
 ## Workflow 
 
@@ -45,21 +40,21 @@ Azure AD Integration, Assign user permission, and Access share with Azure AD cre
     follow the guidance for [Create an Azure Active Directory
     tenant](https://docs.microsoft.com/rest/api/datacatalog/create-an-azure-active-directory-tenant).
 
-2.  Enable Azure Active Directory Domain Service (AAD DS) on your Azure AD tenant
+2.  Enable Azure AD Domain Services on your Azure AD tenant
 
-    To support authentication with Azure AD credentials, you need to enable AAD DS on
+    To support authentication with Azure AD credentials, you need to enable Azure AD Domain Services on
     your Azure AD tenant. If you are not the administrator of the Azure AD tenant, please
     contact the administrator and follow the step by step guidance to [Enable
     Azure Active Directory Domain Services using the Azure
     portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
-    It usually takes around 15 minutes for AAD DS deployment to complete, please
-    ensure that the health status of your AAD DS shows “Running” before
+    It usually takes around 15 minutes for Azure AD Domain Services deployment to complete, please
+    ensure that the health status of your Azure AD Domain Services shows “Running” before
     proceeding to the next step.
 
-3.  Domain join your Azure VM to AAD DS
+3.  Domain join your Azure VM to Azure AD Domain Services
 
     To access Azure File shares using Azure AD credentials from a VM, your VM must be
-    domain joined to AAD DS. For Preview, we only support Azure AD integration for
+    domain joined to Azure AD Domain Services. For Preview, we only support Azure AD integration for
     Azure Windows Server VMs. We will extend the coverage to include Linux VMs
     by GA. You can [Join a Windows Server virtual machine to a managed
     domain](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)
@@ -71,7 +66,7 @@ Azure AD Integration, Assign user permission, and Access share with Azure AD cre
     Azure AD tenant that is associated with the subscriptions where the file share is
     deployed under. You can select an existing file share or [Create a file
     share in Azure
-    Files](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
+    Files](storage-how-to-create-file-share.md)
     under your target Azure AD tenant. Besides, we recommend having your File share
     deployed in the same region as your VMs where you will access the share for
     better performance.
@@ -81,7 +76,7 @@ Azure AD Integration, Assign user permission, and Access share with Azure AD cre
 
     To ensure that your VM and file share are properly configured, try [Mount an
     Azure File share and access the share in
-    Windows](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows).
+    Windows](storage-how-to-use-files-windows.md).
 
 ## Enable Azure AD integration for Azure Files SMB access
 
@@ -92,7 +87,7 @@ steps below to enable Azure AD integration for Azure Files.
 
 You will first need to enable Azure AD integration for Azure Files on your storage
 account by setting the storage account property azureFilesAadIntegration to
-true. It registers the storage account with the associated AAD DS to support
+true. It registers the storage account with the associated Azure AD Domain Services to support
 Kerberos authentication from Azure Files access with Azure AD credentials. Now Azure AD
 integration is enabled for all new and existing file shares deployed under this
 storage account. You can update the storage account property listed below
@@ -109,8 +104,7 @@ To be updated: Required before GA
 
 **Powershell**
 
-Remember to replace "\<resource-group-name\>, \<storage-account-name\> with
-proper information.
+Remember to replace <resource-group-name> and <storage-account-name> with your own values.
 
 ```powershell
 Set-AzureRmStorageAccount -ResourceGroupName "\<resource-group-name\>" -Name
@@ -121,10 +115,9 @@ Set-AzureRmStorageAccount -ResourceGroupName "\<resource-group-name\>" -Name
 
 To be updated: Required before Public Preview
 
-**ARM/JSON**
+**Azure Resource Manager/JSON**
 
-You can include the property **azureFilesAadIntegration** in the ARM update for your
-storage account and set it to true.
+You can include the property **azureFilesAadIntegration** in the Azure Resource Manager update for your storage account and set it to true.
 
 ```json
 { 
@@ -212,11 +205,7 @@ command. You can also use
 [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy)
 or other copy tools to copy files along with the ACLs.
 
-If you have just enabled Azure AD integration feature, you will not have any Azure AD
-users that has NTFS permissions configured on the root directory of the file
-share. With that, you will need to mount your share with storage account key to
-your AAD DS domain joined VM to assign permissions with Super-User privileges.
-You can follow up the instruction below to mount Azure File share with command
+If you have just enabled Azure AD integration with Azure Files, you will not yet have any Azure AD users with NTFS permissions configured on the root directory of the file share. In this case, you need to mount your share with your storage account key to your Azure AD Domain Services domain joined VM to assign permissions with Super-User privileges. You can follow up the instruction below to mount Azure File share with command
 prompt.
 
 #### **Step 2.2.1 Mount Azure File Share with command prompt** 
@@ -244,11 +233,11 @@ the different type of permissions supported
 icacls <mounted-drive-letter> /grant <user-email>:(f)
 ```
 
-### Step 3: Mount Azure File share from AAD DS domain joined VM 
+### Step 3: Mount Azure File share from Azure AD Domain Services domain joined VM 
 
 Now you are ready to use your Azure AD credentials to access Azure File share.
 
-First, log on to the Azure VM domain joined to AAD DS using the name and
+First, log on to the Azure VM domain joined to Azure AD Domain Services using the name and
 password that you have just granted permissions, see screenshot below.
 
 ![Screenshot showing log on screen](media/storage-files-aad-enable/aad-auth-screen.png)
