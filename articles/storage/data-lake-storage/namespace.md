@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/20/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
 ---
@@ -54,7 +54,7 @@ There are a number of 'classic' object store workloads that will most likely not
 > [!NOTE]
 > Even though you may have the HNS enabled on your account, data stored in Azure Data Lake Storage is still fully interoperable with the Azure Storage Blobs interface.
 
-## Next Steps
+## Next steps
 
 - [Introduction to Azure Data Lake Storage Gen2](./introduction.md)
 - [Create a Storage account](./quickstart-create-account.md)

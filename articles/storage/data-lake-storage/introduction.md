@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/20/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
 ---
@@ -76,7 +76,7 @@ Additionally, features such as the [Hierarchical Namespace Service](./namespace.
 
 <!--- ## Tailored for creating your data lake
 
-The objective for an *Enterprise Data Lake (EDL)* is to refine vast amounts of raw data into fit-for-purpose data sets. In addition to a scalable and performant storage service, an EDL must also feature the following capabilities to realize this objective, which will be provided on Azure in the future:
+The objective for an *Enterprise Data Lake (EDL)* is to refine vast amounts of raw data into fit-for-purpose data sets. In addition to a scalable and performant storage service, an EDL must also feature the following capabilities to realize this objective:
 
 * **Universal Metadata Service:** This facility handles the assignment, management, and querying of metadata tags on any of the data in the EDL. ADFS provides XXXX which meets this requirement.
 
@@ -86,7 +86,7 @@ The objective for an *Enterprise Data Lake (EDL)* is to refine vast amounts of r
 
     The Schema Catalog must also be available to be shared across all instances of analytics services used by an enterprise. To this end, the Schema Catalog is a stand-alone service.
 
-* **Data Governance and Lineage:** TODO: Multiple drivers for this - GDPR, veracity & accuracy of data... 
+* **Data Governance and Lineage:** TODO: Multiple drivers for this - veracity & accuracy of data... 
 
 * **Data Sharing:** TODO: Sharing of data both within & without the organization, without copying and retaining lifecycle control...
 -->
@@ -96,12 +96,13 @@ The objective for an *Enterprise Data Lake (EDL)* is to refine vast amounts of r
 The following articles describe some of the main concepts of Azure Data Lake Storage and detail how to store, access, manage, and gain insights from your data:
 
 * [Hierarchical Namespace](./namespace.md)
+
 <!--- TODO: Update links when articles available
 * Scalability and Performance(./scalability-checklist.md)
 * Benchmark Results(./benchmarks.md)
 -->
 
-## Next Steps
+## Next steps
 
 * [Create a Storage account](./quickstart-create-account.md)
 * [Create an HDInsight cluster with Azure Data Lake Storage Gen2](./quickstart-create-connect-hdi-cluster.md)
