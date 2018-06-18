@@ -42,7 +42,7 @@ In [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, the rece
 
 If the application is unable to process the message for some reason, it can call the [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) method on the received message (instead of [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)). This method enables Service Bus to unlock the message and make it available to be received again, either by the same consumer or by another competing consumer. Secondly, there is a timeout associated with the lock and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus unlocks the message and makes it available to be received again (essentially performing an [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) operation by default).
 
-In the event that the application crashes after processing the message, but before the **CompleteAsync** request is issued, the message is redelivered to the application when it restarts. This process is often called *At Least Once* processing; that is, each message is processed at least once. However, in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then additional logic is required in the application to detect duplicates, which can be achieved based upon the [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) property of the message, which remains constant across delivery attempts. This is known as *Exactly Once* processing.
+In the event that the application crashes after processing the message, but before the **CompleteAsync** request is issued, the message is redelivered to the application when it restarts. This process is often called *At Least Once* processing; that is, each message is processed at least once. However, in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then additional logic is required in the application to detect duplicates, which can be achieved based upon the [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) property of the message, which remains constant across delivery attempts. This feature is known as *Exactly Once* processing.
 
 ## Topics and subscriptions
 
@@ -66,7 +66,7 @@ For more information about possible filter values, see the documentation for the
 
 ## Next steps
 
-See the following advanced topics for more information and examples of using Service Bus messaging.
+For more information and examples of using Service Bus messaging, see the following advanced topics:
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Quickstart: Send and receive messages using the Azure portal and .NET](service-bus-quickstart-portal.md)
