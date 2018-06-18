@@ -86,4 +86,4 @@ With the approach outlined in this article, you can now configure a conditional 
 
 ## Next steps
 
-If you would like to learn more about conditional access, see [Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md).
+If you would like to learn more about conditional access, see [What is conditional access in Azure Active Directory?](active-directory-conditional-access-azure-portal.md)
