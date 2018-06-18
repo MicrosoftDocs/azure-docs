@@ -75,4 +75,4 @@ The two resources created in this tutorial are the LUIS subscription key and the
 > [!div class="nextstepaction"]
 > [Add utterances](luis-get-started-node-add-utterance.md)
 
-[LUIS]: luis-reference-regions.md#luis-website
+[LUIS](luis-reference-regions.md#luis-website)
