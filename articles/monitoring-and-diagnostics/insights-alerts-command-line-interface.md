@@ -1,6 +1,6 @@
 ---
 title: Use the cross-platform Azure CLI to create classic alerts for Azure services | Microsoft Docs
-description: Trigger emails, notifications, or call websites URLs (webhooks), or automation when the conditions you specify are met.
+description: Trigger emails or notifications, or call websites URLs (webhooks) or automation when the conditions that you specify are met.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
@@ -25,7 +25,7 @@ ms.component: alerts
 This article shows you how to set up Azure classic metric alerts by using the cross-platform command-line interface (Azure CLI).
 
 > [!NOTE]
-> Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands that are described here still contain the word "insights."
+> Azure Monitor is the new name for what was called "Azure Insights" until Sept 25, 2016. However, the namespaces and thus the commands that are described here still contain the word "insights."
 
 You can receive an alert based on metrics for your Azure services, or based on events that occur in Azure.
 
@@ -50,10 +50,10 @@ You can configure and get information about classic metric alert rules by using 
 
 You can also get help for commands by typing a command with**-help** at the end. Following is an example: 
 
-    ```console
-    azure insights alerts -help
-    azure insights alerts actions email create -help
-    ```
+```console
+ azure insights alerts -help
+ azure insights alerts actions email create -help
+ ```
 
 ## Create alert rules by using Azure CLI
 1. After you've installed the prerequisites, sign in to Azure. See [Azure Monitor CLI samples](insights-cli-samples.md) for the commands that you need to get started. These commands help you get signed in, show you what subscription you're using, and prepare you to run Azure Monitor commands.
