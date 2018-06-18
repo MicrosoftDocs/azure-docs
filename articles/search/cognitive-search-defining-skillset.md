@@ -3,6 +3,7 @@ title: Create a skillset in a cognitive search pipeline (Azure Search) | Microso
 description: Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Search.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual

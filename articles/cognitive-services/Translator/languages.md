@@ -78,7 +78,7 @@ The Microsoft Translator Text API supports the following languages for text to t
 | Turkish       |  Neural |`tr`          |
 | Ukrainian      | Neural |`uk`          |
 | Urdu      | Statistical |`ur`          |
-| Vietnamese      | Statistical |`vi`          |
+| Vietnamese      | Neural |`vi`          |
 | Welsh      | Neural |`cy`          |
 | Yucatec Maya      | Statistical |`yua`          |
 
@@ -243,7 +243,7 @@ The following languages can be detected by the Detect method. Detect may detect 
 
 You can access the list of supported languages programmatically using the Languages operation of the V3.0 Text API. You can view the list by feature, language code, as well as the language name in English or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages become available.
 
-[View Languages operation reference documentation](/reference/languages.md)
+[View Languages operation reference documentation](reference/v3-0-languages.md)
 
 ## Access the list on the Microsoft Translator website
 

@@ -11,6 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/15/2018
 ms.author: rolyon
 
@@ -21,7 +22,9 @@ Azure AD Terms of Use provides a simple method organizations can use to present 
 
 Azure AD Terms of Use uses the pdf format to present content.   The pdf can be any content, such as existing contract documents, allowing you to collect end user agreements during user sign-in.  You can use the terms of use for applications, groups of users, or if you have multiple terms of use for different purposes.
 
-The remainder of this document describes how to get going with Azure AD Terms of Use.  
+The remainder of this document describes how to get going with Azure AD Terms of Use.
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
 
 ## Why use Azure AD Terms of Use
 Finding it difficult to get employee’s or guests to agree to your terms of use before getting access? Need help figuring out who has or hasn’t agreed to your company terms of use?  Azure AD Terms of Use provides a simple method organizations can use to present information to end users.  This presentation, ensures that they see relevant disclaimers for legal or compliance requirements.
@@ -36,7 +39,7 @@ Azure AD Terms of Use can be used in the following scenarios:
 Use the following steps to configure Azure AD Terms of Use:
 
 1. Sign in to Azure AD using a global administrator, security administrator, or a conditional access administrator for the directory you want to configure Azure AD Terms of Use.
-2. Ensure that the directory has an Azure AD Premium P1, P2, EMS E3, or EMS E5 subscription.  If you do not, [Get Azure AD Premium](active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
+2. Ensure that the directory has an Azure AD Premium P1, P2, EMS E3, or EMS E5 subscription.  If you do not, [Get Azure AD Premium](fundamentals/active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. View the Azure AD Terms of User dashboard at [https://aka.ms/catou](https://aka.ms/catou).
 
 >[!IMPORTANT]
@@ -118,10 +121,7 @@ Users can review and see the terms of use that they have accepted.  To review te
 4.  From there, you can review the terms of use you have accepted. 
 
 ## Removing users from an active terms of use
-
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
-
-By default, a deleted user will remain deleted in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequently data about that user will be removed from the active terms of use.  Audit information about deleted users remains in the audit log.
+By default, a deleted user will remain deleted in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](fundamentals/active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequently data about that user will be removed from the active terms of use.  Audit information about deleted users remains in the audit log.
 
 
 

@@ -5,7 +5,7 @@
  author: jimdial
  ms.service: networking
  ms.topic: include
- ms.date: 06/05/2018
+ ms.date: 06/12/2018
  ms.author: jdial
  ms.custom: include file
 
@@ -46,7 +46,7 @@ The following limits apply only for networking resources managed through Azure R
 | Network Security Groups (NSG) |100 |5000 |
 | NSG rules per NSG |1000** |1000 |
 | IP addresses and ranges specified for source or destination in a security group |2000 |4000 |
-| Application security groups |200 |500 |
+| Application security groups |500 |3000 |
 | Application security groups per IP configuration, per NIC |10 |20 |
 | IP configurations per application security group |1000 |4000 |
 | Application security groups that can be specified within all security rules of a network security group |50 |100 |
@@ -71,7 +71,10 @@ The following limits apply only for networking resources managed through Azure R
 | Frontend IP configurations, Standard | 10 | 600 |
 | Backend pool, Basic | 100, single Availability Set | 100, single Availability Set |
 | Backend pool, Standard | 1000, single VNet | 1000, single VNet |
+| Backend resources per Load Balancer, Standard &ast; | 50 | 150 |
 | HA Ports, Standard | 1 per internal frontend | 1 per internal frontend |
+
+&ast; Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 

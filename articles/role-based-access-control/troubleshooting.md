@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: seohack1
 ---
 # Troubleshooting Azure role-based access control 

@@ -47,6 +47,8 @@
       href: container-instances-using-azure-container-registry.md
     - name: Set environment variables (env)
       href: container-instances-environment-variables.md
+    - name: Configure liveness probes
+      href: container-instances-liveness-probe.md
   - name: Manage
     items:
     - name: Execute a command (exec)
