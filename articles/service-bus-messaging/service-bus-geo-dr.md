@@ -60,7 +60,7 @@ You can automate failover either with monitoring systems, or with custom-built m
 
 If you initiate the failover, two steps are required:
 
-1. If another outage occurs, you want to be able to failover again. Therefore, set up another passive namespace and update the pairing. 
+1. If another outage occurs, you want to be able to fail over again. Therefore, set up another passive namespace and update the pairing. 
 
 2. Pull messages from the former primary namespace once it is available again. After that, use that namespace for regular messaging outside of your geo-recovery setup, or delete the old primary namespace.
 
