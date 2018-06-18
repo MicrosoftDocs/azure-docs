@@ -43,7 +43,7 @@ sections:
       style: dataMatrix
       columns:
         - image:
-            src: media/index/AMSIcons-Player.svg
+            src: media/index/AMSIcons-encoding.svg
           title: Stream files
       rows:
         - title: Media Services v3
