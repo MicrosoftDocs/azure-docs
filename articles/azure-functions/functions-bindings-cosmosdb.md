@@ -537,13 +537,13 @@ namespace CosmosDBSamplesV1
 This section contains the following examples:
 
 * [Queue trigger, look up ID from string](#queue-trigger-look-up-id-from-string-c-script)
-* [Queue trigger, look up ID from JSON, using SqlQuery](#queue-trigger-look-up-id-from-json-using-sqlquery-c-script)
+* [Queue trigger, get multiple docs, using SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
 * [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-c-script)
 * [HTTP trigger, look up ID from route data](#http-trigger-look-up-id-from-route-data-c-script)
 * [HTTP trigger, get multiple docs, using SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
 * [HTTP trigger, get multiple docs, using DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c-script)
 
-Some of the examples refer to a simple `ToDoItem` type:
+The HTTP trigger examples refer to a simple `ToDoItem` type:
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -592,7 +592,7 @@ Here's the C# script code:
 
 [Skip input examples](#input---attributes)
 
-#### Queue trigger, look up ID from JSON, using SqlQuery (C# script)
+#### Queue trigger, get multiple docs, using SqlQuery (C# script)
 
 The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
@@ -863,29 +863,29 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 {
     log.Info("C# HTTP trigger function processed a request.");
 
-            Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
-            string searchterm = req.GetQueryNameValuePairs()
-                .FirstOrDefault(q => string.Compare(q.Key, "searchterm", true) == 0)
-                .Value;
+    Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
+    string searchterm = req.GetQueryNameValuePairs()
+        .FirstOrDefault(q => string.Compare(q.Key, "searchterm", true) == 0)
+        .Value;
 
-            if (searchterm == null)
-            {
-                return req.CreateResponse(HttpStatusCode.NotFound);
-            }
+    if (searchterm == null)
+    {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    }
 
-            log.Info($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
-            IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
-                .Where(p => p.Description.Contains(searchterm))
-                .AsDocumentQuery();
+    log.Info($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
+    IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
+        .Where(p => p.Description.Contains(searchterm))
+        .AsDocumentQuery();
 
-            while (query.HasMoreResults)
-            {
-                foreach (ToDoItem result in await query.ExecuteNextAsync())
-                {
-                    log.Info(result.Description);
-                }
-            }
-            return req.CreateResponse(HttpStatusCode.OK);
+    while (query.HasMoreResults)
+    {
+        foreach (ToDoItem result in await query.ExecuteNextAsync())
+        {
+            log.Info(result.Description);
+        }
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
 }
 ```
 
@@ -1003,7 +1003,7 @@ module.exports = function (context, req, toDoItem) {
 
 [Skip input examples](#input---attributes)
 
-#### HTTP trigger, look up ID from query string (JavaScript)
+#### HTTP trigger, look up ID from route data (JavaScript)
 
 The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -1020,7 +1020,8 @@ Here's the *function.json* file:
       "methods": [
         "get",
         "post"
-      ]
+      ],
+      "route":"todoitems/{id}"
     },
     {
       "name": "$return",
@@ -1034,14 +1035,14 @@ Here's the *function.json* file:
       "collectionName": "Items",
       "connection": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{Query.id}"
+      "Id": "{id}"
     }
   ],
-  "disabled": true
+  "disabled": false
 }
 ```
 
-Here's the C# script code:
+Here's the JavaScript code:
 
 ```cs
 module.exports = function (context, req, toDoItem) {
@@ -1186,9 +1187,9 @@ The Azure Cosmos DB output binding lets you write a new document to an Azure Cos
 >[!NOTE]
 > Don't use Azure Cosmos DB input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
 
-## Output - example
+## Output - examples
 
-See the language-specific example:
+See the language-specific examples:
 
 * [C#](#output---c-examples)
 * [C# script (.csx)](#output---c-script-examples)
