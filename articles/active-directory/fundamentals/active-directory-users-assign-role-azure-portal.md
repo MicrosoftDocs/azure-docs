@@ -4,7 +4,7 @@ title: Assign a user to administrator roles in Azure Active Directory  | Microso
 description: Explains how to change user administrative information in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: article
 ms.date: 01/08/2018
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: jeffsta
 
 ---
