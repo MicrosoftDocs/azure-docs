@@ -57,7 +57,10 @@ We’re changing how the Azure AD Activity Logs APIs work with your delegated au
 4.	In the **Required permissions** blade, select the **Windows Azure Active Directory** API.
 
 5.	In the **Delegated permissions** area of the **Enable access** blade, select the box next to **Read directory** data, and then select **Save**.
+
     You’ll return to the **Required permissions** blade.
+
+    ![Delegated permissions Read directory option](./media/whats-new/app-registration-delegate-read-directory.png)
 
 6.	Select **Grant permissions**, and then select **Yes**.
     
