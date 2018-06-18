@@ -194,7 +194,7 @@ az storage directory create -n cntk -s scripts --account-name <storage account n
 az storage file upload -s scripts --source ConvNet_MNIST.py --path cntk --account-name <storage account name> 
 ```
 
-## Create a blob container and deploy training data
+### Create a blob container and deploy training data
 
 The following commands create an Azure blob container named `data` and copy training data into the `mnist_cntk` folder:
 
