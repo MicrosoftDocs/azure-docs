@@ -68,7 +68,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How many records I can download from Azure portal?**
 
-**A:** You can download up to 120K records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 120K records. 
+**A:** You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records. 
 
 ---
 
