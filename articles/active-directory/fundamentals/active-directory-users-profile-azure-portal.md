@@ -4,7 +4,7 @@ title: Add or change profile information for a user in Azure Active Directory | 
 description: Explains how to add the user profile, including profile picture, in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: article
 ms.date: 01/03/2017
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: jeffsta
 
 ---
