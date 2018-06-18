@@ -108,7 +108,7 @@ For development using Python, Anaconda Python distribution 2.7 and 3.6 has been 
 > 
 > 
 
-Anaconda Python 3.6 is installed under C:\Anaconda and Anaconda Python 2.7 is installed under c:\Anaconda\envs\python2. See [PTVS documentation](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) for detailed steps. 
+Anaconda Python 3.6 is installed under C:\Anaconda and Anaconda Python 2.7 is installed under c:\Anaconda\envs\python2. See [PTVS documentation](/visualstudio/python/installing-python-interpreters.md) for detailed steps. 
 
 ### Jupyter Notebook
 Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. A Jupyter notebook server has been pre-configured with Python 2.7, Python 3.x, PySpark, Julia and R kernels. There is a desktop icon named "Jupyter Notebook" to start the Jupyter server and launch the browser to access the Notebook server. 
