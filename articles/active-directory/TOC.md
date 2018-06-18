@@ -263,8 +263,8 @@
 
 
 #### Access Panel
-##### [app is not appearing](application-access-panel-unexpected-application-not-appearing.md)
-##### [unexpected app appearing](application-access-panel-unexpected-application-appears.md)
+##### [App not appearing](application-access-panel-unexpected-application-not-appearing.md)
+##### [Unexpected app appearing](application-access-panel-unexpected-application-appears.md)
 ##### [Can't sign in](application-access-panel-web-sign-in-problem.md)
 ##### [Error installing browser extension](application-access-panel-extension-problem-installing.md)
 ##### [How to use self-service app access](application-access-panel-self-service-applications-how-to.md)
