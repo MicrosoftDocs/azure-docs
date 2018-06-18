@@ -81,11 +81,6 @@ A resource group is a container that holds related resources for an Azure soluti
 
 ## Create a workspace and attach a project
 
-The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), [Azure storage](https://docs.microsoft.com/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/), and [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
-
-The **project** is a local folder that contains the scripts needed to solve your machine learning problem and the configuration files  required to attach the project to your workspace in Azure Cloud.
-
-
 1. In a command-line window, create a folder on your local machine for your Azure Machine Learning project. 
    ```
    mkdir myproject
@@ -93,6 +88,10 @@ The **project** is a local folder that contains the scripts needed to solve your
    ```
 
 1. In a Python editor, create your workspace under the resource group and attach the project to the new workspace.
+   
+   An **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/), [Azure storage](https://azure.microsoft.com/en-us/services/storage/), [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/), and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
+
+   A **project** is a local folder that contains the scripts needed to solve your machine learning problem and the configuration files  required to attach the project to your workspace in Azure Cloud.
 
    In this quickstart, the workspace name is `myws` and the run history file is `myhistory`. The run history file stores each run in your project so you can monitor your model during training.
 

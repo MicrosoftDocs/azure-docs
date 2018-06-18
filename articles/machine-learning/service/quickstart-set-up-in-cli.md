@@ -68,22 +68,23 @@ A resource group is a container that holds related resources for an Azure soluti
 
 ## Create a workspace and attach a project
 
-The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), [Azure storage](https://docs.microsoft.com/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/), and [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
-
-The **project** is a local folder that contains the scripts needed to solve your machine learning problem and the configuration files  required to attach the project to your workspace in Azure Cloud.
-
 1. In the command-line window, create an Azure Machine Learning Workspace under the resource group. In this quickstart, the workspace name is `myws`.
+
+   An **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/), [Azure storage](https://azure.microsoft.com/en-us/services/storage/), [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/), and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
    ```
    az ml workspace create --name myws --group myrg
    ```
 
-2. In the command-line window, create a folder on your local machine for your Azure Machine Learning project. 
+1. In the command-line window, create a folder on your local machine for your Azure Machine Learning project. 
+   
+   A **project** is a local folder that contains the scripts needed to solve your machine learning problem and the configuration files  required to attach the project to your workspace in Azure Cloud.
+
    ```
    mkdir myproject
    cd myproject
    ```
 
-2. Attach the folder as a project to the workspace. The `history` argument specifies a name for the run history file that captures the metrics for each run.  
+1. Attach the folder as a project to the workspace. The `history` argument specifies a name for the run history file that captures the metrics for each run.  
 
     ```azurecli
     az ml project attach --history myhistory -w myws
