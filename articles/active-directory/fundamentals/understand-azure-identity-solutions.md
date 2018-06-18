@@ -2,10 +2,10 @@
 title: Understand Azure Identity | Microsoft Docs
 description: Get a basic understanding of Microsoft Azure identity solution terms, concepts, and recommendations for you to make the best identity governance decision for your organization.
 keywords:
-author: jeffgilb
+author: eross-msft
 manager: mtillman
 ms.reviewer: jsnow
-ms.author: jeffgilb
+ms.author: lizross
 ms.date: 7/17/2017
 ms.topic: article
 ms.prod:
