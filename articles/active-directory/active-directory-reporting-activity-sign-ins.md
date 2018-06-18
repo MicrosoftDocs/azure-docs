@@ -3,19 +3,19 @@ title: Sign-in activity reports in the Azure Active Directory portal | Microsoft
 description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/17/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
