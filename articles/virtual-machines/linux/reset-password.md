@@ -25,9 +25,9 @@ This article introduces several methods to reset local Linux Virtual Machine (VM
 
 ## Symptoms
 
-You can't log in to the VM, and you receive a message that indicates that the password that you used is incorrect. Additionally, you can't use VMAgent to reset your password on the Azure Portal.
+You can't log in to the VM, and you receive a message that indicates that the password that you used is incorrect. Additionally, you can't use VMAgent to reset your password on the Azure portal.
 
-## Manual Password Reset procedure
+## Manual password reset procedure
 
 1.	Delete the VM and keep the attached disks.
 
