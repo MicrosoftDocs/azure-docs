@@ -25,7 +25,7 @@ ms.custom: mvc
 
 You may need to update the firmware on the devices connected to your IoT hub. For example, you might want to add new features to the firmware or apply security patches. In many IoT scenarios, it's impractical to physically visit and then manually apply firmware updates to your devices. This tutorial shows how you can initiate and monitor the firmware update process remotely through a back-end application connected to your hub.
 
-To initiate the firmware update process, this tutorial uses a _direct method_ to call a method on a simulated device from a back-end application. This method starts the firmware update process asynchronously on the device before sending an acknowledgemnt response. While the device is running the firmware update process, it reports its status to the back-end application using _device twin reported properties_. The back-end application monitors the reported properties sent from the device to track the firmware update process to completion:
+To initiate the firmware update process, this tutorial submits a _job_ in a back-end application that updates a set of _device twin desired properties_ on all your chiller devices. The desired properties specify the details of the firmware update that's required. While the device is running the firmware update, it reports its status to the back-end application using _device twin reported properties_. The back-end application can monitor the reported properties sent from the device to track the firmware update process to completion:
 
 ![Firmware update process](media/tutorial-firmware-update/Process.png)
 
@@ -33,7 +33,7 @@ In this tutorial, you complete the following tasks:
 
 > [!div class="checklist"]
 > * Create an IoT hub and add a test device to the device identity registry.
-> * Asynchronously initiate the firmware update process on the test device.
+> * Create a job to initiate the firmware update process on the test device.
 > * Simulate the firmware update process on a device.
 > * Receive status updates from the device as the firmware update progresses.
 
@@ -79,7 +79,7 @@ az iot hub show-connection-string --hub-name $hub-name -o table
 
 ```
 
-This tutorial uses a simulated device called **MyFirmwareUpdateDevice**. The following script adds this device to your device identity registry and retrieves its connection string:
+This tutorial uses a simulated device called **MyFirmwareUpdateDevice**. The following script adds this device to your device identity registry, sets a tag value, and retrieves its connection string:
 
 ```azurecli-interactive
 # Set the name of your IoT hub:
@@ -88,6 +88,9 @@ hubname=tutorial-iot-hub
 # Create the device in the identity registry:
 az iot hub device-identity create --device-id MyFirmwareUpdateDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg
 
+# Add a device type tag
+az iot hub device-twin update --device-id MyFirmwareUpdateDevice --hub-name $hubname --set tags='{"devicetype":"chiller"}'
+
 # Retrieve the device connection string, you need this later:
 az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
 
@@ -95,52 +98,60 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 ## Initiate the firmware update
 
-You use a direct method called from a back-end application to initiate the firmware update process. In this section, you see how to:
+You submit a job in the back-end application to initiate the firmware update process on all devices tagged with **devicetype** chiller.. In this section, you see how to:
 
-* Call a direct method from a back-end application.
-* Respond to a direct method call in a device application.
+* Submit a job from a back-end application.
+* Monitor the job to completion.
 
 ### Call the direct method to initiate the firmware upgrade from the back-end application
 
-To view the back-end application code that calls the direct method, navigate to the **iot-hub/Tutorials/FirmwareUpdate** folder in the sample Node.js project you downloaded. Then open the ServiceClient.js file in a text editor.
+To view the back-end application code that submits the job, navigate to the **iot-hub/Tutorials/FirmwareUpdate** folder in the sample Node.js project you downloaded. Then open the ServiceClient.js file in a text editor.
 
-The back-end application uses the **waterfall** method to first initiate the firmware update process and then, after it receives a response from the device, start listening for status updates:
+The back-end application sends the following the desired properties to all the devices to update:
 
-[!code-javascript[Service client logic](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/ServiceClient.js?name=appflow&highlight=3,4,5,6 "Service client logic")]
+[!code-javascript[Desired properties patch](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/ServiceClient.js?name=firmwarePatch "Desired properties patch")]
 
-The back-end application calls the direct method on the device, waits for the response, and prints the response to the console. When the back-end application calls the **firmwareUpdate** method on the device, the method payload includes the URL the device should download the firmware from:
+The back-end application uses the following query to select the devices to update:
 
-[!code-javascript[Initiate firmware update](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/ServiceClient.js?name=initiateupdate "Initiate firmware update")]
+[!code-javascript[Select devices](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/ServiceClient.js?name=queryCondition "Select devices")]
 
-### Handle the direct method to initiate the firmware upgrade on the device
+The back-end application uses the following code to submit the job to set the deired properties:
 
-To view the simulated device code that handles the direct method call, navigate to the **iot-hub/Tutorials/FirmwareUpdate** folder in the sample Node.js project you downloaded. Then open the SimulatedDevice.js file in a text editor.
+[!code-javascript[Submit job](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/ServiceClient.js?name=scheduleJob "Submit job")]
 
-The simulated device application creates a handler for the **firmwareUpdate** direct method. In the handler, it checks the firmware URL and sends a response to the back-end application. Then, the simulated device starts the firmware update process:
+After it submits the job, the application monitors the job to completion:
 
-[!code-javascript[Handle direct method](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=handledirectmethod "Handle direct method")]
+[!code-javascript[Monitor job](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/ServiceClient.js?name=monitorJob "Monitor job")]
+
+### Respond to the firmware upgrade request on the device
+
+To view the simulated device code that handles the firmware desired properties sent from the back-end application, navigate to the **iot-hub/Tutorials/FirmwareUpdate** folder in the sample Node.js project you downloaded. Then open the SimulatedDevice.js file in a text editor.
+
+The simulated device application creates a handler for updates to the **properties.desired.firmware** desired properties in the device twin. In the handler, it performs some basic checks on the desired properties before launching the update process:
+
+[!code-javascript[Handle desired property update](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=initiateUpdate "Handle desired property update")]
 
 ## Update the firmware
 
-After the device has acknowledged the method call that triggers the firmware update process, it calls the **initiateFirmwareUpdateFlow** method to perform the update. This method uses the **waterfall** method to run the phases of the update process in sequence. In this example, the firmware update has two phases. The first phase downloads the image and the second phase applies the image:
+The **initiateFirmwareUpdateFlow** function runs the update. This function uses the **waterfall** function to run the phases of the update process in sequence. In this example, the firmware update has four phases. The first phase downloads the image, the second phase verifies the image using a checksum, the third phase applies the image, and the last phase reboots the device:
 
 [!code-javascript[Firmware update flow](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=firmwareupdateflow "Firmware update flow")]
+
+During the update process, the simulated device reports on progress using reported properties:
+
+[!code-javascript[Reported properties](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=reportedProperties "Reported properties")]
 
 The following snippet shows the implementation of the download phase. During the download phase, the simulated device uses reported properties to send status information to the back-end application:
 
 [!code-javascript[Download image phase](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=downloadimagephase "Download image phase")]
 
-The following snippet shows the implementation of the apply phase. During the apply phase, the simulated device uses reported properties to send status information to the back-end application:
+The simulated device uses reported properties to send status updates to the back-end application during the firmware update process. The back-end application runs a query every five seconds to view the firmware reported properties sent by the devices that are updating their firmware:
 
-[!code-javascript[Apply image phase](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=applyimagephase "Apply image phase")]
-
-The simulated device uses reported properties to send status updates to the back-end application during the firmware update process. The following code snippet shows how the back-end application polls the reported properties in the device twin:
-
-[!code-javascript[Report status](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/ServiceClient.js?name=reportstatus "Report status")]
+[!code-javascript[Query reported properties](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/ServiceClient.js?name=queryTwins "Query reported properties")]
 
 ## Run the sample
 
-In this section, you run two sample applications to observe as a back-end application calls the direct method to trigger the firmware update process on the simulated device.
+In this section, you run two sample applications to observe as a back-end application submits the job to trigger the firmware update process on the simulated device.
 
 To run the simulated device and back-end applications, you need the device and service connection strings. You made a note of the connection strings when you created the resources at the start of this tutorial.
 
@@ -158,21 +169,20 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
-The following screenshot shows the output from the simulated device application and highlights how it responds to the **firmwareUpdate** direct method call from the back-end application:
+The following screenshot shows the output from the simulated device application and showing how it responds to the firmware desired properties update from the back-end application:
 
-![Simulated device](./media/tutorial-firmware-update/SimulatedDevice1.png)
+![Simulated device](./media/tutorial-firmware-update/SimulatedDevice.png)
 
-The following screenshot shows the output from the back-end application and highlights how it calls the **firmwareUpdate** method and receives an immediate response from the simulated device:
+The following screenshot shows the output from the back-end application and highlights how it creates the job to update the firmware desired properties:
 
 ![Back-end application](./media/tutorial-firmware-update/BackEnd1.png)
 
-The following screenshot shows the output from the simulated device application and highlights how it runs the firmware update process and sends status updates to the back-end application:
-
-![Simulated device](./media/tutorial-firmware-update/SimulatedDevice2.png)
-
-The following screenshot shows the output from the back-end application and highlights how it polls for status updates from the simulated device until the firmware update process completes:
+The following screenshot shows the output from the back-end application and highlights how it queries for status updates from the simulated device:
 
 ![Back-end application](./media/tutorial-firmware-update/BackEnd2.png)
+
+
+Because of latency in the IoT Hub device identity registry you may not see every status update sent to the back-end application.
 
 ## Clean up resources
 
