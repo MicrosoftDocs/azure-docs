@@ -82,14 +82,6 @@ This update includes the following improvements for Azure Stack.
 After the installation of 1805, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - [KB 4340474 - Azure Stack Hotfix 1.1805.4.53](https://support.microsoft.com/en-us/help/4340474).
 
-<!-- Note to remove when ready:
-
-- More Optimized use of temp disk space.
-- Changes to telemetry settings now take effect immediately.
-- Improved reliability of deploying Basic A2, Basic A3, Basic A4, Standard F1s, Standard F2s and Standard F64s_v2 VM sizes.
-- Fix to prevent users from seeing timeouts and failures when using the RBAC capabilities in the Azure Stack portal.
-- Fix to remove the need to perform 'iisreset' for the graph service in disconnected deployments.
-- Improve reliability of VM deployments on Azure Stack Stamps that have greater than 9 nodes. -->
 
 ## Known issues (post-installation)
 The following are post-installation known issues for this build version.
