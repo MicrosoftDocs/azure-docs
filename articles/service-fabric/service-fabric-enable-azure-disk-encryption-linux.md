@@ -42,7 +42,7 @@ The guide covers the following procedures:
    Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
    ```
-2. Create a key vault in the same subscription and region as the virtual machine scale set, and set the access policy `EnabledForDiskEncryption` on the key vault by using its PowerShell cmdlet. You can also set the policy by using the Azure Key Vault UI in the Azure portal. 
+2. Create a key vault in the same subscription and region as the scale set, and set the access policy `EnabledForDiskEncryption` on the key vault by using its PowerShell cmdlet. You can also set the policy by using the Azure Key Vault UI in the Azure portal. 
    ```Powershell
    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
    ```
@@ -61,13 +61,13 @@ The guide covers the following procedures:
 
 ## Supported scenarios for disk encryption
 * Virtual machine scale set encryption is supported only for scale sets created with managed disks. It's not supported for native (or unmanaged) disk scale sets.
-* Virtual machine scale set encryption is supported for data volume for Linux virtual machine scale sets. OS disk encryption is not supported in the current preview for Linux.
+* Virtual machine scale set encryption is supported for data volumes for Linux virtual machine scale sets. OS disk encryption is not supported in the current preview for Linux.
 * Virtual machine scale set VM reimage and upgrade operations are not supported in the current preview.
 
 
 ## Create a Linux cluster
 
-Use the following commands to create cluster and enable disk encryption by using an Azure Resource Manager template and a self-signed certificate.
+Use the following commands to create a cluster and enable disk encryption by using an Azure Resource Manager template and a self-signed certificate.
 
 ### Log in to Azure  
 
@@ -199,7 +199,7 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 ```
 
 ## Validate that disk encryption is enabled for the virtual machine scale set
-Use the following commands to get the status of an entire virtual machine scale set or any instance VM in a scale set. You can also log in to the Linux cluster VM and run the LSBLK command. The output should show that added data disk on mount point column and Type column as Crypt for added data disk.
+Use the following commands to get the status of an entire virtual machine scale set or any instance VM in a scale set. You can also log in to the Linux cluster VM and run the LSBLK command. The output should show the added data disk on the mount point column and `Type` column as `Crypt`.
 
 ```Powershell
 
@@ -238,5 +238,5 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 
 
 ## Next steps
-At this point, you have a secure cluster and you know how to enable/disable disk encryption for a Linux Service Fabric cluster virtual machine scale set. Next, learn about [Disk Encryption for Windows](service-fabric-enable-azure-disk-encryption-windows.md). 
+At this point, you have a secure cluster and you know how to enable/disable disk encryption for a Service Fabric cluster virtual machine scale set for Linux. Next, learn about [disk encryption for Windows](service-fabric-enable-azure-disk-encryption-windows.md). 
 
