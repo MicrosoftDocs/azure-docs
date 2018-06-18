@@ -1,23 +1,15 @@
 ---
 title: Predictive Maintenance solution accelerator overview - Azure | Microsoft Docs
-description: A description of the Azure Predictive Maintenance solution accelerator.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
+description: A description of the Azure Predictive Maintenance solution accelerator
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: b370b3d7-2ce5-4906-9818-3aeedd471ee3
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: dobett
-
 ---
+
 # Predictive Maintenance solution accelerator overview
 
 The *Predictive Maintenance* [solution accelerator][lnk_preconfigured_solutions] is one of the [Microsoft Azure IoT solution accelerators][lnk_iot_suite] solution accelerators. This solution integrates real-time device telemetry collection with a predictive model created using [Azure Machine Learning][lnk-machine-learning].
@@ -146,11 +138,11 @@ You can also explore some of the other features and capabilities of the IoT solu
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
-[lnk-faq]: ../iot-suite/iot-suite-v1-faq.md
+[lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:securing-iot-ground-up.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
-[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com
+[lnk-permissions]: iot-accelerators-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

@@ -12,7 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 06/12/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -20,14 +21,10 @@ ms.author: billmath
 
 ## Overview
 
-Azure Active Directory (Azure AD) protects against brute-force password attacks and prevents genuine users from being locked out of their Office 365 and SaaS applications. This capability, called *Smart Lockout*, is supported when you use Pass-through Authentication as your sign-in method. Smart Lockout is enabled by default for all tenants, not just tenants using Pass-through Authentication, and it continuously protects your user accounts.
-
-Smart Lockout keeps track of failed sign-in attempts. After a certain *lockout threshold*, it starts a *lockout duration*. Smart Lockout rejects any attempts to sign in from the attacker during the lockout duration. If the attack continues, subsequent failed sign-in attempts after the lockout duration ends result in longer lockout durations.
+Azure Active Directory (Azure AD) protects against brute-force password attacks and prevents genuine users from being locked out of their Office 365 and SaaS applications. This capability, called *Smart Lockout*, is supported when you use Pass-through Authentication as your sign-in method. Smart Lockout is enabled by default for all tenants.
 
 >[!NOTE]
->The default lockout threshold is 10 failed attempts. The default lockout duration is 60 seconds.
-
-Smart Lockout also distinguishes between sign-ins from genuine users and sign-ins from attackers. In most cases, it locks out only the attackers. This functionality prevents attackers from maliciously locking out genuine users. Smart Lockout uses past sign-in behavior, the users’ devices and browsers, and other signals to distinguish between genuine users and attackers. The algorithms are constantly improved.
+>Smart Lockout is a feature that is available for authentication across multiple Microsoft products and services.  It provides additional security by stopping brute-force attacks, while allowing regular users to continue, uninterrupted. 
 
 Pass-through Authentication forwards password validation requests to on-premises Active Directory, so you need to prevent attackers from locking out your users’ Active Directory accounts. Active Directory has its own account lockout policies, specifically, [Account lockout threshold](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) and [Reset account lockout counter after](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx) policies. Configure the Azure AD lockout threshold and lockout duration values appropriately to filter out attacks in the cloud before they reach on-premises Active Directory.
 

@@ -20,7 +20,7 @@ For more information on Kubernetes persistent volumes, including static creation
 
 ## Create storage account
 
-When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. Get the resource group name with the [az resource show][az-resource-show] command.
+When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. This is the one with the `MC_` prefix that was created by the provisioning of the resources for the AKS cluster. Get the resource group name with the [az resource show][az-resource-show] command.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -35,6 +35,8 @@ Update `--resource-group` with the name of the resource group gathered in the la
 ```azurecli-interactive
 az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
+
+> Azure Files only currently work with standard storage. If you use premium storage, your volume will fail to provision.
 
 ## Create storage class
 
@@ -64,7 +66,7 @@ kubectl apply -f azure-file-sc.yaml
 
 A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure file share.
 
-The following YAML can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access. For more information on access modes, see the [Kubernetes persistent volume][access-modes] documentation.
+The following YAML can be used to create a persistent volume claim `5GB` in size with `ReadWriteMany` access. For more information on access modes, see the [Kubernetes persistent volume][access-modes] documentation.
 
 Create a file named `azure-file-pvc.yaml` and copy in the following YAML. Make sure that the `storageClassName` matches the storage class created in the last step.
 
@@ -75,7 +77,7 @@ metadata:
   name: azurefile
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: azurefile
   resources:
     requests:

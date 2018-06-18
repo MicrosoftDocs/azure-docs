@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 05/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -76,7 +76,7 @@ You can access the named location configuration page in the **Security** section
 
 6. On the **New** page, do the following:
 
-	![The New blade](./media/active-directory-named-locations/56.png)
+	![The New blade](./media/active-directory-named-locations/61.png)
 
     a. In the **Name** box, type a name for your named location.
 

@@ -3,7 +3,7 @@
 title: How to use the Azure Active Directory Power BI Content Pack | Microsoft Docs
 description: Learn how to use the Azure Active Directory Power BI Content Pack
 services: active-directory
-author: MarkusVi
+author: rolyon
 manager: mtillman
 
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
@@ -12,8 +12,9 @@ ms.devlang:
 ms.topic: get-started-article
 ms.tgt_pltfrm:
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 12/06/2017
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
 
 ---

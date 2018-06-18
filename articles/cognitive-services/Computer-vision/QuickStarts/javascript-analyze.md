@@ -12,9 +12,11 @@ ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with JavaScript
+# Quickstart: Analyze an image with JavaScript
 
 In this quickstart, you analyze an image using Computer Vision.
+
+## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 

@@ -1,23 +1,15 @@
 ---
 title: Secure your Internet of Things deployment | Microsoft Docs
 description: This article details how to secure your IoT deployment
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 95c23341-16b0-4954-b3f2-d2e82ab7b367
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-
 ---
+
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
 ## IoT solution accelerator cipher suites

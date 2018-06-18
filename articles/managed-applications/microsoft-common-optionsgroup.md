@@ -28,7 +28,7 @@ A selection control with a row of available options.
   "name": "element1",
   "type": "Microsoft.Common.OptionsGroup",
   "label": "Some options group",
-  "defaultValue": "my value",
+  "defaultValue": "Value two",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
@@ -54,7 +54,7 @@ A selection control with a row of available options.
 
 ## Sample output
 ```json
-"Bar"
+"two"
 ```
 
 ## Next steps

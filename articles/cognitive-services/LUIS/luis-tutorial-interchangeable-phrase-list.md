@@ -1,6 +1,6 @@
 ---
-title: Enhance LUIS understanding of synonyms with a phrase list - Azure  | Microsoft Docs
-description: Learn how to add a phrase list to a LUIS app and see the improvement of the score.
+title: Tutorial using a phrase list to improve LUIS predictions - Azure  | Microsoft Docs
+description: In this tutorial, add a phrase list to a LUIS app and see the improvement of the score.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -9,10 +9,20 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
+#Customer intent: As a new user, I want to understand how and why to use phrase lists.
 ---
 
-# Enhance LUIS understanding of synonyms with a phrase list 
-Improve the accuracy of intent scores and identify entities for words that have the same meaning (synonyms) by adding an interchangeable [phrase list feature](./luis-concept-feature.md).
+# Tutorial: Add phrase list to improve predictions
+In this tutorial, improve the accuracy of intent scores and identify entities for words that have the same meaning (synonyms) by adding an interchangeable [phrase list feature](./luis-concept-feature.md).
+
+> [!div class="checklist"]
+* Import a new app  
+* Query endpoint with known utterance 
+* Query endpoint with _unknown_ utterance
+* Add phrase list to improve unknown utterance score
+* Verify entity is found when using phrase list
+
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Import a new app
 1. Download the [example LUIS app][LuisSampleApp] that's designed for this tutorial. You will use it in the next step. 
@@ -142,7 +152,7 @@ The untrained utterance intent score is lower than that of the labeled utterance
 You must teach LUIS that *want* and *require* mean the same thing in this app domain because a word can have more than one meaning. 
 
 ## Improve the score of untrained utterance with phrase list 
-1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`, and then select **Enter**.
+1. Add a [phrase list](luis-how-to-add-features.md) feature named **want** with the value of `want`, and then select **Enter**.
 
     > [!TIP]
     > After each word or phrase, select the **Enter** key. The word or phrase is added to the **Phrase list values** box while the cursor stays in the **Value** box. You can enter many values quickly with this feature.
@@ -237,6 +247,17 @@ The **Hardware** entity shows a score of 0.595 with the phrase list. Before the 
 |--|--|--|--|
 | Published | - | 0.84 | - |
 | Currently editing |✔| 0.92 | 0.595 |
+
+
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get utterance prediction with endpoint query](luis-get-started-cs-get-intent.md)
+
+[LUIS]: luis-reference-regions.md
 
   [LUIS]:luis-reference-regions.md
   [LuisFeatures]: luis-concept-feature.md

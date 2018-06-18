@@ -20,15 +20,7 @@ ms.custom: mvc
 ---
 # Quickstart: How to use Azure Redis Cache with Node.js
 
-> [!div class="op_single_selector"]
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [.NET Core](cache-dotnet-core-quickstart.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.js](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
-> 
-> 
+
 
 Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
@@ -77,7 +69,7 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
 
 Don't create a new connections for each operation in your code. Instead, reuse connections as much as possible. 
 
-## Executing cache commands
+## Create a new Node.js app
 
 Create a new script file named *redistest.js*.
 

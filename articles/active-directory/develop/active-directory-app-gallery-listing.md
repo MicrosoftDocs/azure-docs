@@ -15,10 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/14/2018
-ms.author: bryanla
+ms.author: celested
+ms.reviewer: bryanla
 ms.custom: aaddev
-
 ---
+
 # List your application in the Azure Active Directory application gallery
 
 

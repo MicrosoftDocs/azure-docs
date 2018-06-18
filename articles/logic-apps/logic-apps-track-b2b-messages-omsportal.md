@@ -2,7 +2,7 @@
 title: Track B2B messages with Azure Log Analytics - Azure Logic Apps | Microsoft Docs
 description: Track B2B communication for your integration account and logic apps with Azure Log Analytics
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''

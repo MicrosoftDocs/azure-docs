@@ -1,15 +1,14 @@
 ---
 title: How to add an Event Hub event source to Azure Time Series Insights | Microsoft Docs
 description: This article describes how to add an event source that is connected to an Event Hub to your Time Series Insights environment.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2017
 ---
 

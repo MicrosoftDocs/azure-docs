@@ -13,7 +13,7 @@ ms.author: v-jerkin
 ---
 # Speech service REST APIs
 
-The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service). The endpoints differ from the endpoints used by the previous speech service.
+The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service). The endpoints differ from the endpoints used by the previous Speech service.
 
 ## Speech to Text
 
@@ -21,9 +21,9 @@ In the Speech to Text API, only the endpoints used differ from the previous Spee
 
 Region|	Speech to Text endpoint
 -|-
-West US| `https://westus.stt.speech.microsoft.com/cognitiveservices/recognition/conversation/cognitiveservices/v1`
-East Asia| `https://eastasia.stt.speech.microsoft.com//recognition/conversation/cognitiveservices/v1`
-North Europe| `https://northeurope.stt.speech.microsoft.com//recognition/conversation/cognitiveservices/v1`
+West US| `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
+East Asia| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
+North Europe| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
 > If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.

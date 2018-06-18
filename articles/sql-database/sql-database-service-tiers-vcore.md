@@ -5,10 +5,9 @@ services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2018
 manager: craigg
-ms.topic: article
 ms.author: carlrab
 
 ---

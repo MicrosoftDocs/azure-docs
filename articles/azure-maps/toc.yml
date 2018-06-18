@@ -71,7 +71,9 @@
     - name: Show traffic 
       href: map-show-traffic.md
     - name: Interacting with mouse events
-      href: map-events.md   
+      href: map-events.md
+    - name: Accessible map applications
+      href: map-accessibility.md
 - name: Reference
   items:
   - name: REST
@@ -96,7 +98,7 @@
   items:
   - name: Solutions
     items:
-    - name: IoT Suite Preconfigured Solutions
+    - name: IoT solution accelerators
       href: /azure/iot-suite
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
