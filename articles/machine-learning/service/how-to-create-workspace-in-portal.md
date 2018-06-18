@@ -19,11 +19,9 @@ In this article, you'll create an Azure Machine Learning Workspace in the Azure 
 
 To create a workspace, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Additionally, you must have adequate permissions to create Azure assets such as resource groups, virtual machines, and more.
-
 ## Create a workspace 
 
-The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), [Azure storage](https://docs.microsoft.com/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/), and [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/), [Azure storage](https://azure.microsoft.com/en-us/services/storage/), [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/), and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using the credentials for the Azure subscription you'll use. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -43,12 +41,12 @@ The **Azure Machine Learning Workspace** is the top-level resource that can be u
 
 1. In the **ML Workspace** pane, configure your workspace. 
 
-   Field|Suggested&nbsp;value for quickstart|Description
-   ---|---|---
-   Workspace name |MyWorkspace|Enter a unique name that identifies your workspace. 
-   Subscription | _Your actual subscription_ |Choose the Azure subscription that you want to use. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed.
-   Resource group |Group| Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group is a container that holds related resources for an Azure solution. 
-   Location | _The region closest to your users_ | Choose the location closest to your users and the data resources. This is where the workspace is created.
+   Field|Description
+   ---|---
+   Workspace name |Enter a unique name that identifies your workspace. 
+   Subscription |Choose the Azure subscription that you want to use. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed.
+   Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group is a container that holds related resources for an Azure solution. 
+   Location | Choose the location closest to your users and the data resources. This is where the workspace is created.
 
    ![create workspace](media/how-to-create-workspace-in-portal/workspace_create_name.PNG)
 
@@ -83,6 +81,9 @@ The **Azure Machine Learning Workspace** is the top-level resource that can be u
 ## Clean up resources 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
+You can also keep the resource group, but delete a single workspace by displaying the workspace properties and selecting the Delete button.
+
 
 ## Next steps
 You have now created an Azure Machine Learning Workspace.
