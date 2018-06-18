@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 06/15/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -75,12 +75,21 @@ This update includes the following improvements for Azure Stack.
 ### Known issues with the update process   
 - During installation of the 1805 update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after the update to 1805 completes.   
 
-- <!-- 2489559 - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+- <!-- 2489559 - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, seSe [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
 
 
 ### Post-update steps
-*There are no post-update steps for update 1805.*
+After the installation of 1805, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+ - [KB 4340474 - Azure Stack Hotfix 1.1805.4.53](https://support.microsoft.com/en-us/help/4340474).
 
+<!-- Note to remove when ready:
+
+- More Optimized use of temp disk space.
+- Changes to telemetry settings now take effect immediately.
+- Improved reliability of deploying Basic A2, Basic A3, Basic A4, Standard F1s, Standard F2s and Standard F64s_v2 VM sizes.
+- Fix to prevent users from seeing timeouts and failures when using the RBAC capabilities in the Azure Stack portal.
+- Fix to remove the need to perform 'iisreset' for the graph service in disconnected deployments.
+- Improve reliability of VM deployments on Azure Stack Stamps that have greater than 9 nodes. -->
 
 ## Known issues (post-installation)
 The following are post-installation known issues for this build version.
