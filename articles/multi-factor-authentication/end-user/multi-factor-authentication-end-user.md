@@ -1,5 +1,5 @@
 ---
-title: Get started with two-step verification | Microsoft Docs
+title: Get started with two-step verification - Azure AD | Microsoft Docs
 description: This is the Azure Multi-Factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 06/15/2017
 ms.author: lizross
 ms.reviewer: richagi

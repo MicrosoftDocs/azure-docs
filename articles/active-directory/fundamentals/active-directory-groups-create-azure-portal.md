@@ -1,5 +1,5 @@
 ---
-title: Create a group for users in Azure Active Directory | Microsoft Docs
+title: Create a group for users in Azure AD | Microsoft Docs
 description: How to create a group in Azure Active Directory and add members to the group
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/04/2017
 ms.author: lizross
 ms.reviewer: krbain

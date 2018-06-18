@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator app help and support | Microsoft Docs
+title: Help with Microsoft Authenticator app - Azure AD | Microsoft Docs
 description: Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/08/2018
 ms.author: lizross
 ms.reviewer: librown

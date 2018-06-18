@@ -1,5 +1,5 @@
 ---
-title: 'How to get support for Azure Active Directory | Microsoft Docs'
+title: Get support for Azure AD | Microsoft Docs
 description: How to get support for Azure Active Directory
 services: active-directory
 documentationcenter: na
@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.component: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017

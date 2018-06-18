@@ -15,7 +15,7 @@ ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: lizross
 ms.reviewer: dhanyahk

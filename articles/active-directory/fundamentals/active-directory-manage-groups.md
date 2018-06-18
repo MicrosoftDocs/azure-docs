@@ -1,6 +1,5 @@
 ---
-
-title: Use groups to manage access to resources in Azure Active Directory | Microsoft Docs
+title: Use groups to manage access to resources in Azure AD | Microsoft Docs
 description: How to use groups in Azure Active Directory to manage user access to on-premises and cloud applications and resources.
 services: active-directory
 documentationcenter: ''
@@ -11,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: overview
 ms.date: 08/28/2017
 ms.author: lizross
 ms.custom: H1Hack27Feb2017;it-pro

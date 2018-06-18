@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot two-step verification | Microsoft Docs
+title: Troubleshoot two-step verification - Azure AD | Microsoft Docs
 description: This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 keywords: multifactor authentication client, authentication problem, correlation ID
@@ -12,7 +12,7 @@ ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2017
 ms.author: lizross
 ms.reviewer: richagi

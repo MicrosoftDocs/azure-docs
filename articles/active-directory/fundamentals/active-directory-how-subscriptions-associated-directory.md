@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: lizross
 ms.reviewer: jeffsta

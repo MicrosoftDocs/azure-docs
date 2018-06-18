@@ -1,5 +1,5 @@
 ---
-title: License users in Azure Active Directory | Microsoft Docs
+title: License users in Azure AD | Microsoft Docs
 description: Learn how to license yourself and your users in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/22/2017
 ms.author: lizross
 ms.reviewer: jeffgilb

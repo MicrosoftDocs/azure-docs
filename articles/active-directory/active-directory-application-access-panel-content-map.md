@@ -1,5 +1,5 @@
 ---
-title: Problems using the application access panel website or mobile application
+title: Problems with the app access panel site or mobile app - Azure AD | Microsoft Docs
 description: Problems using the application access panel website or mobile application
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: lizross
 

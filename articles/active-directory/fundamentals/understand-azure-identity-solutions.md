@@ -7,20 +7,12 @@ manager: mtillman
 ms.reviewer: jsnow
 ms.author: lizross
 ms.date: 7/17/2017
-ms.topic: article
+ms.topic: overview
 ms.prod:
 ms.service: azure-directory
 ms.component: fundamentals
 ms.technology:
 ms.assetid:
-
-# optional metadata
-
-#ROBOTS:
-#audience:
-#ms.devlang:
-#ms.suite:
-#ms.tgt_pltfrm:
 ms.custom: it-pro
 
 ---

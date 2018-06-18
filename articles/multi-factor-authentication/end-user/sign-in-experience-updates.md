@@ -1,5 +1,5 @@
 ---
-title: Microsoft sign-in experience updates
+title: Microsoft sign-in experience updates - Azure AD | Microsoft Docs
 description: Learn about the new updates coming to the Microsoft sign-in experience
 services: multi-factor-authentication
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: kexia

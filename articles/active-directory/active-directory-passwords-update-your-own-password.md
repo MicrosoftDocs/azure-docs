@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD: Reset your password | Microsoft Docs'
+title: Azure AD: Reset your password - Azure AD | Microsoft Docs
 description: Use self-service password reset to regain access to your work or school user account
 services: active-directory
 keywords:
@@ -13,7 +13,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.custom: end-user

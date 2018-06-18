@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Active Directory | Microsoft Docs
+title: Get started with Azure AD | Microsoft Docs
 description: Get licenses, add domain name, create custom sign-in page, and add self-service password reset in Azure Active Diretory
 keywords:
 author: eross-msft
@@ -8,7 +8,7 @@ manager: mtillman
 ms.author: lizross
 ms.reviewer: jsnow
 ms.date: 11/14/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals

@@ -1,6 +1,6 @@
 ---
 
-title: Manage the members for a group in Azure Active Directory | Microsoft Docs
+title: Manage the members for a group in Azure AD | Microsoft Docs
 description: How to add or remove users and devices from a group in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/28/2017
 ms.author: lizross
 ms.custom: it-pro

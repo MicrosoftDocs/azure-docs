@@ -1,5 +1,5 @@
 ---
-title: Sign up for Azure Active Directory Premium | Microsoft Docs
+title: Sign up for Azure AD Premium | Microsoft Docs
 description: Explains how to sign up for Azure Active Directory Premium edition
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ manager: mtillman
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci

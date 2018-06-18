@@ -1,5 +1,5 @@
 ---
-title: Customize the sign-in page for your Azure Active Directory tenant | Microsoft Docs
+title: Customize the sign-in page for your Azure AD tenant | Microsoft Docs
 description: Learn how to add a company branding to the Azure sign-in page
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2018
 ms.author: lizross
 ms.reviewer: kexia

@@ -1,5 +1,5 @@
 ---
-title: Register for self-service password reset - Azure Active Directory
+title: Register for self-service password reset - Azure AD | Microsoft Docs
 description: Register authentication data for Azure AD self-service password reset
 services: active-directory
 keywords:
@@ -13,7 +13,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.custom: end-user;seohack1
