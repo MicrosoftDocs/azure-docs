@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 6/13/2018
+ms.date: 6/17/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -133,7 +133,7 @@ First, use the [az aks get-credentials][az-aks-get-credentials] command with the
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
 ```
 
-Next, use the following manifest to create a ClusterRoleBinding for the Azure AD account. Update the user name with one from your Azure AD tenant.
+Next, use the following manifest to create a ClusterRoleBinding for an Azure AD account. Update the user name with one from your Azure AD tenant. This example gives the account full access to all namespaces of the cluster.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -150,7 +150,24 @@ subjects:
   name: "user@contoso.com"
 ```
 
- This example gives the account full access to all namespaces of the cluster. For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization].
+A role binding can also be created for all members of an Azure AD group. The following manifest gives all members of the `kubernetes-admin` group admin access to the cluster.
+
+ ```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: contoso-cluster-admins
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: "kubernetes-admin"
+```
+
+For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization].
 
 ## Access cluster with Azure AD
 
