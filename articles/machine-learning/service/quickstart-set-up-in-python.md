@@ -140,7 +140,7 @@ The **project** is a local folder that contains the scripts needed to solve your
 ## Next steps
 You have now created the necessary resources to start experimenting and deploying models. You have also created a project, ran a script, and explored the run history of the script.
 
-For an in-depth workflow experience, follow the Azure Machine Learning tutorial which builds, trains and deploys a model. 
+For an in-depth workflow experience, follow the Azure Machine Learning tutorial on building, training, and deploying a model.
 
-> training, and"nextstepaction"]
+> [!div class="nextstepaction"]
 > [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)
