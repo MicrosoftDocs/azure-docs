@@ -102,7 +102,7 @@ Under **2. Define alert details**, enter a name and description for the alert. S
 
 ![Configure signal logic](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Under **3. Define action group**, select **New action group**. An action group is a group of actions that you can use across multiple alerts. These can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Under **3. Define action group**, select **New action group**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
 
 In the **Action group name** box, enter a name for the alert and a short name. The short name is used in place of a full action group name when notifications are sent by using this group.
 
@@ -114,7 +114,7 @@ In the **Email/SMS/Push/Voice** pane, enter a name. Select the **Email** check b
 
 In the **Email/SMS/Push/Voice** pane, select **OK**. In the **Add action group** pane, select **OK**.
 
-To customize the subject of the alert email,  under **Create rule**, under **Customize Actions**, select **Email subject**. When you're finished, select **Create alert rule**. This creates the rule that alerts you when an update deployment succeeds, and tells you which machines were part of that update deployment run.
+To customize the subject of the alert email,  under **Create rule**, under **Customize Actions**, select **Email subject**. When you're finished, select **Create alert rule**. The alert tells you when an update deployment succeeds, and which machines were part of that update deployment run.
 
 ## Schedule an update deployment
 
@@ -142,7 +142,7 @@ Under **New update deployment**, specify the following information:
 
    For a description of the classification types, see [update classifications](automation-update-management.md#update-classifications).
 
-* **Schedule settings**: This opens the **Schedule Settings** pane. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
+* **Schedule settings**: The **Schedule Settings** pane opens. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
    You can also specify whether the deployment occurs once, or set up a recurring schedule. Under **Recurrence**, select **Once**. Leave the default as 1 day and select **OK**. This sets up a recurring schedule.
 

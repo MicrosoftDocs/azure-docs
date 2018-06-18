@@ -1,6 +1,6 @@
 ---
-title: Onboard update management, change tracking, and inventory solutions from an Azure VM
-description: Learn how to onboard an Azure virtual machine with update management, change tracking, and inventory solutions that are part of Azure Automation.
+title: Onboard Update Management, Change Tracking, and Inventory solutions from an Azure VM
+description: Learn how to onboard an Azure virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation.
 services: automation
 author: georgewallace
 ms.author: gwallace
@@ -11,9 +11,9 @@ ms.custom: mvc
 manager: carmonm
 ---
 
-# Onboard update management, change tracking, and inventory solutions from an Azure virtual machine
+# Onboard Update Management, Change Tracking, and Inventory solutions from an Azure virtual machine
 
-Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution from a virtual machine, [from your Automation account](automation-onboard-solutions-from-automation-account.md), [from browsing multiple machines](automation-onboard-solutions-from-browse.md), or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions from an Azure virtual machine.
+Azure Automation provides solutions to help you manage operating system security updates, track changes, and inventory what's installed on your computers. There are multiple ways to onboard machines. You can onboard the solution from a virtual machine, [from your Automation account](automation-onboard-solutions-from-automation-account.md), [from browsing multiple machines](automation-onboard-solutions-from-browse.md), or by using a [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions from an Azure virtual machine.
 
 ## Sign in to Azure
 
@@ -27,7 +27,7 @@ To enable the solution for the VM only, ensure that the **Enable for this VM** r
 
 Choose the Log analytics workspace and automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
-![Onboard update solution](media/automation-onboard-solutions-from-vm/onboard-solution.png)
+![Onboard the Update Management solution](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Go to the other solutions, and then select **Enable**. The Log Analytics and Automation account drop-down lists are disabled because these solutions use the same workspace and Automation account as the previously enabled solution.
 
@@ -50,7 +50,7 @@ Select the ellipses (**...**) on any of the configurations, and then select **Ed
 
 ## Saved searches
 
-When a computer is added to the update management, change tracking, or inventory solutions, the computer is added to one of two saved searches in your workspace. The saved searches are queries that contain the computers that are targeted for these solutions.
+When a computer is added to the Update Management, Change Tracking, or Inventory solutions, the computer is added to one of two saved searches in your workspace. The saved searches are queries that contain the computers that are targeted for these solutions.
 
 Go to your workspace. Under **General**, select **Saved searches**. The two saved searches that are used by these solutions are shown in the following table:
 

@@ -32,12 +32,12 @@ Update Management is supported on the following operating systems:
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments.         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
 |Windows Server 2008 R2 SP1 and later     |Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 is recommended for increased reliability. ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
-|Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
+|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository.        |
+|Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+|Ubuntu 12.04 LTS, 14.04 LTS, and 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
 > [!NOTE]
 > To prevent updates from being applied outside a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For more information, see the [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
@@ -82,7 +82,7 @@ Computers that have recently been enabled for Update Management might not have b
 
 - **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last 3 hours. For Windows computers, the expected timeframe is in the last 12 hours.
 
-To view the status of the agent, select the link in the **UPDATE AGENT READINESS** column. This opens the Hybrid Worker pane, which shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time.
+To view the status of the agent, select the link in the **UPDATE AGENT READINESS** column. Selecting this option opens the Hybrid Worker pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time.
 
 ![View computers tab](./media/manage-update-multi/update-agent-broken.png)
 
@@ -135,7 +135,7 @@ In the **New update deployment** pane, specify the following information:
   - Tools
   - Updates
 
-- **Updates to exclude** - This opens the **Exclude** page. Enter in the KB articles or package names to exclude.
+- **Updates to exclude** - Selecting this option opens the **Exclude** page. Enter the KB articles or package names to exclude.
 
 - **Schedule settings**: You can accept the default date and time, which is 30 minutes after the current time. You can also specify a different time.
 

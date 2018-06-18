@@ -1,6 +1,6 @@
 ---
-title: Update management solution in Azure
-description: This article is intended to help you understand how to use the Azure update management solution to manage updates for your Windows and Linux computers.
+title: Update Management solution in Azure
+description: This article is intended to help you understand how to use the Azure Update Management solution to manage updates for your Windows and Linux computers.
 services: automation
 ms.service: automation
 ms.component: update-management
@@ -10,15 +10,15 @@ ms.date: 04/23/2018
 ms.topic: conceptual
 manager: carmonm
 ---
-# Update management solution in Azure
+# Update Management solution in Azure
 
-You can use the update management solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
+You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
-You can enable update management for virtual machines directly from your Azure Automation account. To learn how to enable update management for virtual machines from your Automation account, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable update management for a single virtual machine from the virtual machine pane in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
+You can enable Update Management for virtual machines directly from your Azure Automation account. To learn how to enable Update Management for virtual machines from your Automation account, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a single virtual machine from the virtual machine pane in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
 
 ## Solution overview
 
-Computers that are managed by update management use the following configurations to perform assessment and update deployments:
+Computers that are managed by Update Management use the following configurations to perform assessment and update deployments:
 
 * Microsoft Monitoring Agent (MMA) for Windows or Linux
 * PowerShell Desired State Configuration (DSC) for Linux
@@ -27,7 +27,7 @@ Computers that are managed by update management use the following configurations
 
 The following diagram shows a conceptual view of the behavior and data flow with how the solution assesses and applies security updates to all connected Windows Server and Linux computers in a workspace:
 
-![Update management process flow](media/automation-update-management/update-mgmt-updateworkflow.png)
+![Update Management process flow](media/automation-update-management/update-mgmt-updateworkflow.png)
 
 After a computer performs a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Window computer, the compliance scan is performed every 12 hours by default. 
 
@@ -38,7 +38,7 @@ For a Linux computer, the compliance scan is performed every 3 hours by default,
 The solution reports how up-to-date the computer is based on what source you're configured to sync with. If the Windows computer is configured to report to WSUS, depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Updates shows. This is the same for Linux computers that are configured to report to a local repo instead of to a public repo.
 
 > [!NOTE]
-> Update management requires certain URLs and ports to be enabled to properly report to the service. To learn more about these requirements, see [Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
+> Update Management requires certain URLs and ports to be enabled to properly report to the service. To learn more about these requirements, see [Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
 
 You can deploy and install software updates on computers that require the updates by creating a scheduled deployment. Updates classified as *Optional* aren't included in the deployment scope for Windows computers. Only required updates are included in the deployment scope. 
 
@@ -56,17 +56,12 @@ The following table shows a list of supported operating systems:
 
 |Operating system  |Notes  |
 |---------|---------|
-<<<<<<< HEAD
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later     |Windows PowerShell 4.0 or later is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br/> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
-=======
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments         |
-|Windows Server 2008 R2 SP1 and higher     |.NET Framework 4.5 or higher is required ([Download .NET Framework](/dotnet/framework/install/guide-for-developers)).</br> Windows PowerShell 4.0 or higher is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
->>>>>>> 939e8fa60077fb7e7436f68df47f919c92cd24ed
-|CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
-|Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
+|Windows Server 2008 R2 SP1 and later     |.NET Framework 4.5 or later is required. ([Download .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or higher is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository.        |
+|Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+|Ubuntu 14.04 LTS and 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
 ### Unsupported client types
 
@@ -81,7 +76,7 @@ The following table lists operating systems that aren't supported:
 
 #### Windows
 
-Windows agents must be configured to communicate with a WSUS server or have access to Microsoft Update. You can use update management with System Center Configuration Manager. To learn more about the integration scenarios, see [Integrate System Center Configuration Manager with update management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Windows agent](../log-analytics/log-analytics-agent-windows.md) is required. This agent is installed automatically if you're onboarding an Azure virtual machine.
+Windows agents must be configured to communicate with a WSUS server or have access to Microsoft Update. You can use Update Management with System Center Configuration Manager. To learn more about the integration scenarios, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Windows agent](../log-analytics/log-analytics-agent-windows.md) is required. This agent is installed automatically if you're onboarding an Azure virtual machine.
 
 #### Linux
 
@@ -91,7 +86,7 @@ For information about how to install the OMS Agent for Linux and to download the
 
 ## Permissions
 
-To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access - Update management](automation-role-based-access-control.md#update-management).
+To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access - Update Management](automation-role-based-access-control.md#update-management).
 
 ## Solution components
 
@@ -170,23 +165,17 @@ A scan is performed every 3 hours for each managed Linux computer.
 
 It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed computers.
 
-## View update assessments
+## <a name="viewing-update-assessments"></a>View update assessments
 
-<<<<<<< HEAD
 In your Automation account, select **Update Management** to view the status of your machines.
-=======
-This view provides information on your machines, missing updates, update deployments, and scheduled update deployments. In addition to these details, you can see the last time the machine was assessed in the **COMPLIANCE COLUMN** and can see if the health of the updage agent in the **UPDATE AGENT READINESS** column. If there is an issue, clicking the link takes you to troubleshooting documentation to provide you with steps on how to correct the problem.
->>>>>>> 939e8fa60077fb7e7436f68df47f919c92cd24ed
+
+This view provides information about your machines, missing updates, update deployments, and scheduled update deployments. In the **COMPLIANCE COLUMN**, you can see the last time the machine was assessed. In the **UPDATE AGENT READINESS** column, you can see if the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you learn what steps to take to correct the problem.
 
 This view provides information about your machines, missing updates, update deployments, and scheduled update deployments.
 
-<<<<<<< HEAD
-To run a log search that returns information about the machine, update, or deployment, select the item in the list. This opens the **Log Search** pane, with a query for the item selected.
-=======
-![Update management default view](media/automation-update-management/update-management-view.png)
+To run a log search that returns information about the machine, update, or deployment, select the item in the list. The **Log Search** pane opens with a query for the item selected:
 
-## Installing updates
->>>>>>> 939e8fa60077fb7e7436f68df47f919c92cd24ed
+![Update Management default view](media/automation-update-management/update-management-view.png)
 
 ## Install updates
 
@@ -226,7 +215,7 @@ To create a new update deployment, select **Schedule update deployment**. The **
 
 ## Update classifications
 
-The following tables list the update classifications in update management, with a definition for each classification.
+The following tables list the update classifications in Update Management, with a definition for each classification.
 
 ### Windows
 
@@ -250,7 +239,7 @@ The following tables list the update classifications in update management, with 
 
 ## Ports
 
-The following addresses are required specifically for update management. Communication to these addresses occurs over port 443.
+The following addresses are required specifically for Update Management. Communication to these addresses occurs over port 443.
 
 |Azure Public  |Azure Government  |
 |---------|---------|
@@ -282,7 +271,7 @@ The following table provides sample log searches for update records that are col
 
 Customers who have invested in System Center Configuration Manager for managing PCs, servers, and mobile devices also rely on its strength and maturity in managing software updates. It's part of their software update management (SUM) cycle.
 
-To learn how to integrate the management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with update management](oms-solution-updatemgmt-sccmintegration.md).
+To learn how to integrate the management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
 
 ## Patch Linux machines
 
@@ -290,9 +279,9 @@ The following sections explain potential issues with Linux patching.
 
 ### Package exclusion
 
-On some Linux variants, such as Red Hat Enterprise Linux, OS-level upgrades might occur via packages. This might lead to update management runs where the OS version number changes. Because update management uses the same methods to update packages that an administrator would use locally on the Linux computer, this behavior is intentional.
+On some Linux variants, such as Red Hat Enterprise Linux, OS-level upgrades might occur via packages. This might lead to Update Management runs where the OS version number changes. Because Update Management uses the same methods to update packages that an administrator would use locally on the Linux computer, this behavior is intentional.
 
-To avoid updating the OS version via update management runs, use the **Exclusion** feature.
+To avoid updating the OS version via Update Management runs, use the **Exclusion** feature.
 
 In Red Hat Enterprise Linux, the package name to exclude is redhat-release-server.x86_64.
 
@@ -302,25 +291,25 @@ In Red Hat Enterprise Linux, the package name to exclude is redhat-release-serve
 
 When you deploy updates to a Linux machine, you can select update classifications. This filters the updates that are applied to those that meet the specified criteria. This filter is applied locally on the machine when the update is deployed. 
 
-Because update management performs update enrichment in the cloud, some updates might be flagged in update management as having security impact, even though the local machine doesn't have that information. As a result, if you apply critical updates to a Linux machine, there might be updates that aren't marked as having security impact on that machine and the updates aren't applied. 
+Because Update Management performs update enrichment in the cloud, some updates might be flagged in Update Management as having security impact, even though the local machine doesn't have that information. As a result, if you apply critical updates to a Linux machine, there might be updates that aren't marked as having security impact on that machine and the updates aren't applied. 
 
-However, update management might still report that machine as being noncompliant because it has additional information about the relevant update.
+However, Update Management might still report that machine as being noncompliant because it has additional information about the relevant update.
 
 Deploying updates by update classification might not work on openSUSE Linux due to the different patching model used.
 
 ## Troubleshooting
 
-This section provides information to help you troubleshoot issues with the update management solution.
+This section provides information to help you troubleshoot issues with the Update Management solution.
 
 If you encounter issues when you  attempt to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log on the local machine for events that have Event ID 4502 and event messages that contain **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each:
 
 | Message | Reason | Solution |
 |----------|----------|----------|
-| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the Hybrid Runbook group](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)|
-| Unable to Register Machine for Patch Management, Registration Failed with Exception</br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---></br>System.Net.WebException: The underlying connection</br>was closed: An unexpected error</br>occurred on a receive. ---> System.ComponentModel.Win32Exception:</br>The client and server cannot communicate,</br>because they do not possess a common algorithm | Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
-| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
-| The certificate presented by the service \<wsid\>.oms.opinsights.azure.com</br>was not issued by a certificate authority</br>used for Microsoft services. Contact</br>your network administrator to see if they are running a proxy that intercepts</br>TLS/SSL communication. |Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning)|
-| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Failed to create a self-signed certificate. ---></br>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure | Verify system account has</br>read access to folder:</br>**C:\ProgramData\Microsoft\**</br>**Crypto\RSA**|
+| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>System.InvalidOperationException: {"Message":"Machine is already<br/>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management. | Perform cleanup of old artifacts by [deleting the Hybrid Runbook group](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group).|
+| Unable to Register Machine for Patch Management, Registration Failed with Exception<br/>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br/>System.Net.WebException: The underlying connection<br/>was closed: An unexpected error<br/>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br/>The client and server cannot communicate,<br/>because they do not possess a common algorithm | Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
+| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
+| The certificate presented by the service \<wsid\>.oms.opinsights.azure.com<br/>was not issued by a certificate authority<br/>used for Microsoft services. Contact<br/>your network administrator to see if they are running a proxy that intercepts<br/>TLS/SSL communication. |Proxy/gateway/firewall is blocking communication | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
+| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>AgentService.HybridRegistration.<br/>PowerShell.Certificates.CertificateCreationException:<br/>Failed to create a self-signed certificate. ---><br/>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure. | Verify system account has<br/>read access to folder:<br/>**C:\ProgramData\Microsoft\**<br/>**Crypto\RSA**|
 
 ## Next steps
 
