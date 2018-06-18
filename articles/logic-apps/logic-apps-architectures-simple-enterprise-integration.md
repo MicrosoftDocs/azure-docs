@@ -57,7 +57,7 @@ You are charged for all API Management instances when they are running. If you h
 
 ## Logic Apps pricing
 
-Logic Apps works as a [serverless](../logic-apps/logic-apps-serverless-overview) model – billing is calculated based on action and connector execution. See [Logic Apps pricing](https://azure.microsoft.com/en-us/pricing/details/logic-apps/) for more information. There are currently no tier considerations for Logic Apps.
+Logic Apps works as a [serverless](logic-apps-serverless-overview.md) model – billing is calculated based on action and connector execution. See [Logic Apps pricing](https://azure.microsoft.com/en-us/pricing/details/logic-apps/) for more information. There are currently no tier considerations for Logic Apps.
 
 ## Logic Apps for asynchronous API calls
 
@@ -71,7 +71,7 @@ The resource group also has a region, which specifies where deployment metadata 
 
 # Scalability considerations
 
-API Management administrators should add [caching policies](../api-management/api-management-howto-cache) where appropriate to increase the scalability of the service and reduce load on their backend services.
+API Management administrators should add [caching policies](../api-management/api-management-howto-cache.md) where appropriate to increase the scalability of the service and reduce load on their backend services.
 
 Azure API Management Basic, Standard and Premium tiers can be scaled out with in an Azure region to offer greater capacity. Administrators can use the Capacity Metric within the Metrics menu to analyze the usage of their service and scale up or scale down as appropriate.
 
@@ -94,7 +94,7 @@ At the time of writing, the service level agreement (SLA) for Azure Logic Apps i
 
 ## Backups
 
-The configuration of Azure API Management should be [backed up regularly](../api-management/api-management-howto-disaster-recovery-backup-restore) (appropriately based on regularity of change), and the backup files stored in a location or Azure Region different to where the service resides. Customers can then choose one of two options for their DR strategy:
+The configuration of Azure API Management should be [backed up regularly](../api-management/api-management-howto-disaster-recovery-backup-restore.md) (appropriately based on regularity of change), and the backup files stored in a location or Azure Region different to where the service resides. Customers can then choose one of two options for their DR strategy:
 
 1. In a DR event, a new API Management instance is provisioned, the backup is restored to it, and DNS records are repointed.
 2. Customers keep a passive copy of their service in another Azure region (incurring additional cost) Backups are regularly restored to it. In a DR event, only DNS records need be repointed to restore the service.

@@ -290,7 +290,7 @@
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
   items:
-  - name: Reference Architectures
+  - name: Architectural Patterns
     href: logic-apps-architectures-simple-enterprise-integration.md
     items:
     - name: Simple Enterprise Integration

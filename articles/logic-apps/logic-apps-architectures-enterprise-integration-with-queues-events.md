@@ -23,7 +23,7 @@ This reference architecture shows a set of proven practices for an integration a
 
 *There are many possible applications of integration technology, from a simple point-to point application to a full enterprise service bus. This architecture series sets out the reusable component parts for building any integration application – architects should consider the components they will need for their applications and infrastructure.*
 
-   ![Architecture diagram - enterprise integration with queues & events](./media/logic-apps-architectures-simple-enterprise-integration/integr_queues_events_arch_diagram.png)
+![Architecture diagram - enterprise integration with queues & events](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
 
 # Architecture
 
