@@ -4,7 +4,7 @@ title: View all existing groups in Azure Active Directory | Microsoft Docs
 description: How to view or search for groups in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,7 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: curtand
-
+ms.author: lizross
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: krbain
 
