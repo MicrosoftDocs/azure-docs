@@ -18,16 +18,16 @@ ms.date: 7/27/2018
 Azure Machine Learning Services is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
 In this quickstart, you'll get started with Azure Machine Learning Services using the Azure Machine Learning CLI extension. You’ll learn how to:
-+ Install the Azure Machine Learning extension to the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
++ Install the Azure Machine Learning extension to the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 + Create an Azure Machine Learning Workspace
 + Create a project and attach it to the workspace
 + Run a small Python script in the project and view the output
 
-The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights, and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
+The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), [Azure storage](https://docs.microsoft.com/azure/storage/), [Azure Application Insights, and [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
 The **project**, which is a local folder, contains  the scripts that solve your machine learning problem as well as the configuration files to attach the project to your workspace in Azure Cloud.
 
-This CLI was build on top of the [Python-based SDK for Azure Machine Learning services](reference-azure-machine-learning-sdk.md).
+This CLI was built on top of the [Python-based SDK for Azure Machine Learning services](reference-azure-machine-learning-sdk.md).
 
 ## Prerequisites
 
@@ -35,23 +35,23 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
 
 Additionally, you must have adequate permissions to create Azure assets such as resource groups, virtual machines, and more.
 
-Before you can install the CLI extension on Windows, Linux, or MacOS, install these prerequisites: 
+Before you can install the CLI extension, install these prerequisites: 
 + [Python 3.5 or higher](https://www.python.org/)
-+ [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
++ [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## Install the CLI
 
 On your computer, open a command-line editor and install the machine learning extension to Azure CLI.  The installation can take several minutes to complete.
 
 ```azurecli
-az extension add @@@
+az extension add azureml-sdk
 ```
 
 ## Create a resource group
 
 A resource group is a container that holds related resources for an Azure solution. Using Azure CLI, sign into Azure, specify the subscription, and create a resource group.
 
-1. In a command-line window, sign in with the Azure CLI command, [`az login`](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-login). Follow the prompts for interactive login:
+1. In a command-line window, sign in with the Azure CLI command, [`az login`](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Follow the prompts for interactive login:
     
     ```azurecli
     az login
@@ -65,11 +65,8 @@ A resource group is a container that holds related resources for an Azure soluti
    ```
    where \<your-subscription-id\> is ID value for the subscription you want to use that was output by az account list. Do not include the brackets.
 
-1. Create a resource group to hold your workspace. In this quickstart, the name of the resource group is `myrg`.
+1. Create a resource group to hold your workspace. In this quickstart, the name of the resource group is `myrg` and the region is eastus2. You can use an [available region](https://azure.microsoft.com/global-infrastructure/services/) close to your data. 
 
-   >[!Note]
-   > The only supported location for resource groups is `eastus2`.  
-    
     ```azurecli
     az group create --name myrg --location eastus2
     ```
@@ -96,12 +93,19 @@ A resource group is a container that holds related resources for an Azure soluti
 
 ## Run a Python script
 
-1. Copy the [hello.py]() script to your project folder on your machine.
+1. Create a script, called `helloworld.py` script in your project folder on your local machine. In it, copy the following code:
+   ```python
+   run = Run.start_logging(workspace = ws, run_history_name = "myhistory")
+   run.log(SCALAR METRIC TBD)
+   run.log(VECTOR METRIC TBD)
+   run.upload_file(TBD)
+   run.complete()
+   ```
 
 1. Run the script on your local computer.
 
    ```azurecli
-   az ml run submit -c local hello.py
+   az ml run submit -c local helloworld.py
    ```
 
    This command runs the code and outputs a web link to your console. Copy-paste the link into your web browser.

@@ -61,7 +61,7 @@ The following example uses a dataset consisting of 63 tableware images. Each ima
 
 ## Storage context
 
-The storage context is used to determine where various output files such as augmented images or DNN model files will be stored. For more information on storage contexts, see the [StorageContext documentation](https://review.docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-python&branch=smoke-test). 
+The storage context is used to determine where various output files such as augmented images or DNN model files will be stored. For more information on storage contexts, see the [StorageContext documentation](https://review.docs.microsoft.com/python/api/cvtk.core.context.storagecontext?view=azure-python&branch=smoke-test). 
 
 Normally, the storage content does not need to be set explicitly. However, to avoid its 25-MB limit on the project size imposed by the Azure Machine Learning Workbench, set the outputs directory for the Azure Machine Learning Package for Computer Vision to a location outside the Azure Machine Learning project ("../../../../cvtk_output"). Be sure to remove the "cvtk_output" directory once it is no longer needed.
 
@@ -184,7 +184,7 @@ display(annotation_ui.ui)
 
 ## Augment images
 
-The [`augmentation` module](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) provides functionality to augment a dataset object using all the transformations described in the [imgaug](https://github.com/aleju/imgaug) library. Image transformations can be grouped in a single pipeline, in which case all transformations in the pipeline are applied simultaneously each image. 
+The [`augmentation` module](https://docs.microsoft.com/python/api/cvtk.augmentation) provides functionality to augment a dataset object using all the transformations described in the [imgaug](https://github.com/aleju/imgaug) library. Image transformations can be grouped in a single pipeline, in which case all transformations in the pipeline are applied simultaneously each image. 
 
 If you would like to apply different augmentation steps separately, or in any different manner, you can define multiple pipelines and pass them to the *augment_dataset* function. For more information and examples of image augmentation, see the [imgaug documentation](https://github.com/aleju/imgaug).
 
