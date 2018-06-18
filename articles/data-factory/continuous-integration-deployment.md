@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -97,7 +97,7 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
     c.  Select the **Create or update resource group** action.
 
-    d.  Select **…** in the “**Template**” field. Browse for the Resource Manager template (*ARMTemplateForFactory.json*) that was created by the publish action in the portal. Look for this file in the root folder of the `adf\_publish` branch.
+    d.  Select **…** in the **Template** field. Browse for the Resource Manager template (*ARMTemplateForFactory.json*) that was created by the publish action in the portal. Look for this file in the folder `<FactoryName>` of the `adf_publish` branch.
 
     e.  Do the same thing for the parameters file. Choose the correct file depending on whether you created a copy or you’re using the default file *ARMTemplateParametersForFactory.json*.
 
@@ -113,11 +113,11 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
 ### Optional - Get the secrets from Azure Key Vault
 
-If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the VSTS release. For more info, see [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the VSTS release.
 
 There are two ways to handle the secrets:
 
-1.  Add the secrets to parameters file:
+1.  Add the secrets to parameters file. For more info, see [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
     -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
 
@@ -161,8 +161,7 @@ Deployment can fail if you try to update active triggers. To update active trigg
 3.  Choose **Inline Script** as the script type and then provide your code. The following example stops the triggers:
 
     ```powershell
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName
-    $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
     $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
