@@ -10,9 +10,10 @@ ms.author: yahajiza
 author: YasinMSFT
 ms.date: 04/10/2018
 ---
-# Use the Azure Portal to create an Azure Machine Learning Workspace
 
-In this quickstart, you'll get started with Azure Machine Learning Services by creating an Azure Machine Learning Workspace in the Azure portal. Azure Machine Learning Services is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
+# Create an Azure Machine Learning Workspace in the Azure Portal
+
+In this article, you'll create an Azure Machine Learning Workspace in the Azure portal. Azure Machine Learning Services is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
 ## Prerequisites
 
@@ -48,7 +49,6 @@ The **Azure Machine Learning Workspace** is the top-level resource that can be u
    Subscription | _Your subscription_ |Choose the Azure subscription that you want to use. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed.
    Resource group | _Your resource group_ | Use an existing resource group in your subscription, or enter a name to create a new resource group. In this example, let's use an existing resource group called _Group_. A resource group is a container that holds related resources for an Azure solution. Using Azure CLI, sign into Azure, specify the subscription, and create a resource group.
    Location | _The region closest to your users_ | Choose the location closest to your users and the data resources. This is where the workspace is created.
-   
 
    ![create workspace](media/how-to-create-workspace-in-portal/workspace_create_name.PNG)
 

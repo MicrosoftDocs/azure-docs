@@ -1,15 +1,12 @@
 ﻿---
 title: Installation Quickstart with Azure Machine Learning CLI | Microsoft Docs
 description: In this quickstart, you will learn how to get started with Azure Machine Learning Services using the Azure Machine Learning CLI extension.
-services: machine-learning
-author: rastala
-ms.author: roastala
-manager: haining
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.custom: mvc
 ms.topic: quickstart
+ms.reviewer: jmartens
+author: rastala
+ms.author: roastala
 ms.date: 7/27/2018
 ---
 
