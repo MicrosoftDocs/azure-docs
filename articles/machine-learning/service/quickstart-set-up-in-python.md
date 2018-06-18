@@ -15,32 +15,31 @@ ms.date: 7/27/2018
 
 # Quickstart: Create a workspace and project with Azure Machine Learning's Python SDK
 
-Azure Machine Learning Services is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
+In this quickstart, you'll use a Python SDK to get started with Azure Machine Learning Services, an integrated, end-to-end data science and advanced analytics solution. Azure Machine Learning Services helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
-In this quickstart, you'll get started with Azure Machine Learning Services using your preferred Python IDE. You’ll learn how to:
+You'll get started using your preferred Python IDE and:
 + Install the Azure Machine Learning SDK for Python
-+ Create an Azure Machine Learning Workspace
-+ Create a project and attach it to the workspace
-+ Run Python code in the project and view the output
-
-The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), [Azure storage](https://docs.microsoft.com/azure/storage/), [Azure Application Insights, and [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
-
-The **project**, which is a local folder, contains  the scripts that solve your machine learning problem as well as the configuration files to attach the project to your workspace in Azure Cloud.
++ Create an Azure Machine Learning Workspace, the top-level resource for this service
++ Attach a project that contains the scripts and configuration files
++ Run Python code from the project and view the output
 
 ## Prerequisites
 
-To create a workspace, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Make sure you have the following prerequisites before starting the quickstart steps:
 
-Additionally, you must have adequate permissions to create Azure assets such as resource groups, virtual machines, and more.
++ An Azure subscription to create a workspace. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Before you can install the SDK on Windows, Linux, or MacOS, install these prerequisites: 
-+ [Python 3.5 or higher](https://www.python.org/)
-+ [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-+ A package manager such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html) 
++ Adequate permissions to create Azure assets such as resource groups, virtual machines, and more.
+
++ [Python 3.5 or higher](https://www.python.org/) installed
+
++ [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed
+    
++ A package manager installed, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html)
 
 ## Install the SDK
 
-Install the Azure Machine Learning SDK for Python you will use later to create your workspace, run code, train, and deploy models.
+Install the Azure Machine Learning SDK for Python. You'll use this SDK to create your workspace and run code. You can [do a lot more with this SDK](reference-azure-machine-learning-sdk.md). 
 
 In a command-line window, create the conda environment and install the SDK. This example uses Python 3.6.
 
@@ -77,7 +76,7 @@ A resource group is a container that holds related resources for an Azure soluti
    ```
    where \<your-subscription-id\> is ID value for the subscription you want to use that was output by az account list. Do not include the brackets.
 
-1. Create a resource group to hold your workspace. In this quickstart, the name of the resource group is `myrg` and the region is eastus2. You can use an [available region](https://azure.microsoft.com/global-infrastructure/services/) close to your data. 
+1. Create a resource group to hold your workspace. In this quickstart, the name of the resource group is `myrg` and the region is `eastus2`. You can use any [available region](https://azure.microsoft.com/global-infrastructure/services/) close to your data. 
 
    ```azurecli
    az group create --name myrg --location eastus2
@@ -85,13 +84,18 @@ A resource group is a container that holds related resources for an Azure soluti
 
 ## Create a workspace and attach a project
 
+The **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), [Azure storage](https://docs.microsoft.com/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/), and [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+
+The **project** is a local folder that contains the scripts needed to solve your machine learning problem and the configuration files  required to attach the project to your workspace in Azure Cloud.
+
+
 1. In a command-line window, create a folder on your local machine for your Azure Machine Learning project. 
    ```
    mkdir myproject
    cd myproject
    ```
 
-1. In a Python editor, create your workspace and project under the resource group.
+1. In a Python editor, create your workspace under the resource group and attach the project to the new workspace.
 
    In this quickstart, the workspace name is `myws` and the run history file is `myhistory`. The run history file stores each run in your project so you can monitor your model during training.
 
@@ -139,7 +143,7 @@ A resource group is a container that holds related resources for an Azure soluti
 ## Next steps
 You have now created the necessary resources to start experimenting and deploying models. You have also created a project, ran a script, and explored the run history of the script.
 
-For an in-depth workflow experience, follow the Azure Machine Learning tutorial that contains detailed steps for building, training, and deploying models with Azure Machine Learning Services. 
+For an in-depth workflow experience, follow the Azure Machine Learning tutorial which builds, trains and deploys a model. 
 
 > training, and"nextstepaction"]
 > [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)
