@@ -1,6 +1,6 @@
 ---
 title: Dynamically banned passwords in Azure AD
-description: Ban weak passwords from your envirionment with Azure AD dynamically banned passwrords
+description: Ban weak passwords from your environment with Azure AD dynamically banned passwords
 
 services: active-directory
 ms.service: active-directory
@@ -64,4 +64,4 @@ Unfortunately, your password contains a word, phrase, or pattern that makes your
 ## Next steps
 
 * [Configure the custom banned password list](howto-password-ban-bad.md)
-* [Enable Azure AD password protection agents on-premises](howto-password-ban-bad-onprem.md)
+* [Enable Azure AD password protection agents on-premises](howto-password-ban-bad-on-premises.md)

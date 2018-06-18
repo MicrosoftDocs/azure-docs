@@ -29,17 +29,17 @@ There are three software components that make up Azure AD password protection:
 * The Azure AD password protection DC agent service receives password validation requests from the DC Agent password filter dll, processes them using the current locally available password policy, and returns the result (pass\fail). This service is responsible for periodically calling the Azure AD password protection proxy service to retrieve new versions of the password policy. Communication for calls to and from the Azure AD password protection proxy service is handled over RPC (Remote Procedure Call) over TCP. Upon retrieval, new policies are stored in a sysvol folder where they can replicate to other domain controllers. It also monitors the sysvol folder for changes in case other domain controllers have written new password policies there.
 * The DC Agent password filter dll receives password validation requests from the operating system and forwards them to the Azure AD password protection DC agent service running locally on the domain controller.
 
-![How Azure AD password protection components work together](./media/concept-password-ban-bad-onprem/azure-ad-password-protection.png)
+![How Azure AD password protection components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
 ## Requirements
 
 Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses. Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
-1. All machines where Azure AD password protection components are installed including domain controllers must be running Windows Server 2012 or later.
-1. Network connectivity must exist between at least one domain controller in each domain and at least one server hosting the Azure AD password protection proxy service.
-1. Any Active Directory domain running the DC agent service software must use DFSR for sysvol replication.
-1. A global administrator account to register the Azure AD password protection proxy service with Azure AD.
-1. An account with Active Directory domain administrator privileges in the forest root domain.
+* All machines where Azure AD password protection components are installed including domain controllers must be running Windows Server 2012 or later.
+* Network connectivity must exist between at least one domain controller in each domain and at least one server hosting the Azure AD password protection proxy service.
+* Any Active Directory domain running the DC agent service software must use DFSR for sysvol replication.
+* A global administrator account to register the Azure AD password protection proxy service with Azure AD.
+* An account with Active Directory domain administrator privileges in the forest root domain.
 
 ## Download
 
@@ -58,4 +58,4 @@ There are two required installers for Azure AD password protection that can be d
 
 ## Next steps
 
-[Deploy Azure AD password protection](howto-password-ban-bad-onprem.md)
+[Deploy Azure AD password protection](howto-password-ban-bad-on-premises.md)

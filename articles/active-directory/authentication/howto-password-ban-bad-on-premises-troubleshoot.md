@@ -21,6 +21,8 @@ ms.reviewer: jsimmons
 | Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
+After deployment of Azure AD password protection monitoring and reporting are essentiaal tasks. This article goes into detail to help you understand where each service logs information and how to report on the use of Azure AD password protection.
+
 ## On-premises logs and events
 
 ### DC agent service
@@ -40,10 +42,10 @@ For a successful password validation operation, there is generally one event log
 
 Discrete events to capture these situations are logged, based around the following factors:
 
-1. Whether a given password is being set or changed
-2. Whether validation of a given password passed or failed
-3. Whether validation failed due to the Microsoft global policy vs the organizational policy
-4. Whether audit only mode is currently on or off for the current password policy.
+* Whether a given password is being set or changed.
+* Whether validation of a given password passed or failed.
+* Whether validation failed due to the Microsoft global policy vs the organizational policy.
+* Whether audit only mode is currently on or off for the current password policy.
 
 The key password-validation-related events are as follows:
 
@@ -58,14 +60,14 @@ The key password-validation-related events are as follows:
 > [!TIP]
 > Incoming passwords are validated against the Microsoft global password list first; if that fails, no further processing is performed. This is the same behavior as performed on password changes in Azure.
 
-An example of a successful 10014 password change event log message is as follows:
+#### Sample event log message for Event ID 10014 successful password set
 
 The changed password for the specified user was validated as compliant with the current Azure password policy.
 
  UserName: BPL_02885102771
  FullName:
 
-An example of a failed 10017 and 30003 password set event log message pair is as follows:
+#### Sample event log message for Event ID 10017 and 30003 failed password set
 
 10017:
 
@@ -90,23 +92,23 @@ The password for the specified user was accepted because an Azure password polic
 UserName: <user>
 FullName: <user>
 
-Note: this condition may be caused by one or more of the following reasons:%n
+This condition may be caused by one or more of the following reasons:%n
 
 1. The forest has not yet been registered with Azure.
 
-Resolution steps: an administrator must register the forest using the Register-AzureADPasswordProtectionForest cmdlet.
+   Resolution steps: an administrator must register the forest using the Register-AzureADPasswordProtectionForest cmdlet.
 
 2. An Azure AD password protection Proxy is not yet available on at least one machine in the current forest.
 
-Resolution steps: an administrator must install and register a proxy using the Register-AzureADPasswordProtectionProxy cmdlet.
+   Resolution steps: an administrator must install and register a proxy using the Register-AzureADPasswordProtectionProxy cmdlet.
 
 3. This DC does not have network connectivity to any Azure AD password protection Proxy instances.
 
-Resolution steps: ensure network connectivity exists to at least one Azure AD password protection Proxy instance.
+   Resolution steps: ensure network connectivity exists to at least one Azure AD password protection Proxy instance.
 
 4. This DC does not have connectivity to other domain controllers in the domain.
 
-Resolution steps: ensure network connectivity exists to the domain.
+   Resolution steps: ensure network connectivity exists to the domain.
 
 #### Sample event log message for Event ID 30006
 

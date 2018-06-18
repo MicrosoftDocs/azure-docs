@@ -55,6 +55,6 @@ Unfortunately, your password contains a word, phrase, or pattern that makes your
 
 [Conceptual overview of the banned password lists](concept-password-ban-bad.md)
 
-[Conceptual overview of Azure AD password protection](concept-password-ban-bad-onprem.md)
+[Conceptual overview of Azure AD password protection](concept-password-ban-bad-on-premises.md)
 
-[Enable on-premises integration with the banned password lists](howto-password-ban-bad-onprem.md)
+[Enable on-premises integration with the banned password lists](howto-password-ban-bad-on-premises.md)

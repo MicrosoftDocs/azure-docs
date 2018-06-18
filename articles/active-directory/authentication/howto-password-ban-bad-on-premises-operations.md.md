@@ -21,7 +21,7 @@ ms.reviewer: jsimmons
 | Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-After you have completed the [installation of Azure AD password protection](howto-password-ban-bad-onprem.md) on-premises, there are a couple items that must be configured in the Azure portal.
+After you have completed the [installation of Azure AD password protection](howto-password-ban-bad-on-premises.md) on-premises, there are a couple items that must be configured in the Azure portal.
 
 ## Configure the custom banned password list
 
@@ -31,11 +31,11 @@ Follow the guidance in the article [Configuring the custom banned password list]
 
 1. Log in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Authentication methods**, then **Password protection (Preview)**.
 1. Set **Enable password protection on Windows Server Active Directory** to **Yes**
-1. As mentioned in the [Deployment guide](howto-password-ban-bad-onprem.md#deployment-strategy), it is recommended to initially set the **Mode** to **Audit**
+1. As mentioned in the [Deployment guide](howto-password-ban-bad-on-premises.md#deployment-strategy), it is recommended to initially set the **Mode** to **Audit**
    * After you are comfortable with the feature, you can switch the **Mode** to **Enforced**
 1. Click **Save**
 
-![Enabling Azure AD password protection components in the Azure portal](./media/howto-password-ban-bad-onprem-ops/authentication-methods-password-protection-on-prem.png)
+![Enabling Azure AD password protection components in the Azure portal](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 
 ## Audit Mode
 
@@ -80,4 +80,4 @@ The scope of the cmdlet’s reporting may be influenced using one of the –Fore
 
 ## Next steps
 
-[Troubleshooting and logging information for Azure AD password protection](howto-password-ban-bad-onprem-ts.md)
+[Troubleshooting and logging information for Azure AD password protection](howto-password-ban-bad-on-premises-troubleshoot.md)
