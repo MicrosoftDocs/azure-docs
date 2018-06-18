@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Set up direct sign-in using Azure Active Directory B2C
 
-When setting up sign-in for your application using Azure Active Directory (AD) B2C, you prepopulate the sign-in name or direct sign-in to a specific social identity provider, such as Facebook, LinkedIn, or a Microsoft account. 
+When setting up sign-in for your application using Azure Active Directory (AD) B2C, you can prepopulate the sign-in name or direct sign-in to a specific social identity provider, such as Facebook, LinkedIn, or a Microsoft account. 
 
 ## Prepopulate the sign-in name
 
