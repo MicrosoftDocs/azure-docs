@@ -1,5 +1,5 @@
-﻿---
-title: How to schedule Azure SSIS integration runtime | Microsoft Docs
+---
+title: How to schedule the Azure SSIS integration runtime | Microsoft Docs
 description: This article describes how to schedule starting and stopping of an Azure SSIS integration runtime by using Azure Automation and Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,13 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
-ms.topic: article
-ms.date: 05/03/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: douglasl
 
 ---
-# How to schedule starting and stopping of an Azure SSIS integration runtime 
-Running an Azure SSIS (SQL Server Integration Services) integration runtime (IR) has a charge associated with it. Therefore, you want to run the IR only when you need to run SSIS packages in Azure and stop it when you don't need it. You can use the Data Factory UI or Azure PowerShell to [manually start or stop an Azure SSIS IR](manage-azure-ssis-integration-runtime.md)). This article describes how to schedule starting and stopping of an Azure SSIS integration runtime (IR) by using Azure Automation and Azure Data Factory. Here are the high-level steps described in this article:
+# How to start and stop the Azure SSIS integration runtime on a schedule
+This article describes how to schedule starting and stopping of an Azure SSIS integration runtime (IR) by using Azure Automation and Azure Data Factory. Running an Azure SSIS (SQL Server Integration Services) integration runtime (IR) has a cost associated with it. Therefore, you typically want to run the IR only when you need to run SSIS packages in Azure, and stop the IR when you don't need it. You can use the Data Factory UI or Azure PowerShell to [manually start or stop an Azure SSIS IR](manage-azure-ssis-integration-runtime.md)).
+
+For example, you can create Web activities with webhooks to an Azure Automation PowerShell runbook and chain an Execute SSIS Package activity between them. The Web activities can start and stop your Azure-SSIS IR just in time before and after your package runs. For more info about the Execute SSIS Package activity, see [Run an SSIS package using the SSIS Activity in Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).
+
+## Overview of the steps
+
+Here are the high-level steps described in this article:
 
 1. **Create and test an Azure Automation runbook.** In this step, you create a PowerShell runbook with the script that starts or stops an Azure SSIS IR. Then, you test the runbook in both START and STOP scenarios and confirm that IR starts or stops. 
 2. **Create two schedules for the runbook.** For the first schedule, you configure the runbook with START as the operation. For the second schedule, configure the runbook with STOP as the operation. For both the schedules, you specify the cadence at which the runbook is run. For example, you may want to schedule the first one to run at 8 AM every day and the second one to run at 11 PM everyday. When the first runbook runs, it starts the Azure SSIS IR. When the second runbook runs, it stops the Azure SSIS IR. 
@@ -68,16 +74,13 @@ If you don't have an Azure Automation account, create one by following the instr
 
 1. Select **Modules** in the **SHARED RESOURCES** section on the left menu, and verify whether you have **AzureRM.Profile** and **AzureRM.DataFactoryV2** in the list of modules.
 
-    > [!IMPORTANT]
-    > At the present time, you can only use **AzureRM.DataFactoryV2 0.5.2** and **AzureRM.Profile 4.5.0** modules.
-
     ![Verify the required modules](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  Go to the PowerShell Gallery for the [AzureRM.DataFactoryV2 0.5.2 module](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/0.5.2), select **Deploy to Azure Automation**, select your Automation account, and then select **OK**. Go back to view **Modules** in the **SHARED RESOURCES** section on the left menu, and wait until you see the **STATUS** of the **AzureRM.DataFactoryV2 0.5.2** module change to **Available**.
+2.  Go to the PowerShell Gallery for the [AzureRM.DataFactoryV2 module](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/), select **Deploy to Azure Automation**, select your Automation account, and then select **OK**. Go back to view **Modules** in the **SHARED RESOURCES** section on the left menu, and wait until you see the **STATUS** of the **AzureRM.DataFactoryV2** module change to **Available**.
 
     ![Verify the Data Factory module](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-3.  Go to the PowerShell Gallery for the [AzureRM.Profile 4.5.0 module](https://www.powershellgallery.com/packages/AzureRM.profile/4.5.0), click on **Deploy to Azure Automation**, select your Automation account, and then select **OK**. Go back to view **Modules** in the **SHARED RESOURCES** section on the left menu, and wait until you see the **STATUS** of the **AzureRM.Profile 4.5.0** module change to **Available**.
+3.  Go to the PowerShell Gallery for the [AzureRM.Profile module](https://www.powershellgallery.com/packages/AzureRM.profile/), click on **Deploy to Azure Automation**, select your Automation account, and then select **OK**. Go back to view **Modules** in the **SHARED RESOURCES** section on the left menu, and wait until you see the **STATUS** of the **AzureRM.Profile** module change to **Available**.
 
     ![Verify the Profile module](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
@@ -239,7 +242,7 @@ After you create and test the pipeline, you create a schedule trigger and associ
  
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+       `Data factory name �MyAzureSsisDataFactory� is not available`
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      
@@ -381,6 +384,9 @@ Now that the pipeline works as you expected, you can create a trigger to run thi
     ![Trigger runs](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
 
 ## Next steps
+See the following blog post:
+-   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
+
 See the following articles from SSIS documentation: 
 
 - [Deploy, run, and monitor an SSIS package on Azure](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   

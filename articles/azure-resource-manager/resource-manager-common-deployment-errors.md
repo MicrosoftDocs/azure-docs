@@ -11,7 +11,7 @@ keywords: deployment error, azure deployment, deploy to azure
 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018

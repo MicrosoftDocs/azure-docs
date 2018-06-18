@@ -40,7 +40,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your ThousandEyes app. Once decided, you can assign these users to your ThousandEyes app by following the instructions here:
 
-[Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+[Assign a user or group to an enterprise app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to ThousandEyes
 
@@ -95,8 +95,8 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Managing user account provisioning for Enterprise Apps](manage-apps/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

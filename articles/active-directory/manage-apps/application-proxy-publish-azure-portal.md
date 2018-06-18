@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -27,6 +27,9 @@ This article walks you through the steps to publish an on-premises app with Appl
 
 If you're new to Application Proxy, learn more about this feature with the article [How to provide secure remote access to on-premises applications](application-proxy.md).
 
+## Before you begin
+
+This article assumes you have already installed and registered a connector. If you still need to do those steps, see [Get started with Application Proxy and install the Connector](application-proxy-enable.md).
 
 ## Publish an on-premises app for remote access
 

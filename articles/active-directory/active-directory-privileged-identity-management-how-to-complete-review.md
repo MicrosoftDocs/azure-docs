@@ -3,16 +3,16 @@ title: How to complete an access review | Microsoft Docs
 description: After you started an access review in Azure AD Privileged Identity Management, learn how to complete it and view the results
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
 ---
 # How to complete an access review in Azure AD Privileged Identity Management

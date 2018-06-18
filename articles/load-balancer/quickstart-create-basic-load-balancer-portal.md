@@ -190,4 +190,7 @@ You can delete the resource group, load balancer, and all related resources when
 
 ## Next steps
 
-In this quickstart, you created a resource group, network resources, and back-end servers. You then used those resources to create a load balancer. To learn more about load balancers and their associated resources, continue to the tutorial articles.
+In this quickstart, you created a resource group, network resources, and back-end servers. You then used those resources to create a Basic Load Balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer tutorials](tutorial-load-balancer-basic-internal-portal.md)

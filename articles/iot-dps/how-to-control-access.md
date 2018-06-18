@@ -1,21 +1,15 @@
 ---
 title: Security endpoints in IoT Device Provisioning Service | Microsoft Docs
 description: Concepts - how to control access to IoT Device Provisioning Service for back-end apps. Includes information about security tokens.
-services: iot-dps
-documentationcenter: .net
 author: dsk-2015
 manager: timlt
-editor: ''
-
 ms.service: iot-dps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-dps
+ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: dkshir,rajeevmv
-
+ms.author: dkshir
 ---
+
 # Control access to Azure IoT Hub Device Provisioning Service
 
 This article describes the options for securing your IoT device provisioning service. The provisioning service uses *permissions* to grant access to each endpoint. Permissions limit the access to a service instance based on functionality.

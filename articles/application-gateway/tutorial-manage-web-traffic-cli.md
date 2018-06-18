@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 4/27/2018
+ms.date: 5/16/2018
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -93,7 +93,7 @@ az network application-gateway create \
 - *appGatewayFrontendIP* - Assigns *myAGPublicIPAddress* to *appGatewayHttpListener*.
 - *rule1* - The default routing rule that is associated with *appGatewayHttpListener*.
 
-## Create a virtual machine scale set
+## Create a Virtual Machine Scale Set
 
 In this example, you create a virtual machine scale set that provides servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, use [az vmss create](/cli/azure/vmss#az_vmss_create).
 
@@ -115,6 +115,8 @@ az vmss create \
 
 ### Install NGINX
 
+Now you can install NGINX on the virtual machine scale set so you can test HTTP connectivity to the backend pool.
+
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -122,7 +124,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## Test the application gateway

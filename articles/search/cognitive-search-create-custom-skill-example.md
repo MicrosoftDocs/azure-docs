@@ -318,5 +318,5 @@ Congratulations! You have created your first custom enricher. Now you can follow
 
 + [Add a custom skill to a cognitive search pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](ref-create-skillset.md)
++ [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

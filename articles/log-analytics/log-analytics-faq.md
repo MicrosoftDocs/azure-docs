@@ -94,7 +94,7 @@ A. No, it is not currently possible to read from arbitrary tables or containers 
 
 A. The Log Analytics service is built on top of Azure. Log Analytics IP addresses are in the [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653).
 
-As service deployments are made, the actual IP addresses of the Log Analytics service change. The DNS names to allow through your firewall are documented in [system requirements](log-analytics-concept-hybrid.md#prerequisites).
+As service deployments are made, the actual IP addresses of the Log Analytics service change. The DNS names to allow through your firewall are documented in [network requirements](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ### Q. I use ExpressRoute for connecting to Azure. Does my Log Analytics traffic use my ExpressRoute connection?
 

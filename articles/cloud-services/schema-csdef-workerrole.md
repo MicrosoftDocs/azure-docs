@@ -1,8 +1,8 @@
 ---
 title: "Azure Cloud Services Def. WorkerRole Schema | Microsoft Docs"
+services: cloud-services
 ms.custom: ""
 ms.date: "04/14/2015"
-ms.prod: "azure"
 ms.reviewer: ""
 ms.service: "cloud-services"
 ms.suite: ""

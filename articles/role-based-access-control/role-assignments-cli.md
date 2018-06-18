@@ -7,14 +7,14 @@ author: rolyon
 manager: mtillman
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ---
 # Manage Role-Based Access Control with the Azure command-line interface
 

@@ -1,16 +1,13 @@
 ---
 title: Debug Functions modules for Azure IoT Edge | Microsoft Docs
 description: Use Visual Studio Code to debug C# Azure Functions with Azure IoT Edge
-services: iot-edge
-keywords: 
 author: shizn
-manager: timlt
-
+manager: 
 ms.author: xshi
-ms.date: 3/20/2018
-ms.topic: article
+ms.date: 03/20/2018
+ms.topic: conceptual
 ms.service: iot-edge
-
+services: iot-edge
 ---
 
 # Use Visual Studio Code to debug Azure Functions with Azure IoT Edge

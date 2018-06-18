@@ -40,6 +40,8 @@
   items:
   - name: Enable auto topic creation
     href: apache-kafka-auto-create-topics.md
+  - name: Use Kafka with IoT Hub
+    href: apache-kafka-connector-iot-hub.md
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true
@@ -221,13 +223,10 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using OMS
+  - name: Monitoring using Log Analytics
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Cluster-specific dashboards
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Use queries with Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

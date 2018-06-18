@@ -24,12 +24,14 @@ ms.author: daveba
 
 A common challenge when building cloud applications is how to manage the credentials that need to be in your code for authenticating to cloud services. Keeping these credentials secure is an important task. Ideally, they never appear on developer workstations or get checked into source control. Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
+Managed Service Identity comes with Azure Active Directory free, which is the default for Azure subscriptions. There is no additional cost for Managed Service Identity.
+
 ## How does it work?
 
 There are two types of Managed Service Identities: **System Assigned** and **User Assigned**.
 
 - A **System Assigned Identity** is enabled directly on an Azure service instance. When enabled, Azure creates an identity for the service instance in the Azure AD tenant trusted by the subscription of the service instance. Once the identity is created, its credentials get provisioned onto the service instance. The life cycle of a system assigned identity is directly tied to the Azure service instance it is enabled on. If the service instance is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
-- A **User Assigned Identity** (public preview) is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant trusted by the subscription being used. After the identity is created, it can be assigned to one or more Azure service instances. The life cycle of a user assigned identity is managed separately from the life cycle of the Azure service instances it is assigned to.
+- A **User Assigned Identity** is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant trusted by the subscription being used. After the identity is created, it can be assigned to one or more Azure service instances. The life cycle of a user assigned identity is managed separately from the life cycle of the Azure service instances it is assigned to.
 
 As a result, your code can use either a system assigned or user assigned identity, to request access tokens for services that support Azure AD authentication. All while Azure takes care of rolling the credentials used by the service instance.
 
@@ -101,17 +103,6 @@ Try a Managed Service Identity tutorial to learn end-to-end scenarios for access
 
 Managed identities can be used to authenticate to services that support Azure AD authentication. For a list of Azure services that support Managed Service Identity refer to the following article:
 - [Services that support Managed Service Identity](services-support-msi.md)
-
-## How much does Managed Service Identity cost?
-
-Managed Service Identity comes with Azure Active Directory Free, which is the default for Azure subscriptions. There is no additional cost for Managed Service Identity.
-
-## Support and feedback
-
-We would love to hear from you!
-
-* Ask how-to questions on Stack Overflow with the tag [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Make feature requests or give feedback on the [Azure AD feedback forum for developers](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
 ## Next steps
 

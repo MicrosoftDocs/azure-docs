@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -26,7 +26,7 @@ Integrating Jive with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Jive (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more information about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more information about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Jive from the gallery
@@ -62,7 +62,7 @@ To configure the integration of Jive into Azure AD, you need to add Jive from th
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
@@ -100,8 +100,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Configure Single Sign-On](./media/active-directory-saas-jive-tutorial/tutorial_jive_samlbase.png)
 
 3. On the **Jive Domain and URLs** section, perform the following steps:
@@ -112,12 +112,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<instance name>.jiveon.com`
 
-	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-on URL and Identifier. Contact [Jive Client support team](https://www.jivesoftware.com/services-support/) to get these values. 
- 
+	> [!NOTE]
+	> These values are not the real. Update these values with the actual Sign-on URL and Identifier. Contact [Jive Client support team](https://www.jivesoftware.com/services-support/) to get these values.
+
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-jive-tutorial/tutorial_jive_certificate.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-jive-tutorial/tutorial_jive_certificate.png)
 
 5. Click **Save** button.
 
@@ -129,29 +129,26 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-jive-tutorial/tutorial_jive_002.png)
 
-	a. Select **Enabled** under the **General** tab.   
+	a. Select **Enabled** under the **General** tab.
 	b. Click the "**Save all saml settings**" button.
 
 8. Navigate to the "**Idp Metadata**" tab.
-   
+
     ![Configure Single Sign-On On App Side](./media/active-directory-saas-jive-tutorial/tutorial_jive_003.png)
-   
+
     a. Copy the content of the downloaded metadata XML file, and then paste it into the **Identity Provider (IDP) Metadata** textbox.
-    
-	b. Click the "**Save all saml settings**" button. 
+
+	b. Click the "**Save all saml settings**" button.
 
 9. Go to the "**User Attribute Mapping**" tab.
-   
-    ![Configure Single Sign-On On App Side](./media/active-directory-saas-jive-tutorial/tutorial_jive_004.png)
-   
-    a. In the **Email** textbox, copy and paste the attribute name of **mail** value.
-   
-    b. In the **First Name** textbox, copy and paste the attribute name of **givenname** value.
-   
-    c. In the **Last Name** textbox, copy and paste the attribute name of **surname** value.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![Configure Single Sign-On On App Side](./media/active-directory-saas-jive-tutorial/tutorial_jive_004.png)
+
+    a. In the **Email** textbox, copy and paste the attribute name of **mail** value.
+
+    b. In the **First Name** textbox, copy and paste the attribute name of **givenname** value.
+
+    c. In the **Last Name** textbox, copy and paste the attribute name of **surname** value.
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -165,16 +162,16 @@ The objective of this section is to create a test user in the Azure portal calle
 	![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_02.png) 
+
+	![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_02.png)
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
+
 	![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_04.png) 
+
+	![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_04.png)
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -183,10 +180,12 @@ The objective of this section is to create a test user in the Azure portal calle
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Creating a Jive test user
 
-Work with [Jive Client support team](https://www.jivesoftware.com/services-support/) to add the users in the Jive platform.
+The objective of this section is to create a user called Britta Simon in Jive. Jive supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-jive-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
+If you need to create user manually, work with [Jive Client support team](https://www.jivesoftware.com/services-support/) to add the users in the Jive platform.
 
 ### Assigning the Azure AD test user
 
@@ -227,7 +226,7 @@ When you click the Jive tile in the Access Panel, you should get automatically s
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure User Provisioning](active-directory-saas-jive-provisioning-tutorial.md)
 
 <!--Image references-->
@@ -243,4 +242,3 @@ When you click the Jive tile in the Access Panel, you should get automatically s
 [201]: ./media/active-directory-saas-jive-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-jive-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-jive-tutorial/tutorial_general_203.png
-

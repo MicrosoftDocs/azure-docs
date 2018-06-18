@@ -122,11 +122,11 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
      
     ```bash
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
-    ```
-     
-## Related content
+    ```     
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md). 
+## Next steps
 
-Use the following comments section to provide feedback and help us refine and shape our content.
+In this tutorial, you learned how to create a user assigned identity and attach it to a Azure Virtual Machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

@@ -21,13 +21,25 @@ ms.author: jeedes
 
 The objective of this tutorial is to show you the steps you need to perform in ServiceNow and Azure AD to automatically provision and de-provision user accounts from Azure AD to ServiceNow.
 
+> [!NOTE]
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./active-directory-saas-app-provisioning.md).
+
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you already have the following items:
+To configure Azure AD integration with ServiceNow, you need the following items:
 
-*   An Azure Active directory tenant.
-*   You must have a valid tenant for ServiceNow for Work or ServiceNow for Education. You may use a free trial account for either service.
-*   A user account in ServiceNow with Team Admin permissions.
+- An Azure AD subscription
+- For ServiceNow, an instance or tenant of ServiceNow, Calgary version or higher
+- For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or higher
+
+> [!NOTE]
+> To test the steps in this tutorial, we do not recommend using a production environment.
+
+To test the steps in this tutorial, you should follow these recommendations:
+
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+
 
 ## Assigning users to ServiceNow
 
@@ -89,7 +101,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure Single Sign-on](active-directory-saas-servicenow-tutorial.md)
 
 

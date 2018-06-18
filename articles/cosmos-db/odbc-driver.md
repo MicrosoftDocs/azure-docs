@@ -5,14 +5,10 @@ keywords: odbc, odbc driver
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
 
@@ -121,7 +117,7 @@ The following steps create a schema for the data in one or more collections usin
 You can query Azure Cosmos DB from SQL Server Management Studio (SSMS) by setting up a linked server connection.
 
 1. Create a system data source as described in [Step 2](#connect), named for example `SDS Name`.
-2. [Install SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+2. [Install SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and connect to the server. 
 3. In the SSMS query editor, create a linked server object `DEMOCOSMOS` for the data source with the following commands. Replace `DEMOCOSMOS` with the name for your linked server, and `SDS Name` with the name of your system data source.
 
     ```sql

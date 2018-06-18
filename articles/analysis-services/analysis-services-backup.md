@@ -3,7 +3,7 @@ title: Azure Analysis Services database backup and restore | Microsoft Docs
 description: Describes how to backup and restore an Azure Analysis Services database.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend

@@ -8,7 +8,7 @@ manager: femila
 ms.reviewer: joflore
 
 ms.assetid: 26704ca7-13ed-4261-bf24-fd6252e2072b
-ms.service: active-directory7
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -27,7 +27,7 @@ Integrating Cisco Webex with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed in to Cisco Webex with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
-For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -276,7 +276,7 @@ For more information about the access panel, see [Introduction to the access 
 ## Additional resources
 
 * [List of tutorials on how to integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
