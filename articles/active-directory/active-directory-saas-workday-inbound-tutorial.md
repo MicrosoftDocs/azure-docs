@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2018
+ms.date: 06/18/2018
 ms.author: asmalser
 
 ---
@@ -896,23 +896,21 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 16. When finished, remember to set **Provisioning Status** back to **On** and save.
 
-
 ## Known issues
 
 * When running the **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell command, there is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account in Azure AD with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com).
 
 * A previous issue with audit logs not appearing in Azure AD tenants located in the European Union has been resolved. However, additional agent configuration is required for Azure AD tenants in the EU. For details, see [Part 3: Configure the on-premises synchronization agent](#Part 3: Configure the on-premises synchronization agent)
 
-## GDPR information
 
-[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents. 
+## Managing personal data
 
-To learn more about Microsoft’s GDPR story, see the [terms of service](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+The Workday provisioning solution for Active Directory requires a synchronization agent to be installed on a domain-joined server, and this agent creates logs in the Windows Event log which can contain personally-identifiable information.
 
-Note that the Workday provisioning solution for Active Directory requires a synchronization agent to be installed on a domain-joined server, and this agent creates logs in the **Windows Event log**, which can contain personally-identifiable information.
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-hybrid-note.md)]  where the ../ references matching the hierarchy structure of your article
 
-For information on how to configure data retention for the Windows Event logs, see the [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx). For general information on the Windows Event log, see [this article](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
-
+> [!NOTE]
+> If you’re interested in viewing or deleting personal data, please review Microsoft's guidance in the [Windows data subject requests for the GDPR](https://review.docs.microsoft.com/en-us/microsoft-365/compliance/gdpr-dsr-windows) site. If you’re looking for general information about GDPR, see the [GDPR section of the Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## Next steps
 
