@@ -38,6 +38,35 @@ Azure AD receives improvements on an ongoing basis. To stay up-to-date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+## June 2018
+
+### Security fix around how Azure AD Activity Logs APIs work with your delegated authorization flow
+
+**Type:** Plan for change  
+**Service category:** Monitoring & Reporting  
+**Product capability:** Reporting
+
+We’re changing how the Azure AD Activity Logs APIs work with your delegated authorization flow on **June 25, 2018**. If you continue to use a delegated authorization flow after that date, the APIs will stop functioning correctly and you'll no longer receive log files. To fix this problem, you can update the permissions of your Azure AD Activity APIs.
+
+**To update your permissions**
+
+1.	Sign in to the Azure portal.
+
+2.	On the left navbar, select **Azure Active Directory**, and then select **App Registrations**.
+
+3.	Select your app that uses the Azure AD Activity Logs API, select **Settings**, and then in the **Settings** blade, select **Required permissions**.
+
+4.	In the **Required permissions** blade, select the **Windows Azure Active Directory** API.
+
+5.	In the **Delegated permissions** area of the **Enable access** blade, select the box next to **Read directory** data, and then select **Save**.
+    You’ll return to the **Required permissions** blade.
+
+6.	Select **Grant permissions**, and then select **Yes**.
+    
+    >[!Note]
+    >You must be a Global administrator to grant permissions to the app.
+
+---
 
 ## May 2018
 
