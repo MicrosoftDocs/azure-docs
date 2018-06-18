@@ -6,7 +6,7 @@ author: vhorne
 ms.service: firewall
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/15/2018
+ms.date: 6/18/2018
 ms.author: victorh
 ---
 # Monitor Azure Firewall logs
@@ -25,7 +25,7 @@ The following logs are available for Azure Firewall:
 
    You can use [Azure activity logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription. Activity log entries are collected by default, and you can view them in the Azure portal.
 
-* Application rule log
+* **Application rule log**
 
    The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
@@ -34,6 +34,7 @@ The following logs are available for Azure Firewall:
    Time: log timestamp.
    Properties: currently contains the full message. 
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
+
    {
      "category": "AzureFirewallApplicationRule",
      "time": "2018-04-16T23:45:04.8295030Z",
@@ -43,12 +44,24 @@ The following logs are available for Azure Firewall:
    }
    ```
 
-* Network rule log
+* **Network rule log**
 
    The Network rule log is saved to a storage account, streamed to Event hubs and/or sent Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```
-   Example TBD
+   Category: access logs are either application or network rule logs.
+   Time: log timestamp.
+   Properties: currently contains the full message. 
+   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
+
+   {
+      "category": "AzureFirewallNetworkRule",
+      "time": "2018-06-14T23:44:11.0590400Z",
+      "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/SECUREGATEWAYS/{resourceName}",
+      "operationName": "AzureFirewallNetworkRuleLog",
+      "properties": "{\"msg\":\"TCP request from 111.35.136.173:12518 to 13.78.143.217:2323 was blocked\"}",
+
+   }
    ```
 
 > [!NOTE]
