@@ -39,7 +39,7 @@ Once the feature has been running in audit mode for a reasonable time, the enfor
 
 The preview of Azure AD password protection is deployed with the proxy service on up to two servers, and the DC agent service can be incrementally deployed to all domain controllers in the Active Directory forest.
 
-![How Azure AD password protection components work together](./media/concept-password-ban-bad-onprem/azure-ad-password-protection.png)
+![How Azure AD password protection components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
 ### Download the software
 
