@@ -225,9 +225,9 @@ You can use State to define and visualize the state of the device or its compone
 
     ![View state Details](./media/tutorial-define-device-type/stateviewdetail.png)
 
-## Settings, properties, device properties, commands
+## Settings, properties, and commands
 
-Settings, properties, device properties, and commands are different values defined in a device template and associated with each individual device:
+Settings, properties and device properties, and commands are different values defined in a device template and associated with each individual device:
 
 * You use _settings_ to send configuration data to a device from your application. For example, an operator could use a setting to change the device's telemetry interval from two seconds to five seconds. When an operator changes a setting, the setting is marked as pending in the UI until the device acknowledges that it has actioned the setting change.
 
@@ -273,7 +273,7 @@ You use *settings* to enable an operator to send configuration data to a device.
 
     ![Customize settings layout](./media/tutorial-define-device-type/settingslayout.png)
 
-## Use properties
+## Use properties / device properties
 
 You use *properties* to store information about your device in the application. In this section, you add device properties to your **Connected Air Conditioner** device template to store the device serial number and firmware version. Note that both of these are read-only properties reported by the device -- you cannot assign values to them. Properties you might use that you can assign values to include the location of the device, ownership information, and the last service date/time for the device.
  
@@ -342,14 +342,11 @@ You use _commands_ to enable an operator to run commands directly on the device.
 
 You can add additional inputs to the command by clicking **+** for inputs.
 
-Then choose **Save**.
+2. Choose **Save**.
 
-1. You can customize the layout of the **Commands** page by moving and resizing commands tiles:
+3. You can customize the layout of the **Commands** page by moving and resizing commands tiles:
 
     ![Customize settings layout](media/tutorial-define-device-type/commandstileresize.png)
-
-
-
 
 ## View your simulated device
 
