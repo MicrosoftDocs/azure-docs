@@ -1,0 +1,58 @@
+---
+
+title: 'Troubleshooting Graph API errors | Microsoft Docs'
+description: Provides you with a resolution to errors while calling Azure Active Directory Reporting APIs.
+services: active-directory
+documentationcenter: ''
+author: priyamohanram
+manager: mtillman
+editor: ''
+
+ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
+ms.service: active-directory
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.component: compliance-reports
+ms.date: 01/15/2018
+ms.author: priyamo
+ms.reviewer: dhanyahk
+---
+
+# Troubleshooting Graph API errors
+
+This article lists the common error messages you may run into while accessing activity reports using the MS Graph API and steps for their resolution.
+
+## 500 HTTP internal server error while accessing the audit logs or sign-in logs using Microsoft Graph V2 endpoint
+
+We do not currently support the Microsoft Graph v2 endpoint - make sure to access the activity logs using the Microsoft Graph v1 endpoint.
+
+## Failed to get user roles from AD Graph
+
+You may get this error message when trying to access sign-ins using Graph Explorer. Make sure you are signed in to your test account using both of the sign-in buttons in the Graph Explorer UI, as shown in the following image. 
+
+![Graph Explorer](./media/active-directory-reporting-troubleshooting-graph-api/graph-explorer.png)
+
+## Failed to do premium license check from AD Graph 
+
+If you run into this error message while trying to access sign-ins using Graph Explorer, choose **Modify Permissions** underneath your account on the left nav, and select **Tasks.ReadWrite** and **Directory.Read.All**. 
+
+![Modify permissions UI](./media/active-directory-reporting-troubleshooting-graph-api/modify-permissions.png)
+
+
+## Neither tenant is B2V or tenant doesn't have premium license
+
+Accessing sign-in reports requires an Azure Active Directory premium 1 (P1) license. If you see this error message while accessing sign-ins, make sure that your tenant is licensed with an Azure AD P1 license.
+
+## User is not in the allowed roles 
+
+If you see this error message while trying to access audit logs or sign-ins using the API, make sure that your account is part of the **Security Reader** or **Report Reader** role in your Azure Active Directory tenant. 
+
+## Application missing AAD 'Read directory data' permission 
+
+Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal) to ensure your application is running with the right set of permissions. 
+
+## Application missing MSGraph API 'Read all audit log data' permission
+
+Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal) to ensure your application is running with the right set of permissions. 
