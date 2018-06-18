@@ -98,6 +98,8 @@ After authenticating, the xfce desktop environment will load and look similar to
 
 ![xfce desktop environment through xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
+If your local RDP client uses network level authentication (NLA), you may need to disable that connection setting. XRDP does not currently support NLA. You can also look at alternative RDP solutions that do support NLA, such as [FreeRDP](http://www.freerdp.com).
+
 
 ## Troubleshoot
 If you cannot connect to your Linux VM using a Remote Desktop client, use `netstat` on your Linux VM to verify that your VM is listening for RDP connections as follows:
