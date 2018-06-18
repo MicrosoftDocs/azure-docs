@@ -5,9 +5,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: tedway
-author: tedway
-ms.date: 07/27/2018
+ms.author: haining
+author: hning86
+ms.date: 06/18/2018
 
 ---
 
