@@ -4,12 +4,6 @@
   items:
   - name: About Azure Firewall
     href: overview.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Create a firewall
-    href: quick-create-powershell.md
-
 - name: Tutorials
   items:
   - name: Configure rules
@@ -24,6 +18,8 @@
     href: overview.md
 - name: How-to guides
   items:
+  - name: Deploy using a template
+    href: deploy-template.md
   - name: Troubleshooting
     items:
     - name: Diagnostics
