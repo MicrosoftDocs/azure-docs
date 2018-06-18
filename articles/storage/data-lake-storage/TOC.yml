@@ -27,7 +27,7 @@
 - name: Concepts
   items:
   - name: Introduction to the Azure Blob File System URI
-    href: intro-to-uri.md
+    href: introduction-abfs-uri.md
   - name: Security
     items:
       - name: Security Overview
