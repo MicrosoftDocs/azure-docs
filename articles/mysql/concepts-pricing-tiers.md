@@ -43,7 +43,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Central US | X |  |
 | East US | X | X |
 | East US 2 | X | X |
-| North Central US | X |  |
+| North Central US | X | X |
 | South Central US | X | X |
 | West US | X | X |
 | West US 2 |  | X |
@@ -54,7 +54,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | West Europe |  | X |
 | UK West |  | X |
 | UK South |  | X |
-| East Asia | X |  |
+| East Asia | X | X |
 | Southeast Asia | X | X |
 | Australia East |  | X |
 | Australia Southeast |  | X |
