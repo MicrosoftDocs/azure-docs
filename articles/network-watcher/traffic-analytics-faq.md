@@ -18,87 +18,79 @@ ms.author: jdial
 
 # Traffic analytics frequently asked questions
 
-1.  What are the pre-requisites to use traffic analytics?
+This article collects in one place many of the most frequently asked questions about traffic analytics in Azure Network Watcher.
 
-    Traffic Analytics requires the following pre-requisites:
+## What are the prerequisites to use traffic analytics?
 
-    - A Network Watcher enabled subscription
-    - NSG flow logs enabled for the NSGs you want to monitor
-    - An Azure Storage account, to store raw flog logs
-    - A Log Analytics (OMS) Workspace, with read and write access
-    - User must be assigned with either one of the following roles at subscription level:
+Traffic Analytics requires the following prerequisites:
+
+- A Network Watcher enabled subscription.
+- Network Security Group (NSG) flow logs enabled for the NSGs you want to monitor.
+- An Azure Storage account, to store raw flog logs.
+- An Azure Log Analytics workspace, with read and write access.
+
+Additionally, you must have the following at the subscription level:
     
-    1.	You must be any one of the following classic administrator
-    
-        - Account administrator
-        - Service administrator 
-        - Co-administrator
+- You must be an account administrator, a service administrator, or a co-administrator.
         
-    2.	Your account must have any one of the following RBAC roles at subscription scope
-    
-        - Owner
-        - Contributor
-        - Reader
-        - Network Contributor
+- Your account must have any one of the following role-based access control (RBAC) roles at the subscription scope: owner, contributor, reader, or network contributor.
 
-    3. Your account must have any custom RBAC roles with permission to all of the following mentioned actions at subscription level
+- Your account must have any custom RBAC roles with permission to all of the following actions at the subscription level:
             
-        - Microsoft.Network/applicationGateways/read
-        - Microsoft.Network/connections/read
-        - Microsoft.Network/loadBalancers/read 
-        - Microsoft.Network/localNetworkGateways/read 
-        - Microsoft.Network/networkInterfaces/read 
-        - Microsoft.Network/networkSecurityGroups/read 
-        - Microsoft.Network/publicIPAddresses/read
-        - Microsoft.Network/routeTables/read
-        - Microsoft.Network/virtualNetworkGateways/read 
-        - Microsoft.Network/virtualNetworks/read
+    - Microsoft.Network/applicationGateways/read
+    - Microsoft.Network/connections/read
+    - Microsoft.Network/loadBalancers/read 
+    - Microsoft.Network/localNetworkGateways/read 
+    - Microsoft.Network/networkInterfaces/read 
+    - Microsoft.Network/networkSecurityGroups/read 
+    - Microsoft.Network/publicIPAddresses/read
+    - Microsoft.Network/routeTables/read
+    - Microsoft.Network/virtualNetworkGateways/read 
+    - Microsoft.Network/virtualNetworks/read
         
-    To check roles assigned to a user for a subscription, please follow below the steps:
+To check roles assigned to a user for a subscription:
 
-    Login to Azure using **Login-AzureRmAccount** 
+1. Sign in to Azure by using **Login-AzureRmAccount**. 
 
-    Select the required subscription using **Select-AzureRmSubscription** 
+2. Select the required subscription by using **Select-AzureRmSubscription**. 
 
-    Now to list all the roles that are assigned to a specified user, use
-    **Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators** 
+3. To list all the roles that are assigned to a specified user, use
+    **Get-AzureRmRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
 
-    If you are not seeing any output after executing commends then please reach out to respective Subscription admin, to get access to execute the commands.  
-
-    For more details please refer [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
 
 
-2.  Which Azure regions are traffic analytics available in?
+## In which Azure regions are traffic analytics available?
 
-    While in preview release, you can use traffic analytics for NSGs in any of the following **supported regions**: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US 2, West Europe, North Europe, UK West, UK South, Australia East, Australia Southeast and Southeast Asia. The Log Analytics workspace must exist in the West Central US, East US, West Europe, UK South, Australia Southeast, or the Southeast Asia region.
+During the preview release, you can use traffic analytics for NSGs in any of the following supported regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US 2, West Europe, North Europe, UK West, UK South, Australia East, Australia Southeast and Southeast Asia. The Log Analytics workspace must exist in the West Central US, East US, West Europe, UK South, Australia Southeast, or the Southeast Asia region.
 
-3.  Can the NSGs I enable flow logs for be in different regions than my OMS Workspace?
+## Can the NSGs I enable flow logs for be in different regions than my workspace?
 
-    Yes
+Yes, these NSGs can be in different regions than your Log Analytics workspace.
 
-4.  Can multiple NSGs be configured within a single workspace?
+## Can multiple NSGs be configured within a single workspace?
 
-    Yes
+Yes.
 
-5.  Can I use an existing OMS Workspace?
+## Can I use an existing workspace?
 
-    Yes, if you select an existing workspace, make sure that it has been migrated to the new query language. If you do not wish to upgrade the workspace; you need to create a new one. For more information about the new query language, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
+Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
 
-6.  Can my Azure Storage Account be in one subscription and my OMS Workspace be in a different subscription?
+## Can my Azure Storage Account be in a different subscription?
 
-    Yes
+Yes, your Azure Storage account can be in one subscription, and your Log Analytics workspace can be in a different subscription.
 
-7.  Can I store raw logs in different Storage Account in different subscription?
+## Can I store raw logs in a different subscription?
 
-    No. You can store raw logs in any storage account where an NSG is enabled for flow logs, however, both the storage account and the raw logs must be in the same subscription and region.
+No. You can store raw logs in any storage account where an NSG is enabled for flow logs. However, both the storage account and the raw logs must be in the same subscription and region.
 
-8.  If I receive a "Not found" error while configuring an NSG for traffic analytics, how can I resolve it?
+## What if I can't configure an NSG for traffic analytics due to a "Not found" error?
 
-    Select a supported region listed in question 2. If you select a non-supported region, you receive a "Not found" error.
+Select a supported region. If you select a non-supported region, you receive a "Not found" error. The supported regions are listed earlier in this article.
 
-9.  Under NSG flow logs, I am getting NSG status as “Failed to load”, what to do next?
+## What if I am getting the NSG status, “Failed to load”?
 
-    The Microsoft.Insights provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered or not for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command and then run the following commands from PowerShell:
+The Microsoft.Insights provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command, and run the following commands from PowerShell:
 
     ```powershell-interactive
     **Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
