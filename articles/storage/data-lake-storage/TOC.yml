@@ -38,14 +38,14 @@
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
       - name: Encryption for data at rest with customer keys
         href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-  #- name: ADLS Evaluation and Migration
-    #items:
-      #- name: Overview
-        #href:
-      #- name: Evaluation
-        #href:
-      #- name: Migration Planning
-        #href:
+  - name: ADLS Evaluation and Migration
+    items:
+      - name: Overview
+        href: evaluation-migration-overview.md
+      - name: Evaluation
+        href: evaluation-comparison.md
+      - name: Migration Planning
+        href: evaluation-migration-guide.md
   - name: Hierarchical Namespace
     href: namespace.md
   #- name: Scalability and Perf
@@ -65,11 +65,10 @@
   - name: Secure data
     items:
       - name: Secure data in Azure Data Lake Storage
-        #href: ../../data-lake-store/data-lake-store-secure-data.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
         href: secure-data.md
   #- name: ingest data
     #items: 
-      #- name: How to copy data into blobFS
+      #- name: How to copy data into Data Lake Storage 
         #href:
 - name: Reference
   items:
