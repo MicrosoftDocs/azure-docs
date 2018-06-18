@@ -40,7 +40,7 @@ You can configure and get information about classic metric alert rules from the 
 
 * [Azure portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [Azure command-line interface (CLI)](insights-alerts-command-line-interface.md)
+* [Azure CLI](insights-alerts-command-line-interface.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## Create an alert rule on a metric with the Azure portal
