@@ -13,7 +13,7 @@
 
 # Get started
 ## [Get started with Azure AD](fundamentals/get-started-azure-ad.md)
-## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
+## [Sign up for Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Add a custom domain name](fundamentals/add-custom-domain.md)
 ## [Configure company branding](fundamentals/customize-branding.md)
 ## [Add users to Azure AD](fundamentals/add-users-azure-active-directory.md)
@@ -45,10 +45,10 @@
 
 ## Manage users
 ### [Add new users to Azure AD](fundamentals/add-users-azure-active-directory.md)
-### [Manage user profiles](active-directory-users-profile-azure-portal.md)
+### [Manage user profiles](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
-### [Assign users to admin roles](active-directory-users-assign-role-azure-portal.md)
-### [Restore a deleted user](active-directory-users-restore.md)
+### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
+### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
@@ -82,12 +82,12 @@
 
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### Manage groups
-#### [Azure portal](active-directory-groups-create-azure-portal.md)
+#### [Azure portal](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
-### [Manage group members](active-directory-groups-members-azure-portal.md)
+### [Manage group members](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
-### [Manage group membership](active-directory-groups-membership-azure-portal.md)
+### [Manage group membership](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Assign licenses using groups](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -122,7 +122,6 @@
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
-#### [Notifications](active-directory-reporting-notifications.md)
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
@@ -152,8 +151,14 @@
 ### [SSPR Customization](authentication/concept-sspr-customization.md)
 ### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Reporting](authentication/howto-sspr-reporting.md)
+### [Eliminate weak passwords](authentication/concept-password-ban-bad.md)
+### [Configure the banned password list](authentication/howto-password-ban-bad.md)
+### [On-premises integration](authentication/concept-password-ban-bad-on-premises.md)
+### [Deploy Azure AD password protection](authentication/howto-password-ban-bad-on-premises.md)
+### [Configure Azure AD password protection](authentication/howto-password-ban-bad-on-premises-operations.md)
+### [Monitor Azure AD password protection](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### IT Admins: Reset passwords
-#### [Azure portal](active-directory-users-reset-password-azure-portal.md)
+#### [Azure portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [License SSPR](authentication/concept-sspr-licensing.md)
 ### [Password writeback](authentication/howto-sspr-writeback.md)
 ### [Troubleshoot](authentication/active-directory-passwords-troubleshoot.md)
@@ -178,14 +183,14 @@
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
 ### [Getting started](manage-apps/plan-an-application-integration.md)
-### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
+### [SaaS app integration tutorials](saas-apps/tutorial-list.md)
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Create snapshot reports](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md) 
-#### [App integration tutorials](active-directory-saas-tutorial-list.md) 
+#### [App integration tutorials](saas-apps/tutorial-list.md) 
 #### [Automate provisioning to SCIM-enabled apps](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [Customize attribute mappings](active-directory-saas-customizing-attribute-mappings.md) 
 #### [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
@@ -296,7 +301,7 @@
 
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
-#### [Assign admin role to a user](active-directory-users-assign-role-azure-portal.md) 
+#### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md) 
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md) 
 ### [Securing privileged access](admin-roles-best-practices.md)  
 ### [Create emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md) 
@@ -370,7 +375,7 @@
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
-## [Troubleshoot](active-directory-troubleshooting-support-howto.md)
+## [Troubleshoot](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Deploy Azure AD Proof of Concept (PoC)
 ### [PoC Playbook: Introduction](active-directory-playbook-intro.md)

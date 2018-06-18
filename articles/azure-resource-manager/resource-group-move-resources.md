@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 06/14/2018
 ms.author: tomfitz
 
 ---
@@ -113,6 +113,7 @@ The services that enable moving to both a new resource group and subscription ar
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 * App Service Certificates
 * Application Insights
+* Analysis Services
 * Automation
 * Azure Cosmos DB
 * Azure Relay
@@ -172,6 +173,7 @@ The services that currently don't enable moving a resource are:
 * Azure Migrate
 * BizTalk Services
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
+* Container Service
 * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move isn't enabled.
 * Dynamics LCS
 * Express Route

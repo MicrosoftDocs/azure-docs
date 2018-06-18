@@ -4,9 +4,6 @@ description: Extract text from image files in an Azure Search enrichment pipelin
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
 ms.workload: search
