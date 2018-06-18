@@ -1,6 +1,6 @@
 ---
-title: Create an Internet-facing load balancer - Azure CLI classic | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure CLI
+title: Create an Internet-facing load balancer - Azure classic CLI  | Microsoft Docs
+description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure classic CLI
 services: load-balancer
 documentationcenter: na
 author: genlin
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 06/18/2018
 ms.author: genli
 ---
 
-# Get started creating an Internet facing load balancer (classic) in the Azure CLI
+# Get started creating an Internet facing load balancer (classic) in the Azure classic CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
-> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure classic CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -37,7 +37,7 @@ ms.author: genli
 
 This guide shows how to create an Internet load balancer based on the scenario above.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure classic CLI, see [Install and Configure the Azure classic CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 
     ```azurecli
