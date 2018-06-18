@@ -149,7 +149,7 @@ You can download the sign-in activities data if you want work with it outside th
 
 ![Download](./media/active-directory-reporting-activity-sign-ins/71.png "Download")
 
-Clicking **Download** creates a CSV file of the most recent 5K records. If you need more flexibility, you can use the script solution. Clicking **Script** creates a PowerShell script that includes all the filters you have set. Download and run this script in *administrator mode* to generate the CSV file. 
+Clicking **Download** creates a CSV file of the most recent 5K records. If you need more flexibility, you can use the script solution. Clicking **Script** creates a PowerShell script that includes all the filters you have set. Download and run this script in **administrator mode** to generate the CSV file. 
 In addition to the technical implementation, the number of records you can download is also constrained by the [Azure Active Directory report retention policies](active-directory-reporting-retention.md).  
 
 
