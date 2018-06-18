@@ -57,6 +57,6 @@ Understand how this hierarchy of calls is made from the Bot Builder v4 [dispatch
 
 * Learn how to [test a batch](luis-how-to-batch-test.md)
 
-[LUIS]:luis-reference-regions.md
-[dispatcher-application-tutorial]:https://aka.ms/bot-dispatch
-[dispatch-tool]:https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[LUIS](luis-reference-regions.md)
+[dispatcher-application-tutorial](https://aka.ms/bot-dispatch)
+[dispatch-tool](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch)
