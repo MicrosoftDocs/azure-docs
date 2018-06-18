@@ -76,7 +76,7 @@ ms.author: maquaran
   * When partition split happens, there could be duplicate processing of documents modified before the split.
   * The GetEstimatedRemainingWork API returned 0 when no leases were present in the lease collection.
 
-* The following exceptions made public. Extensions that implement IPartitionProcessor can throw these exceptions.
+* The following exceptions are made public. Extensions that implement IPartitionProcessor can throw these exceptions.
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
