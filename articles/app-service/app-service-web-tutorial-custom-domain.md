@@ -30,6 +30,7 @@ In this tutorial, you learn how to:
 > * Map a subdomain (for example, `www.contoso.com`) by using a CNAME record
 > * Map a root domain (for example, `contoso.com`) by using an A record
 > * Map a wildcard domain (for example, `*.contoso.com`) by using a CNAME record
+> * Redirect the default URL to a custom directory
 > * Automate domain mapping with scripts
 
 To migrate a live site and its DNS domain name to App Service, see [Migrate an active DNS name to Azure App Service](app-service-custom-domain-name-migrate.md).
@@ -109,7 +110,9 @@ You can use either a **CNAME record** or an **A record** to map a custom DNS nam
 
 In the tutorial example, you add a CNAME record for the `www` subdomain (for example, `www.contoso.com`).
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### Access DNS records with domain provider
+
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
 #### Create the CNAME record
 
@@ -137,7 +140,7 @@ Type the fully qualified domain name that you added a CNAME record for, such as 
 
 Select **Validate**.
 
-The **Add hostname** button is activated. 
+The **Add hostname** page is shown. 
 
 Make sure that **Hostname record type** is set to **CNAME (www.example.com or any subdomain)**.
 
@@ -148,6 +151,9 @@ Select **Add hostname**.
 It might take some time for the new hostname to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
 
 ![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
+
+> [!NOTE]
+> To add an SSL binding, see [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
 
 If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
 
@@ -173,7 +179,9 @@ In the **Custom domains** page, copy the app's IP address.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### Access DNS records with domain provider
+
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
 #### Create the A record
 
@@ -207,7 +215,7 @@ Type the fully qualified domain name that you configured the A record for, such 
 
 Select **Validate**.
 
-The **Add hostname** button is activated. 
+The **Add hostname** page is shown. 
 
 Make sure that **Hostname record type** is set to **A record (example.com)**.
 
@@ -219,6 +227,9 @@ It might take some time for the new hostname to be reflected in the app's **Cust
 
 ![A record added](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
+> [!NOTE]
+> To add an SSL binding, see [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+
 If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
 
 ![Verification error](./media/app-service-web-tutorial-custom-domain/verification-error.png)
@@ -229,7 +240,9 @@ If you missed a step or made a typo somewhere earlier, you see a verification er
 
 In the tutorial example, you map a [wildcard DNS name](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (for example, `*.contoso.com`) to the App Service app by adding a CNAME record. 
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### Access DNS records with domain provider
+
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
 #### Create the CNAME record
 
@@ -268,6 +281,9 @@ It might take some time for the new hostname to be reflected in the app's **Cust
 Select the **+** icon again to add another hostname that matches the wildcard domain. For example, add `sub2.contoso.com`.
 
 ![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
+
+> [!NOTE]
+> To add an SSL binding, see [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
 
 ## Test in browser
 
@@ -334,6 +350,7 @@ In this tutorial, you learned how to:
 > * Map a subdomain by using a CNAME record
 > * Map a root domain by using an A record
 > * Map a wildcard domain by using a CNAME record
+> * Redirect the default URL to a custom directory
 > * Automate domain mapping with scripts
 
 Advance to the next tutorial to learn how to bind a custom SSL certificate to a web app.
