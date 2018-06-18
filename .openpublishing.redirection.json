@@ -5247,6 +5247,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/hdinsight/hdinsight-hadoop-oms-log-analytics-management-solutions.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hbase/apache-hbase-monitor-with-oms.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/documentdb/documentdb-automation-region-management.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/cli-samples",
             "redirect_document_id": false
@@ -14247,6 +14257,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-reporting-notifications.md",
+            "redirect_url": "/azure/active-directory/active-directory-identityprotection-notifications",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/application-insights/app-insights-understand-usage-patterns.md",
             "redirect_url": "/azure/application-insights/usage-funnels",
             "redirect_document_id": false
@@ -19212,6 +19227,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-log-search-upgrade.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-log-search-upgrade-changes.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-log-search-faq.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-functions/durable-functions-counter.md",
             "redirect_url": "/azure/azure-functions/durable-functions-monitor",
             "redirect_document_id": true
@@ -22524,6 +22554,11 @@
         {
             "source_path": "articles/active-directory/active-directory-groups-members-azure-portal.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-application-recommendations.md",
+            "redirect_url": "/azure/security-center/security-center-virtual-machine-recommendations",
             "redirect_document_id": false
         }
     ]

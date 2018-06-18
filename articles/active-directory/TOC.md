@@ -122,7 +122,6 @@
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
-#### [Notifications](active-directory-reporting-notifications.md)
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
@@ -152,6 +151,12 @@
 ### [SSPR Customization](authentication/concept-sspr-customization.md)
 ### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Reporting](authentication/howto-sspr-reporting.md)
+### [Eliminate weak passwords](authentication/concept-password-ban-bad.md)
+### [Configure the banned password list](authentication/howto-password-ban-bad.md)
+### [On-premises integration](authentication/concept-password-ban-bad-on-premises.md)
+### [Deploy Azure AD password protection](authentication/howto-password-ban-bad-on-premises.md)
+### [Configure Azure AD password protection](authentication/howto-password-ban-bad-on-premises-operations.md)
+### [Monitor Azure AD password protection](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### IT Admins: Reset passwords
 #### [Azure portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [License SSPR](authentication/concept-sspr-licensing.md)
