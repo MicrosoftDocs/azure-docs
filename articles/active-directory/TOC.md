@@ -183,14 +183,14 @@
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
 ### [Getting started](manage-apps/plan-an-application-integration.md)
-### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
+### [SaaS app integration tutorials](saas-apps/tutorial-list.md)
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Create snapshot reports](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md) 
-#### [App integration tutorials](active-directory-saas-tutorial-list.md) 
+#### [App integration tutorials](saas-apps/tutorial-list.md) 
 #### [Automate provisioning to SCIM-enabled apps](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [Customize attribute mappings](active-directory-saas-customizing-attribute-mappings.md) 
 #### [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
