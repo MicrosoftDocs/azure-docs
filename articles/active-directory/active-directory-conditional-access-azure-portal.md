@@ -18,12 +18,12 @@ ms.workload: identity
 ms.date: 06/18/2018
 ms.author: markvi
 ms.reviewer: calebb
-
+#Customer intent: As a IT admin, I want to understand conditional access well enough so that I can control how users are accessing my resources.
 ---
 
 # What is conditional access in Azure Active Directory?
 
-Security is a top concern for organizations using the cloud. A key aspect of cloud security is identity and access when it comes to managing your cloud resources. In a mobile-first, cloud-first world, users can access your organization's resources using a variety of devices and apps from anywhere. As a result of this, just focusing on who can access a resource is not sufficient anymore. In order to master the balance between security and productivity, IT professionals also need to factor how a resource is being accessed into an access control decision. With Azure AD conditional access, you can address this requirement. Conditional access is a capability of Azure Active Directory that enables you to enforce controls on the access to apps in your environment based on specific conditions from a central location. 
+Security is a top concern for organizations using the cloud. A key aspect of cloud security is identity and access when it comes to managing your cloud resources. In a mobile-first, cloud-first world, users can access your organization's resources using a variety of devices and apps from anywhere. As a result of this, just focusing on who can access a resource is not sufficient anymore. In order to master the balance between security and productivity, you also need to factor how a resource is accessed into an access control decision. With Azure AD conditional access, you can address this requirement. Conditional access is a capability of Azure Active Directory that enables you to enforce controls on the access to apps in your environment based on specific conditions from a central location. 
 
 
 ![Control](./media/active-directory-conditional-access-azure-portal/81.png)
@@ -34,7 +34,7 @@ This article provides you with a conceptual overview of conditional access in Az
 
 ## Common scenarios
 
-In a mobile-first, cloud-first world, Azure Active Directory enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices (including BYOD), work off corporate networks, and third party SaaS apps, IT professionals are faced with two opposing goals:
+In a mobile-first, cloud-first world, Azure Active Directory enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices (including BYOD), work off corporate networks, and third-party SaaS apps, you are faced with two opposing goals:
 
 - Empower users to be productive wherever and whenever
 - Protect the corporate assets at any time
@@ -45,7 +45,7 @@ Following are some common access concerns that conditional access can help you w
 
 
 
-- **[Sign-in risk](active-directory-conditional-access-conditions.md#sign-in-risk)**: Azure AD Identity Protection detects sign-in risks. How do you restrict access if a detected sign-in risk indicates a bad actor? What if you would like to get a stronger evidence that a sign-in was  performed by the legitimate user or your doubts are strong enough to even block specific users from accessing an app?
+- **[Sign-in risk](active-directory-conditional-access-conditions.md#sign-in-risk)**: Azure AD Identity Protection detects sign-in risks. How do you restrict access if a detected sign-in risk indicates a bad actor? What if you would like to get stronger evidence that a sign-in was  performed by the legitimate user or your doubts are strong enough to even block specific users from accessing an app?
 
 - **[Network location](active-directory-conditional-access-locations.md)**: Azure AD is accessible from anywhere. What if an access attempt is performed from a network location that is not under the control of your IT department? Using a username and password combination might be good enough as proof of identity for access attempts to your resources from your corporate network. What if you demand a stronger proof of identity for access attempts that are initiated from other unexpected countries or regions of the world? What if you even want to block access attempts from certain locations?  
 
@@ -85,7 +85,7 @@ One benefit of using a policy-based approach to protect access to your cloud app
 
 ## License requirements for using conditional access
 
-Using conditional access requires a Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+Using conditional access requires an Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
 
 ## Next steps
