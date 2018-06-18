@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/18/2018
 ms.author: msangapu
 ---
 # Azure App Service on Linux FAQ
@@ -102,10 +102,10 @@ Yes. During a Git deployment, Kudu should detect that you are deploying a PHP ap
 
 **I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.**
 
-You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to *true* or by removing the app setting entirely. Keep in mind that doing this will cause container restarts when the platform storage goes through a change. 
+You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to *true*. Keep in mind that doing this will cause container restarts when the platform storage goes through a change.
 
 >[!NOTE]
->If the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is *false*, the `/home/` directory will not be shared across scale instances, and files that are written there will not be persisted across restarts.
+>If the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is unspecified or set to *false*, the `/home/` directory will not be shared across scale instances, and files that are written there will not be persisted across restarts.
 
 **My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.**
 
