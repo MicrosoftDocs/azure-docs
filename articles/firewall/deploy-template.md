@@ -1,19 +1,17 @@
 ---
-title: Quickstart - Azure Firewall
-description: Learn how use Azure PowerShell to create an Azure Firewall
+title: Deploy Azure Firewall using a tempalte
+description: Deploy Azure Firewall using a tempalte
 services: firewall
 author: vhorne
 manager: jpconnock
-editor: ''
 
 ms.service: firewall
-ms.topic: quickstart
-ms.date: 05/18/2018
+ms.topic: article
+ms.date: 6/18/2018
 ms.author: victorh
-ms.custom: mvc
 ---
 
-# Quickstart: Azure Firewall
+# Deploy Azure Firewall using a tempalte
 
 Intro...
 
@@ -47,6 +45,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Overview](overview.md)
 
