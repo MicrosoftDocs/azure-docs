@@ -164,15 +164,15 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <h3>Enterprise subscription: requires EA portal access</h3>
                         <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
-                        <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">Manage departments</a>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">Manage departments<span class="docon docon-navigate-external"></span></a>
                         <br>
-                        <a class="p-test" href="https://ea.azure.com/helpdocs/addNewAccount" data-linktype="external">Manage accounts</a>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/addNewAccount" data-linktype="external">Manage accounts<span class="docon docon-navigate-external"></span></a>
                         <br>
-                        <a class="p-test" href="https://ea.azure.com/helpdocs/createANewSubscription" data-linktype="external">Create subscriptions</a>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createANewSubscription" data-linktype="external">Create subscriptions<span class="docon docon-navigate-external"></span></a>
                         <br>
-                        <a class="p-test" href="https://ea.azure.com/helpdocs/viewPriceSheet" data-linktype="external">View price sheet</a>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/viewPriceSheet" data-linktype="external">View price sheet<span class="docon docon-navigate-external"></span></a>
                         <br>
-                        <a class="p-test" href="https://ea.azure.com/helpdocs/usageDetailReport" data-linktype="external">View usage details</a>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/usageDetailReport" data-linktype="external">View usage details<span class="docon docon-navigate-external"></span></a>
                         </p>
                     </div>
                 </div>
