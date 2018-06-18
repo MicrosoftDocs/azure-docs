@@ -225,9 +225,9 @@ You can use State to define and visualize the state of the device or its compone
 
     ![View state Details](./media/tutorial-define-device-type/stateviewdetail.png)
 
-## Properties, device properties, and settings
+## Settings, properties, device properties, commands
 
-Properties, device properties, and settings are different values defined in a device template and associated with each individual device:
+Settings, properties, device properties, and commands are different values defined in a device template and associated with each individual device:
 
 * You use _settings_ to send configuration data to a device from your application. For example, an operator could use a setting to change the device's telemetry interval from two seconds to five seconds. When an operator changes a setting, the setting is marked as pending in the UI until the device acknowledges that it has actioned the setting change.
 
