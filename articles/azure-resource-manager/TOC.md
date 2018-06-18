@@ -17,6 +17,7 @@
 ### [Template sections](resource-group-authoring-templates.md)
 #### [Parameters](resource-manager-templates-parameters.md)
 #### [Variables](resource-manager-templates-variables.md)
+#### [Functions](resource-group-authoring-templates.md#functions)
 #### [Resources](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
 ### [Linked and nested templates](resource-group-linked-templates.md)

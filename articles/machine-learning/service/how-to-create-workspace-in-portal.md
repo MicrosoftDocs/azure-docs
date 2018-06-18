@@ -54,6 +54,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     ![deployment succeeded](media/how-to-create-workspace-in-portal/deployment_succeeded.PNG)
 
+    >[!NOTE]
+   >For your convenience, these resources are added automatically to the workspace, if regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
+
 ## View a workspace
 
 1. Check your newly created workspace with the  **All services** link in top left corner of the portal.  

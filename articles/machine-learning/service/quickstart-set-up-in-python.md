@@ -41,11 +41,29 @@ You can install the SDK on a Windows, Linux, or MacOS computer with following pr
 
 ## Install the SDK
 
-Open your command-line editor, and install the azureml-sdk Python package
+1. Open your command-line editor, and set up your environment.
+    ```
+    # create a new conda environment with Python 3.6, numpy and cython
+    conda create -n myenv Python=3.6 cython numpy
+    ```
+1. Activate your environment.
+    
+    * If you are on a device running Windows, active the conda environment with
 
-```
-pip install azureml-sdk
-```
+    ```
+    activate myenv
+    ```
+
+   * If you are running Mac OS, active the conda environment with
+
+    ```
+    source activate myenv
+    ```
+1. Install the azureml-sdk Python package
+
+    ```
+    pip install azureml-sdk
+    ```
 
 ## Create a resource group
 
@@ -67,7 +85,7 @@ pip install azureml-sdk
     az account show
     ```
 
- 1. Create a resource group to hold your workspace.
+1. Create a resource group to hold your workspace.
 
      * The only supported location choice is eastus2.  
      * In this example, the resource group is named *myrg*.
@@ -102,7 +120,10 @@ pip install azureml-sdk
    The `run_history_name` argument specifies the name of the run history used to group together and track your runs.
 
    >[!NOTE]
-   >In addition to a workspace, the `Workspace.create` command creates storage account, Azure Container Registry, Azure Key Vault, and AppInsights resources under your resource group.
+   >For your convenience, these resources are added automatically to the workspace, if regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
+
+
+
 
 ## Run Python code
 
