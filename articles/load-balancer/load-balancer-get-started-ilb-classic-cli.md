@@ -1,6 +1,6 @@
 ---
-title: Create an Internal load balancer - Azure CLI classic | Microsoft Docs
-description: Learn how to create an internal load balancer using the Azure CLI in the classic deployment model
+title: Create an Internal load balancer - Azure classic CLI | Microsoft Docs
+description: Learn how to create an internal load balancer using the Azure classic CLI in the classic deployment model
 services: load-balancer
 documentationcenter: na
 author: genlin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 06/18/2018
 ms.author: genli
 ---
 
-# Get started creating an internal load balancer (classic) using the Azure CLI
+# Get started creating an internal load balancer using the Azure classic CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -40,11 +40,11 @@ To create an internal load balancer set and the servers that sends their traffic
 2. Add endpoints corresponding to the virtual machines that can receive the incoming traffic.
 3. Configure the servers to send their traffic to the virtual IP (VIP) address of the Internal Load Balancing instance.
 
-## Step by step creating an internal load balancer using CLI
+## Step by step creating an internal load balancer using classic CLI
 
 This guide shows how to create an internal load balancer based on the scenario above.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used classic CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 
     ```azurecli
