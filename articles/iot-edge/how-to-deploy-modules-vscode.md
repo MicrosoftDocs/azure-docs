@@ -4,7 +4,7 @@ description: Use Visual Studio Code to deploy modules to an IoT Edge device
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/06/2018
+ms.date: 06/18/2018
 ms.topic: conceptual
 ms.reviewer: 
 ms.service: iot-edge
@@ -109,7 +109,7 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 
 2. At the bottom of the Explorer, expand the **Azure IoT Hub Devices** section. 
 
-   ![Expand Azure IoT Hub Devices](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
+   ![Expand Azure IoT Hub Devices](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
 3. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, hover over the header. 
 
@@ -126,27 +126,26 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 
 You deploy modules to your device by applying the deployment manifest that you configured with the module information. 
 
-Use the following command to apply the configuration to an IoT Edge device:
+1. In the Visual Studio Code explorer view, expand the **Azure IoT Hub Devices** section. 
 
-   ```cli
-   az iot hub apply-configuration --device-id [device id] --hub-name [hub name] --content [file path]
-   ```
+2. Right-click on the device that you want to configure with the deployment manifest. 
 
-The device id parameter is case-sensitive. The content parameter points to the deployment manifest file that you saved. 
+3. Select **Create Deployment for IoT Edge Device**. 
+
+4. Navigate to the deployment manifest JSON file that you want to use, and click **Select Edge Deployment Manifest**. 
+
+   ![Select Edge Deployment Manifest](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
+
+
+The results of your deployment are printed in the VS Code output. Successful deployments are applied within a few minutes if the target device is running and connected to the internet. 
 
 ## View modules on your device
 
-Once you've deployed modules to your device, you can view all of them with the following command: 
+Once you've deployed modules to your device, you can view all of them in the **Azure IoT Hub Devices** section. Select the arrow next to your IoT Edge device to expand it. All the currently running modules are displayed. 
 
-View the modules on your IoT Edge device:
-    
-   ```cli
-   az iot hub module-identity list --device-id [device id] --hub-name [hub name]
-   ```
+If you recently deployed new modules to a device, hover over the **Azure IoT Hub Devices** section header and select the refresh icon to update the view. 
 
-The device id parameter is case-sensitive.
-
-   ![List modules](./media/how-to-deploy-cli/list-modules.png)
+Right-click the name of a module to view and edit the module twin. 
 
 ## Next steps
 
