@@ -208,4 +208,4 @@ Learn concepts about good [utterances](luis-concept-utterance.md).
 
 See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
 
-[LUIS]:luis-reference-regions.md#luis-website
+[LUIS](luis-reference-regions.md#luis-website)

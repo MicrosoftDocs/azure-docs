@@ -166,7 +166,7 @@ No, there is no such feature today. The feature is being evaluated for a future 
 You will not be notified of the result of the upgrade. The feature is being evaluated for a future release.
 
 **Q: Do you publish a timeline for when you plan to push out auto upgrades?**  
-Auto upgrade is the first step in the release process of a newer version, so whenever there is a new release, auto upgrades are pushed. Newer versions of Azure AD Connect are pre-announced in the [Azure AD Roadmap](../../active-directory/whats-new.md).
+Auto upgrade is the first step in the release process of a newer version. Whenever there is a new release, upgrades are pushed automatically. Newer versions of Azure AD Connect are pre-announced in the [Azure AD Roadmap](../fundamentals/whats-new.md).
 
 **Q: Does auto upgrade upgrade Azure AD Connect Health?**  
 Yes, auto upgrade also upgrades Azure AD Connect Health.
@@ -192,6 +192,3 @@ If you need help upgrading to a newer version of Azure AD Connect, open a suppor
 * Search for technical questions and answers or ask your own questions by going to [the community](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
-
-
-

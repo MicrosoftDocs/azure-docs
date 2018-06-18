@@ -4,7 +4,7 @@ description: This document will provide users information on what to do if they 
 services: multi-factor-authentication
 keywords: multifactor authentication client, authentication problem, correlation ID
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: barlan
+ms.author: lizross
 ms.reviewer: richagi
 ms.custom: end-user
 experimental: true

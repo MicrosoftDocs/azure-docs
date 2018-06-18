@@ -3,7 +3,7 @@ title: Microsoft Authenticator app help and support | Microsoft Docs
 description: Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402

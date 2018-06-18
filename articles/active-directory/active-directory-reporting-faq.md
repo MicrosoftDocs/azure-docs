@@ -68,7 +68,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How many records I can download from Azure portal?**
 
-**A:** You can download up to 120K records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 120K records. 
+**A:** You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records. For record sizes larger than 5000, choose your filter conditions and then click the *Script* button on the Azure portal. This will download a PowerShell script, which you can run to generate a CSV file of all the records matching your filter conditions. You need to run the PowerShell script in *administrator mode*. For more information, see [Download sign-in activities](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
 
 ---
 
@@ -80,7 +80,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How do I get a premium license?**
 
-**A:** See [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md) for an answer to this question.
+**A:** See [Getting started with Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) for an answer to this question.
 
 ---
 
