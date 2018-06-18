@@ -40,11 +40,11 @@ sections:
       text: Upload, encode, and stream videos
       href: /azure/media-services/latest/stream-files-tutorial-with-api
     - image: 
-        src: media/index/AMSIcons-encoding.svg
+        src: media/index/AMSIcons-live.svg
       text: Broadcast live
       href: /azure/media-services/latest/stream-live-tutorial-with-api
     - image: 
-        src: media/index/AMSIcons-encoding.svg
+        src: media/index/AMSIcons-media_analytics.svg
       text: Analyze your videos
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
 - title: Reference
