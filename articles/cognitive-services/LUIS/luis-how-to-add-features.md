@@ -64,4 +64,4 @@ Click the three dots (...) button at the end of the row, and select **Deactivate
 
 ## Next steps
 
-After adding, editing, deleting, or deactivating a phrase list, [train and test the app](Train-Test.md) again to see if performance improves.
+After adding, editing, deleting, or deactivating a phrase list, [train and test the app](interactive-test.md) again to see if performance improves.

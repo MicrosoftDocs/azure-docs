@@ -25,7 +25,7 @@ Using Azure Active Directory (Azure AD), you can designate separate administrato
 The Global Administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
 
 ## Assign or remove administrator roles
-To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory](fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Available roles
 The following administrator roles are available:
