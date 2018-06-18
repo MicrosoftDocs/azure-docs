@@ -72,7 +72,7 @@ The following articles discuss the different ways applications integrate with Az
 
 * [Determining which Active Directory to use](../fundamentals/active-directory-administer.md)
 * [Using applications in the Azure application gallery](what-is-single-sign-on.md)
-* [Integrating SaaS applications tutorials list](../active-directory-saas-tutorial-list.md)
+* [Integrating SaaS applications tutorials list](../saas-apps/tutorial-list.md)
 
 ## Managing access to applications
 The following articles describe ways you can manage access to applications once they have been integrated with Azure AD using Azure AD Connectors and Azure AD.
