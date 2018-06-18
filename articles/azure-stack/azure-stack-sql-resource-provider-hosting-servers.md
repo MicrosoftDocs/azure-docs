@@ -96,7 +96,7 @@ To add a standalone hosting server that is already set up, follow these steps:
 
 ## Provide high availability using SQL Always On Availability Groups
 
-Configuring SQL Always On instances requires additional steps and requires a minimum of three VMs (or physical machines.)
+Configuring SQL Always On instances requires additional steps and requires a minimum of three VMs (or physical machines.) For more information about SQL Server Always On, see [Introducing SQL Server Always On availability groups on Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
 
 > [!NOTE]
 > The SQL adapter resource provider _only_ supports SQL 2016 SP1 Enterprise or later instances for Always On. This adapter configuration requires new SQL features such as automatic seeding.
