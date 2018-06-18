@@ -19237,6 +19237,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-log-search-upgrade.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-log-search-upgrade-changes.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-log-search-faq.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-functions/durable-functions-counter.md",
             "redirect_url": "/azure/azure-functions/durable-functions-monitor",
             "redirect_document_id": true
@@ -22555,6 +22570,11 @@
             "source_path": "articles/security-center/security-center-application-recommendations.md",
             "redirect_url": "/azure/security-center/security-center-virtual-machine-recommendations",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Train-Test.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/interactive-test",
+            "redirect_document_id": true
         }
     ]
 }

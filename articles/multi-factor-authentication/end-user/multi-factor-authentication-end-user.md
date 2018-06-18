@@ -3,7 +3,7 @@ title: Get started with two-step verification | Microsoft Docs
 description: This is the Azure Multi-Factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: barlan
+ms.author: lizross
 ms.reviewer: richagi
 ms.custom: end-user
 ---
