@@ -28,7 +28,7 @@ The guide covers the following procedures:
 
 * Key concepts for enabling disk encryption on virtual machine scale sets for Service Fabric Windows clusters.
 * Prerequisite steps to follow before you enable disk encryption on virtual machine scale sets for Service Fabric Windows clusters.
-* Steps to enable disk encryption on virtual machine scale sets for Service Fabric Windows clusters.
+* Steps to enable and disable disk encryption on virtual machine scale sets for Service Fabric Windows clusters.
 
 
 ## Prerequisites
@@ -36,12 +36,12 @@ The guide covers the following procedures:
    ```Powershell
    Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
    ```
-   Wait around 10 minutes until the state is `Registered`. You can check the state by running the following command: 
+   Wait around 10 minutes until the state is `Registered`. You can check the state by running the following commands: 
    ```Powershell
    Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
    ```
-2. Create a key vault in the same subscription and region as the scale set, and set the access policy `EnabledForDiskEncryption` on the key vault by using its PowerShell cmdlet. You can also set the policy by using the Azure Key Vault UI in the Azure portal. 
+2. Create a key vault in the same subscription and region as the scale set. Set the access policy `EnabledForDiskEncryption` on the key vault by using its PowerShell cmdlet. You can also set the policy by using the Azure Key Vault UI in the Azure portal. 
    ```Powershell
    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
    ```
@@ -86,7 +86,7 @@ az account set --subscription $subscriptionId
 
 ### Use a custom template 
 
-If you need to author a custom template to suit your needs, we recommend that you start with one of the [Azure Service Fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). You can then [customize your cluster template][customize-your-cluster-template].
+If you need to author a custom template to suit your needs, we recommend that you start with one of the [Azure Service Fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master).
 
 If you already have a custom template, make sure that all the three certificate-related parameters in the template and the parameter file are named as follows. Also make sure that values are null as follows.
 
@@ -206,5 +206,5 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 
 
 ## Next steps
-At this point, you have a secure cluster and you know how to enable/disable disk encryption for a Service Fabric cluster virtual machine scale set for Windows. Next, learn about [disk encryption for Linux](service-fabric-enable-azure-disk-encryption-linux.md). 
+At this point, you have a secure cluster and you know how to enable/disable disk encryption for a Service Fabric Windows cluster. Next, learn about [disk encryption for Linux](service-fabric-enable-azure-disk-encryption-linux.md). 
 
