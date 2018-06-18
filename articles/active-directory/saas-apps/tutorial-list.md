@@ -112,7 +112,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
-
 | ![logo](./media/tutorial-list/active-directory-saas-cappm-tutorial.png)| [CA PPM](cappm-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-canvas-lms-tutorial.png)| [Canvas Lms](canvas-lms-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-capriza-tutorial.png)| [Capriza Platform](capriza-tutorial.md)|
@@ -197,7 +196,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
-
 | ![logo](./media/tutorial-list/active-directory-saas-factset-tutorial.png)| [FactSet](factset-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-fidelitynetbenefits-tutorial.png)| [Fidelity NetBenefits](fidelitynetbenefits-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-fieldglass-tutorial.png)| [Fieldglass](fieldglass-tutorial.md)|
@@ -279,7 +277,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
-
 | ![logo](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jiramicrosoft-tutorial.png)| [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jira52microsoft-tutorial.png)| [JIRA SAML SSO by Microsoft (V5.2)](jira52microsoft-tutorial.md)|
@@ -309,7 +306,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 ## L - M
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
-
 | ![logo](./media/tutorial-list/active-directory-saas-landgorilla-tutorial.png)| [Land Gorilla Client](landgorilla-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-launchdarkly-tutorial.png)| [LaunchDarkly](launchdarkly-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-lcvista-tutorial.png)| [LCVista](lcvista-tutorial.md)|
@@ -361,7 +357,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
-
 | ![logo](./media/tutorial-list/active-directory-saas-namely-tutorial.png)| [Namely](namely-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-neotalogicstudio-tutorial.png)| [Neota Logic Studio](neotalogicstudio-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-netdocuments-tutorial.png)| [NetDocuments](netdocuments-tutorial.md)|
@@ -389,7 +384,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
-
 | ![logo](./media/tutorial-list/active-directory-saas-pacific-timesheet-tutorial.png)| [Pacific Timesheet](pacific-timesheet-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-pagerduty-tutorial.png)| [PagerDuty](pagerduty-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-paloaltonetworks-aperture-tutorial.png)| [Palo Alto Networks - Aperture](paloaltonetworks-aperture-tutorial.md)|
@@ -426,7 +420,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
-
 | ![logo](./media/tutorial-list/active-directory-saas-qliksense-enterprise-tutorial.png)| [Qlik Sense Enterprise](qliksense-enterprise-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-qprism-tutorial.png)| [QPrism](qprism-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-qualtrics-tutorial.png)| [Qualtrics](qualtrics-tutorial.md)|
@@ -455,7 +448,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
-
 | ![logo](./media/tutorial-list/active-directory-saas-safetynet-tutorial.png)| [SafetyNet](safetynet-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)|[Salesforce - User Provisioning](salesforce-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-sandbox-tutorial.png)| [Salesforce Sandbox](salesforce-sandbox-tutorial.md)|[Salesforce Sandbox - User Provisioning](salesforce-sandbox-provisioning-tutorial.md)|
@@ -526,7 +518,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
-
 | ![logo](./media/tutorial-list/active-directory-saas-tyeexpress-tutorial.png)| [T&E Express](tyeexpress-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-tableauonline-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-tableauserver-tutorial.png)| [Tableau Server](tableauserver-tutorial.md)|
@@ -576,7 +567,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
-
 | ![logo](./media/tutorial-list/active-directory-saas-wdesk-tutorial.png)| [Wdesk](wdesk-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-weekdone-tutorial.png)| [Weekdone](weekdone-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-wikispaces-tutorial.png)| [Wikispaces](wikispaces-tutorial.md)|
@@ -612,9 +602,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-zwayam-tutorial.png)| [Zwayam](zwayam-tutorial.md)|
 
 
-
-
 ## Related articles
 
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-* [List of Tutorials on How to Integrate SaaS Apps](tutorial-list.md)
+[Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
+
