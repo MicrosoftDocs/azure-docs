@@ -95,7 +95,7 @@ Azure Immutable Storage for Azure Blobs is supported on the most recent releases
 ### Azure portal
 
 1. Create a new container or select an existing container to store the blobs that need to be kept in the immutable state.
- The container must be in a blob or GPv2 storage account.
+ The container must be in a GPv2 storage account.
 2. Click on Access Policy in the Container settings and then click on **+ Add Policy** under **Immutable blob storage** policy as illustrated below.
 
     ![Portal](media/storage-blob-immutable-storage/portal-image-1.png)
@@ -171,7 +171,7 @@ The Immutable Storage feature for blobs can be used with any blob type.  Note ho
 
 **Do I need to always create a new storage account to use this feature?**
 
-You can use the Immutable Storage feature with any existing GPv2 or blob storage accounts or on new storage accounts if the account type is GPv2 or blob. This feature is only available with blob storage.
+You can use the Immutable Storage feature with any existing GPv2 accounts or on new storage accounts if the account type is GPv2. This feature is only available with blob storage.
 
 **What happens if I try to delete a container with a *locked* time-based retention policy or legal hold?**
 
