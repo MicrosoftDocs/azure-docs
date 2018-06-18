@@ -45,6 +45,10 @@ To join a Windows 10 device, the device registration service must be configured 
 
 - If you are a federated user, you have to sign in using your credentials.
 
+- If you are federated, your Identity provider MUST support WS-Fed and WS-Trust username/password endpoint. This can be version 1.3 or 2005. This protocol support is required to both join the device to Azure AD and log on to the device with a password. 
+
+
+
 
 ## Joining a device
 

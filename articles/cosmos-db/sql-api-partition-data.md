@@ -6,6 +6,7 @@ author: rafats
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2017

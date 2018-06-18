@@ -36,7 +36,7 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 >
 >
 
-Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
+Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 ###### **June 1, 2018**
@@ -225,6 +225,7 @@ If you manually update your Guest OS, see the [Guest OS retirement policy][retir
 ## Guest OS Supportability and Retirement Policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
 
+[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
 [Guest OS Update RSS Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md

@@ -233,6 +233,5 @@ next steps:
 - [Assign a policy definition](assign-policy-definition.md)
 - [Assign a policy definition using the Azure CLI](assign-policy-definition-cli.md)
 - [Assign a policy definition using PowerShell](assign-policy-definition-ps.md)
-- Review what a management group is with [Organize your resources with Azure Management Groups](../azure-resource-manager/management-groups-overview.md)
-- View [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9.
-
+- Review what a management group is with [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md)
+- View [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9

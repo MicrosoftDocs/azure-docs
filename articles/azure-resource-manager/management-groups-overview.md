@@ -1,5 +1,5 @@
 ---
-title: Organize your resources with Azure Management Groups | Microsoft Docs
+title: Organize your resources with Azure management groups | Microsoft Docs
 description: Learn about the management groups and how to use them. 
 author: rthorn17
 manager: rithorn
@@ -16,9 +16,9 @@ ms.author: rithorn
 ---
 
 
-# Organize your resources with Azure Management Groups 
+# Organize your resources with Azure management groups 
 
-If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure Management Groups provides a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
+If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure management groups provides a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 
 The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section. 
 
@@ -45,11 +45,11 @@ There's currently a limitation within the preview where you aren't able to view 
 
 Using the REST API to get information on the subscription returns details as you do have access, but within the Azure portal and Azure Powershell the subscriptions don't show. 
 
-This item is being worked on and will be resolved before Management Groups are announced as "General Availability."  
+This item is being worked on and will be resolved before management groups are announced as "General Availability."  
 
 ### Cloud Solution Provider(CSP) limitation during Preview 
 There's a current limitation for Cloud Solution Provider(CSP) Partners where they aren't able to create or manage their customer's management groups within their customer's directory.  
-This item is being worked on and will be resolved before Management Groups are announced as "General Availability."
+This item is being worked on and will be resolved before management groups are announced as "General Availability."
 
 
 ## Root management group for each directory
@@ -64,9 +64,9 @@ Each directory is given a single top-level management group called the "Root" ma
     - During the Public Preview, new subscriptions are not automatically defaulted to the Root management group. 
 - The root management group cannot be moved or deleted, unlike other management groups. 
   
-## Management Group Access
+## Management group Access
 
-Azure Management Groups supports [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) for all resource accesses and role definitions. These permissions are inherited to child resources that exist in the hierarchy.   
+Azure management groups supports [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) for all resource accesses and role definitions. These permissions are inherited to child resources that exist in the hierarchy.   
 
 While any [built-in RBAC role](../role-based-access-control/built-in-roles.md) can be assigned to a management group, there are four roles that are commonly used: 
 - **Owner** has full access to all resources including the right to delegate access to others. 

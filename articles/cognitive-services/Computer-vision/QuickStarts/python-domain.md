@@ -12,9 +12,13 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Use a Domain Model with Python
+# Quickstart: Use a domain model with Python
 
 In this quickstart, you use domain models to identify celebrities and landmarks in an image using Computer Vision.
+
+You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## Prerequisites
 

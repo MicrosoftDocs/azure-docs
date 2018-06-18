@@ -38,7 +38,7 @@ The following utterances show examples of key phrases:
 |Is there a new medical plan with a lower deductible offered next year?|"lower deductible"<br>"new medical plan"<br>"year"|
 |Is vision therapy covered in the high deductible medical plan?|"high deductible medical plan"<br>"vision therapy"|
 
-Your chat bot can consider these values, in addition to all other entities extracted, when deciding the next step in the conversation.
+Your chatbot can consider these values, in addition to all other entities extracted, when deciding the next step in the conversation.
 
 ## Download sample app
 Download the [Human Resources](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) app and save it to a file with the *.json extension. This sample app recognizes utterances relevant to employee benefits, organization charts, and physical assets.
@@ -141,10 +141,10 @@ LUIS doesn't know about this change to the model until it is trained.
 ## What has this LUIS app accomplished?
 This app, with keyPhrase entity detection, identified a natural language query intention and returned the extracted data including the main subject matter. 
 
-Your chat bot now has enough information to determine the next step in the conversation. 
+Your chatbot now has enough information to determine the next step in the conversation. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the keyPhrase data from the utterance to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the keyPhrase data from the utterance to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.

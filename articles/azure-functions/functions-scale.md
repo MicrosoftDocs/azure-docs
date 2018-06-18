@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 06/05/2018
 ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
@@ -88,7 +88,7 @@ To learn more about storage account types, see [Introducing the Azure Storage se
 
 ## How the Consumption plan works
 
-In the Consumption plan, the scale controller automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host is limited to 1.5 GB of memory.  An instance of the host is the Function App, meaning all functions within a function app share resources within an instance and scale at the same time.
+In the Consumption plan, the scale controller automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host is limited to 1.5 GB of memory.  An instance of the host is the function app, meaning all functions within a function app share resources within an instance and scale at the same time. Function apps that share the same Consumption plan are scaled independently.  
 
 When you use the Consumption hosting plan, function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and cannot be recovered.
 

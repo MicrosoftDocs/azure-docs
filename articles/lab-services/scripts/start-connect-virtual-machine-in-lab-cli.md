@@ -42,4 +42,4 @@ This script uses the following commands:
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
-Additional Azure Lab Services PowerShell script samples can be found in the [Azure Lab Services CLI samples](../samples-cli.md).
+Additional Azure Lab Services CLI script samples can be found in the [Azure Lab Services CLI samples](../samples-cli.md).

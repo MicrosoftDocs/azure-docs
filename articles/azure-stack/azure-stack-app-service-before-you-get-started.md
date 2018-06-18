@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/04/2018
 ms.author: anwestg
 
 ---
@@ -327,7 +327,7 @@ Follow these steps:
 | AdminArmEndpoint | Required | Null | Admin Azure Resource Manager endpoint. An example is adminmanagement.local.azurestack.external. |
 | TenantARMEndpoint | Required | Null | Tenant Azure Resource Manager endpoint. An example is management.local.azurestack.external. |
 | AzureStackAdminCredential | Required | Null | Azure AD service admin credential. |
-| CertificateFilePath | Required | Null | Path to the identity application certificate file generated earlier. |
+| CertificateFilePath | Required | Null | **Full path** to the identity application certificate file generated earlier. |
 | CertificatePassword | Required | Null | Password that helps protect the certificate private key. |
 
 ## Create an Active Directory Federation Services application
@@ -361,7 +361,7 @@ Follow these steps:
 | AdminArmEndpoint | Required | Null | Admin Azure Resource Manager endpoint. An example is adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Required | Null | Privileged endpoint. An example is AzS-ERCS01. |
 | CloudAdminCredential | Required | Null | Domain account credential for Azure Stack cloud admins. An example is Azurestack\CloudAdmin. |
-| CertificateFilePath | Required | Null | Path to the identity application's certificate PFX file. |
+| CertificateFilePath | Required | Null | **Full path** to the identity application's certificate PFX file. |
 | CertificatePassword | Required | Null | Password that helps protect the certificate private key. |
 
 ## Next steps

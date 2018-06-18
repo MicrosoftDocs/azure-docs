@@ -4,7 +4,7 @@ description: Receive data in logic apps by using the B2B features in the Enterpr
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff

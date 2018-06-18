@@ -6,6 +6,7 @@ author: luisbosquez
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
@@ -74,6 +75,8 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
     > [!TIP]
     > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. 
+
+5. Next run `:remote console` to redirect all console commands to the remote server.
 
 Great! Now that we finished the setup, let's start running some console commands.
 

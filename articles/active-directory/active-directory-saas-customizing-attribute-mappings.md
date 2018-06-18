@@ -82,7 +82,7 @@ Group provisioning can be optionally enabled or disabled by selecting the group 
 The attributes provisioned as part of Group objects can be customized in the same manner as User objects, described previously. 
 
 >[!TIP]
->Provisioning of group objects (properties and members) is a distinct concept from [assigning groups](active-directory-coreapps-assign-user-azure-portal.md) to an application. It is possible to assign a group to an application, but only provision the user objects contained in the group. Provisioning of full group objects is not required to use groups in assignments.
+>Provisioning of group objects (properties and members) is a distinct concept from [assigning groups](manage-apps/assign-user-or-group-access-portal.md) to an application. It is possible to assign a group to an application, but only provision the user objects contained in the group. Provisioning of full group objects is not required to use groups in assignments.
 
 
 ## Editing the list of supported attributes
@@ -148,7 +148,7 @@ Selecting this option will effectively force a re-synchronization of all users w
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md)
 * [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
+* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->
