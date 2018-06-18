@@ -7,7 +7,7 @@
     href: service-fabric-mesh-overview.md
 - name: Quickstarts
   items:
-  - name: Deploy an existing container
+  - name: Deploy a container
     href: service-fabric-mesh-quickstart-deploy-container.md
   - name: Deploy a Service Fabric application
     href: service-fabric-mesh-quickstart-dotnet-core.md
@@ -35,7 +35,7 @@
   - name: Set up your development environment
     href: service-fabric-mesh-setup-developer-environment-sdk.md
   - name: Deploy an app (CLI)
-    href: service-fabric-mesh-deploy-app-cli.md
+    href: service-fabric-mesh-deploy-app-template.md
 
 - name: Reference
   items:

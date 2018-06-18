@@ -2,8 +2,8 @@
 title: Limitations in Azure Database for PostgreSQL
 description: This article describes limitations in Azure Database for PostgreSQL, such as number of connection and storage engine options.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
