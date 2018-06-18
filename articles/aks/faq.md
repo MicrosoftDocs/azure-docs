@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 6/08/2018
+ms.date: 6/15/2018
 ms.author: nepeters
 ---
 
@@ -45,7 +45,7 @@ Node autoscaling is not supported but is on the roadmap. You might want to take 
 
 ## Does AKS support Kubernetes role-based access control (RBAC)?
 
-No, RBAC is currently not supported in AKS but will be available soon.
+Yes, RBAC can be enabled when deploying an AKS cluster from the Azure CLI or Azure Resource Manager template. This functionality will soon come to the Azure portal.
 
 ## Can I deploy AKS into my existing virtual network?
 
