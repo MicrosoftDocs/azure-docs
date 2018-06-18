@@ -1,4 +1,4 @@
-# [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
+# [Azure IoT Fundamentals](/azure/iot-fundamentals)
 # [IoT solution accelerators documentation](index.md)
 
 # Overview
