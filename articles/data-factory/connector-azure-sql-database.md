@@ -62,10 +62,10 @@ These properties are supported for an Azure SQL Database linked service:
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
 - [SQL authentication](#sql-authentication)
-- [Azure AD Application token authentication: Service principal](#service-principal-authentication)
-- [Azure AD Application token authentication: Managed Service Identity](#managed-service-identity-authentication)
+- [Azure AD application token authentication: Service principal](#service-principal-authentication)
+- [Azure AD application token authentication: Managed Service Identity](#managed-service-identity-authentication)
 
-### Using SQL authentication
+### SQL authentication
 
 #### Linked service example that uses SQL authentication
 
@@ -333,24 +333,24 @@ END
 GO
 ```
 
-### Azure SQL Database as sink
+### Azure SQL Database as the sink
 
 To copy data to Azure SQL Database, set the sink type in the Copy Activity to **SqlSink**. The following properties are supported in the Copy Activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity sink must be set to **SqlSink**. | Yes |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**.<br/> The allowed value is integer (number of rows). | No. The default is 10000. |
-| writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/> The allowed value is timespan. Example: “00:30:00” (30 minutes). | No |
+| writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**.<br/> The allowed value is **integer** (number of rows). | No. The default is 10000. |
+| writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Database. It's only invoked once per copy run. Use this property to clean up the preloaded data. | No |
-| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. An example is to do upserts or transform by using your own business logic. <br/><br/>Note that this stored procedure is **invoked per batch**. If you want to do operation that only runs once and has nothing to do with source data e.g. delete/truncate, use `preCopyScript` property. |No |
-| storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are: name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
-| sqlWriterTableType |Specify a table type name to be used in the stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. |No |
+| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. An example is to do upserts or transform by using your own business logic. <br/><br/>Note that this stored procedure is **invoked per batch**. If you want to do an operation that only runs once and has nothing to do with source data, like delete or truncate, use `preCopyScript` property. | No |
+| storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
+| sqlWriterTableType | Specify a table type name to be used in the stored procedure. Copy Activity makes the data being moved available in a temporary table with this table type. Stored procedure code can then merge the data being copied with existing data. | No |
 
 > [!TIP]
-> When copying data to Azure SQL Database, the copy activity appends data to the sink table by default. To perform an UPSERT or additional business logic, use the stored procedure in SqlSink. Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
+> When you copy data to Azure SQL Database, the Copy Activity appends data to the sink table by default. To perform an upsert or additional business logic, use the stored procedure in **SqlSink**. Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
-**Example 1: appending data**
+#### Append data example
 
 ```json
 "activities":[
@@ -382,7 +382,7 @@ To copy data to Azure SQL Database, set the sink type in the Copy Activity to **
 ]
 ```
 
-**Example 2: invoking a stored procedure during copy for upsert**
+#### Invoke a stored procedure during copy for upsert example
 
 Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
@@ -423,9 +423,9 @@ Learn more details from [Invoking stored procedure for SQL Sink](#invoking-store
 
 ## Identity columns in the target database
 
-This section provides an example for copying data from a source table without an identity column to a destination table with an identity column.
+This section gives an example of copying data from a source table without an identity column to a destination table with an identity column.
 
-**Source table:**
+#### Source table
 
 ```sql
 create table dbo.SourceTbl
@@ -435,7 +435,7 @@ create table dbo.SourceTbl
 )
 ```
 
-**Destination table:**
+#### Destination table
 
 ```sql
 create table dbo.TargetTbl
@@ -446,9 +446,9 @@ create table dbo.TargetTbl
 )
 ```
 
-Notice that the target table has an identity column.
+Note that the target table has an identity column.
 
-**Source dataset JSON definition**
+#### Source dataset JSON definition
 
 ```json
 {
@@ -466,7 +466,7 @@ Notice that the target table has an identity column.
 }
 ```
 
-**Destination dataset JSON definition**
+#### Destination dataset JSON definition
 
 ```json
 {
@@ -488,17 +488,17 @@ Notice that the target table has an identity column.
 }
 ```
 
-Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column.
+Note that your source and target table have different schema. The target has an additional column with an identity. In this scenario, you must specify the **structure** property in the target dataset definition, which doesn’t include the identity column.
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> Invoke stored procedure from SQL sink
 
-When copying data into Azure SQL Database, a user specified stored procedure could be configured and invoked with additional parameters.
+When you copy data into Azure SQL Database, you can also configure and invoke a user-specified stored procedure  with additional parameters.
 
-A stored procedure can be used when built-in copy mechanisms do not serve the purpose. It is typically used when upsert (insert + update) or extra processing (merging columns, looking up additional values, insertion into multiple tables, etc.) needs to be done before the final insertion of source data in the destination table.
+You can use a stored procedure when built-in copy mechanisms don't serve the purpose. They're typically used when an upsert, insert plus update, or extra processing must be done before the final insertion of source data into the destination table. Some extra processing examples are merge columns, look up additional values, and insertion into multiple tables.
 
-The following sample shows how to use a stored procedure to do an upsert into a table in the Azure SQL Database. Assuming input data and the sink "Marketing" table each has three columns: ProfileID, State, and Category. Perform upsert based on the “ProfileID” column and only apply for a specific category.
+The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Perform the upsert based on the **ProfileID** column, and only apply for a specific category.
 
-**Output dataset**
+#### Output dataset
 
 ```json
 {
@@ -517,7 +517,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 }
 ```
 
-Define the "SqlSink" section in copy activity as follows.
+Define the **SqlSink** section in Copy Activity:
 
 ```json
 "sink": {
@@ -532,7 +532,7 @@ Define the "SqlSink" section in copy activity as follows.
 }
 ```
 
-In your database, define the stored procedure with the same name as "SqlWriterStoredProcedureName". It handles input data from your specified source, and merge into the output table. Notice that the parameter name of the stored procedure should be the same as the "tableName" defined in dataset.
+In your database, define the stored procedure with the same name as the **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. Note that the parameter name of the stored procedure should be the same as the **tableName** defined in the dataset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -549,7 +549,7 @@ BEGIN
 END
 ```
 
-In your database, define the table type with the same name as sqlWriterTableType. Notice that the schema of the table type should be same as the schema returned by your input data.
+In your database, define the table type with the same name as the **sqlWriterTableType**. Note that the schema of the table type should be same as the schema returned by your input data.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -563,9 +563,9 @@ The stored procedure feature takes advantage of [Table-Valued Parameters](https:
 
 ## Data type mapping for Azure SQL Database
 
-When copying data from/to Azure SQL Database, the following mappings are used from Azure SQL Database data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When you copy data from or to Azure SQL Database, the following mappings are used from Azure SQL Database data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn how Copy Activity maps the source schema and data type to the sink.
 
-| Azure SQL Database data type | Data factory interim data type |
+| Azure SQL Database data type | Data Factory interim data type |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
@@ -601,4 +601,4 @@ When copying data from/to Azure SQL Database, the following mappings are used fr
 | xml |Xml |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).
