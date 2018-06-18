@@ -291,7 +291,7 @@ When you deploy updates to a Linux machine, you can select update classification
 
 Because Update Management performs update enrichment in the cloud, some updates might be flagged in Update Management as having security impact, even though the local machine doesn't have that information. As a result, if you apply critical updates to a Linux machine, there might be updates that aren't marked as having security impact on that machine and the updates aren't applied. 
 
-However, Update Management might still report that machine as being noncompliant because it has additional information about the relevant update.
+However, Update Management might still report that machine as being non-compliant because it has additional information about the relevant update.
 
 Deploying updates by update classification might not work on openSUSE Linux due to the different patching model used.
 

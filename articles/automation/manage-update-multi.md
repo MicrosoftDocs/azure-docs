@@ -70,7 +70,7 @@ To learn how to enable Update Management for non-Azure Linux virtual machines an
 
 ## View computers attached to your Automation account
 
-After you enable Update Management for your machines, you can view machine information by selecting **Computers**. You can see information about machine name, compliance status, environment, OS type, critical and security updates installed, other updates installed, and update agent readiness for your computers.
+After you enable Update Management for your machines, you can view machine information by selecting **Computers**. You can see information about *machine name*, *compliance status*, *environment*, *OS type*, *critical and security updates installed*, *other updates installed*, and *update agent readiness* for your computers.
 
   ![View computers tab](./media/manage-update-multi/update-computers-tab.png)
 
