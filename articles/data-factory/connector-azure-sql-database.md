@@ -343,7 +343,7 @@ To copy data to Azure SQL Database, set the sink type in the Copy Activity to **
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**.<br/> The allowed value is **integer** (number of rows). | No. The default is 10000. |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Database. It's only invoked once per copy run. Use this property to clean up the preloaded data. | No |
-| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. An example is to do upserts or transform by using your own business logic. <br/><br/>Note that this stored procedure is **invoked per batch**. If you want to do an operation that only runs once and has nothing to do with source data, like delete or truncate, use `preCopyScript` property. | No |
+| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. An example is to do upserts or transform by using your own business logic. <br/><br/>This stored procedure is **invoked per batch**. For operations that only run once and have nothing to do with source data, use the `preCopyScript` property. Example operations are delete and truncate. | No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 | sqlWriterTableType | Specify a table type name to be used in the stored procedure. Copy Activity makes the data being moved available in a temporary table with this table type. Stored procedure code can then merge the data being copied with existing data. | No |
 
@@ -423,7 +423,7 @@ Learn more details from [Invoking stored procedure for SQL Sink](#invoking-store
 
 ## Identity columns in the target database
 
-This section gives an example of copying data from a source table without an identity column to a destination table with an identity column.
+This section shows you how to copy data from a source table without an identity column to a destination table with an identity column.
 
 #### Source table
 
@@ -446,7 +446,8 @@ create table dbo.TargetTbl
 )
 ```
 
-Note that the target table has an identity column.
+> [!NOTE]
+> The target table has an identity column.
 
 #### Source dataset JSON definition
 
@@ -488,13 +489,16 @@ Note that the target table has an identity column.
 }
 ```
 
-Note that your source and target table have different schema. The target has an additional column with an identity. In this scenario, you must specify the **structure** property in the target dataset definition, which doesn’t include the identity column.
+> [!NOTE]
+> Your source and target table have different schema. 
+
+The target has an additional column with an identity. In this scenario, you must specify the **structure** property in the target dataset definition, which doesn’t include the identity column.
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> Invoke stored procedure from SQL sink
 
 When you copy data into Azure SQL Database, you can also configure and invoke a user-specified stored procedure  with additional parameters.
 
-You can use a stored procedure when built-in copy mechanisms don't serve the purpose. They're typically used when an upsert, insert plus update, or extra processing must be done before the final insertion of source data into the destination table. Some extra processing examples are merge columns, look up additional values, and insertion into multiple tables.
+You can use a stored procedure when built-in copy mechanisms don't serve the purpose. They're typically used when an upsert, insert plus update, or extra processing must be done before the final insertion of source data into the destination table. Some extra processing examples are merge columns, look up additional values, and insertion into more than one table.
 
 The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Perform the upsert based on the **ProfileID** column, and only apply for a specific category.
 
@@ -532,7 +536,7 @@ Define the **SqlSink** section in Copy Activity:
 }
 ```
 
-In your database, define the stored procedure with the same name as the **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. Note that the parameter name of the stored procedure should be the same as the **tableName** defined in the dataset.
+In your database, define the stored procedure with the same name as the **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the stored procedure should be the same as the **tableName** defined in the dataset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
