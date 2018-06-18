@@ -1474,7 +1474,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/role-based-access-control/">
-                                                <img src="media/index/rbac.svg" alt="" />
+                                                <img src="media/index/PersonWithFriend.svg" alt="" />
                                                 <p>Role-based access control</p>
                                             </a>
                                         </li>
@@ -4315,7 +4315,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/rbac.svg" alt="" />
+                                                        <img src="media/index/PersonWithFriend.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
