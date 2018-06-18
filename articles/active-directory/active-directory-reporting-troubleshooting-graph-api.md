@@ -28,31 +28,31 @@ This article lists the common error messages you may run into while accessing ac
 
 We do not currently support the Microsoft Graph v2 endpoint - make sure to access the activity logs using the Microsoft Graph v1 endpoint.
 
-## Failed to get user roles from AD Graph
+## Error: Failed to get user roles from AD Graph
 
 You may get this error message when trying to access sign-ins using Graph Explorer. Make sure you are signed in to your test account using both of the sign-in buttons in the Graph Explorer UI, as shown in the following image. 
 
 ![Graph Explorer](./media/active-directory-reporting-troubleshooting-graph-api/graph-explorer.png)
 
-## Failed to do premium license check from AD Graph 
+## Error: Failed to do premium license check from AD Graph 
 
 If you run into this error message while trying to access sign-ins using Graph Explorer, choose **Modify Permissions** underneath your account on the left nav, and select **Tasks.ReadWrite** and **Directory.Read.All**. 
 
 ![Modify permissions UI](./media/active-directory-reporting-troubleshooting-graph-api/modify-permissions.png)
 
 
-## Neither tenant is B2V or tenant doesn't have premium license
+## Error: Neither tenant is B2V or tenant doesn't have premium license
 
 Accessing sign-in reports requires an Azure Active Directory premium 1 (P1) license. If you see this error message while accessing sign-ins, make sure that your tenant is licensed with an Azure AD P1 license.
 
-## User is not in the allowed roles 
+## Error: User is not in the allowed roles 
 
 If you see this error message while trying to access audit logs or sign-ins using the API, make sure that your account is part of the **Security Reader** or **Report Reader** role in your Azure Active Directory tenant. 
 
-## Application missing AAD 'Read directory data' permission 
+## Error: Application missing AAD 'Read directory data' permission 
 
-Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal) to ensure your application is running with the right set of permissions. 
+Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md) to ensure your application is running with the right set of permissions. 
 
-## Application missing MSGraph API 'Read all audit log data' permission
+## Error: Application missing MSGraph API 'Read all audit log data' permission
 
 Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal) to ensure your application is running with the right set of permissions. 
