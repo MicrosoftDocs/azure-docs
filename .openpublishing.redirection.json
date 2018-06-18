@@ -25244,12 +25244,12 @@
         {
             "source_path": "articles/active-directory/active-directory-application-dev-troubleshoot-content-map.md",
             "redirect_url": "/azure/active-directory/application-dev-registration-config-grant-permissions-how-to",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-application-management-troubleshoot-content-map.md",
             "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-application-provisioning-content-map.md",
@@ -25269,7 +25269,7 @@
         {
             "source_path": "articles/active-directory/active-directory-application-troubleshoot-content-map.md",
             "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }
     ]
 }
