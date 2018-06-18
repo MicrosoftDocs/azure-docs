@@ -77,7 +77,8 @@ Toggle settings
 | Type            | Display name | Field name | Data type |
 | --------------- | ------------ | ---------- | --------- |
 | Device property | Die number   | dieNumber  | number    |
-| Text            | Location     | location   | N/A       |
+| Device property | Device Location   | location  | location    |
+| Text            | Manufactured In     | manufacturedIn   | N/A       |
 
 
 ### Add a real device
