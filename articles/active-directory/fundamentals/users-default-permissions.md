@@ -3,7 +3,7 @@ title: Compare default user permissions in Azure Active Directory | Microsoft Do
 description: Compare member, guest, app owner, and group owner permissions
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: vincesm
 ---
 

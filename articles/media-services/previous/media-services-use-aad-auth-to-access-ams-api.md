@@ -96,7 +96,7 @@ Applications that commonly use this authentication method are apps that run midd
 
 When you use the service principal authentication method to build consumer scenarios, authentication typically is handled in the middle tier (through some API) and not directly in a mobile or desktop application. 
 
-To use this method, create an Azure AD application and service principal in its own tenant. After you create the application, give the app Contributor or Owner role access to the Media Services account. You can do this in the Azure portal, by using Azure CLI, or with a PowerShell script. You also can use an existing Azure AD application. You can register and manage your Azure AD app and service principal [in the Azure portal](media-services-portal-get-started-with-aad.md). You also can do this by using [Azure CLI 2.0](media-services-use-aad-auth-to-access-ams-api.md) or [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
+To use this method, create an Azure AD application and service principal in its own tenant. After you create the application, give the app Contributor or Owner role access to the Media Services account. You can do this in the Azure portal, by using the Azure CLI, or with a PowerShell script. You also can use an existing Azure AD application. You can register and manage your Azure AD app and service principal [in the Azure portal](media-services-portal-get-started-with-aad.md). You also can do this by using [Azure CLI](media-services-use-aad-auth-to-access-ams-api.md) or [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
 
 ![Middle-tier apps](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 

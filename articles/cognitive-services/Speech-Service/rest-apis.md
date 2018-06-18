@@ -138,7 +138,7 @@ The C# class below illustrates how to obtain an access token. Pass your Speech s
     public class Authentication
     {
         public static readonly string FetchTokenUri =
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
 
@@ -159,7 +159,6 @@ The C# class below illustrates how to obtain an access token. Pass your Speech s
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -205,7 +204,7 @@ As before, make sure the `FetchTokenUri` value matches your subscription region.
     public class Authentication
     {
         public static readonly string FetchTokenUri = 
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
         private Timer accessTokenRenewer;
@@ -265,7 +264,6 @@ As before, make sure the `FetchTokenUri` value matches your subscription region.
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -274,3 +272,8 @@ As before, make sure the `FetchTokenUri` value matches your subscription region.
         }
     }
 ```
+
+## Next steps
+
+* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [See how to customize a speech model](how-to-customize-speech-models.md)

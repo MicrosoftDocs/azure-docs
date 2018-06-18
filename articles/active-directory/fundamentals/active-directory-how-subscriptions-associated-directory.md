@@ -3,7 +3,7 @@ title: How to add an existing Azure subscription to your Azure AD directory | Mi
 description: How to add an existing subscription to your Azure AD directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 
@@ -12,8 +12,7 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: get-started-article
 ms.date: 12/12/2017
-ms.author: curtand
-
+ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 
