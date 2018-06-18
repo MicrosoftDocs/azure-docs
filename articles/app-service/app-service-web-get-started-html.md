@@ -131,7 +131,7 @@ The page is running as an Azure App Service web app.
 
 ## Update and redeploy the app
 
-In the Cloud Shell, type `nano index.html` to open the nano text editor, and make a small change to the markup. For example, change the H1 heading from "Azure App Service - Sample Static HTML Site" to just "Azure App Service`.
+In the Cloud Shell, type `nano index.html` to open the nano text editor, and make a small change to the markup. For example, change the H1 heading from "Azure App Service - Sample Static HTML Site" to just "Azure App Service".
 
 ![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
 
