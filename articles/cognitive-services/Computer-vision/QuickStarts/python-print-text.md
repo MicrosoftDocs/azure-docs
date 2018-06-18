@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Printed Text (OCR) with Python
+# Quickstart: Extract printed text (OCR) with Python
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
 
