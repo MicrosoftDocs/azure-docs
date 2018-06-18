@@ -13,9 +13,15 @@ ms.custom: data-sync
 ---
 # Automate the replication of schema changes in Azure SQL Data Sync
 
-SQL Data Sync allows users to synchronize data between Azure SQL Databases and on premises SQL Server in one direction or bi-direction. One of current limitations of SQL Data Sync is lack of support of schema changes replication. Every time the table schema is changed, you need to manually apply the changes in all endpoints, including hub and all members, and then update the sync schema. This articl introduced a solution to automatically replicate schema changes to all endpoints using SQL Data Sync.
+SQL Data Sync lets users synchronize data between Azure SQL Databases and on-premises SQL Server in one direction or in both directions. One of the current limitations of SQL Data Sync is a lack of support for the replication of schema changes. Every time you change the table schema, you need to apply the changes manually on all endpoints, including the hub and all members, and then update the sync schema.
 
-This solution uses a DDL trigger to track schema changes, inserts the schema change commands to a tracking table. This table is synced to all endpoints using Data Sync service. DML triggers after insertion are used to apply the schema changes in other endpoints. This article uses ALTER TABLE as an example, but it also works for other types of schema changes.
+This article introduces a solution to automatically replicate schema changes to all SQL Data Sync endpoints.
+1. This solution uses a DDL trigger to track schema changes.
+2. The trigger inserts the schema change commands in a tracking table.
+3. This tracking table table is synced to all endpoints using the Data Sync service.
+4. DML triggers after insertion are used to apply the schema changes on the other endpoints.
+
+This article uses ALTER TABLE as an example of a schema change, but this solution also works for other types of schema changes.
 
 > [!IMPORTANT]
 > We recommend that you read this article carefully, especially the sections about [Troubleshooting](#troubleshooting) and [Other considerations](#other), before you start to implement automated schema change replication in your sync environment. We also recommend that you read [Sync data across multiple cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md). Some database operations may break the solution described in this article. Additional domain knowledge of SQL Server and Transact-SQL may be required to troubleshoot those issues.
@@ -38,9 +44,9 @@ SqlStmt nvarchar(max),
 
 This table has an identity column to track the order of schema changes. You can add more fields to log more information if needed.
 
-### Create a table to track schema changes history
+### Create a table to track the history of schema changes
 
-In all endpoints, create table to track ID of the last applied schema change command
+On all endpoints, create a table to track the ID of the most recently applied schema change command.
 
 ```sql
 CREATE TABLE SchemaChangeHistory (
@@ -51,9 +57,9 @@ GO
 INSERT INTO SchemaChangeHistory VALUES (0)
 ```
 
-### Create an ALTER TABLE DDL trigger in database where schema changes are applied
+### Create an ALTER TABLE DDL trigger in the database where schema changes are made
 
-Create DDL trigger for ALTER TABLE operations. This trigger only needs to be created in the database where the schema changes are made. To avoid conflict, only allow schema change in one database in a sync group.
+Create a DDL trigger for ALTER TABLE operations. You only need to create this trigger in the database where schema changes are made. To avoid conflicts, only allow schema changes in one database in a sync group.
 
 ```sql
 CREATE TRIGGER AlterTableDDLTrigger
@@ -61,7 +67,7 @@ ON DATABASE
 FOR ALTER_TABLE
 AS
 
--- You can add your own logic to filter ALTER TABLE commands instead of replicate all of them
+-- You can add your own logic to filter ALTER TABLE commands instead of replicating all of them.
 
 IF NOT (EVENTDATA().value('(/EVENT_INSTANCE/SchemaName)[1]', 'nvarchar(512)') like 'DataSync')
 
@@ -69,13 +75,13 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
     VALUES (EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]', 'nvarchar(max)'), 'From DDL trigger')
 ```
 
-The trigger inserts a record in the schema change tracking table for each ALTER TABLE command. I added a filter here to avoid replication of schema changes made under schema 'DataSync', because most likely it is made by the data sync service. You can add more filters if you only want to replicate certain types of schema changes.
+The trigger inserts a record in the schema change tracking table for each ALTER TABLE command. This example adds a filter to avoid replicating schema changes made under schema **DataSync**, because these are most likely made by the Data Sync service. Add more filters if you only want to replicate certain types of schema changes.
 
-You can also add more triggers to replicate other types of schema changes. For example, create CREATE_PROCEDURE, ALTER_PROCEDURE and DROP_PROCEDURE triggers to replicate stored procedure changes.
+You can also add more triggers to replicate other types of schema changes. For example, create CREATE_PROCEDURE, ALTER_PROCEDURE and DROP_PROCEDURE triggers to replicate changes to stored procedures.
 
-### Create trigger in other endpoints to apply schema changes during insertion
+### Create a trigger on other endpoints to apply schema changes during insertion
 
-This trigger executes the schema change command when it is synced to other endpoints. The trigger needs to be created in all the endpoint, except the one where schema change is made in (the database where DDL trigger AlterTableDDLTrigger is created in step 3).
+This trigger executes the schema change command when it is synced to other endpoints. You need to create this trigger on all the endpoints, except the one where schema changes are made (that is, in the database where the DDL trigger `AlterTableDDLTrigger` is created in the previous step).
 
 ```sql
 CREATE TRIGGER SchemaChangesTrigger
@@ -106,100 +112,100 @@ BEGIN
 END
 ```
 
-This trigger runs after the insertion and check if the current command should run next. The code logic ensures no schema change statement is skipped, and all changes are applied even if the insertion is out of order.
+This trigger runs after the insertion and checks whether the current command should run next. The code logic ensures that no schema change statement is skipped, and all changes are applied even if the insertion is out of order.
 
 ### Sync the schema change tracking table to all endpoints
 
-You can sync the schema change tracking table to all endpoints using existing sync group or a new sync group. Make sure the changes in the tracking table can be synced to all endpoint, in case one direction sync is used.
+You can sync the schema change tracking table to all endpoints using the existing sync group or a new sync group. Make sure the changes in the tracking table can be synced to all endpoints, especially when you're using one-direction sync.
 
-Don't sync the schema change history table since they should maintain different state in different endpoints
+Don't sync the schema change history table, since that table maintains different state on different endpoints.
 
-### Apply schema changes in a sync group
+### Apply the schema changes in a sync group
 
-Only schema changes made in the database where the DDL trigger is created is replicated. Schema change made in other databases are not replicated.
+Only schema changes made in the database where the DDL trigger is created are replicated. Schema changes made in other databases are not replicated.
 
 After the schema changes are replicated to all endpoints, you also need to take extra steps to update the sync schema to start or stop syncing the new columns.
 
-#### Adding new columns
+#### Add new columns
 
 1.  Make the schema change.
 
-2.  Avoid any data change where the new columns are involved until step 3 is     completed.
+2.  Avoid any data change where the new columns are involved until you've completed the step that creates the trigger.
 
-3.  Wait until the schema changes applied to all endpoints
+3.  Wait until the schema changes are applied to all endpoints.
 
-4.  Refresh database schema and add the new column to sync schema
+4.  Refresh the database schema and add the new column to the sync schema.
 
 5.  Data in the new column is synced during next sync operation.
 
-#### Removing columns
+#### Remove columns
 
-1.  Remove the columns from sync schema. Data Sync stops syncing data these columns.
+1.  Remove the columns from the sync schema. Data Sync stops syncing data in these columns.
 
-2.  Make the schema change
+2.  Make the schema change.
 
-3.  Refresh database schema
+3.  Refresh the database schema.
 
 #### Update data types
 
-1.  Make the schema change
+1.  Make the schema change.
 
-2.  Wait until the schema changes applied to all endpoint
+2.  Wait until the schema changes are applied to all endpoints.
 
-3.  Refresh database schema
+3.  Refresh the database schema.
 
-4.  If the new and old data types are not fully compatible (for example, update from int to bigint), sync may fail before step 3 finished. Sync succeeds after retry.
+4.  If the new and old data types are not fully compatible - for example, if you change from `int` to `bigint` - sync may fail before the steps that create the triggers are completed. Sync succeeds after a retry.
 
 #### Rename columns or tables
 
-Renaming columns or tables makes data sync stop working. You can create new table/column, backfill data and delete old table/column instead of renaming.
+Renaming columns or tables makes Data Sync stop working. Create a new table or column, backfill the data, and then delete the old table or column instead of renaming.
 
 #### Other types of schema changes
 
-For other types of schema changes (for example, create stored procedures or drop index), update sync schema is not required.
+For other types of schema changes - for example, creating stored procedures or dropping an index- updating the sync schema is not required.
 
 ## <a name="troubleshoot"></a> Troubleshoot automated schema change replication
 
-This replication logic stops working in some situations, for example, you made a schema change in the on-premises database, which is not supported in Azure SQL databases. In that case, sync of schema change tracking table fails. You need fix it manually:
+The replication logic described in this article stops working in some situations- for example, if you made a schema change in an on-premises database which is not supported in Azure SQL Database. In that case, syncing the schema change tracking table fails. You need fix this problem manually:
 
-1.  Disable the DDL trigger and avoid any further schema change before the issue is fixed.
+1.  Disable the DDL trigger and avoid any further schema changes until the issue is fixed.
 
-2.  In the endpoint database where the issue is happening, disable the AFTER INSERT trigger on the endpoint where schema change can't be made. It allows the schema change command being synced.
+2.  In the endpoint database where the issue is happening, disable the AFTER INSERT trigger on the endpoint where the schema change can't be made. This action allows the schema change command to be synced.
 
 3.  Trigger sync to sync the schema change tracking table.
 
-4.  In the endpoint database where the issue is happening, query the schema change history table to get the ID of last applied schema change command, let's say it's 12.
+4.  In the endpoint database where the issue is happening, query the schema change history table to get the ID of last applied schema change command.
 
-5.  Query the schema change tracking table to list all the commands with ID \> 12.
+5.  Query the schema change tracking table to list all the commands with an ID greater than the ID value you retrieved in the previous step.
 
-    a.  For those commands that can't be executed in the endpoint database, ignore it. You need to deal with the schema inconsistency. Revert the original schema changes if the inconsistency impact your application.
+    a.  Ignore those commands that can't be executed in the endpoint database. You need to deal with the schema inconsistency. Revert the original schema changes if the inconsistency impacts your application.
 
-    b.  For those commands that should be applied, manually apply them.
+    b.  Manually apply those commands that should be applied.
 
 6.  Update the schema change history table and set the last applied ID to the correct value.
 
-7.  Double check whether the schema is up-to-date.
+7.  Double-check whether the schema is up-to-date.
 
-8.  Re-enable AFTER INSERT trigger
+8.  Re-enable the AFTER INSERT trigger disabled in the second step.
 
-9.  Re-enable DDL trigger
+9.  Re-enable the DDL trigger disabled in the first step.
 
-If you want to clean up the records in schema change tracking table, use DELETE instead of TRUNCATE. Never reseed the identity column in schema change tracking table using DBCC CHECKIDENT. You can create new schema change tracking tables and update the table name in DDL trigger if reseeding is required.
+If you want to clean up the records in the schema change tracking table, use DELETE instead of TRUNCATE. Never reseed the identity column in schema change tracking table by using DBCC CHECKIDENT. You can create new schema change tracking tables and update the table name in the DDL trigger if reseeding is required.
 
 ## <a name="other"></a> Other Considerations
 
--   Database users used to configure the hub and member databases need to have enough permission to execute the schema change commands.
+-   Database users who configure the hub and member databases need to have enough permission to execute the schema change commands.
 
 -   You can add more filters in the DDL trigger to only replicate schema change in selected tables or operations.
 
--   You can only make schema change in the database where DDL trigger is created.
+-   You can only make schema changes in the database where the DDL trigger is created.
 
--   If you are making change in an on premises SQL Server database, make sure the schema change is supported in Azure SQL Database.
+-   If you are making a change in an on-premises SQL Server database, make sure the schema change is supported in Azure SQL Database.
 
--   If schema changes are made in the databases other than the one where DDL trigger is created, the changes are not replicated. To avoid this issue, you can create DDL triggers to block changes in other endpoints.
+-   If schema changes are made in databases other than the database where the DDL trigger is created, the changes are not replicated. To avoid this issue, you can create DDL triggers to block changes on other endpoints.
 
--   If you need to change schema of the schema change tracking table, disable the DDL trigger before you make the change and manually apply the change to all endpoints. Update schema in an AFTER INSERT trigger on the same table does not work.
+-   If you need to change the schema of the schema change tracking table, disable the DDL trigger before you make the change, and then manually apply the change to all endpoints. Updating the schema in an AFTER INSERT trigger on the same table does not work.
 
--   Don't reseed the identity column (DBCC CHECKIDENT).
+-   Don't reseed the identity column by using DBCC CHECKIDENT.
 
--   Don't use TRUNCATE to clean up data in schema change tracking table.
+-   Don't use TRUNCATE to clean up data in the schema change tracking table.
