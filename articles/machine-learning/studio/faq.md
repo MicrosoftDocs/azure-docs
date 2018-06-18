@@ -71,7 +71,7 @@ You can also use the sample Microsoft Excel workbook that's created for you and 
 
 **What are the main updates to Azure Machine Learning?**
 
-For the latest updates, see [What's new in Azure Machine Learning](whats-new.md).
+For the latest updates, see [What's new in Azure Machine Learning](../../active-directory/fundamentals/whats-new.md).
 
 ## Machine Learning Studio questions
 ### Import and export data for Machine Learning
