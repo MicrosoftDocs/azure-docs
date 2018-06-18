@@ -28,36 +28,33 @@ sections:
         src: media/index/AMSIcons-encoding.svg
       text: Stream video files
       href: /azure/media-services/latest/stream-files-dotnet-quickstart
- - title: Step-by-Step Tutorials
-    items:
-    - type: paragraph
-      text: 'Learn how to stream files on demand, broadcast live, and analyze your videos with Media Services:'
-    - type: table
-      style: dataMatrix
-      columns:
-        - image:
-            src: media/index/AMSIcons-encoding.svg
-          title: Encode and stream
-        - image:
-            src: media/index/AMSIcons-live.svg
-          title: Stream live          
-        - image:
-            src: media/index/AMSIcons-media_analytics.svg
-          title: Analyze videos
-      rows:
-        - title: Media Services v3
-          values:
-          - href: /azure/media-services/latest/stream-files-tutorial-with-api
-          - href: /azure/media-services/latest/stream-live-tutorial-with-api
-          - href: /azure/media-services/latest/analyze-videos-tutorial-with-api    
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to stream files on demand, broadcast live, and analyze your videos with Media Services:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/AMSIcons-encoding.svg
+      text: Upload, encode, and stream videos
+      href: /azure/media-services/latest/stream-files-tutorial-with-api
+    - image: 
+        src: media/index/AMSIcons-encoding.svg
+      text: Broadcast live
+      href: /azure/media-services/latest/stream-live-tutorial-with-api
+    - image: 
+        src: media/index/AMSIcons-encoding.svg
+      text: Analyze your videos
+      href: /azure/media-services/latest/analyze-videos-tutorial-with-api
 - title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-    - type: paragraph
-      text: ''
-    - type: list
-      style: unordered
-      items:
     - title: Command-Line
       html: <p><a href="https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest">Azure CLI</a></p>
     - title: REST
       html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=873030">REST API</a></p>
+      
