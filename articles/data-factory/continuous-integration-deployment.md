@@ -89,39 +89,6 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-6.  Get the secrets from Azure Key Vault. There are two ways to handle the secrets:
-
-    a.  Add the secrets to parameters file:
-
-       -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
-
-        ```json
-        {
-	        "parameters": {
-		        "azureSqlReportingDbPassword": {
-	    		    "reference": {
-    				    "keyVault": {
-					        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-			        	},
-        				"secretName": " < secret - name > "
-		        	}
-		        }
-	        }
-        }
-        ```
-
-       -   When you use this method, the secret is pulled from the key vault automatically.
-
-       -   The parameters file needs to be in the publish branch as well.
-
-    b.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
-
-       -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
-
-       -   In the Key Vault task, choose the subscription in which you created the key vault, provide credentials if necessary, and then choose the key vault.
-
-       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
-
 7.  Add an Azure Resource Manager Deployment task:
 
     a.  Create new task, search for **Azure Resource Group Deployment**, and add it.
@@ -144,6 +111,43 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
+### Optional - Get the secrets from Azure Key Vault
+
+If you have secrets to passed in Azure Resource Manager template, we recommend using Azure Key Vault with the VSTS release. For more info, see [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+
+There are two ways to handle the secrets:
+
+1.  Add the secrets to parameters file:
+
+    -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
+
+    ```json
+    {
+	    "parameters": {
+		    "azureSqlReportingDbPassword": {
+	    		"reference": {
+    				"keyVault": {
+					    "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+			        },
+        		    "secretName": " < secret - name > "
+		        }
+		    }
+	    }
+    }
+    ```
+
+    -   When you use this method, the secret is pulled from the key vault automatically.
+
+    -   The parameters file needs to be in the publish branch as well.
+
+2.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment described in the previous section:
+
+    -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
+
+    -   In the Key Vault task, choose the subscription in which you created the key vault, provide credentials if necessary, and then choose the key vault.
+
+    ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+
 ### Grant permissions to the VSTS agent
 The Azure Key Vault task may fail the first time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the VSTS agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
 
@@ -157,14 +161,10 @@ Deployment can fail if you try to update active triggers. To update active trigg
 3.  Choose **Inline Script** as the script type and then provide your code. The following example stops the triggers:
 
     ```powershell
-    $armTemplate="$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json"
-
-    $templateJson = Get-Content "$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json" | ConvertFrom-Json
-
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName
     $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $\_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
