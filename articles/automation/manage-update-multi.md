@@ -44,7 +44,7 @@ Update Management is supported on the following operating systems:
 
 Linux agents must have access to an update repository.
 
-This solution doesn't support an OMS Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
+This solution doesn't support an Operations Management Suite (OMS) Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
 
 ## Enable Update Management for Azure virtual machines
 
@@ -54,13 +54,13 @@ Select **Add Azure VM**.
 
 ![Add Azure VM tab](./media/manage-update-multi/update-onboard-vm.png)
 
-Select a virtual machine to onboard. The **Enable Update Management** dialog box opens. 
+Select a virtual machine to onboard. 
 
-Select **Enable** to onboard the virtual machine.
+Under **Enable Update Management**, select **Enable** to onboard the virtual machine.
 
 ![Enable Update Management dialog box](./media/manage-update-multi/update-enable.png)
 
-When onboarding is complete, Update Management is enabled for your virtual machine.
+When onboarding is finished, Update Management is enabled for your virtual machine.
 
 ## Enable Update Management for non-Azure virtual machines and computers
 
@@ -70,29 +70,29 @@ To learn how to enable Update Management for non-Azure Linux virtual machines an
 
 ## View computers attached to your Automation account
 
-After you enable Update Management for your machines, you can view machine information by selecting **Computers**. Information like *Name*, *Compliance*, *Environment*, *OS Type*, *Critical and Security Updates*, *Other Updates*, and *Update Agent Readiness* is available for your computers.
+After you enable Update Management for your machines, you can view machine information by selecting **Computers**. You can see information about machine name, compliance status, environment, OS type, critical and security updates installed, other updates installed, and update agent readiness for your computers.
 
   ![View computers tab](./media/manage-update-multi/update-computers-tab.png)
 
 Computers that have recently been enabled for Update Management might not have been assessed yet. The compliance state status for those computers is **Not assessed**. Here's a list of possible values for compliance state:
 
-- **Compliant**: Computers that aren't missing critical or security updates.
+- **Compliant**: Computers that are not missing critical or security updates.
 
 - **Non-compliant**: Computers that are missing at least one critical or security update.
 
 - **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last 3 hours. For Windows computers, the expected timeframe is in the last 12 hours.
 
-To view the status of the agent, select the link in the **UPDATE AGENT READINESS** column. Selecting this option opens the Hybrid Worker pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time.
+To view the status of the agent, select the link in the **UPDATE AGENT READINESS** column. Selecting this option opens the **Hybrid Worker** pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
 
 ![View computers tab](./media/manage-update-multi/update-agent-broken.png)
 
 ## View an update assessment
 
-After Update Management is enabled, the **Update management** dialog box opens. You can see a list of missing updates on the **Missing updates** tab.
+After Update Management is enabled, the **Update management** pane opens. You can see a list of missing updates on the **Missing updates** tab.
 
 ## Collect data
 
-Agents that are installed on virtual machines and computers collect data about updates, and then send the data to Azure Update Management.
+Agents that are installed on virtual machines and computers collect data about updates. The agents send the data to Azure Update Management.
 
 ### Supported agents
 
@@ -113,7 +113,7 @@ It can take between 30 minutes and 6 hours for the dashboard to display updated 
 
 ## Schedule an update deployment
 
-To install updates, schedule a deployment that follows your release schedule and service window. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
+To install updates, schedule a deployment that aligns with your release schedule and service window. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
 To schedule a new update deployment for one or more virtual machines, under **Update management**, select **Schedule update deployment**.
 
@@ -125,7 +125,7 @@ In the **New update deployment** pane, specify the following information:
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 
-- **Update classification**: Select the types of software that the update deployment will include. For a description of the classification types, see [update classifications](automation-update-management.md#update-classifications). The classification types are:
+- **Update classification**: Select the types of software to include in the update deployment. For a description of the classification types, see [Update classifications](automation-update-management.md#update-classifications). The classification types are:
   - Critical updates
   - Security updates
   - Update rollups
@@ -135,19 +135,19 @@ In the **New update deployment** pane, specify the following information:
   - Tools
   - Updates
 
-- **Updates to exclude** - Selecting this option opens the **Exclude** page. Enter the KB articles or package names to exclude.
+- **Updates to exclude**: Selecting this option opens the **Exclude** page. Enter the KB articles or package names to exclude.
 
 - **Schedule settings**: You can accept the default date and time, which is 30 minutes after the current time. You can also specify a different time.
 
    You can also specify whether the deployment occurs once or on a recurring schedule. To set up a recurring schedule, under **Recurrence**, select **Recurring**.
 
    ![Schedule Settings dialog box](./media/manage-update-multi/update-set-schedule.png)
-- **Maintenance window (minutes)**: Specify the period of time for when you want the update deployment to occur. This setting helps ensure that changes are performed within your defined service windows.
+- **Maintenance window (minutes)**: Specify the period of time that you want the update deployment to occur. This setting helps ensure that changes are performed within your defined service windows.
 
-When you're finished configuring the schedule, return to the status dashboard by selecting the **Create** button. The **Scheduled** table shows the deployment schedule that you created.
+When you're finished configuring the schedule, select the **Create** button to return to the status dashboard. The **Scheduled** table shows the deployment schedule that you created.
 
 > [!WARNING]
-> For updates that require a restart, the virtual machine will restart automatically.
+> For updates that require a restart, the virtual machine restarts automatically.
 
 ## View results of an update deployment
 

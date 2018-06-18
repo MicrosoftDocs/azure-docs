@@ -64,9 +64,9 @@ Enabling the solution can take up to a few minutes. During this time, don't clos
 
 ## View update assessment
 
-After Update Management is enabled, the **Update management** pane appears. If any updates are missing, a list of missing updates is shown on the **Missing updates** tab.
+After Update Management is enabled, the **Update management** pane opens. If any updates are missing, a list of missing updates is shown on the **Missing updates** tab.
 
-Under **INFORMATION LINK**, select the update link to open the support article for the update in a new window. You can learn important information about the update in this window:
+Under **INFORMATION LINK**, select the update link to open the support article for the update in a new window. You can learn important information about the update in this window.
 
 ![View update status](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
@@ -92,7 +92,7 @@ UpdateRunProgress
 | where TimeGenerated > now(-10m)
 | summarize by UpdateRunName, Computer
 ```
-This query returns the computers and the update run name that completed in the specified time frame.
+This query returns the computers and the update run name that completed in the specified timeframe.
 
 Under **Alert logic**, for **Threshold**, enter **1**. When you're finished, select **Done**.
 
@@ -174,7 +174,7 @@ Select **Output** to see the job stream of the runbook responsible for managing 
 
 Select **Errors** to see detailed information about any errors from the deployment.
 
-When your update deployment is successful, an email similar to the following image is sent to show success of the deployment:
+When your update deployment is successful, an email that's similar to the following example is sent to show success of the deployment:
 
 ![Configure email action group](./media/automation-tutorial-update-management/email-notification.png)
 

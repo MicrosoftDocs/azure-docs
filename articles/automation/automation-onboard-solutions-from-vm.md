@@ -23,7 +23,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 Go to an existing virtual machine. Under **OPERATIONS**, select **Update management**, **Inventory**, or **Change tracking**.
 
-To enable the solution for the VM only, ensure that the **Enable for this VM** radio button is selected. To onboard multiple machines to the solution, select **Enable for VMs in this subscription** and click **Click to select machines to enable**. To view the steps on how to onboard multiple machines at once, see [Onboard Update Management, Change Tracking, and Inventory solutions](automation-onboard-solutions-from-automation-account.md).
+To enable the solution for the VM only, ensure that **Enable for this VM** is selected. To onboard multiple machines to the solution, select **Enable for VMs in this subscription**, and then select **Click to select machines to enable**. To learn how to onboard multiple machines at once, see [Onboard Update Management, Change Tracking, and Inventory solutions](automation-onboard-solutions-from-automation-account.md).
 
 Select the Azure Log Analytics workspace and Automation account, and then select **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
@@ -38,7 +38,7 @@ Go to the other solutions, and then select **Enable**. The Log Analytics and Aut
 
 Each solution uses a scope configuration in the workspace to target the computers that get the solution. The scope configuration is a group of one or more saved searches that are used to limit the scope of the solution to specific computers. To access the scope configurations, in your Automation account, under **RELATED RESOURCES**, select **Workspace**. In the workspace, under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
 
-If the selected workspace doesn't already have the update management or change tracking solutions, the following scope configurations are created:
+If the selected workspace doesn't already have the Update Management or Change Tracking solutions, the following scope configurations are created:
 
 * **MicrosoftDefaultScopeConfig-ChangeTracking**
 
@@ -46,7 +46,7 @@ If the selected workspace doesn't already have the update management or change t
 
 If the selected workspace already has the solution, the solution isn't redeployed and the scope configuration isn't added.
 
-Select the ellipses (**...**) on any of the configurations, and then select **Edit**. In the **Edit scope configuration** pane, select **Select Computer Groups** to open the **Computer Groups** pane. This pane shows the saved searches that are used to create the scope configuration.
+Select the ellipses (**...**) on any of the configurations, and then select **Edit**. In the **Edit scope configuration** pane, select **Select Computer Groups**. The **Computer Groups** pane shows the saved searches that are used to create the scope configuration.
 
 ## Saved searches
 
