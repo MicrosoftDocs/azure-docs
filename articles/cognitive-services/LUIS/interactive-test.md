@@ -25,13 +25,13 @@ ms.author: v-geberr
 
 2. To access the **Test** slide-out panel, select **Test** in your application's top panel.
 
-    ![Train & Test App page](./media/luis-how-to-train-test/test.png)
+    ![Train & Test App page](./media/luis-how-to-interactive-test/test.png)
 
 3. Enter an utterance in the text box and select Enter. You can type as many test utterances as you want in the **Test**, but only one utterance at a time.
 
 4. The utterance, its top intent, and score are added to the list of utterances under the text box.
 
-    ![Interactive testing identifies the wrong intent](./media/luis-how-to-train-test/test-weather-1.png)
+    ![Interactive testing identifies the wrong intent](./media/luis-how-to-interactive-test/test-weather-1.png)
 
 ## Clear test panel
 To clear all the entered test utterances and their results from the test console, select **Start over** at the upper-left corner of the **Test panel**. 
@@ -44,11 +44,11 @@ You inspect details of the test result in the **Inspect** panel.
  
 1. With the **Test** slide-out panel open, select **Inspect** for an utterance you want to compare. 
 
-    ![Inspect button](./media/luis-how-to-train-test/inspect.png)
+    ![Inspect button](./media/luis-how-to-interactive-test/inspect.png)
 
 2. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
-    ![Inspect button](./media/luis-how-to-train-test/inspect-panel.png)
+    ![Inspect button](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## Correct top scoring intent
 
@@ -56,13 +56,13 @@ You inspect details of the test result in the **Inspect** panel.
 
 2.  In the drop-down list, select the correct intent for the utterance.
 
-    ![Select correct intent](./media/luis-how-to-train-test/intent-select.png)
+    ![Select correct intent](./media/luis-how-to-interactive-test/intent-select.png)
 
 ## View sentiment results
 
 If **Sentiment analysis** is configured on the **[Publish](publishapp.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance. 
 
-![Image of Test pane with sentiment analysis](./media/luis-how-to-train-test/sentiment.png)
+![Image of Test pane with sentiment analysis](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## Correct matched pattern's intent
 If you are using [Patterns](luis-concept-patterns.md) and the utterance matched a pattern, but the wrong intent was predicted, select the **Edit** link by the pattern, then select the correct intent.
@@ -70,12 +70,12 @@ If you are using [Patterns](luis-concept-patterns.md) and the utterance matched 
 ## Compare with published version
 You can test the active version of your app with the published [endpoint](luis-glossary.md#endpoint) version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
 
-![Compare with published](./media/luis-how-to-train-test/inspect-panel-compare.png)
+![Compare with published](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
 ## View endpoint JSON in test panel
 You can view the endpoint JSON returned for the comparison by selecting the **Show JSON view**.
 
-![Published JSON response](./media/luis-how-to-train-test/inspect-panel-compare-json.png)
+![Published JSON response](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
 <!--Service name is 'Bing Spell Check v7 API' in the portal-->
 ## Additional settings in test panel
@@ -83,7 +83,7 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 ### LUIS endpoint
 If you have several LUIS endpoints, use the **Additional Settings** link on the Test's Published pane to change the endpoint used for testing. If you are not sure which endpoint to use, select the default **Starter_Key**. 
 
-![Test panel with Additional Settings link highlighted](./media/luis-how-to-train-test/interactive-with-spell-check-service-key.png)
+![Test panel with Additional Settings link highlighted](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### View Bing Spell Check corrections in test panel
@@ -96,11 +96,11 @@ Use the following to use the Bing Spell Check v7 service key in the Test pane.
 1. In the test panel, on the **Published** pane, select **Additional Settings**.
 
 2. In the pop-up dialog, enter your **Bing Spell Check** service key. 
-    ![Enter Bing Spell Check service key](./media/luis-how-to-train-test/interactive-with-spell-check-service-key.png)
+    ![Enter Bing Spell Check service key](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 3. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
 
-    ![Corrected spelling JSON](./media/luis-how-to-train-test/interactive-with-spell-check-results.png)
+    ![Corrected spelling JSON](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>

@@ -3,7 +3,7 @@ title: Microsoft Authenticator phone sign-in - Azure and Microsoft accounts | Mi
 description: Use your phone to sign in to your Microsoft account instead of typing your password. This article answers FAQs about this feature.
 services: multi-factor-authentication
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 
 ms.assetid: ''
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
-ms.author: barlan
+ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
 ---
