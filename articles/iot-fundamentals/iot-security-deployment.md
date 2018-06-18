@@ -31,13 +31,7 @@ The IoT solution accelerators support the following Cipher Suites, in this order
 | TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
 
 ## See also
-You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Predictive Maintenance solution accelerator overview][lnk-predictive-overview]
-* [Frequently asked questions for IoT solution accelerators][lnk-faq]
+Read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-security] in the IoT Hub developer guide.
 
-You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-security] in the IoT Hub developer guide.
-
-[lnk-predictive-overview]:iot-accelerators-predictive-overview.md
-[lnk-faq]:iot-accelerators-faq.md
-[lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
+[lnk-devguide-security]: /azure/iot-hub/iot-hub-devguide-security.md
