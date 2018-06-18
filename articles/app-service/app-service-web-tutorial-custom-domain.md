@@ -275,7 +275,7 @@ Browse to the DNS name(s) that you configured earlier (for example, `contoso.com
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## Resolve 404 error “Web Site not found”
+## Resolve 404 “Not Found”
 
 If you receive an HTTP 404 (Not Found) error when browsing to the URL of your custom domain, verify that your domain resolves to your app's IP address using <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. If not, it may be due to one of the following reasons:
 
@@ -284,7 +284,7 @@ If you receive an HTTP 404 (Not Found) error when browsing to the URL of your cu
 
 <a name="virtualdir"></a>
 
-## Direct default URL to a custom directory
+## Redirect to a custom directory
 
 By default, App Service directs web requests to the root directory of your app code. However, certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. To continue the `contoso.com` DNS example, such an app would be accessible at `http://contoso.com/public`, but you would really want to direct `http://contoso.com` to the `public` directory instead. This step doesn't involve DNS resolution, but customizing the virtual directory.
 
