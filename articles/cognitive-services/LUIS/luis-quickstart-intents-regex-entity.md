@@ -201,5 +201,5 @@ Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuil
 
 
 <!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions
+[LUIS](luis-reference-regions.md#luis-website)
+[LUIS-regions](luis-reference-regions.md#publishing-regions)
