@@ -1,5 +1,5 @@
 ---
-title: Enterprise Integration with Queues & Events
+title: Azure Integration Services reference architecture
 description: Reference Architecture showing how to implement an enterprise integration pattern with Logic Apps, API Management, Service Bus and  Event Grid 
 author: mattfarm
 manager: jonfan
@@ -17,7 +17,9 @@ ms.date: 06/15/2018
 ms.author: LADocs; estfan
 ---
 
-# Overview
+# Enterprise Integration with Queues & Events - reference architecture
+
+## Overview
 
 This reference architecture shows a set of proven practices for an integration application that uses Azure Integration Services. This architecture can serve as this basis of many different application patterns requiring HTTP APIs, workflow and orchestration.
 
@@ -25,7 +27,7 @@ This reference architecture shows a set of proven practices for an integration a
 
 ![Architecture diagram - enterprise integration with queues & events](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
 
-# Architecture
+## Architecture
 
 This architecture builds on the one shown in [simple enterprise integration](logic-apps-architectures-simple-enterprise-integration.md). It includes the following components:
 
@@ -50,47 +52,47 @@ This architecture has some fundamental patterns to its operation:
 6. When messages are added to a Service Bus queue, an Event fires. A Logic App is triggered by this event and processes the message.
 7. Similarly, other Azure services (e.g. Blob Storage, Event Hub) also publish events to Event Grid. These trigger Logic Apps to receive the event and perform subsequent actions.
 
-# Recommendations
+## Recommendations
 
 Your requirements might differ from the architecture described here. Use the recommendations in this section as a starting point.
 
-## Service Bus tier
+### Service Bus tier
 
-Use Service Bus premium tier as this supports event grid notifications currently (support across all tiers is expected). See Service Bus pricing.
+Use Service Bus premium tier as this supports event grid notifications currently (support across all tiers is expected). See [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
-## Event Grid pricing
+### Event Grid pricing
 
-Event Grid works using a serverless model – billing is calculated based on number of operations (event execution). See [Event Grid pricing](https://azure.microsoft.com/en-us/pricing/details/event-grid/) for more information. There are currently no tier considerations for Event Grid.
+Event Grid works using a serverless model – billing is calculated based on number of operations (event execution). See [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/) for more information. There are currently no tier considerations for Event Grid.
 
-## Use PeekLock when consuming Service Bus messages
+### Use PeekLock when consuming Service Bus messages
 
 When creating Logic Apps to consume Service Bus messages, use [PeekLock](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#queues) within the Logic App to access a group of messages. The Logic App can then perform steps to validate each message before completing or abandoning. This approach protects against accidental message loss.
 
-## Check for multiple objects when an Event Grid trigger fires
+### Check for multiple objects when an Event Grid trigger fires
 
 Event Grid triggers firing simply means that “at least 1 of these things happened”. For example, when Event Grid triggers a logic app on a message appearing in a Service Bus queue, the logic app should always assume there may be one or more messages available to process.
 
-## Region
+### Region
 
 Provision API Management, Logic Apps and Service Bus in the same region to minimize network latency. Generally, choose the region closest to your users.
 
 The resource group also has a region, which specifies where deployment metadata is stored, and where the deployment template is executed from. Put the resource group and its resources in the same region. This can improve availability during deployment.
 
-# Scalability considerations
+## Scalability considerations
 
 Azure Service Bus premium tier can scale-out the number of messaging units to achieve higher scalability. Premium can have 1, 2, or 4 messaging units. For further guidance on scaling Azure Service Bus, see [Best Practices for performance improvements using Service Bus Messaging](../service-bus-messaging/service-bus-performance-improvements.md).
 
-# Availability considerations
+## Availability considerations
 
 At the time of writing, the service level agreement (SLA) for Azure API Management is 99.9% for Basic, Standard, and Premium tiers. Premium tier configurations with deployment of at least one unit in two or more regions have an SLA of 99.95%.
 
 At the time of writing, the service level agreement (SLA) for Azure Logic Apps is 99.9%.
 
-## Disaster recovery
+### Disaster recovery
 
 Consider implementing Geo-disaster recovery in Service Bus premium to enable failover in the event of a serious outage. Read more about [Azure Service Bus Geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md).
 
-# Manageability considerations
+## Manageability considerations
 
 Create separate resource groups for production, development, and test environments. This makes it easier to manage deployments, delete test deployments, and assign access rights.
 When assigning resources to resource groups, consider the following:
@@ -102,22 +104,24 @@ When assigning resources to resource groups, consider the following:
 
 For more information, see [resource group](../azure-resource-manager/resource-group-overview.md) overview.
 
-## Deployment
+### Deployment
 
 We recommend that you use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to deploy Azure API Management, Logic Apps, Event Grid and Service Bus. Templates make it easier to automate deployments via PowerShell or the Azure command-line interface (CLI).
 
 We recommend putting Azure API Management, any individual Logic Apps, Event Grid topics and Service Bus Namespaces in their own separate Resource Manager templates. This will allow storing them into source control systems for. These templates can then be deployed together or individually as part of a continuous integration/continuous (CI/CD) deployment process.
 
-## Diagnostics and monitoring
+### Diagnostics and monitoring
 
 Service Bus, like API Management and Logic Apps can be monitored using Azure Monitor. Azure Monitor is enabled by default and will provide information based on the different metrics configured for each service.
 
-# Security considerations
+## Security considerations
 
 Secure Service Bus using a Shared Access Signature. [SAS authentication](../service-bus-messaging/service-bus-sas.md) enables you to grant a user access to Service Bus resources, with specific rights. Read more about [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md).
 
 Additionally, should a Service Bus queue need to be exposed as an HTTP endpoint (to allow posting of new messages), API Management should be used to secure it by fronting the endpoint. This can then be secured with certificates or OAuth as appropriate. The easiest way to do this is using a Logic App with a Request/Response HTTP trigger as an intermediary.
 
 Event Grid secures event delivery through a validation code. If you use LogicApps to consume the event, this is performed automatically. See more details about [Event Grid security and authentication](../event-grid/security-authentication.md).
+
+## Next Steps
 
 * [Simple Enterprise Integration](logic-apps-architectures-simple-enterprise-integration.md)

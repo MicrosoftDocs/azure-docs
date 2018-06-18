@@ -1,5 +1,5 @@
 ---
-title: Simple Enterprise Integration
+title: Azure Integration Services - Simple Enterprise Integration
 description: Reference architecture showing how to implement a simple enterprise integration pattern with Azure Logic Apps and Azure API Management 
 author: mattfarm
 manager: jonfan
@@ -17,7 +17,9 @@ ms.date: 06/15/2018
 ms.author: LADocs; estfan
 ---
 
-# Overview
+# Simple Enterprise Integration - reference architecture
+
+## Overview
 
 This reference architecture shows a set of proven practices for an integration application that uses Azure Integration Services. This architecture can serve as this basis of many different application patterns requiring HTTP APIs, workflow and orchestration.
 
@@ -25,7 +27,7 @@ This reference architecture shows a set of proven practices for an integration a
 
    ![Architecture diagram - simple enterprise integration](./media/logic-apps-architectures-simple-enterprise-integration/simple_arch_diagram.png)
 
-# Architecture
+## Architecture
 
 The architecture has the following components:
 
@@ -45,31 +47,31 @@ This architecture has some fundamental patterns to its operation:
 3. Applications acquire an OAuth 2.0 security token necessary for gaining access to an API using Azure Active Directory.
 4. Azure API Management validates the security token, and passes the request to the backend API/Logic App.
 
-# Recommendations
+## Recommendations
 
 Your requirements might differ from the architecture described here. Use the recommendations in this section as a starting point.
 
-## Azure API Management tier
+### Azure API Management tier
 
-Use the Basic, Standard or Premium tiers because they offer a production SLA and support scale-out within the Azure region (number of units varies by tier). Premium tier also supports scale-out across multiple Azure regions. Base the tier you chose on your level of throughput required and feature set. For more information, see [API Management pricing](https://azure.microsoft.com/en-us/pricing/details/api-management/).
+Use the Basic, Standard or Premium tiers because they offer a production SLA and support scale-out within the Azure region (number of units varies by tier). Premium tier also supports scale-out across multiple Azure regions. Base the tier you chose on your level of throughput required and feature set. For more information, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
 You are charged for all API Management instances when they are running. If you have scaled up and don’t need that level of performance all the time, consider taking advantage of API Management’s hourly billing and scale down.
 
-## Logic Apps pricing
+### Logic Apps pricing
 
-Logic Apps works as a [serverless](logic-apps-serverless-overview.md) model – billing is calculated based on action and connector execution. See [Logic Apps pricing](https://azure.microsoft.com/en-us/pricing/details/logic-apps/) for more information. There are currently no tier considerations for Logic Apps.
+Logic Apps works as a [serverless](logic-apps-serverless-overview.md) model – billing is calculated based on action and connector execution. See [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) for more information. There are currently no tier considerations for Logic Apps.
 
-## Logic Apps for asynchronous API calls
+### Logic Apps for asynchronous API calls
 
 Logic Apps works best in scenarios that don’t require low latency – e.g. asynchronous or semi-long-running API calls. If low latency is required (e.g. a call that blocks a user interface) we recommend implementing that API or operation using a different technology, e.g. Azure Functions or Web API deployed using App Service. We still recommend that this API be fronted using API Management to API consumers.
 
-## Region
+### Region
 
 Provision API Management and Logic Apps in the same region to minimize network latency. Generally, choose the region closest to your users.
 
 The resource group also has a region, which specifies where deployment metadata is stored, and where the deployment template is executed from. Put the resource group and its resources in the same region. This can improve availability during deployment.
 
-# Scalability considerations
+## Scalability considerations
 
 API Management administrators should add [caching policies](../api-management/api-management-howto-cache.md) where appropriate to increase the scalability of the service and reduce load on their backend services.
 
@@ -86,13 +88,13 @@ Premium tier services can be scaled out across multiple Azure regions. Customers
 
 Logic Apps’ serverless model means administrators do not need to make extra consideration for service scalability; the service scales automatically to meet demand.
 
-# Availability considerations
+## Availability considerations
 
 At the time of writing, the service level agreement (SLA) for Azure API Management is 99.9% for Basic, Standard, and Premium tiers. Premium tier configurations with deployment of at least one unit in two or more regions have an SLA of 99.95%.
 
 At the time of writing, the service level agreement (SLA) for Azure Logic Apps is 99.9%.
 
-## Backups
+### Backups
 
 The configuration of Azure API Management should be [backed up regularly](../api-management/api-management-howto-disaster-recovery-backup-restore.md) (appropriately based on regularity of change), and the backup files stored in a location or Azure Region different to where the service resides. Customers can then choose one of two options for their DR strategy:
 
@@ -103,7 +105,7 @@ As Logic Apps can be recreated very quickly and are serverless, they are backed 
 
 Logic Apps that have been published through API Management will need their locations updated should they move to a different data center. This can be accomplished through a simple PowerShell script to update the Backend property of the API.
 
-# Manageability considerations
+## Manageability considerations
 
 Create separate resource groups for production, development, and test environments. This makes it easier to manage deployments, delete test deployments, and assign access rights.
 When assigning resources to resource groups, consider the following:
@@ -115,13 +117,13 @@ When assigning resources to resource groups, consider the following:
 
 For more information, see [resource group](../azure-resource-manager/resource-group-overview.md) overview.
 
-## Deployment
+### Deployment
 
 We recommend that you use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to deploy both Azure API Management and Azure Logic Apps. Templates make it easier to automate deployments via PowerShell or the Azure command-line interface (CLI).
 
 We recommend putting Azure API Management and any individual Logic Apps in their own separate Resource Manager templates. This will allow storing them in source control systems. These templates can then be deployed together or individually as part of a continuous integration/continuous (CI/CD) deployment process.
 
-## Versions
+### Versions
 
 Each time you make a configuration change to a Logic App (or deploy an update through a Resource Manager template), a copy of that version is kept for your convenience (all versions that have a run history will be kept). You can use these versions to track historical changes, and also promote a version to be the current configuration of the logic app; doing so means you can effectively roll-back a Logic App, for example.
 
@@ -134,7 +136,7 @@ In the context of deployment – API Management revisions should be considered a
 
 Whilst revisions can be used to test an API before it is made ‘current’ and made accessible to users, we do not recommend using this mechanism for load or integration testing – separate test or pre-production environments should be used instead.
 
-## Configuration
+### Configuration
 
 Never check passwords, access keys, or connection strings in to source control. If they are needed, use the appropriate technique to deploy and secure these values. 
 
@@ -142,7 +144,7 @@ In Logic Apps, any sensitive values needed within the logic app (that cannot be 
 
 In API Management, secrets are managed using objects called Named Values/Properties. These securely store values that can be accessed in API Management policies. See how to [manage secrets in API Management](../api-management/api-management-howto-properties.md).
 
-## Diagnostics and monitoring
+### Diagnostics and monitoring
 
 Both [API Management](../api-management/api-management-howto-use-azure-monitor.md) and [Logic Apps](logic-apps-monitor-your-logic-apps.md) support operational monitoring through [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor is enabled by default and will provide information based on the different metrics configured for each service.
 
@@ -151,7 +153,7 @@ Additionally, there are further options for each service:
 •	API Management supports configuring Application Insights for Dev Ops monitoring.
 •	API Management supports the [Power BI Solution Template for custom API analytics](http://aka.ms/apimpbi). This solution template allows customers to create their own custom analytics solution, with reports available in Power BI for business users.
 
-# Security considerations
+## Security considerations
 
 This section lists security considerations that are specific to the Azure services described in this article, deployed in the architecture as described. It's not a complete list of security best practices.
 
@@ -161,5 +163,7 @@ This section lists security considerations that are specific to the Azure servic
 - Secure HTTP trigger-based Logic Apps by creating an IP Address whitelist pointing to the IP Address of API Management. This prevents calling the logic app from the public internet without first going through API Management.
 
 This reference architecture showed how to build a simple enterprise integration platform using Azure Integration Services.
+
+## Next Steps
 
 * [Enterprise Integration with Queues and Events](logic-apps-architectures-enterprise-integration-with-queues-events.md)
