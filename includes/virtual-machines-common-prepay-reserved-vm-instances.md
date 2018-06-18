@@ -11,9 +11,9 @@ You can buy Azure Reserved Instances in the [Azure portal](https://portal.azure.
 -   For Cloud Solution Provider (CSP) program only the admin agents or sales agents can purchase the Reserved Instances.
 
 ## Determine the right VM size before purchase
-The Meter Sub-category and Product fields in the usage data do not distinguish between VM sizes that use premium storage from VM sizes that use regular storage. Do no use these fields to determine the VM size for reservation purchase, as doing so can lead to incorrect purchase and not provide you any reservation discounts. Use one of the methods below to determine the right VM size for reservation purchase.
-1. Refer to the AdditionalInfo > ServiceType field in your usage file or usage API to determine the correct VM size for a reservation purchase. This field will provide the correct VM size when using premium storage. Example: The VM size in their field will be DS4 for VMs that use premium storage instead of D4.
-2. You can also get accurate VM size information using Powershell, Azure Resource Manager or from VM details in the Azure portal.
+The Meter Sub-category and Product fields in the usage data do not distinguish between VM sizes that use premium storage from VM sizes that do not use premium storage. Do no use these fields to determine the VM size for reservation purchase, as doing so can lead to incorrect purchase and not provide you reservation discounts. Use one of the methods below to determine the right VM size for reservation purchase.
+- Refer to the AdditionalInfo > ServiceType field in your usage file or usage API data. This field will provide the correct VM size when deploying VMs that can use premium storage. Example: If you deploy a DS4 VM - the VM size in AdditionalInfo field will show the correct value, which is DS4, but Meter Sub-category and Product fields would show the VM size as D4 for the same deployment. Using D4 value for reservation purchase will not provide a reservation discount on the DS4 VM usage.
+- You can also get accurate VM size information using Powershell, Azure Resource Manager or from VM details in the Azure portal.
 
 ## Buy a Reserved Virtual Machine Instance
 1. Log in to the [Azure portal](https://portal.azure.com).
