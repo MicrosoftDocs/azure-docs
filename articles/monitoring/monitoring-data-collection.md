@@ -11,18 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 06/18/2018
 ms.author: bwren
 
 ---
 
 # Collecting monitoring data in Azure
-This article provides an overview of the monitoring data that's collected from application and services in Azure. It will prepare you for use of Azure monitoring tools by helping you understand the following aspects of monitoring data:
-
-- Different kinds of data used for monitoring
-- How monitoring data is collected from different resources
-- Where monitoring data is stored in Azure
-- Different methods for retrieving and analyzing monitoring data
+This article provides an overview of the monitoring data that's collected from application and services in Azure and the tools used to to analyze it. It will prepare you for use of Azure monitoring tools by helping you understand the following aspects of monitoring data:
 
 ## Types of data
 All monitoring data fits into one of two fundamental types, metrics or logs. Each type has distinct characteristics and is best suited for particular scenarios as described below.
@@ -45,82 +40,64 @@ A common type of log entry is an event. Events are collected sporadically as the
 Logs are particularly useful for combining data from a variety of sources for complex analysis and trending over time. Because the format of the data can vary, applications can create custom logs using the structure that they require. Metrics can even be replicated in logs to combine it with other monitoring data for trending and other data analysis.
 
 
-## Monitoring data in Azure
-There are multiple locations in Azure where monitoring data is stored. These are described in the following sections.
+## Monitoring tools in Azure
+Monitoring data in Azure is collected into multiple locations that are described in the following sections.
 
 ### Azure Metrics
 Metrics from Azure resources and applications are collected into Azure Metrics. Other services may collect metrics that can be analyzed with other metric data. Application Insights, for example, collects metrics from monitored applications into Azure Metrics and provides additional tools for deep analysis and advanced visualization of these metrics. 
 
 Metric data is available for analysis with the [Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) and also presented in the pages for particular Azure resources such as virtual machines, which include graphs of such metrics as CPU and network utilization for the selected machine. 
 
-Alerts based on metrics can fire as frequently as a minute using basic logic such as a single value or 
+Alerts based on metrics can fire as frequently as a minute using basic logic such as a single value crossing a threshold.
 
+The Metrics Explorer is used to analyze metric values and can be used to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations. Most Azure resources will also include the Metrics Explorer and visualizations of important metrics for that resource in their menu in the Azure portal.
 
-![Azure Metrics](media/monitoring-data-collection/metrics.png)
+![Metrics Explorer](media/monitoring-data-collection/metrics-explorer.png)
+
 
 ### Azure Activity Log 
 The [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) store logs about the operation of Azure services.  Service Health logs are also stored in the Azure Activity Log. You can use the Activity Log Explorer to view these logs in the Azure portal, but they're commonly [copied to Log Analytics](../log-analytics/log-analytics-activity.md) to be analyzed with other log data.
 
-![Activity Log](media/monitoring-data-collection/activity-logs.png)
+You can use the Activity Log Explorer to view the Activity log filtered to match certain criteria.  Most resources will also have an Activity Log option in their menu in the Azure portal that displays the Activity Log Explorer filtered for that resource.  This is useful in inspecting operations that have been performed recently inspecting particular operations for a resource.
+
+![Activity Log Explorer](media/monitoring-data-collection/activity-log-explorer.png)
 
 
 ### Log Analytics
 Log Analytics provides a common data platform for management in Azure. It is the primary service used for storage and analysis of logs in Azure, providing a rich query language to analyze data. Other services such as Application Insights store data in Log Analytics and provide additional tools for analysis.  Log Analytics collects data from a variety of sources including agents on virtual machines, management solutions, and different Azure resources. Data from other sources including metrics and the Activity Log can be copied into Log Analytics in order to create a complete central repository of monitoring data. |
 
-
+Log Analytics has a rich query language for analyzing the data it collects.  You can use [log search portals](../log-analytics/log-analytics-log-search-portals.md) for interactively writing and testing queries and analyzing their results. You can also [create views](../log-analytics/log-analytics-view-designer.md) to visualize the results of log searches or paste the results of a query directly to an Azure dashboard.  Management solutions include log searches and views in Log Analytics for analyzing the data they collect.
 
 ![Logs](media/monitoring-data-collection/logs.png)
 
+### Application Insights
+Application Insights collects telemetry for web applications installed on a variety of platforms.  It stores metrics in Azure Metrics and logs in Log Analytics and includes its own sophisticated tools for analyzing and visualizing its data. Most of the views include a button that launches the Analytics portal for Log Analytics with the data included in the view so that you can perform custom analysis.
 
-## Moving monitoring data
+![App Insights](media/monitoring-data-collection/app-insights.png)
 
-## Metrics to Logs
+### Service Map
+Service Map provides a visual representation of virtual machines with their processes and dependencies, storing most of this data in Log Analytics. In addition to this information, it retrieves other monitoring data from Log Analytics to present in this context.
+
+![Service Map](media/monitoring-data-collection/service-map.png)
+
+
+## Transferring monitoring data
+
+### Metrics to Logs
 Metrics can also be replicated into Log Analytics to perform complex analysis with other data types using a rich query language. You can also retain log data for longer periods than metrics, which allows you to perform trending over time. Note that replication into Log Analytics may incur additional charges. When metrics or any other performance data is stored in Log Analytics, that data acts as a log. Use metrics to support near real-time analysis and alerting while using logs for trending and analysis with other data.
 
 You can get guidance for collecting metrics from Azure resources at [Collect Azure service logs and metrics for use in Log Analytics](../log-analytics/log-analytics-azure-storage.md). Get guidance for collecting resources metrics from Azure PaaS resources at [Configure collection of Azure PaaS resource metrics with Log Analytics](../log-analytics/log-analytics-collect-azurepass-posh.md).
 
-## Logs to metrics
+### Logs to metrics
 As described above, metrics are more responsive than logs allowing you to create alerts with lower latency and at a lower cost. Log Analytics collects a significant amount of numeric data that would be suitable for metrics but isn't stored in Azure Metrics. A common example is performance data collected from agents and management solutions. Some of these values can be copied into Azure Metrics where they are available for alerting and for analysis with Metrics Explorer.
 
 The explanation of this feature is available at [Faster Metric Alerts for Logs now in limited public preview](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/). The list of values support is avialable at 
 [Supported metrics and creation methods for new metric alerts](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
 
-## Event Hub
+### Event Hub
 In addition to using the tools in Azure to analyze monitoring data, you may want to forward it to an external tool such a security information and event management (SIEM) product. This is typically done using [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/). 
 
 You can get guidance for the different kinds of monitoring data at [Stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
-
-
-
-## Analysis tools
-Azure includes multiple tools for analyzing the data that it collects.
-
-### Metrics Explorer
-The Metrics Explorer can be used to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations. Most Azure resources will also include the Metrics Explorer and visualizations of important metrics for that resource in their menu in the Azure portal.
-
-![Metrics Explorer](media/monitoring-data-collection/metrics-explorer.png)
-
-### Activity Log Explorer
-You can use the Activity Log Explorer to view the Activity log filtered to match certain criteria.  Most resources will also have an Activity Log option in their menu in the Azure portal that displays the Activity Log Explorer filtered for that resource.  This is useful in inspecting operations that have been performed recently inspecting particular operations for a resource.
-
-![Activity Log Explorer](media/monitoring-data-collection/activity-log-explorer.png)
-
-### Log Analytics
-Log Analytics has a rich query language for analyzing the data it collects.  You can use [log search portals](../log-analytics/log-analytics-log-search-portals.md) for interactively writing and testing queries and analyzing their results.
-
-![Log search](media/monitoring-data-collection/log-search.png)
-
-You can [create views in Log Analytics](../log-analytics/log-analytics-view-designer.md) to visualize the results of log searches and either view these in Log Analytics or pin them to a dashboard.  You can also paste the results of a query directly to an Azure dashboard.  Management solutions include log searches and views in Log Analytics for analyzing the data they collect.
-
-### Application Insights
-In addition to collecting metrics and logs for applications, Application Insights includes sophisticated tools for analyzing and visualizing the data that it collects. Most of the views include a button that launches the Analytics portal for Log Analytics with the data included in the view so that you can perform custom analysis.
-
-![App Insights](media/monitoring-data-collection/app-insights.png)
-
-### Service Map
-Service Map provides a visual representation of virtual machines with their processes and dependencies. In addition to this information, it retrieves monitoring data from Log Analytics to present in this context.
-
-![Service Map](media/monitoring-data-collection/service-map.png)
 
 ## Next steps
 
