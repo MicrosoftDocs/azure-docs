@@ -49,12 +49,16 @@ sections:
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
 - title: Reference
   items:
+  - type: paragraph
+    text: ''
   - type: list
-    style: cards
-    className: cardsD
+    style: ordered
     items:
-    - title: Command-Line
-      html: <p><a href="https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest">Azure CLI</a></p>
-    - title: REST
-      html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=873030">REST API</a></p>
-      
+    - html: <a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview">OpenAPI Specification (Swagger)</a>
+    - html: <a href="https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest">Azure CLI</a>
+    - html: <a href="https://go.microsoft.com/fwlink/p/?linkid=873030">REST</a>
+    - html: <a href="https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet">.NET</a>
+    - html: <a href="https://docs.microsoft.com/java/api/overview/azure/mediaservices">Java</a>
+    - html: <a href="https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python">Python</a>
+    - html: <a href="https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest">Node .js</a>
+    
