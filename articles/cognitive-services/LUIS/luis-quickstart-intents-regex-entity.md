@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/18/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
@@ -20,7 +20,7 @@ In this tutorial, you create an app that demonstrates how to extract consistentl
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand regular expression entities 
-> * Create new LUIS app for a knowledge base domain with FindKnowledgeBase intent
+> * Create new LUIS app for a Human Resources (HR) domain with FindForm intent
 > * Add _None_ intent and add example utterances
 > * Add regular expression entity to extract KB article number from utterance
 > * Train, and publish app
@@ -201,5 +201,5 @@ Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuil
 
 
 <!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions
+[LUIS](luis-reference-regions.md#luis-website)
+[LUIS-regions](luis-reference-regions.md#publishing-regions)
