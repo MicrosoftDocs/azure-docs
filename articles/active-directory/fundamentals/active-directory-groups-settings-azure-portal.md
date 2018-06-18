@@ -4,7 +4,7 @@ title: Manage group properties in Azure Active Directory | Microsoft Docs
 description: How to edit the properties and other configuration settings for a group in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 
@@ -13,9 +13,8 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: article
 ms.date: 08/01/2017
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: krbain
-
 ms.custom: it-pro
 
 ---
