@@ -1302,19 +1302,6 @@ This section contains the following examples:
 * Queue trigger, write one doc
 * Queue trigger, write docs using IAsyncCollector
 
-The examples refer to a simple `ToDoItem` type:
-
-```cs
-namespace CosmosDBSamplesV2
-{
-    public class ToDoItem
-    {
-        public string Id { get; set; }
-        public string Description { get; set; }
-    }
-}
-```
-
 [Skip output examples](#output---attributes)
 
 #### Queue trigger, write one doc (C# script)
