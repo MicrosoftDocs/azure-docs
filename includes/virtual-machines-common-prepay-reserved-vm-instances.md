@@ -11,7 +11,7 @@ You can buy Azure Reserved Instances in the [Azure portal](https://portal.azure.
 -   For Cloud Solution Provider (CSP) program only the admin agents or sales agents can purchase the Reserved Instances.
 
 ## Determine the right VM size before purchase
-The Meter Sub-category and Product fields in the usage data do not distinguish between VM sizes that use premium storage from VM sizes that use regular storage. Do no use these fields to determine the VM size for reservation purchase as doing so can lead to incorrect purchase and not provide you any reservation discounts. Use one of the methods below to determine the right VM size for reservation purchase.
+The Meter Sub-category and Product fields in the usage data do not distinguish between VM sizes that use premium storage from VM sizes that use regular storage. Do no use these fields to determine the VM size for reservation purchase, as doing so can lead to incorrect purchase and not provide you any reservation discounts. Use one of the methods below to determine the right VM size for reservation purchase.
 1. Refer to the AdditionalInfo > ServiceType field in your usage file or usage API to determine the correct VM size for a reservation purchase. This field will provide the correct VM size when using premium storage. Example: The VM size in their field will be DS4 for VMs that use premium storage instead of D4.
 2. You can also get accurate VM size information using Powershell, Azure Resource Manager or from VM details in the Azure portal.
 
