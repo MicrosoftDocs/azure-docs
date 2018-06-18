@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory conditional access | Microsoft Docs
-description: Learn how conditional access in Azure Active Directory can help you to manage access control from a central location.
+title: What is conditional access in Azure Active Directory? | Microsoft Docs
+description: Learn how conditional access in Azure Active Directory helps you to implement automated access decisions that are not only based on who tries to access a resource but also how a resource is accessed.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.component: protection
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 06/18/2018
 ms.author: markvi
 ms.reviewer: calebb
 
 ---
 
-# Conditional access in Azure Active Directory
+# What is conditional access in Azure Active Directory?
 
 Security is a top concern for organizations using the cloud. A key aspect of cloud security is identity and access when it comes to managing your cloud resources. In a mobile-first, cloud-first world, users can access your organization's resources using a variety of devices and apps from anywhere. As a result of this, just focusing on who can access a resource is not sufficient anymore. In order to master the balance between security and productivity, IT professionals also need to factor how a resource is being accessed into an access control decision. With Azure AD conditional access, you can address this requirement. Conditional access is a capability of Azure Active Directory that enables you to enforce controls on the access to apps in your environment based on specific conditions from a central location. 
 
