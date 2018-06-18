@@ -234,9 +234,8 @@ Properties, device properties, and settings are different values defined in a de
 * You use _properties_ to record information about your device in your application. For example, you can use properties to record a device's serial number or the device manufacturer's phone number. Properties are stored in the application and do not synchronize with the device. An operator can assign values to properties.
 
 * You use _device properties_ to enable a device to send property values to your application. These properties can only be changed by the device. For an operator, device properties are read-only.
-* You use _commands_ to remotely manage your device from your application. You can directly run commands on the device from the cloud to control the devices.
- For example, an operator can run commands such as reboot, to instantly reboot the device.
 
+* You use _commands_ to remotely manage your device from your application. You can directly run commands on the device from the cloud to control the devices. For example, an operator can run commands such as reboot, to instantly reboot the device.
 
 ## Use settings
 
