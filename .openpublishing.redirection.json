@@ -25213,62 +25213,62 @@
         },
 		        {
             "source_path": "articles/active-directory/active-directory-application-access-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-application-access-panel-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/application-access-panel-extension-problem-installing",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-application-conditional-access-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/active-directory-conditional-access",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-application-config-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-application-dev-config-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/application-dev-registration-config-grant-permissions-how-to",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-application-dev-development-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/application-dev-registration-config-change-token-lifetime-how-to",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-application-dev-troubleshoot-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/application-dev-registration-config-grant-permissions-how-to",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-application-management-troubleshoot-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-application-provisioning-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/application-provisioning-config-problem",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-application-proxy-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-application-sign-in-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/application-sign-in-unexpected-user-consent-error",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-application-troubleshoot-content-map.md",
-            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
             "redirect_document_id": true
         }
     ]
