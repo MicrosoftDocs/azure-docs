@@ -1,21 +1,18 @@
 ---
-title: What's new? Release notes for Azure Active Directory | Microsoft Docs
+title: What's new? Release notes for Azure AD | Microsoft Docs
 description: Learn what is new with Azure Active Directory (Azure AD), such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 featureFlags:
  - clicktale
+ 
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 06/18/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
 ---
@@ -23,8 +20,6 @@ ms.reviewer: dhanyahk
 # What's new in Azure Active Directory?
 
 > Stay up-to-date with what's new in Azure Active Directory (Azure AD) by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
-
-
 
 Azure AD receives improvements on an ongoing basis. To stay up-to-date with the most recent developments, this article provides you with information about:
 
