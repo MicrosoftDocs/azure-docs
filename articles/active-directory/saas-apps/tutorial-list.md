@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/15/2018
+ms.date: 06/18/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
@@ -26,7 +26,7 @@ Where we have user provisioning guidance, we have included an application tutori
 
 For the comprehensive list of SaaS apps that have been pre-integrated into Azure AD, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
-## 0 - A
+## Non-alphabetic
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
@@ -37,6 +37,10 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-23video-tutorial.png)| [23 Video](23video-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-360online-tutorial.png)| [360 Online](360online-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-8x8virtualoffice-tutorial.png)| [8x8 Virtual Office](8x8virtualoffice-tutorial.md)|
+
+## A
+| Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
+| :---: | :--- | :--- |
 | ![logo](./media/tutorial-list/active-directory-saas-abintegro-tutorial.png)| [Abintegro](abintegro-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-absorblms-tutorial.png)| [Absorb LMS](absorblms-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-accredible-tutorial.png)| [Accredible](accredible-tutorial.md)|
