@@ -122,7 +122,6 @@
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
-#### [Notifications](active-directory-reporting-notifications.md)
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
@@ -152,6 +151,12 @@
 ### [SSPR Customization](authentication/concept-sspr-customization.md)
 ### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Reporting](authentication/howto-sspr-reporting.md)
+### [Eliminate weak passwords](authentication/concept-password-ban-bad.md)
+### [Configure the banned password list](authentication/howto-password-ban-bad.md)
+### [On-premises integration](authentication/concept-password-ban-bad-on-premises.md)
+### [Deploy Azure AD password protection](authentication/howto-password-ban-bad-on-premises.md)
+### [Configure Azure AD password protection](authentication/howto-password-ban-bad-on-premises-operations.md)
+### [Monitor Azure AD password protection](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### IT Admins: Reset passwords
 #### [Azure portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [License SSPR](authentication/concept-sspr-licensing.md)
@@ -178,14 +183,14 @@
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
 ### [Getting started](manage-apps/plan-an-application-integration.md)
-### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
+### [SaaS app integration tutorials](saas-apps/tutorial-list.md)
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Create snapshot reports](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md) 
-#### [App integration tutorials](active-directory-saas-tutorial-list.md) 
+#### [App integration tutorials](saas-apps/tutorial-list.md) 
 #### [Automate provisioning to SCIM-enabled apps](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [Customize attribute mappings](active-directory-saas-customizing-attribute-mappings.md) 
 #### [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
