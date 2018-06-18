@@ -61,8 +61,8 @@ Run the DeploySqlProvider.ps1 script, which completes the following tasks:
 - Registers your resource provider with the local Azure Resource Manager for the operator and user accounts.
 - Optionally, installs a single Windows Server update during the resource provider installation.
 
->[NOTE]
->When the SQL resource provider deployment starts, the **system.local.sqladapter** resource group is created. It may take up to 75 minutes to finish the four required deployments to this resource group.
+> [!NOTE]
+> When the SQL resource provider deployment starts, the **system.local.sqladapter** resource group is created. It may take up to 75 minutes to finish the four required deployments to this resource group.
 
 ### DeploySqlProvider.ps1 parameters
 

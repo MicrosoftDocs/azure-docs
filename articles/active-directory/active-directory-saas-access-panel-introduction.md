@@ -212,7 +212,7 @@ For example, if an application is configured to authenticate users by using AD F
 
 - To view a list of all topics that are related to application management, see the [article index for application management in Azure Active Directory](active-directory-apps-index.md).
  
-- To learn how to integrate a SaaS app with Azure AD, see the [list of tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md).
+- To learn how to integrate a SaaS app with Azure AD, see the [list of tutorials on how to integrate SaaS apps](saas-apps/tutorial-list.md).
  
 - To learn more about managing apps with Azure AD, see the [introduction to single sign-on and managing app access with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
  
