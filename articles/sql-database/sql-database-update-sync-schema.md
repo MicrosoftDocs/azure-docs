@@ -13,7 +13,7 @@ ms.custom: data-sync
 ---
 # Automate the replication of schema changes in Azure SQL Data Sync
 
-SQL Data Sync allows users to synchronize data between Azure SQL Databases and on premises SQL Server in one direction or bi-direction. One of current limitations of SQL Data Sync is lack of support of schema changes replication. Every time the table schema is changed, you need to manually apply the changes in all endpoints, including hub and all members, and then update the sync schema. In this article, we are going to introduce a solution to automatically replicate schema changes to all endpoints using SQL Data Sync.
+SQL Data Sync allows users to synchronize data between Azure SQL Databases and on premises SQL Server in one direction or bi-direction. One of current limitations of SQL Data Sync is lack of support of schema changes replication. Every time the table schema is changed, you need to manually apply the changes in all endpoints, including hub and all members, and then update the sync schema. This articl introduced a solution to automatically replicate schema changes to all endpoints using SQL Data Sync.
 
 This solution uses a DDL trigger to track schema changes, inserts the schema change commands to a tracking table. This table is synced to all endpoints using Data Sync service. DML triggers after insertion are used to apply the schema changes in other endpoints. This article uses ALTER TABLE as an example, but it also works for other types of schema changes.
 
@@ -40,7 +40,7 @@ This table has an identity column to track the order of schema changes. You can 
 
 ### Create a table to track schema changes history
 
-In all endpoints, create table to track id of the last applied schema change command
+In all endpoints, create table to track ID of the last applied schema change command
 
 ```sql
 CREATE TABLE SchemaChangeHistory (
@@ -110,7 +110,7 @@ This trigger runs after the insertion and check if the current command should ru
 
 ### Sync the schema change tracking table to all endpoints
 
-You can sync the schema change tracking table to all endpoints using existing sync group or a new sync group. You need to make sure the changes in the tracking table can be synced to all endpoint, in case one direction sync is used.
+You can sync the schema change tracking table to all endpoints using existing sync group or a new sync group. Make sure the changes in the tracking table can be synced to all endpoint, in case one direction sync is used.
 
 Don't sync the schema change history table since they should maintain different state in different endpoints
 
@@ -160,25 +160,25 @@ For other types of schema changes (for example, create stored procedures or drop
 
 ## <a name="troubleshoot"></a> Troubleshoot automated schema change replication
 
-This replication logic stops working in some situations, for example, you made a schema change in the on premises database which is not supported in Azure SQL databases. In that case, sync of schema change tracking table fails. You need fix it manually:
+This replication logic stops working in some situations, for example, you made a schema change in the on-premises database, which is not supported in Azure SQL databases. In that case, sync of schema change tracking table fails. You need fix it manually:
 
 1.  Disable the DDL trigger and avoid any further schema change before the issue is fixed.
 
-2.  In the endpoint database where the issue is happening, Disable the AFTER INSERT trigger on the endpoint where schema change can't be made. It allows the schema change command being synced.
+2.  In the endpoint database where the issue is happening, disable the AFTER INSERT trigger on the endpoint where schema change can't be made. It allows the schema change command being synced.
 
 3.  Trigger sync to sync the schema change tracking table.
 
-4.  In the endpoint database where the issue is happening, query the schema change history table to get the id of last applied schema change command, let's say it's 12.
+4.  In the endpoint database where the issue is happening, query the schema change history table to get the ID of last applied schema change command, let's say it's 12.
 
-5.  Query the schema change tracking table to list all the commands with id \> 12.
+5.  Query the schema change tracking table to list all the commands with ID \> 12.
 
-    a.  For those commands can't not be executed in the endpoint database, ignore it. You need to deal with the schema inconsistency. Revert the original schema changes if the inconsistency impact your application.
+    a.  For those commands that can't be executed in the endpoint database, ignore it. You need to deal with the schema inconsistency. Revert the original schema changes if the inconsistency impact your application.
 
-    b.  For those commands which should be applied, manually apply it.
+    b.  For those commands that should be applied, manually apply them.
 
-6.  Update the schema change history table and set the last applied id to the correct value.
+6.  Update the schema change history table and set the last applied ID to the correct value.
 
-7.  Double check if the schema is up to date
+7.  Double check whether the schema is up-to-date.
 
 8.  Re-enable AFTER INSERT trigger
 
@@ -196,7 +196,7 @@ If you want to clean up the records in schema change tracking table, use DELETE 
 
 -   If you are making change in an on premises SQL Server database, make sure the schema change is supported in Azure SQL Database.
 
--   If schema changes are made in the databases other than the one where DDL trigger is created, the changes are not replicated. To avoid this, you can create DDL triggers to block changes in other endpoints.
+-   If schema changes are made in the databases other than the one where DDL trigger is created, the changes are not replicated. To avoid this issue, you can create DDL triggers to block changes in other endpoints.
 
 -   If you need to change schema of the schema change tracking table, disable the DDL trigger before you make the change and manually apply the change to all endpoints. Update schema in an AFTER INSERT trigger on the same table does not work.
 
