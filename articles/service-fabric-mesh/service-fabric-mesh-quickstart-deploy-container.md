@@ -179,6 +179,8 @@ az mesh app list --output table
 
 ## See the application logs
 
+Examine the logs for the deployed application:
+
 ```azurecli-interactive
 az mesh code-package-log get --resource-group $rg --application-name helloWorldApp --service-name helloWorldService --replica-name 0 --code-package-name helloWorldCode
 ```
