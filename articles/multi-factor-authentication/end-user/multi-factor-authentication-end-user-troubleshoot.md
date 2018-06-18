@@ -6,7 +6,6 @@ keywords: multifactor authentication client, authentication problem, correlation
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
-
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -20,6 +19,7 @@ ms.custom: end-user
 experimental: true
 experiment_id: 34685ebc-9bdb-4e 
 ---
+
 # Get help with two-step verification
 This article answers the most common questions that people ask about two-step verification.
 

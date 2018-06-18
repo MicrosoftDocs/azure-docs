@@ -13,8 +13,8 @@ ms.date: 01/08/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-
 ---
+
 # Quickstart: Add new users to Azure Active Directory
 This article explains how to delete or add users in your organization into your orgnization's Azure Active Directory (Azure AD) tenant using the Azure portal or by synchronizing your on-premises Windows Server AD user account data. 
 

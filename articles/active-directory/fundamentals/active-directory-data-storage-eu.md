@@ -6,7 +6,6 @@ documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.author: lizross
-
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity

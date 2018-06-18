@@ -6,7 +6,6 @@ documentationcenter: ''
 author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity
@@ -16,8 +15,8 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-
 ---
+
 # Troubleshoot issues with accessing and using the My Apps portal
 
 If you're experiencing issues with signing in to or using the My Apps portal, try these troubleshooting tips before you contact helpdesk or your administrator for help.

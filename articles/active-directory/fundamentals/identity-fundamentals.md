@@ -14,8 +14,8 @@ ms.component: fundamentals
 ms.technology:
 ms.assetid:
 ms.custom: it-pro
-
 ---
+
 # Fundamentals of Azure identity management
 
 As more and more company digital resources live outside the corporate network, in the cloud and on devices, a great cloud-based identity and access management solution is becoming a necessity. Cloud-based identities are now the best way to maintain control over, and visibility into, how and when users access corporate applications and data.

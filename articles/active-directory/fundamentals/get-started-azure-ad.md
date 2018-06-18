@@ -4,7 +4,6 @@ description: Get licenses, add domain name, create custom sign-in page, and add 
 keywords:
 author: eross-msft
 manager: mtillman
-
 ms.author: lizross
 ms.reviewer: jsnow
 ms.date: 11/14/2017
@@ -14,7 +13,6 @@ ms.workload: identity
 ms.component: fundamentals
 services: active-directory
 ms.custom: it-pro
-
 ---
 
 # Get started with Azure AD

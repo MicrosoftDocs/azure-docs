@@ -5,7 +5,6 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
-
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -17,6 +16,7 @@ ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
 ---
+
 # Microsoft Authenticator app FAQ
 
 This article answers common questions about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Additionally, you can review another FAQ about a specific feature on the app, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md).

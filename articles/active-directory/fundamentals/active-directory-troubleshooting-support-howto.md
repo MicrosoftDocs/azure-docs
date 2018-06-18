@@ -6,7 +6,6 @@ documentationcenter: na
 author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
 ms.topic: conceptual
 ms.component: fundamentals
@@ -15,8 +14,8 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-
 ---
+
 # How to get support for Azure Active Directory
 
 

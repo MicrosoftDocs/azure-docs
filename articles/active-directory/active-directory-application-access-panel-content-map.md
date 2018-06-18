@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
-
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,7 +13,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: lizross
-
 ---
 
 # Problems using the application access panel website or mobile application

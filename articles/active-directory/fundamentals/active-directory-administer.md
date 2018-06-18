@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -14,8 +13,8 @@ ms.date: 08/23/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-
 ---
+
 # Manage your Azure AD directory
 
 ## What is an Azure AD tenant?

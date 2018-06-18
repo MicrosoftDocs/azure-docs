@@ -5,7 +5,6 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
-
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: multi-factor-authentication
 ms.workload: identity

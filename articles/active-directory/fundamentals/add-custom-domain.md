@@ -4,7 +4,6 @@ description: Explains how to add a custom domain in Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -13,8 +12,8 @@ ms.date: 11/14/2017
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-
 ---
+
 # Quickstart: Add a custom domain name to Azure Active Directory
 
 Every Azure AD directory comes with an initial domain name in the form of *domainname*.onmicrosoft.com. The initial domain name cannot be changed or deleted, but you can add your corporate domain name to Azure AD as well. For example, your organization probably has other domain names used to do business and users who sign in using your corporate domain name. Adding custom domain names to Azure AD allows you to assign user names in the directory that are familiar to your users, such as ‘alice@contoso.com.’ instead of 'alice@*domain name*.onmicrosoft.com'. The process is simple:

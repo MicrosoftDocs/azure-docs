@@ -5,7 +5,6 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
-
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -17,6 +16,7 @@ ms.reviewer: kexia
 ms.custom: end-user
 ROBOTS: NOINDEX,NOFOLLOW
 ---
+
 # Updates to the sign-in experience for online services
 
 We’re updating our sign-in experience for Microsoft’s online services, such as Office 365 and Azure. While this is only a visual change, you’ll notice that the screens seem less cluttered and more straightforward, making it easier for you to focus on what you need to do — sign-in.

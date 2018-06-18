@@ -5,7 +5,6 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
-
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,7 +15,9 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
 ---
+
 # Backup and recover account credentials with the Microsoft Authenticator app
+
 **Applies to:**
 
 - iOS devices

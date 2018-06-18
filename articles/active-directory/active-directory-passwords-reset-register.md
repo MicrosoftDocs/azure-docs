@@ -7,7 +7,6 @@ documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: sahenry
-
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
@@ -17,8 +16,8 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.custom: end-user;seohack1
-
 ---
+
 # Register for self-service password reset
 
 > [!IMPORTANT]
