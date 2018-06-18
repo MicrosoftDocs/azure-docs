@@ -3,7 +3,7 @@ title: Azure AD tiered password security | Microsoft Docs
 description: Explains how Azure AD enforces strong passwords and protects users passwords from cyber criminals,
 services: active-directory
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: barlan
+ms.author: lizross
 
 ---
 # A multi-tiered approach to Azure AD password security

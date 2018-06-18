@@ -16,7 +16,7 @@ ms.custom: mvc
 
 An Azure Kubernetes Service (AKS) cluster can be upgraded using the Azure CLI. During the upgrade process, Kubernetes nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.
 
-In this tutorial, part eight of eight, a Kubernetes cluster is upgraded. Tasks that you complete include:
+In this tutorial, part seven of seven, a Kubernetes cluster is upgraded. Tasks that you complete include:
 
 > [!div class="checklist"]
 > * Identify current and available Kubernetes versions
