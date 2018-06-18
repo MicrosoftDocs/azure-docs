@@ -25,7 +25,7 @@ ms.component: alerts
 This article shows you how to set up Azure classic metric alerts by using the cross-platform command-line interface (Azure CLI).
 
 > [!NOTE]
-> Azure Monitor is the new name for what was called "Azure Insights" until Sept 25, 2016. However, the namespaces and thus the commands that are described here still contain the word "insights."
+> Azure Monitor is the new name for what was called "Azure Insights" until September 25, 2016. However, the namespaces and thus the commands that are described here still contain the word "insights."
 
 You can receive an alert based on metrics for your Azure services, or based on events that occur in Azure.
 
