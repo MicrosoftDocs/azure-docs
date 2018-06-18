@@ -87,7 +87,7 @@ When creating your first Batch account in user subscription mode, you need to re
 
     ![Register Microsoft.Batch provider][register_provider]
 
-3. In the **Subscription** page, Select **Access control (IAM)** > **Add**.
+3. In the **Subscription** page, select **Access control (IAM)** > **Add**.
 
     ![Subscription access control][subscription_access]
 
@@ -96,7 +96,7 @@ When creating your first Batch account in user subscription mode, you need to re
     2. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
     3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
 
-5. Once you find the Batch API, select it and Select **Save**.
+5. Once you find the Batch API, select it and select **Save**.
 
     ![Add Batch permissions][add_permission]
 
