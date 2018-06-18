@@ -346,6 +346,14 @@
       href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
     - name: Sync data
       href: sql-database-get-started-sql-data-sync.md
+    - name: Replicate schema changes for SQL Data Sync
+      href: sql-database-update-sync-schema.md
+    - name: Monitor SQL Data Sync with OMS Log Analytics
+      href: sql-database-sync-monitor-oms.md
+    - name: Best practices for SQL Data Sync
+      href: sql-database-best-practices-data-sync.md
+    - name: Troubleshoot SQL Data Sync
+      href: sql-database-troubleshoot-data-sync.md
   - name: Monitor & tune
     items:
     - name: Monitor & improve performance
@@ -374,12 +382,6 @@
       href: sql-database-troubleshoot-common-connection-issues.md
     - name: Azure Automation
       href: sql-database-manage-automation.md
-    - name: Monitor SQL Data Sync with OMS Log Analytics
-      href: sql-database-sync-monitor-oms.md
-    - name: Best practices for SQL Data Sync
-      href: sql-database-best-practices-data-sync.md
-    - name: Troubleshoot SQL Data Sync
-      href: sql-database-troubleshoot-data-sync.md
   - name: Scale out
     items:
     - name: Create sharded app
