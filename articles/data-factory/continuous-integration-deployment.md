@@ -113,7 +113,7 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
 ### Optional - Get the secrets from Azure Key Vault
 
-If you have secrets to passed in Azure Resource Manager template, we recommend using Azure Key Vault with the VSTS release. For more info, see [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the VSTS release. For more info, see [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
 There are two ways to handle the secrets:
 
