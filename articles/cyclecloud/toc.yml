@@ -4,52 +4,16 @@
   items:
   - name: About Azure CycleCloud
     href: overview.md
-- name: Azure CycleCloud Tools and Software
-  items:
-  - name: Prerequisites
-    href: prerequisites.md
-  - name: Installation
-    href: installation.md
-  - name: Configure Azure CycleCloud
-    href: configuration.md
-  - name: Install Azure CycleCloud CLI
-    href: install-cli.md
-  - name: Jetpack
-    href: jetpack.md
-  - name: pogo
-    items:
-    - name: Overview
-      href: pogo-overview.md
-    - name: pogo Configuration
-      href: pogo-configuration.md
-    - name: Using pogo
-      href: pogo-guide.md
-  - name: SubmitOnce
-    items:
-    - name: Overview
-      href: submit-once.md
-    - name: Installation and Configuration
-      href: submit-once-installation.md
-    - name: User Management
-      href: submit-once-user-management.md
-    - name: CLI
-      href: submit-once-cli.md
-    - name: Available Commands
-      href: submit-once-commands.md
-    - name: Appendicies
-      href: submit-once-appendix.md
 - name: Quickstarts
   items:
-  - name: Install and Setup Azure CycleCloud
+  - name: Install CycleCloud
     href: quickstart1.md
-  - name: Configure Azure CycleServer
+  - name: Create a Simple HPC Cluster
     href: quickstart2.md
-  - name: Create a HPC Cluster
-    href: quickstart3.md
   - name: Run Jobs on your HPC Cluster
-    href: quickstart4.md  
+    href: quickstart3.md
   - name: Clean up Resources
-    href: quickstart5.md
+    href: quickstart4.md
 - name: Templates
   items:
   - name: CycleCloud Templates
@@ -120,20 +84,30 @@
       href: storage-blobs.md
   - name: Network Configuration
     items:
-      - name: Network Connectivity
-        href: network-connectivity.md
-      - name: Network Security
-        href: network-security.md
-      - name: Proxy Traffic
-        href: proxy-traffic.md
-      - name: SSL
-        href: ssl.md
+    - name: Network Connectivity
+      href: network-connectivity.md
+    - name: Network Security
+      href: network-security.md
+    - name: Proxy Traffic
+      href: proxy-traffic.md
+    - name: SSL
+      href: ssl.md
+  - name: Jetpack
+    href: jetpack.md
+  - name: HealthCheck
+    href: healthcheck.md
   - name: Scheduler
     href: scheduler-integration.md
   - name: User Creation and RBAC
     href: user-management-and-rbac.md
 - name: How-To
   items:
+  - name: Install CycleCloud Manually
+    href: installation.md
+  - name: Prepare Your Azure Subscription for CycleCloud
+    href: configuration.md
+  - name: Install Azure CycleCloud CLI
+    href: install-cli.md
   - name: Start a Cluster
     href: start-cluster.md
   - name: Create Custom Images
@@ -148,12 +122,18 @@
     href:
   - name: Common Cookbook Reference
     href: cookbook-reference.md
-  - name: HealthCheck
-    href: healthcheck.md
   - name: Node Configuration
     href: node-configuration-reference.md
   - name: Performance Tuning
     href: performance-tuning.md
+  - name: pogo
+    items:
+    - name: Overview
+      href: pogo-overview.md
+    - name: pogo Configuration
+      href: pogo-configuration.md
+    - name: Using pogo
+      href: pogo-guide.md
   - name: CycleServer Datastore
     href:
     items:
