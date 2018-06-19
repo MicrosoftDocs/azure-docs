@@ -82,7 +82,7 @@ The example application is available at [https://github.com/Azure-Samples/Custom
 
 2. When prompted, allow the application to access the camera and microphone on your device.
 
-3. Point the camera at a dog or cat. The likelyhood that the image contains a dog or cat is displayed beneath the preview in the application.
+3. Point the camera at a dog or cat. The score for whether the image contains a dog or cat is displayed beneath the preview in the application.
 
     > [!TIP]
     > If you do not have a dog or cat handy, you can use a photo of a dog or cat.
