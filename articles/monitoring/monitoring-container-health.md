@@ -209,7 +209,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
     }
     ```
 
-4. Edit the value for **aksResourceId**, **aksResourceLocation** with the values, which you can find on the **AKS Overview** page for the AKS cluster.  The value for **workspaceResourceId** should be the name of a Log Analytics workspace, and specify the location the workspace is created in for **workspaceRegion**.    
+4. Edit the value for **aksResourceId**, **aksResourceLocation** with the values, which you can find on the **AKS Overview** page for the AKS cluster.  The value for **workspaceResourceId** is the full resource ID of your Log Analytics workspace, which includes the workspace name.  Also specify the location the workspace is in for **workspaceRegion**.    
 5. Save this file as **existingClusterParam.json** to a local folder.
 6. You are ready to deploy this template. 
 
