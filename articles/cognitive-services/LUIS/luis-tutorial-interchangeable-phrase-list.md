@@ -258,7 +258,5 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [Get utterance prediction with endpoint query](luis-get-started-cs-get-intent.md)
 
 [LUIS]: luis-reference-regions.md
-
-  [LUIS]:luis-reference-regions.md
-  [LuisFeatures]: luis-concept-feature.md
-  [LuisSampleApp]:https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
+[LuisFeatures]: luis-concept-feature.md
+[LuisSampleApp]: https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
