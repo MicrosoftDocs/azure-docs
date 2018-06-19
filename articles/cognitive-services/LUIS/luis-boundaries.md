@@ -73,12 +73,12 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 
 Your sign-in access is for **60 minutes**. After this time period, you will get this error. You need to log in again.
 
-[luis-get-started-create-app]:luis-get-started-create-app.md
-[batch-testing]:luis-concept-test.md#batch-testing
-[intents]:luis-concept-intent.md
-[phrase-list]:luis-concept-feature.md
-[utterances]:luis-concept-utterance.md
-[luis-how-to-manage-versions]:luis-how-to-manage-versions.md
-[pricing]:https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
+[luis-get-started-create-app]: luis-get-started-create-app.md
+[batch-testing]: luis-concept-test.md#batch-testing
+[intents]: luis-concept-intent.md
+[phrase-list]: luis-concept-feature.md
+[utterances]: luis-concept-utterance.md
+[luis-how-to-manage-versions]: luis-how-to-manage-versions.md
+[pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
 <!-- TBD: fix this link -->
-[speech-to-intent-pricing]:https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
+[speech-to-intent-pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
