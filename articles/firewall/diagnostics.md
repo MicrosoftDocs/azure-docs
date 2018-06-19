@@ -109,7 +109,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
     ![Portal: resource ID for storage account](./media/diagnostics/diagnostics1.png)
 
-2. Note your Firewall's resource ID for which logging is enabled. This value is of the form: */subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/firewalls/\<Firewall name\>*.
+2. Note your Firewall's resource ID for which logging is enabled. This value is of the form: */subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/azureFirewalls/\<Firewall name\>*.
 
    You can use the portal to find this information.
 
