@@ -246,5 +246,5 @@ LUIS is done with this request. The calling application, such as a chatbot, can 
 [Learn more about entities](luis-concept-entity-types.md). 
 
 <!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
