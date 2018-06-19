@@ -81,7 +81,7 @@ Triggers have these top-level elements, although some are optional:
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
-## Trigger types
+## Trigger types list
 
 Each trigger type has a different interface and inputs that define the trigger's behavior. 
 
@@ -95,7 +95,7 @@ Each trigger type has a different interface and inputs that define the trigger's
 | [**Request**](#request-trigger)  | Creates a callable endpoint for your logic app and is also known as a "manual" trigger. For example, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
-### Standard triggers
+### Managed API triggers
 
 | Trigger type | Description | 
 |--------------|-------------| 
@@ -103,7 +103,7 @@ Each trigger type has a different interface and inputs that define the trigger's
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app by calling [Microsoft-managed APIs](../connectors/apis-list.md) to subscribe and unsubscribe. | 
 ||| 
 
-## Trigger details
+## Triggers - Detailed reference
 
 <a name="apiconnection-trigger"></a>
 
@@ -867,7 +867,7 @@ Actions have these high-level elements, though some are optional:
 | <*operation-option*> | String | For some actions, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
-## Action types
+## Actions types list
 
 Here are some commonly used action types: 
 
@@ -885,7 +885,7 @@ Here are some commonly used action types:
 
   * [**Workflow**](#workflow-action) for calling another logic app workflow
 
-* [Standard action types](#standard-actions) such as 
+* [Managed API action types](#managed-api-actions) such as 
 [**ApiConnection**](#apiconnection-action) and [**ApiConnectionWebHook**](#apiconnectionwebhook-action) 
 that call various connectors and APIs managed by Microsoft, for example, 
 Azure Service Bus, Office 365 Outlook, Power BI, 
@@ -917,7 +917,9 @@ and help you organize workflow execution
 | [**Workflow**](#workflow-action) | Nests a workflow inside another workflow. | 
 ||| 
 
-### Standard actions
+<a name="managed-api-actions"></a>
+
+### Managed API actions
 
 | Action type | Description | 
 |-------------|-------------|  
@@ -945,7 +947,7 @@ other actions that are in the same control workflow structure.
 | [**Until**](#until-action) | Run actions in a loop until the specified condition is true. | 
 |||  
 
-## Action details
+## Actions - Detailed reference
 
 <a name="apiconnection-action"></a>
 
