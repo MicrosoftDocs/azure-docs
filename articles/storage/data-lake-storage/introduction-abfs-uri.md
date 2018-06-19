@@ -20,7 +20,7 @@ The [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) driver that is com
 
 The URI syntax for Data Lake Storage is dependent on whether or not your storage account is set up to have Data Lake Storage as the default file system.
 
-If the Data Lake Storage account you wish to address is set as the default file system, then the shorthand URI syntax is:
+If the Data Lake Storage account you wish to address is set as the default file system during account creation, then the shorthand URI syntax is:
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 

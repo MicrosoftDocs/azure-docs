@@ -7,6 +7,7 @@ author: nitinme
 manager: cgronlun
 editor: cgronlun
 
+ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.workload: big-data
 ms.tgt_pltfrm: na
