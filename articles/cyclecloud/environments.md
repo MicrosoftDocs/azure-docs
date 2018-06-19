@@ -43,4 +43,4 @@ An example environment may look like this:
       [environmentref envname]​
       SourceClusterName = long-running-cluster​
 ​
-In the three examples above, a `Cloud.Environment` will be created for the first two, but not for the the last.​
+In the three examples above, a `Cloud.Environment` will be created for the first two, but not for the last.​

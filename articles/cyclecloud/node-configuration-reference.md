@@ -1,9 +1,11 @@
 # Node Configuration Reference
 
-Once an Azure CycleCloud node has been started, the configuration of the node itself is determined by using the
-software already installed via the image used to start the node, user defined actions specified in cluster­-init, or by specifying configuration parameters to the node at launch time. Here are some of the most commonly used parameters that can be set on nodes to customize their behavior at runtime.
+Once an Azure CycleCloud node has been started, the configuration of the node itself is determined by using the software already installed via the image used to start the node, user defined actions specified in cluster­-init, or by specifying configuration parameters to the node at launch time. Here are some of the most commonly used parameters that can be set on nodes to customize their behavior at runtime.
 
 All configuration parameters go inside a [[[configuration]]] section for a node defined in a [cluster template](https://review.docs.microsoft.com/en-us/cycle/cyclecloud-cluster-templates?branch=master).
+
+Clusters consist of nodes, which define a single instance, and node arrays, which can be automatically scaled on demand. Node arrays support two size limits: `MaxCount`, which limits how many instances to start, and `MaxCoreCount`, which limits how many cores to start. The `MaxCount` and `MaxCoreCount` limits can also be set on the cluster to keep the size of clusters as a whole bounded. These maximums are hard limits, meaning no nodes will be started at any time if they would violate these constraints. That being said, neither setting will terminate existing instances.
+
 
 CycleCloud
 ----------

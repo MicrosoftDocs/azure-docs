@@ -1,7 +1,22 @@
+# Scale Your Clusters
 
-# Auto-Scale Plugins and API
+Concept
 
-Azre CycleCloud provides APIs to allow users to enable auto-scaling for cluster types
+Why Scale Clusters
+
+Manual
+
+Auto Scale
+
+
+
+
+
+Move all this to Reference? How-To? TBD VVVV
+
+## Auto-Scale Plugins and API
+
+Azure CycleCloud provides APIs to allow users to enable auto-scaling for cluster types
 that are not already built-in.
 
 There are two basic forms of auto-scale plugin: *cluster-side* and *server-side*.
@@ -19,7 +34,6 @@ scale-down directly.
 > The GridEngine and HTCondor scheduler integrations provide a simplified API for customizing the
 > auto-scaling decisions using data collected by the built-in monitoring. Users should not need to use the
 > full Auto-Scale Plugin API for any cluster type that provides built-in auto-scaling.
-
 
 ## Cluster-Side API
 

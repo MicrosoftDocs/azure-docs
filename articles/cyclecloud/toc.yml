@@ -12,6 +12,8 @@
     href: quickstart2.md
   - name: Run Jobs on your HPC Cluster
     href: quickstart3.md
+  - name: Clean Up Resources
+    href: quickstart4.md
 - name: Tutorials
   items:
   - name: Start to Finish How-To Specific Task
@@ -22,58 +24,22 @@
     href:
 - name: Concepts
   items:
+  - name: CycleCloud
+    href: cyclecloud-application.md
   - name: Clusters and Nodes
     items:
-    - name: Cluster Management
-      href: cluster-management.md
-    - name: Nodes and Node Arrays
-      href: nodes.md
-    - name: Tags
-      href: tag-nodes.md
-    - name: Images
-      href: images.md
+    - name: Clusters
+      href: clusters.md
     - name: Auto-Scale
       href: autoscale-api.md
-    - name: Cluster Templates
-      href: cluster-templates.md
-    - name: Environments
-      href: environments.md
+  - name: Cluster Templates
+    items:
+      - name: Cluster Templates
+        href: cluster-templates.md
+      - name: Environments
+        href: environments.md
   - name: Projects
-    items:
-    - name: Cluster-Init Projects
-      href: cluster-init-projects.md
-    - name: Cluster Init
-      href: cluster-init.md
-  - name: Business Continuity
-    items:
-    - name: Overview
-      href: disaster-recovery-overview.md
-    - name: Synchronization
-      href: disaster-recovery-synchronization.md
-    - name: Virtualization
-      href: disaster-recovery-virtualization.md
-  - name: Monitoring
-    items:
-    - name: Monitoring
-      href: monitoring.md
-    - name: Alerts
-      href: alerts.md
-    - name: Usage
-      href: usage.md
-  - name: Reports
-    items:
-    - name: Reports
-      href: reports.md
-    - name: Event Logs
-      href: event-logs.md
-  - name: Data Management
-    items:
-    - name: Overview
-      href: data-overview.md
-    - name: Endpoint Creation
-      href: endpoint-creation.md
-    - name: Data Encryption
-      href: data-encryption.md
+    href: projects.md
   - name: Storage
     items:
     - name: Storage
@@ -84,6 +50,14 @@
       href: storage-nfs-mounts.md
     - name: Blobs
       href: storage-blobs.md
+  - name: Data Management
+    items:
+    - name: Overview
+      href: data-overview.md
+    - name: Endpoint Creation
+      href: endpoint-creation.md
+    - name: Data Encryption
+      href: data-encryption.md
   - name: Network Configuration
     items:
     - name: Network Connectivity
@@ -94,14 +68,26 @@
       href: proxy-traffic.md
     - name: SSL
       href: ssl.md
-  - name: Jetpack
-    href: jetpack.md
-  - name: HealthCheck
-    href: healthcheck.md
-  - name: Scheduler
-    href: scheduler-integration.md
+  - name: Monitoring and Reporting
+    items:
+    - name: Monitoring
+      href: monitoring.md
+    - name: Alerts
+      href: alerts.md
+    - name: Usage
+      href: usage.md
+    - name: Reports
+      href: reports.md
+    - name: Event Logs
+      href: event-logs.md
+    - name: HealthCheck
+      href: healthcheck.md
   - name: User Creation and RBAC
-    href: user-management-and-rbac.md
+    items:
+    - name: User Authentication
+      href:
+    - name: Cluster Users
+      href:
 - name: How-To
   items:
   - name: Install CycleCloud Manually
@@ -120,8 +106,18 @@
     href: transfer-data.md
   - name: Enable Return Proxy
     href: return-proxy.md
+  - name: Tags
+    href: tag-nodes.md
+  - name: Images
+    href: images.md
+  - name: Create Custom Roles
+    href:
+  - name: Cluster User Management
+    href:
 - name: Reference
   items:
+  - name: Cluster Reference
+    href: cluster-reference.md
   - name: CLI
     href:
   - name: Common Cookbook Reference
@@ -138,6 +134,8 @@
       href: pogo-configuration.md
     - name: Using pogo
       href: pogo-guide.md
+  - name: Scheduler
+    href: scheduler-integration.md
   - name: CycleServer Datastore
     href:
     items:
