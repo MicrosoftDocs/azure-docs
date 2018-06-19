@@ -66,10 +66,10 @@
     items:
       - name: Secure data in Azure Data Lake Storage
         href: secure-data.md
-  #- name: ingest data
-    #items: 
-      #- name: How to copy data into Data Lake Storage 
-        #href:
+  - name: ingest data
+    items: 
+      - name: How to copy data into Data Lake Storage using Distcp
+        href: use-distcp.md
 - name: Reference
   items:
 - name: Resources
