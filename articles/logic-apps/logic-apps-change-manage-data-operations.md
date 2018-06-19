@@ -3,12 +3,12 @@
 title: Change or manage data outputs and formats - Azure Logic Apps | Microsoft Docs
 description: Convert, transform, and manage data outputs and formats in Azure Logic Apps
 services: logic-apps
-author: ecfan
-manager: cfowler
-ms.author: estfan
-ms.topic: article
-ms.date: 06/05/2018
 ms.service: logic-apps
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.topic: article
+ms.date: 06/22/2018
 
 # optional metadata
 ms.reviewer: klam, LADocs
@@ -28,6 +28,8 @@ These actions help you work with data in arrays.
 
 | Action | Description | 
 |--------|-------------| 
+| [**Create CSV table**](#create-csv-table-action) | Create a comma-separated value (CSV) table from an array or output from an expression. | 
+| [**Create HTML table**](#create-html-table-action) | Create an HTML table with output from an array or output from an expression. | 
 | [**Filter array**](#filter-array-action) | Get the items from an array based on the specified filter or condition. | 
 | [**Join**](#join-action) | Create a string from all the items in an array and separate each item with the specified character. | 
 | [**Select**](#select-action) | Create an array from the specified properties for all the items in a different array. | 
@@ -39,22 +41,12 @@ These actions help you work with data in JavaScript Object Notation (JSON) forma
 
 | Action | Description | 
 |--------|-------------| 
-| [**Compose**](#compose-action) | Create a JSON object from the specified inputs. | 
+| [**Compose**](#compose-action) | Create a single output from inputs with varying data types. | 
 | [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens, which you can use in logic apps, from JSON content by providing or generating a JSON schema.  | 
 ||| 
 
 To create more complex JSON transformations, see 
 [Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
-
-**Table actions**
-
-These actions help you create tables from various data sources.
-
-| Action | Description | 
-|--------|-------------| 
-| [**Create CSV table**](#create-csv-table-action) | Create a comma-separated value (CSV) table from an array or output from an expression. | 
-| [**Create HTML table**](#create-html-table-action) | Create an HTML table with output from an array or output from an expression. | 
-||| 
 
 ## Prerequisites
 
@@ -81,42 +73,90 @@ as the first step in your logic app
 
 ## Compose action
 
-You can create output such as arrays, JSON objects, 
-and any other native type that Azure Logic Apps supports, 
-for example, binary and XML, by using the **Data Operations - Compose** action.
-
-To create a JavaScript Object Notation (JSON) object from any output, 
-follow these steps:
+You can create a single output from more than one input, 
+including expressions, by using the **Data Operations - Compose** action. 
+These inputs can have varying types, such as arrays, 
+JSON objects, and any other native type that Azure 
+Logic Apps supports, for example, binary and XML. 
+You can then use this output in actions that follow 
+the **Compose** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
 
-   This example uses the Azure portal 
-   and a logic app with an existing trigger.
+   This example uses the Azure portal and a logic app with a 
+   **Recurrence** trigger and two **Initialize variable** actions. 
+   These actions are set up for creating a string variable 
+   and an integer variable. When you test your logic app later, 
+   you can manually run your app without waiting for the trigger to fire.
 
-2. In your logic app where you want to create the JSON object, 
+   ![Starting sample logic app](./media/logic-apps-change-manage-data-operations/sample-starting-logic-app-compose-action.png)
+
+2. In your logic app where you want to create the output, 
 follow one of these steps: 
 
    * To add an action under the last step, 
    choose **New step** > **Add an action**.
 
-     ![Add action](./media/logic-apps-create-variables-store-values/add-action.png)
+     ![Add action](./media/logic-apps-change-manage-data-operations/add-compose-action.png)
 
    * To add an action between steps, move your mouse 
    over the connecting arrow so the plus sign (+) appears. 
    Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "compose" as your filter. 
-From the actions list, select **Data Operations - Compose**.
+From the actions list, select this action: **Data Operations - Compose**
 
-4. Now select the inputs to use for creating the JSON object.
+   ![Select "Compose" action](./media/logic-apps-change-manage-data-operations/select-compose-action.png)
+
+4. In the **Inputs** box, provide the inputs you want for creating the output. 
+
+   For this example, when you click inside the **Inputs** box, 
+   the dynamic content list appears so you can select 
+   the previously created variables:
+
+   ![Select inputs to compose](./media/logic-apps-change-manage-data-operations/configure-compose-action.png)
+
+   Here is the finished example **Compose** action: 
+
+   ![Finished "Compose" action](./media/logic-apps-change-manage-data-operations/finished-compose-action.png)
+
+5. Save your logic app. On the designer toolbar, choose **Save**.
+
+For more information about this action in 
+your underlying workflow definition, see the 
+[Compose action](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action).
+
+### Test your logic app
+
+To check that the **Compose** action creates the expected results, 
+send yourself a notification that includes output from the **Compose** action.
+
+1. In your logic app, add an action that can send you 
+the results from the **Compose** action.
+
+2. In that action, click anywhere you want the results to appear. 
+When the dynamic content list opens, under the **Compose** action, 
+select **Output**. 
+
+   This example uses the **Office 365 Outlook - Send an email** action 
+   and includes **Output** fields in the email's body and subject:
+
+   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-compose-action.png)
+
+3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
+
+   Based on the email connector you used, here the results that you get:
+
+   ![Email with "Compose" action results](./media/logic-apps-change-manage-data-operations/compose-email-results.png)
 
 <a name="create-csv-table-action"></a>
 
 ## Create CSV table action
 
-To create a CSV table from an array or outputs from an expression, 
-follow these steps:
+You can create a CSV table from array items or expression outputs 
+by using the **Data Operations - Create CSV table** action. 
+You can then use this table in actions that follow the **Create CSV table** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -128,6 +168,8 @@ or Visual Studio, open your logic app in Logic App Designer.
    JavaScript Object Notation (JSON) format. When you test 
    your logic app later, you can manually run your app 
    without waiting for the trigger to fire.
+
+   ![Starting sample logic app](./media/logic-apps-change-manage-data-operations/sample-starting-logic-app-create-csv-table-action.png)
 
 2. In your logic app where you want to create the CSV table, 
 follow one of these steps: 
@@ -142,18 +184,54 @@ follow one of these steps:
    Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "create csv table" as your filter. 
-From the actions list, select **Data Operations - Create CSV table**.
+From the actions list, select this action: **Data Operations - Create CSV table**
 
-4. In the **Create CSV table** action, click inside the **From** box. 
-When the dynamic content list opens, select the source data for the CSV table.
+   ![Select "Create CSV table" action](./media/logic-apps-change-manage-data-operations/select-create-csv-table-action.png)
 
-   By default, this action automatically creates the column headers 
-   and values from the selected source data. 
-   To manually override these default column headers and values, 
-   choose **Show advanced options**. 
+4. In the **From** box, provide the array or expression you want for creating the table. 
+
+   For this example, when you click inside the **From** box, 
+   the dynamic content list appears so you can select 
+   the previously created variable:
+
+   ![Select array output for creating CSV table](./media/logic-apps-change-manage-data-operations/configure-create-csv-table-action.png)
+
+   Here is the finished example **Create CSV table** action: 
+
+   ![Finished "Create CSV table" action](./media/logic-apps-change-manage-data-operations/finished-create-csv-table-action.png)
+
+   By default, this action automatically creates the columns based on the array items. 
+   To customize the column headers and values, choose **Show advanced options**. 
+   To provide only custom values, change **Columns** to **Custom**. 
+   To provide custom column headers too, change **Include headers** to **Yes**. 
+   
+5. Save your logic app. On the designer toolbar, choose **Save**.
 
 For more information about this action in your underlying workflow definition, 
-see [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
+see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
+
+### Test your logic app
+
+To check that the **Create CSV table** action creates the expected results, 
+send yourself a notification that includes output from the **Create CSV table** action.
+
+1. In your logic app, add an action that can send you 
+the results from the **Create CSV table** action.
+
+2. In that action, click anywhere you want the results to appear. 
+When the dynamic content list opens, under the **Create CSV table** action, 
+select **Output**. 
+
+   This example uses the **Office 365 Outlook - Send an email** action 
+   and includes **Output** fields in the email's body and subject:
+
+   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-compose-action.png)
+
+3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
+
+   Based on the email connector you used, here the results that you get:
+
+   ![Email with "Create CSV table" action results](./media/logic-apps-change-manage-data-operations/create-csv-table-email-results.png)
 
 <a name="create-html-table-action"></a>
 
@@ -267,34 +345,32 @@ From the actions list, select this action:
 
    ![Select "Data Operations - Join" action](./media/logic-apps-change-manage-data-operations/select-join-action.png)
 
-4. In the **Join** action, click inside the **From** box. 
-In the dynamic content list that appears, under the action 
-that provides the array output you want, select that output. 
+4. In the **From** box, provide the array that has the items you want to join as a string. 
 
-   This example selects the **myIntegerArray** variable 
-   created by the **Initialize variable** action.
+   For this example, from the dynamic content list that appears, 
+   you can select the previously created **myIntegerArray** variable: 
 
    ![Select array output for the "Join" action](./media/logic-apps-change-manage-data-operations/configure-join-action.png)
 
 5. In the **Join with** box, enter the character 
 you want for separating each array item. 
 
-   This example uses a comma as the separator.
+   This example uses a colon (:) as the separator.
 
    ![Provide the separator character](./media/logic-apps-change-manage-data-operations/finished-join-action.png)
 
 6. Save your logic app. On the designer toolbar, choose **Save**.
 
 For more information about this action in your underlying workflow definition, 
-see [Join action](../logic-apps/logic-apps-workflow-actions-triggers.md#join-action).
+see the [Join action](../logic-apps/logic-apps-workflow-actions-triggers.md#join-action).
 
 ### Test your logic app
 
 To check that the **Join** action creates the expected results, 
-send yourself a notification that includes output from the join operation. 
+send yourself a notification that includes output from the **Join** action. 
 
 1. In your logic app, add an action that can send you 
-the results from the join operation.
+the results from the **Join** action.
 
 2. In that action, click anywhere you want the results to appear. 
 When the dynamic content list opens, under the **Join** action, 
@@ -303,15 +379,13 @@ select **Output**.
    This example uses the **Office 365 Outlook - Send an email** action 
    and includes **Output** fields in the email's body and subject:
 
-   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-action.png)
+   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-join-action.png)
 
-3. Now, manually run your logic app. 
-On the designer toolbar, choose **Run**. 
+3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
-   After your logic app finishes running, 
+   Based on the email connector you used, here the results that you get:
 
-
-   For example, the logic app finishes successfully, 
+   ![Email with "Join" action results](./media/logic-apps-change-manage-data-operations/join-email-results.png)
 
 <a name="parse-json-action"></a>
 
