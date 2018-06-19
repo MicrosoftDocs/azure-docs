@@ -54,4 +54,4 @@ Learn [best practices](luis-concept-best-practices.md).
 
 * Learn more about [testing](interactive-test.md) your utterances.
 
-[LUIS](luis-reference-regions.md)
+[LUIS]: luis-reference-regions.md

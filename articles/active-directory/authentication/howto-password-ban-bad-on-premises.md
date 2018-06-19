@@ -35,6 +35,10 @@ During the audit stage, many organizations find:
 
 Once the feature has been running in audit mode for a reasonable time, the enforcement configuration can be flipped from **Audit** to **Enforce** thereby requiring more secure passwords. Focused monitoring during this time is a good idea.
 
+## Known limitation
+
+There is a known limitation in the preview version of the Azure AD password protection proxy. Use of tenant administrator accounts that require MFA is unsupported. A future update of the Azure AD password protection proxy will support proxy registration with administrator accounts that require MFA.
+
 ## Single forest deployment
 
 The preview of Azure AD password protection is deployed with the proxy service on up to two servers, and the DC agent service can be incrementally deployed to all domain controllers in the Active Directory forest.
