@@ -9,6 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 2b0b544c-9c2c-49cd-862b-ec2ee9330126
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
