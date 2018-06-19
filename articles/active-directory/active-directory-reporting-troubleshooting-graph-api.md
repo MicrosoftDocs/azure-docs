@@ -55,4 +55,4 @@ Please follow the steps in the [Prerequisites to access the Azure Active Directo
 
 ## Error: Application missing MSGraph API 'Read all audit log data' permission
 
-Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal) to ensure your application is running with the right set of permissions. 
+Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md) to ensure your application is running with the right set of permissions. 
