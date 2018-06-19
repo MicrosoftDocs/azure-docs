@@ -10,7 +10,8 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Continuous integration and continuous deployment to Azure IoT Edge - preview
+# Continuous integration and continuous deployment to Azure IoT Edge
+
 This article demonstrates how you can use the continuous integration and continuous deployment features of Visual Studio Team Services (VSTS) and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
 In this article, you will learn how to:

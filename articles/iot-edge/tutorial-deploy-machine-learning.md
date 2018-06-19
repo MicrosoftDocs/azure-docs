@@ -11,7 +11,7 @@ services: iot-edge
 ms.custom: mvc
 ---
 
-# Deploy Azure Machine Learning as an IoT Edge module - preview
+# Deploy Azure Machine Learning as an IoT Edge module
 
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on sensor data on the simulated IoT Edge device that you created in the [Deploy Azure IoT Edge on a simulated device on Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials.
 

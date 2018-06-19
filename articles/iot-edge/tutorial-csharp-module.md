@@ -14,7 +14,7 @@ ms.custom: mvc
 
 ---
 
-# Develop a C# IoT Edge module and deploy to your simulated device - preview
+# Develop a C# IoT Edge module and deploy to your simulated device
 
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. In this tutorial, you learn how to:    
 
