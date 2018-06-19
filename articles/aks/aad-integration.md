@@ -148,6 +148,19 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
   name: "user@contoso.com"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: dash-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: kubernetes-dashboard
+  namespace: kube-system
 ```
 
 A role binding can also be created for all members of an Azure AD group. The following manifest gives all members of the `kubernetes-admin` group admin access to the cluster.
