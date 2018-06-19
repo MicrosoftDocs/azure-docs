@@ -97,68 +97,70 @@ The Microsoft.Insights provider must be registered for flow logging to work pr
     **Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
     ```
 
-10. I have configured the solution. Why am I not seeing anything on the dashboard?
+## I have configured the solution. Why am I not seeing anything on the dashboard?
 
-    The dashboard may take up to 30 mins to appear the first time. The solution must first aggregate enough data for it to derive meaningful insights, before any reports are generated. 
+The dashboard may take up to 30 minutes to appear the first time. The solution must first aggregate enough data for it to derive meaningful insights. Then it generates reports. 
 
-11.  If I receive the following message: “We could not find any data in this workspace for selected time interval. Try changing the time interval or select a different workspace”, how do I resolve it?
+## What if I get this message: “We could not find any data in this workspace for selected time interval”?
 
-        Try the following options:
-        - Try changing time interval in the upper bar.
-        - Select a different Log Analytics Workspace in the upper bar
-        - Try accessing Traffic Analytics after 30 mins, if it was recently enabled
+Try the following options:
+- Change the time interval in the upper bar.
+- Select a different Log Analytics workspace in the upper bar.
+- Try accessing traffic analytics after 30 minutes, if it was recently enabled.
     
-        If issues persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+If problems persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-12.  If I receive the following message: “1) Analyzing your NSG flow logs for the first time. This process may take 20-30 minutes to complete. Check back after some time. 2) If the above step doesn’t work and your workspace is under the free SKU, then check your workspace usage here to validate over quota, else refer to FAQs for further information”, how do I resolve it?
+## What if I get this message: “Analyzing your NSG flow logs for the first time. This process may take 20-30 minutes to complete”?
 
-        You may receive the error for the following reasons:
-        - Traffic analytics may have been recently enabled and may not yet have aggregated enough data for it to derive meaningful insights.
-        - Your OMS Workspace is under the free SKU and it breached the quota limits. In this case, you may need to use a workspace in a SKU with larger capacity.
+You might see this message because:
+- Traffic analytics was recently enabled, and might not yet have aggregated enough data for it to derive meaningful insights.
+- You are using the free version of the Operations Management Suite workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
     
-        If issues persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+If problems persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-13.  If I receive the following message: “Looks like we have resources data (Topology) and no flows information. Meanwhile, click here to see resources data and refer to FAQs for further information”, how do I resolve it?
+## What if I get this message: “Looks like we have resources data (Topology) and no flows information”?
 
-        You are seeing the resources information on the dashboard; however, no flow-related statistics are present. Data may not be present because of no communication flows between the resources. Wait for 60 mins and recheck status. If you're sure that communication flows among resources exist, then raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+You are seeing the resources information on the dashboard; however, no flow-related statistics are present. Data may not be present because of no communication flows between the resources. Wait for 60 minutes, and recheck status. If the problem persists, and you're sure that communication flows among resources exist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14. Can I configure traffic analytics using PowerShell or an Azure Resource Manager template?
+## Can I configure traffic analytics using PowerShell or an Azure Resource Manager template?
 
-        Yes, traffic analytics configuration using windows powershell is supported from version 6.2.1 onwards, however Azure Resource Manager template support is not available at present. To learn more, how PowerShell can be used to configure traffic analytics please refer following [documentation](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
+You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To learn more, see the [documentation](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0).
 
-15.  How is traffic analytics priced?
+You can't currently use an Azure Resource Manager template for this purpose.  
 
-        Traffic analytics is metered for flow log data processed by the service and storing the resulted enhanced logs in a Log Analytics workspace. To know more about pricing plan please [click here](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
+## How is traffic analytics priced?
 
-16.  How can I navigate using Keyboard in Geo Map View?
+Traffic analytics is metered. The metering is based on processing flow log data and storing the enhanced logs in a Log Analytics workspace. For more details, see the [pricing plan](https://azure.microsoft.com/en-us/pricing/details/network-watcher/). 
 
-        The geo-map page contains two main sections:
+## How can I navigate by using the keyboard in the geo map view?
+
+The geo map page contains two main sections:
     
-        - **Banner**: The banner placed in the top of the Geo Map provides the capability to select traffic distribution filters via buttons like Deployment/No Deployment/Active/Inactive/Traffic Analytics Enabled/Traffic Analytics not enabled/Traffic from countries/Benign/Malicious/Allowed malicious traffic, and legend information. On the selection of defined buttons, the respective filter is applied on the Map, like if a user selects the “Active” filter button under the banner, then the map highlights the “Active” datacenters in your deployment.
-        - **Map**: The Map section placed below the banner shows traffic distribution among Azure datacenters and countries.
+- **Banner**: The banner at the top of the geo map provides buttons to select traffic distribution filters (for example, Deployment, Traffic from countries, and Malicious). When you select a button, the respective filter is applied on the map. For example, if you select the Active button, the map highlights the active datacenters in your deployment.
+- **Map**: Below the banner, the map section shows traffic distribution among Azure datacenters and countries.
     
-        **Keyboard Navigation on Banner**
+### Keyboard navigation on the banner
     
-        - By default, the selection on the geo-map page for the banner is the filter “Azure DCs” button.
-        - To navigate to another filters button, you can either use the `Tab` or `Right arrow` key to move next. To navigate backward, use either `Shift+Tab` or the `Left arrow` key. Forward navigation direction precedence is left to right, followed by top to bottom.
-        - Press the `Enter` or `Down` arrow key to apply the selected filter. Based on filter selection and deployment, one or multiple nodes under the Map section are    highlighted.
-            - To switch between **Banner** and **Map**, press `Ctrl+F6`.
+- By default, the selection on the geo-map page for the banner is the filter “Azure DCs” button.
+- To navigate to another filters button, you can either use the `Tab` or `Right arrow` key to move next. To navigate backward, use either `Shift+Tab` or the `Left arrow` key. Forward navigation direction precedence is left to right, followed by top to bottom.
+- Press the `Enter` or `Down` arrow key to apply the selected filter. Based on filter selection and deployment, one or multiple nodes under the Map section are    highlighted.
+- To switch between **Banner** and **Map**, press `Ctrl+F6`.
         
-        **Keyboard Navigation on Map**
+**Keyboard Navigation on Map**
     
-        - Once you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**Azure datacenter** or **Country/Region**) in the map view.
-        - To navigate to other highlighted nodes in the map you can either use the `Tab` or `Right arrow` keys for forward movement, and `Shift+Tab` or the `Left arrow` key for backward movement.
-        - To select any highlighted node in the map, use the `Enter` or `Down arrow` key.
-        - On selection of any such nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the closed button on the **Information Tool Box**. To further navigate inside **Box** view, use `Right` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
-        - Pressing `Tab` while the focus is on the **Information Tool Box**, the focus moves to the end points in the same continent as the selected node. You can use the `Right` and `Left arrow` keys to navigate through these endpoints.
-        - To navigate to other flow endpoints/continents cluster, use `Tab` for forward movement and `Shift+Tab` for backward movement.
-        - Once focus is on `Continent clusters`, use the `Enter` or `Down` arrow keys to highlight the endpoints inside the continent cluster. To navigate through endpoints and the close button on the information box of the continent cluster, use either the `Right` or `Left arrow` key for forward and backward movement, respectively. On any endpoint, you can use `Shift+L` to switch to the connection line from the selected node to the endpoint. Pressing `Shift+L` again navigates you to the selected endpoint.
+- Once you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**Azure datacenter** or **Country/Region**) in the map view.
+- To navigate to other highlighted nodes in the map you can either use the `Tab` or `Right arrow` keys for forward movement, and `Shift+Tab` or the `Left arrow` key for backward movement.
+- To select any highlighted node in the map, use the `Enter` or `Down arrow` key.
+- On selection of any such nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the closed button on the **Information Tool Box**. To further navigate inside **Box** view, use `Right` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
+- Pressing `Tab` while the focus is on the **Information Tool Box**, the focus moves to the end points in the same continent as the selected node. You can use the `Right` and `Left arrow` keys to navigate through these endpoints.
+- To navigate to other flow endpoints/continents cluster, use `Tab` for forward movement and `Shift+Tab` for backward movement.
+- Once focus is on `Continent clusters`, use the `Enter` or `Down` arrow keys to highlight the endpoints inside the continent cluster. To navigate through endpoints and the close button on the information box of the continent cluster, use either the `Right` or `Left arrow` key for forward and backward movement, respectively. On any endpoint, you can use `Shift+L` to switch to the connection line from the selected node to the endpoint. Pressing `Shift+L` again navigates you to the selected endpoint.
         
-        At any stage:
+At any stage:
     
-        - `ESC` collapses the expanded selection.
-        - The `UP Arrow` key performs the same action as `ESC`. The `Down arrow` key performs the same action as `Enter`.
-        - Use `Shift+Plus` to zoom in, and `Shift+Minus` to zoom out.
+- `ESC` collapses the expanded selection.
+- The `UP Arrow` key performs the same action as `ESC`. The `Down arrow` key performs the same action as `Enter`.
+- Use `Shift+Plus` to zoom in, and `Shift+Minus` to zoom out.
 
 17. How can I navigate using Keyboard in VNet Topology View?
 
