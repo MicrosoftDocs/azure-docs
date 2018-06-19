@@ -10,6 +10,7 @@ manager: sakula
 
 ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
