@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 06/19/2018
 ms.author: davidmu
 
 ---
@@ -34,7 +34,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 2. In the search box above the list of Azure Marketplace resources, search for and select **Active Directory B2C**, and then click **Create**.
 3. Choose **Create a new Azure AD B2C Tenant**, enter an organization name and initial domain name, which is used in the tenant name, select the country, and then click **Create**. Be sure of the country of the tenant because it can't be changed later.
 
-    ![Create a tenant](./media/active-directory-b2c-tutorials-web-app/create-tenant.png)
+    ![Create a tenant](./media/tutorial-create-tenant/create-tenant.png)
 
     In this example the tenant name is contoso0522Tenant.onmicrosoft.com
 
@@ -46,11 +46,11 @@ You need to link your Azure AD B2C tenant to your Azure subscription to enable a
 
 1. Make sure you're using the directory that contains the subscription you want to associate to the new tenant by switching the directory in the top-right corner of the Azure portal.
 
-    ![Switch directories](./media/active-directory-b2c-tutorials-web-app/switch-directories-link.png)
+    ![Switch directories](./media/tutorial-create-tenant/switch-directories.png)
 
     And then selecting the directory that contains your subscription.
 
-    ![Select directory](./media/active-directory-b2c-tutorials-web-app/select-directory-link.png)
+    ![Select directory](./media/tutorial-create-tenant/select-directory.png)
 
 2. Choose **Create a resource** in the upper top-left corner of the Azure portal.
 3. In the search box above the list of Azure Marketplace resources, search for and select **Active Directory B2C**, and then click **Create**.
