@@ -72,7 +72,19 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
    ![Solution Explorer following creation of application with ASP.NET core Web API service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### Add AngularJS to the VotingWeb service
-Add [AngularJS](http://angularjs.org/) to your service using [Bower support](/aspnet/core/client-side/bower). First, add a Bower configuration file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **C#** and then **JSON File**.  Enter **bower.json** in the *Name* field and click **Add**.
+Add [AngularJS](http://angularjs.org/) to your service using [Bower support](/aspnet/core/client-side/bower). First, add a *.bowerrc* settings file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **C#** and then **JSON File**.  Enter **.bowerrc** in the *Name* field and click **Add**.
+
+Open *.bowerrc* and replace the contents with the following, which indicates that Bower will install the package assets to the *wwwroot/lib* directory.
+
+```json
+{
+ "directory": "wwwroot/lib"
+}
+```
+
+Save your changes to *.bowerrc*.  This creates a *.bowerrc* file in your project.  
+
+Next, add a Bower configuration file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **C#** and then **JSON File**.  Enter **bower.json** in the *Name* field and click **Add**.
 
 Open *bower.json* and replace the contents with the following entries for angular and angular-bootstrap, then save your changes.
 
@@ -90,6 +102,7 @@ Open *bower.json* and replace the contents with the following entries for angula
   }
 }
 ```
+
 Upon saving the *bower.json* file, Visual Studio's bower support will install Angular in your project's *wwwroot/lib* folder. Additionally, it is listed within the *Dependencies/Bower* folder.
 
 ### Update the site.js file

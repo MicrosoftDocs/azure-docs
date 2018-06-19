@@ -84,4 +84,4 @@ When you are done with the tutorial, remove Visual Studio and the console applic
 > [!div class="nextstepaction"]
 > [Integrate LUIS with a bot](luis-csharp-tutorial-build-bot-framework-sample.md)
 
-[LUIS]: luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
