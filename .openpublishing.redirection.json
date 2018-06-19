@@ -14698,7 +14698,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-dockerextension-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/dockerextension-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": false
         },
         {
@@ -15248,7 +15248,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-using-cloud-init-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/using-cloud-init-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/using-cloud-init",
             "redirect_document_id": false
         },
         {
