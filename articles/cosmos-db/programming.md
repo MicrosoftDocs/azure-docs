@@ -157,7 +157,7 @@ The example described demonstrated how to use stored procedures. Next you will l
 
 When defining a stored procedure by using Azure portal, input parameters are always sent as a string to the stored procedure. Even if you pass an array of strings as an input, the array is converted to string and sent to the stored procedure. To workaround this issue, you can define a function within your stored procedure to parse the string as an array. The following code is an example to parse the string as an array: 
 
-``` 
+```javascript
 function sample(arr) {
     if (typeof arr === "string") arr = JSON.parse(arr);
     
