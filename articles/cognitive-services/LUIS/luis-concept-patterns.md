@@ -114,4 +114,4 @@ Learn [best practices](luis-concept-best-practices.md).
 > [!div class="nextstepaction"]
 > [Learn how to implement patterns in this tutorial](luis-tutorial-pattern.md)
 
-[LUIS](luis-reference-regions.md)
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

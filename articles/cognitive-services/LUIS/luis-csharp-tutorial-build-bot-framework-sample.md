@@ -157,15 +157,17 @@ Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, 
 > [!div class="nextstepaction"]
 > [Add intents](./luis-how-to-add-intents.md)
 > [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
+
+
 <!-- Links -->
-[Github-BotFramework-Emulator-Download](https://aka.ms/bot-framework-emulator)
-[Github-LUIS-Samples](https://github.com/Microsoft/LUIS-Samples)
-[Github-LUIS-Samples-cs-hotel-bot](https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp)
-[Github-LUIS-Samples-cs-hotel-bot-readme](https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md)
-[BFPortal](https://dev.botframework.com/)
-[RegisterInstructions](https://docs.microsoft.com/bot-framework/portal-register-bot)
-[BotFramework](https://docs.microsoft.com/bot-framework/)
-[AssignedEndpointDoc](https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys)
-[VisualStudio](https://www.visualstudio.com/)
-[LUIS](luis-reference-regions.md)
+[Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
+[Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
+[Github-LUIS-Samples-cs-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp
+[Github-LUIS-Samples-cs-hotel-bot-readme]: https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md
+[BFPortal]: https://dev.botframework.com/
+[RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
+[BotFramework]: https://docs.microsoft.com/bot-framework/
+[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
+[VisualStudio]: https://www.visualstudio.com/
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 <!-- tested on Win10 -->

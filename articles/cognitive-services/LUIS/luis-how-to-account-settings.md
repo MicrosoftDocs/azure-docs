@@ -53,4 +53,4 @@ If you add collaborators to a LUIS app, you are specifying the exact email addre
 
 Learn more about your [authoring key](luis-concept-keys.md#authoring-key). 
 
-[LUIS](luis-reference-regions.md)
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

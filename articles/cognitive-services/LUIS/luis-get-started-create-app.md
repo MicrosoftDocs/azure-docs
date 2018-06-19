@@ -120,4 +120,4 @@ You can call the endpoint from code:
 > [Call a LUIS endpoint using code](luis-get-started-cs-get-intent.md)
 
 
-[LUIS](luis-reference-regions.md#luis-website)
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
