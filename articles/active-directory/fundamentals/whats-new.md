@@ -33,17 +33,17 @@ This page is updated monthly, so revisit it regularly.
 
 ## June 2018
 
-### Security fix around how Azure AD Activity Logs APIs work with your delegated authorization flow
+### Change notice: Security fix to the delegated authorization flow for apps using Azure AD Activity Logs API
 
 **Type:** Plan for change  
 **Service category:** Monitoring & Reporting  
 **Product capability:** Reporting
 
-We’re changing how the Azure AD Activity Logs APIs work with your delegated authorization flow on **June 25, 2018**.
+Due to a recent infrastructure change, we must make a security fix that changes how apps work while using a delegated authorization flow to access Azure AD Activity Logs APIs. This change will occur by **June 26, 2018**.
 
-If you continue to use a delegated authorization flow after that date, the APIs will stop functioning correctly and you'll no longer receive log files. To fix this problem, you can update the permissions of your Azure AD Activity APIs.
+If any of your apps use Azure AD Activity Log APIs, follow these steps to ensure the app doesn’t break after the change happens.
 
-**To update your permissions**
+**To update your app permissions**
 
 1.	Sign in to the Azure portal.
 
