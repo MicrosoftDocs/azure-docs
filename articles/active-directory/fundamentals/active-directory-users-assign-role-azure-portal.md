@@ -1,5 +1,4 @@
 ---
-
 title: Assign a user to administrator roles in Azure Active Directory  | Microsoft Docs
 description: Explains how to change user administrative information in Azure Active Directory
 services: active-directory
@@ -7,16 +6,15 @@ documentationcenter: ''
 author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-
 ---
+
 # Assign a user to administrator roles in Azure Active Directory
 This article explains how to assign an administrative role to a user in Azure Active Directory (Azure AD). For information about adding new users in your organization, see [Add new users to Azure Active Directory](../add-users-azure-active-directory.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
 
