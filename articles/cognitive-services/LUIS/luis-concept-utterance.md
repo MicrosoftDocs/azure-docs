@@ -64,4 +64,4 @@ Review [best practices](luis-concept-best-practices.md) to learn more.
 See [Add example utterances][add-example-utterances] for information on training a LUIS app to understand user utterances.
 
 [add-example-utterances]: luis-how-to-add-example-utterances.md
-[BingSpellCheck] :https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text
+[BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text
