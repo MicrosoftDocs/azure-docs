@@ -138,6 +138,6 @@ To discover other ways to export and use a Custom Vision model, see the followin
 * [Export your model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)
 * [Use exported Tensorflow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Use exported CoreML model in a Swift iOS application](https://go.microsoft.com/fwlink/?linkid=857726)
-* [Use exported CoreML model in an iOS application with Xamarin(https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
+* [Use exported CoreML model in an iOS application with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 
 For more information on using ONNX models with Windows ML, see the [Integrate a model into your app with Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model) document.
