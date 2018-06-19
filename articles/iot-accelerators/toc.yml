@@ -180,7 +180,7 @@
   - name: Secure your IoT deployment
     href: iot-accelerators-security-deployment.md
   - name: Security from the ground up
-    href: iot-security-ground-up.md
+    href: ../iot-fundamentals/iot-security-ground-up.md
 
 - name: Related
   items:
