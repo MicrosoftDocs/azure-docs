@@ -202,7 +202,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
 - The following pictures show time trending for the top five L7 protocols and the flow-related details (for example, allowed and denied flows) for an L7 protocol:
 
-    ![Top five layer 7 protocols details and trend](./media/traffic-analytics/top five-layer-seven-protocols-details-and-trend.png)
+    ![Top five layer 7 protocols details and trend](./media/traffic-analytics/top-five-layer-seven-protocols-details-and-trend.png)
 
     ![Flow details for application protocol in log search](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
