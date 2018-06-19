@@ -348,7 +348,7 @@ To copy data to Azure SQL Database, set the **type** property in the Copy Activi
 | sqlWriterTableType | Specify a table type name to be used in the stored procedure. Copy Activity makes the data being moved available in a temporary table with this table type. Stored procedure code can then merge the data being copied with existing data. | No |
 
 > [!TIP]
-> When you copy data to Azure SQL Database, Copy Activity appends data to the sink table by default. To perform an upsert or additional business logic, use the stored procedure in **SqlSink**. Learn more details from [Invoking stored procedure from SQL Sink](#invoking-stored-procedure-for-sql-sink).
+> When you copy data to Azure SQL Database, Copy Activity appends data to the sink table by default. To do an upsert or additional business logic, use the stored procedure in **SqlSink**. Learn more details from [Invoking stored procedure from SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
 #### Append data example
 
@@ -500,7 +500,7 @@ When you copy data into Azure SQL Database, you can also configure and invoke a 
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. They're typically used when an upsert, insert plus update, or extra processing must be done before the final insertion of source data into the destination table. Some extra processing examples are merge columns, look up additional values, and insertion into more than one table.
 
-The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Perform the upsert based on the **ProfileID** column, and only apply it for a specific category.
+The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
 
 #### Output dataset
 
@@ -553,7 +553,7 @@ BEGIN
 END
 ```
 
-In your database, define the table type with the same name as the **sqlWriterTableType**. Note that the schema of the table type should be same as the schema returned by your input data.
+In your database, define the table type with the same name as the **sqlWriterTableType**. The schema of the table type should be same as the schema returned by your input data.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
