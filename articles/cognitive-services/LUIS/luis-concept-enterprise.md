@@ -53,10 +53,13 @@ The chatbot receives the utterance, then sends to the parent LUIS app for predic
 
 Understand how this hierarchy of calls is made from the Bot Builder v4 [dispatcher-application-tutorial][dispatcher-application-tutorial].  
 
+### Intent limits in dispatch model
+A dispatch application has 500 dispatch sources, equivalent to 500 intents, as the maximum. 
+
 ## Next steps
 
 * Learn how to [test a batch](luis-how-to-batch-test.md)
 
-[LUIS]:luis-reference-regions.md
-[dispatcher-application-tutorial]:https://aka.ms/bot-dispatch
-[dispatch-tool]:https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
+[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch

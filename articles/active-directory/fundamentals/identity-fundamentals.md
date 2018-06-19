@@ -1,36 +1,26 @@
 ---
-# required metadata
-
-title: Fundamentals of Azure identity management
+title: Fundamentals of Azure identity management | Microsoft Docs
 description: Cloud-based identities are now the best way to maintain control over, and visibility into, how and when users access corporate applications and data.
 keywords:
-author: jeffgilb
+author: eross-msft
 manager: mtillman
-ms.reviewr: jsnow
-ms.author: jeffgilb
+ms.reviewer: jsnow
+ms.author: lizross
 ms.date: 07/05/2017
-ms.topic: article
+ms.topic: overview
 ms.prod:
 ms.service: active-directory
 ms.component: fundamentals
 ms.technology:
 ms.assetid:
-
-# optional metadata
-
-#ROBOTS:
-#audience:
-#ms.devlang:
-#ms.suite:
-#ms.tgt_pltfrm:
 ms.custom: it-pro
-
 ---
+
 # Fundamentals of Azure identity management
 
 As more and more company digital resources live outside the corporate network, in the cloud and on devices, a great cloud-based identity and access management solution is becoming a necessity. Cloud-based identities are now the best way to maintain control over, and visibility into, how and when users access corporate applications and data.
 
-Microsoft has been securing cloud-based identities for over a decade and now, with [Azure Active Directory (AD)](../active-directory-whatis.md), these same protection systems are available to you. With Azure AD, enterprise administrators can easily ensure user and administrator accountability with better security and governance than ever before.
+Microsoft has been securing cloud-based identities for over a decade and now, with [Azure Active Directory (AD)](active-directory-whatis.md), these same protection systems are available to you. With Azure AD, enterprise administrators can easily ensure user and administrator accountability with better security and governance than ever before.
 
 Azure AD Premium is a cloud-based identity and access management solution with advanced protection capabilities that enables one secure identity for all apps, identity protection (enhanced by the [Microsoft intelligence security graph](https://www.microsoft.com/en-us/security/intelligence)), and Privileged Identity Management. Not just another monitoring or reporting tool, Azure AD Premium can protect your user’s identities in real time and enable you to create risk-based, adaptive access policies to protect your organization’s data.
 

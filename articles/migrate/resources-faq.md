@@ -3,7 +3,7 @@ title: Azure Migrate - Frequently Asked Questions (FAQ) | Microsoft Docs
 description: Addresses frequently asked questions on Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: snehaa
 ---

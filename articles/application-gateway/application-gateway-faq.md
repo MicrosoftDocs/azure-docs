@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/21/2018
+ms.date: 6/19/2018
 ms.author: victorh
 
 ---
@@ -163,6 +163,10 @@ This scenario can be done using NSGs on Application Gateway subnet. The followin
 * Block all other incoming traffic with a Deny all rule.
 
 * Allow outbound traffic to the internet for all destinations.
+
+**Q. Can the same port be used for both public and private facing listeners?**
+
+No, this is not supported.
 
 ## Performance
 

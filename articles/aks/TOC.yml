@@ -82,6 +82,11 @@
       href: kubernetes-service-principal.md
     - name: Authenticate with ACR
       href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+  - name: Monitoring and logging
+    items:
+    - name: Azure container health solution
+      href: ../monitoring/monitoring-container-health.md
+      maintainContext: true
   - name: Develop and run applications
     items:
     - name: Run applications with Helm
@@ -122,6 +127,8 @@
     href: /cli/azure/aks
   - name: REST
     href: /rest/api/aks
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerservice
   - name: Python
     href: /python/api/overview/azure/containerservice
   - name: Java
