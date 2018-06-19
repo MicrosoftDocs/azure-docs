@@ -7,17 +7,17 @@ documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
-
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.custom: end-user
 ---
+
 # Manage your settings for two-step verification
 This article answers questions about how to update settings for two-step verification or multi-factor authentication. If you are having issues signing in to your account, refer to [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for troubleshooting help.
 
