@@ -39,7 +39,7 @@ This page is updated monthly, so revisit it regularly.
 **Service category:** Monitoring & Reporting  
 **Product capability:** Reporting
 
-Due to a recent infrastructure change, we must make a security fix that changes how apps work while using a delegated authorization flow to access Azure AD Activity Logs APIs. This change will occur by **June 26, 2018**.
+Due to our stronger security enforcement, we’ve had to make a change to the permissions for apps that use a delegated authorization flow to access [Azure AD Activity Logs APIs](https://aka.ms/aadreportsapi). This change will occur by **June 26, 2018**.
 
 If any of your apps use Azure AD Activity Log APIs, follow these steps to ensure the app doesn’t break after the change happens.
 
