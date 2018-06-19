@@ -13822,7 +13822,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-devquickstarts-cordova.md",
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-cordova.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-devquickstarts-xamarin",
             "redirect_document_id": false
         },
