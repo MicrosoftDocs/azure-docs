@@ -3,7 +3,7 @@ title: Cognitive search for data extraction, natural language processing in Azur
 description: Data extraction, natural language processing (NLP) and image processing to create searchable content in Azure Search indexing using cognitive skills.
 manager: cgronlun
 author: HeidiSteen
-
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual

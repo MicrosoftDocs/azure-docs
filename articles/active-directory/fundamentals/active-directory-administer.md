@@ -1,22 +1,20 @@
 ---
-title: How to use an Azure Active Direcory tenant directory overview | Microsoft Docs
+title: How to use an Azure AD tenant directory overview | Microsoft Docs
 description: Explains what an Azure AD tenant is, and how to manage Azure using Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 08/23/2017
-ms.author: curtand
-
+ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-
 ---
+
 # Manage your Azure AD directory
 
 ## What is an Azure AD tenant?
