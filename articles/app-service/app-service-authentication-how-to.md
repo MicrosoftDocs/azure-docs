@@ -99,7 +99,7 @@ When your provider's access token expires, you need to reauthenticate the user. 
 
     1. Click **Put**. 
 
-Once your provider is configured, you can see if refresh tokens are in the token store by calling `/.auth/me`. 
+Once your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store. 
 
 To refresh your access token at anytime, just call `/.auth/refresh` in any language. The following snippet uses jQuery to refresh your access tokens from a JavaScript client.
 
