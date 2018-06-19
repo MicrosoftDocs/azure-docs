@@ -85,4 +85,4 @@ int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 > [!div class="nextstepaction"]
 > [Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
