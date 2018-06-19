@@ -100,7 +100,7 @@ Before enabling NSG flow logging, you must have a network security group to log 
 
 On the left side of the Azure portal, select **Monitor**, then **Network watcher**, and then select **NSG flow logs**. Select the network security group that you want to enable an NSG flow log for, as shown in the following picture:
 
-![Selection of NSGs that require enablement of NSG flow log](./media/traffic-analytics/selection-of-nsgs-that-require- enablement-of-nsg-flow-logging.png)
+![Selection of NSGs that require enablement of NSG flow log](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
 If you try to enable traffic analytics for an NSG that is hosted in any region other than the [supported regions](#supported-regions), you receive a "Not found" error.
 
