@@ -16,10 +16,9 @@ ms.author: seguler
 
 ---
 # Use Distcp to copy data between Azure Storage Blobs and Data Lake Storage Gen2 (Preview)
+
 > [!div class="op_single_selector"]
 > * [Using Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-v2)
-> * [Using DistCp](copy-data-wasb-adfs-distcp.md)
-> * [Using AzCopy](use-azcopy-v10.md)
 >
 >
 
@@ -28,8 +27,8 @@ If you have an HDInsight cluster with access to Data Lake Storage, you can use H
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **An Azure Storage account with Azure Data Lake Storage (Preview) feature enabled**. For instructions on how to create one, see [TODO](data-lake-store-get-started-portal.md)
-* **Azure HDInsight cluster** with access to a Data Lake Storage account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
+* **An Azure Storage account with Azure Data Lake Storage (Preview) feature enabled**. For instructions on how to create one, see [TODO](quickstart-create-account.md)
+* **Azure HDInsight cluster** with access to a Data Lake Storage account. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](use-hdi-cluster.md). Make sure you enable Remote Desktop for the cluster.
 
 ## Use Distcp from an HDInsight Linux cluster
 
@@ -107,4 +106,5 @@ When the size of the dataset to be moved is large (for example, >1 TB) or if you
 
 
 ## See also
-* [Copy data into Azure Data Lake Storage Gen2 (Preview) using Azure Data Factory](../../data-factory/load-azure-data-lake-storage-v2.md)
+
+* Copy data into Azure Data Lake Storage Gen2 (Preview) using Azure Data Factory
