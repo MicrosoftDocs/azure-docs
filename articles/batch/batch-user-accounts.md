@@ -330,6 +330,4 @@ The Batch service version 2017-01-01.4.0 introduces a breaking change, replacing
 
 ## Next steps
 
-### Batch Forum
-
-The [Azure Batch Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch) on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful pinned posts, and post your questions as they arise while you build your Batch solutions.
+* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
