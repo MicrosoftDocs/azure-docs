@@ -66,6 +66,8 @@
       href: autoscale-api.md
     - name: Cluster Templates
       href: cluster-templates.md
+    - name: Environments
+      href: environments.md
   - name: Projects
     items:
     - name: Cluster-Init Projects
