@@ -28,9 +28,9 @@ These actions help you work with data in arrays.
 
 | Action | Description | 
 |--------|-------------| 
-| [**Create CSV table**](#create-csv-table-action) | Create a comma-separated value (CSV) table from an array or output from an expression. | 
-| [**Create HTML table**](#create-html-table-action) | Create an HTML table with output from an array or output from an expression. | 
-| [**Filter array**](#filter-array-action) | Get the items from an array based on the specified filter or condition. | 
+| [**Create CSV table**](#create-csv-table-action) | Create a comma-separated value (CSV) table from an array. | 
+| [**Create HTML table**](#create-html-table-action) | Create an HTML table from an array. | 
+| [**Filter array**](#filter-array-action) | Create an array subset from an array based on the specified filter or condition. | 
 | [**Join**](#join-action) | Create a string from all the items in an array and separate each item with the specified character. | 
 | [**Select**](#select-action) | Create an array from the specified properties for all the items in a different array. | 
 ||| 
@@ -154,8 +154,8 @@ select **Output**.
 
 ## Create CSV table action
 
-You can create a CSV table from array items or expression outputs 
-by using the **Data Operations - Create CSV table** action. 
+You can create a CSV table from an array items by using 
+the **Data Operations - Create CSV table** action. 
 You can then use this table in actions that follow the **Create CSV table** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
@@ -237,8 +237,8 @@ select **Output**.
 
 ## Create HTML table action
 
-You can create an HTML table from array items or expression outputs 
-by using the **Data Operations - Create HTML table** action. 
+You can create an HTML table from an array by using 
+the **Data Operations - Create HTML table** action. 
 You can then use this table in actions that follow the **Create HTML table** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
@@ -376,6 +376,34 @@ select the comparsion operator, and specify the comparison value.
 
 For more information about this action in your underlying workflow definition, 
 see [Query action](../logic-apps/logic-apps-workflow-actions-triggers.md#query-action).
+
+### Test your logic app
+
+To check that the **Filter array** action creates the expected results, 
+send yourself a notification that includes output from the **Filter array** action.
+
+1. In your logic app, add an action that can send you 
+the results from the **Filter array** action.
+
+2. In that action, click anywhere you want the results to appear. 
+When the dynamic content list opens, choose **Expression**. 
+To get the outputs from the **Filter array** action, 
+enter this expression with the name for the **Filter array** action:
+
+   ```
+   @actionBody('Filter_action')
+   ```
+
+   This example uses the **Office 365 Outlook - Send an email** action 
+   and includes **Output** fields in the email's body and subject:
+
+   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-filter-array-action.png)
+
+3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
+
+   Based on the email connector you used, here the results that you get:
+
+   ![Email with "Filter array" action results](./media/logic-apps-change-manage-data-operations/filter-array-email-results.png)
 
 <a name="join-action"></a>
 
