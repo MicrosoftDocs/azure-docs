@@ -5,17 +5,16 @@ services: active-directory
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
-
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 08/28/2017
 ms.author: lizross
-
 ---
+
 # A multi-tiered approach to Azure AD password security
 
 This article discusses some best practices you can follow as a user or as an administrator to protect your Azure Active Directory (Azure AD) or Microsoft Account.

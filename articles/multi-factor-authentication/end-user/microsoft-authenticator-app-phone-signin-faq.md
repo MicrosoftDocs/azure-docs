@@ -5,18 +5,18 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
-
 ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
 ---
+
 # Sign in with your phone, not your password
 
 The Microsoft Authenticator app helps you keep your accounts secure by performing two-step verification after you enter your password. But did you know that it can replace the password for your personal Microsoft account entirely?

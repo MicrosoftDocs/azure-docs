@@ -113,6 +113,6 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 [false-positive]:luis-glossary.md#false-positive
 [false-negative]:luis-glossary.md#false-negative
 [f-measure]:luis-glossary.md#f-measure
-[recall]: luis-glossary.md#recall
-[precision]: luis-glossary.md#precision
+[recall]:luis-glossary.md#recall
+[precision]:luis-glossary.md#precision
 
