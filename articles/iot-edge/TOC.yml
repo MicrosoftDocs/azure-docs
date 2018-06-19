@@ -30,7 +30,7 @@
     - name: Python
       href: tutorial-python-module.md
     - name: Node.js
-      href: tutorial-node.module.md
+      href: tutorial-node-module.md
 - name: Concepts
   items: 
   - name: IoT Edge runtime
