@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 06/19/2018
 ms.author: jonbeck
 
 ---
@@ -26,9 +26,12 @@ ms.author: jonbeck
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-[!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+## Supported distributions and drivers
 
-For driver installation and verification steps, see [N-series driver setup for Linux](n-series-driver-setup.md).
+To take advantage of the GPU capabilities of Azure N-series VMs running Linux, NVIDIA GPU drivers must be installed. The [Azure Extension for NVIDIA GPU Drivers](https://docs.microsoft.com/azure/virtual-machines/extensions/hpccompute-gpu-linux) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as the Azure CLI or Azure Resource Manager templates. See the [Azure Extension for NVIDIA GPU Drivers documentation](https://docs.microsoft.com/azure/virtual-machines/extensions/hpccompute-gpu-linux) for supported distributions and steps to deploy the extension. For general information about VM extensions, see [Azure virtual machine extensions and features](../extensions/overview.md).
+
+If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver setup for Linux](n-series-driver-setup.md) for supported distributions, drivers, and installation and verification steps.
+
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
