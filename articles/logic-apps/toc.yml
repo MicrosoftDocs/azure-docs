@@ -295,7 +295,7 @@
     items:
     - name: Simple Enterprise Integration
       href: logic-apps-architectures-simple-enterprise-integration.md
-    - name: Enterprise Intgration with Queues & Events
+    - name: Enterprise Integration with Queues & Events
       href: logic-apps-architectures-enterprise-integration-with-queues-events.md
   - name: Connectors - Full details
     href: https://docs.microsoft.com/connectors/
