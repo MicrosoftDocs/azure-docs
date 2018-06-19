@@ -48,7 +48,7 @@ You can configure and get information about classic metric alert rules by using 
 * [Azure CLI](insights-alerts-command-line-interface.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-You can also get help for commands by typing a command with**-help** at the end. Following is an example: 
+You can also get help for commands by typing a command with **-help** at the end. Following is an example: 
 
 ```console
  azure insights alerts -help
