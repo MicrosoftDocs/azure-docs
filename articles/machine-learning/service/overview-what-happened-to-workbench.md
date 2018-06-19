@@ -34,7 +34,7 @@ How do I migrate to generally available release of Azure Machine Learning?
 Process hasn’t changed, but a new SDK and CLI have been released to support the process. Learn how with this tutorial…
  
 ## Will the SDK and CLI continue to work?
-Yes, for a while. But we’ve invested more and have cool new ones. Check ‘em out.
+Yes, for a while. But we’ve invested more and have cool new ones. Check them out.
  
 ## Will my experimentation and model management accounts continue to work?
  
