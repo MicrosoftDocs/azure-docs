@@ -85,7 +85,7 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
 4.  Enter the name of your environment.
 
-5.  Add a Git artifact and select the same repo configured with the Data Factory. Choose `adf\_publish` as the default branch with latest default version.
+5.  Add a Git artifact and select the same repo configured with the Data Factory. Choose `adf_publish` as the default branch with latest default version.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
