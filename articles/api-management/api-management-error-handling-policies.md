@@ -16,10 +16,13 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
 ---
+
 # Error handling in API Management policies
-Azure API Management allows publishers to respond to error conditions that may occur during the processing of requests to the proxy by providing a `ProxyError` object. The `ProxyError` object is accessed through the [context.LastError](api-management-policy-expressions.md#ContextVariables) property and can be used by policies in the `on-error` policy section. This topic provides a reference for the error handling capabilities in Azure API Management.  
+
+By providing a `ProxyError` object, Azure API Management allows publishers to respond to error conditions, which may occur during processing of requests. The `ProxyError` object is accessed through the [context.LastError](api-management-policy-expressions.md#ContextVariables) property and can be used by policies in the `on-error` policy section. This article provides a reference for the error handling capabilities in Azure API Management.  
   
-## Error handling in API Management  
+## Error handling in API Management
+
  Policies in Azure API Management are divided into `inbound`, `backend`, `outbound`, and `on-error` sections as shown in the following example.  
   
 ```xml  
@@ -41,7 +44,8 @@ Azure API Management allows publishers to respond to error conditions that may o
 </policies>  
 ```  
   
- During the processing of a request, built-in steps are executed along with any policies that are in scope for the request. If an error occurs, processing immediately jumps to the `on-error` policy section. The `on-error` policy section can be used at any scope, and API publishers can configure custom behavior such as logging the error to event hubs or creating a new response to return to the caller.  
+During the processing of a request, built-in steps are executed along with any policies, which are in scope for the request. If an error occurs, processing immediately jumps to the `on-error` policy section.  
+The `on-error` policy section can be used at any scope. API publishers can configure custom behavior such as logging the error to event hubs or creating a new response to return to the caller.  
   
 > [!NOTE]
 >  The `on-error` section is not present in policies by default. To add the `on-error` section to a policy, browse to the desired policy in the policy editor and add it. For more information about configuring policies, see [Policies in API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).  
@@ -67,7 +71,7 @@ Azure API Management allows publishers to respond to error conditions that may o
   
 ## LastError
 
- When an error occurs and control jumps to the `on-error` policy section, the error is stored in  [context.LastError](api-management-policy-expressions.md#ContextVariables) property which can be accessed by policies in the `on-error` section and has the following properties.  
+ When an error occurs and control jumps to the `on-error` policy section, the error is stored in  [context.LastError](api-management-policy-expressions.md#ContextVariables) property, which can be accessed by policies in the `on-error` section. LastError has the following properties.  
   
 | Name     | Type   | Description                                                                                               | Required |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
@@ -75,8 +79,8 @@ Azure API Management allows publishers to respond to error conditions that may o
 | Reason   | string | Machine-friendly error code, which could be used in error handling.                                       | No       |
 | Message  | string | Human-readable error description.                                                                         | Yes      |
 | Scope    | string | Name of the scope where the error occurred and could be one of "global", "product", "api", or "operation" | No       |
-| Section  | string | Section name where error occurred and could one of "inbound", "backend", "outbound", or "on-error".       | No       |
-| Path     | string | Specifies nested policy, e.g. "choose[3]/when[2]".                                                        | No       |
+| Section  | string | Section name where error occurred. Possible values: "inbound", "backend", "outbound", or "on-error".       | No       |
+| Path     | string | Specifies nested policy, for example "choose[3]/when[2]".                                                        | No       |
 | PolicyId | string | Value of the `id` attribute, if specified by the customer, on the policy where error occurred             | No       |
 
 > [!TIP]
@@ -90,7 +94,7 @@ Azure API Management allows publishers to respond to error conditions that may o
   
 | Source        | Condition                                 | Reason                  | Message                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
-| configuration | Uri doesn't match to any Api or Operation | OperationNotFound       | Unable to match incoming request to an operation.                                                                      |
+| configuration | Uri doesn't match to any API or Operation | OperationNotFound       | Unable to match incoming request to an operation.                                                                      |
 | authorization | Subscription key not supplied             | SubscriptionKeyNotFound | Access denied due to missing subscription key. Make sure to include subscription key when making requests to this API. |
 | authorization | Subscription key value is invalid         | SubscriptionKeyInvalid  | Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.            |
   
@@ -112,7 +116,7 @@ Azure API Management allows publishers to respond to error conditions that may o
 | validate-jwt | Invalid audience                                                | TokenAudienceNotAllowed   | <message from jwt library\>. Access denied.                                                                                          |
 | validate-jwt | Invalid issuer                                                  | TokenIssuerNotAllowed     | <message from jwt library\>. Access denied.                                                                                          |
 | validate-jwt | Token expired                                                   | TokenExpired              | <message from jwt library\>. Access denied.                                                                                          |
-| validate-jwt | Signature key was not resolved by id                            | TokenSignatureKeyNotFound | <message from jwt library\>. Access denied.                                                                                          |
+| validate-jwt | Signature key was not resolved by ID                            | TokenSignatureKeyNotFound | <message from jwt library\>. Access denied.                                                                                          |
 | validate-jwt | Required claims are missing from token                          | TokenClaimNotFound        | JWT token is missing the following claims: <c1\>, <c2\>, … Access denied.                                                            |
 | validate-jwt | Claim values mismatch                                           | TokenClaimValueNotAllowed | Claim {claim-name} value of {claim-value} is not allowed. Access denied.                                                             |
 | validate-jwt | Other validation failures                                       | JwtInvalid                | <message from jwt library\>                                                                                                          |
