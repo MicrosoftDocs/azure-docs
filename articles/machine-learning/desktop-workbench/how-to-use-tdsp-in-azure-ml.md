@@ -54,7 +54,7 @@ Review the following items *before* you create a new project:
 * Review the TDSP Machine Learning [template](https://aka.ms/tdspamlgithubrepo).
 * The contents (other than what is already present in the "docs" folder) are required to be less than 25 MB in size. See the note that follows this list.
 * The sample\_data folder is only for small data files (less than 5 MB) with which you can test your code or start early development.
-* Storing files, such as Word and PowerPoint files, can increase the size of the "docs" folder substantially. We advise that you to find a collaborative Wiki, [SharePoint](https://products.office.com/en-us/sharepoint/collaboration), or other collaborative resource to store such files.
+* Storing files, such as Word and PowerPoint files, can increase the size of the "docs" folder substantially. We advise that you to find a collaborative Wiki, [SharePoint](https://products.office.com/sharepoint/collaboration), or other collaborative resource to store such files.
 * To learn how to handle large files and outputs in Machine Learning, read [Persisting changes and dealing with large files](http://aka.ms/aml-largefiles).
 
 > [!NOTE]

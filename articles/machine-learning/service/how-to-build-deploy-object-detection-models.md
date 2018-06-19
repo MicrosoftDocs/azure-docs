@@ -64,7 +64,7 @@ The following figure shows the recommended folder structure.
 Annotated object locations are required to train and evaluate an object detector. [LabelImg](https://tzutalin.github.io/labelImg) is an open source annotation tool that can be used to annotate images. LabelImg writes an xml-file per image in Pascal-VOC format, which can be read by this package. 
 
 ## Storage Context
-The storage context is used to determine where various output files such as DNN model files are stored. For more information, see the [StorageContext documentation](https://docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-ml-py-latest). Normally, the storage content does not need to be set explicitly. However, to avoid the Workbench project size limit of 25 MB, set the outputs directory to point to a location outside the AML project ("../../../../cvtk_output"). Make sure to remove the "cvtk_output" directory once it is no longer needed.
+The storage context is used to determine where various output files such as DNN model files are stored. For more information, see the [StorageContext documentation](https://docs.microsoft.com/python/api/cvtk.core.context.storagecontext?view=azure-ml-py-latest). Normally, the storage content does not need to be set explicitly. However, to avoid the Workbench project size limit of 25 MB, set the outputs directory to point to a location outside the AML project ("../../../../cvtk_output"). Make sure to remove the "cvtk_output" directory once it is no longer needed.
 
 
 ```python
@@ -126,7 +126,7 @@ _ = data_train.images[2].visualize_bounding_boxes(image_size = (10,10))
 
 ## Define a model
 
-In this example, the Faster R-CNN model is used. Various parameters can be provided when defining this model. The meaning of these parameters, as well as the parameters used for training (see next section) can be found in either CVTK's API docs, or on the [Tensorflow object detection website](https://github.com/tensorflow/models/tree/master/research/object_detection). More information about Faster R-CNN model can be found at [this link](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). This model is based on Fast R-CNN and more information about it can be found [here](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
+In this example, the Faster R-CNN model is used. Various parameters can be provided when defining this model. The meaning of these parameters, as well as the parameters used for training (see next section) can be found in either CVTK's API docs, or on the [Tensorflow object detection website](https://github.com/tensorflow/models/tree/master/research/object_detection). More information about Faster R-CNN model can be found at [this link](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). This model is based on Fast R-CNN and more information about it can be found [here](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
 
 
 ```python

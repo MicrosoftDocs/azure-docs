@@ -1,133 +1,130 @@
 ﻿---
 title: Installation Quickstart with Azure Machine Learning CLI | Microsoft Docs
 description: In this quickstart, you will learn how to get started with Azure Machine Learning Services using the Azure Machine Learning CLI extension.
-services: machine-learning
-author: rastala
-ms.author: roastala
-manager: haining
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.custom: mvc
 ms.topic: quickstart
+ms.reviewer: jmartens
+author: rastala
+ms.author: roastala
 ms.date: 7/27/2018
 ---
 
-# Quickstart: Get started with the Azure Machine Learning CLI extension
+# Quickstart: Create a workspace and project with Azure Machine Learning's CLI extension
 
-In this quickstart, you will learn how to get started with Azure Machine Learning Services using the Azure Machine Learning CLI extension. You’ll create an Azure Machine Learning Workspace and a project in that workspace directly from the CLI.
+In this quickstart, you'll use a machine learning CLI extension to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md).
 
-A workspace is the top-level resource that contains your run histories, compute resources, models, and deployments.
+Using the CLI, you'll learn how to:
+1. Create a workspace, which is the top-level resource for this service.
+1. Attach a project containing your machine learning scripts.
+1. Run a script @@TO DO WHAT and view the output.
 
-A project is a local folder. It contains the scripts you use to solve your machine learning problem, plus the configuration files to attach it to your workspace in Azure Cloud.
-
-This quickstart shows you how to:
-
-* Install the CLI
-* Create a workspace and project with the CLI
-* Run a small Python script in the project and view the output
+This CLI was built on top of the [Python-based SDK for Azure Machine Learning services](reference-azure-machine-learning-sdk.md).
 
 ## Prerequisites
 
-As part of the Microsoft Azure portfolio, Azure Machine Learning services require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Make sure you have the following prerequisites before starting the quickstart steps:
 
-Additionally, you must have adequate permissions to create assets such as Resource Groups, Virtual Machines, and so on.
++ An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
++ Adequate permissions to create Azure assets such as resource groups
++ [Python 3.5 or higher](https://www.python.org/) installed
++ [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed
 
-You can install the Azure ML CLI on a Windows, Linux, or MacOS computer with following prerequisites installed:
+## Install the CLI extension
 
-* [Python](https://www.python.org/) 3.5 or higher
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-## Install the CLI
-
->[!NOTE]
->The installation can take several minutes to complete.
-
-On your computer, open a command-line editor and install the Azure ML CLI extension
+On your computer, open a command-line editor and install the machine learning extension to Azure CLI.  The installation can take several minutes to complete.
 
 ```azurecli
-az extension add <EXACT COMMAND TBD>
+az extension add azureml-sdk
 ```
 
 ## Create a resource group
 
-1. Sign in to your Azure subscription.
+A resource group is a container that holds related resources for an Azure solution. Using Azure CLI, sign into Azure, specify the subscription, and create a resource group.
 
-    From the command-line, run the following and follow the prompts for interactive login:
-
+1. In a command-line window, sign in with the Azure CLI command, [`az login`](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Follow the prompts for interactive login:
+    
     ```azurecli
     az login
     ```
 
-1. Check which Azure subscriptions are available to you, and set an active one.
- 
-    Select the SubscriptionId value from the output of the `az account list` command.
-    
-    ```azurecli
-    az account list --output table
-    az account set --subscription <SubscriptionId>
-    az account show
-    ```
+1. List the available Azure subscriptions, and specify the one you want to use: 
+   ```azurecli
+   az account list --output table
+   az account set --subscription <your-subscription-id>
+   az account show
+   ```
+   where \<your-subscription-id\> is ID value for the subscription you want to use that was output by az account list. Do not include the brackets.
 
- 1. Create a resource group to hold your workspace.
+1. Create a resource group to hold your workspace.  
+   In this quickstart:
+   + The name of the resource group is `myrg`.
+   + The region is `eastus2`. You can use any [available region](https://azure.microsoft.com/global-infrastructure/services/) close to your data.  
 
-     * The only supported location choice is eastus2.  
-     * In this example, the resource group is named *myrg*.
-    
     ```azurecli
     az group create --name myrg --location eastus2
     ```
 
+## Create a workspace and attach a project
 
-## Create a workspace
+1. In the command-line window, create an Azure Machine Learning Workspace under the resource group. 
 
-1. Create a workspace under the resource group.
+   An **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/), [Azure storage](https://azure.microsoft.com/en-us/services/storage/), [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/), and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
 
-    ```
-    az ml workspace create --name myws --group myrg
-    ```
+   In this quickstart:
+   + The workspace name is `myws`.
+   + The resource group name is `myrg`
 
-    >[!NOTE]
-   >For your convenience, these resources are added automatically to the workspace, if regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
+   ```
+   az ml workspace create --name myws --group myrg
+   ```
 
+1. In the command-line window, create a folder on your local machine for your Azure Machine Learning project. 
+   
+   A **project** is a local folder that contains the scripts needed to solve your machine learning problem and the configuration files  required to attach the project to your workspace in Azure Cloud.
 
-## Attach a project
+   ```
+   mkdir myproject
+   cd myproject
+   ```
 
-1. Create a folder for your project.
+1. Attach the folder as a project to the workspace. The `--history` argument specifies a name for the run history file that captures the metrics for each run.  
 
-    ```
-    mkdir myproject
-    cd myproject
-    ```
+   ```azurecli
+   az ml project attach --history myhistory -w myws
+   ```
 
-2. Attach the folder as a project. The `history` argument specifies a name for the run history used to group together and track your runs.
+## Run scripts and view output
 
-    ```azurecli
-    az ml project attach --history myhistory -w myws
-    ```
+1. In your local project directory, create a script and name it `helloworld.py`. 
 
-## Run a Python script
+1. Copy the following code into that script:
+   ```python
+   run = Run.start_logging(workspace = ws, run_history_name = "myhistory")
+   run.log(SCALAR METRIC @@@)
+   run.log(VECTOR METRIC @@@)
+   run.upload_file(@@@)
+   run.complete()
+   ```
 
-1. Copy the script to your project folder.
+1. Run the script on your local computer.
 
-    Copy [hello.py]() to your project folder.
+   ```azurecli
+   az ml run submit -c local helloworld.py
+   ```
 
-2. Run the script on your local computer.
+   This command runs the code and outputs a web link to your console. Copy-paste the link into your web browser.
 
-    ```azurecli
-    az ml run submit -c local hello.py
-    ```
-
-3. View the results of your run.
-
-    The run outputs a web link to your console. Copy-paste the link into your web browser. This opens a web portal view that shows the results of your run.
+1. In a web browser, visit the URL. A web portal appears with the results of the run. You can inspect the results of that run or previous runs, if they exist.
 
 ## Clean up resources 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
+You have now created the necessary resources to start experimenting and deploying models. You also created a project, ran a script, and explored the run history of the script.
 
-You have created the necessary resources to start experimenting and deploying models.
+For an in-depth workflow experience, follow the Azure Machine Learning tutorial on building, training, and deploying a model.
 
-Now use these resources as you follow the [full-length tutorial]().
+> [!div class="nextstepaction"]
+> [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)

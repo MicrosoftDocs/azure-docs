@@ -39,7 +39,7 @@ Azure Machine Learning fully supports open source technologies. You can use tens
 
 - [scikit-learn](http://scikit-learn.org/)
 - [TensorFlow](https://www.tensorflow.org/)
-- [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)
+- [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/)
 - [Spark ML](https://spark.apache.org/docs/2.1.1/ml-pipeline.html)
 
 You can execute your experiments in managed environments such as Docker containers and Spark clusters. You can also use advanced hardware such as [GPU-enabled virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) to accelerate your execution.
@@ -127,7 +127,7 @@ For more information on Model Management Service, reference [Model Management Ov
 
 ## Microsoft Machine Learning Library for Apache Spark
 
-The [MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Library for Apache Spark) is an open-source Spark package that provides deep learning and data science tools for Apache Spark. It integrates [Spark Machine Learning Pipelines](https://spark.apache.org/docs/2.1.1/ml-pipeline.html) with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) and [OpenCV](http://opencv.org/) library. It enables you to quickly create powerful, highly scalable predictive, and analytical models for large image and text datasets. Some highlights include:
+The [MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Library for Apache Spark) is an open-source Spark package that provides deep learning and data science tools for Apache Spark. It integrates [Spark Machine Learning Pipelines](https://spark.apache.org/docs/2.1.1/ml-pipeline.html) with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) and [OpenCV](http://opencv.org/) library. It enables you to quickly create powerful, highly scalable predictive, and analytical models for large image and text datasets. Some highlights include:
 
 - Easily ingest images from HDFS into Spark DataFrame
 - Pre-process image data using transforms from OpenCV

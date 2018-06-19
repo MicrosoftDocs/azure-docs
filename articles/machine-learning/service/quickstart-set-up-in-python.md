@@ -1,161 +1,145 @@
 ﻿---
 title: Installation Quickstart with Azure Machine Learning Python SDK | Microsoft Docs
 description: In this Quickstart, you can learn how to install and get started with Azure Machine Learning using the Azure Machine Learning SDK for Python.
-services: machine-learning
-author: rastala
-ms.author: roastala
-manager: haining
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.custom: mvc
 ms.topic: quickstart
+ms.reviewer: jmartens
+author: rastala
+ms.author: roastala
 ms.date: 7/27/2018
 ---
 
-# Quickstart: Get started with Azure Machine Learning SDK for Python
+# Quickstart: Create a workspace and project with Azure Machine Learning's Python SDK
 
-In this quickstart, you will learn how to get started with Azure Machine Learning Services using Python. You’ll create an Azure Machine Learning Workspace and a project in that workspace directly from your preferred Python IDE. 
+In this quickstart, you'll use a Python SDK to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
 
-A workspace is the top-level resource that contains your run histories, compute resources, models, and deployments.
-
-A project is a local folder. It contains the scripts you use to solve your machine learning problem, plus the configuration files to attach it to your workspace in Azure Cloud.
-
-This quickstart shows you how to:
-
-* Install the SDK for Python
-* Create a workspace and a project with the SDK
-* Run Python code in the project and view the output
+Using your preferred Python IDE, you'll learn how to:
+1. Create a workspace, which is the top-level resource for this service.
+1. Attach a project containing your machine learning scripts.
+1. Run a script @@TO DO WHAT and view the output. 
 
 ## Prerequisites
 
-As part of the Microsoft Azure portfolio, Azure Machine Learning services require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Make sure you have the following prerequisites before starting the quickstart steps:
 
-Additionally, you must have adequate permissions to create assets such as Resource Groups, Virtual Machines, and so on.
-
-You can install the SDK on a Windows, Linux, or MacOS computer with following prerequisites installed:
-
-* [Python](https://www.python.org/) 3.5 or higher
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Continuum Anaconda]() or [Miniconda](https://conda.io/miniconda.html) package manager (recommended)
++ An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
++ Adequate permissions to create Azure assets such as resource groups
++ [Python 3.5 or higher](https://www.python.org/) installed
++ [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed
++ A package manager installed, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html)
 
 ## Install the SDK
 
-1. Open your command-line editor, and set up your environment.
-    ```
-    # create a new conda environment with Python 3.6, numpy and cython
-    conda create -n myenv Python=3.6 cython numpy
-    ```
-1. Activate your environment.
-    
-    * If you are on a device running Windows, active the conda environment with
+Install the Azure Machine Learning SDK for Python. You'll use this SDK to create your workspace and run code. You can [do a lot more with this SDK](reference-azure-machine-learning-sdk.md). 
 
-    ```
-    activate myenv
-    ```
+In a command-line window, create the conda environment and install the SDK. This example uses Python 3.6.
 
-   * If you are running Mac OS, active the conda environment with
+   ``` 
+   #Set your conda environment with numpy and cython
+   conda create -n myenv Python=3.6 cython numpy
+   
+   #Activate the package manager environment
+   ## Windows:
+   activate myenv
 
-    ```
-    source activate myenv
-    ```
-1. Install the azureml-sdk Python package
+   ## Linux or MacOS: 
+   ##source activate myenv
 
-    ```
-    pip install azureml-sdk
-    ```
+   #Install the SDK
+   pip install azureml-sdk
+   ```
 
 ## Create a resource group
 
-1. Sign in to your Azure subscription.
+A resource group is a container that holds related resources for an Azure solution. Using Azure CLI, sign into Azure, specify the subscription, and create a resource group.
 
-    From a command line, run the following command and follow the prompts for interactive login:
+1. In a command-line window, sign in with the Azure CLI command, [`az login`](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Follow the prompts for interactive login:
     
     ```azurecli
     az login
     ```
 
-1. Check which Azure subscriptions are available to you, and set an active one.
- 
-    Select the SubscriptionId value from the output of the `az account list` command.
-    
-    ```azurecli
-    az account list --output table
-    az account set --subscription <SubscriptionId>
-    az account show
-    ```
+1. List the available Azure subscriptions, and specify the one you want to use: 
+   ```azurecli
+   az account list --output table
+   az account set --subscription <your-subscription-id>
+   az account show
+   ```
+   where \<your-subscription-id\> is ID value for the subscription you want to use that was output by az account list. Do not include the brackets.
 
-1. Create a resource group to hold your workspace.
+1. Create a resource group to hold your workspace. <br>
+   In this quickstart:
+   + The name of the resource group is `myrg`.
+   + The region is `eastus2`. You can use any [available region](https://azure.microsoft.com/global-infrastructure/services/) close to your data. 
 
-     * The only supported location choice is eastus2.  
-     * In this example, the resource group is named *myrg*.
-    
-    ```azurecli
-    az group create --name myrg --location eastus2
-    ```
+   ```azurecli
+   az group create --name myrg --location eastus2
+   ```
 
 ## Create a workspace and attach a project
 
-1. Create a folder for your Azure ML Project.
-
+1. In a command-line window, create a folder on your local machine for your Azure Machine Learning project. 
    ```
    mkdir myproject
    cd myproject
    ```
 
-1. Create your workspace and project under the resource group.
+1. In a Python editor, create your workspace under the resource group and attach the project to the new workspace.
+   
+   An **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. The run history file stores each run in your project so you can monitor your model during training.  For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/), [Azure storage](https://azure.microsoft.com/en-us/services/storage/), [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/), and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
 
-   Open a Python editor and run the following commands. Use the SubscriptionId you selected when you created your resource group earlier.
+   A **project** is a local folder that contains the scripts needed to solve your machine learning problem and the configuration files  required to attach the project to your workspace in Azure Cloud.
+
+   In this quickstart:
+   + The workspace name is `myws`.
+   + The run history file is `myhistory`. 
 
    ```python
    from azureml.core import Workspace, Project
-
-   # Create workspace
-   ws = Workspace.create(name="myws", subscription_id="<SubscriptionId>", resource_group="myrg")
-
-   # Attach current folder as project
-   proj = Project.attach(workspace_object=ws, run_history_name="myhistory")
+   
+   # Create workspace named myws in your resource group
+   ws = Workspace.create(name="myws", subscription_id="<your-subscription-id>", resource_group="myrg")
+   
+   # Attach current directory as a project in workspace `myws` and specify 
+   # and specify name of run history file for this project, `myhistory`
+   helloproj = Project.attach(workspace_object=ws, run_history_name="myhistory")
    ```
 
-   The `run_history_name` argument specifies the name of the run history used to group together and track your runs.
+   Replace \<your-subscription-id\> with the ID value for the subscription you used to create the resource group and use the same resource group name as before, `myrg`. Do not include the brackets.
 
-   >[!NOTE]
-   >For your convenience, these resources are added automatically to the workspace, if regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
+## Run scripts and view output
 
-
-
-
-## Run Python code
-
-1. Track metrics with this Python code.
-
-   Run the following commands in a Python editor to track a few metrics.
+1. Start tracking metrics with this Python code. These metrics are stored in the run history file.
 
    ```python
+   #Specify the project
+   #helloproj = Project()
+
    run = Run.start_logging(workspace = ws, run_history_name = "myhistory")
-   run.log(SCALAR METRIC TBD)
-   run.log(VECTOR METRIC TBD)
-   run.upload_file(TBD)
+   run.log(SCALAR METRIC @@@)
+   run.log(VECTOR METRIC @@@)
+   run.upload_file(@@@)
    run.complete()
    ```
 
-2. View the run history from the web portal.
-
-   Use following command to get a link to web portal to view your run history.
+1. Get the URL to the run history for the code you just ran. This command outputs a web link to your console. Copy-paste the link into your web browser.
 
    ```python
    import helpers
    print(helpers.get_run_history_url(run))
    ```
 
-SCREENSHOT TBD
+1. In a web browser, visit the URL. A web portal appears with the results of the run. You can inspect the results of that run or previous runs, if they exist.
 
 ## Clean up resources 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
+You have now created the necessary resources to start experimenting and deploying models. You also created a project, ran a script, and explored the run history of the script.
 
-You have created the necessary resources to start experimenting and deploying models.
+For an in-depth workflow experience, follow the Azure Machine Learning tutorial on building, training, and deploying a model.
 
-Now use these resources as you follow the [full-length tutorial]().
+> [!div class="nextstepaction"]
+> [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)

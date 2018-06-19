@@ -10,21 +10,24 @@ ms.author: yahajiza
 author: YasinMSFT
 ms.date: 04/10/2018
 ---
-# Use the Azure portal to create an Azure Machine Learning Workspace
 
-Get started with Azure Machine Learning Services by creating an Azure Machine Learning Workspace. In this article, you will create your workspace using the Azure portal.
+# Create an Azure Machine Learning Workspace in the Azure Portal
+
+In this article, you'll create an **Azure Machine Learning Workspace** in the Azure portal for [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
+
+This workspace is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/), [Azure storage](https://azure.microsoft.com/en-us/services/storage/), [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/), and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To create a workspace, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create a Workspace 
+## Create a workspace 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using the credentials for the Azure subscription you'll use. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
    ![Azure portal](./media/how-to-create-workspace-in-portal/portal-dashboard.png)
 
-1. Select the **Create a resource** button (+) in the upper-left corner of the portal.
+1. Select the **Create a resource** button (+) in the upper-left corner of the portal. 
 
    ![Create a resource in Azure portal](./media/how-to-create-workspace-in-portal/portal-create-a-resource.png)
 
@@ -37,44 +40,59 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![create](./media/how-to-create-workspace-in-portal/portal-create-button.png)
 
 1. In the **ML Workspace** pane, configure your workspace. 
-    + Name the workspace that will be created. In this example, let's name it _MyWorkspace_.
-    + Select a subscription.
-    + Either create a new resource group or use an existing one. In this example, let's use an existing resource group called _Group_.
-    + Select the geographical region where the workspace will be created.
 
-    ![create workspace](media/how-to-create-workspace-in-portal/workspace_create_name.PNG)
+   Field|Description
+   ---|---
+   Workspace name |Enter a unique name that identifies your workspace. 
+   Subscription |Choose the Azure subscription that you want to use. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed.
+   Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group is a container that holds related resources for an Azure solution. 
+   Location | Choose the location closest to your users and the data resources. This is where the workspace is created.
 
-1. Select **Create** to begin the creation process.
+   ![create workspace](media/how-to-create-workspace-in-portal/workspace_create_name.PNG)
 
-     It can take a few moments to create the workspace. You can check on the status of the deployment process by clicking the Notifications icon (bell) on the Azure portal toolbar.
+1. Select **Create** to begin the creation process.  It can take a few moments to create the workspace. 
 
-    ![deployment in progress](media/how-to-create-workspace-in-portal/deployment_in_progress.PNG)
+   To check on the status of the deployment, select the Notifications icon (bell) on the toolbar.
 
-1. When finished, you'll see a message that the deployment has succeeded.
-
-    ![deployment succeeded](media/how-to-create-workspace-in-portal/deployment_succeeded.PNG)
-
-    >[!NOTE]
-   >For your convenience, these resources are added automatically to the workspace, if regionally available: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/), [Azure storage](https://docs.microsoft.com/en-us/azure/storage/), [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) and [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/).
+   When finished, a deployment success message appears.
 
 ## View a workspace
 
-1. Check your newly created workspace with the  **All services** link in top left corner of the portal.  
+1. In top left corner of the portal, select **All services**..  
 
-    ![search for workspace](media/how-to-create-workspace-in-portal/allservices-search.PNG)
+   ![all services](media/how-to-create-workspace-in-portal/allservices.png)
 
-2. Type **Machine Learning Workspace** in the search field.  Select **Machine Learning Workspace** to view all your Machine Learning Workspaces. You can filter based on subscription, resource groups, and locations.  In this example, you can see the MyWorkspace you created in the previous step.
+1. In the **All services** filter field, type **Machine Learning Workspace**.  
 
-    ![png](media/how-to-create-workspace-in-portal/allservices_view_workspace.PNG)
+   ![search for Azure Machine Learning workspace](media/how-to-create-workspace-in-portal/allservices-search1.png)
 
-3. You can select and click on a workspace to display its complete properties.
+1. In the filter results, select **Machine Learning Workspace** to display list of your Azure Machine Leaning Workspaces. 
 
-![png](media/how-to-create-workspace-in-portal/allservices_view_workspace_full.PNG)
+   ![search for Azure Machine Learning workspace](media/how-to-create-workspace-in-portal/allservices-search.PNG)
+
+1. Look through the list of workspaces found. You can filter based on subscription, resource groups, and locations.  
+
+   ![Azure Machine Learning workspace list](media/how-to-create-workspace-in-portal/allservices_view_workspace.PNG)
+
+1. Select the workspace you just created to display its properties.
+
+   ![png](media/how-to-create-workspace-in-portal/allservices_view_workspace_full.PNG)
 
 ## Clean up resources 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## Next steps
+You can also keep the resource group, but delete a single workspace by displaying the workspace properties and selecting the Delete button.
 
-You can also use the [Quickstart: Create a project and get started with Azure Machine Learning Services SDK for Python](quickstart-set-up-in-python.md) or the [Quickstart: Create a project and get started with Azure Machine Learning Services CLI](quickstart-set-up-in-cli.md) to create workspaces and projects.
+
+## Next steps
+You have now created an Azure Machine Learning Workspace.
+
+For a quickstart showing you how to create a project, run a script, and explore the run history of the script, try:
++ [Create a project with Azure Machine Learning Services SDK for Python](quickstart-set-up-in-python.md)
++ [Create a project with Azure Machine Learning Services CLI](quickstart-set-up-in-cli.md)
+
+For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for building, training, and deploying models with Azure Machine Learning Services. 
+
+> [!div class="nextstepaction"]
+> [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)

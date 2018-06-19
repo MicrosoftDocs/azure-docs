@@ -46,7 +46,7 @@ The business problem for this simulated data is to predict issues that are cause
 * An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Follow the [Quickstart installation guide](quickstart-installation.md) to install the program and create a workspace.
 * Azure Machine Learning Operationalization requires a local deployment environment and an [Azure Machine Learning Model Management account](model-management-overview.md).
 
-This example runs on any Machine Learning Workbench compute context. However, it's recommended to run the example with at least 16 GB of memory. This scenario was built and tested on a Windows 10 machine running a remote DS4_V2 standard [Data Science Virtual Machine (DSVM) for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+This example runs on any Machine Learning Workbench compute context. However, it's recommended to run the example with at least 16 GB of memory. This scenario was built and tested on a Windows 10 machine running a remote DS4_V2 standard [Data Science Virtual Machine (DSVM) for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Model operationalization was done by using version 0.1.0a22 of the Azure Machine Learning CLI.
 
@@ -73,7 +73,7 @@ This command provides an authentication key to use with the https:\\aka.ms\devic
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-It's preferable to run on a [DSVM for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) for memory and disk requirements. After the DSVM is configured, prepare the remote Docker environment with the following two commands:
+It's preferable to run on a [DSVM for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) for memory and disk requirements. After the DSVM is configured, prepare the remote Docker environment with the following two commands:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]
