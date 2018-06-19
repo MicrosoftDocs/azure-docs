@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: eb9e9c2c-4b09-4177-bbab-423fd657448e
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

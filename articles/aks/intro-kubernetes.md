@@ -26,7 +26,7 @@ For more information, see both the [AKS portal quickstart][aks-portal] or the [A
 
 ## Identity and security management
 
-AKS clusters are [Role-Based Access Control (RBAC)][kubernetes-rbac] enabled by default. An AKS cluster can also be configured to integrate with Azure Active Directory. In this configuration, Kubernetes access can be configured based on Azure Active Directory identity and group membership.
+AKS clusters support [Role-Based Access Control (RBAC)][kubernetes-rbac]. An AKS cluster can also be configured to integrate with Azure Active Directory. In this configuration, Kubernetes access can be configured based on Azure Active Directory identity and group membership.
 
 For more information, see, [Integrate Azure Active Directory with AKS][aks-aad].
 
