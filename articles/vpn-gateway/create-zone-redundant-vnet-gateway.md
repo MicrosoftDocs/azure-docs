@@ -204,7 +204,7 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $
 Create the virtual network gateway.
 
 >[!NOTE]
-> In the future, the SKU will be specified in this step. At this time, you cannot specify the SKU. The SKU will automatically default to ErGw2AZ for ExpressRoute, and VpnGw2AZ for VPN Gateway.
+>At this time, you cannot specify the gateway SKU. The SKU will automatically default to ErGw2AZ for ExpressRoute, and VpnGw2AZ for VPN Gateway.
 >
 
 ### For ExpressRoute
