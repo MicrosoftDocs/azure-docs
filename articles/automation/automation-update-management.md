@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/15/2018
+ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -293,7 +293,7 @@ In Red Hat Enterprise Linux, the package name to exclude is redhat-release-serve
 
 ![Packages to exclude for Linux](./media/automation-update-management/linuxpatches.png)
 
-### Security patches aren't applied
+### Critical / security patches aren't applied
 
 When you deploy updates to a Linux machine, you can select update classifications. This filters the updates that are applied to those that meet the specified criteria. This filter is applied locally on the machine when the update is deployed.
 
@@ -301,7 +301,7 @@ Because Update Management performs update enrichment in the cloud, some updates 
 
 However, Update Management might still report that machine as being non-compliant because it has additional information about the relevant update.
 
-Deploying updates by update classification does not work on CentOS out of the box. Deploying updates by update classification might not work on openSUSE Linux. Selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This is a limitation of zypper. In some cases, you may be required to re-run the update deployment, to verify check the update log.
+Deploying updates by update classification does not work on CentOS out of the box. For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This is a limitation of zypper. In some cases, you may be required to re-run the update deployment, to verify check the update log.
 
 ## Troubleshooting
 
@@ -325,7 +325,7 @@ If update runs fail to start on a Linux machine, make a copy of the following lo
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
 
-If failes occur during an update run after it starts successfully on Linux, check the job output from the affected machine in the run. You may find specific error messages from your machines package manager that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
+If failures occur during an update run after it starts successfully on Linux, check the job output from the affected machine in the run. You may find specific error messages from your machine's package manager that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
 
 In some cases, package updates can interfere with Update Management preventing an update deployment from completing. If you see that, you'll have to either exclude these packages from future update runs or install them manually yourself.
 
