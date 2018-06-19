@@ -1,6 +1,6 @@
 ---
-title: Secure data and operations in Azure Search | Microsoft Docs
-description: Azure Search is compliant with SOC 2, HIPAA, and GDPR. Connection and data encryption, authentication, and identity access through user and group security identifiers in Azure Search filters.
+title: Security and data privacy in Azure Search | Microsoft Docs
+description: Azure Search is compliant with SOC 2, HIPAA, and other certifications. Connection and data encryption, authentication, and identity access through user and group security identifiers in Azure Search filters.
 author: HeidiSteen
 manager: cgronlun
 services: search
