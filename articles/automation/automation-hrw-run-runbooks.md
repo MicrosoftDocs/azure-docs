@@ -153,7 +153,7 @@ Jobs are handled slightly different on Hybrid Runbook Workers than they are when
 
 ## Troubleshoot
 
-If your runbooks are not completing successfully and the job summary shows a status of **Suspended**, review the the troubleshooting guide on [runbook execution failures](hybrid-runbook-worker.md#runbook-execution-fails).
+If your runbooks are not completing successfully and the job summary shows a status of **Suspended**, review the the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## Next steps
 
