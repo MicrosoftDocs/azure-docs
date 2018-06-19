@@ -8677,6 +8677,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-alerts.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-alerts-actions.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-alerts-webhooks.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-alerts-creating.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-system-update.md",
             "redirect_url": "/azure/automation/automation-update-management",
             "redirect_document_id": false
@@ -24292,6 +24312,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-accelerators/iot-security-architecture.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
+            "redirect_document_id": false
+        },   
+        {
+            "source_path": "articles/iot-hub/iot-hub-security-architecture.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path": "articles/iot-accelerators/iot-security-best-practices.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/iot-hub/iot-hub-security-best-practices.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path": "articles/iot-accelerators/iot-accelerators-security-deployment.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-deployment",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path": "articles/iot-hub/iot-hub-security-deployment.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-deployment",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/iot-accelerators/securing-iot-groud-up.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+            "redirect_document_id": false
+        },   
+        {
+            "source_path": "articles/iot-hub/iot-hub-security-groud-up.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+            "redirect_document_id": false
+        },         
+        {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
@@ -25210,6 +25270,66 @@
             "source_path": "articles/cognitive-services/LUIS/Train-Test.md",
             "redirect_url": "/azure/cognitive-services/LUIS/interactive-test",
             "redirect_document_id": true
+        },
+		        {
+            "source_path": "articles/active-directory/active-directory-application-access-content-map.md",
+            "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-access-panel-content-map.md",
+            "redirect_url": "/azure/active-directory/application-access-panel-extension-problem-installing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-conditional-access-content-map.md",
+            "redirect_url": "/azure/active-directory/active-directory-conditional-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-config-content-map.md",
+            "redirect_url": "/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-dev-config-content-map.md",
+            "redirect_url": "/azure/active-directory/application-dev-registration-config-grant-permissions-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-dev-development-content-map.md",
+            "redirect_url": "/azure/active-directory/application-dev-registration-config-change-token-lifetime-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-dev-troubleshoot-content-map.md",
+            "redirect_url": "/azure/active-directory/application-dev-registration-config-grant-permissions-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-management-troubleshoot-content-map.md",
+            "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-provisioning-content-map.md",
+            "redirect_url": "/azure/active-directory/application-provisioning-config-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-content-map.md",
+            "redirect_url": "/azure/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-sign-in-content-map.md",
+            "redirect_url": "/azure/active-directory/application-sign-in-unexpected-user-consent-error",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-troubleshoot-content-map.md",
+            "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
+            "redirect_document_id": false
         }
     ]
 }
