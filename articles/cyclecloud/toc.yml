@@ -12,11 +12,13 @@
     href: quickstart2.md
   - name: Run Jobs on your HPC Cluster
     href: quickstart3.md
-  - name: Clean up Resources
-    href: quickstart4.md
-- name: Templates
+- name: Tutorials
   items:
-  - name: CycleCloud Templates
+  - name: Start to Finish How-To Specific Task
+    href:
+- name: Samples
+  items:
+  - name: Offically Approved ACC Sample Templates
     href:
 - name: Concepts
   items:
@@ -110,6 +112,8 @@
     href: install-cli.md
   - name: Start a Cluster
     href: start-cluster.md
+  - name: Terminate a Cluster
+    href: end-cluster.md
   - name: Create Custom Images
     href: custom-images.md
   - name: Transfer Data
