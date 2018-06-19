@@ -17,20 +17,24 @@
       href: quickstart.md
 - name: Tutorials
   items:
-  - name: Filter data with Azure Functions
-    href: tutorial-deploy-function.md
-  - name: Find averages with ASA
-    href: tutorial-deploy-stream-analytics.md
-  - name: Score data with Azure ML
-    href: tutorial-deploy-machine-learning.md
-  - name: Filter data with custom code
-    items:
-    - name: C#
-      href: tutorial-csharp-module.md
-    - name: Python
-      href: tutorial-python-module.md
-    - name: Node.js
-      href: tutorial-node-module.md
+  - name: Find insights at the edge
+    items: 
+    - name: Filter data with Azure Functions
+      href: tutorial-deploy-function.md
+    - name: Find averages with ASA
+      href: tutorial-deploy-stream-analytics.md
+    - name: Score data with Azure ML
+      href: tutorial-deploy-machine-learning.md
+    - name: Filter data with custom code
+      items:
+      - name: C#
+        href: tutorial-csharp-module.md
+      - name: Python
+        href: tutorial-python-module.md
+      - name: Node.js
+        href: tutorial-node-module.md
+  - name: Store data locally with SQL
+    href: tutorial-store-data-sql-server.md
 - name: Concepts
   items: 
   - name: IoT Edge runtime
@@ -94,8 +98,6 @@
     href: tutorial-multiple-modules-in-vscode.md
   - name: CI/CD in VSTS
     href: how-to-ci-cd.md
-  - name: Store data at the edge
-    href: sql-storage.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Related
