@@ -34,11 +34,11 @@ Your runbook is suspended shortly after attempting to execute it three times. Th
 
 The following are potential possible causes:
 
-* The runbooks cannot authenticate with local resources
+* The runbooks can't authenticate with local resources
 
 * The hybrid worker is behind a proxy or firewall
 
-* The runbooks cannot authenticate with local resources
+* The runbooks can't authenticate with local resources
 
 * The computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements.
 
@@ -72,13 +72,13 @@ The following list shows the processes that are started for a Linux Hybrid Runbo
 
 * **worker.conf** - This process is the Auto Registered Hybrid worker process, it is started by the worker manager. This process is used by Update Management and is transparent to the user. This process is not present if the Update Management solution is not enabled on the machine.
 
-* **diy/worker.conf** - This process is the DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto registered Hybrid worker process in the key detail that is uses a different configuration. This process is not be present if the Azure Automation solution is not enabled, and the DIY Linux Hybrid Worker is not registered.
+* **diy/worker.conf** - This process is the DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto registered Hybrid worker process in the key detail that is uses a different configuration. This process is not present if the Azure Automation solution is not enabled, and the DIY Linux Hybrid Worker is not registered.
 
 If the OMS Agent for Linux is not running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ###<a name="class-does-not-exist"></a> The specified class does not exist
 
-If you see the error: **The specified class does not exists..** in the  `/var/opt/microsoft/omsconfig/omsconfig.log` then the OMS Agent for Linux needs to be updated. Run the following command to reinstall the OMS Agent:
+If you see the error: **The specified class does not exist..** in the  `/var/opt/microsoft/omsconfig/omsconfig.log` then the OMS Agent for Linux needs to be updated. Run the following command to reinstall the OMS Agent:
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -104,7 +104,7 @@ Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System
 
 ## Next steps
 
-If you did not see your problem or were unable to solve your issue, visit one of the following channels for more support:
+If you did not see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.

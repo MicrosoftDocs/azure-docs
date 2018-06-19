@@ -44,7 +44,7 @@ Perform cleanup of old artifacts on the machine by [deleting the hybrid runbook 
 You receive one of the following error messages:
 
 ```
-Unable to Register Machine for Patch Management, Registration Failed with Exception System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.ComponentModel.Win32Exception: The client and server cannot communicate, because they do not possess a common algorithm
+Unable to Register Machine for Patch Management, Registration Failed with Exception System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.ComponentModel.Win32Exception: The client and server can't communicate, because they do not possess a common algorithm
 ```
 
 ```
@@ -93,7 +93,7 @@ If failures occur during an update run after it starts successfully on Linux, ch
 
 In some cases, package updates can interfere with Update Management preventing an update deployment from completing. If you see that, you'll have to either exclude these packages from future update runs or install them manually yourself.
 
-If you cannot resolve a patching issue, make a copy of the following log file and preserve it **before** the next update deployment starts for troubleshooting purposes:
+If you can't resolve a patching issue, make a copy of the following log file and preserve it **before** the next update deployment starts for troubleshooting purposes:
 
 ```
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
@@ -101,7 +101,7 @@ If you cannot resolve a patching issue, make a copy of the following log file an
 
 ## Next steps
 
-If you did not see your problem or were unable to solve your issue, visit one of the following channels for more support:
+If you did not see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
