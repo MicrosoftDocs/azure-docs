@@ -70,6 +70,8 @@ The __Capabilities__ tab in the `Package.appxmanifest` file is configured to all
 > [!NOTE]
 > Even though this example doesn't use audio, I had to enable the microphone before I was able to access the camera on my device.
 
+The application tries to get the camera on the back of your device if one is available. It uses the [MediaCapture](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) class to start capturing video from the camera. [MediaFrameReader](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader) is used to capture video frames and send them to the model.
+
 ## Application code
 
 The example application is available at [https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP](https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP).
