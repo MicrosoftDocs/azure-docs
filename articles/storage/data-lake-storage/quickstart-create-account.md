@@ -4,7 +4,7 @@ description: Quickly learn to create a new Azure Data Lake Storage Gen2 account 
 services: storage
 author: jamesbak
 manager: jahogg
-
+ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
@@ -16,11 +16,12 @@ ms.author: jamesbak
 
 Azure Data Lake Storage Gen2 accounts [support an Hierarchical Namespace Service](introduction.md) which provides a native directory-based file sytem tailored to work with the Hadoop Distributed File System (HNS). Access to Azure Data Lake Storage data from the HNS is available through the [ABFS driver](introduction.md).
 
-** todo ** add link for survey
-
-To enable Azure Data Lake Storage Gen2 capabilities on your storage account, fill out this survey to request access once the account is created.
+To enable Azure Data Lake Storage Gen2 capabilities on your storage account, first fill out the preview survey to request access. Once approved, then are able to create a new Data Lake Storage account. 
 
 This quickstart demonstrates how to create a Data Lake Storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+
+> [!NOTE]
+> The create account UI is updated once you are approved that allows you to create a Data Lake Storage account. In the same way, the Data Lake Storage-related PowerShell and CLI arguments only work once you are approved.
 
 ## Prerequisites
 
@@ -135,9 +136,9 @@ az account list-locations \
 
 ---
 
-## Create a general-purpose storage account
+## Create a general-purpose v2 storage account
 
-A general-purpose storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier (the default).
+A general-purpose storage account v2 provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier (the default).
 
 Azure Storage offers two types of general-purpose storage accounts:
 
@@ -145,7 +146,7 @@ Azure Storage offers two types of general-purpose storage accounts:
 - General-purpose v1 accounts. 
 
 > [!NOTE]
-> It's recommended that you create new storage accounts as **general-purpose v2 accounts**, to take advantage of newer features available to those accounts.  
+> You must create new storage accounts as **general-purpose v2 accounts**, to take advantage of Data Lake Storage features.  
 
 For more information about storage account types, see [Azure Storage account options](../common/storage-account-options.md).
 
@@ -180,7 +181,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind StorageV2 
-  -IsHnsEnabled $True
+  -EnableHierarchialNamespace $True
 ```
 
 To create a general-purpose v2 storage account with zone-redundant storage (ZRS Preview), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **SkuName** parameter. 
@@ -203,7 +204,7 @@ az storage account create \
     --location westus \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --is-hns-enabled true
+    --enable-hierarchial-namespace true
 ```
 
 To create a general-purpose v2 storage account with zone-redundant storage (ZRS Preview), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **sku** parameter. 

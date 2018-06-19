@@ -7,7 +7,7 @@ author: jamesbak
 manager: jahogg
 tags: azure-portal
 
-ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
+ms.component: data-lake-storage-gen2
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: tutorial
@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
 
 # Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight
 
-In this tutorial, you take a raw CSV data file, import it into an HDInsight cluster storage, and then transform the data using Apache Hive on Azure HDInsight. Once the data is transformed, you load that data into an Azure SQL database using Apache Sqoop. This article, uses publicly available flight data.
+In this tutorial, you take a raw CSV data file, import it into an HDInsight cluster, and then transform the data using Apache Hive on Azure HDInsight. Once the data is transformed, you load that data into an Azure SQL database using Apache Sqoop. This article, uses publicly available flight data.
 
 > [!IMPORTANT]
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on Azure HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -95,11 +95,11 @@ There are many ways to upload data to the storage associated with an HDInsight c
 
     This command extracts a .csv file that is roughly 60 MB.
 
-4. Use the following commands to create a directory on HDInsight storage, and then copy the .csv file to the directory:
+4. Use the following commands to create a directory, and copy the *.csv* file to the directory:
 
     ```bash
-    hdfs dfs -mkdir -p abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/data
-    hdfs dfs -put <FILENAME>.csv abfs://<filesystem_name>@<account>.dfs.core.windows.net/tutorials/flightdelays/data/
+    hdfs dfs -mkdir -p abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data
+    hdfs dfs -put <FILENAME>.csv abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data/
     ```
 
 ## Transform data using a Hive query
