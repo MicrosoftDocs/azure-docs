@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 06/19/2018
 ms.author: glenga
 
 ---
@@ -23,14 +23,14 @@ While you are able to develop and test Azure Functions in the [Azure portal], ma
 
 ## Local development environments
 
-The way in which you develop functions on your local computer depends on your language and tooling preferences. The environments in the following table support local development:
+The way in which you develop functions on your local computer depends on your [language](supported-languages.md) and tooling preferences. The environments in the following table support local development:
 
-|Environment                              |[Languages](supported-languages.md)         |Description|
+|Environment                              |Languages         |Description|
 |-----------------------------------------|------------|---|
-| Command prompt or terminal | [C# (script)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Azure Functions Core Tools] provides core runtime and function templates that enable local development. Version 2.x support development on Linux, MacOS, and Windows. All environments rely on Core Tools for the local Functions runtime.|
-|[Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)| [C# (script)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Azure Functions Core Tools. Supports development on Linux, MacOS, and Windows, when using version 2.x of the Core Tools. To learn more, see [Deploy to Azure using Azure Functions](https://code.visualstudio.com/tutorials/functions-extension/getting-started).  |
-| [Visual Studio 2017](functions-develop-vs.md) | [C# (class library)](functions-dotnet-class-library.md) | The Azure Functions tools are included in the **Azure development** workload of [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) and later versions. Let you compile functions in a class library and publish the .dll to Azure. |
-| [Maven](functions-create-first-java-maven.md) | [Java](functions-reference-java.md) | Integrates with Core Tools to enable development of Java functions. Version 2.x supports development on Linux, MacOS, and Windows. For more information, see [Create your first function with Java and Maven](functions-create-first-java-maven.md).|
+| Command prompt or terminal | [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enables local development. Version 2.x support development on Linux, MacOS, and Windows. All environments rely on Core Tools for the local Functions runtime.|
+|[Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)| [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Azure Functions Core Tools. Supports development on Linux, MacOS, and Windows, when using version 2.x of the Core Tools. To learn more, see [Deploy to Azure using Azure Functions](https://code.visualstudio.com/tutorials/functions-extension/getting-started).  |
+| [Visual Studio 2017](functions-develop-vs.md) | [C# (class library)](functions-dotnet-class-library.md) | The Azure Functions tools are included in the **Azure development** workload of [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) and later versions. Lets you compile functions in a class library and publish the .dll to Azure. To learn more, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md). |
+| [Maven](functions-create-first-java-maven.md) | [Java](functions-reference-java.md) | Integrates with Core Tools to enable development of Java functions. Version 2.x supports development on Linux, MacOS, and Windows. To learn more, see [Create your first function with Java and Maven](functions-create-first-java-maven.md).|
 
 The rest of this article is focused on installing and using the Core Tools to create, test, and deploy your functions.
 
@@ -41,7 +41,7 @@ The rest of this article is focused on installing and using the Core Tools to cr
 
 There are two versions of Azure Functions Core Tools. The version you use depends on your local development environment, choice of language, and level of support required:
 
-+ [Version 1.x](#v1): supports version 1.x of the runtime, which is fully supported. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm). With this version, you can create functions in experimental languages that are not officially supported. For more information, see [Supported languages in Azure Functions](supported-languages.md)
++ [Version 1.x](#v1): supports version 1.x of the runtime, which is Generally Available (GA). This version of the tools is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm). With this version, you can create functions in experimental languages that are not officially supported. For more information, see [Supported languages in Azure Functions](supported-languages.md)
 
 + [Version 2.x](#v2): supports version 2.x of the runtime. This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation. Like the 2.x runtime, this version of the core tools is currently in preview.
 
@@ -133,7 +133,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 A functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
-Version 2.x requires you to select a default language for your project when it is initialized, and all functions added use default language templates. Version 1.x doesn't have this requirement, and you must specify the language when you create a function.
+Version 2.x requires you to select a default language for your project when it is initialized, and all functions added use default language templates. In version 1.x, you specify the language each time you create a function.
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
@@ -141,7 +141,7 @@ In the terminal window or from a command prompt, run the following command to cr
 func init MyFunctionProj
 ```
 
-When you run the command, you must choose a runtime for your project:
+In version 2.x, when you run the command you must choose a runtime for your project. If you plan to develop JavaScript functions, choose **node**:
 
 ```output
 Select a worker runtime:
@@ -250,7 +250,7 @@ To create a function, run the following command:
 func new
 ```
 
-In version 2.x, when you run `func new` you are prompted to choose a template in the default language of your function app, then you are also promoted to choose a name for your function. In version 1.x, you are also prompted to choose the language.
+In version 2.x, when you run `func new` you are prompted to choose a template in the default language of your function app, then you are also prompted to choose a name for your function. In version 1.x, you are also prompted to choose the language.
 
 ```output
 Select a language: Select a template:
@@ -279,8 +279,8 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 You can also specify these options in the command using the following arguments:
 
 | Argument     | Description                            |
-| ------------ | -------------------------------------- |
-| **`--language -l`** | The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x, do not use this option or choose the default language of your project. |
+| ------------------------------------------ | -------------------------------------- |
+| **`--language -l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x, do not use this option or choose the default language of your project. |
 | **`--template -t`** | The template name, which can be one of the  values:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
 | **`--name -n`** | The function name. |
 
