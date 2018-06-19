@@ -59,23 +59,21 @@
     href: create-account-cli-how-to.md  
   - name: Access APIs - CLI
     href: access-api-cli-how-to.md
-  - name: Job state events - CLI
+  - name: Monitor job state events - CLI
     href: job-state-events-cli-how-to.md    
-  - name: Upload content - .NET
+  - name: Customize Transform presets - .NET Core
+    href: customize-encoder-presets-how-to.md
+  - name: Upload content 
     items:
-    - name: From HTTP(s)
+    - name: From HTTP(s) - .NET
       href: job-input-from-http-how-to.md
-    - name: From a local file
+    - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md    
-  - name: Customize Transform presets
-    items:
-    - name: With .NET Core
-      href: customize-encoder-presets-how-to.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
     href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview  
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest
   - name: REST
     href: https://go.microsoft.com/fwlink/p/?linkid=873030

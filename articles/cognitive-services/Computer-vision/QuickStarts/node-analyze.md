@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 06/06/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with Node.js
+# Quickstart: Analyze an image with Node.js
 
 In this quickstart, you analyze an image to extract visual features using Computer Vision.
 
@@ -53,7 +53,7 @@ const subscriptionKey = '<Subscription Key>';
 
 // You must use the same location in your REST call as you used to get your
 // subscription keys. For example, if you got your subscription keys from
-// westus,replace "westcentralus" in the URL below with "westus".
+// westus, replace "westcentralus" in the URL below with "westus".
 const uriBase =
     'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze';
 

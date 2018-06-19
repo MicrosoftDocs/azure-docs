@@ -1,20 +1,13 @@
 ---
-title: Create classic activity log alerts | Microsoft Docs
+title: Create classic activity log alerts
 description: Be notified via SMS, webhook, and email when certain events occur in the activity log.
 author: johnkemnetz
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/18/2017
 ms.author: johnkem
-
+ms.component: alerts
 ---
 # Create activity log alerts (classic)
 

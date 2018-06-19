@@ -109,7 +109,7 @@ sudo pip3 install sfctl
 
 ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
-To install Service Fabric CLI on Redhat, run the following commands:
+To install Service Fabric CLI on Red Hat, run the following commands:
 
 ```bash
 sudo yum install -y python34

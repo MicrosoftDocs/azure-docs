@@ -15,7 +15,7 @@ This article has answers to common questions to help you quickly understand the 
 
 ## Configure backup
 ### Do Recovery Services vaults support classic VMs or Resource Manager based VMs? <br/>
-Recovery Services vaults support both models.  You can back up a classic VM (created in the Classic portal), or a Resource Manager VM (created in the Azure portal) to a Recovery Services vault.
+Recovery Services vaults support both models.  You can back up a classic VM or a Resource Manager VM to a Recovery Services vault.
 
 ### What configurations are not supported by Azure VM backup?
 Go through [Supported operating systems](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) and [Limitations of VM backup](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
