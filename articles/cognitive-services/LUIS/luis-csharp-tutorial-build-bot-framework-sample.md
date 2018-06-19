@@ -157,6 +157,8 @@ Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, 
 > [!div class="nextstepaction"]
 > [Add intents](./luis-how-to-add-intents.md)
 > [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
+
+
 <!-- Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
 [Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
@@ -165,7 +167,7 @@ Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, 
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[AssignedEndpointDoc]:https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
+[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-[LUIS]:luis-reference-regions.md
+[LUIS]: luis-reference-regions.md
 <!-- tested on Win10 -->
