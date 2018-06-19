@@ -42,7 +42,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Bugbash-only Prerequisites
 * [Azure IoT Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
-* [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private2](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/v0.5.0-private2/azure-iot-edge-0.5.0-private2.vsix).
+* [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private3](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/v0.5.0-private3/azure-iot-edge-0.5.0-private3.vsix).
     Download and save the VSIX file locally using the link provided. In VS Code, go to the **Extensions** view. Click the **...** then select **Install from VSIX...**. Reload the VS Code window to enable the extension.
 
     ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
@@ -74,7 +74,7 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge Python module using Visual Studio Code and the Azure IoT Edge extension.
 1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
-2. In the integrated terminal, install (or update) **cookiecutter**. Install this package either into a virtual environment or as a user install, as shown in the following example:
+2. In the integrated terminal, enter the following command to install (or update) **cookiecutter**:
 
     ```cmd/sh
     pip install --upgrade --user cookiecutter
