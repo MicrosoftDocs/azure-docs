@@ -233,7 +233,7 @@ This setting applies to the following client apps:
 
 ## Next steps
 
-- For an overview of conditional access, see [conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- For an overview of conditional access, see [What is conditional access in Azure Active Directory?](active-directory-conditional-access-azure-portal.md)
 - If you are ready to configure conditional access policies in your environment, see the [recommended practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md).
 
 

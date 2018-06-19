@@ -155,5 +155,5 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [Create app that returns sentiment along with intent prediction](luis-quickstart-intent-and-sentiment-analysis.md)
 
 <!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions
+[LUIS](luis-reference-regions.md#luis-website)
+[LUIS-regions](luis-reference-regions.md#publishing-regions)
