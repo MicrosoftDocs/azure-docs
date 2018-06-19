@@ -149,9 +149,10 @@ In API Management, secrets are managed using objects called Named Values/Propert
 Both [API Management](../api-management/api-management-howto-use-azure-monitor.md) and [Logic Apps](logic-apps-monitor-your-logic-apps.md) support operational monitoring through [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor is enabled by default and will provide information based on the different metrics configured for each service.
 
 Additionally, there are further options for each service:
-•	Logic Apps logs can be sent to [Log Analytics](logic-apps-monitor-your-logic-apps-oms.md) for deeper analysis and dashboarding.
-•	API Management supports configuring Application Insights for Dev Ops monitoring.
-•	API Management supports the [Power BI Solution Template for custom API analytics](http://aka.ms/apimpbi). This solution template allows customers to create their own custom analytics solution, with reports available in Power BI for business users.
+
+- Logic Apps logs can be sent to [Log Analytics](logic-apps-monitor-your-logic-apps-oms.md) for deeper analysis and dashboarding.
+- API Management supports configuring Application Insights for Dev Ops monitoring.
+- API Management supports the [Power BI Solution Template for custom API analytics](http://aka.ms/apimpbi). This solution template allows customers to create their own custom analytics solution, with reports available in Power BI for business users.
 
 ## Security considerations
 
@@ -164,6 +165,6 @@ This section lists security considerations that are specific to the Azure servic
 
 This reference architecture showed how to build a simple enterprise integration platform using Azure Integration Services.
 
-## Next Steps
+## Next steps
 
 * [Enterprise Integration with Queues and Events](logic-apps-architectures-enterprise-integration-with-queues-events.md)
