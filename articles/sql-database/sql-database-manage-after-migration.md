@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
@@ -26,7 +26,6 @@ This article discusses some of the core characteristics of Azure SQL DB as a pla
 - Security and compliance
 - Intelligent database monitoring and maintenance
 - Data movement
-
 
 ## Business continuity and disaster recovery (BCDR)
 Business continuity and disaster recovery abilities enable you to continue your business, as usual, in case of a disaster. The disaster could be a database level event (for example, someone mistakenly drops a crucial table) or a data-centre level event (regional catastrophe, for example a tsunami). 

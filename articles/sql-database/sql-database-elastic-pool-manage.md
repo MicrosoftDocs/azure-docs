@@ -7,7 +7,7 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 06/07/2018
+ms.date: 06/20/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewwer: carlrab

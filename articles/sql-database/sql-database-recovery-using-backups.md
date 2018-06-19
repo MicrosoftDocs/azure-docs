@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
 

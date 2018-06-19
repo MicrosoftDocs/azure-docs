@@ -8,7 +8,7 @@ ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.author: sstein
 
 ---
