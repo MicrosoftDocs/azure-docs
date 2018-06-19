@@ -130,7 +130,7 @@ After you select **Save**, the **Fan Speed** setting appears as a tile and is re
 
 After you create a tile, you can try out your new setting. First, switch off design mode at the upper-right part of the screen.
 
-!["Settings" tab with design mode turned on for the tile](./media/howto-set-up-template/settingstile.png)
+!["Settings" tab with the "Design Mode" switch for the tile](./media/howto-set-up-template/settingstile.png)
 
 ## Properties
 
@@ -200,17 +200,17 @@ You can create a location property as a device property that the device reports.
 
    !["Configure Device Properties" form with details for location](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Now that you have configured your location property, you can [add a map to visualize the location in the device dashboard](#add-an-azure-maps-location-in-the-dashboard).
+Now that you've configured your location property, you can [add a map to visualize the location in the device dashboard](#add-an-azure-maps-location-in-the-dashboard).
 
 ## Commands
 
-Commands are used to remotely manage a device. They enable operators of your application to instantaneously run commands on the device. You can add multiple commands to your device template that appear as tiles on the **Commands** tab for operators to use. As the builder of the device, you have the flexibility to define commands according to your requirements.
+Commands are used to remotely manage a device. They enable operators of your application to instantly run commands on the device. You can add multiple commands to your device template that appear as tiles on the **Commands** tab for operators to use. As the builder of the device, you have the flexibility to define commands according to your requirements.
 
 How is a command different from a setting? 
 
 * **Setting**: A setting is a configuration that you want to apply to a device, and you want the device to persist that configuration until you change it. For example, you want to set the temperature of your freezer, and you want that setting even when the freezer restarts. 
 
-* **Command**: You use commands to instantaneously run a command on the device remotely from IoT Central. If a device isn't connected, the command times out and fails. For example, you want to restart a device.  
+* **Command**: You use commands to instantly run a command on the device remotely from IoT Central. If a device isn't connected, the command times out and fails. For example, you want to restart a device.  
 
 When you run a command, it can be in one of three states, depending on whether the device received the command. 
 
