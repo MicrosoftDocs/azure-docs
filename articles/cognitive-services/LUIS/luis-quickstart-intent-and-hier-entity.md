@@ -238,4 +238,4 @@ Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuil
 
 <!--References-->
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: luis-reference-regions#publishing-regions
+[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
