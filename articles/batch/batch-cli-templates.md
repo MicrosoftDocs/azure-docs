@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 12/18/2017
+ms.date: 06/18/2018
 ms.author: markscu
 
 ---
@@ -79,7 +79,7 @@ ffmpeg to transcode source video files to different resolutions.
 
 Install an Azure Batch CLI extension to use the template and file transfer capabilities.
 
-For instructions on how to install the Azure CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+For instructions on how to install the Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 Once the Azure CLI has been installed, install the latest version of the Batch extension using the
 following CLI command:
