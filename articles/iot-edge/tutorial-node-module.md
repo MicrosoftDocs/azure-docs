@@ -40,7 +40,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Bugbash-only Prerequisites
 * [Azure IoT Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
-* [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private3]().
+* [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private3](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/v0.5.0-private3/azure-iot-edge-0.5.0-private3.vsix).
     Download and save the VSIX file locally using the link provided. In VS Code, go to the **Extensions** view. Click the **...** then select **Install from VSIX...**. Reload the VS Code window to enable the extension.
 
     ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
@@ -79,15 +79,14 @@ The following steps show you how to create an IoT Edge Node.js module using Visu
 5. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```javascript
-    vartemperatureThreshold = 30;
+    var temperatureThreshold = 30;
     ```
 
-6. Replace the entire `PipeMessage` function with the `FilterMessages` function.
+6. Replace the entire `PipeMessage` function with the `FilterMessage` function.
     
     ```javascript
     // This function filters out messages that report temperatures below the temperature threshold.
     // It also adds the MessageType property to the message with the value set to Alert.
-
     function filterMessage(client, inputName, msg) {
         client.complete(msg, printResultFor('Receiving message'));
         if (inputName === 'input1') {
