@@ -15,7 +15,7 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Trigger and action type reference for Workflow Definition Language in Azure Logic Apps
+# Trigger and action types reference for Workflow Definition Language in Azure Logic Apps
 
 In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
 all logic app workflows start with triggers followed by actions. 
