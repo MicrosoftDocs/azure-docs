@@ -24,7 +24,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Ci
 
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./active-directory-saas-app-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./../active-directory-saas-app-provisioning.md).
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling automatic user provisioning, you should decide which users in Azure AD need access to Cisco Spark. Once decided, you can assign these users to Cisco Spark by following the instructions here:
 
-*   [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Cisco Spark
 
@@ -150,7 +150,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/UserMappingAttributes.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters.md).
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../active-directory-saas-scoping-filters.md).
 
 13. To enable the Azure AD provisioning service for Cisco Spark, change the **Provisioning Status** to **On** in the **Settings** section.
 
