@@ -56,6 +56,6 @@ sections:
     - title: Command line
       html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
     - title: Languages
-      html: <p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/aks">REST API</a></p>
