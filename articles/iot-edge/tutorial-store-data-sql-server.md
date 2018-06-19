@@ -7,7 +7,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 06/08/2018
+ms.date: 06/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Store data at the edge with SQL Server databases
 
-Use Azure IoT Edge devices to store the data that is generated at the edge. Devices with intermittent internet connections can maintain their own databases and report changes back to the cloud only when connected. Devices that have been programmed to send only critical data to the cloud can save the rest of the data for regular bulk uploads. Once in the cloud, the structured data can be shared with other Azure services, for instance to build a machine learning model. 
+Use Azure IoT Edge and SQL Server to store and query data at the edge. Azure IoT Edge comes built-in with basic storage features that cache messages if a device goes offline and then forwards them when the connection is reestablished. However, you may want more advanced storage capabilities, like being able to query data locally. By incorporating local databases, your IoT Edge devices can perform more complex computing without having to maintain a connection to IoT Hub. For example, a field technician can visualize the last few days of sensor data on a machine locally, even though that data is only uploaded to the cloud once a month to help improve a machine learning model.
 
 This article provides instructions for deploying a SQL Server database to an IoT Edge device. Azure Functions, running on the IoT Edge device, structures the incoming data then sends it to the database. The steps in this article can also be applied to other databases that work in containers, like MySQL or PostgreSQL.
 
@@ -162,7 +162,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 A [Deployment manifest](module-composition.md) declares which modules the IoT Edge runtime will install on your IoT Edge device. You added the code to make a customized Function module in the previous section, but the SQL Server module is already built. You just need to tell the IoT Edge runtime to include it, then configure it on your device. 
 
 1. In the Visual Studio Code explorer, open the **deployment.template.json** file. 
-2. Find the **moduleContent.$edgeAgent.properties.desired.modules** section. There should be two modules listed: **tempSensor** which generates simulated data, and your **sqlFunction** module.
+2. Find the **moduleContent.$edgeAgent.properties.desired.modules** section. There should be two modules listed: **tempSensor**, which generates simulated data, and your **sqlFunction** module.
 3. Add the following code to declare a third module:
 
    ```
@@ -201,9 +201,9 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
 ## Build your IoT Edge solution
 
-In the previous sections you created a solution with one module, and then added another to the deployment manifest template. Now, you need to build the solution, create container images for the modules, and push the images to your container registry. 
+In the previous sections, you created a solution with one module, and then added another to the deployment manifest template. Now, you need to build the solution, create container images for the modules, and push the images to your container registry. 
 
-1. In the **deployment.template.json** file give the IoT Edge runtime your registry credentials so that it can access your module images. Find the **moduleContent.$edgeAgent.properties.desired.runtime.settings** section. 
+1. In the deployment.template.json file, give the IoT Edge runtime your registry credentials so that it can access your module images. Find the **moduleContent.$edgeAgent.properties.desired.runtime.settings** section. 
 2. Insert the following JSON code after the **loggingOptions**:
 
    ```JSON

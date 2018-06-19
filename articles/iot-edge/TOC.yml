@@ -35,6 +35,8 @@
       href: tutorial-csharp-module.md
     - name: Python
       href: tutorial-python-module.md
+  - name: Store data locally with SQL
+    href: tutorial-store-data-sql-server.md
 - name: Concepts
   items: 
   - name: IoT Edge runtime
@@ -90,8 +92,6 @@
     href: tutorial-multiple-modules-in-vscode.md
   - name: CI/CD in VSTS
     href: how-to-ci-cd.md
-  - name: Store data at the edge
-    href: sql-storage.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Related
