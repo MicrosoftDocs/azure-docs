@@ -188,7 +188,7 @@
   - name: Test
     items:
     - name: Interactive testing
-      href: Train-Test.md
+      href: interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
     - name: Improve accuracy with batch testing
