@@ -22,93 +22,72 @@ In this tutorial, you create an app that demonstrates how to extract consistentl
 > * Understand regular expression entities 
 > * Create new LUIS app for a Human Resources (HR) domain with FindForm intent
 > * Add _None_ intent and add example utterances
-> * Add regular expression entity to extract KB article number from utterance
+> * Add regular expression entity to extract Form number from utterance
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
+## Before you begin
+If you do not have the Human Resources app from the [custom domain](luis-tutorial-prebuilt-intents-entities.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS][LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github repository.
+
+If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `regex`. Cloning is a great way to play with various LUIS features without affecting the original version. 
+
+
 ## Purpose of the regular expression entity
-The purpose of an entity is to get important data from the utterance. The app's use of the regular expression entity is to pull out Knowledge Base (KB) article numbers from an utterance. It is not machine-learned. 
+The purpose of an entity is to get important data from the utterance. The app's use of the regular expression entity is to pull out formatted Human Resources (HR) Form numbers from an utterance. It is not machine-learned. 
 
 Simple example utterances from users include:
 
 ```
-When was KB123456 published?
-Who authored KB112211?
-KB224466 is published in French?
+Where is HRF-123456?
+Who authored HRF-123234?
+HRF-456098 is published in French?
 ```
 
 Abbreviated or slang versions of utterances include:
 
 ```
-KB123456
-kb123456 date?
-Kb123456 title?
+HRF-456098
+HRF-456098 date?
+HRF-456098 title?
 ```
  
-The regular expression entity to match is `kb[0-9]{6,}`. This regular expression matches the characters `kb` literally but ignores case and culture variants. It matches digits 0-9, which can have between 6 and an unlimited number of digits. This doesn't match any number without `kb` or with a space between `kb` and the digits. And it doesn't match when there are fewer than six digits. 
+The regular expression entity to match is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf-` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly. 
 
-## Create a new app
-1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
+HRF stands for human resources form.
 
-2. On the [LUIS][LUIS] website, select **Create new app**.  
+## Add FindForm intent
 
-    ![Screenshot of LUIS apps list](./media/luis-quickstart-intents-regex-entity/app-list.png)
+1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-3. In the pop-up dialog, enter the name `MyKnowledgebase`. 
+    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
-    ![Screenshot of Create new app pop-up dialog with app name MyKnowledgebase](./media/luis-quickstart-intents-regex-entity/create-new-app.png)
+2. Select **Create new intent**. 
 
-4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
+    [ ![Screenshot of Intents page with Add prebuilt domain intent button highlighted](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
 
-    ![Screenshot of Intents page ](./media/luis-quickstart-intents-regex-entity/intents-page-none-only.png)
+3. Enter `FindForm` in the pop-up dialog box then select **Done**. 
 
-## Create a new intent
+    [ ![Screenshot of prebuilt intents dialog with Utilities in the search box](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-1. On the **Intents** page, select **Create new intent**. 
+4. Add example utterances to the intent.
 
-    ![Screenshot of Intents page with Create new intents button highlighted](./media/luis-quickstart-intents-regex-entity/create-new-intent.png)
+|Example utterances|
+|--|
+|What is the URL for hrf-123456?|
+|Where is hrf-345678?|
+|When was hrf-456098 updated?|
+|Did John Smith update hrf-234639 last week?|
+|How many version of hrf-345123 are there?|
+|Who needs to authorize form hrf-123456?|
+|How many people need to sign off on hrf-345678?|
+|hrf-234123 date?|
+|author of hrf-546234?|
+|title of hrf-456234?|
 
-2. Enter the new intent name `FindKnowledgeBase`. This intent should be selected any time a user wants information about a knowledge base article.
-
-    By creating an intent, you are creating the primary category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer or take appropriate action. LUIS doesn't answer these questions, only identify what type of information is being asked for. 
-
-    ![Screenshot of Create new intent pop-up dialog box](./media/luis-quickstart-intents-regex-entity/create-new-intent-ddl.png)
-
-3. Add several utterances to the `FindKnowledgeBase` intent that you expect a user to ask for, such as:
-
-    | Example utterances|
-    |--|
-    |Please send a PDF of kb123456 to mark@company.com|
-    |Let the author of KB121212 know to update the how-to|
-    |When was kb135135 released?|
-
-    ![Screenshot of FindKnowledgeBase intent with examples utterances entered](./media/luis-quickstart-intents-regex-entity/enter-utterances-for-intent.png)
-
-## Add utterances to None intent
-
-The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
-
-1. Select **Intents** from the left panel. 
-
-    ![Screenshot of FindKnowledgeBase intent with Intents left navigation highlighted](./media/luis-quickstart-intents-regex-entity/intents-link-in-navigation.png)
-
-2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app:
-
-    | Example utterances|
-    |--|
-    |Cancel!|
-    |Good bye|
-    |What is going on?|
-
-## When the utterance is predicted for the None intent
-In your LUIS-calling application (such as a chatbot), when LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. If the user doesn't want to end the conversation, the bot can also give more directions. 
-
-Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chatbot, your chatbot can follow up with a question that focuses the customer's intent. 
-
-## Create a KnowledgeBase article regular expression entity 
-Now that the two intents have utterances, LUIS needs to understand what a KB number is. Create a regular expression entity by following the steps:
+## Create a HRF-number regular expression entity 
+Create a regular expression entity to tell LUIS what a HRF-number format is by following the steps:
 
 1. Select **Entities** in the left panel.
 
@@ -116,16 +95,15 @@ Now that the two intents have utterances, LUIS needs to understand what a KB num
 
     ![Screenshot of Entities page with Create new entity button highlighted](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png)
 
-3. In the pop-up dialog, enter the new entity name `KBarticle`, select **RegEx** as the entity type, enter `kb[0-9]{6,}` as the Regex, and then select **Done**.
+3. In the pop-up dialog, enter the new entity name `HRF-number`, select **RegEx** as the entity type, enter `hrf-[0-9]{6}` as the Regex, and then select **Done**.
 
     ![Screenshot of pop-up dialog setting new entity properties](./media/luis-quickstart-intents-regex-entity/create-entity.png)
 
-4. Now that the entity is created, select **Intents** then **FindKnowledgeBase** entity to see the regular expression labeled in the utterances. 
+4. Now that the entity is created, select **Intents** then **FindForm** entity to see the regular expression labeled in the utterances. 
 
     ![Screenshot of Label utterance with existing entity and regex pattern](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-kbnumber.png)
 
 ## Train the LUIS app
-LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
@@ -153,39 +131,18 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-2. Go to the end of the URL in the address and enter `When were KB123456 and kb234567 published?`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindKnowledgeBase` intent with the two KBarticles of `KB123456` and `kb234567`.
+2. Go to the end of the URL in the address and enter `When were HRF-123456 and hrf-234567 published?`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindForm` intent with the two form numbers of `HRF-123456` and `hrf-234567`.
 
     ```
-    {
-        "query": "when were kb123456 and kb234567 published?",
-        "topScoringIntent": {
-            "intent": "FindKnowledgeBase",
-            "score": 1.0
-         },
-        "entities": [
-            {
-                "entity": "kb123456",
-                "type": "KBarticle",
-                "startIndex": 10,
-                "endIndex": 17
-            },
-            {
-                "entity": "kb234567",
-                "type": "KBarticle",
-                "startIndex": 23,
-                "endIndex": 30
-            }
-        ]
-    }
     ```
 
 ## What has this LUIS app accomplished?
-This app, with just two intents and a regular expression entity, identified the intention and returned the extracted data. 
+This app identified the intention and returned the extracted data. 
 
-Your chatbot now has enough information to determine the primary action, `FindKnowledgeBase`, and which KB articles were in the search. 
+Your chatbot now has enough information to determine the primary action, `FindForm`, and which form numbers were in the search. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the kb article numbers and search a third-party API. LUIS doesn't do that work. LUIS only determines what the user's intention is and extracts data about that intention. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the form numbers and search a third-party API. LUIS doesn't do that work. LUIS only determines what the user's intention is and extracts data about that intention. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
@@ -194,11 +151,6 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 > [!div class="nextstepaction"]
 > [Learn about the KeyPhrase entity](luis-quickstart-intent-and-key-phrase.md)
-
-Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract any numbers. 
-
-Add the **datetimeV2** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract dates, times, and datetime ranges.
-
 
 <!--References-->
 [LUIS]: luis-reference-regions.md#luis-website
