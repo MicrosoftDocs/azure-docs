@@ -259,6 +259,6 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 [LUIS]: luis-reference-regions.md
 
-  [LUIS]:luis-reference-regions.md
+  [LUIS]: luis-reference-regions.md
   [LuisFeatures]: luis-concept-feature.md
-  [LuisSampleApp]:https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
+  [LuisSampleApp]: https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
