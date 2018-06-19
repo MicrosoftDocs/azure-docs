@@ -33,11 +33,11 @@ After you sign in to the portal, you can create a subscription to the Translator
 
 ## Authentication key
 
-When you sign up for  Translator Text, you get a personalized access key unique to your subscription. This key is required on each call to the Translator Text API.
+When you sign up for Translator Text, you get a personalized access key unique to your subscription. This key is required on each call to the Translator Text API.
 
-- Retrieve your authentication key by first selecting the appropriate subscription.
-- Select **Keys** in the **Resource Management** section of your subscription's details.
-- Copy either of the keys listed for your subscription.
+1. Retrieve your authentication key by first selecting the appropriate subscription.
+1. Select **Keys** in the **Resource Management** section of your subscription's details.
+1. Copy either of the keys listed for your subscription.
 
 ## Learn, test, and get support
 

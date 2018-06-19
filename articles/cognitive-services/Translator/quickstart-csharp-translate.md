@@ -1,5 +1,5 @@
 ---
-title: Translator Text API C# quickstart | Microsoft Docs
+title: Translator Text translate text with C# | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In this quickstart, you translate text from one language to another using the Translator Text API with C# in Cognitive Services.
 services: cognitive-services

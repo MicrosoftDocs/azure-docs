@@ -1,5 +1,5 @@
 ---
-title: Translator Text API C# quickstart | Microsoft Docs
+title: Translator Text get supported languages with C#| Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with C# in Cognitive Services.
 services: cognitive-services

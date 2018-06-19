@@ -1,5 +1,5 @@
 ---
-title: Translator Text API C# quickstart | Microsoft Docs
+title: Translator Text convert text script with C# | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with C# in Cognitive Services.
 services: cognitive-services

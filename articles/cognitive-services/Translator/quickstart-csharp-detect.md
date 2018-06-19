@@ -1,5 +1,5 @@
 ---
-title: Translator Text API C# quickstart | Microsoft Docs
+title: Translator Text identify language from text with C# | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In this quickstart, you identify the language of the source text using the Translator Text API with C# in Cognitive Services.
 services: cognitive-services

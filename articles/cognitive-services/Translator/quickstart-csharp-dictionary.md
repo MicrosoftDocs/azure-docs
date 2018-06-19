@@ -1,5 +1,5 @@
 ---
-title: Translator Text API C# quickstart | Microsoft Docs
+title: Translator Text find alternate translations with C# | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In this quickstart, you find alternate translations and examples of terms in context using the Translator Text API with C# in Cognitive Services.
 services: cognitive-services
