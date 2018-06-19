@@ -43,7 +43,7 @@ Logs are particularly useful for combining data from a variety of sources for co
 Monitoring data in Azure is collected and analyzed using multiple sources that are described in the following sections.
 
 ### Azure Metrics
-Metrics from Azure resources and applications are collected into Azure Metrics. Metric data is integrated into the pages in the Azure portal for particular Azure resources such as virtual machines, which include graphs of such metrics as CPU and network utilization for the selected machine. It can also be analyzed with the [Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) which can chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics with the [Azure monitoring REST API](monitoring-rest-api-walkthrough.md).
+Metrics from Azure resources and applications are collected into Azure Metrics. Metric data is integrated into the pages in the Azure portal for particular Azure resources such as virtual machines, which include graphs of such metrics as CPU and network utilization for the selected machine. It can also be analyzed with the [Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) which can chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics with the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 You can get detail on the metric data that is collected by different kinds of Azure resources at [Sources of monitoring data in Azure](monitoring-data-sources.md). 
 
@@ -53,7 +53,7 @@ You can get detail on the metric data that is collected by different kinds of Az
 ### Azure Activity Log 
 The [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) stores logs about the configuration and health of Azure services. You can use the Activity Log Explorer to view these logs in the Azure portal, but they're commonly [copied to Log Analytics](../log-analytics/log-analytics-activity.md) to be analyzed with other log data.
 
-You can use the Activity Log Explorer to view the Activity log filtered to match certain criteria.  Most resources will also have an Activity Log option in their menu in the Azure portal that displays the Activity Log Explorer filtered for that resource. You can also retrieve Activity logs with the [Azure monitoring REST API](monitoring-rest-api-walkthrough.md).
+You can use the Activity Log Explorer to view the Activity log filtered to match certain criteria.  Most resources will also have an Activity Log option in their menu in the Azure portal that displays the Activity Log Explorer filtered for that resource. You can also retrieve Activity logs with the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Activity Log Explorer](media/monitoring-data-collection/activity-log-explorer.png)
 
