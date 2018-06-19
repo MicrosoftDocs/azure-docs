@@ -368,7 +368,7 @@ Review [middleware](https://docs.microsoft.com/azure/bot-service/bot-builder-cre
 
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
 [traffic-manager-docs]: https://docs.microsoft.com/azure/traffic-manager/
-[LUIS]: luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
 [azure-portal]: https://portal.azure.com/
 [azure-storage]: https://azure.microsoft.com/services/storage/
 [routing-methods]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods

@@ -35,7 +35,7 @@ The sample application created by this guide enables a JavaScript SPA to query t
 <!--end-collapse-->
 
 <!--start-collapse-->
-## Libraries
+### Libraries
 
 This guide uses the following library:
 
