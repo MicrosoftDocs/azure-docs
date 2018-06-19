@@ -115,17 +115,19 @@ Set-AzureRmStorageAccount -ResourceGroupName "\<resource-group-name\>" -Name
 
 To be updated: Required before Public Preview
 
-**Azure Resource Manager/JSON**
+**Storage Resource Provider**
+
+Create or Update storage account
 
 You can include the property **azureFilesAadIntegration** in the Azure Resource Manager update for your storage account and set it to true.
 
 ```json
-{ 
-  "properties": { 
+{
+  "properties": {
     "azureFilesAadIntegration":true, 
-    … 
-  } 
-} 
+    …
+  }
+}
 ```
 
 ### Step 2 Assign permissions to a user with super-user privileges 

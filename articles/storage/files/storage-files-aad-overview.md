@@ -17,6 +17,8 @@ ms.author: tamram
 
 ## Glossary 
 
+It's helpful to understand some key terms relating to Azure AD integration with Azure Files:
+
 -   **Azure Active Directory (Azure AD)**
 
     Azure Active Directory (Azure AD) is Microsoft’s multi-tenant, cloud-based
@@ -40,60 +42,27 @@ ms.author: tamram
 
 ## Advantages of using Azure AD integration with Azure Files
 
--   Extend the traditional identity-based file share access experience to the cloud
-    with Azure AD
+Azure AD integration with Azure Files provides several benefits over using Shared Key authentication or shared access signatures for authorizing requests:
+
+-   **Extend the traditional identity-based file share access experience to the cloud with Azure AD**
 
     If you have "lifted and shifted" your application to cloud, replacing traditional file servers with Azure Files, then you may prefer to offer a share access experience with identity-based authentication. With Azure AD integration, Azure Files supports the same workflow for your Azure domain-joined VMs to access Azure Files using Azure AD credentials. You can choose to sync all of your on-prem Active Directory objects to Azure AD to preserve the same usernames, passwords, and other group assignments.
 
--   Enforce granular access control on Azure File shares
+-   **Enforce granular access control on Azure File shares**
 
-    When there are multiple applications using single Azure File share as the
-    shared data store, you might want to impose restrictions on data access on
-    share, directory or file level to specific applications for better data
-    management. For example, you can store checkpoint data in one Azure File
-    Share for a HA solution. At one timestamp, only the primary VMs have read
-    and write access to the share where secondary VMs can read the data. Now,
-    you can enforce access control on data path to any specific user at all
-    granular levels.
+    With Azure AD integration for Azure Files, you can grant permissions to a specific user to Azure Files data at the share, directory, or file level. For example, suppose that you have multiple applications using a single Azure File share that stores checkpoint data for high availability solutions. At one timestamp, primary VMs have read and write access to the share, while secondary VMs have read access only. 
 
--   Backup ACLs along with your data
+-   **Back up ACLs along with your data**
 
-    Azure Files can be used as a backup for your existing file shares.
-    Previously when your files are imported to Azure Files, we only copy over
-    the data not the ACLs. You will loss all access assignments when you restore
-    from Azure Files. We now complete the backup story by preserving the ACLs
-    along with the data when copied over SMB.
+    You can use Azure Files to back up your existing on-premises file shares. Previously when your files were imported to Azure Files, only the data was copied, not the ACLs. All access assignments would be lost when you restored your existing file shares from Azure Files. Azure Files now preserves your ACLs along with your data when you back up a file share to Azure Files.
 
 ## How Azure AD integration for Azure Files works
 
-Azure Files leverages Azure AD Domain Services to support Kerberos authentication for SMB access with Azure AD credentials. Before you can use Azure AD with Azure Files, you must first enable Azure AD Domain Services and join the domain from the VMs where you plan to access Azure Files. Your domain-joined Azure VM resides in same virtual network (VNET) as Azure AD Domain Services. 
+Azure Files leverages Azure AD Domain Services to support Kerberos authentication for SMB access with Azure AD credentials. Before you can use Azure AD with Azure Files, you must first enable Azure AD Domain Services and join the domain from the VMs where you plan to access Azure Files. Your domain-joined VM resides in same virtual network (VNET) as Azure AD Domain Services. 
 
-When you try to access Azure Files, the request will be sent to Azure AD Domain Services. Azure AD Domain Services will perform the authentication of the Azure AD credentials. If the authentication is
-successful, it will return a Kerberos ticket for the VM to direct the request to Azure Files. Azure Files will then validate if the user as the required
-permissions to access the share and requested directory/file. Azure Files only enforces the authorization and do not persist any Azure AD credentials.
+When a user attempts to access data in Azure Files, the request is sent to Azure AD Domain Services. Azure AD Domain Services authenticates the user. If  authentication is successful, Azure AD Domain Services returns a Kerberos token. Azure Files uses this token to authorize the request sent by the VM. Azure Files  receives the token only and does not persist any Azure AD credentials.
 
 ![Screen shot showing diagram of Azure AD integration with Azure Files](media/storage-files-aad-overview/files-aad-overview.png)
-
-## Supported Scenarios 
-
--   Azure AD Domain Services Domain Joined Windows VM access Azure Files using Azure AD credentials over SMB protocol
-
--   Access permission configuration and enforcement on Azure Files share, directory, and file level
-
--   Inherit or preserve NTFS ACLs on directories and files imported to Azure File share over SMB protocol based on user specification
-
-## Scenarios planned for GA
-
--   Access Azure Files using Azure Active Directory (Azure AD) credentials from AAD
-    DS domain joined Azure Linux VM
-
--   Access Azure Files using Active Directory (AD) credentials from AD domain
-    joined on-premises machines or Azure VMs, even if AD is fully synced to Azure AD
-
-## Out of Scope Scenarios
-
--   Access Azure Files using Azure Active Directory (Azure AD) credentials from Azure AD
-    joined or Azure AD registered on-premises machines, devices, or Azure VMs.
 
 ## Capabilities 
 
