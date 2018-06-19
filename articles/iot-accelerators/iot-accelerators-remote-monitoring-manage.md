@@ -7,7 +7,6 @@ ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 06/12/2018
-ms.topic: conceptual
 ms.topic: tutorial
 ms.custom: mvc
 
