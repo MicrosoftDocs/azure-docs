@@ -1,6 +1,6 @@
 ---
-title: Collecting monitoring data in Azure | Microsoft Docs
-description: Overview of the data that's collected for complete monitoring of application and services in Azure.
+title: Sources of monitoring data in Azure | Microsoft Docs
+description: Describes the data available to monitor the health and performance of your Azure resources and the applications running on them.
 documentationcenter: ''
 author: bwren
 manager: carmonm
