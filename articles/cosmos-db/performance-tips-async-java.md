@@ -133,7 +133,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     ```
 
 11. **OS Open files Resource Limit**
-    Some Linux systems (like Redhat) have an upper limit on the number of open files and so the total number of connections. Run the following to view the current limits:
+    Some Linux systems (like Red Hat) have an upper limit on the number of open files and so the total number of connections. Run the following to view the current limits:
 
     ```bash
     ulimit -a
@@ -172,7 +172,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     </dependency>
     ```
 
-For other platforms (Redhat, Windows, Mac, etc.,) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
+For other platforms (Red Hat, Windows, Mac, etc.,) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
 
 ## Indexing Policy
  

@@ -6,18 +6,18 @@ documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
-
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: lizross
 ms.custom: end-user
 experiment_id: 429acb56-5fd8-49
 ---
+
 # What are App Passwords in Azure Multi-Factor Authentication?
 Certain non-browser apps, such as the Apple native email client that uses Exchange Active Sync, currently do not support multi-factor authentication. Multi-factor authentication is enabled per user.  This means that a user can't use multi-factor authentication if:
 
