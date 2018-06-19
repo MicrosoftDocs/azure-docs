@@ -16,7 +16,7 @@ ms.author: shvija
 ---
 # What is Azure Event Hubs?
 
-Azure Event Hubs is a Big Data streaming service that ingests millions of events per second, and provides low latency and high throughput for real-time analytics, batch ingestion, and visualization. 
+Azure Event Hubs is a Big Data streaming platform that ingests millions of events per second, and provides low latency and high throughput for real-time analytics, batch ingestion, and visualization. 
 
 Event Hubs is used in some of the following common scenarios:
 
@@ -33,7 +33,7 @@ Event Hubs is used in some of the following common scenarios:
 
 Organizations need data-driven strategies to increase competitive advantage, or to analyze data to get valuable insights. Event Hubs provides a distributed stream processing platform with low latency and seamless integration with data and analytics services inside and outside Azure to build a complete Big Data pipeline.
 
-The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. It provides a synchronized time retention buffer decoupling the event producers from event consumers. 
+The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. It provides an unified streaming platform with time retention buffer decoupling the event producers from event consumers. 
 
 Event Hubs provides message stream handling capability but has characteristics that are different from traditional enterprise messaging. Event Hubs capabilities are built around high throughput and event processing scenarios. The following figure shows the Event Hubs stream processing architecture:
 
@@ -41,7 +41,7 @@ Event Hubs provides message stream handling capability but has characteristics t
 
 ## Fully managed PaaS 
 
-Event Hubs is a managed service with no configuration or management overhead, so you focus on your business solutions. [Event Hubs for Kafka ecosystems](event-hubs-for-kafka-ecosystem-overview.md) gives you the PaaS Kafka experience without having to manage, configure, or run your clusters.
+Event Hubs is a managed service with no configuration or management overhead, so you focus on your business solutions. [Event Hubs for Apache Kafka ecosystems](event-hubs-for-kafka-ecosystem-overview.md) gives you the PaaS Kafka experience without having to manage, configure, or run your clusters.
 
 ## Scalable 
 
@@ -55,7 +55,7 @@ Ingest, buffer, store, and process your stream in real time to get actionable in
 
 ## Rich ecosystem
 
-Event Hubs for Kafka ecosystems enables Apache Kafka (1.0 and above) clients and applications to talk to Event Hubs without having to manage any clusters.
+[Event Hubs for Apache Kafka ecosystems](event-hubs-for-kafka-ecosystem-overview.md) enables [Apache Kafka (1.0 and above)](https://kafka.apache.org/) clients and applications to talk to Event Hubs without having to manage any clusters.
  
 With a broad ecosystem available in various [languages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), you can easily start processing your streams from Event Hubs. All supported client languages provide low-level integration.
 
