@@ -46,4 +46,4 @@ Batch testing is a way to see how many example utterances are scored by LUIS. Th
 
 Learn concepts about [collaboration](luis-concept-collaborator.md).
 
-[luis-reference-prebuilt-domains]: luis-reference-prebuilt-domains.md
+[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains
