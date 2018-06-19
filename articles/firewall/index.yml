@@ -14,10 +14,10 @@ metadata:
 abstract:
   description: Learn how to deploy Azure Firewall, a cloud-based network security service. Tutorials, API references, and other documentation show you how to set up application-level and network-level policies to protect your Azure virtual network resources.
 sections:
-- title: Step-by-Step Tutorials
+- title: Step-by-Step Tutorial
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and monitor Azure Firewall
+    text: Learn how to deploy Azure Firewall
   - type: list
     style: unordered
     items:

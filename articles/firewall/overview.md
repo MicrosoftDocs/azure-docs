@@ -11,9 +11,9 @@ ms.author: victorh
 ---
 # What is Azure Firewall?
 
-![Firewall overview](media/overview/firewall-overview.png)
-
 Azure Firewall is a cloud-based network security service, providing filtering capabilities with built-in high availability, unrestricted cloud scalability and zero maintenance.
+
+![Firewall overview](media/overview/firewall-overview.png)
 
 [!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
 
