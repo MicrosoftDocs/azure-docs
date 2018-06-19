@@ -169,7 +169,7 @@ or Visual Studio, open your logic app in Logic App Designer.
    your logic app later, you can manually run your app 
    without waiting for the trigger to fire.
 
-   ![Starting sample logic app](./media/logic-apps-change-manage-data-operations/sample-starting-logic-app-create-csv-table-action.png)
+   ![Starting sample logic app](./media/logic-apps-change-manage-data-operations/sample-starting-logic-app-create-table-action.png)
 
 2. In your logic app where you want to create the CSV table, 
 follow one of these steps: 
@@ -177,7 +177,7 @@ follow one of these steps:
    * To add an action under the last step, 
    choose **New step** > **Add an action**.
 
-     ![Add action](./media/logic-apps-change-manage-data-operations/add-create-csv-table-action.png)
+     ![Add action](./media/logic-apps-change-manage-data-operations/add-create-table-action.png)
 
    * To add an action between steps, move your mouse 
    over the connecting arrow so the plus sign (+) appears. 
@@ -201,7 +201,7 @@ From the actions list, select this action: **Data Operations - Create CSV table*
    ![Finished "Create CSV table" action](./media/logic-apps-change-manage-data-operations/finished-create-csv-table-action.png)
 
    By default, this action automatically creates the columns based on the array items. 
-   To customize the column headers and values, choose **Show advanced options**. 
+   To manually create the column headers and values, choose **Show advanced options**. 
    To provide only custom values, change **Columns** to **Custom**. 
    To provide custom column headers too, change **Include headers** to **Yes**. 
    
@@ -225,7 +225,7 @@ select **Output**.
    This example uses the **Office 365 Outlook - Send an email** action 
    and includes **Output** fields in the email's body and subject:
 
-   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-compose-action.png)
+   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-create-csv-table-action.png)
 
 3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
@@ -237,14 +237,22 @@ select **Output**.
 
 ## Create HTML table action
 
-To create an HTML table from an array or outputs from an expression, 
-follow these steps:
+You can create an HTML table from array items or expression outputs 
+by using the **Data Operations - Create HTML table** action. 
+You can then use this table in actions that follow the **Create HTML table** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
 
-   This example uses the Azure portal and a 
-   logic app that already has a trigger.
+   This example uses the Azure portal and a logic app with a 
+   **Recurrence** trigger and an **Initialize variable** action. 
+   The action is set up for creating a variable whose initial 
+   value is an array that has some properties and values in 
+   JavaScript Object Notation (JSON) format. When you test 
+   your logic app later, you can manually run your app 
+   without waiting for the trigger to fire.
+
+   ![Starting sample logic app](./media/logic-apps-change-manage-data-operations/sample-starting-logic-app-create-table-action.png)
 
 2. In your logic app where you want to create an HTML table, 
 follow one of these steps: 
@@ -252,56 +260,75 @@ follow one of these steps:
    * To add an action under the last step, 
    choose **New step** > **Add an action**.
 
-     ![Add action](./media/logic-apps-change-manage-data-operations/add-action.png)
+     ![Add action](./media/logic-apps-change-manage-data-operations/add-create-table-action.png)
 
    * To add an action between steps, move your mouse 
    over the connecting arrow so the plus sign (+) appears. 
    Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "create html table" as your filter. 
-From the actions list, select **Data Operations - Create HTML table**.
+From the actions list, select this action: **Data Operations - Create HTML table**
 
-4. In the **Create HTML table** action, click inside the **From** box. 
-When the dynamic content list opens, select the item to use as the 
-source for the HTML table. 
+   ![Select "Create HTML table" action](./media/logic-apps-change-manage-data-operations/select-create-html-table-action.png)
 
-   To manually create columns and column headers from the properties 
-   in the JSON content, choose **Show advanced options**.
+4. In the **From** box, provide the array or expression you want for creating the table. 
+
+   For this example, when you click inside the **From** box, 
+   the dynamic content list appears so you can select 
+   the previously created variable:
+
+   ![Select array output for creating HTML table](./media/logic-apps-change-manage-data-operations/configure-create-hmtl-table-action.png)
+
+   Here is the finished example **Create HTML table** action: 
+
+   ![Finished "Create HTML table" action](./media/logic-apps-change-manage-data-operations/finished-create-html-table-action.png)
+
+   By default, this action automatically creates the columns based on the array items. 
+   To manually create the column headers and values, choose **Show advanced options**. 
+   To provide only custom values, change **Columns** to **Custom**. 
+   To provide custom column headers too, change **Include headers** to **Yes**. 
+
+5. Save your logic app. On the designer toolbar, choose **Save**.
 
 For more information about this action in your underlying workflow definition, 
-see [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
+see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
 <a name="filter-array-action"></a>
 
 ## Filter array action
 
-To get items from an array based on a specified filter or condition, 
-follow these steps:
+You can get items from an array based on a specified filter or 
+condition by using the **Data Operations - Filter array** action. 
+You can then use the filtered array in actions that follow the **Filter array** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
 
-   This example uses the Azure portal and a 
-   logic app that already has a trigger.
+   This example uses the Azure portal and a logic app with a 
+   **Recurrence** trigger and an **Initialize variable** action. 
+   The action is set up for creating a variable whose initial 
+   value is an array that contains integers. When you test 
+   your logic app later, you can manually run your app 
+   without waiting for the trigger to fire.
 
-2. In your logic app where you want to get the array items, 
+   ![Starting sample logic app](./media/logic-apps-change-manage-data-operations/sample-starting-logic-app-filter-array-action.png)
+
+2. In your logic app where you want to create the filtered array, 
 follow one of these steps: 
 
    * To add an action under the last step, 
    choose **New step** > **Add an action**.
 
-     ![Add action](./media/logic-apps-change-manage-data-operations/add-action.png)
+     ![Add action](./media/logic-apps-change-manage-data-operations/add-filter-array-action.png)
 
    * To add an action between steps, move your mouse 
    over the connecting arrow so the plus sign (+) appears. 
    Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "filter array" as your filter. 
-From the actions list, select **Data Operations - Filter array**.
+From the actions list, select this action: **Data Operations - Filter array**
 
-4. In the **Filter array** action, click inside the **From** box. 
-In the dynamic content list that appears, under the action 
-that provides the array output you want, select that output.
+4. In the **From** box, provide the array or expression you want to filter. 
 
 5. Save your logic app. On the designer toolbar, choose **Save**.
 
