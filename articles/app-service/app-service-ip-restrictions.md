@@ -38,3 +38,23 @@ From here, you can review the list of IP restriction rules defined for your app.
 You can click on **[+] Add** to add a new IP restriction rule.
 
 ![add IP restrictions](media/app-service-ip-restrictions/add-ip-restrictions.png)
+
+# Example #
+```
+$WebApp = Get-AzureRmResource -ResourceGroupName "<resource-group-name>" -ResourceType Microsoft.Web/sites/config -ResourceName <app-service-name>/web -ApiVersion 2016-08-01
+
+$Properties = $WebApp.Properties
+$Properties.ipSecurityRestrictions = @()
+
+$Restriction1 = @{}
+$Restriction1.Add("ipAddress","127.0.0.1")
+$Restriction1.Add("subnetMask","255.255.255.255")
+$Properties.ipSecurityRestrictions += $Restriction1
+
+$Restriction2 = @{}
+$Restriction2.Add("ipAddress","127.0.0.2")
+$Restriction2.Add("subnetMask","255.255.255.255")
+$Properties.ipSecurityRestrictions += $Restriction2
+
+Set-AzureRmResource -ResourceGroupName  "<resource-group-name>" -ResourceType Microsoft.Web/sites/config -ResourceName <app-service-name>/web -ApiVersion 2016-08-01 -PropertyObject $Properties -force
+```
