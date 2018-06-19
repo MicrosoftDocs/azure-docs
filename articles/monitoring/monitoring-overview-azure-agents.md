@@ -20,9 +20,9 @@ ms.author: magoedte
 Microsoft Azure provides multiple ways to collect different types of data from Virtual Machines hosted in Azure or other cloud providers running Microsoft Windows and Linux.  This article will help describe the differences and capabilities available with each agent in order for you to determine which one will support your service management or general monitoring requirements.  
 
 ## Comparative agent analysis
-Today in Azure, there are are two types of agents available monitor an Azure VM - the Azure Diagnostics extension and Log Analytics Agent for Linux and Windows.  Fundamentally, these agents are designed to collect metrics and logs, and forward to a repository. However, that's where their similarities end.  
+Today in Azure, there are two types of agents available monitor an Azure VM - the Azure Diagnostics extension and Log Analytics Agent for Linux and Windows.  Fundamentally, these agents are designed to collect metrics and logs, and forward to a repository. However, that's where their similarities end.  
 
-The Azure Diagnostics extension, which has been provided for Azure Cloud Services since it became generally available in 2010, is an agent that delivers simple collection of diagnostic data from an Azure IaaS resource like a VM, and persist it to Azure storage.  Once in storage, you can chose to view with one of several available tools, such as [Server Explorer in Visual Studio](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md) and [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+The Azure Diagnostics extension, which has been provided for Azure Cloud Services since it became generally available in 2010, is an agent that delivers simple collection of diagnostic data from an Azure IaaS resource like a VM, and persist it to Azure storage.  Once in storage, you chose to view with one of several available tools, such as [Server Explorer in Visual Studio](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md) and [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 You can choose to collect:
 
@@ -35,7 +35,7 @@ You can choose to collect:
 
 Data can be alternatively forwarded to [Application Insights](../application-insights/app-insights-cloudservices.md) or to non-Azure services using [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
-For advanced monitoring where you need more than collecting metrics and a subset of logs, the Log Analytics agent for Windows and Linux is required.  With this agent you are able to utilize Azure services such as Automation and Log Analytics, including the full set of features they offer, to deliver comprehensive management of your Azure VMs through their lifecycle. This includes:
+For advanced monitoring where you need more than collecting metrics and a subset of logs, the Log Analytics agent for Windows and Linux is required.  With this agent, you are able to utilize Azure services such as Automation and Log Analytics, including the full set of features they offer, to deliver comprehensive management of your Azure VMs through their lifecycle. This includes:
 
 * [Azure Automation Update management](../automation/automation-update-management.md) of operating system updates
 * [Azure Automation Desired State Configuration](../automation/automation-dsc-overview.md) to maintain consistent configuration state
