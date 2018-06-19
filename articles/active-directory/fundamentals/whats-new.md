@@ -39,7 +39,9 @@ This page is updated monthly, so revisit it regularly.
 **Service category:** Monitoring & Reporting  
 **Product capability:** Reporting
 
-We’re changing how the Azure AD Activity Logs APIs work with your delegated authorization flow on **June 25, 2018**. If you continue to use a delegated authorization flow after that date, the APIs will stop functioning correctly and you'll no longer receive log files. To fix this problem, you can update the permissions of your Azure AD Activity APIs.
+We’re changing how the Azure AD Activity Logs APIs work with your delegated authorization flow on **June 25, 2018**.
+
+If you continue to use a delegated authorization flow after that date, the APIs will stop functioning correctly and you'll no longer receive log files. To fix this problem, you can update the permissions of your Azure AD Activity APIs.
 
 **To update your permissions**
 
