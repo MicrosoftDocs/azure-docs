@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Deploy a Linux Hybrid Runbook Worker
 
-You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. The Linux Hybrid Runbook Worker executes runbooks as a special user that can be elevated for running commands that need elevation. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers. 
+You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. The Linux Hybrid Runbook Worker executes runbooks as a special user that can be elevated for running commands that need elevation. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers.
 
 This article describes how to install the Hybrid Runbook Worker on a Linux machine.
 
@@ -47,6 +47,12 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 |Curl | cURL web client | 7.15.5|
 |Python-ctypes | |
 |PAM | Pluggable Authentication Modules|
+
+### PowerShell requirements
+
+To run PowerShell runbooks, the Linux Hybrid Runbook Worker requires PowerShell to be installed. For instructions on how to install PowerShell on Linux, see [Installing PowerShell Core on Linux](/powershell/scripting/setup/installing-powershell-core-on-linux).
+
+### Installation
 
 Before you proceed, note the Log Analytics workspace that your Automation account is linked to. Also note the primary key for your Automation account. You can find both from the Azure portal by selecting your Automation account, selecting **Workspace** for the workspace ID, and selecting **Keys** for the primary key. For information on ports and addresses that you need for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
@@ -89,6 +95,9 @@ The following runbook types work on a Linux Hybrid Worker:
 
 * Python 2
 * PowerShell
+
+> [!NOTE]
+> PowerShell runbooks require PowerShell to be installed on the Linux machine. See [PowerShell Requirements](#powershell-requirements) to learn how to install it.
 
 The following runbook types don't work on a Linux Hybrid Worker:
 
