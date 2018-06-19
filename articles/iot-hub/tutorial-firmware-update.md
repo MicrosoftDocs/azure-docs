@@ -1,6 +1,6 @@
 ---
 title: Update device firmware through Azure IoT Hub | Microsoft Docs
-description: Implement a device firmware update process using direct methods and device twins
+description: Implement a device firmware update process using jobs and device twins.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -23,9 +23,9 @@ ms.custom: mvc
 
 # Tutorial: Implement a device firmware update process
 
-You may need to update the firmware on the devices connected to your IoT hub. For example, you might want to add new features to the firmware or apply security patches. In many IoT scenarios, it's impractical to physically visit and then manually apply firmware updates to your devices. This tutorial shows how you can initiate and monitor the firmware update process remotely through a back-end application connected to your hub.
+You may need to update the firmware on the devices connected to your IoT hub. For example, you might want to add new features to the firmware or apply security patches. In many IoT scenarios, it's impractical to physically visit and then manually apply firmware updates to your devices. This tutorial shows how you can start and monitor the firmware update process remotely through a back-end application connected to your hub.
 
-To initiate the firmware update process, this tutorial submits a _job_ in a back-end application that updates a set of _device twin desired properties_ on all your chiller devices. The desired properties specify the details of the firmware update that's required. While the device is running the firmware update, it reports its status to the back-end application using _device twin reported properties_. The back-end application can monitor the reported properties sent from the device to track the firmware update process to completion:
+To begin the firmware update process, this tutorial submits a _job_ in a back-end application that updates a set of _device twin desired properties_ on all your chiller devices. The desired properties specify the details of the firmware update that's required. While the device is running the firmware update, it reports its status to the back-end application using _device twin reported properties_. The back-end application can monitor the reported properties sent from the device to track the firmware update process to completion:
 
 ![Firmware update process](media/tutorial-firmware-update/Process.png)
 
@@ -57,7 +57,7 @@ Download the sample Node.js project from https://github.com/Azure-Samples/azure-
 
 ## Set up Azure resources
 
-To complete this tutorial, your Azure subscription must contain an IoT hub with a device added to the device identity registry. The entry in the device identity registry enables the simulated device you run in this tutorial to connect to your hub.
+To complete this tutorial, your Azure subscription must have an IoT hub with a device added to the device identity registry. The entry in the device identity registry enables the simulated device you run in this tutorial to connect to your hub.
 
 If you don't already have an IoT hub set up in your subscription, you can set one up with following CLI script. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run it. The script creates the resource group and hub in the **Central US** region, which you can change to a region closer to you. The script retrieves your IoT hub service connection string, which you use in the back-end sample application to connect to your IoT hub:
 
@@ -96,14 +96,14 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 ```
 
-## Initiate the firmware update
+## Start the firmware update
 
-You submit a job in the back-end application to initiate the firmware update process on all devices tagged with **devicetype** chiller.. In this section, you see how to:
+You submit a job in the back-end application to begin the firmware update process on all devices tagged with a **devicetype** of chiller. In this section, you see how to:
 
 * Submit a job from a back-end application.
 * Monitor the job to completion.
 
-### Call the direct method to initiate the firmware upgrade from the back-end application
+### Use desired properties to start the firmware upgrade from the back-end application
 
 To view the back-end application code that submits the job, navigate to the **iot-hub/Tutorials/FirmwareUpdate** folder in the sample Node.js project you downloaded. Then open the ServiceClient.js file in a text editor.
 
@@ -115,7 +115,7 @@ The back-end application uses the following query to select the devices to updat
 
 [!code-javascript[Select devices](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/ServiceClient.js?name=queryCondition "Select devices")]
 
-The back-end application uses the following code to submit the job to set the deired properties:
+The back-end application uses the following code to submit the job to set the desired properties:
 
 [!code-javascript[Submit job](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/ServiceClient.js?name=scheduleJob "Submit job")]
 
@@ -127,7 +127,7 @@ After it submits the job, the application monitors the job to completion:
 
 To view the simulated device code that handles the firmware desired properties sent from the back-end application, navigate to the **iot-hub/Tutorials/FirmwareUpdate** folder in the sample Node.js project you downloaded. Then open the SimulatedDevice.js file in a text editor.
 
-The simulated device application creates a handler for updates to the **properties.desired.firmware** desired properties in the device twin. In the handler, it performs some basic checks on the desired properties before launching the update process:
+The simulated device application creates a handler for updates to the **properties.desired.firmware** desired properties in the device twin. In the handler, it carries out some basic checks on the desired properties before launching the update process:
 
 [!code-javascript[Handle desired property update](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=initiateUpdate "Handle desired property update")]
 
@@ -181,8 +181,7 @@ The following screenshot shows the output from the back-end application and high
 
 ![Back-end application](./media/tutorial-firmware-update/BackEnd2.png)
 
-
-Because of latency in the IoT Hub device identity registry you may not see every status update sent to the back-end application.
+Because of latency in the IoT Hub device identity registry, you may not see every status update sent to the back-end application.
 
 ## Clean up resources
 
