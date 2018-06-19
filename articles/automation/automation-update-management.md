@@ -295,19 +295,9 @@ However, Update Management might still report that machine as being non-complian
 
 Deploying updates by update classification might not work on openSUSE Linux due to the different patching model used.
 
-## Troubleshooting
+## Troubleshoot
 
-This section provides information to help you troubleshoot issues with the Update Management solution.
-
-If you encounter issues when you  attempt to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log on the local machine for events that have Event ID 4502 and event messages that contain **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each:
-
-| Message | Reason | Solution |
-|----------|----------|----------|
-| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>System.InvalidOperationException: {"Message":"Machine is already<br/>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management. | Perform cleanup of old artifacts by [deleting the Hybrid Runbook group](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group).|
-| Unable to Register Machine for Patch Management, Registration Failed with Exception<br/>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br/>System.Net.WebException: The underlying connection<br/>was closed: An unexpected error<br/>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br/>The client and server cannot communicate,<br/>because they do not possess a common algorithm | Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
-| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
-| The certificate presented by the service \<wsid\>.oms.opinsights.azure.com<br/>was not issued by a certificate authority<br/>used for Microsoft services. Contact<br/>your network administrator to see if they are running a proxy that intercepts<br/>TLS/SSL communication. |Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
-| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>AgentService.HybridRegistration.<br/>PowerShell.Certificates.CertificateCreationException:<br/>Failed to create a self-signed certificate. ---><br/>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure. | Verify system account has<br/>read access to folder:<br/>**C:\ProgramData\Microsoft\**<br/>**Crypto\RSA**|
+To learn how to troubleshoot your Update Management, see [Troubleshooting Update Management](troubleshoot/update-management.md)
 
 ## Next steps
 
