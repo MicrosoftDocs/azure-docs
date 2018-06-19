@@ -53,7 +53,7 @@ HRF-456098 date?
 HRF-456098 title?
 ```
  
-The regular expression entity to match is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf-` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly. 
+The regular expression entity to match is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf -` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly. LUIS adds the spaces before and after the hyphen as a token boundary. In order to match that in the LUIS regular expression entity, use the word boundary regular expression, `\b`.
 
 HRF stands for human resources form.
 
@@ -61,49 +61,56 @@ HRF stands for human resources form.
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
+    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
 
 2. Select **Create new intent**. 
 
-    [ ![Screenshot of Intents page with Add prebuilt domain intent button highlighted](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
+    [ ![Screenshot of Intents page with Create new intent button highlighted](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png) ](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png#lightbox)
 
 3. Enter `FindForm` in the pop-up dialog box then select **Done**. 
 
-    [ ![Screenshot of prebuilt intents dialog with Utilities in the search box](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
+    ![Screenshot of create new intent dialog with Utilities in the search box](./media/luis-quickstart-intents-regex-entity/create-new-intent-ddl.png)
 
 4. Add example utterances to the intent.
 
-|Example utterances|
-|--|
-|What is the URL for hrf-123456?|
-|Where is hrf-345678?|
-|When was hrf-456098 updated?|
-|Did John Smith update hrf-234639 last week?|
-|How many version of hrf-345123 are there?|
-|Who needs to authorize form hrf-123456?|
-|How many people need to sign off on hrf-345678?|
-|hrf-234123 date?|
-|author of hrf-546234?|
-|title of hrf-456234?|
+    |Example utterances|
+    |--|
+    |What is the URL for hrf-123456?|
+    |Where is hrf-345678?|
+    |When was hrf-456098 updated?|
+    |Did John Smith update hrf-234639 last week?|
+    |How many version of hrf-345123 are there?|
+    |Who needs to authorize form hrf-123456?|
+    |How many people need to sign off on hrf-345678?|
+    |hrf-234123 date?|
+    |author of hrf-546234?|
+    |title of hrf-456234?|
+
+    [ ![Screenshot of Intent page with new utterances highlighted](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
+
+    The application has prebuilt number entity added from the previous tutorial, so each form number is tagged. This may be enough for your client application but the number won't be labeled as a form number. Creating a new entity with an appropriate name allows the client application to process the entity appropriately when it is returned from LUIS.
 
 ## Create a HRF-number regular expression entity 
-Create a regular expression entity to tell LUIS what a HRF-number format is by following the steps:
+Create a regular expression entity to tell LUIS what a HRF-number format is in the following steps:
 
 1. Select **Entities** in the left panel.
 
 2. Select **Create new entity** button on the Entities Page. 
 
-    ![Screenshot of Entities page with Create new entity button highlighted](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png)
+    [![Screenshot of Entities page with Create new entity button highlighted](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png)](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png#lightbox)
 
 3. In the pop-up dialog, enter the new entity name `HRF-number`, select **RegEx** as the entity type, enter `hrf-[0-9]{6}` as the Regex, and then select **Done**.
 
-    ![Screenshot of pop-up dialog setting new entity properties](./media/luis-quickstart-intents-regex-entity/create-entity.png)
+    ![Screenshot of pop-up dialog setting new entity properties](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
+
+    The regular expression is based on the utterance sent into LUIS and not on the tokenized version of the utterance displayed in the LUIS website. 
 
 4. Now that the entity is created, select **Intents** then **FindForm** entity to see the regular expression labeled in the utterances. 
 
-    ![Screenshot of Label utterance with existing entity and regex pattern](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-kbnumber.png)
+    [![Screenshot of Label utterance with existing entity and regex pattern](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
 ## Train the LUIS app
+A regular expression entity does not require training but the new intent and utterances does require training. 
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
@@ -126,14 +133,91 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
-    ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
-
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+
+    ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
 2. Go to the end of the URL in the address and enter `When were HRF-123456 and hrf-234567 published?`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindForm` intent with the two form numbers of `HRF-123456` and `hrf-234567`.
 
     ```
+    {
+      "query": "When were HRF-123456 and hrf-234567 published?",
+      "topScoringIntent": {
+        "intent": "FindForm",
+        "score": 0.970179737
+      },
+      "intents": [
+        {
+          "intent": "FindForm",
+          "score": 0.970179737
+        },
+        {
+          "intent": "ApplyForJob",
+          "score": 0.0131893409
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00364777143
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0024568392
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00173760345
+        },
+        {
+          "intent": "None",
+          "score": 0.00173070864
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.00130692765
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.00130328839
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.0006671795
+        }
+      ],
+      "entities": [
+        {
+          "entity": "hrf-123456",
+          "type": "HRF-number",
+          "startIndex": 10,
+          "endIndex": 19
+        },
+        {
+          "entity": "hrf-234567",
+          "type": "HRF-number",
+          "startIndex": 25,
+          "endIndex": 34
+        },
+        {
+          "entity": "-123456",
+          "type": "builtin.number",
+          "startIndex": 13,
+          "endIndex": 19,
+          "resolution": {
+            "value": "-123456"
+          }
+        },
+        {
+          "entity": "-234567",
+          "type": "builtin.number",
+          "startIndex": 28,
+          "endIndex": 34,
+          "resolution": {
+            "value": "-234567"
+          }
+        }
+      ]
+    }
     ```
 
 ## What has this LUIS app accomplished?
