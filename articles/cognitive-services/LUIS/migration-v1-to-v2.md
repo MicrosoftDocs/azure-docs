@@ -165,4 +165,4 @@ See [LUIS API response codes](luis-reference-response-codes.md).
 
 Use the v2 API documentation to update existing REST calls to LIUS [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
