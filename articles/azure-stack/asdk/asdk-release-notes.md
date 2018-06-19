@@ -49,6 +49,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 
 ### Fixed issues
+- We fixed the issue that blocked [opening a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the admin portal. This option now works as intended. 
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
