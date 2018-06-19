@@ -328,9 +328,9 @@ $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>
 
-if ($cloudTieringEnabled) {
+if ($cloudTieringDesired) {
     # Ensure endpoint path is not the system volume
-    $directoryRoot = [System.IO.Directory]::GetDirectoryRoot("C:\shares\myserverendpoint")
+    $directoryRoot = [System.IO.Directory]::GetDirectoryRoot($serverEndpointPath)
     $osVolume = "$($env:SystemDrive)\"
     if ($directoryRoot -eq $osVolume) {
         throw [System.Exception]::new("Cloud tiering cannot be enabled on the system volume")
@@ -338,10 +338,10 @@ if ($cloudTieringEnabled) {
 
     # Create server endpoint
     New-AzureRmStorageSyncServerEndpoint `
-        -StorageSyncServiceName $service_name `
-        -SyncGroupName $syncgroup_name `
+        -StorageSyncServiceName $storageSyncName `
+        -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `
-        -ServerLocalPath "<FullPath>" `
+        -ServerLocalPath $serverEndpointPath `
         -FriendlyName $registeredServer.DisplayName `
         -CloudTiering `
         -VolumeFreeSpacePercent $volumeFreeSpacePercentage
@@ -349,10 +349,10 @@ if ($cloudTieringEnabled) {
 else {
     # Create server endpoint
     New-AzureRmStorageSyncServerEndpoint `
-        -StorageSyncServiceName $service_name `
-        -SyncGroupName $syncgroup_name `
+        -StorageSyncServiceName $storageSyncName `
+        -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `
-        -ServerLocalPath "<FullPath>" `
+        -ServerLocalPath $serverEndpointPath `
         -FriendlyName $registeredServer.DisplayName
 }
 ```
