@@ -18,7 +18,7 @@ ms.author: rolyon
 ---
 
 # Azure Active Directory Terms of use feature
-Azure AD Terms of use provides a simple method organizations can use to present information to end users. This presentation, ensures users see relevant disclaimers for legal or compliance requirements. This article describes how to get started with Azure AD Terms of use.
+Azure AD Terms of use provides a simple method that organizations can use to present information to end users. This presentation ensures users see relevant disclaimers for legal or compliance requirements. This article describes how to get started with Azure AD Terms of use.
 
 [!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
 
@@ -27,7 +27,7 @@ Azure AD Terms of use enables you to do the following:
 - Require employees or guests to agree to your Terms of use before getting access.
 - Present general Terms of use for all users in your organization.
 - Present specific Terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](active-directory-groups-dynamic-membership-azure-portal.md)).
-- Present specific Terms of use based on accessing high business impact applications, like Salesforce.
+- Present specific Terms of use when accessing high business impact applications, like Salesforce.
 - Present Terms of use in different languages.
 - List who has or hasn't agreed to your Terms of use.
 - Display an audit log of Terms of use activity.
@@ -120,7 +120,7 @@ The following screen shows how Terms of use looks on mobile devices.
 ![Audit Event](media/active-directory-tou/mobile-tou.png)
 
 ### How users can review their Terms of use
-Users can review and see the Terms of use that they have accepted by using the following procedure:
+Users can review and see the Terms of use that they have accepted by using the following procedure.
 
 1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
@@ -147,7 +147,7 @@ You can delete old Terms of use using the following procedure.
 
     ![Add TOU](media/active-directory-tou/delete-tou.png)
 
-1. You should no longer see your new Terms of use.
+    You should no longer see your Terms of use.
 
 ## Deleted users and active Terms of use
 By default, a deleted user is in a deleted state in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global administrator can explicitly [permanently delete a recently deleted user](fundamentals/active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequent data about that user will be removed from the active Terms of use.  Audit information about deleted users remains in the audit log.
