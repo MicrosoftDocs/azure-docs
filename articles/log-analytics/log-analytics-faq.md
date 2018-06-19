@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 06/19/2018
 ms.author: magoedte
 
 ---
@@ -72,14 +72,19 @@ Log Analytics uses UTC time and each day starts at midnight UTC. If the workspac
 
 ### Q. How can I be notified when data collection stops?
 
-A: Use the steps described in [create an Azure Alert log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified when data collection stops.
+A: Use the steps described in [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified when data collection stops.
 
 When creating the alert for when data collection stops, set the:
-- **Name** to *Data collection stopped*
-- **Severity** to *Warning*
-- **Search query** to `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-- **Evaluated based on** a **period** of *30 minutes* and **frequency** to every *10* minutes
-- **Alert logic** is **Based on** *number of results* and **Number of results** is *Greater than* a **Threshold** of *0*
+
+- **Define alert condition** specify your Log Analytics workspace as the resource target.
+- **Alert criteria** specify the following:
+   - **Signal Name** select **Custom log search**.
+   - **Search query** to `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
+   - **Time period** of *30* minutes and **Alert frequency** to every *10* minutes
+- **Define alert details** specify the following:
+   - **Name** to *Data collection stopped*
+   - **Severity** to *Warning*
 
 Specify an existing or create a new [Action Group](../monitoring-and-diagnostics/monitoring-action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
 

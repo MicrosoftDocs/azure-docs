@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/05/2018
+ms.date: 06/19/2018
 ms.author: magoedte
 ---
 
@@ -45,7 +45,7 @@ The **Log Analytics usage** dashboard displays the following information:
 2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. In your list of Log Analytics workspaces, select a workspace.
 4. Select **Usage and estimated costs** from the list in the left pane.
-5. On the **Usage and estimated costs** dashboard, you can modify the time range by selecting the **Time: Last 24 hours** and change the time interval.<br><br> ![time interval](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
+5. On the **Usage and estimated costs** dashboard, you can moidfy the time range by selecting the **Time: Last 24 hours** and change the time interval.<br><br> ![time interval](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
 6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).<br><br> ![example data usage kpi](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. On the Log Search dashboard, review the results that are returned from the search.<br><br> ![example usage log search](./media/log-analytics-usage/usage-log-search-01.png)
 
@@ -54,7 +54,8 @@ This section describes how to create an alert if:
 - Data volume exceeds a specified amount.
 - Data volume is predicted to exceed a specified amount.
 
-Log Analytics [alerts](log-analytics-alerts-creating.md) use search queries. 
+Azure Alerts support [log alerts](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) that use search queries. 
+
 The following query has a result when there is more than 100 GB of data collected in the last 24 hours:
 
 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
@@ -65,27 +66,35 @@ The following query uses a simple formula to predict when more than 100 GB of da
 
 To alert on a different data volume, change the 100 in the queries to the number of GB you want to alert on.
 
-Use the steps described in [create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) to be notified when data collection is higher than expected.
+Use the steps described in [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified when data collection is higher than expected.
 
 When creating the alert for the first query -- when there is more than 100 GB of data in 24 hours, set the:  
-- **Name** to *Data volume greater than 100 GB in 24 hours*  
-- **Severity** to *Warning*  
-- **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
-- **Time window** to *24 Hours*.
-- **Alert frequency** to be one hour since the usage data only updates once per hour.
-- **Generate alert based on** to be *number of results*
-- **Number of results** to be *Greater than 0*
 
-Use the steps described in [add actions to alert rules](log-analytics-alerts-actions.md) configure an e-mail, webhook, or runbook action for the alert rule.
+- **Define alert condition** specify your Log Analytics workspace as the resource target.
+- **Alert criteria** specify the following:
+   - **Signal Name** select **Custom log search**
+   - **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
+   - **Time period** of *1440* minutes and **Alert frequency** to every *60* minutes since the usage data only updates once per hour.
+- **Define alert details** specify the following:
+   - **Name** to *Data volume greater than 100 GB in 24 hours*
+   - **Severity** to *Warning*
+
+Specify an existing or create a new [Action Group](../monitoring-and-diagnostics/monitoring-action-groups.md) so that when the log alert matches criteria, you are notified.
 
 When creating the alert for the second query -- when it is predicted that there will be more than 100 GB of data in 24 hours, set the:
-- **Name** to *Data volume expected to greater than 100 GB in 24 hours*
-- **Severity** to *Warning*
-- **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
-- **Time window** to *3 Hours*.
-- **Alert frequency** to be one hour since the usage data only updates once per hour.
-- **Generate alert based on** to be *number of results*
-- **Number of results** to be *Greater than 0*
+
+- **Define alert condition** specify your Log Analytics workspace as the resource target.
+- **Alert criteria** specify the following:
+   - **Signal Name** select **Custom log search**
+   - **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
+   - **Time period** of *180* minutes and **Alert frequency** to every *60* minutes since the usage data only updates once per hour.
+- **Define alert details** specify the following:
+   - **Name** to *Data volume expected to greater than 100 GB in 24 hours*
+   - **Severity** to *Warning*
+
+Specify an existing or create a new [Action Group](../monitoring-and-diagnostics/monitoring-action-groups.md) so that when the log alert matches criteria, you are notified.
 
 When you receive an alert, use the steps in the following section to troubleshoot why usage is higher than expected.
 
