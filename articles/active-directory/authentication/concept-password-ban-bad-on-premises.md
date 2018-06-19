@@ -33,13 +33,21 @@ There are three software components that make up Azure AD password protection:
 
 ## Requirements
 
-Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses. Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
-
 * All machines where Azure AD password protection components are installed including domain controllers must be running Windows Server 2012 or later.
 * Network connectivity must exist between at least one domain controller in each domain and at least one server hosting the Azure AD password protection proxy service.
 * Any Active Directory domain running the DC agent service software must use DFSR for sysvol replication.
 * A global administrator account to register the Azure AD password protection proxy service with Azure AD.
 * An account with Active Directory domain administrator privileges in the forest root domain.
+
+### License requirements
+
+The benefits of the global banned password list apply to all users of Azure Active Directory (Azure AD).
+
+The custom banned password list requires Azure AD Basic licenses.
+
+Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses. 
+
+Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Download
 

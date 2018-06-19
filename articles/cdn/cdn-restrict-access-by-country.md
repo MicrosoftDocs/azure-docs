@@ -1,6 +1,6 @@
 ---
 title: Restrict Azure CDN content by country | Microsoft Docs
-description: Learn how to restrict access to your Azure CDN content using the geo-filtering feature.
+description: Learn how to restrict access by country to your Azure CDN content by using the geo-filtering feature.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -13,56 +13,76 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/19/2018
 ms.author: v-deasim
 
 ---
 # Restrict Azure CDN content by country
 
 ## Overview
-When a user requests your content, by default, the content is served regardless of where the user made this request from. In some cases, you may want to restrict access to your content by country. This article explains how to use the *geo-filtering* feature in order to configure the service to allow or block access by country.
+When a user requests your content, by default, the content is served regardless of the location of the user making the request. However, in some cases, you may want to restrict access to your content by country. With the *geo-filtering* feature, you can create rules on specific paths on your CDN endpoint to allow or block content in selected countries.
 
-> [!IMPORTANT]
-> The Azure CDN products all provide the same geo-filtering functionality but have a small difference in te country codes they support. For more information, see [Azure CDN Country Codes](https://msdn.microsoft.com/library/mt761717.aspx).
-
-
-For information about considerations that apply to configuring this type of restriction, see [Considerations](cdn-restrict-access-by-country.md#considerations).  
-
-![Country filtering](./media/cdn-filtering/cdn-country-filtering-akamai.png)
-
-## Step 1: Define the directory path
 > [!IMPORTANT]
 > **Azure CDN Standard from Microsoft** profiles do not support path-based geo-filtering.
->
+> 
+> **For Azure CDN Premium from Verizon** profiles, you must use the **Manage** portal to activate geo-filtering. For more information, see [Azure CDN Premium from Verizon profiles](#azure-cdn-premium-from-verizon-profiles).
 
+## Define the directory path
+To access the geo-filtering feature, select your CDN endpoint within the portal, then select **Geo-filtering** under SETTINGS in the left-hand menu. 
 
-Select your endpoint within the portal, and find the Geo-Filtering tab on the left-hand navigation to find this feature.
+![Geo-filtering standard](./media/cdn-filtering/cdn-geo-filtering-standard.png)
 
-When configuring a country filter, you must specify the relative path to the location to which users will be allowed or denied access. You can apply geo-filtering for all your files with a forward slash (/) or selected folders by specifying directory paths */pictures/*. You can also apply geo-filtering to a single file by specifying the file, and leaving out the trailing slash */pictures/city.png*.
+From the **PATH** box, specify the relative path to the location to which users will be allowed or denied access. You can apply geo-filtering for all your files with a forward slash (/) or select specific folders by specifying directory paths (for example, */pictures/*). Also, you can apply geo-filtering to a single file by specifying the file and omitting the trailing forward slash (for example */pictures/city.png*). You can specify multiple paths; after you enter a path, a blank box appears for you to enter the next path.
 
-Example directory path filter:
+![Country filtering](./media/cdn-filtering/cdn-country-filtering.png)
 
-    /                                 
-    /Photos/
-    /Photos/Strasbourg/
-      /Photos/Strasbourg/city.png
+Example directory path filters:
+  
+*/*                                 
+*/Photos/*     
+*/Photos/Strasbourg/*     
+*/Photos/Strasbourg/city.png*
 
-## Step 2: Define the action: block or allow
-**Block:** Users from the specified countries will be denied access to assets requested from that recursive path. If no other country filtering options have been configured for that location, then all other users will be allowed access.
+## Define the type of action
 
-**Allow:** Only users from the specified countries will be allowed access to assets requested from that recursive path.
+From the **ACTION** list, select **Allow** or **Block**: 
 
-## Step 3: Define the countries
-Select the countries that you want to block or allow for the path. 
+- **Allow**: Only users from the specified countries are allowed access to assets requested from the recursive path.
 
-For example, the rule of blocking /Photos/Strasbourg/ will filter files including:
+- **Block**: Users from the specified countries are denied access to the assets requested from the recursive path. If no other country filtering options have been configured for that location, then all other users will be allowed access.
 
-    http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg
-    http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
+## Define the countries
+From the **COUNTRY CODES** list, select the countries that you want to block or allow for the path. 
 
+For example, the rule for blocking the path */Photos/Strasbourg/* filters the following files:
 
-### Country codes
-The geo-filtering feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory. Although the Azure CDN products all provide the same geo-filtering functionality, there is a small difference in the country codes they support. For more information, see [Azure CDN Country Codes](https://msdn.microsoft.com/library/mt761717.aspx). 
+*http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
+*http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
+
+The geo-filtering feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory. Although the Azure CDN products all provide the same geo-filtering functionality, there is a small difference in the country codes they support. For more information, see [Azure CDN country codes](https://msdn.microsoft.com/library/mt761717.aspx). 
+
+After you have finished selecting the countries, select **Save** to activate the geo-filtering rule. The rule then appears in a list under Configure.
+
+## Clean up resources
+To delete a rule, select it, then choose **Delete**.
+
+## Azure CDN Premium from Verizon profiles
+For **For Azure CDN Premium from Verizon** profiles, the user interface for creating a geo-filtering rule is different:
+
+1. From the top menu in your Azure CDN profile, select **Manage**.
+
+2. From the Verizon portal, select **HTTP Large**, then select **Country Filter**.
+
+    ![Geo-filtering standard](./media/cdn-filtering/cdn-geo-filtering-premium.png)
+
+3. Select **Add Country Filter**.
+
+4. Enter the directory path, select **Block** or **Add**, then select **Next**.
+
+5. Select one or more countries from the list, then select **Finish** to activate the rule. 
+    The rule then appears in a table in the **Country Filter** page.
+
+6. After you've create the rule, you can select the delete icon to delete it or select the edit icon to modify it.
 
 ## Considerations
 * Changes to your country filtering configuration do not take effect immediately:
@@ -72,7 +92,7 @@ The geo-filtering feature uses country codes to define the countries from which 
  
 * This feature does not support wildcard characters (for example, ‘*’).
 
-* The geo-filtering configuration associated with the relative path will be applied recursively to that path.
+* The geo-filtering configuration associated with the relative path is applied recursively to that path.
 
-* Only one rule can be applied to the same relative path. That is, you cannot create multiple country filters that point to the same relative path. However, a folder can have multiple country filters, due to the recursive nature of country filters. In other words, a subfolder of a previously configured folder can be assigned a different country filter.
+* Only one rule can be applied to the same relative path. That is, you cannot create multiple country filters that point to the same relative path. However, because country filters are recursive, a folder can have multiple country filters. In other words, a subfolder of a previously configured folder can be assigned a different country filter.
 
