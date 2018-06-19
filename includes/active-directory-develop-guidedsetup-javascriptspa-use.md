@@ -1,4 +1,4 @@
-## Use the Microsoft Authentication Library (MSAL) to sign-in the user
+## Use the Microsoft Authentication Library (MSAL) to sign in the user
 
 1.	Create a file named `app.js`. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `JavaScript File`:
 2.	Add the following code to your `app.js` file:
@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show Sign-Out button
+        // Show sign-off button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -124,7 +124,7 @@ After the initial sign in, you do not want to ask users to reauthenticate every 
 - Your application is requesting access to a resource that the user needs to consent to
 - Two factor authentication is required
 
-Calling the *acquireTokenRedirect(scope)* result in redirecting users to the Azure Active Directory v2 endpoint (or *acquireTokenPopup(scope)* result on a popup window) where users need to interact with by either confirming their credentials, giving the consent to the required resource, or completing the two factor authentication.
+Calling the *acquireTokenRedirect(scope)* result in redirecting users to the Azure Active Directory v2 endpoint (or *acquireTokenPopup(scope)* result on a popup window) where users need to interact by either confirming their credentials, giving the consent to the required resource, or completing the two factor authentication.
 
 #### Getting a user token silently
 The ` acquireTokenSilent` method handles token acquisitions and renewal without any user interaction. After `loginRedirect` (or `loginPopup`) is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens used to access protected resources for subsequent calls - as calls to request or renew tokens are made silently.
