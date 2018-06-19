@@ -9,13 +9,15 @@ manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/07/2018
 ms.author: wolfma
 ---
 
 # Quickstart for C++ and Linux
 
-The Cognitive Services Speech SDK for Linux is available for building of 64-bit and 32-bit applications. The required files can be downloaded as a tar-file.
+The current version of the Cognitive Services Speech SDK is `0.4.0`.
+
+The Cognitive Services Speech SDK for Linux is available for building of 64-bit and 32-bit applications. The required files can be downloaded as a tar-file from https://aka.ms/csspeech/linuxbinary.
 
 > [!NOTE]
 > If you're looking for a Quickstart for C++ and Windows, go [here](cpp-windows.md).
@@ -124,7 +126,7 @@ We recognized: What's the weather
 
 ## Downloading the sample
 
-The sample from this article can be downloaded [here](https://aka.ms/csspeech/linuxsample).
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 ## Next steps
 

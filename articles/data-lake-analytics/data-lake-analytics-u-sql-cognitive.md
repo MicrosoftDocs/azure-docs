@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.date: 12/05/2016
+ms.date: 06/05/2018
 ---
 # Get started with the Cognitive capabilities of U-SQL
 
@@ -23,11 +23,8 @@ The following cognitive capabilities are available:
 * Imaging: OCR (optical character recognition) [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
 * Text: Key Phrase Extraction & Sentiment Analysis [Sample](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
-
-
-
-
-
+## Registering Cognitive Extensions in U-SQL
+Before you begin, follow the steps in this article to register Cognitive Extensions in U-SQL: [Registering Cognitive Extensions in U-SQL](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/cognitive-capabilities-in-u-sql#registeringExtensions).
 
 ## Next steps
 * [U-SQL/Cognitive Samples](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)

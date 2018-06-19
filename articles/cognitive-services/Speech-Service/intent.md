@@ -64,7 +64,7 @@ The code snippet shows how to recognize intent in a continuous way. This code al
 
 ## Sample source code
 
-The latest version of the samples and even more advanced samples are in a dedicated [GitHub repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 ## Next steps
 

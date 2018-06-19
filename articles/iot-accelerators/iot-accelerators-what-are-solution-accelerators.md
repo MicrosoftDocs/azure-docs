@@ -73,13 +73,13 @@ When you deploy a solution accelerator, the provisioning process configures a nu
 | Event Hubs           |                    | Yes                    |                   |
 | Time Series Insights |                    |                        | Yes               |
 | Container Services   | Yes                |                        |                   |
-| Stream Analytics     |                    | Yes                    |                   |
+| Stream Analytics     | Yes                | Yes                    |                   |
 | Web Apps             | Yes                | Yes                    | Yes               |
 | Cosmos DB            | Yes                | Yes                    |                    |
 | Azure Storage         |                    | Yes                    | Yes               |
 
 > [!NOTE]
-> For more information about the resources deployed in the Remote Monitoring solution accelerator, see this [article](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) on GitHub.
+> For more information about the resources deployed in the Remote Monitoring solution accelerator, see [Remote Monitoring architectural choices](iot-accelerators-remote-monitoring-architectural-choices.md).
 
 * [Azure IoT Hub](../iot-hub/index.yml). This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key solution accelerator services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to [manage your devices](../iot-hub/iot-hub-device-management-overview.md). For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
 * [Azure Event Hubs](../active-directory-domain-services/index.yml). This service provides high-volume event ingestion to the cloud. See [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).

@@ -80,8 +80,6 @@
       href: service-bus-ruby-how-to-use-topics-subscriptions.md      
   - name: Develop
     items:
-    - name: Build a multi-tier Service Bus application
-      href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Message handling
       items:
       - name: Queues, topics, and subscriptions

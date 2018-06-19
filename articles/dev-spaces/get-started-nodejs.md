@@ -188,7 +188,7 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`.
        request({
           uri: 'http://mywebapi',
           headers: {
-             // propagate the dev space routing header
+             /* propagate the dev space routing header */
              'azds-route-as': req.headers['azds-route-as']
           }
        }, function (error, response, body) {

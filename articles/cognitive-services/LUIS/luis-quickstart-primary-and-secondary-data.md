@@ -28,7 +28,7 @@ In this tutorial, create an app that demonstrates how to extract machine-learned
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Purpose of the app
-This app demonstrates how to pull data out of an utterance. Consider the following utterance from a chat bot:
+This app demonstrates how to pull data out of an utterance. Consider the following utterance from a chatbot:
 
 ```JSON
 Send a message telling them to stop
@@ -102,7 +102,7 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
     |Good bye|
     |What is going on?|
     
-    In your LUIS-calling application, such as a chat bot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
+    In your LUIS-calling application, such as a chatbot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png "Screenshot of LUIS with utterances for None intent")](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png#lightbox)
 
@@ -151,7 +151,7 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
     ![Training success notification](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
+In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
@@ -204,10 +204,10 @@ The JSON result identifies the top scoring intent `SendMessage` with a score of 
 
 The message data has a type, `Message`, as well as a value, `i ' m driving and will be 30 minutes late to the meeting`. 
 
-Your chat bot now has enough information to determine the primary action, `SendMessage`, and a parameter of that action, the text of the message. 
+Your chatbot now has enough information to determine the primary action, `SendMessage`, and a parameter of that action, the text of the message. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to send the message through a 3rd party API. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to send the message through a 3rd party API. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.

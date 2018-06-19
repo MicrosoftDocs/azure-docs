@@ -19,9 +19,9 @@ ms.author: manshuk
 ---
 # Windows software costs not included with Azure Reserved Instances
 
-If you don't have an Azure Hybrid Use Benefit on your Reserved Instance virtual machines, then you are charged for the Windows software meters listed in the following section.
+If you don't have an Azure Hybrid Use Benefit on your reserved instance virtual machines, then you are charged for the Windows software meters listed in the following section.
 
-## Windows software meters not included in Reserved Instance cost
+## Windows software meters not included in reserved instance cost
 
 | MeterId | MeterName in usage file | Used by VM |
 | ------- | ------------------------| --- |
@@ -53,10 +53,10 @@ To learn more about Azure Reserved Instances, see the following articles:
 
 - [Save money on virtual machines with Azure Reserved Instances](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Reserved Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage Reserved Instances](billing-manage-reserved-vm-instance.md)
-- [Understand how the Reserved Instance discount is applied](billing-understand-vm-reservation-charges.md)
-- [Understand Reserved Instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-- [Understand Reserved Instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [Manage reserved instances](billing-manage-reserved-vm-instance.md)
+- [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
+- [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 
 ## Need help? Contact support
 

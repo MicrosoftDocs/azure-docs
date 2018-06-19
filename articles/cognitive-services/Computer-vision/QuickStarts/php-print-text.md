@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Printed Text (OCR) with Ruby
+# Quickstart: Extract printed text (OCR) with PHP
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
 
@@ -32,6 +32,8 @@ To run the sample, do the following steps:
 1. Save the file with a `.php` extension.
 1. Open the file in a browser window with PHP support.
 
+This sample uses the PHP5 [HTTP_Request2](http://pear.php.net/package/HTTP_Request2) package.
+
 ```php
 <?php
 <html>
@@ -51,8 +53,6 @@ $uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/';
 $imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/' .
     'Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png';
 
-// This sample uses the PHP5 HTTP_Request2 package
-// (http://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2($uriBase . 'ocr');
@@ -68,7 +68,7 @@ $request->setHeader($headers);
 $parameters = array(
     // Request parameters
     'language' => 'unk',
-    'detectOrientation ' => 'true'
+    'detectOrientation' => 'true'
 );
 $url->setQueryVariables($parameters);
 

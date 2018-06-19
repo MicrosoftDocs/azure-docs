@@ -8,6 +8,7 @@ metadata:
   author: bradsev
   manager: cgronlun
   ms.service: machine-learning
+  ms.component: team-data-science-process
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

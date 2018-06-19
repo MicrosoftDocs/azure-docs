@@ -76,6 +76,8 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
     > [!TIP]
     > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. 
 
+5. Next run `:remote console` to redirect all console commands to the remote server.
+
 Great! Now that we finished the setup, let's start running some console commands.
 
 Let's try a simple count() command. Type the following into the console at the prompt:

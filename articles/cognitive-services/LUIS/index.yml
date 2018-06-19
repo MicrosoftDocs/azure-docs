@@ -18,29 +18,26 @@ abstract:
 
 sections:
 
-- title: Authoring Quickstarts
+- title: 5-Minute Quickstarts
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="luis-quickstart-intents-only.md">Create app with intents only</a>
-    - html: <a href="luis-get-started-create-app.md">Create app from a prebuilt domain</a>
-    - html: <a href="luis-quickstart-intent-and-sentiment-analysis.md">Create app with sentiment analysis</a>
-    - html: <a href="luis-quickstart-primary-and-secondary-data.md">Create app with intents and a simple entity</a>
-    - html: <a href="luis-quickstart-intent-and-list-entity.md">Create app with intents and a list entity</a>
-    - html: <a href="luis-quickstart-intent-and-hier-entity.md">Create app with intents and a hierarchical entity</a>
-    - html: <a href="luis-quickstart-intents-regex-entity.md">Create app with intents and a regular expression entity</a>
-    - html: <a href="luis-quickstart-intent-and-key-phrase.md">Create app with intents and a keyphrase entity</a>
+    - html: <a href="luis-get-started-create-app.md">Create app for a prebuilt domain</a>
+    - html: <a href="luis-quickstart-intents-only.md">Create app for a custom domain</a>
 
 - title: Step-by-step tutorials
   items:
-  - type: paragraph
-    text: 'Learn how to use the authoring and endpoint APIs:'
   - type: list
     style: ordered
     items:
-    - html: <a href="luis-get-started-cs-get-intent">Use the endpoint API to send an utterance to LUIS and recieve the endpoint prediction response with C#</a>
-    - html: <a href="luis-get-started-cs-add-utterance">Use the authoring API to add an example utterance to an intent and train the LUIS app with C#</a>
+    - html: <a href="luis-quickstart-primary-and-secondary-data">Extract message data from an utterance using the simple entity</a>
+    - html: <a href="luis-quickstart-intents-regex-entity">Extract KB article numbers from an utterance using the regular expression entity</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">Extract drink order information from an utterance using the list entity</a>
+    - html: <a href="luis-tutorial-pattern">Improve intent and entity prediction accuracy with patterns</a>
+    - html: <a href="luis-tutorial-interchangeable-phrase-list">Improve word significance with a phrase list</a>
+    - html: <a href="luis-get-started-cs-get-intent">Send an utterance to LUIS and recieve the endpoint prediction response - C#</a>
+    - html: <a href="luis-get-started-cs-add-utterance">Add an example utterance to an intent and train the LUIS app - C#</a>
 
 - title: Videos
   items:
