@@ -1,6 +1,6 @@
 ---
-title: Run SSIS package using Execute SSIS Package Activity in Azure Data Factory | Microsoft Docs
-description: This article describes how to run a SQL Server Integration Services (SSIS) package from an Azure Data Factory pipeline using the Execute SSIS Package Activity.
+title: Run SSIS package with Execute SSIS Package Activity - Azure | Microsoft Docs
+description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package Activity.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -15,8 +15,8 @@ ms.date: 05/25/2018
 ms.author: douglasl
 
 ---
-# Run an SSIS package using the Execute SSIS Package Activity in Azure Data Factory
-This article describes how to run an SSIS package from an Azure Data Factory pipeline by using an Execute SSIS Package activity. 
+# Run an SSIS package with the Execute SSIS Package Activity in Azure Data Factory
+This article describes how to run an SSIS package in an Azure Data Factory pipeline by using an Execute SSIS Package activity. 
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. The Execute SSIS Package Activity is not available in version 1 of the Data Factory service, which is generally available (GA). For an alternative method to run an SSIS package with version 1 of the Data Factory service, see [Run SSIS packages using stored procedure activity in version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).

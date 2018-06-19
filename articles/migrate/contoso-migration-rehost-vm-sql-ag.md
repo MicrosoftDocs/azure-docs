@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 06/11/2018
 ms.author: raynew
 ---
 
 # Contoso migration: Rehost an on-premises app to Azure VMs and SQL Server AlwaysOn availability group
 
-This article demonstrates how Contoso rehost their SmartHotel app in Azure. They migrate the app frontend VM to an Azure VM, and the app database to a Azure SQL Server VM, running in a Windows Server failover cluster with SQL Server AlwaysOn availability groups.
+This article demonstrates how Contoso rehost their SmartHotel app in Azure. They migrate the app frontend VM to an Azure VM, and the app database to an Azure SQL Server VM, running in a Windows Server failover cluster with SQL Server AlwaysOn availability groups.
 
 This document is one in a series of articles that show how the fictitious company Contoso migrates their on-premises resources to the Microsoft Azure cloud. The series includes background information, and scenarios that illustrate setting up a migration infrastructure, assessing on-premises resources for migration, and running different types of migrations. Scenarios grow in complexity, and we'll add additional articles over time.
 
@@ -24,8 +24,9 @@ This document is one in a series of articles that show how the fictitious compan
 [Article 4: Rehost an app to Azure VMs and a SQL Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstrates how Contoso runs a lift-and-shift migration to Azure for the SmartHotel app. Contoso migrates the app frontend VM using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and the app database to a SQL Managed Instance, using the [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Available
 [Article 5: Rehost an app to Azure VMs](contoso-migration-rehost-vm.md) | Shows how Contoso migrate the SmartHotel app VMs using Site Recovery only.
 Article 6: Rehost an app to Azure VMs and SQL Server Always On Availability Group (this article) | Shows how Contoso migrates the SmartHotel app. Contoso uses Site Recovery to migrate the app VMs, and the Database Migration service to migrate the app database to a SQL Server cluster protected by an AlwaysOn availability group. | Available
-Article 7: Rehost a Linux app to Azure VMs and Azure MySQL Server | Demonstrates how Contoso migrates the osTicket Linux app. They migrate the frontend VM using Site Recovery, and migrate (backup and restore) the database to an Azure MySQL Server instance, using MySQL Workbench | Planned
-Article 8: Rehost a Linux app to Azure VMs | Shows how Contoso does a lift-and-shift migration of ther osTicket app VMs to Azure, using Site Recovery | Planned
+[Article 7: Rehost a Linux app to Azure VMs](contoso-migration-rehost-linux-vm.md) | Shows how Contoso does a lift-and-shift migration of the Linux osTicket app to Azure VMs, using Site Recovery | Planned
+[Article 8: Rehost a Linux app to Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the Linux osTicket app to Azure VMs using Site Recovery, and migrates the app database to an Azure MySQL Server instance using MySQL Workbench. | Available
+
 
 
 In this article, Contoso migrate the two-tier Windows. NET SmartHotel app running on VMware VMs to Azure. If you'd like to use this app, it's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
@@ -47,7 +48,7 @@ The Contoso cloud team has pinned down goals for this migration. These goals wer
 - Contoso doesn’t want to invest in this app.  It is important to the business, but in its current form they simply want to move it safely to the cloud.
 - The on-premises database for the app has had availability issues. They'd like to see it deployed in Azure as a high-availability cluster, with failover capabilities.
 - Contoso wants to upgrade from their current SQL Server 2008 R2 platform, to SQL Server 2017.
-- Contoso doesn't want to use an Azure SQL Database for this app, and and is looking for alternatives.
+- Contoso doesn't want to use an Azure SQL Database for this app, and is looking for alternatives.
 
 ## Proposed architecture
 
@@ -163,7 +164,7 @@ Here's how Contoso set up the cluster:
 
 ### Set up a storage account as cloud witness
 
-To set up a cloud witness, Contoso needs a Azure Storage account that will hold the blob file used for cluster arbitration. The same storage account can be used to set up cloud witness for multiple  clusters. 
+To set up a cloud witness, Contoso needs an Azure Storage account that will hold the blob file used for cluster arbitration. The same storage account can be used to set up cloud witness for multiple  clusters. 
 
 Contoso creates a storage account as follows:
 
@@ -174,7 +175,7 @@ Contoso creates a storage account as follows:
 
     ![Cloud witness](media/contoso-migration-rehost-vm-sql-ag/witness-storage.png)
 
-5. When they create the storage acccount, primary and secondary access keys are generated for it. They need the primary access key to create the cloud witness. The key appears under the storage account name > **Access Keys**.
+5. When they create the storage account, primary and secondary access keys are generated for it. They need the primary access key to create the cloud witness. The key appears under the storage account name > **Access Keys**.
 
     ![Access key](media/contoso-migration-rehost-vm-sql-ag/access-key.png)
 
@@ -242,7 +243,7 @@ After the internal load balancer is deployed, Contoso need set it up. They creat
 
 ### Add a backend pool
 
-To distribute traffic to the VMs in the cluster, Contoso set up a backend address pool that contains the IP addresses of the NICs for VMs that will receieve network traffic from the load balancer.
+To distribute traffic to the VMs in the cluster, Contoso set up a backend address pool that contains the IP addresses of the NICs for VMs that will receive network traffic from the load balancer.
 
 1. In the load balancer settings in the portal, Contoso add a backend pool: **ILB-PROD-DB-EUS-SQLAOG-BEPOOL**.
 2. They associate the pool with availability set SQLAOGAVSET. The VMs in the set (**SQLAOG1** and **SQLAOG2**) are added to the pool.
@@ -272,7 +273,7 @@ Now, Contoso needs a load balancer rule to defins how traffic is distributed to 
 They create the rule as follows:
 
 1. In the load balancer settings in the portal, they add a new load balancing rule: **SQLAlwaysOnEndPointListener**.
-2. Contoso sets a front end listener to receive incoming SQL client traffic on TCP 1433.
+2. Contoso sets a front-end listener to receive incoming SQL client traffic on TCP 1433.
 3. They specify the backend pool to which traffic will be routed, and the port on which VMs listen for traffic.
 4. Contoso enables floating IP (direct server return). This is always required for SQL AlwaysOn.
 
@@ -300,7 +301,7 @@ They set these up as follows:
     - The SmartHotel app is a production app, and WEBVM will be migrated to the Azure production network (VNET-PROD-EUS2) in the primary East US2 region.
     - WEBVM will be placed in the ContosoRG resource group, which is used for production resources, and in the production subnet (PROD-FE-EUS2).
 
-2. Contoso creates an Azure storage acount (contosovmsacc20180528) in the primary region.
+2. Contoso creates an Azure storage account (contosovmsacc20180528) in the primary region.
 
     - They use a general-purpose account, with standard storage, and LRS replication.
     - The account must be in the same region as the vault.
@@ -396,7 +397,7 @@ To continue, they need to confirm that they have completed deployment planning, 
 
 ### Set up the source environment
 
-Contoso needs to configure their source environment. To do this, they download an OVF template and use it to deploy the Site Recovery configuration server as a highly available, on-premises VMware VM. After the configuration server is up and running, they register it in ths vault.
+Contoso needs to configure their source environment. To do this, they download an OVF template and use it to deploy the Site Recovery configuration server as a highly available, on-premises VMware VM. After the configuration server is up and running, they register it in the vault.
 
 The configuration server runs a number of components:
 
@@ -430,7 +431,7 @@ Contoso perform these steps as follows:
 
 10. They then download and install MySQL Server, and VMWare PowerCLI. 
 11. After validation, they specify the FQDN or IP address of the vCenter server or vSphere host. They leave the default port, and specify a friendly name for the vCenter server.
-12. They specify the account that they created for automatic discovery, and the credentials that are used to to automatically install the Mobility Service. For Windows machines, the account needs local administrator privileges on the VMs.
+12. They specify the account that they created for automatic discovery, and the credentials that are used to automatically install the Mobility Service. For Windows machines, the account needs local administrator privileges on the VMs.
 
     ![vCenter](./media/contoso-migration-rehost-vm-sql-ag/cswiz2.png)
 
@@ -442,7 +443,7 @@ Contoso perform these steps as follows:
 Now Contoso specifies target replication settings.
 
 1. In **Prepare infrastructure** > **Target**, they select the target settings.
-2. Site Recovery checks that there's a Azure storage account and network in the specified target.
+2. Site Recovery checks that there's an Azure storage account and network in the specified target.
 
 ### Create a replication policy
 
@@ -527,12 +528,12 @@ DMS connects to the on-premises SQL Server VM across a site-to-site VPN connecti
 
 ## Step 7: Protect the database
 
-With the app database running on **SQLAOG1**, Contoso can now protect it using AlwaysOn availability groups. They configure Alwayson using SQL Management Studio, and then assign a listener using Windows clustering. 
+With the app database running on **SQLAOG1**, Contoso can now protect it using AlwaysOn availability groups. They configure AlwaysOn using SQL Management Studio, and then assign a listener using Windows clustering. 
 
 ### Create an AlwaysOn availability group
 
-1. In SQL Management Studio, they right click on **Always on High Availability** to start the **New Availability Group Wizard**.
-2. In **Specify Options**,they name the availability group **SHAOG**. In **Select Databases**, they select the SmartHotel database.
+1. In SQL Management Studio, they right-click on **Always on High Availability** to start the **New Availability Group Wizard**.
+2. In **Specify Options**, they name the availability group **SHAOG**. In **Select Databases**, they select the SmartHotel database.
 
     ![AlwaysOn availability group](media/contoso-migration-rehost-vm-sql-ag/aog-1.png)
 
@@ -619,7 +620,7 @@ As the final step in the migration process, Contoso update the connection string
     ![Failover](./media/contoso-migration-rehost-vm-sql-ag/failover4.png)  
 
 2. After updating the file and saving it, they restart IIS on WEBVM. They do this using the IISRESET /RESTART from a cmd prompt.
-2. After IIS has been restarted, the application is now be using the database running on the SQL MI.
+2. After IIS has been restarted, the application is now using the database running on the SQL MI.
 
 
 **Need more help?**

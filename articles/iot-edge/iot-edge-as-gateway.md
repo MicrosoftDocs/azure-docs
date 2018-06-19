@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
-# How an IoT Edge device can be used as a gateway - preview
+# How an IoT Edge device can be used as a gateway
 
 The purpose of gateways in IoT solutions is specific to the solution and combine device connectivity with edge analytics. Azure IoT Edge can be used to satisfy all needs for an IoT gateway regardless of whether they are related to connectivity, identity, or edge analytics. Gateway patterns in this article only refer to characteristics of downstream device connectivity and device identity, not how device data is processed on the gateway.
 

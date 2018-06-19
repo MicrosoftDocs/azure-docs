@@ -11,7 +11,8 @@ services: iot-edge
 ms.custom: mvc
 ---
 
-# Deploy Azure Function as an IoT Edge module - preview
+# Deploy Azure Function as an IoT Edge module
+
 You can use Azure Functions to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an Azure Function that filters sensor data on the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. In this tutorial, you learn how to:     
 
 > [!div class="checklist"]
@@ -33,7 +34,7 @@ The Azure Function that you create in this tutorial filters the temperature data
 
 ## Bugbash-only prerequisites
 * [Azure IoT Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
-* [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/bugbash-rc/azure-iot-edge-0.5.0-private.vsix).
+* [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private2](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/v0.5.0-private2/azure-iot-edge-0.5.0-private2.vsix).
     Download and save the VSIX file locally using the link provided. In VS Code, go to the **Extensions** view. Click the **...** then select **Install from VSIX...**. Reload the VS Code window to enable the extension.
 
     ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
@@ -197,5 +198,5 @@ In this tutorial, you created an Azure Funtions module that contains code to fil
 > [Find averages using a floating window in Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
 
 <!--Links-->
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-tutorial1-win]: quickstart.md
+[lnk-tutorial1-lin]: quickstart-linux.md

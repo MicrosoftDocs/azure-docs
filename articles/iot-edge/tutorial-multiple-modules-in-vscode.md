@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Develop an IoT Edge solution with multiple modules in Visual Studio Code (preview)
+# Develop an IoT Edge solution with multiple modules in Visual Studio Code
 
 You can use Visual Studio Code to develop your Azure IoT Edge solution with multiple modules. This article shows you how to create, update, and deploy an IoT Edge solution that pipes sensor data on a simulated IoT Edge device in VS Code. 
 
@@ -77,4 +77,4 @@ You also need [Docker for VS Code](https://marketplace.visualstudio.com/items?it
 Learn about other scenarios for developing with Azure IoT Edge in Visual Studio Code:
 
 * [Debug a C# module in VS Code](how-to-vscode-debug-csharp-module.md)
-* [Debug a C# function in VS Code](how-to-vscode-debug-azure-function.md)
+* [Debug a C# function in VS Code](how-to-develop-csharp-function.md)

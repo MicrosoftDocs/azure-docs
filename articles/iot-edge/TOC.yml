@@ -17,24 +17,22 @@
       href: quickstart.md
 - name: Tutorials
   items:
-  - name: Install IoT Edge and simulate a sensor
+  - name: Find insights at the edge
     items: 
-    - name: Linux/Mac
-      href: tutorial-simulate-device-linux.md
-    - name: Windows
-      href: tutorial-simulate-device-windows.md
-  - name: Filter data with Azure Functions
-    href: tutorial-deploy-function.md
-  - name: Find averages with ASA
-    href: tutorial-deploy-stream-analytics.md
-  - name: Score data with Azure ML
-    href: tutorial-deploy-machine-learning.md
-  - name: Filter data with custom code
-    items:
-    - name: C#
-      href: tutorial-csharp-module.md
-    - name: Python
-      href: tutorial-python-module.md
+    - name: Filter data with Azure Functions
+      href: tutorial-deploy-function.md
+    - name: Find averages with ASA
+      href: tutorial-deploy-stream-analytics.md
+    - name: Score data with Azure ML
+      href: tutorial-deploy-machine-learning.md
+    - name: Filter data with custom code
+      items:
+      - name: C#
+        href: tutorial-csharp-module.md
+      - name: Python
+        href: tutorial-python-module.md
+      - name: Node.js
+        href: tutorial-node-module.md
   - name: Store data locally with SQL
     href: tutorial-store-data-sql-server.md
 - name: Concepts
@@ -66,20 +64,28 @@
       href: how-to-register-device-portal.md
     - name: Azure CLI
       href: how-to-register-device-cli.md
+    - name: Visual Studio Code
+      href: how-to-register-device-vscode.md
   - name: Develop and test modules
     items:
     - name: C#
-      href: how-to-develop-csharp-module-vscode.md
+      href: how-to-develop-csharp-module.md
     - name: Azure Functions
-      href: how-to-vscode-debug-azure-function.md
+      href: how-to-develop-csharp-function.md
   - name: Deploy modules
     items:
     - name: Azure portal
       href: how-to-deploy-modules-portal.md
     - name: Azure CLI
       href: how-to-deploy-modules-cli.md
+    - name: Visual Studio Code
+      href: how-to-deploy-modules-vscode.md  
   - name: Deploy and monitor at scale
-    href: how-to-deploy-monitor.md
+    items:
+    - name: Azure portal
+      href: how-to-deploy-monitor.md
+    - name: Azure CLI
+      href: how-to-deploy-monitor-cli.md
   - name: Use Edge devices as gateways
     items:
     - name: Transparent gateway

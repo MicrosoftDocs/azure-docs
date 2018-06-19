@@ -57,7 +57,7 @@ When onboarding multiple machines, there may be machines that show as **Cannot e
 
 **Cause**: This error shows that the VM that you are trying to onboard reports to another workspace.
 
-**Solution**: Either change the workspace that you are targeting by clicking in inline link or click **change**. You can also use the following scripts to change the workspace to the intended one for each machine.
+**Solution**: Click **Use as configuration** to change the targeted Automation Account and Log Analytics workspace.
 
 ### VM reports to a workspace that is not available in this subscription
 

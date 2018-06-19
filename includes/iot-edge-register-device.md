@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-edge
+ author: kgremban
+ ms.service: iot-edge
+ ms.topic: include
+ ms.date: 06/11/2018
+ ms.author: kgremban
+ ms.custom: include file
+---
+
 Create a device identity for your simulated device so that it can communicate with your IoT hub. Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning. 
 
 1. In the Azure portal, navigate to your IoT hub.

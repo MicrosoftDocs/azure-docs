@@ -3,7 +3,7 @@
 title: Connect to Dynamics 365 - Azure Logic Apps | Microsoft Docs
 description: Create and manage records with Dynamics 365 (online) REST APIs and Azure Logic Apps
 author: Mattp123
-manager: cfowler
+manager: jeconnoc
 ms.author: matp
 ms.date: 02/10/2017
 ms.topic: article
