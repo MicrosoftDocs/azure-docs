@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/15/2018
+ms.date: 06/19/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
