@@ -1,12 +1,11 @@
 ---
-title: Tutorial: Create a Service Fabric Mesh app and accompanying back-end service that you will publish to Azure.
-description: In this tutorial, you create a a Service Fabric Mesh app,  consisting of an ASP.NET Core website that communicates with a back-end web service, and publish the website and back-end service as a Service Fabric Mesh app.
+title: Tutorial: Create an Azure Service Fabric Mesh app and back-end service, and then publish it to Azure Service Mesh.
+description: In this tutorial, you create a Service Fabric Mesh app,  consisting of an ASP.NET Core website that communicates with a back-end web service, and publish the website and back-end service as a Service Fabric Mesh app.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
 manager: jeconnoc
 editor: ''
-
 ms.assetid: 
 ms.service: service-fabric-mesh
 ms.devlang: dotNet
@@ -19,18 +18,22 @@ ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
 ---
 
-# Tutorial: Create an Azure Service Fabric Mesh app and back-end service. Publish to Azure Service Mesh
+# Tutorial: Create an Azure Service Fabric Mesh app and back-end service, and then publish it to Azure Service Mesh
 
-In this tutorial, you will create a new Service Fabric Mesh application, which consists of an ASP.NET Core website and a back-end web service, and run it in the local development cluster. You will set a breakpoint to debug the app locally and see how to communicate with another service running on the same cluster. After that, you will publish the project to Azure.
+This tutorial is part one of a series. You will learn how to create an Azure Service Fabric application with an ASP.NET web front-end which displays to-do items provided by an ASP.NET Core Web API back-end service. Then you will deploy the app and the back-end service to Service Fabric Mesh. You will then publish the project to Azure.
+
+When you're finished, you have a simple to-do app that retrieves to-do items from an ASP.NET Core Web API back-end service. If you don't want to manually create the to-do app, you can [download the source code](JTW-TODO) for the completed application and skip ahead to [Build and deploy](#build-and-deploy).
+
+You will learn how to create an Azure Service Fabric Mesh application, which consists of an ASP.NET Core website and a back-end web service, and run it in the local development cluster before then publishing it to Azure.
 
 The app will display a to-do list and the data will come from a back-end web service. This will provide a simple example of service-to-service communication.
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
-> * Create a Service Fabric Mesh project.
-> * Add a second service to the project & communicate with it.
-> * Debug the service locally.
-> * Publish the service to Azure.
+> * Create a Service Fabric Mesh app consisting of a ASP.NET web front-end.
+> * Add a second service to the project & retrieve data from it.
+> * Debug the app locally.
+> * Publish the app to Azure using Service Fabric Mesh.
 
 If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -38,7 +41,7 @@ If you don't have an Azure subscription, you can [create a free account](https:/
 
 ## Prerequisites
 
-Before you start, make sure that you've [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md) which covers installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
+Before you start, make sure that you've [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md) which includes installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
 
 ## Create a Service Fabric Mesh project
 
@@ -46,65 +49,60 @@ Run Visual Studio and select **File** > **New** > **Project...**
 
 In the **New Project** dialog, type **mesh** into the **Search** box at the top. Select the **Service Fabric Mesh Application** template.
 
-In the **Name** box, type **ServiceFabricMesh1** and in the **Location** box, set the folder path to where the files for the project will be stored.
+In the **Name** box, type **ServiceFabricApp** and in the **Location** box, set the folder path to where the files for the project will be stored.
 
-Make sure that **Create directory for solution** is checked, and press **OK** to create the Service Fabric Mesh project.
+Make sure that **Create directory for solution** is checked, and click **OK** to create the Service Fabric Mesh project. Next you will see the **New Service Fabric Service** dialog.
 
 ![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
 ### Create the web front-end service
 
-Next you will see the **New Service Fabric Service** dialog. Select the **ASP.NET Core** project type, make sure **Container OS** is set to **Windows**.
+In the **New Service Fabric Service** dialog, select the **ASP.NET Core** project type, make sure **Container OS** is set to **Windows**.
 
 Set the **Service Name** to something unique because the name of the service is used as the repository name of the Docker image. This tutorial will use the name **WebFrontEnd**. If you have an existing Docker image with the same repository name, it will be overwritten by Visual Studio. Open a terminal and use the Docker command `docker images` to verify that the project name you have chosen isn't being used as a docker repository name. If it is, choose another service name unless you have no concerns about overwriting the existing docker image.
 
-Press **OK** to create the ASP.NET Core service. 
+Press **OK** to create the ASP.NET Core service. Next you will see the **New ASP.NET Core Web Application** dialog.
 
 ![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
-The **New ASP.NET Core Web Application** dialog appears. Select **Web Application** and then click **OK**.
+In the **New ASP.NET Core Web Application** dialog, select **Web Application** and then click **OK**.
 
 ![Visual studio new ASP.NET core application](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
-Now we have the Service Fabric Application project and the ASP.NET Core project that we will use to display to-do information.  Next, we need to create the model that will contain the to-do information.
+Now we have the Service Fabric Application project which includes the ASP.NET Core project that we will use to display to-do information.  Now we will create the model that will represent to-do information.
 
 ## Create the to-do items model
 
 For simplicity, we will store the to-do items in a list in memory. We need to define a class to represent the to-do items, and a list to hold them.  We'll create a class library for this.
 
-In Visual Studio, select **File** > **Add** > **New Project**.
+In Visual Studio, which currently has the Service Fabric Mesh app loaded, select **File** > **Add** > **New Project**.
 
 In the **New Project** dialog, type **C# .net core class** into the **Search** box at the top. Select the **Class Library (.NET Core)** template.
 
 In the **Name** box, type **Model** and in the **Location** box, set the folder path to where the files for the project will be stored. Click **OK** to create the class library.
 
-<jtw: picture of Add new project dialog? Or assume they know how to do this since they did earlier>
+In the Solution explorer, under **Model**, right-click **Class1.cs** and choose **Rename**.  Rename the class **ToDoItem.cs**.  A prompt may appear asking whether to rename all references to `Class1`. Click **Yes**.
 
-In the Solution explorer, under **Model**, right-click **Class1.cs** and choose **Rename**.  Rename the class **ToDoItem.cs**.  A prompt will appear asking whether to rename all references to Class1. Click **Yes**.
-
-Replace the contents of `class ToDoItem` with the following:
+Replace the contents of the empty `class ToDoItem` with the following:
 
 ```csharp
 public class ToDoItem
 {
     public string Description { get; set; }
     public int Index { get; set; }
-    public Guid Id { get; private set; }
     public bool Completed { get; set; }
 
     public ToDoItem(string description)
     {
         Description = description;
         Index = 0;
-        Id = Guid.NewGuid();
     }
 
-    public static ToDoItem Load(string description, int index, Guid id, bool completed)
+    public static ToDoItem Load(string description, int index, bool completed)
     {
         ToDoItem newItem = new ToDoItem(description)
         {
             Index = index,
-            Id = id,
             Completed = completed
         };
 
@@ -113,11 +111,11 @@ public class ToDoItem
 }
 ```
 
-This class will represent individual to-do items.
+This class represents individual to-do items.
 
 We need a list to hold the to-do items. In Visual Studio, right-click the **Model** class library, and select **Add** > **Class...** The **Add New Item** dialog will appear. Set the **Name** to **ToDoList.cs** and click **Add**.
 
-In **ToDoList.cs**, replace `class ToDoList` with the following code:
+In **ToDoList.cs**, replace the empty `class ToDoList` with the following code:
 
 ```csharp
 public class ToDoList
@@ -169,62 +167,62 @@ public class ToDoList
 }
 ```
 
-Now create the service fabric service (a Web API project) that will track the to-do items.
+Next, create the service fabric service (a Web API project) that will track the to-do items.
 
 ## Create the back-end service
 
-In the Visual Studio Solution Explorer window, right-click **ServiceFabricMesh1** and select **Add** > **New Service Fabric Service...**
+In the Visual Studio **Solution Explorer** window, right-click **ServiceFabricMeshApp** and click **Add** > **New Service Fabric Service...**
 
-The **New Service Fabric Service** dialog appears. Select the **ASP.NET Core** project type, make sure **Container OS** is set to **Windows**.
+The **New Service Fabric Service** dialog appears. Select the **ASP.NET Core** project type, and make sure **Container OS** is set to **Windows**.
 
-Set the **Service Name** to something unique because the name of the service is used as the repository name of the Docker image. This tutorial will use the name **ToDoService**. If you have an existing Docker image with the same repository name, it will be overwritten by Visual Studio. Open a terminal and use the Docker command `docker images` to verify that the project name you have chosen isn't being used as a docker repository name. If it is, choose another service name unless you have no concerns about overwriting the existing docker image.
+Set the **Service Name** to something unique because the name of the service is used as the repository name of the Docker image. This tutorial will use the name **ToDoService**. If you have an existing Docker image with the same repository name, it will be overwritten by Visual Studio. Open a terminal and use the Docker command `docker images` to verify that the project name you have chosen isn't being used as a docker repository name. If it is, choose another service name unless you are not concerned about about overwriting the existing docker image.
 
-Click **OK** to create the ASP.NET Core service, and the **New ASP.NET Core Web Application** dialog will appear. Select **API** and then **OK**.
+Click **OK** to create the ASP.NET Core service. Next, the **New ASP.NET Core Web Application** dialog will appear. In that dialog select **API** and then **OK**, and a project for the service is added to the solution. 
 
 ![Visual studio new ASP.NET core application](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
-<JTW PICTURE?>
+Because this is a back-end service that doesn't provide any UI, turn off launching the browser when the service is launched. In the **Solution Explorer**, right-click **ToDoService**, and select **Properties**. In the properties window that appears, select the **Debug** tab on the left, and uncheck **Launch browser**.
 
-Because this is a back-end service that doesn't provide any UI, turn off launching the browser when the service is launched. In the **Solution Explorer**, right-click **ToDoService**, and select **Properties**. In the properties window that appears, select the **Debug** tab on the left and uncheck **Launch browser**.
-
-Because this service maintains the to-do information, we need to add a reference to the Model class library. In the Solution Explorer, right-click **ToDoService** and then select **Add** > **Reference**.  The **Reference Manager** dialog will appear.
+Because this service maintains the to-do information, we need to add a reference to the Model class library. In the Solution Explorer, right-click **ToDoService** and then select **Add** > **Reference...**.  The **Reference Manager** dialog will appear.
 
 In the **Reference Manager**, select the checkbox for **Model**, and click **OK**.
 
 ### Add a data context
 
-ASP.Net Web API projects use the model view controller (MVC) pattern. So we will create a data context that coordinates serving up the data from the data model, and a controller that handles the HTTP requests and creates the HTTP response. 
+ASP.Net Web API projects use the model view controller (MVC) pattern. Next create a data context that coordinates serving up the data from the data model, and a controller that handles the HTTP requests and creates the HTTP response.
 
-To add the datacontext class, in the solution explorer right click **ToDoService** and then **Add** > **Class**
-In the **Add New Item** dialog that appears, set the **Name** to Datacontext.cs
+To add the data context class, in the solution explorer right click **ToDoService** and then **Add** > **Class**.
+In the **Add New Item** dialog that appears, ensure that **Class** is selected, and set the **Name** to `Datacontext.cs`, and click **Add**.
 
-Replace the contents of 'public class DataContext' with the following:
+In **Datacontext.cs**, replace the contents of the empty 'class DataContext' with the following:
 
 ```csharp
 public static class DataContext
 {
-    public static Model.ToDoList ToDoList { get; } = new Model.ToDoList("Main List");
+    public static Model.ToDoList ToDoList { get; } = new Model.ToDoList("Azure learning List");
 
     static DataContext()
     {
         ToDoList = new Model.ToDoList("Main List");
 
-        // Seed data
-        ToDoList.Add(Model.ToDoItem.Load("Get milk at the store.", 0, Guid.Parse("{93BEC719-8D33-45C6-8CBF-742C91A8A8CB}"), false));
-        ToDoList.Add(Model.ToDoItem.Load("Start the todo list.", 1, Guid.Parse("{7808FD5E-D8DA-4D2F-94DA-93480AE80416}"), true));
+        // Seed to-do list
+
+        ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
+        ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
+        ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
     }
 }
 ```
 
-This is a minimal data context that primarily populates a couple sample to-do items and provides access to the list of to-do items.
+This is a minimal data context that primarily populates some sample to-do items and provides access to the list of to-do items.
 
 ### Add a controller
 
-When we created the project, a controller was provided by the template.  In the **Solution Explorer**, open the **Controllers** folder and you wil see the **ValuesController.cs** file. We will repurpose that file to be the to-do items controller.
+When we created the **ToDoService** project, a default controller was provided by the template.  In the **Solution Explorer**, open the **Controllers** folder and you wil see the **ValuesController.cs** file. We will repurpose that file to be the to-do items controller.
 
-Right-click **ValuesController.cs** and then **Rename**.  Rename the file to  `ToDoController.cs`.  When the prompt to rename all references appears, click **Yes**.
+Right-click **ValuesController.cs** and then **Rename**.  Rename the file to  `ToDoController.cs`.  If a prompt to rename all references appears, click **Yes**.
 
-Replace the contents of `public class ToDoController : Controller` with the following:
+Add the following `using Microsoft.AspNetCore.Mvc;` to the top of the file and replace the contents of `class ToDoController` with the following:
 
 ```csharp
 [Route("api/[controller]")]
@@ -264,17 +262,17 @@ public class ToDoController : Controller
 }
 ```
 
-For this tutorial, we won't implement add, delete, etc. but will simply focus on retrieving this data.
+For this tutorial, we won't implement add, delete, etc. but will simply focus on retrieving the to-do data.
 
-## Produce the view
+## Create the web page that displays to-do items
 
-Now that we have the back-end service implemented, let's code the web site that will display it. Now we will be working in the **WebFrontEnd** project.
+Now that we have the back-end service implemented, let's code the web site that will display it. So we return to the **WebFrontEnd** project.
 
-The web front end will need access to the **ToDoItem** class and list, so add a reference in the **Solution Explorer** by right-clicking **WebFrontEnd** and selecting **Add** > **Reference...** The **Reference Manager** dialog will appear.
+The web page that displays the to-do items needs access to the **ToDoItem** class and list. Add a reference to the Model project in the **Solution Explorer** by right-clicking **WebFrontEnd** and selecting **Add** > **Reference...** The **Reference Manager** dialog will appear.
 
 In the **Reference Manager**, select the checkbox for **Model**, and click **OK**.
 
-In the **Solution Explorer**, open the Index.cshtml page by navigating to **WebFrontEnd** > **Pages** > **Index.cshtml**, and open **Index.cshtml**.
+In the **Solution Explorer**, open the Index.cshtml page by navigating to **WebFrontEnd** > **Pages** > **Index.cshtml**.  Open **Index.cshtml**.
 
 Replace the contents of the entire file with:
 
@@ -306,11 +304,11 @@ Replace the contents of the entire file with:
 </div>
 ```
 
-This defines a simple table that displays the to-do items. Now open the code behind for the Index page in the **Solution Explorer** by double-clicking **Index.cshtml** and then opening **Index.cshtml.cs**.
+This defines a simple table that displays the to-do items. Now open the code behind for the Index page in the **Solution Explorer** by double-clicking on **Index.cshtml** and then opening **Index.cshtml.cs**.
 
 At the top of **Index.cshtml.cs**, add the following using statement: `using System.Net.Http;`
 
-Replace the contents of `public class IndexModel : PageModel` with the following:
+Replace the contents of `public class IndexModel` with the following:
 
 ```csharp
 public class IndexModel : PageModel
@@ -330,21 +328,46 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"webapi.{Environment.GetEnvironmentVariable("ApiHostName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}.{Environment.GetEnvironmentVariable("ApiHostName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
 
-To communicate with the back-end service, we need to specify the URL of that service. For now, this is done with the following code that we added above:
+### Set environment variables
+
+To communicate with the back-end service, we need to specify the URL for that service. For the purpose of this tutorial, this is done via environment variables that are read with the following code that we added above:
 
 ```csharp
-private static string backendDNSName = $"webapi.{Environment.GetEnvironmentVariable("ApiHostName")}";
-    private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}.{Environment.GetEnvironmentVariable("AppName")}";
+private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 
-The URL is comprised of the application name, the service name, and the port. In this case we define 
-JTW JTW JTW - fill in how to do this from the services.yaml file.
+The URL is comprised of the application name, the service name, and the port. All of this information is found in the service.yaml file found in the **ToDoService** project. Navigate in **Solution Explorer** to the **ToDoService** project and open **Service Resources** > **service.yaml**.
 
+![Figure 1 - The ToDoService service.yaml file](/media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
+
+* The app name (`ServiceFabricMeshApp`) is found under `application:` after `name:`.   See (1) in the figure above.
+* The service name (`ToDoService`) is found under `services:` after `name:`.   See (2) in the figure above.
+* The port (`20006`) is found under `endpoints:` after `port:`. See (3) in the figure above.
+
+Now that we have the app name, service name, and port number, we can create the environment variables for these values that the app will use to communicate with the back-end service.
+
+Navigate in the **Solution Explorer**  to **WebFrontEnd** > **Service Resources** > **service.yaml** so that we can define the variables that specify the back-end service address.
+
+In the service.yaml file, add the following under `environmentVariables:` (be careful to use spaces, not tabs, when you indent these or the file will fail validation during compile)
+
+``` xml
+- name: AppName
+    value: ServiceFabricMeshApp
+- name: ApiHostPort
+    value: 20006
+- name: ServiceName
+    value: ToDoService
+```
+
+It should look something like this (although your `ApiHostPort` value may be different):
+
+![Service.yaml in the WebFrontEnd project](/media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
 
 We are now ready to build and deploy the image the Service Fabric app, along with the back-end web service, to your local cluster.
 
@@ -352,7 +375,7 @@ We are now ready to build and deploy the image the Service Fabric app, along wit
 
 A Docker image is automatically built and deployed to your local cluster as soon as your project loads. This process may take a while. You can monitor the progress in the Visual Studio **Output** pane if you set the Output pane's **Show output from:** drop-down list to **Service Fabric Tools**.
 
-After the project has been created, press **F5** to compile and run your service locally. Whenever the project is run and debugged locally, Visual Studio will:
+Press **F5** to compile and run your service locally. Whenever the project is run and debugged locally, Visual Studio will:
 
 * Make sure that Docker for Windows is running and set to use Windows as the container operating system.
 * Download any missing Docker base images. This part may take some time
@@ -362,15 +385,20 @@ After the project has been created, press **F5** to compile and run your service
 
 After the local deployment is finished, and Visual Studio is running your app, a browser window will open to a default sample webpage.
 
-When you are done browsing the deployed service you can stop debugging your project by pressing **Shift+F5** in Visual Studio.
+**Debugging tips**
 
-========================>  JTW
-Add what to do if get VS error that "No Service Fabric local cluster is running".  Ensure that the Service c Local Custer Manager is running, and rt-click the icon in the task bar, and click **Start Local Cluster**. Once it has started, press **F5** again.
-================ JTW
+* If you get a Visual Studio error that "No Service Fabric local cluster is running", ensure that the Service Local Custer Manager (SLCM) is running. Then right-click the SLCM icon in the task bar, and click **Start Local Cluster**. Once it has started, in Visual Studio press **F5** again.
+* If you get a 404 when the app starts, it probably means that your environment variables in service.yaml are not set correctly. Ensure that the ApiHostName and ApiHostPort are set correctly per the instructions in [Set environment variables](#set-environment-variables).
+* If you get a build error on the service.yaml file, ensure that you used spaces and not tabs when you added the environment variables.
 
-=====> JTW
-Add setting ab breakpiont
-======= /jtw 
+## Debug in Visual Studio
+
+When debugging application in Visual Studio, you are using a local Service Fabric development cluster. To see how to-do items are retrieved from the back-end service, we will debug into the OnGet() method. Complete the following steps:
+1. In the **WebFrontEnd** project, open **Pages** > **Index.cshtml** > **Index.cshtml.cs** and set a breakpoint in the web API's **Get** method (line 17).
+2. In the **ToDoService** project, open **TodoController.cs** and set a breakpoint in the web API's **Get** method (line 16).
+3. Go back to the browser and refresh the page. You hit the  breakpoint in the web front-end's `OnGet()` method. You can inspect the `backendUrl` variable to see how the environment variables that you defined in the **service.yaml** file are combined into the URL used to contact the back-end service.
+4. Step over (F10) the `client.GetAsync(backendUrl).GetAwaiter().GetResult())` call and you will hit the controller's `Get(int index)` breakpoint. In this method you can see yow the list of to-do items is retrieved from the in-memory list.
+5. When you are done you can stop debugging your project by pressing **Shift+F5** in Visual Studio.
 
 ## Publish to Azure
 
@@ -399,7 +427,7 @@ When you publish to Azure for the first time, it can take up to 10 or more minut
 ```json
 Packaging Application...
 Building Images...
-Web1 -> C:\Code\ServiceFabricMesh1\Web1\bin\Any CPU\Release\netcoreapp2.0\Web1.dll
+Web1 -> C:\Code\ServiceFabricApp\Web1\bin\Any CPU\Release\netcoreapp2.0\Web1.dll
 Uploading the images to Azure Container Registy...
 Deploying application to remote endpoint...
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
