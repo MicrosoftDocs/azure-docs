@@ -21,7 +21,7 @@ ms.author: jingwang
 > * [Version 1, GA](v1/data-factory-azure-sql-connector.md)
 > * [Version 2, Preview](connector-azure-sql-database.md)
 
-This article explains how to use the Copy Activity in Azure Data Factory to copy data from or to Azure SQL Database. It builds on the [Copy Activity overview](copy-activity-overview.md) article, which presents a general overview of Copy Activity.
+This article explains how to use Copy Activity in Azure Data Factory to copy data from or to Azure SQL Database. It builds on the [Copy Activity overview](copy-activity-overview.md) article, which presents a general overview of Copy Activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, currently in preview. If you use version 1 of the Data Factory service, generally available (GA), see [Azure SQL Database connector in V1](v1/data-factory-azure-sql-connector.md).
@@ -231,7 +231,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure SQL Database as the source
 
-To copy data from Azure SQL Database, set the source type in the Copy Activity to **SqlSource**. The following properties are supported in the Copy Activity **source** section:
+To copy data from Azure SQL Database, set the **type** property in the Copy Activity source to **SqlSource**. The following properties are supported in the Copy Activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -242,7 +242,7 @@ To copy data from Azure SQL Database, set the source type in the Copy Activity t
 
 ### Points to note
 
-- If the **sqlReaderQuery** is specified for the **SqlSource**, the Copy Activity runs this query against the Azure SQL Database source to get the data. Or you can specify a stored procedure. Specify the **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
+- If the **sqlReaderQuery** is specified for the **SqlSource**, Copy Activity runs this query against the Azure SQL Database source to get the data. Or you can specify a stored procedure. Specify **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - If you don't specify either **sqlReaderQuery** or **sqlReaderStoredProcedureName**, the columns defined in the **structure** section of the dataset JSON are used to construct a query. `select column1, column2 from mytable` runs against Azure SQL Database. If the dataset definition doesn't have the **structure**, all columns are selected from the table.
 - When you use **sqlReaderStoredProcedureName**, you still need to specify a dummy **tableName** property in the dataset JSON.
 
@@ -335,7 +335,7 @@ GO
 
 ### Azure SQL Database as the sink
 
-To copy data to Azure SQL Database, set the sink type in the Copy Activity to **SqlSink**. The following properties are supported in the Copy Activity **sink** section:
+To copy data to Azure SQL Database, set the **type** property in the Copy Activity sink to **SqlSink**. The following properties are supported in the Copy Activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -348,7 +348,7 @@ To copy data to Azure SQL Database, set the sink type in the Copy Activity to **
 | sqlWriterTableType | Specify a table type name to be used in the stored procedure. Copy Activity makes the data being moved available in a temporary table with this table type. Stored procedure code can then merge the data being copied with existing data. | No |
 
 > [!TIP]
-> When you copy data to Azure SQL Database, the Copy Activity appends data to the sink table by default. To perform an upsert or additional business logic, use the stored procedure in **SqlSink**. Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
+> When you copy data to Azure SQL Database, Copy Activity appends data to the sink table by default. To perform an upsert or additional business logic, use the stored procedure in **SqlSink**. Learn more details from [Invoking stored procedure from SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
 #### Append data example
 
@@ -384,7 +384,7 @@ To copy data to Azure SQL Database, set the sink type in the Copy Activity to **
 
 #### Invoke a stored procedure during copy for upsert example
 
-Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
+Learn more details from [Invoking stored procedure from SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
 ```json
 "activities":[
@@ -500,7 +500,7 @@ When you copy data into Azure SQL Database, you can also configure and invoke a 
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. They're typically used when an upsert, insert plus update, or extra processing must be done before the final insertion of source data into the destination table. Some extra processing examples are merge columns, look up additional values, and insertion into more than one table.
 
-The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Perform the upsert based on the **ProfileID** column, and only apply for a specific category.
+The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Perform the upsert based on the **ProfileID** column, and only apply it for a specific category.
 
 #### Output dataset
 
