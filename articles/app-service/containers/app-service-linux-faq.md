@@ -14,14 +14,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/18/2018
 ms.author: msangapu
 ---
 # Azure App Service on Linux FAQ
 
 With the release of App Service on Linux, we're working on adding features and making improvements to our platform. This article provides answers to questions that our customers have been asking us recently.
 
-If you have a question, comment on the article and we'll answer it as soon as possible.
+If you have a question, comment on this article.
 
 ## Built-in images
 
@@ -49,13 +49,13 @@ Yes, you can do that through the source control management (SCM) site.
 
 **How can I create a Linux App Service plan through an SDK or an Azure Resource Manager template?**
 
-You need to set the **reserved** field of the app service to *true*.
+You should set the **reserved** field of the app service to *true*.
 
 ## Continuous integration and deployment
 
 **My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration and deployment of custom containers?**
 
-To set up continuous integration/deployment for Azure Container Registry or DockerHub images by check the following article [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
+Yes, to set up continuous integration/deployment for Azure Container Registry or DockerHub, by following [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
 
 **Do you support staging environments?**
 
@@ -65,15 +65,15 @@ Yes.
 
 Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to *false*.
 
-**Git deployment of my application fails when using Linux web app. How can I workaround the issue?**
+**Git deployment of my application fails when using Linux web app. How can I work around the issue?**
 
-If Git deployment fails to your Linux web app, you can choose the following alternate options to deploy your application code:
+If Git deployment fails to your Linux web app, choose one of the following options to deploy your application code:
 
-- Use the Continuous Delivery (Preview) feature: You can store your app’s source code in a Team Services Git repo or GitHub repo to use Azure Continuous Delivery. For more details, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Use the Continuous Delivery (Preview) feature: You can store your app’s source code in a Team Services Git repo or GitHub repo to use Azure Continuous Delivery. For more information, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) and go to the folder where you want to deploy your code. Run the following:
+- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) and go to the folder where you want to deploy your code. Run the following code:
 
-   ```
+   ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
@@ -81,10 +81,11 @@ If Git deployment fails to your Linux web app, you can choose the following alte
 
 ## Language support
 
-**I want to use websockets in my Node.js application, any special settings or configurations to set?**
+**I want to use web sockets in my Node.js application, any special settings, or configurations to set?**
 
-Yes, disable `perMessageDeflate` in your server side Node.js code. For example, if you are using socket.io, do the following:
-```
+Yes, disable `perMessageDeflate` in your server-side Node.js code. For example, if you are using socket.io, use the following code:
+
+```nodejs
 var io = require('socket.io')(server,{
   perMessageDeflate :false
 });
@@ -96,16 +97,16 @@ Yes.
 
 **Do you support Composer as a dependency manager for PHP apps?**
 
-Yes. During a Git deployment, Kudu should detect that you are deploying a PHP application (thanks to the presence of a composer.lock file), and Kudu will then trigger a composer install for you.
+Yes, during a Git deployment, Kudu should detect that you're deploying a PHP application (thanks to the presence of a composer.lock file), and Kudu will then trigger a composer install.
 
 ## Custom containers
 
 **I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.**
 
-You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to *true* or by removing the app setting entirely. Keep in mind that doing this will cause container restarts when the platform storage goes through a change. 
+You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to *true*. Keep in mind that this will cause container restarts when the platform storage goes through a change.
 
 >[!NOTE]
->If the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is *false*, the `/home/` directory will not be shared across scale instances, and files that are written there will not be persisted across restarts.
+>If the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is unspecified or set to *false*, the `/home/` directory will not be shared across scale instances, and files that are written there will not be persisted across restarts.
 
 **My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.**
 
@@ -157,6 +158,6 @@ You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps
 
 ## Next steps
 
-* [What is Azure App Service on Linux?](app-service-linux-intro.md)
-* [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md)
+- [What is Azure App Service on Linux?](app-service-linux-intro.md)
+- [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md)
