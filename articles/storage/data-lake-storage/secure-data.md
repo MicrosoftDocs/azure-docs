@@ -6,12 +6,12 @@ documentationcenter: ''
 author: jamesbak
 manager: jahogg
 
-ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
+ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: jamesbal
+ms.author: jamesbak
 
 ---
 # Securing data in Azure Data Lake Storage Gen2

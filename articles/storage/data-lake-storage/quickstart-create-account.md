@@ -4,7 +4,7 @@ description: Quickly learn to create a new Azure Data Lake Storage Gen2 account 
 services: storage
 author: jamesbak
 manager: jahogg
-
+ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
@@ -135,7 +135,7 @@ az account list-locations \
 
 ---
 
-## Create a general-purpose storage account
+## Create a general-purpose v2 storage account
 
 A general-purpose storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier (the default).
 
@@ -145,7 +145,7 @@ Azure Storage offers two types of general-purpose storage accounts:
 - General-purpose v1 accounts. 
 
 > [!NOTE]
-> It's recommended that you create new storage accounts as **general-purpose v2 accounts**, to take advantage of newer features available to those accounts.  
+> You must create new storage accounts as **general-purpose v2 accounts**, to take advantage of Data Lake Storage features.  
 
 For more information about storage account types, see [Azure Storage account options](../common/storage-account-options.md).
 

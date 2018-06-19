@@ -9,7 +9,7 @@ author: dineshm
 manager: jahogg
 editor: cgronlun
 
-ms.assetid: 
+ms.component: data-lake-storage-gen2
 ms.service: hdinsight
 ms.custom: 
 ms.workload: big-data
@@ -42,6 +42,9 @@ This tutorial demonstrates how to consume and query airline flight data, which i
 
 To begin, create a new [Azure Data Data Lake storage account](quickstart-create-account.md) and give it a unique name. Once created, navigate to the storage account to retrieve configuration settings.
 
+> [!IMPORTANT]
+> During Preview, Azure Functions only work with Azure Data Lake Storage accounts created with a flat namespace.
+
 1. Under **Settings**, click  **Access keys**
 3. Click the **Copy** button next to **key1** to copy the key value
 
@@ -73,7 +76,7 @@ A [DataBricks token](https://docs.databricks.com/api/latest/tokens.html) is requ
 5. Copy the token value from the browser into the text file where you have set aside the account name and key
 
 ## Create an Azure Function
-A [serverless function](https://azure.microsoft.com/services/functions/) is required to listen for changes in the Azre Data Lake Storage account.
+A [serverless function](https://azure.microsoft.com/services/functions/) is required to listen for changes in the Azure Data Lake Storage account.
 
 1. Create a [Function App](https://ms.portal.azure.com/#create/Microsoft.FunctionApp) and name it *myFlightDataApp* (make sure to check the *Pin to dashboard* checkbox as you create the service)
 2. Click the **+** to create a new function (available when hover your mouse over the *Functions* label on the left)
@@ -266,7 +269,7 @@ dbutils.fs.mount(
 ```
 6. Press **Cmd + Enter** to run the Python script
 
-Your Blog storage container is now mounted. You should see *Out[x] = true* as ouput from the script.
+Your storage container is now mounted. You should see *Out[x] = true* as ouput from the script.
 
 ### Copy source data into the storage account
 
@@ -431,4 +434,4 @@ display(output)
 
 ## Next steps
 
-?? what's the best next step article ??
+* [Extract, transform, and load data using Apache Hive on Azure HDInsight](tutorial-extract-transform-load-hive.md)

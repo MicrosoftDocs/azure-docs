@@ -8,7 +8,7 @@ author: jamesbak
 manager: jahogg
 tags: azure-portal
 
-ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
+ms.component: data-lake-storage-gen2
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
@@ -117,8 +117,10 @@ During configuration, for the default storage endpoint you specify Data Lake Sto
 
 ![Cluster storage settings: HDFS-compatible storage endpoints](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
+> [!IMPORTANT]
+> Be sure to **disable Data Lake Store access**. This settings refers to the old *Data Lake Store* functionality and needs to be disabled in order for *Data Lake Storage* features to operate correctly.
 
+[!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
 ### Optional metastores
 You can create optional Hive or Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores. 
@@ -253,6 +255,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Next steps
 
+- [Extract, transform, and load data using Apache Hive on Azure HDInsight](tutorial-extract-transform-load-hive.md)
 - [What are HDInsight, the Hadoop ecosystem, and Hadoop clusters?](../../hdinsight/hadoop/apache-hadoop-introduction.md)
 - [Get started using Hadoop in HDInsight](../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Work in Hadoop on HDInsight from a Windows PC](../../hdinsight/hdinsight-hadoop-windows-tools.md)

@@ -8,7 +8,7 @@ tags: azure-portal
 author: jamesbak
 manager: jahogg
 
-ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
+ms.component: data-lake-storage-gen2
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
