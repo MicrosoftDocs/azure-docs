@@ -160,12 +160,11 @@ Click on **See all...** to view the full list of computers sending data for the 
 
 Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
 
-
 ## Next steps
 * See [Log searches in Log Analytics](log-analytics-log-searches.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
-* Use the steps described in [create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) to be notified when a search criteria is met
-* Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers
-* To configure an effective security event collection policy, review [Azure Security Center filtering policy](../security-center/security-center-enable-data-collection.md)
-* Change [performance counter configuration](log-analytics-data-sources-performance-counters.md)
-* To modify your event collection settings, review [event log configuration](log-analytics-data-sources-windows-events.md)
-* To modify your syslog collection settings, review [syslog configuration](log-analytics-data-sources-syslog.md)
+* Use the steps described in [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified when a search criteria is met.
+* Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
+* To configure an effective security event collection policy, review [Azure Security Center filtering policy](../security-center/security-center-enable-data-collection.md).
+* Change [performance counter configuration](log-analytics-data-sources-performance-counters.md).
+* To modify your event collection settings, review [event log configuration](log-analytics-data-sources-windows-events.md).
+* To modify your syslog collection settings, review [syslog configuration](log-analytics-data-sources-syslog.md).
