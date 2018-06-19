@@ -16,9 +16,7 @@ ms.component: data-lake-storage-gen2
 
 The table in this article summarizes the differences between Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2.
 
-Azure Data Lake Storage Gen1 is a hyper scale repository that is optimized for big data analytics workloads.
-
-In comparison, Azure Data Lake Storage Gen2 offers rich support for the Hadoop Compatible File System along with a full hierarchical namespace optimized for analytics workloads. Additionally it brings all of Azure Blobs offerings to the table so functionality like data tiering and lifecycle management, durability options for HA and DR, event grid support, enhanced network security, and compatibility with all of Blob APIs.
+Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compatible File System and a full hierarchical namespace just like Azure Data Lake Storage Gen1 does. Additionally, it brings all of Azure Blobs offerings to the table so functionality like data tiering and lifecycle management, durability options for HA and DR, event grid support, enhanced network security, and compatibility with all of Blob APIs.
 
 |Azure Data Lake Storage Gen1  |Azure Data Lake Storage Gen2  |
 |---------|---------|
