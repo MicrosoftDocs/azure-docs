@@ -110,7 +110,7 @@ At a high level, to implement a regional failover model with IoT Hub, you need t
 ## Choose the right HA/DR option
 Heres a summary of the HA/DR options presented in this article which can be used as a frame of reference to choose the right option that works for your solution
 
-| HA/DR Option | RTO | RPO | Requires manual intervention? | Implementation complexity | Cogs impact|
+| HA/DR Option | RTO | RPO | Requires manual intervention? | Implementation complexity | Additioanl cost|
 | --- | --- | --- | --- | --- | --- | --- |
 | Microsoft initiated failover |2 - 26 hours|Refer RPO table above|No|None|None
 | Manual failover |10 min - 2 hours|Refer RPO table above|Yes|Very low. You only need to trigger this operation from the portal.|None
