@@ -19,7 +19,7 @@ If you encounter issues while attempting to onboard the solution on a virtual ma
 
 The following section highlights specific error messages and a possible resolution for each. For other onboarding issues see, [troubleshoot solution onboarding](onboarding.md).
 
-### Machine is already registered to a different account
+### <a name="machine-already-registered"></a>Machine is already registered to a different account
 
 #### Issue
 
@@ -37,7 +37,7 @@ The machine is already onboarded to another workspace for Update Management.
 
 Perform cleanup of old artifacts on the machine by [deleting the hybrid runbook group](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) and try again.
 
-### Machine is unable to communicate with the service
+### <a name="machine-unable-to-communicate"></a>Machine is unable to communicate with the service
 
 #### Issue
 
@@ -63,7 +63,7 @@ There may be a proxy, gateway or firewall blocking network communication.
 
 Review your networking and ensure appropriate ports and addresses are allowed. See [network requirements](../automation-hybrid-runbook-worker.md#network-planning), for a list of ports and addresses that are required by Update Management and Hybrid Runbook Workers.
 
-### Unable to create self-signed certificate
+### <a name="unable-to-create-selfsigned-cert"></a>Unable to create self-signed certificate
 
 #### Issue
 
@@ -105,3 +105,4 @@ If you did not see your problem or were unable to solve your issue, visit one of
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+* If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

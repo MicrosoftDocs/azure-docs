@@ -18,7 +18,7 @@ This article provides information on troubleshooting issues with Hybrid Runbook 
 
 The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Microsoft Monitoring Agent. For Linux, it is the OMS Agent for Linux. If registration of the worker fails, here are some possible causes for the error:
 
-### Runbook execution fails
+###<a name="runbook-execution-fails"></a> Runbook execution fails
 
 #### Issue
 
@@ -56,7 +56,7 @@ Check the **Microsoft-SMA** event log for a corresponding event with description
 
 The Linux Hybrid Runbook Worker depends on the OMS Agent for Linux to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
 
-### The OMS Agent for Linux is not running
+###<a name="oms-agent-not-running"></a> The OMS Agent for Linux is not running
 
 If the OMS Agent for Linux is not running, this prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. Verify the agent is running by entering the following command: `ps -ef | grep python`. You should see output similar to the following, the python processes with **nxautomation** user account. If the Update Management or Azure Automation solutions are not enabled, none of the following processes are running.
 
@@ -76,7 +76,7 @@ The following list shows the processes that are started for a Linux Hybrid Runbo
 
 If the OMS Agent for Linux is not running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
-### The specified class does not exist
+###<a name="class-does-not-exist"></a> The specified class does not exist
 
 If you see the error: **The specified class does not exists..** in the  `/var/opt/microsoft/omsconfig/omsconfig.log` then the OMS Agent for Linux needs to be updated. Run the following command to reinstall the OMS Agent:
 
@@ -88,11 +88,11 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 The Windows Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
 
-### The Microsoft Monitoring Agent is not running
+###<a name="mma-not-running"></a> The Microsoft Monitoring Agent is not running
 
 If the Microsoft Monitoring Agent Windows service is not running, this prevents the Hybrid Runbook Worker from communicating with Azure Automation. Verify the agent is running by entering the following command in PowerShell: `Get-Service healthservice`. If the service is stopped, enter the following command in PowerShell to start the service: `Start-Service healthservice`.
 
-### Event 4502 in Operations Manager log
+###<a name="event-4502"></a> Event 4502 in Operations Manager log
 
 In the **Application and Services Logs\Operations Manager** event log, you see event 4502  and EventMessage containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description: *The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication. The article KB3126513 has additional troubleshooting information for connectivity issues.*
 
@@ -106,3 +106,4 @@ If you did not see your problem or were unable to solve your issue, visit one of
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+* If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

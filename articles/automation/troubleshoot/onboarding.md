@@ -15,7 +15,7 @@ You may encounter errors when onboarding solutions. This article describes the v
 
 ## General Errors
 
-### ComputerGroupQueryFormatError
+### <a name="computer-grou-query-format-error"></a>ComputerGroupQueryFormatError
 
 #### Issue
 
@@ -29,7 +29,7 @@ You may have altered the query, or it may have been altered by the system.
 
 You can delete the query for this solution, and reonboard the solution, which recreates the query. The query can be found within your workspace, under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the solution associated with this query. If multiple solutions are enabled, the **MicrosoftDefaultComputerGroup** shows multiple times under **Saved Searches**.
 
-### PolicyViolation
+### <a name="policy-violation"></a>PolicyViolation
 
 #### Issue
 
@@ -51,7 +51,7 @@ In order to successfully deploy the solution, you need to consider altering the 
 
 Check the notifications in the top right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. To learn more about Azure Policy visit: [Overview of Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-## MMA Extension failures
+## <a name="mma-extension-failures"></a>MMA Extension failures
 
 When deploying a solution, a variety of related resources are deployed. One of those resources is the Microsoft Monitoring Agent Extension or OMS Agent for Linux. These are Virtual Machine Extensions installed by the virtual machine’s Guest Agent that is responsible for communicating with the configured Operations Management Suite (OMS) Workspace, for the purpose of later coordination of the downloading of binaries and other files that the solution you are onboarding depend on once it begins execution.
 You typically first become aware of MMA or OMS Agent for Linux installation failures from a notification appearing in the Notifications Hub. Clicking on that notification gives further information about the specific failure. Navigation to the Resource Groups resource, and then to the Deployments element within it also provides details on the deployment failures that occurred.
@@ -59,7 +59,7 @@ Installation of the MMA or OMS Agent for Linux can fail for a variety of reasons
 
 The following section describes various issues that you can encounter when onboarding that cause a failure in the deployment of the MMA extension.
 
-### An exception occurred during a WebClient request
+### <a name="webclient-exception"></a>An exception occurred during a WebClient request
 
 The MMA extension on the virtual machine is unable to communicate with external resources and deployment fails.
 
@@ -87,7 +87,7 @@ Some potential causes to this error are:
 
 Ensure that you have the proper ports and addresses open for communication. For a list of ports and addresses, see [planning your network](../automation-hybrid-runbook-worker.md#network-planning).
 
-### Install failed due to transient environment issues
+### <a name="transient-environment-issue"></a>Install failed due to transient environment issues
 
 The installation of the Microsoft Monitoring Agent extension failed during deployment due to another installation or action blocking the installation
 
@@ -118,7 +118,7 @@ Some potential causes to this error are:
 
 This error is a transient error in nature. Retry the deployment to install the extension.
 
-### Installation timeout
+### <a name="installation-timeout"></a>Installation timeout
 
 The installation of the MMA extension did not complete due to a timeout.
 
@@ -144,3 +144,4 @@ If you did not see your problem or were unable to solve your issue, visit one of
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+* If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
