@@ -1,16 +1,13 @@
 ---
-title: What is Azure Firewall
-description: Learn how you can use an Azure Firewall to manage web traffic.
-services: firewall
+title: What is Azure Firewall?
+description: Learn about Azure Firewall features.
 author: vhorne
-manager: jpconnock
-
 ms.service: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/18/2018
+ms.date: 6/19/2018
 ms.author: victorh
-#Customer intent: As an IT administrator, I want to learn about Azure Firewall and what I can use it for.
+#Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
 # What is Azure Firewall?
 
@@ -38,7 +35,7 @@ You can limit outbound HTTP/S traffic to a specified list of fully qualified dom
 
 ### Network traffic filtering rules
 
-You can centrally create allow or deny network filtering rules by source and destination IP address, port, and protocol. Azure Firewall is fully stateful. Rules are enforced and logged across multiple subscriptions and virtual networks.
+You can centrally create *allow* or *deny* network filtering rules by source and destination IP address, port, and protocol. Azure Firewall is fully stateful, so it can distinguish legitimate packets for different types of connections. Rules are enforced and logged across multiple subscriptions and virtual networks.
 
 ### Outbound SNAT support
 
@@ -64,7 +61,6 @@ The Azure Firewall public preview has the following known issues:
 
 ## Next steps
 
-Learn how to configure application and network firewall rules:
-
 - [Tutorial: Configure Azure Firewall application and network rules using the Azure portal](tutorial-firewall-rules-portal.md)
+- [Deploy Azure Firewall using a tempalte](deploy-template.md)
 
