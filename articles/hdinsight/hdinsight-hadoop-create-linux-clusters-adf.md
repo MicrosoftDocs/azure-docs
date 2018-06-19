@@ -77,12 +77,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-<<<<<<< HEAD
 Login-AzureRmAccount
-=======
-try{Get-AzureRmContext}
-catch{Connect-AzureRmAccount}
->>>>>>> refs/remotes/MicrosoftDocs/release-build-hdinsight-2018
 #endregion
 
 ####################################

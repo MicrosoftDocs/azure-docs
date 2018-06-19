@@ -139,7 +139,7 @@ Common use cases for this condition are policies that:
 
 - Block access for users accessing a service from specific countries or regions. 
 
-For more information, see [Location conditions in Azure Active Directory conditional access](active-directory-conditional-access-locations.md).
+For more information, see [What is the location condition in Azure Active Directory conditional access?](active-directory-conditional-access-locations.md)
 
 
 ## Client apps

@@ -7,7 +7,7 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/12/2018
+ms.date: 06/19/2018
 ms.author: heidist
 ---
 
@@ -34,7 +34,7 @@ Concepts you need to understand for tier selection include capacity definitions,
 Capacity is structured as *replicas* and *partitions*. Replicas are instances of the search service, where each replica hosts one load-balanced copy of an index. For example, a service with 6 replicas has 6 copies of every index loaded in the service. Partitions store indexes and automatically split searchable data: two partitions split your index in half, three partitions into thirds, and so forth. In terms of capacity, *partition size* is the primary differentiating feature across tiers.
 
 > [!NOTE]
-> All **Standard** tiers support [flexible combinations replica and partitions](search-capacity-planning.md#chart) so that you can [weight your system for speed or storage](search-performance-optimization.md) by changing the balance. **Basic** offers up three replicas for high availability but has only partition. **Free** tiers do not provide dedicated resources: computing resources are shared by multiple free services.
+> All **Standard** tiers support [flexible combinations replica and partitions](search-capacity-planning.md#chart) so that you can [weight your system for speed or storage](search-performance-optimization.md) by changing the balance. **Basic** offers up three replicas for high availability but has only one partition. **Free** tiers do not provide dedicated resources: computing resources are shared by multiple free services.
 
 ### Limits
 
