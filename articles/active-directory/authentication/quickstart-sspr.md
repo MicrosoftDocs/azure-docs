@@ -21,7 +21,7 @@ ms.reviewer: sahenry
 
 Self-service password reset (SSPR) offers a simple means for IT administrators to empower users to reset or unlock their passwords or accounts. The system includes detailed reporting that tracks when users access the system, along with notifications to alert you to misuse or abuse.
 
-This guide assumes you already have a working trial or licensed Azure Active Directory (Azure AD) tenant. If you need help setting up Azure AD, see [Getting started with Azure AD](../get-started-azure-ad.md).
+This guide assumes you already have a working trial or licensed Azure Active Directory (Azure AD) tenant. If you need help setting up Azure AD, see [Getting started with Azure AD](../fundamentals/get-started-azure-ad.md).
 
 ## Enable SSPR for your Azure AD tenant
 

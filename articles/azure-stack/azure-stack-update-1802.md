@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Stack 1802 Update | Microsoft Docs
 description: Learn about what's in the 1802 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
@@ -34,7 +34,7 @@ The Azure Stack 1802 update build number is **20180302.1**.
 
 ## Before you begin    
 > [!IMPORTANT]    
-> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](/azure-stack-updates#plan-for-updates).
+> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
 
 
 ### Prerequisites

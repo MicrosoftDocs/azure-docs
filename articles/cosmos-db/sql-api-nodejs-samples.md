@@ -8,6 +8,7 @@ manager: kfile
 editor: monicar
 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: sample
 ms.date: 05/23/2017
@@ -17,6 +18,8 @@ ms.author: moderakh
 # Azure Cosmos DB Node.js examples
 > [!div class="op_single_selector"]
 > * [.NET Examples](sql-api-dotnet-samples.md)
+> * [Java Examples](sql-api-java-samples.md)
+> * [Async Java Examples](sql-api-async-java-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

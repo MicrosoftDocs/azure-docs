@@ -29,8 +29,8 @@ You can use the template validation tool to check if your Azure Resource Manager
 
 To validate a template, you have to build a cloud capabilities file first and then run the validation tool. You use the following PowerShell modules from Azure Stack tools:
 
-- In the **TemplateValidator** folder:<br>         AzureRM.CloudCapabilities.psm1 creates a cloud capabilities JSON file representing the services and versions in an Azure Stack cloud.
-- In the **CloudCapabilities** folder:<br>
+- In the **CloudCapabilities** folder:<br>         AzureRM.CloudCapabilities.psm1 creates a cloud capabilities JSON file representing the services and versions in an Azure Stack cloud.
+- In the **TemplateValidator** folder:<br>
 AzureRM.TemplateValidator.psm1 uses a cloud capabilities JSON file to test templates for deployment in Azure Stack.
 
 ## Build the cloud capabilities file

@@ -6,7 +6,7 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/02/2018
 ---
@@ -122,5 +122,4 @@ Importing your database is similar to exporting. Do the following actions:
 
 ## Next steps
 - [Connect applications to Azure Database for MySQL](./howto-connection-string.md).
-
 - For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](http://aka.ms/datamigration).

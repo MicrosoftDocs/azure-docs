@@ -59,6 +59,6 @@ To publish to the Australian regions, you create LUIS apps at https://au.luis.ai
 > [!div class="nextstepaction"]
 > [Prebuilt entities reference](./luis-reference-prebuilt-entities.md)
 
- [www.luis.ai]:https://www.luis.ai
- [au.luis.ai]:https://au.luis.ai
- [eu.luis.ai]:https://eu.luis.ai
+ [www.luis.ai]: https://www.luis.ai
+ [au.luis.ai]: https://au.luis.ai
+ [eu.luis.ai]: https://eu.luis.ai

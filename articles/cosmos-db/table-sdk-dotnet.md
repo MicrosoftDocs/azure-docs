@@ -6,6 +6,7 @@ author: rnagpal
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/26/2018

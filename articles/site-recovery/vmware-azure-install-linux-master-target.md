@@ -239,7 +239,7 @@ Use the following steps to create a retention disk:
 
 2. Use the **multipath -ll** command to learn the multipath ID of the retention disk: **multipath -ll**
 
-    ![Multipath ID](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![Multipath ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Format the drive, and then create a file system on the new drive: **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**.
 	

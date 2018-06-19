@@ -203,7 +203,11 @@
     - name: Blob storage
       href: functions-bindings-storage-blob.md
     - name: Azure Cosmos DB
-      href: functions-bindings-cosmosdb.md
+      items: 
+      - name: Functions 1.x
+        href: functions-bindings-cosmosdb.md
+      - name: Functions 2.x
+        href: functions-bindings-cosmosdb-v2.md
     - name: Event Grid
       href: functions-bindings-event-grid.md
     - name: Event Hubs

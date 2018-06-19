@@ -7,6 +7,7 @@ manager: kfile
 editor: cgronlun
 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 5/8/2018

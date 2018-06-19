@@ -98,9 +98,9 @@ You can change the default retention using REST API or PowerShell. The supported
 Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 > [!IMPORTANT]
-> This APIs is included in Azure PowerShell starting from version 4.6.0-preview. 
+> This API is included in AzureRM.Sql PowerShell Module starting from version [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview). 
 
-### Change PTR retention period using REST API
+### Change PITR retention period using REST API
 **Sample Request**
 ```http
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
@@ -126,7 +126,7 @@ Status code: 200
   }
 }
 ```
-See [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backups) for more details.
+See [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) for more details.
 
 ## Next steps
 

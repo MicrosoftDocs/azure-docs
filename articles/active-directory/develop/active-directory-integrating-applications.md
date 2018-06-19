@@ -258,7 +258,7 @@ For more information on the application changes required to support multi-tenant
 
 - [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md)
 - The list of [Multi-tenant code samples](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant). 
-- [Quickstart: Add company branding to your sign-in page in Azure AD](../customize-branding.md)
+- [Quickstart: Add company branding to your sign-in page in Azure AD](../fundamentals/customize-branding.md)
 
 ### Enabling OAuth 2.0 implicit grant for Single Page Applications
 

@@ -8,6 +8,7 @@ manager: kfile
 editor: cgronlun
 
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2018
