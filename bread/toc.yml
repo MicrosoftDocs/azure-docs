@@ -337,8 +337,8 @@
       tocHref: /azure/iot-dps/
       topicHref: /azure/iot-dps/
     - name: IoT solution accelerators
-      tocHref: /azure/iot-suite/
-      topicHref: /azure/iot-suite/   
+      tocHref: /azure/iot-accelerators/
+      topicHref: /azure/iot-accelerators/
     - name: IoT Central
       tocHref: /azure/iot-central/
       topicHref: /azure/iot-central/         
