@@ -11,7 +11,7 @@ ms.author: victorh
 ---
 # What is Azure Firewall?
 
-Azure Firewall is a cloud-based network security service, providing filtering capabilities with built-in high availability, unrestricted cloud scalability and zero maintenance.
+Azure Firewall is a cloud-based network security service, providing filtering capabilities with built-in high availability, unrestricted cloud scalability, and zero maintenance.
 
 ![Firewall overview](media/overview/firewall-overview.png)
 
@@ -53,9 +53,9 @@ The Azure Firewall public preview has the following known issues:
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
 |Interoperability with NSGs     |If a network security group (NSG) is applied on the firewall subnet, it may block outbound Internet connectivity even if the NSG is configured to allow outbound internet access. Outbound Internet connections are marked as coming from a VirtualNetwork and the destination is Internet. A NSG has VirtualNetwork to VirtualNetwork *allow* by default, but not when destination is Internet.|To mitigate, add the following inbound rule to the NSG that is applied on the firewall subnet:<br><br>Source: VirtualNetwork Source ports: Any <br><br>Destination: Any Destination Ports: Any <br><br>Protocol: All Access: Allow|
-|Access denied to blob.core.windows.net and  *win.data.microsoft.com|Windows VMs may generate https traffic to blob.core.windows.net which will be blocked by default. This will result in many Deny logs. These connections are initiated by These connections are initiated from the windows client by the following services.<br><br>- Windows Azure Guest Agent<br>-   Windows Azure Telemetry Service<br>-  RdAgent|Consider allowing these connections by adding *.blob.core.windows.net and *win.data.microsoft.com to your whitelist.|
+|Access denied to blob.core.windows.net and  *win.data.microsoft.com|Windows VMs may generate https traffic to blob.core.windows.net, which is blocked by default. This  results in many *Deny* logs. These connections are initiated from the windows client by the following services:<br><br>- Windows Azure Guest Agent<br>-   Windows Azure Telemetry Service<br>-  RdAgent|Consider allowing these connections by adding *.blob.core.windows.net and *win.data.microsoft.com to your whitelist.|
 |Delete does not wait|Service removal with or without keeping its configuration returns immediately before all backend components are removed. |Allow five minutes before creating a new firewall in the same VNet.|
-|Hub and spoke with global peering doesn’t work|The hub and spoke model, where the hub and firewall are deployed in one Azure region, with the spokes in another Azure region, connected to the hub via Global VNet Peering is not supported.|For more infortmation, see [Create, change, or delete a virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
+|Hub and spoke with global peering doesn’t work|The hub and spoke model, where the hub and firewall are deployed in one Azure region, with the spokes in another Azure region, connected to the hub via Global VNet Peering is not supported.|For more information, see [Create, change, or delete a virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
 
 
 
