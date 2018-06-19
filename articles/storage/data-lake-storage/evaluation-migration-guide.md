@@ -14,7 +14,7 @@ ms.component: data-lake-storage-gen2
 
 # Migration planning
 
-If you have finished your evaluation and feel ready to begin planning a migration to Azure Data Lake Storage Gen2. The ease of a migration depends on a variety of factors, including the complexity of your app, the volume of data, cross-regional migration, mode of migration (live, one time migration, continuous, etc.), ACLs, associated data such as metastores, and post migration setup.
+The ease of a migration depends on a variety of factors, including the complexity of your app, the volume of data, cross-regional migration, mode of migration (live, one time migration, continuous, etc.), ACLs, associated data such as metastores, and post migration setup.
 
 >[!IMPORTANT]
 > We must emphasize that while you are welcome to begin evaluating and planning a migration now, we **do not** recommend actually migrating now. Azure Data Lake Storage Gen2 is still a preview service.
