@@ -1,6 +1,6 @@
 ---
 title: SQL Hosting Servers on Azure Stack | Microsoft Docs
-description: How to add SQL instances for provisioning through the SQL Adapter Resource Provider
+description: How to add SQL instances for provisioning through the SQL Adapter Resource provider.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -57,7 +57,7 @@ You can use standalone (non-HA) SQL servers using any edition of SQL Server 2014
 
 To add a standalone hosting server that is already set up, follow these steps:
 
-1. Sign in to the Azure Stack admin portal as a service administrator
+1. Sign in to the Azure Stack operator portal as a service administrator.
 
 2. Select **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers**.
 
@@ -82,7 +82,7 @@ To add a standalone hosting server that is already set up, follow these steps:
    - automatic backup
    - reserve high-performance servers for individual departments
 
-   All the hosting servers in a SKU should have the same capabilities. The **Name** should reflect the properties of the SKU so users can deploy their databases to the appropriate SKU. 
+   All the hosting servers in a SKU should have the same capabilities. The **Name** should reflect the properties of the SKU so users can deploy their databases to the appropriate SKU.
 
    > [!IMPORTANT]
    > Special characters, including spaces and periods, are not supported in the **Family** or **Tier** names when you create a SKU for the SQL and MySQL resource providers.
@@ -96,14 +96,17 @@ To add a standalone hosting server that is already set up, follow these steps:
 
 ## Provide high availability using SQL Always On Availability Groups
 
-Configuring SQL Always On instances requires additional steps and requires a minimum of three VMs (or physical machines.) For more information about SQL Server Always On, see [Introducing SQL Server Always On availability groups on Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
+Configuring SQL Always On instances requires additional steps and requires a minimum of three VMs (or physical machines.) This article assumes that you already have a solid understanding of Always On availability groups. For more information, see:
+
+* [Introducing SQL Server Always On availability groups on Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Always On Availability Groups (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > The SQL adapter resource provider _only_ supports SQL 2016 SP1 Enterprise or later instances for Always On. This adapter configuration requires new SQL features such as automatic seeding.
 
 In addition to the preceding list of requirements you must enable [Automatic Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each availability group for each instance of SQL Server.
 
-To enable automatic seeding on all instances, run the following SQL command for each instance:
+To enable automatic seeding on all instances, edit and then run the following SQL command for each instance:
 
   ```
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -112,7 +115,7 @@ To enable automatic seeding on all instances, run the following SQL command for 
   GO
   ```
 
-On the secondary instances, run the following SQL command for each instance:
+On the secondary instances, edit and then run the following SQL command for each instance:
 
   ```
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -121,7 +124,7 @@ On the secondary instances, run the following SQL command for each instance:
 
 ### To add SQL Always On hosting servers
 
-1. Sign in to the Azure Stack admin portal as a service admin.
+1. Sign in to the Azure Stack Administration portal as a service admin.
 
 2. Select **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers** &gt; **+Add**.
 
