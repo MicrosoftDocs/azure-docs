@@ -1,5 +1,4 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Set up a device template in an Azure IoT Central application | Microsoft Docs
 description: Learn how to set up a device template with measurements, settings, properties, rules, and a dashboard.
 author: viv-liu
@@ -34,19 +33,19 @@ For example, a builder can create a device template for an IoT-connected fan tha
 From this device template, an operator can create and connect real fan devices with names such as **fan-1** and **fan-2**. All these fans have measurements, settings, properties, rules, and a dashboard that users of your application can monitor and manage.
 
 > [!NOTE]
-Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Device Explorer** page from existing device templates.
+> Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Device Explorer** page from existing device templates.
 
 ## Create a new device template
 
 1. Go to the **Application Builder** page.
 
-1. To create a blank template, select **Create Device Template**, and then select **Custom**.
+2. To create a blank template, select **Create Device Template**, and then select **Custom**.
 
-1. Enter a name for your new device template and select **Create**.
+3. Enter a name for your new device template and select **Create**.
 
    ![Device details page with "Refrigerator" as the template name](./media/howto-set-up-template/devicedetailspage.png)
 
-1. Now you’re on the **Device Details** page of a new simulated device. A simulated device is automatically created for you when you create a new device template. It reports data and can be controlled just like a real device.
+4. Now you’re on the **Device Details** page of a new simulated device. A simulated device is automatically created for you when you create a new device template. It reports data and can be controlled just like a real device.
 
 Now look at each of the tabs on the **Device Details** page.
 
@@ -129,10 +128,9 @@ For example, you can add a new fan speed setting:
 
 After you select **Save**, the **Fan Speed** setting appears as a tile and is ready to be used to change the fan speed of the device.
 
-> [!NOTE]
-> After you create a new tile, you can try out your new setting. First, switch off design mode at the upper-right part of the screen:
->
-> ![Settings tile with design mode turned on](./media/howto-set-up-template/settingstile.png)
+After you create a new tile, you can try out your new setting. First, switch off design mode at the upper-right part of the screen.
+
+![Settings tile with design mode turned on](./media/howto-set-up-template/settingstile.png)
 
 ## Properties
 
@@ -154,8 +152,7 @@ After you select **Save**, device location appears as a tile:
 
 ![Properties tile](./media/howto-set-up-template/propertiestile.png)
 
-> [!NOTE]
-> After you create a tile, you can change the property value. First, switch off design mode in the upper-right part of the screen.
+After you create a tile, you can change the property value. First, switch off design mode in the upper-right part of the screen.
 
 ### Create a location property through Azure Maps
 You can give geographic context to your location data in Azure IoT Central and map any latitude and longitude coordinates of a street address. Or you can simply map latitude and longitude coordinates. Azure Maps enables this capability in Azure IoT Central.
@@ -164,13 +161,13 @@ You can add two types of location properties:
 - **Location as an application property**, which is stored purely in the application. The device doesn't recognize application properties.
 - **Location as a device property**, which the device reports.
 
-####Add location as an application property 
+#### Add location as an application property 
 You can create a location property as an application property by using Azure Maps in your Azure IoT Central application. 
 For example, you can add the device installation address. 
 
-1. On the **Device Property** tab, ensure that **Design Mode** is **On**.
+1. On the **Properties** tab, ensure that **Design Mode** is **On**.
 
-   ![Location property](./media/howto-set-up-template/locationcloudproperty1.png)
+   ![Location property with design mode turned on](./media/howto-set-up-template/locationcloudproperty1.png)
 
 2. On the **Property** tab, select **Location**.
 3. Configure **Display Name**, **Field Name** and (optionally) **Initial Value** for the location. 
@@ -183,7 +180,7 @@ For example, you can add the device installation address.
 
 4. Select **Save**. 
 
-![Location property field](./media/howto-set-up-template/locationcloudproperty3.png)
+   ![Location property with installation address added](./media/howto-set-up-template/locationcloudproperty3.png)
 
 Now an operator can update the location value in the location field form. 
 
@@ -191,24 +188,41 @@ Now an operator can update the location value in the location field form.
 
 You can create a location property as a device property that the device reports. For example, if you want to track the device location:
 
-1.	On to the **Device Property** tab, ensure that **Design Mode** is **On**.
-2.	Select **Device Property** from the library.
+1. On the **Properties** tab, ensure that **Design Mode** is **On**.
+2. Select **Device Property** from the library.
 
-![Location property field](./media/howto-set-up-template/locationdeviceproperty1.png)
+   ![Location property field](./media/howto-set-up-template/locationdeviceproperty1.png)
 
-3.	Configure the display name and field name, and select **Location** as the data type. 
+3. Configure the display name and field name, and select **Location** as the data type. 
 
-> [!NOTE]
-The field name must exactly match the name of the property that the device reports. 
+   > [!NOTE]
+   > The field name must exactly match the name of the property that the device reports. 
 
-![Location property field](./media/howto-set-up-template/locationdeviceproperty2.png)
+   ![Location property field](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-![Location property operator view](./media/howto-set-up-template/locationdeviceproperty2.png)
+   ![Location property operator view](./media/howto-set-up-template/locationdeviceproperty2.png)
 
 Now that you have configured your location property, you can add a map to visualize the location in the device dashboard. See how to [add an Azure Maps location in the dashboard](#add-an-azure-maps-location-in-the-dashboard).
 
+## Commands
 
+Commands are used to remotely manage a device. They enable operators of your application to instantaneously run commands on the device. You can add multiple commands to your device template that appear as tiles on the **Commands** tab for operators to use. As the builder of the device, you have the flexibility to define your command according to your requirements.
 
+How is a command different from a setting? 
+
+* **Setting**: A setting is a configuration that you want to apply to a device, and you want the device to persist that configuration until you change it. For example, you want to set the temperature of your freezer, and you want that setting even when the freezer restarts. 
+
+* **Command**: You use commands to instantaneously run a command on the device remotely from IoT Central. If a device isn't connected, the command times out and fails. For example, you want to restart/reboot a device.  
+
+When you run a command, it can be in one of three states, depending on whether the device received the command. 
+
+For example, you can add a new echo command:
+
+![Commands form](./media/howto-set-up-template/commandsecho.png)
+
+After you select **Save**, the **Echo** command appears as a tile and is ready to be used to echo the device.
+
+After you create a new tile, you can try out your new command.
 
 ## Rules
 
@@ -232,7 +246,7 @@ Now when an operator views the dashboard, they can see this tile that displays t
 
 If you configured a location property earlier in [Create a location property through Azure Maps](#create-a-location-property-through-azure-maps), you can visualize the location by using a map in your device dashboard.
 
-1. On **Device Dashboard** tab, ensure that **Design Mode** is **On**.
+1. On **Dashboard** tab, ensure that **Design Mode** is **On**.
 2. On the device dashboard, select **Map** from the library. 
 
    ![Dashboard Location Azure Map select](./media/howto-set-up-template/locationcloudproperty4map.png)
@@ -250,8 +264,6 @@ You can resize the map to your desired size.
 Now when an operator views the dashboard, they can see all the dashboard tiles that you've configured, including a location map.
 
 ![Dashboard Location Azure Map Dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
-
-
 
 ## Next steps
 
