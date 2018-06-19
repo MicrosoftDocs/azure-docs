@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Develop and deploy a Python IoT Edge module to your simulated device
 
-You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. In this tutorial, you learn how to:    
+You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-quickstart-win] or [Linux][lnk-quickstart-lin] quickstarts. In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an IoT Edge Python module
@@ -32,7 +32,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the quickstart or first tutorial.
+* The Azure IoT Edge device that you created in the quickstart.
 * The primary key connection string for the IoT Edge device.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
@@ -46,6 +46,18 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
     Download and save the VSIX file locally using the link provided. In VS Code, go to the **Extensions** view. Click the **...** then select **Install from VSIX...**. Reload the VS Code window to enable the extension.
 
     ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
+
+> [!IMPORTANT]
+> **Bugbash-only** The Python Device SDK is a wrapper of the C SDK and C SDK domain sockets aren’t present yet. This means in your config.yaml on your IoT Edge device, you’ll need to tell edgelet lo listen on HTTP. In the sample below, replace the IP’s with the IP of the device itself.  (It needs to be IP – just using the device name WILL NOT WORK because of the way that docker & /etc/hosts interact).
+> ```yaml
+> connect:
+>   management_uri: "http://10.91.136.196:8080"
+>   workload_uri: http://10.91.136.196:8081
+> listen:
+>   management_uri: "http://0.0.0.0:8080"
+>   workload_uri: "http://0.0.0.0:8081"
+> ```
+
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
@@ -62,7 +74,7 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge Python module using Visual Studio Code and the Azure IoT Edge extension.
 1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
-2. In the integrated terminal, enter the following command to install (or update) **cookiecutter** (we suggest doing this either into a virtual environment or as a user install as shown below):
+2. In the integrated terminal, install (or update) **cookiecutter**. Install this package either into a virtual environment or as a user install, as shown in the following example:
 
     ```cmd/sh
     pip install --upgrade --user cookiecutter
@@ -78,20 +90,20 @@ The following steps show you how to create an IoT Edge Python module using Visua
  
 4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder and a deployment manifest template file. Open **modules** > **PythonModule** > **main.py**.
 
-5. At the top of the **main.py**, import the `json` library:
+5. At the top of the **main.py**, import the `json` library.
 
     ```python
     import json
     ```
 
-6. Add the `TEMPERATURE_THRESHOLD` and `TWIN_CALLBACKS` under the global counters. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
+6. Add `TEMPERATURE_THRESHOLD` and `TWIN_CALLBACKS` variables under the global counters. The temperature threshold sets the value that the measured machine temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```python
     TEMPERATURE_THRESHOLD = 25
     TWIN_CALLBACKS = 0
     ```
 
-7. Update the function `receive_message_callback` with below content.
+7. Replace the function `receive_message_callback` with the following code:
 
     ```python
     # receive_message_callback is invoked when an incoming message arrives on the specified 
@@ -117,7 +129,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
         return IoTHubMessageDispositionResult.ACCEPTED
     ```
 
-8. Add a new function `module_twin_callback`. This function will be invoked when the desired properties are updated.
+8. Add a new function called `module_twin_callback`. This function will be invoked when the desired properties are updated.
 
     ```python
     # module_twin_callback is invoked when twin's desired properties are updated.
@@ -200,17 +212,6 @@ You can see the full container image address with tag in the VS Code integrated 
 2. In Azure IoT Hub Devices explorer, right-click your IoT Edge device, then click **Create Deployment for IoT Edge device**. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**.
 
 3. Click the refresh button. You should see the new **PythonModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
-> [!IMPORTANT]
-> **Bugbash-only** The Python Device SDK is a wrapper of the C SDK and C SDK domain sockets aren’t present yet. This means in your config.yaml on your IoT Edge device, you’ll need to tell edgelet lo listen on HTTP. In the sample below, replace the IP’s with the IP of the device itself.  (It needs to be IP – just using the device name WILL NOT WORK because of the way that docker & /etc/hosts interact).
-> ```yaml
-> connect:
->   management_uri: "http://10.91.136.196:8080"
->   workload_uri: http://10.91.136.196:8081
-> listen:
->   management_uri: "http://0.0.0.0:8080"
->   workload_uri: "http://0.0.0.0:8081"
-> ```
-
 
 ## View generated data
 
@@ -228,8 +229,8 @@ In this tutorial, you created an IoT Edge module that contains code to filter ra
 
 
 <!-- Links -->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md
+[lnk-quickstart-win]: quickstart.md
+[lnk-quickstart-lin]: quickstart-linux.md
 
 <!-- Images -->
 [1]: ./media/tutorial-csharp-module/programcs.png
