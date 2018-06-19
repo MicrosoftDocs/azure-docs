@@ -263,11 +263,8 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [!div class="nextstepaction"]
 > [Learn how to add a regular expression entity](luis-quickstart-intents-regex-entity.md)
 
-Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
-
-Add the **dimension** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the volume for each drink type such as liters or gallons.
-
+Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number. 
 
 <!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions
+[LUIS]: luis-reference-regions.md#luis-website
+[LUIS-regions]: luis-reference-regions.md#publishing-regions

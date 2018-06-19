@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 06/06/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Printed Text (OCR) with Node.js
+# Quickstart: Extract printed text (OCR) with Node.js
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
 
@@ -44,7 +44,7 @@ const subscriptionKey = '<Subscription Key>';
 
 // You must use the same location in your REST call as you used to get your
 // subscription keys. For example, if you got your subscription keys from
-// westus,replace "westcentralus" in the URL below with "westus".
+// westus, replace "westcentralus" in the URL below with "westus".
 const uriBase =
     'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr';
 

@@ -1,23 +1,15 @@
 ﻿---
-title: Unified alerts in Azure Monitor| Microsoft Docs
+title: Unified alerts in Azure Monitor
 description: Description of unified alerts in Azure that allow you to manage alerts and alerts rules across Azure services.
 author: manishsm-msft
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/07/2018
-ms.author: mamit,bwren
-ms.custom:
-
+ms.author: mamit
+ms.component: alerts
 ---
+
 # Unified alerts in Azure Monitor
 
 ## Overview
@@ -100,8 +92,6 @@ Alerts are available across several Azure monitoring services. For information o
 | Application Insights | Web Availability Tests | Not supported in unified alerts.  See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
 ## Enhanced unified alerts (Public Preview)
-> [!NOTE]
->  The functionality in this section is coming soon. It may not appear in your version of the portal yet. 
 
 An enhanced unified alerts experience was released in public preview for Azure Monitor on June 1, 2018. This experience builds on the benefits of [unified alerts](#overview) released March 2018 and provides the ability to manage and aggregate individual alerts in addition to modifying alert state. This section describes the new features and how to navigate the new alert pages in the Azure portal.
 

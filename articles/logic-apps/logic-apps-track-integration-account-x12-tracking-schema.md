@@ -2,7 +2,7 @@
 title: X12 tracking schemas for B2B monitoring - Azure Logic Apps | Microsoft Docs
 description: Use X12 tracking schemas to monitor B2B messages from transactions in your Azure Integration Account.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''

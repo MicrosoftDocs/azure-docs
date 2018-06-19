@@ -427,4 +427,4 @@ items, such as more than 10 in the last 24 hours.
 
 - Review the [Policy definition structure](policy-definition.md).
 - Review [Understanding policy effects](policy-effects.md).
-- Review what a management group is with [Organize your resources with Azure Management Groups](../azure-resource-manager/management-groups-overview.md)
+- Review what a management group is with [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md)
