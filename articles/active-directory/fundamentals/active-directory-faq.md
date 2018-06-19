@@ -3,7 +3,7 @@ title: Azure Active Directory FAQ | Microsoft Docs
 description: Azure Active Directory FAQ answers common questions about Azure and Azure Active Directory, password management, and application access.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
-ms.author: markvi
+ms.author: lizross
 
 ---
 # Azure Active Directory FAQ

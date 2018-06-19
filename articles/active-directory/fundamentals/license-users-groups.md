@@ -3,7 +3,7 @@ title: License users in Azure Active Directory | Microsoft Docs
 description: Learn how to license yourself and your users in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: jeffgilb
+author: eross-msft
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: jeffgilb
+ms.author: lizross
+ms.reviewer: jeffgilb
 custom: it-pro
 ---
 # Quickstart: License users in Azure Active Directory
