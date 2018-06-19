@@ -27,18 +27,18 @@ An example environment may look like this:
 > [!NOTE]
 > `TemplatePath` is relative to your locker.
 
-### Create or Delete an Environment for Each Cluster
+## Create or Delete an Environment for Each Cluster
 
       [environment envname]​
       TemplatePath = arm/azure.deploy.json​
 ​
-### Use a Pre-Existing Environment
+## Use a Pre-Existing Environment
 
       [environment envname]​
       ManagedLifecycle = false​
       Azure.ResourceGroup = preexisting-rg​
 ​
-### Refer to an Environment Defined in Another ACC Cluster
+## Refer to an Environment Defined in Another ACC Cluster
 
       [environmentref envname]​
       SourceClusterName = long-running-cluster​

@@ -40,12 +40,16 @@
       href: submit-once-appendix.md
 - name: Quickstarts
   items:
-  - name: Quickstart 1
+  - name: Install and Setup Azure CycleCloud
     href: quickstart1.md
-  - name: Quickstart 2
+  - name: Configure Azure CycleServer
     href: quickstart2.md
-  - name: Quickstart 3
+  - name: Create a HPC Cluster
     href: quickstart3.md
+  - name: Run Jobs on your HPC Cluster
+    href: quickstart4.md  
+  - name: Clean up Resources
+    href: quickstart5.md
 - name: Templates
   items:
   - name: CycleCloud Templates
