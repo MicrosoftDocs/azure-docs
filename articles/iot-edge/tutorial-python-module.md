@@ -62,7 +62,7 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge Python module using Visual Studio Code and the Azure IoT Edge extension.
 1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
-2. In the integrated terminal, enter the following command to install (or update) **cookiecutter** (we suggest doing this either into a virtual environment or as a user install as shown below):
+2. In the integrated terminal, enter the following command to install (or update) **cookiecutter**:
 
     ```cmd/sh
     pip install --upgrade --user cookiecutter

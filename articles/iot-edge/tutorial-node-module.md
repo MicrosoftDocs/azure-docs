@@ -60,10 +60,10 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge Node.js module using Visual Studio Code and the Azure IoT Edge extension.
 1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
-2. In the integrated terminal, enter the following command to install **yeoman**:
+2. In the integrated terminal, enter the following command to install **yeoman** and **Bugbash-only** the generator for Node.js Azure IoT Edge module:
 
     ```cmd/sh
-    npm install -g yo
+    npm install -g yo https://github.com/Azure/generator-azure-iot-edge-module/archive/v1.0.0-rc.tar.gz
     ```
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
@@ -76,37 +76,59 @@ The following steps show you how to create an IoT Edge Node.js module using Visu
  
 4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder and a deployment manifest template file. Open **modules** > **NodeModule** > **app.js**.
 
-5. At the top of the **main.py**, import the `json` library:
+5. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```javascript
+    vartemperatureThreshold = 30;
+    ```
+
+6. Replace the entire `PipeMessage` function with the `FilterMessages` function.
+    
+    ```javascript
+    // This function filters out messages that report temperatures below the temperature threshold.
+    // It also adds the MessageType property to the message with the value set to Alert.
+
+    function filterMessage(client, inputName, msg) {
+        client.complete(msg, printResultFor('Receiving message'));
+        if (inputName === 'input1') {
+            var message = msg.getBytes().toString('utf8');
+            var messageBody = JSON.parse(message);
+            if (messageBody && messageBody.machine && messageBody.machine.temperature && messageBody.machine.temperature > temperatureThreshold) {
+                console.log(`Machine temperature ${messageBody.machine.temperature} exceeds threshold ${temperatureThreshold}`);
+                var outputMsg = new Message(message);
+                outputMsg.properties.add('MessageType', 'Alert');
+                client.sendOutputEvent('output1', outputMsg, printResultFor('Sending received message'));
+            }
+        }
+    }
 
     ```
 
-6. Add the `TEMPERATURE_THRESHOLD` and `TWIN_CALLBACKS` under the global counters. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
+7. Replace the function name `pipeMessage` with `filterMessage` in `client.on()` function.
 
     ```javascript
-
+    client.on('inputMessage', function (inputName, msg) {
+        filterMessage(inputName, msg);
+    });
     ```
 
-7. Update the function `receive_message_callback` with below content.
+8. Copy following code snippet into `client.open()` function callback (below `client.on()`). This function will be invoked when the desired properties are updated.
 
     ```javascript
-
+    client.getTwin(function(err, twin) {
+        if (err) {
+        console.error('Error getting twin: ' + err.message);
+        } else {
+        twin.on('properties.desired', function(delta) {
+            if (delta.TemperatureThreshold) {
+            temperatureThreshold = delta.TemperatureThreshold;
+            }
+        });
+        }
+    });
     ```
 
-8. Add a new function `module_twin_callback`. This function will be invoked when the desired properties are updated.
-
-    ```javascript
-
-    ```
-
-9. In class `HubManager`, add a new line to the `__init__` method to initialize the `module_twin_callback` function you just added.
-
-    ```javascript
-
-    ```
-
-10. Save this file.
+9. Save this file.
 
 ## Build your IoT Edge solution
 
