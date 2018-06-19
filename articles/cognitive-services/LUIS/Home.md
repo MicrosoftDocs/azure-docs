@@ -116,25 +116,25 @@ Several Microsoft technologies work with LUIS:
 Create a [new LUIS app](LUIS-get-started-create-app.md).
 
 <!-- Reference-style links -->
-[create-app]:luis-get-started-create-app.md
-[azure-portal]:https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account
-[publish-app]:PublishApp.md#test-your-published-endpoint-in-a-browser
-[luis-concept-entity-types]:luis-concept-entity-types.md
-[add-example-utterances]: luis-how-to-add-example-utterances.md
-[prebuilt-entities]: pre-builtentities.md
-[prebuilt-domains]: luis-how-to-use-prebuilt-domains.md
-[label-suggested-utterances]: label-suggested-utterances.md
-[intro-video]:https://aka.ms/LUIS-Intro-Video
-[bot-framework]:https://docs.microsoft.com/bot-framework/
-[speech]:../Speech/index.md
-[flow]:https://docs.microsoft.com/connectors/luis/
-[entity-concept]:luis-concept-entity-types.md
-[add-intents]:luis-how-to-add-intents.md
-[add-entities]:luis-how-to-add-entities.md
-[authoring-apis]:https://aka.ms/luis-authoring-api
-[endpoint-apis]:https://aka.ms/luis-endpoint-apis
-[LUIS]:luis-reference-regions.md
-[text-analytics]:https://azure.microsoft.com/services/cognitive-services/text-analytics/
-[patterns]:luis-concept-patterns.md
-[bing-spell-check-api]:https://azure.microsoft.com/services/cognitive-services/spell-check/
-[qnamaker]:https://qnamaker.ai/
+[create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
+[azure-portal]: https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account
+[publish-app]: https://docs.microsoft.com/azure/cognitive-services/luis/PublishApp#test-your-published-endpoint-in-a-browser
+[luis-concept-entity-types]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-entity-types
+[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
+[prebuilt-entities]: https://docs.microsoft.com/azure/cognitive-services/luis/pre-builtentities
+[prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-use-prebuilt-domains
+[label-suggested-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/label-suggested-utterances
+[intro-video]: https://aka.ms/LUIS-Intro-Video
+[bot-framework]: https://docs.microsoft.com/bot-framework/
+[speech]: https://docs.microsoft.com/azure/cognitive-services/Speech/index.md
+[flow]: https://docs.microsoft.com/connectors/luis/
+[entity-concept]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-entity-types
+[add-intents]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-intents
+[add-entities]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-entities
+[authoring-apis]: https://aka.ms/luis-authoring-api
+[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[text-analytics]: https://azure.microsoft.com/services/cognitive-services/text-analytics/
+[patterns]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-patterns
+[bing-spell-check-api]: https://azure.microsoft.com/services/cognitive-services/spell-check/
+[qnamaker]: https://qnamaker.ai/

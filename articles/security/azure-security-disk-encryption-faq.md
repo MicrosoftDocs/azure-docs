@@ -45,11 +45,13 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | OS and data disk |
 | Ubuntu | 14.04.5-DAILY-LTS | OS and data disk |
+| RHEL | 7.5 | Data disk* |
 | RHEL | 7.4 | Data disk* |
 | RHEL | 7.3 | Data disk* |
 | RHEL | 7.2 | Data disk* |
 | RHEL | 6.8 | Data disk* |
 | RHEL | 6.7 | Data disk* |
+| CentOS | 7.4 | OS and data disk |
 | CentOS | 7.3 | OS and data disk |
 | CentOS | 7.2n | OS and data disk |
 | CentOS | 6.8 | OS and data disk |
