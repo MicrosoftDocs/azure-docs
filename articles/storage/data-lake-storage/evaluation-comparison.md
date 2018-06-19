@@ -18,7 +18,9 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 
 Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compatible File System and a full hierarchical namespace just like Azure Data Lake Storage Gen1 does. Additionally, it brings all of Azure Blobs offerings to the table so functionality like data tiering and lifecycle management, durability options for HA and DR, event grid support, enhanced network security, and compatibility with all of Blob APIs.
 
-|Azure Data Lake Storage Gen1  |Azure Data Lake Storage Gen2  |
+## Comparison table
+
+|Azure Data Lake Storage Gen1  |Azure Data Lake Storage Gen2 (Preview)  |
 |---------|---------|
 |Compatible to HDFS standard – customer can perform analysis using the Hadoop analytic framework.  Applications or services that use the Hadoop file system API can easily integrate with Data Lake Storage Gen1.  Data Lake Storage Gen1 exposes a HDFS-compatible REST interface for applications.     |Same as Data Lake Storage Gen1          |
 |HDFS extensions – customers can use non-destructive concat, set expiry, acquire leases on files being written, etc.       |Not yet available in Data Lake Storage Gen2         |
@@ -41,7 +43,7 @@ Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compati
 |VNET support – customer can allow access to Data Lake Storage Gen1 from a specific VNET to restrict access.     |VNET support – customer can allow access to Data Lake Storage Gen2 from a specific VNET and/or IP addresses to restrict access.         |
 |High availability – customer can have their data available at least 99.9% of the time.     |High availability – customer can have their data available at least 99.99% of the time.         |
 |Regional availability – customer can use Data Lake Storage Gen1 in East US 2, Central US, North Europe, West Europe     |Regional availability – Data Lake Storage Gen2 is not yet available in all regions. Currently, Data Lake Storage Gen2 is available in West US 2 and West Central US         |
-|First party integration – customer can have integration with first party applications (for example, HDInsight, Azure VMs, ASA, Event Hubs, ADF, Powershell, ExpressRoute, Azure Import/Export, Azure CLI, R, SQL DW via Polybase, Key Vault, Data Catalog, Power BI, Analysis Services, Visual Studio).     |First party integration – customer can have integration with first party applications (for example, HDInsight, Azure Databricks, Azure VMs, ASA, Event Hubs, ADF, Powershell, ExpressRoute, Azure Import/Export, Azure Data box, Azure CLI, R, SQL DW via Polybase, AAD, Key Vault, Data Catalog, Power BI, Azure Analysis Services, EventGrid, Visual Studio).         |
+|First party integration – customer can have integration with first party applications (for example, HDInsight, Azure VMs, ASA, Event Hubs, ADF, Powershell, ExpressRoute, Azure Import/Export, Azure CLI, R, SQL DW via Polybase, Key Vault, Data Catalog, Power BI, Analysis Services, Visual Studio).     |First party integration – customer can have integration with first party applications (for example, HDInsight, Azure Databricks, Azure VMs, ASA, Event Hubs, ADF, Powershell, ExpressRoute, Azure Import/Export, Azure Data box, Azure CLI, R, SQL DW via Polybase, Key Vault, Data Catalog, Power BI, Azure Analysis Services, EventGrid, Visual Studio).         |
 |Third party integration – customer can have integration with third party applications (for example, Cloudera, Hortonworks, Nifi, Qubole, Informatica, StreamSets, ImanisData, Paxata, Trifacta).     |Third party integration – customer can have integration with third party applications (for example, Hortonworks, MapR, Nifi, Qubole, Informatica, StreamSets, ImanisData, Paxata, Trifacta).         |
 |Open Source Software – customer can use Spark, Hive, Tez, MapReduce, Storm, HBase, Sqoop, HCatalog, Mahout, Pig, Pig Latin, Oozie, Zookeeper.     |Same as Data Lake Storage Gen1         |
 |Data lifecycle policy: File expiration – customer can delete files at a specified date and time to reduce cost and manage compliance.     |Lifecycle Management Policies – customers will be able to define policies to control the automatic movement of data across the multiple tiers         |
@@ -49,6 +51,6 @@ Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compati
 |APIs – customer can use REST APIs over HTTPS.     |APIs – customer can use REST APIs over HTTP/HTTPS.         |
 |Many ways to read and write data – customer can use SDKs (.NET, Java, Python, R), Azure portal, and tools (Powershell, Azure CLI, AdlCopy, Distcp, ADF, Azure Import/Export) to read and write their data.     |Many ways to read and write data – Azure portal, and tools (Azure Storage Explorer, Powershell, Azure CLI, AzCopy, Distcp, ADF, Azure Import/Export, Azure Data box) to read and write their data.         |
 
-**Next step**
+## Next steps
 
-If you think that Data Lake Storage Gen2 might suit your needs, proceed to the [migration guide](evaluation-migration-guide.md) to begin planning a migration.
+Azure Data Lake Storage Gen2 is available as a limited public preview, with general availability in CY2018Q4. If you're interested, we invite you to participate so you can begin evaluating Data Lake Storage Gen2 and provide feedback through the private yammer.
