@@ -226,6 +226,14 @@ Actors do not do anything on their own, they require another service or client t
 
 1. Run the script using the watch utility to see the output of the actor service.  The test script calls the `setCountAsync()` method on the actor to increment a counter, calls the `getCountAsync()` method on the actor to get the new counter value, and displays that value to the console.
 
+   In case of MAC OS X, you need to copy the HelloWorldTestClient folder into the some location inside the container by running the following additional commands.    
+    
+    ```bash
+     docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
+     docker exec -it [first-four-digits-of-container-ID] /bin/bash
+     cd /home
+     ```
+
     ```bash
     cd HelloWorldActorTestClient
     watch -n 1 ./testclient.sh
