@@ -18,6 +18,8 @@
     #href:
   #- name: Extract, transform, and load data using Azure Databricks (Known)
     #href:
+  - name: Access Azure Data Lake Storage data with DataBricks using Spark
+    href: using-databricks-spark.md
   - name: Extract, transform, and load data using Apache Hive on Azure HDInsight
     href: tutorial-extract-transform-load-hive.md
 #- name: Samples
@@ -60,8 +62,6 @@
   items:
   - name: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
     href: use-hdi-cluster.md
-  - name: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark
-    href: using-databricks-spark.md
   - name: Secure data
     items:
       - name: Secure data in Azure Data Lake Storage
