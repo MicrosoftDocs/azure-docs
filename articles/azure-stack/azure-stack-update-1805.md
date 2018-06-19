@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 06/19/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -57,7 +57,7 @@ This update includes the following improvements for Azure Stack.
 ### Fixed issues
 
 <!-- # - applicability -->
-
+- We fixed the issue that blocked [opening a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the admin portal. This option now works as intended. 
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
