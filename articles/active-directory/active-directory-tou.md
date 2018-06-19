@@ -20,7 +20,7 @@ ms.author: rolyon
 # Azure Active Directory Terms of use feature
 Azure AD Terms of use provides a simple method that organizations can use to present information to end users. This presentation ensures users see relevant disclaimers for legal or compliance requirements. This article describes how to get started with Azure AD Terms of use.
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## What can I do with Terms of use?
 Azure AD Terms of use enables you to do the following:
