@@ -16,8 +16,8 @@
   items:
   #- name: Access Blob Storage from Spark (Known)
     #href:
-  #- name: Extract, transform, and load data using Azure Databricks (Known)
-    #href:
+  - name: Extract, transform, and load data using Azure Databricks
+    href: handle-data-using-databricks.md
   - name: Access Azure Data Lake Storage data with DataBricks using Spark
     href: using-databricks-spark.md
   - name: Extract, transform, and load data using Apache Hive on Azure HDInsight
