@@ -52,7 +52,7 @@ Both these failover options offer the following recovery point objectives (RPOs)
 Once the failover operation for the IoT hub completes, all operations from the device and backend applications are expected to continue working without requiring a manual intervention.
 
 > [!CAUTION]
-> The underlying Event Hub-compatible endpoint corresponding to the built-in endpoint of the IoT hub instance will change post failover. When receiving telemetry messages from the built-in endpoint using either the event hub client or event processor host, you MUST [use the IoT hub connection string](_https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin#read-from-the-built-in-endpoint) to establish the connection. This will ensure that your backend applications can continue working without requiring manual intervention post failover. If you use the Event Hub-compatible endpoint in your backend application directly, you will have to reconfigure your application by [fetching the new Event Hub-compatible endpoint](_https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin#read-from-the-built-in-endpoint)  after failover to continue operations. 
+> The Event Hub-compatible name and endpoint of the IoT Hub built-in Events endpoint change after failover. When receiving telemetry messages from the built-in endpoint using either the event hub client or event processor host, you should [use the IoT hub connection string](_https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin#read-from-the-built-in-endpoint) to establish the connection. This ensures that your backend applications continue to work without requiring manual intervention post failover. If you use the Event Hub-compatible name and endpoint in your backend application directly, you will need to reconfigure your application by [fetching the new Event Hub-compatible name and endpoint](_https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin#read-from-the-built-in-endpoint)  after failover to continue operations. 
 
 ### Microsoft initiated failover
 Microsoft initiated failover is exercised by Microsoft in extremely rare situations to fail over all the IoT hubs from an affected region to the corresponding geo-paired region. This is a default option (no way for users to opt out) and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism does not involve a user consent before the user's hub is failed over. Microsoft initiated failover has a recovery time objective (RTO) of 2-26 hours. The large RTO is because Microsoft must perform the failover operation on behalf of all the affected customers in that region. If you are running a less critical IoT solution that can sustain a downtime of roughly a day, it is ok for you to take a dependency on this option to satisfy the overall disaster recovery goals for your IoT solution. The total time for runtime operations to become fully operational once this process is triggered, is described in the "Time to recover" section. 
@@ -74,7 +74,7 @@ The manual failover option is always available for use irrespective of whether t
 
 ### Failback
 
-Failing back to the primary location can be achieved by triggering the failover action another time. If the original failover operation was performed to recover from an extended outage in the original primary location, we recommended that the hub should be failed back to the original location once that location has recovered from the outage situation. 
+Failing back to the old primary region can be achieved by triggering the failover action another time. If the original failover operation was performed to recover from an extended outage in the original primary region, we recommended that the hub should be failed back to the original location once that location has recovered from the outage situation. 
 
 > [!IMPORTANT]
 > Users are only allowed to perform 2 successful failover and 2 successful failback operations per day.
@@ -91,11 +91,11 @@ Time to recover = RTO [10 min - 2 hours for manual failover | 2 - 26 hours for M
 > [!IMPORTANT]
 > The IoT SDKs do not cache the IP address of the IoT hub. We recommend that user code interfacing with the SDKs should not cache the IP address of the IoT hub. 
 
-## Achieving cross region HA
+## Achieve cross region HA
 If your business uptime goals are not satisfied by the RTO that either Microsoft initiated failover or manual failover options provide, you should consider implementing a per-device automatic cross region failover mechanism. 
 A complete treatment of deployment topologies in IoT solutions is outside the scope of this article. The article discusses the *regional failover* deployment model for the purpose of high availability and disaster recovery.
 
-In a regional failover model, the solution back end runs primarily in one datacenter location. A secondary IoT hub and back end are deployed in another datacenter location. If the IoT hub in the primary datacenter suffers an outage or the network connectivity from the device to the primary datacenter is interrupted, devices use a secondary service endpoint. You can improve the solution availability by implementing a cross-region failover model instead of staying within a single region. 
+In a regional failover model, the solution back end runs primarily in one datacenter location. A secondary IoT hub and back end are deployed in another datacenter location. If the IoT hub in the primary region suffers an outage or the network connectivity from the device to the primary region is interrupted, devices use a secondary service endpoint. You can improve the solution availability by implementing a cross-region failover model instead of staying within a single region. 
 
 At a high level, to implement a regional failover model with IoT Hub, you need to take the following steps:
 
@@ -107,7 +107,7 @@ At a high level, to implement a regional failover model with IoT Hub, you need t
 * **Identity registry replication**: To be usable, the secondary IoT hub must contain all device identities that can connect to the solution. The solution should keep geo-replicated backups of device identities, and upload them to the secondary IoT hub before switching the active endpoint for the devices. The device identity export functionality of IoT Hub is useful in this context. For more information, see [IoT Hub developer guide - identity registry][IoT Hub developer guide - identity registry].
 * **Merging logic**: When the primary region becomes available again, all the state and data that have been created in the secondary site must be migrated back to the primary region. This state and data mostly relate to device identities and application metadata, which must be merged with the primary IoT hub and any other application-specific stores in the primary region. To simplify this step, you should use idempotent operations. Idempotent operations minimize the side-effects from the eventual consistent distribution of events, and from duplicates or out-of-order delivery of events. In addition, the application logic should be designed to tolerate potential inconsistencies or slightly out-of-date state. This situation can occur due to the additional time it takes for the system to heal based on recovery point objectives (RPO).
 
-## How to choose the right HA/DR option?
+## Choose the right HA/DR option
 Heres a summary of the HA/DR options presented in this article which can be used as a frame of reference to choose the right option that works for your solution
 
 | HA/DR Option | RTO | RPO | Requires manual intervention? | Implementation complexity | Cogs impact|
