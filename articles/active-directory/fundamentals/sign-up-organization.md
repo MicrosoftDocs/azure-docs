@@ -1,22 +1,21 @@
 ---
-title: Sign up for Azure as an organization
+title: Sign up for Azure AD as an organization | Microsoft Docs
 description: Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premises server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-
 ---
-# Sign up for Azure as an organization
+
+# How to: Sign up for Azure AD as an organization
 Until recently, you could only sign up for a new Microsoft Azure subscription using your Microsoft account (Windows Live ID). Azure now supports using either of the following two account methods to sign up:
 
 * **Microsoft accounts** (created by you for personal use) - Provide access to all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE, or Office 365. Signing up for an Outlook.com mailbox automatically creates a Microsoft account. After a Microsoft account is created, it can be used to access consumer-related Microsoft cloud services or Azure. [Learn more](http://www.microsoft.com/account/default.aspx)
