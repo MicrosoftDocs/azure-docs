@@ -17,7 +17,7 @@ ms.date: 06/15/2018
 ms.author: LADocs; estfan
 ---
 
-# Enterprise Integration with Queues & Events - reference architecture
+# Enterprise integration with queues and events: Reference architecture
 
 ## Overview
 
@@ -122,6 +122,6 @@ Additionally, should a Service Bus queue need to be exposed as an HTTP endpoint 
 
 Event Grid secures event delivery through a validation code. If you use LogicApps to consume the event, this is performed automatically. See more details about [Event Grid security and authentication](../event-grid/security-authentication.md).
 
-## Next Steps
+## Next steps
 
 * [Simple Enterprise Integration](logic-apps-architectures-simple-enterprise-integration.md)
