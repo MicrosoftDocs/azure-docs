@@ -1,0 +1,60 @@
+- name: Service Fabric Mesh Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: About Service Fabric Mesh
+    href: service-fabric-mesh-overview.md
+- name: Quickstarts
+  items:
+  - name: Deploy a container
+    href: service-fabric-mesh-quickstart-deploy-container.md
+  - name: Deploy a Service Fabric application
+    href: service-fabric-mesh-quickstart-dotnet-core.md
+
+- name: Tutorials
+  items:
+  - name: Test and deploy a .NET Core app for Azure Service Fabric Mesh
+    href: service-fabric-mesh-tutorial-create-dotnetcore.md
+
+- name: Concepts
+  items:
+  - name: Terminology
+    href: service-fabric-mesh-terminology.md
+  - name: Application model
+    href: service-fabric-mesh-application-model.md
+  - name: Monitoring and diagnostics
+    href: service-fabric-mesh-monitoring-diagnostics.md
+  - name: Application scaling
+    href: service-fabric-mesh-scaling.md
+  - name: Storing state
+    href: service-fabric-mesh-storing-state.md
+
+- name: How-to guides
+  items:
+  - name: Set up your development environment
+    href: service-fabric-mesh-setup-developer-environment-sdk.md
+  - name: Deploy an app (CLI)
+    href: service-fabric-mesh-deploy-app-template.md
+
+- name: Reference
+  items:
+  - name: REST APIs
+    href: https://msdn.microsoft.com/library/mt704034(Azure.100).aspx
+
+- name: Resources
+  items:
+  - name: Common questions
+    href: service-fabric-mesh-faq.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=service-fabric-mesh
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=service-fabric-mesh
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric-mesh
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/service-fabric-mesh/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=service-fabric-mesh
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
