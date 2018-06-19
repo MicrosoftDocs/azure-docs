@@ -32,7 +32,7 @@ This article describes quotas and limitations in Azure Media Services v3.
 | StreamingPolicies | 1,000,000<sup>(3)</sup> |
 | LiveOutputs in running state per LiveEvent |3|
 | LiveOutputs in stopped state per LiveEvent |50|
-| Number of files within a JobInput|10|
+| Number of files per JobInput|10|
 | Storage accounts | 100<sup>(4)</sup> (fixed) |
 | Streaming Endpoints in running state per Media Services account|2|
 | Transforms per Media Services account | 100 |

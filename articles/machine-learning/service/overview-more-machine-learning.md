@@ -9,7 +9,7 @@ ms.reviewer: garyericson, mldocs
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/11/2018
 ---
 
