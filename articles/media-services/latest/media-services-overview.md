@@ -76,7 +76,7 @@ As a developer, you can use Media Services [REST API](https://go.microsoft.com/f
 |[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[.NET samples](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
 |[.NET Core SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (Choose the **.NET CLI** tab)|[.NET Core samples](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
 |[Java SDK](https://docs.microsoft.com/java/api/overview/azure/mediaservices)||
-|[Node.js SDK](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Nodejs samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
+|[Node.js SDK](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Node.js samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
 |[Python SDK](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
 |[Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||
 
