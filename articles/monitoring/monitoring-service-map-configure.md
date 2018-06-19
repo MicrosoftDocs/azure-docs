@@ -319,6 +319,7 @@ The following sections list the supported operating systems for the Dependency A
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
 
 #### Red Hat Linux 6
 | OS version | Kernel version |

@@ -51,4 +51,5 @@ You can now create and publish reports as you normally would with Power BI.
 
 ## Next steps
 
-* [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md)

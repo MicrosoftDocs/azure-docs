@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
 
@@ -70,35 +70,45 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 2. In the **Properties** page, specify **CopyFromAmazonS3ToADLS** for the **Task name** field, and select **Next**:
 
     ![Properties page](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. In the **Source data store** page, select **Amazon S3**, and select **Next**:
+3. In the **Source data store** page, click **+ Create new connection**:
 
     ![Source data store page](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
+	
+	Select **Amazon S3**, and select **Continue**
+	
+	![Source data store s3 page](./media/load-data-into-azure-data-lake-store/source-data-store-page-s3.png)
+	
 4. In the **Specify Amazon S3 connection** page, do the following steps: 
    1. Specify the **Access Key ID** value.
    2. Specify the **Secret Access Key** value.
-   3. Select **Next**.
+   3. Select **Finish**.
    
    ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+   
+   4. You will see a new connection. Select **Next**.
+   
+   ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
+   
 5. In the **Choose the input file or folder** page, browse to the folder and file that you want to copy over. Select the folder/file, select **Choose**, and then select **Next**:
 
     ![Choose input file or folder](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. In the **Destination data store** page, select **Azure Data Lake Store**, and select **Next**:
-
-    ![Destination data store page](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
-
-7. Choose the copy behavior by selecting the **Copy files recursively** and **Binary copy** (copy files as-is) options. Select **Next**:
+6. Choose the copy behavior by selecting the **Copy files recursively** and **Binary copy** (copy files as-is) options. Select **Next**:
 
     ![Specify output folder](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
+	
+7. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Lake Store**, and select **Continue**:
+
+    ![Destination data store page](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
 8. In the **Specify Data Lake Store connection** page, do the following steps: 
 
    1. Select your Data Lake Store for the **Data Lake Store account name**.
-   2. Specify the service principal information: **Tenant**, **Service principal ID**, and **Service principal key**.
+   2. Specify the **Tenant**, and select Finish.
    3. Select **Next**.
    
    > [!IMPORTANT]
-   > In this walkthrough, you use a _service principal_ to authenticate your Data Lake Store. Be sure to grant the service principal the proper permissions in Azure Data Lake Store by following [these instructions](connector-azure-data-lake-store.md#using-service-principal-authentication).
+   > In this walkthrough, you use a _managed service identity_ to authenticate your Data Lake Store. Be sure to grant the service principal the proper permissions in Azure Data Lake Store by following [these instructions](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Specify Azure Data Lake Store account](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**: 

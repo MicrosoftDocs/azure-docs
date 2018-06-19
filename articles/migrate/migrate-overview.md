@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/03/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -44,8 +44,8 @@ An assessment helps you identify the Azure suitability of on-premises VMs, get r
 **Property** | **Details**
 --- | ---
 **Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 30 regions including Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, Germany Central, Germany Northeast, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US, and West US2. By default, the target location is set to West US 2.
-**Storage redundancy** | The type of [storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) that the Azure VMs will use after migration. Locally Redundant Storage (LRS) is the default. Note that Azure Migrate only supports managed disks-based assessments and managed disks only support LRS, hence the property currently only has the LRS option.
-**Sizing Criterion** | The criterion to be used by Azure Migrate to right-size VMs for Azure. You can do sizing either based on *performance history* of the on-premises VMs or size the VMs *as on-premises* for Azure without considering the performance history. The default value is performance-based sizing.
+**Storage type** | You can specify the type of disks you want to allocate in Azure. This property is applicable when the sizing criterion is as on-premises sizing. You can specify the target disk type either as Premium managed disks or Standard managed disks. The default value is Premium managed disks. For performance-based sizing, the disk recommendation is automatically done based on the performance data of the VMs. Note that Azure Migrate only supports managed disks for migration assessment.
+**Sizing Criterion** | The criterion to be used by Azure Migrate to right-size VMs for Azure. You can do sizing either based on *performance history* of the on-premises VMs or size the VMs *as on-premises* for Azure without considering the performance history. The default value is as on-premises sizing.
 **Pricing plans** | For cost calculations, an assessment considers whether you have software assurance, and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). It also considers [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/) that you might be enrolled to, and allows you to specify any subscription-specific discounts (%), that you may get on top of the offer.
 **Pricing tier** | You can specify the [pricing tier (Basic/Standard)](../virtual-machines/windows/sizes-general.md) for the target Azure VMs. For example, if you are planning to migrate a production environment, you would like to consider the Standard tier, which provides VMs with low latency but may cost more. On the other hand, if you have a Dev-Test environment, you may want to consider the Basic tier that has VMs with higher latency and lower costs. By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used.
 **Performance history** | By default, Azure Migrate evaluates the performance of on-premises machines using the performance history of the last one day, with a 95% percentile value. You can modify these values in the assessment properties.
@@ -96,4 +96,6 @@ After you've assessed on-premises machines for migration with the Azure Migrate 
 
 
 ## Next steps
-[Follow a tutorial](tutorial-assessment-vmware.md) to create an assessment for an on-premises VMware VM.
+
+- [Follow a tutorial](tutorial-assessment-vmware.md) to create an assessment for an on-premises VMware VM.
+- [Learn more](resources-faq.md) about the FAQs on Azure Migrate

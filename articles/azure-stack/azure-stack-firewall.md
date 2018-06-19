@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
@@ -45,7 +45,7 @@ In an edge deployment, Azure Stack is deployed directly behind the edge router o
 
 Typically, public routable IP addresses are specified for the public VIP pool from the external network at deployment time. In an edge scenario, it is not recommended to use public routable IPs on any other network for security purposes. This scenario enables a user to experience the full self-controlled cloud experience as in a public cloud like Azure.  
 
-![Azure Stack edge firewall example](.\media\azure-stack-firewall\edge-firewall-scenario.png)
+![Azure Stack edge firewall example](.\media\azure-stack-firewall\firewallScenarios.png)
 
 ## Enterprise intranet or perimeter network firewall scenario
 In an enterprise intranet or perimeter deployment, Azure Stack is deployed on a multi-zoned firewall or in between the edge firewall and the internal, corporate network firewall. Its traffic is then distributed between the secure, perimeter network (or DMZ), and unsecure zones as described below:

@@ -3,16 +3,17 @@ title: Application page does not display correctly for an Application Proxy appl
 description: Guidance when the page isn’t displaying correctly in an Application Proxy Application you have integrated with Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
-ms.author: asteen
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: harshja
 
 ---
 
@@ -31,7 +32,7 @@ As an example of this case, assume you have published an expenses application us
 
 If it is not possible to publish all resources within the same application, you need to publish multiple applications and enable links between them.
 
-To do so, we recommend using the [custom domains](active-directory-application-proxy-custom-domains.md) solution. However, this solution requires that you own the certificate for your domain and your applications use fully qualified domain names (FQDNs). For other options, see the [troubleshoot broken links documentation](application-proxy-page-links-broken-problem.md).
+To do so, we recommend using the [custom domains](manage-apps/application-proxy-configure-custom-domain.md) solution. However, this solution requires that you own the certificate for your domain and your applications use fully qualified domain names (FQDNs). For other options, see the [troubleshoot broken links documentation](application-proxy-page-links-broken-problem.md).
 
 ## Next steps
-[Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md)
+[Publish applications using Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md)

@@ -4,11 +4,7 @@
   items:
     - name: What is Bing Video Search?
       href: search-the-web.md
-    - name: Video Search endpoints
-      href: video-search-endpoints.md
-    - name: Analytics for Videos Search API
-      href: bing-video-stats.md
-- name: API Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
   - name: Get started
@@ -25,12 +21,28 @@
     href: python.md
   - name: Ruby
     href: ruby.md
+- name: SDK Quickstarts
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Video Search SDK C# quickstart
+    href: video-search-sdk-quickstart.md 
+  - name: Video Search SDK Node quickstart
+    href: video-search-sdk-node-quickstart.md 
+  - name: Video Search SDK Python quickstart
+    href: video-sdk-python-quickstart.md
+  - name: Video Search SDK Java quickstart
+    href: video-sdk-java-quickstart.md 
 - name: Tutorials
   items:
   - name: Single-page web app
     href: tutorial-bing-video-search-single-page-app.md
   - name: Single-page web app (source code)
     href: tutorial-bing-video-search-single-page-app-source.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Video+Search
 - name: How-to guides
   items:
   - name: Use and display requirements
@@ -49,18 +61,6 @@
   items:
   - name: Bing Video Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference
-  - name: Bing Search SDK
-    items:
-    - name: SDK samples overview 
-      href: sdk.md
-    - name: Video Search SDK C# quickstart
-      href: video-search-sdk-quickstart.md 
-    - name: Video Search SDK Node quickstart (preview)
-      href: video-search-sdk-node-quickstart.md 
-    - name: Video Search SDK Python quickstart (preview)
-      href: video-sdk-python-quickstart.md
-    - name: Video Search SDK Java quickstart (preview)
-      href: video-sdk-java-quickstart.md 
   - name: Bing Video Search API v5 
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference 
 - name: Resources
@@ -81,5 +81,7 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api
   - name: Try it!
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
-  - name: Video Search endpoints
+  - name: Bing Video Search endpoints
     href: video-search-endpoints.md
+  - name: Analytics for Bing Video Search API
+    href: bing-video-stats.md

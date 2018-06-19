@@ -82,4 +82,4 @@ text i'm driving and will be 30 minutes late to the meeting,02/13/2018 15:18:43,
 
 ## Next steps
 
-Your first task in the app is to [add intents](Add-intents.md).
+Your first task in the app is to [add intents](luis-how-to-add-intents.md).

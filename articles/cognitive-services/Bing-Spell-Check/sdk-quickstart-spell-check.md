@@ -1,5 +1,5 @@
 ---
-title: Spell Check SDK C# quickstart | Microsoft Docs
+title: Spell Check SDK C# quickstart - Azure Cognitive Services | Microsoft Docs
 description: Setup for Spell Check SDK console application
 titleSuffix: Azure cognitive services setup Spell check search SDK C# console application
 services: cognitive-services
@@ -7,43 +7,48 @@ author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
 ---
+# Spell Check SDK C# Quickstart
 
-# Spell Check SDK C# quickstart
-The Bing Spell Check SDK contains the functionality of the REST API for spell check. 
+The Bing Spell Check SDK contains the functionality of the REST API for spell check.
 
 ## Application dependencies
 
-To set up a console application using the Bing Spell Check SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.SpellCheck` package.
+To set up a console application using the Bing Spell Check SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio. Add the `Microsoft.Azure.CognitiveServices.SpellCheck` package.
 
 Installing the [SpellCheck SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.SpellCheck/1.2.0) also installs dependencies, including:
+
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.AZure
 * Newtonsoft.Json
 
 ## Spell check client
+
 To create an instance of the `SpellCheckAPI` client, add using directive:
-```
+
+```cs
 using Microsoft.Azure.CognitiveServices.SpellCheck;
-
 ```
+
 Then, instantiate the client:
-```
-var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
+```cs
+var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
+
 Use the client to check spelling:
-```
+
+```cs
 var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof").Result;
 Console.WriteLine("Correction for Query# \"bill gatas\"");
-
 ```
 
 Parse the results:
-```
+
+```cs
 // SpellCheck Results
 if (result?.Body.FlaggedTokens?.Count > 0)
 {
@@ -74,12 +79,13 @@ if (result?.Body.FlaggedTokens?.Count > 0)
     {
         Console.WriteLine("Didn't see any SpellCheck results..");
     }
-
 ```
+
 ## Complete console application
 
 The following console application executes the previous code:
-```
+
+```cs
 using System;
 using System.Linq;
 using Microsoft.Azure.CognitiveServices.SpellCheck;
@@ -137,7 +143,7 @@ namespace SpellCheckSDK
             Console.WriteLine("Any key to exit...");
             Console.ReadKey();
         }
-        
+
         // This will trigger an error response from the API.
         public static void SpellCheckError(string subscriptionKey)
         {

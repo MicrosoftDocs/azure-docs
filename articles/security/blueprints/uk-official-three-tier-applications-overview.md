@@ -147,7 +147,7 @@ Storage
 
 **Internet Gateway and Public IP Address**: The internet gateway exposes application services to users through the internet. Traffic accessing these services is secured using an [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offering Layer 7 routing and load balancing capabilities with web application firewall (WAF) protection.
 
-**Management VNet**: This [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) contains resources that implement management and monitoring capabilities for the workloads running in the production VNet.
+**Management VNet**: This [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) contains resources that implement management and monitoring capabilities for the workloads running in the production VNet.
 
 **Jumpbox**: Also called a [bastion host](https://en.wikipedia.org/wiki/Bastion_host), which is a secure VM on the network that administrators use to connect to VMs in the production VNet. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. To permit remote desktop (RDP) traffic, the source of the traffic needs to be defined in the NSG. Management of production resources is via RDP using a secured Jumpbox VM.
 

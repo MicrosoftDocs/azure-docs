@@ -79,17 +79,17 @@ In the left-hand navigation of your web app page, scroll to the **Settings** sec
 
 ![Scale-up menu](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-Check to make sure that your web app is not in the **Free** or **Shared** tier. Your web app's current tier is highlighted by a dark blue box.
+Check to make sure that your web app is not in the **F1** or **D1** tier. Your web app's current tier is highlighted by a dark blue box.
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-Custom SSL is not supported in the **Free** or **Shared** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Choose your pricing tier** page and skip to [Upload and bind your SSL certificate](#upload).
+Custom SSL is not supported in the **F1** or **D1** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** page and skip to [Upload and bind your SSL certificate](#upload).
 
 ### Scale up your App Service plan
 
-Select one of the **Basic**, **Standard**, or **Premium** tiers.
+Select any of the non-free tiers (**B1**, **B2**, **B3**, or any tier in the **Production** category). For additional options, click **See additional options**.
 
-Click **Select**.
+Click **Apply**.
 
 ![Choose pricing tier](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
@@ -300,6 +300,6 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to use Azure Content Delivery Network.
 
 > [!div class="nextstepaction"]
-> [Add a Content Delivery Network (CDN) to an Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+> [Add a Content Delivery Network (CDN) to an Azure App Service](../cdn/cdn-add-to-web-app.md)
 
 For more information, see [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md).

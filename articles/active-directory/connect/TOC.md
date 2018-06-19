@@ -29,7 +29,11 @@
 ## [Manage Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Renew certs for O365 and Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Update the SSL certificate for an Active Directory Federation Services (AD FS) farm](active-directory-aadconnectfed-ssl-update.md)
-### [Enable device writeback](active-directory-aadconnect-feature-device-writeback.md)
+
+### [Device options](active-directory-azure-ad-connect-device-options.md)
+#### [Enable device writeback](active-directory-aadconnect-feature-device-writeback.md)
+#### [Hybrid Azure AD join post-config tasks](active-directory-azure-ad-connect-hybrid-azure-ad-join-post-config-tasks.md)
+
 ### [User sign-on options](active-directory-aadconnect-user-signin.md)
 #### [Seamless Single Sign-on](active-directory-aadconnect-sso.md)
 ##### [Quick start](active-directory-aadconnect-sso-quick-start.md)
@@ -50,7 +54,7 @@
 ### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
 ### [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Use a SAML 2.0 Identity Provider (IdP) for Single Sign On](active-directory-aadconnect-federation-saml-idp.md)
-### [Synchronizing guest users user accounts that use email for sign-in](active-directory-aadconnect-guest-sync.md)
+
 
 
 ## Manage Azure AD Connect Sync
@@ -83,7 +87,8 @@
 
 
 ## Troubleshoot
-### [Connectivity](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Azure AD connectivity with Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [SQL Connectivty](active-directory-aadconnect-tshoot-sql-connectivity.md)
 ### [Errors during synchronization](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Object is not synchronized](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Object sync using the troubleshooting task](active-directory-aadconnect-troubleshoot-objectsync.md)

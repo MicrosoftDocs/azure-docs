@@ -3,12 +3,12 @@ title: How to use Microsoft Translator Text API with C#, Azure Cognitive Service
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: Jann-Skotdal
+author: v-stadam
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: article
 ms.date: 10/30/2017
-ms.author: v-jansko
+ms.author: v-stadam
 ---
 # How to use the Microsoft Translator Text API with C#
 
@@ -70,7 +70,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            GetLanguages().Wait;
+            GetLanguages();
             Console.ReadLine();
         }
     }
@@ -225,7 +225,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Translate().Wait;
+            Translate();
             Console.ReadLine();
         }
     }
@@ -315,7 +315,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Detect().Wait;
+            Detect();
             Console.ReadLine();
         }
     }
@@ -409,7 +409,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Break().Wait;
+            Break();
             Console.ReadLine();
         }
     }
@@ -497,7 +497,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Transliterate().Wait;
+            Transliterate();
             Console.ReadLine();
         }
     }
@@ -577,7 +577,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Lookup().Wait;
+            Lookup();
             Console.ReadLine();
         }
     }
@@ -705,7 +705,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Examples().Wait;
+            Examples();
             Console.ReadLine();
         }
     }

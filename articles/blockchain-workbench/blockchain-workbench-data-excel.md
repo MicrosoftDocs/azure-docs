@@ -63,4 +63,5 @@ Now that you have the data loaded, you can use Excel features to create your own
 
 ## Next steps
 
-* [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md)

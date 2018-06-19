@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/01/2018
+ms.date: 06/15/2018
 ms.author: larryfr
 ---
 # Analyze logs for Apache Kafka on HDInsight
@@ -35,7 +35,7 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
     >
     > * The HDInsight cluster name.
     > * The workspace ID for Log Analytics. You can find the workspace ID in your Log Analytics workspace.
-    > * The primary key for the Log Analytics connection. To find the primary key, select your Log Analytics instance and then __OMS Portal__. From the OMS Portal, select __Settings__, __Connected Sources__, and then __Linux Servers__.
+    > * The primary key for the Log Analytics connection. To find the primary key, open the workspace in the Azure portal, select __Advanced settings__ from the left menu. From Advanced settings, select  __Connected Sources__>__Linux Servers__.
 
 
 > [!IMPORTANT]

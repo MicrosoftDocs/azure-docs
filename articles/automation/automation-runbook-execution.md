@@ -7,7 +7,7 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/08/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Runbook execution in Azure Automation

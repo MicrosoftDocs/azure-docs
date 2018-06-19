@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines-linux
+ author: iainfoulds
+ ms.service: virtual-machines-linux
+ ms.topic: include
+ ms.date: 05/17/2018
+ ms.author: iainfou
+ ms.custom: include file
+
+---
+
 This article outlines a set of proven practices for running a Linux virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security. Azure supports running various popular Linux distributions, including CentOS, Debian, Red Hat Enterprise, Ubuntu, and FreeBSD. For more information, see [Azure and Linux][azure-linux].
 
 > [!NOTE]
@@ -185,8 +198,8 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [manage-vm-availability]:../articles/virtual-machines/linux/manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
-[nsg]: ../articles/virtual-network/virtual-networks-nsg.md
-[nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
+[nsg]: ../articles/virtual-network/security-overview.md
+[nsg-default-rules]: ../articles/virtual-network/security-overview.md#default-security-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
 [premium-storage]:../articles/virtual-machines/windows/premium-storage.md

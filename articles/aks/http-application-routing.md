@@ -24,7 +24,25 @@ The add-on deploys two components a [Kubernetes Ingress Controller][ingress] and
 - **Ingress controller** - the ingress controller is exposed to the internet using a Kubernetes service of type LoadBalancer. The ingress controller watches and implements [Kubernetes ingress resources][ingress-resource], which creates routes to application endpoints.
 - **External-DNS controller** - watches for Kubernetes ingress resources and creates DNS A records in the cluster-specific DNS Zone.
 
-## Deploy HTTP routing
+## Deploy HTTP routing - CLI
+
+The HTTP Application Routing add-on can be enabled with the Azure CLI when deploying and AKS cluster. To do so, use the [az aks create][az-aks-create] command with the `--enable-addons` argument.
+
+```azurecli
+az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
+```
+
+Once the cluster has been deployed, used the [az aks show][az-aks-show] command to retrieve the DNS zone name. This name is needed when deploying applications to the AKS cluster.
+
+```azurecli
+$ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+
+Result
+-----------------------------------------------------
+9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+```
+
+## Deploy HTTP routing - portal
 
 The HTTP Application Routing add-on can be enabled through the Azure portal when deploying an AKS cluster.
 
@@ -95,10 +113,10 @@ spec:
         path: /
 ```
 
-Use the [kubectl create][kubectl-create] command to create the resources.
+Use the [kubectl apply][kubectl-apply] command to create the resources.
 
 ```
-$ kubectl create -f samples-http-application-routing.yaml
+$ kubectl apply -f samples-http-application-routing.yaml
 
 deployment "party-clippy" created
 service "party-clippy" created
@@ -199,12 +217,15 @@ ingress "party-clippy" deleted
 For information on installing an HTTPS secured Ingress controller in AKS, see [HTTPS Ingress on Azure Container Service (AKS)][ingress-https]
 
 <!-- LINKS - internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress.md
+
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/

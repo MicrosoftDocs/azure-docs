@@ -121,4 +121,5 @@ Azure Monitor provides information on the health of the blockchain network.
 
 ## Next steps
 
-[Deploy Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Deploy Azure Blockchain Workbench](blockchain-workbench-deploy.md)

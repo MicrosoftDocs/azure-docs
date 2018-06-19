@@ -30,6 +30,10 @@
       href: custom-script-linuxOstc.md
     - name: Windows
       href: custom-script-windows.md
+    - name: Azure Service Management (Classic)
+      href: custom-script-classic.md
+  - name: Virtual machine access
+    href: vmaccess.md
   - name: Operations Management suite
     items:
     - name: Linux
@@ -61,8 +65,6 @@
       href: dsc-template.md
   - name: IaaS antimalware for Windows
     href: iaas-antimalware-windows.md
-  - name: Key Vault 
-    href: key-vault-windows.md
   - name: VM Snapshot 
     items:
     - name: Linux

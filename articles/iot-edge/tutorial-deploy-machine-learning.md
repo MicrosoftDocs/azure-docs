@@ -1,17 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Deploy Azure Machine Learning with Azure IoT Edge | Microsoft Docs
 description: Deploy Azure Machine Learning as a module to an edge device
-services: iot-edge
-keywords:
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 03/12/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Deploy Azure Machine Learning as an IoT Edge module - preview
@@ -32,8 +29,8 @@ The Azure Machine Learning module that you create in this tutorial reads the env
 
 * The Azure IoT Edge device that you created in the quickstart or first tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.
-* An Azure Machine Learning account. To create an account, follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial.
-* Module Management for Azure ML on your machine. To set up your environment and create an account, follow the instructions in [Model management setup](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration).
+* An Azure Machine Learning account. To create an account, follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
+* Module Management for Azure ML on your machine. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
 
 The Azure Machine Learning module does not support ARM processors.
 

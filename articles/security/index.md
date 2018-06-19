@@ -43,7 +43,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">I’m considering Azure for my company. What does Azure have to offer?</p>
+                            <p style="font-size: 1.12rem;">I’m considering Azure for my company. What security does Azure have to offer?</p>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-network-security-best-practices">
+        <a href="/azure/security/security-network-overview">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -121,7 +121,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">What are the monitoring and logging options available in Azure?</p>
+                            <p style="font-size: 1.12rem;">What monitoring and logging options are available in Azure?</p>
                         </div>
                     </div>
                 </div>
@@ -293,19 +293,6 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
                             <p style="font-size: 1.12rem;">PCI DSS</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <li style="list-style: none;">
-        <a href="/azure/security/manage-personal-data-azure">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
-                        <div class="cardText">
-                            <p style="font-size: 1.12rem;">GDPR</p>
                         </div>
                     </div>
                 </div>
