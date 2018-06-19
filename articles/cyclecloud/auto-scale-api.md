@@ -1,20 +1,4 @@
-# Scale Your Clusters
-
-Concept
-
-Why Scale Clusters
-
-Manual
-
-Auto Scale
-
-
-
-
-
-Move all this to Reference? How-To? TBD VVVV
-
-## Auto-Scale Plugins and API
+# Auto-Scale Plugins and API
 
 Azure CycleCloud provides APIs to allow users to enable auto-scaling for cluster types
 that are not already built-in.

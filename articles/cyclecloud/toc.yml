@@ -30,8 +30,8 @@
     items:
     - name: Clusters
       href: clusters.md
-    - name: Auto-Scale
-      href: autoscale-api.md
+    - name: Scale Your Cluster
+      href: scale-your-cluster.md
   - name: Cluster Templates
     items:
       - name: Cluster Templates
@@ -42,8 +42,8 @@
     href: projects.md
   - name: Storage
     items:
-    - name: Storage
-      href: storage.md
+    - name: Attach Storage
+      href: attach-storage.md
     - name: Mount Volumes
       href: storage-mount-volumes.md
     - name: Configure NFS Mounts and Exports
@@ -82,10 +82,10 @@
       href: event-logs.md
     - name: HealthCheck
       href: healthcheck.md
-  - name: User Creation and RBAC
+  - name: User Management
     items:
     - name: User Authentication
-      href:
+      href: user-authentication.md
     - name: Cluster Users
       href:
 - name: How-To
@@ -111,7 +111,7 @@
   - name: Images
     href: images.md
   - name: Create Custom Roles
-    href:
+    href: create-custom-roles.md
   - name: Cluster User Management
     href:
 - name: Reference
@@ -134,6 +134,8 @@
       href: pogo-configuration.md
     - name: Using pogo
       href: pogo-guide.md
+  - name: Auto-Scale
+    href: autoscale-api.md
   - name: Scheduler
     href: scheduler-integration.md
   - name: CycleServer Datastore
