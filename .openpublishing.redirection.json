@@ -8677,6 +8677,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-alerts.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-alerts-actions.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-alerts-webhooks.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-alerts-creating.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-system-update.md",
             "redirect_url": "/azure/automation/automation-update-management",
             "redirect_document_id": false
@@ -11477,6 +11497,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Translator/quickstarts/csharp.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-csharp-translate",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
             "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-build-system.md",
             "redirect_document_id": false
@@ -13794,6 +13819,11 @@
         {
             "source_path": "articles/active-directory/active-directory-howto-tenant.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-howto-tenant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-cordova.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-devquickstarts-xamarin",
             "redirect_document_id": false
         },
         {
@@ -25250,6 +25280,66 @@
             "source_path": "articles/cognitive-services/LUIS/Train-Test.md",
             "redirect_url": "/azure/cognitive-services/LUIS/interactive-test",
             "redirect_document_id": true
+        },
+		        {
+            "source_path": "articles/active-directory/active-directory-application-access-content-map.md",
+            "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-access-panel-content-map.md",
+            "redirect_url": "/azure/active-directory/application-access-panel-extension-problem-installing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-conditional-access-content-map.md",
+            "redirect_url": "/azure/active-directory/active-directory-conditional-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-config-content-map.md",
+            "redirect_url": "/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-dev-config-content-map.md",
+            "redirect_url": "/azure/active-directory/application-dev-registration-config-grant-permissions-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-dev-development-content-map.md",
+            "redirect_url": "/azure/active-directory/application-dev-registration-config-change-token-lifetime-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-dev-troubleshoot-content-map.md",
+            "redirect_url": "/azure/active-directory/application-dev-registration-config-grant-permissions-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-management-troubleshoot-content-map.md",
+            "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-provisioning-content-map.md",
+            "redirect_url": "/azure/active-directory/application-provisioning-config-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-content-map.md",
+            "redirect_url": "/azure/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-sign-in-content-map.md",
+            "redirect_url": "/azure/active-directory/application-sign-in-unexpected-user-consent-error",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-troubleshoot-content-map.md",
+            "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
+            "redirect_document_id": false
         }
     ]
 }

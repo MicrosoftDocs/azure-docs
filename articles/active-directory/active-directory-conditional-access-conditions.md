@@ -19,6 +19,8 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 
+#Customer intent: As a IT admin, I need to understand the conditions in conditional access so that I can set them according to my business needs
+
 ---
 
 # What are conditions in Azure Active Directory conditional access? 
@@ -137,7 +139,7 @@ Common use cases for this condition are policies that:
 
 - Block access for users accessing a service from specific countries or regions. 
 
-For more information, see [Location conditions in Azure Active Directory conditional access](active-directory-conditional-access-locations.md).
+For more information, see [What is the location condition in Azure Active Directory conditional access?](active-directory-conditional-access-locations.md)
 
 
 ## Client apps
