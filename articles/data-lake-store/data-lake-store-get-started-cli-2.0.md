@@ -1,6 +1,6 @@
 ---
-title: Use Azure command-line 2.0 interface to get started with Azure Data Lake Store | Microsoft Docs
-description: Use Azure cross-platform command line 2.0 to create a Data Lake Store account and perform basic operations
+title: Use Azure CLI interface to get started with Azure Data Lake Store | Microsoft Docs
+description: Use Azure CLI to create a Data Lake Store account and perform basic operations
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -15,17 +15,17 @@ ms.date: 05/29/2018
 ms.author: nitinme
 
 ---
-# Get started with Azure Data Lake Store using Azure CLI 2.0
+# Get started with Azure Data Lake Store using Azure CLI
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-Learn how to use Azure CLI 2.0 to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
+Learn how to use Azure CLI to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
 
-The Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. For more information, see [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure). You can also look at the [Azure Data Lake Store CLI 2.0 reference](https://docs.microsoft.com/cli/azure/dls) for a complete list of commands and syntax.
+The Azure CLI is Azure's new command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. For more information, see [Overview of Azure CLI](https://docs.microsoft.com/cli/azure). You can also look at the [Azure Data Lake Store CLI reference](https://docs.microsoft.com/cli/azure/dls) for a complete list of commands and syntax.
 
 
 ## Prerequisites
@@ -33,7 +33,7 @@ Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure CLI 2.0** - See [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) for instructions.
+* **Azure CLI** - See [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for instructions.
 
 ## Authentication
 
@@ -160,7 +160,7 @@ The output of this should be similar to the following:
 
 ## Work with permissions and ACLs for a Data Lake Store account
 
-In this section you learn about how to manage ACLs and permissions using Azure CLI 2.0. For a detailed discussion on how ACLs are implemented in Azure Data Lake Store, see [Access control in Azure Data Lake Store](data-lake-store-access-control.md).
+In this section you learn about how to manage ACLs and permissions using Azure CLI. For a detailed discussion on how ACLs are implemented in Azure Data Lake Store, see [Access control in Azure Data Lake Store](data-lake-store-access-control.md).
 
 * **To update the owner of a file/folder**, use the following command:
 
