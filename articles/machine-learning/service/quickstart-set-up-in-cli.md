@@ -16,8 +16,7 @@ In this quickstart, you'll use a machine learning CLI extension to get started w
 
 You'll get started using the CLI and:
 + Install the Azure Machine Learning extension to the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-+ Create an Azure Machine Learning Workspace, the top-level resource for this service
-+ Attach a project that contains the scripts and configuration files
++ Create an **Azure Machine Learning Workspace**, the top-level resource for the service+ Attach a project that contains the scripts and configuration files
 + Run Python code from the project and view the output
 
 This CLI was built on top of the [Python-based SDK for Azure Machine Learning services](reference-azure-machine-learning-sdk.md).
@@ -95,9 +94,9 @@ A resource group is a container that holds related resources for an Azure soluti
 1. In your local project directory, create a script and name it `helloworld.py`. Copy the following code into that script:
    ```python
    run = Run.start_logging(workspace = ws, run_history_name = "myhistory")
-   run.log(SCALAR METRIC TBD)
-   run.log(VECTOR METRIC TBD)
-   run.upload_file(TBD)
+   run.log(SCALAR METRIC @@@)
+   run.log(VECTOR METRIC @@@)
+   run.upload_file(@@@)
    run.complete()
    ```
 

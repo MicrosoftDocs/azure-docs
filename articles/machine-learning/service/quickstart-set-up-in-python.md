@@ -15,8 +15,8 @@ ms.date: 7/27/2018
 In this quickstart, you'll use a Python SDK to get started with Azure Machine Learning Services, an integrated, end-to-end data science and advanced analytics solution. Azure Machine Learning Services helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
 You'll get started using your preferred Python IDE and:
-+ Install the Azure Machine Learning SDK for Python
-+ Create an Azure Machine Learning Workspace, the top-level resource for this service
++ Install **Azure Machine Learning SDK for Python**
++ Create an **Azure Machine Learning Workspace**, the top-level resource for the service
 + Attach a project that contains the scripts and configuration files
 + Run Python code from the project and view the output
 
@@ -117,9 +117,9 @@ A resource group is a container that holds related resources for an Azure soluti
    #helloproj = Project()
 
    run = Run.start_logging(workspace = ws, run_history_name = "myhistory")
-   run.log(SCALAR METRIC TBD)
-   run.log(VECTOR METRIC TBD)
-   run.upload_file(TBD)
+   run.log(SCALAR METRIC @@@)
+   run.log(VECTOR METRIC @@@)
+   run.upload_file(@@@)
    run.complete()
    ```
 
