@@ -18,15 +18,39 @@ This article provides information on troubleshooting issues with Hybrid Runbook 
 
 The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Microsoft Monitoring Agent. For Linux, it is the OMS Agent for Linux. If registration of the worker fails, here are some possible causes for the error:
 
-### The hybrid worker is behind a proxy or firewall
+### Runbook execution fails
+
+#### Issue
+
+Runbook execution fails and you receive the following error:
+
+```
+"The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
+```
+
+Your runbook is suspended shortly after attempting to execute it three times. There are conditions, which may interrupt the runbook from completing successfully and the related error message does not include any additional information indicating why.
+
+#### Cause
+
+The following are potential possible causes:
+
+* The runbooks cannot authenticate with local resources
+
+* The hybrid worker is behind a proxy or firewall
+
+* The runbooks cannot authenticate with local resources
+
+* The computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements.
+
+#### Resolution
 
 Verify the computer has outbound access to *.azure-automation.net on port 443.
-
-### The computer the hybrid worker is running on has less than the minimum hardware requirements
 
 Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature. Otherwise, depending on the resource utilization of other background processes and contention caused by runbooks during execution, the computer becomes over utilized and cause runbook job delays or timeouts.
 
 Confirm the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. If there is memory or CPU pressure, this may indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error. Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
+
+Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*. The cause of this error is you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid worker group. Review [Runbook permissions](automation-hrw-run-runbooks.md#runbook-permissions) to confirm you have correctly configured authentication for your runbooks.
 
 ## Linux
 
