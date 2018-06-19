@@ -74,7 +74,7 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
 ### Add AngularJS to the VotingWeb service
 Add [AngularJS](http://angularjs.org/) to your service using [Bower support](/aspnet/core/client-side/bower). First, add a *.bowerrc* settings file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **C#** and then **JSON File**.  Enter **.bowerrc** in the *Name* field and click **Add**.
 
-Open *.bowerrc* and replace the contents with the following, which indicates that Bower will install the package assets to the *wwwroot/lib*.
+Open *.bowerrc* and replace the contents with the following, which indicates that Bower will install the package assets to the *wwwroot/lib* directory.
 
 ```json
 {
@@ -82,7 +82,7 @@ Open *.bowerrc* and replace the contents with the following, which indicates tha
 }
 ```
 
-Save your changes to *.bowerrc*.  This creates a *bower.json* file in your project.  
+Save your changes to *.bowerrc*.  This creates a *.bowerrc* file in your project.  
 
 Next, add a Bower configuration file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **C#** and then **JSON File**.  Enter **bower.json** in the *Name* field and click **Add**.
 
