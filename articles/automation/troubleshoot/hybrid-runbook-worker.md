@@ -50,7 +50,7 @@ Computers running the Hybrid Runbook Worker should meet the minimum hardware req
 
 Confirm the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. If there is memory or CPU pressure, this may indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error. Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
 
-Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*. The cause of this error is you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid worker group. Review [Runbook permissions](automation-hrw-run-runbooks.md#runbook-permissions) to confirm you have correctly configured authentication for your runbooks.
+Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*. The cause of this error is you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid worker group. Review [Runbook permissions](../automation-hrw-run-runbooks.md#runbook-permissions) to confirm you have correctly configured authentication for your runbooks.
 
 ## Linux
 
@@ -99,6 +99,8 @@ In the **Application and Services Logs\Operations Manager** event log, you see e
 This can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify the computer has outbound access to *.azure-automation.net on ports 443.
 
 Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue affecting onboarding of the role to Azure Automation or issue while performing normal operations.
+
+[Runbook output and messages](automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs run in the cloud. You can also enable the Verbose and Progress streams the same way you would for other runbooks.
 
 ## Next steps
 
