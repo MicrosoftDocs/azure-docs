@@ -18,7 +18,9 @@ In this quickstart, you find details of possible alternate translations for a te
 
 ## Prerequisites
 
-To use the Translator Text API, you need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
+You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
+
+To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
 ## Dictionary Lookup request
 
