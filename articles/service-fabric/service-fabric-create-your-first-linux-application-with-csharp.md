@@ -117,7 +117,8 @@ template includes a simple test script that you can use to interact with the act
 
    In case of MAC OS X, you need to copy the myactorsvcTestClient folder into the some location inside the container by running the following additional commands.
     
-    ```docker cp  [first-four-digits-of-container-ID]:/home
+    ```bash
+    docker cp  [first-four-digits-of-container-ID]:/home
     docker exec -it [first-four-digits-of-container-ID] /bin/bash
     cd /home
     ```
