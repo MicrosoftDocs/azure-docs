@@ -119,4 +119,4 @@ Remember to delete the LUIS-Samples directory when you are done using the sample
 > [!div class="nextstepaction"]
 > [Integrate LUIS with a BOT](luis-csharp-tutorial-build-bot-framework-sample.md)
 
-[LUIS]: luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

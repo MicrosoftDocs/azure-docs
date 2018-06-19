@@ -476,6 +476,20 @@ OriginalUrl.
 
  For more information, see [Policy expressions](api-management-policy-expressions.md) and [Context variable](api-management-policy-expressions.md#ContextVariables).
 
+> [!NOTE]
+> Multiple values of a header are concatenated to a CSV string, for example:  
+> `headerName: value1,value2,value3`
+>
+> Exceptions include standardized headers, which values:
+> - may contain commas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
+> - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
+> - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
+>
+> In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:  
+>`User-Agent: value1`  
+>`User-Agent: value2`  
+>`User-Agent: value3`
+
 ### Elements
 
 |Name|Description|Required|

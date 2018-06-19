@@ -1,17 +1,17 @@
 ---
-title: "Compare default user permissions in Azure Active Directory"
+title: Compare default user permissions in Azure AD | Microsoft Docs
 description: Compare member, guest, app owner, and group owner permissions
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: overview
 ms.date: 01/29/2018
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: vincesm
 ---
 
@@ -62,11 +62,11 @@ When a user adds a new enterprise application, they are automatically added as a
 
 ### Group owner permissions
 
-When a user creates a group, they are automatically added as an owner for that group. As an owner, they can manage properties of the group such as the name, as well as manage membership. An owner can also add or remove other owners. Unlike Global Administrators and User Account Administrators, owners can only manage groups they own. To assign a group owner, see [Managing owners for a group](../active-directory-accessmanagement-managing-group-owners.md).
+When a user creates a group, they are automatically added as an owner for that group. As an owner, they can manage properties of the group such as the name, as well as manage membership. An owner can also add or remove other owners. Unlike Global Administrators and User Account Administrators, owners can only manage groups they own. To assign a group owner, see [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md).
 
 ## Next steps
 
 * To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory-how-subscriptions-associated-directory.md)
-* [Manage users](../add-users-azure-active-directory.md)
+* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* [Manage users](add-users-azure-active-directory.md)

@@ -297,6 +297,12 @@
         "articles/virtual-network/**/*.md":"https://feedback.azure.com/forums/217313-networking?category_id=77469",
         "articles/visual-studio/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",      
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77470"
+        },
+        "searchScope": {
+          "articles/data-lake-analytics/**/*.md": ["Azure","Azure Data Lake Analytics"],
+          "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL","PostgreSQL"],
+          "articles/mysql/**.md": ["Azure","Azure Database for MySQL", "MySQL"],
+          "articles/stream-analytics/**/*.md": ["Azure", "Stream Analytics"]
         }
     },
     "template": [
