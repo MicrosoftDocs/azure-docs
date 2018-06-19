@@ -293,13 +293,40 @@ From the actions list, select this action: **Data Operations - Create HTML table
 For more information about this action in your underlying workflow definition, 
 see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
+### Test your logic app
+
+To check that the **Create HTML table** action creates the expected results, 
+send yourself a notification that includes output from the **Create HTML table** action.
+
+1. In your logic app, add an action that can send you 
+the results from the **Create HTML table** action.
+
+2. In that action, click anywhere you want the results to appear. 
+When the dynamic content list opens, under the **Create HTML table** action, 
+select **Output**. 
+
+   This example uses the **Office 365 Outlook - Send an email** action 
+   and includes **Output** fields in the email's body and subject:
+
+   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-create-html-table-action.png)
+
+3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
+
+   Based on the email connector you used, here the results that you get:
+
+   ![Email with "Create CSV table" action results](./media/logic-apps-change-manage-data-operations/create-html-table-email-results.png)
+
 <a name="filter-array-action"></a>
 
 ## Filter array action
 
-You can get items from an array based on a specified filter or 
-condition by using the **Data Operations - Filter array** action. 
+You can create a smaller array from an existing array based on a 
+specified condition by using the **Data Operations - Filter array** action. 
 You can then use the filtered array in actions that follow the **Filter array** action.
+
+> [!NOTE]
+> This action can't change the format or shape of items in the array.
+> Also, any filter text that you use in your condition is case sensitive.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -328,9 +355,24 @@ follow one of these steps:
 3. In the search box, enter "filter array" as your filter. 
 From the actions list, select this action: **Data Operations - Filter array**
 
+   ![Select "Filter array" action](./media/logic-apps-change-manage-data-operations/select-filter-array-action.png)
+
 4. In the **From** box, provide the array or expression you want to filter. 
 
-5. Save your logic app. On the designer toolbar, choose **Save**.
+   For this example, when you click inside the **From** box, 
+   the dynamic content list appears so you can select 
+   the previously created variable:
+
+   ![Select array output for creating filtered array](./media/logic-apps-change-manage-data-operations/configure-filter-array-action.png)
+
+5. For the condition, specify the array items to compare, 
+select the comparsion operator, and specify the comparison value.
+
+   This example finds array items whose value is greater than 2:
+   
+   ![Finished "Filter array" action](./media/logic-apps-change-manage-data-operations/finished-filter-array-action.png)
+
+6. Save your logic app. On the designer toolbar, choose **Save**.
 
 For more information about this action in your underlying workflow definition, 
 see [Query action](../logic-apps/logic-apps-workflow-actions-triggers.md#query-action).
