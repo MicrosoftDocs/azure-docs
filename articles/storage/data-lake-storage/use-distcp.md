@@ -103,8 +103,3 @@ When the size of the dataset to be moved is large (for example, >1 TB) or if you
 * DistCp is limited to only one mapper per file. Therefore, you should not have more mappers than you have files. Since DistCp can only assign one mapper to a file, this limits the amount of concurrency that can be used to copy large files.
 
 * If you have a small number of large files, then you should split them into 256 MB file chunks to give you more potential concurrency. 
-
-
-## See also
-
-* Copy data into Azure Data Lake Storage Gen2 (Preview) using Azure Data Factory
