@@ -13,7 +13,7 @@ manager: carmonm
 
 This article discusses solutions to resolve issues that you may encounter when using Update Management
 
-### Windows
+## Windows
 
 If you encounter issues while attempting to onboard the solution on a virtual machine, check the **Operations Manager** event log under **Application and Services Logs** on the local machine for events with event ID **4502** and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
