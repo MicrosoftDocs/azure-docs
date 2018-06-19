@@ -307,6 +307,8 @@ Deploying updates by update classification does not work on CentOS out of the bo
 
 This section provides information to help you troubleshoot issues with the Update Management solution.
 
+### Windows
+
 If you encounter issues when you  attempt to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log on the local machine for events that have Event ID 4502 and event messages that contain **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each:
 
 | Message | Reason | Solution |
