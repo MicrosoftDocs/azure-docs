@@ -37,4 +37,4 @@ The data sent to the endpoint, regardless if it is speech or text, is only used 
 > [!div class="nextstepaction"]
 > [Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
