@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Update Management
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/13/2018
+ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -13,7 +13,7 @@ manager: carmonm
 
 This article discusses solutions to resolve issues that you may encounter when using Update Management
 
-## Onboarding issues
+### Windows
 
 If you encounter issues while attempting to onboard the solution on a virtual machine, check the **Operations Manager** event log under **Application and Services Logs** on the local machine for events with event ID **4502** and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
@@ -23,7 +23,7 @@ The following section highlights specific error messages and a possible resoluti
 
 #### Issue
 
-You receive the following error message 
+You receive the following error message:
 
 ```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
@@ -80,6 +80,24 @@ The Hybrid Runbook Worker was not able to generate a self-signed certificate
 #### Resolution
 
 Verify system account has read access to folder **C:\ProgramData\Microsoft\Crypto\RSA** and try again.
+
+## Linux
+
+If update runs fail to start on a Linux machine, make a copy of the following log file and preserve it for troubleshooting purposes:
+
+```
+/var/opt/microsoft/omsagent/run/automationworker/worker.log
+```
+
+If failures occur during an update run after it starts successfully on Linux, check the job output from the affected machine in the run. You may find specific error messages from your machine's package manager that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
+
+In some cases, package updates can interfere with Update Management preventing an update deployment from completing. If you see that, you'll have to either exclude these packages from future update runs or install them manually yourself.
+
+If you cannot resolve a patching issue, make a copy of the following log file and preserve it **before** the next update deployment starts for troubleshooting purposes:
+
+```
+/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
+```
 
 ## Next steps
 
