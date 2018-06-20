@@ -23,7 +23,7 @@ In this guide, you learn how to:
 > * Delete your backup data
 
 ## Prerequisites
-Before you can back up an Azure file share, ensure that it is present in one of the [supported Storage Account types](troubleshoot-azure-files.md#preview-boundaries). Once you have verified this, you can protect your file shares.
+Before you can back up an Azure file share, ensure that it is present in one of the [supported Storage Account types](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Once you have verified this, you can protect your file shares.
 
 ## Limitations for Azure file share backup during Preview
 Backup for Azure file shares is in preview. Be aware of the following limitations during the Preview:
