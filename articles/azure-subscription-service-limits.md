@@ -152,7 +152,7 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 #### Azure Firewall limits
-[!INCLUDE [firewall-limits](../includes/firewall-limits.md)]
+[!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
 
 ### Storage limits
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
