@@ -47,8 +47,8 @@ First, use the [az batchai workspace create](/cli/azure/batchai/workspace#az-bat
 
 ```azurecli-interactive
 az batchai workspace create \
-    --name myworkspace \
-    --resource-group myResourceGroup \
+    --workspace myworkspace \
+    --resource-group myResourceGroup 
 ```
 
 As a basic example, the following [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command creates a single-node GPU cluster named *mycluster* using the NC6 virtual machine size, which contains one NVIDIA Tesla K-80 GPU. This cluster runs a default Ubuntu Server image designed to host container-based applications. This example includes the `--use-auto-storage` option to create and configure a storage account, and mount a file share and storage container in that account on each node. This command adds a user account named *azureuser*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*). 
@@ -67,88 +67,43 @@ az batchai cluster create \
 
 Output:
 
-```json
-{
-  "allocationState": "steady",
-  "allocationStateTransitionTime": "2018-04-11T21:17:26.345000+00:00",
-  "creationTime": "2018-04-11T20:12:10.758000+00:00",
-  "currentNodeCount": 0,
-  "errors": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/clusters/nc6",
-  "location": "eastus",
-  "name": "nc6",
-  "nodeSetup": null,
-  "nodeStateCounts": {
-    "additionalProperties": {},
-    "idleNodeCount": 0,
-    "leavingNodeCount": 0,
-    "preparingNodeCount": 0,
-    "runningNodeCount": 0,
-    "unusableNodeCount": 0
-  },
-  "provisioningState": "succeeded",
-  "provisioningStateTransitionTime": "2018-06-08T20:12:11.445000+00:00",
-  "resourceGroup": "myresourcegroup",
-  "scaleSettings": {
-    "additionalProperties": {},
-    "autoScale": null,
-    "manual": {
-      "nodeDeallocationOption": "requeue",
-      "targetNodeCount": 1
-    }
-  },
-  "subnet": null,
-  "tags": null,
-  "type": "Microsoft.BatchAI/Clusters",
-  "userAccountSettings": {
-    "additionalProperties": {},
-    "adminUserName": "azureuser",
-    "adminUserPassword": null,
-    "adminUserSshPublicKey": "<YOUR SSH PUBLIC KEY HERE>"
-  },
-  "virtualMachineConfiguration": {
-    "additionalProperties": {},
-    "imageReference": {
-      "additionalProperties": {},
-      "offer": "ubuntu-server-container",
-      "publisher": "microsoft-azure-batch",
-      "sku": "16-04-lts",
-      "version": "latest",
-      "virtualMachineImageId": null
-    }
-  },
-  "vmPriority": "dedicated",
-  "vmSize": "STANDARD_NC6"
-}
-```
+
 
 The cluster creation command runs quickly, but it takes a few minutes to allocate and start the node. To see the status of the cluster, run the [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) command. 
 
 ```azurecli-interactive
 az batchai cluster show \
     --name mycluster \
+    --workspace myworkspace \
     --resource-group myResourceGroup \
     --output table
 ```
 
+Initially, output is similar to the following:
+
+```bash
+Name       Resource Group    Workspace    VM Size       State      Idle    Running    Preparing    Leaving    Unusable
+---------  ----------------  -----------  ------------  -------  ------  ---------  -----------  ---------  ----------
+mycluster  myResourceGroup   myworkspace  STANDARD_NC6  steady        0          0            1          0           0
+
+```
 Continue the following steps to create a training job while the pool state is changing. The cluster is ready to run a job when the state is `steady` and the node is `idle`.
 
 ## Configure storage for script and output files
 
-When Batch AI automatically created the storage account, it also created an SMB file share named `batchaishare`. The rest of this quickstart uses this file share to store both the training script and the output of the traning job
+When Batch AI automatically created the storage account, it also created an SMB file share named `batchaishare`. The rest of this quickstart uses this file share to store both the training script and the output of the traning job.
 
-To set up the auto-storage account, first set environment variables to contain the storage account credentials. Note that Batch AI creates the storage account automatically in the *batchaiautostorage* resource group, which is used in the command to export the storage key.
+To make it easier to set up the auto-storage account using the Azure CLI commands, first set environment variables to contain the storage account credentials. Note that Batch AI creates the storage account automatically in the *batchaiautostorage* resource group, which is used in the command to export the storage key.
 
 ```bash
-export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --resource-group myResourceGroup --query 'nodeSetup.mountVolumes.azureFileShares[0].accountName' | sed s/\"//g)
+export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --workspace myworkspace --resource-group myResourceGroup --query 'nodeSetup.mountVolumes.azureFileShares[0].accountName' | sed s/\"//g)
 
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT --resource-group batchaiautostorage --query [0].value)
 ```
 
- Run the [az storage directory create](cli/azure/storage/directory#az-storage-directory-create) command to reate a folder named `horovod_samples` in the share:
+Run the [az storage directory create](/cli/azure/storage/directory#az-storage-directory-create) command to reate a folder named `horovod_samples` in the share:
 
 ```azurecli-interactive
-
 az storage directory create \
     --share-name batchaishare \
     --name horovod_samples
