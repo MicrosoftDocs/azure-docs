@@ -42,7 +42,25 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ### OBJECT_SCHEMA_NAME
-The [OBJECT_SCHEMA_NAME()]() function
+The [OBJECT_SCHEMA_NAME()]() function returns the database schema name for schema-scoped objects. This function has become common in ETL tools when do object schema validation. 
+
+```sql
+SELECT
+    OBJECT_SCHEMA_NAME([object_id]) [table_schema]
+    , [name]                        [table_name]
+FROM
+    [sys].[tables];
+```
+
+**Sample Results**
+```
+table_schema    | table_name
+-----------------------------
+dbo               customer
+dbo               lineitem
+dbo               nation
+dbo               orders
+```
 
 ## Behavior Changes
 ### Auto Stats operations appear in sys.dm_pdw_exec_requests
