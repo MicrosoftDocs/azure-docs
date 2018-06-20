@@ -72,7 +72,7 @@ If any of your apps use Azure AD Activity Log APIs, follow these steps to ensure
 **Service category:** Terms of Use  
 **Product capability:** Governance
 
-During the creation of your Terms of Use (ToU), a new conditional access policy template is also created for "all guests" and "all apps". This new policy template enforces the newly created ToU, streamlining the creation and enforcement process for the enforcement of guests.
+During the creation of your Terms of Use (ToU), a new conditional access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
 
 ---
 
