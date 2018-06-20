@@ -220,4 +220,3 @@ When you click the ASC Contracts tile in the Access Panel, you should get automa
 [201]: ./media/asccontracts-tutorial/tutorial_general_201.png
 [202]: ./media/asccontracts-tutorial/tutorial_general_202.png
 [203]: ./media/asccontracts-tutorial/tutorial_general_203.png
-

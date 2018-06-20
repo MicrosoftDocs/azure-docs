@@ -244,4 +244,3 @@ For more information about the Access Panel, see [introduction to the Acc
 [201]: ./media/benefithub-tutorial/tutorial_general_201.png
 [202]: ./media/benefithub-tutorial/tutorial_general_202.png
 [203]: ./media/benefithub-tutorial/tutorial_general_203.png
-

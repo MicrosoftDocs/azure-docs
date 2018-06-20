@@ -285,4 +285,3 @@ In the Access Panel, selecting the **Absorb LMS** tile automatically signs you i
 [201]: ./media/absorblms-tutorial/tutorial_general_201.png
 [202]: ./media/absorblms-tutorial/tutorial_general_202.png
 [203]: ./media/absorblms-tutorial/tutorial_general_203.png
-

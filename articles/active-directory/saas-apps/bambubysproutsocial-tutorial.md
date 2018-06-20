@@ -231,4 +231,3 @@ When you click the Bambu by Sprout Social tile in the Access Panel, you should g
 [201]: ./media/bambubysproutsocial-tutorial/tutorial_general_201.png
 [202]: ./media/bambubysproutsocial-tutorial/tutorial_general_202.png
 [203]: ./media/bambubysproutsocial-tutorial/tutorial_general_203.png
-

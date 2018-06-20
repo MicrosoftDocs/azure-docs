@@ -142,7 +142,7 @@ Azure AD can assist IT to identity potential security risks in the environment b
 > [!TIP]
 > Another report that can also help the Incident Response team working on a case is the [user with leaked credentials](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) report. This report surfaces any matches between the leaked credentials list and your tenant.
 >
->
+
 
 Other important built-in reports in Azure AD that can be used during an incident response investigation and are:
 

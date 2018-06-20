@@ -240,4 +240,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/apptio-tutorial/tutorial_general_201.png
 [202]: ./media/apptio-tutorial/tutorial_general_202.png
 [203]: ./media/apptio-tutorial/tutorial_general_203.png
-
