@@ -14,10 +14,10 @@ manager: carmonm
 You can troubleshoot issues and errors encountered while using Azure File Shares backup with information listed in the following tables.
 
 ## Limitations for Azure file share backup during Preview
-Backup for Azure File shares is in Preview. The following backup scenarios are not supported for Azure file shares:
-- You cannot protect Azure file shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication*.
-- You cannot protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
-- There is no PowerShell or CLI available for protecting Azure Files using Azure Backup.
+Backup for Azure File shares is in Preview. The following backup scenarios aren't supported for Azure file shares:
+- You can't protect Azure file shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication*.
+- You can't protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
+- There's no PowerShell or CLI available for protecting Azure Files using Azure Backup.
 - The maximum number of scheduled backups per day is one.
 - The maximum number of on-demand backups per day is four.
 - Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
@@ -46,7 +46,7 @@ The following table is for configuring the backup:
 | -------------- | ----------------------------- |
 | Operation failed as the File share is not found. | Make sure the File share you are looking to protect has not been deleted.|
 | Storage account not found or not supported. | <ul><li>Make sure the storage account exists in the Resource Group, and was not deleted or removed from the Resource Group after the last validation. <li> Make sure the Storage account is a supported Storage account for File share backup.|
-| You have reached the max limit of snapshots for this file share, you will be able to take more once the older ones expire. | <ul><li> This error can occur when you create multiple on-demand backups for a File. <li> There is a limit of 200 snapshots per File share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.<li> Delete the on-demand backups (Azure file share snapshots) from the Azure Files portal. **Note**: You lose the recovery points if you delete snapshots created by Azure Backup. |
+| You have reached the max limit of snapshots for this file share, you will be able to take more once the older ones expire. | <ul><li> This error can occur when you create multiple on-demand backups for a File. <li> There's a limit of 200 snapshots per File share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.<li> Delete the on-demand backups (Azure file share snapshots) from the Azure Files portal. **Note**: You lose the recovery points if you delete snapshots created by Azure Backup. |
 | File share backup or restore failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account.| Retry the operation after some time. |
 | Restore failed with Target File Share Not Found. | <ul><li>Make sure the selected Storage Account exists and the Target File share is not deleted. <li> Make sure the Storage Account is a supported storage account for File share backup. |
 | Azure Backup is currently not supported for Azure File Shares in Storage Accounts with Virtual Networks enabled. | Disable Virtual Networks on your Storage Account to ensure successful backups or restore operations. |
