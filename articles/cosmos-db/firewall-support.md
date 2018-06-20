@@ -52,7 +52,7 @@ Access to the Azure portal is enabled by default when you change the Firewall se
 
 ![Screenshot showing how to enable Azure portal access](./media/firewall-support/enable-azure-portal.png)
 
-## Connections from public Azure datacenters
+## Connections from public Azure datacenters or Azure PaaS services
 In Azure, PaaS services like Azure Stream analytics, Azure Functions, and Azure App Service are used in conjunction with Azure Cosmos DB. To enable access to  Azure Cosmos DB database account from these services whose IP addresses are not readily available add the IP address of 0.0.0.0 to the allowed list of IP addresses associated with your Azure Cosmos DB database account programmatically. 
 
 Access to the connections from within public Azure datacenters is enabled by default when you change the Firewall setting to **Selected Networks** in the Azure portal. 
