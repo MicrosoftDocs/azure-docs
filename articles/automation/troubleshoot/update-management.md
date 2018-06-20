@@ -19,7 +19,7 @@ If you encounter issues while attempting to onboard the solution on a virtual ma
 
 The following section highlights specific error messages and a possible resolution for each. For other onboarding issues see, [troubleshoot solution onboarding](onboarding.md).
 
-### <a name="machine-already-registered"></a>Machine is already registered to a different account
+### <a name="machine-already-registered"></a>Scenario: Machine is already registered to a different account
 
 #### Issue
 
@@ -37,7 +37,7 @@ The machine is already onboarded to another workspace for Update Management.
 
 Perform cleanup of old artifacts on the machine by [deleting the hybrid runbook group](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) and try again.
 
-### <a name="machine-unable-to-communicate"></a>Machine is unable to communicate with the service
+### <a name="machine-unable-to-communicate"></a>Scenario: Machine is unable to communicate with the service
 
 #### Issue
 
@@ -63,7 +63,7 @@ There may be a proxy, gateway or firewall blocking network communication.
 
 Review your networking and ensure appropriate ports and addresses are allowed. See [network requirements](../automation-hybrid-runbook-worker.md#network-planning), for a list of ports and addresses that are required by Update Management and Hybrid Runbook Workers.
 
-### <a name="unable-to-create-selfsigned-cert"></a>Unable to create self-signed certificate
+### <a name="unable-to-create-selfsigned-cert"></a>Scenario: Unable to create self-signed certificate
 
 #### Issue
 
@@ -83,7 +83,19 @@ Verify system account has read access to folder **C:\ProgramData\Microsoft\Crypt
 
 ## Linux
 
-If update runs fail to start on a Linux machine, make a copy of the following log file and preserve it for troubleshooting purposes:
+### Scenario: Update run fails to start
+
+#### Issue
+
+An update runs fail to start on a Linux machine
+
+#### Cause
+
+The package manager could be unhealthy
+
+#### Resolution
+
+Make a copy of the following log file and preserve it for troubleshooting purposes:
 
 ```
 /var/opt/microsoft/omsagent/run/automationworker/worker.log

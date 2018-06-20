@@ -197,8 +197,10 @@
       items:
         - name: Onboarding
           href: troubleshoot/onboarding.md
-        - name: Common errors
-          href: automation-troubleshooting-automation-errors.md
+        - name: Runbooks
+          href: troubleshoot/runbooks.md
+        - name: Desired State Configuration (DSC)
+          href: troubleshoot/desired-state-configuration.md
         - name: Hybrid Runbook Worker
           href: troubleshoot/hybrid-runbook-worker.md
         - name: Update Management

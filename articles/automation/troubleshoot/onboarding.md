@@ -15,7 +15,7 @@ You may encounter errors when onboarding solutions. This article describes the v
 
 ## General Errors
 
-### <a name="computer-grou-query-format-error"></a>ComputerGroupQueryFormatError
+### <a name="computer-grou-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
 #### Issue
 
@@ -29,7 +29,7 @@ You may have altered the query, or it may have been altered by the system.
 
 You can delete the query for this solution, and reonboard the solution, which recreates the query. The query can be found within your workspace, under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the solution associated with this query. If multiple solutions are enabled, the **MicrosoftDefaultComputerGroup** shows multiple times under **Saved Searches**.
 
-### <a name="policy-violation"></a>PolicyViolation
+### <a name="policy-violation"></a>Scenario: PolicyViolation
 
 #### Issue
 
@@ -59,7 +59,7 @@ Installation of the MMA or OMS Agent for Linux can fail for a variety of reasons
 
 The following section describes various issues that you can encounter when onboarding that cause a failure in the deployment of the MMA extension.
 
-### <a name="webclient-exception"></a>An exception occurred during a WebClient request
+### <a name="webclient-exception"></a>Scenario: An exception occurred during a WebClient request
 
 The MMA extension on the virtual machine is unable to communicate with external resources and deployment fails.
 
@@ -87,7 +87,7 @@ Some potential causes to this error are:
 
 Ensure that you have the proper ports and addresses open for communication. For a list of ports and addresses, see [planning your network](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Install failed due to transient environment issues
+### <a name="transient-environment-issue"></a>Scenario: Install failed due to transient environment issues
 
 The installation of the Microsoft Monitoring Agent extension failed during deployment due to another installation or action blocking the installation
 
@@ -118,7 +118,7 @@ Some potential causes to this error are:
 
 This error is a transient error in nature. Retry the deployment to install the extension.
 
-### <a name="installation-timeout"></a>Installation timeout
+### <a name="installation-timeout"></a>Scenario: Installation timeout
 
 The installation of the MMA extension did not complete due to a timeout.
 
