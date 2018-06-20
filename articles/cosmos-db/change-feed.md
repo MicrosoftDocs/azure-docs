@@ -288,7 +288,6 @@ To implement the Change Feed Processor library you have to do following:
             return Task.CompletedTask;
         }
 
-
         public Task ProcessChangesAsync(IChangeFeedObserverContext context, IReadOnlyList<Document> docs, CancellationToken cancellationToken)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -335,7 +334,7 @@ To implement the Change Feed Processor library you have to do following:
 
 3. Define *CancellationTokenSource* and *ChangeFeedProcessorBuilder*
 
-    ```
+    ```csharp
     private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
     private readonly ChangeFeedProcessorBuilder builder = new ChangeFeedProcessorBuilder();
     ```
@@ -387,13 +386,15 @@ To implement the Change Feed Processor library you have to do following:
             var result =  await this.builder.BuildAsync();
             await result.StartAsync();
             Console.Read();
-            await result.StopAsync();    ```
+            await result.StopAsync();    
+            ```
 
 That’s it. After these few steps documents will start showing up into the **DocumentFeedObserver.ProcessChangesAsync** method.
 
 Above code is for illustration purpose to show different kind of objects and their interaction. You have to define proper variables and initiate them with correct values. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
 
-Note: You should never have a master key in your code or in config file as shown in above code. Please see [how to use Key-Vault to retrive the keys](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
+> [!NOTE]
+> You should never have a master key in your code or in config file as shown in above code. Please see [how to use Key-Vault to retrive the keys](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
 
 ## Next steps
 
