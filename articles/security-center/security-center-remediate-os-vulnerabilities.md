@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/19/2018
 ms.author: terrylan
 
 ---
@@ -47,7 +47,7 @@ This example covers the "Remediate security configurations" recommendation under
 
   - **CCEID**: The CCE unique identifier for the rule. Security Center uses Common Configuration Enumeration (CCE) to assign unique identifiers to configuration rules.
   - **Name**: The name of the failed rule.
-  - **Rule type**: The *Registry key*, *Security policy*, or *Audit policy* rule type.
+  - **Rule type**: The *Registry key*, *Security policy*, *Audit policy*, or *IIS* rule type.
   - **No. of VMs & computers**: The total number of VMs and computers that the failed rule applies to.
   - **Rule severity**: The CCE value *Critical*, *Important*, or *Warning*.
   - **State**: The current state of the recommendation:
@@ -96,10 +96,10 @@ To review the specific configurations that are being monitored, see [list of rec
 
 To learn more about Security Center, see the following resources:
 
-* For a list of supported Windows and Linux VMs, see [Supported platforms in Azure Security Center](security-center-os-coverage.md). 
-* To learn how to configure security policies for your Azure subscriptions and resource groups, see [Setting security policies in Azure Security Center](security-center-policies.md). 
-* To learn how recommendations help you protect your Azure resources, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md). 
-* To learn how to monitor the health of your Azure resources, see [Security health monitoring in Azure Security Center](security-center-monitoring.md). 
+* For a list of supported Windows and Linux VMs, see [Supported platforms in Azure Security Center](security-center-os-coverage.md).
+* To learn how to configure security policies for your Azure subscriptions and resource groups, see [Setting security policies in Azure Security Center](security-center-policies.md).
+* To learn how recommendations help you protect your Azure resources, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md).
+* To learn how to monitor the health of your Azure resources, see [Security health monitoring in Azure Security Center](security-center-monitoring.md).
 * To learn how to manage and respond to security alerts, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 * To learn how to monitor the health status of your partner solutions, see [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md).
 * For answers to frequently asked questions about using the service, see [Azure Security Center FAQ](security-center-faq.md).
