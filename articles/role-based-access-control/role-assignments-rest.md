@@ -1,6 +1,6 @@
 ---
-title: Manage access using RBAC and the REST API - Azure | Microsoft Docs
-description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and the REST API. This includes how to list access, grant access, and remove access.
+title: Role-based access control (RBAC) with REST - Azure | Microsoft Docs
+description: Managing role-based access control (RBAC) with the REST API
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -13,369 +13,103 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 06/04/2018
 ms.author: rolyon
-ms.reviewer: bagovind
 
 ---
-# Manage access using RBAC and the REST API
+# Use RBAC to manage access with the REST API
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and the REST API.
+[Role-based access control (RBAC)](overview.md) helps you manage access to Azure resources. For example, you can allow a user to manage the virtual machines in a particular resource group. You manage access for users, groups, and service principals (applications) by assigning roles at a particular scope. You can manage access using the Azure portal, Azure PowerShell, Azure CLI, Azure SDKs, or REST API. This article describes the common ways to manage access using the REST API.
 
-## List all role assignments
-Lists all the role assignments at the specified scope and subscopes.
+## List access
 
-To list role assignments, you must have access to `Microsoft.Authorization/roleAssignments/read` operation at the scope. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure role-based access control](role-assignments-portal.md).
+To list role assignments (list access), you can use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter. To call the API, you must have access to the `Microsoft.Authorization/roleAssignments/read` operation at the specified scope. All [built-in roles](built-in-roles.md) are granted access to this operation.
 
-### Request
-Use the **GET** method with the following URI:
+1. Start with the following request:
 
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
+    ```http
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter={filter}
+    ```
 
-Within the URI, make the following substitutions to customize your request:
+1. Within the URI, replace *{scope}* with the scope for which you want to list the role assignments.
 
-1. Replace *{scope}* with the scope for which you wish to list the role assignments. The following examples show how to specify the scope for different levels:
+    | Scope | Type |
+    | --- | --- |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
-   * Subscription: /subscriptions/{subscription-id}  
-   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Replace *{api-version}* with 2015-07-01.
-3. Replace *{filter}* with the condition that you wish to apply to filter the role assignment list:
+1. Replace *{filter}* with the condition that you want to apply to filter the role assignment list.
 
-   * List role assignments for only the specified scope, not including the role assignments at subscopes: `atScope()`    
-   * List role assignments for a specific user, group, or application: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
-   * List role assignments for a specific user, including ones inherited from groups | `assignedTo('{objectId of user}')`
+    | Filter | Description |
+    | --- | --- |
+    | `$filter=atScope()` | List role assignments for only the specified scope, not including the role assignments at subscopes. |
+    | `$filter=principalId%20eq%20'{objectId}'` | List role assignments for a specified user, group, or service principal. |
+    | `$filter=assignedTo('{objectId}')` | List role assignments for a specified user, including ones inherited from groups. |
 
-### Response
-Status code: 200
+## Grant access
 
-```
-{
-  "value": [
+To create a role assignment (grant access), you use the [Role Assignments - Create](/rest/api/authorization/roleassignments/create) REST API and specify the security principal, role definition, and scope. To call this API, you must have access to `Microsoft.Authorization/roleAssignments/write` operation. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation.
+
+1. Use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API or see [Built-in roles](built-in-roles.md) to get the identifier for the role definition you want to assign.
+
+1. Use a GUID tool to generate a unique identifier that will be used for the role assignment identifier. The identifier has the format: `00000000-0000-0000-0000-000000000000`
+
+1. Start with the following request and body:
+
+    ```http
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01
+    ```
+
+    ```json
     {
       "properties": {
-        "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-        "principalId": "2f9d4375-cbf1-48e8-83c9-2a0be4cb33fb",
-        "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-        "createdOn": "2015-10-08T07:28:24.3905077Z",
-        "updatedOn": "2015-10-08T07:28:24.3905077Z",
-        "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-        "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-      },
-      "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleAssignments/baa6e199-ad19-4667-b768-623fde31aedd",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "name": "baa6e199-ad19-4667-b768-623fde31aedd"
+        "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+        "principalId": "{principalId}"
+      }
     }
-  ],
-  "nextLink": null
-}
+    ```
+    
+1. Within the URI, replace *{scope}* with the scope for the role assignment.
 
-```
+    | Scope | Type |
+    | --- | --- |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
-## Get information about a role assignment
-Gets information about a single role assignment specified by the role assignment identifier.
+1. Replace *{roleAssignmentName}* with the GUID identifier of the role assignment.
 
-To get information about a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/read` operation. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure role-based access control](role-assignments-portal.md).
+1. Within the request body, replace *{subscriptionId}* with your subscription identifier.
 
-### Request
-Use the **GET** method with the following URI:
+1. Replace *{roleDefinitionId}* with the role definition identifier.
 
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
+1. Replace *{principalId}* with the object identifier of the user, group, or service principal that will be assigned the role.
 
-Within the URI, make the following substitutions to customize your request:
+## Remove access
 
-1. Replace *{scope}* with the scope for which you wish to list the role assignments. The following examples show how to specify the scope for different levels:
+To remove a role assignment (remove access), use the [Role Assignments - Delete](/rest/api/authorization/roleassignments/delete) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleAssignments/delete` operation. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation.
 
-   * Subscription: /subscriptions/{subscription-id}  
-   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Replace *{role-assignment-id}* with the GUID identifier of the role assignment.
-3. Replace *{api-version}* with 2015-07-01.
+1. Get the role assignment identifier (GUID). This identifier is returned when you first create the role assignment or you can get it by listing the role assignments.
 
-### Response
-Status code: 200
+1. Start with the following request:
 
-```
-{
-  "properties": {
-    "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
-    "principalId": "672f1afa-526a-4ef6-819c-975c7cd79022",
-    "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "createdOn": "2015-10-05T08:36:26.4014813Z",
-    "updatedOn": "2015-10-05T08:36:26.4014813Z",
-    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleAssignments/196965ae-6088-4121-a92a-f1e33fdcc73e",
-  "type": "Microsoft.Authorization/roleAssignments",
-  "name": "196965ae-6088-4121-a92a-f1e33fdcc73e"
-}
+    ```http
+    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01
+    ```
 
-```
+1. Within the URI, replace *{scope}* with the scope for removing the role assignment.
 
-## Create a role assignment
-Create a role assignment at the specified scope for the specified principal granting the specified role.
+    | Scope | Type |
+    | --- | --- |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
-To create a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/write` operation. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure role-based access control](role-assignments-portal.md).
-
-### Request
-Use the **PUT** method with the following URI:
-
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
-
-Within the URI, make the following substitutions to customize your request:
-
-1. Replace *{scope}* with the scope at which you wish to create the role assignments. When you create a role assignment at a parent scope, all child scopes inherit the same role assignment. The following examples show how to specify the scope for different levels:
-
-   * Subscription: /subscriptions/{subscription-id}  
-   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
-   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Replace *{role-assignment-id}* with a new GUID, which becomes the GUID identifier of the new role assignment.
-3. Replace *{api-version}* with 2015-07-01.
-
-For the request body, provide the values in the following format:
-
-```
-{
-  "properties": {
-    "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-    "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b"
-  }
-}
-
-```
-
-| Element Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| roleDefinitionId |Yes |String |The identifier of the role. The format of the identifier is: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |Yes |String |objectId of the Azure AD principal (user, group, or service principal) to which the role is assigned. |
-
-### Response
-Status code: 201
-
-```
-{
-  "properties": {
-    "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-    "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b",
-    "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND",
-    "createdOn": "2015-12-16T00:27:19.6447515Z",
-    "updatedOn": "2015-12-16T00:27:19.6447515Z",
-    "createdBy": null,
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND/providers/Microsoft.Authorization/roleAssignments/2e9e86c8-0e91-4958-b21f-20f51f27bab2",
-  "type": "Microsoft.Authorization/roleAssignments",
-  "name": "2e9e86c8-0e91-4958-b21f-20f51f27bab2"
-}
-
-```
-
-## Delete a role assignment
-Delete a role assignment at the specified scope.
-
-To delete a role assignment, you must have access to the `Microsoft.Authorization/roleAssignments/delete` operation. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure role-based access control](role-assignments-portal.md).
-
-### Request
-Use the **DELETE** method with the following URI:
-
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
-
-Within the URI, make the following substitutions to customize your request:
-
-1. Replace *{scope}* with the scope at which you wish to create the role assignments. The following examples show how to specify the scope for different levels:
-
-   * Subscription: /subscriptions/{subscription-id}  
-   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Replace *{role-assignment-id}* with the role assignment id GUID.
-3. Replace *{api-version}* with 2015-07-01.
-
-### Response
-Status code: 200
-
-```
-{
-  "properties": {
-    "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-    "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b",
-    "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND",
-    "createdOn": "2015-12-17T23:21:40.8921564Z",
-    "updatedOn": "2015-12-17T23:21:40.8921564Z",
-    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND/providers/Microsoft.Authorization/roleAssignments/5eec22ee-ea5c-431e-8f41-82c560706fd2",
-  "type": "Microsoft.Authorization/roleAssignments",
-  "name": "5eec22ee-ea5c-431e-8f41-82c560706fd2"
-}
-
-```
-
-## List all roles
-Lists all the roles that are available for assignment at the specified scope.
-
-To list roles, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation at the scope. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure role-based access control](role-assignments-portal.md).
-
-### Request
-Use the **GET** method with the following URI:
-
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
-
-Within the URI, make the following substitutions to customize your request:
-
-1. Replace *{scope}* with the scope for which you wish to list the roles. The following examples show how to specify the scope for different levels:
-
-   * Subscription: /subscriptions/{subscription-id}  
-   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   * Resource /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Replace *{api-version}* with 2015-07-01.
-3. Replace *{filter}* with the condition that you wish to apply to filter the list of roles:
-
-   * List roles available for assignment at the specified scope and any of its child scopes: `atScopeAndBelow()`
-   * Search for a role using exact display name: `roleName%20eq%20'{role-display-name}'`. Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
-
-### Response
-Status code: 200
-
-```
-{
-  "value": [
-    {
-      "properties": {
-        "roleName": "Virtual Machine Contributor",
-        "type": "BuiltInRole",
-        "description": "Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they\u2019re connected to.",
-        "assignableScopes": [
-          "/"
-        ],
-        "permissions": [
-          {
-            "actions": [
-              "Microsoft.Authorization/*/read",
-              "Microsoft.Compute/availabilitySets/*",
-              "Microsoft.Compute/locations/*",
-              "Microsoft.Compute/virtualMachines/*",
-              "Microsoft.Compute/virtualMachineScaleSets/*",
-              "Microsoft.Insights/alertRules/*",
-              "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
-              "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
-              "Microsoft.Network/loadBalancers/inboundNatPools/join/action",
-              "Microsoft.Network/loadBalancers/inboundNatRules/join/action",
-              "Microsoft.Network/loadBalancers/read",
-              "Microsoft.Network/locations/*",
-              "Microsoft.Network/networkInterfaces/*",
-              "Microsoft.Network/networkSecurityGroups/join/action",
-              "Microsoft.Network/networkSecurityGroups/read",
-              "Microsoft.Network/publicIPAddresses/join/action",
-              "Microsoft.Network/publicIPAddresses/read",
-              "Microsoft.Network/virtualNetworks/read",
-              "Microsoft.Network/virtualNetworks/subnets/join/action",
-              "Microsoft.Resources/deployments/*",
-              "Microsoft.Resources/subscriptions/resourceGroups/read",
-              "Microsoft.Storage/storageAccounts/listKeys/action",
-              "Microsoft.Storage/storageAccounts/read",
-              "Microsoft.Support/*"
-            ],
-            "notActions": []
-          }
-        ],
-        "createdOn": "2015-06-02T00:18:27.3542698Z",
-        "updatedOn": "2015-12-08T03:16:55.6170255Z",
-        "createdBy": null,
-        "updatedBy": null
-      },
-      "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-      "type": "Microsoft.Authorization/roleDefinitions",
-      "name": "9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-    }
-  ],
-  "nextLink": null
-}
-
-```
-
-## Get information about a role
-Gets information about a single role specified by the role definition identifier. To get information about a single role using its display name, see [List all roles](role-assignments-rest.md#list-all-roles).
-
-To get information about a role, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure role-based access control](role-assignments-portal.md).
-
-### Request
-Use the **GET** method with the following URI:
-
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
-
-Within the URI, make the following substitutions to customize your request:
-
-1. Replace *{scope}* with the scope for which you wish to list the role assignments. The following examples show how to specify the scope for different levels:
-
-   * Subscription: /subscriptions/{subscription-id}  
-   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Replace *{role-definition-id}* with the GUID identifier of the role definition.
-3. Replace *{api-version}* with 2015-07-01.
-
-### Response
-Status code: 200
-
-```
-{
-  "value": [
-    {
-      "properties": {
-        "roleName": "Virtual Machine Contributor",
-        "type": "BuiltInRole",
-        "description": "Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they\u2019re connected to.",
-        "assignableScopes": [
-          "/"
-        ],
-        "permissions": [
-          {
-            "actions": [
-              "Microsoft.Authorization/*/read",
-              "Microsoft.Compute/availabilitySets/*",
-              "Microsoft.Compute/locations/*",
-              "Microsoft.Compute/virtualMachines/*",
-              "Microsoft.Compute/virtualMachineScaleSets/*",
-              "Microsoft.Insights/alertRules/*",
-              "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
-              "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
-              "Microsoft.Network/loadBalancers/inboundNatPools/join/action",
-              "Microsoft.Network/loadBalancers/inboundNatRules/join/action",
-              "Microsoft.Network/loadBalancers/read",
-              "Microsoft.Network/locations/*",
-              "Microsoft.Network/networkInterfaces/*",
-              "Microsoft.Network/networkSecurityGroups/join/action",
-              "Microsoft.Network/networkSecurityGroups/read",
-              "Microsoft.Network/publicIPAddresses/join/action",
-              "Microsoft.Network/publicIPAddresses/read",
-              "Microsoft.Network/virtualNetworks/read",
-              "Microsoft.Network/virtualNetworks/subnets/join/action",
-              "Microsoft.Resources/deployments/*",
-              "Microsoft.Resources/subscriptions/resourceGroups/read",
-              "Microsoft.Storage/storageAccounts/listKeys/action",
-              "Microsoft.Storage/storageAccounts/read",
-              "Microsoft.Support/*"
-            ],
-            "notActions": []
-          }
-        ],
-        "createdOn": "2015-06-02T00:18:27.3542698Z",
-        "updatedOn": "2015-12-08T03:16:55.6170255Z",
-        "createdBy": null,
-        "updatedBy": null
-      },
-      "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-      "type": "Microsoft.Authorization/roleDefinitions",
-      "name": "9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-    }
-  ],
-  "nextLink": null
-}
-
-```
+1. Replace *{roleAssignmentName}* with the GUID identifier of the role assignment.
 
 ## Next steps
 
-- [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
-- [Create custom roles using the REST API](custom-roles-rest.md)
+- [Azure REST API Reference](/rest/api/azure/)
+- [Built-in roles](built-in-roles.md)
+- [Understand role definitions](role-definitions.md)
