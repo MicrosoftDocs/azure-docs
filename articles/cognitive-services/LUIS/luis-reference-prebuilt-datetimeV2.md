@@ -62,10 +62,10 @@ The **builtin.datetimeV2** prebuilt entity has the following subtypes, and examp
 
 ## Values of resolution
 * The array has one element if the date or time in the utterance is fully specified and unambiguous.
-* The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to AM or PM. When there is an ambiguous date, values contains the most recent past and most immediate future instances of the date. See Ambiguous dates for more examples. When there is an ambiguous time, values contains both the AM and PM times.
-* The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to AM or PM. For example, 3:00 April 3rd.
+* The array has two elements if the datetimeV2 value is ambiguous. Ambiguity includes lack of specific year, time or time range. See [Ambiguous dates](#ambiguous-dates) for examples. When there is an ambiguous time, values contains both the A.M. and P.M. times.
+* The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to A.M. or P.M. For example, 3:00 April 3rd.
 
-Each element of `values` array may contain the following fields: 
+Each element of the `values` array may contain the following fields: 
 
 |Property name|Property description|
 |--|--|
@@ -73,17 +73,6 @@ Each element of `values` array may contain the following fields:
 |type|The subtype, which can be one of the following items: datetime, date, time, daterange, timerange, datetimerange, duration, set.|
 |value|<b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If `type` is `duration`, the value is the number of seconds (duration) <br/> Only used if `type` is `datetime` or `date`, `time`, or `duration.|
 
-<!-- 
-### Recognition of date values
-
-The **builtin.datetimeV2** entity's `resolution` field has a `values` array that contains the resolution extracted from the utterance. 
-
-| property | description |
-|----------|-------------|
-| type   | A string indicating the type of entity, for example `builtin.datetimeV2.datetime` |
-| resolution   | Contains a `values` array that has one, two, or four values. <ul><li>The array has one element if the date or time in the utterance is unambiguous.</li><li>The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to A.M. or P.M. In the case of an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. In the case of an ambiguous time, `values` contains both the A.M. and P.M. times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to A.M. or P.M. For example, 3:00 April 3rd.</li></ul><br/>Each element of `values` may contain the following fields: <br/><table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).</td></tr><tr><td>type</td><td>The subtype. For example, `datetime`.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime) <br/> This property is present if the entity is recognized as a date or time, but not a date range.</td></tr></table> |
-
--->
 ## Minimum and maximum date values
 
 The **builtin.datetimeV2** supports dates between the following ranges:
@@ -94,7 +83,7 @@ The **builtin.datetimeV2** supports dates between the following ranges:
 
 ## Ambiguous dates
 
-If it's unclear from an utterance whether a date is in the past or the future, LUIS provides both the past and future instances of that date. One case of this occurrence is an utterance that includes the month and date, but not the year. If today's date precedes the date in the utterance in the current year, the most immediate past instance of that date is in the previous year. Otherwise the most immediate past date is in the current year. 
+If the date could be in the past or future, LUIS provides both the past and future instances of that date. One case of this occurrence is an utterance that includes the month and date, but not the year. If today's date precedes the date in the utterance in the current year, the most immediate past instance of that date is in the previous year. Otherwise the most immediate past date is in the current year. 
 
 For example, given the utterance "May 2nd":
 * If today's date is May 3rd 2017, LUIS provides both "2017-05-02" and "2018-05-02" as values. 
@@ -189,6 +178,8 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
     }
   ]
 ```
+## Ambiguous time
+The values array has two elements if the time or time range is ambiguous as to AM or PM. When there is an ambiguous time, values contains both the AM and PM times.
 
 ## Time range resolution example
 
