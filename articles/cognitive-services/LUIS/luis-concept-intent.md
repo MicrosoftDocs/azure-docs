@@ -96,4 +96,4 @@ If reducing the number of intents or dividing your intents into multiple apps do
 * Learn how to [add and manage intents](luis-how-to-add-intents.md) in your LUIS app.
 * Review intent [best practices](luis-concept-best-practices.md)
 
-[LUIS]:luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
