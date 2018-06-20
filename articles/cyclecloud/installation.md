@@ -8,6 +8,31 @@ It is worth noting that the names CycleCloud and CycleServer are sometimes used 
 confuses the distinction between them. CycleServer is the platform that underlies CycleCloud.
 It handles data storage, plugin management, logging, monitoring, and alerting among other functions. CycleCloud is a plugin to CycleServer, which manages the creation of clusters across multiple cloud providers. While Azure CycleCloud is the official name of the product, you will find CycleServer referenced in many commands and directory names.
 
+## System Requirements
+
+To install CycleCloud, you must have administrator rights. In addition, your system needs to meet the following minimum requirements:
+
+* A 32-bit or 64-bit Linux distribution or Windows Server 2008 or newer
+* Java Runtime Environment (version 8 or higher)
+* At least 8GB of RAM
+* Two or more CPU cores
+* At least 50GB of free disk space
+* Administrator (root) privileges
+* Phraseless SSH key
+* Active Microsoft Azure Subscription
+
+> [!NOTE]
+> CycleCloud may be installed on physical or virtualized hardware.
+
+## SSH Key
+
+You will need to generate your own SSH key for use in CycleCloud. This
+key is used by the cycle\_server user, and must be accessible to that
+account.
+
+> [!WARNING]
+> Use a phraseless SSH key. If you enter a passphrase when generating your SSH key, the return proxy feature of CycleCloud will not work, which may cause node reporting and autoscaling to fail.
+
 ## Installation
 
 To begin the installation, unpack the CycleCloud installation to a temporary working directory.
@@ -42,7 +67,7 @@ Do not install CycleCloud on a shared drive, or any drive in which non-admin use
 
 To upgrade an existing CycleCloud installation, save the install bundle to the server’s local drive. The upgrade script will unpack the bundle and install the new package. On Linux, the upgrade script is `$CS_HOME/util/upgrade.sh`. On Windows, the upgrade script is `C:\Program Files\CycleServer\util\upgrade.cmd`. Both scripts take the path to the install bundle as an argument. For example:
 
-  `/opt/cycle_server/util/upgrade.sh /tmp/cyclecloud-6.6.0.tar.gz`
+    /opt/cycle_server/util/upgrade.sh /tmp/cyclecloud-6.6.0.tar.gz
 
 To upgrade the cyclecloud command line tool, copy the new binary over the old. In most cases, upgrades within a release series (e.g. 5.x) do not typically require CLI upgrades.
 
@@ -59,7 +84,7 @@ modifications to the configuration files before starting CycleCloud for the firs
 During the install step, make sure to use the `--nostart` flag to keep the server from starting,
 and the `--installdir` flag to specify an alternate install directory. For example:
 
-  `./install.sh --nostart --installdir /mnt/second_cycle_server`
+    ./install.sh --nostart --installdir /mnt/second_cycle_server
 
 After the installer finishes, edit `$CS_HOME/config/cycle_server.properties` and change the
 following port numbers to an unused port (incrementing each default port number by one usually works well):
