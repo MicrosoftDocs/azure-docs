@@ -27,14 +27,11 @@ Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compati
 |Hierarchical file system – customer can store files into a true hierarchical folder structure.     |Same as Data Lake Storage Gen1         |
 |Atomic renames/moves – customer can rename or move folders and files atomically.     |Same as Data Lake Storage Gen1           |
 |File system consistency - customer can ensure that their data is consistent.  Data is readable immediately after it is written.     |Same as Data Lake Storage Gen1         |
-|Partition management handled  – customer can set up their file architecture logically.  Data is partitioned appropriately so that partitions are not throttled or have reduced performance when they become hot.  This avoids customers having to rearchitect their directory structure or having unnatural directory structures to get scalable performance.     | Will never be available.        |
 |No fixed throughput/IOPS limit – customer can have massive throughput to support any size of analytics.      |Throughput/IOPS limit – customer can have massive throughput to support any size of analytics.         |
 |Massively parallel read and writes – customer can spread data across many servers  to enable large amounts of data to be read or written in parallel.  Customer can perform an unlimited number of IOPs per file.     |Massively parallel read and writes – customer can spread data across many servers to enable large amounts of data to be read or written in parallel.         |
 |Unlimited storage – customer can store an unlimited amount of data for an unlimited amount of time.  There are no limits to accounts sizes, files sizes, and number of files.     |Storage capacity – customer can store a massive amount of data for an unlimited amount of time.           |
 |Petabyte-sized files – customer can store large petabyte-sized files.  There is no limit on file sizes.     |Not yet available in Data Lake Storage Gen2         |
-|Unlimited appends per file – customer can read and write to unlimited append blocks in parallel.     |Not yet available in Data Lake Storage Gen2         |
 |Millions of files per folder - customer can have millions of files in a single folder at any level in the folder hierarchy     |Not yet available in Data Lake Storage Gen2         |
-|"Unlimited throughput per file - customer can use all the throughput for the account to read or write to a specific file"     |Not yet available in Data Lake Storage Gen2         |
 |First-class integration with AAD – customer can use AAD features including multi-factor authentication, conditional access, role-based access control, user lifecycle management, application usage monitoring, security monitoring, and alerting.     |Not yet available in Data Lake Storage Gen2         |
 |POSIX-compliant Access Control Lists – users can have fine grained access control on the file and folder level.  It is understand access control because it is defined using the POSIX access control model.     |Not yet available in Data Lake Storage Gen2         |
 |Encryption – customer can have encryption enabled by default.  Customer data is encrypted at rest, movement within Data Lake Storage Gen1, and over the wire when communicating outside Data Lake Storage Gen1.     |Same as Data Lake Storage Gen1         |
@@ -55,4 +52,4 @@ Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compati
 
 ## Next steps
 
-Azure Data Lake Storage Gen2 is available as a limited public preview, with general availability in CY2018Q4. If you're interested, we invite you to participate so you can begin evaluating Data Lake Storage Gen2 and provide feedback through the private yammer.
+Azure Data Lake Storage Gen2 is available as a limited public preview, with general availability in CY2018Q4. If you're interested, we [invite you to participate](https://aka.ms/adlsgen2signup) so you can begin evaluating Data Lake Storage Gen2 and provide feedback through the private yammer.
