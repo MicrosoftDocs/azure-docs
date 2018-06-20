@@ -184,7 +184,7 @@ In the **Reference Manager**, select the checkbox for **Model**, and click **OK*
 ASP.Net Web API projects use the model view controller (MVC) pattern. Next create a data context that coordinates serving up the data from the data model.
 
 To add the data context class, in the solution explorer right-click **ToDoService** and then **Add** > **Class**.
-In the **Add New Item** dialog that appears, ensure that **Class** is selected, and set the **Name** to `Datacontext.cs`, and click **Add**.
+In the **Add New Item** dialog that appears, make sure that **Class** is selected, and set the **Name** to `Datacontext.cs`, and click **Add**.
 
 In **Datacontext.cs**, replace the contents of the empty 'class DataContext' with:
 
@@ -254,7 +254,7 @@ public class ToDoController : Controller
 }
 ```
 
-This tutorial, does not implement add, delete, and so on. The focus is on communicating with another service.
+This tutorial does not implement add, delete, and so on. The focus is on communicating with another service.
 
 ## Create the web page that displays to-do items
 
