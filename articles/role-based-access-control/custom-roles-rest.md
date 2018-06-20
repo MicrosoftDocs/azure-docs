@@ -291,5 +291,5 @@ Status code: 200
 ## Next steps
 
 - [Custom roles in Azure](custom-roles.md)
-- [Azure Resource Manager resource provider operations](resource-provider-operations.md)
 - [Manage access using RBAC and the REST API](role-assignments-rest.md)
+- [Azure REST API Reference](/rest/api/azure/)
