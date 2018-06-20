@@ -52,13 +52,12 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 ### <a name="2.0.0"/>2.0.0
 * Replaced org.json dependency by jackson due to performance reasons and licensing ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29))
 * Removed deprecated OfferV2 class.
-* Added methods to Offer class for accessing throughput content.
-* Any method in Document/Resource returning org.json types changed to return a jackson json object type.
-* getObject(.) changed to return ObjectNode and not org.json.JSONObject.
-* getCollection(.) method of classes extending JsonSerializable changed to return Collection<ObjectNode> and not Collection<JSONObject>.
-* Removed constructors with org.json.JSONObject arg.
+* Added accessor method to Offer class for throughput content.
+* Any method in Document/Resource returning org.json types changed to return a jackson object type.
+* getObject(.) method of classes extending JsonSerializable changed to return a jackson ObjectNode type.
+* getCollection(.) method changed to return Collection of ObjectNode.
+* Removed JsonSerializable subclasses' constructors with org.json.JSONObject arg.
 * JsonSerializable.toJson (SerializationFormattingPolicy.Indented) now uses two spaces for indentation.
-
   
 ### <a name="1.0.2"/>1.0.2
 * Added support for Unique Index Policy.
