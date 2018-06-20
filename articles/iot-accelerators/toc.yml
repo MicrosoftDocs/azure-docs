@@ -27,9 +27,8 @@
 - name: Concepts
   items:
   - name: Remote Monitoring
+    href: iot-accelerators-remote-monitoring-sample-walkthrough.md
     items:
-    - name: Architecture overview
-      href: iot-accelerators-remote-monitoring-sample-walkthrough.md
     - name: Architectural choices
       href: iot-accelerators-remote-monitoring-architectural-choices.md
     - name: Device model schema
@@ -39,9 +38,8 @@
   - name: Predictive Maintenance
     href: iot-accelerators-predictive-walkthrough.md
   - name: Connected Factory
+    href: iot-accelerators-connected-factory-features.md
     items:
-    - name: What is Connected Factory?
-      href: iot-accelerators-connected-factory-features.md
     - name: Architecture
       href: iot-accelerators-connected-factory-sample-walkthrough.md
   - name: Permissions on azureiotsolutions.com
