@@ -867,7 +867,7 @@ Actions have these high-level elements, though some are optional:
 | <*operation-option*> | String | For some actions, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
-## Actions types list
+## Action types list
 
 Here are some commonly used action types: 
 
