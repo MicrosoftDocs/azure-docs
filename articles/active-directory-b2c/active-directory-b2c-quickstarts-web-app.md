@@ -120,4 +120,4 @@ In this quickstart, you used an Azure AD B2C enabled sample ASP.NET app to sign 
 Continue to the tutorial to learn how to configure the sample ASP.NET to use your own Azure AD B2C tenant.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Authenticate users with Azure Active Directory B2C in an ASP.NET web app](active-directory-b2c-tutorials-web-app.md)
+> [Create an Azure Active Directory B2C tenant in the Azure portal](tutorial-create-tenant.md)
