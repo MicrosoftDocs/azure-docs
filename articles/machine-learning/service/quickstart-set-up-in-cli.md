@@ -100,10 +100,16 @@ A resource group is a container that holds related resources for an Azure soluti
 
 1. Copy the following code into that script:
    ```python
-   run = Run.start_logging(workspace = ws, run_history_name = "myhistory")
-   run.log(SCALAR METRIC @@@)
-   run.log(VECTOR METRIC @@@)
-   run.upload_file(@@@)
+
+   # Log metric values
+   run.log("A single value",1.23)
+   run.log_list("A list of values",[1,2,3,4,5])
+ 
+   # Save an output artifact, such as model or data file  
+   with open("myOutputFile.txt","w") as f:
+   f.write("My results")
+   run.upload_file(name="results",path_or_stream="myOutputFile.txt")
+ 
    run.complete()
    ```
 
