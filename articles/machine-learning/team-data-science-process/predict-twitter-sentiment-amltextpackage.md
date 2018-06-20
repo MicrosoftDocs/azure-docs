@@ -1,5 +1,5 @@
 ---
-title: Twitter Sentiment Classification with Azure Machine Learning (AML) Package for Text Analytics (AMLPTA) and Team Data Science Process (TDSP) | Microsoft Docs
+title: Twitter sentiment classification with Azure Machine Learning (AML) package for text analytics (AMLPTA) and Team Data Science Process (TDSP) | Microsoft Docs
 description: Describes use of TDSP (Team Data Science Process) and AMLPTA for sentiment classification
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 19/06/2018
+ms.date: 06/20/2018
 ms.author: deguhath
 ---
-# Twitter Sentiment Classification with Azure Machine Learning (AML) package for Text Analytics (AMLPTA) and Team Data Science Process (TDSP)
+# Twitter sentiment classification with Azure Machine Learning (AML) package for text analytics (AMLPTA) and Team Data Science Process (TDSP)
 
 ## Introduction
 Standardization of the structure and documentation of data science projects, that is anchored to an established [data science lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), is key to facilitating effective collaboration in data science teams.
@@ -50,7 +50,7 @@ The primary purpose of this sample is to show how to instantiate and execute a m
 
 The project highlights several features of Azure Machine Learning, such TDSP structure instantiation and use, execution of code in Azure Machine Learning Work Bench, and easy operationalization in Azure Container Services using Docker and Kubernetes.
 
-## Team Data Science Process
+## Team Data Science Process (TDS)
 We use the TDSP project structure and documentation templates to execute this sample. It follows the [TDSP lifecycle](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle). The project is created based on the instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
 
 
@@ -69,7 +69,7 @@ This part of the sample is further divided into three subparts:
 - **Model Creation** deals with the training of different models like _logistic regression_ and _gradient boosting_ to predict sentiment of the input text. 
 - **Model Evaluation** applies the trained model over the testing data.
 
-#### Feature Engineering
+#### Feature engineering
 We use <b>Word2Vec</b> to generate word embeddings. First we use the Word2Vec algorithm in the Skipgram mode as explained in the paper [Mikolov, Tomas, et al. Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems. 2013.](https://arxiv.org/abs/1310.4546) to generate word embeddings.
 
 Skip-gram is a shallow neural network taking the target word encoded as a one hot vector as input and using it to predict nearby words. If V is the size of the vocabulary, then the size of the output layer would be __C*V__ where C is the size of the context window. The skip-gram based architecture is shown in the following figure.
@@ -100,7 +100,7 @@ This part we provide pointers to instructions on how to operationalize a pre-tra
 ## Conclusion
 We went through the details on how to train a word embedding model using Word2Vec and then use the extracted embeddings as features to train two different models to predict the sentiment score of Twitter text data. One of these models is deployed in Azure Container Services (AKS). 
 
-## Next Steps
+## Next steps
 Read further documentation on [Azure Machine Learning Package for Text Analytics (AMLPTA)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/textanalytics?view=azure-ml-py-latest) and [Team Data Science Process (TDSP)](https://aka.ms/tdsp) to get started.
 
 ## References
