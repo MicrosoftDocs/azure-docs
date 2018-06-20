@@ -41,7 +41,6 @@ By using the access panel, you can edit some of your profile settings and do the
 
 
 
-
 ## Access the access panel
 
 You can access the access panel by going to `http://myapps.microsoft.com`.
