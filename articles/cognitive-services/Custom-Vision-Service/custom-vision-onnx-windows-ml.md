@@ -6,7 +6,7 @@ author: larryfr
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: larryfr
 # As a developer, I want to use a custom vision model with Windows ML.
