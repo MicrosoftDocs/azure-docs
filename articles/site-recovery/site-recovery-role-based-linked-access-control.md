@@ -20,7 +20,7 @@ Azure Site Recovery provides 3 built-in roles to control Site Recovery managemen
 
 If you're looking to define your own roles for even more control, see how to [build Custom roles](../role-based-access-control/custom-roles.md) in Azure.
 
-## Enable replication permissions
+## Permissions required to enable replication for new virtual machines
 When a new Virtual Machine is replicated to Azure using Azure Site Recovery, the associated user's access levels are validated to ensure that the user has the required permissions to use the Azure resources provided to Site Recovery.
 
 To enable replication for a new virtual machine, a user must have:
