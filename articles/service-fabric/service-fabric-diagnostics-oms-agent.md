@@ -67,13 +67,13 @@ Sample Resource Manager templates that deploy an Azure Log Analytics workspace a
 
 You can download and modify this template to deploy a cluster that best suits your needs.
 
-## View Performance Counters in the Log Analytics Portal
+## View Performance Counters
 
 Now that you have added the Log Analytics agent, head on over to the Log Analytics portal to choose which performance counters you'd like to collect. 
 
 1. In the Azure portal, go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
 
-2. Click **OMS Workspace**.
+2. Click **Log Analytics**.
 
 3. Click **Advanced Settings**.
 

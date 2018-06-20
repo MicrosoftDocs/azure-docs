@@ -33,7 +33,7 @@ After data is received by Log Analytics, Azure has several *Management Solutions
 
 ## Access the Service Fabric Analytics solution
 
-1. In Azure Portal, go to the resource group in which you created the Service Fabric Analytics solution.
+1. In the Azure Portal, go to the resource group in which you created the Service Fabric Analytics solution.
 
 2. Select the resource **ServiceFabric\<nameOfOMSWorkspace\>**.
 
@@ -102,7 +102,7 @@ The Kusto query language is powerful. Another valuable query you can run is to f
 
 ## Next steps
 
-* To enable infrastructure monitoring i.e. performance counters, head over to [adding the OMS agent](service-fabric-diagnostics-oms-agent.md). The agent collects performance counters and adds them to your existing workspace.
+* To enable infrastructure monitoring i.e. performance counters, head over to [adding the Log Analytics agent](service-fabric-diagnostics-oms-agent.md). The agent collects performance counters and adds them to your existing workspace.
 * For on-premises clusters, Log Analytics offers a Gateway (HTTP Forward Proxy) that can be used to send data to Log Analytics. Read more about that in [Connecting computers without Internet access to Log Analytics using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md)
 * Configure  [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics
