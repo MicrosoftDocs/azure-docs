@@ -54,7 +54,9 @@ First, you create a resource group to contain the resources needed to deploy the
    This firewall will be in this subnet.
 10. For **Address range**, type **10.0.1.0/24**.
 11. Use the other default settings, and then click **Create**.
+
 ### Create additional subnets
+
 Next, you create subnets for the jump server, and a subnet for the workload servers.
 
 1. On the Azure portal home page, click **Resource groups**, then click **Test-FW-RG**.

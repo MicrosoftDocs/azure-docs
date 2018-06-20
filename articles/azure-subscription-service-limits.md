@@ -66,7 +66,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Database Migration Service](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
-* [Firewall](#firewall-limits)
+* [Azure Firewall](#firewall-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -151,7 +151,7 @@ The following table details the features and limits of the Basic, Standard, and 
 #### DNS limits
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
-#### Firewall limits
+#### Azure Firewall limits
 [!INCLUDE [firewall-limits](../includes/firewall-limits.md)]
 
 ### Storage limits
