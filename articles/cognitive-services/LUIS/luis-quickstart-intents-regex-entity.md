@@ -20,8 +20,7 @@ In this tutorial, you create an app that demonstrates how to extract consistentl
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand regular expression entities 
-> * Create new LUIS app for a Human Resources (HR) domain with FindForm intent
-> * Add _None_ intent and add example utterances
+> * Use a LUIS app for a Human Resources (HR) domain with FindForm intent
 > * Add regular expression entity to extract Form number from utterance
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
@@ -29,15 +28,15 @@ In this tutorial, you create an app that demonstrates how to extract consistentl
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Before you begin
-If you do not have the Human Resources app from the [custom domain](luis-tutorial-prebuilt-intents-entities.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS][LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github repository.
+If you do not have the Human Resources app from the prebuilt entities [custom domain](luis-tutorial-prebuilt-intents-entities.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS][LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `regex`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 
 ## Purpose of the regular expression entity
-The purpose of an entity is to get important data from the utterance. The app's use of the regular expression entity is to pull out formatted Human Resources (HR) Form numbers from an utterance. It is not machine-learned. 
+The purpose of an entity is to get important data contained in the utterance. The app's use of the regular expression entity is to pull out formatted Human Resources (HR) Form numbers from an utterance. It is not machine-learned. 
 
-Simple example utterances from users include:
+Simple example utterances include:
 
 ```
 Where is HRF-123456?
@@ -53,9 +52,13 @@ HRF-456098 date?
 HRF-456098 title?
 ```
  
-The regular expression entity to match is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf -` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly. LUIS adds the spaces before and after the hyphen as a token boundary. In order to match that in the LUIS regular expression entity, use the word boundary regular expression, `\b`.
+The regular expression entity to match the form number is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf -` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly.
 
 HRF stands for human resources form.
+
+### Tokenization with hyphens
+LUIS tokenizes the utterance when the utterance is added to an intent. The tokenization for these utterances adds spaces before and after the hyphen, `Where is HRF - 123456?`  The regular expression is applied to the utterance in its raw form, before it is tokenized. Because it is applied to the _raw_ form, the regular expression doesn't have to deal with word boundaries. 
+
 
 ## Add FindForm intent
 
@@ -88,7 +91,7 @@ HRF stands for human resources form.
 
     [ ![Screenshot of Intent page with new utterances highlighted](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
-    The application has prebuilt number entity added from the previous tutorial, so each form number is tagged. This may be enough for your client application but the number won't be labeled as a form number. Creating a new entity with an appropriate name allows the client application to process the entity appropriately when it is returned from LUIS.
+    The application has prebuilt number entity added from the previous tutorial, so each form number is tagged. This may be enough for your client application but the number won't be labeled with the type of number. Creating a new entity with an appropriate name allows the client application to process the entity appropriately when it is returned from LUIS.
 
 ## Create a HRF-number regular expression entity 
 Create a regular expression entity to tell LUIS what a HRF-number format is in the following steps:
@@ -103,14 +106,14 @@ Create a regular expression entity to tell LUIS what a HRF-number format is in t
 
     ![Screenshot of pop-up dialog setting new entity properties](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
-    The regular expression is based on the utterance sent into LUIS and not on the tokenized version of the utterance displayed in the LUIS website. 
-
-4. Now that the entity is created, select **Intents** then **FindForm** entity to see the regular expression labeled in the utterances. 
+4. Select **Intents**, then **FindForm** intent to see the regular expression labeled in the utterances. 
 
     [![Screenshot of Label utterance with existing entity and regex pattern](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
+    Because the entity is not a machine-learned entity, the label is applied to the utterances and displayed in the LUIS website as soon as it is created.
+
 ## Train the LUIS app
-A regular expression entity does not require training but the new intent and utterances does require training. 
+A regular expression entity does not require training but the new intent and utterances do require training. 
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
@@ -138,7 +141,7 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
     ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
-2. Go to the end of the URL in the address and enter `When were HRF-123456 and hrf-234567 published?`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindForm` intent with the two form numbers of `HRF-123456` and `hrf-234567`.
+2. Go to the end of the URL in the address and enter `When were HRF-123456 and hrf-234567 published?`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindForm` intent with the two form numbers of `HRF-123456` and `hrf-234567`.
 
     ```
     {
