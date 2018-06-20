@@ -408,7 +408,7 @@ Access reviews of groups and apps are now generally available as part of Azure A
 **Product capability:** User Authentication
  
 
-Apps created on or after 4/25/2018 will no longer be able to request an **id_token** using the **query** response_mode.  This brings Azure AD inline with the OIDC specifications and helps reduce your apps attack surface.  Apps created before 4/25/2018 are not blocked from using the **query** response_mode with a response_type of **id_token**.  The error returned, when requesting an id_token from AAD, is **AADSTS70007: ‘query’ is not a supported value of ‘response_mode’ when requesting a token**.
+Apps created on or after April 25, 2018 will no longer be able to request an **id_token** using the **query** response_mode.  This brings Azure AD inline with the OIDC specifications and helps reduce your apps attack surface.  Apps created before April 25, 2018 are not blocked from using the **query** response_mode with a response_type of **id_token**.  The error returned, when requesting an id_token from AAD, is **AADSTS70007: ‘query’ is not a supported value of ‘response_mode’ when requesting a token**.
 
 The **fragment** and **form_post** response_modes continue to work - when creating new application objects (for example, for App Proxy usage), ensure use of one of these response_modes before they create a new application.  
  
@@ -444,7 +444,7 @@ For more information, see [Azure AD B2C: Requesting access tokens](https://docs.
 **Product capability:** SSO
  
 
-When configuring SAML based SSO applications, you're able to test the integration on the configuration page. If you encounter an error during sign-in, you can provide the error in the testing experience and Azure AD provides you with resolution steps to solve the specific issue.
+When configuring SAML-based SSO applications, you're able to test the integration on the configuration page. If you encounter an error during sign-in, you can provide the error in the testing experience and Azure AD provides you with resolution steps to solve the specific issue.
 
 For more information, see:
 
@@ -550,7 +550,7 @@ For more information, see [Allow or block invitations to B2B users from specific
 **Product capability:** Third-party Integration
  
 
-In April 2018 we have added following 13 new apps in our App gallery with Federation support:
+In April 2018 we've added following 13 new apps in our App gallery with Federation support:
 
 
 
@@ -602,7 +602,7 @@ If an application that is listed in the [Azure marketplace](https://azuremarketp
 
 Previously, customers using the Azure Active Directory user provisioning connectors for SaaS applications (for example Salesforce, ServiceNow, and Box) could experience slow performance if their Azure AD tenants contained over 100,000 combined users and groups, and they were using user and group assignments to determine which users should be provisioned.
 
-On April 2nd, significant performance enhancements were deployed to the Azure AD provisioning service that greatly reduce the amount of time needed to perform initial synchronizations between Azure Active Directory and target SaaS applications.
+On April 2, 2018, significant performance enhancements were deployed to the Azure AD provisioning service that greatly reduce the amount of time needed to perform initial synchronizations between Azure Active Directory and target SaaS applications.
 
 
 As a result, many customers that had initial synchronizations to apps that took many days or never completed, are now completing within a matter of minutes or hours.
@@ -696,7 +696,7 @@ For more information, see:
 **Service category:** App Proxy  
 **Product capability:** Access Control
  
-Support for Application Proxy cmdlets is now in the Powershell GA Module! Please note that this does require you to stay updated on Powershell modules - if you become more than a year behind, some cmdlets may stop working. 
+Support for Application Proxy cmdlets is now in the Powershell GA Module! Note that this does require you to stay updated on Powershell modules - if you become more than a year behind, some cmdlets may stop working. 
 
 
 For more information, see [AzureAD](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0).
@@ -1183,7 +1183,7 @@ For more information, see [My Apps Secure Sign-in Extension](https://docs.micros
 
 ---
 
-### Azure AD administration experience in Azure classic portal has been retired
+### Azure AD administration experience in Azure Classic Portal has been retired
 
 **Type:** Deprecated   
 **Service category:** Azure AD  
@@ -1521,7 +1521,7 @@ For more information, see [Azure AD app-based conditional access](https://docs.m
  
 ---
 
-### Manage Azure AD devices in the Azure portal
+### Manage Azure AD devices in the Azure Portal
 
 
 
