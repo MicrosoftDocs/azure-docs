@@ -311,12 +311,18 @@ select **Output**.
    and includes the **Output** field in the email's body:
 
    !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-create-html-table-action.png)
+   
+   > [!NOTE]
+   > When you send the HTML table output in email, 
+   > make sure that you set the **Is HTML?** 
+   > property to **Yes** in the email action's advanced options. 
+   > That way, the email action can correctly format the HTML table.
 
 3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
    Based on the email connector you used, here are the results you get:
 
-   ![Email with "Create CSV table" action results](./media/logic-apps-change-manage-data-operations/create-html-table-email-results.png)
+   ![Email with "Create HTML table" action results](./media/logic-apps-change-manage-data-operations/create-html-table-email-results.png)
 
 <a name="filter-array-action"></a>
 
