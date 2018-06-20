@@ -80,7 +80,7 @@ If the device import operation fails, you will see an error message on the Devic
 
 **Associating devices with a template**
 
-If you register devices by initiating import under **Unassociated devices** then the deivces are created without any device template association. Device must be associated with a template to explore the data and other details about the device. Follow these steps to associate devices with a template:
+If you register devices by starting the import under **Unassociated devices**, then the devices are created without any device template association. Device must be associated with a template to explore the data and other details about the device. Follow these steps to associate devices with a template:
 1. Choose **Explorer** on the left navigation menu.
 1. On the left panel, choose **Unassociated devices**.
     [![Unassociated Devices](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
