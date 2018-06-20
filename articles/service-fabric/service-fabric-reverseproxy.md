@@ -53,8 +53,13 @@ Instead of configuring the port of an individual service in Load Balancer, you c
 ![External communication][0]
 
 > [!WARNING]
-> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster.
+> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microsservices meant to be internal may be discoverable by a determined bad actor. This potenially presents serious vulnerabilities that can be exploited by a bad actor; for example:
 >
+> * A bad actor may launch a denial of service attack by repeatedly calling an internal service that does not have a sufficiently hardened attack surface.
+> * A bad actor may deliver malformed packets to an internal service resulting in unintended behavior.
+> * A service meant to be internal may return private or sensitive information not intended to be exposed to services outside the cluster, thus exposing this sensitive information to a bad actor. 
+>
+> Make sure you fully understand and mitigate the potential security ramifications for your cluster and the apps running on it, before you make the reverse proxy port public. 
 >
 
 
