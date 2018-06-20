@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/27/2018
+ms.date: 06/18/2018
 ms.author: ryanwi
 
 ---
@@ -223,6 +223,9 @@ the first instance of that type.
 
 ## Start the test client and perform a failover
 Actors do not do anything on their own, they require another service or client to send them messages. The actor template includes a simple test script that you can use to interact with the actor service.
+
+> [!Note]
+> The test client uses the ActorProxy class to communicate with actors, which must run within the same cluster as the actor service or share the same IP address space.  You can run the test client on the same computer as the local development cluster.  To communicate with actors in a remote cluster, however, you must deploy a gateway on the cluster that handles external communication with the actors.
 
 1. Run the script using the watch utility to see the output of the actor service.  The test script calls the `setCountAsync()` method on the actor to increment a counter, calls the `getCountAsync()` method on the actor to get the new counter value, and displays that value to the console.
 

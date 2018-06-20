@@ -1021,7 +1021,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ## Controlling access with Shared Access Signatures
-You can use Shared Access Signature (SAS) tokens to enable client applications to modify (and query) table entities directly without the need to authenticate directly with the table service. Typically, there are three main benefits to using SAS in your application:  
+You can use Shared Access Signature (SAS) tokens to enable client applications to modify (and query) table entities without the need to include your storage account key in your code. Typically, there are three main benefits to using SAS in your application:  
 
 * You do not need to distribute your storage account key to an insecure platform (such as a mobile device) in order to allow that device to access and modify entities in the Table service.  
 * You can offload some of the work that web and worker roles perform in managing your entities to client devices such as end-user computers and mobile devices.  

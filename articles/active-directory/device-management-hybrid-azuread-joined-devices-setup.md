@@ -501,7 +501,7 @@ The following script helps you with the creation of the issuance transform rules
 
 ## Step 3: Enable Windows down-level devices
 
-If some of your domain-joined devices Windows down-level devices, you need to:
+If some of your domain-joined devices are Windows down-level devices, you need to:
 
 - Set a policy in Azure AD to enable users to register devices.
  
