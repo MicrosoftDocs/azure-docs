@@ -94,7 +94,7 @@ During the creation of your Terms of Use (ToU), a new “custom” conditional a
  
 New, step-by-step guidance about how to deploy Azure Active Directory (Azure AD), including self-service password reset (SSPR), single sign-on (SSO), conditional access (CA), App proxy, User provisioning, Active Directory Federation Services (ADFS) to Pass-through Authentication (PTA), and ADFS to Password hash sync (PHS).
 
-To view the deployment guides, go to the Identity Deployment Guides repo on GitHub [https://aka.ms/DeploymentPlans]. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https:aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at IDGitDeploy@microsoft.com.
+To view the deployment guides, go to the [Identity Deployment Guides](https://aka.ms/DeploymentPlans) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https:aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at IDGitDeploy@microsoft.com.
 
 ---
 
