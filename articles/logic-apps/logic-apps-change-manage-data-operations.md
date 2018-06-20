@@ -558,7 +558,7 @@ From the actions list, select this action: **Data Operations - Parse JSON**
 6. Save your logic app. On the designer toolbar, choose **Save**.
 
 For more information about this action in your underlying workflow definition, 
-see [Parse JSON action](../logic-apps/logic-apps-workflow-actions-triggers.md#parse-json-action).
+see [Parse JSON action](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 ### Test your logic app
 
