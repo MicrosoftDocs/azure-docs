@@ -99,7 +99,7 @@ resource = resource_management_client.resource_groups.create_or_update(
 ## Prepare Azure file share
 For illustration purposes, this quickstart uses an Azure File share to host the training data and scripts for the training job.
 
-1. Create a file share named `batchaiquickstart`.
+Create a file share named `batchaiquickstart`.
 
 ```Python
 from azure.storage.file import FileService
@@ -108,13 +108,13 @@ service = FileService(storage_account_name, storage_account_key)
 service.create_share(azure_file_share_name, fail_on_exist=False)
 ```
 
-2. Create a directory in the share named `mnistcntksample`
+Create a directory in the share named `mnistcntksample`.
 
 ```Python
 mnist_dataset_directory = 'mnistcntksample'
 service.create_directory(azure_file_share_name, mnist_dataset_directory, fail_on_exist=False)
 ```
-1. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip into the current directory. The following code uploads required files into Azure File share:
+Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip into the current directory. The following code uploads required files into Azure File share:
 
 ```Python
 for f in ['Train-28x28_cntk_text.txt', 'Test-28x28_cntk_text.txt',
