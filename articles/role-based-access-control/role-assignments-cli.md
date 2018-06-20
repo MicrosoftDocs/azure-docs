@@ -1,6 +1,6 @@
 ---
 title: Manage access using RBAC and Azure CLI | Microsoft Docs
-description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and Azure CLI. This includes listing access, granting access, and removing access.
+description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and Azure CLI. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2018
+ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -305,5 +305,5 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ## Next steps
 
-[!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
+- [Tutorial: Create a custom role using Azure CLI](tutorial-custom-role-cli.md)
+- [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/xplat-cli-azure-resource-manager.md)

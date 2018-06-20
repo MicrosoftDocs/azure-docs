@@ -1,6 +1,6 @@
 ---
 title: Create custom roles using Azure CLI | Microsoft Docs
-description: Learn how to create custom roles for role-based access control (RBAC) using Azure CLI. This includes listing, creating, updating, and deleting custom roles.
+description: Learn how to create custom roles for role-based access control (RBAC) using Azure CLI. This includes how to list, create, update, and delete custom roles.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,13 +18,12 @@ ms.reviewer: bagovind
 ---
 # Create custom roles using Azure CLI
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and Azure CLI.
+If the [built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to create and manage custom roles using Azure CLI.
 
 ## Prerequisites
 
-To create custom roles using the Azure CLI, you must have:
-
-* [Azure CLI](/cli/azure). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
+- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+- [Azure CLI](/cli/azure/install-azure-cli) installed locally.
 
 ## List custom roles
 
