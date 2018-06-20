@@ -161,15 +161,17 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Enter a name for your storage account.
-3. Set the **Account kind** field to **StorageV2 (general-purpose v2)**.
-4. Leave the **Replication** field set to **Locally-redundant storage (LRS)**. Alternately, you can chooose **Zone-redundant storage (ZRS Preview)**, **Geo-redundant storage (GRS)**, or **Read-access geo-redundant storage (RA-GRS)**.
-5. Leave these fields set to their defaults: **Deployment model**, **Performance**, **Secure transfer required**.
-6. Choose the subscription in which you want to create the storage account.
-7. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.
-8. Choose the location for your new storage account.
-9. Click **Create** to create the storage account.
+3. Leave **Deployment model** set to the default value.
+4. Set the **Account kind** field to **StorageV2 (general-purpose v2)**.
+5. Set **Location** to **East US 2 EUAP**
+6. Leave the **Replication** field set to **Locally-redundant storage (LRS)**. 
+7. Leave these fields set to their defaults: **Replication**. **Performance**, **Access tier**.
+8. Choose the subscription in which you want to create the storage account.
+9. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.
+10. Keep the default value for **Virtual Networks**
+11. Click **Create** to create the storage account.
 
-![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/create-account-portal.png)
+![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/azure-data-lake-storage-account-create.png)
 
 ### PowerShell
 
