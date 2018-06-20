@@ -13,21 +13,19 @@ manager: carmonm
 # Troubleshoot problems backing up Azure File Shares
 You can troubleshoot issues and errors encountered while using Azure File Shares backup with information listed in the following tables.
 
-## Preview boundaries
+## Limitations for Azure file share backup during Preview
 Backup for Azure File shares is in Preview. The following backup scenarios are not supported for Azure file shares:
-- Protecting Azure file shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication*.
-- Protecting Azure file shares in Storage Accounts that have Virtual Networks or Firewall enabled.
-- Backing up Azure file shares using PowerShell or CLI.
+- You cannot protect Azure file shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication*.
+- You cannot protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
+- There is no PowerShell or CLI available for protecting Azure Files using Azure Backup.
+- The maximum number of scheduled backups per day is one.
+- The maximum number of on-demand backups per day is four.
+- Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
+- Do not delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
 
 \*Azure File Shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication function as GRS and billed at GRS prices
 
 Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS) and East US 2 (EUS2)
-
-### Limitations
-- Maximum #Scheduled-backup per day is 1.
-- Maximum #On-Demand-backup per day is 4.
-- Use resource locks on the Storage Account to prevent accidental deletion of Backups in your Recovery Services vault.
-- Do not delete snapshots created by Azure Backup. Deletion of snapshots might result in loss of Recovery Points and/or Restore failures
 
 ## Configuring Backup
 The following table is for configuring the backup:
