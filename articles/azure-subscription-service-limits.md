@@ -66,7 +66,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Database Migration Service](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
-* [Azure Firewall](#firewall-limits)
+* [Azure Firewall](#azure-firewall-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
