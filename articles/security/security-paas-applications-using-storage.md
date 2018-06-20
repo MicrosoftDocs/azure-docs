@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 06/20/2018
 ms.author: TomShinder
 
 ---
@@ -35,12 +35,10 @@ This article addresses the following best practices:
 
 - Access protection:
    - Shared Access Signatures (SAS)
-   - Managed disk
    - Role-Based Access Control (RBAC)
 
 - Storage encryption:
    - Client side encryption for high value data
-   - Azure Disk Encryption for virtual machines (VMs)
    - Storage Service Encryption
 
 ## Access protection
