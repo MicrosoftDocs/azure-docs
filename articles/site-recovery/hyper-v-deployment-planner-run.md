@@ -149,7 +149,7 @@ If the server that the tool is running on is rebooted or has crashed, or if you 
 
 When the storage-account name and key are passed, the tool measures the throughput at the last step of profiling. If the tool is closed before profiling is completed, the throughput is not calculated. To find the throughput before generating the report, you can run the GetThroughput operation from the command-line console. Otherwise, the generated report will not contain throughput information.
 
-Azure Site Recovery does not support VMs that have iSCSI and pass-through disks. However, the tool cannot detect and profile iSCSI and pass-through disks that are attached to VMs.
+Azure Site Recovery doesn't support VMs that have iSCSI and pass-through disks. The tool can't detect and profile iSCSI and pass-through disks that are attached to VMs.
 
 ## Generate a report
 The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output. It summarizes all the deployment recommendations. The report is named DeploymentPlannerReport_*unique numeric identifier*.xlsm and placed in the specified directory.

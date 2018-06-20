@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 06/19/2018
 ms.author: raynew
 
 ---
@@ -31,7 +31,7 @@ This tutorial sets up VMware disaster recovery to Azure with the simplest settin
 
 ## Verify VM properties
 
-Before you run a test failover, verify the VMware VM properties, and make sure that the Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms], [VMware VM or physical server](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
+Before you run a test failover, verify the VMware VM properties, and make sure that the [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms), or [VMware VM/physical server](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
 
 1. In **Protected Items**, click **Replicated Items** > and the VM.
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the
