@@ -1,4 +1,4 @@
-- name: QnA Maker Documentation
+- name: What is QnA Maker?
   href: Overview/overview.md
 - name: Overview
   items:

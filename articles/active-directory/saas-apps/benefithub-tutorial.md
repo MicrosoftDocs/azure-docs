@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 4069fe32-a452-463f-973e-7aa0baa4c2fa
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -223,7 +224,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the BenefitHub tile in the Access Panel, you should get automatically signed-on to your BenefitHub application.
-For more information about the Access Panel, see [introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
@@ -243,4 +244,3 @@ For more information about the Access Panel, see [introduction to the Acc
 [201]: ./media/benefithub-tutorial/tutorial_general_201.png
 [202]: ./media/benefithub-tutorial/tutorial_general_202.png
 [203]: ./media/benefithub-tutorial/tutorial_general_203.png
-
