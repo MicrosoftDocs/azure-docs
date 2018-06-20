@@ -3,10 +3,9 @@ title: Plan capacity and scaling for VMware replication to Azure with Azure Site
 description: Use this article to plan capacity and scale when replicating VMware VMs to Azure with Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: rayne
 ---
 
