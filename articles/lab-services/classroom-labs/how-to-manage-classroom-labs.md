@@ -75,15 +75,14 @@ A template in a lab is a base virtual machine image from which all users’ virt
 ### Publish the template 
 To publish a template VM, you set the availability of the template to **public**. When you do so, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process is same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template. 
 
-1. Wait until the template VM is ready. 
-2. Select **Publish** in the **Template** section. 
-3. In the **Publish** page, select **Published**.
+1. Select **Publish** in the **Template** section. 
+
+    ![Publish the template VM](../media/tutorial-setup-classroom-lab/public-access.png)
+1. In the **Publish** window, select the **Published** option. 
+2. Now, select the **Publish** button. This process may take some time depending on how many VMs are being created, which is same as the number of users allowed into the lab.
     
     > [!IMPORTANT]
     > Once a template is publicly available, its access can't be changed to private. 
-4. Select **Publish**. This process may take some time depending on how many VMs are being created, which is same as the number of users allowed into the lab.  
-
-    ![Publish the template VM](../media/tutorial-setup-classroom-lab/public-access.png)
 4. Switch to the **Virtual machines** page, and confirm that you see five virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
 
     ![Virtual machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
