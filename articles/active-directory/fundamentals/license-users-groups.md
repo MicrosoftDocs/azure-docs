@@ -1,23 +1,24 @@
 ---
-title: License users in Azure Active Directory | Microsoft Docs
+title: License users in Azure AD | Microsoft Docs
 description: Learn how to license yourself and your users in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: jeffgilb
+author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/22/2017
-ms.author: jeffgilb
+ms.author: lizross
+ms.reviewer: jeffgilb
 custom: it-pro
 ---
+
 # Quickstart: License users in Azure Active Directory
 License-based Azure AD services work by activating an Azure Active Directory (Azure AD) subscription in your Azure tenant. After the subscription is active, service capabilities are managed by Azure AD administrators and used by licensed users. When you purchase Enterprise Mobility + Security, Azure AD Premium, or Azure AD Basic, your tenant is updated with the subscription, including its validity period and prepaid licenses. Your subscription information, including the number of assigned or available licenses, is available through the Azure portal under **Azure Active Directory** by opening the **Licenses** tile. The **Licenses** blade is also the best place to manage your license assignments.
 
