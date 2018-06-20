@@ -185,6 +185,7 @@ In this article, you learned how to use HDFS-compatible Azure storage with HDIns
 
 For more information, see:
 
+* [The ABFS Hadoop Filesystem driver for Azure Data Lake Storage Gen2](abfs-driver.md)
 * [Introduction to Azure Data Lake Storage][introduction.md]
 * [Set up HDInsight clusters using Azure Data Lake Storage with Hadoop, Spark, Kafka, and more](quickstart-create-connect-hdi-cluster.md)
 * [Ingest data into Azure Data Lake Storage][link_to_ingest_data_article.md]
