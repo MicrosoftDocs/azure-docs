@@ -588,11 +588,72 @@ you can now select the properties from the parsed JSON content.
 
    ![Email with "Join" action results](./media/logic-apps-change-manage-data-operations/parse-json-email-results.png)
 
-
 <a name="select-action"></a>
 
 ## Select action
 
+You can create an array with JSON objects from items in another 
+array by using the **Data ooperations - Select JSON** action. 
+For example, you can create a JSON object from each value in an 
+integer array by specifying the properties that each JSON object 
+has and the values in the source array you want assigned to 
+those properties. 
+
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+or Visual Studio, open your logic app in Logic App Designer. 
+
+   This example uses the Azure portal and a logic app with a 
+   **Recurrence** trigger and an **Initialize variable** action. 
+   The action is set up for creating a variable whose initial 
+   value is an array that has some sample integers. 
+   When you test your logic app later, you can manually 
+   run your app without waiting for the trigger to fire.
+
+   ![Starting sample logic app](./media/logic-apps-change-manage-data-operations/sample-starting-logic-app-select-action.png)
+
+2. In your logic app where you want to create the array, 
+follow one of these steps: 
+
+   * To add an action under the last step, 
+   choose **New step** > **Add an action**.
+
+     ![Add action](./media/logic-apps-change-manage-data-operations/add-select-action.png)
+
+   * To add an action between steps, move your mouse 
+   over the connecting arrow so the plus sign (+) appears. 
+   Choose the plus sign, and then select **Add an action**.
+
+3. In the search box, enter "select" as your filter. 
+From the actions list, select this action: **Data Operations - Select**
+
+   ![Select the "Select" action](./media/logic-apps-change-manage-data-operations/select-select-action.png)
+
+4. In the **From** box, specify the source array you want.
+
+   For this example, when you click inside the **From** box, 
+   the dynamic content list appears so you can select 
+   the previously created variable:
+
+   ![Select source array for Select action](./media/logic-apps-change-manage-data-operations/configure-select-action.png)
+
+5. In the **Map** box's left-hand column, provide the property name you want to assign 
+each value in the source array. In the right-hand column, specify an expression 
+that represents the value you want to assign the property.
+
+   This example specifies "Product_ID" as the property name to assign each value 
+   in the integer array by using the **item()** function in an expression 
+   that accesses each array item. 
+
+   ![Specify the JSON object property and values for the array you want to create](./media/logic-apps-change-manage-data-operations/configure-select-action-2.png)
+
+   Here is the finished action:
+
+   ![Finished Select action](./media/logic-apps-change-manage-data-operations/finished-select-action.png)
+
+6. Save your logic app. On the designer toolbar, choose **Save**.
+
+For more information about this action in your underlying workflow definition, 
+see [Select action](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 ## Get support
 
