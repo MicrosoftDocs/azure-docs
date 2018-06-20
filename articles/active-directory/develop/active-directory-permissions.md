@@ -14,16 +14,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/19/2018
+ms.date: 06/20/2018
 ms.author: celested
-ms.reviewer: justhu
+ms.reviewer: jesakowi; justhu
 ms.custom: aaddev
 ---
 
 # Permissions in Azure AD
+
 Azure Active Directory (Azure AD) makes extensive use of permissions for both OAuth and OpenID Connect (OIDC) flows. When your app receives an access token from Azure AD, the access token will include claims that describe the permissions that your app has in respect to a particular resource. Permissions, also known as scopes, make authorization easy for the resource because the resource only needs to check that the token contains the appropriate permission for whatever API the app is calling. 
 
 ## Types of permissions
+
 Azure AD defines two kinds of permissions: 
 * **Delegated permissions** - Are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to an API. Depending on the API, the user may not be able to consent to the API directly and would instead [require an administrator to provide "admin consent".](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
 * **Application permissions** - Are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons. Application permissions can only be [consented by an administrator](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) because they are typically powerful and allow access to data across user-boundaries, or data that would otherwise be restricted to administrators. 
@@ -75,7 +77,15 @@ Applications in Azure AD rely on consent in order to gain access to necessary re
 
 ## Best practices
 
-### Resource best practices
+### Client best practices
+
+- Only request permission for the scopes that your app needs. Apps with too many permissions are at risk of exposing user data if they are compromised.
+- Choose between delegated permissions and application permissions based on the scenario that your app supports. 
+    - Always use delegated permissions if the call is being made on behalf of a user.
+    - Only use application permissions if the app is non-interactive and not making calls on behalf of any specific user. Application permissions are highly privileged and should only be used when absolutely necessary.
+- When using an app based on the v2.0 endpoint, always set the static permissions (those specified in your application registration) to be the superset of the dynamic permissions you request at runtime (those specified in code and sent as query parameters in your authorize request) so that scenarios like admin consent works correctly.
+
+### Resource/API best practices
 
 - Resources that expose APIs should define permissions that are specific to the data or actions that they are protecting. Following this best practice helps to ensure that clients do not end up with permission to access data that they do not need and that users are well informed about what data they are consenting to.
 - Resources should explicitly define `Read` and `ReadWrite` permissions separately.
@@ -90,11 +100,6 @@ Applications in Azure AD rely on consent in order to gain access to necessary re
     * Mail.ReadWrite - Allows users to read or write mail.
     * Mail.ReadWrite.All - Allows an administrator or user to access all mail in the organization.
 
-### Client best practices
-
-- Only request permission for the scopes that your app needs. Apps with too many permissions are at risk of exposing user data if they are compromised.
-- Clients should not request application permissions and delegated permissions from the same app, which can result in elevation of privilege and allow a user to gain access to data that their own permissions would not allow.
-- Always set the static permissions to be the superset of the app's dynamic permissions so that admin consent works correctly.
 
 
 
