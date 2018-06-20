@@ -60,6 +60,7 @@ The following limits apply only for networking resources managed through Azure R
 **These default limits apply to subscriptions that have not previously had these limits increased through support
 
 #### <a name="load-balancer"></a>Load Balancer limits
+The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md)
 
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
