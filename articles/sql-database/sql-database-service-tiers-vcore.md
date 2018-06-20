@@ -1,60 +1,19 @@
 ---
 title: 'Azure SQL Database service - vCore | Microsoft Docs'
-description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
+description: The vCore-based purchasing model (preview) enables you to independently scale compute and storage resources, match on-premises performance, and optimize price.  
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
 
 ---
-# vCore-based purchasing model for Azure SQL Database (preview)
+# Choosing a vCore service tier, compute, memory, storage, and IO resources
 
-[Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model (preview). The following table and chart compare and contrast these two purchasing models.
-
-> [!IMPORTANT]
-> For the DTU-based purchasing model, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md).
-
-
-|**Purchasing model**|**Description**|**Best for**|
-|---|---|---|
-|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-what-is-a-dtu.md)?|Best for customers who want simple, pre-configured resource options.| 
-|vCore-based model|This model allows you to independently scale compute and storage resources - up to 80 vCores, 4 TB of data storage, and 200000 IOPS. It also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
-||||  
-
-![pricing model](./media/sql-database-service-tiers/pricing-model.png)
-
-## vCore-based purchasing model  (preview)
-
-A virtual core represents the logical CPU offered with an option to choose between generations of hardware. The vCore-based purchasing model (preview) gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model (preview), customers can choose between General Purpose and Business critical service tiers (preview) for both [single databases](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md). 
-
-Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups. When using the vCore model, single databases and elastic pools are eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
-
-In the vCore-based purchasing model (preview) customers pay for:
-- Compute (service tier + number of vCores + generation of hardware)*
-- Type and amount of data and log storage 
-- Number of IOs**
-- Backup storage (RA-GRS)** 
-
-\* In the initial public preview, the Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors
-
-\*\* During preview, 7 days of backups and IOs are free
-
-> [!IMPORTANT]
-> Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges, refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
-
-> [!IMPORTANT]
-> Region limitations: 
->
-> The vCore-based purchasing model (preview) is not yet available in Australia Southeast. The preview is not available in the following regions: West Europe, France Central, UK South, and UK West.
-> 
-
-## Choosing service tier, compute, memory, storage, and IO resources
-
-Converting to the vCore-based purchasing model (preview) enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU in Standard tier requires at least 1 vCore in General Purpose tier; each 125 DTU in Premium tier requires at least 1 vCore in Business Critical tier.
+Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups. With the vCore model, single databases and elastic pools are eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 The following table helps you understand the differences between these two tiers:
 
@@ -75,7 +34,7 @@ The following table helps you understand the differences between these two tiers
 > [!IMPORTANT]
 > If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
 
-For details on specific performance levels and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels) and for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+For details on specific performance levels and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels) and for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
 
 See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions. 
 
@@ -145,6 +104,3 @@ You can copy any database with a DTU-based performance level to a database with 
 
 ## Next steps
 
-- For details on specific performance levels and storage size choices available, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md) and [SQL Database vCore-based resource limits](sql-database-vcore-resource-limits.md).
-- See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
-- Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
