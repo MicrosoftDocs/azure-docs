@@ -67,7 +67,7 @@ Do not install CycleCloud on a shared drive, or any drive in which non-admin use
 
 To upgrade an existing CycleCloud installation, save the install bundle to the server’s local drive. The upgrade script will unpack the bundle and install the new package. On Linux, the upgrade script is `$CS_HOME/util/upgrade.sh`. On Windows, the upgrade script is `C:\Program Files\CycleServer\util\upgrade.cmd`. Both scripts take the path to the install bundle as an argument. For example:
 
-    /opt/cycle_server/util/upgrade.sh /tmp/cyclecloud-6.6.0.tar.gz
+      /opt/cycle_server/util/upgrade.sh /tmp/cyclecloud-6.6.0.tar.gz
 
 To upgrade the cyclecloud command line tool, copy the new binary over the old. In most cases, upgrades within a release series (e.g. 5.x) do not typically require CLI upgrades.
 
@@ -84,7 +84,7 @@ modifications to the configuration files before starting CycleCloud for the firs
 During the install step, make sure to use the `--nostart` flag to keep the server from starting,
 and the `--installdir` flag to specify an alternate install directory. For example:
 
-    ./install.sh --nostart --installdir /mnt/second_cycle_server
+      /install.sh --nostart --installdir /mnt/second_cycle_server
 
 After the installer finishes, edit `$CS_HOME/config/cycle_server.properties` and change the
 following port numbers to an unused port (incrementing each default port number by one usually works well):
