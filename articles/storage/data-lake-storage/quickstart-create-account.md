@@ -113,7 +113,7 @@ If you're not sure which region to specify for the `-Location` parameter, you ca
 
 ```powershell
 Get-AzureRmLocation | select Location 
-$location = "westus"
+$location = "westus2"
 ```
 
 ### Azure CLI
@@ -123,7 +123,7 @@ To create a new resource group with Azure CLI, use the [az group create](/cli/az
 ```azurecli-interactive
 az group create \
     --name storage-quickstart-resource-group \
-    --location westus
+    --location westus2
 ```
 
 If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az_account_list) command.
@@ -203,7 +203,7 @@ To create a general-purpose v2 storage account from the Azure CLI with locally-r
 az storage account create \
     --name storagequickstart \
     --resource-group storage-quickstart-resource-group \
-    --location westus \
+    --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
     --enable-hierarchial-namespace true
