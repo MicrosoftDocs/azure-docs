@@ -26,7 +26,7 @@ Integrating Hightail with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Hightail (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 

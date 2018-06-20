@@ -27,7 +27,7 @@ Integrating PagerDuty with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to PagerDuty (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -250,7 +250,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the PagerDuty tile in the Access Panelyou should get automatically signed-on to your PagerDuty application.
 
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

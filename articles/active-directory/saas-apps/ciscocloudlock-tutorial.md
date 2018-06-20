@@ -27,7 +27,7 @@ Integrating The Cloud Security Fabric with Azure AD provides you with the follow
 - You can enable your users to automatically get signed-on to The Cloud Security Fabric (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -200,7 +200,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the The Cloud Security Fabric tile in the Access Panel, you should get automatically signed-on to your The Cloud Security Fabric application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
