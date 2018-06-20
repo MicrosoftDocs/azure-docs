@@ -56,6 +56,22 @@ A template in a lab is a base virtual machine image from which all users’ virt
 
     ![Classroom lab description](../media/how-to-manage-classroom-labs/lab-description.png)
 
+## Prepare the template VM
+ You connect to the template VM and install any required software on it before making it available to your students. 
+
+1. Wait until the template virtual machine is ready. This may take a few minutes. Once it is ready, the **Start** button should be enabled. To start the VM, select **Start**.
+
+    ![Start the template VM](../media/tutorial-setup-classroom-lab/start-template-vm.png)
+1. To connect to the VM, select **Connect**, and follow instructions. 
+
+    ![Connect to the template VM](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
+1. Install any software that's required for students to do the lab (for example, Visual Studio, Azure Storage Explorer, etc.). 
+2. Disconnect (close your remote desktop session) from the template VM. 
+3. **Stop** the template VM by selecting **Stop**. 
+
+    ![Stop the template VM](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
+
+
 ### Publish the template 
 To publish a template VM, you set the availability of the template to **public**. When you do so, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process is same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template. 
 
@@ -67,19 +83,25 @@ To publish a template VM, you set the availability of the template to **public**
     > Once a template is publicly available, its access can't be changed to private. 
 4. Select **Save**.
 
-    ![Availability](../media/how-to-manage-classroom-labs/public-access.png)
-4. Switch to the **Virtual machines** page, and confirm that you see five virtual machines that are in **Unassigned** state. 
+    ![Publish the template VM](../media/tutorial-setup-classroom-lab/public-access.png)
+4. Switch to the **Virtual machines** page, and confirm that you see five virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
 
-    ![Virtual machines](../media/how-to-manage-classroom-labs/virtual-machines.png)
+    ![Virtual machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
+5. Wait until the VMs are created. They should be in **Stopped** state. You can start a student VM, connect to the VM,stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
 
-Optionally, you can **start** the template VM, **connect** to it and install any software required for the lab, and **stop** the template VM before making it public.
+    ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+
 
 ## Send registration link to students
 
-1. Select **User registration** tile.
-2. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard. Paste it in an email editor, and send an email to the student. 
+1. Switch to the **Dashboard** view. 
+2. Select **User registration** tile.
 
-    ![Student registration link](../media/how-to-manage-classroom-labs/registration-link.png)
+    ![Student registration link](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
+1. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard. Paste it in an email editor, and send an email to the student. 
+
+    ![Student registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
+2. On the **User registration** dialog box, select **Close**. 
 
 ## View all classroom labs
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
@@ -99,6 +121,17 @@ Optionally, you can **start** the template VM, **connect** to it and install any
 
     ![Delete dialog box](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
  
+## Manage student VMs
+Once students register with Azure Lab Services using the registration link you provided to them, you see the VMs assigned to students on the **Virtual machines** tab. 
+
+![Virtual machines assigned to students](../media/how-to-manage-classroom-labs/virtual-machines-students.png)
+
+You can do the following tasks on a student VMs: 
+
+- Stop a VM if the VM is running. 
+- Start a VM if the VM is stopped. 
+- Connect to the VM. 
+- Delete the VM. 
 
 ## Next steps
 Get started with setting up a lab using Azure Lab Services:
