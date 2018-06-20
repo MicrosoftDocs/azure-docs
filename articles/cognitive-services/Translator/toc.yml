@@ -21,6 +21,20 @@
         href: quickstart-csharp-languages.md
       - name: Get sentence lengths in text
         href: quickstart-csharp-sentences.md
+    - name: Java
+      items:
+      - name: Translate text
+        href: quickstart-java-translate.md
+      - name: Convert text script
+        href: quickstart-java-transliterate.md
+      - name: Identify language from text
+        href: quickstart-java-detect.md
+      - name: Get alternate translations
+        href: quickstart-java-dictionary.md
+      - name: Get supported languages
+        href: quickstart-java-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-java-sentences.md
 - name: Concepts
   items:
   - name: Supported languages
@@ -43,8 +57,6 @@
     href: dynamic-dictionary.md
   - name: Use Translator Text API
     items:
-    - name: Java
-      href: quickstarts/java.md
     - name: Node.js
       href: quickstarts/nodejs.md
     - name: PHP
