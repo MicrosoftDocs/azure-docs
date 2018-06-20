@@ -14,14 +14,13 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
 
 ---
 # Get started with ML Services on Azure HDInsight
 
-Azure HDInsight enables you to create an ML Services cluster. This option allows R scripts to use Spark and MapReduce to run distributed computations. In this article, you learn how to create an ML Service cluster on HDInsightand how to run an R script that demonstrates using Spark for distributed R computations.
-
+Azure HDInsight enables you to create an ML Services cluster. This option allows R scripts to use Spark and MapReduce to run distributed computations. In this article, you learn how to create an ML Service cluster on HDInsight and how to run an R script that demonstrates using Spark for distributed R computations.
 
 ## Prerequisites
 
