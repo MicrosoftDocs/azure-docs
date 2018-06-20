@@ -210,9 +210,9 @@
       items: 
       - name: Failover groups and geo-replication
         href: sql-database-geo-replication-overview.md
-      - name: Configure Geo-replication - Portal
+      - name: Configure geo-replication - Portal
         href: sql-database-geo-replication-portal.md
-      - name: Configure security - replicas
+      - name: Configure security for replicas
         href: sql-database-geo-replication-security-config.md
     - name: Database recovery
       items:
@@ -252,11 +252,11 @@
         href: sql-database-sync-data.md
       - name: Replicate schema changes
         href: sql-database-update-sync-schema.md
-      - name: Monitor with OMS Log Analytics
+      - name: Monitor with OMS
         href: sql-database-sync-monitor-oms.md
-      - name: Best practices for SQL Data Sync
+      - name: Best practices for Data Sync
         href: sql-database-best-practices-data-sync.md
-      - name: Troubleshoot SQL Data Sync
+      - name: Troubleshoot Data Sync
         href: sql-database-troubleshoot-data-sync.md
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md
