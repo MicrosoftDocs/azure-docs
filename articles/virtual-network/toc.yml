@@ -274,8 +274,8 @@
             href: virtual-networks-acl-powershell.md
         - name: Move VM to a different subnet
           href: virtual-networks-move-vm-role-to-subnet.md
-      - name: Cloud service and network security
-        href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Cloud service and network security
+      href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       items:
       - name: Create a DMZ with NSGs
         href: virtual-networks-dmz-nsg-asm.md
