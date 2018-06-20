@@ -37,6 +37,7 @@ To get these tools, clone the AzureStack-Tools GitHub repository or download the
 cd \
 
 # Download the tools archive
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip

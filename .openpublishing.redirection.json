@@ -11512,6 +11512,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Translator/quickstarts/java.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-java-translate",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
             "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-build-system.md",
             "redirect_document_id": false
