@@ -195,8 +195,6 @@
         href: virtual-network-network-interface-vm.md
       - name: Add or remove IP addresses
         href: virtual-network-network-interface-addresses.md
-      - name: Move VM to a different subnet
-        href: virtual-networks-move-vm-role-to-subnet.md
     - name: Public IP addresses
       href: virtual-network-public-ip-address.md
   - name: Troubleshoot
@@ -274,8 +272,10 @@
             href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
           - name: Azure PowerShell
             href: virtual-networks-acl-powershell.md
-    - name: Cloud service and network security
-      href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        - name: Move VM to a different subnet
+          href: virtual-networks-move-vm-role-to-subnet.md
+      - name: Cloud service and network security
+        href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       items:
       - name: Create a DMZ with NSGs
         href: virtual-networks-dmz-nsg-asm.md
