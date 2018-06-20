@@ -111,7 +111,7 @@ sections:
             - href: /azure/cosmos-db/create-mongodb-flask
             - href:
             - href: /azure/cosmos-db/create-mongodb-golang
-            - href:
+            - href: /azure/cosmos-db/create-mongodb-xamarin
         - title: Gremlin API
           values:
             - href: /azure/cosmos-db/create-graph-java
