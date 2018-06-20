@@ -50,11 +50,11 @@
     href: custom-roles.md
     items:
     - name: PowerShell
-    - href: custom-roles-powershell.md
+      href: custom-roles-powershell.md
     - name: Azure CLI
-    - href: custom-roles-cli.md
+      href: custom-roles-cli.md
     - name: REST API
-    - href: custom-roles-rest.md
+      href: custom-roles-rest.md
   - name: View activity logs
     href: change-history-report.md
   - name: Elevate access for Global admin
