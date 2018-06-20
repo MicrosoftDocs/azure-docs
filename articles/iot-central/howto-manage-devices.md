@@ -61,7 +61,7 @@ To bulk-register devices in your application:
 1. On the left panel, choose the device template for which you want to bulk create the devices.
 
  >   [!NOTE] 
-    If you don’t have a device template yet then you can import devices under **Unassociated devices** and register them without any template. Once devices have been imported, you can then associate them with a template as explained here.
+    If you don’t have a device template yet then you can import devices under **Unassociated devices** and register them without any template. Once devices have been imported, you can then associate them with a template as a subsequent step.
 
 1. Click **Import**.
 
