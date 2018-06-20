@@ -17,10 +17,10 @@ ms.suite: integration
 
 # Change or manage data outputs and formats in Azure Logic Apps
 
-This article shows how you can perform various operations on data 
-outputs from the triggers and actions in your logic apps. 
-Azure Logic Apps provides these operations as built-in actions 
-that you can use in your logic apps.
+Azure Logic Apps provides various built-in actions that help you 
+manage and work with data outputs and formats in your logic apps. 
+This article shows how to perform these data operations 
+by using these actions.
 
 **Array actions** 
 
@@ -73,13 +73,14 @@ as the first step in your logic app
 
 ## Compose action
 
-You can create a single output from more than one input, 
-including expressions, by using the **Data Operations - Compose** action. 
-These inputs can have varying types, such as arrays, 
-JSON objects, and any other native type that Azure 
-Logic Apps supports, for example, binary and XML. 
-You can then use this output in actions that follow 
-the **Compose** action.
+To save yourself from repeatedly entering the same multiple 
+inputs while building your logic app's workflow, you can create 
+a single output from those inputs, including expressions, 
+by using the **Data Operations - Compose** action. 
+These inputs can have varying types, such as integers, 
+Booleans, arrays, JSON objects, and any other native 
+type that Azure Logic Apps supports, for example, binary and XML. 
+You can then use this output in actions that follow after the **Compose** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -154,9 +155,9 @@ select **Output**.
 
 ## Create CSV table action
 
-You can create a CSV table from an array items by using 
-the **Data Operations - Create CSV table** action. 
-You can then use this table in actions that follow the **Create CSV table** action.
+To create a comma-separated value (CSV) table from an array that contains 
+JSON objects, use the **Data Operations - Create CSV table** action. 
+You can then use this table in actions that follow after the **Create CSV table** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -237,9 +238,10 @@ select **Output**.
 
 ## Create HTML table action
 
-You can create an HTML table from an array by using 
-the **Data Operations - Create HTML table** action. 
-You can then use this table in actions that follow the **Create HTML table** action.
+To create an HTML table from an array with JSON objects, 
+use the **Data Operations - Create HTML table** action. 
+You can then use this table in actions that follow after 
+the **Create HTML table** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -320,13 +322,17 @@ select **Output**.
 
 ## Filter array action
 
-You can create a smaller array from an existing array based on a 
-specified condition by using the **Data Operations - Filter array** action. 
-You can then use the filtered array in actions that follow the **Filter array** action.
+To create a smaller array that has items, which meet specific criteria, 
+from an existing array, use the **Data Operations - Filter array** action. 
+You can then use the filtered array in actions that follow after the **Filter array** action. 
 
 > [!NOTE]
-> This action can't change the format or shape of items in the array.
-> Also, any filter text that you use in your condition is case sensitive.
+> Any filter text that you use in your condition is case sensitive. 
+> Also, this action can't change the format or components of items in the array. 
+> 
+> For actions to use the array output from the **Filter array** action, 
+> either those actions must accept arrays as input, or you might 
+> have to transform the output array into another compatible format. 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -412,10 +418,10 @@ enter this expression that includes the **Filter array** action's name:
 
 ## Join action
 
-You can create a string that has all the items from an array and separates 
-those items with a specified delimiter character by using the 
-**Data Operations - Join** action. You can then use the string 
-in actions that follow the **Join** action.
+To create a string that has all the items from an array and 
+separate those items with a specific delimiter character, 
+use the **Data Operations - Join** action. You can then use 
+the string in actions that follow after the **Join** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -494,10 +500,11 @@ select **Output**.
 
 ## Parse JSON action
 
-You can reference or use the properties in JSON content by creating 
-fields or tokens with the **Data operations - Parse JSON** action.
-That way, those you can select those properties from the dynamic 
-content list when you provide input for your logic app. 
+To reference or use the properties in JSON content, 
+you can create fields or tokens for those properties 
+by using the **Data operations - Parse JSON** action.
+That way, you can select these properties from the dynamic 
+content list when you specify inputs for your logic app. 
 For this action, you can either provide a JSON schema 
 or generate a JSON schema from your sample JSON content or payload.
 
@@ -592,12 +599,19 @@ you can now select the properties from the parsed JSON content.
 
 ## Select action
 
-You can create an array with JSON objects from items in another 
-array by using the **Data operations - Select** action. 
-For example, you can create a JSON object from each value in an 
-integer array by specifying the properties that each JSON object 
-has and the values in the source array you want assigned to 
-those properties. 
+To create an array that has JSON objects built from values in 
+an existing array, use the **Data operations - Select** action. 
+For example, you can create a JSON object for each value in 
+an integer array by specifying the properties that each JSON 
+object must have and how to map the values in the source array 
+to those properties. And although you can change the 
+components in those JSON objects, the output array 
+always has the same number of items as the source array.
+
+> [!NOTE]
+> For actions to use the array output from the **Select** action, 
+> either those actions must accept arrays as input, or you might 
+> have to transform the output array into another compatible format. 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
