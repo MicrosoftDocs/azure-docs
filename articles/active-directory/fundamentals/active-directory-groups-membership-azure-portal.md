@@ -1,24 +1,21 @@
 ---
-
-title: Manage the groups your group belongs to in Azure Active Directory | Microsoft Docs
+title: Manage the groups your group belongs to in Azure AD | Microsoft Docs
 description: Groups can contain other groups in Azure Active Directory. Here's how to manage those memberships.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 10/10/2017
-ms.author: curtand
-
+ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-
 ---
+
 # Manage to which groups a group belongs in your Azure Active Directory tenant
 Groups can contain other groups in Azure Active Directory. Here's how to manage those memberships.
 
