@@ -223,6 +223,8 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
     }
     ```
 
+    The numbers in the utterance are returned twice, once as the new entity `hrf-number`, and once as a prebuilt entity, `number`. An utterance can have more than one entity, and more than one of the same type of entity, as this example shows. By using a regular expression entity, the data you want to extract can be extracted and named to be more programmatically helpful to the client application receiving the JSON response.
+
 ## What has this LUIS app accomplished?
 This app identified the intention and returned the extracted data. 
 
