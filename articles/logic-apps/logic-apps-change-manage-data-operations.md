@@ -391,6 +391,7 @@ the results from the **Filter array** action.
 When the dynamic content list opens, choose **Expression**. 
 To get the outputs from the **Filter array** action, 
 enter this expression with the name for the **Filter array** action:
+enter this expression that includes the **Filter arraySelect** action's name
 
    ```
    @actionBody('Filter_array')
@@ -654,6 +655,34 @@ that represents the value you want to assign the property.
 
 For more information about this action in your underlying workflow definition, 
 see [Select action](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+### Test your logic app
+
+To check that the **Select** action creates the expected results, 
+send yourself a notification that includes output from the **Select** action.
+
+1. In your logic app, add an action that can send you 
+the results from the **Select** action.
+
+2. In that action, click anywhere you want the results to appear. 
+When the dynamic content list opens, choose **Expression**. 
+To get the outputs from the **Select** action, 
+enter this expression that includes the **Select** action's name:
+
+   ```
+   @actionBody('Select')
+   ```
+
+   This example uses the **Office 365 Outlook - Send an email** action 
+   and includes the **Output** field in the email's body:
+
+   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-select-action.png)
+
+3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
+
+   Based on the email connector you used, here are the results you get:
+
+   ![Email with "Select" action results](./media/logic-apps-change-manage-data-operations/select-email-results.png)
 
 ## Get support
 
