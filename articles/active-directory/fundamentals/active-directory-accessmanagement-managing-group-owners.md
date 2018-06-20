@@ -1,22 +1,20 @@
 ---
-title: Next steps for access management using groups | Microsoft Docs
+title: Next steps for access management using groups - Azure AD | Microsoft Docs
 description: Advanced How-to's for managing security groups and how to use these groups to manage access to a resource.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/12/2017
-ms.author: curtand
-
+ms.author: lizross
 ms.custom: it-pro
-
 ---
+
 # Managing owners for a group
 Once a resource owner has assigned access to a resource to an Azure AD group, the membership of the group is managed by the group owner. The resource owner effectively delegates the permission to assign users to the resource to the owner of the group.
 

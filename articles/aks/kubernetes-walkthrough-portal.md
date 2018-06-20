@@ -28,7 +28,7 @@ Sign in to the Azure portal at http://portal.azure.com.
 
 ## Create AKS cluster
 
-Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
+Choose **Create a resource** > select **Kubernetes Service** > **Create**.
 
 Complete the following steps under each heading of the create AKS cluster form.
 

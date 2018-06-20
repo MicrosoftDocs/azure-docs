@@ -86,7 +86,7 @@ The volume of data you send is limited in three ways:
 
     Use care when you set the daily cap. Your intent should be to *never hit the daily cap*. If you hit the daily cap, you lose data for the remainder of the day, and you can't monitor your application. To change the daily cap, use the **Daily volume cap** option. You can access this option in the **Usage and estimated costs** pane (this is described in more detail later in the article).
     We've removed the restriction on some subscription types that have credit that couldn't be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog has instructions to remove the spending limit and enable the daily cap to be raised beyond 32.3 MB/day.
-* **Throttling**: Throttling limits the data rate to 32,000 events per second, averaged over 1 minute.
+* **Throttling**: Throttling limits the data rate to 32,000 events per second, averaged over 1 minute per instrumentation key.
 
 *What happens if my app exceeds the throttling rate?*
 

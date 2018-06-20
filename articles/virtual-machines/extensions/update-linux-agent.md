@@ -158,7 +158,7 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart walinuxagent.service
 ```
 
-## Redhat / CentOS
+## Red Hat / CentOS
 
 ### RHEL/CentOS 6
 
@@ -391,7 +391,7 @@ Typically this is all you need, but if for some reason you need to install it fr
 
 ## Update the Linux Agent when no agent package exists for distribution
 
-Install wget (there are some distros that don't install it by default, such as Redhat, CentOS, and Oracle Linux versions 6.4 and 6.5) by typing `sudo yum install wget` on the command line.
+Install wget (there are some distros that don't install it by default, such as Red Hat, CentOS, and Oracle Linux versions 6.4 and 6.5) by typing `sudo yum install wget` on the command line.
 
 ### 1. Download the latest version
 Open [the release of Azure Linux Agent in GitHub](https://github.com/Azure/WALinuxAgent/releases) in a web page, and find out the latest version number. (You can locate your current version by typing `waagent --version`.)

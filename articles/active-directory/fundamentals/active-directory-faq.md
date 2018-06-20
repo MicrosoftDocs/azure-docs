@@ -1,22 +1,22 @@
 ---
-title: Azure Active Directory FAQ | Microsoft Docs
+title: Azure AD FAQ | Microsoft Docs
 description: Azure Active Directory FAQ answers common questions about Azure and Azure Active Directory, password management, and application access.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
-ms.author: markvi
-
+ms.author: lizross
 ---
+
 # Azure Active Directory FAQ
 Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.
 
