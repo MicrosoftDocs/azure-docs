@@ -21,7 +21,11 @@ SQL Data Warehouse automatically takes snapshots of your data warehouse every 8 
 SQL Data Warehouse now supports [user-defined restore points](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) through the [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoin) cmdlet.
 
 ```PowerShell
-New-AzureRmSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -RestorePointLabel $RestorePointName
+New-AzureRmSqlDatabaseRestorePoint
+    -ResourceGroupName $ResourceGroupName
+    -ServerName $ServerName
+    -DatabaseName $DatabaseName
+    -RestorePointLabel $RestorePointName
 ```
 
 ## Column Level Security
