@@ -140,4 +140,4 @@ In this quickstart, you've deployed the Remote Monitoring solution accelerator a
 To learn how to update the firmware in your connected devices and organize your assets in the solution accelerator, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Explore the capabilities of the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+> [Tutorial: Monitor your IoT devices](iot-accelerators-remote-monitoring-monitor.md)
