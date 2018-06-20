@@ -39,25 +39,25 @@ sections:
     - title: Translate text from one language to another
       values:
       - href: quickstart-csharp-translate
-      - href:
+      - href: quickstart-java-translate
       - href:
       - href:
     - title: Convert text from one script to another
       values:
       - href: quickstart-csharp-transliterate
-      - href:
+      - href: quickstart-java-transliterate
       - href:
       - href:
     - title: Identify language of text
       values:
       - href: quickstart-csharp-detect
-      - href:
+      - href: quickstart-java-detect
       - href:
       - href:
     - title: Get alternate translations and usage
       values:
       - href: quickstart-csharp-dictionary
-      - href:
+      - href: quickstart-java-dictionary
       - href:
       - href:
 
