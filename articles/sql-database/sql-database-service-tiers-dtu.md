@@ -18,7 +18,7 @@ Service tiers are differentiated by a range of performance levels with a fixed a
 > [!IMPORTANT]
 > SQL Database Managed Instance, currently in public preview does not support a DTU-based purchasing model. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
 
-## Choosing a service tier in the DTU-based purchasing model
+## Choosing a DTU-based service tier
 
 Choosing a service tier depends primarily on business continuity, storage, and performance requirements.
 ||Basic|Standard|Premium|
@@ -33,11 +33,9 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |In-memory OLTP|N/A|N/A|Supported|
 |||||
 
-## Performance level and storage size limits in the DTU-based purchasing model
+## Single database DTU and storage limits
 
 Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-what-is-a-dtu.md)?
-
-### Single databases
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -47,7 +45,7 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 
 For details on specific performance levels and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
 
-### Elastic pools
+## Elastic pool eDTU, storage, and pooled database limits
 
 | | **Basic** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
