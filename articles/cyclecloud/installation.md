@@ -1,10 +1,12 @@
-# Installing CycleCloud
+# Manual Installation
+
+Azure CycleCloud can be installed using an ARM template, but for production instances of CycleCloud, we recommend installing the product manually as outlined below.
 
 ## A Note on Names
 
 It is worth noting that the names CycleCloud and CycleServer are sometimes used interchangeably, but this
 confuses the distinction between them. CycleServer is the platform that underlies CycleCloud.
-It handles data storage, plugin management, logging, monitoring, and alerting among other functions. CycleCloud is a plugin to CycleServer, which manages the creation of clusters across multiple cloud providers. While CycleCloud is the official name of the product, you will find CycleServer referenced in many commands and directory names.
+It handles data storage, plugin management, logging, monitoring, and alerting among other functions. CycleCloud is a plugin to CycleServer, which manages the creation of clusters across multiple cloud providers. While Azure CycleCloud is the official name of the product, you will find CycleServer referenced in many commands and directory names.
 
 ## Installation
 
@@ -46,7 +48,6 @@ To upgrade the cyclecloud command line tool, copy the new binary over the old. I
 
 > [!NOTE]
 >As of version 6.6.0, Java Runtime Environment is no longer packaged in the installation. JRE version 8 or higher is required.
-
 
 ## Installing Multiple Instances of CycleCloud on the Same Machine
 
@@ -111,21 +112,3 @@ the account's user ID is "admin".
 * Contain at least one lower case letter
 * Contain at least one number
 * Contain at least one special character: @ # $ % ^ & * - _ ! + = [ ] { } | \ : ' , . ?
-
-## Licensing
-
-CycleCloud will check for existing licenses using the Cycle Computing Portal credentials you
-provided in Step 1. If a license is found for the internally-generated Node ID of your
-installation, the license will be installed automatically. If a license has not been assigned
-to this instance, you will be presented with a list of your available licenses. Click **Claim**
-to select the desired license and it will be installed automatically.
-
-If there are no available licenses associated with your Cycle Computing Portal credentials, please
-contact your sales representative. If you need to manually enter a license (for example, if your
-CycleCloud installation is in an air-gapped environment), your sales representative will send an
-email with a license. Copy the license string from the email and paste
-it into the form. Click **Install License** to continue.
-
-![Enter License screen](~/images/setup-license.png)
-
-You will see confirmation that the license has been successfully installed.
