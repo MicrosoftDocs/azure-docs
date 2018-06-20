@@ -19,8 +19,7 @@ This tutorial describes how to failover a Hyper-V VM to Azure. After you've fail
 > * Failback from Azure to on-premises
 > * Reverse replicate on-premises VMs, to start replicating to Azure again
 
-This is the fifth tutorial in a series. This tutorial assumes that you have already completed the
-tasks in the previous tutorials.    
+This tutorial is the fifth tutorial in a series. It assumes that you have already completed the tasks in the previous tutorials.    
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
 2. [Prepare on-premises Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
@@ -29,9 +28,9 @@ tasks in the previous tutorials.
 
 ## Prepare for failover and failback
 
-Make sure there are no snapshots on the VM, and that the on-premises VM is turned off during failback. This helps ensure data consistency during replication. Don't turn on on-premises VM during failback. 
+Make sure there are no snapshots on the VM, and that the on-premises VM is turned off during failback. It helps ensure data consistency during replication. Don't turn on on-premises VM during failback. 
 
-Failover and failback has three stages:
+Failover and failback have three stages:
 
 1. **Failover to Azure**: Failover Hyper-V VMs from the on-premises site to Azure.
 2. **Failback to on-premises**: Failover Azure VMs to your on-premises site, when it's available. It starts replicating VMs back to the on-premises Hyper-V VMs. After initial data synchronization, failover Azure VMs to the on-premises site.  
@@ -39,7 +38,7 @@ Failover and failback has three stages:
 
 ## Verify VM properties
 
-Verify the VM properties, and make sure that the VM complies with [Azure requirements](hyper-v-azure-support-matrix.md#replicated-vms).
+Before failover verify the VM properties, and make sure that the VM meet with [Azure requirements](hyper-v-azure-support-matrix.md#replicated-vms).
 
 1. In **Protected Items**, click **Replicated Items** > <VM-name>.
 
@@ -53,7 +52,7 @@ Verify the VM properties, and make sure that the VM complies with [Azure require
 2. In **Failover** select the **Latest** recovery point. 
 3. Select **Shut down machine before beginning failover**. Site Recovery attempts to do a shutdown of source VMs before triggering the failover. Failover continues even if shutdown fails. You
    can follow the failover progress on the **Jobs** page.
-4. After you verify the failover click **Commit**. This deletes all the available recovery points.
+4. After you verify the failover click **Commit**. It deletes all the available recovery points.
 
 > [!WARNING]
 > **Don't cancel a failover in progress**: If you cancel in progress, failover stops, but the VM won't replicate again.
@@ -66,7 +65,7 @@ Failback operation is basically a failover from Azure to the on-premises site an
 2. In **Confirm Planned Failover**, verify the failover direction (from Azure), and select the source and target locations.
 3. Select **Synchronize data before failover (synchronize delta changes only)**. This option minimizes VM downtime because it synchronizes without shutting down the VM.
 4. Initiate the failover. You can follow the failover progress on the **Jobs** tab.
-5. After the initial data synchronization is done and you're ready to shut down the Azure VMs click **Jobs** > planned-failover-job-name > **Complete Failover**. This shuts down the Azure VM, transfers the latest changes on-premises, and starts the on-premises VM.
+5. After the initial data synchronization is done and you're ready to shut down the Azure VMs click **Jobs** > planned-failover-job-name > **Complete Failover**. It shuts down the Azure VM, transfers the latest changes on-premises, and starts the on-premises VM.
 6. Log on to the on-premises VM to check it's available as expected.
-7. The on-premises VM is now in a **Commit Pending** state. Click **Commit**. This deletes the Azure VMs and its disks, and prepares the on-premises VM for reverse replication.
-To start replicating the on-premises VM to Azure, enable **Reverse Replicate**. This triggers replication of delta changes that have occurred since the Azure VM was switched off.  
+7. The on-premises VM is now in a **Commit Pending** state. Click **Commit**. It deletes the Azure VMs and its disks, and prepares the on-premises VM for reverse replication.
+To start replicating the on-premises VM to Azure, enable **Reverse Replicate**. It triggers replication of delta changes that have occurred since the Azure VM was switched off.  
