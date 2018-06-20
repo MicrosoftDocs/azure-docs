@@ -1,6 +1,6 @@
 ---
 title: LUIS Prebuilt entities datetimeV2 reference | Microsoft Docs
-description: This article contains datetimeV2 prebuilt entity information in Language Understanding (LUIS).
+description: This article has datetimeV2 prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -13,10 +13,10 @@ ms.author: v-geberr
 
 ## Prebuilt datetime entity resolution
 
-The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times, and ranges of dates and times. This entity also resolves dates, times, and date ranges to values in a standardized format for client programs to consume. When an utterance contains a date or time that isn't complete, LUIS includes both past and future values in the endpoint response. 
+The **builtin.datetimeV2** prebuilt entity extracts date and time related values. These values resolve in a standardized format for client programs to consume. When an utterance has a date or time that isn't complete, LUIS includes _both past and future values_ in the endpoint response. 
 
 ## Example JSON 
-The following example JSON response contains a `builtin.datetimeV2` entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href="#subtypes-of-datetimev2">Subtypes of datetimeV2</a>.
+The following example JSON response has a `builtin.datetimeV2` entity with a subtype of `datetime`. For examples of other types of datetimeV2 entities, see [Subtypes of datetimeV2](#subtypes-of-datetimev2)</a>.
 
 ```JSON
 "entities": [
@@ -40,14 +40,14 @@ The following example JSON response contains a `builtin.datetimeV2` entity, of t
 
 ## JSON property descriptions
 
-|Property name | Property type and description|
-|-|-|
-|entity|<b>string</b>. Text extracted from the utterance representing date, time, date range, or time range.|
-|type|<b>string</b>. One of the [subtypes of datetimeV2](#subtypes-of-datetimev2)
-|startIndex|<b>int</b>. The index in the utterance at which the entity begins.|
-|endIndex|<b>int</b>. The index in the utterance at which the entity ends.|
-|resolution|Contains a `values` array that has one, two, or four [values of resolution](#values-of-resolution).|
-|end|A value representing the end of a time or date range, in the same format as `value`. Only used if `type` is `daterange`, `timerange`, or `datetimerange`|
+|Property name |Property type and description|
+|---|---|
+|Entity|**string** - Text extracted from the utterance with type of date, time, date range, or time range.|
+|type|**string** - One of the [subtypes of datetimeV2](#subtypes-of-datetimev2)
+|startIndex|**int** - The index in the utterance at which the entity begins.|
+|endIndex|**int** - The index in the utterance at which the entity ends.|
+|resolution|Has a `values` array that has one, two, or four [values of resolution](#values-of-resolution).|
+|end|The end value of a time, or date range, in the same format as `value`. Only used if `type` is `daterange`, `timerange`, or `datetimerange`|
 
 ## Subtypes of datetimeV2
 
@@ -62,16 +62,18 @@ The **builtin.datetimeV2** prebuilt entity has the following subtypes, and examp
 
 ## Values of resolution
 * The array has one element if the date or time in the utterance is fully specified and unambiguous.
-* The array has two elements if the datetimeV2 value is ambiguous. Ambiguity includes lack of specific year, time or time range. See [Ambiguous dates](#ambiguous-dates) for examples. When there is an ambiguous time, values contains both the A.M. and P.M. times.
-* The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to A.M. or P.M. For example, 3:00 April 3rd.
+* The array has two elements if the datetimeV2 value is ambiguous. Ambiguity includes lack of specific year, time, or time range. See [Ambiguous dates](#ambiguous-dates) for examples. When the time is ambiguous for A.M. or P.M., both values are included.
+* The array has four elements if the utterance has 2 elements with ambiguity. This includes elements that contain:
+  * A date or date range that is ambiguous as to year
+  * A time or time range that is ambiguous as to A.M. or P.M. For example, 3:00 April 3rd.
 
-Each element of the `values` array may contain the following fields: 
+Each element of the `values` array may have the following fields: 
 
 |Property name|Property description|
 |--|--|
-|timex|time, date, or date range expressed in TIMEX format that follows the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601) as well as using the TIMEX3 attributes for annotation using the TimeML language. This annotation is described in the [TIMEX guidelines](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).<br>|
+|timex|time, date, or date range expressed in TIMEX format that follows the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601) and the TIMEX3 attributes for annotation using the TimeML language. This annotation is described in the [TIMEX guidelines](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
 |type|The subtype, which can be one of the following items: datetime, date, time, daterange, timerange, datetimerange, duration, set.|
-|value|<b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If `type` is `duration`, the value is the number of seconds (duration) <br/> Only used if `type` is `datetime` or `date`, `time`, or `duration.|
+|value|**Optional.** A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If `type` is `duration`, the value is the number of seconds (duration) <br/> Only used if `type` is `datetime` or `date`, `time`, or `duration.|
 
 ## Minimum and maximum date values
 
@@ -89,8 +91,8 @@ For example, given the utterance "May 2nd":
 * If today's date is May 3rd 2017, LUIS provides both "2017-05-02" and "2018-05-02" as values. 
 * If today's date is May 1st 2017, LUIS provides both "2016-05-02" and "2017-05-02" as values.
 
-The following example shows the resolution of the entity "may 2nd" provided that today's date is a date between May 2nd 2017 and May 1st 2018.
-Fields containing `X` in the `timex` field represent parts of the date that are not explicitly specified in the utterance.
+The following example shows the resolution of the entity "may 2nd". This resolution assumes that today's date is a date between May 2nd 2017 and May 1st 2018.
+Fields with `X` in the `timex` field are parts of the date that aren't explicitly specified in the utterance.
 
 ```
   "entities": [
@@ -119,7 +121,7 @@ Fields containing `X` in the `timex` field represent parts of the date that are 
 
 ## Date range resolution examples for numeric date
 
-The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the next year. In the `timex` field, the `XXXX` values represent the year that is not explicitly specified in the utterance. `P3D` indicates that the time period is three days long.
+The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the next year. In the `timex` field, the `XXXX` values indicate the ambiguity of the year. `P3D` indicates that the time period is three days long.
 
 ```
 "entities": [
@@ -179,7 +181,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
   ]
 ```
 ## Ambiguous time
-The values array has two elements if the time or time range is ambiguous as to AM or PM. When there is an ambiguous time, values contains both the AM and PM times.
+The values array has two elements if the time, or time range is ambiguous as to AM or PM. When there is an ambiguous time, values have both the AM and PM times.
 
 ## Time range resolution example
 
