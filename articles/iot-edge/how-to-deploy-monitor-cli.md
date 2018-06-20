@@ -129,13 +129,13 @@ For more information about device twins and tags, see [Understand and use device
 
 You deploy modules to your target devices by creating a deployment that consists of the deployment manifest as well as other parameters. 
 
-Use the following command to apply the configuration to an IoT Edge device:
+Use the following command to create a deployment:
 
    ```cli
    az iot edge deployment create --deployment-id [deployment id] --labels [labels] --content [file path] --hub-name [hub name] --target-condition [target query] --priority [int]
    ```
 
-* **--deployment-id** - The name of the deployment that will be created in the IoT hub. Give your deployment a unique name. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
+* **--deployment-id** - The name of the deployment that will be created in the IoT hub. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
 * **--labels** - Add labels to help track your deployments. Labels are Name, Value pairs that describe your deployment. For example, `HostPlatform, Linux` or `Version, 3.0.1`
 * **--content** - Filepath to the deployment manifest JSON. 
 * **--hub-name** - Name of the IoT hub in which the deployment will be created. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
