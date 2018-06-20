@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Disk Encryption for Windows and Linux IaaS VMs | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
@@ -219,7 +219,7 @@ The sections that follow can help you configure a client secret-based authentica
 ##### Create an Azure AD application by using Azure PowerShell
 Use the following PowerShell cmdlet to create an Azure AD application:
 
-    $aadClientSecret = "yourSecret"
+    $aadClientSecret = ConvertTo-SecureString -String "yourSecret" -AsPlainText -Force 
     $azureAdApplication = New-AzureRmADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password $aadClientSecret
     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
 
