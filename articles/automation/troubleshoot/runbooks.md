@@ -17,7 +17,12 @@ manager: carmonm
 
 #### Issue
 
-You receive the error "Unknown_user_type: Unknown User Type" when working with the Add-AzureAccount or Connect-AzureRmAccount cmdlets.
+You receive the following error when working with the `Add-AzureAccount` or `Connect-AzureRmAccount` cmdlets.
+:
+
+```
+Unknown_user_type: Unknown User Type
+```
 
 #### Cause
 
@@ -44,7 +49,11 @@ In order to determine what's wrong, take the following steps:
 
 #### Issue
 
-You receive the error "The subscription named ``<subscription name>`` cannot be found" when working with the Select-AzureSubscription or Select-AzureRmSubscription cmdlets.
+You receive the following error when working with the `Select-AzureSubscription` or `Select-AzureRmSubscription` cmdlets.:
+
+```
+The subscription named <subscription name> cannot be found.
+```
 
 #### Error
 
@@ -64,10 +73,10 @@ In order to determine if you have properly authenticated to Azure and have acces
 
 #### Issue
 
-You receive the the following error 
+You receive the the following error when authenticating to Azure with your Azure username and password:
 
 ```
-"Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required" when authenticating to Azure with your Azure username and password.
+Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required
 ```
 
 #### Cause
@@ -76,7 +85,7 @@ If you have multi-factor authentication on your Azure account, you can't use an 
 
 #### Resolution
 
-To use a certificate with the Azure classic deployment model cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+To use a certificate with the Azure classic deployment model cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## Common errors when working with runbooks
 
@@ -94,9 +103,9 @@ The job was tried three times but it failed
 
 This error can be caused by the following reasons:
 
-1. Memory Limit. There are documented limits on how much memory allocated to a Sandbox  [Automation service limits](../azure-subscription-service-limits.md#automation-limits) so a job may fail it if it is using more than 400 MB of memory. 
+1. Memory Limit. There are documented limits on how much memory allocated to a Sandbox  [Automation service limits](../../azure-subscription-service-limits.md#automation-limits) so a job may fail it if it is using more than 400 MB of memory.
 
-2. Module Incompatible. This can occur if module dependencies are not correct and if they are not, your runbook typically returns a "Command not found" or "Cannot bind parameter" message. 
+2. Module Incompatible. This can occur if module dependencies are not correct and if they are not, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
 #### Resolution
 
@@ -104,16 +113,18 @@ Any of the following solutions fix the problem:
 
 * Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell workflow runbooks.  
 
-* Update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).  
+* Update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).  
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 
 #### Issue
 
-Your runbook fails with the error: 
+Your runbook fails with the error:
 
 ```
-"Cannot bind parameter ``<ParameterName>``. Cannot convert the ``<ParameterType>`` value of type Deserialized ``<ParameterType>`` to type ``<ParameterType>``".
+Cannot bind parameter <ParameterName>.
+
+Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to type <ParameterType>.
 ```
 
 #### Cause
@@ -158,7 +169,7 @@ If you want to use more than 500 minutes of processing per month, you need to ch
 Your runbook job fails with the error:
 
 ```
-<cmdlet name>: The term <cmdlet name> is not recognized as the name of a cmdlet, function, script file, or operable program."
+<cmdlet name>: The term <cmdlet name> is not recognized as the name of a cmdlet, function, script file, or operable program.
 ```
 
 #### Cause
@@ -170,7 +181,7 @@ This error is caused when the PowerShell engine cannot find the cmdlet you are u
 Any of the following solutions fix the problem:  
 
 * Check that you have entered the cmdlet name correctly.  
-* Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run **Get-Command ``<CommandName>``**. Once you have validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and ensure that you are using a valid parameter set in your runbook.  
+* Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run `Get-Command <CommandName>`. Once you have validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and ensure that you are using a valid parameter set in your runbook.  
 * If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.  
 * If you are executing the runbook on-premises in a hybrid worker group, then make sure that the module/cmdlet is installed on the machine that hosts the hybrid worker.
 
@@ -186,7 +197,7 @@ A runbook can be suspended for a number of reasons. Suspends happen mostly due t
 
 #### Resolution
 
-The documented solution to avoid this issue is to use Checkpoints in a workflow. To learn more, refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#checkpoints). A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+The documented solution to avoid this issue is to use Checkpoints in a workflow. To learn more, refer to [Learning PowerShell Workflows](../automation-powershell-workflow.md#checkpoints). A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
 ## Common errors when importing modules
 
@@ -203,7 +214,7 @@ Some common reasons that a module might not successfully import to Azure Automat
 * The structure does not match the structure that Automation needs it to be in.
 * The module is dependent on another module that has not been deployed to your Automation account.
 * The module is missing its dependencies in the folder.
-* The **New-AzureRmAutomationModule** cmdlet is being used to upload the module, and you have not given the full storage path or have not loaded the module by using a publicly accessible URL.
+* The `New-AzureRmAutomationModule` cmdlet is being used to upload the module, and you have not given the full storage path or have not loaded the module by using a publicly accessible URL.
 
 #### Resolution
 

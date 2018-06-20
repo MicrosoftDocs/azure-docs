@@ -20,7 +20,11 @@ This article provides information on troubleshooting issues with Desired State C
 
 #### Issue
 
-The node has a report with **Failed** status and containing the error "The attempt to get the action from server https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>`` cannot be found."
+The node has a report with **Failed** status and containing the error:
+
+```
+The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
+```
 
 #### Cause
 
@@ -38,7 +42,11 @@ This error typically occurs when the node is assigned to a configuration name (f
 
 #### Issue
 
-Your DSC compilation job suspends with the error: "Compilation completed successfully, but no node configuration.mofs were generated".
+Your DSC compilation job suspends with the error:
+
+```
+Compilation completed successfully, but no node configuration.mofs were generated.
+```
 
 #### Cause
 
@@ -49,15 +57,20 @@ When the expression following the **Node** keyword in the DSC configuration eval
 Any of the following solutions fix the problem:
 
 * Make sure that the expression next to the **Node** keyword in the configuration definition is not evaluating to $null.
-* If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](automation-dsc-compile.md#configurationdata).
+* If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](../automation-dsc-compile.md#configurationdata).
 
 ### <a name="dsc-in-progress"></a>Scenario: The DSC node report becomes stuck "in progress" state
 
 #### Issue
 
-DSC Agent outputs "No instance found with given property values."
+The DSC agent outputs:
+
+```
+No instance found with given property values
+```
 
 #### Cause
+
 You have upgraded your WMF version and have corrupted WMI.
 
 #### Resolution
@@ -68,7 +81,11 @@ To fix the issue follow the instructions in the [DSC known issues and limitation
 
 #### Issue
 
-Your DSC compilation job was suspended with the error: "System.InvalidOperationException error processing property 'Credential' of type ``<some resource name>``: Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true".
+Your DSC compilation job was suspended with the error:
+
+```
+System.InvalidOperationException error processing property 'Credential' of type <some resource name>: Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true.
+```
 
 #### Cause
 
@@ -76,7 +93,7 @@ You have used a credential in a configuration but didn’t provide proper **Conf
 
 #### Resolution
 
-* Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration mentioned in the configuration. For more information, see [assets in Azure Automation DSC](automation-dsc-compile.md#assets).
+* Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration mentioned in the configuration. For more information, see [assets in Azure Automation DSC](../automation-dsc-compile.md#assets).
 
 ## Next steps
 
