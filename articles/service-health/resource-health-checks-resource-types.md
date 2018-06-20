@@ -20,6 +20,11 @@ ms.author: BernardoAMunoz
 # Resource types and health checks in Azure resource health
 Below is a complete list of all the checks executed through resource health by resource types.
 
+## Microsoft.AnalysisServices/servers
+|Executed Checks|
+|---|
+|<ul><li>Is the server up and running?</li><li>Has the server run out of memory?</li><li>Is the server starting up?</li><li>Is the server recovering?</li></ul>|
+
 ## Microsoft.ApiManagement/service
 |Executed Checks|
 |---|
