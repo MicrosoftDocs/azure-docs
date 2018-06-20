@@ -11,11 +11,13 @@ ms.date: 06/20/2017
 ms.author: v-geberr
 ---
 
-# Deprecated prebuilt entities
+# Deprecated entities
 The following prebuilt entities are deprecated and can't be added to new LUIS apps.
+
 * **Datetime**: Existing LUIS apps that use **builtin.datetime** should be migrated to **builtin.datetimeV2**, although the datetime entity continues to function in pre-existing apps that use it.
 * **Geography**: Existing LUIS apps that use **builtin.geography** is supported until December 2018.
 * **Encyclopedia**: Existing LUIS apps that use **builtin.encyclopedia** is supported until December 2018.
+
 ## builtin.geography
 
 > [!NOTE]
@@ -37,8 +39,9 @@ Prebuilt entity   |   Example utterance   |   JSON
 > [!NOTE]
 > **builtin.encyclopedia** is available only in the ```en-US``` locale.
 
-##### The builtin.encyclopedia built-in entity includes over 100 sub-types in the following table: In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
-```
+#### The builtin.encyclopedia built-in entity includes over 100 sub-types in the following table: In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
+
+```JSON
 {
       "entity": "ronald reagan",
       "type": "builtin.encyclopedia.people.person"

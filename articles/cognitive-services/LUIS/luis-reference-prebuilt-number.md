@@ -11,7 +11,7 @@ ms.date: 06/20/2017
 ms.author: v-geberr
 ---
 
-# Prebuilt number entity resolution
+# Number entity
 
 There are many ways in which numeric values are used to quantify, express, and describe pieces of information. This article covers only some of the possible examples. LUIS interprets the variations in user utterances and returns consistent numeric values. 
 
@@ -32,7 +32,7 @@ LUIS includes the recognized value of a **`builtin.number`** entity in the `reso
 
 The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
 
-```
+```JSON
 {
   "query": "order two dozen eggs",
   "topScoringIntent": {

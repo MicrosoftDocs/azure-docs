@@ -11,13 +11,12 @@ ms.date: 06/20/2017
 ms.author: v-geberr
 ---
 
-# Prebuilt currency entity resolution
+# Currency entity
+Currency entity is supported in many cultures. 
 
-### Currency resolution
+The following example shows the resolution of the **builtin.currency** entity for the value `$10.99`.
 
-The following example shows the resolution of the **builtin.currency** entity.
-
-```
+```JSON
 {
   "query": "search for items under $10.99",
   "topScoringIntent": {

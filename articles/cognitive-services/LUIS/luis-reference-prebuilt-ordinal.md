@@ -11,13 +11,12 @@ ms.date: 06/20/2017
 ms.author: v-geberr
 ---
 
-# Prebuilt ordinal entity resolution
-
-### Ordinal resolution
+# Ordinal entity
+Ordinal entity is supported in many cultures. 
 
 The following example shows the resolution of the **builtin.ordinal** entity.
 
-```
+```JSON
 {
   "query": "Order the second option",
   "topScoringIntent": {

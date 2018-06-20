@@ -11,12 +11,9 @@ ms.date: 06/20/2017
 ms.author: v-geberr
 ---
 
-# Prebuilt entities reference
+# Entities per culture
 
 Language Understanding (LUIS) provides prebuilt entities. When a prebuilt entity is included in your application, LUIS includes the corresponding entity prediction in the endpoint response. All example utterances are also labeled with the entity. The behavior of prebuilt entities **can't** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
-
-> [!NOTE]
-> **builtin.datetime** is deprecated. It is replaced by [**built-in.datetimeV2**](#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
 
 Prebuilt entity   |   ```En-us```   |   ```fr-FR```   |   ```it-IT```   |   ```es-ES```   |   ```zh-CN```   |   ```de-DE```   |   ```pt-BR```   |   ```ja-JP```   |   ```ko-kr```   | ```fr-CA```   |   ```es-MX```   |   ```nl-NL```   |
 ------|:------:|------|------|------|------|------|------|------|------|------|------|------|
@@ -36,8 +33,8 @@ Phone number   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   - 
 
 See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
 
-## Examples of prebuilt entities
-The following table lists prebuilt entities with example utterances and their return values.
+## Examples of prebuilt entities in `en-us` culture
+The following table lists prebuilt entities with example data and the return values.
 
 Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
@@ -54,9 +51,7 @@ Prebuilt entity   |   Example utterance   |   JSON
  ```builtin.age```   |   ```100 year old```   |```{ "type": "builtin.age", "entity": "100 year old" }```|  
  ```builtin.age```   |   ```19 years old```   |```{ "type": "builtin.age", "entity": "19 years old" }```|
  ```builtin.percentage```   |   ```The stock price increase by 7 $ this year```   |```{ "type": "builtin.percentage", "entity": "7 %" }```|
- ```builtin.datetimeV2``` | See [builtin.datetimeV2](#builtindatetimev2) | See [builtin.datetimeV2](#builtindatetimev2) |
- ```*builtin.datetime``` | See [builtin.datetime](#builtindatetime) | See [builtin.datetime](#builtindatetime) |
- ```*builtin.geography``` | See separate table | See separate table following this table |
- ```*builtin.encyclopedia``` | See separate table | See separate table following this table |
- 
-*These entity types listed encompass multiple subtypes. These entities are covered later in this article.
+ ```builtin.datetimeV2``` | See [builtin.datetimeV2](luis-reference-prebuilt-datetimeV2.md) | See [builtin.datetimeV2](luis-reference-prebuilt-datetimeV2.md) |
+
+## Contribute to prebuilt entity cultures
+The prebuilt entities are developed in the Recognizers-Text open-source project. Please [contribute](https://github.com/Microsoft/Recognizers-Text) to the project. This project includes examples of currency per culture. 

@@ -11,14 +11,12 @@ ms.date: 06/20/2017
 ms.author: v-geberr
 ---
 
-# Prebuilt percentage entity resolution
-
-
-### Percentage resolution
+# Percentage entity
+Percentage entity is supported in many cultures. 
 
 The following example shows the resolution of the **builtin.percentage** entity.
 
-```
+```JSON
 {
   "query": "set a trigger when my stock goes up 2%",
   "topScoringIntent": {
