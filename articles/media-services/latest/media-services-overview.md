@@ -68,9 +68,11 @@ For more information about Azure Resource Manager naming, see: [Naming requireme
 
 ## How can I get started with v3?
 
-As a developer, you can use Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. Microsoft generates and supports the following client libraries: 
+As a developer, you can use Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. You can find REST Postman example [here](https://github.com/Azure-Samples/media-services-v3-rest-postman). You can also use [Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates).
 
-|SDK name|Samples|
+Microsoft generates and supports the following client libraries: 
+
+|Client library|Samples|
 |---|---|
 |[Azure CLI SDK](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)|[Azure CLI samples](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
 |[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[.NET samples](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
