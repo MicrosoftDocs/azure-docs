@@ -117,7 +117,7 @@ Microsoft Dynamics 365 is approved for use with Azure AD app-based conditional a
 **Product capability:** Identity Security & Protection
  
 >[!Warning]
->This item is missing info in the **Customer write-up** field in the **Release Communications** tab. If we don't get this field updated by end of day on Thursday, we'll have to pull this item.
+>This item is missing info in the **Customer write-up** field in the **Release Communications** tab. If we don't get this field updated by noon on Friday (June 22, 2018) we'll have to pull this item.
  
 ---
  
