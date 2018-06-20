@@ -13,22 +13,24 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, richagi
 
-#Customer intent: As an Azure AD Administrator, I want to protect user authentication to make the sign-in process safe.
+#Customer intent: As an Azure AD administrator, I want to understand which Azure AD features I can use to secure sign-in and make the user authentication process safe and easy. 
 ---
-# What protects user authentication?
+# What methods are available for authentication?  
 
-Microsoft Azure Active Directory (Azure AD) includes features like Azure Multi-Factor Authentication (Azure MFA) and Azure AD self-service password reset (SSPR) to help administrators protect user authentication.
+We hear reports in the news, passwords being stolen and identities being compromised. Requiring a second factor in addition to a password immediately increases the security of your organization. Microsoft Azure Active Directory (Azure AD) includes features like Azure Multi-Factor Authentication (Azure MFA) and Azure AD self-service password reset (SSPR) to help administrators protect their organizations and users with additional authentication methods. 
 
-When a user needs to access a sensitive application, reset their password, or enable Windows Hello they may be prompted to provide additional verification that they are who they say they are. Additional verification may come in the form of authentication methods such as:
+When a user needs to access a sensitive application, reset their password, or enable Windows Hello, they may be prompted to provide additional verification that they are who they say they are. 
+
+Additional verification may come in the form of authentication methods such as:
 
 * A code provided in an email or text message
 * A phone call
 * A notification or code on their phone
 * Answers to security questions
 
-Azure MFA and Azure AD self-service password reset can use the same or different authentication methods based on administrator-controlled configuration, policy, monitoring, and reporting using Azure AD and the Azure portal.
-
 ![Example login.microsoftonline.com login page in Chrome](media/overview-authentication/overview-login.png)
+
+Azure MFA and Azure AD self-service password reset give administrators control over configuration, policy, monitoring, and reporting using Azure AD and the Azure portal to protect their organizations.
 
 ## Self-service password reset
 
@@ -38,13 +40,13 @@ SSPR provides users the ability to reset their password, with no administrator i
 
 Self-service password reset includes:
 
-* **Self-service password change:** I know my password but want to change it to something new.
-* **Self-service password reset:** I can't sign in and want to reset my password using one or more approved authentication methods.
-* **Self-service account unlock:** I can't sign in because my account is locked out and I want to unlock using one or more approved authentication methods.
+* **Password change:** I know my password but want to change it to something new.
+* **Password reset:** I can't sign in and want to reset my password using one or more approved authentication methods.
+* **Account unlock:** I can't sign in because my account is locked out and I want to unlock using one or more approved authentication methods.
 
 ## Multi-Factor Authentication
 
-Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution using the same administrator defined authentication methods. Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process.
+Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution using administrator approved authentication methods. Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process.
 
 ## Next steps
 
