@@ -82,7 +82,7 @@ To configure and test Azure AD single sign-on with Eli Onboarding, you need to c
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create an Eli Onboarding test user](#create-a-eli-onboarding-test-user)** - to have a counterpart of Britta Simon in Eli Onboarding that is linked to the Azure AD representation of user.
+3. **[Create an Eli Onboarding test user](#create-an-eli-onboarding-test-user)** - to have a counterpart of Britta Simon in Eli Onboarding that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -155,7 +155,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create an Eli Onboarding test user
 
-In this section, you create a user called Britta Simon in Eli Onboarding. Work with [Eli Onboarding support team](mailto:support@geteli.com) to add the users in the Eli Onboarding platform. Users must be created and activated before you use single sign-on
+In this section, you create a user called Britta Simon in Eli Onboarding. Work with [Eli Onboarding support team](mailto:support@geteli.com) to add the users in the Eli Onboarding platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
