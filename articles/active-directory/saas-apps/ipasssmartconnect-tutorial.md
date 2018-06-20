@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with iPass SmartConnect, you need the following items:
 
 - An Azure AD subscription
-- A iPass SmartConnect single sign-on enabled subscription
+- an iPass SmartConnect single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -63,7 +63,7 @@ To configure the integration of iPass SmartConnect into Azure AD, you need to ad
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
@@ -82,7 +82,7 @@ To configure and test Azure AD single sign-on with iPass SmartConnect, you need 
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a iPass SmartConnect test user](#create-a-ipass-smartconnect-test-user)** - to have a counterpart of Britta Simon in iPass SmartConnect that is linked to the Azure AD representation of user.
+3. **[Create an iPass SmartConnect test user](#create-an-ipass-smartconnect-test-user)** - to have a counterpart of Britta Simon in iPass SmartConnect that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -100,21 +100,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Single sign-on dialog box](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_samlbase.png)
 
-3. On the **iPass SmartConnect Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
+3. On the **iPass SmartConnect Domain and URLs** section, if you wish to configure the application in **IDP** initiated mode, no need to perform any steps.
 
-	![iPass SmartConnect Domain and URLs single sign-on information](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_url.png)
+	![iPass SmartConnect Domain and URLs single sign-on information](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_url1.png)
 
-	a. Check **Show advanced URL settings**.
+4. Check Show advanced URL settings and perform the following step if you wish to configure the application in SP initiated mode:
 
-	b. The user does not have to perform any steps in the **IDP** intiated mode as the app is already pre-integrated with Azure.
+	![iPass SmartConnect Domain and URLs single sign-on information](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_url2.png)
 
-	c. If you wish to configure the application in **SP** initiated mode, in the Sign-on URL textbox, type a URL: `https://om-activation.ipass.com/ClientActivation/ssolanding.go`
+	In the Sign-on URL textbox, type a URL: `https://om-activation.ipass.com/ClientActivation/ssolanding.go`
 
-4. iPass SmartConnect application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+5. iPass SmartConnect application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 
 	![Configure Single Sign-On](./media/ipasssmartconnect-tutorial/attribute.png)
 
-5. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
+6. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
 
 	| Attribute Name | Attribute Value | Namespace Value|
 	| ---------------| --------------- |----------------|
@@ -137,15 +137,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Click **Ok**.
 
-6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_certificate.png)
 
-7. Click **Save** button.
+8. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/ipasssmartconnect-tutorial/tutorial_general_400.png)
 
-8. To configure single sign-on on **iPass SmartConnect** side, you need to send the downloaded **Metadata XML** and **Domain name** to [iPass SmartConnect support team](mailto:help@ipass.com). They set this setting to have the SAML SSO connection set properly on both sides.
+9. To configure single sign-on on **iPass SmartConnect** side, you need to send the downloaded **Metadata XML** and your **Domain name** to [iPass SmartConnect support team](mailto:help@ipass.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -179,7 +179,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
 
-### Create a iPass SmartConnect test user
+### Create an iPass SmartConnect test user
 
 In this section, you create a user called Britta Simon in iPass SmartConnect. Work with [iPass SmartConnect support team](mailto:help@ipass.com) to add the users or the domain which is needed to be whitelisted in the iPass SmartConnect platform. If the domain is added by the team, users will get automatically provisioned to the iPass SmartConnect platform. Users must be created and activated before you use single sign-on.
 
@@ -219,7 +219,9 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 **To test the application in the SP Initiated flow, perform the following steps:**
 
-a. Download windows iPass client [here](https://om-activation.ipass.com/ClientActivation/ssolanding.go),
+a. Download windows iPass SmartConnect client [here](https://om-activation.ipass.com/ClientActivation/ssolanding.go)
+
+![The iPass SmartConnect link in the Applications list](./media/ipasssmartconnect-tutorial/testing3.png)
 
 b. Install the client and launch
 
@@ -233,23 +235,21 @@ d. Enter Azure user name with domain. Click on **Continue**. This will be redire
 
 f. After successful authentication, client activation will be started.Client will get activated.
 
-e. Client will get activated.
-
 **To test the application in the IdP Initiated flow, perform the following steps:**
 
 a. Login to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 
-b. Click on iPass app
+b. Click on iPass SmartConnect app.
 
-c. It launches SSA page (screenshot attached), click on download to install iPass client
+c. It launches SSA page, click on Download to install iPass SmartConnect client.
 
-![The iPass SmartConnect link in the Applications list](./media/ipasssmartconnect-tutorial/testing3.png)
+![The iPass SmartConnect link in the Applications list](./media/ipasssmartconnect-tutorial/testing4.png)
 
-d. After installation, client on the first launch will automatically start activation after accepting terms and onditions.
+d. After installation, client on the first launch will automatically starts activation after accepting terms and conditions.
 
 e. If activation does not start, click on activate button on SSA page to initiate activation.
 
-f. Client will get activated
+f. Client will get activated.
 
 ## Additional resources
 
