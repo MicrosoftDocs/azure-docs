@@ -11,10 +11,10 @@ ms.date: 05/15/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-#Customer intent: As a developer, I want to learn how to visualize data anomalies in Event Hub data in real-time. 
+#Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an Event Hub. 
 ---
 
-# Tutorial: Visualize data anomalies in events sent to an Event Hub in real-time
+# Tutorial: Visualize data anomalies in real-time events sent to an Event Hub
 
 Microsoft Azure Event Hubs is a big data streaming service that can collect and store millions of events per second. Event Hubs provides both real-time and batch streaming, while giving you low latency and configurable time retention. Event Hubs decouples smart endpoints, providing a durable time retention buffer in the cloud that enables you to focus on your business and big data analytics both fast and slow.
  
