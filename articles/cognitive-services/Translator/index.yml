@@ -40,25 +40,25 @@ sections:
       values:
       - href: quickstart-csharp-translate
       - href: quickstart-java-translate
-      - href:
+      - href: quickstart-nodejs-translate
       - href:
     - title: Convert text from one script to another
       values:
       - href: quickstart-csharp-transliterate
       - href: quickstart-java-transliterate
-      - href:
+      - href: quickstart-nodejs-transliterate
       - href:
     - title: Identify language of text
       values:
       - href: quickstart-csharp-detect
       - href: quickstart-java-detect
-      - href:
+      - href: quickstart-nodejs-detect
       - href:
     - title: Get alternate translations and usage
       values:
       - href: quickstart-csharp-dictionary
       - href: quickstart-java-dictionary
-      - href:
+      - href: quickstart-nodejs-dictionary
       - href:
 
 - title: Reference
