@@ -2,7 +2,7 @@
 
 This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate an iOS application (Swift) with *Sign-In with Microsoft* so it can query Web APIs that require a token.
 
-> Prefer to download this sample's XCode project instead? [Download a project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.
+> Prefer to download this sample's XCode project instead? [Download a project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) and skip to the [Configuration step](#register-your-application) to configure the code sample before executing.
 
 
 ## Install Carthage to download and build MSAL

@@ -2,18 +2,15 @@
 title: 'Azure Cosmos DB: Develop with the Cassandra API in Java | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's Cassandra API using Java
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
 tags: ''
 
-ms.assetid: 6732d883-835c-481f-98e1-287893530948
 ms.service: cosmos-db
-ms.devlang: dotnet
+ms.component: cosmosdb-cassandra
+ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 11/15/2017
 ms.author: sngun
 ms.custom: mvc

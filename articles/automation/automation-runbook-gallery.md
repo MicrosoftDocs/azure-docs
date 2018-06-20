@@ -3,10 +3,11 @@ title: Runbook and module galleries for Azure Automation
 description: Runbooks and modules from Microsoft and the community are available for you to install and use in your Azure Automation environment.  This article describes how you can access these resources and to contribute your runbooks to the gallery.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Runbook and module galleries for Azure Automation
@@ -84,6 +85,9 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 9. On the **Import** page, click **OK** to import the module. While Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets. This may take a couple of minutes since each activity needs to be extracted.
 10. You receive an initial notification that the module is being deployed and another notification when it has completed.
 11. After the module is imported, you can see the available activities, and you can use its resources in your runbooks and Desired State Configuration.
+
+> [!NOTE]
+> Modules that only support PowerShell core are not supported in Azure Automation and are unable to be imported in the Azure portal, or deployed directly from the PowerShell Gallery.
 
 ## Requesting a runbook or module
 You can send requests to [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).

@@ -3,7 +3,7 @@ title: Connecting Azure Active Directory Identity Protection to Azure Security C
 description: Learn how Azure Security Center integrates with Azure Active Directory Identity Protection.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
 editor: ''
 

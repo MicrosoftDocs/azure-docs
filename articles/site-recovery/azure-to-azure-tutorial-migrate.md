@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/24/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -23,9 +23,7 @@ This tutorial shows you how to migrate Azure VMs to another region. In this tuto
 
 This tutorial presumes you already have an Azure subscription. If you don't, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
->[!NOTE]
->
-> Site Recovery replication for Azure VMs is currently in preview.
+
 
 
 
@@ -100,7 +98,7 @@ The new vault is added to the **Dashboard** under **All resources**, and on the 
 ## Select the source
 
 1. In Recovery Services vaults, click **ConsotoVMVault** > **+Replicate**.
-2. In **Source**, select **Azure - PREVIEW**.
+2. In **Source**, select **Azure**.
 3. In **Source location**, select the source Azure region where your VMs are currently running.
 4. Select the Resource Manager deployment model. Then select the **Source resource group**.
 5. Click **OK** to save the settings.
@@ -113,7 +111,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 
 1. In the Azure portal, click **Virtual machines**.
 2. Select the VM you want to migrate. Then click **OK**.
-3. In **Settings**, click **Disaster recovery (preview)**.
+3. In **Settings**, click **Disaster recovery**.
 4. In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate.
 5. For this tutorial, accept the other default settings.
 6. Click **Enable replication**. This starts a job to enable replication for the VM.

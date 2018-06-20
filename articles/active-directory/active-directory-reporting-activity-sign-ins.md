@@ -3,18 +3,19 @@ title: Sign-in activity reports in the Azure Active Directory portal | Microsoft
 description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/20/2018
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/17/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -33,10 +34,10 @@ The reporting architecture in Azure Active Directory consists of the following c
 
 This topic gives you an overview of the sign-in activities.
 
-## Pre-requisite
+## Prerequisites
 
 ### Who can access the data?
-* Users in the Security Admin or Security Reader role
+* Users in the Security Admin, Security Reader, or Report Reader role
 * Global Admins
 * Any user (non-admins) can access their own sign-ins 
 
@@ -44,7 +45,7 @@ This topic gives you an overview of the sign-in activities.
 * Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report
 
 
-## Signs-in activities
+## Sign-in activities
 
 With the information provided by the user sign-in report, you find answers to questions such as:
 
@@ -58,7 +59,7 @@ Your first entry point to all sign-in activities data is **Sign-ins** in the Act
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/61.png "Sign-in activity")
 
 
-An sign-ins log has a default list view that shows:
+A sign-ins log has a default list view that shows:
 
 - The sign-in date
 - The related user
@@ -77,12 +78,12 @@ This enables you to display additional fields or remove fields that are already 
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/02.png "Sign-in activity")
 
-By clicking an item in the list view, you get all available details about it i a horizontal view.
+By clicking an item in the list view, you get all available details about it in a horizontal view.
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/03.png "Sign-in activity")
 
 
-## Filtering sign-in activities
+## Filter sign-in activities
 
 To narrow down the reported data to a level that works for you, you can filter the sign-ins data using the following default fields:
 
@@ -138,6 +139,20 @@ If you add additional fields to your sign-ins view, these fields are automatical
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/12.png "Sign-in activity")
 
 
+> [!TIP] 
+> In addition to the default filters, all additional fields you are adding to your sign-ins view become filter fields.
+
+
+## Download sign-in activities
+
+You can download the sign-in activities data if you want work with it outside the Azure portal. In addition to a download button, the Azure portal also provides you with an option to generate a script to download your data.  
+
+![Download](./media/active-directory-reporting-activity-sign-ins/71.png "Download")
+
+Clicking **Download** creates a CSV file of the most recent 5K records. If you need more flexibility, you can use the script solution. Clicking **Script** creates a PowerShell script that includes all the filters you have set. Download and run this script in **administrator mode** to generate the CSV file. 
+In addition to the technical implementation, the number of records you can download is also constrained by the [Azure Active Directory report retention policies](active-directory-reporting-retention.md).  
+
+
 
 ## Sign-in activities shortcuts
 
@@ -165,7 +180,6 @@ Your entry point to this data is the user sign-in graph on the **identity securi
 
 When you click on a day in the sign-in graph, you get an overview of the sign-in activities for this day.
 
-![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/07.png "Sign-in activity")
 
 Each row in the sign-in activities list shows:
 
@@ -220,7 +234,6 @@ If you want to, you can set the focus on a specific application.
 When you click on a day in the app usage graph, you get a detailed list of the sign-in activities.
 
 
-![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/48.png "Sign-in activity")
 
 
 The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.

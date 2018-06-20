@@ -3,7 +3,7 @@ title: Azure Security Center Platform Migration | Microsoft Docs
 description: This document explains some changes to the way Azure Security Center data is collected.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 

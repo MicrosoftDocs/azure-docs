@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with the Knowledge Exploration Service | Microsoft Docs
 description: Use Knowledge Exploration Service (KES) to create an engine for an interactive search experience across academic publications in Microsoft Cognitive Services.
 services: cognitive-services
@@ -218,7 +218,7 @@ Outside of Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) 
 
 <a name="scaling-up"></a>
 ## Scale up to host larger indices
-When you are running `kes.exe` outside of Azure, the index is limited to 10,000 objects. You can build and host larger indices by using Azure. Sign up for a [free trial](https://azure.microsoft.com/en-us/pricing/free-trial/). Alternatively, if you subscribe to Visual Studio or MSDN, you can [activate subscriber benefits](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/). These offer some Azure credits each month.
+When you are running `kes.exe` outside of Azure, the index is limited to 10,000 objects. You can build and host larger indices by using Azure. Sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/). Alternatively, if you subscribe to Visual Studio or MSDN, you can [activate subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). These offer some Azure credits each month.
 
 To allow `kes.exe` access to an Azure account, [download the Azure Publish Settings file](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) from the Azure portal. If prompted, sign into the desired Azure account. Save the file as *AzurePublishSettings.xml* in the working directory from where `kes.exe` runs.
 

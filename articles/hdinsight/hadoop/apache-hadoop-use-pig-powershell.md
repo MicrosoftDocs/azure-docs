@@ -4,7 +4,7 @@ description: Learn how to submit Pig jobs to a Hadoop cluster on HDInsight using
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 
@@ -12,7 +12,7 @@ ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 05/09/2018
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive

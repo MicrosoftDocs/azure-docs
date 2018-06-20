@@ -4,7 +4,7 @@ description: Learn about Microsoft Operations Management Suite (OMS), its servic
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 
 ms.assetid: 

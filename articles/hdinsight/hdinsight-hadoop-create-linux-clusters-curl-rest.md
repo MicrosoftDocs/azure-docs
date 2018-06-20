@@ -4,7 +4,7 @@ description: Learn how to create HDInsight clusters by submitting Azure Resource
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 
@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 05/02/2018
 ms.author: larryfr
 
 ---

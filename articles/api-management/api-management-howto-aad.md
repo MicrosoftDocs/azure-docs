@@ -97,6 +97,11 @@ This article shows you how to enable access to the developer portal for users fr
 31. Switch back to your API Management application. 
 
     In the **Add identity provider** window, paste the key in the **Client secret** text box.
+
+    > [!IMPORTANT]
+    > Please make sure to update the **Client secret** before the key expires. 
+    >  
+    >
 32. The **Add identity provider** window also contains the **Allowed Tenants** text box. There, specify the domains of the Azure AD instances to which you want to grant access to the APIs of the API Management service instance. You can separate multiple domains with newlines, spaces, or commas.
 
     You can specify multiple domains in the **Allowed Tenants** section. Before any user can sign in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should:

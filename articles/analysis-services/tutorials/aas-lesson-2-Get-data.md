@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial lesson 2: Get data | Microsoft Docs"
 description: Describes how to get and import data in the Azure Analysis Services tutorial project. 
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend

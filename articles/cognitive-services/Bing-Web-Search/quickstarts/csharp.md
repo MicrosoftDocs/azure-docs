@@ -223,17 +223,17 @@ A sample response follows. To limit the length of the JSON, only a single result
         "deepLinks": [
           {
             "name": "Face API",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/face/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/face/",
             "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
           },
           {
             "name": "Text Analytics",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/text-analytics/",
             "snippet": "Cognitive Services; Text Analytics API; Text Analytics API . Detect sentiment, ... you agree that Microsoft may store it and use it to improve Microsoft services, ..."
           },
           {
             "name": "Computer Vision API",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/computer-vision/",
             "snippet": "Extract the data you need from images using optical character recognition and image analytics with Computer Vision APIs from Microsoft Azure."
           },
           {
@@ -243,12 +243,12 @@ A sample response follows. To limit the length of the JSON, only a single result
           },
           {
             "name": "Bing Speech API",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/speech/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/speech/",
             "snippet": "Add speech recognition to your applications, including text to speech, with a speech API from Microsoft Azure. ... Cognitive Services; Bing Speech API;"
           },
           {
             "name": "Get Started for Free",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/",
             "snippet": "Add vision, speech, language, and knowledge capabilities to your applications using intelligence APIs and SDKs from Cognitive Services."
           }
         ]

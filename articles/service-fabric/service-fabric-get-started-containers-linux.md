@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
@@ -168,26 +168,12 @@ Since this image has a workload entry-point defined, you don't need to explicitl
 
 Specify an instance count of "1".
 
+Specify the port mapping in the appropriate format. For this article, you need to provide ```80:4000``` as the port mapping. By doing this you have configured that any incoming requests coming to port 4000 on the host machine are redirected to port 80 on the container.
+
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
-## Configure port mapping and container repository authentication
-Your containerized service needs an endpoint for communication. Now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file under the 'Resources' tag. For this article, the containerized service listens on port 4000: 
-
-```xml
-
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- ```
- 
-Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
-
-Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file. For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myServiceTypeEndpoint" (the endpoint defined in the service manifest). Incoming requests to the service on port 4000 are mapped to port 80 on the container. If your container needs to authenticate with a private repository, then add `RepositoryCredentials`. For this article, add the account name and password for the myregistry.azurecr.io container registry. Ensure the policy is added under the 'ServiceManifestImport' tag corresponding to the right service package.
+## Configure container repository authentication
+ If your container needs to authenticate with a private repository, then add `RepositoryCredentials`. For this article, add the account name and password for the myregistry.azurecr.io container registry. Ensure the policy is added under the 'ServiceManifestImport' tag corresponding to the right service package.
 
 ```xml
    <ServiceManifestImport>
@@ -224,14 +210,6 @@ You can configure **HEALTHCHECK**  behavior for each container by specifying **H
 By default *IncludeDockerHealthStatusInSystemHealthReport* is set to **true** and *RestartContainerOnUnhealthyDockerHealthStatus* is set to **false**. If *RestartContainerOnUnhealthyDockerHealthStatus* is set to **true**, a container repeatedly reporting unhealthy is restarted (possibly on other nodes).
 
 If you want to the disable the **HEALTHCHECK** integration for the entire Service Fabric cluster, you will need to set [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) to **false**.
-
-## Build and package the Service Fabric application
-The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal. To build and package the application, run the following:
-
-```bash
-cd mycontainer
-gradle
-```
 
 ## Deploy the application
 Once the application is built, you can deploy it to the local cluster using the Service Fabric CLI.

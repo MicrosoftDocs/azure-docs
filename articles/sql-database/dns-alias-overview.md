@@ -6,7 +6,7 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: DNS alias
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.reviewer: genemi;ayolubek
 ms.author: dmalik

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
 ---
@@ -59,11 +59,9 @@ To create an ILB ASE:
 
 4. Select or create a VNet.
 
-5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. The minimum size you can select is a `/28`. After infrastructure needs, this size can only be scaled to a maximum of 3 instances.
+	* If you select a new VNet, you can specify a name and location. If you intend to host Linux apps on this ASE, only these 6 regions are supported at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** 
 
-	* Go beyond the default maximum of 100 instances in your App Service plans.
-
-	* Scale near 100 but with more rapid front-end scaling.
+5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
 6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
@@ -102,7 +100,7 @@ If you set **VIP Type** to **Internal**, your ASE name is not used in the domain
 
 You create an app in an ILB ASE in the same way that you create an app in an ASE normally.
 
-1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **Web** or **Mobile** or **API App**.
+1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **Web App**.
 
 2. Enter the name of the app.
 
@@ -110,9 +108,13 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 4. Select or create a resource group.
 
-5. Select or create an App Service plan. If you want to create a new App Service plan, select your ASE as the location. Select the worker pool where you want your App Service plan to be created. When you create the App Service plan, select your ASE as the location and the worker pool. When you specify the name of the app, the domain under your app name is replaced by the domain for your ASE.
+5. Select your OS. 
 
-6. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** check box.
+	* If you want to create a Linux app using a custom Docker container, you can just bring your own container using the instructions [here][linuxapp]. Do not create Linux apps on production ASEs as this capability is in Preview.
+
+6. Select or create an App Service plan. If you want to create a new App Service plan, select your ASE as the location. Select the worker pool where you want your App Service plan to be created. When you create the App Service plan, select your ASE as the location and the worker pool. When you specify the name of the app, the domain under your app name is replaced by the domain for your ASE.
+
+7. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** check box.
 
 	![App Service plan creation][2]
 
@@ -162,7 +164,6 @@ To upload your own certificates and test access:
 	> [!NOTE] 
 	> Don't try to create this VM in the same subnet as the ASE because it will fail or cause problems.
 	>
-	>
 
 6. Set the DNS for your ASE domain. You can use a wildcard with your domain in your DNS. To do some simple tests, edit the hosts file on your VM to set the web app name to the VIP IP address:
 
@@ -205,7 +206,8 @@ The SCM site name takes you to the Kudu console, called the **Advanced portal**,
 
 In the multitenant App Service and in an External ASE, there's single sign-on between the Azure portal and the Kudu console. For the ILB ASE, however, you need to use your publishing credentials to sign into the Kudu console.
 
-Internet-based CI systems, such as GitHub and Visual Studio Team Services, don't work with an ILB ASE because the publishing endpoint isn't internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
+Internet-based CI systems, such as GitHub and Visual Studio Team Services, will still work with an ILB ASE if the build agent is internet accessible and on the same network as ILB ASE. So in case of Visual Studio Team Services, if the build agent is created on the same VNET as ILB ASE (different subnet is fine), it will be able to pull code from VSTS git and deploy to ILB ASE. 
+If you don't want to create your own build agent, you need to use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the subdomain *contoso.net* and an app named *mytest*, use *mytest.contoso.net* for FTP and *mytest.scm.contoso.net* for web deployment.
 
@@ -234,7 +236,7 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md
@@ -247,3 +249,4 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
+[linuxapp]: ../containers/app-service-linux-intro.md

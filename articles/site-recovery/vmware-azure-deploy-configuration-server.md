@@ -2,12 +2,12 @@
 title: Deploy the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
 description: This article describes how to deploy a configuration server for VMware disaster recovery with Azure Site Recovery
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
+ms.date: 05/06/2018
+ms.author: raynew
 ---
 
 # Deploy a configuration server
@@ -16,11 +16,19 @@ You deploy an on-premises configuration server when you use [Azure Site Recovery
 
 ## Prerequisites
 
-We recommend that you deploy the configuration server as a highly available VMware VM. Minimum hardware requirements are summarized in the following table.
+We recommend that you deploy the configuration server as a highly available VMware VM. Configuration server requirements are summarized in the following table.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+
+### Prepare for MySQL installation
+
+MySQL must be installed on the configuration server. You can do this using one of the following methods:
+
+- Let Site Recovery download and install it when when the Configuration Server Management Wizard runs. You don't need to take any specific action.
+- Manually download MySQL, and place it in the folder C:\Temp\ASRSetup. Then run the installation. Site Recovery will recognize it's installed when the wizard runs.
+- Manually download MySQL, and place it in the folder C:\Temp\ASRSetup. When the wizard runs it will find the setup file, and install it from this location. 
 
 
 ## Capacity planning
@@ -96,7 +104,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 1. In the configuration server management wizard, select **Setup connectivity**. Select the NIC to receive replication traffic, and then select **Save**. You can't change this setting after it's been configured.
 2. In **Select Recovery Services vault**, select your Azure subscription and the relevant resource group and vault.
-3. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server.
+3. In **Install third-party software**, accept the license agreement. Install MySQL in accordance with the [method you're using to install MySQL](#prepare-for-mysql-installation).
 4. Select **Install VMware PowerLCI**. Make sure all browser windows are closed before you do this step. Then select **Continue**.
 5. In **Validate appliance configuration**, prerequisites are verified before you continue.
 6. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, where the VMs you want to replicate are located. Enter the port on which the server is listening and a friendly name for the VMware server in the vault.
@@ -104,6 +112,11 @@ If you want to add an additional NIC to the configuration server, add it before 
 8. In **Configure virtual machine credentials**, enter the user name and password to be used to automatically install Azure Site Recovery Mobility Service on machines, when replication is enabled. For Windows machines, the account needs local administrator privileges on the machines you want to replicate. For Linux, provide details for the root account.
 9. Select **Finalize configuration** to finish registration. 
 10. After registration finishes, in the Azure portal, verify that the configuration server and VMware server are listed on the **Source** page in the vault. Then select **OK** to configure target settings.
+
+
+## Upgrade the configuration server
+
+To upgrade the configuration server to the latest version, read the steps given [here](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
 
 
 ## Troubleshoot deployment issues

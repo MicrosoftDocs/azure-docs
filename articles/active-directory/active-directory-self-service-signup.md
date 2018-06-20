@@ -1,4 +1,4 @@
-﻿---
+---
 title: Self-service or trial signup in Azure Active Directory | Microsoft Docs
 description: Use self-service signup in an Azure Active Directory (Azure AD) tenant
 services: active-directory
@@ -7,11 +7,9 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/28/2018
 ms.author: curtand
@@ -63,7 +61,7 @@ The following flowchart explains the different combinations for these parameters
 For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 ## Next steps
-* [Add a custom domain name to Azure AD](add-custom-domain.md)
+* [Add a custom domain name to Azure AD](fundamentals/add-custom-domain.md)
 * [How to install and configure Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Cmdlet Reference](/powershell/azure/get-started-azureps)

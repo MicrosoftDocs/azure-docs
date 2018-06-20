@@ -19,7 +19,7 @@ JSON blobs in Azure Blob storage are typically either a single JSON document or 
 | JSON document | parsingMode | Description | Availability |
 |--------------|-------------|--------------|--------------|
 | One per blob | `json` | Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single Azure Search document. | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) APIs. |
-| Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Search document.  | In preview, in [REST api-version=`2016-09-01-Preview`](search-api-2016-09-01-preview.md) and [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
+| Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Search document.  | In preview, in [REST api-version=`2017-11-11-Preview`](search-api-2017-11-11-preview.md) and [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
 
 > [!Note]
 > Preview APIs are intended for testing and evaluation, and should not be used in production environments.
@@ -113,7 +113,7 @@ Alternatively, you can opt for the JSON array preview feature. This capability i
 
 For a JSON array, the indexer request uses the preview API and the `jsonArray` parser. These are the only two array-specific requirements for indexing JSON blobs.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -126,6 +126,8 @@ For a JSON array, the indexer request uses the preview API and the `jsonArray` p
     }
 
 Again, notice that field mappings are not required. Given an index with "id" and "text" fields, the blob indexer can infer the correct mapping without a field mapping list.
+
+<a name="nested-json-arrays"></a>
 
 ### Nested JSON arrays
 What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can pick which property contains the array using the `documentRoot` configuration property. For example, if your blobs look like this:

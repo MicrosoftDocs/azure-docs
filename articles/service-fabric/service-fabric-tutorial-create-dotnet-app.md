@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/29/2018
+ms.date: 06/15/2018
 ms.author: ryanwi
 ms.custom: mvc
 
@@ -72,9 +72,21 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
    ![Solution Explorer following creation of application with ASP.NET core Web API service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### Add AngularJS to the VotingWeb service
-Add [AngularJS](http://angularjs.org/) to your service using [Bower support](/aspnet/core/client-side/bower). First, add a Bower configuration file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **Web** and then **Bower Configuration File**.  The *bower.json* file is created.
+Add [AngularJS](http://angularjs.org/) to your service using [Bower support](/aspnet/core/client-side/bower). First, add a *.bowerrc* settings file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **C#** and then **JSON File**.  Enter **.bowerrc** in the *Name* field and click **Add**.
 
-Open *bower.json* and add entries for angular and angular-bootstrap, then save your changes.
+Open *.bowerrc* and replace the contents with the following, which indicates that Bower will install the package assets to the *wwwroot/lib* directory.
+
+```json
+{
+ "directory": "wwwroot/lib"
+}
+```
+
+Save your changes to *.bowerrc*.  This creates a *.bowerrc* file in your project.  
+
+Next, add a Bower configuration file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **C#** and then **JSON File**.  Enter **bower.json** in the *Name* field and click **Add**.
+
+Open *bower.json* and replace the contents with the following entries for angular and angular-bootstrap, then save your changes.
 
 ```json
 {
@@ -90,7 +102,8 @@ Open *bower.json* and add entries for angular and angular-bootstrap, then save y
   }
 }
 ```
-Upon saving the *bower.json* file, Angular is installed in your project's *wwwroot/lib* folder. Additionally, it is listed within the *Dependencies/Bower* folder.
+
+Upon saving the *bower.json* file, Visual Studio's bower support will install Angular in your project's *wwwroot/lib* folder. Additionally, it is listed within the *Dependencies/Bower* folder.
 
 ### Update the site.js file
 Open the *wwwroot/js/site.js* file.  Replace its contents with the JavaScript used by the Home views:
@@ -459,13 +472,24 @@ namespace VotingData.Controllers
 }
 ```
 
-
 ## Connect the services
 In this next step, connect the two services and make the front-end Web application get and set voting information from the back-end service.
 
 Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP. Other services that might be accessible via an HTTP REST API and still other services could be accessible via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with services](service-fabric-connect-and-communicate-with-services.md).
 
-In this tutorial, use [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
+In this tutorial, use [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) and the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) so the front-end web service can communicate with the back-end data service. The reverse proxy is typically configured to use port 19081. The port is set in the ARM template used to set up the cluster. To find which port is used, look in the cluster template in the **Microsoft.ServiceFabric/clusters** resource:
+
+```json
+"nodeTypes": [
+          {
+            ...
+            "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
+            "isPrimary": true,
+            "vmInstanceCount": "[parameters('nt0InstanceCount')]",
+            "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]"
+          }
+        ],
+```
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 

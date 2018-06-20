@@ -1,30 +1,21 @@
-
 ---
-title: Azure VM Backup FAQ | Microsoft Docs
+title: Azure VM Backup FAQ
 description: 'Answers to common questions about: how Azure VM backup works, limitations and what happens when changes to policy occur'
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: azure vm backup, azure vm restore, backup policy
-
-ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-
+ms.author: trinadhk
 ---
 # Questions about the Azure VM Backup service
 This article has answers to common questions to help you quickly understand the Azure VM Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Configure backup
 ### Do Recovery Services vaults support classic VMs or Resource Manager based VMs? <br/>
-Recovery Services vaults support both models.  You can back up a classic VM (created in the Classic portal), or a Resource Manager VM (created in the Azure portal) to a Recovery Services vault.
+Recovery Services vaults support both models.  You can back up a classic VM or a Resource Manager VM to a Recovery Services vault.
 
 ### What configurations are not supported by Azure VM backup?
 Go through [Supported operating systems](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) and [Limitations of VM backup](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
@@ -53,6 +44,9 @@ Yes. You can cancel backup job if it is in "Taking snapshot" phase. **You can't 
 
 ### I enabled Resource Group lock on my backed-up managed disk VMs. Will my backups continue to work?
 If the user locks the Resource Group, Backup service is not able to delete the older restore points. Due to this new backups start failing as there is a limit of maximum 18 restore points imposed from the backend. If your backups are failing with an internal error after the RG lock, follow these [steps to remove the restore point collection](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+
+### Does Backup policy take Daylight Saving Time(DST) into account?
+No. Be aware that date and time on your local computer is displayed in your local time and with your current daylight saving time bias. So the configured time for scheduled backups can be different from your local time due to DST.
 
 ## Restore
 ### How do I decide between restoring disks versus full VM restore?
