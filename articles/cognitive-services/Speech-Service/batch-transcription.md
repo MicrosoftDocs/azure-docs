@@ -21,7 +21,7 @@ Batch transcription is ideal for use cases with large amounts of audio. It enabl
 The Batch transcription API makes the above scenario possible. It offers asynchronous speech to text transcription along with additional features.
 
 > [!NOTE]
-> The Batch transcription API is idea for Call Centers which typically accumulate thousands of hours of audio in a daily basis.
+> The Batch transcription API is ideal for Call Centers which typically accumulate thousands of hours of audio. The Fire & Forget philosophy of the API makes it easy to transcribe large volume of audio recordings.
 
 ### Supported formats
 
@@ -133,6 +133,9 @@ Notice the asynchronous setup for posting audio and receiving transcription stat
 The current sample code does not specify any custom models. The service will use the baseline models for transcribing the file(s). If the user wishes to specify the models, one can pass on the same method the modelIDs for the acoustic and the language model. 
 
 If one does not wish to use baseline, one must pass model Ids for both acoustic and language models.
+
+> [!NOTE]
+> For baseline transcription the user does not have to declare the Endpoints of the baseline models. If the user wants to use custom models he would have to provide their endpoints IDs as the [Sample](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). If user wants to use an acoustic baseline with a baseline language model then he would only have to declare the custom model's endpoint ID. Internally our system will figure out the partner baseline model (be it acoustic or language) and use that to fullfill the transcription request.
 
 ### Supported storage
 
