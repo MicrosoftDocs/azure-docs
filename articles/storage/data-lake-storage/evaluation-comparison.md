@@ -18,6 +18,8 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 
 Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compatible File System and a full hierarchical namespace just like Azure Data Lake Storage Gen1 does. Additionally, it brings all of Azure Blobs offerings to the table so functionality like data tiering and lifecycle management, durability options for HA and DR, event grid support, enhanced network security, and compatibility with all of Blob APIs.
 
+Should you decide to evaluate Data Lake Storage Gen2, nothing will interfere with your existing applications or workloads. Data Lake Storage Gen2 and Gen1 are not mutually exclusive so your existing resources will remain fully functional and any new resources can be deployed using either Gen1 or Gen2.
+
 ## Comparison table
 
 |Azure Data Lake Storage Gen1  |Azure Data Lake Storage Gen2 (Preview)  |
@@ -37,7 +39,7 @@ Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compati
 |Encryption – customer can have encryption enabled by default.  Customer data is encrypted at rest, movement within Data Lake Storage Gen1, and over the wire when communicating outside Data Lake Storage Gen1.     |Same as Data Lake Storage Gen1         |
 |Allow secure communication only via HTTPS – customer can have secure communication into Data Lake Storage Gen1 because all data ingested into Data Lake Storage Gen1 must be encrypted.     |Same as Data Lake Storage Gen1         |
 |Key management – customer can have keys managed by Azure or customer-managed keys via Key Vault.     |Same as Data Lake Storage Gen1         |
-|VNET support – customer can allow access to Data Lake Storage Gen1 from a specific VNET to restrict access.     |VNET support – customer can allow access to Data Lake Storage Gen2 from a specific VNET and/or IP addresses to restrict access.         |
+|Not yet available in Data Lake Storage Gen1     |VNET support – customer can allow access to Data Lake Storage Gen2 from a specific VNET and/or IP addresses to restrict access.         |
 |High availability – customer can have their data available at least 99.9% of the time.     |High availability – customer can have their data available at least 99.99% of the time.         |
 |Regional availability – customer can use Data Lake Storage Gen1 in East US 2, Central US, North Europe, West Europe     |Regional availability – Data Lake Storage Gen2 is not yet available in all regions. Currently, Data Lake Storage Gen2 is available in West US 2 and West Central US         |
 |First party integration – customer can have integration with first party applications (for example, HDInsight, Azure VMs, ASA, Event Hubs, ADF, Powershell, ExpressRoute, Azure Import/Export, Azure CLI, R, SQL DW via Polybase, Key Vault, Data Catalog, Power BI, Analysis Services, Visual Studio).     | *First party integration – customer can have integration with first party applications (for example, HDInsight, Azure Databricks, Azure VMs, ASA, Event Hubs, ADF, Powershell, ExpressRoute, Azure Import/Export, Azure Data box, Azure CLI, R, SQL DW via Polybase, Key Vault, Data Catalog, Power BI, Azure Analysis Services, EventGrid, Visual Studio).         |
