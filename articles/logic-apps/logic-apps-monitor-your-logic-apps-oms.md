@@ -29,7 +29,7 @@ you get aggregated status for your logic app runs and
 specific details like status, execution time, 
 resubmission status, and correlation IDs.
 
-This topic shows how to turn on Log Analytics so you can 
+This article shows how to turn on Log Analytics so you can 
 view runtime events and data for your logic app run.
 
  > [!TIP]
