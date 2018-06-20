@@ -238,7 +238,11 @@
   - name: Boundaries
     href: luis-boundaries.md
   - name: Prebuilt entity reference
-    href: luis-reference-prebuilt-entities.md
+    items:
+      - name: Overview
+        href: luis-reference-prebuilt-entities.md
+      - name: Numbers
+        href: luis-reference-prebuilt-number.md
   - name: Prebuilt domain reference
     href: luis-reference-prebuilt-domains.md
   - name: Cortana prebuilt app reference

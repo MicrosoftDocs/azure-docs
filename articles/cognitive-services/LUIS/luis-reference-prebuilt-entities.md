@@ -13,7 +13,7 @@ ms.author: v-geberr
 
 # Prebuilt entities reference
 
-Language Understanding (LUIS) includes a set of prebuilt entities. When a prebuilt entity is included in your application, LUIS includes its prediction in endpoint response. All utterances are also labeled with the entity. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
+Language Understanding (LUIS) provides prebuilt entities. When a prebuilt entity is included in your application, LUIS includes the corresponding entity prediction in the endpoint response. All example utterances are also labeled with the entity. The behavior of prebuilt entities **can't** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
 
 > [!NOTE]
 > **builtin.datetime** is deprecated. It is replaced by [**built-in.datetimeV2**](#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
@@ -65,67 +65,12 @@ Prebuilt entity   |   Example utterance   |   JSON
  ```builtin.age```   |   ```19 years old```   |```{ "type": "builtin.age", "entity": "19 years old" }```|
  ```builtin.percentage```   |   ```The stock price increase by 7 $ this year```   |```{ "type": "builtin.percentage", "entity": "7 %" }```|
  ```builtin.datetimeV2``` | See [builtin.datetimeV2](#builtindatetimev2) | See [builtin.datetimeV2](#builtindatetimev2) |
- ```builtin.datetime``` | See [builtin.datetime](#builtindatetime) | See [builtin.datetime](#builtindatetime) |
- ```builtin.geography``` | See separate table | See separate table following this table |
- ```builtin.encyclopedia``` | See separate table | See separate table following this table |
+ ```*builtin.datetime``` | See [builtin.datetime](#builtindatetime) | See [builtin.datetime](#builtindatetime) |
+ ```*builtin.geography``` | See separate table | See separate table following this table |
+ ```*builtin.encyclopedia``` | See separate table | See separate table following this table |
  
- The last three built-in entity types listed in the table preceding encompass multiple subtypes. These entities are covered later in this article.
+*These entity types listed encompass multiple subtypes. These entities are covered later in this article.
 
-## builtin.number resolution
-
-There are many ways in which numeric values are used to quantify, express, and describe pieces of information. This article covers only some of the possible examples. LUIS interprets the variations in user utterances and returns consistent numeric values. 
-
-| Utterance        | Entity   | Resolution |
-| ------------- |:----------------:| --------------:|
-| ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      | 
-| ```1,000 people```        | ```"1,000"```    |   ```"1000"```      |
-| ```1/2 cup```         | ```"1 / 2"```    |    ```"0.5"```      |
-|  ```one half the amount```     | ```"one half"```     |    ```"0.5"```      |
-| ```one hundred fifty orders``` | ```"one hundred fifty"``` | ```"150"``` |
-| ```one hundred and fifty books``` | ```"one hundred and fifty"``` | ```"150"```|
-| ```a grade of one point five```| ```"one point five"``` |  ```"1.5"``` |
-| ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
-
-
-LUIS includes the recognized value of a **builtin.number** entity in the `resolution` field of the JSON response it returns.
-
-
-The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
-
-```
-{
-  "query": "order two dozen eggs",
-  "topScoringIntent": {
-    "intent": "OrderFood",
-    "score": 0.105443209
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.105443209
-    },
-    {
-      "intent": "OrderFood",
-      "score": 0.9468431361
-    },
-    {
-      "intent": "Help",
-      "score": 0.000399122015
-    },
-  ],
-  "entities": [
-    {
-      "entity": "two dozen",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 14,
-      "resolution": {
-        "value": "24"
-      }
-    }
-  ]
-}
-```
 
 
 
@@ -273,7 +218,7 @@ The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times
 <table>
 <th> example </th><th>property descriptions</th>
 <tr><td>
-The following JSON response is an example containing a builtin.datetimeV2 entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href="#subtypes-of-datetimev2">Subtypes of datetimeV2</a>.
+The following example JSON response contains a `builtin.datetimeV2` entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href="#subtypes-of-datetimev2">Subtypes of datetimeV2</a>.
 <pre>
   "entities": [
     {
@@ -295,7 +240,7 @@ The following JSON response is an example containing a builtin.datetimeV2 entity
    </pre></td>
    <td> 
    <table>
-   <tr><td>entity</td><td><b>string</b>. Text extracted from the utterance, that represents a date, time, date range, or time range.</td></tr>
+   <tr><td>entity</td><td><b>string</b>. Text extracted from the utterance representing date, time, date range, or time range.</td></tr>
    <tr><td>type</td><td><b>string</b>. One of the following <a href="#subtypes-of-datetimev2">subtypes of datetimeV2</a>: 
    <ul><li>builtin.datetimeV2.datetime
    <li>builtin.datetimeV2.date
@@ -313,7 +258,7 @@ The following JSON response is an example containing a builtin.datetimeV2 entity
    <ul><li>The array has one element if the date or time in the utterance is fully specified and unambiguous.</li><li>The array has two elements if the date or date range is ambiguous for year. When there is an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. See <a href="#ambiguous-dates">Ambiguous dates</a> for more examples. When there is an ambiguous time, `values` contains both the A.M. and P.M. times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to A.M. or P.M. For example, 3:00 April 3rd.</li>
    </ul>
    <br/>Each element of <code>values</code> may contain the following fields: <br/>
-   <table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 standard</a> as well as using the TIMEX3 attributes for  annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following items: datetime, date, time, daterange, timerange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
+   <table><tr><td>timex</td><td>time, date, or date range expressed in `TIMEX` format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">`ISO 8601` standard</a> as well as using the TIMEX3 attributes for annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following items: datetime, date, time, daterange, timerange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
    <tr><td>start</td><td>A value representing the start of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code>, or <code>datetimerange</code>.</td></tr></table>
    </td></tr>
    <tr><td>end</td><td>A value representing the end of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code, or <code>datetimerange</code>.</td></tr></table>
