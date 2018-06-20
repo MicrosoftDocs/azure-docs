@@ -398,6 +398,8 @@
       href: how-to-create-schedule-trigger.md
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
+    - name: Create an event-based trigger
+      href: how-to-create-event-trigger.md
 - name: Reference
   items:
   - name: .NET

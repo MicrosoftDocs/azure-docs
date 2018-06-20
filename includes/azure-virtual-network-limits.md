@@ -5,7 +5,7 @@
  author: jimdial
  ms.service: networking
  ms.topic: include
- ms.date: 06/12/2018
+ ms.date: 06/20/2018
  ms.author: jdial
  ms.custom: include file
 
@@ -21,7 +21,7 @@
 | Private IP Addresses per virtual network |4096 |4096 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
 | Network Security Groups (NSG) |100 |200 |
-| NSG rules per NSG |200 |400 |
+| NSG rules per NSG |200 |1000 |
 | User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
 | Public IP addresses (dynamic) |5 |contact support |
