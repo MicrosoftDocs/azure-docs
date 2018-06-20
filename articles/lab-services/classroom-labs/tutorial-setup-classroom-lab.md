@@ -70,7 +70,7 @@ A template in a lab is a base virtual machine image from which all users’ virt
 ## Prepare the template VM
  You connect to the template VM and install any required software on it before making it available to your students. 
 
-1. Wait until the template virtual machine is ready. This may take a few minutes. Once it is ready, the **Start** button should be enabled. To start the VM, select **Start**.
+1. Wait until the template virtual machine is ready. Once it is ready, the **Start** button should be enabled. To start the VM, select **Start**.
 
     ![Start the template VM](../media/tutorial-setup-classroom-lab/start-template-vm.png)
 1. To connect to the VM, select **Connect**, and follow instructions. 
@@ -97,7 +97,7 @@ To publish a template VM, you set the availability of the template to **public**
 4. Switch to the **Virtual machines** page, and confirm that you see five virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
 
     ![Virtual machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Wait until the VMs are created. They should be in **Stopped** state. You can start a student VM, connect to the VM,stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
+5. Wait until the VMs are created. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
 
     ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
