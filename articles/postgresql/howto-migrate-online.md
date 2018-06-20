@@ -12,9 +12,9 @@ ms.date: 06/21/2018
 ---
 
 # Minimal-downtime migration to Azure Database for PostgreSQL
-You can perform PostgreSQL migrations to Azure Database for PostgreSQL with minimal downtime by using the newly introduced continuous sync capability for the [Azure Database Migration Service](https://aka.ms/get-dms) (DMS). This functionality limits the amount of downtime that is incurred by the application. DMS performs an initial load of your on-premises to Azure Database for PostgreSQL, and afterward continuously syncs any new transactions to Azure while the application remains running.
+You can perform PostgreSQL migrations to Azure Database for PostgreSQL with minimal downtime by using the newly introduced **continuous sync capability** for the [Azure Database Migration Service](https://aka.ms/get-dms) (DMS). This functionality limits the amount of downtime that is incurred by the application. DMS performs an initial load of your on-premises to Azure Database for PostgreSQL, and then continuously syncs any new transactions to Azure while the application remains running.
 
-When the data catches up on the target Azure side, you stop the application for a brief moment (minimum downtime), wait for the last batch of data (from the time you stop the application until the application is effectively unavailable to take any new traffic) to catch up in the target, and then update your connection string to point to Azure. When you are finished, your application will be live on Azure!
+After the data catches up on the target Azure side, you stop the application for a brief moment (minimum downtime), wait for the last batch of data (from the time you stop the application until the application is effectively unavailable to take any new traffic) to catch up in the target, and then update your connection string to point to Azure. When you are finished, your application will be live on Azure!
 
 ![Continuous sync with the Azure Database Migration Service](./media/howto-migrate-online/ContinuousSync.png)
 
