@@ -41,29 +41,55 @@ While in preview, the following limitations and restrictions apply:
 
 
 ## Register to use Automatic OS Upgrade
-To use the automated OS upgrade feature, register the preview provider with [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) as follows:
+To use the automated OS upgrade feature, register the preview provider with Azure Powershell or Azure CLI 2.0.
+
+### Azure PowerShell
+The following example uses Powershell to register with [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature):
 
 ```powershell
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName AutoOSUpgradePreview
 ```
 
-It takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Once registered, ensure that the *Microsoft.Compute* provider is registered with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) as follows:
+### Azure CLI 2.0
+The following example uses the Azure CLI (2.0.20 or later) with [az feature register](/cli/azure/feature#az-feature-register):
+
+```azurecli
+az feature register --name AutoOSUpgradePreview --namespace Microsoft.Compute
+```
+
+It takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) on Azure Powershell, or [az feature show](/cli/azure/feature#az-feature-show) on Azure CLI 2.0. Once registered, ensure that the *Microsoft.Compute* provider is registered using Azure Powershell or Azure CLI 2.0.
+
+The following example uses Azure Powershell with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
+The following example uses the Azure CLI (2.0.20 or later) with [az provider register](/cli/azure/provider#az-provider-register):
+
+```azurecli
+az provider register --namespace Microsoft.Compute
+```
+
 > [!NOTE]
-> Service Fabric clusters have their own notion of application health, but scale sets without Service Fabric use the load balancer health probe to monitor application health. To register the provider feature for health probes, use [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) as follows:
+> Service Fabric clusters have their own notion of application health, but scale sets without Service Fabric use the load balancer health probe to monitor application health. You can use Azure Powershell with [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) or Azure CLI 2.0 with [az feature register](/cli/azure/feature#az-feature-register) to register the provider feature for health probes as follows: 
 >
 > ```powershell
 > Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
 > ```
 >
-> Again, it takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Once registered ensure that the *Microsoft.Network* provider is registered with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) as follows:
+> ```azurecli
+> az feature register --name AllowVmssHealthProbe --namespace Microsoft.Network
+> ```
+>
+> Again, it takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status using Azure Powershell with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) or Azure CLI 2.0 with with [az feature show](/cli/azure/feature#az-feature-show). Once registered ensure that the *Microsoft.Network* provider is registered using Azure Powershell with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) or using Azure CLI 2.0 with [az provider register](/cli/azure/provider#az-provider-register) as follows:
 >
 > ```powershell
 > Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
+>
+> ```azurecli
+> az provider register --namespace Microsoft.Network
 > ```
 
 ## Portal experience
@@ -83,6 +109,7 @@ The following SKUs are currently supported (more will be added):
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | latest   |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | latest   |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | latest   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-Containers | latest   |
 
 
 
@@ -124,6 +151,8 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
 ## Enforce an OS image upgrade policy across your subscription
 For safe upgrades, it is highly recommended to enforce an upgrade policy. This policy can require application health probes across your subscription. The following Azure Resource Manager policy rejects deployments that do not have automated OS image upgrade settings configured:
 
+### Azure Powershell
+
 1. Obtain the built-in Azure Resource Manager policy definition with [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) as follows:
 
     ```powershell
@@ -139,6 +168,12 @@ For safe upgrades, it is highly recommended to enforce an upgrade policy. This p
         -PolicyDefinition $policyDefinition
     ```
 
+### Azure CLI 2.0
+Assign policy to a subscription with built-in Azure Resource Manager policy:
+
+```azurecli
+az policy assignment create --display-name "Enforce automatic OS upgrades with app health checks" --name "Enforce automatic OS upgrades" --policy 465f0161-0087-490a-9ad9-ad6217f4f43a --scope "/subscriptions/<SubscriptionId>"
+```
 
 ## Configure auto-updates
 To configure automatic upgrades, ensure that the *automaticOSUpgrade* property is set to *true* in the scale set model definition. You can configure this property with Azure PowerShell or the Azure CLI 2.0.
