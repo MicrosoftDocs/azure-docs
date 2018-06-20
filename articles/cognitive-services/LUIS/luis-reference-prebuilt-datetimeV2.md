@@ -85,7 +85,7 @@ The **builtin.datetimeV2** supports dates between the following ranges:
 
 ## Ambiguous dates
 
-When it is unclear if the date is in the past or future, LUIS provides both values. One case of this occurrence is an utterance that includes the month and date, but not the year.  
+If the date can be in the past or future, LUIS provides both values. An example is an utterance that includes the month and date without the year.  
 
 For example, given the utterance "May 2nd":
 * If today's date is May 3rd 2017, LUIS provides both "2017-05-02" and "2018-05-02" as values. 
