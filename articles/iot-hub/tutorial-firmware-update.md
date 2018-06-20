@@ -2,20 +2,19 @@
 title: Update device firmware through Azure IoT Hub | Microsoft Docs
 description: Implement a device firmware update process using jobs and device twins.
 services: iot-hub
-documentationcenter: 
 author: dominicbetts
 manager: timlt
 
 
-ms.assetid: 
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2018
+ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
+
 #Customer intent: As a developer, I want to implement a device firmware update process that can be triggered from a back-end application connected to my IoT hub
 ---
 
@@ -65,16 +64,16 @@ If you don't already have an IoT hub set up in your subscription, you can set on
 hubname=tutorial-iot-hub
 location=centralus
 
-# Install the IoT extension if it's not already installed:
+# Install the IoT extension if it's not already installed
 az extension add --name azure-cli-iot-ext
 
-# Create a resource group:
+# Create a resource group
 az group create --name tutorial-iot-hub-rg --location $location
 
-# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription:
+# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
 
-# Make a note of the service connection string, you need it later:
+# Make a note of the service connection string, you need it later
 az iot hub show-connection-string --hub-name $hub-name -o table
 
 ```
@@ -82,16 +81,16 @@ az iot hub show-connection-string --hub-name $hub-name -o table
 This tutorial uses a simulated device called **MyFirmwareUpdateDevice**. The following script adds this device to your device identity registry, sets a tag value, and retrieves its connection string:
 
 ```azurecli-interactive
-# Set the name of your IoT hub:
+# Set the name of your IoT hub
 hubname=tutorial-iot-hub
 
-# Create the device in the identity registry:
+# Create the device in the identity registry
 az iot hub device-identity create --device-id MyFirmwareUpdateDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg
 
 # Add a device type tag
 az iot hub device-twin update --device-id MyFirmwareUpdateDevice --hub-name $hubname --set tags='{"devicetype":"chiller"}'
 
-# Retrieve the device connection string, you need this later:
+# Retrieve the device connection string, you need this later
 az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
 
 ```
@@ -169,7 +168,7 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
-The following screenshot shows the output from the simulated device application and showing how it responds to the firmware desired properties update from the back-end application:
+The following screenshot shows the output from the simulated device application and shows how it responds to the firmware desired properties update from the back-end application:
 
 ![Simulated device](./media/tutorial-firmware-update/SimulatedDevice.png)
 
