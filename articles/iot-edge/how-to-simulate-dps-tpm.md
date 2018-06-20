@@ -53,4 +53,30 @@ Download a pre-built image, and use it to create a new virtual machine that has 
 
 1. Download the virtual machine image from https://azureiotedgepreview.blob.core.windows.net/shared/ubuntu-tpm-vm/EdgeMaster.zip. Save it locally and extract the files from the zipped folder. 
 
-2. Create an empty folder on your machine where the VM files can be stored. 
+2. Create an empty folder on your machine where the VM files can be stored, for example **C:\EdgeMasterFiles**.
+
+3. Open Hyper-V again. In the **Actions** menu, select **Import Virtual Machine**. 
+
+4. Complete the following steps for each page of the import wizard:
+
+   1. **Before You Begin**: Click **Next** to start the import setup. 
+
+   2. **Locate Folder**: Browse to the **EdgeMaster** folder that you extracted from the .zip file.
+
+      If you get an error that Hyper-V did not find virtual machines to import, ensure that you selected the folder that contains *Snapshots*, *Virtual Hard Disks*, and *Virtual Machines*. Not a folder level higher or lower.
+
+   3. **Select Virtual Machine**: Select the **EdgeMaster** virtual machine. 
+
+   4. **Choose Import Type**: Select **Copy the virtual machine (create a new unique ID)**. 
+
+   5. **Choose Destination**: Select **Store the virtual machine in a different location**. Browse to the empty folder that you created for the VM files. Use that folder for all three entries on the page. 
+
+      ![Choose destination](./media/how-to-simulate-dps-tpm/choose-destination.png)
+
+   6. **Choose Storage Folders**: Browse to the same folder that you used in the previous step. 
+
+   7. **Summary**: Review the description of your import, then click **Finish** to complete the wizard. 
+
+      ![Import summary](./media/how-to-simulate-dps-tpm/summary.png)
+
+      It may take a view minutes to create the new VM. 
