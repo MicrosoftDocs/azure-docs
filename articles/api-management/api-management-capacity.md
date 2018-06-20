@@ -35,16 +35,25 @@ To follow the steps from this article, you must have:
 
 ![Capacity metric](./media/api-management-capacity/capacity-ingredients.png)
 
-**Capacity** is an indicator of load on an APIM instance. It reflects resources usage (CPU, memory) and network queue lengths. CPU and memory usage reveals resources consumption by APIM services (for example request forwarding or management actions) and selected OS processes. Total **capacity** is an average of its own values from every unit of an API Management instance.
+**Capacity** is an indicator of load on an APIM instance. It reflects resources usage (CPU, memory) and network queue lengths. CPU and memory usage reveals resources consumption by:
 
-> [!IMPORTANT]
-> **Capacity** is not a direct measure of the number of requests being processed.
++ APIM services, such as management actions or request processing, which can include forwarding requests or running a policy
++ selected operating system processes, including processes that involve cost of SSL handshakes on new connections.
+
+Total **capacity** is an average of its own values from every unit of an API Management instance.
 
 ## Capacity metric behavior
 
-In real life, because of its construction, **capacity** can be impacted by many variables, including connection patterns, size of a request and response, policies configured on each API or number of clients sending requests.
+Because of its construction, in real life **capacity** can be impacted by many variables, for example:
 
-The more complex requests' operations are, the higher the **capacity** consumption will be. Longer request and response processing times will increase it too.
++ connection patterns (new connection on a request vs reusing the existing connection)
++ size of a request and response
++ policies configured on each API or number of clients sending requests.
+
+The more complex operations on the requests are, the higher the **capacity** consumption will be. For example, complex transformation policies consume much more CPU than a simple request forwarding. Slow backend service responses will increase it too.
+
+> [!IMPORTANT]
+> **Capacity** is not a direct measure of the number of requests being processed.
 
 ![Capacity metric spikes](./media/api-management-capacity/capacity-spikes.png)
 
@@ -56,12 +65,19 @@ The more complex requests' operations are, the higher the **capacity** consumpti
 
 1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
 2. Select **Metrics (preview)**.
-3. Select **Capacity** metric from available metrics and pick a timeframe.
+3. From the purple section, select **Capacity** metric from available metrics and leave the default **Avg** aggregation.
 
-    You can set a metric alert to let you know when something unexpected is happening. For example, your APIM instance has exceeded its expected peak capacity for over 10 minutes.
+    > [!TIP]
+    > You should always look at a **capacity** metric breakdown per location to avoid wrong interpretations.
+
+4. From the green section, select **Location** for splitting the metric by dimension.
+5. Pick a desired timeframe from the top bar of the section.
+
+    You can set a metric alert to let you know when something unexpected is happening. For example, get notifications when your APIM instance has been exceededing its expected peak capacity for over 20 minutes.
 
     >[!TIP]
-    > You can configure alerts to let you know when your service is running low on capacity or call into a logic app that automatically scale by adding a unit.
+    > You can configure alerts to let you know when your service is running low on capacity or use Azure Monitor autoscaling functionality to automatically add an Azure API Management unit. Scaling operation can take around 30 minutes, so you should plan your rules accordingly.  
+    > Only scaling the master location is allowed.
 
 ## Use capacity for scaling decisions
 
