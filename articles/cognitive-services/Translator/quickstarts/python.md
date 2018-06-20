@@ -3,12 +3,12 @@ title: How to use Microsoft Translator Text API with Python, Azure Cognitive Ser
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: Jann-Skotdal
+author: v-stadam
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: article
 ms.date: 09/14/2017
-ms.author: v-jansko
+ms.author: v-stadam
 ---
 # How to use the Microsoft Translator Text API with Python
 

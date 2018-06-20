@@ -4,6 +4,23 @@
   items: 
   - name: What is the Translator Text API?
     href: translator-info-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: C#
+      items:
+      - name: Translate text
+        href: quickstart-csharp-translate.md
+      - name: Convert text script
+        href: quickstart-csharp-transliterate.md
+      - name: Identify language from text
+        href: quickstart-csharp-detect.md
+      - name: Get alternate translations
+        href: quickstart-csharp-dictionary.md
+      - name: Get supported languages
+        href: quickstart-csharp-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-csharp-sentences.md
 - name: Concepts
   items:
   - name: Supported languages
@@ -26,8 +43,6 @@
     href: dynamic-dictionary.md
   - name: Use Translator Text API
     items:
-    - name: C#
-      href: quickstarts/csharp.md
     - name: Java
       href: quickstarts/java.md
     - name: Node.js

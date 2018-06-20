@@ -22,7 +22,7 @@ This article shows how to register a new IoT Edge device using Visual Studio Cod
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code
 
-## Sign in to your IoT hub
+## Sign in to access your IoT hub
 
 You can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. For these operations to work, you need to sign in to your Azure account and select the IoT hub that you are working on.
 

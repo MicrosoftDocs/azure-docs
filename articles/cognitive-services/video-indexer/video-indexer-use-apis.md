@@ -30,15 +30,19 @@ This article shows how the developers can take advantage of the [Video Indexer A
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api01.png)
 
     > [!Important]
-    > 1. You must use the same provider you used when you signed up for Video Indexer.
-    > 2. Before Azure AD users from a domain can sign in, the AAD domain admin must enable that domain registration [here](https://api-portal.videoindexer.ai/aadadminconsent).
-    > 3. Personal Google and Microsoft (outlook/live) accounts can only be used for trial accounts. Accounts connected to Azure require AAD.
+    > * You must use the same provider you used when you signed up for Video Indexer.
+    > * Personal Google and Microsoft (outlook/live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
+    > * There can be only one active account per E-Mail. If a user tries to sign-in with user@gmail.com for LinkedIn and after that with user@gmail.com for Google the later will display an error page, saying the user already exist.
+
 
 2. Subscribe.
 
 	Select the [Products](https://api-portal.videoindexer.ai/products) tab. Then, select Authorization and subscribe. 
 	
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api02.png)
+
+    > [!NOTE]
+    > New users are automatically subscribed to Authorization.
 	
 	Once you subscribe, you will be able to see your subscription and your primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They should not be available on the client side (.js, .html, etc.).
 
@@ -56,7 +60,7 @@ Each call to the Operations API should be associated with an access token, match
 
 You can control whether these tokens are readonly or they allow editing by specifying **allowEdit=true/false**.
 
-For most server-to-server scenarios, you will probably use the same **account** token since it covers both **account** operations and **video** operations. However, if you are planning to make client side calls to Video Indexer (e.g. from javascript), you would want to use a **video** access token, to prevent clients from getting access to the entire account. That is also the reason that when embedding VideoIndexer client code in your client (for example, using **Get Insights Widget** or **Get Player Widget**) you must provide a **video** access token.
+For most server-to-server scenarios, you will probably use the same **account** token since it covers both **account** operations and **video** operations. However, if you are planning to make client side calls to Video Indexer (for example, from javascript), you would want to use a **video** access token, to prevent clients from getting access to the entire account. That is also the reason that when embedding VideoIndexer client code in your client (for example, using **Get Insights Widget** or **Get Player Widget**) you must provide a **video** access token.
 
 To make things easier, you can use the **Authorization** API > **GetAccounts** to get your accounts without obtaining a user token first. You can also ask to get the accounts with valid tokens, enabling you to skip an additional call to get an account token.
 

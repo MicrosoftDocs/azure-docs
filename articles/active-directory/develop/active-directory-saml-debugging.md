@@ -80,7 +80,7 @@ You might sign in successfully and then see an error on the application's page. 
 
 To resolve the error:
 
-1. If the application is in the Azure AD Gallery, verify you have followed all the steps for integrating the application with Azure AD. To find the integration instructions for your application, see the [list of SaaS application integration tutorials](../active-directory-saas-tutorial-list.md).
+1. If the application is in the Azure AD Gallery, verify you have followed all the steps for integrating the application with Azure AD. To find the integration instructions for your application, see the [list of SaaS application integration tutorials](../saas-apps/tutorial-list.md).
 2. Retrieve the SAML response.
     - If the My Apps Secure Sign-in extension is installed, from the **Test single sign-on** blade, click **download the SAML response**.
     - If the extension is not installed, use a tool such as [Fiddler](http://www.telerik.com/fiddler) to retrieve the SAML response. 
