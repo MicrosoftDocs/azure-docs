@@ -11,15 +11,13 @@ ms.date: 06/20/2018
 ms.author: rosh
 ---
 # Tutorial: Bing Visual Search SDK image crop area upload and results
-The Visual Search SDK includes an option to select an area of an image and find images online that are similar to the crop area of the larger image.
-
-The following image shows the Microsoft senior leadership team.  Using the Visual Search SDK, you can upload a crop area of the image and find other images and Web pages that include a person or other entity shown in the selected area of the original image.
-
-![Microsoft Senior Leadership Team](./media/MS_SrLeaders.jpg)
-
-The following example uses the Visual Search SDK to demonstrate upload of a crop of the upper left area of the image that shows Satya Nadella.  The code sends binary data to Bing Search and returns results including URLs of similar images online.
+The Visual Search SDK includes an option to select an area of an image and find images online that are similar to the crop area of the larger image.  This example uploads a crop area showing one person in an image that contains several people.  The code sends the crop as binary data to Bing Search and returns results that include Bing Search URLs and URLs of similar images found online.
 
 The Visual Search SDK quickstarts show basic senarios using Visual Search.  Refer to the C# quickstarts for setup instructions that reference the Visual Search Nuget package needed for this example. 
+
+The following image shows the Microsoft senior leadership team.  Using the Visual Search SDK, we upload a crop area of the image and find other images and Web pages that include a person or other entity shown in the selected area of the original image.
+
+![Microsoft Senior Leadership Team](./media/MS_SrLeaders.jpg)
 
 ## Specify the crop area as ImageInfo in VisualSearchRequest
 This example uses a crop area of the previous image that specifies upper left and lower right coordinates by percentage of the whole image.  The following code creates an `ImageInfo` object from the crop area and loads the `ImageInfo` object into a `VisualSearchRequest`.
