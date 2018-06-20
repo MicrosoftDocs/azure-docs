@@ -578,6 +578,10 @@ you can now select the properties from the parsed JSON content.
 
    ![JSON properties in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-parse-json-action.png)
 
+   Here is the finished email action:
+
+   ![Finished email action](./media/logic-apps-change-manage-data-operations/send-email-parse-json-action-2.png)
+
 3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
    Based on the email connector you used, here are the results you get:
