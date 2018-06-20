@@ -1,19 +1,17 @@
 ---
 title: Azure Site Recovery deployment planner for Hyper-V to Azure| Microsoft Docs
-description: This article describes the mode of running the Azure Site Recovery deployment planner when you're moving from Hyper-V to Azure.
-services: site-recovery
+description: This article teaches you how to run the Site Recovery deployment planner foro Hyper-V to Azure replication.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 06/20/2018
 ms.author: nisoneji
 
 ---
 # Run Azure Site Recovery deployment planner for Hyper-V to Azure
 
-## Modes of running the deployment planner
-You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following four modes: 
+You can run the Site Recovery deployment planner command-line tool (ASRDeploymentPlanner.exe) in any of these four modes: 
 -	[Get the virtual machine (VM) list](#get-vm-list-for-profiling-hyper-v-vms)
 -	[Profile](#profile-hyper-v-vms)
 -	[Generate a report](#generate-report)
@@ -35,14 +33,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | The username to connect to the Hyper-V host or Hyper-V cluster. The user needs to have administrative access.|
-|-ServerListFile | The file with the list of servers that contain the VMs to be profiled. The file path can be absolute or relative. This file should contain one of the following in each line:<ul><li>Hyper-V host name or IP address</li><li>Hyper-V cluster name or IP address</li></ul><br>**Example:** ServerList.txt contains the following servers:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | The file with the list of servers that contain the VMs to be profiled. The file path can be absolute or relative. This file should contain one of the following in each line:<ul><li>Hyper-V host name or IP address</li><li>Hyper-V cluster name or IP address</li></ul><br>**Example:** ServerList.txt contains the following servers:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(Optional) The universal naming convention (UNC) or local directory path to store data generated during this operation. If a name is not specified, the directory named ProfiledData under the current path is used as the default directory.|
-|-OutputFile| (Optional) The file where the list of VMs fetched from the  Hyper-V servers is saved. If a name is not mentioned, the details are stored in VMList.txt.  Use the file to start profiling after removing VMs that don't need to be profiled.|
+|-OutputFile| (Optional) The file with the list of VMs fetched from the Hyper-V servers is saved. If a name is not mentioned, the details are stored in VMList.txt.  Use the file to start profiling after removing VMs that don't need to be profiled.|
 |-Password|(Optional) The password to connect to the Hyper-V host. If you don't specify it as a parameter, you will be prompted for it when you run the command.|
 
 ### GetVMList discovery
-**Hyper-V cluster**: When the Hyper-V cluster name is given in the server's list file, the tool finds all the Hyper-V nodes of the cluster and gets the VMs present on each of the Hyper-V hosts.
 
+- **Hyper-V cluster**: When the Hyper-V cluster name is given in the server's list file, the tool finds all the Hyper-V nodes of the cluster and gets the VMs present on each of the Hyper-V hosts.
 **Hyper-V host**: When the Hyper-V host name is given, the tool first checks if it belongs to a cluster. If yes, the tool fetches nodes that belong to the cluster. It then gets the VMs from each Hyper-V host. 
 
 You can also choose to list in a file the friendly names or IP addresses of the VMs that you want to profile manually.
