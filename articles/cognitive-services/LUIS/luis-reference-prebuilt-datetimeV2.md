@@ -181,11 +181,11 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
   ]
 ```
 ## Ambiguous time
-The values array has two time elements if the time, or time range is ambiguous. When there's an ambiguous time, values have both the AM and PM times.
+The values array has two time elements if the time, or time range is ambiguous. When there's an ambiguous time, values have both the A.M. and P.M. times.
 
 ## Time range resolution example
 
-The following example shows how LUIS uses **datetimeV2** to resolve the utterance "6pm to 7pm".
+The following example shows how LUIS uses **datetimeV2** to resolve the utterance that has a time range.
 
 ```
   "entities": [
@@ -208,11 +208,11 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
   ]
 ```
 
-## builtin.datetime
+## Deprecated prebuilt `datetime`
 
-The **builtin.datetime** prebuilt entity is deprecated and replaced by [builtin.datetimeV2](#builtindatetimev2). 
+The `builtin.datetime` prebuilt entity is deprecated and replaced by [`builtin.datetimeV2`](#builtindatetimev2). 
 
-To replace **builtin.datetime** with **builtin.datetimeV2** in your LUIS app, complete the following steps:
+To replace `builtin.datetime` with `builtin.datetimeV2` in your LUIS app, complete the following steps:
 
 1. Open the **Entities** pane of the LUIS web interface. 
 2. Delete the **datetime** prebuilt entity.
