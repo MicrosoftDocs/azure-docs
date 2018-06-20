@@ -35,7 +35,7 @@ The account you log into, or connect to Azure with must be assigned to the [netw
 
 ## Work with network security groups
 
-You can create, [view all](#view-all-network-security-groups), [view details of](#view-details-of-a-network-security-group), [change](#change-a-network-security-group), and [delete](#delete-a-network-security-group) a network security group. You can also [associate or dissociate](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) a network security group from a network interface or subnet.
+You can create, [view all](#view-all-network-security-groups), [view details of](#view-details-of-a-network-security-group), [change](#change-a-network-security-group), and [delete](#delete-a-network-security-group) a network security group. You can also [associate or dissociate](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface) a network security group from a network interface or subnet.
 
 ### Create a network security group
 
