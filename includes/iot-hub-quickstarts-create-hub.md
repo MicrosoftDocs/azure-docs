@@ -22,7 +22,7 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
    * **Subscription**: Choose the subscription that you want to use to create this IoT hub.
 
-   * **Resource group**: Create a resource group to host the IoT hub or use an existing one. For more information, see [Use resource groups to manage your Azure resources][lnk-resource-groups].
+   * **Resource group**: Create a resource group to host the IoT hub or use an existing one. By putting all related resources in a group, you can manage them together. For example, deleting the resource group deletes all resources contained in that group. For more information, see [Use resource groups to manage your Azure resources][lnk-resource-groups].
 
    * **Region**: Select the closest location to you.
 

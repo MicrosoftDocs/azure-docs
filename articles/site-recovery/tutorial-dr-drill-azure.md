@@ -5,33 +5,35 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 06/20/2018
 ms.author: raynew
 
 ---
 # Run a disaster recovery drill to Azure
 
-[Azure Site Recovery](site-recovery-overview.md) contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
+In this article, we show you how to run a disaster recovery drill for an on-premises machine to Azure, using a test failover. A drill validates your replication strategy without data loss.
 
-- This is the fourth tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. It presumes you completed the first two tutorials:
+This is the fourth tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs.
+
+This tutorial presumes that you've completed the first three tutorials: 
     - In the [first tutorial](tutorial-prepare-azure.md), we set up the Azure components needed for VMware disaster recovery.
     - In the [second tutorial](vmware-azure-tutorial-prepare-on-premises.md) , we prepared on-premises components for disaster recovery, and reviewed prerequisites.
     - In the [third tutorial](vmware-azure-tutorial.md) we set up and enabled replication for our on-premises VMware VM.
 - Tutorials are designed to show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. 
+All of the tutorials set up Site Recovery with the simplest settings, using defaults where appropriate. If you want to learn about the test failover steps in more detail, read the [How To Guide](site-recovery-test-failover-to-azure.md).
 
-
-In this article, we show you how to run a disaster recovery drill for an on-premises machine to Azure, using a test failover. A drill validates your replication strategy without data loss. Learn how to:
+In this tutorial, learn how to:
 
 > [!div class="checklist"]
 > * Set up an isolated network for the test failover
 > * Prepare to connect to the Azure VM after failover
 > * Run a test failover for a single machine
 
-This tutorial sets up VMware disaster recovery to Azure with the simplest settings. If you want to learn about the test failover steps in more detail, read the [How To Guide](site-recovery-test-failover-to-azure.md).
+This tutorial s
 
 ## Verify VM properties
 
-Before you run a test failover, verify the VMware VM properties, and make sure that the Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms], [VMware VM or physical server](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
+Before you run a test failover, verify the VMware VM properties, and make sure that the [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms), or [VMware VM/physical server](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
 
 1. In **Protected Items**, click **Replicated Items** > and the VM.
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the
