@@ -161,12 +161,8 @@
         href: virtual-networks-dmz-nsg.md
   - name: Configure
     items:
-    - name: Virtual machines
-      items:
-      - name: Add or remove network interfaces
-        href: virtual-network-network-interface-vm.md
-      - name: Name resolution for VMs and cloud services
-        href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+    - name: Name resolution for VMs and cloud services
+      href: virtual-networks-name-resolution-for-vms-and-role-instances.md
     - name: Use dynamic DNS with your own DNS server
       href: virtual-networks-name-resolution-ddns.md
     - name: Optimize network throughput
@@ -191,15 +187,17 @@
         href: virtual-network-nsg-manage-log.md
     - name: Route tables
       href: manage-route-table.md
-    - name: Network interfaces
-      href: virtual-network-network-interface.md
       items:
-      - name: IP addresses
-        href: virtual-network-network-interface-addresses.md
     - name: Public IP addresses
       href: virtual-network-public-ip-address.md
-    - name: Virtual machines
+    - name: Virtual machine networking
       items:
+      - name: Create and modify a network interface
+        href: virtual-network-network-interface.md
+      - name: Add or remove network interfaces
+        href: virtual-network-network-interface-vm.md
+      - name: Add or remove IP addresses
+        href: virtual-network-network-interface-addresses.md
       - name: Move a VM to a different subnet
         href: virtual-networks-move-vm-role-to-subnet.md
   - name: Troubleshoot
