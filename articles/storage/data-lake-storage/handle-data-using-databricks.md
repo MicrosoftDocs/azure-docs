@@ -100,42 +100,6 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-## Mount Storage Account to DataBricks
-
-Next, return to the Azure Portal and navigate to your storage account settings.
-
-1. Click **Browse blobs** under the *Blob Service* section
-2. Click the new container button (![New Container Button](./media/handle-data-using-databricks/storage-account-add-container.png))
-3. Enter **dbricks** in the *Name* field
-4. Select **Private** for the *Public Access Level* field
-5. Click **OK**
-
-Return to the DataBricks tab and continue with the following steps:
-
-1. Click **Azure DataBricks** on the top left of the nav bar
-2. Click **Notebook** under the *New* section on the bottom half of the page
-3. Enter **Flight Data Analytics** in the *Name* field (leave all other fields with default values)
-4. Click **Create**
-5. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor)
-
-> [!IMPORTANT]
-> Make sure you replace the **<YOUR_STORAGE_ACCOUNT_NAME>** AND **<YOUR_ACCESS_KEY>** placeholders with the corresponding values you set aside in a previous step.
-
-```python
-accountname = '<YOUR_STORAGE_ACCOUNT_NAME>'
-accountkey = '<YOUR_ACCESS_KEY>'
-fullname = "fs.azure.account.key." +accountname+ ".dfs.core.windows.net"
-accountsource = "abfs://dbricks@" +accountname+ ".dfs.core.windows.net/folder1"
-dbutils.fs.mount(
-  source = accountsource,
-  mount_point = "/mnt/temp",
-  extra_configs = { fullname : accountkey }
-) 
-```
-6. Press **Cmd + Enter** to run the Python script
-
-Your storage container is now mounted. You should see *Out[x] = true* as ouput from the script.
-
 ## Upload data to the storage account
 
 The next step is to upload a sample data file to the storage account to later tranform in Azure Databricks. The sample data (**small_radio_json.json**) is available in the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo. Download the JSON file and make note of the path where you save the file.
