@@ -57,21 +57,12 @@ The complete application returns:
 * ActionType: TopicResults -> WebSearchUrl: https://www.bing.com/cr?IG=666A068BE9134211BD48E00C6C6C1524&CID=25C08F7F27AB61930137836B26CA60C4&rd=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx,5502.1
 * ActionType: ImageResults -> WebSearchUrl: https://www.bing.com/cr?IG=666A068BE9134211BD48E00C6C6C1524&CID=25C08F7F27AB61930137836B26CA60C4&rd=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5504.1
 
-The `Entity` `ActionType` contains a Bing Search query that returns information about a recognizable person, place, or thing.  Tht `TopicResults` and `ImageResults` types contain queries for related images:
+As shown in preceding list, the `Entity` `ActionType` contains a Bing Search query that returns information about a recognizable person, place, or thing.  The `TopicResults` and `ImageResults` types contain queries for related images. The URLs in the list link  to Bing search results.
 
-```
- ActionType: Entity -> WebSearchUrl: https://www.bing.com/cr?IG=571606C5BFF84EFD90E6B30F299CD1D3&CID=105A5BB5EFB46635155657A1EED56779&rd=1&h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v=1&r=https%3a%2f%2fwww.bing.com%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5500.1
-
- ActionType: TopicResults -> WebSearchUrl: https://www.bing.com/cr?IG=571606C5BFF84EFD90E6B30F299CD1D3&CID=105A5BB5EFB46635155657A1EED56779&rd=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx,5502.1
-
- ActionType: ImageResults -> WebSearchUrl: https://www.bing.com/cr?IG=571606C5BFF84EFD90E6B30F299CD1D3&CID=105A5BB5EFB46635155657A1EED56779&rd=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5504.1
-
-```
-Copy any of the previous URLs to the browser address bar to see the results.
 
 ## PagesIncluding ActionType URLs of images found by Visual Search
 
-Getting the actual image URLs requires a cast that reads an ActionType as `ImageModuleAction`, which contains a `Data` element with a list of values.  Each value is the URL of an image.  The following casts the `PagesIncluding` action type to `ImageModuleAction` and reads the values.
+Getting the actual image URLs requires a cast that reads an `ActionType` as `ImageModuleAction`, which contains a `Data` element with a list of values.  Each value is the URL of an image.  The following casts the `PagesIncluding` action type to `ImageModuleAction` and reads the values.
 ```
     if (i.ActionType == "PagesIncluding")
     {
