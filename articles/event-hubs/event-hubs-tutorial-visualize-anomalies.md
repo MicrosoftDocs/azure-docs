@@ -11,7 +11,7 @@ ms.date: 05/15/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-#Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an Event Hub. 
+#Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an Event Hub. For Shubha. 
 ---
 
 # Tutorial: Visualize data anomalies in real-time events sent to an Event Hub
