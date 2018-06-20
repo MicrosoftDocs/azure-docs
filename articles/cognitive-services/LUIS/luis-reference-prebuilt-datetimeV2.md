@@ -15,56 +15,63 @@ ms.author: v-geberr
 
 The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times, and ranges of dates and times. This entity also resolves dates, times, and date ranges to values in a standardized format for client programs to consume. When an utterance contains a date or time that isn't complete, LUIS includes both past and future values in the endpoint response. 
 
-<table>
-<th> example </th><th>property descriptions</th>
-<tr><td>
+## Example JSON 
 The following example JSON response contains a `builtin.datetimeV2` entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href="#subtypes-of-datetimev2">Subtypes of datetimeV2</a>.
-<pre>
-  "entities": [
-    {
-      "entity": "8am on may 2nd 2017",
-      "type": "builtin.datetimeV2.datetime",
-      "startIndex": 15,
-      "endIndex": 30,
-      "resolution": {
-        "values": [
-          {
-            "timex": "2017-05-02T08",
-            "type": "datetime",
-            "value": "2017-05-02 08:00:00"
-          }
-        ]
-      }
+
+```JSON
+"entities": [
+  {
+    "entity": "8am on may 2nd 2017",
+    "type": "builtin.datetimeV2.datetime",
+    "startIndex": 15,
+    "endIndex": 30,
+    "resolution": {
+      "values": [
+        {
+          "timex": "2017-05-02T08",
+          "type": "datetime",
+          "value": "2017-05-02 08:00:00"
+        }
+      ]
     }
-  ]
-   </pre></td>
-   <td> 
-   <table>
-   <tr><td>entity</td><td><b>string</b>. Text extracted from the utterance representing date, time, date range, or time range.</td></tr>
-   <tr><td>type</td><td><b>string</b>. One of the following <a href="#subtypes-of-datetimev2">subtypes of datetimeV2</a>: 
-   <ul><li>builtin.datetimeV2.datetime
-   <li>builtin.datetimeV2.date
-   <li>builtin.datetimeV2.time
-   <li>builtin.datetimeV2.daterange
-   <li>builtin.datetimeV2.timerange
-   <li>builtin.datetimeV2.datetimerange
-   <li>builtin.datetimeV2.duration
-   <li>builtin.datetimeV2.set </ul>
-</td></tr>
-   <tr><td>startIndex</td><td><b>int</b>. The index in the utterance at which the entity begins.</td></tr>
-   <tr><td>endIndex</td><td><b>int</b>. The index in the utterance at which the entity ends.</td></tr>
-   <tr><td>resolution</td><td>
-   Contains a <code>values</code> array that has one, two, or four values. 
-   <ul><li>The array has one element if the date or time in the utterance is fully specified and unambiguous.</li><li>The array has two elements if the date or date range is ambiguous for year. When there is an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. See <a href="#ambiguous-dates">Ambiguous dates</a> for more examples. When there is an ambiguous time, `values` contains both the A.M. and P.M. times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to A.M. or P.M. For example, 3:00 April 3rd.</li>
-   </ul>
-   <br/>Each element of <code>values</code> may contain the following fields: <br/>
-   <table><tr><td>timex</td><td>time, date, or date range expressed in `TIMEX` format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">`ISO 8601` standard</a> as well as using the TIMEX3 attributes for annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following items: datetime, date, time, daterange, timerange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
-   <tr><td>start</td><td>A value representing the start of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code>, or <code>datetimerange</code>.</td></tr></table>
-   </td></tr>
-   <tr><td>end</td><td>A value representing the end of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code, or <code>datetimerange</code>.</td></tr></table>
-   </td></tr></table>
-  </td></tr>
-</table>
+  }
+]
+  ```
+
+## JSON property descriptions
+
+|Property name | Property type and description|
+|-|-|
+|entity|<b>string</b>. Text extracted from the utterance representing date, time, date range, or time range.|
+|type|<b>string</b>. One of the [subtypes of datetimeV2](#subtypes-of-datetimev2)
+|startIndex|<b>int</b>. The index in the utterance at which the entity begins.|
+|endIndex|<b>int</b>. The index in the utterance at which the entity ends.|
+|resolution|Contains a `values` array that has one, two, or four [values of resolution](#values-of-resolution).|
+|end|A value representing the end of a time or date range, in the same format as `value`. Only used if `type` is `daterange`, `timerange`, or `datetimerange`|
+
+## Subtypes of datetimeV2
+
+The **builtin.datetimeV2** prebuilt entity has the following subtypes, and examples of each are provided in the table that follows:
+* builtin.datetimeV2.date
+* builtin.datetimeV2.time
+* builtin.datetimeV2.daterange
+* builtin.datetimeV2.timerange
+* builtin.datetimeV2.datetimerange
+* builtin.datetimeV2.duration
+* builtin.datetimeV2.set
+
+## Values of resolution
+* The array has one element if the date or time in the utterance is fully specified and unambiguous.
+* The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to AM or PM. When there is an ambiguous date, values contains the most recent past and most immediate future instances of the date. See Ambiguous dates for more examples. When there is an ambiguous time, values contains both the AM and PM times.
+* The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to AM or PM. For example, 3:00 April 3rd.
+
+Each element of `values` array may contain the following fields: 
+
+|Property name|Property description|
+|--|--|
+|timex|time, date, or date range expressed in TIMEX format that follows the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601) as well as using the TIMEX3 attributes for annotation using the TimeML language. This annotation is described in the [TIMEX guidelines](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).<br>|
+|type|The subtype, which can be one of the following items: datetime, date, time, daterange, timerange, datetimerange, duration, set.|
+|value|<b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If `type` is `duration`, the value is the number of seconds (duration) <br/> Only used if `type` is `datetime` or `date`, `time`, or `duration.|
 
 <!-- 
 ### Recognition of date values
@@ -77,6 +84,7 @@ The **builtin.datetimeV2** entity's `resolution` field has a `values` array that
 | resolution   | Contains a `values` array that has one, two, or four values. <ul><li>The array has one element if the date or time in the utterance is unambiguous.</li><li>The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to A.M. or P.M. In the case of an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. In the case of an ambiguous time, `values` contains both the A.M. and P.M. times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to A.M. or P.M. For example, 3:00 April 3rd.</li></ul><br/>Each element of `values` may contain the following fields: <br/><table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).</td></tr><tr><td>type</td><td>The subtype. For example, `datetime`.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime) <br/> This property is present if the entity is recognized as a date or time, but not a date range.</td></tr></table> |
 
 -->
+## Minimum and maximum date values
 
 The **builtin.datetimeV2** supports dates between the following ranges:
 
@@ -84,7 +92,7 @@ The **builtin.datetimeV2** supports dates between the following ranges:
 |----------|-------------|
 | 1st January 1900   | 31st December 2099 |
 
-### Ambiguous dates
+## Ambiguous dates
 
 If it's unclear from an utterance whether a date is in the past or the future, LUIS provides both the past and future instances of that date. One case of this occurrence is an utterance that includes the month and date, but not the year. If today's date precedes the date in the utterance in the current year, the most immediate past instance of that date is in the previous year. Otherwise the most immediate past date is in the current year. 
 
@@ -120,7 +128,7 @@ Fields containing `X` in the `timex` field represent parts of the date that are 
   ]
 ```
 
-### Date range resolution examples
+## Date range resolution examples for numeric date
 
 The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the next year. In the `timex` field, the `XXXX` values represent the year that is not explicitly specified in the utterance. `P3D` indicates that the time period is three days long.
 
@@ -151,6 +159,8 @@ The datetimeV2 entity can recognize date and time ranges. The `start` and `end` 
   ]
 ```
 
+## Date range resolution examples for day of week
+
 The following example shows how LUIS uses **datetimeV2** to resolve the utterance "Tuesday to Thursday". In this example, the current date is June 19th. LUIS includes **daterange** values for both of the date ranges that precede and follow the current date.
 
 ```
@@ -180,36 +190,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
   ]
 ```
 
-### Date range resolution examples
-
-The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the next year: In the `timex` field, the `XXXX` values represent the year that is not explicitly specified in the utterance. `P3D` indicates that the time period is three days long.
-
-```
-"entities": [
-    {
-      "entity": "may 2nd to may 5th",
-      "type": "builtin.datetimeV2.daterange",
-      "startIndex": 0,
-      "endIndex": 17,
-      "resolution": {
-        "values": [
-          {
-            "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-            "type": "daterange",
-            "start": "2017-05-02",
-            "end": "2017-05-05"
-          },
-          {
-            "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-            "type": "daterange",
-            "start": "2018-05-02",
-            "end": "2018-05-05"
-          }
-        ]
-      }
-    }
-  ]
-```
+## Time range resolution example
 
 The following example shows how LUIS uses **datetimeV2** to resolve the utterance "6pm to 7pm".
 
@@ -233,17 +214,8 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
     }
   ]
 ```
-### Subtypes of datetimeV2
 
-The **builtin.datetimeV2** prebuilt entity has the following subtypes, and examples of each are provided in the table that follows:
-* builtin.datetimeV2.date
-* builtin.datetimeV2.time
-* builtin.datetimeV2.daterange
-* builtin.datetimeV2.timerange
-* builtin.datetimeV2.datetimerange
-* builtin.datetimeV2.duration
-* builtin.datetimeV2.set
-
+## Example JSON responses for entities
 
 Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
@@ -276,6 +248,8 @@ To replace **builtin.datetime** with **builtin.datetimeV2** in your LUIS app, co
 2. Delete the **datetime** prebuilt entity.
 3. Click **Add prebuilt entity**
 4. Select **datetimeV2** and click **Save**.
+
+## Replacing datetime with datetimeV2
 
 The following table provides a comparison of datetime and datetimeV2. In the examples, the current date is 2017-06-20.
 
@@ -319,3 +293,5 @@ builtin.datetimeV2.timerange    |   every morning   |```{ "type": "builtin.datet
 builtin.datetime.date      |   week of september 30th   |```{ "entity": "week of september 30th", "type": "builtin.datetime.date", "resolution": {"comment": "weekof", "date": "XXXX-09-30"} }```|
 builtin.datetimeV2.date      |   week of september 30th   |```{ "entity": "september 30th", "type": "builtin.datetimeV2.date", "resolution": { "values": [{ "timex": "XXXX-09-30", "type": "date", "value": "2016-09-30" },{"timex": "XXXX-09-30","type": "date", "value": "2017-09-30" }]} }```|
 -->
+
+*The **builtin.datetime** prebuilt entity is deprecated and replaced by [builtin.datetimeV2](#builtindatetimev2). 
