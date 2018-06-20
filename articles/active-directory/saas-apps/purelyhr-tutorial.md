@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 86a9c454-596d-4902-829a-fe126708f739
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -224,7 +225,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 Click the Absorb LMS tile in the Access Panel, you get automatically signed-on to your Absorb LMS application.
 
-For more information about the Access Panel, see. [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+For more information about the Access Panel, see. [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
