@@ -241,16 +241,18 @@
     items:
       - name: Overview
         href: luis-reference-prebuilt-entities.md
-      - name: Numbers
+      - name: Number entity
         href: luis-reference-prebuilt-number.md
-      - name: Datetime
+      - name: Datetime entity
         href: luis-reference-prebuilt-datetimeV2.md
-      - name: Currenty
+      - name: Currency entity
         href: luis-reference-prebuilt-currency.md
-      - name: Ordinal
+      - name: Ordinal entity
         href: luis-reference-prebuilt-ordinal.md
-      - name: Percentage
+      - name: Percentage entity
         href: luis-reference-prebuilt-percentage.md
+      - name: Deprecated entities
+        href: luis-reference-prebuilt-deprecated.md
   - name: Prebuilt domain reference
     href: luis-reference-prebuilt-domains.md
   - name: Cortana prebuilt app reference
