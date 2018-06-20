@@ -207,7 +207,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
     }
   ]
 ```
-
+<!--
 ## Example JSON responses for entities
 
 Prebuilt entity   |   Example utterance   |   JSON
@@ -228,7 +228,7 @@ Prebuilt entity   |   Example utterance   |   JSON
 ```builtin.datetimeV2.set```    |   ```daily```   |```{ "type": "builtin.datetimeV2.set", "entity": "daily", "resolution": { "values": [{ "timex": "P1D", "type": "set", "value": "not resolved"}]}	}```|
 ```builtin.datetimeV2.set```    |   ```every tuesday```   |```{ "entity": "every tuesday", "type": "builtin.datetimeV2.set", "resolution": { "values": [{ "timex": "XXXX-WXX-2", "type": "set", "value": "not resolved"}]} }```|   
 ```builtin.datetimeV2.set```    |   ```every week```   |```{ "entity": "every week", "type": "builtin.datetimeV2.set", "resolution": {"time": "XXXX-WXX"} }```|
-
+-->
 ## builtin.datetime
 
 <!--The **builtin.datetime** prebuilt entity is aware of the current date and time. In the following examples, the current date is 2017-06-21. Also, the **builtin.datetime** entity provides a resolution field that produces a machine-readable dictionary. -->
@@ -241,7 +241,7 @@ To replace **builtin.datetime** with **builtin.datetimeV2** in your LUIS app, co
 2. Delete the **datetime** prebuilt entity.
 3. Click **Add prebuilt entity**
 4. Select **datetimeV2** and click **Save**.
-
+<!--
 ## Replacing datetime with datetimeV2
 
 The following table provides a comparison of datetime and datetimeV2. In the examples, the current date is 2017-06-20.
@@ -285,6 +285,6 @@ builtin.datetimeV2.timerange    |   every morning   |```{ "type": "builtin.datet
 
 builtin.datetime.date      |   week of september 30th   |```{ "entity": "week of september 30th", "type": "builtin.datetime.date", "resolution": {"comment": "weekof", "date": "XXXX-09-30"} }```|
 builtin.datetimeV2.date      |   week of september 30th   |```{ "entity": "september 30th", "type": "builtin.datetimeV2.date", "resolution": { "values": [{ "timex": "XXXX-09-30", "type": "date", "value": "2016-09-30" },{"timex": "XXXX-09-30","type": "date", "value": "2017-09-30" }]} }```|
--->
 
 *The **builtin.datetime** prebuilt entity is deprecated and replaced by [builtin.datetimeV2](#builtindatetimev2). 
+-->
