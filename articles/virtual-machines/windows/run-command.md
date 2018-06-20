@@ -27,6 +27,7 @@ The following restrictions apply when using Run Command:
 * The minimum time to run a script is about 20 seconds
 * Scripts run as System on Windows
 * One script at a time may run
+* Scripts that prompt for information (interactive mode) are not supported.
 * You cannot cancel a running script
 * The maximum time a script can run is 90 minutes, after which it will time out
 
