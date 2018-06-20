@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 06/14/2018 
+ms.date: 06/20/2018 
 ms.author: jeffgilb 
 ms.reviewer: jeffgo 
 --- 
@@ -52,7 +52,7 @@ Use the Azure Stack MySQL Server resource provider to expose MySQL databases as 
     - Uploads the certificates and other artifacts to a storage account on Azure Stack. 
     - Publishes gallery packages so that you can deploy SQL databases through the gallery. 
     - Publishes a gallery package for deploying hosting servers. 
-    - Deploys a VM usin a Windows Server 2016 Azure Stack marketplace image and installs the resource provider. 
+    - Deploys a VM using a Windows Server 2016 Azure Stack marketplace image and installs the resource provider. 
     - Registers a local DNS record that maps to your resource provider VM. 
     - Registers your resource provider with the local Azure Resource Manager (tenant and admin). 
 
@@ -94,12 +94,12 @@ Use the Azure Stack MySQL Server resource provider to expose MySQL databases as 
     # Find the ERCS01 IP address first, and make sure the certificate 
     # file is in the specified directory. 
     $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds ` 
-    VMLocalCredential $vmLocalAdminCreds ` 
-    CloudAdminCredential $cloudAdminCreds ` 
-    PrivilegedEndpoint $privilegedEndpoint ` 
-    DefaultSSLCertificatePassword $PfxPass ` 
-    DependencyFilesLocalPath $tempDir\cert ` 
-    AcceptLicense 
+        -VMLocalCredential $vmLocalAdminCreds ` 
+        -CloudAdminCredential $cloudAdminCreds ` 
+        -PrivilegedEndpoint $privilegedEndpoint ` 
+        -DefaultSSLCertificatePassword $PfxPass ` 
+        -DependencyFilesLocalPath $tempDir\cert ` 
+        -AcceptLicense 
     ``` 
 
 ### DeployMySqlProvider.ps1 parameters 
