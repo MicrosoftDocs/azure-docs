@@ -17,7 +17,7 @@ ms.author: apimpm
 
 # Capacity of an Azure API Management instance
 
-**Capacity** is the single, most important metric for making informed decisions whether to scale an API Management instance to accommodate more load. Its construction is complex and imposes certain behavior.
+**Capacity** is the single, most important [Azure Monitor metric](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) for making informed decisions whether to scale an API Management instance to accommodate more load. Its construction is complex and imposes certain behavior.
 
 This article explains what the **capacity** is and how it behaves. It shows how to access **capacity** metrics in the Azure portal and suggests when to consider scaling or upgrading your API Management instance.
 
