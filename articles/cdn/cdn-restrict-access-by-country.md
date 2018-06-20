@@ -25,25 +25,28 @@ When a user requests your content, by default, the content is served regardless 
 > [!IMPORTANT]
 > **Azure CDN Standard from Microsoft** profiles do not support path-based geo-filtering.
 > 
-> **For Azure CDN Premium from Verizon** profiles, you must use the **Manage** portal to activate geo-filtering. For more information, see [Azure CDN Premium from Verizon profiles](#azure-cdn-premium-from-verizon-profiles).
 
-## Define the directory path
+## Standard profiles
+The procedures in this section are for **Azure CDN Standard from Akamai** and **Azure CDN Standard from Verizon** profiles only. 
+
+For **Azure CDN Premium from Verizon** profiles, you must use the **Manage** portal to activate geo-filtering. For more information, see [Azure CDN Premium from Verizon profiles](#azure-cdn-premium-from-verizon-profiles).
+
+### Define the directory path
 To access the geo-filtering feature, select your CDN endpoint within the portal, then select **Geo-filtering** under SETTINGS in the left-hand menu. 
 
 ![Geo-filtering standard](./media/cdn-filtering/cdn-geo-filtering-standard.png)
 
-From the **PATH** box, specify the relative path to the location to which users will be allowed or denied access. You can apply geo-filtering for all your files with a forward slash (/) or select specific folders by specifying directory paths (for example, */pictures/*). Also, you can apply geo-filtering to a single file by specifying the file and omitting the trailing forward slash (for example */pictures/city.png*). You can specify multiple paths; after you enter a path, a blank box appears for you to enter the next path.
+From the **PATH** box, specify the relative path to the location to which users will be allowed or denied access. 
 
-![Country filtering](./media/cdn-filtering/cdn-country-filtering.png)
+You can apply geo-filtering for all your files with a forward slash (/) or select specific folders by specifying directory paths (for example, */pictures/*). You can also apply geo-filtering to a single file (for example */pictures/city.png*). Multiple rules are allowed; after you enter a rule, a blank row appears for you to enter the next rule.
 
-Example directory path filters:
-  
+For example, all of the following directory path filters are valid:   
 */*                                 
 */Photos/*     
 */Photos/Strasbourg/*     
 */Photos/Strasbourg/city.png*
 
-## Define the type of action
+### Define the type of action
 
 From the **ACTION** list, select **Allow** or **Block**: 
 
@@ -51,48 +54,57 @@ From the **ACTION** list, select **Allow** or **Block**:
 
 - **Block**: Users from the specified countries are denied access to the assets requested from the recursive path. If no other country filtering options have been configured for that location, then all other users will be allowed access.
 
-## Define the countries
-From the **COUNTRY CODES** list, select the countries that you want to block or allow for the path. 
-
-For example, the rule for blocking the path */Photos/Strasbourg/* filters the following files:
-
+For example, a geo-filtering rule for blocking the path */Photos/Strasbourg/* filters the following files:     
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
-The geo-filtering feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory. Although the Azure CDN products all provide the same geo-filtering functionality, there is a small difference in the country codes they support. For more information, see [Azure CDN country codes](https://msdn.microsoft.com/library/mt761717.aspx). 
+### Define the countries
+From the **COUNTRY CODES** list, select the countries that you want to block or allow for the path. 
 
-After you have finished selecting the countries, select **Save** to activate the geo-filtering rule. The rule then appears in a list under Configure.
+After you have finished selecting the countries, select **Save** to activate the new geo-filtering rule. 
 
-## Clean up resources
-To delete a rule, select it, then choose **Delete**.
+![Geo-filtering rules](./media/cdn-filtering/cdn-geo-filtering-rules.png)
+
+### Clean up resources
+To delete a rule, select it from the list on the **Geo-filtering** page, then choose **Delete**.
 
 ## Azure CDN Premium from Verizon profiles
 For **For Azure CDN Premium from Verizon** profiles, the user interface for creating a geo-filtering rule is different:
 
 1. From the top menu in your Azure CDN profile, select **Manage**.
 
-2. From the Verizon portal, select **HTTP Large**, then select **Country Filter**.
+2. From the Verizon portal, select **HTTP Large**, then select **Country Filtering**.
 
     ![Geo-filtering standard](./media/cdn-filtering/cdn-geo-filtering-premium.png)
 
 3. Select **Add Country Filter**.
 
+    The **Step One:** page appears.
+
 4. Enter the directory path, select **Block** or **Add**, then select **Next**.
 
-5. Select one or more countries from the list, then select **Finish** to activate the rule. 
-    The rule then appears in a table in the **Country Filter** page.
+    The **Step Two:** page appears. 
 
-6. After you've create the rule, you can select the delete icon to delete it or select the edit icon to modify it.
+5. Select one or more countries from the list, then select **Finish** to activate the rule. 
+    
+    The new rule appears in the table on the **Country Filtering** page.
+
+    ![Geo-filtering rules](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
+
+### Clean up resources
+In the country filtering rules table, select the delete icon next to a rule to delete it or the edit icon to modify it.
 
 ## Considerations
-* Changes to your country filtering configuration do not take effect immediately:
+* Changes to your geo-filtering configuration do not take effect immediately:
    * For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
    * For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
    * For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes in 10 minutes. 
  
-* This feature does not support wildcard characters (for example, ‘*’).
+* This feature does not support wildcard characters (for example, *).
 
 * The geo-filtering configuration associated with the relative path is applied recursively to that path.
 
 * Only one rule can be applied to the same relative path. That is, you cannot create multiple country filters that point to the same relative path. However, because country filters are recursive, a folder can have multiple country filters. In other words, a subfolder of a previously configured folder can be assigned a different country filter.
+
+* The geo-filtering feature uses country codes to define the countries from which a request is allowed or blocked for a secured directory. Although Akamai and Verizon profiles support most of the same country codes, there are a few differences. For more information, see [Azure CDN country codes](https://msdn.microsoft.com/library/mt761717.aspx). 
 
