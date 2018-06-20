@@ -33,8 +33,6 @@ The following benefits are associated with file systems that implement a hierarc
 
     This dramatic optimization is especially significant for many big data analytics frameworks. Tools like Hive, Spark, etc. often write output to temporary locations and then rename the location at the conclusion of the job. Without the HNS, this rename can often take longer than the analytics process itself. Lower job latency equals lower total cost of ownership (TCO) for analytics workloads.
 
-- **POSIX-Compliant Object-Level Access Control Lists (ACLs):** Enabling the HNS on your account provides a platform to implement [POSIX-compliant ACLs](./security-guide.md). ACLs rely on the ability to set default permissions on parent directories and any files or subdirectories created within that directory will 'inherit' those permissions. This is only possible with a strong hierarchical structure. Many applications, including almost all well-known analytics frameworks, are designed to support POSIX-compliant ACLs so that shared storage spaces may be partitioned and secured appropriately as per the enterprise's requirements.
-
 - **Familiar Interface Style:** File systems are well-understood by developers and users alike. There is no need to learn a new storage paradigm when you move to the cloud as the file system interface exposed by Azure Data Lake Storage is the same paradigm used by computers, large and small.
 
 One of the reasons that object stores have not historically supported hierarchical namespaces is that it limited scale. However, the Azure Data Lake Storage HNS scales linearly and does not degrade either scale or performance.
