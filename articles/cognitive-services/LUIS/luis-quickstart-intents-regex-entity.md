@@ -240,5 +240,5 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [Learn about the KeyPhrase entity](luis-quickstart-intent-and-key-phrase.md)
 
 <!--References-->
-[LUIS]: luis-reference-regions.md#luis-website
-[LUIS-regions]: luis-reference-regions.md#publishing-regions
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
