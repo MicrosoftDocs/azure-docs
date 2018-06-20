@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with iPass SmartConnect, you need the following items:
 
 - An Azure AD subscription
-- an iPass SmartConnect single sign-on enabled subscription
+- An iPass SmartConnect single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![iPass SmartConnect Domain and URLs single sign-on information](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_url1.png)
 
-4. Check Show advanced URL settings and perform the following step if you wish to configure the application in SP initiated mode:
+4. Check Show advanced URL settings and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![iPass SmartConnect Domain and URLs single sign-on information](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_url2.png)
 
@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Keep namespace value blank for that row.
 
-	d. Click **Ok**.
+	e. Click **Ok**.
 
 7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -219,11 +219,11 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 **To test the application in the SP Initiated flow, perform the following steps:**
 
-a. Download windows iPass SmartConnect client [here](https://om-activation.ipass.com/ClientActivation/ssolanding.go)
+a. Download windows iPass SmartConnect client [here](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
 
 ![The iPass SmartConnect link in the Applications list](./media/ipasssmartconnect-tutorial/testing3.png)
 
-b. Install the client and launch
+b. Install the client and launch.
 
 c. Click on **Get Started**.
 
@@ -233,21 +233,21 @@ d. Enter Azure user name with domain. Click on **Continue**. This will be redire
 
 ![The iPass SmartConnect link in the Applications list](./media/ipasssmartconnect-tutorial/testing2.png) 
 
-f. After successful authentication, client activation will be started.Client will get activated.
+e. After successful authentication, client activation will be started. Client will get activated.
 
 **To test the application in the IdP Initiated flow, perform the following steps:**
 
-a. Login to [https://myapps.microsoft.com](https://myapps.microsoft.com)
+a. Login to [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 b. Click on iPass SmartConnect app.
 
-c. It launches SSA page, click on Download to install iPass SmartConnect client.
+c. It launches SSA page, click on **Download App for Windows** to install iPass SmartConnect client.
 
 ![The iPass SmartConnect link in the Applications list](./media/ipasssmartconnect-tutorial/testing4.png)
 
 d. After installation, client on the first launch will automatically starts activation after accepting terms and conditions.
 
-e. If activation does not start, click on activate button on SSA page to initiate activation.
+e. If activation does not start, click on Activate button on SSA page to initiate activation.
 
 f. Client will get activated.
 
