@@ -94,6 +94,10 @@ Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -L
 ```
 
 > [!NOTE]
+> In Classic, an ExpressRoute circuit does not have the concept of being tied to a region.  In Azure Resource Manager (ARM), every resource needs to be mapped to an Azure region. The region specified in the Move-AzureRmExpressRouteCircuit cmdlet can technically be any region, however many customers opt to choose a region that closely represents their peering location for organizational purposes.
+> 
+
+> [!NOTE]
 > After the move has finished, the new name that is listed in the previous cmdlet will be used to address the resource. The circuit will essentially be renamed.
 > 
 
