@@ -51,7 +51,7 @@ The primary purpose of this sample is to show how to instantiate and execute a m
 The project highlights several features of Azure Machine Learning, such TDSP structure instantiation and use, execution of code in Azure Machine Learning Work Bench, and easy operationalization in Azure Container Services using Docker and Kubernetes.
 
 ## Team Data Science Process
-We use the TDSP project structure and documentation templates to execute this sample. It follows the [TDSP lifecycle]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)). The project is created based on the instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
+We use the TDSP project structure and documentation templates to execute this sample. It follows the [TDSP lifecycle](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle). The project is created based on the instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
 
 
 <img src="./media/predict-twitter-sentiment-amltextpackage/tdsp-lifecycle2.png" alt="tdsp-lifecycle" width="800" height="600">
@@ -72,7 +72,7 @@ This part of the sample is further divided into three subparts:
 #### Feature Engineering
 We use <b>Word2Vec</b> to generate word embeddings. First we use the Word2Vec algorithm in the Skipgram mode as explained in the paper [Mikolov, Tomas, et al. Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems. 2013.](https://arxiv.org/abs/1310.4546) to generate word embeddings.
 
-Skip-gram is a shallow neural network taking the target word encoded as a one hot vector as input and using it to predict nearby words. If _V_ is the size of the vocabulary then the size of the output layer would be __C*V__ where C is the size of the context window. The skip-gram based architecture is shown in the following figure.
+Skip-gram is a shallow neural network taking the target word encoded as a one hot vector as input and using it to predict nearby words. If V is the size of the vocabulary, then the size of the output layer would be __C*V__ where C is the size of the context window. The skip-gram based architecture is shown in the following figure.
  
 <table class="image" align="center">
 <caption align="bottom">Skip-gram model</caption>
