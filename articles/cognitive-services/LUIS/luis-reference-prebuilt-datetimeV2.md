@@ -63,7 +63,7 @@ The **builtin.datetimeV2** prebuilt entity has the following subtypes, and examp
 ## Values of resolution
 * The array has one element if the date or time in the utterance is fully specified and unambiguous.
 * The array has two elements if the datetimeV2 value is ambiguous. Ambiguity includes lack of specific year, time, or time range. See [Ambiguous dates](#ambiguous-dates) for examples. When the time is ambiguous for A.M. or P.M., both values are included.
-* The array has four elements if the utterance has two elements with ambiguity. This includes elements that have:
+* The array has four elements if the utterance has two elements with ambiguity. This ambiguity includes elements that have:
   * A date or date range that is ambiguous as to year
   * A time or time range that is ambiguous as to A.M. or P.M. For example, 3:00 April 3rd.
 
@@ -85,7 +85,7 @@ The **builtin.datetimeV2** supports dates between the following ranges:
 
 ## Ambiguous dates
 
-When it is not clear whether the date is in the past or future, LUIS provides both values. One case of this occurrence is an utterance that includes the month and date, but not the year.  
+When it is unclear if the date is in the past or future, LUIS provides both values. One case of this occurrence is an utterance that includes the month and date, but not the year.  
 
 For example, given the utterance "May 2nd":
 * If today's date is May 3rd 2017, LUIS provides both "2017-05-02" and "2018-05-02" as values. 
@@ -121,7 +121,7 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
 
 ## Date range resolution examples for numeric date
 
-The datetimeV2 entity recognizes date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the next year. In the `timex` field, the `XXXX` values indicate the ambiguity of the year. `P3D` indicates that the time period is three days long.
+The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the next year. In the `timex` field, the `XXXX` values indicate the ambiguity of the year. `P3D` indicates the time period is three days long.
 
 ```
 "entities": [
