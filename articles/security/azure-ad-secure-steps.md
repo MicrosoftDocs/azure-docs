@@ -30,7 +30,7 @@ This checklist will help you quickly deploy critical recommended actions to prot
 ## Before you begin: Protect privileged accounts with MFA
 Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. You first need to protect your privileged accounts. 
 
-Attackers who get control of privileged accounts can do tremendous damage, so it's critical to protect these accounts first. Enable and require [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) (MFA) for all administrators in your organization using [Baseline Protection](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-baseline-protection1). If you haven't implemented MFA, do it now! It's that important.
+Attackers who get control of privileged accounts can do tremendous damage, so it's critical to protect these accounts first. Enable and require [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) (MFA) for all administrators in your organization using [Baseline Protection](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-baseline-protection). If you haven't implemented MFA, do it now! It's that important.
 
 All set? Let's get started on the checklist.
 
@@ -69,7 +69,7 @@ Organizations, which configure applications to authenticate directly to Azure AD
 ### Take advantage of intrinsically secure, easier to use credentials
 Using [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), you can replace passwords with strong two-factor authentication on PCs and mobile devices. This authentication consists of a new type of user credential that is tied to a device and uses a biometric or PIN.
 
-## Step 2 - Reduce your attack surface area
+## Step 2 - Reduce your attack surface
 Given the pervasiveness of password compromise, minimizing the attack surface in your organization is critical. Eliminating use of older, less secure protocols, limiting access entry points, and exercising more significant control of administrative access to resources can help reduce the attack surface area. 
 
 ### Block legacy authentication
