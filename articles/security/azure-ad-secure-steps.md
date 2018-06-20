@@ -30,7 +30,7 @@ This checklist will help you quickly deploy critical recommended actions to prot
 ## Before you begin: Protect privileged accounts with MFA
 Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. You first need to protect your privileged accounts. 
 
-Attackers who get control of privileged accounts can do tremendous damage, so it's critical to protect these accounts first. Enable and require [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) (MFA) for all administrators in your organization using conditional access [policies based on privileged directory roles](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-app-based-mfa). If you haven't implemented MFA, do it now! It's that important.
+Attackers who get control of privileged accounts can do tremendous damage, so it's critical to protect these accounts first. Enable and require [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) (MFA) for all administrators in your organization using [Baseline Protection](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-baseline-protection1). If you haven't implemented MFA, do it now! It's that important.
 
 All set? Let's get started on the checklist.
 
