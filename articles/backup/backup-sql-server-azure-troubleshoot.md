@@ -118,7 +118,7 @@ The following error codes are for registration failures.
 
 ### GuestAgentStatusUnavailableUserError
 
-| Error code | Error message | Possible causes | Recommended action |
+| Error message | Possible causes | Recommended action |
 |---|---|---|
 | Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. | Guest agent is not enabled or is unhealthy | [Install the VM guest agent](../virtual-machines/extensions/agent-windows.md) manually. |
 
