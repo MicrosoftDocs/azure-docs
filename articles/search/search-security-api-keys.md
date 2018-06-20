@@ -8,14 +8,18 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 06/20/2018
 ms.author: heidist
 
 ---
 
 # Create and manage api-keys for an Azure Search service
 
-All requests to a search service need an api-key that was generated specifically for your service. This api-key is the sole mechanism for authenticating access to your search service endpoint. 
+All requests to a search service need a read-only api-key that was generated specifically for your service. Keys are created with your search service during service provisioning. The api-key is the sole mechanism for authenticating access to your search service endpoint. You can view and obtain key values in the [Azure portal](https://portal.azure.com).
+
+![Portal page, Settings, Keys section](media/search-manage/azure-search-view-keys.png)
+
+## What is an api-key
 
 An api-key is a string composed of randomly generated numbers and letters. Through [role-based permissions](search-security-rbac.md), you can delete or read the keys, but you can't replace a key with a user-defined password or use Active Directory as the primary authentication methodology for accessing search operations. 
 

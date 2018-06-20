@@ -240,12 +240,12 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster.  
 
 ## Verify agent deployed successfully
-To verify the OMS agent deployed properly, run the following command: `	kubectl get ds omsagent -—namespace=kube-system`.
+To verify the OMS agent deployed properly, run the following command: `	kubectl get ds omsagent --namespace=kube-system`.
 
 The output should resemble the following indicating it did deploy properly:
 
 ```
-User@aksuser:~$ kubectl get ds omsagent -—namespace=kube-system 
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
