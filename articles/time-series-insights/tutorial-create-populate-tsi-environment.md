@@ -2,7 +2,7 @@
 title: Create an Azure Time Series Insights environment
 description: Learn how to create a Time Series Insights environment, populated with data from simulated devices.
 services: time-series-insights
-author: BryanLa
+author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
@@ -226,9 +226,9 @@ In this tutorial, you learned how to:
 > * Run a device simulation to stream data into the TSI environment
 > * Verify the simulated telemetry data
 
-Now that you know how to create your own TSI environment, learn more about the planning process by advancing to the following article:
+Now that you know how to create your own TSI environment, learn how to build a web application that consumes data from a TSI environment:
 
 > [!div class="nextstepaction"]
-> [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md)
+> [Create an Azure Time Series Insights single-page web app](tutorial-create-tsi-sample-spa.md)
 
 

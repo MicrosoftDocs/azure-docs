@@ -17,6 +17,8 @@
       href: luis-quickstart-intents-only.md
 - name: Tutorials
   items: 
+  - name: Add prebuilt intents and entities
+    href: luis-tutorial-prebuilt-intents-entities.md
   - name: Get data from entity
     items: 
     - name: Simple entity
@@ -186,7 +188,7 @@
   - name: Test
     items:
     - name: Interactive testing
-      href: Train-Test.md
+      href: interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
     - name: Improve accuracy with batch testing

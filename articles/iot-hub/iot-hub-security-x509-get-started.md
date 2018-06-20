@@ -158,7 +158,7 @@ Next, we will show you how to create a C# application to simulate the X.509 devi
     }
     ```
    This code connects to your IoT hub by creating the connection string for your X.509 device. Once successfully connected, it then sends temperature and humidity events to the hub, and waits for its response. 
-7. Since this application accesses a *.pfx* file, you need to execute this in *Admin* mode. Build the Visual Studio solution. Open a new command window as an **Administrator**, and navigate to the folder containing this solution. Navigate to the *bin/Debug* path within the solution folder. Run the application **SimulateX509Device.exe** from the _Admin_ command window. You should see your device successfully connecting to the hub and sending the events. 
+7. Since this application accesses a *.pfx* file, you may need to execute this in *Admin* mode. Build the Visual Studio solution. Open a new command window as an **Administrator**, and navigate to the folder containing this solution. Navigate to the *bin/Debug* path within the solution folder. Run the application **SimulateX509Device.exe** from the _Admin_ command window. You should see your device successfully connecting to the hub and sending the events. 
    ![Run device app](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
 ## See also

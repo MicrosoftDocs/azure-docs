@@ -1,4 +1,4 @@
-﻿---
+---
 
   title: PowerShell examples for group-based licensing in Azure AD | Microsoft Docs
   description: PowerShell scenarios for Azure Active Directory group-based licensing
@@ -485,7 +485,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 To learn more about the feature set for license management through groups, see the following articles:
 
-* [What is group-based licensing in Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)

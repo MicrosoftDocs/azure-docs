@@ -290,6 +290,13 @@
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
   items:
+  - name: Architectural Patterns
+    href: logic-apps-architectures-simple-enterprise-integration.md
+    items:
+    - name: Simple Enterprise Integration
+      href: logic-apps-architectures-simple-enterprise-integration.md
+    - name: Enterprise Integration with Queues & Events
+      href: logic-apps-architectures-enterprise-integration-with-queues-events.md
   - name: Connectors - Full details
     href: https://docs.microsoft.com/connectors/
   - name: Limits and config

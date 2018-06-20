@@ -27,7 +27,7 @@
     href: quickstart-create-data-factory-resource-manager-template.md
 - name: Tutorials
   items:
-  - name: 1 - Create Azure-SSIS integration runtime
+  - name: 1 - Provision Azure-SSIS integration runtime
     items:
     - name: User interface (UI)
       href: tutorial-deploy-ssis-packages-azure.md
@@ -398,6 +398,8 @@
       href: how-to-create-schedule-trigger.md
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
+    - name: Create an event-based trigger
+      href: how-to-create-event-trigger.md
 - name: Reference
   items:
   - name: .NET

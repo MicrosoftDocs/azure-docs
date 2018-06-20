@@ -21,7 +21,7 @@ ms.author: barclayn
 
 Many consider identity to be the new boundary layer for security, taking over that role from the traditional network-centric perspective. This evolution of the primary pivot for security attention and investments come from the fact that network perimeters have become increasingly porous and that perimeter defense cannot be as effective as they once were prior to the explosion of [BYOD](http://aka.ms/byodcg) devices and cloud applications.
 
-In this article, we discuss a collection of Azure identity management and access control security best practices. These best practices are derived from our experience with [Azure AD](../active-directory/active-directory-whatis.md) and the experiences of customers like yourself.
+In this article, we discuss a collection of Azure identity management and access control security best practices. These best practices are derived from our experience with [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) and the experiences of customers like yourself.
 
 For each best practice, we explain:
 
@@ -61,7 +61,7 @@ For more information on Azure AD synchronization, see the article [Integrating y
 
 When you have multiple directories to manage, this becomes an administrative problem not only for IT, but also for end users that have to remember multiple passwords. By using [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) you provide your users the ability of use the same set of credentials to sign in and access the resources that they need, regardless where this resource is located on-premises or in the cloud.
 
-Use SSO to enable users to access their [SaaS applications](../active-directory/manage-apps/what-is-single-sign-on.md) based on their organizational account in Azure AD. This is applicable not only for Microsoft SaaS apps, but also other apps, such as [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) and [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Your application can be configured to use Azure AD as a [SAML-based identity](../active-directory/fundamentals-identity.md) provider. As a security control, Azure AD will not issue a token allowing them to sign into the application unless they have been granted access using Azure AD. You may grant access directly, or through a group that they are a member of.
+Use SSO to enable users to access their [SaaS applications](../active-directory/manage-apps/what-is-single-sign-on.md) based on their organizational account in Azure AD. This is applicable not only for Microsoft SaaS apps, but also other apps, such as [Google Apps](../active-directory/saas-apps/google-apps-tutorial.md) and [Salesforce](../active-directory/saas-apps/salesforce-tutorial.md). Your application can be configured to use Azure AD as a [SAML-based identity](../active-directory/fundamentals-identity.md) provider. As a security control, Azure AD will not issue a token allowing them to sign into the application unless they have been granted access using Azure AD. You may grant access directly, or through a group that they are a member of.
 
 > [!NOTE]
 > the decision to use SSO will impact how you integrate your on-premises directory with your cloud directory. If you want SSO, you will need to use federation, because directory synchronization will only provide [same sign-on experience](../active-directory/active-directory-aadconnect.md).
