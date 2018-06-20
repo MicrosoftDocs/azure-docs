@@ -140,13 +140,13 @@ When the dynamic content list opens, under the **Compose** action,
 select **Output**. 
 
    This example uses the **Office 365 Outlook - Send an email** action 
-   and includes **Output** fields in the email's body and subject:
+   and includes the **Output** fields in the email's body and subject:
 
    !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-compose-action.png)
 
 3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
-   Based on the email connector you used, here the results that you get:
+   Based on the email connector you used, here are the results you get:
 
    ![Email with "Compose" action results](./media/logic-apps-change-manage-data-operations/compose-email-results.png)
 
@@ -223,13 +223,13 @@ When the dynamic content list opens, under the **Create CSV table** action,
 select **Output**. 
 
    This example uses the **Office 365 Outlook - Send an email** action 
-   and includes **Output** fields in the email's body and subject:
+   and includes the **Output** field in the email's body:
 
    !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-create-csv-table-action.png)
 
 3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
-   Based on the email connector you used, here the results that you get:
+   Based on the email connector you used, here are the results you get:
 
    ![Email with "Create CSV table" action results](./media/logic-apps-change-manage-data-operations/create-csv-table-email-results.png)
 
@@ -306,13 +306,13 @@ When the dynamic content list opens, under the **Create HTML table** action,
 select **Output**. 
 
    This example uses the **Office 365 Outlook - Send an email** action 
-   and includes **Output** fields in the email's body and subject:
+   and includes the **Output** field in the email's body:
 
    !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-create-html-table-action.png)
 
 3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
-   Based on the email connector you used, here the results that you get:
+   Based on the email connector you used, here are the results you get:
 
    ![Email with "Create CSV table" action results](./media/logic-apps-change-manage-data-operations/create-html-table-email-results.png)
 
@@ -334,7 +334,7 @@ or Visual Studio, open your logic app in Logic App Designer.
    This example uses the Azure portal and a logic app with a 
    **Recurrence** trigger and an **Initialize variable** action. 
    The action is set up for creating a variable whose initial 
-   value is an array that contains integers. When you test 
+   value is an array that has some sample integers. When you test 
    your logic app later, you can manually run your app 
    without waiting for the trigger to fire.
 
@@ -368,7 +368,9 @@ From the actions list, select this action: **Data Operations - Filter array**
 5. For the condition, specify the array items to compare, 
 select the comparsion operator, and specify the comparison value.
 
-   This example finds array items whose value is greater than 2:
+   This example uses the **item()** function for accessing 
+   each item in the array while the **Filter array** action 
+   searches for array items whose value is greater than 1:
    
    ![Finished "Filter array" action](./media/logic-apps-change-manage-data-operations/finished-filter-array-action.png)
 
@@ -391,17 +393,18 @@ To get the outputs from the **Filter array** action,
 enter this expression with the name for the **Filter array** action:
 
    ```
-   @actionBody('Filter_action')
+   @actionBody('Filter_array')
    ```
 
    This example uses the **Office 365 Outlook - Send an email** action 
-   and includes **Output** fields in the email's body and subject:
+   and includes the outputs from the **actionBody('Filter_array')** 
+   expression in the email's body:
 
-   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-filter-array-action.png)
+   ![Action outputs in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-filter-array-action.png)
 
 3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
-   Based on the email connector you used, here the results that you get:
+   Based on the email connector you used, here are the results you get:
 
    ![Email with "Filter array" action results](./media/logic-apps-change-manage-data-operations/filter-array-email-results.png)
 
@@ -409,8 +412,10 @@ enter this expression with the name for the **Filter array** action:
 
 ## Join action
 
-To create a string that has all the items from an array and separates 
-those items with a specified delimiter character, follow these steps:
+You can create a string that has all the items from an array and separates 
+those items with a specified delimiter character by using the 
+**Data Operations - Join** action. You can then use the string 
+in actions that follow the **Join** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -444,10 +449,11 @@ From the actions list, select this action:
 
 4. In the **From** box, provide the array that has the items you want to join as a string. 
 
-   For this example, from the dynamic content list that appears, 
-   you can select the previously created **myIntegerArray** variable: 
+   For this example, when you click inside the **From** box, 
+   the dynamic content list that appears so you can selected 
+   the previously created variable:  
 
-   ![Select array output for the "Join" action](./media/logic-apps-change-manage-data-operations/configure-join-action.png)
+   ![Select array output for creating the string](./media/logic-apps-change-manage-data-operations/configure-join-action.png)
 
 5. In the **Join with** box, enter the character 
 you want for separating each array item. 
@@ -474,13 +480,13 @@ When the dynamic content list opens, under the **Join** action,
 select **Output**. 
 
    This example uses the **Office 365 Outlook - Send an email** action 
-   and includes **Output** fields in the email's body and subject:
+   and includes the **Output** field in the email's body:
 
    !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-join-action.png)
 
 3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
-   Based on the email connector you used, here the results that you get:
+   Based on the email connector you used, here are the results you get:
 
    ![Email with "Join" action results](./media/logic-apps-change-manage-data-operations/join-email-results.png)
 
@@ -488,12 +494,96 @@ select **Output**.
 
 ## Parse JSON action
 
-To use properties from JSON content in your logic app, 
-you can create fields or tokens for those properties. 
-That way, you can select those fields from the dynamic 
-content list when providing input for your logic app. 
+You can reference or use the properties in JSON content by creating 
+fields or tokens with the **Data ooperations - Parse JSON** action.
+That way, those you can select those properties from the dynamic 
+content list when you provide input for your logic app. 
 For this action, you can either provide a JSON schema 
 or generate a JSON schema from your sample JSON content or payload.
+
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+or Visual Studio, open your logic app in Logic App Designer. 
+
+   This example uses the Azure portal and a logic app with a 
+   **Recurrence** trigger and an **Initialize variable** action. 
+   The action is set up for creating a variable whose initial 
+   value is a JSON object that has properties and values. 
+   When you test your logic app later, you can manually 
+   run your app without waiting for the trigger to fire.
+
+   ![Starting sample logic app](./media/logic-apps-change-manage-data-operations/sample-starting-logic-app-parse-json-action.png)
+
+2. In your logic app where you want to parse the JSON content, 
+follow one of these steps: 
+
+   * To add an action under the last step, 
+   choose **New step** > **Add an action**.
+
+     ![Add action](./media/logic-apps-change-manage-data-operations/add-parse-json-action.png)
+
+   * To add an action between steps, move your mouse 
+   over the connecting arrow so the plus sign (+) appears. 
+   Choose the plus sign, and then select **Add an action**.
+
+3. In the search box, enter "parse json" as your filter. 
+From the actions list, select this action: **Data Operations - Parse JSON**
+
+   ![Select "Parse JSON" action](./media/logic-apps-change-manage-data-operations/select-parse-json-action.png)
+
+4. In the **Content** box, provide the JSON content you want to parse. 
+
+   For this example, when you click inside the **Content** box, 
+   the dynamic content list appears so you can select 
+   the previously created variable:
+
+   ![Select JSON object for parse JSON action](./media/logic-apps-change-manage-data-operations/configure-parse-json-action.png)
+
+5. Enter the JSON schema that describes the JSON content you're parsing. 
+
+   For this example, here is the JSON schema:
+
+   ![Provide JSON schema for the JSON object you want to parse](./media/logic-apps-change-manage-data-operations/provide-schema-parse-json-action.png)
+
+   If you don't have the schema, you can generate that schema 
+   from the JSON content, or *payload*, you're parsing. 
+   
+   1. In the **Parse JSON** action, 
+   click **Use sample payload to generate schema**.
+
+   2. Under **Enter or paste a sample JSON payload**, 
+   provide the JSON content, and then choose **Done**.
+
+      ![Enter the JSON content for generating the schema](./media/logic-apps-change-manage-data-operations/generate-schema-parse-json-action.png)
+
+6. Save your logic app. On the designer toolbar, choose **Save**.
+
+For more information about this action in your underlying workflow definition, 
+see [Parse JSON action](../logic-apps/logic-apps-workflow-actions-triggers.md#parse-json-action).
+
+### Test your logic app
+
+To check that the **Parse JSON** action creates the expected results, 
+send yourself a notification that includes output from the **Parse JSON** action.
+
+1. In your logic app, add an action that can send you 
+the results from the **Parse JSON** action.
+
+2. In that action, click anywhere you want the results to appear. 
+When the dynamic content list opens, under the **Parse JSON** action, 
+you can now select the properties from the parsed JSON content.
+
+   This example uses the **Office 365 Outlook - Send an email** action 
+   and includes the **FirstName**, **LastName**, and **Email** fields 
+   in the email's body:
+
+   ![JSON properties in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-parse-json-action.png)
+
+3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
+
+   Based on the email connector you used, here are the results you get:
+
+   ![Email with "Join" action results](./media/logic-apps-change-manage-data-operations/parse-json-email-results.png)
+
 
 <a name="select-action"></a>
 
