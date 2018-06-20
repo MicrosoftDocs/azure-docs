@@ -35,15 +35,6 @@ The following example shows the resolution of the **builtin.currency** entity fo
   ],
   "entities": [
     {
-      "entity": "10.99",
-      "type": "builtin.number",
-      "startIndex": 24,
-      "endIndex": 28,
-      "resolution": {
-        "value": "10.99"
-      }
-    },
-    {
       "entity": "$10.99",
       "type": "builtin.currency",
       "startIndex": 23,

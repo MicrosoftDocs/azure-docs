@@ -27,26 +27,9 @@ The following example shows the resolution of the **builtin.percentage** entity.
     {
       "intent": "SetTrigger",
       "score": 0.971157849
-    },
-    {
-      "intent": "None",
-      "score": 0.07398871
-    },
-    {
-      "intent": "Help",
-      "score": 2.57078386E-06
     }
   ],
   "entities": [
-    {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 36,
-      "endIndex": 36,
-      "resolution": {
-        "value": "2"
-      }
-    },
     {
       "entity": "2%",
       "type": "builtin.percentage",
