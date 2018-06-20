@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/18/2018
+ms.date: 06/25/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
 ---
