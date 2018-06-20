@@ -163,7 +163,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 2. Enter a name for your storage account.
 3. Leave **Deployment model** set to the default value.
 4. Set the **Account kind** field to **StorageV2 (general-purpose v2)**.
-5. Set **Location** to **East US 2 EUAP**
+5. Set **Location** to **West US 2**
 6. Leave the **Replication** field set to **Locally-redundant storage (LRS)**. 
 7. Leave these fields set to their defaults: **Replication**. **Performance**, **Access tier**.
 8. Choose the subscription in which you want to create the storage account.
