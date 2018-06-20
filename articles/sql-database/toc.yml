@@ -15,7 +15,7 @@
     href: sql-database-get-started-cli.md
   - name: Create DB - Azure PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Connect & query
+  - name: Connect and query
     href: sql-database-connect-query.md
     items:
     - name: SSMS
@@ -78,31 +78,31 @@
     items: 
     - name: Service tiers
       href: sql-database-service-tiers.md
-    - name: vCore-based purchasing model
+    - name: vCore-based model
       href: sql-database-service-tiers-vcore.md
-    - name: DTU-based purchasing model
+    - name: DTU-based model
       href: sql-database-service-tiers-dtu.md
     - name: Resource limits
       href: sql-database-resource-limits.md
   - name: High availability
     href: sql-database-high-availability.md  
-  - name: Logical servers and single databases
+  - name: Logical servers and single DBs
     items:
-    - name: Logical servers and single databases
+    - name: Logical servers and single DBs
       href: sql-database-servers-databases.md
-    - name: Manage logical servers and single databases
+    - name: Manage servers and single DBs
       href: sql-database-servers-databases-manage.md
     - name: vCore-based resource limits
       href: sql-database-vcore-resource-limits-single-databases.md  
     - name: DTU-based resource limits
       href: sql-database-dtu-resource-limits-single-databases.md
-    - name: Scale single database resources
+    - name: Scale single DB resources
       href: sql-database-single-database-scale.md
-    - name: Elastic pools and pooled databases
+    - name: Elastic pools and pooled DBs
       items:
-      - name: Elastic pools and pooled databases
+      - name: Elastic pools and pooled DBs
         href: sql-database-elastic-pool.md
-      - name: Manage elastic pools and pooled databases
+      - name: Manage pools and pooled DBs
         href: sql-database-elastic-pool-manage.md
       - name: vCore-based resource limits
         href: sql-database-vcore-resource-limits-elastic-pools.md  
@@ -138,23 +138,21 @@
       items:
       - name: Advanced Threat Protection
         href: sql-advanced-threat-protection.md
-      - name: Data discovery & classification
+      - name: Data discovery and classification
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
         href: sql-vulnerability-assessment.md
-      - name: Threat detection
-        items:
-        - name: Threat detection - SQL Database
-          href: sql-database-threat-detection.md
-        - name: Threat detection - Managed Instance
-          href: sql-database-managed-instance-threat-detection.md
+      - name: Threat detection - SQL Database
+        href: sql-database-threat-detection.md
+      - name: Threat detection - Managed Instance
+        href: sql-database-managed-instance-threat-detection.md
     - name: Firewall rules
       items:
       - name: Oveview
         href: sql-database-firewall-configure.md      
-      - name: Firewall virtual network rules
+      - name: Virtual network endpoints
         href: sql-database-vnet-service-endpoint-rule-overview.md
-      - name: Virtual network rules by PowerShell
+      - name: Virtual network endpoints - PowerShell
         href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Access control
       items:
@@ -214,6 +212,8 @@
         href: sql-database-geo-replication-overview.md
       - name: Configure Geo-replication - Portal
         href: sql-database-geo-replication-portal.md
+      - name: Configure security - replicas
+        href: sql-database-geo-replication-security-config.md
     - name: Database recovery
       items:
       - name: Database recovery
@@ -222,25 +222,23 @@
         href: sql-database-disaster-recovery.md
       - name: Perform recovery drill
         href: sql-database-disaster-recovery-drills.md
-      - name: Configure security for replica
-        href: sql-database-geo-replication-security-config.md
     - name: App design
       items:
-      - name: App design & recovery
+      - name: Design for disaster recovery
         href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-      - name: App design & pools
+      - name: Design for elastic pools
         href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-      - name: App design & app upgrades
+      - name: Design for app upgrades
         href: sql-database-manage-application-rolling-upgrade.md
-  - name: Migrate to SQL Database- combine
+  - name: Migrate to SQL Database
     items:
-    - name: Migrate to SQL Database - combine
+    - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
-    - name: Migrate to Managed Instance - combine
+    - name: Migrate to Managed Instance
       href: sql-database-managed-instance-migrate.md
-    - name: Manage SQL Database after migration - joe sack
+    - name: Manage SQL Database after migration
       href: sql-database-manage-after-migration.md
-  - name: Load & move data
+  - name: Load and move data
     items:
     - name: Copy a DB within Azure
       href: sql-database-copy.md
@@ -264,9 +262,9 @@
       href: sql-database-load-from-csv-with-bcp.md
     - name: Load data with ADF
       href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-  - name: Monitor & tune
+  - name: Monitor and tune
     items:
-    - name: Monitor & tune
+    - name: Monitor and tune
       href: sql-database-troubleshoot-performance.md
     - name: Perf monitoring 
       href: sql-database-single-database-monitor.md
@@ -278,19 +276,19 @@
         href: sql-database-automatic-tuning.md
       - name: Enable automatic tuning
         href: sql-database-automatic-tuning-enable.md
-      - name: Automatic tuning e-mail notifications
+      - name: Enable E-mail notifications
         href: sql-database-automatic-tuning-email-notifications.md
     - name: Intelligent Insights
       items:
       - name: Intelligent Insights
         href: sql-database-intelligent-insights.md
-      - name: Intelligence Insights diagnostics log
-        href: sql-database-intelligent-insights-use-diagnostics-log.md
       - name: Diagnostic logging
         href: sql-database-metrics-diag-logging.md
-      - name: Intelligent Insights performance troubleshooting
+      - name: Use diagnostics log
+        href: sql-database-intelligent-insights-use-diagnostics-log.md
+      - name: Performance troubleshooting
         href: sql-database-intelligent-insights-troubleshoot-performance.md
-    - name: Monitor & improve performance
+    - name: Performance recommendations
       href: sql-database-performance.md
     - name: Use Query Performance Insight
       href: sql-database-query-performance.md
@@ -320,30 +318,6 @@
       href: sql-database-troubleshoot-common-connection-issues.md
     - name: Azure Automation
       href: sql-database-manage-automation.md
-  - name: Elastic Database jobs
-    items:
-    - name: Elastic Database jobs
-      href: elastic-jobs-overview.md
-    - name: Create and manage (PowerShell)
-      href: elastic-jobs-powershell.md
-    - name: Create and manage (T-SQL)
-      href: elastic-jobs-tsql.md
-    - name: Migrate (from old Elastic jobs)
-      href: elastic-jobs-migrate.md
-    - name: Elastic jobs (deprecated)
-      items:
-      - name: Elastic jobs (deprecated)
-        href: sql-database-elastic-jobs-overview.md
-      - name: Install elastic job (deprecated)
-        href: sql-database-elastic-jobs-service-installation.md
-      - name: Create job - Portal (deprecated)
-        href: sql-database-elastic-jobs-create-and-manage.md
-      - name: Create job - Azure PowerShell (deprecated)
-        href: sql-database-elastic-jobs-powershell.md
-      - name: Create job - Sample app (deprecated)
-        href: sql-database-elastic-jobs-getting-started.md
-      - name: Uninstall elastic job (deprecated)
-        href: sql-database-elastic-jobs-uninstall.md
   - name: Scale out
     items:
     - name: Read Scale-Out
@@ -396,25 +370,25 @@
       items:
       - name: Elastic Database jobs
         href: elastic-jobs-overview.md
-      - name: Create and manage jobs (PowerShell)
+      - name: Create and manage (PowerShell)
         href: elastic-jobs-powershell.md
-      - name: Create and manage jobs (T-SQL)
+      - name: Create and manage (T-SQL)
         href: elastic-jobs-tsql.md
-      - name: Migrate (from old Elastic jobs  
+      - name: Migrate (from old Elastic jobs)
         href: elastic-jobs-migrate.md
-      - name: Elastic jobs - deprecated
+      - name: Elastic jobs (deprecated)
         items:
-        - name: Elastic jobs
+        - name: Elastic jobs (deprecated)
           href: sql-database-elastic-jobs-overview.md
-        - name: Install elastic job
+        - name: Install elastic job (deprecated)
           href: sql-database-elastic-jobs-service-installation.md
-        - name: Create job - Portal
+        - name: Create job - Portal (deprecated)
           href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Create job - Azure PowerShell
+        - name: Create job - Azure PowerShell (deprecated)
           href: sql-database-elastic-jobs-powershell.md
-        - name: Create job - Sample app
+        - name: Create job - Sample app (deprecated)
           href: sql-database-elastic-jobs-getting-started.md
-        - name: Uninstall elastic job
+        - name: Uninstall elastic job (deprecated)
           href: sql-database-elastic-jobs-uninstall.md
     - name: Elastic queries
       items:
