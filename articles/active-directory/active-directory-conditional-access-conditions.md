@@ -1,6 +1,6 @@
 ---
-title: Conditions in Azure Active Directory conditional access | Microsoft Docs
-description: Learn how assignments are used in Azure Active Directory conditional access to trigger a policy.
+title: What are conditions in Azure Active Directory conditional access? | Microsoft Docs
+description: Learn how conditions are used in Azure Active Directory conditional access to trigger a policy.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -19,9 +19,11 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 
+#Customer intent: As a IT admin, I need to understand the conditions in conditional access so that I can set them according to my business needs
+
 ---
 
-# Conditions in Azure Active Directory conditional access 
+# What are conditions in Azure Active Directory conditional access? 
 
 With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens"). 
 
@@ -137,7 +139,7 @@ Common use cases for this condition are policies that:
 
 - Block access for users accessing a service from specific countries or regions. 
 
-For more information, see [Location conditions in Azure Active Directory conditional access](active-directory-conditional-access-locations.md).
+For more information, see [What is the location condition in Azure Active Directory conditional access?](active-directory-conditional-access-locations.md)
 
 
 ## Client apps

@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 09/21/2017
 ---
 
@@ -91,7 +91,7 @@ For more information, reference the following articles:
 - [Data Preparation User Guide](../desktop-workbench/data-prep-user-guide.md)
 - [Using Git with Azure Machine Learning](../desktop-workbench/using-git-ml-project.md)
 - [Using Jupyter Notebook in Azure Machine Learning](../desktop-workbench/how-to-use-jupyter-notebooks.md)
-- Roaming and Sharing
+- [Roaming and Sharing](../desktop-workbench/roaming-and-collaboration.md)
 - [Run History Guide](../desktop-workbench/how-to-use-run-history-model-metrics.md)
 - [IDE Integration](../desktop-workbench/how-to-configure-your-ide.md)
 
