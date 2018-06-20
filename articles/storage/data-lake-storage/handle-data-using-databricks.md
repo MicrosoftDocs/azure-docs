@@ -106,9 +106,10 @@ The next step is to upload a sample data file to the storage account to later tr
 
 The method you use to upload data into your storage account differs depending on if you you have the Heirarchial Namespace Service (HNS) enabled.
 
-**todo** add links to the paragraph below
+If the Hierarchical Namespace Service is enabled, then you may use Azure Data Factory, [distp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) or AzCopy (version 10) to handle the upload. If not, then you can use the Blob [Storage SDKs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows), [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full), [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) or [AzCopy (version 8 or earlier)](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
 
-If the HNS is enabled, then you may use ADF, distp or the AzCopy (new version) to handle the upload. If the HNS is not enabled, then you can use the Blob Storage SDKs, PowerShell, Storage Explorer or AzCopy (old version).
+> [!NOTE]
+> AzCopy version 10 is only available to preview customers.
 
 Once uploaded the **small_radio_json.json** should be available in the root of the storage file system at this location:
 
