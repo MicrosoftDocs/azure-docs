@@ -243,6 +243,8 @@
         href: luis-reference-prebuilt-entities.md
       - name: Numbers
         href: luis-reference-prebuilt-number.md
+      - name: Datetime
+        href: luis-reference-prebuilt-datetimeV2.md
   - name: Prebuilt domain reference
     href: luis-reference-prebuilt-domains.md
   - name: Cortana prebuilt app reference
