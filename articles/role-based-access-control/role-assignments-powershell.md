@@ -22,7 +22,7 @@ ms.reviewer: bagovind
 
 ## Prerequisites
 
-Before you can use PowerShell to manage RBAC, you need one of the following:
+To manage access, you need one of the following:
 
 * [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview)
 * [Azure PowerShell](/powershell/azure/install-azurerm-ps)
@@ -193,7 +193,7 @@ Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroup
 
 ### List role assignments for classic service administrator and co-administrators
 
-To list role assignments for the classic subscription administrator and co-administrators, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment):
+To list role assignments for the classic subscription administrator and co-administrators, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -IncludeClassicAdministrators
@@ -215,7 +215,7 @@ To get the object ID for an Azure AD group, use [Get-AzureRmADGroup](/powershell
 Get-AzureRmADGroup -SearchString <group name in quotes>
 ```
 
-To get the object ID for an Azure AD service principal or application, use [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal):
+To get the object ID for an Azure AD service principal or application, use [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
 
 ```azurepowershell
 Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
@@ -223,7 +223,7 @@ Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 
 ### Create a role assignment for an application at a subscription scope
 
-To grant access to an application at the subscription scope, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
+To grant access to an application at the subscription scope, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
 New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
@@ -245,7 +245,7 @@ CanDelegate        : False
 
 ### Create a role assignment for a user at a resource group scope
 
-To grant access to a user at the resource group scope, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
+To grant access to a user at the resource group scope, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
 New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
@@ -269,7 +269,7 @@ CanDelegate        : False
 
 ### Create a role assignment for a group at a resource scope
 
-To grant access to a group at the resource scope, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
+To grant access to a group at the resource scope, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
 New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
@@ -300,7 +300,7 @@ CanDelegate        : False
 
 ## Remove access
 
-In RBAC, to remove access, you remove a role assignment by using [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment):
+In RBAC, to remove access, you remove a role assignment by using [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>

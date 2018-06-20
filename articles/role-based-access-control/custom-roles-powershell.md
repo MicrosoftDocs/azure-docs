@@ -22,14 +22,14 @@ If the [built-in roles](built-in-roles.md) don't meet the specific needs of your
 
 ## Prerequisites
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
-- [Azure PowerShell](/powershell/azure/install-azurerm-ps) installed locally.
+To create custom roles, you need:
+
+- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
+- [Azure PowerShell](/powershell/azure/install-azurerm-ps) installed locally
 
 ## List custom roles
 
-To list the roles that are available for assignment at a scope, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command.
-
-The following example lists all roles that are available for assignment in the selected subscription.
+To list the roles that are available for assignment at a scope, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command. The following example lists all roles that are available for assignment in the selected subscription.
 
 ```azurepowershell
 Get-AzureRmRoleDefinition | FT Name, IsCustom
@@ -86,7 +86,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 ...
 ```
 
-### Create a role with PSRoleDefinition object
+### Create a custom role with the PSRoleDefinition object
 
 When you use PowerShell to create a custom role, you can use one of the [built-in roles](built-in-roles.md) as a starting point or you can start from scratch. The first example in this section starts with a built-in role and then customizes it with more permissions. Edit the attributes to add the `Actions`, `NotActions`, or `AssignableScopes` that you want, and then save the changes as a new role.
 
@@ -113,7 +113,7 @@ $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111"
 New-AzureRmRoleDefinition -Role $role
 ```
 
-The following example shows another way to create the *Virtual Machine Operator* custom role. It starts by creating a new PSRoleDefinition object. The action operations are specified in the `perms` variable and set to the `Actions` property. The `NotActions` property is set by reading the `NotActions` from the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) built-in role. Since [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) does not have any `NotActions`, this line is not required, but it shows how information can be retrieved from another role.
+The following example shows another way to create the *Virtual Machine Operator* custom role. It starts by creating a new `PSRoleDefinition` object. The action operations are specified in the `perms` variable and set to the `Actions` property. The `NotActions` property is set by reading the `NotActions` from the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) built-in role. Since [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) does not have any `NotActions`, this line is not required, but it shows how information can be retrieved from another role.
 
 ```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
@@ -131,7 +131,7 @@ $role.AssignableScopes = $subs
 New-AzureRmRoleDefinition -Role $role
 ```
 
-### Create role with JSON template
+### Create a custom role with JSON template
 
 A JSON template can be used as the source definition for the custom role. The following example creates a custom role that allows read access to storage and compute resources, access to support, and adds that role to two subscriptions. Create a new file `C:\CustomRoles\customrole1.json` with the following example. The Id should be set to `null` on initial role creation as a new ID is generated automatically. 
 
@@ -165,7 +165,7 @@ New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 
 Similar to creating a custom role, you can modify an existing custom role using either the `PSRoleDefinition` object or a JSON template.
 
-### Update a custom role with PSRoleDefinition object
+### Update a custom role with the PSRoleDefinition object
 
 To modify a custom role, first, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command to retrieve the role definition. Second, make the desired changes to the role definition. Finally, use the [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) command to save the modified role definition.
 
@@ -227,7 +227,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
 ```
 
-### Update a custom role with JSON template
+### Update a custom role with a JSON template
 
 Using the previous JSON template, you can easily modify an existing custom role to add or remove Actions. Update the JSON template and add the read action for networking as shown in the following example. The definitions listed in the template are not cumulatively applied to an existing definition, meaning that the role appears exactly as you specify in the template. You also need to update the Id field with the ID of the role. If you aren't sure what this value is, you can use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet to get this information.
 

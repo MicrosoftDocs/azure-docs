@@ -22,9 +22,10 @@ ms.reviewer: bagovind
 
 ## Prerequisites
 
-To use the Azure CLI to manage role assignments, you must have the following prerequisites:
+To manage access, you one of the following need:
 
-* [Azure CLI](/cli/azure). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
+* [Bash in Azure Cloud Shell](/azure/cloud-shell/overview)
+* [Azure CLI](/cli/azure)
 
 ## List roles
 

@@ -22,14 +22,14 @@ If the [built-in roles](built-in-roles.md) don't meet the specific needs of your
 
 ## Prerequisites
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
-- [Azure CLI](/cli/azure/install-azure-cli) installed locally.
+To create custom roles, you need:
+
+- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
+- [Azure CLI](/cli/azure/install-azure-cli) installed locally
 
 ## List custom roles
 
-To list the roles that are available for assignment at a scope, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
-
-Both of the following examples list all the custom roles in the current subscription:
+To list custom roles that are available for assignment, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). The following examples list all the custom roles in the current subscription.
 
 ```azurecli
 az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "roleType":.roleType}'
@@ -45,11 +45,11 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
   "type": "CustomRole"
 }
 {
-  "roleName": "My Service Operator Role",
+  "roleName": "My Service Reader Role",
   "type": "CustomRole"
 }
 {
-  "roleName": "My Service Reader Role",
+  "roleName": "Virtual Machine Operator",
   "type": "CustomRole"
 }
 
@@ -149,7 +149,7 @@ To delete a custom role, use [az role definition delete](/cli/azure/role/definit
 az role definition delete --name <role_name or role_id>
 ```
 
-The following example deletes the *Virtual Machine Operator* custom role:
+The following example deletes the *Virtual Machine Operator* custom role.
 
 ```azurecli
 az role definition delete --name "Virtual Machine Operator"
