@@ -446,4 +446,4 @@ In this tutorial, you learned how to:
 > * Debug the app locally.
 > * Publish the app to Azure.
 
-Explore the [Voting app sample](https://github.com/MikkelHegn/service-fabric-mesh-preview-pr/tree/private-preview_3/samples/src/quickstart/windows/VotingApp) to see another example of service-to-service communication.
+Explore the [Voting app sample](https://github.com/Azure/service-fabric-mesh-preview-pr/tree/master/samples/src/votingapp) to see another example of service-to-service communication.
