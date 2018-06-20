@@ -56,7 +56,7 @@ A template in a lab is a base virtual machine image from which all users’ virt
 
     ![Classroom lab description](../media/how-to-manage-classroom-labs/lab-description.png)
 
-## Set up the template VM
+### Set up the template VM
  You connect to the template VM and install any required software on it before making it available to your students. 
 
 1. Wait until the template virtual machine is ready. Once it is ready, the **Start** button should be enabled. To start the VM, select **Start**.
