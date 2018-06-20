@@ -66,6 +66,61 @@ If any of your apps use Azure AD Activity Log APIs, follow these steps to ensure
 
 ---
 
+### New "all guests" conditional access policy template created during Terms of Use (ToU) creation
+
+**Type:** New feature  
+**Service category:** Terms of Use  
+**Product capability:** Governance
+
+During the creation of your Terms of Use (ToU), a new conditional access policy template is also created for "all guests" and "all apps". This new policy template enforces the newly-created ToU, streamlining the creation and enforcement process for the enforcement of guests.
+
+---
+
+### New "custom" conditional access policy template created during Terms of Use (ToU) creation
+
+**Type:** New feature  
+**Service category:** Terms of Use  
+**Product capability:** Governance
+
+During the creation of your Terms of Use (ToU), a new “custom” conditional access policy template is also created. This new policy template lets you create the ToU and then immediately go to the conditional access policy creation blade, without needing to manually navigate through the portal.
+
+---
+
+### New step-by-step deployment guides for Azure Active Directory
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Directory
+ 
+New, step-by-step guidance about how to deploy Azure Active Directory (Azure AD), including self-service password reset (SSPR), single sign-on (SSO), conditional access (CA), App proxy, User provisioning, Active Directory Federation Services (ADFS) to Pass-through Authentication (PTA), and ADFS to Password hash sync (PHS).
+
+To view the deployment guides, go to the Identity Deployment Guides repo on GitHub [https://aka.ms/DeploymentPlans]. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https:aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at IDGitDeploy@microsoft.com.
+
+---
+
+### Microsoft Dynamics 365 is approved for use with Azure AD app-based conditional access
+
+**Type:** Changed feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+
+Microsoft Dynamics 365 is approved for use with Azure AD app-based conditional access. For more info, see [Azure Active Directory conditional access settings reference](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) and [Azure Active Directory app-based conditional access] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam).
+
+---
+
+[274918](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=274918&triage=true&fullScreen=false&_a=edit)
+
+### Integrated CA policies with sign-in data
+
+**Type:** feature  
+**Service category:** Reporting  
+**Product capability:** Identity Security & Protection
+ 
+>[!Warning]
+>This item is missing info in the **Customer write-up** field in the **Release Communications** tab. If we don't get this field updated by end of day on Thursday, we'll have to pull this item.
+ 
+---
+ 
 ## May 2018
 
 ### ExpressRoute support changes
