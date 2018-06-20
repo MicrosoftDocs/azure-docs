@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: active-directory
+ author: curtand
+ ms.service: active-directory
+ ms.topic: include
+ ms.date: 06/20/2018
+ ms.author: curtand
+ ms.custom: include file
+---
 Here are the usage constraints and other service limits for the Azure Active Directory service.
 
 | Category | Limits |
