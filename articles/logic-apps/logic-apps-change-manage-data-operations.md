@@ -391,7 +391,7 @@ the results from the **Filter array** action.
 When the dynamic content list opens, choose **Expression**. 
 To get the outputs from the **Filter array** action, 
 enter this expression with the name for the **Filter array** action:
-enter this expression that includes the **Filter arraySelect** action's name
+enter this expression that includes the **Filter array** action's name
 
    ```
    @actionBody('Filter_array')
