@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Innovation Hub, you need the following items:
 
 - An Azure AD subscription
-- A Innovation Hub single sign-on enabled subscription
+- an Innovation Hub single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -82,7 +82,7 @@ To configure and test Azure AD single sign-on with Innovation Hub, you need to c
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Innovation Hub test user](#create-a-innovation-hub-test-user)** - to have a counterpart of Britta Simon in Innovation Hub that is linked to the Azure AD representation of user.
+3. **[Create an Innovation Hub test user](#create-an-innovation-hub-test-user)** - to have a counterpart of Britta Simon in Innovation Hub that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Innovation Hub Client support team](mailto:support@readify.net) to get these values.
 
-4. iPass SmartConnect application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+4. Innovation Hub application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 
 	![Configure Single Sign-On](./media/innovationhub-tutorial/attribute.png)
 
@@ -119,10 +119,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	| Attribute Name | Attribute Value | Namespace Value|
 	| ---------------| --------------- |----------------|
-	| givenname | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`  |
-	| surname | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-	| emailaddress | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 	| displayname | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+	| | |
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -136,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. From the **Namespace Value** list, type the namespace value shown for that row.
 
-	d. Click **Ok**.
+	e. Click **Ok**.
 
 4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
@@ -146,7 +144,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/innovationhub-tutorial/tutorial_general_400.png)
 
-6. To configure single sign-on on **Innovation Hub** side, you need to send the downloaded **Federation Metadata Url** to [Innovation Hub support team](mailto:support@readify.net). They set this setting to have the SAML SSO connection set properly on both sides.
+6. To configure single sign-on on **Innovation Hub** side, you need to send the copied **Federation Metadata Url** to [Innovation Hub support team](mailto:support@readify.net). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -180,7 +178,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a Innovation Hub test user
+### Create an Innovation Hub test user
 
 The objective of this section is to create a user called Britta Simon in Innovation Hub. Innovation Hub supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Innovation Hub if it doesn't exist yet.
 >[!Note]
