@@ -13,10 +13,27 @@ ms.date: 06/18/2018
 
 # Azure Machine Learning Services architecture and key terms 
 
-## Overall achitecture
-## [Taxonomy diagram goes here]
+## General workflow
+The main workflow in Azure Machine Learning service generally follows the below pattern:
 
-## Compute Target
+1. Create an Azure Machine Learning Workspace.
+2. Develop machine learning training scripts in Python code or Jupyter notebooks.
+3. Configure a local or cloud environment for execution.
+4. Submit the scripts to execute in that environment.
+5. Examine the run history and iterate.
+6. Query the run history to find the best model.
+6. Register the model under the model registry of the workspace.
+7. Deploy the model and the scoring scripts as a web service in Azure.
+
+## Architecture diagram
+The below diagram illustrates the major components of Azure Machine Learning and the general workflow.
+
+![workflow](./media/concept-azure-machine-learning-architecture.md/workflow.png)
+
+## Taxonomy
+![taxonomy](./media/concept-azure-machine-learning-architecture.md/taxonomy.png)
+
+## Compute target
 A compute target is the compute resource that you can use to execute your training script or host your web service deployment. The supported compute target includes local computer, remote Linux VM, Azure Batch AI cluster, Apache Spark for HDInsight cluster, Azure Container Instance (ACI), and Azure Kubernetes Service cluster (AKS). A compute target is attached to a Workspace and shared by all authorized users in a Workspace.
 
 ## Datastore
@@ -43,10 +60,10 @@ A project is simply a local folder on user's computer that contains arbitrary fi
 ## Run
 A run is an execution record stored in Azure ML run history service. It typically is consisted of metadata about the run (timestamp, duration etc.), metrics logged by user's script, output files collected by the run history service, and snapshot of the project when the run is produced. A run can have zero or more child runs.
 
-## Run Configuration
+## Run configuration
 A run configuration is a set of instructions that defines how a script should be executed in a given compute target. It includes a wide set of behavior definitions such as whether to directly use an existing Python environment on the compute target, or use a Conda environment built by the system according to specification, whether or not to use a Docker container to execute the script, environment variables to add to the execution environment, Python interpreter path, and many more user settings. A run configuration can be persisted into a file inside the project, or can be constructed as an in-memory object and used to submit a run.
 
-## Run History
+## Run history
 A run history is a logical grouping of many runs. It always belongs to a Workspace. An authorized Workspace user can submit a run using an arbitrary run history name, and the submitted run is then listed under that run history.
 
 ## Snapshot
