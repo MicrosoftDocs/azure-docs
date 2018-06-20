@@ -27,16 +27,20 @@ When a user requests your content, by default, the content is served regardless 
 > 
 
 ## Standard profiles
-**For Azure CDN Premium from Verizon** profiles, you must use the **Manage** portal to activate geo-filtering. For more information, see [Azure CDN Premium from Verizon profiles](#azure-cdn-premium-from-verizon-profiles).
+The procedures in this section are for **Azure CDN Standard from Akamai** and **Azure CDN Standard from Verizon** profiles only. 
+
+For **Azure CDN Premium from Verizon** profiles, you must use the **Manage** portal to activate geo-filtering. For more information, see [Azure CDN Premium from Verizon profiles](#azure-cdn-premium-from-verizon-profiles).
 
 ### Define the directory path
 To access the geo-filtering feature, select your CDN endpoint within the portal, then select **Geo-filtering** under SETTINGS in the left-hand menu. 
 
 ![Geo-filtering standard](./media/cdn-filtering/cdn-geo-filtering-standard.png)
 
-From the **PATH** box, specify the relative path to the location to which users will be allowed or denied access. You can apply geo-filtering for all your files with a forward slash (/) or select specific folders by specifying directory paths (for example, */pictures/*). Also, you can apply geo-filtering to a single file by specifying the file and omitting the trailing forward slash (for example */pictures/city.png*). You can specify multiple rules; after you enter a rule, a blank row appears for you to enter the next rule.
+From the **PATH** box, specify the relative path to the location to which users will be allowed or denied access. 
 
-For example, the following directory path filters are valid:   
+You can apply geo-filtering for all your files with a forward slash (/) or select specific folders by specifying directory paths (for example, */pictures/*). You can also apply geo-filtering to a single file (for example */pictures/city.png*). Multiple rules are allowed; after you enter a rule, a blank row appears for you to enter the next rule.
+
+For example, all of the following directory path filters are valid:   
 */*                                 
 */Photos/*     
 */Photos/Strasbourg/*     
@@ -50,16 +54,16 @@ From the **ACTION** list, select **Allow** or **Block**:
 
 - **Block**: Users from the specified countries are denied access to the assets requested from the recursive path. If no other country filtering options have been configured for that location, then all other users will be allowed access.
 
-For example, a rule for blocking the path */Photos/Strasbourg/* filters the following files:     
+For example, a geo-filtering rule for blocking the path */Photos/Strasbourg/* filters the following files:     
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### Define the countries
 From the **COUNTRY CODES** list, select the countries that you want to block or allow for the path. 
 
-After you have finished selecting the countries, select **Save** to activate the new geo-filtering rules. 
+After you have finished selecting the countries, select **Save** to activate the new geo-filtering rule. 
 
-![Country filtering](./media/cdn-filtering/cdn-country-filtering.png)
+![Geo-filtering rules](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
 ### Clean up resources
 To delete a rule, select it from the list on the **Geo-filtering** page, then choose **Delete**.
@@ -69,7 +73,7 @@ For **For Azure CDN Premium from Verizon** profiles, the user interface for crea
 
 1. From the top menu in your Azure CDN profile, select **Manage**.
 
-2. From the Verizon portal, select **HTTP Large**, then select **Country Filter**.
+2. From the Verizon portal, select **HTTP Large**, then select **Country Filtering**.
 
     ![Geo-filtering standard](./media/cdn-filtering/cdn-geo-filtering-premium.png)
 
@@ -83,7 +87,9 @@ For **For Azure CDN Premium from Verizon** profiles, the user interface for crea
 
 5. Select one or more countries from the list, then select **Finish** to activate the rule. 
     
-    The new rule appears in the table on the **Country Filter** page.
+    The new rule appears in the table on the **Country Filtering** page.
+
+    ![Geo-filtering rules](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
 ### Clean up resources
 In the country filtering rules table, select the delete icon next to a rule to delete it or the edit icon to modify it.
