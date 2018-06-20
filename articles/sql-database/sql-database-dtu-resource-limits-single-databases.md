@@ -66,10 +66,7 @@ For single databases, the following tables show the resources available for a si
 
 
 > [!IMPORTANT]
-> - Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
->
-> - More than 1 TB of storage in the Premium tier is available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. More widespread availability is planned. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
->
+> More than 1 TB of storage in the Premium tier is available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. More widespread availability is planned. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## Single database: Change storage size
 
