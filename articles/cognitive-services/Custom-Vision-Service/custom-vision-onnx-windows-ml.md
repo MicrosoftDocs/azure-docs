@@ -6,16 +6,22 @@ author: larryfr
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/19/2018
 ms.author: larryfr
 # As a developer, I want to use a custom vision model with Windows ML.
 ---
-# <title>
+# Tutorial: Use an ONNX model from Custom Vision with Windows ML (preview)
 
 Learn how to use an ONNX model exported from the Custom Vision service with Windows ML (preview).
 
-The information in this document demonstrates how to use an ONNX file exported from the Custom Vision Service with Windows ML. An example Windows UWP application is provided. A trained model that can recognize dogs and cats is included with the example. Steps are also provided on how you can use your own model with this example
+The information in this document demonstrates how to use an ONNX file exported from the Custom Vision Service with Windows ML. An example Windows UWP application is provided. A trained model that can recognize dogs and cats is included with the example. Steps are also provided on how you can use your own model with this example.
+
+> [!div class="checklist"]
+> * About the example app
+> * Get the example code
+> * Run the example
+> * Use your own model
 
 ## Prerequisites
 
@@ -72,7 +78,7 @@ The __Capabilities__ tab in the `Package.appxmanifest` file is configured to all
 
 The application tries to get the camera on the back of your device if one is available. It uses the [MediaCapture](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) class to start capturing video from the camera. [MediaFrameReader](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader) is used to capture video frames and send them to the model.
 
-## Application code
+## Get the example code
 
 The example application is available at [https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP](https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP).
 
