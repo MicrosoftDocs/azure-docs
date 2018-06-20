@@ -209,7 +209,7 @@ A likely cause of this error is that the password on the local server has change
 
 Update the agent's password to your current server password:
 
-1. Locate the SQL Data Sync client agent Preview service.  
+1. Locate the SQL Data Sync client agent service.  
     a. Select **Start**.  
     b. In the search box, enter **services.msc**.  
     c. In the search results, select **Services**.  
