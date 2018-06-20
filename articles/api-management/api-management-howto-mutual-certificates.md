@@ -35,9 +35,10 @@ Follow the steps below to upload a new client certificate. If you have not yet c
 3. Click the **+ Add** button.  
     ![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
 4. Browse for the certificate, provide its id and password.  
-    > [!NOTE]
-    > The certificate must be in **.pfx** format. Self-signed certificates are allowed.
 5. Click **Create**.
+
+> [!NOTE]
+> The certificate must be in **.pfx** format. Self-signed certificates are allowed.
 
 Once the certificate is uploaded, it appears in the **Client certificates**.  If you have multiple certificates, make a note of the thumbprint of the certificate in order to [Configure an API to use a client certificate for gateway authentication][Configure an API to use a client certificate for gateway authentication].
 
