@@ -34,7 +34,7 @@ You have a simple web application deployed on a VM in Azure want to use open sou
 ### Install CapAnalysis
 
 To install CapAnalysis on a virtual machine, you can refer to the official instructions here https://www.capanalysis.net/ca/how-to-install-capanalysis.
-In order access CapAnalysis remotely, we need to open port 9877 on your VM by adding a new inbound security rule. For more about creating rules in Network Security Groups, refer to [Create rules in an existing NSG](../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg). Once the rule has been successfully added, you should be able to access CapAnalysis from `http://<PublicIP>:9877`
+In order access CapAnalysis remotely, we need to open port 9877 on your VM by adding a new inbound security rule. For more about creating rules in Network Security Groups, refer to [Create rules in an existing NSG](../virtual-network/manage-network-security-group.md#create-a-security-rule). Once the rule has been successfully added, you should be able to access CapAnalysis from `http://<PublicIP>:9877`
 
 ### Use Azure Network Watcher to start a packet capture session
 
