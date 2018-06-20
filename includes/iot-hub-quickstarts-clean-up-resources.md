@@ -16,7 +16,7 @@ If you will be continuing to the next recommended article, you can keep the reso
 Otherwise, you can delete the Azure resources created in this article to avoid charges. 
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the entire resource group.
+> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
 >
 
 To delete a resource group by name:
