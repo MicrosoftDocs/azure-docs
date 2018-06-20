@@ -67,7 +67,7 @@ A template in a lab is a base virtual machine image from which all users’ virt
 
     ![Classroom lab description](../media/tutorial-setup-classroom-lab/lab-description.png)
 
-## Prepare the template VM
+## Set up the template VM
  You connect to the template VM and install any required software on it before making it available to your students. 
 
 1. Wait until the template virtual machine is ready. Once it is ready, the **Start** button should be enabled. To start the VM, select **Start**.
@@ -87,11 +87,11 @@ To publish a template VM, you set the availability of the template to **public**
 
 1. Wait until the template VM is ready. 
 2. Select **Publish** in the **Template** section. 
-3. In the **Availability** page, select **Public**.
+3. In the **Publish** page, select **Published**.
     
     > [!IMPORTANT]
     > Once a template is publicly available, its access can't be changed to private. 
-4. Select **Save**.
+4. Select **Publish**. This process may take some time depending on how many VMs are being created, which is same as the number of users allowed into the lab.
 
     ![Publish the template VM](../media/tutorial-setup-classroom-lab/public-access.png)
 4. Switch to the **Virtual machines** page, and confirm that you see five virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
