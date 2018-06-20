@@ -389,9 +389,8 @@ the results from the **Filter array** action.
 
 2. In that action, click anywhere you want the results to appear. 
 When the dynamic content list opens, choose **Expression**. 
-To get the outputs from the **Filter array** action, 
-enter this expression with the name for the **Filter array** action:
-enter this expression that includes the **Filter array** action's name
+To get the array output from the **Filter array** action, 
+enter this expression that includes the **Filter array** action's name:
 
    ```
    @actionBody('Filter_array')
@@ -496,7 +495,7 @@ select **Output**.
 ## Parse JSON action
 
 You can reference or use the properties in JSON content by creating 
-fields or tokens with the **Data ooperations - Parse JSON** action.
+fields or tokens with the **Data operations - Parse JSON** action.
 That way, those you can select those properties from the dynamic 
 content list when you provide input for your logic app. 
 For this action, you can either provide a JSON schema 
@@ -594,7 +593,7 @@ you can now select the properties from the parsed JSON content.
 ## Select action
 
 You can create an array with JSON objects from items in another 
-array by using the **Data ooperations - Select JSON** action. 
+array by using the **Data operations - Select** action. 
 For example, you can create a JSON object from each value in an 
 integer array by specifying the properties that each JSON object 
 has and the values in the source array you want assigned to 
@@ -666,7 +665,7 @@ the results from the **Select** action.
 
 2. In that action, click anywhere you want the results to appear. 
 When the dynamic content list opens, choose **Expression**. 
-To get the outputs from the **Select** action, 
+To get the array output from the **Select** action, 
 enter this expression that includes the **Select** action's name:
 
    ```
@@ -674,9 +673,10 @@ enter this expression that includes the **Select** action's name:
    ```
 
    This example uses the **Office 365 Outlook - Send an email** action 
-   and includes the **Output** field in the email's body:
+   and includes the outputs from the **actionBody('Select')** 
+   expression in the email's body
 
-   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-select-action.png)
+   ![Action outputs in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-select-action.png)
 
 3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
