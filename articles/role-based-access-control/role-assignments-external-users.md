@@ -1,5 +1,5 @@
 ---
-title: Manage access for external users in Azure | Microsoft Docs
+title: Manage access for external users using RBAC in Azure | Microsoft Docs
 description: Learn how to manage access for users external to an organization using role-based access control (RBAC) in Azure.
 services: active-directory
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.reviewer: skwan
 ms.custom: it-pro
 
 ---
-# Manage role assignments for external users
+# Manage access for external users using RBAC
 
 Role-based access control (RBAC) allows better security management for large organizations and for SMBs working with external collaborators, vendors, or freelancers that need access to specific resources in your environment but not necessarily to the entire infrastructure or any billing-related scopes. RBAC allows the flexibility of owning one Azure subscription managed by the administrator account (service administrator role at a subscription level) and have multiple users invited to work under the same subscription but without any administrative rights for it.
 
