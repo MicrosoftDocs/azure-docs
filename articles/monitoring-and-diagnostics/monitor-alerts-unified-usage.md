@@ -146,8 +146,8 @@ For **Log Alerts** alerts can be based on:
     - *Total Alert Rules*: The number of Alert rules created and in subtext, the number that are currently enabled 
     
 
-    > [!NOTE]
-    > To ensure consistent dashboard with details on all fired alerts including log alerts for application insights and log analytics; [Enhanced unified alert (preview)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) should be used
+        > [!NOTE]
+        > To ensure consistent dashboard with details on all fired alerts including log alerts for application insights and log analytics; [Enhanced unified alert (preview)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) should be used
   
   
 4. A list of all fired alerts is shown which the user can click to view details
