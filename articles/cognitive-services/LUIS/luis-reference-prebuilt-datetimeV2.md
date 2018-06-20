@@ -181,7 +181,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
   ]
 ```
 ## Ambiguous time
-The values array has two elements if the time, or time range is ambiguous as to AM or PM. When there's an ambiguous time, values have both the AM and PM times.
+The values array has two time elements if the time, or time range is ambiguous. When there's an ambiguous time, values have both the AM and PM times.
 
 ## Time range resolution example
 
