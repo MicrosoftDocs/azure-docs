@@ -71,7 +71,7 @@ ALTER VIEW test_view AS SELECT 1 [data];
 ```
 
 ### CONCAT_WS
-[The CONCAT_WS()](https://docs.microsoft.com/sql/t-sql/functions/concat-ws-transact-sql) function returns a string resulting from the concatenation of two or more values in an end-to-end manner. It separates the concatenated values with the delimiter specified in the first argument. The `CONCAT_WS` function is useful for generating Comma-Separated Value (CSV) output.
+The [CONCAT_WS()](https://docs.microsoft.com/sql/t-sql/functions/concat-ws-transact-sql) function returns a string resulting from the concatenation of two or more values in an end-to-end manner. It separates the concatenated values with the delimiter specified in the first argument. The `CONCAT_WS` function is useful for generating Comma-Separated Value (CSV) output.
 
 The following example shows concatenating a set of int values with a comma.
 ```sql
