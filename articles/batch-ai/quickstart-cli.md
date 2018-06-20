@@ -14,20 +14,20 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
-ms.date: 06/08/2017
+ms.date: 06/08/2018
 ms.author: Alexander.Yukhanov
 ---
 
 # Quickstart: Run your first deep learning training job using the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create the smallest Batch AI cluster, consisting of one GPU node. Then, run an example deep learning training job on the cluster using Horovod, which is a distributed TensorFlow framework. The job runs in a Docker container to train a convolutional neural network on the MNIST database of handwritten
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create the smallest Batch AI cluster, consisting of one GPU node. Then, run an example deep learning training job on the cluster using a model in the TensorFlow framework. The job runs in a Docker container to train a convolutional neural network on the MNIST database of handwritten
 digits. After completing this quickstart, you will understand the key concepts of using Batch AI for training a deep learning model, and be ready to try training jobs at larger scale.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Create a resource group
 
@@ -87,9 +87,9 @@ Continue the following steps to create a training job while the pool state is ch
 
 ## Configure storage for script and output files
 
-When Batch AI automatically created the storage account, it also created an SMB file share named `batchaishare`. The rest of this quickstart uses this file share to store both the training script and the output of the traning job.
+When Batch AI automatically created the storage account, it also created an SMB file share named `batchaishare`. The rest of this quickstart uses this file share to store both the training script and the output of the training job.
 
-To make it easier to set up the auto-storage account using the Azure CLI commands, first set environment variables to contain the storage account credentials. Note that Batch AI creates the storage account automatically in the *batchaiautostorage* resource group, which is used in the command to export the storage key.
+To make it easier to mange the auto-storage account using the Azure CLI commands, first set environment variables to contain the storage account credentials. Note that Batch AI creates the storage account automatically in the *batchaiautostorage* resource group, which is used in the second command to export the storage key.
 
 ```bash
 export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --workspace myworkspace --resource-group myResourceGroup --query 'nodeSetup.mountVolumes.azureFileShares[0].accountName' | sed s/\"//g)
@@ -97,12 +97,12 @@ export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --worksp
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT --resource-group batchaiautostorage --query [0].value)
 ```
 
-Run the [az storage directory create](/cli/azure/storage/directory#az-storage-directory-create) command to reate a folder named `horovod_samples` in the share, and a folder named `logs` for the job output:
+Run the [az storage directory create](/cli/azure/storage/directory#az-storage-directory-create) command to create a folder named `scripts` in the share, and a folder named `logs` for the job output:
 
 ```azurecli-interactive
 az storage directory create \
     --share-name batchaishare \
-    --name horovod_samples
+    --name scripts
 
 az storage directory create \
     --share-name batchaishare \
@@ -111,10 +111,10 @@ az storage directory create \
 
 ### Deploy training script to storage
 
-Create a local working folder, and download the [tensorflow_mnist.py](https://raw.githubusercontent.com/uber/horovod/v0.9.10/examples/tensorflow_mnist.py) sample script into the folder.
+Create a local working directory, and download the TensorFlow [convolutional.py](https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py) sample script. For details about the model, see [Convolutional Neural Networks](https://www.tensorflow.org/tutorials/deep_cnn) in the TensorFlow documentation.
 
 ```bash
-wget https://raw.githubusercontent.com/uber/horovod/v0.9.10/examples/tensorflow_mnist.py
+wget https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py
 ```
 
 Upload the script to your storage account using the [az storage file upload](/cli/azure/storage/file#az-storage-file-upload) command.
@@ -122,15 +122,13 @@ Upload the script to your storage account using the [az storage file upload](/cl
 ```azurecli-interactive
 az storage file upload \
     --share-name batchaishare \
-    --path horovod_samples \
-    --source tensorflow_mnist.py
+    --path scripts \
+    --source convolutional.py
 ```
-
 
 ## Submit training job
 
-An experiment is a logical container for related Batch AI jobs. First, create an experiment in your workspace by using the [az batchai experiment create](/cli/azure/batchai/experiment#az-batchai-experiment-create) command:
-
+ First, create a Batch AI *experiment* in your workspace by using the [az batchai experiment create](/cli/azure/batchai/experiment#az-batchai-experiment-create) command. An experiment is a logical container for related Batch AI jobs.
 
 ```azurecli-interactive
 az batchai experiment create \
@@ -139,31 +137,28 @@ az batchai experiment create \
     --resource-group myResourceGroup
 ```
 
-In your working directory, create a training job configuration file `job.json` with the following content. You will use pass this configuration file when you submit the training job. Update with the name of the storage account (value of the $AZURE_STORAGE_ACCOUNT variable).
+In your working directory, create a training job configuration file `job.json` with the following content. You pass this configuration file when you submit the training job. Update with the name of the storage account where indicated (use the value of the $AZURE_STORAGE_ACCOUNT variable).
 
 ```json
 {
     "$schema": "https://raw.githubusercontent.com/Azure/BatchAI/master/schemas/2018-05-01/job.json",
     "properties": {
         "nodeCount": 1,
-        "horovodSettings": {
-            "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/horovod_samples/tensorflow_mnist.py"
+        "tensorFlowSettings": {
+            "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/autoafs/scripts/convolutional.py"
         },
         "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
         "mountVolumes": {
             "azureFileShares": [
                 {
-                    "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/",
-                    "relativeMountPath": "logs"
+                    "azureFileUrl": "https://<YOUR_STORAGE_ACCOUNT>.file.core.windows.net/batchaishare/logs",
+                    "relativeMountPath": "autoafs/logs"
                 },
                 {
-                    "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/scripts",
-                    "relativeMountPath": "scripts"
+                    "azureFileUrl": "https://<YOUR_STORAGE_ACCOUNT>.file.core.windows.net/batchaishaare/scripts",
+                    "relativeMountPath": "autoafs/scripts"
                 }
             ]
-        },
-        "jobPreparation": {
-          "commandLine": "apt update; apt install mpi-default-dev mpi-default-bin -y; pip install horovod"
         },
         "containerSettings": {
             "imageSourceRegistry": {
@@ -174,183 +169,70 @@ In your working directory, create a training job configuration file `job.json` w
 }
 ```
 
-This configuration file specifies:
+This configuration file specifies the Python script file that will run in a TensorFlow container on the GPU node. It also specifies the location of the log files generated by the training job.
 
-* `nodeCount` - number of nodes required by the job (1 for this quickstart);
-* `cntkSettings` - specifies the path of the training script and command-line arguments. Command-line arguments include
-path to training data and the destination path for storing generated models. `AZ_BATCHAI_OUTPUT_MODEL`
-is an environment variable set by Batch AI based on output directory configuration (see below);
-* `stdOutErrPathPrefix` - path where Batch AI will create directories containing job's output and logs;
-* `outputDirectories` - collection of output directories to be created by Batch AI. For each directory,
-Batch AI creates an environment variable with name `AZ_BATCHAI_OUTPUT_<id>`, where `<id>` is the directory
-identifier;
-* `mountVolumes` - list of filesystems to be mounted during the job execution. The filesystems are mounted under
-`AZ_BATCHAI_JOB_MOUNT_ROOT/<relativeMountPath>`. `AZ_BATCHAI_JOB_MOUNT_ROOT` is an environment variable set by Batch AI;
-* `<AZURE_BATCHAI_STORAGE_ACCOUNT>` tells that the storage account name will be specified during the job submission
-via --storage-account-name parameter or `AZURE_BATCHAI_STORAGE_ACCOUNT` environment variable on your computer.
 
-## Submit the Job
+Use the [az batchai job create](/cli/azure/batchai/job#az-batchai-job-create) command to submit the job on the cluster:
 
-Use the following command to submit the job on the cluster:
+```azurecli-interactive
+az batchai job create \
+    --name myjob \
+    --cluster mycluster \
+    --experiment myexperiment \
+    --workspace myworkspace \
+    --resource-group myResourceGroup \
+    --config-file job.json
+```
 
-```azurecli
-az batchai job create -n cntk_python_1 -r nc6 -g batchai.quickstart -c job.json --storage-account-name <storage account name>
+The command returns quickly with the job properties. The job takes some time to complete. To monitor this job's progress, stream the `stdout-wk-0.txt` file in the standard output directory on the GPU node. This file gets generated after the job starts running. Use the [az batchai job file stream](/cli/azure/batchai/job/file#az-batchai-job-file-stream) command to stream the file:
+
+```azurecli-interactive
+az batchai job file stream \
+    --job myjob \
+    --experiment myexperiment \
+    --workspace myworkspace \
+    --resource-group myResourceGroup \
+    --file-name stdout-wk-0.txt
 ```
 
 Example output:
 ```
-{
-  "additionalProperties": {},
-  "caffeSettings": null,
-  "chainerSettings": null,
-  "cluster": {
-    "additionalProperties": {},
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/clusters/nc6",
-    "resourceGroup": "batchai.quickstart"
-  },
-  "cntkSettings": {
-    "additionalProperties": {},
-    "commandLineArgs": "$AZ_BATCHAI_JOB_MOUNT_ROOT/data/mnist_cntk $AZ_BATCHAI_OUTPUT_MODEL",
-    "configFilePath": null,
-    "languageType": "Python",
-    "processCount": 1,
-    "pythonInterpreterPath": null,
-    "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/cntk/ConvNet_MNIST.py"
-  },
-  "constraints": {
-    "additionalProperties": {},
-    "maxWallClockTime": "7 days, 0:00:00"
-  },
-  "containerSettings": null,
-  "creationTime": "2018-04-11T21:48:10.303000+00:00",
-  "customToolkitSettings": null,
-  "environmentVariables": null,
-  "executionInfo": null,
-  "executionState": "queued",
-  "executionStateTransitionTime": "2018-04-11T21:48:10.303000+00:00",
-  "experimentName": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/jobs/cntk_python_1",
-  "inputDirectories": null,
-  "jobOutputDirectoryPathSegment": "00000000-0000-0000-0000-000000000000/batchai.quickstart/jobs/cntk_python_1/b9576bae-e878-4fb2-9390-2e962356b5b1",
-  "jobPreparation": null,
-  "location": null,
-  "mountVolumes": {
-    "additionalProperties": {},
-    "azureBlobFileSystems": [
-      {
-        "accountName": "<YOU STORAGE ACCOUNT NAME>",
-        "additionalProperties": {},
-        "containerName": "data",
-        "credentials": {
-          "accountKey": null,
-          "accountKeySecretReference": null,
-          "additionalProperties": {}
-        },
-        "mountOptions": null,
-        "relativeMountPath": "data"
-      }
-    ],
-    "azureFileShares": [
-      {
-        "accountName": "<YOU STORAGE ACCOUNT NAME>,
-        "additionalProperties": {},
-        "azureFileUrl": "https://<YOU STORAGE ACCOUNT NAME>.file.core.windows.net/logs",
-        "credentials": {
-          "accountKey": null,
-          "accountKeySecretReference": null,
-          "additionalProperties": {}
-        },
-        "directoryMode": "0777",
-        "fileMode": "0777",
-        "relativeMountPath": "logs"
-      },
-      {
-        "accountName": "<YOU STORAGE ACCOUNT NAME>",
-        "additionalProperties": {},
-        "azureFileUrl": "https://<YOU STORAGE ACCOUNT NAME>.file.core.windows.net/scripts",
-        "credentials": {
-          "accountKey": null,
-          "accountKeySecretReference": null,
-          "additionalProperties": {}
-        },
-        "directoryMode": "0777",
-        "fileMode": "0777",
-        "relativeMountPath": "scripts"
-      }
-    ],
-    "fileServers": null,
-    "unmanagedFileSystems": null
-  },
-  "name": "cntk_python_1",
-  "nodeCount": 1,
-  "outputDirectories": [
-    {
-      "additionalProperties": {},
-      "createNew": true,
-      "id": "MODEL",
-      "pathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
-      "pathSuffix": null,
-      "type": "custom"
-    }
-  ],
-  "priority": 0,
-  "provisioningState": "succeeded",
-  "provisioningStateTransitionTime": "2018-04-11T21:48:11.577000+00:00",
-  "pyTorchSettings": null,
-  "resourceGroup": "batchai.quickstart",
-  "secrets": null,
-  "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
-  "tags": null,
-  "tensorFlowSettings": null,
-  "toolType": "cntk",
-  "type": "Microsoft.BatchAI/Jobs"
-}
-```
-
-# Monitor Job Execution
-
-The training script is reporting the training progress in `stderr.txt` file inside of the standard output directory. You
-can monitor the progress using the following command:
-
-```azurecli
-az batchai job file stream -n cntk_python_1 -g batchai.quickstart -f stderr.txt
-```
-
-Example output:
-```
-File found with URL "https://<YOU STORAGE ACCOUNT>.file.core.windows.net/logs/00000000-0000-0000-0000-000000000000/batchai.quickstart/jobs/cntk_python_1/<JOB's UUID>/stdouterr/stderr.txt?sv=2016-05-31&sr=f&sig=n86JK9YowV%2BPQ%2BkBzmqr0eud%2FlpRB%2FVu%2FFlcKZx192k%3D&se=2018-04-11T23%3A05%3A54Z&sp=rl". Start streaming
-Selected GPU[0] Tesla K80 as the process wide default device.
--------------------------------------------------------------------
-Build info:
-
-		Built time: Jan 31 2018 15:03:41
-		Last modified date: Tue Jan 30 03:26:13 2018
-		Build type: release
-		Build target: GPU
-		With 1bit-SGD: no
-		With ASGD: yes
-		Math lib: mkl
-		CUDA version: 9.0.0
-		CUDNN version: 7.0.4
-		Build Branch: HEAD
-		Build SHA1: a70455c7abe76596853f8e6a77a4d6de1e3ba76e
-		MPI distribution: Open MPI
-		MPI version: 1.10.7
--------------------------------------------------------------------
-Training 98778 parameters in 10 parameter tensors.
-
-Learning rate per 1 samples: 0.001
-Momentum per 1 samples: 0.0
-Finished Epoch[1 of 40]: [Training] loss = 0.405960 * 60000, metric = 13.01% * 60000 21.741s (2759.8 samples/s);
-Finished Epoch[2 of 40]: [Training] loss = 0.106030 * 60000, metric = 3.09% * 60000 3.638s (16492.6 samples/s);
-Finished Epoch[3 of 40]: [Training] loss = 0.078542 * 60000, metric = 2.32% * 60000 3.477s (17256.3 samples/s);
+File found with URL "https://<YOUR_STORAGE_ACCOUNT>.file.core.windows.net/batchaishare/logs/00000000-0000-0000-0000-000000000000/myResourceGroup/workspaces/myworkspace/experiments/myexperiment/jobs/myjob/<JOB_ID>/stdouterr/stdout-wk-0.txt?sv=2016-05-31&sr=f&sig=Kih9baozMao8Ugos%2FVG%2BcsVsSeY1O%2FTocCNvLQhwtx4%3D&se=2018-06-20T22%3A07%3A30Z&sp=rl". Start streaming
+Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.
+Successfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.
+Successfully downloaded t10k-images-idx3-ubyte.gz 1648877 bytes.
+Successfully downloaded t10k-labels-idx1-ubyte.gz 4542 bytes.
+Extracting data/train-images-idx3-ubyte.gz
+Extracting data/train-labels-idx1-ubyte.gz
+Extracting data/t10k-images-idx3-ubyte.gz
+Extracting data/t10k-labels-idx1-ubyte.gz
+Initialized!
+Step 0 (epoch 0.00), 14.9 ms
+Minibatch loss: 8.334, learning rate: 0.010000
+Minibatch error: 85.9%
+Validation error: 84.6%
+Step 100 (epoch 0.12), 9.7 ms
+Minibatch loss: 3.240, learning rate: 0.010000
+Minibatch error: 6.2%
+Validation error: 7.7%
+Step 200 (epoch 0.23), 8.3 ms
+Minibatch loss: 3.335, learning rate: 0.010000
+Minibatch error: 7.8%
+Validation error: 4.5%
+Step 300 (epoch 0.35), 8.3 ms
+Minibatch loss: 3.157, learning rate: 0.010000
+Minibatch error: 3.1%
 ...
-Final Results: Minibatch[1-11]: errs = 0.54% * 10000
+Step 8500 (epoch 9.89), 8.3 ms
+Minibatch loss: 1.605, learning rate: 0.006302
+Minibatch error: 0.0%
+Validation error: 0.9%
+Test error: 0.8%
 ```
 
-The streaming is stopped when the job is completed (succeeded or failed).
+The streaming stops when the job is completed (succeeds or fails).
 
-# Inspect Generated Model Files
+## Inspect Generated Model Files
 
 The job stores the generated model files in the output directory with `id` attribute equals to `MODEL`, you can list
 model files and get download URLs using the following command:
