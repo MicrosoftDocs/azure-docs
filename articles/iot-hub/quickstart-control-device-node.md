@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/19/2018
 ms.author: dobett
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
