@@ -22,6 +22,8 @@ ms.author: danlep
 
 This article describes how to use Azure PowerShell to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM programmatically with PowerShell, Resource Manager templates, or other tools.
 
+Also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) storefront, the [Azure portal](https://portal.azure.com), or the [Azure CLI](../linux/cli-ps-findimage.md). 
+
 Make sure that you installed and configured the latest [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
