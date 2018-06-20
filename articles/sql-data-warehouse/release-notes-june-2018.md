@@ -12,7 +12,7 @@ ms.author: twounder
 ms.reviewer: twounder
 ---
 
-# What's new in Azure SQL Data Warehouse (June 2018)?
+# What's new in Azure SQL Data Warehouse?
 Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced in June 2018. 
 
 ## Features
@@ -40,6 +40,9 @@ SELECT * FROM Membership;
 Msg 230, Level 14, State 1, Line 12 
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
+
+### OBJECT_SCHEMA_NAME
+The [OBJECT_SCHEMA_NAME()]() function
 
 ## Behavior Changes
 ### Auto Stats operations appear in sys.dm_pdw_exec_requests
