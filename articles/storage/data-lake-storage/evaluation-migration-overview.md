@@ -14,16 +14,22 @@ ms.component: data-lake-storage-gen2
 
 # Azure Data Lake Storage Gen2 Evaluation Overview
 
-For the preview phase, we developed migration guidance and tooling to help Azure Data Lake Storage Gen1 customers evaluate Azure Data Lake Storage Gen2 and start planning a migration strategy as appropriate. The Azure CAT team will work closely with customers on developing this strategy. Existing Azure Data Lake Storage Gen1 customers will be fully supported indefinitely on the existing Azure Data Lake Storage Gen1 platform, allowing customers to plan their migration to ADLSv2 at their convenience.
+For the preview phase, we developed evaluation guidance and tooling to help Azure Data Lake Storage Gen1 customers evaluate Azure Data Lake Storage Gen2 and start planning a migration strategy as appropriate. The Azure CAT team will work closely with customers on developing this strategy. Existing Azure Data Lake Storage Gen1 customers will be fully supported indefinitely on the existing Azure Data Lake Storage Gen1 platform, allowing customers to plan their migration to ADLSv2 at their convenience.
 
 >[!IMPORTANT]
-> We must emphasize that while we recommend you begin evaluating and planning a migration now, we **do not** recommend actually migrating now. Azure Data Lake Storage Gen2 is still a preview service.
+> We must emphasize that while you are welcome to begin evaluating and planning a migration now, we **do not** recommend actually migrating now. Azure Data Lake Storage Gen2 is still a preview service.
 
 Topics we recommend keeping in mind when proceeding through these evaluation and migration documents include:
 
-- Does the service meet your needs for storing data intended for analytics?
+- Does Data Lake Storage offer the capabilities you need?
+- How do your applications interact with data?
+  - Through the Hadoop driver?
+  - Via tools such as Azure Data Factory?
+  - Through SDKs?
+  - Via REST apis?
 - Do the supported migration paths meet your needs?
   - Distcp
+  - Azure Data Factory
   - AzCopy
 - What migration patterns are recommended?
 - Does the data access method fit your current workflow?

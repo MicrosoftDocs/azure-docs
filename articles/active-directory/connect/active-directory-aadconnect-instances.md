@@ -34,8 +34,6 @@ When you sign in to your Azure AD tenant, you must use an account in the onmicro
 
 Features currently not present in the Microsoft Cloud Germany:
 
-
-* **Automatic updates** is not available.
 * **Password writeback** is available for preview with Azure AD Connect version 1.1.570.0 and after.
 * Other Azure AD Premium services are not available.
 
@@ -57,7 +55,6 @@ This cloud has been supported by earlier releases of DirSync. From build 1.1.180
 
 Features currently not present in the Microsoft Azure Government cloud:
 
-* **Automatic updates** is not available.
 * **Password writeback**  is available for preview with Azure AD Connect version 1.1.570.0 and after.
 * Other Azure AD Premium services are not available.
 

@@ -62,6 +62,8 @@
     items: 
       - name: How to copy data into Data Lake Storage using Distcp
         href: use-distcp.md
+      - name: How to copy data into Data Lake Storage using Azure Data Factory
+        href: ../../data-factory/load-azure-data-lake-storage-gen2.md
 - name: Reference
   items:
 - name: Resources
