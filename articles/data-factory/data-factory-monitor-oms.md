@@ -15,9 +15,9 @@ ms.author: douglasl
 ---
 # Monitor Azure Data Factory with Operations Management Suite (OMS)
 
-You can use Azure Data Factory integration with Azure Monitor to route data to Operations Management Suite (OMS). This is useful in the following scenarios:
+You can use Azure Data Factory integration with Azure Monitor to route data to Operations Management Suite (OMS). This integration is useful in the following scenarios:
 
-1.  You want to write complex queries on a rich set of metrics that are published by Data Factory to OMS. You can also create custom alerts on these queries via OMS.
+1.  You want to write complex queries on a rich set of metrics that is published by Data Factory to OMS. You can also create custom alerts on these queries via OMS.
 
 2.  You want to monitor across data factories. You can route data from multiple data factories to a single OMS workspace.
 
