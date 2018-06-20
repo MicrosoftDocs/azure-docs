@@ -34,6 +34,7 @@ Configuring the custom banned password list requires an Azure Active Directory P
    * The custom banned password list is case-insensitive.
    * The custom banned password list considers common character substitution.
       * Example: "o" and "0" or "a" and "@"
+   * The minimum string length is 4 characters and the maximum is 16 characters.
 1. When you have added all strings, click **Save**.
 
 > [!NOTE]
