@@ -4,7 +4,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL database
 
-An Azure SQL database is created with a defined set of [compute and storage resources](../articles/sql-database/sql-database-service-tiers.md). The database is created within an [Azure resource group](../articles/azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](../articles/sql-database/sql-database-features.md). 
+An Azure SQL database is created with a defined set of [compute and storage resources](../articles/sql-database/sql-database-service-tiers-dtu.md). The database is created within an [Azure resource group](../articles/azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](../articles/sql-database/sql-database-features.md). 
 
 Follow these steps to create a blank SQL database. 
 

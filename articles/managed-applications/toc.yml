@@ -50,12 +50,16 @@
         href: microsoft-common-dropdown.md
       - name: FileUpload
         href: microsoft-common-fileupload.md
+      - name: InfoBox
+        href: microsoft-common-infobox.md
       - name: OptionsGroup
         href: microsoft-common-optionsgroup.md
       - name: PasswordBox
         href: microsoft-common-passwordbox.md
       - name: Section
         href: microsoft-common-section.md
+      - name: TextBlock
+        href: microsoft-common-textblock.md
       - name: TextBox
         href: microsoft-common-textbox.md
     - name: Compute
@@ -68,6 +72,8 @@
         href: microsoft-compute-usernametextbox.md
     - name: Network
       items:
+      - name: AvailabilityZoneDropDown
+        href: microsoft-network-availabilityzonedropdown.md
       - name: PublicIPAddressCombo
         href: microsoft-network-publicipaddresscombo.md
       - name: VirtualNetworkCombo

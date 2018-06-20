@@ -3,7 +3,7 @@ title: Manage Azure reserved IP addresses (Classic) - PowerShell | Microsoft Doc
 description: Understand reserved IP addresses (Classic) and how to manage them using PowerShell.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 

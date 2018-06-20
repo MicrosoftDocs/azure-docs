@@ -30,7 +30,7 @@ During a bulk load or columnstore index rebuild, sometimes there isn't enough me
 
 When there is insufficient memory to compress at least 10,000 rows into each rowgroup, SQL Data Warehouse generates an error.
 
-For more information on bulk loading, see [Bulk load into a clustered columnstore index](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+For more information on bulk loading, see [Bulk load into a clustered columnstore index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
 ## How to monitor rowgroup quality
 
@@ -146,11 +146,3 @@ Suppose you determine that you need 700 MB of memory to get high-quality rowgrou
 
 To find more ways to improve performance in SQL Data Warehouse, see the [Performance overview](sql-data-warehouse-overview-manage-user-queries.md).
 
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->

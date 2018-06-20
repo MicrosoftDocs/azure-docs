@@ -1,17 +1,15 @@
 ---
 title: Simulate Azure IoT Edge on Windows | Microsoft Docs 
 description: Install the Azure IoT Edge runtime on a simulated device in Windows and deploy your first module
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.reviewer: elioda
 ms.date: 11/16/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Deploy Azure IoT Edge on a simulated device in Windows -  preview
@@ -40,7 +38,7 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
    * Windows 10 
    * Windows Server
 2. Install [Docker for Windows][lnk-docker] and make sure it's running.
-3. Install [Python 2.7 on Windows][lnk-python] and make sure you can use the pip command.
+3. Install [Python on Windows][lnk-python] and make sure you can use the pip command. This tutorial was tested with Python versions >=2.7.9 and >=3.5.4.  
 4. Run the following command to download the IoT Edge control script.
 
    ```cmd

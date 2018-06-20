@@ -1,4 +1,4 @@
----
+﻿---
 title: Install and use the CLI for top tasks - Azure Machine Learning
 description: Learn how to install and use the CLI for the most common machine learning tasks in Azure Machine Learning.
 services: machine-learning
@@ -34,7 +34,7 @@ This article presents some of the most useful CLI commands for your convenience.
 You need contributer access to an Azure subscription or a resource group where you can deploy your models. Also, you need to install Azure Machine Learning Workbench in order to run the CLI. 
 
 >[!IMPORTANT]
->The CLI delivered with Azure Machine Learning services is different from the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest), which is used for managing Azure resources.
+>The CLI delivered with Azure Machine Learning services is different from the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), which is used for managing Azure resources.
 
 ## Get and start CLI
 

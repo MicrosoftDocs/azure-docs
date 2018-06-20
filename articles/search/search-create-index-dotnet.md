@@ -4,7 +4,7 @@ description: Create an index in code using the Azure Search .NET SDK.
 author: brjohnstmsft
 manager: jlembicz
 tags: azure-portal
-
+services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart

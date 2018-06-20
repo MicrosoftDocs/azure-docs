@@ -21,10 +21,9 @@ If you already know the translation you want to apply to a word or a phrase, you
 
 **Example: en-de:**
 
-Source input: Instant dictionary: word <mstrans:dictionary translation=”wordomatic”>word or phrase</mstrans:dictionary> is a dictionary entry.
+Source input: The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.
 
-Target output: Sofortige Wörterbuch: Wort "wordomatic" ist einen Wörterbucheintrag.
-
+Target output: Das Wort "wordomatic" ist ein Wörterbucheintrag.
 
 This feature works the same way with and without HTML mode. 
 

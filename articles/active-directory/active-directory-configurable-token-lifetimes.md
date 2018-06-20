@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
@@ -22,8 +22,8 @@ ms.reviewer: anchitn
 # Configurable token lifetimes in Azure Active Directory (Public Preview)
 You can specify the lifetime of a token issued by Azure Active Directory (Azure AD). You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization.
 
-> [!NOTE]
-> This capability currently is in Public Preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory subscription during Public Preview. However, when the feature becomes generally available, some aspects of the feature might require an [Azure Active Directory Premium](active-directory-get-started-premium.md) subscription.
+> [!IMPORTANT]
+> After hearing from customers during the preview, we're planning to replace this functionality with a new feature in Azure Active Directory Conditional Access.  Once the new feature is complete, this functionality will eventually be deprecated after a notification period.  If you use the Configurable Token Lifetime policy, be prepared to switch to the new Conditional Access feature once it's available. 
 >
 >
 
@@ -106,6 +106,8 @@ You can create and then assign a token lifetime policy to a specific application
 For more information about the relationship between application objects and service principal objects, see [Application and service principal objects in Azure Active Directory](active-directory-application-objects.md).
 
 A token’s validity is evaluated at the time the token is used. The policy with the highest priority on the application that is being accessed takes effect.
+
+All timespans used here are formatted according to the C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) object - D.HH:MM:SS.  So 80 days and 30 minutes would be `80.00:30:00`.  The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.  
 
 > [!NOTE]
 > Here's an example scenario.
@@ -275,7 +277,7 @@ In this example, you create a policy that requires users to authenticate more fr
 
 2.  Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal. 
 
-    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
+    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
 
     2.  When you have the **ObjectId** of your service principal, run the following command:
 
@@ -331,7 +333,7 @@ In this example, you create a few policies, to learn how the priority system wor
 
     Now, you have a policy that applies to the entire organization. You might want to preserve this 30-day policy for a specific service principal, but change the organization default policy to the upper limit of "until-revoked."
 
-    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
+    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
 
     2.  When you have the **ObjectId** of your service principal, run the following command:
 

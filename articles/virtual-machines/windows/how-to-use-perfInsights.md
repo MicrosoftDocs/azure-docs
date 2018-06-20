@@ -3,7 +3,7 @@ title: How to use PerfInsights in Microsoft Azure| Microsoft Docs
 description: Learns how to use PerfInsights to troubleshoot Windows VM performance problems.
 services: virtual-machines-windows'
 documentationcenter: ''
-author: genlin
+author: anandhms
 manager: cshepard
 editor: na
 tags: ''
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -219,6 +219,12 @@ To run the PerfInsights tool, follow these steps:
     
     ```
     PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
+
+    You can use the below example to run slow VM scenario for 5 mins and upload the result zip file to the storage account:
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
     ```
 
     You can look up all the available scenarios and options by using the **/list** command:

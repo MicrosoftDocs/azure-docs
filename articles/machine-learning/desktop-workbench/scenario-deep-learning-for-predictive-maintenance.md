@@ -7,6 +7,7 @@ ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.devlang: 
@@ -147,7 +148,7 @@ The following references provide examples of other predictive maintenance use ca
 * [Predictive Maintenance Modeling Guide using SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
-* [Predictive maintenance real-world scenarios](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)
+* [Predictive maintenance real-world scenarios](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)
 
 ## Next steps
 

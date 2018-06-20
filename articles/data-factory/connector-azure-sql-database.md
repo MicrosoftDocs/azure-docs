@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/13/2018
+ms.topic: conceptual
+ms.date: 05/05/2018
 ms.author: jingwang
 
 ---
@@ -98,7 +98,7 @@ To use service principal based AAD application token authentication, follow thes
     - Application key
     - Tenant ID
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** for your Azure SQL Server on Azure portal if you haven't done so. The AAD administrator has to be an AAD user or AAD group, but cannot be a service principal. This step is done so that, in the subsequent step, you can use an AAD identity to create a contained database user for the service principal.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL Server on Azure portal if you haven't done so. The AAD administrator has to be an AAD user or AAD group, but cannot be a service principal. This step is done so that, in the subsequent step, you can use an AAD identity to create a contained database user for the service principal.
 
 3. **Create a contained database user for the service principal**, by connecting to the database from/to which you want to copy data using tools like SSMS, with an AAD identity having at least ALTER ANY USER permission, and executing the following T-SQL. Learn more on contained database user from [here](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -109,7 +109,7 @@ To use service principal based AAD application token authentication, follow thes
 4. **Grant the service principal needed permissions** as you normally do for SQL users, e.g. by executing below:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. In ADF, configure an Azure SQL Database linked service.
@@ -158,7 +158,7 @@ To use MSI based AAD application token authentication, follow these steps:
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** for your Azure SQL Server on Azure portal if you haven't done so. The AAD administrator can be an AAD user or AAD group. If you grant the group with MSI an admin role, skip step 3 and 4 below as the administrator would have full access to the DB.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL Server on Azure portal if you haven't done so. The AAD administrator can be an AAD user or AAD group. If you grant the group with MSI an admin role, skip step 3 and 4 below as the administrator would have full access to the DB.
 
 3. **Create a contained database user for the AAD group**, by connecting to the database from/to which you want to copy data using tools like SSMS, with an AAD identity having at least ALTER ANY USER permission, and executing the following T-SQL. Learn more on contained database user from [here](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -169,7 +169,7 @@ To use MSI based AAD application token authentication, follow these steps:
 4. **Grant the AAD group needed permissions** as you normally do for SQL users, e.g. by executing below:
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. In ADF, configure an Azure SQL Database linked service.

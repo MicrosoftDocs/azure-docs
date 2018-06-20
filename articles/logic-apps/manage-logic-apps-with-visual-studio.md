@@ -2,7 +2,7 @@
 title: Manage logic apps with Visual Studio - Azure Logic Apps | Microsoft Docs
 description: Manage logic apps and other Azure assets with Visual Studio Cloud Explorer
 author: ecfan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -62,7 +62,7 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
     <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">how to install this extension from inside Visual Studio</a>. 
     Make sure that you restart Visual Studio after you finish installing.
 
-* Access to the web while using the embedded Logic App Designer
+* Access to the web while using the embedded Logic Apps Designer
 
   The designer requires an internet connection to create resources in Azure 
   and to read the properties and data from connectors in your logic app. 
@@ -112,14 +112,14 @@ or as Azure Resource Manager projects with Visual Studio.
 1. Open Cloud Explorer, and find your logic app. 
 
 2. On the logic app's shortcut menu, 
-select **Open With Logic App Editor**.
+select **Open with Logic App Editor**.
 
    This example shows logic apps by resource type, 
    so your logic apps appear under the **Logic Apps** section.
 
   ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   After the logic app opens in Logic App Designer, 
+   After the logic app opens in Logic Apps Designer, 
    at the bottom of the designer, you can choose **Code View** 
    so that you can review the underlying logic app definition structure. 
    If you want to create a deployment template for the logic app, 
@@ -145,7 +145,7 @@ then find and select the logic app
 that you want to download from Azure.
 
 2. On that app's shortcut menu, 
-select **Open With Logic App Editor**.
+select **Open with Logic App Editor**.
 
    The Logic App Designer opens and shows the logic app. 
    To review logic app's underlying definition and structure, 

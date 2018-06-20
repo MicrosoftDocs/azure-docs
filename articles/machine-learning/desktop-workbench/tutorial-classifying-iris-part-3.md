@@ -7,6 +7,7 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
@@ -116,7 +117,7 @@ To deploy the web service along with the model file, you also need a scoring scr
 
 Now you're ready to prepare your environment to operationalize the model.
 
-## Prepare to operationalize locally
+## Prepare to operationalize locally [For development and testing your service]
 Use _local mode_ deployment to run in Docker containers on your local computer.
 
 You can use _local mode_ for development and testing. The Docker engine must be running locally to complete the following steps to operationalize the model. You can use the `-h` flag at the end of each command to show the corresponding help message.
@@ -253,7 +254,7 @@ Now you're ready to create the real-time web service.
    docker ps
    ```
 
-## Create a real-time web service by using separate commands
+## [Optional alternative] Create a real-time web service by using separate commands
 As an alternative to the **az ml service create realtime** command shown previously, you also can perform the steps separately. 
 
 First, register the model. Then generate the manifest, build the Docker image, and create the web service. This step-by-step approach gives you more flexibility at each step. Additionally, you can reuse the entities generated in previous steps and rebuild the entities only when needed.
@@ -270,7 +271,7 @@ First, register the model. Then generate the manifest, build the Docker image, a
    To create a manifest, use the following command and provide the model ID output from the previous step:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
    ```
    This command generates a manifest ID.
 
@@ -279,7 +280,7 @@ First, register the model. Then generate the manifest, build the Docker image, a
    To create a Docker image, use the following command and provide the manifest ID value output from the previous step. You also can optionally include the conda dependencies by using the `-c` switch.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID> -c aml_config\conda_dependencies.yml
+   az ml image create -n irisimage --manifest-id <manifest ID> 
    ```
    This command generates a Docker image ID.
    

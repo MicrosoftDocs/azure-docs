@@ -12,7 +12,7 @@ ms.author: v-jerkin
 
 # Quickstart for Bing Video Search API with Python
 
-This walkthrough shows you how to use the Bing Video Search API, part of Microsoft Cognitive Services on Azure. Refer to the [API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-video-api-v7-reference) for technical details about the APIs.
+This walkthrough shows you how to use the Bing Video Search API, part of Microsoft Cognitive Services on Azure. Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) for technical details about the APIs.
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 
@@ -46,7 +46,7 @@ Set `search_term` to look for videos of kittens
 search_term = "kittens"
 ```
 
-The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-video-api-v7-reference) documentation.
+The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) documentation.
 
 
 ```python

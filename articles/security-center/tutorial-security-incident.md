@@ -3,7 +3,7 @@ title: Azure Security Center Tutorial - Respond to security incidents | Microsof
 description: Azure Security Center Tutorial - Respond to security incidents
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 

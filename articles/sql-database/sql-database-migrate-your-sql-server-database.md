@@ -1,18 +1,18 @@
 ---
-title: Migrate SQL Server DB to Azure SQL Database using DMS | Microsoft Docs
-description: Learn to migrate your SQL Server database to Azure SQL Database using DMS.
+title: Migrate SQL Server DB to Azure SQL Database using DMA | Microsoft Docs
+description: Learn to migrate your SQL Server database to Azure SQL Database using DMA.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 05/22/2018
 ms.author: carlrab
 
 ---
 
-# Migrate your SQL Server database to Azure SQL Database using DMS
+# Migrate your SQL Server database to Azure SQL Database using DMA
 
 Moving your SQL Server database to an Azure SQL Database single database is as simple as creating an empty SQL database in Azure and then using  the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) to import the database into Azure. For additional migration options, see [Migrate your database to Azure SQL Database](sql-database-cloud-migrate.md).
 
@@ -43,7 +43,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL database
 
-An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md). 
+An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers-dtu.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md). 
 
 Follow these steps to create a blank SQL database. 
 
@@ -84,9 +84,9 @@ Follow these steps to create a blank SQL database.
 8. Accept the preview terms to use the **Add-on Storage** option. 
 
    > [!IMPORTANT]
-   > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > - Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > - More than 1 TB of storage in the Premium tier is available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. More widespread availability is planned. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
@@ -109,7 +109,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstart tutorials. 
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstarts. 
 
    ![server name](./media/sql-database-get-started-portal/server-name.png) 
 

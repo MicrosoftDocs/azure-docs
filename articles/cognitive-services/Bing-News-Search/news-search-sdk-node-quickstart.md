@@ -16,6 +16,8 @@ ms.author: v-gedod
 
 The Bing News Search SDK contains the functionality of the REST API for news queries and parsing results. 
 
+The [source code for Node Bing News Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js) is available on Git Hub.
+
 ## Application dependencies
 
 To set up a console application using the Bing News Search SDK, run `npm install azure-cognitiveservices-newssearch` in your development environment.
@@ -46,7 +48,9 @@ The code prints `result.value` items to the console without parsing any text. Th
 - _type: 'VideoObject'
 - _type: 'ImageObject'
 
+<!-- Remove until we can replace with santized version
 ![News results](media/node-sdk-quickstart-results.png)
+-->
 
 ## Next steps
 

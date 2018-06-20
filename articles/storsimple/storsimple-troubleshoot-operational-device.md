@@ -62,5 +62,5 @@ Errors are listed in numeric order.
 ## Next steps
 If you are unable to resolve the problem, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance. 
 
-[1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/%5Clibrary/Dn715782(v=WPS.630).aspx

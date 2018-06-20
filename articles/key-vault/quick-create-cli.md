@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Quickstart - Create a Key Vault CLI | Microsoft Docs
 description: Quickstart showing how to create an Azure Key Vault using the CLI
 services: key-vault
@@ -6,20 +6,20 @@ author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 05/10/2018
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Create an Azure Key Vault using the CLI
 
-Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. In this article, you create a Key Vault. In this quickstart, you create a key vault. Once that you have completed that, you will store a secret.
+Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. In this quickstart, you create a key vault. Once that you have completed that, you will store a secret.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -96,5 +96,4 @@ az group delete --name ContosoResourceGroup
 In this quickstart, you have created a Key Vault and stored a secret in it. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
 
 > [!div class="nextstepaction"]
-> [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
-> To learn how to read a secret from Key Vault using a web application using [managed service identity](/active-directory/managed-service-identity/overview.md), continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md)
+> To learn how to read a secret from Key Vault from a web application using managed service identities continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md)

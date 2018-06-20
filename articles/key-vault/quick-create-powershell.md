@@ -6,14 +6,14 @@ author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid: 1126f665-2e6c-4cca-897e-7d61842e8334
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/18/2018
+ms.date: 05/10/2018
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 
@@ -102,4 +102,4 @@ Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 In this quickstart, you have created a Key Vault and stored a software key in it. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
 
 > [!div class="nextstepaction"]
-> [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
+> To learn how to read a secret from Key Vault from a web application using managed service identities, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md).

@@ -14,7 +14,7 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 04/17/2018
+ms.date: 05/30/2018
 ms.author: anzaman
 
 ---
@@ -59,7 +59,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
 # Set the subnet configuration for the virtual network
-$virtualNetwork | Set-AzureRmVirtualNetwork
+$vnet | Set-AzureRmVirtualNetwork
 # Request a public IP address
 $gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' `
  -AllocationMethod Dynamic
@@ -70,7 +70,7 @@ $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -Subnet
 # Create the VPN gateway
 New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
  -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
- -VpnType RouteBased -GatewaySku VpnGw1
+ -VpnType RouteBased -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 # Create a secure string for the RADIUS secret
 $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
 

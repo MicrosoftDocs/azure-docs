@@ -7,7 +7,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/08/2018
 ms.author: v-geberr
 ---
 
@@ -28,9 +28,17 @@ If you delete an account, all apps are deleted, along with their example utteran
 
 Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
 
+## Data inactivity as an expired subscription
+For the purposes of data retention and deletion, an inactive LUIS app may at _Microsoft’s discretion_ be treated as an expired subscription. An app is considered inactive if it meets the following criteria for the last 90 days: 
+
+* Has had **no** calls made to it.
+* Has not been modified.
+* Does not have a current key assigned to it.
+* Has not had a user sign in to it.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn about exporting and deleting an app](create-new-app.md)
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

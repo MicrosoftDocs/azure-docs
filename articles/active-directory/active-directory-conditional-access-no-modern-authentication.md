@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 62349fba-3cc0-4ab5-babe-372b3389eff6
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -178,7 +179,7 @@ By applying the following three rules:
 
 ## Next steps
 
-For more information, see [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+For more information, see [What is conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 For instructions about configuring claim rules, see [Configure Claim Rules](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-claim-rules). 
 

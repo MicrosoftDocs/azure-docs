@@ -7,8 +7,8 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 05/09/2018
+ms.author: kevin
 ms.reviewer: igorstan
 ---
 
@@ -18,24 +18,50 @@ Recommendations and examples for creating and updating query-optimization statis
 ## Why use statistics?
 The more Azure SQL Data Warehouse knows about your data, the faster it can execute queries against it. Collecting statistics on your data and then loading it into SQL Data Warehouse is one of the most important things you can do to optimize your queries. This is because the SQL Data Warehouse query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost, which is in most cases the plan that executes the fastest. For example, if the optimizer estimates that the date you are filtering in your query will return one row, it can choose a different plan than if it estimates that the selected date will return 1 million rows.
 
-The process of creating and updating statistics is currently a manual process, but it is simple to do.  Soon you will be able to automatically create and update statistics on single columns and indexes.  By using the following information, you can greatly automate the management of the statistics on your data. 
+## Automatic creation of statistics
+When the automatic create statistics option is on, AUTO_CREATE_STATISTICS, SQL Data Warehouse analyzes incoming user queries where single column statistics are created for columns which are missing statistics. The query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan. Automatic creation of statistics is currently turned on by default.
 
-## Scenarios
-Creating sampled statistics on every column is an easy way to get started. Out-of-date statistics lead to suboptimal query performance. However, updating statistics on all columns as your data grows can consume memory. 
+You can check if your data warehouse has this configured by running the following command:
 
-The following are recommendations for different scenarios:
-| **Scenario** | Recommendation |
-|:--- |:--- |
-| **Get started** | Update all columns after migrating to SQL Data Warehouse |
-| **Most important column for stats** | Hash distribution key |
-| **Second most important column for stats** | Partition key |
-| **Other important columns for stats** | Date, Frequent JOINs, GROUP BY, HAVING, and WHERE |
-| **Frequency of stats updates**  | Conservative: Daily <br></br> After loading or transforming your data |
-| **Sampling** |  Less than 1 billion rows, use default sampling (20 percent) <br></br> With more than 1 billion rows, statistics on a 2-percent range is good |
+```sql
+SELECT name, is_auto_create_stats_on 
+FROM sys.databases
+```
+If your data warehouse does not have AUTO_CREATE_STATISTICS configured, we recommend you enabling this property by running the following command:
+
+```sql
+ALTER DATABASE <yourdatawarehousename> 
+SET AUTO_CREATE_STATISTICS ON
+```
+The following statements will trigger automatic creation of statistics: SELECT, INSERT-SELECT, CTAS, UPDATE, DELETE, and EXPLAIN when containing a join or the presence of a predicate is detected. 
+
+> [!NOTE]
+> Automatic creation of statistics are not created on temporary or external tables.
+> 
+
+Automatic creation of statistics is generated synchronously so you may incur a slight degraded query performance if your columns do not already have statistics created for them. Creating statistics can take a few seconds on a single column depending on the size of the table. To avoid measuring performance degradation, especially in performance benchmarking, you should ensure stats have been created first by executing the benchmark workload before profiling the system.
+
+> [!NOTE]
+> The creation of stats will also be logged in [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) under a different user context.
+> 
+
+When automatic statistics are created, they will take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view stats which have already been created by running the [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) command:
+
+```sql
+DBCC SHOW_STATISTICS (<tablename>, <targetname>)
+```
+The first argument is table that contains the statistics to display. This cannot be an external table. The second argument is the name of the target index, statistics, or column for which to display statistics information.
+
+
 
 ## Updating statistics
 
 One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a country column in a customer table might never need to be updated, because the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you need to update statistics on the country column.
+
+The following are recommendations updating statistics:
+
+| **Frequency of stats updates**  | Conservative: Daily <br></br> After loading or transforming your data |
+| **Sampling** |  Less than 1 billion rows, use default sampling (20 percent) <br></br> With more than 1 billion rows, statistics on a 2-percent range is good |
 
 One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
 

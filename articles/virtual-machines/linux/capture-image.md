@@ -42,7 +42,7 @@ For a simplified version of this topic, for testing, evaluating or learning abou
 
 
 ## Step 1: Deprovision the VM
-You deprovision the VM, using the Azure VM agent, to delete machine specific files and data. Use the `waagent` command with the *-deprovision+user* parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](../windows/agent-user-guide.md).
+You deprovision the VM, using the Azure VM agent, to delete machine specific files and data. Use the `waagent` command with the *-deprovision+user* parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md).
 
 1. Connect to your Linux VM using an SSH client.
 2. In the SSH window, type the following command:
