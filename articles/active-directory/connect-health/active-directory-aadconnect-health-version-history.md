@@ -25,8 +25,8 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 * Azure AD Connect Health for Sync - Diagnose and remediate duplicated attribute sync errors from the portal 
 
 **Agent Update:** 
-*	Azure AD Connect Health agent for AD FS (version 3.1.2.0) 
-    Bug fixes and improvement for alerts 
+*	Azure AD Connect Health agent for AD FS (version 3.1.2.0)  
+   1. Bug fixes and improvement for alerts 
 
 
 ## May 2018
@@ -103,7 +103,7 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 ## October 2016
 **Agent Update:**
 
-* Azure AD Connect Health agent for AD FS \(version 2.6.408.0\)
+* Azure AD Connect Health agent for AD FS (version 2.6.408.0)
 1. Improvements in detecting client IP addresses in authentication requests
 2. Bug Fixes related to Alerts
 * Azure AD Connect Health agent for AD DS (version 2.6.408.0)
