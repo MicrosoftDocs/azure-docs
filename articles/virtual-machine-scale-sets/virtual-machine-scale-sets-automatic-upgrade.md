@@ -43,14 +43,12 @@ While in preview, the following limitations and restrictions apply:
 ## Register to use Automatic OS Upgrade
 To use the automated OS upgrade feature, register the preview provider with Azure Powershell or Azure CLI 2.0.
 
-### Azure PowerShell
 The following example uses Powershell to register with [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature):
 
 ```powershell
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName AutoOSUpgradePreview
 ```
 
-### Azure CLI 2.0
 The following example uses the Azure CLI (2.0.20 or later) with [az feature register](/cli/azure/feature#az-feature-register):
 
 ```azurecli
