@@ -4,7 +4,7 @@ description: Learn about SAP solutions running on virtual machines (VMs) in Micr
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''

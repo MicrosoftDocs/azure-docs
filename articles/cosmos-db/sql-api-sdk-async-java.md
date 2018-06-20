@@ -2,16 +2,13 @@
 title: 'Azure Cosmos DB: SQL Async Java API, SDK & resources | Microsoft Docs'
 description: Learn all about the SQL Async Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
 services: cosmos-db
-documentationcenter: java
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: a452ffa2-c15d-4b0a-a8c1-ec9b750ce52b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: reference
 ms.date: 05/18/2018
 ms.author: sngun
 

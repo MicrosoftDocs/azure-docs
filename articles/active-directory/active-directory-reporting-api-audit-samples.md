@@ -3,18 +3,19 @@ title: Azure Active Directory reporting audit API samples | Microsoft Docs
 description: How to get started with the Azure Active Directory Reporting API
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
-ms.author: dhanyahk;markvi
+ms.component: compliance-reports
+ms.date: 05/30/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -48,7 +49,7 @@ $clientSecret   = "<key>"         # Should be a ~44 character string insert your
 $loginURL       = "https://login.windows.net/"
 $tenantdomain   = "<domain>"            # For example, contoso.onmicrosoft.com
 $msgraphEndpoint = "https://graph.microsoft.com"
-$countOfSignInDocsToBeSavedInAFile = 2000
+$countOfAuditDocsToBeSavedInAFile = 2000
 	
 # Get an Oauth 2 access token based on client id, secret and tenant domain
 $body       = @{grant_type="client_credentials";resource=$msgraphEndpoint;client_id=$clientID;client_secret=$clientSecret}
@@ -67,10 +68,10 @@ if ($oauth.access_token -ne $null) {
 		$fetchedRecordCount = $jsonReport.Count
 		$docCount = $docCount + $fetchedRecordCount
 		$totalFetchedRecordCount = $totalFetchedRecordCount + $fetchedRecordCount
-		Write-Output "Fetched $fetchedRecordCount records and saved into SignIns$i.json"
-		if($docCount -le $countOfSignInDocsToBeSavedInAFile)
+		Write-Output "Fetched $fetchedRecordCount records and saved into Audits$i.json"
+		if($docCount -le $countOfAuditDocsToBeSavedInAFile)
 		{
-			$myReport.Content | Out-File -FilePath SignIns$i.json -append  -Force 		
+			$myReport.Content | Out-File -FilePath Audits$i.json -append  -Force 		
 		}
 		else
 		{			
@@ -92,7 +93,7 @@ if ($oauth.access_token -ne $null) {
 ### Executing the PowerShell script
 Once you finish editing the script, run it and verify that the expected data from the Audit logs report is returned.
 
-The script returns output from the audit report in JSON format. It also creates an `audit.json` file with the same output. You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.
+The script returns output from the audit report in JSON format. It also creates an `Audits.json` file with the same output. You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.
 
 
 

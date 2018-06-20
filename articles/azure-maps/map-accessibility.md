@@ -34,3 +34,5 @@ Learn more about the Popup class and its methods used in this article:
     * [remove](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#remove)
     * [open](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#open)
     * [close](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#close)
+
+Check out our [code sample page](http://aka.ms/AzureMapsSamples) for more mapping scenarios.

@@ -45,11 +45,14 @@ Automatic creation of statistics is generated synchronously so you may incur a s
 > The creation of stats will also be logged in [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) under a different user context.
 > 
 
-When automatic statistics are created, they will take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view stats which have already been created by running the following command:
+When automatic statistics are created, they will take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view stats which have already been created by running the [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) command:
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 ```
+The first argument is table that contains the statistics to display. This cannot be an external table. The second argument is the name of the target index, statistics, or column for which to display statistics information.
+
+
 
 ## Updating statistics
 

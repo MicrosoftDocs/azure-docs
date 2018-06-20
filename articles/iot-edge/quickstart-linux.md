@@ -1,17 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Quickstart Azure IoT Edge + Linux | Microsoft Docs 
 description: Try out Azure IoT Edge by running analytics on a simulated edge device
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 01/11/2018
-ms.topic: article
+ms.topic: quickstart
 ms.service: iot-edge
-
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a Linux or Mac device - preview

@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 05/23/2018
 ms.author: bikang
 
 ---
@@ -29,7 +29,8 @@ The Service Fabric CLI is meant to support the latest runtime version of the Ser
 
 | CLI version   | supported runtime version |
 |---------------|---------------------------|
-| Latest (~=4)  | Latest (~=6.1)            |
+| Latest (~=5)  | Latest (~=6.2)            |
+| 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
@@ -108,7 +109,7 @@ sudo pip3 install sfctl
 
 ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
-To install Service Fabric CLI on Redhat, run the following commands:
+To install Service Fabric CLI on Red Hat, run the following commands:
 
 ```bash
 sudo yum install -y python34

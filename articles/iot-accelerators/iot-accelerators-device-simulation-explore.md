@@ -31,7 +31,7 @@ If you haven't deployed Device Simulation yet, you should complete the [Deploy A
 
 ## Configuring Device Simulation
 
-You can configure and run Device Simulation completely from within the dashboard. Open the dashboard from the IoT solution accelerators [Provisioned solutions](https://www.azureiotsuite.com/) page. Click **Launch** under your new Device Simulation deployment.
+You can configure and run Device Simulation completely from within the dashboard. Open the dashboard from the IoT solution accelerators [Provisioned solutions](https://www.azureiotsolutions.com/) page. Click **Launch** under your new Device Simulation deployment.
 
 ### Target IoT Hub
 

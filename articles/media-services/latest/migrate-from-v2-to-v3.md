@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: juliako
 ---
 
@@ -29,7 +29,7 @@ This article describes changes that were introduced in Azure Media Services (AMS
 
 ### API is more approachable
 
-* v3 is based on a unified API surface which exposes both management and operations functionality built on Azure Resource Manager. Azure Resource Manager templates can be used to create and deploy Transforms, Streaming Endpoints, Channels, and more.
+*  v3 is based on a unified API surface which exposes both management and operations functionality built on Azure Resource Manager. Azure Resource Manager templates can be used to create and deploy Transforms, Streaming Endpoints, LiveEvents, and more.
 * Open API (aka Swagger) Specification document.
 * SDKs available for .Net, .Net Core, Node.js, Python, Java, Ruby.
 * Azure CLI integration.
@@ -38,20 +38,23 @@ This article describes changes that were introduced in Azure Media Services (AMS
 
 * Encoding now supports HTTPS ingest (Url-based input).
 * Transforms are new in v3. A Transform is used to share configurations, create Azure Resource Manager Templates, and isolate encoding settings for a specific customer or tenant. 
-* StreamingLocators can have different Dynamic Packaging and Dynamic Encryption settings.
+* An Asset can have multiple StreamingLocators each with different Dynamic Packaging and Dynamic Encryption settings.
 * Content protection supports multi-key features. 
-* LiveEvent (Channel in v2) supports Dynamic Packaging and Dynamic Encryption.
-* LiveEvent preview supports DASH and HLS dynamic packaging.
-* LiveOuput (Program in v2) is simpler to use than the older Program entity. 
+* LiveEvent Preview supports Dynamic Packaging and Dynamic Encryption. This enables content protection on Preview as well as DASH and HLS packaging.
+* LiveOuput is simpler to use than the older Program entity. 
 * RBAC support on entities was added.
 
 ## Changes from v2
 
-* Decoupled from the Storage SDK versioning issue and can leverage storage SDKs directly. 
-* In v3, all of the encoding bit rates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, not 128000. 
+* In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but will not allow creation of new ones.
+
+    For Assets created with v3, Media Services supports the [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) server side storage encryption.
+    
+* Media Services SDKs decoupled from the Storage SDK which gives more control over the Storage SDK used and avoids versioning issues. 
+* In v3, all of the encoding bit rates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, but in v3 it would be 128000. 
 * AssetFiles, AccessPolicies, IngestManifests do not exist in v3.
 * ContentKeys are no longer an entity, property of the StreamingLocator.
-* Event Grid support replaces standard Azure Queues and WebHooks.
+* Event Grid support replaces NotificationEndpoints.
 * Some entities were renamed
 
   * JobOutput replaces Task, now just part of the Job.
@@ -138,7 +141,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. Create Content Key Policy
 2. Create Asset
 3. Upload content or use Asset as JobOutput
-4. Create Locator
+4. Create StreamingLocator
 
 ## Next steps
 

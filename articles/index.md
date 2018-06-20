@@ -273,6 +273,12 @@ featureFlags:
                                                             Visual Studio Team Services
                                                         </a>
                                                     </li>
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Learn DevOps with Azure
+                                                        </a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -3338,7 +3344,7 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                            <li class="fullSpan">
+                            <!--li class="fullSpan">
                                 <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services APIs</h2>
                                 <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
                                     <li>
@@ -3534,7 +3540,7 @@ featureFlags:
                                         </div>
                                     </li>
                                 </ul>
-                            </li>
+                            </li-->
                         </ul>
                     </li>
                     <li>

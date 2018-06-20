@@ -1,22 +1,15 @@
 ---
 title: Cloud-to-device messages with Azure IoT Hub (iOS) | Microsoft Docs
 description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for iOS. 
-services: iot-hub
-documentationcenter: 
 author: kgremban
 manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-
 ---
+
 # Send cloud-to-device messages with IoT Hub (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 

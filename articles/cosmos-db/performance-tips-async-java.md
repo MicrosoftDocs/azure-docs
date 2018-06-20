@@ -5,14 +5,10 @@ keywords: how to improve database performance
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.devlang: java
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 
@@ -137,7 +133,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     ```
 
 11. **OS Open files Resource Limit**
-    Some Linux systems (like Redhat) have an upper limit on the number of open files and so the total number of connections. Run the following to view the current limits:
+    Some Linux systems (like Red Hat) have an upper limit on the number of open files and so the total number of connections. Run the following to view the current limits:
 
     ```bash
     ulimit -a
@@ -176,7 +172,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     </dependency>
     ```
 
-For other platforms (Redhat, Windows, Mac, etc.,) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
+For other platforms (Red Hat, Windows, Mac, etc.,) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
 
 ## Indexing Policy
  

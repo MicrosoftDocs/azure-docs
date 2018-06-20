@@ -1,24 +1,36 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: yuemlu
+ms.service: storage
+ms.topic: "include"
+ms.date: 06/05/2018
+ms.author: yuemlu
+ms.custom: "include file"
+---
+
 # Cost-effective Standard Storage and unmanaged and managed Azure VM disks
 
-Azure Standard Storage delivers reliable, low-cost disk support for VMs running latency-insensitive workloads. It also supports blobs, tables, queues, and files. With Standard Storage, the data is stored on hard disk drives (HDDs). When working with VMs, you can use standard storage disks for Dev/Test scenarios and less critical workloads, and premium storage disks for mission-critical production applications. Standard Storage is available in all Azure regions. 
+Azure Standard Storage delivers reliable, low-cost disk support for VMs running latency-insensitive workloads. It also supports blobs, tables, queues, and files. With Standard Storage, the data is stored on hard disk drives (HDDs). When working with VMs, you can use standard SSD and HDD disks for Dev/Test scenarios and less critical workloads, and premium SSD disks for mission-critical production applications. Standard Storage is available in all Azure regions. 
 
-This article focuses on the use of standard storage for VM Disks. For more information about the use of storage with blobs, tables, queues, and files, please refer to the [Introduction to Storage](../articles/storage/common/storage-introduction.md).
+This article focuses on the use of standard SSD and HDD disks. For more information about the use of storage with blobs, tables, queues, and files, see [Introduction to Storage](../articles/storage/common/storage-introduction.md).
 
 ## Disk types
 
 There are two ways to create standard disks for Azure VMs:
 
 **Unmanaged disks**: 
-This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 256 TB of storage per VM.
+This type of disk is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 256 TB of storage per VM.
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md):
-This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don't have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
+This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium SSD, Standard SSD, or Standard HDD) and size of disk you need, and Azure creates and manages the disk for you. You don't have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
 
 Even though both types of disks are available, we recommend using Managed Disks to take advantage of their many features.
 
 To get started with Azure Standard Storage, visit [Get started for free](https://azure.microsoft.com/pricing/free-trial/). 
 
-For information on how to create a VM with Managed Disks, please see one of the following articles.
+For information on how to create a VM with Managed Disks, see one of the following articles.
 
 * [Create a VM using Resource Manager and PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 * [Create a Linux VM using the Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
@@ -30,7 +42,9 @@ Storage](../articles/storage/common/storage-introduction.md).
 
 **Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure Files, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-**Standard storage disks:** Standard storage disks can be attached to all Azure VMs including size-series VMs used with Premium Storage such as the DSv2 and GS series. A standard storage disk can only be attached to one VM. However, you can attach one or more of these disks to a VM, up to the maximum disk count defined for that VM size. In the following section on Standard Storage Scalability and Performance Targets, we describe the specifications in more detail. 
+**Standard SSD disks:** Standard SSD disks provide more reliable performance than Standard HDD disks, and are currently available in preview. For more information about region availability of Standard SSD disks, see [region availability of Standard SSD disks (Preview)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+
+**Standard HDD disks:** Standard HDD disks can be attached to all Azure VMs including size-series VMs used with Premium Storage such as the DSv2 and GS series. A Standard HDD disk can only be attached to one VM. However, you can attach one or more of these disks to a VM, up to the maximum disk count defined for that VM size. In the following section on Standard Storage Scalability and Performance Targets, we describe the specifications in more detail.
 
 **Standard page blob**: Standard page blobs are used to hold persistent disks for VMs and can also be accessed directly through REST like other types of Azure Blobs. [Page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) are a collection of 512-byte pages optimized for random read and write operations. 
 
