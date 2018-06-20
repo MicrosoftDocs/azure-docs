@@ -112,7 +112,7 @@ In this section, you will configure blob storage as an input to the Stream Analy
    |---------|---------|---------|
    |Output alias |   BlobOutput   |   Enter a name to identify the job’s output. |
    |Subscription  |  \<Your subscription\>  |  Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription. |
-   |Storage account |  myasastorageaccount |   Choose or enter the name of the storage account. Storage account names are automatically detected if they are created in the same subscription.       |
+   |Storage account |  asaquickstartstorage |   Choose or enter the name of the storage account. Storage account names are automatically detected if they are created in the same subscription.       |
    |Container |   container1  |  Select the existing container that you created in your storage account.   |
    |Path pattern |   output  |  Enter a name to serve as the path within your existing container for the output.   |
 
