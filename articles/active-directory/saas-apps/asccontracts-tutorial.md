@@ -198,7 +198,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the ASC Contracts tile in the Access Panel, you should get automatically signed-on to your ASC Contracts application. For more information about the Access Panel, see. [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+When you click the ASC Contracts tile in the Access Panel, you should get automatically signed-on to your ASC Contracts application. For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
@@ -220,4 +220,3 @@ When you click the ASC Contracts tile in the Access Panel, you should get automa
 [201]: ./media/asccontracts-tutorial/tutorial_general_201.png
 [202]: ./media/asccontracts-tutorial/tutorial_general_202.png
 [203]: ./media/asccontracts-tutorial/tutorial_general_203.png
-
