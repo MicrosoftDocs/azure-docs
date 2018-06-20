@@ -12,7 +12,7 @@ ms.author: twounder
 ms.reviewer: twounder
 ---
 
-# What's new in Azure SQL Data Warehouse?
+# What's new in Azure SQL Data Warehouse? June 2018
 Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced in June 2018. 
 
 ## Features
