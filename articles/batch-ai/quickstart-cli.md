@@ -51,7 +51,7 @@ az batchai workspace create \
     --resource-group myResourceGroup 
 ```
 
-As a basic example, the following [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command creates a single-node GPU cluster named *mycluster* using the NC6 virtual machine size, which contains one NVIDIA Tesla K-80 GPU. This cluster runs a default Ubuntu Server image designed to host container-based applications. This example includes the `--use-auto-storage` option to create and configure a storage account, and mount a file share and storage container in that account on each node. This command adds a user account named *azureuser*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*). 
+As a basic example, the following [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command creates a single-node GPU cluster named *mycluster* using the NC6 virtual machine size, which contains one NVIDIA Tesla K80 GPU. This cluster runs a default Ubuntu Server image designed to host container-based applications. This example includes the `--use-auto-storage` option to create and configure a storage account, and mount a file share and storage container in that account on each node. This command adds a user account named *azureuser*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*). 
 
 ```azurecli-interactive
 az batchai cluster create \
@@ -65,11 +65,7 @@ az batchai cluster create \
     --generate-ssh-keys
 ```
 
-Output:
-
-
-
-The cluster creation command runs quickly, but it takes a few minutes to allocate and start the node. To see the status of the cluster, run the [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) command. 
+The cluster creation command runs quickly, and returns command output showing the cluster settings. It takes a few minutes to allocate and start the node. To see the status of the cluster, run the [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) command. 
 
 ```azurecli-interactive
 az batchai cluster show \
@@ -87,7 +83,7 @@ Name       Resource Group    Workspace    VM Size       State      Idle    Runni
 mycluster  myResourceGroup   myworkspace  STANDARD_NC6  steady        0          0            1          0           0
 
 ```
-Continue the following steps to create a training job while the pool state is changing. The cluster is ready to run a job when the state is `steady` and the node is `idle`.
+Continue the following steps to create a training job while the pool state is changing. The cluster is ready to run the job when the state is `steady` and the node is `idle`.
 
 ## Configure storage for script and output files
 
@@ -101,15 +97,19 @@ export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --worksp
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT --resource-group batchaiautostorage --query [0].value)
 ```
 
-Run the [az storage directory create](/cli/azure/storage/directory#az-storage-directory-create) command to reate a folder named `horovod_samples` in the share:
+Run the [az storage directory create](/cli/azure/storage/directory#az-storage-directory-create) command to reate a folder named `horovod_samples` in the share, and a folder named `logs` for the job output:
 
 ```azurecli-interactive
 az storage directory create \
     --share-name batchaishare \
     --name horovod_samples
+
+az storage directory create \
+    --share-name batchaishare \
+    --name logs
 ```
 
-### Download training script
+### Deploy training script to storage
 
 Create a local working folder, and download the [tensorflow_mnist.py](https://raw.githubusercontent.com/uber/horovod/v0.9.10/examples/tensorflow_mnist.py) sample script into the folder.
 
@@ -117,92 +117,58 @@ Create a local working folder, and download the [tensorflow_mnist.py](https://ra
 wget https://raw.githubusercontent.com/uber/horovod/v0.9.10/examples/tensorflow_mnist.py
 ```
 
-## Download the Training Script and Training Data
+Upload the script to your storage account using the [az storage file upload](/cli/azure/storage/file#az-storage-file-upload) command.
 
-```
+```azurecli-interactive
 az storage file upload \
     --share-name batchaishare \
-    --path helloworld \
-    --source hello-tf.py
+    --path horovod_samples \
+    --source tensorflow_mnist.py
 ```
 
-* Download and extract preprocessed MNIST Database from [this location](https://batchaisamples.blob.core.windows.net/samples/mnist_dataset.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=PmhL%2BYnYAyNTZr1DM2JySvrI12e%2F4wZNIwCtf7TRI%2BM%3D)
-into the current folder.
 
-For GNU/Linux or Cloud Shell:
+## Submit training job
 
-```azurecli
-wget "https://batchaisamples.blob.core.windows.net/samples/mnist_dataset.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=PmhL%2BYnYAyNTZr1DM2JySvrI12e%2F4wZNIwCtf7TRI%2BM%3D" -O mnist_dataset.zip
-unzip mnist_dataset.zip
+An experiment is a logical container for related Batch AI jobs. First, create an experiment in your workspace by using the [az batchai experiment create](/cli/azure/batchai/experiment#az-batchai-experiment-create) command:
+
+
+```azurecli-interactive
+az batchai experiment create \
+    --name myexperiment \
+    --workspace myworkspace \
+    --resource-group myResourceGroup
 ```
 
-Note, you may need to install `unzip` if your GNU/Linux distribution doesn't have it.
+In your working directory, create a training job configuration file `job.json` with the following content. You will use pass this configuration file when you submit the training job. Update with the name of the storage account (value of the $AZURE_STORAGE_ACCOUNT variable).
 
-* Download [ConvNet_MNIST.py](https://raw.githubusercontent.com/Azure/BatchAI/master/recipes/CNTK/CNTK-GPU-Python/ConvNet_MNIST.py) example script into the current folder:
-
-For GNU/Linux or Cloud Shell:
-
-```azurecli
-wget https://raw.githubusercontent.com/Azure/BatchAI/master/recipes/CNTK/CNTK-GPU-Python/ConvNet_MNIST.py
-```
-
-## Create Azure File Share and Deploy the Training Script
-
-The following commands create Azure File Shares `scripts` and `logs` and copies training script into `cntk`
-folder inside of `scripts` share:
-
-```azurecli
-az storage share create -n scripts --account-name <storage account name>
-az storage share create -n logs --account-name <storage account name>
-az storage directory create -n cntk -s scripts --account-name <storage account name>
-az storage file upload -s scripts --source ConvNet_MNIST.py --path cntk --account-name <storage account name> 
-```
-
-## Create a Blob Container and Deploy Training Data
-
-The following commands create Azure Blob Container `data` and copies training data into `mnist_cntk` folder:
-```azurecli
-az storage container create -n data --account-name <storage account name>
-az storage blob upload-batch -s . --pattern '*28x28_cntk*' --destination data --destination-path mnist_cntk --account-name <storage account name>
-```
-
-# Submit Training Job
-
-## Prepare Job Configuration File
-
-Create a training job configuration file `job.json` with the following content:
 ```json
 {
-    "$schema": "https://raw.githubusercontent.com/Azure/BatchAI/master/schemas/2018-03-01/cntk.json",
+    "$schema": "https://raw.githubusercontent.com/Azure/BatchAI/master/schemas/2018-05-01/job.json",
     "properties": {
         "nodeCount": 1,
-        "cntkSettings": {
-            "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/cntk/ConvNet_MNIST.py",
-            "commandLineArgs": "$AZ_BATCHAI_JOB_MOUNT_ROOT/data/mnist_cntk $AZ_BATCHAI_OUTPUT_MODEL"
+        "horovodSettings": {
+            "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/horovod_samples/tensorflow_mnist.py"
         },
         "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
-        "outputDirectories": [{
-            "id": "MODEL",
-            "pathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs"
-        }],
         "mountVolumes": {
             "azureFileShares": [
                 {
-                    "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/logs",
+                    "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/",
                     "relativeMountPath": "logs"
                 },
                 {
                     "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/scripts",
                     "relativeMountPath": "scripts"
                 }
-            ],
-            "azureBlobFileSystems": [
-                {
-                    "accountName": "<AZURE_BATCHAI_STORAGE_ACCOUNT>",
-                    "containerName": "data",
-                    "relativeMountPath": "data"
-                }
             ]
+        },
+        "jobPreparation": {
+          "commandLine": "apt update; apt install mpi-default-dev mpi-default-bin -y; pip install horovod"
+        },
+        "containerSettings": {
+            "imageSourceRegistry": {
+                "image": "tensorflow/tensorflow:1.8.0-gpu"
+            }
         }
     }
 }
