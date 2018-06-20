@@ -26,7 +26,7 @@ Interactive Query (also called Hive LLAP, or [Live Long and Process](https://cwi
 An Interactive Query cluster is different from a Hadoop cluster. It contains only the Hive service. 
 
 > [!NOTE]
-> You can access the Hive service in the Interactive Query cluster only via Ambari Hive View, Beeline, and the Microsoft Hive Open Database Connectivity driver (Hive ODBC). You can’t access it via the Hive console, Templeton, the Azure command-line tool (Azure CLI), or Azure PowerShell. 
+> You can access the Hive service in the Interactive Query cluster only via Ambari Hive View, Beeline, and the Microsoft Hive Open Database Connectivity driver (Hive ODBC). You can’t access it via the Hive console, Templeton, the Azure Classic CLI, or Azure PowerShell. 
 > 
 > 
 
