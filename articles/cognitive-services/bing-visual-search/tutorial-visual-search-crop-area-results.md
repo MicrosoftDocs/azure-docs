@@ -15,7 +15,7 @@ The Visual Search SDK includes an option to select an area of an image and find 
 
 The Visual Search SDK quickstarts show basic senarios using Visual Search.  Refer to the C# quickstarts for setup instructions that reference the Visual Search Nuget package needed for this example. 
 
-The following image shows the Microsoft senior leadership team.  Using the Visual Search SDK, we upload a crop area of the image and find other images and Web pages that include a person or other entity shown in the selected area of the original image.
+The following image shows the Microsoft senior leadership team.  Using the Visual Search SDK, we upload a crop area of the image and find other images and Web pages that include a person as the entity shown in the selected area of the original image.
 
 ![Microsoft Senior Leadership Team](./media/MS_SrLeaders.jpg)
 
