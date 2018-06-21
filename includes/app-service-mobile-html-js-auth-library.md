@@ -21,7 +21,7 @@ The valid values for the provider are 'aad', 'facebook', 'google', 'microsoftacc
 > use a [client-flow method](#client-auth).
 
 In this case, Azure App Service manages the OAuth 2.0 authentication flow.  It displays the sign-in page of the selected
-provider and generates an App Service authentication token after successful sign in with the identity provider. The login
+provider and generates an App Service authentication token after successful sign-in with the identity provider. The login
 function, when complete, returns a JSON object that exposes both the user ID and App Service authentication token
 in the userId and authenticationToken fields, respectively. This token can be cached and reused until it expires.
 
