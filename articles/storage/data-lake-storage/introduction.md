@@ -19,9 +19,9 @@ ms.component: data-lake-storage-gen2
 
 # Introduction to Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 is Microsoft's hyperscale storage service designed for big data analytics workloads. This is the storage service that underpins all first and third party analytics engines on Azure.
+Azure Data Lake Storage Gen2 Preview is Microsoft's hyperscale storage service designed for big data analytics workloads. This is the storage service that underpins all first and third party analytics engines on Azure.
 
-Azure Data Lake Storage allows you to interface with your data using both file system and object storage paradigms. This makes Azure Data Lake Storage the only cloud-based multi-modal storage service, allowing you to extract analytics value from all of your data.
+Azure Data Lake Storage Preview allows you to interface with your data using both file system and object storage paradigms. This makes Azure Data Lake Storage the only cloud-based multi-modal storage service, allowing you to extract analytics value from all of your data.
 
 Azure Data Lake Storage Gen2 features all qualities that are required for the full lifecycle of analytics data. This results from converging the capabilities of our two existing storage services. Features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), such as file system semantics, file-level security and scale are combined with regional availability, low-cost, tiered storage, high availability/disaster recovery capabilities and a large SDK/tooling ecosystem from [Azure Blob Storage](../blobs/storage-blobs-introduction.md). In Azure Data Lake Storage, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
 

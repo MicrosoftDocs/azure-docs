@@ -26,11 +26,11 @@
     #href: example.md
 - name: Concepts
   items:
-  - name: Hadoop ABFS Driver
+  - name: The Azure Blob FileSystem driver for Hadoop
     href: abfs-driver.md
   - name: Introduction to the Azure Blob File System URI
     href: introduction-abfs-uri.md
-  - name: Hierarchical Namespace
+  - name: The Hierarchical Namespace Service
     href: namespace.md
   - name: Security
     items:
@@ -52,9 +52,9 @@
     href: use-hdi-cluster.md
   - name: ingest data
     items: 
-      - name: How to copy data into Data Lake Storage using Distcp
+      - name: Copy data into Data Lake Storage using Distcp
         href: use-distcp.md
-      - name: How to copy data into Data Lake Storage using Azure Data Factory
+      - name: Copy data into Data Lake Storage using Azure Data Factory
         href: ../../data-factory/load-azure-data-lake-storage-gen2.md
 - name: Reference
   items:
