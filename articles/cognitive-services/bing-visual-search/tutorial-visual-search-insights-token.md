@@ -19,13 +19,15 @@ A cognitive services API key is required to authenticate SDK calls. Sign up for 
 The ability to run .NET core SDK, .net core 1.1 apps. You can get CORE, Framework, and Runtime from here: https://www.microsoft.com/net/download/.
 
 ##Application dependencies
-To set up a console application using the Bing Web Search SDK, browse to the Manage NuGet Packages option from the Solution Explorer in Visual Studio. Add the Microsoft.Azure.CognitiveServices.Search.VisualSearch and Microsoft.Azure.CognitiveServices.Search.ImageSearchpackage packages.
+To set up a console application using the Bing Web Search SDK, browse to the Manage NuGet Packages option from the Solution Explorer in Visual Studio. Add:
+* Microsoft.Azure.CognitiveServices.Search.VisualSearch
+* Microsoft.Azure.CognitiveServices.Search.ImageSearchpackage packages.
 
 Installing the NuGet Web Search SDK package also installs dependencies, including:
 
-Microsoft.Rest.ClientRuntime
-Microsoft.Rest.ClientRuntime.Azure
-Newtonsoft.Json
+* Microsoft.Rest.ClientRuntime
+* Microsoft.Rest.ClientRuntime.Azure
+* Newtonsoft.Json
 
 ## Get the ImageInsightsToken from Image Search
 This example uses an `ImageInsightsToken` obtained by the following method.  For more information about this call, see [Image Search SDK C# quickstart](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
