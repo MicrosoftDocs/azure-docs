@@ -32,7 +32,7 @@ To open the configuration for Network Performance Monitor, open the [Network Per
 ### Configure network security group rules 
 For the servers in Azure that are used for monitoring via Network Performance Monitor, configure network security group (NSG) rules to allow TCP traffic on the port used by Network Performance Monitor for synthetic transactions. The default port is 8084. This configuration allows the Operations Management Suite agent installed on Azure VMs to communicate with an on-premises monitoring agent. 
 
-For more information about NSG, see [Network security groups](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+For more information about NSGs, see [Network security groups](../virtual-network/manage-network-security-group.md). 
 
 >[!NOTE]
 > Before you continue with this step, install the on-premises server agent and the Azure server agent, and run the EnableRules.ps1 PowerShell script. 
