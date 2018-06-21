@@ -82,7 +82,7 @@ While baseline policies are in preview, they are by default not activated. You n
 
 While managing custom conditional access policies requires an Azure AD Premium license, baseline policies are available in all editions of Azure AD.     
 
-The directory roles that are included in the baseline policy are the most privileged Azure AD roles. Based on feedback, others might be included in the future. 
+The directory roles that are included in the baseline policy are the most privileged Azure AD roles. 
 
 If you have privileged accounts that are used in your scripts, you should replace them with [Managed Service Identity (MSI)](./managed-service-identity/overview.md) or [service principals with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
 
