@@ -13,7 +13,7 @@ ms.author: carlrab
 ---
 # Overview Azure SQL Database resource limits 
 
-This article provides an overview the Azure SQL Database resource limits and provides information regarding what happens when those resource limits are hit or exceeded.
+This article provides an overview of the Azure SQL Database resource limits and provides information regarding what happens when those resource limits are hit or exceeded.
 
 ## What is the maximum number of servers and databases?
 
