@@ -125,7 +125,7 @@ To set up Azure AD single sign-on with SAP Business Object Cloud:
 	![SAP Business Object Cloud Domain and URLs page URLs](./media/sapboc-tutorial/tutorial_sapboc_url.png)
  
 	> [!NOTE] 
-	> The values in these URLs are for demonstration only. Update the values with the actual sign-on URL and identifier URL. To get the sign-on URL, contact the [SAP Business Object Cloud Client support team](https://www.sap.com/product/analytics/cloud-analytics.support.html). You can get the identifier URL by downloading the SAP Business Object Cloud metadata from the admin console. This is explained later in the tutorial. 
+	> The values in these URLs are for demonstration only. Update the values with the actual sign-on URL and identifier URL. To get the sign-on URL, contact the [SAP Business Object Cloud Client support team](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). You can get the identifier URL by downloading the SAP Business Object Cloud metadata from the admin console. This is explained later in the tutorial. 
 
 4. Under **SAML Signing Certificate**, select **Metadata XML**. Then, save the metadata file on your computer.
 
