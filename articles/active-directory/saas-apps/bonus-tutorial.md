@@ -109,7 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	In the **Reply URL** textbox, type a URL using the following pattern: `https://Bonus.ly/saml/<tenant-name>`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Reply URL. Contact [Bonusly support team](https://Bonusly/contact) to get the value.
+	> The value is not real. Update the value with the actual Reply URL. Contact [Bonusly support team](https://bonus.ly/contact) to get the value.
  
 4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value from the certificate.
 
