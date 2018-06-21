@@ -90,7 +90,7 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 **A:** 
 - For hybrid Azure AD Joined devices, make sure to turn off auto registration so that the scheduled task does not register the device again. Next, open command prompt as an administrator and type `dsregcmd.exe /debug /leave`. Alternatively, this command can be run as a script across multiple devices to unjoin in bulk.
 
-- For pure Azure AD Joined devices, make sure you have an offline local administrator account or create one, as you won't be able to sign in with any Azure AD user credentials. Next, go to Settings -> Accounts -> Access Work or School. Select your account and click on "Disconnect". Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to complete the unjoin process.
+- For pure Azure AD Joined devices, make sure you have an offline local administrator account or create one, as you won't be able to sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and click on **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to complete the unjoin process.
 
 ---
 
@@ -145,7 +145,7 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 
 - Federated logins requires your federation server to support a WS-Trust active endpoint. 
 
-- You have enabled Pass through Authentication and the user has a temporary password that needs to be changed on logon 
+- You have enabled Pass through Authentication and the user has a temporary password that needs to be changed on logon.
 
 ---
 
