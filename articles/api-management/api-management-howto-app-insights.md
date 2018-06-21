@@ -26,17 +26,17 @@ This guide walks through every step of such integration and describes strategies
 
 ## Prerequisites
 
-To follow this guide, you need to have an Azure API Management instance. If you do not have one, complete the [tutorial](get-started-create-service-instance.md) first.
+To follow this guide, you need to have an Azure API Management instance. If you don't have one, complete the [tutorial](get-started-create-service-instance.md) first.
 
 ## Create an Azure Application Insights instance
 
-Before you can utilize Azure Application Insights functionality, you first need to create an instance of this service.
+Before you can use Azure Application Insights, you first need to create an instance of the service.
 
-1. Open the **Azure portal** and navigate to **Aplication Insights**.  
+1. Open the **Azure portal** and navigate to **Application Insights**.  
     ![App Insights create](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
 2. Click **+ Add**.  
     ![App Insights create](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
-3. Fill the form. Select **General** as the **Aplication Type**.
+3. Fill the form. Select **General** as the **Application Type**.
 4. Click **Create**.
 
 ## Attach Azure Application Insights logger to Azure API Management service instance
@@ -81,7 +81,7 @@ Azure Application Insights receives:
 
 A failed request is a request, which:
 
-+ failed due to a closed client connection, or
++ failed because of a closed client connection, or
 + triggered an *on-error* section of the API policies, or
 + has a response HTTP status code matching 4xx or 5xx.
 
@@ -90,7 +90,7 @@ A failed request is a request, which:
 > [!WARNING]
 > Logging all events may have serious performance implications, depending on incoming requests rate.
 
-Based on our internal load tests, after enabling this feature, we observed a 40%-50% reduction in throughput when request rate exceeded 1,000 requests per second. Azure Application Insights is designed to use statistical analysis for assessing application performances. It is not intended to be an audit system and is not suited for logging each individual request for high-volume APIs.
+Based on internal load tests, enabling this feature caused a 40%-50% reduction in throughput when request rate exceeded 1,000 requests per second. Azure Application Insights is designed to use statistical analysis for assessing application performances. It is not intended to be an audit system and is not suited for logging each individual request for high-volume APIs.
 
 You can manipulate the number of requests being logged by adjusting the **Sampling** setting (see the steps above). Value 100% means all requests are logged, while 0% reflects no logging at all.
 
