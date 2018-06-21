@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 06/26/2018
 ms.author: tamram
 ---
 
@@ -29,7 +29,7 @@ The following table shows a few sample URLs for blob data located in a storage a
 | Storage account | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Root container | http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob |
-| Web | http://mystorageaccount.<zone\>.web.core.windows.net/$web or http://mystorageaccount.<zone\>.web.core.windows.net/ | http://www.contoso.com/$web or http://www.contoso.com/ |
+| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/$web or http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web or http://www.contoso.com/ or http://www.contoso.com/$web/[indexdoc] or  http://www.contoso.com/[indexdoc] |
 
 > [!NOTE]  
 > All examples for the Blob service endpoint below also apply to the web service endpoint.
@@ -161,4 +161,4 @@ Use the [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azure
 ## Next steps
 * [Map a custom domain to an Azure Content Delivery Network (CDN) endpoint](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
-* [static websites feature (preview)](storage-blob-static-website.md)
+* [Static website hosting in Azure Blob Storage (Preview)](storage-blob-static-website.md)
