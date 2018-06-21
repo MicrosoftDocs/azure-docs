@@ -4,7 +4,7 @@ description: Use a simulated TPM on a Linux VM to test device provisioning for A
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/14/2018
+ms.date: 06/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # Create and provision a simulated TPM Edge device on Linux
 
-Azure IoT Edge devices can be auto-provisioned using the [Device Provisionin Service](../iot-dps/index.yml) just like devices that are not edge enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing. 
+Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing. 
 
 This article shows you how to test auto-provisioning on a simulated Edge device with the following steps: 
 
@@ -98,11 +98,11 @@ Download a pre-built image, and use it to create a new virtual machine. Then, en
 
 10. Run `ifconfig` in the terminal.
 
-11. Copy the value of **inet addr** from the Ethernet connection. This is the public IP address that you use to access the virtual machine for the rest of these instructions. 
+11. Copy the value of **inet addr** from the Ethernet connection. This value is the public IP address that you use to access the virtual machine for the rest of these instructions. 
 
 ## Create a DPS enrollment
 
-Retrieve the provisioning information from your virtual machine, and use that to create an individual enrollment in Device Provisioning Service. When you create the individual enrollment, you add a tag to the device twin which enables you to create [IoT Edge deployments](module-deployment-monitoring.md) that target multiple devices. 
+Retrieve the provisioning information from your virtual machine, and use that to create an individual enrollment in Device Provisioning Service. When you create the individual enrollment, you can declare either a device ID or add tags to the device twin. You can use either of these values to target this device in [IoT Edge deployments](module-deployment-monitoring.md). 
 
 1. Using your preferred method, SSH into your VM using the IP address that you retrieved in the previous section and **edge** as both the username and password.  
 
@@ -125,7 +125,7 @@ Retrieve the provisioning information from your virtual machine, and use that to
    3. Select **Enable** to declare that this virtual machine is an IoT Edge device. 
    4. Choose the linked **IoT Hub** that you want to connect your device to. 
    5. Provide an ID for your device if you'd like. Device IDs are one way to target an individual device for module deployment. 
-   6. Add a tag valie to the **Initial Device Twin State**. You can use tags to target groups of devices for module deployment. For example:
+   6. Add a tag value to the **Initial Device Twin State**. You can use tags to target groups of devices for module deployment. For example:
 
       ```json
       {
@@ -178,7 +178,7 @@ Since this article uses a Linux virtual machine as a simulated IoT Edge device, 
 
 4. Comment out the lines for manual provisioning, and uncomment the lines for DPS provisioning. 
 
-   ![DPS provisioning](./media/how-to-simulate-deps-tpm/config.png)
+   ![DPS provisioning](./media/how-to-simulate-dps-tpm/config.png)
 
 5. Update the **scope_id** field with the value that you copied from Device Provisioning Service, and update the **registration_id** field with the value that you copied from your virtual machine. 
 
