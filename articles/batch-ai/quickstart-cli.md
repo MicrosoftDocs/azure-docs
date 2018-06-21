@@ -23,7 +23,7 @@ ms.author: danlep
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to train a deep learning model with Batch AI. In this example, you set up a single GPU node to train an example [TensorFlow](https://www.tensorflow.org/) model on the MNIST database of handwritten
 digits. 
 
-After completing this quickstart, you will understand the key concepts of using Batch AI to train a deep learning model, and be ready to try training jobs at larger scale with a variety of frameworks.
+After completing this quickstart, you'll understand key concepts of using Batch AI to train a deep learning model, and be ready to try training jobs at larger scale with different frameworks.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +43,7 @@ az group create \
     --location eastus
 ```
 
-# Create a single GPU cluster
+## Create a single GPU cluster
 
 First, use the [az batchai workspace create](/cli/azure/batchai/workspace#az-batchai-workspace-create) command to create a Batch AI *workspace*. You need a workspace to organize your Batch AI clusters and other resources.
 
@@ -53,7 +53,7 @@ az batchai workspace create \
     --resource-group myResourceGroup 
 ```
 
-As a basic example, the following [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command creates a single-node cluster using the NC6 VM size, which contains one NVIDIA Tesla K80 GPU. This cluster runs a default Ubuntu Server image designed to host container-based applications. This example uses a *low-priority* VM, which is offered at a reduced price from surplus VM capacity in Azure. This command adds a user account named *azureuser*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*). 
+As a basic example, the following [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command creates a single-node cluster using the NC6 VM size, which contains one NVIDIA Tesla K80 GPU. This cluster runs a default Ubuntu Server image designed to host container-based applications. This example uses a *low-priority* VM, a lower-priced option from surplus VM capacity in Azure. This command adds a user account named *azureuser*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*). 
 
 ```azurecli-interactive
 az batchai cluster create \
@@ -243,7 +243,7 @@ Validation error: 0.9%
 Test error: 0.8%
 ```
 
-The streaming stops when the job completes 10 *epochs*, or cycles through the training data set of images. In this example, after 10 epochs, the trained performs with a test error of only 0.8%.
+The streaming stops when the job completes 10 *epochs*, or cycles through the training data set of images. In this example, after 10 epochs, the trained model performs with a test error of only 0.8%.
 
 Batch AI creates a unique folder structure in the storage account for each job's output. Use this to locate the job output, even if you later delete the cluster. To find the path to the
 folder in the `logs` share containing job output, use the [az batchai job show](/cli/azure/batchai/job/show#az-batchai-job-show) command and query the `jobOutputDirectoryPathSegment` attribute:
