@@ -25,7 +25,7 @@ To specify that a cluster node should use an Azure Marketplace image, include th
       JetpackPlatform = centos-7
 ```
 
-The `Azure.*` attributes define the marketplace image to be used, and the easiest way to retrieve these is through the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list).
+The `Azure.*` attributes define the marketplace image to be used. The easiest way to retrieve these attributes is through the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list).
 
 As an alternative to a specific version, most publishers support referencing the latest image with a label: `Azure.ImageVersion = latest`.
 
@@ -33,7 +33,9 @@ As an alternative to a specific version, most publishers support referencing the
 
 Custom Images are useful for pre-installed applications in a cluster, or to fulfill business or security requirements.
 
-The `ImageId` attribute is used to specify that a cluster node should use a private custom Azure image. This ID can be found in the Azure portal as the Resource ID for the image, and generally takes the form: `/subscriptions/$SUBSCRIPTION-ID/resourceGroups/$RESOURCEGROUPNAME/providers/Microsoft.Compute/images/$CustomImageName`.
+The `ImageId` attribute is used to specify that a cluster node should use a private custom Azure image. This ID can be found in the Azure portal as the Resource ID for the image, and generally takes the form:
+
+`/subscriptions/$SUBSCRIPTION-ID/resourceGroups/$RESOURCEGROUPNAME/providers/Microsoft.Compute/images/$CustomImageName`
 
 In addition, the `ImageOS` attribute must be set to either `windows` or `linux`:
 
@@ -46,4 +48,6 @@ In addition, the `ImageOS` attribute must be set to either `windows` or `linux`:
       InstallJetpack = true
       JetpackPlatform = centos-7
 ```
+## Create a Custom Image
+
 Custom Azure Images can be created for [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-custom-images) or for [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images).
