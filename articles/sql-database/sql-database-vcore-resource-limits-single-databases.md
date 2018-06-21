@@ -13,8 +13,9 @@ ms.author: carlrab
 ---
 # Azure SQL Database vCore-based purchasing model limits for a single database (preview)
 
-> [!IMPORTANT]
-> For DTU-based purchasing model limits, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md).
+This article provides the detailed resource limits for Azure SQL Database single databases using the vCore-based purchasing model.
+
+For DTU-based purchasing model limits, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md).
 
 ## Single database: Storage sizes and performance levels
 

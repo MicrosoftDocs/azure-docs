@@ -13,18 +13,24 @@ ms.author: carlrab
 ---
 # Overview Azure SQL Database resource limits 
 
+This article provides an overview the Azure SQL Database resource limits and provides information regarding what happens when those resource limits are hit or exceeded.
+
 ## What is the maximum number of servers and databases?
 
 | Maximum | Value |
 | :--- | :--- |
 | Databases per server | 5000 |
-| Number of servers per subscription per region | 20 |
+| Default number of servers per subscription in any region | 20 |
+| Max number of servers per subscription in any region | 200 |
 |||
+
+> [!NOTE]
+> To obtain more server quota than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”.
 
 > [!IMPORTANT]
 > As the number of databases approaches the limit per server, the following can occur:
-> <br> •	Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
-> <br> •	Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
+> -	Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
+> -	Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
 ## What happens when database resource limits are reached?
 

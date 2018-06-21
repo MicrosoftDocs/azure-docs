@@ -39,29 +39,25 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
-| Maximum storage size* | 2 GB | 1 TB | 4 TB  | 
+| Maximum storage size | 2 GB | 1 TB | 4 TB  | 
 | Maximum DTUs | 5 | 3000 | 4000 | |
 ||||||
-
-For details on specific performance levels and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
 
 ## Elastic pool eDTU, storage, and pooled database limits
 
 | | **Basic** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| Maximum storage size per database*  | 2 GB | 1 TB | 1 TB | 
-| Maximum storage size per pool* | 156 GB | 4 TB | 4 TB | 
+| Maximum storage size per database  | 2 GB | 1 TB | 1 TB | 
+| Maximum storage size per pool | 156 GB | 4 TB | 4 TB | 
 | Maximum eDTUs per database | 5 | 3000 | 4000 | 
 | Maximum eDTUs per pool | 1600 | 3000 | 4000 | 
 | Maximum number of databases per pool | 500  | 500 | 100 | 
 ||||||
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. More widespread availability is planned. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-> 
-For details on specific performance levels and storage size choices available for elastic pools, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
-
-
+> More than 1 TB of storage in the Premium tier is currently available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## Next steps
 
+- For details on specific performance levels and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
+- For details on specific performance levels and storage size choices available for elastic pools, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).

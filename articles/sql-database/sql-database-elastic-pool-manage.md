@@ -10,7 +10,7 @@ ms.custom: DBs & servers
 ms.date: 06/20/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.reviewwer: carlrab
+ms.reviewer: carlrab
 ---
 
 # Create and manage elastic pools in Azure SQL Database

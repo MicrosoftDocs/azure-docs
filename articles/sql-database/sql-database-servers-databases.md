@@ -1,6 +1,6 @@
 ---
-title: Azure SQL servers & databases, and their resources | Microsoft Docs
-description: Learn about Azure SQL Database server and database concepts, and their resources.
+title: Azure SQL logical servers and single databases | Microsoft Docs
+description: Learn about Azure SQL Database logical server and single database concepts, and their resources.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -12,7 +12,7 @@ ms.author: carlrab
 
 ---
 
-# Azure SQL Database servers and databases, and their resources
+# Azure SQL Database logical servers and single databases, and their resources
 
 ## What is an Azure SQL logical server?
 
@@ -108,7 +108,7 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Gets one or more databases|
 |[Set-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Sets properties for a database, or moves an existing database into an elastic pool|
 |[Remove-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Removes a database|
-|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Creates a resource group]
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Creates a resource group|
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Creates a  server|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Returns information about servers|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Modifies properties of a server|

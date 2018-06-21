@@ -13,6 +13,8 @@ ms.author: carlrab
 ---
 # Scale elastic pool resources in Azure SQL Database
 
+This article describes how to scale the compute and storage resources available for elastic pools and pooled databases in Azure SQL Database. 
+
 ## vCore-based purchasing model: Change elastic pool storage size
 
 - Storage can be provisioned up to the max size limit: 
@@ -48,3 +50,4 @@ You can increase or decrease the resources available to an elastic pool based on
 
 ## Next steps
 
+For overall resource limits, see [SQL Database vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) and [SQL Database DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).

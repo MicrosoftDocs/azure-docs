@@ -43,18 +43,13 @@ In the vCore-based purchasing model (preview), customers pay for:
 - Number of IOs**
 - Backup storage (RA-GRS)** 
 
-\* In the initial public preview, the Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors
+\* In the initial public preview, the Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors.
 
-\*\* During preview, 7 days of backups and IOs are free
+\*\* During preview, 7 days of backups and IOs are free.
 
 > [!IMPORTANT]
 > Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges, refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
-
-> [!IMPORTANT]
-> Region limitations: 
->
-> The vCore-based purchasing model (preview) is not yet available in Australia Southeast. The preview is not available in the following regions: West Europe, France Central, UK South, and UK West.
-> 
+> **Region limitations:** The vCore-based purchasing model (preview) is not yet available in the following regions: West Europe, France Central, UK South, UK West and Australia Southeast.
 
 ## DTU-based purchasing model
 

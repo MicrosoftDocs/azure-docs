@@ -174,7 +174,7 @@
         href: sql-database-ssms-mfa-authentication-configure.md
     - name: Auditing
       items:
-      - name: Auditing - Servers, pools, and databaes
+      - name: Auditing - Servers, pools, and databases
         href: sql-database-auditing.md
       - name: Auditing - Managed Instance
         href: sql-database-managed-instance-auditing.md

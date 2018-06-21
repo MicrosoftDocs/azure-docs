@@ -11,10 +11,11 @@ ms.date: 06/20/2018
 ms.author: carlrab
 
 ---
-# Azure SQL Database DTU-based purchasing model resource limits for single databases
+# Resource limits for single databases using the DTU-based purchasing model 
 
-> [!IMPORTANT]
-> For DTU-based purchasing model resource limits for elastic pools, see [DTU-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).For vCore-based resource limits, see [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
+This article provides the detailed resource limits for Azure SQL Database elastic pools using the DTU-based purchasing model.
+
+For DTU-based purchasing model resource limits for elastic pools, see [DTU-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For vCore-based resource limits, see [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
 ## Single database: Storage sizes and performance levels
 
@@ -36,7 +37,7 @@ For single databases, the following tables show the resources available for a si
 | :--- |---:| ---:|---:|---:|---:|
 | Max DTUs | 10 | 20 | 50 | 100 |
 | Included storage (GB) | 250 | 250 | 250 | 250 |
-| Max storage choices (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
+| Max storage choices (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |
 | Max concurrent workers (requests)| 60 | 90 | 120 | 200 |
 | Max concurrent sessions |600 | 900 | 1200 | 2400 |
@@ -47,7 +48,7 @@ For single databases, the following tables show the resources available for a si
 | :--- |---:| ---:|---:|---:|---:|---:|
 | Max DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Included storage (GB) | 250 | 250 | 250 | 250 | 250 |
-| Max storage choices (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
+| Max storage choices (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |N/A |
 | Max concurrent workers (requests)| 400 | 800 | 1600 | 3200 |6000 |
 | Max concurrent sessions |4800 | 9600 | 19200 | 30000 |30000 |
@@ -58,7 +59,7 @@ For single databases, the following tables show the resources available for a si
 | :--- |---:|---:|---:|---:|---:|---:|
 | Max DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
 | Included storage (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
-| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
+| Max storage choices (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
 | Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -66,7 +67,7 @@ For single databases, the following tables show the resources available for a si
 
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. More widespread availability is planned. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> More than 1 TB of storage in the Premium tier is currently available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## Single database: Change storage size
 

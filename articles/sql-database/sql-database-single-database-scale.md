@@ -1,6 +1,6 @@
 ---
-title: Scale singles database resources - Azure SQL Database | Microsoft Docs
-description: This page describes scaling resources for single databases in Azure SQL Database.
+title: Scale single database resources - Azure SQL Database | Microsoft Docs
+description: This article describes how to scale the compute and storage resources available for a single database in Azure SQL Database. 
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -13,10 +13,9 @@ ms.author: carlrab
 ---
 # Scale single database resources in Azure SQL Database
 
-> [!IMPORTANT]
-> For resource limits, see [SQL Database vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [SQL Database DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-single-databases.md).
+This article describes how to scale the compute and storage resources available for a single database in Azure SQL Database. 
 
-## vCore-based purchasing model: Change single database storage size
+## vCore-based purchasing model: Change storage size
 
 - Storage can be provisioned up to the max size limit using 1GB increments. The minimum configurable data storage is 5GB 
 - Storage for a single database can be provisioned by increasing or decreasing its max size using the 
@@ -24,7 +23,7 @@ ms.author: carlrab
 - SQL Database automatically allocates 30% of additional storage for the log files and 32GB per vCore for TempDB, but not to exceed 384GB. TempDB is located on an attached SSD in all service tiers.
 - The price of storage for a single database is the sum of data storage and log storage amounts multiplied by the storage unit price of the service tier. The cost of TempDB is included in the vCore price. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## vCore-based purchasing model: Change compute resources (vCores)
+## vCore-based purchasing model: Change compute resources
 
 After initially picking the number of vCores, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](sql-database-single-database-scale.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/azure/sql/db#az_sql_db_update), or the [REST API](/rest/api/sql/databases/update). 
 
@@ -41,13 +40,13 @@ The duration of the entire scale-up process depends on both the size and service
 * When downgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, downgrade its primary databases to the desired performance tier before downgrading the secondary database (general guidance for best performance). When downgrading to a different edition, downgrading the primary database first is required.
 * The new properties for the database are not applied until the changes are complete.
 
-## DTU-based purchasing model: Change single database storage size
+## DTU-based purchasing model: Change storage size
 
 - The DTU price for a single database includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Single database: Storage sizes and performance levels](#single-database-storage-sizes-and-performance-levels).
 - Extra storage for a single database can be provisioned by increasing its max size using the [Azure portal](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/azure/sql/db#az_sql_db_update), or the [REST API](/rest/api/sql/databases/update).
 - The price of extra storage for a single database is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## DTU-based purchasing model: Change single database compute resources (DTUs)
+## DTU-based purchasing model: Change compute resources (DTUs)
 
 After initially picking a service tier, performance level, and storage amount, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/azure/sql/db#az_sql_db_update), or the [REST API](/rest/api/sql/databases/update). 
 
@@ -88,3 +87,4 @@ A maximum size greater than 1 TB for P11 and P15 database is supported in the fo
 
 ## Next steps
 
+For overall resource limits, see [SQL Database vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [SQL Database DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-single-databases.md).

@@ -13,8 +13,9 @@ ms.author: carlrab
 ---
 # Azure SQL Database vCore-based purchasing model limits for elastic pools (preview)
 
-> [!IMPORTANT]
-> For DTU-based purchasing model limits, see [SQL Database DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).
+This article provides the detailed resource limits for Azure SQL Database elastic pools and pooled databases using the vCore-based purchasing model.
+
+For DTU-based purchasing model limits, see [SQL Database DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).
 
 
 ## Elastic pool: Storage sizes and performance levels
