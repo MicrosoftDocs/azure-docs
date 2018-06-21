@@ -34,12 +34,13 @@ To upgrade an **Azure CDN Standard from Verizon** profile, contact [Microsoft Su
 > Once you've upgraded to an **Azure CDN Premium from Verizon** profile, you cannot later convert it back to an **Azure CDN Standard from Verizon** profile.
 > 
 
-**Azure CDN Premium from Verizon** profiles have the following key differences from **Azure CDN Standard from Verizon** profiles:
+## Profile comparison
+An **Azure CDN Premium from Verizon** profile has the following key differences from an **Azure CDN Standard from Verizon** profile:
 - For certain Azure CDN features such as [compression](cdn-improve-performance.md), caching rules, and [geo filtering](cdn-restrict-access-by-country.md), you cannot use the Azure CDN interface, you must use the Verizon portal via the **Manage** button.
-- API: Unlike Standard Verizon, you cannot use the API to control those features that are accessed from the Premium Verizon portal. However, you can use the API to control other features, such as creating/deleting an endpoint, purging/loading cached assets, and enabling/disabling a custom domain.
+- API: Unlike Standard Verizon, you cannot use the API to control those features that are accessed from the Premium Verizon portal. However, you can use the API to control other common features, such as creating/deleting an endpoint, purging/loading cached assets, and enabling/disabling a custom domain.
 - Pricing: Premium Verizon has a different pricing structure for data transfers  than Standard Verizon. For more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
-**Azure CDN Premium from Verizon** profiles have the following additional features:
+An **Azure CDN Premium from Verizon** profile has the following additional features:
 - [Token authentication](cdn-token-auth.md): Allows users to obtain and use a token to fetch secure resources.
 - [Rules engine](cdn-rules-engine.md): Enables you to customize how HTTP requests are handled.
 - Advanced analytics tools:
@@ -47,5 +48,9 @@ To upgrade an **Azure CDN Standard from Verizon** profile, contact [Microsoft Su
    - [Edge performance analytics](cdn-edge-performance.md)
    - [Real-time analytics](cdn-real-time-alerts.md)
 
-For a detailed comparison of Azure CDN features, see [Azure CDN product features](Compare Azure CDN product features).
+
+## Next steps
+For a detailed comparison of Azure CDN product features, see [Azure CDN product features](Compare Azure CDN product features).
+
+To learn more about the rules engine, see [Azure CDN rules engine reference](cdn-rules-engine-reference.md).
 
