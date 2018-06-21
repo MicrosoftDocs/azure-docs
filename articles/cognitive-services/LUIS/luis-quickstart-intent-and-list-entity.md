@@ -25,7 +25,7 @@ In this tutorial, create an app that demonstrates how to get data that matches a
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Purpose of the list entity
 This app takes drink orders such as `1 coke and 1 milk please` and returns the data such as the type of drink. A **list** entity of drinks looks for exact text matches and returns those matches. 
@@ -63,9 +63,9 @@ The list entity matches `h2o` to water, and `pop` to soft drink.
 When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chatbot takes that JSON response and fulfills the request -- in whatever way the app or chatbot is designed to do. 
 
 ## Create a new app
-1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
+1. Log in to the [LUIS](luis-reference-regions.md#luis-website) website. Make sure to log into the [region](luis-reference-regions.md#publishing-regions) where you need the LUIS endpoints published.
 
-2. On the [LUIS][LUIS] website, select **Create new app**.  
+2. On the [LUIS](luis-reference-regions.md#luis-website) website, select **Create new app**.  
 
     ![Create new app](./media/luis-quickstart-intent-and-list-entity/app-list.png)
 
@@ -263,8 +263,3 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [!div class="nextstepaction"]
 > [Learn how to add a regular expression entity](luis-quickstart-intents-regex-entity.md)
 
-Add the **number** [prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity) to extract the number. 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
