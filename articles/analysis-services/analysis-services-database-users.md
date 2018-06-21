@@ -71,7 +71,7 @@ To add roles and users to a deployed model database, you must be connected to th
    |**Process database**|Members can run Process and Process All operations. Cannot modify the model schema and cannot query data.|  
    |**Read**|Members can query data (based on row filters) but cannot modify the model schema.|  
   
-4. Click **Membership**, then enter a user or group in your tenant Azure AD by email address. For security groups, use `<objId>@<tenantId>`.
+4. Click **Membership**, then enter a user or group in your tenant Azure AD by email address.
 
      ![Add user](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
