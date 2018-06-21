@@ -26,7 +26,7 @@ Server administrators must be a valid user or security group in the Azure Active
 ## To add server administrators by using SSMS
 1. Right-click the server > **Properties**.
 2. In **Analysis Server Properties**, click **Security**.
-3. Click **Add**, and then enter the email address for a user or group in your Azure AD.
+3. Click **Add**, and then enter the email address for a user or group in your Azure AD. For security groups, use `<objId>@<tenantId>`.
    
     ![Add server administrators in SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 
