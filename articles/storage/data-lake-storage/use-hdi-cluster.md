@@ -104,7 +104,7 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
 
     $SubscriptionID = "<Your Azure Subscription ID>"
     $ResourceGroupName = "<New Azure Resource Group Name>"
-    $Location = "EAST US 2"
+    $Location = "WEST US 2"
 
     $StorageAccountName = "<New Azure Storage Account Name>"
     $containerName = "<New Azure Blob Container Name>"
