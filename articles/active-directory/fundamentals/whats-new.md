@@ -74,6 +74,8 @@ If any of your apps use Azure AD Activity Log APIs, follow these steps to ensure
 
 During the creation of your Terms of Use (ToU), a new conditional access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
 
+For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-tou).
+
 ---
 
 ### New "custom" conditional access policy template created during Terms of Use (ToU) creation
@@ -83,6 +85,8 @@ During the creation of your Terms of Use (ToU), a new conditional access policy 
 **Product capability:** Governance
 
 During the creation of your Terms of Use (ToU), a new “custom” conditional access policy template is also created. This new policy template lets you create the ToU and then immediately go to the conditional access policy creation blade, without needing to manually navigate through the portal.
+
+For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-tou).
 
 ---
 
@@ -104,7 +108,9 @@ To view the deployment guides, go to the [Identity Deployment Guides](https://ak
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
 
-Microsoft Dynamics 365 is approved for use with Azure AD app-based conditional access. For more info, see [Azure Active Directory conditional access settings reference](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) and [Azure Active Directory app-based conditional access] (https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
+Microsoft Dynamics 365 is approved for use with Azure AD app-based conditional access. 
+
+For more information, see [Azure Active Directory conditional access settings reference](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) and [Azure Active Directory app-based conditional access] (https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
 
 ---
 
