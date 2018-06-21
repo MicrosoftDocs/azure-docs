@@ -109,7 +109,7 @@ ID tokens are signed by using industry-standard asymmetric encryption algorithms
 
 The `alg` claim indicates the algorithm that was used to sign the token. The `kid` claim indicates the public key that was used to sign the token.
 
-At any time, the v2.0 endpoint might sign an ID token by using any one of a specific set of public-private key pairs. The v2.0 endpoint periodically rotates the possible set of keys, so your app should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by the v2.0 endpoint is every 24 hours.
+The v2.0 endpoint signs ID and access tokens by using any one of a specific set of public-private key pairs. The v2.0 endpoint periodically rotates the possible set of keys, so your app should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by the v2.0 endpoint is every 24 hours.
 
 You can acquire the signing key data that you need to validate the signature by using the OpenID Connect metadata document located at:
 

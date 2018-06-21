@@ -3,7 +3,7 @@ title: Azure Single Sign On SAML Protocol | Microsoft Docs
 description: This article describes the Single Sign On SAML protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: CelesteDG
 manager: mtillman
 editor: ''
 
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
+ms.reviewer: hirsin
 ---
 
 # Single Sign-On SAML protocol

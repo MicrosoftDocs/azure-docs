@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: dastrock; smalser
+ms.reviewer: hirsin, dastrock, smalser
 ---
 
 # Debug SAML-based single sign-on to applications in Azure Active Directory

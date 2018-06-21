@@ -17,8 +17,9 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
-
+ms.reviewer: elisol, lenalepa
 ---
+
 # How and why applications are added to Azure AD
 There are two representations of applications in Azure AD: 
 * [Application objects](active-directory-application-objects.md#application-object) - Although there are [exceptions](#notes-and-exceptions), these can be considered the definition of an application.
