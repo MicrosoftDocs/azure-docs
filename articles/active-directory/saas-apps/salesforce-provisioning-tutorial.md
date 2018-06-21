@@ -91,7 +91,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 10. Copy the token, go to your Azure AD window, and paste it into the **Secret Token** field.
 
-11. The **Tenant URL** should be entered if the instance of Salesforce is on the Salesforce Government Cloud. Otherwise, it is optional. Enter the tenant URL using the format of https://your-instance.my.salesforce.com, replacing your-instance with the name of your Salesforce instance.
+11. The **Tenant URL** should be entered if the instance of Salesforce is on the Salesforce Government Cloud. Otherwise, it is optional. Enter the tenant URL using the format of "https://\<your-instance\>.my.salesforce.com," replacing \<your-instance\> with the name of your Salesforce instance.
 
 12. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Salesforce app.
 
