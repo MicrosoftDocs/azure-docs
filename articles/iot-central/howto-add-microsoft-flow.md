@@ -35,8 +35,6 @@ This section shows you how to trigger a mobile notification in the Flow mobile a
 
 1. Sign into Microsoft Flow. This does not need to be the same account as the one that you use in IoT Central. You will land on an overview page showing an IoT Central connector connecting to a custom action.
 
-    ![Flow template overview](media\howto-create-telemetry-rules\image6.png)
-
 1. Click **Continue**. You are taken to the Microsoft Flow designer to build your workflow. The workflow has an IoT Central trigger that has your Application and Rule already filled in.
 
 1. Choose **+ New Step** and **Add an action**. At this point you can add any action you want to your workflow. As an example, let's send a mobile notification. Search for **notification**, and choose **Notifications - Send me a mobile notification**.
@@ -46,7 +44,7 @@ This section shows you how to trigger a mobile notification in the Flow mobile a
     > [!NOTE]
     > Click the "See more" text in the Dynamic content window to get measurement and property values that triggered the rule.
 
-    ![Flow editing action with dyanmic pane open](...)
+    ![Flow editing action with dyanmic pane open](./media/howtoadd-microsoft-flow/flowdynamicpane.png)
 
 1. When you are done editing your action, click **Save**. You will be directed to your workflow's overview page. Here you can see the run history and share it with other colleagues.
 
@@ -67,15 +65,13 @@ This section shows you how to to create a new device in IoT Central at the push 
 
 1. In this trigger, add a text input called **Device name**. Change the the description text to be **Enter the device name of your new device**.
 
-    ![Flow button setup](...)
-
 1. Add a new action. Search for the **Azure IoT Central - Create a device** action.
 
 1. Pick your application, and choose a device template to create a device from in the dropdowns. You will see the action expand to show all the properties and settings of the device.
 
 1. Select the Device Name field. From the dynamic content pane, choose **Device Name**. This value will be passed from the input the user enters through the mobile app, and will be the name of your new device in IoT Central. In this example, the only required field is the device name, indicated by the red asterisk. Another device template may have multiple required fields that need to be filled in to create a new device.
 
-    ![Flow create device action dynamic pane](...)
+    ![Flow create device action dynamic pane](./media/howtoadd-microsoft-flow/flowcreatedevice.png)
 
 1. (Optional) Fill in other fields as you see fit for your creating new devices. For example, choose if the device is simulated or not.
 
@@ -83,7 +79,7 @@ This section shows you how to to create a new device in IoT Central at the push 
 
 1. Try your workflow in the Microsoft Flow mobile app. Go to the **Buttons** tab in the app. You should see your Button -> Create a new device workflow. Enter the name of your new device, and watch it show up in IoT Central!
 
-    ![Flow create device mobile screenshot](...)
+    ![Flow create device mobile screenshot](./media/howtoadd-microsoft-flow/mobilescreenshot.png)
 
 ## Update a device in a workflow
 
@@ -93,32 +89,29 @@ This section shows you how to to update device settings and properties in IoT Ce
 
 1. Search for **Flow button for mobile** as a trigger.
 
-1. In this trigger, add an input like **Fan speed** that corresponds to a setting or property you want to change. Change the description text.
-
-    ![Flow button setup update](...)
+1. In this trigger, add an input like a **Location** text input that corresponds to a setting or property you want to change. Change the description text.
 
 1. Add a new action. Search for the **Azure IoT Central - Update a device** action.
 
 1. Pick your application from the dropdown. Now you will need the Device ID of the existing device you want to update. You can get this from IoT Central in the **Device Explorer**.
 
-    ![IoT Central device explorer device ID](...)
+    ![IoT Central device explorer device ID](./media/howtoadd-microsoft-flow/iotcdeviceid.png)
 
 1. At this point you can update the device name and if it is a simulated device or not. To update any of the device's properties and settings, you must select the device template of the device you want to update in the **Device Template** dropdown. The action tile expands to show all the properties and settings you can update.
 
-1. Select each of the properties and settings you want to update. From the dynamic content pane, choose the corresponding input from the trigger. In this example, the fan speed value is propagated down to update the device's Fan speed setting.
+1. Select each of the properties and settings you want to update. From the dynamic content pane, choose the corresponding input from the trigger. In this example, the Location value is propagated down to update the device's Location property.
 
-    ![Flow update device action dynamic pane](...)
+    ![Flow update device action dynamic pane](./media/howtoadd-microsoft-flow/flowupdatedevice.png)
 
 1. Finally, save your workflow.
 
 1. Try your workflow in the Microsoft Flow mobile app. Go to the **Buttons** tab in the app. You should see your Button -> Update a device workflow. Enter the inputs, and see the device get updated in IoT Central!
 
-    ![Flow update device mobile screenshot](...)
-
 ## Delete a device in a workflow
 
 You can delete a device by its device ID using the **Azure IoT Central - Delete a device** action. Here is an example workflow that deletes a device at the push of a button in the Microsoft Flow mobile app.
 
-    ![Flow delete device workflow](...)
+    ![Flow delete device workflow](./media/howtoadd-microsoft-flow/flowdeletedevice.png)
 
 ## Next steps
+Now that you have learned how to use Microsoft Flow to build workflows, the suggested next step is to [manage devices](howto-manage-devices.md).
