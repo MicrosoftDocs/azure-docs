@@ -88,8 +88,8 @@
       href: how-to-deploy-monitor-cli.md
   - name: Use Edge devices as gateways
     items:
-    - name: Transparent gateway
-      href: how-to-create-transparent-gateway.md
+    - name: Transparent gateway (Linux)
+      href: how-to-create-transparent-gateway-linux.md
     - name: Modbus gateway
       href: deploy-modbus-gateway.md
   - name: Provision an IoT Core device
