@@ -77,7 +77,7 @@ The following command installs a version of hsmlib that implements the IoT Edge 
 ### IoT Edge Security Daemon 
 1. Download and install the IoT Edge Security Daemon. The package installs the daemon as a system service so IoT Edge starts every time your device boots.
    ```cmd
-   wget https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-amd64-14210794/iotedge_0.1.0-14210794_amd64.deb && sudo apt-get install ./iotedge_0.1-14210794_amd64.deb
+   wget https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-amd64-14210794/iotedge_0.1.0-14210794_amd64.deb && sudo apt-get install ./iotedge_0.1.0-14210794_amd64.deb
    ```
 
 2. Open `/etc/iotedge/config.yaml`. It is a protected file so you may need elevated privileges for access.
