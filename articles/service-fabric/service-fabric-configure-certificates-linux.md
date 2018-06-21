@@ -19,12 +19,13 @@ ms.author: v-jamebr
 ---
 # Certificates and security on Linux clusters
 
+This article provides information about configuring X.509 certificates on Linux clusters.
 
 ## Location and format of X.509 certificates on Linux nodes
 
-Service Fabric generally expects X.509 certificates to be present in the */var/lib/sfcerts* directory on Linux cluster nodes. This is true of cluster certificates, client certificates, etc. In some cases, you can specify a location other than the *var/lib/sfcerts* folder for certificates. For example, with Reliable Services built using the Service Fabric Java SDK, you can specify a different location through the package config (Settings.xml) for some application-specific certificates. To learn more, see [Certificates configured in package config](#certificates-configured-in-package-config).
+Service Fabric generally expects X.509 certificates to be present in the */var/lib/sfcerts* directory on Linux cluster nodes. This is true of cluster certificates, client certificates, etc. In some cases, you can specify a location other than the *var/lib/sfcerts* folder for certificates. For example, with Reliable Services built using the Service Fabric Java SDK, you can specify a different location through the configuration package (Settings.xml) for some application-specific certificates. To learn more, see [Certificates referenced in the configuration package (Settings.xml)](#certificates-referenced-in--the-configuration-package-settings-xml).
 
-For Linux clusters, Service Fabric expects certificates to be present as either a .pfx file that contains both the certificate and private key or as a .crt file that contains the certificate and a .key file that contains the private key. All files should be in PEM format. 
+For Linux clusters, Service Fabric expects certificates to be present as either a .pem file that contains both the certificate and private key or as a .crt file that contains the certificate and a .key file that contains the private key. All files should be in PEM format. 
 
 If you install your certificate from Azure Key Vault by using either a [Resource Manager template](./service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template) or [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) commands, the certificate is installed in the correct format in the */var/lib/sfcerts* directory on each node. If you install a certificate through another method, you must make sure that the certificate is correctly installed on cluster nodes.
 
@@ -33,9 +34,9 @@ If you install your certificate from Azure Key Vault by using either a [Resource
 Certificates specified in the application manifest, for example, through the [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) or [**EndpointCertificate**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) elements, must be present in the */var/lib/sfcerts* directory. The elements that are used to specify certificates in the application manifest do not take a path attribute, so the certificates must be present in the default directory. These elements do take an optional **X509StoreName** attribute. The default is "My", which points to the */var/lib/sfcerts* directory on Linux nodes. Any other value is undefined on a Linux cluster. We recommend that you omit the **X509StoreName** attribute for apps that run on Linux clusters. 
 
 
-## Certificates referenced in package config (Settings.xml)
+## Certificates referenced in the configuration package (Settings.xml)
 
-For some services, you can configure X.509 certificates in the package config file (by default, Settings.xml). For example, this is the case when you declare certificates used to secure RPC channels for Reliable Services services built with the Service Fabric .NET Core or Java SDKs. There are two ways to reference certificates in the package config. Support varies between the .NET Core and the Java SDKs.
+For some services, you can configure X.509 certificates in the configuration package file (by default, Settings.xml). For example, this is the case when you declare certificates used to secure RPC channels for Reliable Services services built with the Service Fabric .NET Core or Java SDKs. There are two ways to reference certificates in the configuration package. Support varies between the .NET Core and the Java SDKs.
 
 ### Using X509 SecurityCredentialsType
 
