@@ -1,41 +1,24 @@
 ---
-title: 'Azure SQL Database service - DTU | Microsoft Docs'
+title: 'Azure SQL Database service tiers - DTU | Microsoft Docs'
 description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
 
 ---
-# DTU-based purchasing model for Azure SQL Database 
+# Choosing a DTU-based service tier, performance level, and storage resources 
 
-
-[Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model (preview). The following table and chart compare and contrast these two purchasing models.
-
-> [!IMPORTANT]
-> For vCore-based purchasing model (preview), see [vCore-based purchasing model](sql-database-service-tiers-vcore.md)
-
-
-|**Purchasing model**|**Description**|**Best for**|
-|---|---|---|
-|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-what-is-a-dtu.md)?|Best for customers who want simple, pre-configured resource options.| 
-|vCore-based model|This model allows you to independently scale compute and storage resources. It also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
-||||  
-
-![pricing model](./media/sql-database-service-tiers/pricing-model.png)
-
-## DTU-based purchasing model
-
-The Database Throughput Unit (DTU) represents a blended measure of CPU, memory, reads, and writes. The DTU-based purchasing model offers a set of preconfigured bundles of compute resources and included storage to drive different levels of application performance. Customers who prefer the simplicity of a preconfigured bundle and fixed payments each month, may find the DTU-based model more suitable for their needs. In the DTU-based purchasing model, customers can choose between **Basic**, **Standard**, and **Premium** service tiers for both [single databases](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md). Service tiers are differentiated by a range of performance levels with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers provide flexibility of changing performance levels without downtime. Single databases and elastic pools are billed hourly based on service tier and performance level.
+Service tiers are differentiated by a range of performance levels with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers provide flexibility of changing performance levels without downtime. Single databases and elastic pools are billed hourly based on service tier and performance level.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance, currently in public preview does not support a DTU-based purchasing model. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
 
-## Choosing a service tier in the DTU-based purchasing model
+## Choosing a DTU-based service tier
 
 Choosing a service tier depends primarily on business continuity, storage, and performance requirements.
 ||Basic|Standard|Premium|
@@ -50,41 +33,31 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |In-memory OLTP|N/A|N/A|Supported|
 |||||
 
-## Performance level and storage size limits in the DTU-based purchasing model
+## Single database DTU and storage limits
 
 Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-what-is-a-dtu.md)?
 
-### Single databases
-
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
-| Maximum storage size* | 2 GB | 1 TB | 4 TB  | 
+| Maximum storage size | 2 GB | 1 TB | 4 TB  | 
 | Maximum DTUs | 5 | 3000 | 4000 | |
 ||||||
 
-For details on specific performance levels and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels).
-
-### Elastic pools
+## Elastic pool eDTU, storage, and pooled database limits
 
 | | **Basic** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| Maximum storage size per database*  | 2 GB | 1 TB | 1 TB | 
-| Maximum storage size per pool* | 156 GB | 4 TB | 4 TB | 
+| Maximum storage size per database  | 2 GB | 1 TB | 1 TB | 
+| Maximum storage size per pool | 156 GB | 4 TB | 4 TB | 
 | Maximum eDTUs per database | 5 | 3000 | 4000 | 
 | Maximum eDTUs per pool | 1600 | 3000 | 4000 | 
 | Maximum number of databases per pool | 500  | 500 | 100 | 
 ||||||
 
 > [!IMPORTANT]
-> - Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
-> - More than 1 TB of storage in the Premium tier is available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. More widespread availability is planned. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-> 
-For details on specific performance levels and storage size choices available for elastic pools, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
-
-
+> More than 1 TB of storage in the Premium tier is currently available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## Next steps
 
-- For details on specific performance levels and storage size choices available, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md) and [SQL Database vCore-based resource limits](sql-database-vcore-resource-limits.md).
-- See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
-- Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+- For details on specific performance levels and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
+- For details on specific performance levels and storage size choices available for elastic pools, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
