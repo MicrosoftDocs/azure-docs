@@ -103,5 +103,5 @@ The preceding example shows how to debug .NET Core IoT Edge modules on container
 
 ## Next steps
 
-[Use Visual Studio Code to debug Azure Functions with Azure IoT Edge](how-to-develop-csharp-function.md)
+Once you have your module built, learn how to [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md)
 
