@@ -1,5 +1,6 @@
 ---
-title: LUIS Prebuilt deprecated entities reference | Microsoft Docs
+title: LUIS Prebuilt deprecated entities reference - Azure| Microsoft Docs
+titleSuffix: Azure
 description: This article contains deprecated prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: v-geberr
@@ -7,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/20/2018
 ms.author: v-geberr
 ---
 
@@ -18,12 +19,10 @@ The following prebuilt entities are deprecated and can't be added to new LUIS ap
 * **Geography**: Existing LUIS apps that use **builtin.geography** is supported until December 2018.
 * **Encyclopedia**: Existing LUIS apps that use **builtin.encyclopedia** is supported until December 2018.
 
-## builtin.geography
+## builtin.geography culture
+**builtin.geography** is available only in the `en-us` locale.
 
-> [!NOTE]
-> **builtin.geography** is available only in the en-us locale.
-
-#### The builtin.geography built-in entity type has three subtypes:
+#### 3 builtin.geography subtypes
 
 Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
@@ -34,12 +33,11 @@ Prebuilt entity   |   Example utterance   |   JSON
 ```builtin.geography.pointOfInterest```   |   ```amazon river``` |```{ "type": "builtin.geography.pointOfInterest", "entity": "amazon river" }```|
 ```builtin.geography.pointOfInterest```   |   ```sahara desert```|```{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }```|
 
-## builtin.encyclopedia
+## builtin.encyclopedia culture
+**builtin.encyclopedia** is available only in the `en-US` locale.
 
-> [!NOTE]
-> **builtin.encyclopedia** is available only in the ```en-US``` locale.
-
-#### The builtin.encyclopedia built-in entity includes over 100 sub-types in the following table: In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
+#### builtin.encyclopedia subtypes
+builtin.encyclopedia built-in entity includes over 100 sub-types in the following table: In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
 
 ```JSON
 {
@@ -157,5 +155,7 @@ Prebuilt entity   |   Prebuilt entity (sub-types)   |   Example utterance
 ```builtin.encyclopedia.finance.stock_exchange  ```| ``` builtin.encyclopedia.finance.stock_exchange  ```| ``` tokyo stock exchange  ```|
 ```builtin.encyclopedia.film.festival  ```| ``` builtin.encyclopedia.film.festival  ```| ``` berlin international film festival  ```|
 
+## Next steps
 
+Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number.md). 
 

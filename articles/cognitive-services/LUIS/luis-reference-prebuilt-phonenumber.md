@@ -1,5 +1,6 @@
 ---
-title: LUIS Prebuilt entities phone number reference | Microsoft Docs
+title: LUIS Prebuilt entities phone number reference - Azure | Microsoft Docs
+titleSuffix: Azure
 description: This article contains phone number prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: v-geberr
@@ -7,13 +8,17 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/20/2018
 ms.author: v-geberr
 ---
 
 # Phonenumber entity
-Phonenumber entity is supported in `en-us` culture only. 
+Phonenumber extracts a variety of phone numbers including country code. Because this entity is already trained, you do not need to add example utterances containing phonenumber to the application. Phonenumber entity is supported in `en-us` culture only. 
 
+## Types of phonenumber
+Phonenumber is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) Github repository
+
+## Resolution for prebuilt phonenumber entity
 The following example shows the resolution of the **builtin.phonenumber** entity.
 
 ```JSON
@@ -42,3 +47,8 @@ The following example shows the resolution of the **builtin.phonenumber** entity
   ]
 }
 ```
+
+
+## Next steps
+
+Learn about the [percentage](luis-reference-prebuilt-percentage.md), [number](luis-reference-prebuilt-number.md), and [temperature](luis-reference-prebuilt-temperature.md) entities. 

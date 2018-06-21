@@ -1,5 +1,6 @@
 ---
-title: LUIS Prebuilt entities dimension reference | Microsoft Docs
+title: LUIS Prebuilt entities dimension reference - Azure | Microsoft Docs
+titleSuffix: Azure
 description: This article contains dimension prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: v-geberr
@@ -7,13 +8,19 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/20/2018
 ms.author: v-geberr
 ---
 
 # Dimension entity
-Dimension entity is supported in many cultures. 
+The prebuilt dimension entity detects various types of dimensions, regardless of the LUIS app culture. Because this entity is already trained, you do not need to add example utterances containing dimensions to the application intents. Dimension entity is supported in many cultures. 
 
+## Types of dimension
+
+Dimension is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) Github repository
+
+
+## Resolution for dimension entity
 The following example shows the resolution of the **builtin.dimension** entity.
 
 ```JSON
@@ -43,3 +50,7 @@ The following example shows the resolution of the **builtin.dimension** entity.
   ]
 }
 ```
+
+## Next steps
+
+Learn about the [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md), and [ordinal](luis-reference-prebuilt-ordinal) entities. 

@@ -246,7 +246,7 @@
     - name: Currency entity
       href: luis-reference-prebuilt-currency.md
     - name: DatetimeV2 entity
-      href: luis-reference-prebuilt-datetimeV2.md
+      href: luis-reference-prebuilt-datetimev2.md
     - name: Dimension entity
       href: luis-reference-prebuilt-dimension.md
     - name: Deprecated entities

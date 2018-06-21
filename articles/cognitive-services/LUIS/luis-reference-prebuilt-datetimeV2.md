@@ -1,5 +1,6 @@
 ---
-title: LUIS Prebuilt entities datetimeV2 reference | Microsoft Docs
+title: LUIS Prebuilt entities datetimeV2 reference - Azure| Microsoft Docs
+titleSuffix: Azure
 description: This article has datetimeV2 prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: v-geberr
@@ -7,13 +8,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/20/2018
 ms.author: v-geberr
 ---
 
-## Prebuilt datetime entity resolution
+# DatetimeV2 entity
 
-The **builtin.datetimeV2** prebuilt entity extracts date and time values. These values resolve in a standardized format for client programs to consume. When an utterance has a date or time that isn't complete, LUIS includes _both past and future values_ in the endpoint response. 
+The **builtin.datetimeV2** prebuilt entity extracts date and time values. These values resolve in a standardized format for client programs to consume. When an utterance has a date or time that isn't complete, LUIS includes _both past and future values_ in the endpoint response. Because this entity is already trained, you do not need to add example utterances containing datetimeV2 to the application intents. 
+
+## Types of datetimeV2
+DatetimeV2 is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) Github repository
 
 ## Example JSON 
 The following example JSON response has a `builtin.datetimeV2` entity with a subtype of `datetime`. For examples of other types of datetimeV2 entities, see [Subtypes of datetimeV2](#subtypes-of-datetimev2)</a>.
@@ -208,7 +212,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
   ]
 ```
 
-## Deprecated prebuilt `datetime`
+## Deprecated prebuilt datetime
 
 The `builtin.datetime` prebuilt entity is deprecated and replaced by [`builtin.datetimeV2`](#builtindatetimev2). 
 
@@ -218,3 +222,8 @@ To replace `builtin.datetime` with `builtin.datetimeV2` in your LUIS app, comple
 2. Delete the **datetime** prebuilt entity.
 3. Click **Add prebuilt entity**
 4. Select **datetimeV2** and click **Save**.
+
+## Next steps
+
+Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number). 
+
