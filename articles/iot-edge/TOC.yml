@@ -90,7 +90,7 @@
     items:
     - name: Transparent gateway (Linux)
       href: how-to-create-transparent-gateway-linux.md
-    - name: Modbus gateway
+    - name: Modbus protocol gateway
       href: deploy-modbus-gateway.md
   - name: Provision an IoT Core device
     href: how-to-install-iot-core.md
