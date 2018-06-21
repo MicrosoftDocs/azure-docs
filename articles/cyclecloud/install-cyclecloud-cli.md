@@ -17,7 +17,7 @@ Extract the contents of `cyclecloud-cli.zip` to a temporary directory:
     cd /tmp
     unzip /opt/cycle_server/cli/cyclecloud-cli.zip
 
-This will create a sub-directory named `cyclecloud-cli-installer-<VERSION>`. To complete the installation, run the `install.sh` script within the `cyclecloud-cli-installer-<VERSION>` directory:
+This will create a sub-directory named `cyclecloud-cli-installer-<VERSION>`. To complete the installation, run the `install.sh` script within the directory:
 
     cd /tmp/cyclecloud-cli-installer*
     ./install.sh
