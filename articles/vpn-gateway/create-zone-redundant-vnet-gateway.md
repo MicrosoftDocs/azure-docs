@@ -8,7 +8,7 @@ Customer intent: As someone with a basic network background, I want to understan
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 06/21/2018
 ms.author: cherylmc
 
 ---
@@ -204,7 +204,7 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $
 Create the virtual network gateway.
 
 >[!NOTE]
->At this time, you cannot specify the gateway SKU. The SKU will automatically default to ErGw2AZ for ExpressRoute, and VpnGw2AZ for VPN Gateway.
+>At this time, you cannot specify the gateway SKU. The SKU will automatically default to ErGw1AZ for ExpressRoute, and VpnGw1AZ for VPN Gateway.
 >
 
 ### For ExpressRoute
