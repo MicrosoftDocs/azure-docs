@@ -25,7 +25,7 @@ This checklist will help you quickly deploy critical recommended actions to prot
 5. Enable more predictable and complete end-user security with self-help
 
 > [!NOTE]
-> Many of the recommendations in this document apply only to applications, which are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures that the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Single sign-on through Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) is the foundation - on which all these recommendations are based.
+> Many of the recommendations in this document apply only to applications, which are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Single sign-on through Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) is the foundation - on which all these recommendations are based.
 
 ## Before you begin: Protect privileged accounts with MFA
 Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. You first need to protect your privileged accounts. 
@@ -44,7 +44,7 @@ If users in your identity system are using weak passwords and not strengthening 
 Given the frequency of passwords being guessed, phished, stolen with malware, or reused, it's critical to back the password with some form of strong credential – learn more about [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication).
 
 ### Turn off traditional complexity, expiration rules, and start banning commonly attacked passwords instead
-Many organizations use the traditional complexity (for example, special characters) and password expiration rules. Microsoft's research has shown that these policies are harmful, causing users to choose passwords that are easier to guess. 
+Many organizations use the traditional complexity (for example, special characters) and password expiration rules. Microsoft's research has shown these policies are harmful, causing users to choose passwords that are easier to guess. 
 
 Microsoft's recommendations, consistent with [NIST guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), are to:
 1. Require passwords have at least 8 characters. Longer isn't necessarily better, as they cause users to choose predictable passwords, save passwords in files, or write them down. 
@@ -73,7 +73,7 @@ Using [Windows Hello](https://docs.microsoft.com/windows/security/identity-prote
 Given the pervasiveness of password compromise, minimizing the attack surface in your organization is critical. Eliminating use of older, less secure protocols, limiting access entry points, and exercising more significant control of administrative access to resources can help reduce the attack surface area. 
 
 ### Block legacy authentication
-Apps that use their own legacy methods to authenticate with Azure AD and access company data pose another risk for organizations. Examples of apps using legacy authentication are POP3, IMAP4, or SMTP clients. Legacy authentication apps authenticate on behalf of the user and prevent Azure AD from doing advanced security evaluations. The alternative, modern authentication, will reduce your security risk, because it supports multi-factor authentication and conditional access. We recommend the following actions:
+Apps using their own legacy methods to authenticate with Azure AD and access company data, pose another risk for organizations. Examples of apps using legacy authentication are POP3, IMAP4, or SMTP clients. Legacy authentication apps authenticate on behalf of the user and prevent Azure AD from doing advanced security evaluations. The alternative, modern authentication, will reduce your security risk, because it supports multi-factor authentication and conditional access. We recommend the following actions:
 1. [Block legacy authentication if you use AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. [Setup SharePoint Online and Exchange Online to use modern authentication](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication). 
 3. Use [conditional access policies to block legacy authentication](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication). 
@@ -84,16 +84,16 @@ Using the assume breach mentality, you should reduce the impact of compromised u
 Pay particular attention to service accounts (accounts used to do tasks in an automated fashion). Using Conditional Access, you can make sure such accounts can only run against the service, from the IP, and at the time of day, which is appropriate.
 
 ### Implement Azure AD Privileged Identity Management
-Another impact of "assume breach" is the need to minimize the likelihood that a compromised account can operate with a privileged role. 
+Another impact of "assume breach" is the need to minimize the likelihood a compromised account can operate with a privileged role. 
 
 [Azure AD Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) helps you minimized account privileges by helping you:
 
-* Identify and manage users that are assigned administrative roles.
-* Understand unused or excessive privilege roles that you should remove.
+* Identify and manage users assigned to administrative roles.
+* Understand unused or excessive privilege roles you should remove.
 * Establish rules to make sure privileged roles are protected by multi-factor authentication.
-* Establish rules to make sure that privileged roles are granted only long enough to accomplish the privileged task.
+* Establish rules to make sure privileged roles are granted only long enough to accomplish the privileged task.
 
-Enable Azure AD PIM, then view the users who are assigned administrative roles and remove unnecessary accounts in those roles. For remaining privileged users, move them from permanent to eligible. Finally, establish appropriate policies to make sure that when they need to gain access to those privileged roles, they can do so securely. 
+Enable Azure AD PIM, then view the users who are assigned administrative roles and remove unnecessary accounts in those roles. For remaining privileged users, move them from permanent to eligible. Finally, establish appropriate policies to make sure when they need to gain access to those privileged roles, they can do so securely. 
 
 As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](https://docs.microsoft.com/azure/active-directory/admin-roles-best-practices) to make sure you have access to Azure AD if you lock yourself out. 
 
@@ -101,12 +101,12 @@ As part of deploying your privileged account process, follow the [best practice 
 Azure Active Directory has many capabilities that automatically intercept attacks, to remove the latency between detection and response. You can reduce the costs and risks, when you reduce the time criminals use to embed themselves into your environment. Here are the concrete steps you can take.
 
 ### Implement user risk security policy using Azure AD Identity Protection
-User risk indicates the likelihood that a user's identity has been compromised and is calculated based on the [user risk events](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) that are associated with a user's identity. A user risk policy is a conditional access policy that evaluates the risk level to a specific user or group. Based on Low, Medium, High risk-level, a policy can be configured to block access or require a secure password change using multi-factor authentication. Microsoft's recommendation is to require a secure password change for users on high risk. 
+User risk indicates the likelihood a user's identity has been compromised and is calculated based on the [user risk events](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) that are associated with a user's identity. A user risk policy is a conditional access policy that evaluates the risk level to a specific user or group. Based on Low, Medium, High risk-level, a policy can be configured to block access or require a secure password change using multi-factor authentication. Microsoft's recommendation is to require a secure password change for users on high risk. 
 
 ![Users flagged for risk](media/azure-ad/azure-ad-sec-steps1.png)
 
 ### Implement sign-in risk policy using Azure AD Identity Protection
-Sign-in risk is the likelihood that someone other than the account owner is attempting to sign on using the identity. A [sign-in risk policy](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a conditional access policy that evaluates the risk level to a specific user or group. Based on the risk level (high/medium/low), a policy can be configured to block access or force multi-factor authentication. Make sure you force multi-factor authentication on Medium or above risk sign-ins. 
+Sign-in risk is the likelihood someone other than the account owner is attempting to sign on using the identity. A [sign-in risk policy](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a conditional access policy that evaluates the risk level to a specific user or group. Based on the risk level (high/medium/low), a policy can be configured to block access or force multi-factor authentication. Make sure you force multi-factor authentication on Medium or above risk sign-ins. 
 
 ![Sign in from anonymous IPs](media/azure-ad/azure-ad-sec-steps2.png)
 
@@ -122,7 +122,7 @@ Microsoft Azure services and features provide you with configurable security aud
 ![Azure AD Connect Health](media/azure-ad/azure-ad-sec-steps4.png)
 
 ### Monitor Azure AD Identity Protection events.
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a notification, monitoring and reporting tool that you can use to detect potential vulnerabilities affecting your organization's identities. It detects risk events such as leaked credentials, impossible travel, and sign-ins from infected devices, anonymous IP addresses, IP addresses associated with the suspicious activity, and unknown locations. Enable notification alerts to receive email of users at risk and/or a weekly digest email.
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a notification, monitoring and reporting tool you can use to detect potential vulnerabilities affecting your organization's identities. It detects risk events, such as leaked credentials, impossible travel, and sign-ins from infected devices, anonymous IP addresses, IP addresses associated with the suspicious activity, and unknown locations. Enable notification alerts to receive email of users at risk and/or a weekly digest email.
 
 ![Users flagged for risk](media/azure-ad/azure-ad-sec-steps3.png)
 
