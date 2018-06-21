@@ -8,7 +8,7 @@ metadata:
   services: network-watcher
   author: jdial
   manager: jeconnoc
-  ms.service: virtual-network
+  ms.service: network-watcher
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
