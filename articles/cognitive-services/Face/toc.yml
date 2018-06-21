@@ -56,9 +56,9 @@
     - name: Go.js
       href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
     - name: Node.js
-      href: https://docs.microsoft.com/en-us/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
     - name: Python
-      href: https://docs.microsoft.com/en-us/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
     - name: Windows
       href: https://github.com/Microsoft/Cognitive-Face-Windows
     - name: Android
