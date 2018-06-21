@@ -123,7 +123,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 This metadata document is a JSON object that has several useful pieces of information, such as the location of the various endpoints required for OpenID Connect authentication. The document also includes a *jwks_uri*, which gives the location of the set of public keys used to sign tokens. The JSON document located at the jwks_uri has all the public key information that is currently in use. Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a token. It then performs signature validation by using the correct public key and the indicated algorithm.
 
 > [!NOTE]
-> The `x5t` claim is deprecated in the v2.0 endpoint. v.20 only responds to the `kid` claim so we recommend using this claim to validate your token.
+> The `x5t` claim is deprecated in the v2.0 endpoint. We recommend using the `kid` claim to validate your token.
 
 Performing signature validation is outside the scope of this document. Many open-source libraries are available to help you with this.
 
