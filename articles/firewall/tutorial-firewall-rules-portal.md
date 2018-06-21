@@ -7,21 +7,32 @@ manager: jpconnock
 
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 6/1/2018
+ms.date: 6/21/2018
 ms.author: victorh
 ms.custom: mvc
-#Customer intent: As an administrator I want xxx so that xxx.
+#Customer intent: As an administrator, I want configure firewall rules so that I can control outbound access from resources located in a subnet.
 ---
 # Tutorial: Configure Azure Firewall application and network rules using the Azure portal
 
-Intro
+Azure Firewall has two rule types to control outbound access:
+
+- **Application rules**
+
+   Allows you to configure fully qualified domain names (FQDNs) that can be accessed from a subnet. For example, you could allow access to **.console.aws.amazon.com* from your subnet.
+- **Network rules**
+
+   Allows you to configure rules containing source address, protocol, destination port, and destination address. For example, you could create a rule to allow traffic to port 53 (DNS) to the IP address of your DNS server from your subnet.
+
+After you configure the rules, you route your network traffic from your subnet to the firewall (as a default gateway) where the network traffic is then subjected to the configured firewall rules.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up the network environment
+> * Set up a test network environment
 > * Create a firewall
-> * Configure application and network firewall rules
+> * Create a default route
+> * Configure application rules
+> * Configure network rules
 > * Test the firewall
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -103,7 +114,7 @@ Review the summary, and then click **Create**. This will take a few minutes to c
 
 Repeate this process to create another virtual machine named **Srv-Work**.
 
-Use the information in the following table to confgure the **Settings** for the SRV-Work virtual machine. The rest of the configuration is the same as the Srv-Jump virtual machine.
+Use the information in the following table to confgure the **Settings** for the Srv-Work virtual machine. The rest of the configuration is the same as the Srv-Jump virtual machine.
 
 
 |Setting  |Value  |
@@ -113,9 +124,11 @@ Use the information in the following table to confgure the **Settings** for the 
 |**Select public inbound ports**|**No public inbound ports**|
 
 
-## Create firewall
+## Create the firewall
 
 Placeholder
+
+Remember to note the public IP for the firewall.
 
 ## Create a default route
 
@@ -137,7 +150,7 @@ For the **Workload-SN** subnet, the outbound traffic default route will go throu
 14. For **Route name**, type **FW-DG**.
 15. For **Address prefix**, type **0.0.0.0/0**.
 16. For **Next hop type**, select **Virtual appliance**.
-17. For **Next hop address**, type the publiv IP address for the firewall thay you noted previously.
+17. For **Next hop address**, type the public IP address for the firewall thay you noted previously.
 18. Click **OK**.
 
 
@@ -155,11 +168,8 @@ Test
 
 ## Clean up resources
 
-When no longer needed, remove the resource group, firewall, and all related resources using [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+When no longer needed, delete the **Test-FW-RG** resource group to delete all firewall related resources.
 
-```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroupFW
-```
 
 ## Next steps
 
@@ -171,7 +181,7 @@ In this tutorial, you learned how to:
 > * Configure application and network firewall rules
 > * Test the firewall
 
-Next, you can monitor the access logs, performance logs, and metrics.
+Next, you can monitor the access and firewall logs.
 
 > [!div class="nextstepaction"]
 > [Diagnostics](./diagnostics.md)
