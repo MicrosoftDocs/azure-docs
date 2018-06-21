@@ -4,18 +4,19 @@ title: Audit activity reports in the Azure Active Directory portal | Microsoft D
 description: Introduction to the audit activity reports in the Azure Active Directory portal
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 04/19/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -27,7 +28,7 @@ The reporting architecture in Azure AD consists of the following components:
 
 - **Activity** 
     - **Sign-in activities** – Information about the usage of managed applications and user sign-in activities
-    - **Audit logs** - System activity information about users and group management, your managed applications and directory activities.
+    - **Audit logs** - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like users, apps, groups, roles, policies, authentications etc...
 - **Security** 
     - **Risky sign-ins** - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. For more details, see Risky sign-ins.
     - **Users flagged for risk** - A risky user is an indicator for a user account that might have been compromised. For more details, see Users flagged for risk.
@@ -180,7 +181,10 @@ You can filter this view further down to just **groups** or just **users**.
 ![Audit logs](./media/active-directory-reporting-activity-audit-logs/25.png "Audit logs")
 
 
+
 ## Next steps
 
-For an overview of reporting, see the [Azure Active Directory reporting](active-directory-reporting-azure-portal.md).
+- For an overview of reporting, see the [Azure Active Directory reporting](active-directory-reporting-azure-portal.md).
+
+- For a complete list of all audit activities, see [Azure AD audit activity reference](active-directory-reporting-activity-audit-reference.md)
 

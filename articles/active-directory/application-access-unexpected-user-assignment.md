@@ -56,4 +56,4 @@ For a user to access an application, they must first be assigned to it in some w
 10. A user [consents to an application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) themselves by signing in to the application
 
 ## Next steps
-[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Managing Applications with Azure Active Directory](manage-apps/what-is-application-management.md)

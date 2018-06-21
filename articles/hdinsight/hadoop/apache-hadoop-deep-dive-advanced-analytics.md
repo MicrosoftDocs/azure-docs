@@ -8,13 +8,10 @@ manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
 ---

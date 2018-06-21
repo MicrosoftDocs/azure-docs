@@ -8,12 +8,13 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
 
 ---
@@ -102,7 +103,7 @@ The following table illustrates a sample NSG you can configure, to lock down sec
 
 ![Sample NSG to secure LDAPS access over the internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**More information** - [Network security groups](../virtual-network/virtual-networks-nsg.md).
+**More information** - [Network security groups](../virtual-network/security-overview.md).
 
 <br>
 
@@ -110,7 +111,6 @@ The following table illustrates a sample NSG you can configure, to lock down sec
 ## Troubleshooting
 If you have trouble connecting to the managed domain using secure LDAP, perform the following troubleshooting steps:
 * Ensure that the issuer chain of the secure LDAP certificate is trusted on the client. You may choose to add the Root certification authority to the trusted root certificate store on the client to establish the trust.
-* Verify that the secure LDAP certificate is not issued by an intermediate certificate authority that is not trusted by default on a fresh windows machine.
 * Verify that the LDAP client (for example, ldp.exe) connects to the secure LDAP endpoint using a DNS name, not the IP address.
 * Verify the DNS name the LDAP client connects to resolves to the public IP address for secure LDAP on the managed domain.
 * Verify the secure LDAP certificate for your managed domain has the DNS name in the Subject or the Subject Alternative Names attribute.
@@ -126,5 +126,5 @@ If you still have trouble connecting to the managed domain using secure LDAP, [c
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
 * [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
 * [Administer Group Policy on an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
-* [Network security groups](../virtual-network/virtual-networks-nsg.md)
+* [Network security groups](../virtual-network/security-overview.md)
 * [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

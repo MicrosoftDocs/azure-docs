@@ -1,21 +1,21 @@
 ---
-title: Create SQL Server Windows VM in the Azure portal | Microsoft Docs
+title: Create a SQL Server Windows VM in the portal | Microsoft Docs
 description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 05/11/2018
 ms.author: jroth
 ---
 
-# Create a SQL Server 2017 Windows virtual machine in the Azure portal
+# Quickstart: Create a SQL Server 2017 Windows virtual machine in the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -23,13 +23,21 @@ ms.author: jroth
 
 This quickstart steps through creating a SQL Server virtual machine in the Azure portal.
 
+> [!TIP]
+> This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for Windows SQL Server VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
+
+> [!TIP]
+> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+
+## <a id="subscription"></a> Get an Azure subscription
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## <a id="select"></a> Select a SQL Server VM image
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your account.
 
-1. On the Azure portal, click **New**. The portal opens the **New** window.
+1. On the Azure portal, click **Create a resource**. 
 
 1. In the search field, type **SQL Server 2017 Developer on Windows Server 2016**, and press ENTER.
 
@@ -60,11 +68,9 @@ On the **Basics** window, provide the following information:
 
 ## Choose virtual machine size
 
-On the **Size** step, choose a virtual machine size in the **Choose a size** window. The window initially displays recommended machine sizes based on the image you selected. 
+1. On the **Size** step, choose a virtual machine size in the **Choose a size** window.
 
-1. Click **View all** to see all available machine sizes.
-
-1. For this quickstart, select **D2S_V3**. The portal shows the estimated monthly machine cost for continuous use (not including SQL Server licensing costs). Note that the Developer Edition has no extra licensing costs for SQL Server. For more specific pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+   For this quickstart, select **D2S_V3**. The portal shows the estimated monthly machine cost for continuous use (not including SQL Server licensing costs). Note that the Developer Edition has no extra licensing costs for SQL Server. For more specific pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
    > [!TIP]
    > The **D2S_V3** machine size saves money while testing. But for production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
@@ -73,7 +79,14 @@ On the **Size** step, choose a virtual machine size in the **Choose a size** win
 
 ## Configure optional features
 
-On the **Settings** window, click **OK** to select the defaults.
+1. In the **Settings** window, select the **RDP (3389)** port in the **Select public inbound ports** list if you want to remote desktop into the VM.
+
+   ![Inbound ports](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > You can select the **MS SQL (1433)** port to access SQL Server remotely. However, this is not necessary, because the **SQL Server settings** step provides this option as well. If you do select port 1433 at this step, it will be opened irregardless of your selections in the **SQL Server settings** step.
+
+1. Click **OK** to save your changes and continue.
 
 ## SQL Server settings
 

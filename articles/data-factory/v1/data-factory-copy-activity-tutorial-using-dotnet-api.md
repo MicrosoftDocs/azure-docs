@@ -1,11 +1,11 @@
----
+﻿---
 title: 'Tutorial: Create a pipeline with Copy Activity using .NET API | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using .NET API.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: craigg
+
 
 ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 
 robots: noindex
 ---
@@ -56,7 +56,7 @@ Create an Azure Active Directory application, create a service principal for the
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
 	```PowerShell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```
 3. Run the following command to view all the subscriptions for this account.
 

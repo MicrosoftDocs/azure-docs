@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: jonbeck7
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/09/2018
+ ms.author: azcspmt;jonbeck;cynthn
+ ms.custom: include file
+---
+
 Storage optimized VM sizes offer high disk throughput and IO, and are ideal for Big Data, SQL, and NoSQL databases. This article provides information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for each size in this grouping. 
 
 The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). The Ls-series gets the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per vCPU.  
@@ -14,7 +26,7 @@ ACU: 180-240
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40,000 / 1,000     | 8 / 20,000 | 
  
 
-The maximum disk throughput  possible with Ls-series VMs may be limited by the number, size, and striping of any attached disks. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md). 
+The maximum disk throughput possible with Ls-series VMs may be limited by the number, size, and striping of any attached disks. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md). Ls-series VMs are targeted at workloads with high local storage use and typically only use attached disks for initial loading and logging, as caching is ineffective in these cases the Ls-series does not support host caching for attached disks, disks must be attached in uncached mode. 
 
 <sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
 

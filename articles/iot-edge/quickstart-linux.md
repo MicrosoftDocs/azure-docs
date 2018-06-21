@@ -1,17 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Quickstart Azure IoT Edge + Linux | Microsoft Docs 
 description: Try out Azure IoT Edge by running analytics on a simulated edge device
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 01/11/2018
-ms.topic: article
+ms.topic: quickstart
 ms.service: iot-edge
-
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a Linux or Mac device - preview
@@ -26,6 +23,15 @@ This quickstart uses your computer or virtual machine like an Internet of Things
 
 * Python pip, to install the IoT Edge runtime.
    * Linux: `sudo apt-get install python-pip`.
+      
+      > [!Note]
+      > On certain distributions (such as Raspbian), you might also need to upgrade certain pip packages and install additional dependencies:
+      
+        ```
+        sudo pip install --upgrade setuptools pip
+        sudo apt-get install python2.7-dev libffi-dev libssl-dev
+        ```
+        
    * MacOS: `sudo easy_install pip`.
 * Docker, to run the IoT Edge modules
    * [Install Docker for Linux][lnk-docker-ubuntu] and make sure that it's running. 
@@ -69,22 +75,22 @@ Create a device identity for your simulated device so that it can communicate wi
 The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. First, the IoT Edge agent facilitates deployment and monitoring of modules on the IoT Edge device. Second, the IoT Edge hub manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
 On the machine where you'll run the IoT Edge device, download the IoT Edge control script:
-```cmd
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configure the runtime with your IoT Edge device connection string from the previous section:
-```cmd
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```bash
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Start the runtime:
-```cmd
+```bash
 sudo iotedgectl start
 ```
 
 Check Docker to see that the IoT Edge agent is running as a module:
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -100,7 +106,7 @@ In this quickstart, you created a new IoT Edge device and installed the IoT Edge
 
 Open the command prompt on the computer running your simulated device again. Confirm that the module deployed from the cloud is running on your IoT Edge device:
 
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -108,7 +114,7 @@ sudo docker ps
 
 View the messages being sent from the tempSensor module to the cloud:
 
-```cmd
+```bash
 sudo docker logs -f tempSensor
 ```
 
@@ -117,6 +123,12 @@ sudo docker logs -f tempSensor
 You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer]. 
 
 ## Clean up resources
+
+If you want to remove the simulated device that you created, along with the Docker containers that were started for each module, use the following command: 
+
+```bash
+sudo iotedgectl uninstall
+```
 
 When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
 

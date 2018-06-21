@@ -35,7 +35,7 @@ This tutorial shows how to create web apps and App Service plans in an [App Serv
 This tutorial assumes you have created an App Service Environment. If you haven't done that yet, see [Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## Create a web app
-1. In the [Azure Portal](https://portal.azure.com/), click **New > Web + Mobile > Web App**. 
+1. In the [Azure Portal](https://portal.azure.com/), click **Create a resource > Web + Mobile > Web App**. 
    
     ![][1]
 2. Select your subscription.  

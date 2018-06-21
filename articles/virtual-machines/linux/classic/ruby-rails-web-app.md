@@ -35,7 +35,7 @@ To create the VM, you can use the Azure portal or the Azure Command-Line Interfa
 
 ### Azure portal
 1. Sign into the [Azure portal](https://portal.azure.com)
-2. Click **New**, then type "Ubuntu Server 14.04" in the search box. Click the entry returned by the search. For the deployment model, select **Classic**, then click "Create".
+2. Click **Create a resource**, then type "Ubuntu Server 14.04" in the search box. Click the entry returned by the search. For the deployment model, select **Classic**, then click "Create".
 3. In the Basics blade, supply values for the required fields: Name (for the VM), User name, Authentication type and the corresponding credentials, Azure subscription, Resource group, and Location.
 
    ![Create a new Ubuntu Image](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)

@@ -4,7 +4,7 @@ description: Validate XML documents with schemas for Azure Logic Apps and Enterp
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
@@ -23,9 +23,9 @@ Schemas confirm that the XML documents you receive are valid and have the expect
 
 ## Add a schema
 
-1. In the Azure portal, select **More services**.
+1. In the Azure portal, select **All services**.
 
-	![Azure portal, "More services"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+	![Azure portal, "All services"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
 2. In the filter search box, enter **integration**, 
 and select **Integration Accounts** from the results list.

@@ -2,19 +2,16 @@
 title: 'Azure Cosmos DB: Develop with the Table API in .NET | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's Table API using .NET
 services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
 
-ms.assetid: 4b22cb49-8ea2-483d-bc95-1172cd009498
 ms.service: cosmos-db
-ms.workload: 
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/18/2017
-ms.author: arramac
+ms.author: sngun
 ms.custom: mvc
 ---
 # Azure Cosmos DB: Develop with the Table API in .NET
@@ -51,7 +48,7 @@ If you currently use Azure Table storage, you gain the following benefits with A
 - 99.99% availability within a single region, and ability to add more regions for higher availability, and [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) on general availability
 - Work with the existing Azure storage .NET SDK, and no code changes to your application
 
-This tutorial covers Azure Cosmos DB Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://aka.ms/tableapinuget) from NuGet.
+This tutorial covers Azure Cosmos DB Table API using the .NET SDK. You can download the [Azure Cosmos DB Table API .NET SDK](https://aka.ms/tableapinuget) from NuGet.
 
 To learn more about complex Azure Table storage tasks, see:
 

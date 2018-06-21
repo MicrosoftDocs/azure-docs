@@ -134,7 +134,7 @@ To use the updated solution:
 2. Enable the Azure Key Vault solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md)
 3. Update any saved queries, dashboards, or alerts to use the new data type
   + Type is change from: KeyVaults to AzureDiagnostics. You can use the ResourceType to filter to Key Vault Logs.
-  - Instead of: `Type=KeyVaults`, use `Type=AzureDiagnostics ResourceType=VAULTS`
+  - Instead of: `KeyVaults`, use `AzureDiagnostics | where ResourceType'=="VAULTS"`
   + Fields: (Field names are case-sensitive)
   - For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
   - For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names. For example, the UPN of the caller is stored in a field `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`

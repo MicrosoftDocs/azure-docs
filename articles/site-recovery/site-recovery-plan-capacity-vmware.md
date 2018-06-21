@@ -3,10 +3,9 @@ title: Plan capacity and scaling for VMware replication to Azure with Azure Site
 description: Use this article to plan capacity and scale when replicating VMware VMs to Azure with Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: rayne
 ---
 
@@ -81,7 +80,7 @@ After you've used the [the Deployment Planner tool](site-recovery-deployment-pla
 2. In the snap-in, click **Change Properties**.
 
     ![Screenshot of Azure Backup MMC snap-in option to change properties](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. On the **Throttling** tab, select **Enable internet bandwidth usage throttling for backup operations**. Set the limits for work and non-work hours. Valid ranges are from 512 Kbps to 102 Mbps per second.
+3. On the **Throttling** tab, select **Enable internet bandwidth usage throttling for backup operations**. Set the limits for work and non-work hours. Valid ranges are from 512 Kbps to 1023 Mbps per second.
 
     ![Screenshot of Azure Backup Properties dialog box](./media/site-recovery-vmware-to-azure/throttle2.png)
 

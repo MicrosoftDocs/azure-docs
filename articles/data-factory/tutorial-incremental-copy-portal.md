@@ -4,8 +4,8 @@ description: 'In this tutorial, you create an Azure data factory pipeline that c
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -189,7 +189,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 3. In the **General** page of the **Properties** window for the pipeline, enter **IncrementalCopyPipeline** name. 
 
    ![Pipeline name](./media/tutorial-incremental-copy-portal/pipeline-name.png)
-4. Let's add the first lookup activity to get the old watermark value. In the **Activities** toolbox, expand **SQL Database**, and drag-drop the **Lookup** activity to the pipeline designer surface. Change the name of the activity to **LookupOldWaterMarkActivity**.
+4. Let's add the first lookup activity to get the old watermark value. In the **Activities** toolbox, expand **General**, and drag-drop the **Lookup** activity to the pipeline designer surface. Change the name of the activity to **LookupOldWaterMarkActivity**.
 
    ![First lookup activity - name](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Switch to the **Settings** tab, and click **+ New** for **Source Dataset**. In this step, you create a dataset to represent data in the **watermarktable**. This table contains the old watermark that was used in the previous copy operation. 
@@ -221,7 +221,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 11. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. In the properties window for the **Lookup** activity, confirm that **WatermarkDataset** is selected for the **Source Dataset** field. 
 
 	![Pipeline - old watermark dataset](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. In the **Activities** toolbox, expand **SQL Database**, and drag-drop another **Lookup** activity to the pipeline designer surface, and set the name to **LookupNewWaterMarkActivity** in the **General** tab of the properties window. This Lookup activity gets the new watermark value from the table with the source data to be copied to the destination. 
+12. In the **Activities** toolbox, expand **General**, and drag-drop another **Lookup** activity to the pipeline designer surface, and set the name to **LookupNewWaterMarkActivity** in the **General** tab of the properties window. This Lookup activity gets the new watermark value from the table with the source data to be copied to the destination. 
 
     ![Second lookup activity - name](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
 13. In the properties window for the second **Lookup** activity, switch to the **Settings** tab, and click **New**. You create a dataset to point to the source table that contains the new watermark value (maximum value of LastModifyTime). 
@@ -292,10 +292,10 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
         ![Sink Dataset - connection settings](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. Switch to the **pipeline** editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. 
-29. In the **Activities** toolbox, expand **SQL Database**, and drag-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. **Connect** the green (Success) output of the **Copy** activity to the **Stored Procedure** activity. 
+29. In the **Activities** toolbox, expand **General**, and drag-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. **Connect** the green (Success) output of the **Copy** activity to the **Stored Procedure** activity. 
     
     ![Copy activity - source](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
-24. Select **Storage Procedure Activity** in the pipeline designer, change its name to **StoredProceduretoWriteWatermarkActivity**. 
+24. Select **Stored Procedure Activity** in the pipeline designer, change its name to **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Stored Procedure Activity - name](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
 25. Switch to the **SQL Account** tab, and select *AzureSqlDatabaseLinkedService** for **Linked service**. 
@@ -303,26 +303,27 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Switch to the **Stored Procedure** tab, and do the following steps: 
 
-    1. Enter **sp_write_watermark** for **Stored procedure name**. 
-    2. To specify values for the stored procedure parameters, click **+ New** in the **Stored procedure parameters** section, and enter the following values: 
+    1. For **Stored procedure name**, select **sp_write_watermark**. 
+    2. To specify values for the stored procedure parameters, click **Import parameter**, and enter following values for the parameters: 
 
         | Name | Type | Value | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. To validate the pipeline settings, click **Validate** on the toolbar. Confirm that there are no validation errors. To close the **Pipeline Validation Report** window, click >>.   
 
     ![Validate pipeline](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
-28. Publish entities (linked services, datasets, and pipelines) to the Azure Data Factory service by clicking the **Publish** button. Wait until you see a message that the publishing succeeded. 
+28. Publish entities (linked services, datasets, and pipelines) to the Azure Data Factory service by selecting the **Publish All** button. Wait until you see a message that the publishing succeeded. 
 
     ![Publish button](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## Trigger a pipeline run
-Click **Trigger** on the toolbar, and click **Trigger Now**. 
+1. Click **Trigger** on the toolbar, and click **Trigger Now**. 
 
-![Trigger Now button](./media/tutorial-incremental-copy-portal/trigger-now.png)
+    ![Trigger Now button](./media/tutorial-incremental-copy-portal/trigger-now.png)
+2. In the **Pipeline Run** window, select **Finish**. 
 
 ## Monitor the pipeline run
 

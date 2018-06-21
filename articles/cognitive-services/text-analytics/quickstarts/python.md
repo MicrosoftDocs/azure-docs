@@ -2,12 +2,12 @@
 title: Python Quickstart for Azure Cognitive Services, Text Analytics API | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-author: luiscabrer
+author: ashmaka
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
-ms.date: 08/24/2017
-ms.author: luisca
+ms.date: 05/02/2018
+ms.author: ashmaka
 ---
 
 # Quickstart for Text Analytics API with Python 
@@ -31,7 +31,7 @@ To continue with this walkthrough, replace `subscription_key` with a valid subsc
 
 
 ```python
-subscription_key="5d162a1f02724f6daf4489f4220413a4"
+subscription_key = None
 assert subscription_key
 ```
 
@@ -178,27 +178,26 @@ The collection of documents is the same as what was used for sentiment analysis.
 
 
 ```python
-pprint(documents)
-```
-
-    {'documents': [{'id': '1', 'text': 'This is a document written in English.'},
-                   {'id': '2', 'text': 'Este es un document escrito en Español.'},
-                   {'id': '3', 'text': '这是一个用中文写的文件'}]}
-
-
-
-```python
-headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
+documents = {'documents' : [
+  {'id': '1', 'language': 'en', 'text': 'I had a wonderful experience! The rooms were wonderful and the staff was helpful.'},
+  {'id': '2', 'language': 'en', 'text': 'I had a terrible time at the hotel. The staff was rude and the food was awful.'},  
+  {'id': '3', 'language': 'es', 'text': 'Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos.'},  
+  {'id': '4', 'language': 'es', 'text': 'La carretera estaba atascada. Había mucho tráfico el día de ayer.'}
+]}
+headers   = {'Ocp-Apim-Subscription-Key': subscription_key}
 response  = requests.post(key_phrase_api_url, headers=headers, json=documents)
 key_phrases = response.json()
 pprint(key_phrases)
 ```
 
-    {'documents': [{'id': '1', 'keyPhrases': ['document', 'English']},
-                   {'id': '2',
-                    'keyPhrases': ['Este es', 'document escrito en Español']},
-                   {'id': '3', 'keyPhrases': ['这是一个用中文写的文件']}],
-     'errors': []}
+
+    {'documents': [
+        {'keyPhrases': ['wonderful experience', 'staff', 'rooms'], 'id': '1'},
+        {'keyPhrases': ['food', 'terrible time', 'hotel', 'staff'], 'id': '2'},
+        {'keyPhrases': ['Monte Rainier', 'caminos'], 'id': '3'},
+        {'keyPhrases': ['carretera', 'tráfico', 'día'], 'id': '4'}],
+     'errors': []
+    }
 
 
 The JSON object can once again be rendered as an HTML table using the following lines of code:
@@ -213,6 +212,96 @@ for document in key_phrases["documents"]:
     table.append("<tr><td>{0}</td><td>{1}</td>".format(text, phrases))
 HTML("<table><tr><th>Text</th><th>Key phrases</th></tr>{0}</table>".format("\n".join(table)))
 ```
+
+## Identify linked entities
+
+The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
+
+The service endpoint for the entity linking service is accessed via the following URL:
+
+
+```python
+entity_linking_api_url = text_analytics_base_url + "entities"
+print(entity_linking_api_url)
+```
+
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/entities
+
+
+The collection of documents is below:
+
+
+```python
+documents = {'documents' : [
+  {'id': '1', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.'},
+  {'id': '2', 'text': 'The Seattle Seahawks won the Super Bowl in 2014.'}
+]}
+```
+
+Now, the documents can be sent to the Text Analytics API to receive the response.
+
+```python
+headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
+response  = requests.post(entity_linking_api_url, headers=headers, json=documents)
+entities = response.json()
+```
+    {
+        "documents": [
+            {
+                "id": "1",
+                "entities": [
+                    {
+                        "name": "Xbox One",
+                        "matches": [
+                            {
+                                "text": "XBox One",
+                                "offset": 23,
+                                "length": 8
+                            }
+                        ],
+                        "wikipediaLanguage": "en",
+                        "wikipediaId": "Xbox One",
+                        "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
+                        "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    },
+                    {
+                        "name": "Ultra-high-definition television",
+                        "matches": [
+                            {
+                                "text": "4K",
+                                "offset": 63,
+                                "length": 2
+                            }
+                        ],
+                        "wikipediaLanguage": "en",
+                        "wikipediaId": "Ultra-high-definition television",
+                        "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
+                        "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                "entities": [
+                    {
+                        "name": "2013 Seattle Seahawks season",
+                        "matches": [
+                            {
+                                "text": "Seattle Seahawks",
+                                "offset": 4,
+                                "length": 16
+                            }
+                        ],
+                        "wikipediaLanguage": "en",
+                        "wikipediaId": "2013 Seattle Seahawks season",
+                        "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
+                        "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    }
+                ]
+            }
+        ],
+        "errors": []
+    }
 
 ## Next steps
 

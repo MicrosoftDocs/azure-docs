@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
 
 ---
@@ -93,25 +93,53 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 ### Connect to a secure cluster using a client certificate
-Run the following PowerShell command to connect to a secure cluster that uses client certificates to authorize administrator access. Provide the cluster certificate thumbprint and the thumbprint of the client certificate that has been granted permissions for cluster management. The certificate details must match a certificate on the cluster nodes.
+Run the following PowerShell command to connect to a secure cluster that uses client certificates to authorize administrator access. 
+
+#### Connect using certificate common name
+Provide the cluster certificate common name and the common name of the client certificate that has been granted permissions for cluster management. The certificate details must match a certificate on the cluster nodes.
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName <certificate common name>  `
+    -FindType FindBySubjectName `
+    -FindValue <certificate common name> `
+    -StoreLocation CurrentUser `
+    -StoreName My 
+```
+*ServerCommonName* is the common name of the server certificate installed on the cluster nodes. *FindValue* is the common name of the admin client certificate. When the parameters are filled in, the command looks like the following example:
+```powershell
+$ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
+$certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
+
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName $certCN  `
+    -FindType FindBySubjectName `
+    -FindValue $certCN `
+    -StoreLocation CurrentUser `
+    -StoreName My 
+```
+
+#### Connect using certificate thumbprint
+Provide the cluster certificate thumbprint and the thumbprint of the client certificate that has been granted permissions for cluster management. The certificate details must match a certificate on the cluster nodes.
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `  
+          -KeepAliveIntervalInSec 10 `  
+          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `  
+          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `  
           -StoreLocation CurrentUser -StoreName My
 ```
 
-*ServerCertThumbprint* is the thumbprint of the server certificate installed on the cluster nodes. *FindValue* is the thumbprint of the admin client certificate.
-When the parameters are filled in, the command looks like the following example: 
+*ServerCertThumbprint* is the thumbprint of the server certificate installed on the cluster nodes. *FindValue* is the thumbprint of the admin client certificate.  When the parameters are filled in, the command looks like the following example:
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
-          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
-          -StoreLocation CurrentUser -StoreName My
+Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `  
+          -KeepAliveIntervalInSec 10 `  
+          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `  
+          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `  
+          -StoreLocation CurrentUser -StoreName My 
 ```
 
 ### Connect to a secure cluster using Windows Active Directory
@@ -316,7 +344,7 @@ To reach [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) f
 
 The full URL is also available in the cluster essentials pane of the Azure portal.
 
-For connecting to a secure cluster on Windows or OS X using a browser, you can import the client certificate, and the browser will prompt you for the certificate to use for connecting to the cluster.  On Linux machines, the certificate will have to be imported using advanced browser settings (each browser has different mechanisms) and point it to tehe certificate location on disk.
+For connecting to a secure cluster on Windows or OS X using a browser, you can import the client certificate, and the browser will prompt you for the certificate to use for connecting to the cluster.  On Linux machines, the certificate will have to be imported using advanced browser settings (each browser has different mechanisms) and point it to the certificate location on disk.
 
 ### Connect to a secure cluster using Azure Active Directory
 

@@ -1,6 +1,6 @@
 ---
 title: Analyze data usage in Log Analytics | Microsoft Docs
-description: Use the Usage dashboard in Log Analytics to view how much data is being sent to the Log Analytics service and troubleshoot why large amounts of data are being sent.
+description: Use the Usage and estimated cost dashboard in Log Analytics to evaluate how much data is sent to Log Analytics and identify what may cause unforeseen increases.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-
 ---
+
 # Analyze data usage in Log Analytics
-Log Analytics includes information on the amount of data collected, which systems sent the data and the different types of data sent.  Use the **Log Analytics Usage** dashboard to see the amount of data sent to the Log Analytics service. The dashboard shows how much data is collected by each solution and how much data your computers are sending.
+Log Analytics includes information on the amount of data collected, which sources sent the data, and the different types of data sent.  Use the **Log Analytics Usage** dashboard to review and analyze data usage. The dashboard shows how much data is collected by each solution and how much data your computers are sending.
 
 ## Understand the Usage dashboard
 The **Log Analytics usage** dashboard displays the following information:
@@ -32,26 +32,30 @@ The **Log Analytics usage** dashboard displays the following information:
 - Offerings
     - Insight and Analytics nodes
     - Automation and Control nodes
-    - Security nodes
+    - Security nodes  
+- Performance
+    - Time taken to collect and index data  
 - List of queries
 
-![usage dashboard](./media/log-analytics-usage/usage-dashboard01.png)
+![Usage and cost dashboard](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+)
 
 ### To work with usage data
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. In your list of Log Analytics workspaces, select a workspace.
-4. Select **Log Analytics usage** from the list in the left pane.
-5. On the **Log Analytics Usage** dashboard, click **Time: Last 24 hours** to change the time interval.<br><br> ![time interval](./media/log-analytics-usage/time.png)<br><br>
-6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).<br><br> ![example data usage blade](./media/log-analytics-usage/blade.png)<br><br>
-7. On the Log Search dashboard, review the results that are returned from the search.<br><br> ![example usage log search](./media/log-analytics-usage/usage-log-search.png)
+4. Select **Usage and estimated costs** from the list in the left pane.
+5. On the **Usage and estimated costs** dashboard, you can modify the time range by selecting the **Time: Last 24 hours** and change the time interval.<br><br> ![time interval](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
+6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).<br><br> ![example data usage kpi](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+7. On the Log Search dashboard, review the results that are returned from the search.<br><br> ![example usage log search](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## Create an alert when data collection is higher than expected
 This section describes how to create an alert if:
 - Data volume exceeds a specified amount.
 - Data volume is predicted to exceed a specified amount.
 
-Log Analytics [alerts](log-analytics-alerts-creating.md) use search queries. 
+Azure Alerts support [log alerts](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) that use search queries. 
+
 The following query has a result when there is more than 100 GB of data collected in the last 24 hours:
 
 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
@@ -62,27 +66,35 @@ The following query uses a simple formula to predict when more than 100 GB of da
 
 To alert on a different data volume, change the 100 in the queries to the number of GB you want to alert on.
 
-Use the steps described in [create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) to be notified when data collection is higher than expected.
+Use the steps described in [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified when data collection is higher than expected.
 
 When creating the alert for the first query -- when there is more than 100 GB of data in 24 hours, set the:  
-- **Name** to *Data volume greater than 100 GB in 24 hours*  
-- **Severity** to *Warning*  
-- **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
-- **Time window** to *24 Hours*.
-- **Alert frequency** to be one hour since the usage data only updates once per hour.
-- **Generate alert based on** to be *number of results*
-- **Number of results** to be *Greater than 0*
 
-Use the steps described in [add actions to alert rules](log-analytics-alerts-actions.md) configure an e-mail, webhook, or runbook action for the alert rule.
+- **Define alert condition** specify your Log Analytics workspace as the resource target.
+- **Alert criteria** specify the following:
+   - **Signal Name** select **Custom log search**
+   - **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
+   - **Time period** of *1440* minutes and **Alert frequency** to every *60* minutes since the usage data only updates once per hour.
+- **Define alert details** specify the following:
+   - **Name** to *Data volume greater than 100 GB in 24 hours*
+   - **Severity** to *Warning*
+
+Specify an existing or create a new [Action Group](../monitoring-and-diagnostics/monitoring-action-groups.md) so that when the log alert matches criteria, you are notified.
 
 When creating the alert for the second query -- when it is predicted that there will be more than 100 GB of data in 24 hours, set the:
-- **Name** to *Data volume expected to greater than 100 GB in 24 hours*
-- **Severity** to *Warning*
-- **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
-- **Time window** to *3 Hours*.
-- **Alert frequency** to be one hour since the usage data only updates once per hour.
-- **Generate alert based on** to be *number of results*
-- **Number of results** to be *Greater than 0*
+
+- **Define alert condition** specify your Log Analytics workspace as the resource target.
+- **Alert criteria** specify the following:
+   - **Signal Name** select **Custom log search**
+   - **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
+   - **Time period** of *180* minutes and **Alert frequency** to every *60* minutes since the usage data only updates once per hour.
+- **Define alert details** specify the following:
+   - **Name** to *Data volume expected to greater than 100 GB in 24 hours*
+   - **Severity** to *Warning*
+
+Specify an existing or create a new [Action Group](../monitoring-and-diagnostics/monitoring-action-groups.md) so that when the log alert matches criteria, you are notified.
 
 When you receive an alert, use the steps in the following section to troubleshoot why usage is higher than expected.
 
@@ -110,7 +122,7 @@ In the following screenshot, the *Log Management / Perf* data type is sending th
 
 Next, go back to the *Usage* dashboard and look at the *Data volume by solution* chart. To see the computers sending the most data for a solution, click on the name of the solution in the list. Click on the name of the first solution in the list. 
 
-In the following screenshot, it confirms that the *acmetomcat* computer is sending the most data for the Log Management solution.<br><br> ![data volume for a solution](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
+In the following screenshot, it confirms that the *mycon* computer is sending the most data for the Log Management solution.<br><br> ![data volume for a solution](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 If needed, perform additional analysis to identify large volumes within a solution or data type. Example queries include:
 
@@ -148,25 +160,11 @@ Click on **See all...** to view the full list of computers sending data for the 
 
 Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
 
-## Check if there is ingestion latency
-With Log Analytics there is an anticipated latency with the ingestion of collected data.  The absolute time between indexing data and when it is available to search can be unpredictable. Previously we included a performance chart on the dashboard that showed the time taken to collect and index data, and with the introduction of the new query language, we have temporarily removed this chart.  As an interim solution until we release updated data ingestion latency metrics, the following query can be used to approximate the latency for each data type.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> The ingestion latency query does not show historical latency and is limited to only returning results for the current time.  The value for *TimeGenerated* is populated at the agent for Common schema logs and populated at the collection endpoint for Custom logs.  
->
-
 ## Next steps
 * See [Log searches in Log Analytics](log-analytics-log-searches.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
-* Use the steps described in [create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) to be notified when a search criteria is met
-* Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers
-* To configure an effective security event collection policy, review [Azure Security Center filtering policy](../security-center/security-center-enable-data-collection.md)
-* Change [performance counter configuration](log-analytics-data-sources-performance-counters.md)
-* To modify your event collection settings, review [event log configuration](log-analytics-data-sources-windows-events.md)
-* To modify your syslog collection settings, review [syslog configuration](log-analytics-data-sources-syslog.md)
+* Use the steps described in [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified when a search criteria is met.
+* Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
+* To configure an effective security event collection policy, review [Azure Security Center filtering policy](../security-center/security-center-enable-data-collection.md).
+* Change [performance counter configuration](log-analytics-data-sources-performance-counters.md).
+* To modify your event collection settings, review [event log configuration](log-analytics-data-sources-windows-events.md).
+* To modify your syslog collection settings, review [syslog configuration](log-analytics-data-sources-syslog.md).

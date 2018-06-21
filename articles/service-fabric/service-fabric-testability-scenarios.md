@@ -10,7 +10,7 @@ editor: toddabel
 ms.assetid: 8eee7e89-404a-4605-8f00-7e4d4fb17553
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017

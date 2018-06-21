@@ -1,28 +1,19 @@
 ---
-title: Create activity log alerts and manage them using the new Alerts (Preview) experience in Azure Monitor| Microsoft Docs
-description: This article provides information about how to create activity log alerts from Alerts (Preview) tab under Azure Monitor. This article details the new user experience for this feature.
-author: JYOTHIRMAISURI
-manager: vvithal
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Use activity log alerts in the new Azure Monitor alerts experience
+description: How to create activity log alerts from Alerts (Preview) tab under Azure Monitor. This article details the new user experience for this feature.
+author: jyothirmaisuri
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom:
-
+ms.component: alerts
 ---
-# Create activity log alerts using the new Alerts (Preview) experience
+# Create activity log alerts using the new alerts experience
 
 Activity log alerts are the alerts that get activated when a new activity log event occurs that matches the conditions specified in the alert.
 
-These alerts are for Azure resources, can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. It then shows you how to use the Azure portal to set up an alert on activity log events using the new experience in [Azure Alerts (Preview)](monitoring-overview-unified-alerts.md).
+These alerts are for Azure resources, can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. It then shows you how to use the Azure portal to set up an alert on activity log events using the new experience in [Azure Alerts](monitoring-overview-unified-alerts.md).
 
 Typically, you create activity log alerts to receive notifications when specific changes occur on resources in your Azure subscription, often scoped to particular resource groups or resource. For example, you might want to be notified when any virtual machine in (sample resource group) **myProductionResourceGroup** is deleted, or you might want to get notified if any new roles are assigned to a user in your subscription.
 
@@ -43,11 +34,11 @@ To learn more about action groups, see [Create and manage action groups in the A
 To learn more about service health notifications, see [Receive activity log alerts on service health notifications](monitoring-activity-log-alerts-on-service-notifications.md).
 
 
-## What's new in Alerts Preview for activity logs?
+## What's new in alerts for activity logs?
 
-[Azure Alerts (Preview)](monitoring-overview-unified-alerts.md) now provides enhanced user experience for Activity log alerts. With the [enhanced user experience for Alerts](monitoring-overview-unified-alerts.md), you can now:
+[Azure Alerts](monitoring-overview-unified-alerts.md) now provides enhanced user experience for Activity log alerts. With the [enhanced user experience for Alerts](monitoring-overview-unified-alerts.md), you can now:
 
-- [Create](#create-an-alert-rule-for-an-activity-log) and [manage](#view-and-manage-activity-log-alert-rules) the Activity log alert rules, from **Monitor** > **Alerts (Preview)** blade. Learn more about [Activity logs](monitoring-overview-activity-logs.md).
+- [Create](#create-an-alert-rule-for-an-activity-log) and [manage](#view-and-manage-activity-log-alert-rules) the Activity log alert rules, from **Monitor** > **Alerts** blade. Learn more about [Activity logs](monitoring-overview-activity-logs.md).
 
 - **New options for Alerts Target**:  While creating a new activity log alert rule, you can now select a target resource or a resource group or a subscription.
 
@@ -65,8 +56,8 @@ To learn more about service health notifications, see [Receive activity log aler
 
 Use the following procedure:
 
-1. From Azure portal, select **Monitor** > **Alerts (Preview).**
-2. Click **New Alert Rule** at the top of the **Alerts (Preview)** window.
+1. From Azure portal, select **Monitor** > **Alerts**
+2. Click **New Alert Rule** at the top of the **Alerts** window.
 
      ![new alert rule](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
 
@@ -86,7 +77,7 @@ Use the following procedure:
 
      ![Select Target](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - Under **Target Criteria, click **add criteria** select the signal type as **Activity log**.
+    - Under **Target Criteria**, click **add criteria** select the signal type as **Activity log**.
 
     - Select the signal from the list displayed.
 
@@ -100,15 +91,15 @@ Use the following procedure:
 
     **Alert logic**:
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
+     - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
+     - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
 
         **Sample signal graph with alert logic applied** :
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. Under **define alert rules,** provide the following details:
+4. Under **define alert rules details**, provide the following details:
 
     - **Alert rule name** – Name for the new alert rule
     - **Description** – Description for the new alert rule
@@ -127,7 +118,7 @@ Use the following procedure:
 
 ## View and manage activity log alert rules
 
-1. From Azure portal, click **Monitor** > **Alerts (Preview)** and click **Manage rules** at the top left of the window.
+1. From Azure portal, click **Monitor** > **Alerts** and click **Manage rules** at the top left of the window.
 
     ![ manage alert rules](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

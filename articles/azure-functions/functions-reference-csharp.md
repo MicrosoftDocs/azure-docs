@@ -3,7 +3,7 @@ title: Azure Functions C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: glenga
+ms.author: tdykstra
 
 ---
 # Azure Functions C# script (.csx) developer reference
@@ -196,24 +196,7 @@ The `#load` directive works only with *.csx* files, not with *.cs* files.
 
 ## Binding to method return value
 
-You can use a method return value for an output binding, by using the name `$return` in *function.json*:
-
-```json
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "$return",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnectionString",
-}
-```
-
-```csharp
-public static string Run(string input, TraceWriter log)
-{
-    return input;
-}
-```
+You can use a method return value for an output binding, by using the name `$return` in *function.json*. For examples, see [Triggers and bindings](functions-triggers-bindings.md#using-the-function-return-value).
 
 ## Writing multiple output values
 
@@ -247,7 +230,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## Async
 
-To make a function asynchronous, use the `async` keyword and return a `Task` object.
+To make a function [asynchronous](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -261,17 +244,31 @@ public async static Task ProcessQueueMessageAsync(
 
 ## Cancellation tokens
 
-Some operations require graceful shutdown. While it's always best to write code that can handle crashing, in cases where you want to handle shutdown requests, define a [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) typed argument.  A `CancellationToken` is provided to signal that a host shutdown is triggered.
+A function can accept a [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
+
+The following example shows how to check for impending function termination.
 
 ```csharp
-public async static Task ProcessQueueMessageAsyncCancellationToken(
-    string blobName,
-    Stream blobInput,
-    Stream blobOutput,
+using System;
+using System.IO;
+using System.Threading;
+
+public static void Run(
+    string inputText,
+    TextWriter logger,
     CancellationToken token)
+{
+    for (int i = 0; i < 100; i++)
     {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
+        if (token.IsCancellationRequested)
+        {
+            logger.WriteLine("Function was cancelled at iteration {0}", i);
+            break;
+        }
+        Thread.Sleep(5000);
+        logger.WriteLine("Normal processing for queue message={0}", inputText);
     }
+}
 ```
 
 ## Importing namespaces
@@ -335,7 +332,7 @@ The following assemblies may be referenced by simple-name (for example, `#r "Ass
 ## Referencing custom assemblies
 
 To reference a custom assembly, you can use either a *shared* assembly or a *private* assembly:
-- Shared assemblies are shared across all functions within a function app. To reference a custom assembly, upload the assembly to your function app, such as in a `bin` folder in the function app root. 
+- Shared assemblies are shared across all functions within a function app. To reference a custom assembly, upload the assembly to a folder named `bin` in your [function app root folder](functions-reference.md#folder-structure) (wwwroot). 
 - Private assemblies are part of a given function's context, and support side-loading of different versions. Private assemblies should be uploaded in a `bin` folder in the function directory. Reference the assemblies using the file name, such as `#r "MyAssembly.dll"`. 
 
 For information on how to upload files to your function folder, see the section on [package management](#using-nuget-packages).
@@ -409,6 +406,8 @@ public static string GetEnvironmentVariable(string name)
         System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
 }
 ```
+
+The [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) property is an alternative API for getting app setting values, but we recommend that you use `GetEnvironmentVariable` as shown here.
 
 <a name="imperative-bindings"></a> 
 

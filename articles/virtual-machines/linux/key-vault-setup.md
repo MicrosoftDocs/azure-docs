@@ -4,7 +4,7 @@ description: How to set up Key Vault for use with an Azure Resource Manager virt
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -23,7 +23,7 @@ ms.author: singhkay
 
 In the Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by Key Vault. To learn more about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md) In order for Key Vault to be used with Azure Resource Manager VMs, the *EnabledForDeployment* property on Key Vault must be set to true. This article shows you how to set up Key Vault for use with Azure virtual machines (VMs) using the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-To perform these steps, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#az_login).
+To perform these steps, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 ## Create a Key Vault
 Create a key vault and assign the deployment policy with [az keyvault create](/cli/azure/keyvault#az_keyvault_create). The following example creates a key vault named `myKeyVault` in the `myResourceGroup` resource group:

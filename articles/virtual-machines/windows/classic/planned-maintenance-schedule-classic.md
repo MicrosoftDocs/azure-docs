@@ -4,7 +4,7 @@ description: Learn how to schedule planned maintenance on Azure VMs.
 services: virtual-machines-windows
 documentationcenter: ''
 author: igalf
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX

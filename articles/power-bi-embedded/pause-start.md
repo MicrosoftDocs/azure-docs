@@ -3,8 +3,8 @@ title: Pause and start your Power BI Embedded capacity in the Azure portal | Mic
 description: This article walks through how to pause and start a Power BI Embedded capacity in Microsoft Azure.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
+ms.author: maghan
 ---
 # Pause and start your Power BI Embedded capacity in the Azure portal
 
@@ -31,9 +31,9 @@ Pausing your capacity prevents you from being billed. Pausing your capacity is g
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-2. Select **More services** > **Power BI Embedded** to see your capacities.
+2. Select **All services** > **Power BI Embedded** to see your capacities.
 
-    ![More services within Azure portal](media/pause-start/azure-portal-more-services.png)
+    ![All services within Azure portal](media/pause-start/azure-portal-more-services.png)
 
 3. Select the capacity you want to pause.
 
@@ -53,9 +53,9 @@ Resume usage by starting your capacity. Starting your capacity also resumes bill
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-2. Select **More services** > **Power BI Embedded** to see your capacities.
+2. Select **All services** > **Power BI Embedded** to see your capacities.
 
-    ![More services within Azure portal](media/pause-start/azure-portal-more-services.png)
+    ![All services within Azure portal](media/pause-start/azure-portal-more-services.png)
 
 3. Select the capacity you want to start.
 

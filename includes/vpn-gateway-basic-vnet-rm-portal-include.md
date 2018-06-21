@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/21/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 To create a VNet in the Resource Manager deployment model by using the Azure portal, follow the steps below. The screenshots are provided as examples. Be sure to replace the values with your own. For more information about working with virtual networks, see the [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
 
 >[!NOTE]

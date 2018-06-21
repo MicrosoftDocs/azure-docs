@@ -4,9 +4,8 @@ description: Learn the attributes you can use with the Field of Study entity in 
 services: cognitive-services
 author: alch-msft
 manager: kuansanw
-
 ms.service: cognitive-services
-ms.technology: academic-knowledge
+ms.component: academic-knowledge
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: alch

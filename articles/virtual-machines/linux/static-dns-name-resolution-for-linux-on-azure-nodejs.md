@@ -4,7 +4,7 @@ description: Using internal DNS for VM name resolution on Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -92,7 +92,7 @@ azure group create myResourceGroup \
 
 ## Create the VNet
 
-The first step is to build a VNet to launch the VMs into.  The VNet contains one subnet for this walkthrough.  For more information on Azure VNets, see [Create a virtual network by using the Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+The first step is to build a VNet to launch the VMs into.  The VNet contains one subnet for this walkthrough.  For more information on Azure VNets, see [Create a virtual network](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)
 
 ```azurecli
 azure network vnet create myVNet \
@@ -103,7 +103,7 @@ azure network vnet create myVNet \
 
 ## Create the NSG
 
-The Subnet is built behind an existing Network Security Group so we build the NSG before the Subnet.  Azure NSGs are equivalent to a firewall at the network layer.  For more information on Azure NSGs, see [How to create NSGs in the Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+The Subnet is built behind an existing Network Security Group so we build the NSG before the Subnet.  Azure NSGs are equivalent to a firewall at the network layer.  For more information on Azure NSGs, see [How to create NSGs in the Azure CLI](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure network nsg create myNSG \

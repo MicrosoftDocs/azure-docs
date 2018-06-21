@@ -1,3 +1,16 @@
+---
+title: include file
+description: include file
+services: container-registry
+author: mmacy
+
+ms.service: container-registry
+ms.topic: include
+ms.date: 04/23/2018
+ms.author: marsma
+ms.custom: include file
+---
+
 ## Create a service principal
 
 To create a service principal with access to your container registry, you can use the following script. Update the `ACR_NAME` variable with the name of your container registry, and optionally the `--role` value in the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to grant different permissions. You must have the [Azure CLI](/cli/azure/install-azure-cli) installed to use this script.
@@ -13,15 +26,6 @@ To grant registry access to an existing service principal, you must assign a new
 The following script uses the [az role assignment create][az-role-assignment-create] command to grant *pull* permissions to a service principal you specify in the `SERVICE_PRINCIPAL_ID` variable. Adjust the `--role` value if you'd like to grant a different level of access.
 
 [!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
-
-You can find both of these scripts on GitHub, as well as versions for PowerShell:
-
-* [Azure CLI][acr-scripts-cli]
-* [Azure PowerShell][acr-scripts-psh]
-
-<!-- LINKS - External -->
-[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
-[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac

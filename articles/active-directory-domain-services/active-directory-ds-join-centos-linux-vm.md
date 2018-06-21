@@ -8,7 +8,8 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -131,7 +132,7 @@ Verify whether the machine has been successfully joined to the managed domain. C
 
 
 ## Troubleshooting domain join
-Refer to the [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) article.
+Refer to the [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) article.
 
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)

@@ -4,14 +4,14 @@ description: This article explains how you can scale out a data management gatew
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 

@@ -96,6 +96,10 @@ Table data encryption works as follows:
 In batch operations, the same KEK will be used across all the rows in that batch operation because the client library only allows one options object (and hence one policy/KEK) per batch operation. However, the client library will internally generate a new random IV and random CEK per row in the batch. Users can also choose to encrypt different properties for every operation in the batch by defining this behavior in the encryption resolver.
 
 ### Queries
+> [!NOTE]
+> Because the entities are encrypted, you cannot run queries that filter on an encrypted property.  If you try, results will be incorrect, because the service would be trying to compare encrypted data with unencrypted data.
+> 
+>
 To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server side projections, the client library will add the special encryption metadata properties (_ClientEncryptionMetadata1 and _ClientEncryptionMetadata2) by default to the selected columns.
 
 ## Azure Key Vault

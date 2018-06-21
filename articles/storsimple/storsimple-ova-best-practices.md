@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2017
+ms.date: 03/16/2018
 ms.author: alkohli
 
 ---
@@ -35,7 +35,7 @@ Implement the following best practices when provisioning the virtual array:
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **Virtual machine type** |**Generation 2** VM for use with Windows Server 2012 or later and a *.vhdx* image. <br></br> **Generation 1** VM for use with a Windows Server 2008 or later and a *.vhd* image. |Use virtual machine version 8 - 11 when using *.vmdk* image. |
+| **Virtual machine type** |**Generation 2** VM for use with Windows Server 2012 or later and a *.vhdx* image. <br></br> **Generation 1** VM for use with a Windows Server 2008 or later and a *.vhd* image. |Use virtual machine version 8 when using *.vmdk* image. |
 | **Memory type** |Configure as **static memory**. <br></br> Do not use the **dynamic memory** option. | |
 | **Data disk type** |Provision as **dynamically expanding**.<br></br> **Fixed size** takes a long time. <br></br> Do not use the **differencing** option. |Use the **thin provision** option. |
 | **Data disk modification** |Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device. |Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device. |

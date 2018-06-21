@@ -4,7 +4,7 @@ description: Understand how and why logic apps fail
 services: logic-apps
 documentationcenter: 
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e

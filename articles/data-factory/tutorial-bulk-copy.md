@@ -1,11 +1,11 @@
----
+﻿---
 title: 'Copy data in bulk using Azure Data Factory | Microsoft Docs'
 description: 'Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -66,7 +66,7 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 
 For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your Azure SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure SQL Data Warehouse. To verify and turn on this setting, do the following steps:
 
-1. Click **More services** hub on the left and click **SQL servers**.
+1. Click **All services** on the left and click **SQL servers**.
 2. Select your server, and click **Firewall** under **SETTINGS**.
 3. In the **Firewall settings** page, click **ON** for **Allow access to Azure services**.
 
@@ -77,7 +77,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
     Run the following command to view all the subscriptions for this account:
 

@@ -1,11 +1,10 @@
 ---
-title: Run Java application server on a classic Azure VM | Microsoft Docs
+title: Run Java application server on a classic Azure VM
 description: This tutorial uses resources created with  the classic deployment model, and shows how to create a Windows Virtual machine and configure it to run Apache Tomcat application server.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: ''
+manager: mbaldwin
 tags: azure-service-management
 
 ms.assetid: d627aa09-f7d6-4239-8110-f8fc5111b939
@@ -14,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 
 ---
@@ -41,7 +40,7 @@ The completed installation results in Tomcat running on a virtual machine.
 
 ## To create a virtual machine
 1. Sign in to the [Azure portal](https://portal.azure.com).  
-2. Click **New**, click **Compute**, then click **See all** in the **Featured apps**.
+2. Click **Create a resource**, click **Compute**, then click **See all** in the **Featured apps**.
 3. Click **JDK**, click **JDK 8** in the **JDK** pane.  
    Virtual machine images that support **JDK 6** and **JDK 7** are available if you have legacy applications that are not ready to run in JDK 8.
 4. In the JDK 8 pane, select **Classic**, then click **Create**.

@@ -4,11 +4,10 @@ description: Use REST to access the Speech Recognition API in Microsoft Cognitiv
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
-ms.date: 15/09/2017
+ms.date: 09/15/2017
 ms.author: zhouwang
 ---
 # Get started with speech recognition by using the REST API
@@ -102,7 +101,7 @@ $SpeechServiceURI =
 # $OAuthToken is the authorization token returned by the token service.
 $RecoRequestHeader = @{
   'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY';
-  'Transfer-Encoding' = 'chunked'
+  'Transfer-Encoding' = 'chunked';
   'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
 }
 
@@ -140,7 +139,7 @@ request.ContentType = @"audio/wav; codec=audio/pcm; samplerate=16000";
 request.Headers["Ocp-Apim-Subscription-Key"] = "YOUR_SUBSCRIPTION_KEY";
 
 // Send an audio file by 1024 byte chunks
-using (fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess.Read))
+using (FileStream fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess.Read))
 {
 
     /*

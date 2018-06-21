@@ -2,18 +2,19 @@
 title: Team Data Science Process Team Lead tasks - Azure  | Microsoft Docs
 description: An outline of the tasks for a team lead on a data science team project.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
+ms.author: deguhath
 
 ---
 
@@ -206,7 +207,7 @@ After cloning, two directories **MyTeamProjectTemplate** (D3) and **MyTeamUtilit
 
 To copy the content of the local **GroupProjectTemplate** (D1) folder to the local **MyTeamProjectTemplate** (D3), run one of the following shell scripts: 
 
-####From the PowerShell command-line for Windows		
+#### From the PowerShell command-line for Windows		
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -214,7 +215,7 @@ To copy the content of the local **GroupProjectTemplate** (D1) folder to the loc
 	
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####From the Linux shell for the **Linux DSVM**
+#### From the Linux shell for the **Linux DSVM**
 	
 	wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
 	bash tdsp_local_copy_linux.sh 2

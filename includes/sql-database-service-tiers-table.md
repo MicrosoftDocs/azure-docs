@@ -52,17 +52,6 @@ sql-database-single-database-resources.md
 | Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-### Premium RS service tier 
-| **Performance level** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
-| :--- |---:|---:|---:|---:|---:|---:|
-| Max DTUs | 125 | 250 | 500 | 1000 |
-| Included storage (GB) | 500 | 500 | 500 | 500 |
-| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 |
-| Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 |
-| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 |
-| Max concurrent logins | 200 | 400 | 800 | 1600 |
-| Max concurrent sessions | 30000 | 30000 | 30000 | 30000 |
-|||||||
 
 > [!IMPORTANT]
 > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
@@ -71,3 +60,4 @@ sql-database-single-database-resources.md
 > 
 >\*\* Max DTUs per database starting at 200 DTUs and higher in Standard are in preview.
 >
+

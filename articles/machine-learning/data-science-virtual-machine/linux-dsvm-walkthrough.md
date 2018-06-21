@@ -3,18 +3,19 @@ title: Data science with the Linux Data Science Virtual Machine on Azure| Micros
 description: How to perform several common data science tasks with the Linux Data Science VM.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/10/2017
-ms.author: bradsev;paulsh
+ms.topic: conceptual
+ms.date: 03/16/2018
+ms.author: gokuma
 
 ---
 # Data science with a Linux Data Science Virtual Machine on Azure
@@ -260,7 +261,7 @@ XGBoost can also call from python or a command line.
 For development using Python, the Anaconda Python distributions 2.7 and 3.5 have been installed in the DSVM.
 
 > [!NOTE]
-> The Anaconda distribution includes [Condas](http://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
+> The Anaconda distribution includes [Conda](http://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
 >
 >
 
@@ -312,6 +313,24 @@ To publish the model to AzureML:
 
 ## Jupyterhub
 The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-platform environment to share Python, R, or Julia code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password at ***https://\<VM DNS name or IP Address\>:8000/***. All configuration files for JupyterHub are found in directory **/etc/jupyterhub**.
+
+> [!NOTE]
+> To use the Python Package Manager (via the `pip` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
+```python
+   import sys
+   ! {sys.executable} -m pip install numpy -y
+```
+>
+>
+
+> [!NOTE]
+> To use the Conda installer (via the `conda` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
+```python
+   import sys
+   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+```
+>
+>
 
 Several sample notebooks are already installed on the VM:
 
