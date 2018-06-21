@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 
 ## Set up the network environment
-First, you create a resource group to contain the resources needed to deploy the firewall. Then you create a VNet, subnets, test servers, a public IP address, and a default route.
+First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, test servers, and a default route.
 
 ### Create a resource group
 1. On the Azure portal home page, click **Resource groups**, then click **+Add**.
