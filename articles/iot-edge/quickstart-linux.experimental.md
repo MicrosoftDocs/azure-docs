@@ -4,8 +4,7 @@ description: Install the Azure IoT Edge runtime on a simulated device in Linux, 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.reviewer: elioda
-ms.date: 01/11/2018
+ms.date: 06/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -30,14 +29,6 @@ In this quickstart you learn how to:
 
 The simulated device that you create in this quickstart is a monitor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the data for business insights. 
 
-## Prerequisites
-
-This quickstart uses your computer or virtual machine like an Internet of Things device. To turn your machine into an IoT Edge device, you need a container runtime. The following command installs one for you:
-
-```cmd
-curl https://conteng.blob.core.windows.net/mby/moby_0.1-0-ubuntu_amd64.deb -o moby_0.1.deb && sudo apt-get install ./moby_0.1.deb
-``` 
-
 ## Create an IoT hub
 
 Start the quickstart by creating your IoT Hub.
@@ -52,6 +43,19 @@ Register an IoT Edge device with your newly created IoT Hub.
 
 [!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
 
+## Prepare your device for containers
+
+Azure IoT Edge deploys code and cloud logic to devices using containers, so any edge-enabled device needs a container runtime. For this quickstart you can use your own computer as an IoT Edge device, or create a virtual machine. 
+
+If you want to use your own computer, run the following command to install a container runtime: 
+
+   ```bash
+   curl https://conteng.blob.core.windows.net/mby/moby_0.1-0-ubuntu_amd64.deb -o moby_0.1.deb && sudo apt-get install ./moby_0.1.deb
+   ``` 
+
+If you want to use a virtual machine, use the [Docker on Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS) image for Azure, which comes with a container runtime pre-installed. Use a tool like [Putty](https://putty.org/) to connect to your virtual machine with SSH. 
+
+
 ## Install and start the IoT Edge runtime
 
 Install and start the Azure IoT Edge runtime on your device. 
@@ -64,18 +68,16 @@ Download and install an implementation of hsmlib on the machine you want to be t
 
 <!-- [IoT Edge Security Manager](TODO:get link). -->
 
-The following command installs a version of hsmlib that implements the IoT Edge standard security promise.
+The following command installs a version of hsmlib that implements the IoT Edge standard security promise. <!-- [IoT Edge standard security promise](TODO:get link).-->
 
-<!-- [IoT Edge standard security promise](TODO:get link).-->
-
-```cmd
- wget https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-amd64-13893488/libiothsm-std_0.1.1-13893488_amd64.deb && sudo apt-get install ./libiothsm-std_0.1.1-13893488_amd64.deb
-```
+   ```cmd
+   wget https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-amd64-14210794/libiothsm-std_0.1.1-14210794_amd64.deb && sudo apt-get install ./libiothsm-std_0.1.1-14210794_amd64.deb
+   ```
 
 ### IoT Edge Security Daemon 
 1. Download and install the IoT Edge Security Daemon. The package installs the daemon as a system service so IoT Edge starts every time your device boots.
    ```cmd
-   wget https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-amd64-13893488/iotedge_0.1-13893488_amd64.deb && sudo apt-get install ./iotedge_0.1-13893488_amd64.deb
+   wget https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-amd64-14210794/iotedge_0.1.0-14210794_amd64.deb && sudo apt-get install ./iotedge_0.1-14210794_amd64.deb
    ```
 
 2. Open `/etc/iotedge/config.yaml`. It is a protected file so you may need elevated privileges for access.
@@ -85,22 +87,41 @@ The following command installs a version of hsmlib that implements the IoT Edge 
 
 3. Add the IoT Edge device connection string that you copied when you registered your device. Replace the value of the variable **device_connection_string**.
 
+   >[!IMPORTANT]
+   >**BUG BASH ONLY**
+   >Replace the edgeAgent info with the following image and registry info. This is a yaml file so whitespace is important. Indentations are two spaces, not tabs. 
+   >
+   >```yaml
+   >agent:
+   >  name: "edgeAgent"
+   >  type: "docker"
+   >  env: {}
+   >  config: 
+   >    image: "edgeshared.azurecr.io/microsoft/azureiotedge-agent:14256026-linux-amd64"
+   >    create_options: ""
+   >    auth:
+   >      serveraddress: "edgeshared.azurecr.io"
+   >      username: "EdgeShared"
+   >      password: "WPruG6Zt4OBs4hZySY9VQAp2dKEM/pDn"
+   >```
+
 4. Restart the Edge Security Daemon:
 
-   ```cmd
+   ```bash
    sudo systemctl restart iotedge
    ```
 
 5. Check to see that the Edge Security Daemon is running as a system service:
 
-   ```cmd
+   ```bash
    sudo systemctl status iotedge
    ```
 
    ![See the Edge Daemon running as a system service][7]
 
-You can also see logs from the Edge Security Daemon by running the command
-   ```
+You can also see logs from the Edge Security Daemon by running the follwoing command:
+
+   ```bash
    journalctl -u iotedge
    ```
 
