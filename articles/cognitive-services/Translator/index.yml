@@ -32,34 +32,27 @@ sections:
     - image: 
         src: media/index/logo_nodejs.svg
       title: Node.js
-    - image: 
-        src: media/index/logo_python.svg
-      title: Python
     rows:
     - title: Translate text from one language to another
       values:
       - href: quickstart-csharp-translate
       - href: quickstart-java-translate
-      - href:
-      - href:
+      - href: quickstart-nodejs-translate
     - title: Convert text from one script to another
       values:
       - href: quickstart-csharp-transliterate
       - href: quickstart-java-transliterate
-      - href:
-      - href:
+      - href: quickstart-nodejs-transliterate
     - title: Identify language of text
       values:
       - href: quickstart-csharp-detect
       - href: quickstart-java-detect
-      - href:
-      - href:
+      - href: quickstart-nodejs-detect
     - title: Get alternate translations and usage
       values:
       - href: quickstart-csharp-dictionary
       - href: quickstart-java-dictionary
-      - href:
-      - href:
+      - href: quickstart-nodejs-dictionary
 
 - title: Reference
   items:
