@@ -66,6 +66,22 @@ If any of your apps use Azure AD Activity Log APIs, follow these steps to ensure
 
 ---
 
+### Configure TLS settings to connect to Azure AD services for PCI DSS compliance
+
+**Type:** New feature  
+**Service category:** New feature  
+**Product capability:** Platform
+
+Transport Layer Security (TLS) is a protocol that provides privacy and data integrity between two communicating applications and is the most widely-deployed security protocol used today.
+
+The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has determined that early versions of TLS and Secure Sockets Layer (SSL) must be disabled in favor of enabling new and more secure app protocols, starting on June 30, 2018. This change means that if you connect to Azure AD services and require PCI DSS-compliance, you must disable TLS 1.0. Multiple versions of TLS are available, but TLS 1.2 is the latest version available for Azure Active Directory Services and we highly recommend moving directly to TLS 1.2 for both client/server and browser/server combinations.
+
+Out-of-date browsers might not support newer TLS versions, such as TLS 1.2. To see which versions of TLS are supported by your browser, go to the [Qualys SSL Labs](https://www.ssllabs.com/) site and click **Test your browser**. We recommend you upgrade to the latest version of your web browser and preferably enable only TLS 1.2.
+
+For more information about TLS and how to enable TLS 1.2, see ...LINK TO ARTICLE WITH ENABLE/DISABLE INFO GOES HERE...
+
+---
+
 ### New "all guests" conditional access policy template created during Terms of Use (ToU) creation
 
 **Type:** New feature  
