@@ -1,5 +1,5 @@
 ---
-title: Back up Azure Stack files and applications'
+title: Back up Files in Azure Stack VMs'
 description: Use Azure Backup to back up and recover Azure Stack files and applications to your Azure Stack environment.
 services: backup
 author: adiganmsft
@@ -125,8 +125,6 @@ If you're using Modern Backup Storage (MBS), File Server end-user recovery (EUR)
 
 2. On the **Properties** menu, click **Previous Versions** and choose the version you want to recover.
 
-
-
 ## View Azure Backup Server with a vault
 To view Azure Backup Server entities in Azure Portal, you can follow the following steps:
 1. Open Recovery Services vault.
@@ -135,5 +133,5 @@ To view Azure Backup Server entities in Azure Portal, you can follow the followi
 
 ## See also
 For information on using Azure Backup Server to protect other workloads, see one of the following articles:
-- [Back up SharePoint farm](backup-azure-backup-sharepoint-mabs.md)
-- [Back up SQL server](backup-azure-sql-mabs.md)
+- [Back up SharePoint farm](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Back up SQL server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
