@@ -5,7 +5,6 @@
   - name: Supported languages
     href: Overview/languages-supported.md
 - name: Quickstarts
-  expanded: true
   items: 
   - name: Create a new knowledge base
     items:
