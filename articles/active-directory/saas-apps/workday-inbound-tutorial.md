@@ -58,7 +58,7 @@ This Workday user provisioning solution is presently in public preview, and is i
 * Organizations using Office 365 for email
 
 > [!NOTE]
-> If you’re interested in viewing or deleting personal data, please review Microsoft's guidance in the [Windows data subject requests for the GDPR](includes/gdpr-hybrid-note.md) site. If you’re looking for general information about GDPR, see the [GDPR section of the Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+> If you’re interested in viewing or deleting personal data, please review Microsoft's guidance in the [Windows data subject requests for the GDPR](../../../../includes/gdpr-hybrid-note.md) site. If you’re looking for general information about GDPR, see the [GDPR section of the Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## Planning your solution
 
