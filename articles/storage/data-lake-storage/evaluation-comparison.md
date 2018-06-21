@@ -20,6 +20,6 @@ Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compati
 
 Should you decide to evaluate Data Lake Storage Gen2, nothing will interfere with your existing applications or workloads. Data Lake Storage Gen2 and Gen1 are not mutually exclusive so your existing resources will remain fully functional and any new resources can be deployed using either Gen1 or Gen2. Existing Azure Data Lake Storage Gen1 customers will be fully supported indefinitely on the existing Azure Data Lake Storage Gen1 platform, allowing customers to plan their migration to ADLSv2 at their convenience.
 
-## Next steps
+**Next steps**
 
 Azure Data Lake Storage Gen2 is available as a limited public preview, with general availability in CY2018Q4. If you're interested, we [invite you to participate](https://aka.ms/adlsgen2signup) so you can begin evaluating Data Lake Storage Gen2 and provide feedback through the private yammer.
