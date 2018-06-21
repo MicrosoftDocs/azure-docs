@@ -129,9 +129,11 @@ This article includes answers to frequently asked questions about Azure Active D
 ## Conditional Access
 
 **Q: What's new with this feature?**
+
 **A:** Customers can now troubleshoot conditional access policies through all sign-ins report. Customers can review the conditional access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 
 **Q: How do I get started?**
+
 **A:** To get started:
     * Navigate to the sign-ins report in the [Azure portal](https://portal.azure.com). 
     * Click on the sign-in that you want to troubleshoot.
