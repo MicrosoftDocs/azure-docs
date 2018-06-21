@@ -14,8 +14,6 @@
     href: quickstart-create-connect-hdi-cluster.md
 - name: Tutorials
   items:
-  #- name: Access Blob Storage from Spark (Known)
-    #href:
   - name: Extract, transform, and load data using Azure Databricks
     href: handle-data-using-databricks.md
   - name: Access Azure Data Lake Storage data with DataBricks using Spark
@@ -42,10 +40,10 @@
         href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
       - name: Azure Data Lake Storage Migration
         href: evaluation-comparison.md
-  #- name: Scalability and Perf
-    #items:
-      #- name: Best Practices
-        #href: 
+  - name: Scalability and Perf
+    items:
+      - name: Best Practices
+        href: best-practice.md
   #- name: Benchmark results
     #href:
 - name: How-to guides
