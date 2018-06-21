@@ -198,5 +198,3 @@ A successful response is returned in JSON, as shown in the following example:
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
-
-[QnA Maker overview](../Overview/overview.md)
