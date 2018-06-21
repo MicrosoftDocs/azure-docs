@@ -119,7 +119,7 @@
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
   - name: SDKs
     items:
-    - name: Go.js
+    - name: Go
       href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision
     - name: Node.js
       href: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
