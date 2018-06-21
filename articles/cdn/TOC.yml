@@ -15,7 +15,9 @@
 - name: Tutorials
   items:
   - name: Add Azure CDN to a web app
-    href: cdn-add-to-web-app.md    
+    href: cdn-add-to-web-app.md
+  - name: Access blobs using a custom domain over HTTPS
+    href: cdn-storage-custom-domain-https.md    
   - name: Add a custom domain
     href: cdn-map-content-to-custom-domain.md    
   - name: Configure HTTPS on a custom domain
@@ -34,6 +36,8 @@
     href: cdn-china-delivery.md   
   - name: HTTP/2 support
     href: cdn-http2.md     
+  - name: Migrate from Standard Verizon Standard to Premium Verizon  
+    href: cdn-migrate.md
 - name: How-to guides
   items:
   - name: Optimize content

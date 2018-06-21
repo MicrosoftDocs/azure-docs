@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 06/20/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -57,7 +57,7 @@ This update includes the following improvements for Azure Stack.
 ### Fixed issues
 
 <!-- # - applicability -->
-
+- We fixed the issue that blocked [opening a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the admin portal. This option now works as intended. 
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
@@ -75,11 +75,12 @@ This update includes the following improvements for Azure Stack.
 ### Known issues with the update process   
 - During installation of the 1805 update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after the update to 1805 completes.   
 
-- <!-- 2489559 - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+- <!-- 2489559 - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, seSe [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
 
 
 ### Post-update steps
-*There are no post-update steps for update 1805.*
+After the installation of 1805, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+ - [KB 4340474 - Azure Stack Hotfix 1.1805.4.53](https://support.microsoft.com/en-us/help/4340474).
 
 
 ## Known issues (post-installation)
@@ -167,6 +168,8 @@ The following are post-installation known issues for this build version.
 
 
 ### Networking
+- <!-- TBD - IS ASDK --> You cannot create user-defined routes in either the admin or user portal. As a workaround, use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
+
 - <!-- 1766332 - IS ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
 
 - <!-- 2388980 - IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.

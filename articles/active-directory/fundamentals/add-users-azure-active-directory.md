@@ -1,21 +1,20 @@
 ---
-
 title: Add or delete users in Azure Active Directory | Microsoft Docs
 description: Explains how to add new users or delete existing users in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/08/2018
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-
 ---
+
 # Quickstart: Add new users to Azure Active Directory
 This article explains how to delete or add users in your organization into your orgnization's Azure Active Directory (Azure AD) tenant using the Azure portal or by synchronizing your on-premises Windows Server AD user account data. 
 
@@ -42,10 +41,10 @@ This article explains how to delete or add users in your organization into your 
 
 
 ### Learn more 
-* [Add guest users from another directory](/b2b/what-is-b2b.md) 
-* [Assign a user to a role in your Azure AD](../active-directory-users-assign-role-azure-portal.md)
-* [Manage user profiles](../active-directory-users-profile-azure-portal.md)
-* [Restore a deleted user](../active-directory-users-restore.md)
+* [Add guest users from another directory](../b2b/what-is-b2b.md) 
+* [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Manage user profiles](active-directory-users-profile-azure-portal.md)
+* [Restore a deleted user](active-directory-users-restore.md)
 
 
 
