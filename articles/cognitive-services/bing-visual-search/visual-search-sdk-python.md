@@ -1,7 +1,7 @@
 ---
-title: Visual search SDK Python quickstart | Microsoft Docs
+title: Visual search SDK Python Quickstart | Microsoft Docs
 description: Setup for Visual search SDK Python console application.
-titleSuffix: Azure cognitive services Visual search SDK Python quickstart
+titleSuffix: Azure cognitive services Visual search SDK Python Quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -12,9 +12,9 @@ ms.date: 06/11/2018
 ms.author: v-gedod
 ---
 
-# Visual Search SDK Python quickstart
+# Visual Search SDK Python Quickstart
 
-The Bing Visual Search SDK contains the functionality of the REST API for web requests and parsing results.
+The Bing Visual Search SDK uses the functionality of the REST API for web requests and parsing results.
 The [source code for Python Bing Visual Search SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) is available on Git Hub.
 
 Code scenarios are documented under the following headings:
@@ -173,7 +173,7 @@ The Bing search samples demonstrate various features of the SDK.  Add the follow
 <a name="binary-crop"></a>
 ## Image binary post with cropArea
 
-The following code sends an image binary in the body of the post request, along with a cropArea object, and prints out the imageInsightsToken, the number of tags, the number of actions, and the first actionType.
+The following code sends an image binary in the body of the post request, along with a cropArea object.  Then it prints the imageInsightsToken, the number of tags, the number of actions, and the first actionType.
 
 ```
 def search_image_binary_with_crop_area(client, sub_key, file_path):
@@ -222,7 +222,7 @@ def search_image_binary_with_crop_area(client, sub_key, file_path):
 <a name="knowledge-req"></a>
 ## KnowledgeRequest parameter
 
-The following code sends an image url in the `knowledgeRequest` parameter, along with a \"site:www.bing.com\" filter, and prints out the `imageInsightsToken`, the number of tags, the number of actions, and the first actionType.
+The following code sends an image url in the `knowledgeRequest` parameter, along with a \"site:www.bing.com\" filter. Then it prints the `imageInsightsToken`, the number of tags, the number of actions, and the first actionType.
 ```
 def search_url_with_filters(client_in, sub_key):
 
@@ -271,7 +271,7 @@ def search_url_with_filters(client_in, sub_key):
 <a name="tags-actions"></a>
 ## Tags, actions, and actionType
 
-The following code sends an image insights token in the knowledgeRequest parameter, along with a cropArea object, and prints out the imageInsightsToken, the number of tags, the number of actions, and the first actionType.
+The following code sends an image insights token in the knowledgeRequest parameter, along with a cropArea object. Then it prints the imageInsightsToken, the number of tags, the number of actions, and the first actionType.
 
 ```
     client = client_in
@@ -289,7 +289,7 @@ The following code sends an image insights token in the knowledgeRequest paramet
     # You need to pass the serialized form of the model
     knowledge_request = json.dumps(knowledge_request.serialize())
 
-    print("\r\nSearch visual search request with url of dog image")
+    print("\r\nSearch visual search request with URL of dog image")
     result = client.images.visual_search(knowledge_request=knowledge_request)
 
     if not result:
