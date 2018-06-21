@@ -43,7 +43,7 @@ To upgrade an **Azure CDN Standard from Verizon** profile, contact [Microsoft Su
 - [Token authentication](cdn-token-auth.md): Allows users to obtain and use a token to fetch secure resources.
 - [Rules engine](cdn-rules-engine.md): Enables you to customize how HTTP requests are handled.
 - Advanced analytics tools:
-   - [Detailed HTTP analytics](cdn-advanced-http-reports)
+   - [Detailed HTTP analytics](cdn-advanced-http-reports.md)
    - [Edge performance analytics](cdn-edge-performance.md)
    - [Real-time analytics](cdn-real-time-alerts.md)
 
