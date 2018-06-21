@@ -24,7 +24,7 @@ This article shows how to deploy a Windows Server virtual machine by using the A
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## Step 1: Create a Windows Server virtual machine
-To create a Windows virtual machine that's joined to the virtual network in which you've enabled Azure AD DS, do the following:
+To create a Windows virtual machine that's joined to the virtual network in which you've enabled Azure AD DS, do the following steps:
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 2. At the top of the left pane, select **New**.
@@ -66,7 +66,7 @@ To create a Windows virtual machine that's joined to the virtual network in whic
 ## Step 2: Connect to the Windows Server virtual machine by using the local administrator account
 Next, connect to the newly created Windows Server virtual machine to join it to the domain. Use the local administrator credentials that you specified when you created the virtual machine.
 
-To connect to the virtual machine, do the following:
+To connect to the virtual machine, perform the following steps:
 
 1. In the **Overview** pane, select **Connect**.  
     A Remote Desktop Protocol (.rdp) file is created and downloaded.
@@ -74,14 +74,14 @@ To connect to the virtual machine, do the following:
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
 2. To connect to your VM, open the downloaded RDP file. If prompted, select **Connect**.
-3. At the logon prompt, enter your **local administrator credentials**, which you specified when you created the virtual machine (for example, *localhost\mahesh*).
+3. Enter your **local administrator credentials**, which you specified when you created the virtual machine (for example, *localhost\mahesh*).
 4. If you see a certificate warning during the sign-in process, select **Yes** or **Continue** to connect.
 
 At this point, you should be logged on to the newly created Windows virtual machine with your local administrator credentials. The next step is to join the virtual machine to the domain.
 
 
 ## Step 3: Join the Windows Server virtual machine to the Azure AD DS-managed domain
-To join the Windows Server virtual machine to the Azure AD DS-managed domain, do the following:
+To join the Windows Server virtual machine to the Azure AD DS-managed domain, complete the following steps:
 
 1. Connect to the Windows Server VM, as shown in "Step 2." On the **Start** screen, open **Server Manager**.
 2. In the left pane of the **Server Manager** window, select **Local Server**.
@@ -134,17 +134,17 @@ If the virtual machine is unable to find the domain, try the following troublesh
 If a window is displayed that asks for credentials to join the domain, you do not have connectivity issues.
 
 ### Credentials-related issues
-If you're having trouble with credentials and are unable to join the domain, try one or more of the following:
+If you're having trouble with credentials and are unable to join the domain, try the following troubleshooting steps:
 
 * Try using the UPN format to specify credentials. If there are many users with the same UPN prefix in your tenant or if your UPN prefix is overly long, the SAMAccountName for your account may be auto-generated. In these cases, the SAMAccountName format for your account may be different from what you expect or use in your on-premises domain.
 
 * Try to use the credentials of a user account that belongs to the *AAD DC Administrators* group.
 
-* Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the getting started guide.
+* Check that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) to your managed domain.
 
-* Ensure that you use the UPN of the user as configured in Azure AD (for example, *bob@domainservicespreview.onmicrosoft.com*) to sign in.
+* Check that you've used the UPN of the user as configured in Azure AD (for example, *bob@domainservicespreview.onmicrosoft.com*) to sign in.
 
-* Ensure that you have waited long enough for password synchronization to be completed, as specified in the getting started guide.
+* Wait long enough for password synchronization to be completed, as specified in the getting started guide.
 
 ## Related content
 * [Azure AD DS getting started guide](active-directory-ds-getting-started.md)
