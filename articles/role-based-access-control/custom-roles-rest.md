@@ -47,11 +47,11 @@ To list all roles or get information about a single role using its display name,
     | `$filter=atScopeAndBelow()` | List roles available for assignment at the specified scope and any of its child scopes. |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
-## Get information about a role
+### Get information about a role
 
 To get information about a role using its role definition identifier, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/read` operation at the scope. Several [built-in roles](built-in-roles.md) are granted access to this operation.
 
-To get information about a single role using its display name, see [List roles](role-assignments-rest.md#list-roles).
+To get information about a single role using its display name, see previous [List roles](custom-roles-rest.md#list-roles) section.
 
 1. Start with the following request:
 
@@ -205,7 +205,7 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
     }
     ```
 
-1. Update the body with the changes you want to make to the custom role.
+1. Update the request body with the changes you want to make to the custom role.
 
     The following shows an example of a request body with a new diagnostic settings action added:
 
@@ -244,7 +244,7 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 To delete a custom role, use the [Role Definitions - Delete](/rest/api/authorization/roledefinitions/delete) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/delete` operation on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation. 
 
-1. Use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) or [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API to get the GUID identifier of the custom role. For more information, see [Get information about a role](custom-roles-rest.md#get-information-about-a-role).
+1. Use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) or [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API to get the GUID identifier of the custom role. For more information, see earlier [Get information about a role](custom-roles-rest.md#get-information-about-a-role) section.
 
 1. Start with the following request:
 
