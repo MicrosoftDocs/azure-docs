@@ -291,4 +291,4 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Custom roles in Azure](custom-roles.md)
+> [Create custom roles using PowerShell](custom-roles-powershell.md)

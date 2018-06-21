@@ -287,4 +287,4 @@ To update the custom role, update the JSON file and then update the custom role.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Custom roles in Azure](custom-roles.md)
+> [Create custom roles using Azure CLI](custom-roles-cli.md)
