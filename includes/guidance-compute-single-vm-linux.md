@@ -135,7 +135,7 @@ Use the following CLI command to deallocate a VM:
 azure vm deallocate <resource-group> <vm-name>
 ```
 
-In the Azure portal, the **Stop** button deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
+In the Azure portal, the **Stop** button deallocates the VM. However, if you shut down through the OS while signed in, the VM is stopped but *not* deallocated, so you will still be charged.
 
 **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage].
 
