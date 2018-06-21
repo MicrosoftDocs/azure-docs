@@ -123,11 +123,7 @@ The process is similar if you want the logic app to perform a different action.
 
 14. At the top of the **Logic Apps Designer**, select **Save** to save your logic app.
 
-15. Click the **HTTP Request** text box to show the complete URL. Copy the HTTP POST URL.
-
-    ![HTTP POST URL](media/monitoring-action-groups/http-post-url.png "HTTP POST URL")
-
-16. Open your existing action group and add an action to reference the logic app. If you don’t have an existing action group, see [Create and manage action groups in the Azure portal](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) to create one. Don’t forget to save your changes.
+15. Open your existing action group and add an action to reference the logic app. If you don’t have an existing action group, see [Create and manage action groups in the Azure portal](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) to create one. Don’t forget to save your changes.
 
     ![Update the action group](media/monitoring-action-groups/update-action-group.png "Update the action group")
 
@@ -219,7 +215,7 @@ Azure Service Health entries are part of the activity log. The process for creat
 
        !["Service Health false condition post action"](media/monitoring-action-groups/service-health-false-condition-post-action.png "Service Health false condition post action")
 
-- Steps 15 and 16 are the same. Follow the instructions to save your logic app and update your action group.
+- Step 15 is the same. Follow the instructions to save your logic app and update your action group.
 
 ## Create a metric alert
 
@@ -287,7 +283,7 @@ The process for creating a metric alert is similar to [creating an activity log 
 
        !["Metric alert false condition post action"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "Metric alert false condition post action")
 
-- Steps 15 and 16 are the same. Follow the instructions to save your logic app and update your action group.
+- Step 15 is the same. Follow the instructions to save your logic app and update your action group.
 
 ## Next steps
 * Get an [overview of Azure activity log alerts](monitoring-overview-alerts.md) and learn how to receive alerts.  
