@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Firewall using a tempalte
-description: Deploy Azure Firewall using a tempalte
+title: Deploy Azure Firewall using a template
+description: Deploy Azure Firewall using a template
 services: firewall
 author: vhorne
 manager: jpconnock
@@ -11,7 +11,7 @@ ms.date: 6/18/2018
 ms.author: victorh
 ---
 
-# Deploy Azure Firewall using a tempalte
+# Deploy Azure Firewall using a template
 
 Intro...
 
