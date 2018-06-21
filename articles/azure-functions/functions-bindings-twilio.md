@@ -206,9 +206,9 @@ module.exports = function (context, myQueueItem) {
 
 See the language-specific example:
 
-* [C#](2.x-#c-example)
-* [C# script (.csx)](2.x-#c-script-example)
-* [JavaScript](2.x-#javascript-example)
+* [C#](#2.x-c-example)
+* [C# script (.csx)](#2.x-c-script-example)
+* [JavaScript](#2.x-javascript-example)
 
 ### 2.x C# example
 
@@ -223,7 +223,7 @@ public static SMSMessage Run(
 {
     log.Info($"C# Queue trigger function processed: {order}");
 
-    var message = new CreateMessageOptions()
+    var message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"))
     {
         Body = $"Hello {order["name"]}, thanks for your order!",
         To = order["mobileNumber"].ToString()
@@ -264,7 +264,8 @@ Here's C# script code:
 
 using System;
 using Newtonsoft.Json;
-using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
 
 public static void Run(string myQueueItem, out CreateMessageOptions message,  TraceWriter log)
 {
@@ -277,7 +278,7 @@ public static void Run(string myQueueItem, out CreateMessageOptions message,  Tr
 
     // Even if you want to use a hard coded message and number in the binding, you must at least
     // initialize the CreateMessageOptions variable.
-    message = new CreateMessageOptions();
+    message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
 
     // A dynamic message can be set instead of the body in the output binding. In this example, we use
     // the order information to personalize a text message to the mobile number provided for
@@ -295,7 +296,8 @@ You can't use out parameters in asynchronous code. Here's an asynchronous C# scr
 
 using System;
 using Newtonsoft.Json;
-using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
 
 public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOptions> message,  TraceWriter log)
 {
@@ -308,7 +310,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 
     // Even if you want to use a hard coded message and number in the binding, you must at least
     // initialize the CreateMessageOptions variable.
-    CreateMessageOptions smsText = new CreateMessageOptions();
+    CreateMessageOptions smsText = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
 
     // A dynamic message can be set instead of the body in the output binding. In this example, we use
     // the order information to personalize a text message to the mobile number provided for
