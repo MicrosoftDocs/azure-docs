@@ -86,6 +86,8 @@
       href: how-to-deploy-monitor.md
     - name: Azure CLI
       href: how-to-deploy-monitor-cli.md
+  - name: Protect devices with hardware
+    href: how-to-simulate-dps-tpm.md
   - name: Use Edge devices as gateways
     items:
     - name: Transparent gateway
