@@ -17,7 +17,7 @@ ms.reviewer: richagi, sahenry
 ---
 # Tutorial: Choosing authentication methods for your organization
 
-Both Azure Multi-Factor Authentication (MFA) and Azure Active Directory self-service password reset (SSPR) require authentication methods that confirm a user is who they say they are. In this tutorial, you configure authentication methods to use as you progress through this set of tutorials.
+In this tutorial, you will configure authentication methods, that will be used for Azure Multi-Factor Authentication (MFA) and Azure Active Directory (Azure AD) self-service password reset (SSPR). These authentication methods are used to confirm a user is who they say they are, when accessing sensitive applications, or attempting to reset their password. In this tutorial, you configure specific authentication methods to use as you progress through the set of tutorials.
 
 > [!div class="checklist"]
 > * Enable authentication methods for SSPR
@@ -28,9 +28,9 @@ Both Azure Multi-Factor Authentication (MFA) and Azure Active Directory self-ser
 You need a working Azure AD tenant with at least a trial license enabled.
 An account with Global Administrator privileges.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
+Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
 
 ## Enable authentication methods for SSPR
 

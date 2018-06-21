@@ -72,10 +72,10 @@ Before enabling Azure Multi-Factor Authentication, your organization must determ
 
 To prove that your conditional access policy works, you test logging in to a resource that should not require MFA and then to the Azure portal that requires MFA.
 
-1. Open a new browser window in InPrivate mode and browse to [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
+1. Open a new browser window in InPrivate or incognito mode and browse to [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
    * Log in with the test user created as part of the prerequisites section of this article and note that it should not ask you to complete MFA.
    * Close the browser window
-2. Open a new browser window in InPrivate mode and browse to [https://portal.azure.com](https://portal.azure.com).
+2. Open a new browser window in InPrivate or incognito mode and browse to [https://portal.azure.com](https://portal.azure.com).
    * Log in with the test user created as part of the prerequisites section of this article and note that you should now be required to register for and use Azure Multi-Factor Authentication.
    * Close the browser window
 
