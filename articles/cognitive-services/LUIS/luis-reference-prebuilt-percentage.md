@@ -13,10 +13,10 @@ ms.author: v-geberr
 ---
 
 # Percentage entity
-Percentage numbers can appear as fractions, `3 1/2`, or as percentage, `2%`. Because this entity is already trained, you do not need to add example utterances containing percentage to the application intents. Percentage entity is supported in many cultures. 
+Percentage numbers can appear as fractions, `3 1/2`, or as percentage, `2%`. Because this entity is already trained, you do not need to add example utterances containing percentage to the application intents. Percentage entity is supported in [many cultures](luis-reference-prebuilt-entities.md). 
 
 ## Types of percentage
-Percentage is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) Github repository
+Percentage is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) Github repository
 
 ## Resolution for prebuilt percentage entity
 The following example shows the resolution of the **builtin.percentage** entity.
