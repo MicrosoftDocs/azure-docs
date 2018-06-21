@@ -11502,6 +11502,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Translator/quickstarts/java.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-java-translate",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
             "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-build-system.md",
             "redirect_document_id": false
@@ -24957,11 +24962,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/data-factory/how-to-create-event-trigger.md",
-            "redirect_url": "/azure/data-factory/concepts-pipeline-execution-triggers",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/connect/active-directory-aadconnect-guest-sync.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
             "redirect_document_id": false
@@ -25339,6 +25339,16 @@
         {
             "source_path": "articles/active-directory/active-directory-application-troubleshoot-content-map.md",
             "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-b2c/tutorial-register-applications.md",
+            "redirect_url": "/azure/active-directory-b2c/tutorial-create-tenant",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started.md",
+            "redirect_url": "/azure/active-directory-b2c/tutorial-create-tenant",
             "redirect_document_id": false
         }
     ]

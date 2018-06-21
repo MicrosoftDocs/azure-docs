@@ -5,8 +5,8 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/06/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
 ---
 
@@ -26,7 +26,7 @@ We recommend that you deploy the configuration server as a highly available VMwa
 
 MySQL must be installed on the configuration server. You can do this using one of the following methods:
 
-- Let Site Recovery download and install it when when the Configuration Server Management Wizard runs. You don't need to take any specific action.
+- Let Site Recovery download and install it when the Configuration Server Management Wizard runs. You don't need to take any specific action.
 - Manually download MySQL, and place it in the folder C:\Temp\ASRSetup. Then run the installation. Site Recovery will recognize it's installed when the wizard runs.
 - Manually download MySQL, and place it in the folder C:\Temp\ASRSetup. When the wizard runs it will find the setup file, and install it from this location. 
 
