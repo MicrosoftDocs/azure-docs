@@ -17,7 +17,7 @@ ms.date: 06/27/2018
 ms.author: jamesbak
 
 ---
-# Quickstart: Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more
+# Quickstart: Set up clusters in HDInsight
 
 [!INCLUDE [selector](../../../includes/hdinsight-create-linux-cluster-selector.md)]
 

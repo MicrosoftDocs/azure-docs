@@ -6,11 +6,11 @@
     href: introduction.md
 - name: Quickstarts
   items:
-  - name: Create a storage account
+  - name: Create a Data Lake Storage Gen2 storage account
     href: quickstart-create-account.md
   - name: Create/Connect Databricks account
     href: quickstart-create-databricks-account.md
-  - name: Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more
+  - name: Set up clusters in HDInsight
     href: quickstart-create-connect-hdi-cluster.md
 - name: Tutorials
   items:
@@ -38,8 +38,8 @@
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
       - name: Encryption for data at rest with customer keys
         href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-      - name: Azure Data Lake Storage Migration
-        href: evaluation-comparison.md
+  - name: Azure Data Lake Storage Gen2 Evaluation
+    href: evaluation-comparison.md
   - name: Scalability and Perf
     items:
       - name: Best Practices
@@ -48,7 +48,7 @@
     #href:
 - name: How-to guides
   items:
-  - name: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
+  - name: Use Data Lake Storage Gen2 with Azure HDInsight clusters
     href: use-hdi-cluster.md
   - name: ingest data
     items: 

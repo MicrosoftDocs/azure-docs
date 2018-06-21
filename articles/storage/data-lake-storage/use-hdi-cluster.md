@@ -34,6 +34,7 @@ We do not recommend that you use the default file system for storing business da
 Sharing one file system for multiple clusters is not supported.
 
 ## HDInsight storage architecture
+
 The following diagram provides an abstract view of the HDInsight storage architecture of using Azure Storage:
 
 ![Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage.](./media/use-hdi-cluster/HDI.ABFS.Arch.png "HDInsight Storage Architecture")
@@ -62,6 +63,7 @@ The storage accounts that are defined in the creation process and their keys are
 Multiple WebHCat jobs, including Hive, MapReduce, Hadoop streaming, and Pig, can carry a description of storage accounts and metadata with them. (This approach currently works for Pig with storage accounts, but not for metadata.) For more information, see [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 ## <a id="benefits"></a>Benefits of Azure Storage
+
 The implied performance cost of not co-locating compute clusters and storage resources is mitigated by the way the compute clusters are created close to the storage account resources inside the Azure region, where the high-speed network makes it efficient for the compute nodes to access the data inside Azure storage.
 
 There are several benefits associated with storing the data in Azure storage instead of HDFS:
