@@ -118,6 +118,8 @@
   items:
   - name: Cluster Reference
     href: cluster-reference.md
+  - name: Jetpack
+    href: jetpack.md
   - name: CLI
     href:
   - name: Common Cookbook Reference
