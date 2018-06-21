@@ -206,9 +206,9 @@ module.exports = function (context, myQueueItem) {
 
 See the language-specific example:
 
-* [C#](#2.x-c-example)
-* [C# script (.csx)](#2.x-c-script-example)
-* [JavaScript](#2.x-javascript-example)
+* [2.x C#](#2x-c-example)
+* [2.x C# script (.csx)](#2x-c-script-example)
+* [2.x JavaScript](#2x-javascript-example)
 
 ### 2.x C# example
 
