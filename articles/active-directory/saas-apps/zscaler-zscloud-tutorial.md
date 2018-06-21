@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
      In the **Sign-on URL** textbox, type the URL used by your users to sign-on to your ZScaler ZSCloud application.
 	
 	> [!NOTE] 
-	> You have to update this value with the actual Sign-On URL. Contact [Zscaler ZSCloud Client support team](https://support.zscaler.com/hc/articles/210172606-Zscaler-is-Expanding-Its-Zscloud-Global-Footprint) to get this value. 
+	> You have to update this value with the actual Sign-On URL. Contact [Zscaler ZSCloud Client support team](https://help.zscaler.com/zia) to get this value. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
