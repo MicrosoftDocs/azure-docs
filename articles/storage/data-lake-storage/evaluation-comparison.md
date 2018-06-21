@@ -18,40 +18,8 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 
 Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compatible File System and a full hierarchical namespace just like Azure Data Lake Storage Gen1 does. Additionally, it brings all of Azure Blobs offerings to the table so functionality like data tiering and lifecycle management, durability options for HA and DR, event grid support, enhanced network security, and compatibility with all of Blob APIs.
 
-Should you decide to evaluate Data Lake Storage Gen2, nothing will interfere with your existing applications or workloads. Data Lake Storage Gen2 and Gen1 are not mutually exclusive so your existing resources will remain fully functional and any new resources can be deployed using either Gen1 or Gen2.
+Should you decide to evaluate Data Lake Storage Gen2, nothing will interfere with your existing applications or workloads. Data Lake Storage Gen2 and Gen1 are not mutually exclusive so your existing resources will remain fully functional and any new resources can be deployed using either Gen1 or Gen2. Existing Azure Data Lake Storage Gen1 customers will be fully supported indefinitely on the existing Azure Data Lake Storage Gen1 platform, allowing customers to plan their migration to ADLSv2 at their convenience.
 
-## Comparison table
-
-|Azure Data Lake Storage Gen1  |Azure Data Lake Storage Gen2 (Preview)  |
-|---------|---------|
-|Compatible to HDFS standard – customer can perform analysis using the Hadoop analytic framework.  Applications or services that use the Hadoop file system API can easily integrate with Data Lake Storage Gen1.  Data Lake Storage Gen1 exposes a HDFS-compatible REST interface for applications.     |Same as Data Lake Storage Gen1          |
-|HDFS extensions – customers can use non-destructive concat, set expiry, acquire leases on files being written, etc.       |Not yet available in Data Lake Storage Gen2         |
-|Hierarchical file system – customer can store files into a true hierarchical folder structure.     |Same as Data Lake Storage Gen1         |
-|Atomic renames/moves – customer can rename or move folders and files atomically.     |Same as Data Lake Storage Gen1           |
-|File system consistency - customer can ensure that their data is consistent.  Data is readable immediately after it is written.     |Same as Data Lake Storage Gen1         |
-|No fixed throughput/IOPS limit – customer can have massive throughput to support any size of analytics.      |Throughput/IOPS limit – customer can have massive throughput to support any size of analytics.         |
-|Massively parallel read and writes – customer can spread data across many servers  to enable large amounts of data to be read or written in parallel.  Customer can perform an unlimited number of IOPs per file.     |Massively parallel read and writes – customer can spread data across many servers to enable large amounts of data to be read or written in parallel.         |
-|Unlimited storage – customer can store an unlimited amount of data for an unlimited amount of time.  There are no limits to accounts sizes, files sizes, and number of files.     |Storage capacity – customer can store a massive amount of data for an unlimited amount of time.           |
-|Petabyte-sized files – customer can store large petabyte-sized files.  There is no limit on file sizes.     |Not yet available in Data Lake Storage Gen2         |
-|Millions of files per folder - customer can have millions of files in a single folder at any level in the folder hierarchy     |Not yet available in Data Lake Storage Gen2         |
-|First-class integration with AAD – customer can use AAD features including multi-factor authentication, conditional access, role-based access control, user lifecycle management, application usage monitoring, security monitoring, and alerting.     |Not yet available in Data Lake Storage Gen2         |
-|POSIX-compliant Access Control Lists – users can have fine grained access control on the file and folder level.  It is understand access control because it is defined using the POSIX access control model.     |Not yet available in Data Lake Storage Gen2         |
-|Encryption – customer can have encryption enabled by default.  Customer data is encrypted at rest, movement within Data Lake Storage Gen1, and over the wire when communicating outside Data Lake Storage Gen1.     |Same as Data Lake Storage Gen1         |
-|Allow secure communication only via HTTPS – customer can have secure communication into Data Lake Storage Gen1 because all data ingested into Data Lake Storage Gen1 must be encrypted.     |Same as Data Lake Storage Gen1         |
-|Key management – customer can have keys managed by Azure or customer-managed keys via Key Vault.     |Same as Data Lake Storage Gen1         |
-|Not yet available in Data Lake Storage Gen1     |VNET support – customer can allow access to Data Lake Storage Gen2 from a specific VNET and/or IP addresses to restrict access.         |
-|High availability – customer can have their data available at least 99.9% of the time.     |High availability – customer can have their data available at least 99.99% of the time.         |
-|Regional availability – customer can use Data Lake Storage Gen1 in East US 2, Central US, North Europe, West Europe     |Regional availability – Data Lake Storage Gen2 is not yet available in all regions. Currently, Data Lake Storage Gen2 is available in West US 2 and West Central US         |
-|First party integration – customer can have integration with first party applications (for example, HDInsight, Azure VMs, ASA, Event Hubs, ADF, Powershell, ExpressRoute, Azure Import/Export, Azure CLI, R, SQL DW via Polybase, Key Vault, Data Catalog, Power BI, Analysis Services, Visual Studio).     | *First party integration – customer can have integration with first party applications (for example, HDInsight, Azure Databricks, Azure VMs, ASA, Event Hubs, ADF, Powershell, ExpressRoute, Azure Import/Export, Azure Data box, Azure CLI, R, SQL DW via Polybase, Key Vault, Data Catalog, Power BI, Azure Analysis Services, EventGrid, Visual Studio).         |
-|Third party integration – customer can have integration with third party applications (for example, Cloudera, Hortonworks, Nifi, Qubole, Informatica, StreamSets, ImanisData, Paxata, Trifacta).     |*Third party integration – customer can have integration with third party applications (for example, Hortonworks, MapR, Nifi, Qubole, Informatica, StreamSets, ImanisData, Paxata, Trifacta).         |
-|Open Source Software – customer can use Spark, Hive, Tez, MapReduce, Storm, HBase, Sqoop, HCatalog, Mahout, Pig, Pig Latin, Oozie, Zookeeper.     |Same as Data Lake Storage Gen1         |
-|Data lifecycle policy: File expiration – customer can delete files at a specified date and time to reduce cost and manage compliance.     |Lifecycle Management Policies – customers will be able to define policies to control the automatic movement of data across the multiple tiers         |
-|Auditing – customer can have request and diagnostic logs collect data to access audit trails.     |Not yet available in Data Lake Storage Gen2         |
-|APIs – customer can use REST APIs over HTTPS.     |APIs – customer can use REST APIs over HTTP/HTTPS.         |
-|Many ways to read and write data – customer can use SDKs (.NET, Java, Python, R), Azure portal, and tools (Powershell, Azure CLI, AdlCopy, Distcp, ADF, Azure Import/Export) to read and write their data.     |Many ways to read and write data – Azure portal, and tools (Azure Storage Explorer, Powershell, Azure CLI, AzCopy, Distcp, ADF, Azure Import/Export, Azure Data box) to read and write their data.         |
-
-<sub>* Currently these are only accessible via Storage Account keys</sub>
-
-## Next steps
+**Next steps**
 
 Azure Data Lake Storage Gen2 is available as a limited public preview, with general availability in CY2018Q4. If you're interested, we [invite you to participate](https://aka.ms/adlsgen2signup) so you can begin evaluating Data Lake Storage Gen2 and provide feedback through the private yammer.

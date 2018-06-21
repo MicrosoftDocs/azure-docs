@@ -40,18 +40,21 @@
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
       - name: Encryption for data at rest with customer keys
         href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-  - name: ADLS Evaluation and Migration
-    items:
-      - name: Overview
-        href: evaluation-migration-overview.md
-      - name: Evaluation
+      - name: Azure Data Lake Storage Migration
         href: evaluation-comparison.md
+<<<<<<< HEAD
       - name: Migration Planning
         href: evaluation-migration-guide.md
   - name: Scalability and Perf
     items:
       - name: Best Practices
         href: best-practice.md
+=======
+  #- name: Scalability and Perf
+    #items:
+      #- name: Best Practices
+        #href: 
+>>>>>>> 4bce4475c0662553c65e5d0d32b19759d6240941
   #- name: Benchmark results
     #href:
 - name: How-to guides
