@@ -46,7 +46,7 @@ There are five steps to create a deployment. The following sections walk through
 
 ### Step 1: Name and Label
 
-1. Give your deployment a unique name. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
+1. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
 1. Add labels to help track your deployments. Labels are **Name**, **Value** pairs that describe your deployment. For example, `HostPlatform, Linux` or `Version, 3.0.1`.
 1. Select **Next** to move to step two. 
 

@@ -221,7 +221,9 @@
 ## [Upgrade an IoT hub](iot-hub-upgrade.md)
 ## [Usage metrics](iot-hub-metrics.md)
 ## [Configure IP filtering](iot-hub-ip-filtering.md)
-## [Configure devices at scale](iot-hub-auto-device-config.md)
+## Configure devices at scale
+### [Use Azure portal](iot-hub-auto-device-config.md)
+### [Use Azure CLI](iot-hub-auto-device-config-cli.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=iot-hub)
