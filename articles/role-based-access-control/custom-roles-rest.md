@@ -53,6 +53,8 @@ To get information about a role using its role definition identifier, use the [R
 
 To get information about a single role using its display name, see previous [List roles](custom-roles-rest.md#list-roles) section.
 
+1. Use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API to get the GUID identifier for the role. For built-in roles, you can also get the identifier from [Built-in roles](built-in-roles.md).
+
 1. Start with the following request:
 
     ```http
@@ -73,7 +75,7 @@ To get information about a single role using its display name, see previous [Lis
 
 To create a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/write` operation on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation. 
 
-1. Review the list of [resource provider operations](resource-provider-operations.md#microsoftsupport) that are available to create the permissions for your custom role.
+1. Review the list of [resource provider operations](resource-provider-operations.md) that are available to create the permissions for your custom role.
 
 1. Use a GUID tool to generate a unique identifier that will be used for the custom role identifier. The identifier has the format: `00000000-0000-0000-0000-000000000000`
 
@@ -117,13 +119,15 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
-1. Within the request body, replace *{roleDefinitionId}* with the GUID identifier.
+1. Within the request body, in the `assignableScopes` property, replace *{roleDefinitionId}* with the GUID identifier.
 
 1. Replace *{subscriptionId}* with your subscription identifier.
 
 1. In the `actions` property, add the operations that the role allows to be performed.
 
 1. In the `notActions` property, add the operations that are excluded from the allowed `actions`.
+
+1. In the `roleName` and `description` properties, specify a unique role name and a description. For more information about the properties, see [Custom roles](custom-roles.md).
 
     The following shows an example of a request body:
 
@@ -161,7 +165,7 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 To update a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/write` operation on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation. 
 
-1. Use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) or [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API to get information about the custom role. For more information, see [Get information about a role](custom-roles-rest.md#get-information-about-a-role).
+1. Use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) or [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API to get information about the custom role. For more information, see the earlier [List roles](custom-roles-rest.md#list-roles) section.
 
 1. Start with the following request:
 
@@ -179,7 +183,7 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
-1. Based on information about the custom role, create a request body with the following format:
+1. Based on the information about the custom role, create a request body with the following format:
 
     ```json
     {
@@ -244,7 +248,7 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 To delete a custom role, use the [Role Definitions - Delete](/rest/api/authorization/roledefinitions/delete) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/delete` operation on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation. 
 
-1. Use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) or [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API to get the GUID identifier of the custom role. For more information, see earlier [Get information about a role](custom-roles-rest.md#get-information-about-a-role) section.
+1. Use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) or [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API to get the GUID identifier of the custom role. For more information, see the earlier [List roles](custom-roles-rest.md#list-roles) section.
 
 1. Start with the following request:
 
