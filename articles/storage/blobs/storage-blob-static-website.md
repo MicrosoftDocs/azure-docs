@@ -11,9 +11,9 @@ ms.date: 06/26/18
 ms.author: mihauss
 ---
 # Static website hosting in Azure Storage (Preview)
-Azure Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications. On a static website, webpages contain static content and client-side scripts. By contrast, dynamic websites depend on server-side processing, and can be hosted using [Azure Web Apps](/app-service/app-service-web-overview.md).
+Azure Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications. On a static website, webpages contain static content and JavaScript or other client-side scripts. By contrast, dynamic websites depend on server-side processing, and can be hosted using [Azure Web Apps](/app-service/app-service-web-overview.md).
 
-As web applications shift toward consumption-based deployments, the ability to serve web UIs and single page applications without the need for managing servers is critical. Static websites hosted on Azure Storage enable rich backend capabilities with serverless architectures leveraging [Azure Functions](/azure-functions/functions-overview.md) and other PaaS services.
+As web applications shift toward cost-effective and elastic serverless models, the ability to serve web apps without the need for managing servers is critical. Static websites hosted on Azure Storage enable rich backend capabilities with serverless architectures leveraging [Azure Functions](/azure-functions/functions-overview.md) and other PaaS services.
 
 ## How does it work?
 When you enable static websites on your storage account, a new web service endpoint is created of the form `<account-name>.<zone-name>.web.core.windows.net`.
@@ -34,7 +34,7 @@ Static website hosting is provided at no additional cost. For more details on pr
 
 ## Quickstart
 ### Azure portal
-Navigate to your storage account in Azure Portal and click on "Static website (preview)" under "Settings" in the left navigation bar. Click enabled and enter the name of the index document and (optionally) the custom error document path.
+To start hosting your web application on Azure Storage, you can configure the feature using the Azure Portal and click on "Static website (preview)" under "Settings" in the left navigation bar. Click "Enabled" and enter the name of the index document and (optionally) the custom error document path.
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
@@ -45,6 +45,9 @@ Finally, navigate to your web endpoint to test your website.
 ## FAQ
 **Is static websites available for all storage account types?**  
 No, static website hosting is only available in GPv2 standard storage accounts.
+
+**Are Storage VNET and firewall rules supported on the new web endpoint?**  
+Yes, the new web endpoint obeys the VNET and firewall rules configured for the storage account.
 
 ## Next steps
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
