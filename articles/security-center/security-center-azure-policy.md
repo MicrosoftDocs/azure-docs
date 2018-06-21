@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/10/2018
+ms.date: 06/21/2018
 ms.author: terrylan
 ---
 
@@ -110,12 +110,13 @@ It is not required that you create a management group and add your subscription 
 
     You may receive a message that you do not have the necessary permissions to access the root management group.  The Azure Active Directory tenant administrator needs to elevate itself to user access administrator at the root management group level. To gain the necessary permissions, follow instructions in [elevate access as a tenant admin with Role-Based Access Control](../role-based-access-control/elevate-access-global-admin.md).
 
-    Once access is elevated, the tenant admin can assign an RBAC role on the root management group. The required role to set and enforce policies is the "[Security Administrator](../role-based-access-control/built-in-roles.md#security-admin)" role. The assigned role is automatically propagated to all management groups and subscriptions under the root management group.
+    Once access is elevated, the tenant admin can assign an RBAC role on the root management group. Roles are assigned either by selecting the root management group and choosing Access control (IAM), or via PowerShell. The recommended roles to assign are either [Security Admin](../role-based-access-control/built-in-roles#security-admin) or [Security Reader](../role-based-access-control/built-in-roles#security-reader). The assigned role is automatically propagated to all management groups and subscriptions under the root management group. 
 
-	> [!NOTE]
+    > [!NOTE]
 	> The Security Administrator role does not grant you write permission. The Security Administrator role gives you read and security related permissions, such as create and manage policy assignments or dismiss a security alert.
 	>
-	>
+	
+    ![Assign Security Reader role from IAM](./media/security-center-azure-policy/asc-security-reader.png)
 
 ## Add subscriptions to a management group
 Now you can add subscriptions to the management group that you created.
