@@ -20,9 +20,9 @@ ms.author: maheshu
 ---
 
 > [!IMPORTANT]
-> Verify that you have enabled password hash synchronization to Azure AD Domain Services,
-> before you complete the tasks in this article. Follow the instructions below, depending
-> on the type of users in your Azure AD directory. Complete both sets of instructions if
-> you have a mix of cloud-only and synced user accounts in your Azure AD directory.
-> - [Instructions for cloud-only user accounts](active-directory-ds-getting-started-password-sync.md)
-> - [Instructions for synced user accounts](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+> **Enable password hash synchronization to Azure AD Domain Services, before you complete the tasks in this article.**
+> Follow the instructions below, depending on the type of users in your Azure
+> AD directory. Complete both sets of instructions if you have a mix of cloud-only
+> and synced user accounts in your Azure AD directory.
+> - [Instructions for cloud-only user accounts](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
+> - [Instructions for synced user accounts](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)
