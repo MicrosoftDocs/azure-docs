@@ -208,7 +208,7 @@ From the actions list, select this action: **Data Operations - Create CSV table*
    To provide custom column headers too, change **Include headers** to **Yes**. 
 
    > [!TIP]
-   > To create user-friendly tokens for the properties in  
+   > To create user-friendly tokens for the properties in 
    > JSON objects so you can select those properties as inputs, 
    > use the [Parse JSON](#parse-json-action) before calling the 
    > **Create CSV table** action.
@@ -299,7 +299,7 @@ From the actions list, select this action: **Data Operations - Create HTML table
    To provide custom column headers too, change **Include headers** to **Yes**. 
 
    > [!TIP]
-   > To create user-friendly tokens for the properties in  
+   > To create user-friendly tokens for the properties in 
    > JSON objects so you can select those properties as inputs, 
    > use the [Parse JSON](#parse-json-action) before calling the 
    > **Create HTML table** action.
