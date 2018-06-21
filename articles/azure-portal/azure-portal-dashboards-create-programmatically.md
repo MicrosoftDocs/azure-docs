@@ -3,7 +3,7 @@ title: Programmatically create Azure Dashboards | Microsoft Docs
 description: This article explains how to programmatically create Azure Dashboards.
 services: azure-portal
 documentationcenter: ''
-author: adamab
+author: adamabmsft
 manager: dougeby
 editor: tysonn
 

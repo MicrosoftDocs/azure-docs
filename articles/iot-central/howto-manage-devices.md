@@ -44,7 +44,7 @@ To add a device to your Azure IoT Central application:
 1. Choose **Real** or **Simulated**. A real device is for a physical device that you connect to your Azure IoT Central application. A simulated device has sample data generated for you by Azure IoT Central. This example uses a real device. Choose **Real** to navigate to the **Device Details** page for your new device.
 
 
-## Bulk-import devices
+## Import devices
 
 To connect large number of devices to your application, Azure IoT Central offers bulk importing devices via a CSV file. 
 
@@ -60,9 +60,12 @@ To bulk-register devices in your application:
 
 1. On the left panel, choose the device template for which you want to bulk create the devices.
 
-1. Choose **New** and select **Bulk Import**.
+ >   [!NOTE] 
+    If you don’t have a device template yet then you can import devices under **Unassociated devices** and register them without any template. Once devices have been imported, you can then associate them with a template as a subsequent step.
 
-    [![Bulk Import Action](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+1. Click **Import**.
+
+    [![Import Action](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
 1. Select the CSV file that has the list of Device IDs to be imported.
 
@@ -70,9 +73,25 @@ To bulk-register devices in your application:
 
 1. Once the import completes, a success message is shown on the device grid.
 
-    [![Bulk Import Success](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    [![Import Success](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
 If the device import operation fails, you will see an error message on the Device grid. A log file capturing all the errors is generated and can be downloaded by clicking the error message.
+
+
+**Associating devices with a template**
+
+If you register devices by starting the import under **Unassociated devices**, then the devices are created without any device template association. Device must be associated with a template to explore the data and other details about the device. Follow these steps to associate devices with a template:
+1. Choose **Explorer** on the left navigation menu.
+1. On the left panel, choose **Unassociated devices**.
+    [![Unassociated Devices](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
+1. Select the devices you want to associate with a template.
+1. Click **Associate** option.
+    [![Associate Devices](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
+1. Choose the template from the list of available templates and click **Associate** button.
+1. The selected devices will be moved under the respective device template.
+
+ >   [!NOTE] 
+    Once a device has been associated with a template it cannot be changed or associated with another template.
 
 ## Export devices
 
@@ -81,7 +100,7 @@ To provision devices to connect to IoT Central, you will need the connection str
 To bulk export devices from your application:
 1. Choose **Explorer** on the left navigation menu.
 
-1. One the left panel, choose the device template for which you want to export the devices.
+1. On the left panel, choose the device template for which you want to export the devices.
 
 1. Select the devices that you want to export and then click the **Export** action.
 
