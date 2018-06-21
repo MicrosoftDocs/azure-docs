@@ -107,6 +107,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li> Have there been logins to the database?</li></ul>|
 
+## Microsoft.Storage/storageAccounts
+|Executed Checks|
+|---|
+|<ul><li>Are requests to read data from the Storage account failing due to Azure Storage platform issues?</li><li>Are requests to write data to the Storage account failing due to Azure Storage platform issues?</li><li>Is the Storage cluster where the Storage account resides unavailable?</li></ul>|
+
 ## Microsoft.StreamAnalytics/streamingjobs
 |Executed Checks|
 |---|
