@@ -1,21 +1,20 @@
 ---
-title: Sign up for Azure Active Directory Premium | Microsoft Docs
+title: Sign up for Azure AD Premium | Microsoft Docs
 description: Explains how to sign up for Azure Active Directory Premium edition
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
-
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 09/07/2017
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro;
-
 ---
+
 # Quickstart: Sign up for Azure Active Directory Premium
 To get started with Azure Active Directory (Azure AD) Premium, you can purchase licenses and associate them with your Azure subscription. If you create a new Azure subscription, you also need to activate your licensing plan and Azure AD service access as described in the following sections. 
 
