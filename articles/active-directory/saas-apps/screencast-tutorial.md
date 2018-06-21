@@ -129,17 +129,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 9. On the **Setup Access Page**, perform the following steps:
 
+	* Under **Access URL** section, type your instancename in the specified textbox.
+
 	![The Access](./media/screencast-tutorial/tutorial_screencast_access.png)
 
-	a. Under **Access URL** section, type your instancename.
+	* Select **Require Domain User** under **SAML User Restriction (optional)** section.
+
+	* Under **Upload IDP Metadata XML File**, Click **Choose File** to upload the metadata which you have downloaded from Azure portal.
+
+	* Click **OK**.	
 
 	![The Access](./media/screencast-tutorial/tutorial_screencast_save.png)
-
-	b. Select **Require Domain User** under **SAML User Restriction (optional)** section.
-
-	c. Under **Upload IDP Metadata XML File**, Click **Choose File** to upload the metadata which you have downloaded from Azure portal.
-
-	d. Click **Ok**.
 
 ### Create an Azure AD test user
 
