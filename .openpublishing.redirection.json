@@ -901,8 +901,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-resource-limits.md",
-            "redirect_url": "/azure/sql-database/sql-database-dtu-resource-limits",
+            "source_path": "articles/sql-database/sql-database-dtu-resource-limits.md",
+            "redirect_url": "/azure/sql-database/sql-database-dtu-resource-limits-single-databases",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-database-resources.md",
+            "redirect_url": "/azure/sql-database/sql-database-single-database-scale",
             "redirect_document_id": false
         },
         {
@@ -10537,13 +10542,18 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-security.md",
-            "redirect_url": "/azure/sql-database/sql-database-security-overview",
+            "source_path": "articles/sql-database/sql-database-what-is-a-dtu.md",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-dtu",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-service-tiers.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
+            "source_path": "articles/sql-database/sql-database-benchmark-overview.md",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-dtu",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-security.md",
+            "redirect_url": "/azure/sql-database/sql-database-security-overview",
             "redirect_document_id": false
         },
         {
@@ -10604,6 +10614,11 @@
         {
             "source_path": "articles/sql-database/sql-database-v12-plan-prepare-upgrade.md",
             "redirect_url": "/azure/sql-database/sql-database-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-vcore-resource-limits.md",
+            "redirect_url": "/azure/sql-database/sql-database-vcore-resource-limits-single-databases",
             "redirect_document_id": false
         },
         {
@@ -25105,11 +25120,6 @@
             "source_path": "articles/virtual-machines/linux/join-redhat-linux-vm-to-azure-active-directory-domain-service.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
             "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
-            "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-troubleshooting-support-howto.md",

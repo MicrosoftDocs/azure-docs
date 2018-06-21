@@ -43,6 +43,8 @@ Each node type is a distinct scale set and can be scaled up or down independentl
 
 A Service Fabric cluster can consist of more than one node type. In that event, the cluster consists of one primary node type and one or more non-primary node types.
 
+A single node type cannot simply exceed 100 nodes per virtual machine scale set. You may need to add virtual machine scale sets to achieve the targeted scale, and auto-scaling cannot automagically add virtual machine scale sets. Adding virtual machine scale sets in-place to a live cluster is a challenging task, and commonly this results in users provisioning new clusters with the appropriate node types provisioned at creation time. 
+
 ### Primary node type
 
 The Service Fabric system services (for example, the Cluster Manager service or Image Store service) are placed on the primary node type. 
@@ -184,7 +186,7 @@ This guidance of stateless Workloads that you are running on the non-primary nod
 
 **Number of VM instances:** For production workloads that are stateless, the minimum supported non-Primary Node type size is 2. This allows you to run you two stateless instances of your application and allowing your service to survive the loss of a VM instance. 
 
-**VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is determined by workload you plan to run in the cluster, So we cannot provide you with qualitative guidance for your specific workload, however here is the broad guidance to help you get started
+**VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the node type, is determined by workload you plan to run in the cluster, So we cannot provide you with qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
 For production workloads 
 
