@@ -22,271 +22,245 @@ ms.reviewer: bagovind
 
 If the [built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to create and manage custom roles using the REST API.
 
+## List roles
+
+To list all roles or get information about a single role using its display name, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/read` operation at the scope. Several [built-in roles](built-in-roles.md) are granted access to this operation.
+
+1. Start with the following request:
+
+    ```http
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
+    ```
+
+1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
+
+    | Scope | Type |
+    | --- | --- |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+
+1. Replace *{filter}* with the condition that you want to apply to filter the role list.
+
+    | Filter | Description |
+    | --- | --- |
+    | `$filter=atScopeAndBelow()` | List roles available for assignment at the specified scope and any of its child scopes. |
+    | `$filter=roleName%20eq%20'{roleDisplayName}'` | Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+
+## Get information about a role
+
+To get information about a role using its role definition identifier, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/read` operation at the scope. Several [built-in roles](built-in-roles.md) are granted access to this operation.
+
+To get information about a single role using its display name, see [List roles](role-assignments-rest.md#list-roles).
+
+1. Start with the following request:
+
+    ```http
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    ```
+
+1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
+
+    | Scope | Type |
+    | --- | --- |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+
+1. Replace *{roleDefinitionId}* with the GUID identifier of the role definition.
+
 ## Create a custom role
-Create a custom role.
 
-To create a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure role-based access control](role-assignments-portal.md).
+To create a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/write` operation on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation. 
 
-### Request
-Use the **PUT** method with the following URI:
+1. Review the list of [resource provider operations](resource-provider-operations.md#microsoftsupport) that are available to create the permissions for your custom role.
 
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
+1. Use a GUID tool to generate a unique identifier that will be used for the custom role identifier. The identifier has the format: `00000000-0000-0000-0000-000000000000`
 
-Within the URI, make the following substitutions to customize your request:
+1. Start with the following request and body:
 
-1. Replace *{scope}* with the first *AssignableScope* of the custom role. The following examples show how to specify the scope for different levels.
+    ```http
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    ```
 
-   * Subscription: /subscriptions/{subscription-id}  
-   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Replace *{role-definition-id}* with a new GUID, which becomes the GUID identifier of the new custom role.
-3. Replace *{api-version}* with 2015-07-01.
-
-For the request body, provide the values in the following format:
-
-```
-{
-  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-  "properties": {
-    "roleName": "Virtual Machine Operator",
-    "description": "Lets you monitor virtual machines and restart them.",
-    "type": "CustomRole",
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Compute/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Network/*/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/*/read",
-          "Microsoft.Support/*",
-          "Microsoft.Compute/virtualMachines/start/action",
-          "Microsoft.Compute/virtualMachines/restart/action"
+    ```json
+    {
+      "name": "{roleDefinitionId}",
+      "properties": {
+        "roleName": "",
+        "description": "",
+        "type": "CustomRole",
+        "permissions": [
+          {
+            "actions": [
+    
+            ],
+            "notActions": [
+    
+            ]
+          }
         ],
-        "notActions": []
+        "assignableScopes": [
+          "/subscriptions/{subscriptionId}"
+        ]
       }
-    ],
-    "assignableScopes": [
-      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-    ]
-  }
-}
+    }
+    ```
 
-```
+1. Within the URI, replace *{scope}* with the first `assignableScopes` of the custom role.
 
-| Element Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| name |Yes |String |GUID identifier of the custom role. |
-| properties.roleName |Yes |String |Display name of the custom role. Maximum size 128 characters. |
-| properties.description |No |String |Description of the custom role. Maximum size 1024 characters. |
-| properties.type |Yes |String |Set to "CustomRole." |
-| properties.permissions.actions |Yes |String[] |An array of action strings specifying the operations granted by the custom role. |
-| properties.permissions.notActions |No |String[] |An array of action strings specifying the operations to exclude from the operations granted by the custom role. |
-| properties.assignableScopes |Yes |String[] |An array of scopes in which the custom role can be used. |
+    | Scope | Type |
+    | --- | --- |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
-### Response
-Status code: 201
+1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
-```
-{
-  "properties": {
-    "roleName": "Virtual Machine Operator",
-    "type": "CustomRole",
-    "description": "Lets you monitor virtual machines and restart them.",
-    "assignableScopes": [
-      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-    ],
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Compute/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Network/*/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/*/read",
-          "Microsoft.Support/*",
-          "Microsoft.Compute/virtualMachines/start/action",
-          "Microsoft.Compute/virtualMachines/restart/action"
+1. Within the request body, replace *{roleDefinitionId}* with the GUID identifier.
+
+1. Replace *{subscriptionId}* with your subscription identifier.
+
+1. In the `actions` property, add the operations that the role allows to be performed.
+
+1. In the `notActions` property, add the operations that are excluded from the allowed `actions`.
+
+    The following shows an example of a request body:
+
+    ```json
+    {
+      "name": "88888888-8888-8888-8888-888888888888",
+      "properties": {
+        "roleName": "Virtual Machine Operator",
+        "description": "Can monitor and restart virtual machines.",
+        "type": "CustomRole",
+        "permissions": [
+          {
+            "actions": [
+              "Microsoft.Storage/*/read",
+              "Microsoft.Network/*/read",
+              "Microsoft.Compute/*/read",
+              "Microsoft.Compute/virtualMachines/start/action",
+              "Microsoft.Compute/virtualMachines/restart/action",
+              "Microsoft.Authorization/*/read",
+              "Microsoft.Resources/subscriptions/resourceGroups/read",
+              "Microsoft.Insights/alertRules/*",
+              "Microsoft.Support/*"
+            ],
+            "notActions": []
+          }
         ],
-        "notActions": []
+        "assignableScopes": [
+          "/subscriptions/00000000-0000-0000-0000-000000000000"
+        ]
       }
-    ],
-    "createdOn": "2015-12-18T00:10:51.4662695Z",
-    "updatedOn": "2015-12-18T00:10:51.4662695Z",
-    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-  "type": "Microsoft.Authorization/roleDefinitions",
-  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7"
-}
-
-```
+    }
+    ```
 
 ## Update a custom role
-Modify a custom role.
 
-To modify a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure role-based access control](role-assignments-portal.md).
+To update a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/write` operation on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation. 
 
-### Request
-Use the **PUT** method with the following URI:
+1. Use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) or [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API to get information about the custom role. For more information, see [Get information about a role](custom-roles-rest.md#get-information-about-a-role).
 
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
+1. Start with the following request:
 
-Within the URI, make the following substitutions to customize your request:
+    ```http
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    ```
 
-1. Replace *{scope}* with the first *AssignableScope* of the custom role. The following examples show how to specify the scope for different levels:
+1. Within the URI, replace *{scope}* with the first `assignableScopes` of the custom role.
 
-   * Subscription: /subscriptions/{subscription-id}  
-   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Replace *{role-definition-id}* with the GUID identifier of the custom role.
-3. Replace *{api-version}* with 2015-07-01.
+    | Scope | Type |
+    | --- | --- |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
-For the request body, provide the values in the following format:
+1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
-```
-{
-  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-  "properties": {
-    "roleName": "Virtual Machine Operator",
-    "description": "Lets you monitor virtual machines and restart them.",
-    "type": "CustomRole",
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Compute/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Network/*/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/*/read",
-          "Microsoft.Support/*",
-          "Microsoft.Compute/virtualMachines/start/action",
-          "Microsoft.Compute/virtualMachines/restart/action"
+1. Based on information about the custom role, create a request body with the following format:
+
+    ```json
+    {
+      "name": "{roleDefinitionId}",
+      "properties": {
+        "roleName": "",
+        "description": "",
+        "type": "CustomRole",
+        "permissions": [
+          {
+            "actions": [
+    
+            ],
+            "notActions": [
+    
+            ]
+          }
         ],
-        "notActions": []
+        "assignableScopes": [
+          "/subscriptions/{subscriptionId}"
+        ]
       }
-    ],
-    "assignableScopes": [
-      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-    ]
-  }
-}
+    }
+    ```
 
-```
+1. Update the body with the changes you want to make to the custom role.
 
-| Element Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| name |Yes |String |GUID identifier of the custom role. |
-| properties.roleName |Yes |String |Display name of the updated custom role. |
-| properties.description |No |String |Description of the updated custom role. |
-| properties.type |Yes |String |Set to "CustomRole." |
-| properties.permissions.actions |Yes |String[] |An array of action strings specifying the operations to which the updated custom role grants access. |
-| properties.permissions.notActions |No |String[] |An array of action strings specifying the operations to exclude from the operations which the updated custom role grants. |
-| properties.assignableScopes |Yes |String[] |An array of scopes in which the updated custom role can be used. |
+    The following shows an example of a request body with a new diagnostic settings action added:
 
-### Response
-Status code: 201
-
-```
-{
-  "properties": {
-    "roleName": "Virtual Machine Operator",
-    "type": "CustomRole",
-    "description": "Lets you monitor virtual machines and restart them.",
-    "assignableScopes": [
-      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-    ],
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Compute/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Network/*/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/*/read",
-          "Microsoft.Support/*",
-          "Microsoft.Compute/virtualMachines/start/action",
-          "Microsoft.Compute/virtualMachines/restart/action"
+    ```json
+    {
+      "name": "88888888-8888-8888-8888-888888888888",
+      "properties": {
+        "roleName": "Virtual Machine Operator",
+        "description": "Can monitor and restart virtual machines.",
+        "type": "CustomRole",
+        "permissions": [
+          {
+            "actions": [
+              "Microsoft.Storage/*/read",
+              "Microsoft.Network/*/read",
+              "Microsoft.Compute/*/read",
+              "Microsoft.Compute/virtualMachines/start/action",
+              "Microsoft.Compute/virtualMachines/restart/action",
+              "Microsoft.Authorization/*/read",
+              "Microsoft.Resources/subscriptions/resourceGroups/read",
+              "Microsoft.Insights/alertRules/*",
+              "Microsoft.Insights/diagnosticSettings/*",
+              "Microsoft.Support/*"
+            ],
+            "notActions": []
+          }
         ],
-        "notActions": []
+        "assignableScopes": [
+          "/subscriptions/00000000-0000-0000-0000-000000000000"
+        ]
       }
-    ],
-    "createdOn": "2015-12-18T00:10:51.4662695Z",
-    "updatedOn": "2015-12-18T00:10:51.4662695Z",
-    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-  "type": "Microsoft.Authorization/roleDefinitions",
-  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7"
-}
-
-```
+    }
+    ```
 
 ## Delete a custom role
-Delete a custom role.
 
-To delete a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/delete` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure role-based access control](role-assignments-portal.md).
+To delete a custom role, use the [Role Definitions - Delete](/rest/api/authorization/roledefinitions/delete) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/delete` operation on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation. 
 
-### Request
-Use the **DELETE** method with the following URI:
+1. Use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) or [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API to get the GUID identifier of the custom role. For more information, see [Get information about a role](custom-roles-rest.md#get-information-about-a-role).
 
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
+1. Start with the following request:
 
-Within the URI, make the following substitutions to customize your request:
+    ```http
+    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    ```
 
-1. Replace *{scope}* with the scope at which you wish to delete the role definition. The following examples show how to specify the scope for different levels:
+1. Within the URI, replace *{scope}* with the scope that you want to delete the custom role.
 
-   * Subscription: /subscriptions/{subscription-id}  
-   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Replace *{role-definition-id}* with the GUID role definition id of the custom role.
-3. Replace *{api-version}* with 2015-07-01.
+    | Scope | Type |
+    | --- | --- |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
-### Response
-Status code: 200
-
-```
-{
-  "properties": {
-    "roleName": "Virtual Machine Operator",
-    "type": "CustomRole",
-    "description": "Lets you monitor virtual machines and restart them.",
-    "assignableScopes": [
-      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-    ],
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Compute/*/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Network/*/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/*/read",
-          "Microsoft.Support/*",
-          "Microsoft.Compute/virtualMachines/start/action",
-          "Microsoft.Compute/virtualMachines/restart/action"
-        ],
-        "notActions": []
-      }
-    ],
-    "createdOn": "2015-12-16T00:07:02.9236555Z",
-    "updatedOn": "2015-12-16T00:07:02.9236555Z",
-    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-  },
-  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/0bd62a70-e1b8-4e0b-a7c2-75cab365c95b",
-  "type": "Microsoft.Authorization/roleDefinitions",
-  "name": "0bd62a70-e1b8-4e0b-a7c2-75cab365c95b"
-}
-
-```
+1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
 ## Next steps
 
