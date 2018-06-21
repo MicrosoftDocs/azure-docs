@@ -3,8 +3,7 @@ title: Supported browsers and devices for Azure portal | Microsoft Docs
 description: Describes the browsers and devices on which the Azure portal will work.
 services: azure-portal
 documentationcenter: ''
-author: flanakin
-writer: flanakin
+author: adamabmsft
 manager: lwelicki
 editor: ''
 
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: micflan
+ms.author: adamab
 ms.custom: accessibility
 ---
 # Supported browsers and devices for the Azure portal
