@@ -50,7 +50,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 ## Release notes
 
 ### <a name="2.0.0"/>2.0.0
-* Replaced org.json dependency by jackson due to performance reasons and licensing ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29))
+* Replaced org.json dependency by jackson due to performance reasons and licensing ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
 * Removed deprecated OfferV2 class.
 * Added accessor method to Offer class for throughput content.
 * Any method in Document/Resource returning org.json types changed to return a jackson object type.
