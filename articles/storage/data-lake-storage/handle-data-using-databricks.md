@@ -145,13 +145,13 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
 
-2. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
+3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
 
     ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-notebook-details.png "Create notebook in Databricks")
 
     Select **Create**.
 
-3. Add the following snippet in an empty code cell and replace the placeholder values with the values you saved earlier from the storage account.
+4. Add the following snippet in an empty code cell and replace the placeholder values with the values you saved earlier from the storage account.
 
     ```python
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
@@ -160,13 +160,13 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     Press **SHIFT + ENTER** to run the code cell.
 
-4. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values).
-    
+5. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values).
+
     ```python
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/small_radio_json.json")
     ```
 
-5. Run the following code to see the contents of the data frame.
+6. Run the following code to see the contents of the data frame.
 
     ```python
     df.show()
@@ -189,7 +189,7 @@ You have now extracted the data from Azure Data Lake Storage into Azure Databric
 
 ## Transform data in Azure Databricks
 
-The raw sample data **small_radio_json.json** captures the audience for a radio station and has a variety of columns. In this section, you transform the data to only retrieve specific columns in from the dataset. 
+The raw sample data **small_radio_json.json** captures the audience for a radio station and has a variety of columns. In this section, you transform the data to only retrieve specific columns in from the dataset.
 
 1. Start by retrieving only the columns *firstName*, *lastName*, *gender*, *location*, and *level* from the dataframe you already created.
 
@@ -336,7 +336,8 @@ After you have finished running the tutorial, you can terminate the cluster. To 
 
 If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster automatically stops if it has been inactive for the specified time.
 
-## Next steps 
+## Next steps
+
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]

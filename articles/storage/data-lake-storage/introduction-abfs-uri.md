@@ -16,7 +16,7 @@ ms.component: data-lake-storage-gen2
 
 The [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) driver that is compatible with Azure Data Lake Storage Gen2 is known by its scheme identifier `abfs` (Azure Blob File System). Consistent with other Hadoop Filesystem drivers, the ABFS driver employs a URI format to address files and directories within a Data Lake Storage account.
 
-## URI syntax 
+## URI syntax
 
 The URI syntax for Data Lake Storage is dependent on whether or not your storage account is set up to have Data Lake Storage as the default file system.
 

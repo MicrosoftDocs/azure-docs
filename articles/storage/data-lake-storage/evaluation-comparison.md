@@ -12,7 +12,7 @@ ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
 
-# Comparing Azure Data Lake Storage Gen2 and Azure Data Lake Storage Gen1
+# Evaluating Azure Data Lake Storage Gen2
 
 The table in this article summarizes the differences between Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. It documents what is currently available and will be updated as features are integrated over the course of its preview.
 
