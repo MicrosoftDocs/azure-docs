@@ -155,9 +155,15 @@ select **Output**.
 
 ## Create CSV table action
 
-To create a comma-separated value (CSV) table from an array that contains 
-JSON objects, use the **Data Operations - Create CSV table** action. 
+To create a comma-separated value (CSV) table that has 
+the properties and values from JSON objects in an array, 
+use the **Data Operations - Create CSV table** action. 
 You can then use this table in actions that follow after the **Create CSV table** action.
+
+> [!TIP]
+> For JSON content that's not formatted as an array, 
+> try using the [Parse JSON](#parse-json-action) before 
+> calling the **Create CSV table** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -238,10 +244,16 @@ select **Output**.
 
 ## Create HTML table action
 
-To create an HTML table from an array with JSON objects, 
+To create an HTML table that has the properties 
+and values from JSON objects in an array, 
 use the **Data Operations - Create HTML table** action. 
 You can then use this table in actions that follow after 
 the **Create HTML table** action.
+
+> [!TIP]
+> For JSON content that's not formatted as an array, 
+> try using the [Parse JSON](#parse-json-action) before 
+> calling the **Create CSV table** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -507,9 +519,9 @@ select **Output**.
 ## Parse JSON action
 
 To reference or use the properties in JSON content, 
-you can create fields or tokens for those properties 
-by using the **Data operations - Parse JSON** action.
-That way, you can select these properties from the dynamic 
+you can create user-friendly fields or tokens for those 
+properties by using the **Data operations - Parse JSON** action.
+That way, you can select those properties from the dynamic 
 content list when you specify inputs for your logic app. 
 For this action, you can either provide a JSON schema 
 or generate a JSON schema from your sample JSON content or payload.
@@ -694,7 +706,7 @@ enter this expression that includes the **Select** action's name:
 
    This example uses the **Office 365 Outlook - Send an email** action 
    and includes the outputs from the **actionBody('Select')** 
-   expression in the email's body
+   expression in the email's body:
 
    ![Action outputs in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-select-action.png)
 
