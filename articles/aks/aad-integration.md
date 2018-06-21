@@ -116,7 +116,7 @@ az group create --name myAKSCluster --location eastus
 Deploy the cluster using the [az aks create][az-aks-create] command. Replace the values in the sample command below with the values collected when creating the Azure AD applications.
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluser --generate-ssh-keys --enable-rbac \
+az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-keys --enable-rbac \
   --aad-server-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
   --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
   --aad-client-app-id 7ee598bb-0000-0000-0000-83692e2d717e \

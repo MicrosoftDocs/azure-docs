@@ -17,6 +17,8 @@ ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
 
+#Customer intent: As a IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
+
 ---
 # Azure Active Directory conditional access settings reference
 

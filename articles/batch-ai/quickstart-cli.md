@@ -52,6 +52,13 @@ az batchai workspace create \
     --workspace myworkspace \
     --resource-group myResourceGroup 
 ```
+## Create Batch AI workspace
+
+The following command creates a Batch AI workspace in the resource group. A Batch AI workspace is a top-level collection of all types of Batch AI resources:
+
+```azurecli
+az batchai workspace create -g batchai.quickstart -n quickstart
+```
 
 As a basic example, the following [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command creates a single-node cluster using the NC6 VM size, which contains one NVIDIA Tesla K80 GPU. This cluster runs a default Ubuntu Server image designed to host container-based applications. This example uses a *low-priority* VM, a lower-priced option from surplus VM capacity in Azure. This command adds a user account named *azureuser*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*). 
 
@@ -141,7 +148,7 @@ az storage file upload \
 
 ## Submit training job
 
- First, create a Batch AI *experiment* in your workspace by using the [az batchai experiment create](/cli/azure/batchai/experiment#az-batchai-experiment-create) command. An experiment is a logical container for related Batch AI jobs.
+First, create a Batch AI *experiment* in your workspace by using the [az batchai experiment create](/cli/azure/batchai/experiment#az-batchai-experiment-create) command. An experiment is a logical container for related Batch AI jobs.
 
 ```azurecli-interactive
 az batchai experiment create \
@@ -171,6 +178,16 @@ In your working directory, create a training job configuration file `job.json` w
                     "azureFileUrl": "https://<YOUR_STORAGE_ACCOUNT>.file.core.windows.net/scripts",
                     "relativeMountPath": "scripts"
                 }
+<<<<<<< HEAD
+=======
+            ],
+            "azureBlobFileSystems": [
+                {
+                    "accountName": "<YOUR_STORAGE_ACCOUNT>",
+                    "containerName": "data",
+                    "relativeMountPath": "data"
+                }
+>>>>>>> b77a1e59a7c1a84e1a03634056ac2931380ad7dc
             ]
         },
         "containerSettings": {
