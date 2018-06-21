@@ -25,7 +25,7 @@ Use the SQL Server resource provider adapter API to expose SQL databases as a se
 - Websites that use SQL.
 - Workloads that use SQL.
 
-The resource provider doesn't provide all the database management abilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, elastic pools that automatically allocate resources aren't supported. However, the resource provider supports similar create, read, update, and delete (CRUD) operations on a SQL Server database. For more information about the resource provider API, see [Windows Azure Pack SQL Server Resource Provider REST API Reference](https://msdn.microsoft.com/en-us/library/dn528529.aspx).
+The resource provider doesn't provide all the database management abilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, elastic pools that automatically allocate resources aren't supported. However, the resource provider supports similar create, read, update, and delete (CRUD) operations on a SQL Server database. For more information about the resource provider API, see [Windows Azure Pack SQL Server Resource Provider REST API Reference](https://msdn.microsoft.com/library/dn528529.aspx).
 
 >[!NOTE]
 The SQL Server resource provider API isn't compatible with Azure SQL Database.
