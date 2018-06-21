@@ -14,12 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 06/21/2018
 ms.author: maheshu
 
 ---
 # Join a Windows Server virtual machine to a managed domain
 This article shows how to deploy a Windows Server virtual machine by using the Azure portal. It then shows how to join the virtual machine to an Azure Active Directory Domain Services (Azure AD DS) managed domain.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## Step 1: Create a Windows Server virtual machine
 To create a Windows virtual machine that's joined to the virtual network in which you've enabled Azure AD DS, do the following:
@@ -86,7 +88,7 @@ To join the Windows Server virtual machine to the Azure AD DS-managed domain, do
 
     ![The Server Manager window on the virtual machine](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
-3. Under **Properties**, select **Workgroup**. 
+3. Under **Properties**, select **Workgroup**.
 4. In the **System Properties** window, select **Change** to join the domain.
 
     ![The System Properties window](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
