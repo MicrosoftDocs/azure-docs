@@ -1,0 +1,101 @@
+---
+title: How to install Azure IoT Edge on Linux | Microsoft Docs
+description: Azure IoT Edge installation instructions on Linux
+author: kgremban
+manager: timlt
+# this is the PM responsible
+ms.reviewer: veyalla
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
+ms.date: 06/12/2018
+ms.author: kgremban
+---
+
+>[!NOTE]
+>Packages in the Linux software repositories are subject to the license terms located in the packages (/usr/share/doc/<package-name>). Please read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
+
+# Register Microsoft key and software repository feed
+
+## Ubuntu 16.04
+
+```cmd/sh
+# Install repository configuration
+curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
+sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+
+# Install Microsoft GPG public key
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+```
+
+## Ubuntu 18.04
+
+```cmd/sh
+# Install repository configuration
+curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+
+# Install Microsoft GPG public key
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+```
+
+## Debian 9
+
+```cmd/sh
+# Install repository configuration
+curl https://packages.microsoft.com/config/debian/9/prod.list > ./microsoft-prod.list
+sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+
+# Install Microsoft GPG public key
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+```
+
+# Install the container runtime 
+
+Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). If you already have Docker CE/EE installed on your edge device, you can continue to use it for development and testing with Azure IoT Edge. For production scenarios it is highly recommended that you use the [Moby][lnk-moby]-based engine below as it is the only container engine officially supported by Microsoft.
+
+*Instructions below install both moby engine and cli. The cli is useful for development but optional for production deployments*
+
+```cmd/sh
+sudo apt-get update
+sudo apt-get install moby-engine
+sudo apt-get install moby-cli
+```
+
+# Install the Azure IoT Edge Security Daemon
+
+The Azure IoT Edge Security Daemon is a native component of the Azure IoT Edge runtime which provides and maintains security standards on the edge device.
+
+*Instructions below will also install the standard version of the `iothsmlib` if not already present.*
+
+```cmd/sh
+sudo apt-get update
+sudo apt-get install iotedge
+```
+
+# Configure the Azure IoT Edge Security Daemon
+
+The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml`. The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string][lnk-dcs].
+
+For manual configuration, enter the device connection string in *provisioning* section:
+
+```yaml
+provisioning:
+  source: "manual"
+  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```
+
+Note: the file is write-protected by default, use `sudo` to edit it. e.g `sudo nano /etc/iotedge/config.yaml`
+
+
+# Next steps
+For more information and architectural overview of Azure IoT Edge Runtime go this article.
+
+<!-- Links -->
+[lnk-dcs]: https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet#register-a-device
+[lnk-dps]: tbd.md
+[lnk-oci]: https://www.opencontainers.org/
+[lnk-moby]: https://mobyproject.org/
