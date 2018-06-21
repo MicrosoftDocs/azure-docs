@@ -72,7 +72,7 @@ The following table shows connectivity locations and the service providers for e
 | **Canberra** | CDC |
 | **Canberra2** | CDC |
 | **Chennai** | Airtel+, Global CloudXchange (GCX), SIFY, Tata Communications |
-| **Chicago** |AT&T NetBond, Comcast, Coresite, Equinix, PacketFabric, Level 3 Communications, Megaport, Verizon, Zayo |
+| **Chicago** |AT&T NetBond, Comcast, Coresite, Equinix, PacketFabric, Level 3 Communications, Megaport, Sprint, Verizon, Zayo |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Telmex Uninet+, Verizon, Zayo|
 | **Denver** |CoreSite, Megaport |
 | **Dublin** |Colt, eir, Interxion, Megaport, Telecity Group |
