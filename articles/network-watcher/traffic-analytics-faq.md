@@ -22,7 +22,7 @@ This article collects in one place many of the most frequently asked questions a
 
 ## What are the prerequisites to use traffic analytics?
 
-Traffic Analytics requires the following prerequisites:
+Traffic analytics requires the following prerequisites:
 
 - A Network Watcher enabled subscription.
 - Network Security Group (NSG) flow logs enabled for the NSGs you want to monitor.
@@ -76,7 +76,7 @@ Yes.
 
 Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## Can my Azure Storage Account be in a different subscription?
+## Can my Azure Storage account be in a different subscription?
 
 Yes, your Azure Storage account can be in one subscription, and your Log Analytics workspace can be in a different subscription.
 
@@ -99,7 +99,7 @@ The Microsoft.Insights provider must be registered for flow logging to work pr
 
 ## I have configured the solution. Why am I not seeing anything on the dashboard?
 
-The dashboard may take up to 30 minutes to appear the first time. The solution must first aggregate enough data for it to derive meaningful insights. Then it generates reports. 
+The dashboard might take up to 30 minutes to appear the first time. The solution must first aggregate enough data for it to derive meaningful insights. Then it generates reports. 
 
 ## What if I get this message: “We could not find any data in this workspace for selected time interval”?
 
@@ -120,7 +120,7 @@ If problems persist, raise concerns in the [User voice forum](https://feedback.a
     
 ## What if I get this message: “Looks like we have resources data (Topology) and no flows information”?
 
-You are seeing the resources information on the dashboard; however, no flow-related statistics are present. Data may not be present because of no communication flows between the resources. Wait for 60 minutes, and recheck status. If the problem persists, and you're sure that communication flows among resources exist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+You are seeing the resources information on the dashboard; however, no flow-related statistics are present. Data might not be present because of no communication flows between the resources. Wait for 60 minutes, and recheck status. If the problem persists, and you're sure that communication flows among resources exist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
 ## Can I configure traffic analytics using PowerShell or an Azure Resource Manager template?
 
@@ -142,7 +142,7 @@ The geo map page contains two main sections:
 ### Keyboard navigation on the banner
     
 - By default, the selection on the geo map page for the banner is the “Azure DCs” filter.
-- To navigate to another filter, use either the `Tab` or the `Right arrow` key. To navigate backward, use either the `Shift+Tab` or the `Left arrow` key. Forward navigation is left to right, followed by top to bottom.
+- To move to another filter, use either the `Tab` or the `Right arrow` key. To move backward, use either the `Shift+Tab` or the `Left arrow` key. Forward navigation is left to right, followed by top to bottom.
 - Press `Enter` or the `Down` arrow key to apply the selected filter. Based on filter selection and deployment, one or multiple nodes under the map section are highlighted.
 - To switch between banner and map, press `Ctrl+F6`.
         
@@ -151,10 +151,10 @@ The geo map page contains two main sections:
 - After you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**Azure datacenter** or **Country/Region**) in the map view.
 - To move to other highlighted nodes in the map, use either `Tab` or the `Right arrow` key for forward movement. Use `Shift+Tab` or the `Left arrow` key for backward movement.
 - To select any highlighted node in the map, use the `Enter` or `Down arrow` key.
-- On selection of any such nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the closed button on the **Information Tool Box**. To further navigate inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
-- When you press `Tab` while the focus is on the **Information Tool Box**, the focus moves to the end points in the same continent as the selected node. Use the `Right arrow` and `Left arrow` keys to navigate through these endpoints.
-- To navigate to other flow endpoints or continent clusters, use `Tab` for forward movement and `Shift+Tab` for backward movement.
-- When the focus is on **Continent clusters**, use the `Enter` or `Down` arrow keys to highlight the endpoints inside the continent cluster. To navigate through endpoints and the close button on the information box of the continent cluster, use either the `Right arrow` or `Left arrow` key for forward and backward movement, respectively. On any endpoint, you can use `Shift+L` to switch to the connection line from the selected node to the endpoint. You can press `Shift+L` again to move to the selected endpoint.
+- On selection of any such nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the closed button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
+- When you press `Tab` while the focus is on the **Information Tool Box**, the focus moves to the end points in the same continent as the selected node. Use the `Right arrow` and `Left arrow` keys to move through these endpoints.
+- To move to other flow endpoints or continent clusters, use `Tab` for forward movement and `Shift+Tab` for backward movement.
+- When the focus is on **Continent clusters**, use the `Enter` or `Down` arrow keys to highlight the endpoints inside the continent cluster. To move through endpoints and the close button on the information box of the continent cluster, use either the `Right arrow` or `Left arrow` key for forward and backward movement, respectively. On any endpoint, you can use `Shift+L` to switch to the connection line from the selected node to the endpoint. You can press `Shift+L` again to move to the selected endpoint.
         
 ### Keyboard navigation at any stage
     
@@ -162,25 +162,25 @@ The geo map page contains two main sections:
 - The `Up arrow` key performs the same action as `Esc`. The `Down arrow` key performs the same action as `Enter`.
 - Use `Shift+Plus` to zoom in, and `Shift+Minus` to zoom out.
 
-## How can I navigate by using the keyboard in the VNet topology view?
+## How can I navigate by using the keyboard in the virtual network topology view?
 
 The virtual networks topology page contains two main sections:
     
-- **Banner**: The banner at the top of the virtual networks topology provides buttons to select traffic distribution filters (for example, Connected VNets, Disconnected VNets, and Public IPs). When you select a button, the respective filter is applied on the topology. For example, if you select the Active button, the topology highlights the active VNets in your deployment.
-- **Topology**: Below the banner, the topology section shows traffic distribution among VNets.
+- **Banner**: The banner at the top of the virtual networks topology provides buttons to select traffic distribution filters (for example, Connected virtual networks, Disconnected virtual networks, and Public IPs). When you select a button, the respective filter is applied on the topology. For example, if you select the Active button, the topology highlights the active virtual networks in your deployment.
+- **Topology**: Below the banner, the topology section shows traffic distribution among virtual networks.
     
 ### Keyboard navigation on the banner
     
-- By default, the selection on the virtual networks topology page for the banner is the “Connected VNets” filter.
-- To navigate to another filter, use the `Tab` key to move forward. To move backward, use the `Shift+Tab` key. Forward navigation is left to right, followed by top to bottom.
-- Press `Enter` to apply the selected filter. Based on the filter selection and deployment, one or multiple nodes (VNet) under the topology section are highlighted.
+- By default, the selection on the virtual networks topology page for the banner is the “Connected virtual networks” filter.
+- To move to another filter, use the `Tab` key to move forward. To move backward, use the `Shift+Tab` key. Forward navigation is left to right, followed by top to bottom.
+- Press `Enter` to apply the selected filter. Based on the filter selection and deployment, one or multiple nodes (virtual network) under the topology section are highlighted.
 - To switch between the banner and the topology, press `Ctrl+F6`.
         
 ### Keyboard navigation on the topology
     
 - After you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**VNet**) in the topology view.
 - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
-- On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further navigate inside the **Box** view, use the `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
+- On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use the `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
 - On selection of any such nodes, you can visit all connections, one by one, by pressing the `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
     
 
@@ -194,7 +194,7 @@ The virtual subnetworks topology page contains two main sections:
 ### Keyboard navigation on the banner
     
 - By default, the selection on the virtual subnetworks topology page for the banner is the “Subnets” filter.
-- To navigate to another filter, use the `Tab` key to move forward. To navigate backward, use the `Shift+Tab` key. Forward navigation is left to right, followed by top to bottom.
+- To move to another filter, use the `Tab` key to move forward. To move backward, use the `Shift+Tab` key. Forward navigation is left to right, followed by top to bottom.
 - Press `Enter` to apply the selected filter. Based on filter selection and deployment, one or multiple nodes (Subnet) under the topology section are highlighted.
 - To switch between the banner and the topology, press `Ctrl+F6`.
         
@@ -202,6 +202,6 @@ The virtual subnetworks topology page contains two main sections:
     
 - After you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**Subnet**) in the topology view.
 - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
-- On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further navigate inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
+- On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
 - On selection of any such nodes, you can visit all connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.    
 
