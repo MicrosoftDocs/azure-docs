@@ -61,7 +61,7 @@
                 }
                 catch (MobileServiceInvalidOperationException)
                 {
-                    message = "You must sign in. Sign In Required";
+                    message = "You must sign in. Sign-In Required";
                 }
             }
    

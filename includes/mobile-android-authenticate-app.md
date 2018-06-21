@@ -34,11 +34,11 @@
             if (requestCode == GOOGLE_LOGIN_REQUEST_CODE) {
                 MobileServiceActivityResult result = mClient.onActivityResult(data);
                 if (result.isLoggedIn()) {
-                    // sign in succeeded
+                    // sign-in succeeded
                     createAndShowDialog(String.format("You are now signed in - %1$2s", mClient.getCurrentUser().getUserId()), "Success");
                     createTable();
                 } else {
-                    // sign in failed, check the error message
+                    // sign-in failed, check the error message
                     String errorMessage = result.getErrorMessage();
                     createAndShowDialog(errorMessage, "Error");
                 }
