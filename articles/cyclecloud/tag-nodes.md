@@ -1,7 +1,6 @@
 # Tag Nodes
 
-Azure CycleCloud will automatically create and add three tags to each node: a name, the cluster name, and the owner.
-These tags are meant to make it easier to audit ownership of the nodes when using non-CycleCloud tools.
+Azure CycleCloud will automatically create and add three tags to each node: a name, the cluster name, and the owner. These tags are meant to make it easier to audit ownership of the nodes when using non-CycleCloud tools.
 
 | Tag         | Description                                                                |
 | ----------- | -------------------------------------------------------------------------- |
@@ -9,11 +8,8 @@ These tags are meant to make it easier to audit ownership of the nodes when usin
 | ClusterName | Name of the CycleCloud cluster the node is running in.                     |
 | CycleOwner  | Which user started the node, using the format username@site_name:site_id   |
 
-The `CycleOwner` tag uses this format: [username]@[site_name]:[site_id], where username is the CycleCloud user that
-started the node, site_name is the user defined name of the CycleCloud installation, and site_id is the
-CycleCloud Site ID that identifies the CycleCloud installation. For example, a cluster named "Demo" with
-a node called "master" started by "username" running on CycleCloud site "mysite" with id "92xy4vgh"
-would have the following tags created automatically:
+The `CycleOwner` tag uses this format: [username]@[site_name]:[site_id], where username is the CycleCloud user that started the node, site_name is the user defined name of the CycleCloud installation, and site_id is the CycleCloud Site ID that identifies the CycleCloud installation. For example, a cluster named "Demo" with
+a node called "master" started by "username" running on CycleCloud site "mysite" with id "92xy4vgh" would have the following tags created automatically:
 
     Name => "Demo: master"
     ClusterName => "Demo"
@@ -35,8 +31,10 @@ Creating a node with this definition will result in three additional tags being 
     CustomValue => "57"
     Custom Text => "Hello world"
 
-> [!NOTE]
-> This syntax will not work if your tag name includes quote marks or periods.
+### Restrictions
 
-> [!WARNING]  
-> Resources created with the Azure classic portal cannot use tags.
+There are limits on the number and format of tags applied to each Virtual Machine. Please review the [Tagging Azure Resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags) documentation for full details.
+
+Do not include quote marks or periods in your tag names.
+
+Please note that resources created with the Azure classic portal cannot use tags.
