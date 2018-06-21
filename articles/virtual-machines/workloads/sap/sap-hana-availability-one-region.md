@@ -116,5 +116,5 @@ For step-by-step guidance on setting up these configurations in Azure, see:
 
 For more information about SAP HANA availability across Azure regions, see:
 
-- [SAP HANA availability across Azure regions](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
+- [SAP HANA availability across Azure regions](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
 

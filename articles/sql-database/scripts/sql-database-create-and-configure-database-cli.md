@@ -3,7 +3,7 @@ title: CLI example-create an Azure SQL database | Microsoft Docs
 description: Use this Azure CLI example script to create a SQL database.
 services: sql-database
 documentationcenter: sql-database
-author: janeng
+author: CarlRabeler
 manager: janeng
 editor: carlrab
 ms.service: sql-database
@@ -12,8 +12,8 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/01/2018
-ms.author: janeng
+ms.author: carlrab
+ms.date: 05/17/2018
 ---
 
 # Use CLI to create a single Azure SQL database and configure a firewall rule

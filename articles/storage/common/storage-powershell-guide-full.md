@@ -1,4 +1,4 @@
----
+﻿---
 title: Using Azure PowerShell with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure PowerShell cmdlets for Azure Storage.
 services: storage
@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 06/13/2018
 ms.author: rogarana
 ---
 
@@ -43,15 +43,15 @@ For more information about storage accounts, see [Introduction to Storage](stora
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## List the storage accounts in the subscription
 
-Run the [Get-AzureRMStorageAccount](/powershell/module/azurerm.resources/get-azurermstorageaccount) cmdlet to retrieve the list of storage accounts in the current subscription. 
+Run the [Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) cmdlet to retrieve the list of storage accounts in the current subscription. 
 
 ```powershell
 Get-AzureRMStorageAccount | Select StorageAccountName, Location
@@ -104,11 +104,11 @@ $ctx = $storageAccount.Context
 
 The script uses the following PowerShell cmdlets: 
 
-*   [Get-AzureRmLocation](/powershell/module/azurerm.storage/Get-AzureRmLocation) -- retrieves a list of the valid locations. The example uses `eastus` for location.
+*   [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) -- retrieves a list of the valid locations. The example uses `eastus` for location.
 
-*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup) -- creates a new resource group. A resource group is a logical container into which your Azure resources are deployed and managed. Ours is called `teststoragerg`. 
+*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) -- creates a new resource group. A resource group is a logical container into which your Azure resources are deployed and managed. Ours is called `teststoragerg`. 
 
-*   [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/New-AzureRmStorageAcccount) -- creates the actual storage account. The example uses `testpshstorage`.
+*   [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) -- creates the storage account. The example uses `testpshstorage`.
 
 The SKU name indicates the type of replication for the storage account, such as LRS (Locally Redundant Storage). For more information about replication, see [Azure Storage Replication](storage-redundancy.md).
 
@@ -124,7 +124,7 @@ Now that you have a reference to a new storage account or an existing storage ac
 
 ### Storage account properties
 
-To change the settings for a storage account, use [Set-AzureRmStorageAccount](/powershell/module/azurerm.resources/Set-AzureRmStorageAccount). While you can't change the location of a storage account, or the resource group in which it resides, you can change many of the other properties. The following lists some of the properties you can change using PowerShell.
+To change the settings for a storage account, use [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount). While you can't change the location of a storage account, or the resource group in which it resides, you can change many of the other properties. The following lists some of the properties you can change using PowerShell.
 
 * The **custom domain** assigned to the storage account.
 
@@ -211,7 +211,7 @@ Now that you understand how to manage your storage account with PowerShell, you 
 * [How to manage blobs with PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [How to manage files with PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [How to manage queues with PowerShell](../queues/storage-powershell-how-to-use-queues.md)
-* [Perform Azure Table storage operations with PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+* [Perform Azure Table storage operations with PowerShell](../../storage/tables/table-storage-how-to-use-powershell.md)
 
 Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. 
 

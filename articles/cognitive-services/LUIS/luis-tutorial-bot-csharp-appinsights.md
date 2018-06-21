@@ -1,13 +1,12 @@
 ---
-title: Add LUIS data to Application Insights using C# | Microsoft Docs 
+title: Add LUIS data to Application Insights using C# | Microsoft Docs
 titleSuffix: Azure
 description: Build a bot integrated with a LUIS application and Application Insights using C#.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: v-geberr
@@ -174,7 +173,7 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 
     ![Test web app bot in chat](./media/luis-tutorial-bot-csharp-appinsights/test-in-web-chat.png)
 
-3. You should see no difference in the chat bot response. The change is sending data to Application Insights, not in the bot responses. Enter a few more utterances so there is a little more data in Application Insights:
+3. You should see no difference in the chatbot response. The change is sending data to Application Insights, not in the bot responses. Enter a few more utterances so there is a little more data in Application Insights:
 
 ```
 Please deliver a pizza
@@ -229,6 +228,10 @@ Application Insights gives you the power to query the data with the [Kusto](http
 
 Learn more about the [Kusto query language](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) or [export the data to PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
+
+## Learn more about Bot Framework
+Learn more about [Bot Framework](https://dev.botframework.com/).
+
 ## Next steps
 
 Other information you may want to add to the application insights data includes app ID, version ID, last model change date, last train date, last publish date. These values can either be retrieved from the endpoint URL (app ID and version ID), or from an [authoring API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) call then set in the web app bot settings and pulled from there.  
@@ -236,4 +239,4 @@ Other information you may want to add to the application insights data includes 
 If you are using the same endpoint subscription for more than one LUIS app, you should also include the subscription ID and a property stating that it is a shared key. 
 
 > [!div class="nextstepaction"]
-> [Learn more about example utterances](Add-example-utterances.md)
+> [Learn more about example utterances](luis-how-to-add-example-utterances.md)

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Resource Manager template with VS Code extension | Microsoft Docs
 description: Use the Azure Resource Manager tools extension to work on Resource Manager templates.
 services: azure-resource-manager
@@ -11,8 +11,8 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/06/2017
-ms.topic: get-started-article
+ms.date: 05/22/2018
+ms.topic: quickstart
 ms.author: tomfitz
 ---
 
@@ -167,7 +167,18 @@ This article builds on the template you created in [Create and deploy your first
 
    ![Show variables](./media/resource-manager-vscode-extension/show-variables.png) 
 
-10. Select the **storageName** variable. Add the right bracket. The following example shows the outputs section:
+10. Select the **storageName** variable. Your code now looks like:
+
+   ```json
+   "storageUri": {
+      "type": "string",
+      "value": "[reference(variables('storageName'))"
+   }
+   ```
+   
+11. The preceding code won't work because `reference` returns an object, but your output value is set to *string*. You need to specify one of the values on that object. The reference function can be used with any resource type, so VS Code doesn't suggest properties for the object. Instead, you can find that one value [returned for a storage account](/rest/api/storagerp/storageaccounts/getproperties) is `.primaryEndpoints.blob`. 
+
+   Add that property after the last parenthesis. Add the right bracket. The following example shows the outputs section:
 
    ```json
    "outputs": { 
@@ -177,7 +188,7 @@ This article builds on the template you created in [Create and deploy your first
        },
        "storageUri": {
          "type": "string",
-         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+         "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
        }
    }
    ```
@@ -245,7 +256,7 @@ The final template is:
     },
     "storageUri": {
       "type": "string",
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+      "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
     }
   }
 }
@@ -253,12 +264,12 @@ The final template is:
 
 ## Deploy template
 
-You are ready to deploy this template. You use either PowerShell or Azure CLI to create a resource group. Then, you deploy a storage account to that resource group.
+You're ready to deploy this template. You use either PowerShell or Azure CLI to create a resource group. Then, you deploy a storage account to that resource group.
 
 * For PowerShell, use the following commands from the folder containing the template:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    
    New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json

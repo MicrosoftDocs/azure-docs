@@ -4,7 +4,7 @@ description: Learn how to create an Apache Storm topology that uses Python compo
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 keywords: apache storm python
 
@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/30/2018
 ms.author: larryfr
 
 ---

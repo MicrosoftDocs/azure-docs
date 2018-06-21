@@ -4,12 +4,11 @@ description: Use batch testing to continuously work on your application to refin
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Batch testing in LUIS
@@ -68,9 +67,6 @@ The false positive section indicates that an utterance matched an intent or enti
 
 ## Fixing batch errors
 If there are errors in the batch testing, you can either add more utterances to an intent, and/or label more utterances with the entity to help LUIS make the discrimination between intents. If you have added utterances, and labeled them, and still get prediction errors in batch testing, consider adding a [phrase list](luis-concept-feature.md) feature with domain-specific vocabulary to help LUIS learn faster. 
-
-## Best practice - three sets of data
-Developers should have three sets of test data. The first is for building the model, the second is for testing the model at the endpoint. The third is used in [batch testing](luis-how-to-batch-test.md). The first set is not used in training the application nor sent on the endpoint. 
 
 ## Next steps
 

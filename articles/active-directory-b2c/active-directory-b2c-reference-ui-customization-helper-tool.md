@@ -1,19 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Page UI customization helper tool | Microsoft Docs'
-description: A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C
+title: Page UI customization helper tool in Azure Active Directory B2C | Microsoft Docs
+description: A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: A helper tool used to demonstrate the page user interface (UI) customization feature
 This article is a companion to the [main UI customization article](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. The following steps describe how to exercise the page UI customization feature by using sample HTML and CSS content that we've provided.
 
@@ -36,7 +35,7 @@ To customize the look and feel of your policy, you need to first create HTML and
 For the purposes of this tutorial, we've already created some sample content and hosted it on Azure Blob Storage. The sample content is a very basic customization in the theme of our fictional company, "Wingtip Toys". To try it out in your own policy, follow these steps:
 
 1. Sign in to your tenant on the [Azure portal](https://portal.azure.com/) and navigate to the B2C features blade.
-2. Click **Sign-up or sign-in policies** and then click your policy (for example, "b2c\_1\_sign\_up\_sign\_in").
+2. Click **Sign-up or sign-in policies**, click your policy and click on Edit (for example, "b2c\_1\_sign\_up\_sign\_in").
 3. Click **Page UI customization** and then **Unified sign-up or sign-in page**.
 4. Toggle the **Use custom page** switch to **Yes**. In the **Custom page URI** field, enter `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Click **OK**.
 5. Click **Local account sign-up page**. Toggle the **Use custom template** switch to **Yes**. In the **Custom page URI** field, enter `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.

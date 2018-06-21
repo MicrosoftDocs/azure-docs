@@ -4,10 +4,9 @@ description: Shows how to use Bing Spell Check.
 services: cognitive-services
 author: v-jaswel
 manager: kamrani
-
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-jaswel
@@ -25,7 +24,7 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-To follow along with the tutorial, you need a subscription key for the Bing Spell Check API. If you don't have one, [sign up for a free trial](https://azure.microsoft.com/en-us/try/cognitive-services/?api=spellcheck-api).
+To follow along with the tutorial, you need a subscription key for the Bing Spell Check API. If you don't have one, [sign up for a free trial](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
 ## Create a new Web page
 

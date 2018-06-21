@@ -2,20 +2,15 @@
 title: Get started with Azure table storage and Visual Studio Connected Services (ASP.NET) | Microsoft Docs
 description: How to get started using Azure table storage in an ASP.NET project in Visual Studio after connecting to a storage account using Visual Studio Connected Services
 services: storage
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
-
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-
 ---
 # Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]

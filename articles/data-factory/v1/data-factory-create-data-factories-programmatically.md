@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 
@@ -40,7 +40,7 @@ Create an Azure Active Directory application, create a service principal for the
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
 	```PowerShell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```
 3. Run the following command to view all the subscriptions for this account.
 

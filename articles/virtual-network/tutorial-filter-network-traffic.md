@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell module version 5.4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell module version 5.4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
 
 ## Create a network security group
 
@@ -143,6 +143,7 @@ $virtualNetwork = Get-AzureRmVirtualNetwork `
 ```
 Create a public IP address for each VM with [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
+```powershell-interactive
 $publicIpWeb = New-AzureRmPublicIpAddress `
   -AllocationMethod Dynamic `
   -ResourceGroupName myResourceGroup `
@@ -154,7 +155,7 @@ $publicIpMgmt = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   -Location eastus `
   -Name myVmMgmt
-
+```
 
 Create two network interfaces with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface), and assign a public IP address to the network interface. The following example creates a network interface, associates the *myVmWeb* public IP address to it, and makes it a member of the *myAsgWebServers* application security group:
 

@@ -6,10 +6,10 @@ author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: luis
 ms.topic: article
 ms.date: 03/28/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 --- 
 
 # Use composite entity to extract complex data
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 The purpose of the entity is to find and categorize parts of the text in the utterance. 
 A [composite](luis-concept-entity-types.md) entity is composed of other entity types learned from context. For this travel app that takes flight reservations, there are several pieces of information such as dates, locations, and number of seats. 
 
-The information exists as separate entities before a composite is created. Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the chat bot or other LUIS-consuming application. 
+The information exists as separate entities before a composite is created. Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the chatbot or other LUIS-consuming application. 
 
 Simple example utterances from users include:
 
@@ -45,7 +45,7 @@ Reserve a seat from New York to Paris on the first of April
 The composite entity matches seat count, origin location, destination location, and date. 
 
 ## What LUIS does
-When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chatbot takes that JSON response and fulfills the request -- in whatever way the app or chatbot is designed to do. 
 
 ## Add prebuilt entities number and datetimeV2
 1. Select the `MyTravelApp` app from the list of apps on the [LUIS][LUIS] website.
@@ -118,13 +118,11 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
     ![Training succeeded](./media/luis-tutorial-composite-entity/trained.png)
 
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
+In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-    ![Select publish button](./media/luis-tutorial-composite-entity/publish.png)
-
-2. Select the **Publish to product slot**. 
+2. Select the Production slot and the **Publish** button.
 
     ![publish app](./media/luis-tutorial-composite-entity/publish-to-production.png)
 
@@ -236,17 +234,17 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 This utterance returns a composite entities array including the **flightreservation** object with the data extracted.  
 
 ## What has this LUIS app accomplished?
-This app, with just two intents and a compositie entity, identified a natural language query intention and returned the extracted data. 
+This app, with just two intents and a composite entity, identified a natural language query intention and returned the extracted data. 
 
-Your chat bot now has enough information to determine the primary action, `BookFlight`, and the reservation information found in the utterance. 
+Your chatbot now has enough information to determine the primary action, `BookFlight`, and the reservation information found in the utterance. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Next steps
 
 [Learn more about entities](luis-concept-entity-types.md). 
 
 <!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

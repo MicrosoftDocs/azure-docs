@@ -3,7 +3,7 @@ title: Microsoft Dynamics CRM and Azure Application Insights | Microsoft Docs
 description: Get telemetry from Microsoft Dynamics CRM Online using Application Insights. Walkthrough of setup, getting data, visualization and export.
 services: application-insights
 documentationcenter: ''
-author: mazharmicrosoft
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
@@ -11,8 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
+ms.reviewer: mazhar
 ms.author: mbullwin
 
 ---
@@ -57,7 +58,7 @@ To monitor your application, you add an Application Insights SDK to your applica
     ![Open the text editor](./media/app-insights-sample-mscrm/00004.png)
 2. Copy the code from Application Insights. While copying, make sure to ignore script tags. Refer below screenshot:
 
-    ![Set your instrumentation key](./media/app-insights-sample-mscrm/00005.png)
+    ![Set your instrumentation key](./media/app-insights-sample-mscrm/000005.png)
 
     The code includes the instrumentation key that identifies your Application insights resource.
 3. Save and publish.

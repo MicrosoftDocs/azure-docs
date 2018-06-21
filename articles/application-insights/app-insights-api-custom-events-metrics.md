@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
 services: application-insights
@@ -11,8 +11,8 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
-ms.date: 05/17/2017
+ms.topic: conceptual
+ms.date: 06/08/2018
 ms.author: mbullwin
 
 ---
@@ -76,7 +76,7 @@ Get an instance of `TelemetryClient` (except in JavaScript in webpages):
 
 TelemetryClient is thread-safe.
 
-For ASP.NET and Java projects, incoming HTTP Requests are automatically captured. You might want to create additional instances of TelemetryClient for other module of your app. For instance, you may have one TelemetryClient instance in your middleware class to report business logic events. You can set properties such as UserId and DeviceId to identify the machine. This information is attached to all events that the instace sends. 
+For ASP.NET and Java projects, incoming HTTP Requests are automatically captured. You might want to create additional instances of TelemetryClient for other module of your app. For instance, you may have one TelemetryClient instance in your middleware class to report business logic events. You can set properties such as UserId and DeviceId to identify the machine. This information is attached to all events that the instance sends. 
 
 *C#*
 
@@ -637,6 +637,8 @@ finally
 {
     timer.Stop();
     telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+     // The call above has been made obsolete in the latest SDK. The updated call follows this format:
+     // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
 }
 ```
 

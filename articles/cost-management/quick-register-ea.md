@@ -6,11 +6,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 06/07/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom:
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ---
 
 
@@ -18,11 +18,11 @@ manager: carmonm
 
 You use your Azure Enterprise Agreement to register with Azure Cost Management. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
 
-## Log in to Azure
+## Sign in to Azure
 
-- Log in to the Azure portal at http://portal.azure.com.
+- Sign in to the Azure portal at http://portal.azure.com.
 
-## Create a trial registration
+## Register with Azure Cost Management
 
 1. In the Azure portal, click **Cost Management + Billing** in the list of services.
 2. Under **Overview**, click **Cost Management**  

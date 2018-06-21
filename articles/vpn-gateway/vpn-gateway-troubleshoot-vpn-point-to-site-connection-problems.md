@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/23/2018
+ms.date: 05/11/2018
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -314,7 +314,7 @@ This error occurs if the RADIUS server that you used for authenticating VPN clie
 
 ### Solution
 
-Make sure that RADIUS server is configured correctly. For More information, see [Integrate RADIUS authentication with Azure Multi-Factor Authentication Server](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+Make sure that RADIUS server is configured correctly. For More information, see [Integrate RADIUS authentication with Azure Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## "Error 405" when you download root certificate from VPN Gateway
 

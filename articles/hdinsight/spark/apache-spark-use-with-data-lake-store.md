@@ -11,9 +11,7 @@ ms.assetid: 1f174323-c17b-428c-903d-04f0e272784c
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
 

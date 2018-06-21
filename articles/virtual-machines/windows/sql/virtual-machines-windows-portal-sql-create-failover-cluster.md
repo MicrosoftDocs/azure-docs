@@ -15,9 +15,8 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 13/22/2018
+ms.date: 06/11/2018
 ms.author: mikeray
-
 ---
 
 # Configure SQL Server Failover Cluster Instance on Azure Virtual Machines
@@ -69,12 +68,15 @@ There are a few things you need to know and a couple of things that you need in 
 You should have an operational understanding of the following technologies:
 
 - [Windows cluster technologies](http://technet.microsoft.com/library/hh831579.aspx)
--  [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx).
+- [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx).
 
 Also, you should have a general understanding of the following technologies:
 
 - [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure resource groups](../../../azure-resource-manager/resource-group-portal.md)
+
+> [!IMPORTANT]
+> At this time, the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the extension from VMs that participate in the FCI. This extension supports features, such as Automated Backup and Patching and some portal features for SQL. These features will not work for SQL VMs after the agent is uninstalled.
 
 ### What to have
 

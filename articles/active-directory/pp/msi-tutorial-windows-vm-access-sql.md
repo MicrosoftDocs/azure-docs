@@ -1,4 +1,4 @@
----
+﻿---
 title: Use a Windows VM MSI to access Azure SQL
 description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity (MSI) to access Azure SQL. 
 services: active-directory
@@ -99,7 +99,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Next, add the VM's MSI to the group.  You need the MSI's **ObjectId**, which you can get using Azure PowerShell.  First, download [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Then sign in using `Login-AzureRmAccount`, and run the following commands to:
+Next, add the VM's MSI to the group.  You need the MSI's **ObjectId**, which you can get using Azure PowerShell.  First, download [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Then sign in using `Connect-AzureRmAccount`, and run the following commands to:
 - Ensure your session context is set to the desired Azure subscription, if you have multiple ones.
 - List the available resources in your Azure subscription, in verify the correct resource group and VM names.
 - Get the MSI VM's properties, using the appropriate values for `<RESOURCE-GROUP>` and `<VM-NAME>`.

@@ -3,15 +3,16 @@ title: Troubleshoot usage analytics in Azure Application Insights
 description: Troubleshooting guide - analyzing site and app usage with Application Insights.
 services: application-insights
 documentationcenter: ''
-author: numberbycolors
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
+ms.author: daviste
 ms.author: mbullwin
 
 ---

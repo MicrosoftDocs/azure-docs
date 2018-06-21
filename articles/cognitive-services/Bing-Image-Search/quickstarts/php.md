@@ -4,13 +4,11 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
-
 ms.service: cognitive-services
-ms.technology: bing-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-
 ---
 # Call and response: your first Bing Image Search query in PHP
 
@@ -117,26 +115,26 @@ A sample response follows. To limit the length of the JSON, only a single result
   "nextOffset": 1,
   "value": [
     {
-      "webSearchUrl": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&q=puppies&id=F68CC526226E163FD1EA659747ADCB8F9FA3CD96&simid=608055280844016271",
-      "name": "So cute - Puppies Wallpaper (14749028) - Fanpop",
-      "thumbnailUrl": "https://tse3.mm.bing.net/th?id=OIP.jHrihoDNkXGS1t5e89jNfwEsDh&pid=Api",
+      "webSearchUrl": "https://www.bing.com/images/search?view=detailv...",
+      "name": "So cute - Puppies Wallpaper",
+      "thumbnailUrl": "https://tse3.mm.bing.net/th?id=OIP.jHrihoDNkXGS1t...",
       "datePublished": "2014-02-01T21:55:00.0000000Z",
-      "contentUrl": "http://images4.fanpop.com/image/photos/14700000/So-cute-puppies-14749028-1600-1200.jpg",
-      "hostPageUrl": "http://www.fanpop.com/clubs/puppies/images/14749028/title/cute-wallpaper",
+      "contentUrl": "http://images4.contoso.com/image/photos/14700000/So-cute-puppies...",
+      "hostPageUrl": "http://www.contoso.com/clubs/puppies/images/14749028/...",
       "contentSize": "394455 B",
       "encodingFormat": "jpeg",
-      "hostPageDisplayUrl": "www.fanpop.com/clubs/puppies/images/14749028/title/cute-wallpaper",
+      "hostPageDisplayUrl": "www.contoso.com/clubs/puppies/images/14749...",
       "width": 1600,
       "height": 1200,
       "thumbnail": {
         "width": 300,
         "height": 225
       },
-      "imageInsightsToken": "ccid_jHrihoDN*mid_F68CC526226E163FD1EA659747ADCB8F9FA3CD96*simid_608055280844016271*thid_OIP.jHrihoDNkXGS1t5e89jNfwEsDh",
+      "imageInsightsToken": "ccid_jHrihoDN*mid_F68CC526226E163FD1EA659747AD...",
       "insightsMetadata": {
         "recipeSourcesCount": 0
       },
-      "imageId": "F68CC526226E163FD1EA659747ADCB8F9FA3CD96",
+      "imageId": "F68CC526226E163FD1EA659747ADCB8F9FA36",
       "accentColor": "8D613E"
     }
   ],
@@ -144,10 +142,10 @@ A sample response follows. To limit the length of the JSON, only a single result
     {
       "text": "Shih Tzu Puppies",
       "displayText": "Shih Tzu",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Shih+Tzu+Puppies&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Shih+Tzu%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d&FORM=IRPATC",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Shih+Tzu+Puppies&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Shih+Tzu%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d",
+      "webSearchUrl": "https://www.bing.com/images/search?q=Shih+Tzu+Puppies...",
+      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Shih...",
       "thumbnail": {
-        "thumbnailUrl": "https://tse2.mm.bing.net/th?q=Shih+Tzu+Puppies&pid=Api&mkt=en-US&adlt=moderate&t=1"
+        "thumbnailUrl": "https://tse2.mm.bing.net/th?q=Shih+Tzu+Puppies&pid=Api..."
       }
     }
   ],
@@ -158,10 +156,10 @@ A sample response follows. To limit the length of the JSON, only a single result
         {
           "text": "Dog",
           "displayText": "Dog",
-          "webSearchUrl": "https://www.bing.com/images/search?q=Dog&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Dog%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d&FORM=IRQBPS",
-          "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Dog&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Dog%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d",
+          "webSearchUrl": "https://www.bing.com/images/search?q=Dog&tq=%7b%22pq%...",
+          "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Dog...",
           "thumbnail": {
-            "thumbnailUrl": "https://tse1.mm.bing.net/th?q=Dog&pid=Api&mkt=en-US&adlt=moderate&t=1"
+            "thumbnailUrl": "https://tse1.mm.bing.net/th?q=Dog&pid=Api&mkt=en-US..."
           }
         }
       ]
@@ -171,9 +169,9 @@ A sample response follows. To limit the length of the JSON, only a single result
     {
       "text": "cute",
       "displayText": "cute",
-      "webSearchUrl": "https://www.bing.com/images/search?q=cute&FORM=IDINTS",
+      "webSearchUrl": "https://www.bing.com/images/search?q=cute&FORM=...",
       "thumbnail": {
-        "url": "https://tse2.mm.bing.net/th?q=cute&pid=Api&mkt=en-US&adlt=moderate"
+        "url": "https://tse2.mm.bing.net/th?q=cute&pid=Api&mkt=en-US..."
       }
     }
   ],
@@ -181,10 +179,10 @@ A sample response follows. To limit the length of the JSON, only a single result
     {
       "text": "Cute Puppies",
       "displayText": "Cute Puppies",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Cute+Puppies&FORM=IRPATC",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Cute+Puppies",
+      "webSearchUrl": "https://www.bing.com/images/search?q=Cute+Puppies",
+      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/sear...",
       "thumbnail": {
-        "thumbnailUrl": "https://tse4.mm.bing.net/th?q=Cute+Puppies&pid=Api&mkt=en-US&adlt=moderate&t=1"
+        "thumbnailUrl": "https://tse4.mm.bing.net/th?q=Cute+Puppies&pid=..."
       }
     }
   ]

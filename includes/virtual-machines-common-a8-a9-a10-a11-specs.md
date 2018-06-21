@@ -5,8 +5,8 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/09/2018
- ms.author: azcspmt;jonbeck;cynthn
+ ms.date: 05/29/2018
+ ms.author: azcspmt;jonbeck;cynthn;danlep
  ms.custom: include file
 ---
 
@@ -33,4 +33,4 @@ This interface allows the RDMA-capable instances to communicate over an InfiniBa
 > In Azure, IP over IB is not supported. Only RDMA over IB is supported.
 >
 
-Deploy the RDMA-capable HPC VMs in the same availability set or VM scale set (when you use the Azure Resource Manager deployment model) or the same cloud service (when you use the classic deployment model). Additional requirements for RDMA-capable HPC VMs to access the Azure RDMA network follow.
+Deploy the RDMA-capable HPC VMs in the same availability set or VM scale set (when you use the Azure Resource Manager deployment model) or the same cloud service (when you use the classic deployment model). If you use a VM scale set, ensure that you limit the deployment to a single placement group; for example, in a Resource Manager template, set the *singlePlacementGroup* property to *true*. Additional requirements for RDMA-capable HPC VMs to access the Azure RDMA network follow.

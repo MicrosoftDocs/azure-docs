@@ -5,13 +5,15 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/09/2018
+ ms.date: 05/09/2018
  ms.author: cynthn
  ms.custom: include file
 ---
 
 
-1. Clicking **Connect** creates and downloads a Remote Desktop Protocol file (.rdp file). Click **Open** to use this file.
+1. Click the **Connect** button on the virtual machine properties page. 
+2. In the **Connect to virtual machine** page, keep select the appropriate options and click **Download RDP file**.
+2. Open the downloaded RDP file and click **Connect** when prompted. 
 2. You get a warning that the `.rdp` file is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
    
     ![Screenshot of a warning about an unknown publisher.](./media/virtual-machines-log-on-win-server/rdp-warn.png)

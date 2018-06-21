@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 05/30/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 
@@ -38,7 +38,8 @@ az group create --name myResourceGroup --location eastus
 The following example creates a VM from [this Azure Resource Manager template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) with [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Only SSH authentication is allowed. When prompted, provide the value of your own SSH public key, such as the contents of *~/.ssh/id_rsa.pub*. If you need to create an SSH key pair, see [How to create and use an SSH key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az group deployment create \
+    --resource-group myResourceGroup \
     --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
@@ -46,7 +47,7 @@ In the previous example, you specified a template stored in GitHub. You can also
 
 
 ## Connect to virtual machine
-To SSH to your VM, obtain the public IP address with [az vm show](/cli/azure/vm#az_vm_show):
+To SSH to your VM, obtain the public IP address with [az vm show](/cli/azure/vm#az-vm-show):
 
 ```azurecli
 az vm show \

@@ -3,20 +3,17 @@ title: Label suggested utterances with LUIS | Microsoft Docs
 description: Use Language Understanding (LUIS) to label suggested utterances and help boost active machine learning.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 06/08/2017
 ms.author: v-geberr
 ---
 
-# Review Endpoint Utterances
+# Review endpoint utterances
 
-The breakthrough feature of LUIS is active learning. Once your LUIS has endpoint queries, LUIS uses active learning to improve the quality of the results. In the active learning process, LUIS examines all the endpoint utterances, and selects utterances that it is unsure of. If you label these utterances, train, and publish, then LUIS identifies utterances more accurately. 
-
-Endpoint utterances are taken from end-user queries on the application’s HTTP endpoint. If your app is not published or has not received hits yet, you do not have any utterances to review. If no endpoint hits are received aligned with a specific intent or entity, you do not have utterances to review that contain them. 
+The breakthrough feature of LUIS is the [concept](luis-concept-review-endpoint-utterances.md) of active learning. Once your LUIS has endpoint queries, LUIS uses active learning to improve the quality of the results. In the active learning process, LUIS examines all the endpoint utterances, and selects utterances that it is unsure of. If you label these utterances, train, and publish, then LUIS identifies utterances more accurately. 
 
 ## Filter utterances
 1. Open your app (for example, TravelAgent) by selecting its name on **My Apps** page, then select **Build** in the top bar.
@@ -77,4 +74,4 @@ To delete several utterances, select each item and select on the trash bin to th
 
 ## Next steps
 
-To test how performance improves after you label suggested utterances, you can access the test console by selecting **Test** in the top panel. For instructions on how to test your app using the test console, see [Train and test your app](Train-Test.md).
+To test how performance improves after you label suggested utterances, you can access the test console by selecting **Test** in the top panel. For instructions on how to test your app using the test console, see [Train and test your app](interactive-test.md).

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Active Directory Domain Services: Troubleshoot alerts | Microsoft Docs'
 description: Troubleshoot alerts for Azure AD Domain Services
 services: active-directory-ds
@@ -8,7 +8,8 @@ manager:
 editor:
 
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -127,7 +128,7 @@ Inside the virtual network, machines may make requests to Azure resources that a
 
 **Resolution:**
 
-To restore your service, [renew your Azure subscription](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) associated with your managed domain.
+To restore your service, [renew your Azure subscription](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable) associated with your managed domain.
 
 ## AADDS504: Suspension due to an invalid configuration
 

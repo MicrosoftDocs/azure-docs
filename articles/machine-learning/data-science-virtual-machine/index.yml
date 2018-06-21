@@ -52,10 +52,10 @@ sections:
     className: cardsFTitle
     items:
     - title: Azure Machine Learning services (preview)
-      href: /azure/machine-learning/preview/
+      href: /azure/machine-learning/service/
       image: 
         src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/preview/
+        href: /azure/machine-learning/service/
     - title: Azure Machine Learning Studio
       href: /azure/machine-learning/studio/
       image: 

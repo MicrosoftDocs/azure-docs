@@ -4,7 +4,7 @@ description: Learn about Identity Protection and its capabilities.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 
 ms.assetid: 

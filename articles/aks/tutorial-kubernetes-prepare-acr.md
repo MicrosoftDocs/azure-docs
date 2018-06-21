@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Prepare ACR
 description: AKS tutorial - Prepare ACR
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Deploy and use Azure Container Registry
 
-Azure Container Registry (ACR) is an Azure-based, private registry, for Docker container images. This tutorial, part two of eight, walks through deploying an Azure Container Registry instance, and pushing a container image to it. Steps completed include:
+Azure Container Registry (ACR) is an Azure-based, private registry, for Docker container images. This tutorial, part two of seven, walks through deploying an Azure Container Registry instance, and pushing a container image to it. Steps completed include:
 
 > [!div class="checklist"]
 > * Deploying an Azure Container Registry (ACR) instance

@@ -3,9 +3,8 @@ title: Troubleshoot Azure File Sync (preview) | Microsoft Docs
 description: Troubleshoot common issues with Azure File Sync.
 services: storage
 documentationcenter: ''
-author: wmgries
-manager: klaasl
-editor: jgerend
+author: jeffpatt24
+manager: aungoo
 
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
@@ -13,8 +12,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
-ms.author: wgries
+ms.date: 05/31/2018
+ms.author: jeffpatt
 ---
 
 # Troubleshoot Azure File Sync (preview)
@@ -27,10 +26,21 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
+## I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc.). Should I remove and recreate my server endpoint?
+[!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
+
 ## Storage Sync Service object management
 If you do a resource move from one subscription to another subscription, file sync (Storage Sync Service) resources will be blocked from being moved. 
 
 ## Agent installation and server registration
+### During server registration, get the error "The term 'find-AzureRMResource' is not recognized as the name..."
+The issue is that the cmdlet find-AzureRMResource was changed in AzureRM v6.  The next version of the Sync agent will be fixed to support AzureRM v6.  Until then, you can work around this issue by:
+1. Stop the current ServerRegistration.exe via taskmgr
+2. Bring up a PowerShell command prompt as Administrator
+3. PS C:\> Uninstall-Module AzureRM
+4. PS C:\> install-module -name AzureRM -RequiredVersion 5.7.0
+5. Start C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+
 <a id="agent-installation-failures"></a>**Troubleshoot agent installation failures**  
 If the Azure File Sync agent installation fails, at an elevated command prompt, run the following command to turn on logging during agent installation:
 
@@ -115,7 +125,7 @@ To determine whether your user account role has the required permissions:
 This issue occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
 
 <a id="server-endpoint-deletejobexpired"></a>**Server endpoint deletion fails, with this error: "MgmtServerJobExpired"**                
-This issue occurs if the server is offline or doesn’t have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+This issue occurs if the server is offline or doesn't have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Unable to open server endpoint properties page or update cloud tiering policy**
 
@@ -145,13 +155,21 @@ If sync fails on a server:
     2. Verify that the Azure File Sync service is running on the server. To do this, open the Services MMC snap-in and verify that the Storage Sync Agent service (FileSyncSvc) is running.
 
 <a id="replica-not-ready"></a>**Sync fails, with this error: "0x80c8300f - The replica is not ready to perform the required operation"**  
-This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. When the change detection job finishes running on the Azure file share (it might take up to 24 hours), sync should start working correctly.
+This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. The change detection job that scans for changes in the Azure file share is scheduled for once every 24 hours.  The time to complete is dependent on the size of the namespace in the Azure file share.  This error should go away once complete.
 
-
-    > [!NOTE]
-    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
-
+> [!NOTE]
+> Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
+    
 We currently do not support resource move to another subscription or, moving to a different Azure AD tenant.  If the subscription moves to a different tenant, the Azure file share becomes inaccessible to our service based on the change in ownership. If the tenant is changed, you will need to delete the server endpoints and the cloud endpoint (see Sync Group Management section for instructions how to clean the Azure file share to be re-used) and recreate the sync group.
+
+<a id="cannot-resolve-storage"></a>**Sync fails, with this error: ": 0x80C83060 - error -2134364064 The storage account name used could not be resolved**
+This error can occur for two possible reasons:
+1. First check that you can resolve the storage DNS name from the server.
+    ```PowerShell
+    Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
+    ```
+
+2. Under the Access Control (IAM) tab on the storage account, make sure the built-in user **Hybrid File Sync Service** is assigned to the built-in role **Reader and Data Access** and then verify sync is working.
 
 <a id="doesnt-have-enough-free-space"></a>**This PC doesn't have enough free space error**  
 If the portal shows the status "This PC doesn't have enough free space" the issue could be that less than 1 GB of free space remains on the volume.  For example, if there is a 1.5GB volume, sync will only be able to utilize .5GB   If you hit this issue, please expand the size of the volume being used for the server endpoint.
@@ -160,13 +178,13 @@ If the portal shows the status "This PC doesn't have enough free space" the issu
 There are two paths for failures in cloud tiering:
 
 - Files can fail to tier, which means that Azure File Sync unsuccessfully attempts to tier a file to Azure Files.
-- Files can fail to recall, which means that the Azure File Sync file system filter (StorageSync.sys) fails to download data when a user attemptes to access a file which has been tiered.
+- Files can fail to recall, which means that the Azure File Sync file system filter (StorageSync.sys) fails to download data when a user attempts to access a file which has been tiered.
 
 There are two main classes of failures that can happen via either failure path:
 
 - Cloud storage failures
     - *Transient storage service availability issues*. See [Service Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) for more information.
-    - *Inaccessible Azure file share*. This failure typically happens when you delete the Azure file share when it is is still a cloud endpoint in a sync group.
+    - *Inaccessible Azure file share*. This failure typically happens when you delete the Azure file share when it is still a cloud endpoint in a sync group.
     - *Inaccessible storage account*. This failure typically happens when you delete the storage account while it still has an Azure file share which is a cloud endpoint in a sync group. 
 - Server failures 
     - *Azure File Sync file system filter (StorageSync.sys) is not loaded*. In order to respond to tiering/recall requests, the Azure File Sync file system filter must be loaded. The filter not being loaded can happen for several reasons, but the most common reason is that an administrator unloaded it manually. The Azure File Sync file system filter must be loaded at all times for Azure File Sync to properly function.
