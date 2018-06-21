@@ -4,6 +4,19 @@
   items:
   - name: Supported languages
     href: Overview/languages-supported.md
+- name: Quickstarts
+  expanded: true
+  items: 
+  - name: C#
+    href: Quickstarts/create-new-kb-csharp.md
+  - name: Java
+    href: Quickstarts/create-new-kb-java.md
+  - name: Go
+    href: Quickstarts/create-new-kb-go.md
+  - name: Node.js
+    href: Quickstarts/create-new-kb-nodejs.md
+  - name: Python
+    href: Quickstarts/create-new-kb-python.md
 - name: Concepts
   items:
   - name: Knowledge base
