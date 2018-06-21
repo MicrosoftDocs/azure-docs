@@ -107,6 +107,6 @@ Just like built-in roles, the `assignableScopes` property specifies the scopes t
 | View a custom role | `Microsoft.Authorization/ roleDefinition/read` | Users that are granted this operation at a scope can view the custom roles that are available for assignment at that scope. All built-in roles allow custom roles to be available for assignment. |
 
 ## Next steps
-- [Tutorial: Create a custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Tutorial: Create a custom role using Azure CLI](tutorial-custom-role-cli.md)
+- [Create custom roles using Azure PowerShell](custom-roles-powershell.md)
+- [Create custom roles using Azure CLI](custom-roles-cli.md)
 - [Understand role definitions](role-definitions.md)
