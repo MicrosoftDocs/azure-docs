@@ -157,7 +157,7 @@ In this step, you debug the pipeline before deploying it to Data Factory.
 3. Confirm that you see an output file in the **output** folder of the **adftutorial** container. If the output folder does not exist, the Data Factory service automatically creates it. 
 
 ## Trigger the pipeline manually
-In this procedure, you deploy entities (linked services, datasets, pipelines) to Azure Data Factory. Then, you manually trigger a pipeline run. You can also publish entities to your own Visual Studio Team Services Git repository, which is covered in [another tutorial](tutorial-copy-data-portal.md?#configure-code-repository).
+In this procedure, you deploy entities (linked services, datasets, pipelines) to Azure Data Factory. Then, you manually trigger a pipeline run. 
 
 1. Before you trigger a pipeline, you must publish entities to Data Factory. To publish, select **Publish All** on the top. 
 
