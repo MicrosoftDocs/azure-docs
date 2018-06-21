@@ -52,7 +52,7 @@ The following steps walk you through the process of creating the certificates an
    
    3.2 Copy config and script files into your working directory.
 
-       ```bash
+       ```cmd
        cp azure-iot-sdk-c/tools/CACertificates/*.cnf .
        cp azure-iot-sdk-c/tools/CACertificates/certGen.sh .
        chmod 700 certGen.sh 
@@ -61,7 +61,7 @@ The following steps walk you through the process of creating the certificates an
 ## Certificate creation
 1.	Create the owner CA certificate and one intermediate certificate. These are all placed in `$WRKDIR`.
 
-        ```bash
+        ```cmd
         ./certGen.sh create_root_and_intermediate
         ```
 
@@ -78,7 +78,7 @@ The following steps walk you through the process of creating the certificates an
     >[!NOTE]
     > **DO NOT** use a name that is the same as the gateway host's name. Doing so will cause client certification against these certificates to fail.
 
-        ```bash
+        ```cmd
         ./certGen.sh create_edge_device_certificate <gatewayName>
         ```
 
@@ -89,7 +89,7 @@ The following steps walk you through the process of creating the certificates an
 ## Certificate chain creation
 Create a certificate chain from the owner CA certificate, intermediate certificate, and Edge device CA certificate with the command below. Placing it in a chain file allows you to easily install it on you Edge device acting as a transparent gateway.
 
-    ```bash
+    ```cmd
     cat ./certs/new-edge-device.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/new-edge-device-full-chain.cert.pem
     ```
 
@@ -117,7 +117,7 @@ Here is an example of how to install a CA certificate on an Ubuntu host
 >[!NOTE]
 >Installing this certificate in the OS certificate store will allow all applications to use the owner CA certificate as a trusted certificate.
 
-    ```bash
+    ```cmd
     sudo cp $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem  /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
     sudo update-ca-certificates
     ```

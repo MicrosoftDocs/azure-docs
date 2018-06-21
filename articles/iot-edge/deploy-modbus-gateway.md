@@ -95,5 +95,5 @@ You can also view the telemetry the device is sending by using the [IoT Hub expl
 
 ## Next steps
 
-- To learn more about how IoT Edge devices can act as gateways, see [Create an IoT Edge device that acts as a transparent gateway](how-to-create-transparent-gateway.md)
+- To learn more about how IoT Edge devices can act as gateways, see [Create an IoT Edge device that acts as a transparent gateway](how-to-create-transparent-gateway-linux.md)
 - For more information about how IoT Edge modules work, see [Understand Azure IoT Edge modules](iot-edge-modules.md)
