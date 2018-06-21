@@ -15,14 +15,14 @@ ms.author: v-geberr
 # Deprecated entities
 The following prebuilt entities are deprecated and can't be added to new LUIS apps.
 
-* **Datetime**: Existing LUIS apps that use **builtin.datetime** should be migrated to **builtin.datetimeV2**, although the datetime entity continues to function in pre-existing apps that use it.
-* **Geography**: Existing LUIS apps that use **builtin.geography** is supported until December 2018.
-* **Encyclopedia**: Existing LUIS apps that use **builtin.encyclopedia** is supported until December 2018.
+* **Datetime**: Existing LUIS apps that use **datetime** should be migrated to **datetimeV2**, although the datetime entity continues to function in pre-existing apps that use it.
+* **Geography**: Existing LUIS apps that use **geography** is supported until December 2018.
+* **Encyclopedia**: Existing LUIS apps that use **encyclopedia** is supported until December 2018.
 
-## builtin.geography culture
-**builtin.geography** is available only in the `en-us` locale.
+## Geography culture
+**Geography** is available only in the `en-us` locale.
 
-#### 3 builtin.geography subtypes
+#### 3 Geography subtypes
 
 Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
@@ -33,11 +33,11 @@ Prebuilt entity   |   Example utterance   |   JSON
 ```builtin.geography.pointOfInterest```   |   ```amazon river``` |```{ "type": "builtin.geography.pointOfInterest", "entity": "amazon river" }```|
 ```builtin.geography.pointOfInterest```   |   ```sahara desert```|```{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }```|
 
-## builtin.encyclopedia culture
-**builtin.encyclopedia** is available only in the `en-US` locale.
+## Encyclopedia culture
+**Encyclopedia** is available only in the `en-US` locale.
 
-#### builtin.encyclopedia subtypes
-builtin.encyclopedia built-in entity includes over 100 sub-types in the following table: In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
+#### Encyclopedia subtypes
+Encyclopedia built-in entity includes over 100 sub-types in the following table: In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
 
 ```JSON
 {

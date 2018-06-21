@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 
 # Phonenumber entity
-Phonenumber extracts a variety of phone numbers including country code. Because this entity is already trained, you do not need to add example utterances containing phonenumber to the application. Phonenumber entity is supported in `en-us` culture only. 
+The `phonenumber` entity extracts a variety of phone numbers including country code. Because this entity is already trained, you do not need to add example utterances to the application. The `phonenumber` entity is supported in `en-us` culture only. 
 
 ## Types of phonenumber
 Phonenumber is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) Github repository

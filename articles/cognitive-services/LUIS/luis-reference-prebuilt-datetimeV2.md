@@ -14,13 +14,13 @@ ms.author: v-geberr
 
 # DatetimeV2 entity
 
-The **builtin.datetimeV2** prebuilt entity extracts date and time values. These values resolve in a standardized format for client programs to consume. When an utterance has a date or time that isn't complete, LUIS includes _both past and future values_ in the endpoint response. Because this entity is already trained, you do not need to add example utterances containing datetimeV2 to the application intents. 
+The **datetimeV2** prebuilt entity extracts date and time values. These values resolve in a standardized format for client programs to consume. When an utterance has a date or time that isn't complete, LUIS includes _both past and future values_ in the endpoint response. Because this entity is already trained, you do not need to add example utterances containing datetimeV2 to the application intents. 
 
 ## Types of datetimeV2
 DatetimeV2 is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) Github repository
 
 ## Example JSON 
-The following example JSON response has a `builtin.datetimeV2` entity with a subtype of `datetime`. For examples of other types of datetimeV2 entities, see [Subtypes of datetimeV2](#subtypes-of-datetimev2)</a>.
+The following example JSON response has a `datetimeV2` entity with a subtype of `datetime`. For examples of other types of datetimeV2 entities, see [Subtypes of datetimeV2](#subtypes-of-datetimev2)</a>.
 
 ```JSON
 "entities": [
@@ -55,14 +55,14 @@ The following example JSON response has a `builtin.datetimeV2` entity with a sub
 
 ## Subtypes of datetimeV2
 
-The **builtin.datetimeV2** prebuilt entity has the following subtypes, and examples of each are provided in the table that follows:
-* `builtin.datetimeV2.date`
-* `builtin.datetimeV2.time`
-* `builtin.datetimeV2.daterange`
-* `builtin.datetimeV2.timerange`
-* `builtin.datetimeV2.datetimerange`
-* `builtin.datetimeV2.duration`
-* `builtin.datetimeV2.set`
+The **datetimeV2** prebuilt entity has the following subtypes, and examples of each are provided in the table that follows:
+* `date`
+* `time`
+* `daterange`
+* `timerange`
+* `datetimerange`
+* `duration`
+* `set`
 
 ## Values of resolution
 * The array has one element if the date or time in the utterance is fully specified and unambiguous.
@@ -81,7 +81,7 @@ Each element of the `values` array may have the following fields:
 
 ## Valid date values
 
-The **builtin.datetimeV2** supports dates between the following ranges:
+The **datetimeV2** supports dates between the following ranges:
 
 | Min | Max |
 |----------|-------------|
@@ -214,9 +214,9 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
 
 ## Deprecated prebuilt datetime
 
-The `builtin.datetime` prebuilt entity is deprecated and replaced by [`builtin.datetimeV2`](#builtindatetimev2). 
+The `datetime` prebuilt entity is deprecated and replaced by [`datetimeV2`](#builtindatetimev2). 
 
-To replace `builtin.datetime` with `builtin.datetimeV2` in your LUIS app, complete the following steps:
+To replace `datetime` with `datetimeV2` in your LUIS app, complete the following steps:
 
 1. Open the **Entities** pane of the LUIS web interface. 
 2. Delete the **datetime** prebuilt entity.
@@ -225,5 +225,5 @@ To replace `builtin.datetime` with `builtin.datetimeV2` in your LUIS app, comple
 
 ## Next steps
 
-Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number). 
+Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number.md). 
 
