@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 06/21/2018
 ---
 
 # Azure Database for PostgreSQL pricing tiers
@@ -20,7 +20,7 @@ You can create an Azure Database for PostgreSQL server in one of three different
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memory per vCore | 2 GB | 5 GB | 10 GB |
-| Storage size | 5 GB to 1 TB | 5 GB to 2 TB | 5 GB to 2 TB |
+| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
 
@@ -73,9 +73,9 @@ The storage you provision is the amount of storage capacity available to your Az
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 5 GB to 1 TB | 5 GB to 2 TB | 5 GB to 2 TB |
+| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
-| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS | 3 IOPS/GB<br/>Min 100 IOPS |
+| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 7500 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 7500 IOPS |
 
 You can add additional storage capacity during and after the creation of the server. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
