@@ -46,7 +46,7 @@ To resolve this problem, follow these steps:
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-3. Go to Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
+3. Go to C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
 
 For more information about how to install the client certificate, see [Generate and export certificates for point-to-site connections](vpn-gateway-certificates-point-to-site.md).
 
@@ -271,7 +271,7 @@ You remove the point-to-site VPN connection and then reinstall the VPN client. I
 
 ### Solution
 
-To resolve the problem, delete the old VPN client configuration files from **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>**, and then run the VPN client installer again.
+To resolve the problem, delete the old VPN client configuration files from **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>**, and then run the VPN client installer again.
 
 ## Point-to-site VPN client cannot resolve the FQDN of the resources in the local domain
 
@@ -356,7 +356,7 @@ This problem can be caused by the previous VPN client installations.
 
 ### Solution
 
-Delete the old VPN client configuration files from **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** and run the VPN client installer again. 
+Delete the old VPN client configuration files from **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** and run the VPN client installer again. 
 
 ## The VPN client hibernates or sleep after some time
 
