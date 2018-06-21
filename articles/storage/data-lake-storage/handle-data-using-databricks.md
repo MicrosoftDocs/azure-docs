@@ -19,7 +19,7 @@ ms.author: nitinme
 ---
 # Tutorial: Extract, transform, and load data using Azure Databricks
 
-In this tutorial, you perform an ETL (extract, transform, and load data) operation using Azure Databricks. 
+In this tutorial, you perform an ETL (extract, transform, and load data) operation using Azure Databricks.
 
 The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Data Lake Storage Gen2 as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
 
@@ -49,9 +49,9 @@ To complete this tutorial:
 * Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 * [Create a Azure Data Lake Storage Gen2 account](quickstart-create-account.md)
 
-## Log in to the Azure Portal
+## Sign in to the Azure Portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure Databricks workspace
 
@@ -105,9 +105,9 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 The next step is to upload a sample data file to the storage account to later transform in Azure Databricks. The sample data (**small_radio_json.json**) is available in the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo. Download the JSON file and make note of the path where you save the file.
 
-The method you use to upload data into your storage account differs depending on if you you have the Hierarchical Namespace Service (HNS) enabled.
+The method you use to upload data into your storage account differs depending on if you have the Hierarchical Namespace Service (HNS) enabled.
 
-If the Hierarchical Namespace Service is enabled, then you may use Azure Data Factory, [distp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) or AzCopy (version 10) to handle the upload. If not, then you can use the Blob [Storage SDKs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows), [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full), [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) or [AzCopy (version 8 or earlier)](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+If the Hierarchical Namespace Service is enabled, then you may use Azure Data Factory, [distp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html), or AzCopy (version 10) to handle the upload. If not, then you can use the Blob [Storage SDKs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows), [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full), [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), or [AzCopy (version 8 or earlier)](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
 
 > [!NOTE]
 > AzCopy version 10 is only available to preview customers.
