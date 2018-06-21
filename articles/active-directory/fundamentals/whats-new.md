@@ -45,21 +45,13 @@ If any of your apps use Azure AD Activity Log APIs, follow these steps to ensure
 
 **To update your app permissions**
 
-1.	Sign in to the Azure portal.
+1.	Sign in to the Azure portal, select **Azure Active Directory**, and then select **App Registrations**.
 
-2.	On the left navbar, select **Azure Active Directory**, and then select **App Registrations**.
+2.	Select your app that uses the Azure AD Activity Logs API, select **Settings**, select **Required permissions**, and then select the **Windows Azure Active Directory** API.
 
-3.	Select your app that uses the Azure AD Activity Logs API, select **Settings**, and then in the **Settings** blade, select **Required permissions**.
+3.	In the **Delegated permissions** area of the **Enable access** blade, select the box next to **Read directory** data, and then select **Save**.
 
-4.	In the **Required permissions** blade, select the **Windows Azure Active Directory** API.
-
-5.	In the **Delegated permissions** area of the **Enable access** blade, select the box next to **Read directory** data, and then select **Save**.
-
-    You’ll return to the **Required permissions** blade.
-
-    ![Delegated permissions Read directory option](./media/whats-new/app-registration-delegate-read-directory.png)
-
-6.	Select **Grant permissions**, and then select **Yes**.
+4.	Select **Grant permissions**, and then select **Yes**.
     
     >[!Note]
     >You must be a Global administrator to grant permissions to the app.
