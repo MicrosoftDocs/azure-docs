@@ -1,5 +1,5 @@
 
-# Use Custom Images in a CycleCloud Cluster
+# Custom Images in a CycleCloud Cluster
 
 An Azure CycleCloud installation uses recommended OS images for clusters, but the use of Azure Marketplace images or custom images in nodes and nodearrays is also supported.
 
