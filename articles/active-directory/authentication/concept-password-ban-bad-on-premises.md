@@ -26,20 +26,28 @@ Azure AD password protection is a new feature in public preview powered by Azure
 There are three software components that make up Azure AD password protection:
 
 * The Azure AD password protection proxy service runs on any domain-joined machine in the current Active Directory forest. It forwards requests from domain controllers to Azure AD and returns the response from Azure AD back to the domain controller.
-* The Azure AD password protection DC agent service receives password validation requests from the DC Agent password filter dll, processes them using the current locally available password policy, and returns the result (pass\fail). This service is responsible for periodically calling the Azure AD password protection proxy service to retrieve new versions of the password policy. Communication for calls to and from the Azure AD password protection proxy service is handled over RPC (Remote Procedure Call) over TCP. Upon retrieval, new policies are stored in a sysvol folder where they can replicate to other domain controllers. It also monitors the sysvol folder for changes in case other domain controllers have written new password policies there.
+* The Azure AD password protection DC agent service receives password validation requests from the DC Agent password filter dll, processes them using the current locally available password policy, and returns the result (pass\fail). This service is responsible for periodically (once per hour) calling the Azure AD password protection proxy service to retrieve new versions of the password policy. Communication for calls to and from the Azure AD password protection proxy service is handled over RPC (Remote Procedure Call) over TCP. Upon retrieval, new policies are stored in a sysvol folder where they can replicate to other domain controllers. The DC agent service also monitors the sysvol folder for changes in case other domain controllers have written new password policies there, if a suitably recent policy already is available the check of the Azure AD password protection proxy service will be skipped.
 * The DC Agent password filter dll receives password validation requests from the operating system and forwards them to the Azure AD password protection DC agent service running locally on the domain controller.
 
 ![How Azure AD password protection components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
 ## Requirements
 
-Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses. Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
-
 * All machines where Azure AD password protection components are installed including domain controllers must be running Windows Server 2012 or later.
 * Network connectivity must exist between at least one domain controller in each domain and at least one server hosting the Azure AD password protection proxy service.
 * Any Active Directory domain running the DC agent service software must use DFSR for sysvol replication.
 * A global administrator account to register the Azure AD password protection proxy service with Azure AD.
 * An account with Active Directory domain administrator privileges in the forest root domain.
+
+### License requirements
+
+The benefits of the global banned password list apply to all users of Azure Active Directory (Azure AD).
+
+The custom banned password list requires Azure AD Basic licenses.
+
+Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses. 
+
+Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Download
 

@@ -3,19 +3,19 @@ title: Azure Active Directory reporting audit API samples | Microsoft Docs
 description: How to get started with the Azure Active Directory Reporting API
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/30/2018
-ms.author: dhanyahk;rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
