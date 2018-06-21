@@ -43,8 +43,8 @@ Consider the following:
 - Each performance level supports a maximum database size, with a default max size of 32 GB.
 - When you configure the required database size (size of MDF), 30% of additional storage is automatically added to support LDF
 - You can select any database size between 10 GB and the supported maximum
- - For Standard storage, increase or decrease size in 10 GB increments
- - For Premium storage, increase or decrease size in 250 GB increments
+ - For Standard storage, increase or decrease size in 10-GB increments
+ - For Premium storage, increase or decrease size in 250-GB increments
 - In the General Purpose service tier, `tempdb` uses an attached SSD and this storage cost is included in the vCore price.
 - In the Business Critical service tier, `tempdb` shares the attached SSD with the MDF and LDF files and the tempDB storage cost is included in the vCore price.
 
@@ -103,4 +103,4 @@ You can copy any database with a DTU-based performance level to a database with 
 ## Next steps
 
 - For details on specific performance levels and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
-- For details on specific performance levels ands storage size choices available for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- For details on specific performance levels and storage size choices available for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
