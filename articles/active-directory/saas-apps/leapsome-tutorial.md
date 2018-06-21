@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/2/2018
+ms.date: 06/21/2018
 ms.author: jeedes
 
 ---
@@ -123,12 +123,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
-	| Attribute Name | Attribute Value |
-	| ---------------| --------------- |    
-	| firstname | user.givenname |
-	| lastname | user.surname |
-	| title | user.jobtitle |
-	| picture | URL to the employee's picture |
+	| Attribute Name | Attribute Value | Namespace |
+	| ---------------| --------------- | --------- |   
+	| firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| title | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| picture | URL to the employee's picture | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
 	> [!Note]
 	> The value of picture attribute is not real. Update this value with actual picture URL. To get this value contact [Leapsome Client support team](mailto:support@leapsome.com).
@@ -142,8 +142,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Name** textbox, type the attribute name shown for that row.
 	
 	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. In the **Namespace** textbox, type the namespace uri for that row.
 	
-	d. Click **Ok**
+	e. Click **Ok**
 
 7. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
