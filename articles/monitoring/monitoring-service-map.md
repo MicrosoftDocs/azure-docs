@@ -4,7 +4,7 @@ description: Service Map is a solution in Azure that automatically discovers app
 services:  monitoring
 documentationcenter: ''
 author: daveirwin1
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
+ms.date: 06/21/2018
 ms.author: daseidma;bwren;dairwin
 
 ---
@@ -222,7 +222,7 @@ The **Machine Change Tracking** pane lists all changes, with the most recent fir
 
 The following image is a detailed view of a ConfigurationChange event that you might see after you select **Show in Log Analytics**.
 
-![ConfigurationChange event](media/monitoring-service-map/configuration-change-event.png)
+![ConfigurationChange event](media/monitoring-service-map/configuration-change-event-01.png)
 
 
 ## Performance integration
