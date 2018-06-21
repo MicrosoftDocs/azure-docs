@@ -1,4 +1,4 @@
-# [Multi-factor Authentication Documentation](index.md)
+# [Authentication Documentation](index.md)
 
 # Overview
 
@@ -11,20 +11,20 @@
 
 # Tutorials
 
-## [Define authentication methods](../active-directory/authentication/tutorial-authentication-methods.md)
-## Enroll Users
-## Configure authentication options
-## Configure banned passsword list
-## Enable a SSPR pilot
-## Enable MFA with CA for Azure Portal
-## Enable MFA with Azure Identity Protection
-## [Enable password writeback](../active-directory/authentication/tutorial-enable-writeback.md)
+## [1 Enable a SSPR pilot](../active-directory/authentication/tutorial-sspr-pilot.md)
+## [2 Enable MFA for Applications](../active-directory/authentication/tutorial-mfa-applications.md)
+## [3 Enroll and test](../active-directory/authentication/tutorial-enroll-and-test.md)
+## [Enable SSPR on-premises integration](../active-directory/authentication/tutorial-enable-writeback.md)
 ## [Enable Windows 10 password reset](../active-directory/authentication/tutorial-sspr-windows.md)
-## Enable Windows Hello
+## [Integrate Azure Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md)
 
 # Concepts
 
 ## [Authentication methods](../active-directory/authentication/concept-authentication-methods.md)
+
+## Banned password list
+### [Eliminate weak passwords](../active-directory/authentication/concept-password-ban-bad.md)
+### [Bring the banned password list on-premises](../active-directory/authentication/concept-password-ban-bad-on-premises.md)
 
 ## Self-service password reset
 ### [How password reset works](../active-directory/authentication/concept-sspr-howitworks.md)
@@ -39,10 +39,16 @@
 ### [License your users](../active-directory/authentication/concept-mfa-licensing.md)
 ### [Create an Auth Provider](../active-directory/authentication/concept-mfa-authprovider.md)
 ### [Security guidance](../active-directory/authentication/multi-factor-authentication-security-best-practices.md)
-## [MFA for Office 365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ### [MFA FAQ](../active-directory/authentication/multi-factor-authentication-faq.md)
+### [MFA for Office 365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 
 # How-to Guides
+
+## Stronger passwords
+### [Customize the bannned password list](../active-directory/authentication/howto-password-ban-bad.md)
+### [Deploy Azure AD password protection](../active-directory/authentication/howto-password-ban-bad-on-premises.md)
+### [Audit, enforce, and reporting](../active-directory/authentication/howto-password-ban-bad-on-premises-operations.md)
+### [Monitor and troubleshoot](../active-directory/authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 
 ## Password reset
 ### [SSPR Deployment guide](../active-directory/authentication/howto-sspr-deployment.md)

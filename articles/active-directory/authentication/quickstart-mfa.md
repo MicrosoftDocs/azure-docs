@@ -55,7 +55,7 @@ Before enabling Azure Multi-Factor Authentication, your organization must determ
     * Select your pilot group created as part of the prerequisites section of this article
     * Click **Done**
 1. Under **Cloud apps**, select the **Select apps** radio button
-    * The cloud app for the Azure portal is **Microsoft Azure Management** 
+    * The cloud app for the Azure portal is **Microsoft Azure Management**
     * Click **Select**
     * Click **Done**
 1. Skip the **Conditions** section

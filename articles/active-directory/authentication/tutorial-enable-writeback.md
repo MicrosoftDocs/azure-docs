@@ -1,6 +1,6 @@
 ---
 title: Azure AD enable password writeback 
-description: In this tutorial, you will enable password writeback as part of Azure AD Connect.
+description: In this tutorial, you will enable password writeback to get cloud initiated password changes back to on-premises AD as part of Azure AD Connect.
 
 services: active-directory
 ms.service: active-directory
@@ -13,7 +13,7 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
 
-#Customer intent: How, as an Azure AD Administrator, do I enable password writeback
+# Customer intent: How, as an Azure AD Administrator, do I enable password writeback to get password changes in the cloud back to on-premises AD DS
 ---
 # Tutorial: Enabling password writeback
 
