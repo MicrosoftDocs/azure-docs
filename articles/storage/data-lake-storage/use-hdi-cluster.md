@@ -54,7 +54,7 @@ Here are some considerations when using an Azure Storage account with HDInsight 
 * **Public files in storage accounts that are NOT connected to a cluster** expose read-only permissions to the files in the file system.
   
   > [!NOTE]
-  > Public file systems allow you to get a list of all files available in the file system and access metadata. Public file systems allow you to access files only if you know the exact URL. For more information, see <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a> (the rules for containers and blobs work the same fore files and the file system).
+  > Public file systems allow you to get a list of all files available in the file system and access metadata. Public file systems allow you to access files only if you know the exact URL. For more information, see [Restrict access to containers and blobs](http://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (the rules for containers and blobs work the same fore files and the file system).
  
 * **Private file systems in storage accounts that are NOT connected to a cluster** do not allow access files in the file system unless you define the storage account when you submit the WebHCat jobs. Reasons for this restriction are explained later in this article.
 
@@ -78,9 +78,10 @@ There are several benefits associated with storing the data in Azure storage ins
 Certain MapReduce jobs and packages may create intermediate results that you don't really want to store in Azure storage. In that case, you can elect to store the data in the local HDFS. In fact, HDInsight uses DFS for several of these intermediate results in Hive jobs and other processes.
 
 > [!NOTE]
-> Most HDFS commands (for example, <b>ls</b>, <b>copyFromLocal</b> and <b>mkdir</b>) still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS), such as <b>fschk</b> and <b>dfsadmin</b>, show different behavior in Azure storage.
+> Most HDFS commands (for example, `ls`, `copyFromLocal` and `mkdir`) still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS), such as `fschk` and `dfsadmin`, show different behavior in Azure storage.
 
 ## Create an Data Lake Storage file system
+
 To use the file system, you first create an [Azure Storage account][azure-storage-create]. As part of this process, you specify an Azure region where the storage account is created. The cluster and the storage account must be hosted in the same region. The Hive metastore SQL Server database and Oozie metastore SQL Server database must also be located in the same region.
 
 Wherever it lives, each blob you create belongs to a file system in your Azure Data Lake Storage account. 
@@ -90,6 +91,7 @@ The default Data Lake Storage file system stores cluster-specific information su
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
 ### Use the Azure portal
+
 When creating an HDInsight cluster from the Portal, you have the options (as shown in the following screenshot) to provide the storage account details. You can also specify whether you want an additional storage account associated with the cluster, and if so, choose from any of the available storage options for additional storage.
 
 ![HDInsight hadoop creation data source](./media/use-hdi-cluster/create-storage-account-TEMP.png)
@@ -98,6 +100,7 @@ When creating an HDInsight cluster from the Portal, you have the options (as sho
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
 ### Use Azure PowerShell
+
 If you [installed and configured Azure PowerShell][powershell-install], you can use the following code from the Azure PowerShell prompt to create a storage account and container:
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
@@ -151,6 +154,7 @@ To create a container, use the following command:
 > Creating a container is synonymous with creating a file system in Azure Data Lake Storage.
 
 ## Address files in Azure storage
+
 The URI scheme for accessing files in Azure storage from HDInsight is:
 
     abfs[s]://<FileSystem>@<AccountName>.dfs.core.widows.net/<path>
@@ -167,9 +171,9 @@ If values for &lt;FileSystem&gt; nor &lt;AccountName&gt; have been specified, th
     /example/jars/hadoop-mapreduce-examples.jar
 
 > [!NOTE]
-> The file name is <i>hadoop-examples.jar</i> in HDInsight versions 2.1 and 1.6 clusters.
+> The file name is *hadoop-examples.jar* in HDInsight versions 2.1 and 1.6 clusters.
 
-The &lt;path&gt; is the file or directory HDFS path name. 
+The &lt;path&gt; is the file or directory HDFS path name.
 
 > [!NOTE]
 > When working with files outside of HDInsight, most utilities do not recognize the ABFS format and instead expect a basic path format, such as `example/jars/hadoop-mapreduce-examples.jar`.
@@ -183,6 +187,7 @@ While creating an HDInsight cluster, you specify the Azure Storage account you w
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
 ## Next steps
+
 In this article, you learned how to use HDFS-compatible Azure storage with HDInsight. This approach allows you to build scalable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored structured and unstructured data.
 
 For more information, see:
