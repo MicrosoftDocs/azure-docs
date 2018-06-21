@@ -124,8 +124,7 @@ If you decide you no longer want to use the functionality you have configured as
 In this tutorial, you have enabled users to reset their passwords from the Windows 10 login screen. Continue on to the next tutorial to see how Azure Identity Protection can be integrated into the self-service password reset and Multi-Factor Authentication experiences.
 
 > [!div class="nextstepaction"]
-> [Enabling SSPR at the Windows logon screen](tutorial-sspr-windows.md)
-
+> [Evaluate risk at sign in](tutorial-risk-based-sspr-mfa.md)
 
 [CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Create Intune device configuration profile to enable Reset password link on the Windows 10 login screen"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Assign Intune device configuration policy to a group of Windows 10 devices"
