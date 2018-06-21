@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
 ---
@@ -123,7 +123,7 @@ For more information, see [Azure Active Directory conditional access settings re
 **Product capability:** Identity Security & Protection
  
 >[!Warning]
->This item is missing info in the **Customer write-up** field in the **Release Communications** tab. If we don't get this field updated by noon on Friday (June 22, 2018) we'll have to pull this item.
+>This item is missing info in the **Customer write-up** field in the **Release Communications** tab. If we don't get this field updated by end of day on Monday (June 25, 2018) we'll have to pull this item.
  
 ---
 
