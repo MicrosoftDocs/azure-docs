@@ -1,6 +1,6 @@
 ---
-title: Using BulkExecutor Java library to perform bulk operations in Azure Cosmos DB | Microsoft Docs
-description: Use Azure Cosmos DB’s BulkExecutor Java library to bulk import and update documents to Azure Cosmos DB collections.
+title: Using bulk executor Java library to perform bulk operations in Azure Cosmos DB | Microsoft Docs
+description: Use Azure Cosmos DB’s bulk executor Java library to bulk import and update documents to Azure Cosmos DB collections.
 keywords: Java bulk executor
 services: cosmos-db
 author: tknandu
@@ -14,9 +14,9 @@ ms.author: ramkris
 
 ---
 
-# Use BulkExecutor Java library to perform bulk operations on Azure Cosmos DB data
+# Use bulk executor Java library to perform bulk operations on Azure Cosmos DB data
 
-This tutorial provides instructions on using the Azure Cosmos DB’s bulk executor Java library to import, and update Azure Cosmos DB documents. To learn about BulkExecutor library and how it helps you leverage massive throughput and storage, see [BulkExecutor Library overview](bulk-executor-overview.md) article. In this tutorial, you build a Java application that generates random documents and they are bulk imported into an Azure Cosmos DB collection. After importing, you will bulk update some properties of a document. 
+This tutorial provides instructions on using the Azure Cosmos DB’s bulk executor Java library to import, and update Azure Cosmos DB documents. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor Library overview](bulk-executor-overview.md) article. In this tutorial, you build a Java application that generates random documents and they are bulk imported into an Azure Cosmos DB collection. After importing, you will bulk update some properties of a document. 
 
 ## Prerequisites
 
@@ -196,7 +196,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
 
 ## Performance tips 
 
-Consider the following points for better performance when using BulkExecutor library:
+Consider the following points for better performance when using bulk executor library:
 
 * For best performance, run your application from an Azure VM in the same region as your Cosmos DB account write region.  
 * For achieving higher throughput:  
@@ -210,6 +210,6 @@ Consider the following points for better performance when using BulkExecutor lib
 
 	
 ## Next steps
-* To learn about maven package details and release notes of BulkExecutor Java library, see[BulkExecutor SDK details](sql-api-sdk-bulk-executor-java.md).
+* To learn about maven package details and release notes of bulk executor Java library, see[bulk executor SDK details](sql-api-sdk-bulk-executor-java.md).
 
 
