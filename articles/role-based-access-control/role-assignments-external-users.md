@@ -1,6 +1,6 @@
 ---
-title: Manage role assignments for external users in Azure | Microsoft Docs
-description: Manage role-based access control (RBAC) in Azure for users external to an organization
+title: Manage access for external users using RBAC in Azure | Microsoft Docs
+description: Learn how to manage access for users external to an organization using role-based access control (RBAC) in Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -19,7 +19,7 @@ ms.reviewer: skwan
 ms.custom: it-pro
 
 ---
-# Manage role assignments for external users
+# Manage access for external users using RBAC
 
 Role-based access control (RBAC) allows better security management for large organizations and for SMBs working with external collaborators, vendors, or freelancers that need access to specific resources in your environment but not necessarily to the entire infrastructure or any billing-related scopes. RBAC allows the flexibility of owning one Azure subscription managed by the administrator account (service administrator role at a subscription level) and have multiple users invited to work under the same subscription but without any administrative rights for it.
 
@@ -52,7 +52,7 @@ After selecting the subscription, the admin user must click **Access Control (IA
 
 ![add new user in access control IAM feature in Azure portal](./media/role-assignments-external-users/2.png)
 
-The next step is to select the role to be assigned and the user whom the RBAC role will be assigned to. In the **Role** dropdown menu, the admin user sees only the built-in RBAC roles that are available in Azure. For more detailed explanations of each role and their assignable scopes, see [Built-in roles for Azure Role-Based Access Control](built-in-roles.md).
+The next step is to select the role to be assigned and the user whom the RBAC role will be assigned to. In the **Role** dropdown menu, the admin user sees only the built-in RBAC roles that are available in Azure. For more detailed explanations of each role and their assignable scopes, see [Built-in roles](built-in-roles.md).
 
 The admin user then needs to add the email address of the external user. The expected behavior is for the external user to not show up in the existing tenant. After the external user has been invited, he will be visible under **Subscriptions > Access Control (IAM)** with all the current users that are currently assigned an RBAC role at the Subscription scope.
 
