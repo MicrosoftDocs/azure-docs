@@ -9,7 +9,7 @@ author: dineshm
 manager: jahogg
 editor: cgronlun
 
-ms.assetid: 
+ms.component: data-lake-storage-gen2
 ms.service: hdinsight
 ms.custom: 
 ms.workload: big-data
@@ -26,14 +26,13 @@ In this tutorial, you learn how to run Spark queries on a DataBricks cluster to 
 
 > [!div class="checklist"]
 > * Create a DataBricks cluster
-> * Mount Blob storage to a DataBricks cluster
 > * Ingest unstructured data into a storage account
 > * Trigger an Azure Function to process data
 > * Running analytics on your data in Blob storage
 
 ## Prerequisites
 
-This tutorial demonstrates how to consume and query airline flight data, which is available from the [United State Department of Transportation](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Download at least two year's worth of airline data (selecting all fields) and save the result to your machine. Make sure to take note of the file name and path of your download; you need this information in a later step.
+This tutorial demonstrates how to consume and query airline flight data, which is available from the [United States Department of Transportation](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Download at least two year's worth of airline data (selecting all fields) and save the result to your machine. Make sure to take note of the file name and path of your download; you need this information in a later step.
 
 > [!NOTE]
 > The download will be many gigabytes in size, but this amount of data is necessary for analysis.
@@ -41,6 +40,9 @@ This tutorial demonstrates how to consume and query airline flight data, which i
 ## Create an Azure Data Lake Storage account
 
 To begin, create a new [Azure Data Data Lake storage account](quickstart-create-account.md) and give it a unique name. Once created, navigate to the storage account to retrieve configuration settings.
+
+> [!IMPORTANT]
+> During Preview, Azure Functions only work with Azure Data Lake Storage accounts created with a flat namespace.
 
 1. Under **Settings**, click  **Access keys**
 3. Click the **Copy** button next to **key1** to copy the key value
@@ -73,7 +75,7 @@ A [DataBricks token](https://docs.databricks.com/api/latest/tokens.html) is requ
 5. Copy the token value from the browser into the text file where you have set aside the account name and key
 
 ## Create an Azure Function
-A [serverless function](https://azure.microsoft.com/services/functions/) is required to listen for changes in the Azre Data Lake Storage account.
+A [serverless function](https://azure.microsoft.com/services/functions/) is required to listen for changes in the Azure Data Lake Storage account.
 
 1. Create a [Function App](https://ms.portal.azure.com/#create/Microsoft.FunctionApp) and name it *myFlightDataApp* (make sure to check the *Pin to dashboard* checkbox as you create the service)
 2. Click the **+** to create a new function (available when hover your mouse over the *Functions* label on the left)
@@ -232,42 +234,6 @@ df.write.mode("append").parquet("/mnt/temp/parquet/flights")
 17. Enter **32** in the *Maximum concurrent runs* field
 18. Click **OK**
 
-### Mount storage to DataBricks
-
-Return to the Azure Portal and navigate to your storage account settings.
-
-1. Click **Browse blobs** under the *Blob Service* section
-2. Click the new container button (![New Container Button](./media/using-databricks-spark/storage-account-add-container.png))
-3. Enter **dbricks** in the *Name* field
-4. Select **Private** for the *Public Access Level* field
-5. Click **OK**
-
-Return to the DataBricks tab and continue with the following steps:
-
-1. Click **Azure DataBricks** on the top left of the nav bar
-2. Click **Notebook** under the *New* section on the bottom half of the page
-3. Enter **Flight Data Analytics** in the *Name* field (leave all other fields with default values)
-4. Click **Create**
-5. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor)
-
-> [!IMPORTANT]
-> Make sure you replace the **<YOUR_STORAGE_ACCOUNT_NAME>** AND **<YOUR_ACCESS_KEY>** placeholders with the corresponding values you set aside in a previous step.
-
-```python
-accountname = '<YOUR_STORAGE_ACCOUNT_NAME>'
-accountkey = '<YOUR_ACCESS_KEY>'
-fullname = "fs.azure.account.key." +accountname+ ".dfs.core.windows.net"
-accountsource = "abfs://dbricks@" +accountname+ ".dfs.core.windows.net/folder1"
-dbutils.fs.mount(
-  source = accountsource,
-  mount_point = "/mnt/temp",
-  extra_configs = { fullname : accountkey }
-) 
-```
-6. Press **Cmd + Enter** to run the Python script
-
-Your Blog storage container is now mounted. You should see *Out[x] = true* as ouput from the script.
-
 ### Copy source data into the storage account
 
 The next task is to use AzCopy to copy data from the *.csv* file into Azure storage. Return to the Azure portal and execute the following steps:
@@ -301,18 +267,20 @@ To get a list of CSV files uploaded via AzCopy, run the following script:
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-
-dbutils.fs.ls("/mnt/temp")
-display(dbutils.fs.ls("dbfs:/mnt/temp/"))
+source = "abfs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.dfs.core.windows.net/"
+dbutils.fs.ls(source + "/temp")
+display(dbutils.fs.ls(source + "/temp/"))
 ```
 
 To create a new file and list files in the *parquet/flights* folder, run this script:
 
 ```python
+source = "abfs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.dfs.core.windows.net/"
+
 dbutils.fs.help()
 
-dbutils.fs.put("/mnt/temp/1.txt", "Hello, World!", True)
-dbutils.fs.ls("/mnt/temp/parquet/flights")
+dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
+dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
 With these code samples you have explored the heirarchial nature of HDFS using data stored in an Azure Data Lake Storage account.
 
@@ -424,11 +392,10 @@ display(output)
 ```
 > [!div class="checklist"]
 > * Create a DataBricks cluster
-> * Mount Blob storage to a DataBricks cluster
 > * Ingest unstructured data into a storage account
 > * Trigger an Azure Function to process data
 > * Running analytics on your data in Blob storage
 
 ## Next steps
 
-?? what's the best next step article ??
+* [Extract, transform, and load data using Apache Hive on Azure HDInsight](tutorial-extract-transform-load-hive.md)

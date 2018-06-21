@@ -6,18 +6,20 @@
     href: introduction.md
 - name: Quickstarts
   items:
-  - name: Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more
-    href: quickstart-create-connect-hdi-cluster.md
-  - name: Create/Connect Databricks account
-    href: quickstart-create-databricks-account.md
   - name: Create a storage account
     href: quickstart-create-account.md
+  - name: Create/Connect Databricks account
+    href: quickstart-create-databricks-account.md
+  - name: Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more
+    href: quickstart-create-connect-hdi-cluster.md
 - name: Tutorials
   items:
   #- name: Access Blob Storage from Spark (Known)
     #href:
-  #- name: Extract, transform, and load data using Azure Databricks (Known)
-    #href:
+  - name: Extract, transform, and load data using Azure Databricks
+    href: handle-data-using-databricks.md
+  - name: Access Azure Data Lake Storage data with DataBricks using Spark
+    href: using-databricks-spark.md
   - name: Extract, transform, and load data using Apache Hive on Azure HDInsight
     href: tutorial-extract-transform-load-hive.md
 #- name: Samples
@@ -26,14 +28,14 @@
     #href: example.md
 - name: Concepts
   items:
+  - name: Hadoop ABFS Driver
+    href: abfs-driver.md
   - name: Introduction to the Azure Blob File System URI
     href: introduction-abfs-uri.md
+  - name: Hierarchical Namespace
+    href: namespace.md
   - name: Security
     items:
-      - name: Security Overview
-        href: security-guide.md
-      - name: Access Control in Data Lake Store
-        href: ../../data-lake-store/data-lake-store-access-control.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
       - name: Encryption for data at rest
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
       - name: Encryption for data at rest with customer keys
@@ -46,30 +48,22 @@
         href: evaluation-comparison.md
       - name: Migration Planning
         href: evaluation-migration-guide.md
-  - name: Hierarchical Namespace
-    href: namespace.md
   - name: Scalability and Perf
     items:
       - name: Best Practices
         href: best-practice.md
   #- name: Benchmark results
     #href:
-  - name: Hadoop ABFS Driver
-    href: abfs-driver.md
 - name: How-to guides
   items:
   - name: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
     href: use-hdi-cluster.md
-  - name: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark
-    href: using-databricks-spark.md
-  - name: Secure data
-    items:
-      - name: Secure data in Azure Data Lake Storage
-        href: secure-data.md
-  #- name: ingest data
-    #items: 
-      #- name: How to copy data into Data Lake Storage 
-        #href:
+  - name: ingest data
+    items: 
+      - name: How to copy data into Data Lake Storage using Distcp
+        href: use-distcp.md
+      - name: How to copy data into Data Lake Storage using Azure Data Factory
+        href: ../../data-factory/load-azure-data-lake-storage-gen2.md
 - name: Reference
   items:
 - name: Resources
