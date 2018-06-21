@@ -31,6 +31,7 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 Data Lake Storage is used as the data layer in this quickstart. With its Hierarchical Namespace Service and [Hadoop driver](abfs-driver.md), Data Lake Storage is optimized for distributed processing and analysis. Data stored in Data Lake Storage persists even after an HDInsight cluster is deleted.
 
 ## Cluster setup methods
+
 The following table shows the different methods you can use to set up an HDInsight cluster.
 
 | Clusters created with | Web browser | Command line | REST API | SDK | 
