@@ -143,7 +143,13 @@ For **Log Alerts** alerts can be based on:
    ![Alert Dashboard](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. From Top Left to Right, the Dashboard shows at a glance, the following - which can be clicked to see a detailed listing:
     - *Fired Alerts*: The number of Alerts currently, which have met logic and in fired state
-    - *Total Alert Rules*: The number of Alert rules created and in subtext, the number that are currently enabled
+    - *Total Alert Rules*: The number of Alert rules created and in subtext, the number that are currently enabled 
+    
+
+        > [!NOTE]
+        > To ensure consistent dashboard with details on all fired alerts including log alerts for application insights and log analytics; [Enhanced unified alert (preview)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) should be used
+  
+  
 4. A list of all fired alerts is shown which the user can click to view details
 5. Aiding in finding specific the alerts; one can use the dropdown options on top for filtering specific *Subscription, Resource Group and/or Resource*. Further for any unresolved alert, one use the *Filter alert* option to find for provided keyword - specific matching alerts with *Name, Alert Criteria, Resource Group, and Target Resource*
 

@@ -48,7 +48,7 @@
       href: role-assignments-powershell.md
     - name: REST
       href: role-assignments-rest.md
-  - name: Activity logs
+  - name: View activity logs
     href: change-history-report.md
   - name: Elevate access for Global admin
     href: elevate-access-global-admin.md
