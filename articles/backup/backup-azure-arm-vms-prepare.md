@@ -27,7 +27,7 @@ Before you protect (or back up) a Resource Manager-deployed virtual machine, mak
 
 If these conditions already exist in your environment, proceed to the [Back up your VMs](backup-azure-arm-vms.md) article. If you need to set up or check any of these prerequisites, this article leads you through the steps.
 
-## Supported operating systems for backup and restore
+## Supported operating systems for backup
 
  * **Linux**: Azure Backup supports [a list of distributions that Azure endorses](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), except CoreOS Linux. For the list of Linux operating systems that support restoring files, see [Recover files from virtual machine backup](backup-azure-restore-files-from-vm.md#for-linux).
 
