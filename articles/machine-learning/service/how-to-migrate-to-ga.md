@@ -18,7 +18,7 @@ Generally speaking, most of the artifacts created in the pre-GA version of Azure
 
 ### Azure resources
 
-Resources such as the pre-GA Azure Machine Learning experimentation accounts, Azure Machine Learning model management accounts, and machine learning compute environment are not supported in the generally available version of Azure Machine Learning Services. You can get started with the GA version by creating an Azure Machine Learning Workspace [in Python](quickstart-set-up-in-python.md), using [the CLI](quickstart-set-up-in-cli.md), or in [Azure Portal](how-to-create-workspace-in-portal.md). This workspace enables you to use all features of the generally available features of Azure Machine Learning Services. 
+Resources such as the pre-GA Azure Machine Learning experimentation accounts, Azure Machine Learning model management accounts, and machine learning compute environment are not supported in the generally available version of Azure Machine Learning Services. You can get started with the GA version by creating an Azure Machine Learning Workspace [in Python](quickstart-set-up-in-python.md), using [the CLI](quickstart-set-up-in-cli.md), or in the [Azure portal](how-to-create-workspace-in-portal.md). This workspace enables you to use all features of the generally available features of Azure Machine Learning Services. 
 
 ### Azure ML projects
 Azure ML projects are now local folders with files. For any existing Azure ML project from the preview offering, once you create the new Azure ML Workspace in GA offering, you can attach the project folder to the new Workspace with a run history name of your choice. 
