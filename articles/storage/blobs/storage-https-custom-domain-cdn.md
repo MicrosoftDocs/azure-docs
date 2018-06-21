@@ -32,7 +32,7 @@ These are the steps required to enable HTTPS for your custom blob storage endpoi
     This article walks you through creating a storage account in the Azure Portal if you have not done so already.
 
     > [!NOTE]  
-    > During preview of the static websites feature, select "custom origin" from the "origin type" drop down menu to add your storage web endpoint. In Azure Portal, you will need to do this from your CDN Profile instead of directly in your storage account.
+    > During preview of static websites support in Azure Storage, select "custom origin" from the "origin type" drop down menu to add your storage web endpoint. In Azure Portal, you will need to do this from your CDN Profile instead of directly in your storage account.
 
 2.  [Map Azure CDN content to a custom domain](../../cdn/cdn-map-content-to-custom-domain.md).
 3.  [Enable HTTPS on an Azure CDN custom domain](../../cdn/cdn-custom-ssl.md).
@@ -62,4 +62,4 @@ When looking at the [CDN pricing page](https://azure.microsoft.com/pricing/detai
 
 ## Next steps
 * [Configure a custom domain name for your Blob storage endpoint](storage-custom-domain-name.md)
-* [Static website hosting in Azure Blob Storage (Preview)](storage-blob-static-website.md)
+* [Static website hosting in Azure Storage (Preview)](storage-blob-static-website.md)

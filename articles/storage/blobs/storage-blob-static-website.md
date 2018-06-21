@@ -1,6 +1,6 @@
 ---
-title: Static website hosting in Azure Blob Storage (Preview) | Microsoft Docs
-description: Azure Blob Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications.  
+title: Static website hosting in Azure Storage (Preview) | Microsoft Docs
+description: Azure Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications.  
 services: storage
 author: MichaelHauss
 manager: vamshik
@@ -10,8 +10,10 @@ ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
 ---
-# Static website hosting in Azure Blob Storage (Preview)
-Azure Blob Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications. On a static website, webpages contain static content and client-side scripts. By contrast, dynamic websites depend on server-side processing, and can be hosted using [Azure Web Apps](/app-service/app-service-web-overview.md). Despite not supporting server-side code, static websites hosted on Azure Storage enable rich backend capabilities with serverless architectures leveraging [Azure Functions](/azure-functions/functions-overview.md) and other PaaS services.
+# Static website hosting in Azure Storage (Preview)
+Azure Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications. On a static website, webpages contain static content and client-side scripts. By contrast, dynamic websites depend on server-side processing, and can be hosted using [Azure Web Apps](/app-service/app-service-web-overview.md).
+
+As web applications shift toward consumption-based deployments, the ability to serve web UIs and single page applications without the need for managing servers is critical. Static websites hosted on Azure Storage enable rich backend capabilities with serverless architectures leveraging [Azure Functions](/azure-functions/functions-overview.md) and other PaaS services.
 
 ## How does it work?
 When you enable static websites on your storage account, a new web service endpoint is created of the form `<account-name>.<zone-name>.web.core.windows.net`.
@@ -36,12 +38,12 @@ Navigate to your storage account in Azure Portal and click on "Static website (p
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
-Navigate to the "$web" container and upload your web assets using Azure Portal, including an index document with the name you configured. In this example, the document's name is "index.html".
+Upload your web assets to the "$web" container that was created as a part of static website enablement. You can do this directly in Azure Portal, or you can take advantage of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload entire directory structures. Make sure to include an index document with the name you configured. In this example, the document's name is "index.html".
 
 Finally, navigate to your web endpoint to test your website.
 
 ## FAQ
-**Is soft delete available for all storage account types?**  
+**Is static websites available for all storage account types?**  
 No, static website hosting is only available in GPv2 standard storage accounts.
 
 ## Next steps
@@ -49,4 +51,4 @@ No, static website hosting is only available in GPv2 standard storage accounts.
 * [Configure a custom domain name for your blob or web endpoint](storage-custom-domain-name.md)
 * [Azure Functions](/azure-functions/functions-overview.md)
 * [Azure Web Apps](/app-service/app-service-web-overview.md)
-* [Build your first serverless web app](/functions/interactive/first-serverless-interactive.md)
+* [Build your first serverless web app](https://aka.ms/static-serverless-webapp)
