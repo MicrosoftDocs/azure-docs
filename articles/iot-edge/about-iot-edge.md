@@ -7,9 +7,10 @@ manager: timlt
 ms.reviewer: chipalost
 ms.service: iot-edge
 services: iot-edge
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
+ms.custom: mvc
 ---
 
 # What is Azure IoT Edge
@@ -73,8 +74,8 @@ Azure IoT Edge integrates seamlessly with Azure IoT solution accelerators to pro
 Try out these concepts by [deploying IoT Edge on a simulated device][lnk-quickstart].
 
 <!-- Images -->
-[1]: ./media/how-iot-edge-works/runtime.png
-[2]: ./media/how-iot-edge-works/cloud-interface.png
+[1]: ./media/about-iot-edge/runtime.png
+[2]: ./media/about-iot-edge/cloud-interface.png
 
 <!-- Links -->
 [lnk-quickstart]: quickstart.md
