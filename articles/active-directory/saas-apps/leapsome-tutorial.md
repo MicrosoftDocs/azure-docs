@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 06/2/2018
 ms.author: jeedes
 
 ---
@@ -129,6 +129,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| lastname | user.surname |
 	| title | user.jobtitle |
 	| picture | URL to the employee's picture |
+
+	> [!Note]
+	> The value of picture attribute is not real. Update this value with actual picture URL. To get this value contact [Leapsome Client support team](mailto:support@leapsome.com).
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -172,7 +175,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. In the **SSO Login URL (provided by identity provider)** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from the Azure portal.
 
-	e. Copy the Certificate which you have downloaded from Azure portal by leaving the Begin and End certificate commands and paste it in the **Certificate (provided by identity provider)** textbox.
+	e. Copy the Certificate which you have downloaded from Azure portal without --BEGIN CERTIFICATE and END CERTIFICATE-- comments and paste it in the **Certificate (provided by identity provider)** textbox.
 
 	f. Click **UPDATE SSO SETTINGS**.
 	
