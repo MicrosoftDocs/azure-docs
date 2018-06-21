@@ -4,7 +4,7 @@ description: Describes device provisioning in Azure with the Device Provisioning
 author: nberdy
 ms.author: nberdy
 ms.date: 12/05/2017
-ms.topic: conceptual
+ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
