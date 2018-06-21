@@ -29,6 +29,10 @@
       href: QuickStarts/curl-thumb.md
     - name: Extract printed text
       href: QuickStarts/curl-print-text.md
+  - name: Go
+    items:
+    - name: Analyze an image
+      href: QuickStarts/go-analyze.md
   - name: Java
     items:
     - name: Analyze an image
