@@ -3,19 +3,19 @@ title: Sign-in activity reports in the Azure Active Directory portal | Microsoft
 description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/17/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -149,7 +149,7 @@ You can download the sign-in activities data if you want work with it outside th
 
 ![Download](./media/active-directory-reporting-activity-sign-ins/71.png "Download")
 
-Clicking **Download** creates a CSV file of the most recent 5K records. If you need more flexibility, you can use the script solution. Clicking **Script** creates a script that includes all the filters you have set. 
+Clicking **Download** creates a CSV file of the most recent 5K records. If you need more flexibility, you can use the script solution. Clicking **Script** creates a PowerShell script that includes all the filters you have set. Download and run this script in **administrator mode** to generate the CSV file. 
 In addition to the technical implementation, the number of records you can download is also constrained by the [Azure Active Directory report retention policies](active-directory-reporting-retention.md).  
 
 

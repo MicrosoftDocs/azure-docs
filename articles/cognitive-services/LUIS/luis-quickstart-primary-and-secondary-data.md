@@ -219,4 +219,4 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 
 <!--References-->
-[LUIS]: luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
