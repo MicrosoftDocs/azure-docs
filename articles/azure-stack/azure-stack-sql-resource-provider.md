@@ -41,7 +41,7 @@ The resource provider consists of the following components:
 You must create at least one instance of SQL Server or provide access to external SQL Server instances.
 
 > [!NOTE]
-> Hosting servers that are installed on Azure Stack integrated systems must be created from a tenant subscription. They can't be created from the default provider subscription. They must be created from the tenant portal or by using a PowerShell session using the appropriate sign-in. All hosting servers are billable virtual machines and must have licenses. The service administrator can be the owner of the tenant subscription.
+> Hosting servers that are installed on Azure Stack integrated systems must be created from a tenant subscription. They can't be created from the default provider subscription. They must be created from the tenant portal or by using a PowerShell with the appropriate sign-in. All hosting servers are billable virtual machines and must have licenses. The service administrator can be the owner of the tenant subscription.
 
 ## Next steps
 
