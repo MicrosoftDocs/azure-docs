@@ -1,6 +1,6 @@
 ---
-title: Role-based access control (RBAC) with REST - Azure | Microsoft Docs
-description: Managing role-based access control (RBAC) with the REST API
+title: Manage access using RBAC and the REST API - Azure | Microsoft Docs
+description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and the REST API. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -13,17 +13,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/20/2018
 ms.author: rolyon
+ms.reviewer: bagovind
 
 ---
-# Use RBAC to manage access with the REST API
+# Manage access using RBAC and the REST API
 
-[Role-based access control (RBAC)](overview.md) helps you manage access to Azure resources. For example, you can allow a user to manage the virtual machines in a particular resource group. You manage access for users, groups, and service principals (applications) by assigning roles at a particular scope. You can manage access using the Azure portal, Azure PowerShell, Azure CLI, Azure SDKs, or REST API. This article describes the common ways to manage access using the REST API.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and the REST API.
 
 ## List access
 
-To list role assignments (list access), you can use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter. To call the API, you must have access to the `Microsoft.Authorization/roleAssignments/read` operation at the specified scope. All [built-in roles](built-in-roles.md) are granted access to this operation.
+In RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter. To call the API, you must have access to the `Microsoft.Authorization/roleAssignments/read` operation at the specified scope. Several [built-in roles](built-in-roles.md) are granted access to this operation.
 
 1. Start with the following request:
 
@@ -49,7 +50,7 @@ To list role assignments (list access), you can use one of the [Role Assignments
 
 ## Grant access
 
-To create a role assignment (grant access), you use the [Role Assignments - Create](/rest/api/authorization/roleassignments/create) REST API and specify the security principal, role definition, and scope. To call this API, you must have access to `Microsoft.Authorization/roleAssignments/write` operation. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation.
+In RBAC, to grant access, you create a role assignment. To create a role assignment, use the [Role Assignments - Create](/rest/api/authorization/roleassignments/create) REST API and specify the security principal, role definition, and scope. To call this API, you must have access to the `Microsoft.Authorization/roleAssignments/write` operation. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation.
 
 1. Use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API or see [Built-in roles](built-in-roles.md) to get the identifier for the role definition you want to assign.
 
@@ -88,7 +89,7 @@ To create a role assignment (grant access), you use the [Role Assignments - Crea
 
 ## Remove access
 
-To remove a role assignment (remove access), use the [Role Assignments - Delete](/rest/api/authorization/roleassignments/delete) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleAssignments/delete` operation. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation.
+In RBAC, to remove access, you remove a role assignment. To remove a role assignment, use the [Role Assignments - Delete](/rest/api/authorization/roleassignments/delete) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleAssignments/delete` operation. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation.
 
 1. Get the role assignment identifier (GUID). This identifier is returned when you first create the role assignment or you can get it by listing the role assignments.
 
@@ -110,6 +111,6 @@ To remove a role assignment (remove access), use the [Role Assignments - Delete]
 
 ## Next steps
 
+- [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)
-- [Built-in roles](built-in-roles.md)
-- [Understand role definitions](role-definitions.md)
+- [Create custom roles using the REST API](custom-roles-rest.md)
