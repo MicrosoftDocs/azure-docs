@@ -88,7 +88,7 @@ When you access an Azure Cosmos DB database account from a computer on the inter
 
 Add the following JSON to your template to setup IP access control. Resource Manager template for an account will have ipRangeFilter attribute which is list of IP ranges which should be whitelisted.
 
-   ```json
+```json
    {
      "apiVersion": "2015-04-08",
      "type": "Microsoft.DocumentDB/databaseAccounts",
@@ -100,7 +100,8 @@ Add the following JSON to your template to setup IP access control. Resource Man
      "name": "[parameters('databaseAccountName')]",
      "ipRangeFilter":"10.0.0.1,10.0.0.2,183.240.196.255"
    }
-   ```
+   }
+```
 
 ## Troubleshooting the IP access control policy
 ### Portal operations
