@@ -160,11 +160,6 @@ the properties and values from JSON objects in an array,
 use the **Data Operations - Create CSV table** action. 
 You can then use this table in actions that follow after the **Create CSV table** action.
 
-> [!TIP]
-> For JSON content that's not formatted as an array, 
-> try using the [Parse JSON](#parse-json-action) before 
-> calling the **Create CSV table** action.
-
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
 
@@ -211,7 +206,13 @@ From the actions list, select this action: **Data Operations - Create CSV table*
    To manually create the column headers and values, choose **Show advanced options**. 
    To provide only custom values, change **Columns** to **Custom**. 
    To provide custom column headers too, change **Include headers** to **Yes**. 
-   
+
+   > [!TIP]
+   > To create user-friendly tokens for the properties in  
+   > JSON objects so you can select those properties as inputs, 
+   > use the [Parse JSON](#parse-json-action) before calling the 
+   > **Create CSV table** action.
+
 5. Save your logic app. On the designer toolbar, choose **Save**.
 
 For more information about this action in your underlying workflow definition, 
@@ -249,11 +250,6 @@ and values from JSON objects in an array,
 use the **Data Operations - Create HTML table** action. 
 You can then use this table in actions that follow after 
 the **Create HTML table** action.
-
-> [!TIP]
-> For JSON content that's not formatted as an array, 
-> try using the [Parse JSON](#parse-json-action) before 
-> calling the **Create CSV table** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -301,6 +297,12 @@ From the actions list, select this action: **Data Operations - Create HTML table
    To manually create the column headers and values, choose **Show advanced options**. 
    To provide only custom values, change **Columns** to **Custom**. 
    To provide custom column headers too, change **Include headers** to **Yes**. 
+
+   > [!TIP]
+   > To create user-friendly tokens for the properties in  
+   > JSON objects so you can select those properties as inputs, 
+   > use the [Parse JSON](#parse-json-action) before calling the 
+   > **Create HTML table** action.
 
 5. Save your logic app. On the designer toolbar, choose **Save**.
 
@@ -573,7 +575,7 @@ From the actions list, select this action: **Data Operations - Parse JSON**
    from the JSON content, or *payload*, you're parsing. 
    
    1. In the **Parse JSON** action, 
-   click **Use sample payload to generate schema**.
+   select **Use sample payload to generate schema**.
 
    2. Under **Enter or paste a sample JSON payload**, 
    provide the JSON content, and then choose **Done**.
