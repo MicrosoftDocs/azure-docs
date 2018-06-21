@@ -125,7 +125,4 @@ When developing your solution, you can use the Azure ML Python SDK in your Pytho
 
 When submitting a project run, Azure ML compresses the project folder as a zip file and sends it to the compute target. The project is then expanded and executed there. Azure ML also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
 
-## Tools and utilities
-
-
 
