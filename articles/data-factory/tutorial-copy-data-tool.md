@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/09/2018
+ms.date: 06/21/2018
 ms.author: jingwang
 
 ---
@@ -122,84 +122,80 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 2. On the **Properties** page, under **Task name**, enter **CopyFromBlobToSqlPipeline**. Then select **Next**. The Data Factory UI creates a pipeline with the specified task name. 
 
     ![Properties page](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
-3. On the **Source data store** page, select **Azure Blob Storage**, and then select **Next**. The source data is in Blob storage. 
+3. On the **Source data store** page, complete the following steps:
 
-    ![Source data store page](./media/tutorial-copy-data-tool/source-data-store-page.png)
-4. On the **Specify the Azure Blob storage account** page, take the following steps:
+    a. Click **+ Create new connection** to add a connection
 
-    a. Under **Connection name**, enter **AzureStorageLinkedService**.
+    ![New source linked service](./media/tutorial-copy-data-tool/new-source-linked-service.png)
 
-    b. Select your storage account name from the **Storage account name** drop-down list.
+    b. Select **Azure Blob Storage** from the gallery, and then select **Next**.
 
-    c. Select **Next**. 
+    ![Select blob source](./media/tutorial-copy-data-tool/select-blob-source.png)
 
-    ![Specify the storage account](./media/tutorial-copy-data-tool/specify-blob-storage-account.png)
+    c. On the **New Linked Service** page, select your storage account from the **Storage account name** list, and then select **Next**.
 
-    A linked service links a data store or a compute to the data factory. In this case, you create a storage linked service to link your storage account to the data store. The linked service has the connection information that Data Factory uses to connect to Blob storage at runtime. The dataset specifies the container, folder, and the file (optional) that contains the source data. 
+    ![Configure azure storage](./media/tutorial-copy-data-tool/configure-azure-storage.png)
 
-5. On the **Choose the input file or folder** page, do the following steps:
+    d. Select the newly created linked service as source, then click **Next**.
+
+    ![Select source linked service](./media/tutorial-copy-data-tool/select-source-linked-service.png)
+
+4. On the **Choose the input file or folder** page, complete the following steps:
     
-    a. Browse to the **adfv2tutorial/input** folder.
+    a. Click **Browse** to navigate to the **adfv2tutorial/input** folder, select the **inputEmp.txt** file, then click **Choose**.
 
-    b. Select the **inputEmp.txt** file.
+    ![Choose the input file or folder](./media/tutorial-copy-data-tool/specify-source-path.png)
 
-    c. Select **Choose**. Alternatively, you can double-click the **inputEmp.txt** file.
+    b. Click **Next** to move to next step.
 
-    d. Select **Next**. 
-
-    ![Choose the input file or folder](./media/tutorial-copy-data-tool/choose-input-file-folder.png)
-
-6. On the **File format settings** page, notice that the tool automatically detects the column and row delimiters. Select **Next**. You also can preview data and view the schema of the input data on this page. 
+5. On the **File format settings** page, notice that the tool automatically detects the column and row delimiters. Select **Next**. You also can preview data and view the schema of the input data on this page. 
 
     ![File format settings](./media/tutorial-copy-data-tool/file-format-settings-page.png)
-7. On the **Destination data store** page, select **Azure SQL Database**, and then select **Next**.
+6. On the **Destination data store** page, completes the following steps:
 
-    ![Destination data store](./media/tutorial-copy-data-tool/destination-data-storage-page.png)
-8. On the **Specify the Azure SQL database** page, take the following steps: 
+    a. Click **+ Create new connection** to add a connection
 
-    a. Under **Connection name**, enter **AzureSqlDatabaseLinkedService**.
+    ![New sink linked service](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 
-    b. Under **Server name**, select your SQL Server instance.
+    b. Select **Azure Blob Storage** from the gallery, and then select **Next**.
 
-    c. Under **Database name**, select your SQL database.
+    ![Select Azure SQL DB](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 
-    d. Under **User name**, enter the name of the user.
+    c. On the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password, then select **Next**.    
 
-    e. Under **Password**, enter the password for the user.
+    ![Configure Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
-    f. Select **Next**. 
+    d. Select the newly created linked service as sink, then click **Next**.
 
-    ![Specify the SQL database](./media/tutorial-copy-data-tool/specify-azure-sql-database.png)
+    ![Select sink linked service](./media/tutorial-copy-data-tool/select-sink-linked-service.png)
 
-    A dataset must be associated with a linked service. The linked service has the connection string that Data Factory uses to connect to the SQL database at runtime. The dataset specifies the container, folder, and the file (optional) to which the data is copied.
+7. On the **Table mapping** page, select the **[dbo].[emp]** table, and then select **Next**. 
 
-9. On the **Table mapping** page, select the **[dbo].[emp]** table, and then select **Next**. 
+    ![Table mapping](./media/tutorial-copy-data-tool/table-mapping.png)
+8. On the **Schema mapping** page, notice that the first and second columns in the input file are mapped to the **FirstName** and **LastName** columns of the **emp** table. Select **Next**.
 
-    ![Table mapping](./media/tutorial-copy-data-tool/table-mapping-page.png)
-10. On the **Schema mapping** page, notice that the first and second columns in the input file are mapped to the **FirstName** and **LastName** columns of the **emp** table.
-
-    ![Schema mapping page](./media/tutorial-copy-data-tool/schema-mapping-page.png)
-11. On the **Settings** page, select **Next**. 
-
-    ![Settings page](./media/tutorial-copy-data-tool/settings-page.png)
-12. On the **Summary** page, review the settings, and then select **Next**.
+    ![Schema mapping page](./media/tutorial-copy-data-tool/schema-mapping.png)
+9. On the **Settings** page, select **Next**. 
+10. On the **Summary** page, review the settings, and then select **Next**.
 
     ![Summary page](./media/tutorial-copy-data-tool/summary-page.png)
-13. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
+11. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
 
     ![Deployment page](./media/tutorial-copy-data-tool/deployment-page.png)
-14. Notice that the **Monitor** tab on the left is automatically selected. The **Actions** column includes links to view activity run details and to rerun the pipeline. Select **Refresh** to refresh the list. 
+12. Notice that the **Monitor** tab on the left is automatically selected. The **Actions** column includes links to view activity run details and to rerun the pipeline. Select **Refresh** to refresh the list. 
 
-    ![Monitor pipeline runs](./media/tutorial-copy-data-tool/monitor-pipeline-runs.png)
-15. To view the activity runs that are associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. There's only one activity (copy activity) in the pipeline, so you see only one entry. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. To go back to the **Pipeline Runs** view, select the **Pipelines** link at the top. To refresh the view, select **Refresh**. 
+    ![Monitor pipeline runs](./media/tutorial-copy-data-tool/pipeline-monitoring.png)
+13. To view the activity runs that are associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. To go back to the **Pipeline Runs** view, select the **Pipelines** link at the top. To refresh the view, select **Refresh**. 
 
-    ![Monitor activity runs](./media/tutorial-copy-data-tool/monitor-activity-runs.png)
-16. Select the **Edit** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines that were created via the tool by using the editor. Select **Code** to view the JSON code for the entity that's currently opened in the editor. For details on editing these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
+    ![Monitor activity runs](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-    ![Editor tab](./media/tutorial-copy-data-tool/edit-tab.png)
-17. Verify that the data is inserted into the **emp** table in your SQL database.
+    ![Copy activity details](./media/tutorial-copy-data-tool/copy-execution-details.png)
+
+14. Verify that the data is inserted into the **emp** table in your SQL database.
 
     ![Verify SQL output](./media/tutorial-copy-data-tool/verify-sql-output.png)
+
+15. Select the **Author** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines that were created via the tool by using the editor. For details on editing these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
 
 ## Next steps
 The pipeline in this sample copies data from Blob storage to a SQL database. You learned how to: 
