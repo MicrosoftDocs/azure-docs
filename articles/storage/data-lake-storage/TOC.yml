@@ -14,8 +14,6 @@
     href: quickstart-create-connect-hdi-cluster.md
 - name: Tutorials
   items:
-  #- name: Access Blob Storage from Spark (Known)
-    #href:
   - name: Extract, transform, and load data using Azure Databricks
     href: handle-data-using-databricks.md
   - name: Access Azure Data Lake Storage data with DataBricks using Spark
