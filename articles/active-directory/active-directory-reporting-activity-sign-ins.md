@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
-ms.date: 01/15/2018
+ms.date: 06/21/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -37,7 +37,7 @@ This topic gives you an overview of the sign-in activities.
 ## Prerequisites
 
 ### Who can access the data?
-* Users in the Security Admin or Security Reader role
+* Users in the Security Admin, Security Reader, or Report Reader role
 * Global Admins
 * Any user (non-admins) can access their own sign-ins 
 
