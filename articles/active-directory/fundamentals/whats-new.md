@@ -290,29 +290,6 @@ Go to [Aka.ms/DeploymentPlans](http://Aka.ms/DeploymentPlans) where you can acce
 **Product capability:** SSO
  
 Having trouble finding your applications / service principals? We've added the ability to load more applications in your enterprise applications all applications list. By default, we show 20 applications. You can now click, **Load more** to view additional applications. 
- 
-
----
-
-### Public Preview of new and improved Sign-ins User experience in Azure Portal
-
-**Type:** Changed feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
- 
-We're excited to introduce the new and improved Sign-in logs user experience from within the Azure AD portal. With the new Sign-ins User experience, customers now can get the following:
-
-- Improved latency from 2 hours to within 5 mins. Check out our [latency](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-latencies-azure-portal) docs for more information.
-
-- Ability to add filters dynamically using the "Columns" button. By adding columns to the Sign-in report in UX, you can automatically see them as filters for you to use.
-
-- Ability to sort by Date, User Name, and Application.
-
-- Inclusion of legacy authentications and ability to filter for legacy authentications using the "Client App" column.
-
-- Inclusion of a downloadable PowerShell script that is customized based on the filter conditions you choose in the UX. With this PowerShell script, you can get as many rows of data as you want (based on your filter criteria) which will provide the output in a .csv format.
-
-For more information of this feature, see [Sign-in activity reports in the Azure Active Directory portal](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins).
 
 ---
  
