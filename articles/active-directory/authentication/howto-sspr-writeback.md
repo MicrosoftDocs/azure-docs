@@ -126,7 +126,7 @@ To set up the appropriate permissions for password writeback to occur, complete 
 
 ## Licensing requirements for password writeback
 
-For information about licensing, see [Licenses required for password writeback](concept-sspr-licensing.md#licenses-required-for-password-writeback) or the following sites:
+For information about licensing, see [Licenses required for password writeback](concept-sspr-licensing.md) or the following sites:
 
 * [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
