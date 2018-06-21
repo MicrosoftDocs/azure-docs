@@ -23,7 +23,7 @@ This article provides information about configuring X.509 certificates on Linux 
 
 ## Location and format of X.509 certificates on Linux nodes
 
-Service Fabric generally expects X.509 certificates to be present in the */var/lib/sfcerts* directory on Linux cluster nodes. This is true of cluster certificates, client certificates, etc. In some cases, you can specify a location other than the *var/lib/sfcerts* folder for certificates. For example, with Reliable Services built using the Service Fabric Java SDK, you can specify a different location through the configuration package (Settings.xml) for some application-specific certificates. To learn more, see [Certificates referenced in the configuration package (Settings.xml)](#certificates-referenced-in--the-configuration-package-settings-xml).
+Service Fabric generally expects X.509 certificates to be present in the */var/lib/sfcerts* directory on Linux cluster nodes. This is true of cluster certificates, client certificates, etc. In some cases, you can specify a location other than the *var/lib/sfcerts* folder for certificates. For example, with Reliable Services built using the Service Fabric Java SDK, you can specify a different location through the configuration package (Settings.xml) for some application-specific certificates. To learn more, see [Certificates referenced in the configuration package (Settings.xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
 
 For Linux clusters, Service Fabric expects certificates to be present as either a .pem file that contains both the certificate and private key or as a .crt file that contains the certificate and a .key file that contains the private key. All files should be in PEM format. 
 
@@ -32,7 +32,6 @@ If you install your certificate from Azure Key Vault by using either a [Resource
 ## Certificates referenced in the application manifest
 
 Certificates specified in the application manifest, for example, through the [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) or [**EndpointCertificate**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) elements, must be present in the */var/lib/sfcerts* directory. The elements that are used to specify certificates in the application manifest do not take a path attribute, so the certificates must be present in the default directory. These elements do take an optional **X509StoreName** attribute. The default is "My", which points to the */var/lib/sfcerts* directory on Linux nodes. Any other value is undefined on a Linux cluster. We recommend that you omit the **X509StoreName** attribute for apps that run on Linux clusters. 
-
 
 ## Certificates referenced in the configuration package (Settings.xml)
 
@@ -97,7 +96,6 @@ The following XML shows a **TransportSettings** section based on this style.
 
 > [!NOTE]
 > The certificate is specified as a .crt file in the preceding XML. This implies that there is also a .key file containing the private key in the same location.
-
 
 ## Configure a Reliable Services app to run on Linux clusters
 
