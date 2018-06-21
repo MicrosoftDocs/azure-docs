@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 06/21/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -16,7 +16,7 @@ manager: craigg
 ---
 # Customize setup for the Azure-SSIS integration runtime
 
-The custom setup interface for the Azure-SSIS Integration Runtime provides an interface to add your own setup steps during the provisioning or reconfiguration of your Azure-SSIS IR. Custom setup lets you alter the default operating configuration or environment (for example, to start additional Windows services) or install additional components (for example, assemblies, drivers, or extensions) on each node of your Azure-SSIS IR.
+The custom setup interface for the Azure-SSIS Integration Runtime provides an interface to add your own setup steps during the provisioning or reconfiguration of your Azure-SSIS IR. Custom setup lets you alter the default operating configuration or environment (for example, to start additional Windows services or persist access credentials for file shares) or install additional components (for example, assemblies, drivers, or extensions) on each node of your Azure-SSIS IR.
 
 You configure your custom setup by preparing a script and its associated files, and uploading them into a blob container in your Azure Storage account. You provide a Shared Access Signature (SAS) Uniform Resource Identifier (URI) for your container when you provision or reconfigure your Azure-SSIS IR. Each node of your Azure-SSIS IR then downloads the script and its associated files from your container and runs your custom setup with elevated privileges. When custom setup is finished, each node uploads the standard output of execution and other logs into your container.
 
@@ -81,7 +81,10 @@ To customize your Azure-SSIS IR, you need the following things:
 
        ![Get the Shared Access Signature for the container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
-    7.  Create the SAS URI for your container with a sufficiently long expiry time and with read + write + list permissions. You need the SAS URI to download and run your custom setup script and its associated files whenever any node of your Azure-SSIS IR is reimaged. You need write permission to upload setup execution logs.
+    7.  Create the SAS URI for your container with a sufficiently long expiry time and with read + write + list permissions. You need the SAS URI to download and run your custom setup script and its associated files whenever any node of your Azure-SSIS IR is reimaged/restarted. You need write permission to upload setup execution logs.
+
+        > [!IMPORTANT]
+        > Please ensure that the SAS URI does not expire and custom setup resources are always available during the whole lifecycle of your Azure-SSIS IR, from creation to deletion, especially if you regularly stop and start your Azure-SSIS IR  during this period.
 
        ![Generate the Shared Access Signature for the container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
 
@@ -118,7 +121,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
     c. Select the connected Public Preview container and double-click the `CustomSetupScript` folder. In this folder are the following items:
 
-       1. A `Sample` folder, which contains a custom setup to install a basic task on each node of your Azure-SSIS IR. The task does nothing but sleep for a few seconds. The folder also contains a `gacutil` folder, which contains `gacutil.exe`.
+       1. A `Sample` folder, which contains a custom setup to install a basic task on each node of your Azure-SSIS IR. The task does nothing but sleep for a few seconds. The folder also contains a `gacutil` folder, which contains `gacutil.exe`. Additionally, `main.cmd` contains comments to persist access credentials for file shares.
 
        2. A `UserScenarios` folder, which contains several custom setups for real user scenarios.
 
@@ -132,7 +135,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
        3. An `EXCEL` folder, which contains a custom setup to install open-source assemblies (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, and `ExcelDataReader.dll`) on each node of your Azure-SSIS IR.
 
-       4. An `MSDTC` folder, which contains a custom setup to modify the network and security configurations for the Microsoft Distributed Transaction Coordinator (MSDTC) instance on each node of your Azure-SSIS IR.
+       4. An `MSDTC` folder, which contains a custom setup to modify the network and security configurations for the Microsoft Distributed Transaction Coordinator (MSDTC) service on each node of your Azure-SSIS IR. To ensure that MSDTC is started, please add Execute Process Task at the beginning of control flow in your packages to execute the following command: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
        5. An `ORACLE ENTERPRISE` folder, which contains a custom setup script (`main.cmd`) and silent install config file (`client.rsp`) to install the Oracle OCI driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Oracle Connection Manager, Source, and Destination. First, download the latest Oracle client - for example, `winx64_12102_client.zip` - from [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) and then upload it together with `main.cmd` and `client.rsp` into your container. If you use TNS to connect to Oracle, you also need to download `tnsnames.ora`, edit it, and upload it into your container, so it can be copied into the Oracle installation folder during setup.
 
