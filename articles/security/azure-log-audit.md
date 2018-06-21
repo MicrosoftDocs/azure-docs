@@ -51,9 +51,9 @@ The following table lists the most important types of logs available in Azure:
 ### Activity logs
 [Azure activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into the operations that were performed on resources in your subscription. Activity logs were previously known as “audit logs” or “operational logs,” because they report [control-plane events](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) for your subscriptions. 
 
-Activity logs help you determine the “what, who, and when” for write operations (that is, PUT, POST, or DELETE) that are performed on the resources in your subscription. Activity logs also help you understand the status of the operation and other relevant properties. Activity logs do not include read (GET) operations.
+Activity logs help you determine the “what, who, and when” for write operations (that is, PUT, POST, or DELETE). Activity logs also help you understand the status of the operation and other relevant properties. Activity logs do not include read (GET) operations.
 
-In this article, PUT, POST, and DELETE refer to all the write operations that an activity log contains on the resources. For example, you can use the activity logs to find an error when you're troubleshooting or to monitor how a user in your organization modified a resource.
+In this article, PUT, POST, and DELETE refer to all the write operations that an activity log contains on the resources. For example, you can use the activity logs to find an error when you're troubleshooting issues or to monitor how a user in your organization modified a resource.
 
 ![Activity log diagram](./media/azure-log-audit/azure-log-audit-fig1.png)
 
@@ -75,7 +75,7 @@ Integration scenarios for an activity log event:
 
 * Export the activity log with log profiles to [Log Analytics ](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
-You can use a storage account or [event hub namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) that is not in the same subscription as the one that's emitting the log. The user who configures the setting must have the appropriate [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) access to both subscriptions.
+You can use a storage account or [event hub namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) that is not in the same subscription as the one that's emitting the log. Whoever configures the setting must have the appropriate [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) access to both subscriptions.
 
 ### Azure diagnostics logs
 Azure diagnostics logs are emitted by a resource that provides rich, frequent data about the operation of that resource. The content of these logs varies by resource type. For example, [Windows event system logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) are a category of diagnostics logs for VMs, and [blob, table, and queue logs](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) are categories of diagnostics logs for storage accounts. Diagnostics logs differ from activity logs, which provide insight into the operations that were performed on resources in your subscription.
@@ -137,7 +137,7 @@ Events in the Azure AD audit report are retained for 180 days.
 > [!Note]
 > For more information about report retention, see [Azure AD report retention policies](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-retention).
 
-For users who are interested in retaining their audit events longer, use the Reporting API to regularly pull [audit events](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) into a separate data store.
+If you're interested in retaining your audit events longer, use the Reporting API to regularly pull [audit events](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) into a separate data store.
 
 ### Virtual machine logs that use Azure Diagnostics
 [Azure Diagnostics](https://docs.microsoft.com/azure/azure-diagnostics) is the capability within Azure that enables the collection of diagnostics data on a deployed application. You can use the diagnostics extension from any of several sources. Currently supported are [Azure cloud service web and worker roles](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me).
@@ -157,7 +157,7 @@ You can enable Azure Diagnostics on a virtual machine by doing any of the follow
 * [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Storage Analytics
-[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) performs logging and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account. Storage Analytics logging is available for the [Azure Blob, Azure Queue, and Azure Table storage services](https://docs.microsoft.com/azure/storage/storage-introduction). Storage Analytics logs detailed information about successful and failed requests to a storage service.
+[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) logs and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account. Storage Analytics logging is available for the [Azure Blob, Azure Queue, and Azure Table storage services](https://docs.microsoft.com/azure/storage/storage-introduction). Storage Analytics logs detailed information about successful and failed requests to a storage service.
 
 You can use this information to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis. Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its blob endpoint but not in its table or queue endpoints, only logs that pertain to the Blob storage service are created.
 
@@ -168,10 +168,8 @@ The aggregated data is stored in a well-known blob (for logging) and in well-kno
 Storage Analytics has a 20-terabyte (TB) limit on the amount of stored data that is independent of the total limit for your storage account. All logs are stored in [block blobs](https://docs.microsoft.com/azure/storage/storage-analytics) in a container named $logs, which is automatically created when you enable Storage Analytics for a storage account.
 
 > [!Note]
-> For more information about billing and data retention policies, see [Storage Analytics and billing](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing).
->
-> [!Note]
-> For more information about storage account limits, see [Azure Storage scalability and performance targets](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+> * For more information about billing and data retention policies, see [Storage Analytics and billing](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing).
+> * For more information about storage account limits, see [Azure Storage scalability and performance targets](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
 
 Storage Analytics logs the following types of authenticated and anonymous requests:
 
@@ -356,7 +354,7 @@ With [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=
 
 Log Integration collects Azure diagnostics from your Windows virtual machines, Azure activity logs, Azure Security Center alerts, and Azure resource provider logs. This integration provides a unified dashboard for all your assets, whether they're on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
-Log Integration currently supports the integration of Azure activity logs, Windows Event log from Windows virtual machine with your Azure subscription, Azure Security Center alerts, Azure diagnostics logs, and Azure AD audit logs.
+Log Integration currently supports the integration of Azure activity logs, Windows event logs from Windows virtual machines with your Azure subscription, Azure Security Center alerts, Azure diagnostics logs, and Azure AD audit logs.
 
 | Log type | Log Analytics supporting JSON (Splunk, ArcSight, and IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
