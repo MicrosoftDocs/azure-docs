@@ -10,8 +10,8 @@ ms.date: 6/5/2018
 ms.author: adigan
 ---
 
-# Back up files and applications on Azure Stack
-You can use Azure Backup to protect (or back up) files and applications on Azure Stack. To back up files and applications, install Microsoft Azure Backup Server as a virtual machine running on Azure Stack. You can protect any applications, running on any Azure Stack server in the same virtual network. Once you have installed Azure Backup Server, add Azure disks to increase the local storage available for short-term backup data. Azure Backup Server uses Azure storage for long-term retention.
+# Back up files on Azure Stack
+You can use Azure Backup to protect (or back up) files and applications on Azure Stack. To back up files and applications, install Microsoft Azure Backup Server as a virtual machine running on Azure Stack. You can protect the files on any Azure Stack server in the same virtual network. Once you have installed Azure Backup Server, add Azure disks to increase the local storage available for short-term backup data. Azure Backup Server uses Azure storage for long-term retention.
 
 > [!NOTE]
 > Though Azure Backup Server and System Center Data Protection Manager (DPM) are similar, DPM is not supported for use with Azure Stack.
@@ -20,7 +20,7 @@ You can use Azure Backup to protect (or back up) files and applications on Azure
 This article does not cover installing Azure Backup Server in the Azure Stack environment. To install Azure Backup Server on Azure Stack, see the article, [Installing Azure Backup Server](backup-mabs-install-azure-stack.md).
 
 
-## Back up Azure Stack Files to Azure
+## Back up Files and Folders in Azure Stack VMs to Azure
 
 To configure Azure Backup Server to protect Files in Azure Stack VMs virtual machines, open the Azure Backup Server console. You'll use the console to configure protection groups and to protect the data on your virtual machines.
 
@@ -68,7 +68,8 @@ To configure Azure Backup Server to protect Files in Azure Stack VMs virtual mac
 
     **Total Data size** is the size of the data you want to back up and **Disk space to be provisioned** on Azure Backup Server is the recommended space for the protection group. Azure Backup Server chooses the ideal backup volume, based on the settings. However, you can edit the backup volume choices in the Disk allocation details. For the workloads, select the preferred storage in the dropdown menu. Your edits change the values for Total Storage and Free Storage in the Available Disk Storage pane. Underprovisioned space is the amount of storage Azure Backup Server suggests you add to the volume, to continue with backups smoothly in the future.
 
-7. In **Choose replica creation method**, select how you want to handle the initial full data replication. If you decide to replicate over the network, Azure recommends you choose an off-peak time. For large amounts of data or less than optimal network conditions, consider replicating the data offline using removable media.
+7. In **Choose replica creation method**, select how you want to handle the initial full data replication. If you decide to replicate over the network, Azure recommends you choose an off-peak time. For large amounts of data or less than optimal network conditions, consider replicating the data 
+using removable media.
 
 8. In **Choose consistency check options**, select how you want to automate consistency checks. Enable consistency checks to run only when data replication becomes inconsistent, or according to a schedule. If you don't want to configure automatic consistency checking, run a manual check at any time by:
     * In the **Protection** area of the Azure Backup Server console, right-click the protection group and select **Perform Consistency Check**.
@@ -82,8 +83,6 @@ To configure Azure Backup Server to protect Files in Azure Stack VMs virtual mac
 11. In **Specify online retention policy**, specify how the recovery points created from the daily/weekly/monthly/yearly backups are retained in Azure.
 
 12. In **Choose online replication**, specify how the initial full replication of data occurs. 
-
-    You can replicate over the network, or do an offline backup (offline seeding). Offline backup uses the [Azure Import feature](./backup-azure-backup-import-export.md).
 
 13. On **Summary**, review your settings. When you click **Create Group**, the initial data replication occurs. When the data replication finishes, on the **Status** page, the protection group status shows as **OK**. The initial backup job takes place in line with the protection group settings.
 
@@ -128,9 +127,8 @@ If you're using Modern Backup Storage (MBS), File Server end-user recovery (EUR)
 
 
 
-## Register Azure Backup Server with a vault
-Provide the steps for showing how to:
-
+## View Azure Backup Server with a vault
+To view Azure Backup Server entities in Azure Portal, you can follow the following steps:
 1. Open Recovery Services vault.
 2. Click Backup Infrastructure.
 3. View Backup Management Servers.
