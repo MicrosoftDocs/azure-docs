@@ -21,13 +21,13 @@ ms.author: nitinme
 
 In this tutorial, you perform an ETL (extract, transform, and load data) operation using Azure Databricks. 
 
-The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector,in turn, uses Azure Data Lake Storage Gen2 as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
+The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Data Lake Storage Gen2 as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
 
 The following illustration shows the application flow:
 
 ![Azure Databricks with Data Lake Storage and SQL Data Warehouse](./media/handle-data-using-databricks/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks with Data Lake Storage and SQL Data Warehouse")
 
-This tutorial covers the following tasks: 
+This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace
@@ -43,10 +43,11 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-Before you start with this tutorial, make sure to meet the following requirements:
-- Create an Azure SQL Data Warehouse, create a server-level firewall rule, and connect to the server as a server admin. Follow the instructions at [Quickstart: Create an Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md)
-- Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- [Create a storage account](quickstart-create-account.md) with <-- how to describe this here?
+To complete this tutorial:
+
+* Create an Azure SQL Data Warehouse, create a server-level firewall rule, and connect to the server as a server admin. Follow the instructions at [Quickstart: Create an Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md)
+* Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
+* [Create a Azure Data Lake Storage Gen2 account](quickstart-create-account.md)
 
 ## Log in to the Azure Portal
 
@@ -60,12 +61,12 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     ![Databricks on Azure portal](./media/handle-data-using-databricks/azure-databricks-on-portal.png "Databricks on Azure portal")
 
-3. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
+2. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
 
     ![Create an Azure Databricks workspace](./media/handle-data-using-databricks/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-    Provide the following values: 
-     
+    Provide the following values:
+
     |Property  |Description  |
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace        |
@@ -76,7 +77,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     Select **Pin to dashboard** and then select **Create**.
 
-4. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
+3. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
 
     ![Databricks deployment tile](./media/handle-data-using-databricks/databricks-deployment-tile.png "Databricks deployment tile")
 
@@ -95,16 +96,16 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other default values other than the following:
 
     * Enter a name for the cluster.
-    * For this article, create a cluster with **4.0** runtime. 
+    * For this article, create a cluster with **4.0** runtime.
     * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
-    
+
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 ## Upload data to the storage account
 
-The next step is to upload a sample data file to the storage account to later tranform in Azure Databricks. The sample data (**small_radio_json.json**) is available in the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo. Download the JSON file and make note of the path where you save the file.
+The next step is to upload a sample data file to the storage account to later transform in Azure Databricks. The sample data (**small_radio_json.json**) is available in the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo. Download the JSON file and make note of the path where you save the file.
 
-The method you use to upload data into your storage account differs depending on if you you have the Heirarchial Namespace Service (HNS) enabled.
+The method you use to upload data into your storage account differs depending on if you you have the Hierarchical Namespace Service (HNS) enabled.
 
 If the Hierarchical Namespace Service is enabled, then you may use Azure Data Factory, [distp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) or AzCopy (version 10) to handle the upload. If not, then you can use the Blob [Storage SDKs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows), [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full), [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) or [AzCopy (version 8 or earlier)](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
 
