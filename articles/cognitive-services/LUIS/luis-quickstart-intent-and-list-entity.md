@@ -24,10 +24,10 @@ In this tutorial, create an app that demonstrates how to get data that matches a
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
 
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account to author your LUIS application.
 
 ## Before you begin
-If you do not have the Human Resources app from the regex entities [custom domain](luis-quickstart-intent-regex-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
+If you do not have the Human Resources app from the regex entities [custom domain](luis-quickstart-intent-regex-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found at in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `list`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -36,7 +36,7 @@ This app predicts utterances about moving an employee from one building and desk
 
 A list entity can hold many items with synonyms for each item. For a small to medium size company, the list entity is used to extract the employee information. 
 
-The canonical name for each item will be the employee number. For this domain examples of the synonyms are: 
+The canonical name for each item is the employee number. For this domain, examples of the synonyms are: 
 
 |Synonym purpose|Synonym value|
 |--|--|
@@ -49,10 +49,10 @@ The canonical name for each item will be the employee number. For this domain ex
 A list entity is a good choice for this type of data when:
 
 * The data values are a known set.
-* The set doesn't exceed the LUIS [boundaries](luis-boundaries) for the list entity.
-* The text in the utterance is an exact with a synonym. 
+* The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries) for this entity type.
+* The text in the utterance is an exact match with a synonym. 
 
-LUIS extracts the employee in such as way that a standard order to move the employee from one office to another can be created and filled by the client application.
+LUIS extracts the employee in such as way that a standard order to move the employee can be created by the client application.
 <!--
 ## Example utterances
 Simple example utterances for a `MoveEmployee` inent:
@@ -95,9 +95,9 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     [ ![Screenshot of Intent page with new utterances highlighted](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-    The application has prebuilt number entity added from the previous tutorial, so each form number is tagged. This may be enough for your client application but the number won't be labeled with the type. Creating a new entity with an appropriate name allows the client application to process the entity appropriately when it is returned from LUIS.
+    This application has prebuilt number entity added from the previous tutorial, so each number is tagged. This information may be enough for your client application but the number isn't labeled with the type. Creating a new entity with an appropriate name allows the client application to process the entity when it is returned from LUIS.
 
-## Create a employee list entity
+## Create an employee list entity
 Now that the **MoveEmployee** intent has utterances, LUIS needs to understand what an employee is. 
 
 1. Select **Entities** in the left panel.
@@ -116,7 +116,7 @@ Now that the **MoveEmployee** intent has utterances, LUIS needs to understand wh
 
     [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Screenshot of entering value")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
-5. For Synonyms, add the following:
+5. For Synonyms, add the following values:
 
     |Synonym purpose|Synonym value|
     |--|--|
@@ -130,7 +130,7 @@ Now that the **MoveEmployee** intent has utterances, LUIS needs to understand wh
 
 6. Enter the `Employee-45612` as a new value.
 
-7. For Synonyms, add the following:
+7. For Synonyms, add the following values:
 
     |Synonym purpose|Synonym value|
     |--|--|
@@ -169,7 +169,7 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
     [![](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png "Screenshot of endpoint url on Publish page")](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png#lightbox)
 
-2. Go to the end of the URL in the address and enter `shift 123-45-6789 from Z-1242 to T-54672`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `OrderDrinks` intent with the two drink types of `cokes` and `waters`.
+2. Go to the end of the URL in the address and enter `shift 123-45-6789 from Z-1242 to T-54672`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with `Employee` extracted.
 
 ```JSON
 {
