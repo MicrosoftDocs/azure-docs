@@ -13,6 +13,7 @@ ms.author: martincoetzer
 ---
 
 # Five steps to securing your identity infrastructure
+
 If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Security Intelligence report](https://www.microsoft.com/security/intelligence-report).
 
 This document will help you get a more secure posture using the capabilities of Azure Active Directory by using a five-step checklist to inoculate your organization against cyber-attacks.
@@ -57,7 +58,7 @@ Microsoft's recommendations, consistent with [NIST guidance](https://pages.nist.
 2. Disable expiration rules, which drive users to easily guessed passwords such as **Summer2018!**.
 3. Disable character-composition requirements and prevent users from choosing commonly attacked passwords, as they cause users to choose predictable character substitutions in passwords.
 
-You can use [PowerShell to prevent passwords from expiring](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) on users if you create identities in Azure AD directly. Organizations using on-premises AD with Azure AD Connect to sync identities to Azure AD (also known as a hybrid deployment), should implement on-premises [intelligent password policies](https://aka.ms/passwordguidance) using [domain group policy settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) or [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy). 
+You can use [PowerShell to prevent passwords from expiring](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) on users if you create identities in Azure AD directly. Organizations using on-premises AD with Azure AD Connect to sync identities to Azure AD (also known as a hybrid deployment), should implement on-premises [intelligent password policies](https://aka.ms/passwordguidance) using [domain group policy settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) or [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
 Azure Active Directory's [dynamic banned password](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) feature uses current attacker behavior to prevent users from setting passwords that can easily be guessed. This capability is always on and organizations with a hybrid deployment can benefit from this feature by enabling [password writeback](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-writeback) or they can deploy [Azure AD password protection for Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD password protection blocks users from choosing common passwords in general and custom passwords you can configure.
 
@@ -109,9 +110,9 @@ Another impact of "assume breach" is the need to minimize the likelihood a compr
 
 Enable Azure AD PIM, then view the users who are assigned administrative roles and remove unnecessary accounts in those roles. For remaining privileged users, move them from permanent to eligible. Finally, establish appropriate policies to make sure when they need to gain access to those privileged roles, they can do so securely.
 
-As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](https://docs.microsoft.com/azure/active-directory/admin-roles-best-practices) to make sure you have access to Azure AD if you lock yourself out. 
+As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](https://docs.microsoft.com/azure/active-directory/admin-roles-best-practices) to make sure you have access to Azure AD if you lock yourself out.
 
-## Step 3 - Automate threat response 
+## Step 3 - Automate threat response
 
 Azure Active Directory has many capabilities that automatically intercept attacks, to remove the latency between detection and response. You can reduce the costs and risks, when you reduce the time criminals use to embed themselves into your environment. Here are the concrete steps you can take.
 
@@ -137,17 +138,17 @@ Microsoft Azure services and features provide you with configurable security aud
 
 ### Monitor Azure AD Connect Health in Hybrid Environments
 
-[Monitoring ADFS with Azure AD Connect Health ](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs)provides you with greater insight into potential issues and visibility of attacks on your ADFS infrastructure. Azure AD Connect Health delivers alerts with details, resolution steps, and links to related documentation; usage analytics for several metrics related to authentication traffic; performance monitoring and reports.
+[Monitoring ADFS with Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs) provides you with greater insight into potential issues and visibility of attacks on your ADFS infrastructure. Azure AD Connect Health delivers alerts with details, resolution steps, and links to related documentation; usage analytics for several metrics related to authentication traffic; performance monitoring and reports.
 
 ![Azure AD Connect Health](media/azure-ad/azure-ad-sec-steps4.png)
 
-### Monitor Azure AD Identity Protection events.
+### Monitor Azure AD Identity Protection events
 
 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a notification, monitoring and reporting tool you can use to detect potential vulnerabilities affecting your organization's identities. It detects risk events, such as leaked credentials, impossible travel, and sign-ins from infected devices, anonymous IP addresses, IP addresses associated with the suspicious activity, and unknown locations. Enable notification alerts to receive email of users at risk and/or a weekly digest email.
 
 ![Users flagged for risk](media/azure-ad/azure-ad-sec-steps3.png)
 
-## Step 5 - Enable end-user self-help 
+## Step 5 - Enable end-user self-help
 
 As much as possible you'll want to balance security with productivity. Along the same lines of approaching your journey with the mindset that you're setting a foundation for security in the long run, you can remove friction from your organization by empowering your users while remaining vigilant. 
 
