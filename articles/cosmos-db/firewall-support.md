@@ -52,10 +52,10 @@ Access to the Azure portal is enabled by default when you change the Firewall se
 
 ![Screenshot showing how to enable Azure portal access](./media/firewall-support/enable-azure-portal.png)
 
-## Connections from public Azure datacenters or Azure PaaS services
+## Connections from Global Azure datacenters or Azure PaaS services
 In Azure, PaaS services like Azure Stream analytics, Azure Functions, and Azure App Service are used in conjunction with Azure Cosmos DB. To enable access to  Azure Cosmos DB database account from these services whose IP addresses are not readily available add the IP address of 0.0.0.0 to the allowed list of IP addresses associated with your Azure Cosmos DB database account programmatically. 
 
-Access to the connections from within public Azure datacenters is enabled by default when you change the Firewall setting to **Selected Networks** in the Azure portal. 
+Access to the connections from within global Azure datacenters is enabled by default when you change the Firewall setting to **Selected Networks** in the Azure portal. 
 
 ![Screenshot showing how to open the Firewall page in the Azure portal](./media/firewall-support/enable-azure-services.png)
 
@@ -84,9 +84,9 @@ When you add additional virtual machine instances to the group, they are automat
 ## Connections from the internet
 When you access an Azure Cosmos DB database account from a computer on the internet, the client IP address or IP address range of the machine must be added to the allowed list of IP address for the Azure Cosmos DB database account. 
 
-## Using Azure Resource Manager template to setup the IP access control
+## Using Azure Resource Manager Template to set up the IP access control
 
-Add the following JSON to your template to setup IP access control. Resource Manager template for an account will have ipRangeFilter attribute which is list of IP ranges which should be whitelisted.
+Add the following JSON to your template to set up IP access control. Resource Manager template for an account will have ipRangeFilter attribute that is list of IP ranges, which should be whitelisted.
 
 ```json
    {
