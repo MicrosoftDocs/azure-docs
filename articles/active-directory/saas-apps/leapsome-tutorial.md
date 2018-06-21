@@ -127,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| ---------------| --------------- |    
 	| firstname | user.givenname |
 	| lastname | user.surname |
-	| job | user.jobtitle |
+	| title | user.jobtitle |
 	| picture | URL to the employee's picture |
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
