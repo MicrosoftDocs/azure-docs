@@ -21,7 +21,7 @@ To enable Data Lake Storage Gen2 capabilities on your storage account, [fill out
 > [!NOTE]
 > The create account UI is updated once you are approved allowing you to create a Data Lake Storage Gen2 account. In the same way, the Data Lake Storage Gen2-related PowerShell and CLI arguments only work once you are approved.
 
-## Prerequisites
+## Pre-requisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -52,7 +52,7 @@ You can also install and use the Azure CLI locally. This quickstart requires tha
 Before you create an account, you first create a resource group that acts as a logical container to storage accounts or any other Azure resources you create. If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account,and any other resources associated with the resource group. For more information regarding resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
-> You must create new storage accounts as **general-purpose v2 accounts**, to take advantage of Data Lake Storage Gen2 features.  
+> You must create new storage accounts as **StorageV2 accounts**, to take advantage of Data Lake Storage Gen2 features.  
 
 For more information about storage account types, see [Azure Storage account options](../common/storage-account-options.md).
 
@@ -61,12 +61,12 @@ When naming your storage account, keep these rules in mind:
 - Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 - Your storage account name must be unique within Azure. No two storage accounts can have the same name.
 
-
 ### Using the Portal
 
 Log in to the [Azure portal](https://portal.azure.com).
 
 #### Create a resource group
+
 To create a resource group in the Azure portal, follow these steps:
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups**.
@@ -79,6 +79,7 @@ To create a resource group in the Azure portal, follow these steps:
 ![Screen shot showing resource group creation in the Azure portal](./media/quickstart-create-account/create-resource-group.png)
 
 ### Create a general-purpose v2 storage account
+
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
@@ -98,6 +99,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 Your storage account is now created through the portal.
 
 #### Clean up resources
+
 To remove a resource group using the Azure portal:
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
@@ -183,9 +185,9 @@ az account list-locations \
     --out table
 ```
 
-#### Create a general-purpose v2 storage account
+#### Create a StorageV2 storage account
 
-To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+To create a StorageV2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli-interactive
 az storage account create \
@@ -197,21 +199,11 @@ az storage account create \
     --hierarchical-namespace true
 ```
 
-To create a general-purpose v2 storage account with zone-redundant storage (ZRS Preview), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **sku** parameter.
+To create a general-purpose v2 storage account with zo substitute the desired value in the table below for the **sku** parameter.
 
 |Replication option  |sku parameter  |
 |---------|---------|
 |Locally-redundant storage (LRS)     |Standard_LRS         |
-|Zone-redundant storage (ZRS)     |Standard_ZRS         |
-|Geo-redundant storage (GRS)     |Standard_GRS         |
-|Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
-
-
-> [!NOTE]
-> [Zone-redundant storage](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) is currently in preview, and is available only in the following locations:
->    - US East 2
->    - US Central
->    - France Central (This region is currently in preview. See [Microsoft Azure preview with Azure Availability Zones now open in France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) to request access.)
     
 For more information about the different types of replication available, see [Storage replication options](../common/storage-redundancy.md).
 

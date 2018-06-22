@@ -47,15 +47,9 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
     Authentication and identities are provided courtesy of integration with [Azure Active Directory](../../active-directory/index.md).
 
-- **Multi-protocol and multi-model data access**: Data Lake Storage Gen2 is considered a **Multi-Modal** storage service as it provides both object store and file system interfaces to the same data **at the same time**. This is achieved by providing multiple protocol endpoints that are able to access the same data.
-
-    Unlike other analytics solutions, data stored in Data Lake Storage Gen2 does not need to move or be transformed before you can run a variety of analytics tools. You can access data via traditional [Blob Storage APIs](../blobs/storage-blobs-introduction.md) (for example: ingest data via [Event Hubs Capture](../../event-hubs/event-hubs-capture-enable-through-portal.md)) and process that data using HDInsight or Azure Databricks at the same time.
-
 - **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through the data lifecycle, billing rates change keeping costs to a minimum via built-in features such as [Azure Blob Storage Lifecycle](../common/storage-lifecycle-managment-concepts.md).
 
-- **Works with Blob Storage tools, frameworks, and apps**: Data Lake Storage Gen2 is able to interface with a wide array of tools, frameworks, and applications that exist today for Blob Storage.
-
-- **Optimized protocol**: The `abfs` protocol is [optimized specifically](./abfs-driver.md) for big data analytics.
+- **Optimized driver**: The `abfs` driver is [optimized specifically](./abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the `dfs` endpoint, `dfs.core.windows.net`.
 
 ## Scalability
 
@@ -63,7 +57,7 @@ Azure Data Lake Storage Gen2 and Azure Blob Storage are scalable by design. Each
 
 ## Cost effectiveness
 
-The architecture of Azure Data Lake Storage Gen2 saves you significant amounts of money. One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob Storage is the [low-cost](https://azure.microsoft.com/pricing/details/storage) of storage capacity and cloud-based object storage transactions.  Unlike other cloud storage services, Data Lake Storage Gen2 enjoys several orders of magnitude of lower costs because data is not moved or transformed before performing analysis.
+The architecture of Azure Data Lake Storage Gen2 can save you significant amounts of money. One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob Storage is the [low-cost](https://azure.microsoft.com/pricing/details/storage) of storage capacity and cloud-based object storage transactions.  Unlike other cloud storage services, Data Lake Storage Gen2 enjoys several orders of magnitude of lower costs because data is not moved or transformed before performing analysis.
 
 Additionally, features such as the [Hierarchical Namespace Service](./namespace.md) significantly improve the overall performance of many analytics jobs. This improvement in performance means that you require less compute power to process the same amount of data, resulting in a lower total cost of ownership (TCO) for the end to end analytics job.
 
