@@ -74,7 +74,7 @@ The below support is applicable for any workload running on the mentioned OS.
 - Ubuntu 16.04 LTS Server [ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7 [ (supported kernel versions)](#supported-debian-kernel-versions-for-azure-virtual-machines)
 - Debian 8 [ (supported kernel versions)](#supported-debian-kernel-versions-for-azure-virtual-machines)
-- SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (supported kernel versions)](#supported-suse-linux-enterprise-server12-kernel-versions-for-azure-virtual-machines)
+- SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (supported kernel versions)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
 - Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
