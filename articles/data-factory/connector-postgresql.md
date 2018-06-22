@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/23/2018
 ms.author: jingwang
 
 ---
@@ -35,10 +35,9 @@ Specifically, this PostgreSQL connector supports PostgreSQL **version 7.4 and ab
 
 ## Prerequisites
 
-To use this PostgreSQL connector, you need to:
+If your PostgreSQL database is not publicly accessible, you need to set up a Self-hosted Integration Runtime. To learn about Self-hosted integration runtimes, see [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article. The Integration Runtime provides a built-in PostgreSQL driver starting from version 3.7, therefore you don't need to manually install any driver.
 
-- Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the Integration Runtime machine.
+For Self-hosted IR version lower than 3.7, you need to install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the Integration Runtime machine.
 
 ## Getting started
 
@@ -53,14 +52,36 @@ The following properties are supported for PostgreSQL linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **PostgreSql** | Yes |
-| server | Name of the PostgreSQL server. |Yes |
-| database | Name of the PostgreSQL database. |Yes |
-| schema | Name of the schema in the database. The schema name is case-sensitive. |No |
-| username | Specify user name to connect to the PostgreSQL database. |Yes |
-| password | Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
+| connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+A typical connection string is `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. More properties you can set per your case:
+
+| Property | Description | Options | Required |
+|:--- |:--- |:--- |:--- |:--- |
+| EncryptionMethod (EM)| The method the driver uses to encrypt data sent between the driver and the database server. E.g. `ValidateServerCertificate=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | No |
+| ValidateServerCertificate (VSC) | Determines whether the driver validates the certificate that is sent by the database server when SSL encryption is enabled (Encryption Method=1). E.g. `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | No |
 
 **Example:**
+
+```json
+{
+    "name": "PostgreSqlLinkedService",
+    "properties": {
+        "type": "PostgreSql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+            }
+        }
+    }
+}
+```
+
+If you were using PostgreSQL linked service with the following payload, it is still supported as-is, while you are suggested to use the new one going forward.
+
+**Previous payload:**
 
 ```json
 {
