@@ -17,7 +17,7 @@ Run Command uses the VM agent to run shell PowerShell scripts within an Azure Wi
 
 There are multiple options that can be used to access your virtual machines. Run Command can run scripts on your virtual machines remotely using the VM agent. Run Command can be used through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-This capability is useful in all scenarios where you want to run a script witin a virtual machines, and is one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open due to improper network or administrative user configuration.
+This capability is useful in all scenarios where you want to run a script within a virtual machines, and is one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open due to improper network or administrative user configuration.
 
 ## Restrictions
 
@@ -29,6 +29,8 @@ The following restrictions apply when using Run Command:
 * One script at a time may run
 * You cannot cancel a running script
 * The maximum time a script can run is 90 minutes, after which it will time out
+
+**PermissionsConfig-OrchestratorUsersGroup***GroupName***-OrchestratorUser***UserName***\-remote** 
 
 ## Run a command
 
