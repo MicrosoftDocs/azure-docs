@@ -14,24 +14,26 @@ experimental: false
 experiment_id:
 ---
 
-# Deploy Azure IoT Edge on a simulated device in Linux x64
+# Quickstart: Deploy your first IoT Edge module to a Linux x64 or Mac device
 
 Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, but first you need a device to test. 
 
 In this quickstart you learn how to:
 
-1. Create an IoT Hub
-2. Register an IoT Edge device
-3. Start the IoT Edge runtime
-4. Deploy a module
+1. Create an IoT Hub.
+2. Register an IoT Edge device to your IoT hub.
+3. Start the IoT Edge runtime.
+4. Remotely deploy a module to an IoT Edge device.
 
 ![Tutorial architecture][2]
 
-The simulated device that you create in this quickstart is a monitor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the data for business insights. 
+The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
+
+If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
 ## Create an IoT hub
 
-Start the quickstart by creating your IoT Hub.
+Start the quickstart by creating your IoT Hub in the Azure portal.
 ![Create IoT Hub][3]
 
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
@@ -167,13 +169,13 @@ This quickstart is the prerequisite for all of the IoT Edge tutorials. You can c
 
 
 <!-- Images -->
-[1]: ./media/tutorial-install-iot-edge/view-module.png
-[2]: ./media/tutorial-install-iot-edge/install-edge-full.png
-[3]: ./media/tutorial-install-iot-edge/create-iot-hub.png
-[4]: ./media/tutorial-install-iot-edge/register-device.png
-[5]: ./media/tutorial-install-iot-edge/start-runtime.png
-[6]: ./media/tutorial-install-iot-edge/deploy-module.png
-[7]: ./media/tutorial-install-iot-edge/iotedged-running.png
+[1]: ./media/quickstart-linux/view-module.png
+[2]: ./media/quickstart-linux/install-edge-full.png
+[3]: ./media/quickstart-linux/create-iot-hub.png
+[4]: ./media/quickstart-linux/register-device.png
+[5]: ./media/quickstart-linux/start-runtime.png
+[6]: ./media/quickstart-linux/deploy-module.png
+[7]: ./media/quickstart-linux/iotedged-running.png
 [8]: ./media/tutorial-simulate-device-linux/running-modules.png
 [9]: ./media/tutorial-simulate-device-linux/sensor-data.png
 
