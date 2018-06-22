@@ -57,7 +57,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 In this section, you create an Azure Databricks workspace using the Azure portal. 
 
-1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks**.
+1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
     ![Databricks on Azure portal](./media/handle-data-using-databricks/azure-databricks-on-portal.png "Databricks on Azure portal")
 
@@ -72,7 +72,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |**Workspace name**     | Provide a name for your Databricks workspace        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
-    |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
+    |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
     |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Select **Pin to dashboard** and then select **Create**.
@@ -96,7 +96,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other default values other than the following:
 
     * Enter a name for the cluster.
-    * For this article, create a cluster with **4.0** runtime.
+    * For this article, create a cluster with **4.2** runtime.
     * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
@@ -127,12 +127,9 @@ The following steps demonstrate how to use AzCopy to upload data in the event th
 > Make sure you replace the placeholders **<YOUR_LOCAL_DOWNLOAD_FILE_PATH>**, **<YOUR_ACCOUNT_NAME>** and **<YOUR_ACCOUNT_KEY>** with the corresponding values you set aside in a previous step.
 
 ```bash
-azcopy --source "<LOCAL_FILE_PATH_TO_JSON_FILE>" \
-  --destination https://<YOUR_ACCOUNT_NAME>.blob.core.windows.net/dbricks \
-  --dest-key "<YOUR_ACCOUNT_KEY>" \
-  --include "folder1/" \
-  --sync-copy \
-  --recursive
+set ACCOUNT_NAME=<ACCOUNT_NAME>
+set ACCOUNT_KEY=<ACCOUNT_KEY>
+azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1 --recursive 
 ```
 
 ## Extract data from Azure Storage
