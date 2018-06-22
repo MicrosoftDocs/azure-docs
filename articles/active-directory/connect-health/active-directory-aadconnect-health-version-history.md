@@ -3,7 +3,7 @@ title: Azure AD Connect Health Version History
 description: This document describes the releases for Azure AD Connect Health and what has been included in those releases.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 
@@ -26,7 +26,7 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 
 **Agent Update:** 
 *	Azure AD Connect Health agent for AD FS (version 3.1.2.0)  
-   1. Bug fixes and improvement for alerts 
+   1. Hotfix for agent memory management and related alerts specifically for version 3.0.244.0
 
 
 ## May 2018
