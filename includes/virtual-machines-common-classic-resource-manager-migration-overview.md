@@ -12,7 +12,7 @@ ms.custom: include file
 ---
 
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager
-In this article, we describe how we're enabling migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](../articles/azure-resource-manager/resource-group-overview.md). We detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways.
+This article describes how to enable migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](../articles/azure-resource-manager/resource-group-overview.md). We detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways.
 
 ## Goal for migration
 Resource Manager enables deploying complex applications through templates, configures virtual machines by using VM extensions, and incorporates access management and tagging. Azure Resource Manager includes scalable, parallel deployment for virtual machines into availability sets. The new deployment model also provides lifecycle management of compute, network, and storage independently. Finally, there’s a focus on enabling security by default with the enforcement of virtual machines in a virtual network.
@@ -68,7 +68,7 @@ The following configurations are not currently supported. If support is added in
 ### Storage accounts migration
 To allow seamless migration, you can deploy Resource Manager VMs in a classic storage account. With this capability, compute and network resources can and should be migrated independently of storage accounts. Once you migrate over your Virtual Machines and Virtual Network, you need to migrate over your storage accounts to complete the migration process.
 
-If your storage account does not have any associated disks or Virtual Machines data and only has blobs, files, tables, and queues then the migration to ARM can be done as a standalone migration without dependencies.
+If your storage account does not have any associated disks or Virtual Machines data and only has blobs, files, tables, and queues then the migration to Azure Resource Manager can be done as a standalone migration without dependencies.
 
 > [!NOTE]
 > The Resource Manager deployment model doesn't have the concept of Classic images and disks. When the storage account is migrated, Classic images and disks are not visible in the Resource Manager stack but the backing VHDs remain in the storage account.
@@ -81,7 +81,7 @@ Network Security Groups, Route Tables & Reserved IPs that are not attached to an
 <br>
 
 ## Unsupported features and configurations
-We do not currently support some features and configurations. The following sections describe our recommendations around them.
+Some features and configurations are not currently supported; the following sections describe our recommendations around them.
 
 ### Unsupported features
 The following features are not currently supported. You can optionally remove these settings, migrate the VMs, and then re-enable the settings in the Resource Manager deployment model.
