@@ -64,7 +64,7 @@ This quickstart assumes that you're using a computer or virtual machine running 
 
 ## Create an IoT hub
 
-Start the quickstart by creating your IoT Hub.
+Start the quickstart by creating your IoT Hub in the Azure portal.
 ![Create IoT Hub][3]
 
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
@@ -76,7 +76,7 @@ Register an IoT Edge device with your newly created IoT Hub.
 
 [!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
 
-## Configure the IoT Edge runtime
+## Install and start the IoT Edge runtime
 
 Install and start the Azure IoT Edge runtime on your device. 
 ![Register a device][5]
