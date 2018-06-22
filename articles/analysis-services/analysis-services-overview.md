@@ -77,13 +77,13 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|East US 2     |     B1, B2, S0, S1, S2, S4, S8*, S9*, D1     |    7     |
+|East US 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
 |North Central US     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|West US     |    B1, B2, S0, S1, S2, S4, S8*, S9*, D1     |    7     |
-|West US2    |    B1, B2, S0, S1, S2, S4, S8*, S9*, D1     |    3     |
+|West US     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|West US2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
 
 ### Europe
 
@@ -91,7 +91,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |---------|---------|:---------:|
 |North Europe     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |UK South   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|West Europe     |    B1, B2, S0, S1, S2, S4, S8*, S9*, D1      |    7     |
+|West Europe     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
 
 ### Asia Pacific 
 
@@ -99,7 +99,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |---------|---------|:---------:|
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japan East  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8*, S9*, D1     |   1      |
+|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
 |West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 \* S8, S9 plans in the Standard tier support one query replica.
