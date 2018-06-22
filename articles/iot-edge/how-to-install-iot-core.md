@@ -38,6 +38,8 @@ This article walks through provisioning the runtime on a development board runni
    >[!NOTE]
    >This container runtime is from the Moby project build server, and is intended for evaluation purposes only. It's not tested, endorsed, or supported by Docker.
 
+## Finish installing
+
 Install the IoT Edge Security Daemon and configure it using instructions in [this article][lnk-install-windows-on-windows]
 
 ## Next steps

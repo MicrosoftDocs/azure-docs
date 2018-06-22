@@ -58,7 +58,7 @@
     href: iot-edge-glossary.md
 - name: How-to guides
   items:
-  - name: Install IoT Edge device
+  - name: Install IoT Edge runtime
     items:
     - name: On Linux x64 device
       href: how-to-install-iot-edge-linux.md

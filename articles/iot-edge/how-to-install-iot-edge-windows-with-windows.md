@@ -25,18 +25,16 @@ Azure IoT Edge with Windows containers can be used with:
 
 ## Install the container runtime 
 
-Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). 
-
-You can use [Docker for Windows][lnk-docker-for-windows] for development and testing. 
+Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). You can use [Docker for Windows][lnk-docker-for-windows] for development and testing. 
 
 **Ensure Docker for Windows is [configured to use Windows containers][lnk-docker-config]**
 
-Note: For container engine installation on Windows IoT Core, follow steps from [provistion an IoT Core device article][lnk-iot-core] and then continue with instructions below.
+*Note: For container engine installation on Windows IoT Core, follow steps from [provision an IoT Core device article][lnk-iot-core] and then continue with instructions below.*
 
 ## Install the Azure IoT Edge Security Daemon
 
 >[!NOTE]
->Azure IoT Edge software packages are subject to the license terms located in the packages (in the LICENSES folder in the package). Please read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
+>Azure IoT Edge software packages are subject to the license terms located in the packages (in the LICENSE folder in the package). Please read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
 
 ### Download the Edge daemon package and install
 
@@ -85,7 +83,9 @@ provisioning:
   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
 ```
 
-Next, we'll need to provide the ip adress and port for `workload_uri` and `management_uri` in the `connect:` section of the configuration. For the ip address, enter `ipconfig` in your PowerShell window and select the ip address of the `vEthernet (nat)` interface, with ports 15581 and 15580 as shown in the example below (the ip address on your system may be different):
+Next, we'll need to provide the ip adress and port for `workload_uri` and `management_uri` in the `connect:` section of the configuration.
+
+For the ip address, enter `ipconfig` in your PowerShell window and select the ip address of the `vEthernet (nat)` interface as shown in the example below (the ip address on your system may be different):
 
 ![nat][img-nat]
 
