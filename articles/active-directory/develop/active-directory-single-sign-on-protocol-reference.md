@@ -30,7 +30,7 @@ The protocol diagram below describes the single sign-on sequence. The cloud serv
 
 ## AuthnRequest
 
-To request a user authentication, cloud services send an `AuthnRequest` element to Azure AD. A sample SAML 2.0 `AuthnRequest` could look like this:
+To request a user authentication, cloud services send an `AuthnRequest` element to Azure AD. A sample SAML 2.0 `AuthnRequest` could look like the following example:
 
 ```
 <samlp:AuthnRequest
@@ -59,7 +59,7 @@ Azure AD also ignores the `Conditions` element in `AuthnRequest`.
 
 The `Issuer` element in an `AuthnRequest` must exactly match one of the **ServicePrincipalNames** in the cloud service in Azure AD. Typically, this is set to the **App ID URI** that is specified during application registration.
 
-A sample SAML excerpt containing the `Issuer` element looks like this:
+A SAML excerpt containing the `Issuer` element looks like the following sample:
 
 ```
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
@@ -69,7 +69,7 @@ A sample SAML excerpt containing the `Issuer` element looks like this:
 
 This element requests a particular name ID format in the response and is optional in `AuthnRequest` elements sent to Azure AD.
 
-A sample `NameIdPolicy` element looks like this:
+A `NameIdPolicy` element looks like the following sample:
 
 ```
 <NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
@@ -99,7 +99,7 @@ Don't include a `Signature` element in `AuthnRequest` elements, as Azure AD does
 Azure AD ignores the `Subject` element of `AuthnRequest` elements.
 
 ## Response
-When a requested sign-on completes successfully, Azure AD posts a response to the cloud service. A sample response to a successful sign-on attempt looks like this:
+When a requested sign-on completes successfully, Azure AD posts a response to the cloud service. A response to a successful sign-on attempt looks like the following sample:
 
 ```
 <samlp:Response ID="_a4958bfd-e107-4e67-b06d-0d85ade2e76a" Version="2.0" IssueInstant="2013-03-18T07:38:15.144Z" Destination="https://contoso.com/identity/inboundsso.aspx" InResponseTo="id758d0ef385634593a77bdf7e632984b6" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -155,7 +155,7 @@ The `Response` element includes the result of the authorization request. Azure A
 
 Azure AD sets the `Issuer` element to `https://login.microsoftonline.com/<TenantIDGUID>/` where <TenantIDGUID> is the tenant ID of the Azure AD tenant.
 
-For example, a sample response with Issuer element could look like this:
+For example, a response with Issuer element could look like the following sample:
 
 ```
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -167,7 +167,7 @@ The `Status` element conveys the success or failure of sign-on. It includes the 
 
 <!-- TODO: Add a authentication protocol error reference -->
 
-The following example is a SAML response to an unsuccessful sign-on attempt.
+The following sample is a SAML response to an unsuccessful sign-on attempt.
 
 ```
 <samlp:Response ID="_f0961a83-d071-4be5-a18c-9ae7b22987a4" Version="2.0" IssueInstant="2013-03-18T08:49:24.405Z" InResponseTo="iddce91f96e56747b5ace6d2e2aa9d4f8c" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
