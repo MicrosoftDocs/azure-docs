@@ -53,7 +53,7 @@ az batchai workspace create \
     --resource-group myResourceGroup 
 ```
 
-As a basic example, the following [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command creates a single-node cluster using the NC6 VM size, which contains one NVIDIA Tesla K80 GPU. This cluster runs a default Ubuntu Server image designed to host container-based applications. This example uses a *low-priority* VM, a lower-priced option from surplus VM capacity in Azure. This command adds a user account named *azureuser*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*). 
+As a basic example, the following [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command creates a single-node cluster using the NC6 VM size, which contains one NVIDIA Tesla K80 GPU. This cluster runs a default Ubuntu Server image designed to host container-based applications. This example uses a *low-priority* VM, a lower-priced option from surplus VM capacity in Azure. This command adds a user account named *myuser*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*). 
 
 ```azurecli-interactive
 az batchai cluster create \
@@ -63,7 +63,7 @@ az batchai cluster create \
     --vm-size Standard_NC6 \
     --vm-priority lowpriority \
     --target 1 \
-    --user-name myusername \
+    --user-name myuser \
     --generate-ssh-keys
 ```
 
