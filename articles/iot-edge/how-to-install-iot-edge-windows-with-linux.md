@@ -82,7 +82,7 @@ provisioning:
   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
 ```
 
-Next, we'll need to provide the ip adress and port for `workload_uri` and `management_uri` in the `connect:` section of the configuration.
+Next, we'll need to provide the ip address and port for `workload_uri` and `management_uri` in the `connect:` section of the configuration.
 
 For the ip address, enter `ipconfig` in your PowerShell window and select the ip address of the `vEthernet (nat)` interface as shown in the example below (the ip address on your system may be different):
 
