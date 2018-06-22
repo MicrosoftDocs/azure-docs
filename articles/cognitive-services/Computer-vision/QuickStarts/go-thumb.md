@@ -1,7 +1,7 @@
 ---
-title: Computer Vision API Go quickstart analyze image | Microsoft Docs
+title: Computer Vision API Go quickstart create thumbnail | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze an image using Computer Vision with Go in Cognitive Services.
+description: In this quickstart, you generate a thumbnail from an image using Computer Vision with Go in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -11,25 +11,17 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an image with Go
+# Quickstart: Generate a thumbnail with Go
 
-In this quickstart, you analyze an image to extract visual features using Computer Vision.
+In this quickstart, you generate a thumbnail from an image using Computer Vision.
 
 ## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Analyze Image request
+## Get Thumbnail request
 
-With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
-
-* A detailed list of tags related to the image content.
-* A description of image content in a complete sentence.
-* The coordinates, gender, and age of any faces contained in the image.
-* The ImageType (clip art or a line drawing).
-* The dominant color, the accent color, or whether an image is black & white.
-* The category defined in this [taxonomy](../Category-Taxonomy.md).
-* Does the image contain adult or sexually suggestive content?
+With the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), you can generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the region of interest and generate cropping coordinates based on that region.
 
 To run the sample, do the following steps:
 
@@ -39,8 +31,8 @@ To run the sample, do the following steps:
 1. Optionally, change the `imageUrl` value to the image you want to analyze.
 1. Save the file with a `.go` extension.
 1. Open a command prompt on a computer with Go installed.
-1. Build the file, for example: `go build analyze-image.go`.
-1. Run the file, for example: `analyze-image`.
+1. Build the file, for example: `go build get-thumbnail.go`.
+1. Run the file, for example: `get-thumbnail`.
 
 ```go
 package main
@@ -61,11 +53,11 @@ func main() {
     // subscription keys. For example, if you got your subscription keys from
     // westus, replace "westcentralus" in the URL below with "westus".
     const uriBase =
-      "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze"
+      "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail"
     const imageUrl =
-      "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
 
-    const params = "?visualFeatures=Description&details=Landmarks&language=en"
+    const params = "?width=100&height=100&smartCropping=true"
     const uri = uriBase + params
     const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
 
@@ -101,65 +93,9 @@ func main() {
 }
 ```
 
-## Analyze Image response
+## Get Thumbnail response
 
-A successful response is returned in JSON, for example:
-
-```json
-{
-  "categories": [
-    {
-      "detail": {
-        "landmarks": []
-      },
-      "name": "outdoor_water",
-      "score": 0.9921875
-    }
-  ],
-  "description": {
-    "captions": [
-      {
-        "confidence": 0.916458423253597,
-        "text": "a large waterfall over a rocky cliff"
-      }
-    ],
-    "tags": [
-      "nature",
-      "water",
-      "waterfall",
-      "outdoor",
-      "rock",
-      "mountain",
-      "rocky",
-      "grass",
-      "hill",
-      "covered",
-      "hillside",
-      "standing",
-      "side",
-      "group",
-      "walking",
-      "white",
-      "man",
-      "large",
-      "snow",
-      "grazing",
-      "forest",
-      "slope",
-      "herd",
-      "river",
-      "giraffe",
-      "field"
-    ]
-  },
-  "metadata": {
-    "format": "Jpeg",
-    "height": 959,
-    "width": 1280
-  },
-  "requestId": "a92f89ab-51f8-4735-a58d-507da2213fc2"
-}
-```
+A successful response contains the thumbnail image binary. If the request fails, the response contains an error code and a message to help determine what went wrong.
 
 ## Next steps
 
