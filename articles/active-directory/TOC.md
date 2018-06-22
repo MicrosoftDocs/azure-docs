@@ -417,6 +417,7 @@
 #### Tutorials
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 #### Concepts
+##### [Baseline Protection](active-directory-conditional-access-baseline-protection.md)
 ##### [Conditions](active-directory-conditional-access-conditions.md)
 ##### [Location conditions](active-directory-conditional-access-locations.md)
 ##### [Controls](active-directory-conditional-access-controls.md)
