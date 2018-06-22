@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2018
-ms.author: daseidma;bwren;magoedte
+ms.author: daseidma;bwren
 
 ---
 
@@ -35,7 +35,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 While the information is verified and the solution is deployed, you can track its progress under **Notifications** from the menu. 
 
-You access Service Map in the Azure portal from your Log Analytics workspace, and select the option **Solutions** from the left pane.<br><br> [Select Solutions option in workspace](./media/monitoring-service-map/select-solution-from-workspace.png).<br> From the list of solutions, select **ServiceMap(workspaceName)** and in the Service Map solution overview page click on the Service Map summary tile.<br><br> [Service Map summary tile](./media/monitoring-service-map/service-map-summary-tile.png).
+You access Service Map in the Azure portal from your Log Analytics workspace, and select the option **Solutions** from the left pane.<br><br> ![Select Solutions option in workspace](./media/monitoring-service-map/select-solution-from-workspace.png).<br> From the list of solutions, select **ServiceMap(workspaceName)** and in the Service Map solution overview page click on the Service Map summary tile.<br><br> ![Service Map summary tile](./media/monitoring-service-map/service-map-summary-tile.png).
 
 ## Use cases: Make your IT processes dependency aware
 
@@ -53,7 +53,6 @@ If you are using Azure Site Recovery and need help defining the recovery sequenc
 
 ### Patch management
 Service Map enhances your use of the System Update Assessment by showing you which other teams and servers depend on your service, so you can notify them in advance before you take down your systems for patching. Service Map also enhances patch management by showing you whether your services are available and properly connected after they are patched and restarted.
-
 
 ## Mapping overview
 Service Map agents gather information about all TCP-connected processes on the server where they’re installed and details about the inbound and outbound connections for each process.

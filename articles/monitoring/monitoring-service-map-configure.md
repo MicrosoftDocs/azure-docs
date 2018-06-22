@@ -3,7 +3,7 @@ title: Configure Service Map in Azure | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
 services:  monitoring
 documentationcenter: ''
-author: mgoedte
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2018
-ms.author: daseidma;bwren;magoedte
+ms.author: daseidma;bwren
 
 ---
 # Configure Service Map in Azure
