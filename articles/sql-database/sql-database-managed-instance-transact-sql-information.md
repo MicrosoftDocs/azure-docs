@@ -204,7 +204,7 @@ Undocumented DBCC statements that are enabled in SQL Server are not supported in
 
 ### Distributed transactions
 
-Neither MSDTC nor elastic transactions (also known as global transactions) are supported in Managed Instance.
+Neither MSDTC nor [Elastic Transactions](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) are currently supported in Managed Instance.
 
 ### Extended Events 
 
