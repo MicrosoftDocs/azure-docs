@@ -35,6 +35,16 @@ If you don't have an active Azure subscription, create a [free account][lnk-acco
 
 This quickstart uses Azure CLI and IoT Hub. 
 
+>[!IMPORTANT]
+>**bug bash only**
+>Use the canary portal 
+>Add the following line to the hosts file of the computer from which you'll access the Azure Portal 
+>`40.76.74.59 main.iothub.ext.azure.com` 
+> 
+>The hosts file can be found at: 
+>Linux - /etc/hosts 
+>Windows - C:\Windows\System32\drivers\etc\hosts 
+
 ### Prepare Azure CLI in a cloud shell
 
 You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality. You can complete these steps in the cloud shell in the Azure portal.
