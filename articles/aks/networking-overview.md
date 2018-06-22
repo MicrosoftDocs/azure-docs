@@ -43,7 +43,7 @@ Advanced networking provides the following benefits:
 * Pods can access resources on the public Internet. Also a feature of Basic networking.
 
 > [!IMPORTANT]
-> Each node in an AKS cluster configured for Advanced networking can host a maximum of **30 pods**. Each VNet provisioned for use with the Azure CNI plugin is limited to **4096 configured IP addresses**.
+> Each node in an AKS cluster configured for Advanced networking can host a maximum of **30 pods** when configured using the Azure portal.  You can change the maximum value only by modifying the maxPods property when deploying a cluster with a Resource Manager template. Each VNet provisioned for use with the Azure CNI plugin is limited to **4096 configured IP addresses**.
 
 ## Advanced networking prerequisites
 
