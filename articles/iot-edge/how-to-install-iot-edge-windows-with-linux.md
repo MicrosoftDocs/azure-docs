@@ -56,7 +56,7 @@ Start-Service iotedge
 Add Firewall exceptions for the ports used by the service:
 
 ```powershell
-New-NetFirewallRule -DisplayName "iotedged allow inbound 15582,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
+New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
 ```
 
 Create a `iotedge.reg` file with the following content, and import in to the Windows Registry by double-clicking it:
