@@ -21,7 +21,7 @@ A client application for LUIS can be any conversational application that communi
 ## What is a LUIS app?
 A LUIS app contains a domain-specific natural language model you design. You can start your app with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
 
-[Prebuilt domain models][prebuilt-domains] include all these pieces for you and are a great way to start using LUIS quickly.
+[Prebuilt domain models](luis-how-to-use-prebuilt-domains.md) include all these pieces for you and are a great way to start using LUIS quickly.
 
 The LUIS app also contains integration settings, [collaborators](luis-concept-collaborator.md), and [versions](luis-concept-version.md).
 
@@ -69,21 +69,21 @@ A model includes:
 * **[example utterances](#example-utterances)**: example text a user enters in your client application
 
 ### Intents 
-An [intent][add-intents], short for _intention_, is a purpose or goal expressed in a user's utterance, such as booking a flight, paying a bill, or finding a news article. You create an intent for each action. A travel app may define an intent named "BookFlight." Your client application can use the top scoring intent to trigger an action. For example, when "BookFlight" intent is returned from LUIS, your client application could trigger an API call to an external service for booking a plane ticket.
+An [intent](luis-how-to-add-intents.md), short for _intention_, is a purpose or goal expressed in a user's utterance, such as booking a flight, paying a bill, or finding a news article. You create an intent for each action. A travel app may define an intent named "BookFlight." Your client application can use the top scoring intent to trigger an action. For example, when "BookFlight" intent is returned from LUIS, your client application could trigger an API call to an external service for booking a plane ticket.
 
 ### Entities
-An [entity][add-entities] represents detailed information found within the utterance that is relevant to the user's request. For example, in the utterance "Book a ticket to Paris",  a single ticket is requested, and "Paris" is a location. Two entities are found "a ticket" indicating a single ticket and "Paris" indicating the destination. 
+An [entity](luis-how-to-add-entities.md) represents detailed information found within the utterance that is relevant to the user's request. For example, in the utterance "Book a ticket to Paris",  a single ticket is requested, and "Paris" is a location. Two entities are found "a ticket" indicating a single ticket and "Paris" indicating the destination. 
 
 After LUIS returns the entities found in the user’s utterance, your client application can use the list of entities as parameters to a triggered action. For example, booking a flight requires entities like the travel destination, date, and airline.
 
 LUIS provides several ways to identify and categorize entities.
 
-* **Prebuilt Entities** LUIS has many prebuilt domain models including intents, utterances, and [prebuilt entities][prebuilt-entities]. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
+* **Prebuilt Entities** LUIS has many prebuilt domain models including intents, utterances, and [prebuilt entities](pre-builtentities.md). You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
 
-* **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
+* **Custom Entities** LUIS gives you several ways to identify your own custom [entities](luis-concept-entity-types.md) including machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
 
 ### Example utterances
-An example [utterance][add-example-utterances] is text input from the user that your app needs to understand. It may be a sentence, like "Book a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight." Utterances aren't always well-formed, and there can be many utterance variations for a particular intent. Add 10 to 20 example utterances to each intent and mark entities in every utterance.
+An example [utterance](luis-how-to-add-example-utterances.md) is text input from the user that your app needs to understand. It may be a sentence, like "Book a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight." Utterances aren't always well-formed, and there can be many utterance variations for a particular intent. Add 10 to 20 example utterances to each intent and mark entities in every utterance.
 
 |Example user utterance|Intent|Entities|
 |-----------|-----------|-----------|
@@ -104,8 +104,19 @@ LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate impor
 Patterns allow you to simplify an intent's utterance collection into common [templates][patterns] of word choice and word order. This allows LUIS to learn quicker by needing fewer example utterances for the intents. Patterns are a hybrid system of regular expressions and machine-learned expressions. 
 
 <a name="using-luis"></a>
+
 ## Authoring and accessing LUIS
-Build your LUIS app from the [www.luis.ai](http://www.luis.ai) website or programmatically with the [authoring](https://aka.ms/luis-authoring-apis) APIs, or use both depending on the authoring need. Access your published LUIS app by the query [endpoint](https://aka.ms/luis-endpoint-apis). 
+Build your LUIS app from the LUIS website or programmatically with the [authoring](https://aka.ms/luis-authoring-apis) APIs, or use both depending on the authoring need. Access your published LUIS app by the query [endpoint](https://aka.ms/luis-endpoint-apis). 
+
+LUIS provides three websites around the world, depending on your authoring region. The authoring region dictates tje Azure region where you publish your app.
+
+|Authoring region|Publishing region(s)|
+|--|--|
+|[www.luis.ai](https://www.luis.ai)|**U.S.**<br>West US<br>West US 2<br>East US<br>East US 2<br>South Central US<br>West Central US<br><br>**Asia**<br>Southeast Asia<br>East Asia<br><br>**South America**<br>Brazil South |
+|[au.luis.ai](https://au.luis.ai)|Australia East|
+|[eu.luis.ai](https://eu.luis.ai)|West Europe<br>North Europe|
+
+Learn [more](luis-reference-regions.md) about authoring and publishing regions.
 
 ## What technologies work with LUIS?
 Several Microsoft technologies work with LUIS:
@@ -113,31 +124,18 @@ Several Microsoft technologies work with LUIS:
 * [Bing Spell Check API][bing-spell-check-api] provides text correction before prediction. 
 * [Bot Framework][bot-framework] allows a chatbot to talk with a user via text input. Select [3.x](https://github.com/Microsoft/BotBuilder) or [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK for a complete bot experience.
 * [QnA Maker][qnamaker] allows several types of text to combine into a question and answer knowledge base.
-* [Speech][speech] converts spoken language requests into text. Once converted to text, LUIS processes the requests. See [Speech SDK](https://aka.ms/csspeech) for more information.
+* [Speech](../Speech/index.md) converts spoken language requests into text. Once converted to text, LUIS processes the requests. See [Speech SDK](https://aka.ms/csspeech) for more information.
 * [Text Analytics][text-analytics] provides sentiment analysis and key phrase data extraction.
 
 ## Next steps
 Create a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [custom](luis-quickstart-intents-only.md) domain.
 
 <!-- Reference-style links -->
-[create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
 [azure-portal]: https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account
-[publish-app]: https://docs.microsoft.com/azure/cognitive-services/luis/PublishApp#test-your-published-endpoint-in-a-browser
-[luis-concept-entity-types]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-entity-types
-[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
-[prebuilt-entities]: https://docs.microsoft.com/azure/cognitive-services/luis/pre-builtentities
-[prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-use-prebuilt-domains
-[label-suggested-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/label-suggested-utterances
-[intro-video]: https://aka.ms/LUIS-Intro-Video
 [bot-framework]: https://docs.microsoft.com/bot-framework/
-[speech]: https://docs.microsoft.com/azure/cognitive-services/Speech/index.md
 [flow]: https://docs.microsoft.com/connectors/luis/
-[entity-concept]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-entity-types
-[add-intents]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-intents
-[add-entities]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-entities
 [authoring-apis]: https://aka.ms/luis-authoring-api
 [endpoint-apis]: https://aka.ms/luis-endpoint-apis
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 [text-analytics]: https://azure.microsoft.com/services/cognitive-services/text-analytics/
 [patterns]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-patterns
 [bing-spell-check-api]: https://azure.microsoft.com/services/cognitive-services/spell-check/
