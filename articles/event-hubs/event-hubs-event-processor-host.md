@@ -19,7 +19,7 @@ ms.author: shvija
 
 # Azure Event Hubs Event Processor Host overview
 
-Azure Event Hubs is a powerful telemetry ingestion service that can be used to stream millions of events at low cost. This article describes how to consume ingested events using the *Event Processor Host*; an intelligent consumer agent that simplifies the management of checkpointing, leasing, and parallel event readers.  
+Azure Event Hubs is a powerful telemetry ingestion service that can be used to stream millions of events at low cost. This article describes how to consume ingested events using the *Event Processor Host* (EPH); an intelligent consumer agent that simplifies the management of checkpointing, leasing, and parallel event readers.  
 
 The key to scale for Event Hubs is the idea of partitioned consumers. In contrast to the [competing consumers](http://msdn.microsoft.com/en-us/library/dn568101.aspx) pattern, the partitioned consumer pattern enables high scale by removing the contention bottleneck and facilitating end to end parallelism.
 
@@ -89,7 +89,7 @@ Finally, consumers register the [EventProcessorHost](/dotnet/api/microsoft.azure
 
 ### Example
 
-As an example, imagine that there are 5 virtual machines (VMs) dedicated to consuming events, and a simple console application in each VM, which does the actual work of consumption. Each console application then creates one [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance and registers it with the Event Hubs service.
+As an example, imagine that there are 5 virtual machines (VMs) dedicated to consuming events, and a simple console application in each VM, which does the actual consumption work. Each console application then creates one [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance and registers it with the Event Hubs service.
 
 In this example scenario, let's say that 16 partitions are allocated to the 5 **EventProcessorHost** instances. Some **EventProcessorHost** instances might own a few more partitions than others. For each partition that an **EventProcessorHost** instance owns, it creates an instance of the `SimpleEventProcessor` class. Therefore, there are 16 instances of `SimpleEventProcessor` overall, with one assigned to each partition.
 
@@ -142,7 +142,7 @@ As explained previously, the tracking table greatly simplifies the auto-scale na
 
 **EventProcessorHost** has a property named [PartitionManagerOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.partitionmanageroptions). This property enables control over lease management. Set these options before registering your [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementation.
 
-## Control the runtime
+## Control Event Processor Host options
 
 Additionally, one overload of [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync) takes an [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) object as a parameter. Use this parameter to control the behavior of [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) itself. [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) defines four properties and one event:
 
