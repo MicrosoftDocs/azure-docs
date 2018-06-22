@@ -27,6 +27,8 @@
     href: event-hubs-programming-guide.md
   - name: Event Hubs features
     href: event-hubs-features.md
+  - name: Event Processor Host overview
+    href: event-hubs-event-processor-host.md
   - name: Managed Service Identity (preview)
     href: event-hubs-managed-service-identity.md
   - name: Role-Based Access Control (preview)
