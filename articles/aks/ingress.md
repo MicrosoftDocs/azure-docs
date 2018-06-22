@@ -71,14 +71,14 @@ The NGINX ingress controller supports TLS termination. While there are several w
 To install the cert-manager controller, use the following Helm install command.
 
 ```
-helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-staging --set ingressShim.defaultIssuerKind=ClusterIssuer
+helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-prod --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
 If your cluster is not RBAC enabled, use this command.
 
 ```
 helm install stable/cert-manager \
-  --set ingressShim.defaultIssuerName=letsencrypt-staging \
+  --set ingressShim.defaultIssuerName=letsencrypt-prod \
   --set ingressShim.defaultIssuerKind=ClusterIssuer \
   --set rbac.create=false \
   --set serviceAccount.create=false
@@ -96,13 +96,13 @@ Create a cluster issuer using the following manifest. Update the email address w
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-staging
+  name: letsencrypt-prod
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: user@contoso.com
     privateKeySecretRef:
-      name: letsencrypt-staging
+      name: letsencrypt-prod
     http01: {}
 ```
 
@@ -128,7 +128,7 @@ spec:
       domains:
       - demo-aks-ingress.eastus.cloudapp.azure.com
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-prod
     kind: ClusterIssuer
 ```
 
@@ -173,7 +173,7 @@ metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
