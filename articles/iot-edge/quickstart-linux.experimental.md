@@ -114,7 +114,7 @@ The security daemon installs as a system service so that the IoT Edge runtime st
    sudo systemctl status iotedge
    ```
 
-   ![See the Edge Daemon running as a system service](./media/tutorial-install-iot-edge/iotedged-running.png)
+   ![See the Edge Daemon running as a system service](./media/quickstart-linux/iotedged-running.png)
 
    You can also see logs from the Edge Security Daemon by running the following command:
 
