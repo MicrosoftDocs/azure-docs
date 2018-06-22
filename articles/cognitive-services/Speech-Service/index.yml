@@ -17,7 +17,7 @@ metadata:
   ms.author: nolachar
 
 abstract:
-  description: The Microsoft Speech Service and SDK provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, transcription, and dictation. Cortana, Microsoft Office, and others use the same technology. A key differentiator of Microsoft Speech Service is the ability to customize <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. In fact, customized <a href="http://aka.ms/customvoice">Text-to-speech</a> and <a href="http://aka.ms/customtranslator">Speech-Translation</a> are available as well.<br/><br/>Our Speech SDK is available on multiple platforms in several programming languages, so you can take care of live microphone management, real-time streaming, or batch-based file communication, depending on your application needs.
+  description: The Microsoft Speech Service and SDK provides developers an easy way to create powerful speech-enabled features in their applications, including voice command control, transcription, dictation, and translation.<p>The Microsoft Speech Service lets you customize <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. Customized <a href="http://aka.ms/customvoice">Text-to-speech</a> and <a href="http://aka.ms/customtranslator">Speech-Translation</a> are also available.<br/><br/>A straighforward [REST API](rest-apis.md) can be used with virtually any programming language and platform. The Speech SDK provides libraries for live microphone management, real-time streaming, or batch-based file communication, depending on your application needs.
 sections:
 - title: 10-Minute Quickstarts - New SDKs
   items:
@@ -58,7 +58,7 @@ sections:
     - title: Examples
       html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
     - title: API Reference
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (Devices SDK)</a></li></ul>
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (Speech Devices SDK)</a></li></ul>
 
 - title: Speech-to-Text
   items:
@@ -117,76 +117,4 @@ sections:
     text: "With the introduction of the unified Speech Service, Microsoft and its partners now offer an integrated hardware/software platform that's optimized for developing speech-enabled devices&#58; the <b>Speech Devices SDK</b>. This SDK is suitable for developing smart speech devices for all types of applications."
   - type: paragraph
     text: The <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">Speech Devices SDK</a> allows you to build your own ambient devices with a customized wake word unique to your brand that triggers audio capture. It also provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming.
-
-- title: Older SDKs
-  items:
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/uwp.jpg
-      - image:
-          src: media/index/logo_java.jpg
-      - image:
-          src: media/index/logo_objc.jpg
-      - image:
-          src: media/index/logo_js.svg
-      - image:
-          src: media/index/logo_rest_sr.svg
-      - image:
-          src: media/index/logo_rest_tts.svg
-    rows:
-      - title: Windows
-        values:
-        - href: https://docs.microsoft.com/windows/uwp/design/input/speech-recognition
-        - href:
-        - href:
-        - href:
-        - href:
-        - href:
-      - title: Android
-        values:
-        - href:
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjavaandroid
-        - href:
-        - href:
-        - href:
-        - href:
-      - title: iOS
-        values:
-        - href:
-        - href:
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/get-started-objectivec-ios
-        - href:
-        - href:
-        - href:
-      - title: Web
-        values:
-        - href:
-        - href:
-        - href:
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjswebsockets
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
-
-- title: SDKs in Consideration
-  items:
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/logo_python.svg
-      - image:
-          src: media/index/logo_swift.jpg
-      - image:
-          src: media/index/logo_gopher.svg
-      - image:
-          src: media/index/c.jpg
-    rows:
-      - title: SDK
-        values:
-        - href:
-        - href:
-        - href:
-        - href:
 
