@@ -39,7 +39,7 @@ The Azure Function that you create in this tutorial filters the temperature data
 
     ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
 
-* [C# Functions module template package - 2.0.0-rc-mcr](https://github.com/Azure/dotnet-template-azure-iot-edge-function/releases/download/v2.0.0-rc-mcr/Microsoft.Azure.IoT.Edge.Function.2.0.0-rc-mcr.nupkg ).
+* [C# Functions module template package - 2.0.0-rc-mcr](https://github.com/Azure/dotnet-template-azure-iot-edge-function/releases/download/v2.0.0-rc-mcr2/Microsoft.Azure.IoT.Edge.Function.2.0.0-rc-mcr.nupkg).
     Download and save the package locally using the link provided. the In VS Code integrated terminal (**View** > **Integrated Terminal**), enter the following command to install the **aziotedgefunction** template in dotnet.
 
     ```cmd/sh
