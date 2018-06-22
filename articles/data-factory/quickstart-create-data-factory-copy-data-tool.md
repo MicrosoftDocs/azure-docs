@@ -81,7 +81,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
     ![Select blob storage from gallery](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    c. On the **Specify the Azure Blob storage account** page, select your storage account from the **Storage account name** list, and then select **Next**. 
+    c. On the **Specify the Azure Blob storage account** page, select your storage account from the **Storage account name** list, and then select **Finish**. 
 
    ![Configure the Azure Blob storage account](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
