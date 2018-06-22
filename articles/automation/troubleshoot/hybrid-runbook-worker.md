@@ -16,7 +16,7 @@ This article provides information on troubleshooting issues with Hybrid Runbook 
 
 ## General
 
-The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Microsoft Monitoring Agent. For Linux, it is the OMS Agent for Linux. If registration of the worker fails, here are some possible causes for the error:
+The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Microsoft Monitoring Agent. For Linux, it is the OMS Agent for Linux.
 
 ###<a name="runbook-execution-fails"></a>Scenario: Runbook execution fails
 
