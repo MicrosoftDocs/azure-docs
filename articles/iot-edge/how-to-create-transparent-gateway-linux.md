@@ -39,8 +39,10 @@ The following steps walk you through the process of creating the certificates an
    >Use this command for the bug bash:
    >
    > `git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git`
-
-       git clone https://github.com/Azure/azure-iot-sdk-c.git
+   
+   ```cmd
+   git clone https://github.com/Azure/azure-iot-sdk-c.git
+   ```
 
 3. These scripts use OpenSSL to generate the required certificates and OpenSSL requires some setup.
    
