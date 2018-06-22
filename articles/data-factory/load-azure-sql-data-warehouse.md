@@ -129,7 +129,6 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     ![Configure staging](./media/load-azure-sql-data-warehouse/configure-staging.png)
 
-
     b. In the **New Linked Service** page, select your storage account, and select **Finish**.
    
     ![Configure Azure Storage](./media/load-azure-sql-data-warehouse/configure-blob-storage.png)
