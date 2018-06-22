@@ -28,7 +28,7 @@ In this tutorial, create an app that demonstrates how to find related pieces of 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the regex entities [custom domain](luis-quickstart-intent-list-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the regex entities [custom domain](luis-quickstart-intent-and-list-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `hier`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -77,7 +77,7 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
     [ ![Screenshot of LUIS app with MoveEmployee intent hightlighted in left menu](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
 
-3. In the [list entity](luis-quickstart-intent-list-entity.md) tutorial, an employee could be designated by name, email address, phone extension, mobile phone number, or U.S. federal social security number. These employee numbers are used in the utterances. Add the following example utterances:
+3. In the [list entity](luis-quickstart-intent-and-list-entity.md) tutorial, an employee could be designated by name, email address, phone extension, mobile phone number, or U.S. federal social security number. These employee numbers are used in the utterances. Add the following example utterances:
 
     |Example utterances|
     |--|
@@ -141,8 +141,6 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
 In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
-
-    [![](media/luis-quickstart-intent-and-hier-entity/publish.png "Screenshot of Bookflight intent with Publish button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish.png#lightbox)
 
 2. Select the Production slot and the **Publish** button.
 
