@@ -14,7 +14,7 @@ ms.devlang: PowerShell
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: mabrigg
-ms.reviewer: thoroet
+ms.reviewer: thoroe
 ---
 
 # Configure the Azure Stack PowerShell environment
