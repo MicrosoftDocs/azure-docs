@@ -158,3 +158,18 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 4. To view results, on the **View** menu, select **Cloud Explorer**, and navigate to the storage account in your resource group. Under **Blob Containers**, double-click **container1**, and then the **output** file path.
 
    ![View results](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
+
+## Clean up resources
+
+When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and restart it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by using the following steps:
+
+1. From the left-hand menu in the Azure portal, select **Resource groups** and then select the name of the resource you created.  
+
+2. On your resource group page, select **Delete**, type the name of the resource to delete in the text box, and then select **Delete**.
+
+## Next steps
+
+In this quickstart, you deployed a simple Stream Analytics job. To learn about configuring other input sources and performing real-time detection, continue to the following article:
+
+> [!div class="nextstepaction"]
+> [Real-time fraud detection using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
