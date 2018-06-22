@@ -74,14 +74,14 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other default values other than the following:
 
     * Enter a name for the cluster.
-    * For this article, create a cluster with **4.2 beta** runtime.
-    * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
-    
-    Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs. 
+    * Create a cluster with **4.2 beta** runtime.
+    * Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+
+    Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
-## Run a Spark SQL job
+## Ingest sample data
 
 Before you begin with this section, you must complete the following prerequisites:
 
@@ -97,6 +97,8 @@ Before you begin with this section, you must complete the following prerequisite
 > [!NOTE]
 > AzCopy version 10 is only available to preview customers.
 
+## Run a Spark SQL Job
+
 Perform the following tasks to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
 
 1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create**, and then click **Notebook**.
@@ -111,7 +113,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
 3. In this step, associate the Azure Storage account with the Databricks Spark cluster. To accomplish this, you directly access the storage account using the following code:
 
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.dfs.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
      For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../common/storage-create-storage-account.md#manage-your-storage-account).
 
@@ -173,7 +175,7 @@ If you do not manually terminate the cluster it will automatically stop, provide
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Data Lake Storage Gen2. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extract, transform, and load data using Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md)

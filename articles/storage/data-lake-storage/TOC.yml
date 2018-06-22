@@ -10,7 +10,7 @@
     href: quickstart-create-account.md
   - name: Create/Connect Databricks account
     href: quickstart-create-databricks-account.md
-  - name: Set up clusters in HDInsight
+  - name: Create an HDInsight cluster
     href: quickstart-create-connect-hdi-cluster.md
 - name: Tutorials
   items:
@@ -44,7 +44,7 @@
   items:
   - name: Use Data Lake Storage Gen2 with Azure HDInsight clusters
     href: use-hdi-cluster.md
-  - name: Use Hadoop FileSystem CLI with Data Lake Storage Gen2
+  - name: Use Hadoop File System CLI with Data Lake Storage Gen2
     href: use-hdfs-data-lake-storage.md
   - name: Ingest data
     items: 
@@ -52,8 +52,6 @@
         href: use-distcp.md
       - name: Copy data into Data Lake Storage Gen2 using Azure Data Factory
         href: ../../data-factory/load-azure-data-lake-storage-gen2.md
-      - name: Copy data into Data Lake Storage Gen2 using Azure Data Factory connector 
-        href: ../../data-factory/connector-azure-data-lake-storage.md
 - name: Reference
   items:
 - name: Resources

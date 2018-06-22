@@ -49,7 +49,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 - **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through the data lifecycle, billing rates change keeping costs to a minimum via built-in features such as [Azure Blob Storage Lifecycle](../common/storage-lifecycle-managment-concepts.md).
 
-- **Optimized protocol**: The `abfs` protocol is [optimized specifically](./abfs-driver.md) for big data analytics.
+- **Optimized driver**: The `abfs` driver is [optimized specifically](./abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the `dfs` endpoint, `dfs.core.windows.net`.
 
 ## Scalability
 
@@ -57,7 +57,7 @@ Azure Data Lake Storage Gen2 and Azure Blob Storage are scalable by design. Each
 
 ## Cost effectiveness
 
-The architecture of Azure Data Lake Storage Gen2 saves you significant amounts of money. One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob Storage is the [low-cost](https://azure.microsoft.com/pricing/details/storage) of storage capacity and cloud-based object storage transactions.  Unlike other cloud storage services, Data Lake Storage Gen2 enjoys several orders of magnitude of lower costs because data is not moved or transformed before performing analysis.
+The architecture of Azure Data Lake Storage Gen2 can save you significant amounts of money. One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob Storage is the [low-cost](https://azure.microsoft.com/pricing/details/storage) of storage capacity and cloud-based object storage transactions.  Unlike other cloud storage services, Data Lake Storage Gen2 enjoys several orders of magnitude of lower costs because data is not moved or transformed before performing analysis.
 
 Additionally, features such as the [Hierarchical Namespace Service](./namespace.md) significantly improve the overall performance of many analytics jobs. This improvement in performance means that you require less compute power to process the same amount of data, resulting in a lower total cost of ownership (TCO) for the end to end analytics job.
 

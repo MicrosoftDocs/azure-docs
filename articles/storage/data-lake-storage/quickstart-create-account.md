@@ -199,15 +199,11 @@ az storage account create \
     --hierarchical-namespace true
 ```
 
-To create a general-purpose v2 storage account with zone-redundant storage (ZRS Preview), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **sku** parameter.
+To create a general-purpose v2 storage account with zo substitute the desired value in the table below for the **sku** parameter.
 
 |Replication option  |sku parameter  |
 |---------|---------|
 |Locally-redundant storage (LRS)     |Standard_LRS         |
-|Zone-redundant storage (ZRS)     |Standard_ZRS         |
-|Geo-redundant storage (GRS)     |Standard_GRS         |
-|Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
-
     
 For more information about the different types of replication available, see [Storage replication options](../common/storage-redundancy.md).
 

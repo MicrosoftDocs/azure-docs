@@ -19,7 +19,7 @@ ms.component: data-lake-storage-gen2
 
 # Azure Data Lake Storage Gen2 Hierarchical Namespace Service
 
-A key mechanism that allows Azure Data Lake Storage Gen2 to provide file system performance at object storage scale and prices is the introduction of the **Hierarchical Namespace Service (HNS)**. The HNS allows the collection of blobs within an account to be organized into a hierarchy of directories and nested subdirectories in the same way that the file system on your computer is organized. With the HNS enabled, Azure Data Lake Storage provides the scalability, cost-effectiveness, and availability that you expect from a cloud storage service. The HNS provides an access model that is familiar to all users of a computer - and more importantly, familiar to all of the analytics engines and frameworks that are designed to expect file system semantics.
+A key mechanism that allows Azure Data Lake Storage Gen2 Preview to provide file system performance at object storage scale and prices, is the **Hierarchical Namespace Service (HNS)**. The HNS allows the collection of blobs within an account to be organized into a hierarchy of directories and nested subdirectories in the same way that the file system on your computer is organized. With the HNS enabled, Azure Data Lake Storage provides the scalability and cost-effectiveness of object storage, with filesystem semantics that is familiar to analytics engines and frameworks.
 
 ## The benefits of the Hierarchical Namespace Service
 
@@ -40,8 +40,6 @@ One of the reasons that object stores have not historically supported hierarchic
 
 Turning on HNS is recommended for storage workloads that are designed for file systems that manipulate directories. This includes all workloads that are primarily for analytics processing. Datasets that require a high degree of organization will also benefit by enabling HNS.
 
-Additionally, if you require fine-grained access control of files contained within a shared account you must enable HNS to gain this ability.
-
 The reasons for enabling HNS are determined by a TCO analysis. Generally speaking, improvements in workload latency due to storage acceleration will require compute resources for less time. Latency for many workloads may be improved due to atomic directory manipulation that is enabled by HNS. In many workloads, the compute resource represents > 85% of the total cost and so even a modest reduction in workload latency equates to a significant amount of TCO savings. Even in cases where enabling HNS increases storage costs, the TCO is still lowered due to reduced compute costs.
 
 ## When you should disable the HNS
@@ -49,9 +47,8 @@ The reasons for enabling HNS are determined by a TCO analysis. Generally speakin
 There are a number of 'classic' object store workloads that will most likely not gain any benefit by enabling HNS. Examples of these workloads are; backups, image storage and other applications where object organization is stored separately to the objects themselves (eg. in a separate database).
 
 > [!NOTE]
-> Even though you may have the HNS enabled on your account, data stored in Azure Data Lake Storage is still fully interoperable with the Azure Storage Blobs interface.
+> During the preview, if you enable the HNS, there is no interoperability between blob and abfs rest apis.
 
 ## Next steps
 
-- [Introduction to Azure Data Lake Storage Gen2](./introduction.md)
 - [Create a Storage account](./quickstart-create-account.md)

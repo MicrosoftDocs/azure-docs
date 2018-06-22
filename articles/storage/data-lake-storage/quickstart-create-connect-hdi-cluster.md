@@ -107,7 +107,7 @@ You don't need to specify the cluster location explicitly; the cluster is in the
 
 ## Storage endpoints for clusters
 
-Although an on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster, in the cloud you use storage endpoints connected to cluster. HDInsight clusters use either [Data Lake Storage Gen2](abfs-driver.md) or [blobs in Azure Storage](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). Using Azure Storage or Data Lake Storage means you can safely delete the HDInsight clusters used for computation while still retaining your data. 
+Although an on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster, in the cloud you use storage endpoints connected to cluster. HDInsight clusters use either [Data Lake Storage Gen2](abfs-driver.md) or [Blobs in Azure Storage](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). Using Azure Storage or Data Lake Storage means you can safely delete the HDInsight clusters used for computation while still retaining your data. 
 
 > [!WARNING]
 > Using an additional storage account in a different location from the HDInsight cluster is not supported.
