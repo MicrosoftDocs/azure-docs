@@ -101,7 +101,8 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 * Learn more about API Management and Event Hubs integration
   * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [log-to-eventhub policy reference](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Monitor your APIs with Azure API Management, Event Hubs, and Runscope](api-management-log-to-eventhub-sample.md)    
+  * [Monitor your APIs with Azure API Management, Event Hubs, and Runscope](api-management-log-to-eventhub-sample.md)  
+* Learn more about [integration with Azure Application Insights](api-management-howto-app-insights.md)
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
