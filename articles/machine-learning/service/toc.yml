@@ -9,6 +9,8 @@
     href: overview-more-machine-learning.md    
   - name: What happened to Workbench?
     href: overview-what-happened-to-workbench.md
+  - name: How to migrate
+    href: how-to-migrate-to-ga.md
 - name: Quickstarts
   items:
   - name: Create project - Python
