@@ -70,13 +70,13 @@ The NGINX ingress controller supports TLS termination. While there are several w
 
 To install the cert-manager controller, use the following Helm install command.
 
-```
+```bash
 helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-prod --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
 If your cluster is not RBAC enabled, use this command.
 
-```
+```bash
 helm install stable/cert-manager \
   --set ingressShim.defaultIssuerName=letsencrypt-prod \
   --set ingressShim.defaultIssuerKind=ClusterIssuer \
@@ -92,7 +92,7 @@ Before certificates can be issued, cert-manager requires an [Issuer][cert-manage
 
 Create a cluster issuer using the following manifest. Update the email address with a valid address from your organization.
 
-```
+```yaml
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: ClusterIssuer
 metadata:
@@ -140,13 +140,13 @@ For this example, Helm is used to run multiple instances of a simple hello world
 
 Before running the application, add the Azure samples Helm repository on your development system.
 
-```
+```bash
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
 Run the AKS hello world chart with the following command:
 
-```
+```bash
 helm install azure-samples/aks-helloworld
 ```
 
@@ -154,7 +154,7 @@ Now install a second instance of the hello world application.
 
 For the second instance, specify a new title so that the two applications are visually distinct. You also need to specify a unique service name. These configurations can be seen in the following command.
 
-```console
+```bash
 helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
 ```
 
@@ -166,7 +166,7 @@ Create a file name `hello-world-ingress.yaml` and copy in the following YAML.
 
 Take note that the traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` is routed to the `ingress-demo` service.
 
-```
+```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
