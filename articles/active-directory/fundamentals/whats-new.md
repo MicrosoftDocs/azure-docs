@@ -111,18 +111,18 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Azure AD Password Protection is availble in public preview
+### Azure AD Password Protection is available in public preview
 
 **Type:** New feature  
 **Service category:** Identity Protection  
 **Product capability:** User Authentication
 
-Use Azure AD Password Protection to help eliminate easily-guessed passwords from your environment. Eliminating these passwords helps to lower the risk of compromise from a password spray type of attack.
+Use Azure AD Password Protection to help eliminate easily guessed passwords from your environment. Eliminating these passwords helps to lower the risk of compromise from a password spray type of attack.
 
 Specifically, Azure AD Password Protection helps you:
 
 - Protect your organization's accounts in both Azure AD and Windows Server Active Directory (AD). 
-- Stops your users from using passwords on a list of more than 500 of the most commonly-used passwords, and over one million character substitution variations of those passwords.
+- Stops your users from using passwords on a list of more than 500 of the most commonly used passwords, and over 1 million character substitution variations of those passwords.
 - Administer Azure AD Password Protection from a single location in the Azure AD portal, for both Azure AD and on-premises Windows Server AD.
 
 For more information about Azure AD Password Protection, see [Eliminate bad passwords in your organization](https://aka.ms/aadpasswordprotectiondocs).
@@ -171,7 +171,7 @@ To view the deployment guides, go to the [Identity Deployment Guides](https://ak
 **Service category:** Enterprise Apps
 **Product capability:** Access Control
 
-Admins can now delegate app management tasks without assigning the Globabl Administrator role. The new roles and capabilities are:
+Admins can now delegate app management tasks without assigning the Global Administrator role. The new roles and capabilities are:
 
 - **New standard Azure AD admin roles:**
 
@@ -628,7 +628,7 @@ For more information, see:
 **Service category:** App Proxy  
 **Product capability:** Access Control
  
-Support for Application Proxy cmdlets is now in the Powershell GA Module! Note that this does require you to stay updated on Powershell modules - if you become more than a year behind, some cmdlets may stop working. 
+Support for Application Proxy cmdlets is now in the Powershell GA Module! This does require you to stay updated on Powershell modules - if you become more than a year behind, some cmdlets may stop working. 
 
 For more information, see [AzureAD](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0).
  
@@ -741,7 +741,7 @@ For more information, see: [Customizing the list of Workday user attributes](htt
 **Product capability:** Collaboration
  
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
-We've updated the Azure AD Admin center to add support this functionality. Now, customers can convert existing groups from dynamic membership to assigned membership and vice-versa. The existing PowerShell cmdlets are also still available.
+We've updated the Azure AD Admin center to support this functionality. Now, customers can convert existing groups from dynamic membership to assigned membership and vice-versa. The existing PowerShell cmdlets are also still available.
 
 For more information, see [Changing dynamic membership to static and vice-versa](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal#changing-dynamic-membership-to-static-and-vice-versa)
 
@@ -945,7 +945,7 @@ This release has the following updates and changes:
 
 - Changed the installer to not require SA privilege on clean install of AADConnect.
 
-- New utility to troubleshoot synchronization issues for a specific object. Currently, the utility checks for the following:
+- New utility to troubleshoot synchronization issues for a specific object. Currently, the utility checks for the following things:
 
     - UserPrincipalName mismatch between synchronized user object and the user account in Azure AD Tenant.
   
@@ -1008,7 +1008,7 @@ For more information about listing your application in the Azure AD app gallery,
 
 ---
  
-### Sign-in with additional risk detected
+### Sign in with additional risk detected
 
 **Type:** New feature  
 **Service category:** Identity Protection  
@@ -1042,7 +1042,7 @@ For more information, see [Hide an application from user's experience in Azure A
 
 The My Apps browser extension is now available via a convenient tool that gives you the My Apps single-sign on capability as a shortcut in your browser. After installing, user's will see a waffle icon in their browser that provides them quick access to apps. Users can now take advantage of:
 
-- The ability to directly sign in to password-SSO based apps from the app’s sign in page
+- The ability to directly sign in to password-SSO based apps from the app’s sign-in page
 - Launch any app using the quick search feature
 - Shortcuts to recently used apps from the extension
 - The extension is available for Edge, Chrome, and Firefox.
@@ -1057,7 +1057,7 @@ For more information, see [My Apps Secure Sign-in Extension](https://docs.micros
 **Service category:** Azure AD  
 **Product capability:** Directory
 
-As of January 8, 2018, the Azure AD administration experience in the Azure classic portal has been retired. This took place in conjunction with the retirement of the Azure classic portal itself. Going forward, you should use the [Azure AD admin center](https://aad.portal.azure.com) for all your portal-based administration of Azure AD.
+As of January 8, 2018, the Azure AD administration experience in the Azure classic portal has been retired. This took place in conjunction with the retirement of the Azure classic portal itself. In the future, you should use the [Azure AD admin center](https://aad.portal.azure.com) for all your portal-based administration of Azure AD.
  
 ---
 
@@ -1267,7 +1267,7 @@ For more information, see [Conditional access in Azure AD](https://docs.microsof
 **Service category:** Conditional access  
 **Product capability:** Identity security and protection
 
-The following apps are planned to be added to the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
+The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
