@@ -59,7 +59,7 @@ sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 
 ## Install the container runtime 
 
-Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). If you already have Docker CE/EE installed on your edge device, you can continue to use it for development and testing with Azure IoT Edge. For production scenarios it is highly recommended that you use the [Moby][lnk-moby]-based engine below as it is the only container engine officially supported by Microsoft.
+Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). If you already have Docker CE/EE installed on your Edge device, you can continue to use it for development and testing with Azure IoT Edge. For production scenarios it is highly recommended that you use the [Moby][lnk-moby]-based engine below as it is the only container engine officially supported by Microsoft.
 
 *Instructions below install both moby engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.*
 
@@ -80,7 +80,7 @@ sudo apt-get install iotedge
 
 ## Configure the Azure IoT Edge Security Daemon
 
-The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml`. The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string][lnk-dcs].
+The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml` The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string][lnk-dcs].
 
 For manual configuration, enter the device connection string in *provisioning* section:
 
@@ -98,6 +98,6 @@ For more information and architectural overview of Azure IoT Edge Runtime go thi
 
 <!-- Links -->
 [lnk-dcs]: https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet#register-a-device
-<!-- [lnk-dps]: tbd.md -->
+[lnk-dps]: how-to-simulate-dps-tpm.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
