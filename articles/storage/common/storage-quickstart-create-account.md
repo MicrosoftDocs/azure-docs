@@ -161,7 +161,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Enter a name for your storage account.
 3. Set the **Account kind** field to **StorageV2 (general-purpose v2)**.
-4. Leave the **Replication** field set to **Locally-redundant storage (LRS)**. Alternately, you can chooose **Zone-redundant storage (ZRS Preview)**, **Geo-redundant storage (GRS)**, or **Read-access geo-redundant storage (RA-GRS)**.
+4. Leave the **Replication** field set to **Locally-redundant storage (LRS)**. Alternately, you can chooose **Zone-redundant storage (ZRS) (preview)**, **Geo-redundant storage (GRS)**, or **Read-access geo-redundant storage (RA-GRS)**.
 5. Leave these fields set to their defaults: **Deployment model**, **Performance**, **Secure transfer required**.
 6. Choose the subscription in which you want to create the storage account.
 7. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.
@@ -182,7 +182,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-To create a general-purpose v2 storage account with zone-redundant storage (ZRS Preview), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **SkuName** parameter. 
+To create a general-purpose v2 storage account with zone-redundant storage (ZRS) (preview), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **SkuName** parameter. 
 
 |Replication option  |SkuName parameter  |
 |---------|---------|
@@ -215,13 +215,7 @@ To create a general-purpose v2 storage account with zone-redundant storage (ZRS 
 
 ---
 
-> [!NOTE]
-> [Zone-redundant storage](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) is currently in preview, and is available only in the following locations:
->    - US East 2
->    - US Central
->    - France Central (This region is currently in preview. See [Microsoft Azure preview with Azure Availability Zones now open in France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) to request access.)
-    
-For more information about the different types of replication available, see [Storage replication options](storage-redundancy.md).
+For more information about available replication options, see [Storage replication options](storage-redundancy.md).
 
 ## Clean up resources
 
