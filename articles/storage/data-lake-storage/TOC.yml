@@ -20,10 +20,6 @@
     href: using-databricks-spark.md
   - name: Extract, transform, and load data using Apache Hive on Azure HDInsight
     href: tutorial-extract-transform-load-hive.md
-#- name: Samples
-  #items:  
-  #- name: Example Page
-    #href: example.md
 - name: Concepts
   items:
   - name: The Azure Blob FileSystem driver for Hadoop
@@ -44,8 +40,6 @@
     items:
       - name: Best Practices
         href: best-practice.md
-  #- name: Benchmark results
-    #href:
 - name: How-to guides
   items:
   - name: Use Data Lake Storage Gen2 with Azure HDInsight clusters
@@ -54,10 +48,12 @@
     href: use-hdfs-data-lake-storage.md
   - name: Ingest data
     items: 
-      - name: Copy data into Data Lake Storage using Distcp
+      - name: Copy data into Data Lake Storage Gen2 using Distcp
         href: use-distcp.md
-      - name: Copy data into Data Lake Storage using Azure Data Factory
+      - name: Copy data into Data Lake Storage Gen2 using Azure Data Factory
         href: ../../data-factory/load-azure-data-lake-storage-gen2.md
+      - name: Copy data into Data Lake Storage Gen2 using Azure Data Factory connector 
+        href: ../../data-factory/connector-azure-data-lake-storage.md
 - name: Reference
   items:
 - name: Resources
