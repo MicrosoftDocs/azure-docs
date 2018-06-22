@@ -55,23 +55,27 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
+    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
 
 2. Select **Entities** from the left menu.
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
+    [ ![Screenshot of LUIS app with Entities button hightlighted in left menu](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
 
-3. Select the three dots (...) to the right of the number entity in the list. 
+3. Select the three dots (...) to the right of the number entity in the list. Select **Delete**. 
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
+    [ ![Screenshot of LUIS app on entities list page, with delete button highlighted for Number prebuilt entity](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
 
 ## Add utterances to FindForm intent
 
 1. Select **Intents** from the left menu.
 
+    [ ![Screenshot of LUIS app with Intents hightlighted in left menu](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png#lightbox)
+
 2. Select **MoveEmployee** from the list of intents.
+
+    [ ![Screenshot of LUIS app with MoveEmployee intent hightlighted in left menu](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
 
 3. In the [list entity](luis-quickstart-intent-list-entity.md) tutorial, an employee could be designated by name, email address, phone extension, mobile phone number, or U.S. federal social security number. These employee numbers are used in the utterances. Add the following example utterances:
 
@@ -83,45 +87,44 @@ In order to see the entire utterance and mark the hierarchical children, tempora
     |Begin paperwork to set x12345 **leaving** a-3459 **headed to** f-34567|
     |Displace 425-555-0000 **away from** g-2323 **toward** hh-2345|
 
-    The previous example utterances include different ways to note the origin and destination locations, marked in bold. A couple of the utterances only have destinations on purpose. This helps LUIS understand how those locations are placed in the utterance. 
+    The previous example utterances include different ways to note the origin and destination locations, marked in bold. A couple of the utterances only have destinations on purpose. This helps LUIS understand how those locations are placed in the utterance when the origin destination is not specified.
+
+    [ ![Screenshot of LUIS with new utterances in MoveEmployee intent](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+     
 
 ## Create a location entity from the Intent page
 LUIS needs to understand what a location is by labeling the origin and destinations in the utterances. If you need to see the utterance in the token (raw) view, select the toggle in the bar above the utterances labeled **Entities View**.
 
 1. In the utterance, `Displace 425-555-0000 away from g-2323 toward hh-2345`, select the word `g-2323`. A drop-down menu appears with a text box at the top. Enter the entity name `Locations` in the text box then select **Create new entity** in the drop-down menu. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png "Screenshot of BookFlight intent page, creating a new entity from selected text")](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png#lightbox)
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Screenshot of creating new entity on intent page")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. In the pop-up window, select the **Hierarchical** entity type with `Origin` and `Destination` as the child entities. Select **Done**.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png "Screenshot of entity creation pop-up dialog for new Location entity")](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png#lightbox)
+    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Screenshot of entity creation pop-up dialog for new Location entity")
 
 3. The label for `g-2323` is marked as `Locations` because LUIS doesn't know if the term was the origin or destination, or neither. Select `g-2323`, then select **Locations**, then follow the menu to the right and select `Origin`.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png "Screenshot of entity creation pop-up dialog for new Location entity")](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png#lightbox)
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Screenshot of entity labeling pop-up dialog to change locations entity child")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
-5. Label the other locations in all the other utterances by selecting the building and office in the utterance, then selecting Locations, then following the menu to the right to select `Origin` or `Destination`.
+5. Label the other locations in all the other utterances by selecting the building and office in the utterance, then selecting Locations, then following the menu to the right to select `Origin` or `Destination`. When all locations are labeled, the utterances in **Tokens View** begin to look like a pattern. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png "Screenshot of Bookflight entity with utterance text selected for entity selection")](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png#lightbox)
-
-    When all locations are labeled, the utterances in **Tokens View** begin to look like a pattern. 
-
-    [![](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png "Screenshot of Bookflight entity with utterance text selected for entity selection")](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png#lightbox)
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Screenshot of Locations entity labeled in utterances")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## Add prebuilt number entity to app
 Add the prebuilt number entity back to the application.
 
 1. Select **Entities** from the left navigation menu.
 
-    [ ![Screenshot of Intents list with Entities highlighted in left navigation](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
+    [ ![Screenshot of Entities button highlighted in left navigation](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png#lightbox)
 
 2. Select **Manage prebuilt entities** button.
 
-    [ ![Screenshot of Entities list with Manage prebuilt entities highlighted](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
+    [ ![Screenshot of Entities list with Manage prebuilt entities highlighted](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
 
 3. Select **number** from the list of prebuilt entities then select **Done**.
 
-    ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+    ![Screenshot of number select in prebuilt entities dialog](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## Train the LUIS app
 LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
