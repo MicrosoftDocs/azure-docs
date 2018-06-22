@@ -123,11 +123,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. In the toolbar on the top, click **Account Settings**.
    
-    ![Account Settings](./media/smarteru-tutorial/AccountSettings2018.png "Account Settings")
+    ![Account Settings](./media/smarteru-tutorial/accountsettings.png)
 
 8. On the account configuration page, perform the following steps:
    
-    ![External Authorization](./media/smarteru-tutorial/ExternalAuthorizationConfiguration.png "External Authorization") 
+    ![External Authorization](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
       a. Select **Enable External Authorization**.
   
@@ -192,7 +192,7 @@ When SmarterU, provisioning is a manual task.
 
 3. In the user section, perform the following steps:
    
-    ![New User](./media/smarteru-tutorial/AddUser.png "New User")  
+    ![New User](./media/smarteru-tutorial/adduser.png)  
 
 	a. Click **+User**.
 	
