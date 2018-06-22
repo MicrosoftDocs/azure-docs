@@ -30,6 +30,18 @@
       href: Quickstarts/update-kb-nodejs.md
     - name: Python
       href: Quickstarts/update-kb-python.md
+  - name: Publish a knowledge base
+    items:
+    - name: C#
+      href: Quickstarts/publish-kb-csharp.md
+    - name: Java
+      href: Quickstarts/publish-kb-java.md
+    - name: Go
+      href: Quickstarts/publish-kb-go.md
+    - name: Node.js
+      href: Quickstarts/publish-kb-nodejs.md
+    - name: Python
+      href: Quickstarts/publish-kb-python.md
 - name: Concepts
   items:
   - name: Knowledge base
