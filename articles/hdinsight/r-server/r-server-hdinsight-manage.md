@@ -17,7 +17,7 @@ ms.author: nitinme
 ---
 # Manage ML Services cluster on Azure HDInsight
 
-In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding mulitiple concurrent users, connecting remotely to an ML Server (Microsoft ML Server) or client, changing compute context, etc.
+In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding mulitiple concurrent users, connecting remotely to an ML Services cluster, changing compute context, etc.
 
 ## Prerequisites
 
@@ -77,9 +77,9 @@ You can also log in using the original credentials (by default, it is *sshuser*)
 
 Note also that the newly added users do not have root privileges in Linux system, but they do have the same access to all the files in the remote HDFS and WASB storage.
 
-## Connect remotely to Microsoft ML Server or Client
+## Connect remotely to Microsoft ML Services
 
-You can set up access to the HDInsight Hadoop Spark compute context from a remote instance of Microsoft ML Server or Microsoft ML Client running on your desktop. To do so, you must specify the options (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript) when defining the RxSpark compute context on your desktop: For example:
+You can set up access to the HDInsight Hadoop Spark compute context from a remote instance of ML Client running on your desktop. To do so, you must specify the options (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript) when defining the RxSpark compute context on your desktop: For example:
 
     myNameNode <- "default"
     myPort <- 0
@@ -254,7 +254,7 @@ If you are still using the Spark or MapReduce context, this  command returns the
 
 ## Access data in Hive and Parquet
 
-Microsoft ML Server allows direct access to data in Hive and Parquet for use by ScaleR functions in the Spark compute context. These capabilities are available through new ScaleR data source functions called RxHiveData and RxParquetData that work through use of Spark SQL to load data directly into a Spark DataFrame for analysis by ScaleR.
+HDInsight ML Services allows direct access to data in Hive and Parquet for use by ScaleR functions in the Spark compute context. These capabilities are available through new ScaleR data source functions called RxHiveData and RxParquetData that work through use of Spark SQL to load data directly into a Spark DataFrame for analysis by ScaleR.
 
 The following code provides some sample code on use of the new functions:
 
@@ -289,7 +289,7 @@ The following code provides some sample code on use of the new functions:
     rxSparkDisconnect(myHadoopCluster)
 
 
-For additional info on use of these new functions see the online help in ML Server through use of the `?RxHivedata` and `?RxParquetData` commands.  
+For additional info on use of these new functions see the online help in ML Services through use of the `?RxHivedata` and `?RxParquetData` commands.  
 
 ## Install additional R packages on the cluster
 
@@ -302,7 +302,7 @@ If you want to install additional R packages on the edge node, you can use `inst
 To install R packages on the worker nodes of the cluster, you must use a Script Action. Script Actions are Bash scripts that are used to make configuration changes to the HDInsight cluster or to install additional software, such as additional R packages. 
 
 > [!IMPORTANT]
-> Using Script Actions to install additional R packages can only be used after the cluster has been created. Do not use this procedure during cluster creation, as the script relies on ML Server being completely installed and configured.
+> Using Script Actions to install additional R packages can only be used after the cluster has been created. Do not use this procedure during cluster creation, as the script relies on ML Services being completely configured.
 >
 >
 
