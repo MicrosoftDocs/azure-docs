@@ -19,7 +19,7 @@ This article walks through provisioning the runtime on a development board runni
 
 **Currently, Windows IoT Core supports Azure IoT Edge only on Intel x64-based processors.**
 
-## Install the runtime
+## Install the container runtime
 
 1. Configure your board with **Build 17134 (RS4)** IoT Core image. 
 1. Turn on the device, then [login remotely with PowerShell][lnk-powershell].
