@@ -19,7 +19,7 @@ This article lists the steps to install the Azure IoT Edge runtime on your Linux
 >[!NOTE]
 >Packages in the Linux software repositories are subject to the license terms located in the packages (/usr/share/doc/*package-name*). Please read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
 
-## Install the container runtime and IoT Edge Security Daemon
+## Install the container runtime
 
 Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). If you already have Docker CE/EE installed on your Edge device, you can continue to use it for development and testing with Azure IoT Edge. 
 
@@ -38,16 +38,25 @@ curl https://azureiotedgepreview.blob.core.windows.net/shared/moby-0.1.0~rc1/mob
 # Download and install the moby-cli
 curl https://azureiotedgepreview.blob.core.windows.net/shared/moby-0.1.0~rc1/moby-cli_0.1.0~rc1-1_armhf.deb -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
 
-# Download and install the standard libiothsm implementation
-curl https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-armhf-0.1.0~preview-1/libiothsm-std_0.1.0~preview1-1_armhf.deb  -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
-
-# Download and install the IoT Edge Security Daemon
-curl https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-armhf-0.1.0~preview-1/iotedge_0.1.0~preview1-1_armhf.deb -o iotedge.deb && sudo dpkg -i ./iotedge.deb
-
 # Run apt-get fix
 sudo apt-get install -f
 
+```
 
+## Install the IoT Edge Security Daemon
+
+```cmd/sh
+# You can copy the entire text from this code block and 
+# paste in terminal. The comment lines will be ignored.
+
+# Download and install the standard libiothsm implementation
+curl https://conteng.blob.core.windows.net/iotedged/libiothsm-std_1.0.0_rc1-1_armhf.deb -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
+
+# Download and install the IoT Edge Security Daemon
+curl https://conteng.blob.core.windows.net/iotedged/iotedge_1.0.0_rc1-1_armhf.deb -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+
+# Run apt-get fix
+sudo apt-get install -f
 ```
 
 ## Configure the Azure IoT Edge Security Daemon
@@ -70,7 +79,7 @@ After entering the provisioning information in the configuration, restart the da
 sudo systemctl restart iotedge
 ```
 
-## Verify successful deployment
+## Verify successful installation
 
 You can check the status of the IoT Edge Daemon using:
 

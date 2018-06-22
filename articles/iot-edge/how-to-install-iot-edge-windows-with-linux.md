@@ -82,22 +82,22 @@ provisioning:
   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
 ```
 
-Next, we'll need to provide the ip adress and port for `workload_uri` and `management_uri` in the `connect:` section of the configuration. For the ip address, enter `ipaddress` in your PowerShell window and select the ip address of the `vEthernet (DockerNat)` interface, with ports 15581 and 15580 as shown in the example below (the ip address on your system may be different):
+Next, we'll need to provide the ip adress and port for `workload_uri` and `management_uri` in the `connect:` section of the configuration. For the ip address, enter `ipconfig` in your PowerShell window and select the ip address of the `vEthernet (DockerNAT)` interface, with ports 15581 and 15580 as shown in the example below (the ip address on your system may be different):
 
 ![DockerNat][img-docker-nat]
 
 ```yaml
 connect:
-  workload_uri: "http://10.0.75.1:15581"
   management_uri: "http://10.0.75.1:15580"
+  workload_uri: "http://10.0.75.1:15581"
 ```
 
 Enter the same addresses in the `listen:` section of the configuration. For example:
 
 ```yaml
 listen:
-  workload_uri: "http://10.0.75.1:15581"
   management_uri: "http://10.0.75.1:15580"
+  workload_uri: "http://10.0.75.1:15581"
 ```
 
 Create an environment variable `IOTEDGE_HOST` using the same address, example:
@@ -121,7 +121,7 @@ Stop-Service iotedge
 Start-Service iotedge
 ```
 
-## Verify successful deployment
+## Verify successful installation
 
 You can check the status of the IoT Edge service by: 
 

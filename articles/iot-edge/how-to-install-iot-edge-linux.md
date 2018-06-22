@@ -100,7 +100,7 @@ After entering the provisioning information in the configuration, restart the da
 sudo systemctl restart iotedge
 ```
 
-## Verify successful deployment
+## Verify successful installation
 
 You can check the status of the IoT Edge Daemon using:
 
