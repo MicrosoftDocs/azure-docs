@@ -518,6 +518,9 @@
       - name: Blobs
         tocHref: /azure/storage/blobs/
         topicHref: /azure/storage/blobs/storage-blobs-introduction
+      - name: Data Lake Storage Gen2
+        tocHref: /azure/storage/data-lake-storage-gen2/
+        topicHref: /azure/storage/data-lake-storage/introduction
       - name: Files
         tocHref: /azure/storage/files/
         topicHref: /azure/storage/files/storage-files-introduction 
