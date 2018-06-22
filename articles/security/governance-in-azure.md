@@ -1,7 +1,7 @@
 ---
 
 title: Governance in Azure | Microsoft Docs
-description: Learn about cloud-based computing services that include a wide selection of compute instances and services that can scale up and down automatically to meet the needs of your application or enterprise.
+description: Learn about cloud-based computing services that can scale up and down to meet the needs of your application or enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -25,15 +25,15 @@ Azure gives you many security options and the ability to control them so that yo
 
 Azure cloud governance refers to the decision-making processes, criteria, and policies involved in the planning, architecture, acquisition, deployment, operation, and management of cloud computing. Azure cloud governance provides an integrated audit and consulting approach for reviewing and advising organizations on their usage of the Azure platform. 
 
-To create a plan for Azure cloud governance, you need to take an in-depth look at the people, processes, and technologies currently in place. Then, you can build frameworks that make it easy for IT to consistently support business needs while providing users with the flexibility to use the features of Azure.
+To create a plan for Azure cloud governance, you need to take an in-depth look at the people, processes, and technologies now in place. Then, you can build frameworks that make it easy for IT to consistently support business needs while providing users with the flexibility to use the features of Azure.
 
 ## Implementation of policies, processes, and standards 
 
-Management has established roles and responsibilities to oversee implementation of the information security policy and operational continuity across Azure. Azure management is responsible for overseeing security and continuity practices within their respective teams (including third parties), and facilitating compliance with security policies, processes, and standards.
+Management has established roles and responsibilities to oversee implementation of information security policies and operational continuity across Azure. Azure management is responsible for overseeing security and continuity practices within its respective teams (including third parties). It also facilitates compliance with security policies, processes, and standards.
 
 ### Account provisioning
 
-Defining account hierarchy is a major step to use and structure Azure services within a company. It's the core governance structure. Customers who have an Enterprise Agreement can subdivide the environment into departments, accounts, and subscriptions.
+Defining account hierarchy is a major step to use and structure Azure services within a company. It's the core governance structure. Customers who have an Enterprise Agreement (EA) can subdivide the environment into departments, accounts, and subscriptions.
 
 ![Account provisioning](./media/governance-in-azure/security-governance-in-azure-fig1.png)
 
@@ -43,9 +43,9 @@ Every enterprise is different. For non-enterprise companies, the hierarchy of us
 
 ### Subscription controls
 
-Subscriptions control how resources usage is reported and billed. You can set up subscriptions for separate billing and payment. One Azure account can have multiple subscriptions. Subscriptions can be used to determine the Azure resource usage of multiple departments in a company.
+Subscriptions determine how resources usage is reported and billed. You can set up subscriptions for separate billing and payment. One Azure account can have multiple subscriptions. Subscriptions can be used to determine the Azure resource usage of multiple departments in a company.
 
-For example, a company has IT, HR, and Marketing departments, and these departments are running different projects. The company can base its billing on each department's usage of Azure resources, like virtual machines. The copany can then control the finances of each department.
+For example, a company has IT, HR, and Marketing departments, and these departments are running different projects. The company can base its billing on each department's usage of Azure resources, like virtual machines. The company can then control the finances of each department.
 
 Azure subscriptions establish three parameters:
 
@@ -59,7 +59,7 @@ For an individual, those parameters include one Microsoft account ID, a credit c
 
 Azure enrollment hierarchies define how services are structured within an Enterprise Agreement. The Enterprise Agreement portal enables customers to divide access to Azure resources associated with an Enterprise Agreement based on flexible hierarchies that are customizable to an organization's needs. The hierarchy pattern should match an organization's management and geographic structure to account for the associated billing and resource access.
 
-The three high-level hiearchy patterns are functional, business unit, and geographic. Departments are an administrative construct for account groupings. Within each department, accounts can be assigned subscriptions, which create silos for billing and several key limits in Azure (for example, number of VMs and storage accounts).
+The three high-level hierarchy patterns are functional, business unit, and geographic. Departments are an administrative construct for account groupings. Within each department, accounts can be assigned subscriptions, which create silos for billing and several key limits in Azure (for example, number of VMs and storage accounts).
 
 ![Subscription controls](./media/governance-in-azure/security-governance-in-azure-fig2.png)
 
@@ -96,7 +96,7 @@ This hierarchy governs the following:
 
 ### Role-based access control
 
-When Azure was initially released, access controls to a subscription were basic: administrator or co-administrator. Access to a subscription in the classic model implied access to all the resources in the Azure portal. This lack of detailed control led to the proliferation of subscriptions to provide a level of reasonable access control for an Azure enrollment.
+When Azure was initially released, access controls to a subscription were basic: administrator or co-administrator. Access to a subscription in the classic model implied access to all the resources in the Azure portal. This lack of detailed control led to the proliferation of subscriptions to provide the right level of access control for an Azure enrollment.
 
 ![Role-based access control](./media/governance-in-azure/security-governance-in-azure-fig3.png)
 
@@ -116,7 +116,7 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the virtual network or the subnet that the virtual machine connects to.
 
-The [RBAC built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) article lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users.
+The [RBAC built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) article lists the available roles in Azure. It specifies the operations and scope that each built-in role grants to users.
 
 Grant access by assigning the appropriate RBAC role to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. A role assigned at a parent scope also grants access to the children contained within it. For example, a user with access to a resource group can manage all the resources that it contains, like websites, virtual machines, and subnets.
 
@@ -124,15 +124,15 @@ RBAC supports only management operations of the Azure resources in the Azure por
 
 If you want more details about how RBAC helps you manage access, see [What is role-based access control?](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-You can also [create a custom role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) in RBAC if none of the built-in roles meet your specific access needs. You can create custom roles by using [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), and the [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scopes.
+You can also [create a custom role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) in RBAC if none of the built-in roles meet your specific access needs. You can create custom roles by using [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), and the [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Just like built-in roles, custom roles can be assigned to users, groups, and applications at the subscription, resource group, and resource scope levels.
 
 Within each subscription, you can grant up to 2,000 role assignments.
 
 ### Resource management
 
-Azure povides two deployment models: [classic](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) and Azure Resource Manger.
+Azure provides two deployment models: [classic](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) and Azure Resource Manger.
 
-In the classic model, each resource exists independently. There's no way to group related resources together. You have to manually track which resources make up your solution or application, and remember to manage them in a coordinated approach. The basic unit of management is the subscription. It's difficult to break down resources within a subscription, which leads to the creation of large numbers of subscriptions.
+In the classic model, each resource exists independently. There's no way to group related resources together. You have to manually track which resources make up your solution or application, and remember to manage them in a coordinated approach. The basic unit of management is the subscription. It's hard to break down resources within a subscription, which leads to the creation of large numbers of subscriptions.
 
 The Resource Manager deployment model includes the concept of a [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). A resource group is a container for resources that share a common lifecycle. It can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization.
 
@@ -148,31 +148,31 @@ The Resource Manager deployment model provides several benefits:
 
 - You can use JavaScript Object Notation (JSON) to define the infrastructure for your solution. The JSON file is known as a Resource Manager template.
 
-- You can define the dependencies between resources so they're deployed in the correct order.
+- You can define the dependencies between resources so they're deployed in the right order.
 
 ![Resource Manager](./media/governance-in-azure/security-governance-in-azure-fig4.png)
 
 For recommendations about templates, see [Best practices for creating Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 
-Azure Resource Manager analyzes dependencies to help ensure that resources are created in the correct order. If one resource relies on a value from another resource (such as a virtual machine needing a storage account for disks), you [set a dependency](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies) in the template.
+Azure Resource Manager analyzes dependencies to help ensure that resources are created in the right order. If one resource relies on a value from another resource (such as a virtual machine needing a storage account for disks), you [set a dependency](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies) in the template.
 
 You can also use the template for updates to the infrastructure. For example, you can add a resource to your solution and add configuration rules for the resources that are already deployed. If the template specifies creating a resource but that resource already exists, Resource Manager performs an update instead of creating a new asset. Resource Manager updates the existing asset to the same state as it would be as new.
 
-Resource Manager provides extensions for scenarios when you need additional operations, such as installing software that is not included in the setup.
+Resource Manager provides extensions for scenarios when you need more operations, such as installing software that is not included in the setup.
 
 ### Resource tracking
 
-As users in your organization add resources to the subscription, it becomes increasingly important to associate resources with the appropriate department, customer, and environment. You can attach metadata to resources through [tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags). You use tags to provide information about the resource or the owner. Tags enable you to not only aggregate and group resources in several ways, but use that data for the purpose of chargeback.
+As users in your organization add resources to the subscription, it becomes more important to associate resources with the appropriate department, customer, and environment. You can attach metadata to resources through [tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags). You use tags to provide information about the resource or the owner. Tags enable you to not only aggregate and group resources in several ways, but also use that data for the purpose of chargeback.
 
 Use tags when you have a complex collection of resource groups and resources, and you need to visualize those assets in the way that makes the most sense to you. For example, you can tag resources that serve a similar role in your organization or that belong to the same department.
 
-Without tags, users in your organization can create multiple resources that might be difficult to later identify and manage. For example, you might want to delete all the resources for a project. If those resources are not tagged for the project, you must manually find them. Tagging can be an important way for you to reduce unnecessary costs in your subscription.
+Without tags, users in your organization can create multiple resources that might be hard to later identify and manage. For example, you might want to delete all the resources for a project. If those resources are not tagged for the project, you must manually find them. Tagging can be an important way for you to reduce unnecessary costs in your subscription.
 
 Resources don't need to reside in the same resource group to share a tag. You can create your own tag taxonomy to ensure that all users in your organization use common tags rather than inadvertently applying slightly different tags (such as "dept" instead of "department").
 
 Resource policies enable you to create standard rules for your organization. You can create policies to ensure that resources are tagged with the appropriate values.
 
-You can also view tagged resources through the Azure portal. The [usage report](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) for your subscription includes tag names and values, which enables you to break out costs by tags.
+You can also view tagged resources through the Azure portal. The [usage report](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) for your subscription includes tag names and values, so you can break out costs by tags.
 
 For more information about tags, see [Billing tags policy initiative](../azure-policy/scripts/billing-tags-policy-init.md).
 
@@ -188,9 +188,9 @@ The following limitations apply to tags:
 
 If you have more than 15 values that you need to associate with a resource, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag key.
 
-#### Tags and billing
+#### Tags for billing
 
-Tags enable you to group your billing data. For example, if you're running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
+Tags enable you to group your billing data. For example, if you're running multiple VMs for different organizations, use tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
 
 You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure accounts portal](https://account.windowsazure.com/) or the [EA portal](https://ea.azure.com/).
 
@@ -200,13 +200,13 @@ When you download the usage CSV for services that support tags with billing, the
 
 ### Critical resource controls
 
-As your organization adds core services to the subscription, it becomes increasingly important to ensure that those services are available to avoid business disruption. [Resource locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) enable you to restrict operations on high-value resources where modifying or deleting them would have a significant impact on your applications or cloud infrastructure. You can apply locks to a subscription, resource group, or resource. Typically, you apply locks to foundational resources such as virtual networks, gateways, and storage accounts.
+As your organization adds core services to the subscription, it becomes more important to ensure that those services are available to avoid business disruption. [Resource locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) enable you to restrict operations on high-value resources where modifying or deleting them would have a significant impact on your applications or cloud infrastructure. You can apply locks to a subscription, resource group, or resource. Typically, you apply locks to foundational resources such as virtual networks, gateways, and storage accounts.
 
 Resource locks currently support two values: **CanNotDelete** and **ReadOnly**. **CanNotDelete** means that users (with the appropriate rights) can still read or modify a resource but cannot delete it. **ReadOnly** means that authorized users can't delete or modify a resource.
 
-Resource locks apply only to operations that happen in the management plane, which consists of operations sent to <https://management.azure.com>. The locks do not restrict how resources perform their own functions. Resource changes are restricted, but resource operations are not restricted. For example, a **ReadOnly** lock on a SQL database prevents you from deleting or modifying the database, but it does not prevent you from creating, updating, or deleting data in the database.
+Resource locks apply only to operations that happen in the management plane, which consists of operations sent to <https://management.azure.com>. The locks don't restrict how resources perform their own functions. Resource changes are restricted, but resource operations are not restricted. For example, a **ReadOnly** lock on a SQL database prevents you from deleting or modifying the database, but it does not prevent you from creating, updating, or deleting data in the database.
 
-Applying **ReadOnly** can lead to unexpected results because some operations that seem like read operations require additional actions. For example, placing a **ReadOnly** lock on a storage account prevents all users from listing the keys. The operating of listing keys is handled through a POST request because the returned keys are available for write operations.
+Applying **ReadOnly** can lead to unexpected results because some operations that seem like read operations require additional actions. For example, placing a **ReadOnly** lock on a storage account prevents all users from listing the keys. The operation of listing keys is handled through a POST request because the returned keys are available for write operations.
 
 ![Critical resource controls](./media/governance-in-azure/security-governance-in-azure-fig5.png)
 
@@ -230,27 +230,27 @@ Use the Azure [Resource Usage API](https://msdn.microsoft.com/library/azure/mt21
 
 - **Hourly or daily aggregations**: Callers can specify whether they want their Azure usage data in hourly or daily increments. The default is daily.
 
-- **Instance metadata (includes resource tags)**: Get instance-level detail like the fully qualified resource URI (/subscriptions/{subscription-id} /..), the resource group information, and resource tags. This metadata helps you deterministically and programmatically allocate usage by the tags, for use cases like cross-charging.
+- **Instance metadata (includes resource tags)**: Get instance-level detail like the fully qualified resource URI (/subscriptions/{subscription-id} /..), resource group information, and resource tags. This metadata helps you deterministically and programmatically allocate usage by the tags, for use cases like cross-charging.
 
 - **Resource metadata**: Resource details such as the meter name, meter category, meter subcategory, unit, and region give the caller a better understanding of what was consumed. We're also working to align resource metadata terminology across the Azure portal, Azure usage CSV, EA billing CSV, and other public-facing experiences, to help you correlate data across experiences.
 
-- **Usage for all offer types**: Usage data is available for all offer types like Pay-As-You-Go, MSDN, Monetary Commitment, Monetary Credit, and EA.
+- **Usage for all offer types**: Usage data is available for all offer types, including Pay-As-You-Go, MSDN, Monetary Commitment, Monetary Credit, and EA.
 
 #### Resource RateCard API
 
 Use the Azure Resource RateCard API to get the list of available Azure resources and estimated pricing information for each. The API includes:
 
-- **RBAC**: Configure your access policies on the Azure portal or through Azure PowerShell cmdlets to specify which users or applications can get access to the RateCard data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Reader, Owner, or Contributor role to get access to the usage data for a particular Azure subscription.
+- **RBAC**: Configure your access policies on the Azure portal or through Azure PowerShell cmdlets to specify which users or applications can get access to the RateCard data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to the Reader, Owner, or Contributor role to get access to the usage data for a particular Azure subscription.
 
-- **Support for Pay-As-You-Go, MSDN, Monetary Commitment, and Monetary Credit offers (EA not supported)**: This API provides Azure offer-level rate information. The caller of this API must pass in the offer information to get resource details and rates. We're currently unable to provide EA rates because EA offers have customized rates per enrollment. 
+- **Support for Pay-As-You-Go, MSDN, Monetary Commitment, and Monetary Credit offers (but not EA)**: This API provides Azure offer-level rate information. The caller of this API must pass in the offer information to get resource details and rates. EA is currently not supported because EA offers have customized rates per enrollment. 
 
 #### Scenarios
 
-Here are some of the scenarios that are made possible with the combination of the Usage and the RateCard APIs:
+The combination of the Usage and RateCard APIs makes these scenarios possible:
 
 - **Understand Azure spend during the month**: Use the combination of the Usage and RateCard APIs to get better insights into your cloud spend during the month. You can analyze hourly and daily usage and charge estimates.
 
-- **Set up alerts**: Use the Usage and the RateCard APIs to get estimated cloud consumption and charges, and set up resource-based or monetary-based alerts.
+- **Set up alerts**: Use the Usage and RateCard APIs to get estimated cloud consumption and charges, and set up resource-based or monetary-based alerts.
 
 - **Predict bill**: Get your estimated consumption and cloud spend, and apply machine learning algorithms to predict what the bill would be at the end of the billing cycle.
 
@@ -274,7 +274,7 @@ A virtual network is a representation of your own network in the cloud. A virtua
 
 Following are capabilities for Azure virtual networks:
 
-- **Isolation**: Virtual networks are isolated from one another. You can create separate virtual networks for development, testing, and production that use the same CIDR address blocks. Conversely, you can create multiple virtual networks that use different CIDR address blocks and connect networks together. You can segment a virtual network into multiple subnets. Azure provides internal name resolution for VMs and Azure Cloud Services role instances connected to a virtual network. You can optionally configure a virtual network to use your own DNS servers, instead of using Azure internal name resolution.
+- **Isolation**: Virtual networks are isolated from one another. You can create separate virtual networks for development, testing, and production that use the same CIDR address blocks. Conversely, you can create multiple virtual networks that use different CIDR address blocks and connect networks together. You can segment a virtual network into multiple subnets. Azure provides internal name resolution for VMs and Azure Cloud Services role instances that are connected to a virtual network. You can optionally configure a virtual network to use your own DNS servers, instead of using Azure internal name resolution.
 
 - **Internet connectivity**: All Azure virtual machines and Cloud Services role instances that are connected to a virtual network have access to the internet, by default. You can also enable inbound access to specific resources, as needed.
 
@@ -282,7 +282,7 @@ Following are capabilities for Azure virtual networks:
 
 - **Virtual network connectivity**: You can connect virtual networks to each other. Resources that are connected to any virtual network can then communicate with any resource on any other virtual network.
 
-- **On-premises connectivity**: You can connect virtual networks to on-premises networks through private network connections between your network and Azure, or through a site-to-site VPN connection over the internet.
+- **On-premises connectivity**: You can connect virtual networks to on-premises networks through private network connections between your network and Azure, or through a site-to-site virtual private network (VPN) connection over the internet.
 
 - **Traffic filtering**: You can filter network traffic (inbound and outbound) for virtual machines and Cloud Services by source IP address and port, destination IP address and port, and protocol.
 
@@ -290,7 +290,7 @@ Following are capabilities for Azure virtual networks:
 
 #### Network access controls
 
-[Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSGs) are like a firewall and provide rules for how a resource can "talk" over the network. They provide control over how/if a subnet (or virtual machine) can connect to the internet or other subnets in the same virtual network.
+[Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSGs) are like a firewall and provide rules for how a resource can "talk" over the network. They provide control over how a subnet (or virtual machine) can connect to the internet or other subnets in the same virtual network.
 
 A network security group contains a list of security rules that allow or deny network traffic to resources connected to Azure virtual networks. NSGs can be associated with subnets, individual VMs (classic), or individual network interfaces (NICs) attached to VMs (Resource Manager).
 
@@ -314,9 +314,9 @@ Every business has different needs and will reap distinct benefits from cloud so
 
 Azure subscribers can manage their cloud environments from multiple devices. These devices might include management workstations, developer PCs, and even privileged end-user devices that have task-specific permissions. 
 
-In some cases, administrative functions are performed through web-based consoles such as the Azure portal. In other cases, there might be direct connections to Azure from on-premises systems over virtual private networks (VPNs), Terminal Services, client application protocols, or (programmatically) the Azure Service Management API (SMAPI). Additionally, client endpoints can be either domain joined or isolated and unmanaged, like tablets or smartphones.
+In some cases, administrative functions are performed through web-based consoles such as the Azure portal. In other cases, there might be direct connections to Azure from on-premises systems over VPNs, Terminal Services, client application protocols, or (programmatically) the Azure Service Management API (SMAPI). Additionally, client endpoints can be either domain joined or isolated and unmanaged, like tablets or smartphones.
 
-This variability can add significant risk to a cloud deployment. It can be difficult to manage, track, and audit administrative actions. This variability can also introduce security threats through unregulated access to client endpoints that are used for managing cloud services. Using general or personal workstations for developing and managing infrastructure opens unpredictable threat vectors such as web browsing (for example, watering hole attacks) or email (for example, social engineering and phishing).
+This variability can add significant risk to a cloud deployment. It can be hard to manage, track, and audit administrative actions. This variability can also introduce security threats through unregulated access to client endpoints that are used for managing cloud services. Using general or personal workstations for developing and managing infrastructure opens unpredictable threat vectors such as web browsing (for example, watering hole attacks) or email (for example, social engineering and phishing).
 
 Monitoring, logging, and auditing provide a basis for tracking and understanding administrative activities. Auditing all actions in complete detail might not always be feasible because of the amount of data generated. But auditing the effectiveness of the management policies is a best practice.
 
@@ -324,7 +324,7 @@ Azure security governance from Azure Active Directory Domain Services (AD DS) GP
 
 ### Azure Security Center
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) provides a central view of the security status of resources in the subscriptions. It provides recommendations that help prevent compromised resources. It can enable more detailed policies--for example, applying policies to specific resource groups that allow the enterprise to tailor their posture to the risk they're addressing.
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) provides a central view of the security status of resources in subscriptions. It provides recommendations that help prevent compromised resources. It can enable more detailed policies--for example, applying policies to specific resource groups that allow the enterprise to tailor their posture to the risk they're addressing.
 
 ![Azure Security Center](./media/governance-in-azure/security-governance-in-azure-fig7.png)
 
@@ -334,7 +334,7 @@ Azure Security Center represents a combination of best practice analysis and sec
 
 In addition, Azure Security Center applies advanced analytics, including machine learning and behavioral analysis. It uses global threat intelligence from Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds. You can apply [security governance](https://www.credera.com/blog/credera-site/azure-governance-part-4-other-tools-in-the-toolbox/) broadly at the subscription level. Or, you can narrow it down to specific requirements and apply them to individual resources through policy definition.
 
-Finally, Azure Security Center analyzes resource security health based on those policies and uses this to provide insightful dashboards and alerting for events such as malware detection or malicious IP connection attempts. For more information about how to apply recommendations, read [Implementing security recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+Finally, Azure Security Center analyzes resource security health based on those policies and uses this information to provide insightful dashboards and alerting for events such as malware detection or malicious IP connection attempts. For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
 Azure Security Center monitors the following Azure resources:
 
@@ -344,69 +344,65 @@ Azure Security Center monitors the following Azure resources:
 
 - SQL databases
 
-- Partner solutions integrated with your Azure subscription, such as a web application firewall on VMs and on the [App Service Environment](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
+- Partner solutions integrated with your Azure subscription, such as a web application firewall on VMs and on the [App Service Environment](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme)
 
 When you first access Security Center, data collection is enabled on all virtual machines in your subscription. We recommend that you keep data collection enabled, but you can [disable it](https://docs.microsoft.com/azure/security-center/security-center-faq) in the Security Center policy.
 
 ### Log Analytics
 
-The Azure Log Analytics software development and service team's information security and [governance program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). How Log Analytics establish security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we review polices, standards, procedures, and guidelines.
+The Azure Log Analytics software development and service team's information security and [governance program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) supports its business requirements. It adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). How Log Analytics establishes security requirements, identifies security controls, and manages and monitors risks is also described there. Annually, the team reviews polices, standards, procedures, and guidelines.
 
-Each Log Analytics development team member receives formal application security training. Internally, we use a version control system for software development. Each software project is protected by the version control system.
+Each Log Analytics development team member receives formal application security training. A version control system helps protect each software project in development.
 
-Microsoft has a security and compliance team that oversees and assesses all services in Microsoft. Information security officers make up the team and they are not associated with the engineering departments that develop Log Analytics. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
-
-Azure provides a collection of management services that were designed in the cloud from the start. Rather than deploying and managing on premises resources, these components are entirely hosted in Azure. Configuration is minimal, and you can be up and running in a matter of minutes.
-
-![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
-
-Just because Log Analytics services run in the cloud doesn't mean that they can't effectively manage your on-premises environment.
-
-Put an agent on any Windows or Linux computer in your data center, and it will send data to Log Analytics where it can be analyzed along with all other data collected from cloud or on premises services. Use Azure Backup and Azure Site Recovery to leverage the cloud for backup and high availability for on premises resources.
-
-Runbooks in the cloud can't typically access your on-premises resources, but you can install an agent on one or more computers too that will host runbooks in your data center. When you start a runbook, you simply specify whether you want it to run in the cloud or on a local worker.
+Microsoft has a security and compliance team that oversees and assesses all services in Microsoft. Information security officers make up the team, and they're not associated with the engineering departments that develop Log Analytics. The security officers have their own management chain. They conduct independent assessments of products and services to help ensure security and compliance.
 
 The core functionality of Log Analytics is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
 
-![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
+![Azure services for management](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Azure operation manager extends its functionalities by providing management solutions. [Management Solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logic that implement a management scenario leveraging one or more management services.
+These management services were designed in the cloud. They're entirely hosted in Azure, so they don't involve deploying and managing on-premises resources. Configuration is minimal, and you can be up and running in a matter of minutes.
 
-![Azure operation manage](./media/governance-in-azure/security-governance-in-azure-fig10.png)
+Put an agent on any Windows or Linux computer in your datacenter, and it will send data to Log Analytics. There, it can be analyzed along with all other data collected from cloud or on-premises services. Use Azure Backup and Azure Site Recovery to take advantage of the cloud for backup and high availability for on-premises resources.
 
-Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Log Analytics.
+![Management services on the Azure dashboard](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
+Runbooks in the cloud can't typically access your on-premises resources, but you can install an agent on one or more computers that will host runbooks in your datacenter. When you start a runbook, you specify whether you want it to run in the cloud or on a local worker.
+
+Different solutions are available from Microsoft and from partners that you can add to your Azure subscription to increase the value of your investment in Log Analytics. For example, Azure offers [management solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)--prepackaged sets of logic that implement a management scenario by using one or more management services.
+
+![Gallery of management solutions in Azure](./media/governance-in-azure/security-governance-in-azure-fig10.png)
+
+As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quickstart templates.
 
 ## Performance alerting and monitoring
 
 ### Alerting
 
-Alerts are a method of monitoring Azure resource metrics, events, or logs and being notified when a condition you specify is met.
+Alerts are a method of monitoring Azure resource metrics, events, or logs. They notify you when a condition that you've specified is met.
 
-Alerts are available across different services, including:
+Alerts are available across services, including:
 
-- Application Insights: Enables web test and metric alerts. For more information, see [Set alerts in Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) and [Monitor availability and responsiveness of any website](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
+- **Azure Application Insights**: Enables web test and metric alerts. For more information, see [Set alerts in Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) and [Monitor availability and responsiveness of any website](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Log Analytics: Enables the routing of Activity and Diagnostic Logs to Log Analytics, and allows metric, log, and other alert types. For more information, see [Alerts in Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
+- **Log Analytics**: Enables the routing of activity and diagnostic logs to Log Analytics. It allows metric, log, and other alert types. For more information, see [Alerts in Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
 
-- Azure Monitor: Enables alerts based on both metric values and activity log events. You can use the [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx) to manage alerts. For more information, see [Using the Azure portal, PowerShell, or the command-line interface to create alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal).
+- **Azure Monitor**: Enables alerts based on both metric values and activity log events. You can use the [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx) to manage alerts. For more information, see [Using the Azure portal, PowerShell, or the command-line interface to create alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal).
 
 ### Monitoring
 
-Performance issues in your cloud app can impact your business. With multiple interconnected components and frequent releases, degradations can happen at any time. And if you're developing an app, your users usually discover issues that you didn't find in testing. You should know about these issues immediately, and have tools for diagnosing and fixing the problems. Azure has a range of tools for identifying these problems.
+Performance problems in your cloud app can affect your business. With multiple interconnected components and frequent releases, degradations can happen at any time. And if you're developing an app, your users usually discover problems that you didn't find in testing. You should know about these problems immediately, and have tools for diagnosing and fixing them.
 
-There is a range of tools for monitoring Azure applications and services. Some of their features overlap. This is partly for historical reasons and partly due to the blurring between development and operation of an application.
+There's a range of tools for monitoring Azure applications and services. Some of their features overlap. This is partly due to the blurring between development and operation of an application.
 
 Here are the principal tools:
 
-- **Azure Monitor** is basic tool for monitoring services running on Azure. It gives you infrastructure-level data about the throughput of a service and the surrounding environment. If you are managing your apps all in Azure, deciding whether to scale up or down resources, then Azure Monitor gives you what you use to start.
+- **Azure Monitor** is a basic tool for monitoring services running on Azure. It gives you infrastructure-level data about the throughput of a service and the surrounding environment. If you're managing all your apps in Azure and deciding whether to scale up or down resources, Azure Monitor can help you start.
 
-- **Application Insights** can be used for development and as a production monitoring solution. It works by installing a package into your app, and so gives you a more internal view of what's going on. Its data includes response times of dependencies, exception traces, debugging snapshots, execution profiles. It provides powerful smart tools for analyzing all this telemetry both to help you debug an app and to help you understand what users are doing with it. You can tell whether a spike in response times is due to something in an app, or some external resourcing issue. If you use Visual Studio and the app is at fault, you can be taken right to the problem line(s) of code so you can fix it.
+- **Application Insights** can be used for development and as a production monitoring solution. It works by installing a package in your app, so it gives you a more internal view of what's going on. Its data includes response times of dependencies, exception traces, debugging snapshots, and execution profiles. It provides tools for analyzing all this telemetry both to help you debug an app and to help you understand what users are doing with it. You can tell whether a spike in response times is due to something in an app or some external resourcing issue. If you use Visual Studio and the app is at fault, you go right to the problem line of code so you can fix it.
 
-- **Log Analytics** is for those who need to tune performance and plan maintenance on applications running in production. It is based in Azure. It collects and aggregates data from many sources, though with a delay of 10 to 15 minutes. It provides a holistic IT management solution for Azure, on-premises, and third-party cloud-based infrastructure (such as Amazon Web Services). It provides richer tools to analyze data across more sources, allows complex queries across all logs, and can proactively alert on specified conditions. You can even collect custom data into its central repository so can query and visualize it.
+- **Log Analytics** is for those who need to tune performance and plan maintenance on applications running in production. It collects and aggregates data from many sources, with a delay of 10 to 15 minutes. It provides a holistic IT management solution for Azure, on-premises, and third-party cloud-based infrastructure (such as Amazon Web Services). It provides tools to analyze data across sources, allows complex queries across all logs, and can proactively alert on specified conditions. You can even collect custom data in its central repository, and then query and visualize that data.
 
-- **System Center Operations Manager (SCOM)** is for managing and monitoring large cloud installations. You might be already familiar with it as a management tool for on-premises Windows Sever and Hyper-V based-clouds, but it can also integrate with and manage Azure apps. Among other things, it can install Application Insights on existing live apps. If an app goes down, it tells you in seconds.
+- **System Center Operations Manager** is for managing and monitoring large cloud installations. You might be already familiar with it as a management tool for on-premises Windows Sever and Hyper-V based-clouds, but it can also integrate with and manage Azure apps. Among other things, it can install Application Insights on existing live apps. If an app goes down, Operations Manager tells you in seconds.
 
 
 ## Next steps
