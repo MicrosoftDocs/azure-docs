@@ -70,17 +70,17 @@ az webapp config set --python-version 3.4 --resource-group <groupname> --name <a
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
-### Deprecated versions
+### Deprecated versions  
 
 When an older version is deprecated, the removal date is announced so that you can plan your runtime version upgrade accordingly. 
 
-## How can I query OS and runtime update status on my instances?
+## How can I query OS and runtime update status on my instances?  
 
 While critical OS information is locked down from access (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)), the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) enables you to query your App Service instance regarding the OS version and runtime versions. 
 
 The following table shows how to the versions of Windows and of the language runtime that are running your apps:
 
-| Information | Where to find it |
+| Information | Where to find it | 
 |-|-|
 | Windows version | See `https://<appname>.scm.azurewebsites.net/Env.cshtml` (under System info) |
 | .NET version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
