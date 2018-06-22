@@ -50,6 +50,8 @@
   items:
   - name: Use Data Lake Storage Gen2 with Azure HDInsight clusters
     href: use-hdi-cluster.md
+  - name: Use Hadoop FileSystem CLI with Data Lake Storage Gen2
+    href: use-hdfs-data-lake-storage.md
   - name: Ingest data
     items: 
       - name: Copy data into Data Lake Storage using Distcp
