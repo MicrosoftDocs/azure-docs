@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs
 
-Let's say you have thousands of devices constantly sending real-time data to an event hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture any where you have multiple transactions in multiple countries within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. With Azure Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI.
+Let's say you have thousands of devices constantly sending real-time data to an event hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture anywhere you have multiple transactions in multiple countries within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. With Azure Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI.
 
 In this tutorial, you simulate this example. You run an application that creates and sends credit card transactions to an event hub. Then you read the stream of data in real-time with Azure Stream Analytics, which separates the valid transactions from the invalid transactions, and then visualize the results with a Power BI visualization. 
 
@@ -154,7 +154,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## Run app to produce test event data
 
-There is an app that produces test data for you. It simulates the use of credit cards by writing credit card transactions to the event hub, including occasionally writing several transactions for the same credit card in multiple locations so they are tagged as anomalies. To run this app, please follow these steps: 
+There is an app that produces test data for you. It simulates the use of credit cards by writing credit card transactions to the event hub, including occasionally writing several transactions for the same credit card in multiple locations so they are tagged as anomalies. To run this app, follow these steps: 
 
 1. Download the [Azure Event Hubs samples](https://github.com/Azure/azure-event-hubs/archive/master.zip) from GitHub and unzip it locally.
 
@@ -162,7 +162,7 @@ There is an app that produces test data for you. It simulates the use of credit 
 
 3. Open Program.cs and replace **Event Hubs connection string** with the connection string you saved when running the script. 
 
-4. Replace **Event Hub name** with your event hub name. Click F5 to run the application. It starts sending events to your event hub, and continues until it has sent 1000 events. There are a few instances where the app needs to be running for you to retrieve data. This is pointed out in the following instructions where needed.
+4. Replace **Event Hub name** with your event hub name. Click F5 to run the application. It starts sending events to your event hub, and continues until it has sent 1000 events. There are a few instances where the app needs to be running for you to retrieve data. These cases are pointed out in the following instructions where needed.
 
 ## Set up Azure Stream Analytics
 
@@ -174,7 +174,7 @@ Now you can stream data into your event hub. To use that data in a Power BI visu
 
 2. Enter the following information for the job.
 
-    **Job name**: Use **contosoEHjob**. This is the name of the job and it must be globally unique.
+    **Job name**: Use **contosoEHjob**. This field is the name of the job and it must be globally unique.
 
    **Subscription**: Select your subscription.
 
@@ -199,7 +199,7 @@ The inputs for the Steam Analytics job are the credit card transactions from the
 
 2. In the **Inputs** pane, click **Add stream input** and select Event Hub. On the screen that appears, fill in the following fields:
 
-   **Input alias**: Use **contosoinputs**. This is the name of the input stream, used when defining the query for the data.
+   **Input alias**: Use **contosoinputs**. This field is the name of the input stream, used when defining the query for the data.
 
    **Subscription**: Select your subscription.
 
@@ -219,15 +219,15 @@ The inputs for the Steam Analytics job are the credit card transactions from the
 
 ### Add an output to the Stream Analytics job
 
-1. Under **Job Topology**, click **Outputs**. This is the name of the output stream, used when defining the query for the data.
+1. Under **Job Topology**, click **Outputs**. This field is the name of the output stream, used when defining the query for the data.
 
 2. In the **Outputs** pane, click **Add**, and then select **Power BI**. On the screen that comes up, fill in the following fields:
 
-   **Output alias**: Use **contosooutputs**. This is the unique alias for the output. 
+   **Output alias**: Use **contosooutputs**. This field is the unique alias for the output. 
 
-   **Dataset name**: Use **contosoehdataset**. This is the name of the dataset to be used in Power BI. 
+   **Dataset name**: Use **contosoehdataset**. This field is the name of the dataset to be used in Power BI. 
 
-   **Table name**: Use **contosoehtable**. This is the name of the table to be used in Power BI. 
+   **Table name**: Use **contosoehtable**. This field is the name of the table to be used in Power BI. 
 
    Accept the defaults for the rest of the fields.
 
@@ -241,7 +241,7 @@ The inputs for the Steam Analytics job are the credit card transactions from the
 
 ### Configure the query of the Stream Analytics job
 
-This is the query that is used to retrieve the data that is ultimately sent to the Power BI visualization. It uses **contosoinputs** and **contosooutputs** which you previously defined when setting up the job. This query retrieves the credit card transactions that it deems fraudulent, which is those where the same credit card number has multiple transactions in different locations in the same five second interval.
+This query is used to retrieve the data that is ultimately sent to the Power BI visualization. It uses **contosoinputs** and **contosooutputs** which you previously defined when setting up the job. This query retrieves the credit card transactions that it deems fraudulent, which is those transactions where the same credit card number has multiple transactions in different locations in the same five-second interval.
 
 1. Under **Job Topology**, click **Query**.
 
