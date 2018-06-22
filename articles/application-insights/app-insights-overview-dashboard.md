@@ -32,7 +32,7 @@ Time range selection has been simplified to a simple one-click interface.
 
 ![Time range](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
-Overall performance has been greatly increased. You have one click access to popular features like **Search** and **Analytics**. Each default dynamically updating KPI tile provides insight into corresponding Application Insights features. To learn more about failed requests select **Failures** under the **Investigate** header:
+Overall performance has been greatly increased. You have one-click access to popular features like **Search** and **Analytics**. Each default dynamically updating KPI tile provides insight into corresponding Application Insights features. To learn more about failed requests select **Failures** under the **Investigate** header:
 
 ![Failures](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
