@@ -63,7 +63,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 1. In the Azure portal, go to the Databricks workspace that you created, and then click **Launch Workspace**.
 
-2. You are redirected to the Azure Databricks portal. From the portal, click **Cluster**.
+2. You are redirected to the Azure Databricks portal. From the portal, click **New** > **Cluster**.
 
     ![Databricks on Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")
 
@@ -74,7 +74,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other default values other than the following:
 
     * Enter a name for the cluster.
-    * For this article, create a cluster with **4.0** runtime. 
+    * For this article, create a cluster with **4.2** runtime. 
     * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
     
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs. 
@@ -87,8 +87,17 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 Before you begin with this section, you must complete the following prerequisites:
 
-* Download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Upload the sample JSON file to the Azure Blob storage account you created. You can use [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
+* Download a **small_radio_json.json** [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
+* Upload the sample JSON file using **AzCopy version 10** to the Azure Blob storage account you created:
+
+    ```bash
+    set ACCOUNT_NAME <ACCOUNT_NAME>
+    set ACCOUNT_KEY <ACCOUNT_KEY>
+    azcopy-win cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/files --recursive 
+    ```
+
+> [!NOTE]
+> AzCopy version 10 is only available to preview customers.
 
 Perform the following tasks to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
 
@@ -116,7 +125,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfs://dbricks@<ACCOUNT_NAME>.dfs.core.windows.net/folder1/mypath/small_radio_json.json"
+     path  "abfs://dbricks@<ACCOUNT_NAME>.dfs.core.windows.net/files/small_radio_json.json"
     )
     ```
 
