@@ -45,7 +45,7 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
 4. Provide a name for the module, then specify the container image. For example: 
    * **Name** - tempSensor
-   * **Image URI** - microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview
+   * **Image URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 5. Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 6. Select **Save**.
 7. Repeat steps 2-6 to add additional modules to your deployment. 

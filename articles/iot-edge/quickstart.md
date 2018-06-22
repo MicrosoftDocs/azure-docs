@@ -22,12 +22,15 @@ In this quickstart you learn how to:
 
 1. Create an IoT Hub.
 2. Register an IoT Edge device to your IoT hub.
-3. Start the IoT Edge runtime.
+3. Install and start the IoT Edge runtime on your device.
 4. Remotely deploy a module to an IoT Edge device.
 
 ![Tutorial architecture][2]
 
 The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
+
+>[!NOTE]
+>The IoT Edge runtime on Windows is in public preview.
 
 If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
@@ -42,8 +45,10 @@ This quickstart assumes that you're using a computer or virtual machine running 
 >`40.76.74.59 main.iothub.ext.azure.com` 
 > 
 >The hosts file can be found at: 
->Linux - /etc/hosts 
->Windows - C:\Windows\System32\drivers\etc\hosts 
+>* Linux - /etc/hosts 
+>* Windows - C:\Windows\System32\drivers\etc\hosts 
+>
+> Remember to remove this line when you're done testing
 
 Have the following prerequisites ready on the machine that you're using for an IoT Edge device:
 
@@ -65,19 +70,6 @@ You use the Azure CLI to complete many of the steps in this quickstart, and Azur
    ```azurecli
    az extension add --name azure-cli-iot-ext
    ```
-
-<!--
-> [!NOTE]
-> Azure IoT Edge can run either Windows containers or Linux containers. To use Windows containers, you have to run:
->    * Windows 10 Fall Creators Update, or
->    * Windows Server 1709 (Build 16299), or
->    * Windows IoT Core (Build 16299) on a x64-based device
->
-> For Windows IoT Core, follow the instructions in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore]. Otherwise, simply [configure Docker to use Windows containers][lnk-docker-containers], and optionally validate your prerequisites with the following powershell command:
->    ```powershell
->    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
->    ```
--->
 
 ## Create an IoT hub
 
@@ -119,7 +111,7 @@ Create a device identity for your simulated device so that it can communicate wi
 
 1. Copy the connection string and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
 
-## Install and configure the IoT Edge security daemon
+## Install and start the IoT Edge runtime
 
 Install and start the Azure IoT Edge runtime on your IoT Edge device. 
 ![Register a device][5]
@@ -236,12 +228,6 @@ Verify that the runtime was successfully installed and configured.
    ```powershell
    iotedge list
    ```
-
-Check Docker to see that the IoT Edge agent is running as a module.
-
-```cmd
-docker ps
-```
 
 ## Deploy a module
 
