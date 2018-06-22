@@ -68,15 +68,15 @@ While you can't continue adding to your existing run histories under the old wor
 
 To export the run history with previous CLI:
 
-```Azure CLI
-# list all runs
-$ az ml history list
+```azurecli
+#list all runs
+az ml history list
 
-# get details about a particular run
-$ az ml history info
+#get details about a particular run
+az ml history info
 
 # download all artifacts of a run
-$ az ml history download
+az ml history download
 ```
 
 ## Data Prep files

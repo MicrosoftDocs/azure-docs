@@ -32,7 +32,7 @@ Make sure you have the following prerequisites before starting the quickstart st
 
 ## Install the CLI extension
 
-On your computer, open a command-line editor and install the machine learning extension to Azure CLI.  The installation can take several minutes to complete.
+On your computer, open a command-line editor and install [the machine learning extension to Azure CLI](reference-azure-machine-learning-cli.md).  The installation can take several minutes to complete.
 
 ```azurecli
 az extension add azureml-sdk
@@ -75,7 +75,7 @@ A resource group is a container that holds related resources for an Azure soluti
    + The workspace name is `myws`.
    + The resource group name is `myrg`
 
-   ```
+   ```azurecli
    az ml workspace create --name myws --group myrg
    ```
 

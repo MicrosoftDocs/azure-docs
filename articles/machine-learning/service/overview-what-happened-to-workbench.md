@@ -24,7 +24,7 @@ While the workflow hasn't changed, the July 2018 release of Azure Machine Learni
 + An [updated and expanded CLI](reference-azure-machine-learning-sdk.md)
 + New portal UI for sharing and managing your run histories and compute targets
 
-In this newer release, [the architecture of Azure Machine Learning Services](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of requiring multiple Azure resources and accounts, the service has moved to a single, top-level resource called the Azure Machine Learning Workspace. This workspace can be used by one or more users to store their compute resources, models, deployments, and run histories. You can quickly your create workspaces [in Python](quickstart-set-up-in-python.md), using [the CLI](quickstart-set-up-in-cli.md), or in the [Azure portal](how-to-create-workspace-in-portal.md).  
+In this newer release, [the architecture of Azure Machine Learning Services](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of requiring multiple Azure resources and accounts, the service has moved to a single, top-level resource called the Azure Machine Learning Workspace.  You can quickly create a workspace [in Python](quickstart-set-up-in-python.md), using [the CLI](quickstart-set-up-in-cli.md), or in the [Azure portal](how-to-create-workspace-in-portal.md).  This workspace can be used by one or more users to store their compute resources, models, deployments, and run histories. You can also have multiple workspaces.
 
 While Azure Machine Learning still offers the CLI and SDK clients, the desktop Workbench application was deprecated. You can still monitor your run history, but now you can do so in the Azure portal online. In this workspace interface in the portal, you can run history reports, manage the compute targets attached to your workspace, managing your models, Docker images, and even deploy web services.
 
@@ -34,21 +34,22 @@ While Azure Machine Learning still offers the CLI and SDK clients, the desktop W
 No worries! You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after the July release. 
 
 Support for these resources will be incrementally deprecated over the next 6 - 8 months. 
-1. First, we will discontinue the creation of new accounts in the Azure portal, but CLI and desktop Workbench will continue to work. 
 
-1. A while later, we end the underlying APIs for creating workspaces and projects in the desktop Workbench and CLI, but you'll still be able to run your existing projects and deploy web services to ACS. 
+1. The ability to create new accounts in the Azure portal will go away first. Existing accounts, the CLI, and the desktop Workbench will continue to work at that time.
 
-1. Finally, support for all APIs and the desktop Workbench will end this Winter. 
+1. The underlying APIs for creating workspaces and projects in the desktop Workbench and CLI will stop working next, but you'll still be able to run your existing projects and deploy web services to ACS. 
 
-You can [start migrating](how-to-migrate-to-ga.md) today. All features and capabilities (except Data Preparation) are available in the latest version through the new SDK, CLI, and portal.
+1. Support for the remaining APIs and the desktop Workbench will end last. End of support is expected this Winter. 
+
+[Start migrating](how-to-migrate-to-ga.md) today. All features and capabilities (except Data Preparation) are available in the latest version through the new SDK, CLI, and portal.
 
 For now, you can still find the documentation for the desktop Workbench and old CLI and SDKs at the bottom of this [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
 
-## How do I migrate my work?
+## How do I migrate?
 
 Generally speaking, most of the artifacts created in the pre-GA version of Azure Machine Learning Services are stored in your own local or cloud storage. So the migration path largely involves re-registering them with the new Azure Machine Learning offering. Learn how to [start migrating](how-to-migrate-to-ga.md)  to the latest Azure Machine Learning Services.
 
-## Will my projects persist?
+## Will projects persist?
 
 You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, projects are local directories that are attached to the new workspace. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md). 
 
@@ -71,9 +72,9 @@ In the latest version of Azure Machine Learning Services, you can still collect 
 ## Will the SDK and CLI still work?
 Yes, they will continue to work for a while (see the [timeline](#timeline) above). However, we recommend that you create new experiments and models with the latest SDK and/or CLI.   
 
-With GA offering, there is a new set of Azure ML SDK (software development kit) for Python, which allows user to interact with the Azure Machine Learning services in any Python environment, including Jypter Notebook or your favorite Python IDE. This SDK is hosted in pypi and pip-installable, making it easy for any Python developer to start to use Azure ML with a single command line of pip install azureml-sdk.
+In the latest release, the new Azure Machine Learning SDK for Python is easy to install (`pip install azureml-sdk`) and allows you to interact with the Azure Machine Learning services in any Python environment. 
 
-Along with the new SDK, GA offering also comes with an updated command-line interface in the form of an extension to azure-cli. With the rich set of az ml commands, you can interact with Azure ML services in any command-line environment, including Azure portal cloud shell.
+Additionally, you can use the updated Azure CLI extension for machine learning, which was built upon the new SDK. Use the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
  
 ## How does this affect experimentation and deployment?
 
