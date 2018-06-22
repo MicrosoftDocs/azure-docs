@@ -42,7 +42,7 @@ In an Administrator PowerShell window, execute the following commands:
 
 ```powershell
 Invoke-WebRequest https://conteng.blob.core.windows.net/iotedged/iotedge.zip -o .\iotedge.zip
-Expand-Archive .\iotedge.zip C:\ProgramData -f
+Expand-Archive .\iotedge.zip C:\ProgramData\iotedge -f
 $env:Path += ";C:\ProgramData\iotedge"
 SETX /M PATH "$env:Path"
 ```
