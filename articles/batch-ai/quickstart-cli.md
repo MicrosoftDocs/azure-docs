@@ -83,7 +83,6 @@ Initially, output is similar to the following:
 Name       Resource Group    Workspace    VM Size       State      Idle    Running    Preparing    Leaving    Unusable
 ---------  ----------------  -----------  ------------  -------  ------  ---------  -----------  ---------  ----------
 mycluster  myResourceGroup   myworkspace  STANDARD_NC6  steady        0          0            1          0           0
-
 ```
 Continue the following steps to configure storage and create a training job while the pool state changes. The cluster is ready to run the job when the state is `steady` and the node is `idle`.
 
@@ -294,4 +293,5 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-[TBD]
+In this quickstart, you learned how to run an example TensorFlow training job on a Batch AI cluster, using the Azure CLI. To learn more about using Batch AI with different training frameworks, see the [training recipes](https://github.com/Azure/BatchAI).
+
