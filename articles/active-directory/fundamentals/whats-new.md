@@ -45,13 +45,15 @@ If any of your apps use Azure AD Activity Log APIs, follow these steps to ensure
 
 **To update your app permissions**
 
-1.	Sign in to the Azure portal, select **Azure Active Directory**, and then select **App Registrations**.
-2.	Select your app that uses the Azure AD Activity Logs API, select **Settings**, select **Required permissions**, and then select the **Windows Azure Active Directory** API.
-3.	In the **Delegated permissions** area of the **Enable access** blade, select the box next to **Read directory** data, and then select **Save**.
-4.	Select **Grant permissions**, and then select **Yes**.
+1. Sign in to the Azure portal, select **Azure Active Directory**, and then select **App Registrations**.
+2. Select your app that uses the Azure AD Activity Logs API, select **Settings**, select **Required permissions**, and then select the **Windows Azure Active Directory** API.
+3. In the **Delegated permissions** area of the **Enable access** blade, select the box next to **Read directory** data, and then select **Save**.
+4. Select **Grant permissions**, and then select **Yes**.
     
     >[!Note]
     >You must be a Global administrator to grant permissions to the app.
+
+For more information, see the [Grant permissions](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal#grant-permissions) area of the Prerequisites to access the Azure AD reporting API article.
 
 ---
 
@@ -67,22 +69,22 @@ The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has 
 
 Out-of-date browsers might not support newer TLS versions, such as TLS 1.2. To see which versions of TLS are supported by your browser, go to the [Qualys SSL Labs](https://www.ssllabs.com/) site and click **Test your browser**. We recommend you upgrade to the latest version of your web browser and preferably enable only TLS 1.2.
 
-**To enable TLS 1.2, based on browser**
+**To enable TLS 1.2, by browser**
 
-- Microsoft Edge and Internet Explorer (both are set using Internet Explorer)
+- **Microsoft Edge and Internet Explorer (both are set using Internet Explorer)**
 
     1. Open Internet Explorer, select **Tools** > **Internet Options** > **Advanced**.
     2. In the **Security** area, select **use TLS 1.2**, and then select **OK**.
     3. Close all browser windows and restart Internet Explorer. 
 
-- Google Chrome
+- **Google Chrome**
 
     1. Open Google Chrome, type *chrome://settings/* into the address bar, and press **Enter**.
     2. Expand the **Advanced** options, go to the **System** area, and select **Open proxy settings**.
     3. In the **Internet Properties** box, select the **Advanced** tab, go to the **Security** area, select **use TLS 1.2**, and then select **OK**.
     4. Close all browser windows and restart Google Chrome.
 
-- Mozilla Firefox
+- **Mozilla Firefox**
 
     1. Open Firefox, type *about:config* into the address bar, and then press **Enter**.
     2. Search for the term, *TLS*, and then select the **security.tls.version.max** entry.
@@ -105,9 +107,25 @@ In June 2018, we've added these 14 new apps with Federation support to our app g
 
 [Skytap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skytap-tutorial), [楽楽精算](https://docs.microsoft.com/azure/active-directory/active-directory-saas-settlingmusic-tutorial), [SAML 1.1 Token enabled LOB App](https://docs.microsoft.com/azure/active-directory/active-directory-saas-saml-tutorial), [Supermood](https://docs.microsoft.com/azure/active-directory/active-directory-saas-supermood-tutorial), [Autotask](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [Endpoint Backup](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [Skyhigh Networks](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skyhighnetworks-tutorial), Smartway2, [TonicDM](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tonicdm-tutorial), [Moconavi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-moconavi-tutorial), [Zoho One](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zohoone-tutorial), [SharePoint on-premises](https://docs.microsoft.com/azure/active-directory/active-directory-saas-sharepoint-on-premises-tutorial), [ForeSee CX Suite](https://docs.microsoft.com/azure/active-directory/active-directory-saas-foreseecxsuite-tutorial), [Vidyard](https://docs.microsoft.com/azure/active-directory/active-directory-saas-vidyard-tutorial), [ChronicX](https://docs.microsoft.com/azure/active-directory/active-directory-saas-chronicx-tutorial)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing). 
 
-For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing). 
+---
+
+### Azure AD Password Protection is availble in public preview
+
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** User Authentication
+
+Use Azure AD Password Protection to help eliminate easily-guessed passwords from your environment. Eliminating these passwords helps to lower the risk of compromise from a password spray type of attack.
+
+Specifically, Azure AD Password Protection helps you:
+
+- Protect your organization's accounts in both Azure AD and Windows Server Active Directory (AD). 
+- Stops your users from using passwords on a list of more than 500 of the most commonly-used passwords, and over one million character substitution variations of those passwords.
+- Administer Azure AD Password Protection from a single location in the Azure AD portal, for both Azure AD and on-premises Windows Server AD.
+
+For more information about Azure AD Password Protection, see [Eliminate bad passwords in your organization](https://aka.ms/aadpasswordprotectiondocs).
 
 ---
 
@@ -147,15 +165,29 @@ To view the deployment guides, go to the [Identity Deployment Guides](https://ak
 
 ---
 
-### Microsoft Dynamics 365 is approved for use with Azure AD app-based conditional access
+### Azure AD delegated app management roles are in public preview
 
-**Type:** Changed feature  
-**Service category:** Conditional Access  
-**Product capability:** Identity Security & Protection
+**Type:** New feature  
+**Service category:** Enterprise Apps
+**Product capability:** Access Control
 
-Microsoft Dynamics 365 is approved for use with Azure AD app-based conditional access. 
+Admins can now delegate app management tasks without assigning the Globabl Administrator role. The new roles and capabilities are:
 
-For more information, see [Azure Active Directory conditional access settings reference](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) and [Azure Active Directory app-based conditional access] (https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
+- **New standard Azure AD admin roles:**
+
+    - **Application Administrator.** Grants the ability to manage all aspects of all apps, including registration, SSO settings, app assignments and licensing, App proxy settings, and consent (except to Azure AD resources).
+
+    - **Cloud Application Administrator.** Grants all of the Application Administrator abilities, except for App proxy because it doesn't provide on-premises access.
+
+    - **Application Developer.** Grants the ability to create app registrations, even if the **allow users to register apps** option is turned off.
+
+- **Ownership (set up per-app registration and per-enterprise app, similar to the group ownership process:**
+ 
+    - **App Registration Owner.** Grants the ability to manage all aspects of owned app registration, including the app manifest and adding additional owners.
+
+    - **Enterprise App Owner.** Grants the ability to manage many aspects of owned enterprise apps, including SSO settings, app assignments, and consent (except to Azure AD resources).
+
+For more information about public preview, see the [Azure AD delegated application management roles are in public preview!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blog. For more information about roles and permissions, see [Assigning administrator roles in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
 ---
 
@@ -163,7 +195,7 @@ For more information, see [Azure Active Directory conditional access settings re
 
 ### Integrated CA policies with sign-in data
 
-**Type:** feature  
+**Type:** New feature  
 **Service category:** Reporting  
 **Product capability:** Identity Security & Protection
  
