@@ -129,25 +129,6 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It's composed of three
 
 3. Add the IoT Edge device connection string that you copied when you registered your device. Replace the value of the variable **device_connection_string** that you copied earlier in this quickstart.
 
-   >[!IMPORTANT]
-   >**BUG BASH ONLY**
-   >Replace the edgeAgent info with the following image and registry info. This is a yaml file so whitespace is important. Indentations are two spaces, not tabs. 
-   >
-   >```yaml
-   >agent:
-   >  name: "edgeAgent"
-   >  type: "docker"
-   >  env: {}
-   >  config: 
-   >    image: "edgeshared.azurecr.io/microsoft/azureiotedge-agent:14256026-linux-amd64"
-   >    create_options: ""
-   >    auth:
-   >      serveraddress: "edgeshared.azurecr.io"
-   >      username: "EdgeShared"
-   >      password: "WPruG6Zt4OBs4hZySY9VQAp2dKEM/pDn"
-   >```
-
-
 4. Restart the Edge Security Daemon:
 
    ```bash
