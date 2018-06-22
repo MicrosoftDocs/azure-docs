@@ -14,10 +14,10 @@ ms.date: 7/27/2018
 
 In this quickstart, you'll use a Python SDK to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
 
-Using your preferred Python IDE, you'll learn how to:
+Using any Python environment, including Juypter Notebooks or your favorite Python IDE, you'll learn how to:
 1. Create a workspace, which is the top-level resource for this service.
-1. Attach a project containing your machine learning scripts.
-1. Run a script @@TO DO WHAT and view the output. 
+2. Attach a project containing your machine learning scripts.
+3. Run a script @@TO DO WHAT and view the output. 
 
 ## Prerequisites
 

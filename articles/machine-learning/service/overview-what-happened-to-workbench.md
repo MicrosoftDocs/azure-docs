@@ -44,11 +44,11 @@ You can [start migrating](how-to-migrate-to-ga.md) today. All features and capab
 
 For now, you can still find the documentation for the desktop Workbench and old CLI and SDKs at the bottom of this [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
 
-## How do I migrate my work?
+## How do I migrate?
 
 Generally speaking, most of the artifacts created in the pre-GA version of Azure Machine Learning Services are stored in your own local or cloud storage. So the migration path largely involves re-registering them with the new Azure Machine Learning offering. Learn how to [start migrating](how-to-migrate-to-ga.md)  to the latest Azure Machine Learning Services.
 
-## Will my projects persist?
+## Will projects persist?
 
 You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, projects are local directories that are attached to the new workspace. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md). 
 
@@ -71,9 +71,9 @@ In the latest version of Azure Machine Learning Services, you can still collect 
 ## Will the SDK and CLI still work?
 Yes, they will continue to work for a while (see the [timeline](#timeline) above). However, we recommend that you create new experiments and models with the latest SDK and/or CLI.   
 
-With GA offering, there is a new set of Azure ML SDK (software development kit) for Python, which allows user to interact with the Azure Machine Learning services in any Python environment, including Jypter Notebook or your favorite Python IDE. This SDK is hosted in pypi and pip-installable, making it easy for any Python developer to start to use Azure ML with a single command line of pip install azureml-sdk.
+In the latest release, the new Azure Machine Learning SDK for Python is easy to install (`pip install azureml-sdk`) and allows you to interact with the Azure Machine Learning services in any Python environment. 
 
-Along with the new SDK, GA offering also comes with an updated command-line interface in the form of an extension to azure-cli. With the rich set of az ml commands, you can interact with Azure ML services in any command-line environment, including Azure portal cloud shell.
+Additionally, you can use the updated Azure CLI extension for machine learning, which was built upon the new SDK. Use the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
  
 ## How does this affect experimentation and deployment?
 

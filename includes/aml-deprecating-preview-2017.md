@@ -1,2 +1,2 @@
 >[!Note]
->**This article is deprecated.** Support for features that are not in the generally available Azure Machine Learning ends January 1, 2019. Read ['What happened to Workbench'](../articles/machine-learning/service/overview-what-happened-to-workbench.md) for details or [get started](../articles/machine-learning/service/index.yml) with the latest version.
+>**This article is deprecated.** Support for earlier versions of this service will end incrementally. [View the support timeline](../articles/machine-learning/service/overview-what-happened-to-workbench.md#timeline). Start using the latest version with this [quickstart](../articles/machine-learning/service/index.yml).
