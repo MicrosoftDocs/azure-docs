@@ -156,11 +156,11 @@ In this section, you use the Azure portal, specifically the Data Factory UI, to 
 
     b. For **Location**, the same location of your integration runtime is selected. 
 
-    b. For **Type**, select the type of your virtual network: Classic or Azure Resource Manager. We recommend that you select Azure Resource Manager virtual network, since Classic virtual network will be deprecated soon. 
+    c. For **Type**, select the type of your virtual network: Classic or Azure Resource Manager. We recommend that you select Azure Resource Manager virtual network, since Classic virtual network will be deprecated soon. 
 
-    c. For **VNet Name**, select the name of your virtual network. This virtual network should be the same virtual network used for Azure SQL Database with virtual network service endpoints/Managed Instance (Preview) to host SSISDB and or the one connected to your on-premises network. 
+    d. For **VNet Name**, select the name of your virtual network. This virtual network should be the same virtual network used for Azure SQL Database with virtual network service endpoints/Managed Instance (Preview) to host SSISDB and or the one connected to your on-premises network. 
 
-    d. For **Subnet Name**, select the name of subnet for your virtual network. This should be a different subnet than the one used for Managed Instance (Preview) to host SSISDB. 
+    e. For **Subnet Name**, select the name of subnet for your virtual network. This should be a different subnet than the one used for Managed Instance (Preview) to host SSISDB. 
 
 6. Click **VNet Validation** and if successful, click **Finish** to start the creation of your Azure-SSIS integration runtime. 
 
@@ -277,10 +277,12 @@ if([string]::IsNullOrEmpty($VnetId) -and [string]::IsNullOrEmpty($SubnetName))
 Add the following script to automatically configure virtual network permissions/settings for your Azure-SSIS integration runtime to join.
 
 ```powershell
-# Register to Azure Batch resource provider
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    # Register to the Azure Batch resource provider
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -288,7 +290,7 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
-        # Assign VM contributor role to Microsoft.Batch
+        # Assign the VM contributor role to Microsoft.Batch
         New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
@@ -435,10 +437,12 @@ if([string]::IsNullOrEmpty($VnetId) -and [string]::IsNullOrEmpty($SubnetName))
 }
 
 ### Configure virtual network
-# Register to Azure Batch resource provider
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    # Register to the Azure Batch resource provider
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -446,7 +450,7 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
-        # Assign VM contributor role to Microsoft.Batch
+        # Assign the VM contributor role to Microsoft.Batch
         New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
