@@ -15,7 +15,7 @@ experimental: false
 experiment_id: 
 ---
 
-# Deploy Azure IoT Edge on a simulated device in Windows -  preview
+# Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
 
 Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, but first you need a device to test. 
 
@@ -28,7 +28,9 @@ In this quickstart you learn how to:
 
 ![Tutorial architecture][2]
 
-The simulated device that you create in this quickstart is a monitor on a wind turbine that generates temperature, humidity, and pressure data. You're interested in this data because your turbines perform at different levels of efficiency depending on the weather conditions. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the data for business insights. 
+The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
+
+If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
 ## Prerequisites
 
@@ -62,7 +64,7 @@ This quickstart assumes that you're using a computer or virtual machine running 
 
 ## Create an IoT hub
 
-Start the quickstart by creating your IoT Hub.
+Start the quickstart by creating your IoT Hub in the Azure portal.
 ![Create IoT Hub][3]
 
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
@@ -74,7 +76,7 @@ Register an IoT Edge device with your newly created IoT Hub.
 
 [!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
 
-## Configure the IoT Edge runtime
+## Install and start the IoT Edge runtime
 
 Install and start the Azure IoT Edge runtime on your device. 
 ![Register a device][5]
@@ -142,11 +144,11 @@ This quickstart is the prerequisite for all of the IoT Edge tutorials. You can c
 > [Filter sensor data using an Azure Function](tutorial-deploy-function.md)
 
 <!-- Images -->
-[2]: ./media/tutorial-install-iot-edge/install-edge-full.png
-[3]: ./media/tutorial-install-iot-edge/create-iot-hub.png
-[4]: ./media/tutorial-install-iot-edge/register-device.png
-[5]: ./media/tutorial-install-iot-edge/start-runtime.png
-[6]: ./media/tutorial-install-iot-edge/deploy-module.png
+[2]: ./media/quickstart/install-edge-full.png
+[3]: ./media/quickstart/create-iot-hub.png
+[4]: ./media/quickstart/register-device.png
+[5]: ./media/quickstart/start-runtime.png
+[6]: ./media/quickstart/deploy-module.png
 
 <!-- Links -->
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
