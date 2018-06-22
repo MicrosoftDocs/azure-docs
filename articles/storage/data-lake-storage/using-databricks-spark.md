@@ -35,7 +35,7 @@ In this tutorial, you learn how to run Spark queries on a DataBricks cluster to 
 This tutorial demonstrates how to consume and query airline flight data, which is available from the [United States Department of Transportation](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Download at least two year's worth of airline data (selecting all fields) and save the result to your machine. Make sure to take note of the file name and path of your download; you need this information in a later step.
 
 > [!NOTE]
-> The download will be many gigabytes in size, but this amount of data is necessary for analysis.
+> Click on the **Prezipped file** checkbox to select all data fields. The download will be many gigabytes in size, but this amount of data is necessary for analysis.
 
 ## Create an Azure Data Lake Storage account
 
