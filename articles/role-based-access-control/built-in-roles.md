@@ -1,6 +1,6 @@
 ---
-title: Built-in roles for role-based access control (RBAC) in Azure | Microsoft Docs
-description: Describes the built-in roles for role-based access control (RBAC) in Azure. Lists the actions and notActions.
+title: Built-in roles in Azure | Microsoft Docs
+description: Describes the built-in roles for role-based access control (RBAC) in Azure. Lists the actions, notActions, dataActions, and notDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 05/18/2018
+ms.date: 06/06/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 
 ms.custom: it-pro
 ---
-# Built-in roles for Azure role-based access control
+# Built-in roles in Azure
 [Role-based access control (RBAC)](overview.md) has several built-in role definitions that you can assign to users, groups, and service principals. Role assignments are the way you control access to resources in Azure. If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md).
 
 The built-in roles are always evolving. To get the latest role definitions, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list).
@@ -129,6 +129,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Authorization/*/Delete | Can't delete roles and role assignments |
 > | Microsoft.Authorization/*/Write | Can't create roles and role assignments |
 > | Microsoft.Authorization/elevateAccess/Action | Grants the caller User Access Administrator access at the tenant scope |
+> | Microsoft.Blueprint/blueprintAssignments/write |  |
+> | Microsoft.Blueprint/blueprintAssignments/delete |  |
 
 ## Reader
 > [!div class="mx-tableFixed"]
@@ -705,7 +707,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Actions** |  |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Insights/components/purge/action |  |
+> | Microsoft.Insights/components/purge/action | Purging data from Application Insights |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Delete specified data from workspace |
 

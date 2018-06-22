@@ -76,5 +76,5 @@ For more information about user consent and the consent experience in Azure, see
 ## Related Articles
 * [Enable secure remote access to on-premises applications with Azure AD Application Proxy](manage-apps/application-proxy.md)
 * [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azure-portal-get-started.md)
-* [Managing access to apps with Azure AD](active-directory-managing-access-to-apps.md)
+* [Managing access to apps with Azure AD](manage-apps/what-is-access-management.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

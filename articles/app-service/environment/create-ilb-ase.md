@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
 ---
@@ -61,11 +61,7 @@ To create an ILB ASE:
 
 	* If you select a new VNet, you can specify a name and location. If you intend to host Linux apps on this ASE, only these 6 regions are supported at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** 
 
-5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. The minimum size you can select is a `/28`. After infrastructure needs, this size can only be scaled to a maximum of 3 instances.
-
-	* Go beyond the default maximum of 100 instances in your App Service plans.
-
-	* Scale near 100 but with more rapid front-end scaling.
+5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
 6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
@@ -114,7 +110,7 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 5. Select your OS. 
 
-	* If you want to create a Linux app using a custom Docker container, you can just bring your own container using the instructions here. 
+	* If you want to create a Linux app using a custom Docker container, you can just bring your own container using the instructions [here][linuxapp]. Do not create Linux apps on production ASEs as this capability is in Preview.
 
 6. Select or create an App Service plan. If you want to create a new App Service plan, select your ASE as the location. Select the worker pool where you want your App Service plan to be created. When you create the App Service plan, select your ASE as the location and the worker pool. When you specify the name of the app, the domain under your app name is replaced by the domain for your ASE.
 
@@ -167,7 +163,6 @@ To upload your own certificates and test access:
 
 	> [!NOTE] 
 	> Don't try to create this VM in the same subnet as the ASE because it will fail or cause problems.
-	>
 	>
 
 6. Set the DNS for your ASE domain. You can use a wildcard with your domain in your DNS. To do some simple tests, edit the hosts file on your VM to set the web app name to the VIP IP address:
@@ -254,3 +249,4 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
+[linuxapp]: ../containers/app-service-linux-intro.md

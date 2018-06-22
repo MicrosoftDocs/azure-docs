@@ -68,4 +68,4 @@ The two resources created in this tutorial are the LUIS subscription key and the
 > [!div class="nextstepaction"]
 > [Add utterances](luis-get-started-php-add-utterance.md)
 
-[LUIS]: luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

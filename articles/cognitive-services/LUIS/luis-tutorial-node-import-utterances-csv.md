@@ -166,7 +166,7 @@ Once the script completes, you can log in to [LUIS][LUIS] and see the LUIS app y
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Test and train your app in LUIS website](Train-Test.md)
+> [Test and train your app in LUIS website](interactive-test.md)
 
 ## Additional resources
 
@@ -176,5 +176,5 @@ This sample application uses the following LUIS APIs:
 - [add entities](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
 - [add utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 

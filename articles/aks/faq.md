@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 6/15/2018
 ms.author: nepeters
 ---
 
@@ -17,11 +17,16 @@ This article addresses frequent questions about Azure Kubernetes Service (AKS).
 
 ## Which Azure regions provide the Azure Kubernetes Service (AKS) today?
 
+- Australia East
 - Canada Central
 - Canada East
 - Central US
 - East US
+- North Europe
+- UK South
 - West Europe
+- West US 2
+- West US
 
 ## When will additional regions be added?
 
@@ -37,7 +42,7 @@ Azure automatically applies security patches to the nodes in your cluster on a n
 
 ## When will ACS be deprecated?
 
-ACS will be deprecated around the time AKS becomes GA. You will have 12 months after that date to migrate clusters to AKS. During the 12-month period, you can run all ACS operations.
+ACS will be deprecated around the time AKS that becomes GA. You will have 12 months after that date to migrate clusters to AKS. During the 12-month period, you can run all ACS operations.
 
 ## Does AKS support node autoscaling?
 
@@ -45,7 +50,7 @@ Node autoscaling is not supported but is on the roadmap. You might want to take 
 
 ## Does AKS support Kubernetes role-based access control (RBAC)?
 
-No, RBAC is currently not supported in AKS but will be available soon.
+Yes, RBAC can be enabled when deploying an AKS cluster from the Azure CLI or Azure Resource Manager template. This functionality will soon come to the Azure portal.
 
 ## Can I deploy AKS into my existing virtual network?
 
@@ -64,6 +69,10 @@ To run Windows Server containers, you need to run Windows Server-based nodes. Wi
 Each AKS deployment spans two resource groups. The first is created by you and contains only the AKS resource. The AKS resource provider automatically creates the second one during deployment with a name like *MC_myResourceGroup_myAKSCluster_eastus*. The second resource group contains all of the infrastructure resources associated with the cluster, such as VMs, networking, and storage. It is created to simplify resource cleanup.
 
 If you are creating resources that will be used with your AKS cluster, such as storage accounts or reserved public IP address, you should place them in the automatically generated resource group.
+
+## Does AKS offer a service level agreement?
+
+In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service should the published service level not be met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, we seek to maintain availability of at least 99.5% for the Kubernetes API server.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

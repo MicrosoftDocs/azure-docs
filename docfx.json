@@ -147,12 +147,6 @@
       }
     },
     "fileMetadata": {
-      "breadcrumb_path": {
-        "articles/active-directory/managed-service-identity/**/*.md": "/azure/active-directory/managed-service-identity/bread/toc.json",
-        "articles/active-directory/managed-service-identity/**/*.yml": "/azure/active-directory/managed-service-identity/bread/toc.json",
-        "articles/**/*.md": "/azure/bread/toc.json",
-        "articles/**/*.yml": "/azure/bread/toc.json"
-      },
       "feedback_product_url": {
         "articles/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/active-directory-b2c/**/*.md": "https://feedback.azure.com/forums/169401-azure-active-directory",
@@ -303,6 +297,12 @@
         "articles/virtual-network/**/*.md":"https://feedback.azure.com/forums/217313-networking?category_id=77469",
         "articles/visual-studio/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",      
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77470"
+        },
+        "searchScope": {
+          "articles/data-lake-analytics/**/*.md": ["Azure","Azure Data Lake Analytics"],
+          "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL","PostgreSQL"],
+          "articles/mysql/**.md": ["Azure","Azure Database for MySQL", "MySQL"],
+          "articles/stream-analytics/**/*.md": ["Azure", "Stream Analytics"]
         }
     },
     "template": [

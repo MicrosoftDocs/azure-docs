@@ -7,7 +7,7 @@ ms.author: cgronlun
 manager: haining
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.topic: conceptual
 ms.date: 05/22/2018
 ---

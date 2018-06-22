@@ -97,7 +97,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   This API reference describes the APIs you can use to manage your storage account programmatically.
-* [Developer's guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+* [Use Resource Manager authentication API to access subscriptions](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   This article shows how to authenticate using the Resource Manager APIs.
 * [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
@@ -205,7 +205,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### How the Shared Access Signature is authenticated by the Azure Storage Service
+#### How the Shared Access Signature is authorized by the Azure Storage Service
 When the storage service receives the request, it takes the input query parameters and creates a signature using the same method as the calling program. It then compares the two signatures. If they agree, then the storage service can check the storage service version to make sure it's valid, verify that the current date and time are within the specified window, make sure the access requested corresponds to the request made, etc.
 
 For example, with our URL above, if the URL was pointing to a file instead of a blob, this request would fail because it specifies that the Shared Access Signature is for a blob. If the REST command being called was to update a blob, it would fail because the Shared Access Signature specifies that only read access is permitted.
@@ -400,11 +400,11 @@ There is an article listed in the resources below that provides the list of the 
 
 ![Snapshot of fields in a log file](./media/storage-security-guide/image3.png)
 
-We're interested in the entries for GetBlob, and how they are authenticated, so we need to look for entries with operation-type "Get-Blob", and check the request-status (fourth</sup> column) and the authorization-type (eighth</sup> column).
+We're interested in the entries for GetBlob, and how they are authorized, so we need to look for entries with operation-type "Get-Blob", and check the request-status (fourth</sup> column) and the authorization-type (eighth</sup> column).
 
-For example, in the first few rows in the listing above, the request-status is "Success" and the authorization-type is "authenticated". This means the request was validated using the storage account key.
+For example, in the first few rows in the listing above, the request-status is "Success" and the authorization-type is "authenticated". This means the request was authorized using the storage account key.
 
-#### How are my blobs being authenticated?
+#### How is access to my blobs being authorized?
 We have three cases that we are interested in.
 
 1. The blob is public and it is accessed using a URL without a Shared Access Signature. In this case, the request-status is "AnonymousSuccess" and the authorization-type is "anonymous".

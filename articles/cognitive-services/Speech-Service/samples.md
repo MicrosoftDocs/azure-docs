@@ -22,7 +22,7 @@ All samples are provided under the MIT License.
 
 - [Sign up for the Speech Devices SDK](get-speech-devices-sdk.md)
 
-## Next steps
+# Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 * [See how to recognize speech in C#](quickstart-csharp-windows.md)
