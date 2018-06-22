@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 06/25/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single external address can be used to route traffic to multiple services in a Kubernetes cluster.
 
-This document walks through a sample deployment of the [NGINX ingress controller][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. Additionally, the [KUBE-LEGO][kube-lego] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
+This document walks through a sample deployment of the [NGINX ingress controller][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. Additionally, the [cert-manager][cert-manager] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
 
 ## Prerequisite
 
@@ -26,13 +26,7 @@ Install Helm CLI - See the Helm CLI [documentation][helm-cli] for install instru
 
 Use Helm to install the NGINX ingress controller. See the NGINX ingress controller [documentation][nginx-ingress] for detailed deployment information.
 
-Update the chart repository.
-
-```console
-helm repo update
-```
-
-Install the NGINX ingress controller. This example installs the controller in the `kube-system` namespace, this can be modified to a namespace of your choice. If your AKS cluster is not RBAC enabled, this command needs to be modified. For more information, see the [nginx-ingress chart][nginx-ingress].
+This example installs the controller in the `kube-system` namespace, this can be modified to a namespace of your choice. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the command. For more information, see the [nginx-ingress chart][nginx-ingress].
 
 ```
 helm install stable/nginx-ingress --namespace kube-system
@@ -74,23 +68,33 @@ az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
 
 The ingress controller should now be accessible through the FQDN.
 
-## Install KUBE-LEGO
+## Install cert-manager
 
-The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for HTTPS, this document demonstrates using [KUBE-LEGO][kube-lego], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
+The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for HTTPS, this document demonstrates using [cert-manager, which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
 
-To install the KUBE-LEGO controller, use the following Helm install command. Update the email address with one from your organization.
+To install the cert-manager controller, use the following Helm install command.
+
+```
+helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-staging --set ingressShim.defaultIssuerKind=ClusterIssuer
+```
+
+If your cluster is not RBAC enabled, use this command.
 
 ```
 helm install stable/cert-manager \
-  --set ingressShim.defaultIssuerName=letsencrypt-stagi \
+  --set ingressShim.defaultIssuerName=letsencrypt-staging \
   --set ingressShim.defaultIssuerKind=ClusterIssuer \
-  --set rbac.create=true \
-  --set serviceAccount.create=true
+  --set rbac.create=false \
+  --set serviceAccount.create=false
 ```
 
-For more information on KUBE-LEGO configuration, see the [KUBE-LEGO documentation][kube-lego].
+For more information on cert-manager configuration, see the [cert-manager project][cert-manager].
 
 ## Create CA cluster issuer
+
+Before certificates can be issues, cert-manager requires an [Issuer][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] resource. An Issuer and ClusterIssuer are identical in functionality however the Issuer works in a single namespace where the ClusterIssuer works in all namespaces across the cluster.
+
+Create a cluster issuer using the following manifest.
 
 ```
 apiVersion: certmanager.k8s.io/v1alpha1
@@ -99,11 +103,37 @@ metadata:
   name: letsencrypt-staging
 spec:
   acme:
-    server: https://acme-staging.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
     email: user@contoso.com
     privateKeySecretRef:
       name: letsencrypt-staging
     http01: {}
+```
+
+## Create certificate object
+
+Next, a certificate resource must be created. The certificate resource defines the desired X.509 certificate. For more information, see, [cert-manager certificates][cert-manager-certificates].
+
+Create the certificate resource with the following manifest.
+
+```yaml
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: tls-secret
+spec:
+  secretName: tls-secret
+  dnsNames:
+  - demo-aks-ingress.eastus.cloudapp.azure.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - demo-aks-ingress.eastus.cloudapp.azure.com
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
 ```
 
 ## Run application
@@ -165,6 +195,7 @@ spec:
         backend:
           serviceName: ingress-demo
           servicePort: 80
+
 ```
 
 Create the ingress resource with the `kubectl apply` command.
@@ -193,10 +224,13 @@ Learn more about the software demonstrated in this document.
 
 - [Helm CLI][helm-cli]
 - [NGINX ingress controller][nginx-ingress]
-- [KUBE-LEGO][kube-lego]
+- [cert-manager][cert-manager]
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
-[kube-lego]: https://github.com/jetstack/kube-lego
+[cert-manager]: https://github.com/jetstack/cert-manager
+[cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
+[cert-manager-cluster-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/clusterissuers.html
+[cert-manager-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/issuers.html
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
