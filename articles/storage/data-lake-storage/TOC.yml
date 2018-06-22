@@ -48,10 +48,12 @@
     href: use-hdfs-data-lake-storage.md
   - name: Ingest data
     items: 
-      - name: Copy data into Data Lake Storage using Distcp
+      - name: Copy data into Data Lake Storage Gen2 using Distcp
         href: use-distcp.md
-      - name: Copy data into Data Lake Storage using Azure Data Factory
+      - name: Copy data into Data Lake Storage Gen2 using Azure Data Factory
         href: ../../data-factory/load-azure-data-lake-storage-gen2.md
+      - name: Copy data into Data Lake Storage Gen2 using Azure Data Factory connector 
+        href: ../../data-factory/connector-azure-data-lake-storage.md
 - name: Reference
   items:
 - name: Resources
