@@ -82,7 +82,7 @@ sudo apt-get install iotedge
 
 The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml` The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string][lnk-dcs].
 
-For manual configuration, enter the device connection string in *provisioning* section:
+For manual configuration, enter the device connection string in *provisioning* section of `config.yaml`:
 
 ```yaml
 provisioning:
@@ -90,14 +90,12 @@ provisioning:
   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
 ```
 
-Note: the file is write-protected by default, use `sudo` to edit it. For example - `sudo nano /etc/iotedge/config.yaml`
-
+Note: the file is write-protected by default, you might need to use `sudo` to edit it. For example - `sudo nano /etc/iotedge/config.yaml`
 
 ## Next steps
-For more information and architectural overview of Azure IoT Edge Runtime go this article.
 
 <!-- Links -->
-[lnk-dcs]: https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet#register-a-device
+[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
 [lnk-dps]: how-to-simulate-dps-tpm.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
