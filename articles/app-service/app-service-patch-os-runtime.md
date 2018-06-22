@@ -87,14 +87,14 @@ The following table shows how to the versions of Windows and of the language run
 | .NET Core version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `dotnet --version` |
 | PHP version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `php --version` |
 | Default Node.js version | In the [Cloud Shell](../cloud-shell/overview.md), run the following command: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Python version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `python --version` |
+| Python version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `python --version` |  
 
-> [!NOTE]
+> [!NOTE]  
 > Access to registry location `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, where information on ["KB" patches]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)) is stored, is locked down.
 >
 >
 
 ## More resources
 
-[Trust Center: Security](https://www.microsoft.com/TrustCenter/Security/default.aspx)  
+[Trust Center: Security](https://www.microsoft.com/en-us/trustcenter/security)  
 [64 bit ASP.NET Core on Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)
