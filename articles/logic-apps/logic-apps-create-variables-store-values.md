@@ -4,7 +4,7 @@ title: Create variables for saving values - Azure Logic Apps | Microsoft Docs
 description: How to save and manage values by creating variables in Azure Logic Apps
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.topic: article
 ms.date: 05/30/2018

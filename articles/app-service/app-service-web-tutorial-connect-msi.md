@@ -28,6 +28,9 @@ What you learn how to:
 > * Configure application code to authenticate with SQL Database using Azure Active Directory authentication
 > * Grant minimal privileges to the service identity in SQL Database
 
+> [!NOTE]
+> Azure Active Directory authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD DS). AD DS and Azure Active Directory use completely different authentication protocols. For more information, see [The difference between Windows Server AD DS and Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -60,7 +63,7 @@ Here's an example of the output after the identity is created in Azure Active Di
 You'll use the value of `principalId` in the next step. If you want to see the details of the new identity in Azure Active Directory, run the following optional command with the value of `principalId`:
 
 ```azurecli-interactive
-az ad sp show --id <principalid>`
+az ad sp show --id <principalid>
 ```
 
 ## Grant database access to identity
@@ -152,7 +155,7 @@ In the Cloud Shell, add the managed service identity for your app into a new Azu
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiid
+az ad group member add --group $groupid --member-id $msiobjectid
 az ad group member list -g $groupid
 ```
 

@@ -9,7 +9,7 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/08/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ---
@@ -44,7 +44,7 @@ The following are some example log types that are collected:
 These files are collected and saved in a share by Trace Collector. The  **Get-AzureStackLog** PowerShell cmdlet can then be used to collect them when necessary.
  
 ### To run Get-AzureStackLog on an Azure Stack Development Kit (ASDK) system
-1. Log in as **AzureStack\CloudAdmin** on the host.
+1. Sign in as **AzureStack\CloudAdmin** on the host.
 2. Open a PowerShell window as an administrator.
 3. Run the **Get-AzureStackLog** PowerShell cmdlet.
 

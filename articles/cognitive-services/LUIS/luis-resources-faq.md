@@ -44,6 +44,9 @@ The previous **Pattern feature** is currently deprecated, replaced by **[Pattern
 ### How do I use an entity to pull out the correct data? 
 See [entities](luis-concept-entity-types.md) and [data extraction](luis-concept-data-extraction.md).
 
+### Should variations of an example utterance include punctuation? 
+Either add the different variations as example utterances to the intent or add the pattern of the example utterance with the [syntax to ignore](luis-concept-patterns.md#pattern-syntax) the punctuation. 
+
 ## LUIS endpoint
 
 ### Why does LUIS add spaces to the query around or in the middle of words?
@@ -202,4 +205,4 @@ To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 
-[LUIS]:luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
