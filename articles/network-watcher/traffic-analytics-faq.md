@@ -28,7 +28,16 @@ Traffic analytics requires the following prerequisites:
 - Network Security Group (NSG) flow logs enabled for the NSGs you want to monitor.
 - An Azure Storage account, to store raw flog logs.
 - An Azure Log Analytics workspace, with read and write access.
+<<<<<<< HEAD
 - Your account must be assigned to one of the following roles at the subscription level: account administrator, service administrator, or co-administrator.
+=======
+- The user must be assigned with either one of the following roles at the subscription level:
+
+
+    
+- You must be an account administrator, a service administrator, or a co-administrator.
+        
+>>>>>>> 84cabb90bcf4e0ed89b12d3671f37d82d09a1540
 - Your account must have any one of the following role-based access control (RBAC) roles at the subscription scope: owner, contributor, reader, or network contributor.
 - If your account is not assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
             
