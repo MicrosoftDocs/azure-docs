@@ -53,9 +53,9 @@ To migrate your projects, attach the local directory containing your scripts to 
 
 The web services you deployed with your Model Management account will continue to work for as long as Azure Container Service (ACS) is still supported.  However, when support for the previous CLI ends, you won't be able to manage those web services anymore. 
 
-In the newer version of Azure Machine Learning Serivces, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. 
+In the newer version of Azure Machine Learning Services, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. 
 
-To migrate your web services, redeploy your models using the new SDK or CLI to the new targets, ACI or AKS. There is no need to change your original scoring file, model file dependencies files, environment file, and schema files. 
+To migrate your web services, redeploy your models using the new SDK or CLI to the new targets, ACI, or AKS. There is no need to change your original scoring file, model file dependencies files, environment file, and schema files. 
 
 Learn more in these articles:
 + How to deploy to ACI
@@ -67,9 +67,10 @@ Learn more in these articles:
 While you can't continue adding to your existing run histories under the old workspace, you can export the histories you have using the previous CLI. In th
 
 To export the run history with previous CLI:
+
 ```Azure CLI
 # list all runs
-$ az ml history list list
+$ az ml history list
 
 # get details about a particular run
 $ az ml history info
