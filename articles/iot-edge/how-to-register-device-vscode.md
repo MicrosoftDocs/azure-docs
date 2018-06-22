@@ -74,4 +74,4 @@ You can also select **Get Device Info** from the right-click menu to see all the
 
 ## Next steps
 
-Learn how to [Deploy modules to a device with the Azure portal](how-to-deploy-modules-portal.md).
+Learn how to [Deploy modules to a device with Visual Studio Code](how-to-deploy-modules-vscode.md).
