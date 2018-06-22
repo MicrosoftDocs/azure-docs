@@ -35,68 +35,68 @@ The following steps walk you through the process of creating the certificates an
 
 2.	Obtain the scripts to generate the required non productions certificates with the following command. These scripts help you create the necessary certificates to set up a transparent gateway. 
 
-    >[!NOTE]
-    >Use this command for the bug bash:
-    >
-    > `git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git`
+   >[!NOTE]
+   >Use this command for the bug bash:
+   >
+   > `git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git`
 
-        git clone https://github.com/Azure/azure-iot-sdk-c.git
+       git clone https://github.com/Azure/azure-iot-sdk-c.git
 
 3. These scripts use OpenSSL to generate the required certificates and OpenSSL requires some setup.
    
    3.1 Navigate to the directory in which you want to work. From here on we'll refer to this as $WRKDIR.  All files will be created in this directory.
 
-       cd $WRKDIR
+      cd $WRKDIR
    
    3.2 Copy config and script files into your working directory.
 
-```cmd
-       cp azure-iot-sdk-c/tools/CACertificates/*.cnf .
-       cp azure-iot-sdk-c/tools/CACertificates/certGen.sh .
-       chmod 700 certGen.sh 
-```
+      ```cmd
+      cp azure-iot-sdk-c/tools/CACertificates/*.cnf .
+      cp azure-iot-sdk-c/tools/CACertificates/certGen.sh .
+      chmod 700 certGen.sh 
+      ```
 
 ## Certificate creation
 1.	Create the owner CA certificate and one intermediate certificate. These are all placed in `$WRKDIR`.
 
-        ```cmd
-        ./certGen.sh create_root_and_intermediate
-        ```
+   ```cmd
+   ./certGen.sh create_root_and_intermediate
+   ```
 
-    The output of the script execution are the following certificates and keys:
-      * Certificates
-        * `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
-        * `$WRKDIR/certs/azure-iot-test-only.intermediate.cert.pem`
-      * Keys
-        * `$WRKDIR/private/azure-iot-test-only.root.ca.key.pem`
-        * `$WRKDIR/private/azure-iot-test-only.intermediate.key.pem`
+   The output of the script execution are the following certificates and keys:
+   * Certificates
+      * `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+      * `$WRKDIR/certs/azure-iot-test-only.intermediate.cert.pem`
+   * Keys
+      * `$WRKDIR/private/azure-iot-test-only.root.ca.key.pem`
+      * `$WRKDIR/private/azure-iot-test-only.intermediate.key.pem`
 
 2.	Create the Edge device CA certificate and private key with the command below.
 
-    >[!NOTE]
-    > **DO NOT** use a name that is the same as the gateway host's name. Doing so will cause client certification against these certificates to fail.
+   >[!NOTE]
+   > **DO NOT** use a name that is the same as the gateway host's name. Doing so will cause client certification against these certificates to fail.
 
-        ```cmd
-        ./certGen.sh create_edge_device_certificate <gatewayName>
-        ```
+      ```cmd
+      ./certGen.sh create_edge_device_certificate <gatewayName>
+      ```
 
-    The output of the script execution are the following certificates and key:
-     * `$WRKDIR/certs/new-edge-device.*`
-     * `$WRKDIR/private/new-edge-device.key.pem`
+   The output of the script execution are the following certificates and key:
+   * `$WRKDIR/certs/new-edge-device.*`
+   * `$WRKDIR/private/new-edge-device.key.pem`
 
 ## Certificate chain creation
 Create a certificate chain from the owner CA certificate, intermediate certificate, and Edge device CA certificate with the command below. Placing it in a chain file allows you to easily install it on you Edge device acting as a transparent gateway.
 
-    ```cmd
-    cat ./certs/new-edge-device.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/new-edge-device-full-chain.cert.pem
-    ```
+   ```cmd
+   cat ./certs/new-edge-device.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/new-edge-device-full-chain.cert.pem
+   ```
 
 ## Installation on the gateway
 1.	Copy the following files from $WRKDIR anywhere on your Edge device, we'll refer to that as $CERTDIR. If your generated the certificates on your Edge device skip this step.
-    
-    * Device CA certificate -  `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
-    * Device CA private key - `$WRKDIR/private/new-edge-device.key.pem`
-    * Owner CA - `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+
+   * Device CA certificate -  `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
+   * Device CA private key - `$WRKDIR/private/new-edge-device.key.pem`
+   * Owner CA - `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
 
 2.	Set the `certificate` properties in the Security Daemon config yaml file to the path where you placed the certificate and key files.
 
@@ -115,10 +115,10 @@ Here is an example of how to install a CA certificate on an Ubuntu host
 >[!NOTE]
 >Installing this certificate in the OS certificate store will allow all applications to use the owner CA certificate as a trusted certificate.
 
-    ```cmd
-    sudo cp $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem  /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
-    sudo update-ca-certificates
-    ```
+   ```cmd
+   sudo cp $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem  /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
+   sudo update-ca-certificates
+   ```
 
 ### Application level
 For .NET applications, you can add the following snippet to trust a certificate in PEM format. Initialize the variable `certPath` with `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.
@@ -144,9 +144,9 @@ You must initialize the IoT Hub device sdk with a connection string referring to
 ## Routing messages from downstream devices
 The IoT Edge runtime can route messages sent from downstream devices just like messages sent by modules. This allows you to preform analytics in a module running on the gateway before sending any data to the cloud. The below route would be used to send messages from a downstream device named `sensor` to a module name `ai_insights`.
 
-    ```json
-    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
-    ```
+   ```json
+   { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
+   ```
 
 Refer to the [module composition article][lnk-module-composition] for more details on message routing.
 
