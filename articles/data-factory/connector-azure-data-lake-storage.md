@@ -1,6 +1,7 @@
 ---
 title: Copy data to or from Azure Data Lake Storage Gen2 Preview by using Data Factory (Preview) | Microsoft Docs
 description: Learn how to copy data to and from Azure Data Lake Storage Gen2 Preview using Azure Data Factory.
+services: data-factory
 author: linda33wj
 manager: craigg
 ms.reviewer: douglasl
