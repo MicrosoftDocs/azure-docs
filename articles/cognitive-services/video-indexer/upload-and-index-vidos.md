@@ -14,10 +14,22 @@ ms.author: juliako
 ---
 # Upload and index your videos  
 
-This article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos with Azure Video Indexer. It also discusses configurations that you can set on the API to change the process and output of the job.
+This article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos with Azure Video Indexer. It also discusses some of the parameters that you can set on the API to change the process and output of the API.
 
 ## Configurations and params
- 	 
+
+This section describes some of the optional parameters and when you would want to set them.
+
+### externalID 
+
+This parmeter enables you to specify an ID that will be associated with the video. The ID can be applied to external "Video Content Management" (VCM) system integration.
+
+### indexingPreset
+
+Use this parameter if raw or external recordings contain background noise. You can specify the following values: `Default`, `AudioOnly`, `DefaultWithNoiseReduction`.
+
+### streamingPereset
+
 Once your video has been uploaded, Video Indexer, optionally encodes the video. Then, proceeds to indexing, and analyzing the video. When Video Indexer is done analyzing, you will get a notification with the video ID.  
 
 When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, one of the optional parameters is `streamingPreset`. If you set `streamingPereset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
