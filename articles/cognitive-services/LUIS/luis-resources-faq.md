@@ -123,6 +123,8 @@ By default, your LUIS app logs utterances from users. To download a log of utter
 ### How can I disable the logging of utterances?
 You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on user queries. If you set `log=false` because of data-privacy concerns, you can't download a record of those user utterances from LUIS or use those utterances to improve your app.
 
+The LUIS log of the utterance is the only storage of the utterance.  
+
 ### Why don't I want all my endpoint utterances logged?
 If you are using your log for prediction analysis, do not capture test utterances in your log.
 
