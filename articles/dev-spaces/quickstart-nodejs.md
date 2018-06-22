@@ -123,7 +123,7 @@ This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
 1. Select **Launch Program (AZDS)** as the active debug configuration.
 
-![](media/get-2.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
 > If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have installed the VS Code extension for Azure Dev Spaces.
