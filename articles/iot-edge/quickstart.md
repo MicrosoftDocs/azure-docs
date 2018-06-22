@@ -265,20 +265,22 @@ docker ps
 View the messages being sent from the tempSensor module to the cloud. 
 
 ```cmd
-docker logs -f tempSensor
+iotedge logs tempSensor -f
 ```
 
 ![View the data from your module](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer]. 
+
 ## Clean up resources
 
+<!--
 If you want to remove the simulated device that you created, along with the Docker containers that were started for each module, use the following command: 
 
 ```cmd
 iotedgectl uninstall
 ```
-
+-->
 When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
 
 ```azurecli

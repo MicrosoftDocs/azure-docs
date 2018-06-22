@@ -13,7 +13,7 @@
 One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. An IoT Edge module is an executable package implemented as a container. In this section, you deploy a module that generates telemetry for your simulated device. 
 
 1. In the Azure portal, navigate to your IoT hub.
-1. Go to **IoT Edge (preview)** and select your IoT Edge device.
+1. Go to **IoT Edge** and select your IoT Edge device.
 1. Select **Set Modules**.
 1. In the **Deployment Modules** section of the page, click **Add** then select **IoT Edge Module**.
 1. In the **Name** field, enter `tempSensor`. 
