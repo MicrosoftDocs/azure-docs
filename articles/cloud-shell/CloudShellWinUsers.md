@@ -1,6 +1,7 @@
 # PowerShell in Azure Cloud Shell for Windows users
 
-In May 2018 we [announced](https://azure.microsoft.com/blog/pscloudshellrefresh/) that PowerShell in Azure Cloud Shell would be moving to PowerShell Core 6 running in a Linux container.  With this change, there are some aspects of PowerShell in Cloud Shell that may be different than what is expected in Windows PowerShell 5.1.
+In May 2018 we [announced](https://azure.microsoft.com/blog/pscloudshellrefresh/) changes coming to PowerShell in Azure Cloud Shell.  The PowerShell experience in Azure Cloud Shell is now PowerShell Core 6 in Linux.
+With this change, there are some aspects of PowerShell in Cloud Shell that may be different than what is expected in Windows PowerShell 5.1.
 
 ## Case sensitivity
 
