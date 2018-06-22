@@ -23,7 +23,7 @@ This article shows you how to test auto-provisioning on a simulated Edge device 
 ## Prerequisites
 
 * A Windows development machine with [Hyper-V enabled](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). This article uses Windows 10. 
-* [IoT Hub Device Provisioning Service](https://docs.microsoft.com/en-us/azure/iot-dps/quick-setup-auto-provision.md) linked to your IoT hub.
+* [IoT Hub Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md) linked to your IoT hub.
 
 ## Simulate TPM device
 
@@ -87,18 +87,24 @@ Download a pre-built image, and use it to create a new virtual machine. Then, en
 
 6. In the **Hardware** menu, select **Security**. 
 
-7. Check the box for **Enable Trusted Platform Module** then click **OK**. 
+7. Check the box for **Enable Trusted Platform Module**. 
 
-8. Start the virtual machine, then click **Connect**. 
+8. In the **Hardware** menu, select **Network Adapter**.
 
-9. Sign in with username **edge** and password **edge**. 
+9. For **Virtual Switch**, select the virtual switch that you created in the previous section.
+
+10. Click **OK** to apply your changes and close the VM settings. 
+
+11. Start the virtual machine, then click **Connect**. 
+
+12. Sign in with username **edge** and password **edge**. 
 
    >[!IMPORTANT]
    >This VM image is for testing only. If you use this image for more than the scope of this article, you should change the username and password to be more secure. 
 
-10. Run `ifconfig` in the terminal.
+13. Run `ifconfig` in the terminal.
 
-11. Copy the value of **inet addr** from the Ethernet connection. This value is the public IP address that you use to access the virtual machine for the rest of these instructions. 
+14. Copy the value of **inet addr** from the Ethernet connection. This value is the public IP address that you use to access the virtual machine for the rest of these instructions. 
 
 ## Create a DPS enrollment
 
@@ -206,69 +212,61 @@ Since this article uses a Linux virtual machine as a simulated IoT Edge device, 
 
 In order for the IoT Edge runtime to automatically provision your device, it needs access to the TPM. 
 
-1. Find the hardware module on your device. 
+Use the following steps to give TPM access. Alternatively, you can accomplish the same thing by overriding the systemd settings so that the *iotedge* service can run as root. 
+
+1. Find the file path to the TPM hardware module on your device and save it as a local variable. 
 
    ```bash
-   sudo find /sys -name dev -print | fgrep tpm
+   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
    ```
 
-   The output should be a file path that ends with **tpm/tpm0/dev**. Copy that file path except for the **/dev** at the end. 
-
-2. Verify that this is the tpm location.
+2. Create a new rule that will give the IoT Edge runtime access to tpm0. 
 
    ```bash
-   /bin/udevadm info -a -q all -p <tpm filepath>
+   sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-   ![Verify tpm location](./media/how-to-simulate-dps-tpm/confirm-tpm.png)
-
-3. Navigate to the `rules.d` directory. 
+3. Open the rules file. 
 
    ```bash
-   cd /etc/udev/rules.d
+   sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. Create a new rule that will give the IoT Edge runtime access to tpm0. 
-
-   ```bash
-   sudo touch tpmaccess.rules
-   ```
-
-5. Open the new rule file. 
-
-   ```bash
-   sudo nano tpmaccess.rules
-   ```
-
-6. Add the access information. 
+4. Add the access information. 
 
    ```input 
    # allow iotedge access to tpm0
-   KERNAL=="tpm0", SUBSYSTEM=="tpm", GROUP="iotedge", MODE="0660"
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", GROUP="iotedge", MODE="0660"
    ```
 
-7. Save and exit the file. 
+5. Save and exit the file. 
 
-8. Trigger the udev system to evaluate the new rule. 
+6. Trigger the udev system to evaluate the new rule. 
 
    ```bash
-   /bin/udevadm trigger <tpm filepath>
+   /bin/udevadm trigger $tpm
    ```
 
-9. Open the IoT Edge runtime overrides file. 
+7. Verify that the rule was successfully applied.
+
+   ```bash
+   ls -l /dev/tpm0
+   ```
+   
+8. Open the IoT Edge runtime overrides file. 
 
    ```bash
    sudo systemctl edit iotedge.service
    ```
 
-10. Add the following code to establish a TPM environment variable.
+9. Add the following code to establish a TPM environment variable.
 
    ```input
    [Service]
    Environment=IOTEDGE_USE_TPM_DEVICE=ON
    ```
 
-11. Verify the overrides.
+9. Verify that the override was successful.
 
    ```bash
    sudo systemctl cat iotedge.service
@@ -295,3 +293,7 @@ Check to see that the IoT Edge runtime is running.
    ```
 
 If the runtime started successfully, you can go into your IoT Hub and see that your new device was automatically provisioned and is ready to run IoT Edge modules. 
+
+## Next steps
+
+The Device Provisioning Service enrollment process lets you set the device ID and device twin tags at the same time as you provision the new device. You can use those values to target individual devices or groups of devices using automatic device management. Learn how to [Deploy and monitor IoT Edge modules at scale using the Azure portal](how-to-deploy-monitor.md) or [using Azure CLI](how-to-deploy-monitor-cli.md)
