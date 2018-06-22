@@ -54,7 +54,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 6. Go to the container you created in the previous step. Select **Upload** and upload the sensor data that you got from the first step.  
 
-   ![Upload sample data to blob](./media/stream-analytics-quick-create-portal-vs/upload-sample-data-to-blob.png)
+   ![Upload sample data to blob](./media/stream-analytics-quick-create-vs/upload-sample-data-to-blob.png)
 
 ## Create a Stream Analytics project
 
@@ -66,7 +66,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 4. Input the project **Name**, **Location**, and **Solution name**.
 
-   ![Create a Stream Analytics project](./media/stream-analytics-quick-create-portal-vs/create-stream-analytics-project.png)
+   ![Create a Stream Analytics project](./media/stream-analytics-quick-create-vs/create-stream-analytics-project.png)
 
 ## Choose the correct subscription
 
