@@ -80,9 +80,9 @@
     - name: Speech to Text FAQ
       href: faq-stt.md
     - name: Text To Speech FAQ
-      href:
+      href: faq-text-to-speech.md
     - name: Translator FAQ
-      href: faq-translator.md
+      href: https://www.microsoft.com/en-us/translator/faq.aspx
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: UserVoice
