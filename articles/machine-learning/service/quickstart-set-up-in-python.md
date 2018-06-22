@@ -33,20 +33,22 @@ Make sure you have the following prerequisites before starting the quickstart st
 
 Install the Azure Machine Learning SDK for Python. You'll use this SDK to create your workspace and run code. You can [do a lot more with this SDK](reference-azure-machine-learning-sdk.md). 
 
-In a command-line window, create the conda environment and install the SDK. This example uses Python 3.6.
+1. In a command-line window, create and activate the conda package manager environment with numpy and cython. This example uses Python 3.6.
 
-   ``` 
-   #Set your conda environment with numpy and cython
+   On Windows:
+   ```sh 
    conda create -n myenv Python=3.6 cython numpy
-   
-   #Activate the package manager environment
-   ## Windows:
    activate myenv
+   ```
 
-   ## Linux or MacOS: 
-   ##source activate myenv
+   On Linux or MacOS:
+   ```sh 
+   conda create -n myenv Python=3.6 cython numpy
+   source activate myenv
+   ```
 
-   #Install the SDK
+1. Install the SDK
+   ```sh 
    pip install azureml-sdk
    ```
 

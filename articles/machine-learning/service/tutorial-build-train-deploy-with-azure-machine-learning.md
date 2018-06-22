@@ -1,6 +1,24 @@
 ﻿---
+title: Prepare data for classifying Iris tutorial in Azure Machine Learning services (preview) | Microsoft Docs
+description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part one and discusses data preparation.
+services: machine-learning
+author: hning86
+ms.author: haining
+manager: mwinkle
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.service: machine-learning
+ms.component: core
+ms.workload: data-services
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 3/7/2018
+
+ROBOTS: NOINDEX
+---
+
+---
 title: Tutorial - Build, train, deploy models in Azure Machine Learning | Microsoft Docs
-description: In this tutorial, you can learn how build, train, and deploy a model with Azure Machine Learning in Python.
+description: In this tutorial, you can learn how to build, train, and deploy a model with Azure Machine Learning in Python.
 services: machine-learning
 author: haining
 ms.author: haining
@@ -11,6 +29,35 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/27/2018
 ---
+
+# Tutorial 1: Classify Iris - Preparing the data
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning service (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
+
+This tutorial is **part one of a three-part series**. In this tutorial, you walk through the basics of Azure Machine Learning services (preview) and learn how to:
+
+> [!div class="checklist"]
+> * Create a project in Azure Machine Learning Workbench
+> * Create a data preparation package
+> * Generate Python/PySpark code to invoke a data preparation package
+
+This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
+
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+To complete this tutorial, you must have:
+- An Azure Machine Learning Experimentation account
+- Azure Machine Learning Workbench installed
+
+If you don't have these prerequisites already, follow the steps in the [Quickstart: Install and start](quickstart-installation.md) article to set up your accounts and install the Azure Machine Learning Workbench application. 
+
+
+
+
 
 
 # Tutorial: Training MNIST dataset using TensorFlow on Azure Machine Learning
