@@ -30,15 +30,15 @@ The gateway presents its Edge device CA certificate to the downstream device dur
 
 The following steps walk you through the process of creating the certificates and installing them in the right places.
 
-## Pre requisites
+## Prerequisites
 <!--1.	[Install the Azure IoT Edge runtime][lnk-install-linux] on a device you want to use as the transparent gateway.-->
 
 2.	Obtain the scripts to generate the required non productions certificates with the following command. These scripts help you create the necessary certificates to set up a transparent gateway. 
 
->[!NOTE]
->Use this command for the bug bash:
->
-> `git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git`
+    >[!NOTE]
+    >Use this command for the bug bash:
+    >
+    > `git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git`
 
         git clone https://github.com/Azure/azure-iot-sdk-c.git
 
@@ -50,11 +50,11 @@ The following steps walk you through the process of creating the certificates an
    
    3.2 Copy config and script files into your working directory.
 
-       ```cmd
+```cmd
        cp azure-iot-sdk-c/tools/CACertificates/*.cnf .
        cp azure-iot-sdk-c/tools/CACertificates/certGen.sh .
        chmod 700 certGen.sh 
-       ```
+```
 
 ## Certificate creation
 1.	Create the owner CA certificate and one intermediate certificate. These are all placed in `$WRKDIR`.
