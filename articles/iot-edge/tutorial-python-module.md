@@ -42,7 +42,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Bugbash-only Prerequisites
 * [Azure IoT Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
-* [Azure IoT Edge extension for Visual Studio Code - 0.5.0-private3](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/v0.5.0-private3/azure-iot-edge-0.5.0-private3.vsix).
+* [Azure IoT Edge extension for Visual Studio Code - 1.0.0-rc-mcr](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/v1.0.0-rc-mcr/azure-iot-edge-1.0.0-rc-mcr.vsix).
     Download and save the VSIX file locally using the link provided. In VS Code, go to the **Extensions** view. Click the **...** then select **Install from VSIX...**. Reload the VS Code window to enable the extension.
 
     ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
@@ -81,6 +81,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
     ```
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
+3. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
 4. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
@@ -88,7 +89,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
    4. Name your module **PythonModule**. 
    5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/pythonmodule**.
  
-4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder and a deployment manifest template file. Open **modules** > **PythonModule** > **main.py**.
+4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder, a deployment manifest template file and a .env file. Open **modules** > **PythonModule** > **main.py**.
 
 5. At the top of the **main.py**, import the `json` library.
 
@@ -168,7 +169,9 @@ In the previous section you created an IoT Edge solution and added code to the P
 
 2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the `$edgeAgent` to deploy two modules: **tempSensor** and **PythonModule**. The `PythonModule.image` value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-3. Add the PythonModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
+3. In **deployment.template.json** file, there is a section **registryCredentials** which stores your Docker regitstry credentials. The actual username and password pairs are stored in the .env file which is git ignored.
+
+4. Add the PythonModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
     ```json
         "PythonModule": {
             "properties.desired":{
@@ -176,22 +179,6 @@ In the previous section you created an IoT Edge solution and added code to the P
             }
         }
     ```
-
-4. Add the container repository credentials in the edgeAgent desired properties. **Bugbash-only** - The first credential is for the system module. The next credential is for your own ACR. Find the **EdgeShared** property under **registryCredentials**. Update the password field, then add your own registry information so that it looks like the following example: 
-
-    ```json
-        "EdgeShared": {
-            "username":"EdgeShared",
-            "password":"WPruG6Zt4OBs4hZySY9VQAp2dKEM/pDn",
-            "address":"edgeshared.azurecr.io"
-        },
-        "YourACR": {
-            "username":"[Username]",
-            "password":"[Password]",
-            "address":"[Login server]"
-        }
-    ```
-
 
 5. Save this file.
 6. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build IoT Edge solution**. 
@@ -218,6 +205,7 @@ You can see the full container image address with tag in the VS Code integrated 
 1. To monitor data arriving at the IoT hub, click **...**, and select **Start Monitoring D2C Messages**.
 2. To monitor the D2C message for a specific device, right-click the device in the list, and select **Start Monitoring D2C Messages**.
 3. To stop monitoring data, run the command **Azure IoT Hub: Stop monitoring D2C message** in command palette. 
+4. To view or update module twin, right-click the module in the list, and select **Edit module twin**. To update the module twin, save the twin JSON file and right-click the editor area and select **Update Module Twin**.
 
 ## Next steps
 
