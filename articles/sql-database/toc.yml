@@ -74,9 +74,9 @@
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: Service tiers and resources
+  - name: Purchasing models and resources
     items: 
-    - name: Service tiers
+    - name: Purchasing models
       href: sql-database-service-tiers.md
     - name: vCore-based model
       href: sql-database-service-tiers-vcore.md

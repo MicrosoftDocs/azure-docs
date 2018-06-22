@@ -3,17 +3,18 @@ title: Unexpected application in my applications list | Microsoft Docs
 description: How to see all applications in your tenant and understand how applications appear in your All Applications list under Enterprise Applications
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
