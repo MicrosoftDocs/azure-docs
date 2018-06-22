@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.reviewer: japere,barbkess
+ms.reviewer: japere,asteen
 ---
 
 # How to use self-service application access

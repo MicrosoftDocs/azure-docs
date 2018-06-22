@@ -4,7 +4,7 @@ description:  Explains how you can list your custom-developed multitenant applic
 services: active-directory
 documentationCenter: na
 author: barbkess
-manager: femila
+manager: mtillman
 
 ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
