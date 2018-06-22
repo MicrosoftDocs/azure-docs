@@ -44,11 +44,11 @@ The following steps walk you through the process of creating the certificates an
 
 3. These scripts use OpenSSL to generate the required certificates and OpenSSL requires some setup.
    
-   3.1 Navigate to the directory in which you want to work. From here on we'll refer to this as $WRKDIR.  All files will be created in this directory.
+   1. Navigate to the directory in which you want to work. From here on we'll refer to this as $WRKDIR.  All files will be created in this directory.
 
       cd $WRKDIR
    
-   3.2 Copy config and script files into your working directory.
+   1. Copy config and script files into your working directory.
 
       ```cmd
       cp azure-iot-sdk-c/tools/CACertificates/*.cnf .
