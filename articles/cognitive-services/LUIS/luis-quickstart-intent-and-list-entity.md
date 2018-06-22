@@ -19,7 +19,7 @@ In this tutorial, create an app that demonstrates how to get data that matches a
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand list entities 
-> * Create new LUIS app for the Human Resources (HR) domain with MoveEmployeeOffice intent
+> * Create new LUIS app for the Human Resources (HR) domain with MoveEmployee intent
 > * Add list entity to extract Employee from utterance
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
@@ -27,12 +27,12 @@ In this tutorial, create an app that demonstrates how to get data that matches a
 For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account to author your LUIS application.
 
 ## Before you begin
-If you do not have the Human Resources app from the regex entities [custom domain](luis-quickstart-intents-regex-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found at in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the regex entities [custom domain](luis-quickstart-intents-regex-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `list`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## Purpose of the list entity
-This app predicts utterances about moving an employee from one building and desk to a different building and desk. This app uses a list entity to extract an employee. The employee can be referred to using name, phone numbers, email, or U.S. federal social security number. 
+This app predicts utterances about moving an employee from one building to a different building. This app uses a list entity to extract an employee. The employee can be referred to using name, phone number, email, or U.S. federal social security number. 
 
 A list entity can hold many items with synonyms for each item. For a small to medium size company, the list entity is used to extract the employee information. 
 
