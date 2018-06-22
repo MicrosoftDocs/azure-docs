@@ -39,7 +39,7 @@ There are 4 different ways to complete migration of compute, network, and storag
 * Migration of virtual machines (NOT in a virtual network)
 * Migration of virtual machines (in a virtual network)
 * Storage accounts migration
-* Unattached resources (Network Security Groups, Route Tables & Reserved IPs)
+* Unattached resources (Storage Accounts, Network Security Groups, Route Tables & Reserved IPs)
 
 ### Migration of virtual machines (NOT in a virtual network)
 In the Resource Manager deployment model, security is enforced for your applications by default. All VMs need to be in a virtual network in the Resource Manager model. The Azure platform restarts (`Stop`, `Deallocate`, and `Start`) the VMs as part of the migration. You have two options for the virtual networks that the Virtual Machines will be migrated to:
@@ -68,13 +68,15 @@ The following configurations are not currently supported. If support is added in
 ### Storage accounts migration
 To allow seamless migration, you can deploy Resource Manager VMs in a classic storage account. With this capability, compute and network resources can and should be migrated independently of storage accounts. Once you migrate over your Virtual Machines and Virtual Network, you need to migrate over your storage accounts to complete the migration process.
 
+If your storage account does not have any associated disks or Virtual Machines data and only has blobs, files, tables, and queues then the migration to ARM can be done as a standalone migration without dependencies.
+
 > [!NOTE]
 > The Resource Manager deployment model doesn't have the concept of Classic images and disks. When the storage account is migrated, Classic images and disks are not visible in the Resource Manager stack but the backing VHDs remain in the storage account.
 >
->
 
-### Unattached resources (Network Security Groups, Route Tables & Reserved IPs)
-Network Security Groups, Route Tables & Reserved IPs that are not attached to any Virtual Machines and Virtual Networks can be migrated independently.
+### Unattached resources (Storage Accounts, Network Security Groups, Route Tables & Reserved IPs)
+Storage Accounts with no associated disks or Virtual Machines data may be migrated independently.
+Network Security Groups, Route Tables & Reserved IPs that are not attached to any Virtual Machines and Virtual Networks can also be migrated independently.
 
 <br>
 
