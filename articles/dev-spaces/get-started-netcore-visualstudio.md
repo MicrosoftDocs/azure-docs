@@ -48,7 +48,7 @@ Select the **Web Application (Model-View-Controller)** template and be sure you'
 
 ### Enable Dev Spaces for an AKS cluster
 
-With the project you just created open, select **Azure Dev Spaces** from the launch settings dropdown, as shown below.
+With the project you just created, select **Azure Dev Spaces** from the launch settings dropdown, as shown below.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 

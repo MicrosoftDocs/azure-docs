@@ -62,7 +62,7 @@ Azure Dev Spaces isn't just about getting code running in Kubernetes - it's abou
 What happened? Edits to content files, like HTML and CSS, don't require the Node.js process to restart, so an active `azds up` command will automatically sync any modified content files directly into the running container in Azure, thereby providing a fast way to see your content edits.
 
 ### Test from a mobile device
-Open the web app on a mobile device using the public URL for webfrontend. (You may want to copy and send the URL from your desktop to your device to save you from entering the long address.) When the web app loads in your mobile device, you will notice that the UI does not display properly on a small device.
+Open the web app on a mobile device using the public URL for webfrontend. You may want to copy and send the URL from your desktop to your device to save you from entering the long address. When the web app loads in your mobile device, you will notice that the UI does not display properly on a small device.
 
 To fix this, you'll add a `viewport` meta tag:
 1. Open the file `./public/index.html`
