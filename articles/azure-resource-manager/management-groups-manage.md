@@ -53,7 +53,7 @@ C:\> Update-AzureRmManagementGroup -GroupName ContosoIt -DisplayName "Contoso Gr
 
 For Azure CLI, use the update command. 
 
-```azure-cli
+```azurecli-interactive
 az account management-group update --name Contoso --display-name "Contoso Group" 
 ```
 
@@ -92,7 +92,7 @@ Remove-AzureRmManagementGroup -GroupName Contoso
 ### Delete in Azure CLI
 With Azure CLI, use the command az account management-group delete. 
 
-```azure-cli
+```azurecli-interactive
 az account management-group delete --name Contoso
 ```
 ---
@@ -122,12 +122,12 @@ Get-AzureRmManagementGroup -GroupName Contoso
 ### View in Azure CLI
 You use the list command to retrieve all groups.  
 
-```azure-cli
+```azurecli-interactive
 az account management-group list
 ```
 For a single management group's information, use the show command
 
-```azurepowershell-interactive
+```azurecli-interactive
 az account management-group show --name Contoso
 ```
 ---
@@ -183,13 +183,13 @@ Remove-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123
 ### Move subscriptions in Azure CLI
 To move a subscription in CLI, you use the add command. 
 
-```azure-cli
+```azurecli-interactive
 az account management-group subscription add --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 To remove the subscription from the management group, use the subscription remove command.  
 
-```azure-cli
+```azurecli-interactive
 az account management-group subscription remove --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
@@ -219,7 +219,7 @@ Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
 ### Move management groups in Azure CLI
 Use the update command to move a management group with Azure CLI. 
 
-```azure-cli
+```azurecli-interactive
 az account management-group update --name Contoso --parent "Contoso Tenant" 
 ``` 
 
