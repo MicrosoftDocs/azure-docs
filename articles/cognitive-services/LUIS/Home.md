@@ -21,8 +21,6 @@ A client application for LUIS can be any conversational application that communi
 ## What is a LUIS app?
 A LUIS app contains a domain-specific natural language model you design. You can start your app with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
 
-This model begins with a list of general user intentions, called _intents_, such as "Book Flight" or "Contact Help Desk." You provide user's example phrases, called _utterances_ for the intents. Then mark significant words or phrases in the utterance, called _entities_.
-
 [Prebuilt domain models][prebuilt-domains] include all these pieces for you and are a great way to start using LUIS quickly.
 
 The LUIS app also contains integration settings, [collaborators](luis-concept-collaborator.md), and [versions](luis-concept-version.md).
@@ -61,6 +59,9 @@ The JSON endpoint response, at a minimum contains the query utterance, and the t
 <a name="Key-LUIS-concepts"></a>
 <a name="what-is-a-luis-model"></a>
 ## What is a natural language model?
+A model begins with a list of general user intentions, called _intents_, such as "Book Flight" or "Contact Help Desk." You provide user's example phrases, called _example utterances_ for the intents. Then mark significant words or phrases in the utterance, called _entities_.
+
+
 A model includes:
 
 * **[intents](#intents)**: categories of user intentions (intended action or result)
