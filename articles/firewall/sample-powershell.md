@@ -9,7 +9,7 @@ tags: azure-resource-manager
 
 ms.service: firewall
 ms.topic: article
-ms.date: 5/18/2018
+ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -20,7 +20,7 @@ The following table includes links to Azure PowerShell script samples that creat
 
 | | |
 |----|----|
-|Create an Azure Firewall test environment|Creates an Azure Firewall and a test network infrastructure.|
+|[Create an Azure Firewall and test infrastructure](scripts/create-firewall-test.md)|Creates an Azure Firewall and a test network infrastructure.|
 
 
 
