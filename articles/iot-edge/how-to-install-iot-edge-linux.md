@@ -59,7 +59,9 @@ sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 
 ## Install the container runtime 
 
-Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). If you already have Docker CE/EE installed on your Edge device, you can continue to use it for development and testing with Azure IoT Edge. For production scenarios it is highly recommended that you use the [Moby][lnk-moby]-based engine below as it is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are fully compatible with the Moby runtime.
+Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). If you already have Docker CE/EE installed on your Edge device, you can continue to use it for development and testing with Azure IoT Edge. 
+
+For production scenarios it is highly recommended that you use the [Moby][lnk-moby]-based engine below as it is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are fully compatible with the Moby runtime.
 
 *Instructions below install both moby engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.*
 
