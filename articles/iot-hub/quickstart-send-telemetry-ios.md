@@ -131,9 +131,7 @@ If you get an error when you run the iothub-explorer command, double check that 
 
 ## Clean up resources
 
-If you plan to continue testing IoT Hub with other articles, leave the your resource group and IoT hub and reuse them later.
-
-If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the resource group that contains your IoT hub and click **Delete**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## Next steps
 
