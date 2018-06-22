@@ -31,11 +31,28 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Log in to the [Azure  portal](https://portal.azure.com).
 
+## Create a storage account by using the Azure portal
+
+First, create a new general-purpose storage account to use for this quickstart. 
+
+1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) and sign in by using your Azure account. 
+2. Enter a unique name for your storage account. Keep these rules in mind for naming your storage account:
+    - The name must be 3 to 24 characters in length.
+    - The name can contain numbers and lowercase letters only.
+4. Select your subscription. 
+5. Create a new **Resource group** and give it a unique name.
+6. Select the **Location** to use for your storage account.
+7. Switch the hierarchical namespace to **Enabled**.
+8. Leave other fields set to their default values.
+9. Select **Pin to dashboard** and select **Create** to create your storage account.
+
+After your storage account is created, it's pinned to the dashboard of the Azure portal. Select the storage account to open it. Under **Settings**, select **Access keys**. Select the primary account access key and click the **Copy** button to copy the associated connection string to the clipboard. Then paste the string into a text editor for later use.
+
 ## Create an Azure Databricks workspace
 
 In this section, you create an Azure Databricks workspace using the Azure portal. 
 
-1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks**. 
+1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**. 
 
     ![Databricks on Azure portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
 
@@ -74,14 +91,12 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other default values other than the following:
 
     * Enter a name for the cluster.
-    * For this article, create a cluster with **4.0** runtime. 
+    * For this article, create a cluster with **4.2** runtime. 
     * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
     
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs. 
 
 For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
-
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## Run a Spark SQL job
 

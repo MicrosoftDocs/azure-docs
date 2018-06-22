@@ -16,7 +16,7 @@ ms.author: jingwang
 
 # Load data into Azure Data Lake Storage Gen2 Preview with Azure Data Factory
 
-[Azure Data Lake Storage Gen2 Preview](../storage/data-lake-storage/introduction.md) adds a protocol with hierarchial file system namespace and security features to Azure Blob Storage making it easy to connect analytics frameworks to a durable storage layer. In ADLS (Preview), all the qualities of object storage remain while adding the advantages of a file system interface.
+[Azure Data Lake Storage Gen2 Preview](../storage/data-lake-storage/introduction.md) adds a protocol with hierarchial file system namespace and security features to Azure Blob Storage making it easy to connect analytics frameworks to a durable storage layer. In Data Lake Storage Gen2 (Preview), all the qualities of object storage remain while adding the advantages of a file system interface.
 
 Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate the lake with data from a rich set of on-premises and cloud-based data stores and save time when building your analytics solutions. For a detailed list of supported connectors, see the table of [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -52,7 +52,11 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
    Select the **Author & Monitor** tile to launch the Data Integration Application in a separate tab.
 
+<<<<<<< HEAD
 ## Load data into Data Lake Storage Gen2
+=======
+## Load data into Azure Data Lake Storage Gen2
+>>>>>>> 426442ea3aa56d432f1a227a48cb440e1f97924c
 
 1. In the **Get started** page, select the **Copy Data** tile to launch the Copy Data tool: 
 
