@@ -1,5 +1,5 @@
 ---
-title: What is the what if tool in Azure Active Directory conditional access? - preview | Microsoft Docs
+title: What is the what if tool in Azure Active Directory conditional access?
 description: Learn how you can understand the impact of your conditional access policies on your environment.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
@@ -23,7 +23,7 @@ ms.reviewer: nigu
 
 ---
 
-# What is the what if tool in Azure Active Directory conditional access? - preview
+# What is the what if tool in Azure Active Directory conditional access?
 
 [Conditional access](active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect form the conditional access policies in your environment? To answer this question, you can use the **conditional access what if tool**.
 
