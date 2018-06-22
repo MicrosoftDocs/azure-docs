@@ -274,7 +274,7 @@ If your Dependency Agent installation succeeded, but you don't see your server i
 
 		* Computer="<your computer name here>" | measure count() by Type
 		
-  Did you get a variety of events in the results? Is the data recent? If so, your OMS Agent is operating correctly and communicating with Log Analytics. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot- monitoring-onboarding-issues) or [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Did you get a variety of events in the results? Is the data recent? If so, your OMS Agent is operating correctly and communicating with Log Analytics. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) or [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### Server appears in Service Map but has no processes
 If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load. 
