@@ -21,7 +21,11 @@ ms.author: hrushib
 
 Configuring periodic backup consists of following steps:
 
-1. Creation of backup policy: In this step, backup policy is created by specifying backup schedule, backup storage, maximum number of consecutive incremental backups, and whether to do auto restore. You can create multiple policies depending on your requirements.
+1. Creation of backup policy: In this step, one or more backup policies are created depending on requirements. A policy is created by specifying following details
+    - Backup schedule
+    - Backup storage 
+    - Maximum number of consecutive incremental backups, and 
+    - Whether to do auto restore
 
 2. Enabling Data Protection: In this step, you associate a backup policy created in **Step 1** to the required entity, _Application_, _Service_, or a _Partition_.
 	
@@ -62,7 +66,7 @@ A backup policy defines the following details:
         ```
 
 * Backup storage: Specifies the location to upload backups. Storage can be either Azure blob store or file share.
-    1. Azure blob store: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
+    1. Azure blob store: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
        ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -73,7 +77,7 @@ A backup policy defines the following details:
         ```
 
     2. File share: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premise. Description for this storage type requires file share path where backups need to be uploaded. Access to the file share can be configured using one of the following options
-        1. Integrated Window Authentication, where the access to file share is provided to all computers belonging to the Service Fabric cluster. In this case, set following fields to configure _file share_ based backup storage.
+        1. Integrated Window Authentication, where the access to file share is provided to all computers belonging to the Service Fabric cluster. In this case, set following fields to configure _file-share_ based backup storage.
         ```json
         {
             "StorageKind": "FileShare",
@@ -81,7 +85,7 @@ A backup policy defines the following details:
             "Path": "\\\\StorageServer\\BackupStore"
         }
         ```
-        2. Protecting file share using user name and password, where the access to file share is provided to specific users. File share storage specification also provides capability to specify secondary user name and secondary password to provide fall-back credentials in case authentication fails with primary user name and primary password. In this case, set following fields to configure _file share_ based backup storage.
+        2. Protecting file share using user name and password, where the access to file share is provided to specific users. File share storage specification also provides capability to specify secondary user name and secondary password to provide fall-back credentials in case authentication fails with primary user name and primary password. In this case, set following fields to configure _file-share_ based backup storage.
         ```json
         {
             "StorageKind": "FileShare",
@@ -184,7 +188,7 @@ Separate APIs are made available to get backup configuration information at an _
 
 ## List available backups
 
-Available backpus can be listed using Get Backup List API. Result of API call includes backup info items related to all the backups available at the backup storage, which is configured in the applicable backup policy. Different variants of this API list available backups belonging to an application, service, or partition. These APIs support getting the _latest_ available backup of all applicable partitions, or filtering of backups based on _start date_ and _end date_.
+Available backpus can be listed using Get Backup List API. Result of API call includes backup info items related to all the backups available at the backup storage, which is configured in the applicable backup policy. Different variants of this API are provided to list available backups belonging to an application, service, or partition. These APIs support getting the _latest_ available backup of all applicable partitions, or filtering of backups based on _start date_ and _end date_.
 
 These APIs also support pagination of the results, when _MaxResults_ parameter is set to non-zero positive integer then the API returns maximum _MaxResults_ backup info items. In case, there are more backup info items available than the _MaxResults_ value, then a continuation token is returned. Valid continuation token parameter can be used to get next set of results. When valid continuation token value is passed to next call of the API, the API returns next set of results. No continuation token is included in the response when all available results are returned.
 
