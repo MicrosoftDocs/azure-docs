@@ -33,7 +33,7 @@ If you don't have an active Azure subscription, create a [free account][lnk-acco
 
 ## Prerequisites
 
-This quickstart uses Azure CLI and IoT Hub. 
+This quickstart uses Azure CLI. 
 
 >[!IMPORTANT]
 >**bug bash only**
@@ -44,8 +44,6 @@ This quickstart uses Azure CLI and IoT Hub.
 >The hosts file can be found at: 
 >Linux - /etc/hosts 
 >Windows - C:\Windows\System32\drivers\etc\hosts 
-
-### Prepare Azure CLI in a cloud shell
 
 You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality. You can complete these steps in the cloud shell in the Azure portal.
 
