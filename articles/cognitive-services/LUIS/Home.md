@@ -29,9 +29,9 @@ The LUIS app also contains integration settings, [collaborators](luis-concept-co
 <a name="Accessing-LUIS"></a>
 Once your model is built and published, your client application sends utterances to the LUIS [endpoint API][endpoint-apis] and receives the prediction results as JSON responses.
 
-![Conceptual imagery of LUIS working with Chatbot](./media/luis-overview/luis-overview-process-2.png)
-
 First, your client application (such as a chatbot) sends user text of what a person wants in their own words to LUIS in an HTTP request. Second, LUIS applies your learned model to the natural language to make sense of the user input and returns a JavaScript Object Notation (JSON) format response. Third, your client application uses the JSON response to fulfill the user's requests. 
+
+![Conceptual imagery of LUIS working with Chatbot](./media/luis-overview/luis-overview-process-2.png)
 
 ### Example of JSON endpoint response
 
@@ -117,7 +117,7 @@ Several Microsoft technologies work with LUIS:
 * [Text Analytics][text-analytics] provides sentiment analysis and key phrase data extraction.
 
 ## Next steps
-Create a [new LUIS app](LUIS-get-started-create-app.md).
+Create a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [custom](luis-quickstart-intents-only.md) domain.
 
 <!-- Reference-style links -->
 [create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
