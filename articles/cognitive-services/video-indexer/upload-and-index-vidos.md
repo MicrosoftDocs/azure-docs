@@ -22,7 +22,7 @@ This section describes some of the optional parameters and when you would want t
 
 ### externalID 
 
-This parmeter enables you to specify an ID that will be associated with the video. The ID can be applied to external "Video Content Management" (VCM) system integration.
+This parameter enables you to specify an ID that will be associated with the video. The ID can be applied to external "Video Content Management" (VCM) system integration.
 
 ### indexingPreset
 
