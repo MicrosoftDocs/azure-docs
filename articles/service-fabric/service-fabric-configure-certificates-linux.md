@@ -81,18 +81,17 @@ With an **X509_2** reference, you specify a path parameter, so you can locate th
 
 The following XML shows a **TransportSettings** section based on this style.
 
-       ```xml
-       <!--Section name should always end with "TransportSettings".-->
-       <!--Here we are using a prefix "HelloWorldStateless".-->
-        <Section Name="HelloWorldStatelessTransportSettings">
-            <Parameter Name="MaxMessageSize" Value="10000000" />
-            <Parameter Name="SecurityCredentialsType" Value="X509_2" />
-            <Parameter Name="CertificatePath" Value="/path/to/cert/BD1C71E248B8C6834C151174DECDBDC02DE1D954.crt" />
-            <Parameter Name="CertificateProtectionLevel" Value="EncryptandSign" />
-            <Parameter Name="CertificateRemoteThumbprints" Value="BD1C71E248B8C6834C151174DECDBDC02DE1D954" />
-        </Section>
-
-       ```
+```xml
+<!--Section name should always end with "TransportSettings".-->
+<!--Here we are using a prefix "HelloWorldStateless".-->
+<Section Name="HelloWorldStatelessTransportSettings">
+    <Parameter Name="MaxMessageSize" Value="10000000" />
+    <Parameter Name="SecurityCredentialsType" Value="X509_2" />
+    <Parameter Name="CertificatePath" Value="/path/to/cert/BD1C71E248B8C6834C151174DECDBDC02DE1D954.crt" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptandSign" />
+    <Parameter Name="CertificateRemoteThumbprints" Value="BD1C71E248B8C6834C151174DECDBDC02DE1D954" />
+</Section>
+```
 
 > [!NOTE]
 > The certificate is specified as a .crt file in the preceding XML. This implies that there is also a .key file containing the private key in the same location.
@@ -109,7 +108,7 @@ To configure an application, add a [**SecretsCertificate**](https://docs.microso
    </Certificates>   
 ```
 
-You can reference either the cluster certificate or a certificate that you install on each cluster node. On Linux, the certificate files must be present in the */var/lib/sfcerts* directory. To learn more, see [Location and format of X.509 certificates on Linux nodes](location-and-format-of-x-509-certificates-on-linux-nodes).
+You can reference either the cluster certificate or a certificate that you install on each cluster node. On Linux, the certificate files must be present in the */var/lib/sfcerts* directory. To learn more, see [Location and format of X.509 certificates on Linux nodes](#location-and-format-of-x509-certificates-on-linux-nodes).
 
 
 
