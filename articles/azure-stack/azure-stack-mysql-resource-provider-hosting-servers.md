@@ -26,7 +26,8 @@ You can host a MySQL instance on a virtual machine (VM) in [Azure Stack](azure-s
 Make sure you have the credentials for an account with system admin privileges. To add a hosting server, follow these steps:
 
 1. Sign in to the Azure Stack operator portal as a service admin.
-2. Select **ADMINISTRATIVE RESOURCES** > **MySQL Hosting Servers** > **+Add**. This opens the **Add a MySQL Hosting Server** dialog, shown in the following screen capture.
+2. Select **More services**.
+3. Select **ADMINISTRATIVE RESOURCES** > **MySQL Hosting Servers** > **+Add**. This opens the **Add a MySQL Hosting Server** dialog, shown in the following screen capture.
 
    ![Configure a hosting server](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
