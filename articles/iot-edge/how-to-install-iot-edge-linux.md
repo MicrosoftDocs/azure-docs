@@ -96,6 +96,6 @@ For more information and architectural overview of Azure IoT Edge Runtime go thi
 
 <!-- Links -->
 [lnk-dcs]: https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet#register-a-device
-[lnk-dps]: tbd.md
+<!-- [lnk-dps]: tbd.md -->
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
