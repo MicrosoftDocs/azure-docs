@@ -11532,6 +11532,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Translator/quickstarts/nodejs.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-nodejs-translate",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
             "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-build-system.md",
             "redirect_document_id": false
@@ -25130,11 +25135,6 @@
             "source_path": "articles/virtual-machines/linux/join-redhat-linux-vm-to-azure-active-directory-domain-service.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
             "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
-            "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-troubleshooting-support-howto.md",
