@@ -17,9 +17,7 @@ ms.date: 06/27/2018
 ms.author: jamesbak
 
 ---
-# Quickstart: Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more
-
-[!INCLUDE [selector](../../../includes/hdinsight-create-linux-cluster-selector.md)]
+# Quickstart: Set up clusters in HDInsight
 
 In this quickstart you learn to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach to [Azure Data Lake Storage Gen2](introduction.md).
 
@@ -31,6 +29,7 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 Data Lake Storage is used as the data layer in this quickstart. With its Hierarchical Namespace Service and [Hadoop driver](abfs-driver.md), Data Lake Storage is optimized for distributed processing and analysis. Data stored in Data Lake Storage persists even after an HDInsight cluster is deleted.
 
 ## Cluster setup methods
+
 The following table shows the different methods you can use to set up an HDInsight cluster.
 
 | Clusters created with | Web browser | Command line | REST API | SDK | 
