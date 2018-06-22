@@ -17,8 +17,9 @@ ms.workload: identity
 ms.date: 10/19/2017
 ms.author: celested
 ms.custom: aaddev
-
+ms.reviewer: elisol
 ---
+
 # Application and service principal objects in Azure Active Directory (Azure AD)
 Sometimes the meaning of the term "application" can be misunderstood when used in the context of Azure AD. The goal of this article is to clarify conceptual and concrete aspects of Azure AD application integration, with an illustration of registration and consent for a [multi-tenant application](active-directory-dev-glossary.md#multi-tenant-application).
 
