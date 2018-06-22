@@ -35,7 +35,7 @@ Log in to the [Azure  portal](https://portal.azure.com).
 
 In this section, you create an Azure Databricks workspace using the Azure portal. 
 
-1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks**. 
+1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**. 
 
     ![Databricks on Azure portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
 
@@ -116,7 +116,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path "/mnt/mypath/small_radio_json.json"
+     path  "abfs://dbricks@<ACCOUNT_NAME>.dfs.core.windows.net/folder1/mypath/small_radio_json.json"
     )
     ```
 
