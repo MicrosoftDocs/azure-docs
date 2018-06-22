@@ -71,7 +71,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     If you choose a different name for your device, update the device name in the sample applications before you run them.
 
-1. Run the following command to get the _device connection string_ for the device you just registered:
+2. Run the following command to get the _device connection string_ for the device you just registered:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
@@ -95,17 +95,17 @@ The simulated device application connects to a device-specific endpoint on your 
 
 1. In a terminal window, navigate to the root folder of the sample Java project. Then navigate to the **iot-hub\Quickstarts\simulated-device-2** folder.
 
-1. Open the **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** file in a text editor of your choice.
+2. Open the **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** file in a text editor of your choice.
 
     Replace the value of the `connString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.java** file.
 
-1. In the terminal window, run the following commands to install the required libraries and build the simulated device application:
+3. In the terminal window, run the following commands to install the required libraries and build the simulated device application:
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. In the terminal window, run the following commands to run the simulated device application:
+4. In the terminal window, run the following commands to run the simulated device application:
 
     ```cmd/sh
     java -jar target/simulated-device-2-1.0.0-with-deps.jar
@@ -121,17 +121,17 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
 1. In another terminal window, navigate to the root folder of the sample Java project. Then navigate to the **iot-hub\Quickstarts\back-end-application** folder.
 
-1. Open the **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** file in a text editor of your choice.
+2. Open the **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** file in a text editor of your choice.
 
     Replace the value of the `iotHubConnectionString` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.java** file.
 
-1. In the terminal window, run the following commands to install the required libraries and build the back-end application:
+3. In the terminal window, run the following commands to install the required libraries and build the back-end application:
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. In the terminal window, run the following commands to run the back-end application:
+4. In the terminal window, run the following commands to run the back-end application:
 
     ```cmd/sh
     java -jar target/back-end-application-1.0.0-with-deps.jar
