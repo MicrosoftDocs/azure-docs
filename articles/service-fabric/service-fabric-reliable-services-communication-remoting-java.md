@@ -1,6 +1,6 @@
 ---
-title: Service remoting in Azure Service Fabric | Microsoft Docs
-description: Service Fabric remoting allows clients and services to communicate with services by using a remote procedure call.
+title: Service remoting using Java in Azure Service Fabric | Microsoft Docs
+description: Service Fabric remoting allows clients and services to communicate with Java services by using a remote procedure call.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -16,14 +16,14 @@ ms.date: 06/30/2017
 ms.author: pakunapa
 
 ---
-# Service remoting with Reliable Services
+# Service remoting in Java with Reliable Services
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-services-communication-remoting.md)
 > * [Java on Linux](service-fabric-reliable-services-communication-remoting-java.md)
 >
 >
 
-The Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure call for services.
+For services that are not tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure call for services.  This article discsusses how to set up remote procedure calls for services written with Java.
 
 ## Set up remoting on a service
 Setting up remoting for a service is done in two simple steps:
@@ -102,4 +102,4 @@ Default retry parameters are provied by [OperationRetrySettings]. (https://docs.
 User can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
 
 ## Next steps
-* [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
+* [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication-java.md)

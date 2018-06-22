@@ -1,6 +1,6 @@
 ---
-title: Service remoting in Service Fabric | Microsoft Docs
-description: Service Fabric remoting allows clients and services to communicate with services by using a remote procedure call.
+title: Service remoting using C# in Service Fabric | Microsoft Docs
+description: Service Fabric remoting allows clients and services to communicate with C# services by using a remote procedure call.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -17,8 +17,14 @@ ms.date: 09/20/2017
 ms.author: vturecek
 
 ---
-# Service Remoting with Reliable Services
-For services that are not tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure call for services.
+# Service Remoting in C# with Reliable Services
+> [!div class="op_single_selector"]
+> * [C# on Windows](service-fabric-reliable-services-communication-remoting.md)
+> * [Java on Linux](service-fabric-reliable-services-communication-remoting-java.md)
+>
+>
+
+For services that are not tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure call for services. This article discsusses how to set up remote procedure calls for services written with C#.
 
 ## Set up Remoting on a Service
 Setting up remoting for a service is done in two simple steps:
