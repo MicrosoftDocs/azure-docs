@@ -18,8 +18,8 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-
 ---
+
 # Authentication scenarios for Azure AD
 
 Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly. This article will help you understand the various scenarios Azure AD supports and show you how to get started. It’s divided into the following sections:
