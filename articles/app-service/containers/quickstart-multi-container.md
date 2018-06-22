@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/23/2018
+ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
 ---
@@ -52,25 +52,6 @@ Next, run the following command to clone the sample app repository to your quick
 ```bash
 git clone https://github.com/Azure-Samples/multicontainerwordpress
 ```
-
-## Create a deployment user
-
-In the Cloud Shell, create deployment credentials with the [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set) command. This deployment user is required for FTP and local Git deployment to a web app. The user name and password are account level. _They are different from your Azure subscription credentials._
-
-In the following example, replace *\<username>* and *\<password>* (including brackets) with a new user name and password. The user name must be unique within Azure. The password must be at least eight characters long, with two of the following three elements: letters, numbers, symbols.
-
-```azurecli-interactive
-az webapp deployment user set --user-name <username> --password <password>
-```
-
-You should get a JSON output, with the password shown as `null`. If you get a `'Conflict'. Details: 409` error, change the username. If you get a `'Bad Request'. Details: 400` error, use a stronger password.
-
-You create this deployment user only once; you can use it for all your Azure deployments.
-
-> [!NOTE]
-> Record the user name and password. You use them to deploy the web app later.
->
->
 
 ## Create a resource group
 
@@ -118,9 +99,11 @@ When the App Service plan has been created, the Azure CLI shows information simi
 
 ## Create a Docker Compose app
 
-In your Cloud Shell terminal, create a multi-container [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
+In your Cloud Shell terminal, change to the `multicontainerwordpress` directory. Create a multi-container [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
 
 ```bash
+cd multicontainerwordpress
+
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 
