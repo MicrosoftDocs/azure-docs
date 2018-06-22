@@ -93,7 +93,7 @@ namespace QnAMaker
 
 ```
 
-**Publish knowledge base response**
+## the publish a knowledge base response
 
 A successful response is returned in JSON, as shown in the following example: 
 

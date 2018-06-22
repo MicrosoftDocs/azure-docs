@@ -127,7 +127,7 @@ public class PublishKB {
 }
 ```
 
-## The publish knowledge base response
+## The publish a knowledge base response
 
 A successful response is returned in JSON, as shown in the following example:
 
