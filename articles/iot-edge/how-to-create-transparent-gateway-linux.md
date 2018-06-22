@@ -31,7 +31,7 @@ The gateway presents its Edge device CA certificate to the downstream device dur
 The following steps walk you through the process of creating the certificates and installing them in the right places.
 
 ## Pre requisites
-1.	[Install the Azure IoT Edge runtime][lnk-install-linux] on a device you want to use as the transparent gateway.
+<!--1.	[Install the Azure IoT Edge runtime][lnk-install-linux] on a device you want to use as the transparent gateway.-->
 
 2.	Obtain the scripts to generate the required non productions certificates with the following command. These scripts help you create the necessary certificates to set up a transparent gateway. 
 
@@ -156,8 +156,8 @@ Refer to the [module composition article][lnk-module-composition] for more detai
 <!-- Images -->
 [1]: ./media/how-to-create-transparent-gateway/gateway-setup.png
 
-<!-- Links -->
-[lnk-install-linux]: __TODO__
+<!-- Links
+[lnk-install-linux]: __TODO__ -->
 [lnk-module-composition]: ./module-composition.md
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
