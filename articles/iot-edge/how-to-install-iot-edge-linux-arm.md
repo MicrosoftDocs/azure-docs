@@ -45,13 +45,14 @@ curl https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-armhf-0.1.
 # Run apt-get fix
 sudo apt-get install -f
 
+
 ```
 
 ## Configure the Azure IoT Edge Security Daemon
 
-The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml` The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string][lnk-dcs].
+The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml` The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string[lnk-dcs].
 
-For manual configuration, enter the device connection string in *provisioning* section of `config.yaml`:
+For manual configuration, enter the device connection string in *provisioning* section of `config.yaml`
 
 ```yaml
 provisioning:
@@ -61,11 +62,39 @@ provisioning:
 
 Note: the file is write-protected by default, you might need to use `sudo` to edit it. For example - `sudo nano /etc/iotedge/config.yaml`
 
+After entering the provisioning information in the configuration, restart the daemon:
+
+```cmd/sh
+sudo systemctl restart iotedge
+```
+
+## Verify successful deployment
+
+You can check the status of the IoT Edge Daemon using:
+
+```cmd/sh
+sudo systemctl status iotedge
+```
+
+Examine daemon logs using:
+
+```cmd/sh
+sudo journalctl -u iotedge -r
+```
+
+And, list running modules with:
+
+```cmd/sh
+sudo iotedge list
+```
 
 ## Next steps
 
+If you are having problems with the Edge runtime installing properly, checkout the [troubleshooting][lnk-trouble] page.
+
 <!-- Links -->
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet#register-a-device
+[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
 [lnk-dps]: how-to-simulate-dps-tpm.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
+[lnk-trouble]: troubleshoot.md
