@@ -106,9 +106,9 @@ Before you begin with this section, you must complete the following prerequisite
 * Upload the sample JSON file using **AzCopy version 10** to the Azure Blob storage account you created:
 
     ```bash
-    set ACCOUNT_NAME <ACCOUNT_NAME>
-    set ACCOUNT_KEY <ACCOUNT_KEY>
-    azcopy-win cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/files --recursive 
+    set ACCOUNT_NAME=<ACCOUNT_NAME>
+    set ACCOUNT_KEY=<ACCOUNT_KEY>
+    azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/files --recursive 
     ```
 
 > [!NOTE]

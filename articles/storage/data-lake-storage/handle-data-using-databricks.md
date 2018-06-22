@@ -127,12 +127,9 @@ The following steps demonstrate how to use AzCopy to upload data in the event th
 > Make sure you replace the placeholders **<YOUR_LOCAL_DOWNLOAD_FILE_PATH>**, **<YOUR_ACCOUNT_NAME>** and **<YOUR_ACCOUNT_KEY>** with the corresponding values you set aside in a previous step.
 
 ```bash
-azcopy --source "<LOCAL_FILE_PATH_TO_JSON_FILE>" \
-  --destination https://<YOUR_ACCOUNT_NAME>.blob.core.windows.net/dbricks \
-  --dest-key "<YOUR_ACCOUNT_KEY>" \
-  --include "folder1/" \
-  --sync-copy \
-  --recursive
+set ACCOUNT_NAME=<ACCOUNT_NAME>
+set ACCOUNT_KEY=<ACCOUNT_KEY>
+azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1 --recursive 
 ```
 
 ## Extract data from Azure Storage
