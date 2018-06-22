@@ -298,7 +298,7 @@ Default deployment is intended to provide a baseline of security center recommen
 
 ## Deploy the solution
 
-The components for deploying this solution are available in the [PCI Blueprint code repository][code-repo]. The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
+The components for deploying this solution are available in the [PCI Blueprint code repository](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified through a guided user prompt in the primary deployment script in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
 
 The scripts add domain users to the Azure AD tenant that you specify. We recommend creating a new Azure AD tenant to use as a test.
 
@@ -323,19 +323,17 @@ It is highly recommended that a clean installation of PowerShell be used to depl
  
     ```powershell
     .\1-DeployAndConfigureAzureResources.ps1 
-        -resourceGroupName contosowebstore
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -azureADDomainName contosowebstore.com 
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-        -suffix PCIcontosowebstore
-        -customHostName contosowebstore.com
-        -sqlTDAlertEmailAddress edna@contosowebstore.com 
-        -enableSSL
-        -enableADDomainPasswordPolicy 
     ```
     
-    For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+    For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). This script can be used for supporting the Contoso Web Store demo, or piloting the initial steps of deploying an environment for supporting PCI compliance. 
+    
+    ```PowerShell
+    .\1A-ContosoWebStoreDemoAzureResources.ps1
+    ```
+    
+    For detailed usage instructions for supporting the Contoso Web Store demo deployment, see [Script Instructions - Contoso Web Store Demo Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1A-ContosoWebStoreDemoAzureResources.md). This script can be used for deploying the Contoso Web Store demo infrastructure. 
+    
+    These scripts are intended to be used independent of each other. To best understand the solution, it is recommended to complete the demo deployment for identifying the necessary Azure resources required for supporting the solution. 
     
 3. Logging and monitoring. Once the solution is deployed, a Log Analytics workspace can be opened, and the sample templates provided in the solution repository can be used to illustrate how a monitoring dashboard can be configured. For the sample templates refer to the [omsDashboards folder](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Note that data must be collected in Log Analytics for templates to deploy correctly. This can take up to an hour or more depending on site activity.
  
@@ -349,7 +347,6 @@ It is highly recommended that a clean installation of PowerShell be used to depl
     - Microsoft.Web/sites
     - Microsoft.KeyVault/Vaults
     - Microsoft.Automation/automationAccounts
- 
 
     
 ## Threat model
@@ -357,8 +354,6 @@ It is highly recommended that a clean installation of PowerShell be used to depl
 A data flow diagram (DFD) and sample threat model for the Contoso Webstore [Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
-
-
 
 ## Customer responsibility matrix
 
@@ -370,10 +365,10 @@ The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security 
 
 ## Disclaimer and acknowledgements
 
-*September 2017*
+*June 2018* 
 
-- This document is for informational purposes only. MICROSOFT AND AVYAN MAKE NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE INFORMATION IN THIS DOCUMENT. This document is provided “as-is.” Information and views expressed in this document, including URL and other Internet website references, may change without notice. Customers reading this document bear the risk of using it.  
-- This document does not provide customers with any legal rights to any intellectual property in any Microsoft or Avyan product or solutions.  
+- This document is for informational purposes only. MICROSOFT AND FIRST INFORMATION TECHNOLOGY SERVICES MAKE NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE INFORMATION IN THIS DOCUMENT. This document is provided “as-is.” Information and views expressed in this document, including URL and other Internet website references, may change without notice. Customers reading this document bear the risk of using it.  
+- This document does not provide customers with any legal rights to any intellectual property in any Microsoft or First Information Technology Services product or solutions.  
 - Customers may copy and use this document for internal reference purposes.  
 
   > [!NOTE]
@@ -381,5 +376,10 @@ The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security 
 
 - The solution in this document is intended as a foundational architecture and must not be used as-is for production purposes. Achieving PCI compliance requires that customers consult with their Qualified Security Assessor.  
 - All customer names, transaction records, and any related data on this page are fictitious, created for the purpose of this foundational architecture and provided for illustration only. No real association or connection is intended, and none should be inferred.  
+- This solution was developed jointly by Microsoft and First Information Technology Services, and is available under the [MIT License](https://opensource.org/licenses/MIT).
+
+*September 2017*
+
+- This document is for informational purposes only. MICROSOFT AND AVYAN MAKE NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE INFORMATION IN THIS DOCUMENT. This document is provided “as-is.” Information and views expressed in this document, including URL and other Internet website references, may change without notice. Customers reading this document bear the risk of using it.  
 - This solution was developed jointly by Microsoft and Avyan Consulting, and is available under the [MIT License](https://opensource.org/licenses/MIT).
 - This solution has been reviewed by Coalfire, Microsoft’s PCI-DSS auditor. The [PCI Compliance Review](https://aka.ms/pciblueprintcrm32) provides an independent, third-party review of the solution, and components that need to be addressed. 
