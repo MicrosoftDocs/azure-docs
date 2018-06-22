@@ -18,10 +18,6 @@ An ingress controller is a piece of software that provides reverse proxy, config
 
 This document walks through a sample deployment of the [NGINX ingress controller][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. Additionally, the [cert-manager][cert-manager] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
 
-## Prerequisite
-
-Install Helm CLI - See the Helm CLI [documentation][helm-cli] for install instructions.
-
 ## Install an ingress controller
 
 Use Helm to install the NGINX ingress controller. See the NGINX ingress controller [documentation][nginx-ingress] for detailed deployment information.
@@ -70,7 +66,7 @@ The ingress controller should now be accessible through the FQDN.
 
 ## Install cert-manager
 
-The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for HTTPS, this document demonstrates using [cert-manager, which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
+The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for HTTPS, this document demonstrates using [cert-manager][cert-manager], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
 
 To install the cert-manager controller, use the following Helm install command.
 
@@ -92,9 +88,9 @@ For more information on cert-manager configuration, see the [cert-manager projec
 
 ## Create CA cluster issuer
 
-Before certificates can be issues, cert-manager requires an [Issuer][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] resource. An Issuer and ClusterIssuer are identical in functionality however the Issuer works in a single namespace where the ClusterIssuer works in all namespaces across the cluster.
+Before certificates can be issued, cert-manager requires an [Issuer][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] resource. The  resources are identical in functionality however `Issuer` works in a single namespace where `ClusterIssuer` works across all namespaces. For more information, see the [cert-manager issuer][cert-manager-issuer] documentation.
 
-Create a cluster issuer using the following manifest.
+Create a cluster issuer using the following manifest. Update the email address with a valid address from your organization.
 
 ```
 apiVersion: certmanager.k8s.io/v1alpha1
