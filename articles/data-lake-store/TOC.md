@@ -1,10 +1,10 @@
 # [Data Lake Storage Gen1 Documentation](index.md)
 
 # Overview
-## [Overview of Azure Data Lake Storage Gen1](data-lake-store-overview.md)
-## [Compare Azure Data Lake Storage Gen1 with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Azure Data Lake Storage Gen1 for big data processing](data-lake-store-data-scenarios.md)
-## [Open source applications working with Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+## [Overview of Data Lake Storage Gen1](data-lake-store-overview.md)
+## [Compare Data Lake Storage Gen1 with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
+## [Data Lake Storage Gen1 for big data processing](data-lake-store-data-scenarios.md)
+## [Open source applications working with Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 ## [Best practices for using Data Lake Storage Gen1](data-lake-store-best-practices.md)
 
 # Get started

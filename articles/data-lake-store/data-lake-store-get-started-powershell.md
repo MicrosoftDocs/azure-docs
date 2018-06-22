@@ -20,6 +20,7 @@ ms.author: nitinme
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 >
 >
+
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
 Learn how to use Azure PowerShell to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Storage Gen1](data-lake-store-overview.md).
