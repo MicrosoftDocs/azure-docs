@@ -18,9 +18,6 @@ Azure IoT Edge runs on different hardware, supports both Linux and Windows, and 
  
 This article provides an overview of the security framework. For more information, see [Securing the intelligent edge][lnk-edge-blog].
 
->[!NOTE]
->The security framework described below is being add to the product now and will be available at the general availability release of Azure IoT Edge. The product is currently in public preview, a release intended to allow development and prototyping of edge solutions, not full production deployments that need the full security framework.   
-
 ## Standards
 
 Standards promote ease of scrutiny and ease of implementation, which are the hallmark of security.  A well architected security solution should lend itself to scrutiny under evaluation to build trust and should not be a hurdle to deployment.  The design of the framework to secure Azure IoT Edge emanates from time-tested and industry proven security protocols to leverage familiarity and reuse. 

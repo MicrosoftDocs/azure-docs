@@ -202,10 +202,10 @@ sudo iotedge list
 
 ![View three modules on your device](./media/tutorial-simulate-device-linux/running-modules.png)
 
-View the messages being sent from the tempSensor module to the cloud:
+View the messages being sent from the tempSensor module:
 
 ```bash
-sudo docker logs tempSensor -f 
+sudo iotedge logs tempSensor -f 
 ```
 
 ![View the data from your module](./media/tutorial-simulate-device-linux/sensor-data.png)
