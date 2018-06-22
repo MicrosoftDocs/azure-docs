@@ -92,7 +92,7 @@ provisioning:
   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
 ```
 
-Note: the file is write-protected by default, you might need to use `sudo` to edit it. For example - `sudo nano /etc/iotedge/config.yaml`
+*The file is write-protected by default, you might need to use `sudo` to edit it. For example - `sudo nano /etc/iotedge/config.yaml`*
 
 After entering the provisioning information in the configuration, restart the daemon:
 
