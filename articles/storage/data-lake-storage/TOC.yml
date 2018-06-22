@@ -6,11 +6,11 @@
     href: introduction.md
 - name: Quickstarts
   items:
-  - name: Create a storage account
+  - name: Create a Data Lake Storage Gen2 storage account
     href: quickstart-create-account.md
   - name: Create/Connect Databricks account
     href: quickstart-create-databricks-account.md
-  - name: Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more
+  - name: Set up clusters in HDInsight
     href: quickstart-create-connect-hdi-cluster.md
 - name: Tutorials
   items:
@@ -26,11 +26,11 @@
     #href: example.md
 - name: Concepts
   items:
-  - name: Hadoop ABFS Driver
+  - name: The Azure Blob FileSystem driver for Hadoop
     href: abfs-driver.md
   - name: Introduction to the Azure Blob File System URI
     href: introduction-abfs-uri.md
-  - name: Hierarchical Namespace
+  - name: The Hierarchical Namespace Service
     href: namespace.md
   - name: Security
     items:
@@ -38,8 +38,8 @@
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
       - name: Encryption for data at rest with customer keys
         href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-      - name: Azure Data Lake Storage Migration
-        href: evaluation-comparison.md
+  - name: Azure Data Lake Storage Gen2 Evaluation
+    href: evaluation.md
   - name: Scalability and Perf
     items:
       - name: Best Practices
@@ -48,13 +48,13 @@
     #href:
 - name: How-to guides
   items:
-  - name: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
+  - name: Use Data Lake Storage Gen2 with Azure HDInsight clusters
     href: use-hdi-cluster.md
-  - name: ingest data
+  - name: Ingest data
     items: 
-      - name: How to copy data into Data Lake Storage using Distcp
+      - name: Copy data into Data Lake Storage using Distcp
         href: use-distcp.md
-      - name: How to copy data into Data Lake Storage using Azure Data Factory
+      - name: Copy data into Data Lake Storage using Azure Data Factory
         href: ../../data-factory/load-azure-data-lake-storage-gen2.md
 - name: Reference
   items:

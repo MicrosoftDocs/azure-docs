@@ -12,11 +12,11 @@ ms.date: 06/27/2018
 ms.author: jamesbak
 ---
 
-# Quickstart: Create a Azure Data Lake Storage Gen2 account
+# Quickstart: Create an Azure Data Lake Storage Gen2 account
 
-Azure Data Lake Storage Gen2 accounts [support an Hierarchical Namespace Service](introduction.md) which provides a native directory-based file sytem tailored to work with the Hadoop Distributed File System (HNS). Access to Azure Data Lake Storage data from the HNS is available through the [ABFS driver](abfs-driver.md).
+Azure Data Lake Storage Gen2 accounts [support an Hierarchical Namespace Service](introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HNS). Access to Azure Data Lake Storage data from the HNS is available through the [ABFS driver](abfs-driver.md).
 
-To enable Azure Data Lake Storage Gen2 capabilities on your storage account, [fill out the preview survey to request access](https://aka.ms/adlsgen2signup). Once approved, then are able to create a new Data Lake Storage account. 
+To enable Azure Data Lake Storage Gen2 capabilities on your storage account, [fill out the preview survey to request access](https://aka.ms/adlsgen2signup). Once approved, then you are able to create a new Data Lake Storage account.
 
 This quickstart demonstrates how to create a Data Lake Storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 

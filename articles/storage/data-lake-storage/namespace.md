@@ -25,7 +25,6 @@ A key mechanism that allows Azure Data Lake Storage Gen2 to provide file system 
 
 > [!NOTE]
 > During the public preview of Azure Data Lake Storage, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated via our dedicated Yammer group.  
-> 
 
 The following benefits are associated with file systems that implement a hierarchical namespace over blob data:
 
@@ -37,7 +36,7 @@ The following benefits are associated with file systems that implement a hierarc
 
 One of the reasons that object stores have not historically supported hierarchical namespaces is that it limited scale. However, the Azure Data Lake Storage HNS scales linearly and does not degrade either scale or performance.
 
-## When should you enable the Hierarchical Namespace?
+## When you should enable the HNS
 
 Turning on HNS is recommended for storage workloads that are designed for file systems that manipulate directories. This includes all workloads that are primarily for analytics processing. Datasets that require a high degree of organization will also benefit by enabling HNS.
 
@@ -45,7 +44,7 @@ Additionally, if you require fine-grained access control of files contained with
 
 The reasons for enabling HNS are determined by a TCO analysis. Generally speaking, improvements in workload latency due to storage acceleration will require compute resources for less time. Latency for many workloads may be improved due to atomic directory manipulation that is enabled by HNS. In many workloads, the compute resource represents > 85% of the total cost and so even a modest reduction in workload latency equates to a significant amount of TCO savings. Even in cases where enabling HNS increases storage costs, the TCO is still lowered due to reduced compute costs.
 
-## When should you disable the Hierarchical Namespace?
+## When you should disable the HNS
 
 There are a number of 'classic' object store workloads that will most likely not gain any benefit by enabling HNS. Examples of these workloads are; backups, image storage and other applications where object organization is stored separately to the objects themselves (eg. in a separate database).
 
