@@ -83,12 +83,12 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
     |Example utterances|
     |--|
     |move John W. Smith from B-1234 to H-4452|
-    |mv john.w.smith@mycompany from office b-1234 to office h-4452|
+    |mv john.w.smith@mycompany.com from office b-1234 to office h-4452|
     |shift x12345 to h-1234 tomorrow|
     |place 425-555-1212 in HH-2345|
     |move 123-45-6789 from A-4321 to J-23456|
     |mv Jill Jones from D-2345 to J-23456|
-    |shift jill-jones@mycompany to M-12345|
+    |shift jill-jones@mycompany.com to M-12345|
     |x23456 to M-12345|
     |425-555-0000 to h-4452|
     |234-56-7891 to hh-2345|
