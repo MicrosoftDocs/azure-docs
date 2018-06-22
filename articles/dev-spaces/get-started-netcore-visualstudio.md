@@ -141,7 +141,7 @@ The preceding code example forwards the `azds-route-as` header from the incoming
 
 ### Debug across multiple services
 1. At this point, `mywebapi` should still be running with the debugger attached. If it is not, hit F5 in the `mywebapi` project.
-1. Set a breakpoint in the `Get(int id)` method in the `ValuesController.cs` file that handles `api/values/{id}` GET requests.
+1. Set a breakpoint in the `Get(int id)` method in the `Controllers/ValuesController.cs` file that handles `api/values/{id}` GET requests.
 1. In the `webfrontend` project where you pasted the above code, set a breakpoint just before it sends a GET request to `mywebapi/api/values`.
 1. Hit F5 in the `webfrontend` project. Visual Studio will again open a browser to the appropriate localhost port and the web app will be displayed.
 1. Click on the “**About**” link at the top of the page to trigger the breakpoint in the `webfrontend` project. 
@@ -209,7 +209,7 @@ Do the following to create a new space:
 
 ### Update code for *mywebapi*
 
-1. In the `mywebapi` project make a code change to the `string Get(int id)` method in file `ValuesController.cs` as follows:
+1. In the `mywebapi` project make a code change to the `string Get(int id)` method in file `Controllers/ValuesController.cs` as follows:
  
     ```csharp
     [HttpGet("{id}")]
