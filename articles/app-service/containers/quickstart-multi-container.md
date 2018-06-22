@@ -29,10 +29,6 @@ You'll complete this quickstart in Cloud Shell, but you can also run these comma
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Prerequisites
-
-To complete this quickstart, you need experience with [Docker Compose](https://docs.docker.com/compose/).
-
 ## Download the sample
 
 For this quickstart, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
