@@ -87,17 +87,19 @@ Next, instantiate an [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.
 
 Finally, consumers register the [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance with the Event Hubs service. Registering instructs the Event Hubs service to expect that the consumer app will be consuming events from some of its partitions, and to invoke the [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementation code whenever it pushes events to consume.
 
-For example, if there are 5 virtual machines (VMs) dedicated to consuming events, and a simple console application in each VM, which does the actual work of consumption, then each console application creates one [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance and registers it with the Event Hubs service.
+### Example
 
-As such, 16 partitions are allocated to the 5 **EventProcessorHost** instances. Some **EventProcessorHost** instances may end up owning a few more partitions than others. For each partition that an **EventProcessorHost** instance owns, it creates an instance of the `SimpleEventProcessor` class. Therefore, there will be 16 instances of `SimpleEventProcessor` overall, with one assigned to each partition.
+As an example, imagine that there are 5 virtual machines (VMs) dedicated to consuming events, and a simple console application in each VM, which does the actual work of consumption. Each console application then creates one [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance and registers it with the Event Hubs service.
 
-In short,
+In this example scenario, let's say that 16 partitions are allocated to the 5 **EventProcessorHost** instances. Some **EventProcessorHost** instances might own a few more partitions than others. For each partition that an **EventProcessorHost** instance owns, it creates an instance of the `SimpleEventProcessor` class. Therefore, there are 16 instances of `SimpleEventProcessor` overall, with one assigned to each partition.
 
-- 16 Event Hub partitions
-- 5 VMs, 1 consumer app (say Consumer.exe) in each VM
-- 5 EPH instances registered, 1 in each VM by Consumer.exe
-- 16 SimpleEventProcessor objects created under the hood by the 5 EPH instances.
-- 1 Consumer.exe may contain 4 SimpleEventProcessor objects since the 1 EPH instance may own 4 partitions
+The following list summarizes this example:
+
+- 16 Event Hubs partitions.
+- 5 VMs, 1 consumer app (for example, Consumer.exe) in each VM.
+- 5 EPH instances registered, 1 in each VM by Consumer.exe.
+- 16 `SimpleEventProcessor` objects created by the 5 EPH instances.
+- 1 Consumer.exe app might contain 4 `SimpleEventProcessor` objects, since the 1 EPH instance may own 4 partitions.
 
 ## Partition ownership tracking
 
