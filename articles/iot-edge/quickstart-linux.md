@@ -33,10 +33,6 @@ If you don't have an active Azure subscription, create a [free account][lnk-acco
 
 ## Prerequisites
 
-This quickstart uses Azure CLI and IoT Hub. 
-
-### Prepare Azure CLI in a cloud shell
-
 You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality. You can complete these steps in the cloud shell in the Azure portal.
 
 1. Sign in to the [Azure portal][lnk-portal]. 
