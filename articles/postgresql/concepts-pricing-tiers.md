@@ -64,6 +64,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | South India |  | X |
 | Japan East | X | X |
 | Japan West | X | X |
+| Korea Central |  | X |
 | Korea South |  | X |
 
 ## Storage
