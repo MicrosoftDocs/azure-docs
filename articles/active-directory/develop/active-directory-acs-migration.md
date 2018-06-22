@@ -81,6 +81,7 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 
 | Service | Guidance |
 | ------- | -------- |
+| SharePoint | There is no need to migrate as ACS will continue to work with the features used by SharePoint. Sit back, relax, and keep doing what you're doing. |
 | Azure Service Bus | [Migrate to shared access signatures](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [Migrate to shared access signatures](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
 | Azure Managed Cache | [Migrate to Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
