@@ -153,7 +153,7 @@ For more information, see [Azure Active Directory Terms of use feature](https://
 
 ---
 
-### New step-by-step deployment guides for Azure Multi-Factor Authentication
+### New step-by-step deployment guide for Azure Multi-Factor Authentication
 
 **Type:** New feature  
 **Service category:** Other  
