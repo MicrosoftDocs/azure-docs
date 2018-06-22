@@ -15,13 +15,6 @@ One of the key capabilities of Azure IoT Edge is being able to deploy modules to
 1. In the Azure portal, navigate to your IoT hub.
 1. Go to **IoT Edge (preview)** and select your IoT Edge device.
 1. Select **Set Modules**.
-
-   >[!IMPORTANT]
-   >**BUG BASH ONLY**
-   >1. Select **Configure advanced Edge Runtime settings**
-   >2. Update the edgeHub image: `•	mcr.microsoft.com/azureiotedge-hub:1.0`
-   >3. Update the edgeAgent image: `mcr.microsoft.com/azureiotedge-agent:1.0`
-
 1. In the **Deployment Modules** section of the page, click **Add** then select **IoT Edge Module**.
 1. In the **Name** field, enter `tempSensor`. 
 1. In the **Image URI** field, enter `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. 
