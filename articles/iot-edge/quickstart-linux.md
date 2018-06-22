@@ -14,7 +14,7 @@ experimental: true
 experiment_id: 
 ---
 
-# Quickstart: Deploy your first IoT Edge module to a Linux x64 or Mac device
+# Quickstart: Deploy your first IoT Edge module to a Linux x64 device
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this quickstart, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
 
@@ -22,7 +22,7 @@ In this quickstart you learn how to:
 
 1. Create an IoT Hub.
 2. Register an IoT Edge device to your IoT hub.
-3. Start the IoT Edge runtime.
+3. Install and start the IoT Edge runtime on your device.
 4. Remotely deploy a module to an IoT Edge device.
 
 ![Tutorial architecture][2]
@@ -42,8 +42,10 @@ This quickstart uses Azure CLI.
 >`40.76.74.59 main.iothub.ext.azure.com` 
 > 
 >The hosts file can be found at: 
->Linux - /etc/hosts 
->Windows - C:\Windows\System32\drivers\etc\hosts 
+>* Linux - /etc/hosts 
+>* Windows - C:\Windows\System32\drivers\etc\hosts 
+>
+> Remember to remove this line when you're done testing
 
 You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality. You can complete these steps in the cloud shell in the Azure portal.
 
