@@ -28,15 +28,9 @@ Traffic analytics requires the following prerequisites:
 - Network Security Group (NSG) flow logs enabled for the NSGs you want to monitor.
 - An Azure Storage account, to store raw flog logs.
 - An Azure Log Analytics workspace, with read and write access.
-- User must be assigned with either one of the following roles at subscription level:
-
-Additionally, you must have the following at the subscription level:
-    
-- You must be an account administrator, a service administrator, or a co-administrator.
-        
+- Your account must be assigned to one of the following roles at the subscription level: account administrator, service administrator, or co-administrator.
 - Your account must have any one of the following role-based access control (RBAC) roles at the subscription scope: owner, contributor, reader, or network contributor.
-
-- Your account must have any custom RBAC roles with permission to all of the following actions at the subscription level:
+- If your account is not assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
             
     - Microsoft.Network/applicationGateways/read
     - Microsoft.Network/connections/read
@@ -63,7 +57,7 @@ If you are not seeing any output, contact the respective subscription admin to g
 
 ## In which Azure regions are traffic analytics available?
 
-During the preview release, you can use traffic analytics for NSGs in any of the following supported regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US 2, West Europe, North Europe, UK West, UK South, Australia East, Australia Southeast and Southeast Asia. The Log Analytics workspace must exist in the West Central US, East US, West Europe, UK South, Australia Southeast, or the Southeast Asia region.
+You can use traffic analytics for NSGs in any of the following supported regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US 2, West Europe, North Europe, UK West, UK South, Australia East, Australia Southeast and Southeast Asia. The Log Analytics workspace must exist in the West Central US, East US, West Europe, UK South, Australia Southeast, or the Southeast Asia region.
 
 ## Can the NSGs I enable flow logs for be in different regions than my workspace?
 
@@ -77,9 +71,9 @@ Yes.
 
 Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## Can my Azure Storage account be in a different subscription?
+## Can my Azure Storage Account be in one subscription and my Operations Management Suite workspace be in a different subscription?
 
-Yes, your Azure Storage account can be in one subscription, and your Log Analytics workspace can be in a different subscription.
+Yes, your Azure Storage account can be in one subscription, and your Operations Management Suite workspace can be in a different subscription.
 
 ## Can I store raw logs in a different subscription?
 
@@ -89,7 +83,7 @@ No. You can store raw logs in any storage account where an NSG is enabled for fl
 
 Select a supported region. If you select a non-supported region, you receive a "Not found" error. The supported regions are listed earlier in this article.
 
-## What if I am getting the NSG status, “Failed to load”?
+## What if I am getting the status, “Failed to load,” under the NSG flow logs page?
 
 The Microsoft.Insights provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command, and run the following commands from PowerShell:
 
@@ -102,7 +96,7 @@ The Microsoft.Insights provider must be registered for flow logging to work pr
 
 The dashboard might take up to 30 minutes to appear the first time. The solution must first aggregate enough data for it to derive meaningful insights. Then it generates reports. 
 
-## What if I get this message: “We could not find any data in this workspace for selected time interval”?
+## What if I get this message: “We could not find any data in this workspace for selected time interval. Try changing the time interval or select a different workspace.”?
 
 Try the following options:
 - Change the time interval in the upper bar.
@@ -111,7 +105,7 @@ Try the following options:
     
 If problems persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## What if I get this message: “Analyzing your NSG flow logs for the first time. This process may take 20-30 minutes to complete”?
+## What if I get this message: “Analyzing your NSG flow logs for the first time. This process may take 20-30 minutes to complete. Check back after some time. 2) If the above step doesn’t work and your workspace is under the free SKU, then check your workspace usage here to validate over quota, else refer to FAQs for further information.”?
 
 You might see this message because:
 - Traffic analytics was recently enabled, and might not yet have aggregated enough data for it to derive meaningful insights.
@@ -119,7 +113,7 @@ You might see this message because:
     
 If problems persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-## What if I get this message: “Looks like we have resources data (Topology) and no flows information”?
+## What if I get this message: “Looks like we have resources data (Topology) and no flows information. Meanwhile, click here to see resources data and refer to FAQs for further information.”?
 
 You are seeing the resources information on the dashboard; however, no flow-related statistics are present. Data might not be present because of no communication flows between the resources. Wait for 60 minutes, and recheck status. If the problem persists, and you're sure that communication flows among resources exist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
@@ -131,7 +125,7 @@ You can't currently use an Azure Resource Manager template for this purpose.
 
 ## How is traffic analytics priced?
 
-Traffic analytics is metered. The metering is based on processing flow log data and storing the enhanced logs in a Log Analytics workspace. For more details, see the [pricing plan](https://azure.microsoft.com/en-us/pricing/details/network-watcher/). 
+Traffic analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. For more details, see the [pricing plan](https://azure.microsoft.com/en-us/pricing/details/network-watcher/). 
 
 ## How can I navigate by using the keyboard in the geo map view?
 
@@ -172,7 +166,7 @@ The virtual networks topology page contains two main sections:
     
 ### Keyboard navigation on the banner
     
-- By default, the selection on the virtual networks topology page for the banner is the “Connected virtual networks” filter.
+- By default, the selection on the virtual networks topology page for the banner is the “Connected VNets” filter.
 - To move to another filter, use the `Tab` key to move forward. To move backward, use the `Shift+Tab` key. Forward navigation is left to right, followed by top to bottom.
 - Press `Enter` to apply the selected filter. Based on the filter selection and deployment, one or multiple nodes (virtual network) under the topology section are highlighted.
 - To switch between the banner and the topology, press `Ctrl+F6`.
@@ -182,7 +176,7 @@ The virtual networks topology page contains two main sections:
 - After you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**VNet**) in the topology view.
 - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
 - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use the `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
-- On selection of any such nodes, you can visit all connections, one by one, by pressing the `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
+- On selection of any such nodes, you can visit all its connections, one by one, by pressing the `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
     
 
 ## How can I navigate by using the keyboard in the subnet topology view?
@@ -204,5 +198,5 @@ The virtual subnetworks topology page contains two main sections:
 - After you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**Subnet**) in the topology view.
 - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
 - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
-- On selection of any such nodes, you can visit all connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.    
+- On selection of any such nodes, you can visit all its connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.    
 
