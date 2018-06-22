@@ -259,6 +259,9 @@ For more information about ports that the Hybrid Runbook Worker requires, see [H
 
 In addition to the details that are provided in the Azure portal, you can do searches against the logs. On the solution pages, select **Log Analytics**. The **Log Search** pane opens.
 
+You can also learn how to customize the queries or use them from different clients and more by visiting:  [Log Analytics seach API documentation](
+https://dev.loganalytics.io/).
+
 ### Sample queries
 
 The following sections provide sample log queries for update records that are collected by this solution:
