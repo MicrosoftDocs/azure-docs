@@ -35,6 +35,16 @@ If you don't have an active Azure subscription, create a [free account][lnk-acco
 
 This quickstart assumes that you're using a computer or virtual machine running Windows as an Internet of Things device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
 
+>[!IMPORTANT]
+>**bug bash only**
+>Use the canary portal 
+>Add the following line to the hosts file of the computer from which you'll access the Azure Portal 
+>`40.76.74.59 main.iothub.ext.azure.com` 
+> 
+>The hosts file can be found at: 
+>Linux - /etc/hosts 
+>Windows - C:\Windows\System32\drivers\etc\hosts 
+
 Have the following prerequisites ready on the machine that you're using for an IoT Edge device:
 
 1. Make sure you're using a supported Windows version:
@@ -154,29 +164,84 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It's composed of three
    "TypesSupported"=dword:00000007
    ```
 
-7. 
+7. Navigate to your file in File Explorer and double-click it to import the changes to the Windows Registry. 
 
 ### Configure the IoT Edge runtime 
 
-Configure the runtime with your IoT Edge device connection string from the previous section.
+Configure the runtime with your IoT Edge device connection string that you copied when you registered a new device. Then, sconfigure the runtime network. 
 
-```cmd
-iotedgectl setup --connection-string "{device connection string}" --nopass
-```
+1. Open the IoT Edge configuration file, which is located at `C:\ProgramData\iotedge\config.yaml`. 
 
-Start the runtime.
+2. Find the **provisioning** section and set the value of **device_connection_string** to the string that you copied. 
 
-```cmd
-iotedgectl start
-```
+3. In your administrator PowerShell window, retrieve the IP address for your IoT Edge device. 
+
+   ```powershell
+   ipconfig
+   ```
+
+4. Copy the value for **IPv4 Address** in the **Ethernet** section of the output. 
+
+5. Create an environment variable called **IOTEDGE_HOST**, replacing *\<ip_address\>* with the IP Address for your IoT Edge device. 
+
+   ```powershell
+   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+   ```
+
+6. In the `config.yaml` file, find the **connect** section. Update the **management_uri** and **workload_uri** values with your IP address and the ports that you opened in the previous section. 
+
+   ```yaml
+   connect: 
+     management_uri: "http://<ip_address>:15580"
+     workload_uri: "http://<ip_address>:15581"
+   ```
+
+7. Find the **listen** section and add the same values for **management_uri** and **workload_uri**. 
+
+   ```yaml
+   listen:
+     management_uri: "http://<ip_address>:15580"
+     workload_uri: "http://<ip_address:15581"
+   ```
+
+8. Find the **moby_runtime** section and verify that the value for **network** is set to `azure-iot-edge`.
+
+9. Save the configuration file. 
+
+10. In PowerShell, restart the IoT Edge service.
+
+   ```powershell
+   Stop-Service iotedge
+   Start-Service iotedge
+   ```
+
+### View the IoT Edge runtime status
+
+Verify that the runtime was successfully installed and configured.
+
+1. Check the status of the IoT Edge service.
+
+   ```powershell
+   Get-Service iotedge
+   ```
+
+2. If you need to troubleshoot the service, retrieve the service logs. 
+
+   ```powershell
+   Get-WinEvent -LogName Application | Where-Object {$_.ProviderName -eq "iotedged"} | Select TimeCreated, Message | oh -Paging
+   ```
+
+3. View all the modules running on your IoT Edge device.
+
+   ```powershell
+   iotedge list
+   ```
 
 Check Docker to see that the IoT Edge agent is running as a module.
 
 ```cmd
 docker ps
 ```
-
-![See edgeAgent in Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
 
 ## Deploy a module
 
