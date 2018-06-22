@@ -15,7 +15,14 @@ ms.custom: mvc
 ---
 # Azure Firewall PowerShell samples
 
-The following table includes links to Azure PowerShell script samples that create firewalls.
+The following table includes links to Azure PowerShell script samples that create firewalls:
+
+
+| | |
+|----|----|
+|Create an Azure Firewall test environment|Creates an Azure Firewall and a test network infrastructure.|
+
+
 
 
 
