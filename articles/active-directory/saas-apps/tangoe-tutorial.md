@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://sso.tangoe.com/sp/ACS.saml2`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual  Reply URL and Sign-On URL. Contact [Tangoe Command Premium Mobile Client support team](https://www.tangoe.com/contact-2/) to get these values. 
+	> These values are not real. Update these values with the actual  Reply URL and Sign-On URL. Contact [Tangoe Command Premium Mobile Client support team](https://www.tangoe.com/contact-us/) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Tangoe Command Premium Mobile Configuration section](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. To get SSO configured for your application, contact your [Tangoe Command Premium Mobile Client support team](https://www.tangoe.com/contact-2/) and provide the following:
+7. To get SSO configured for your application, contact your [Tangoe Command Premium Mobile Client support team](https://www.tangoe.com/contact-us/) and provide the following:
 
    - The downloaded metadata file
    - The **SAML Entity ID**
@@ -171,7 +171,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 In this section, you create a user called Britta Simon in Tangoe Command Premium Mobile. 
 
-Tangoe Command Premium Mobile application needs all the users to be provisioned in the application before doing Single Sign On. So please work with the [Tangoe Command Premium Mobile Client support team](https://www.tangoe.com/contact-2/) to provision all these users into the application. 
+Tangoe Command Premium Mobile application needs all the users to be provisioned in the application before doing Single Sign On. So please work with the [Tangoe Command Premium Mobile Client support team](https://www.tangoe.com/contact-us/) to provision all these users into the application. 
 
 ### Assign the Azure AD test user
 
