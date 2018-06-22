@@ -109,10 +109,6 @@ Azure Active Directory B2C provides functionality to allow users to update their
 
 You have successfully used your Azure AD B2C user account to make an authorized call an Azure AD B2C protected web API.
 
-## Clean up resources
-
-You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
-
 ## Next steps
 
 In this quickstart, you used an Azure AD B2C enabled sample ASP.NET app to sign in with a custom login page, sign in with a social identity provider, create an Azure AD B2C account, and call a web API protected by Azure AD B2C. 
