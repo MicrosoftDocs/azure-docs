@@ -10,10 +10,10 @@
     items:
     - name: C#
       href: Quickstarts/create-new-kb-csharp.md
-    - name: Java
-      href: Quickstarts/create-new-kb-java.md
     - name: Go
       href: Quickstarts/create-new-kb-go.md
+    - name: Java
+      href: Quickstarts/create-new-kb-java.md
     - name: Node.js
       href: Quickstarts/create-new-kb-nodejs.md
     - name: Python
@@ -22,10 +22,10 @@
     items:
     - name: C#
       href: Quickstarts/update-kb-csharp.md
-    - name: Java
-      href: Quickstarts/update-kb-java.md
     - name: Go
       href: Quickstarts/update-kb-go.md
+    - name: Java
+      href: Quickstarts/update-kb-java.md
     - name: Node.js
       href: Quickstarts/update-kb-nodejs.md
     - name: Python
@@ -34,10 +34,10 @@
     items:
     - name: C#
       href: Quickstarts/publish-kb-csharp.md
-    - name: Java
-      href: Quickstarts/publish-kb-java.md
     - name: Go
       href: Quickstarts/publish-kb-go.md
+    - name: Java
+      href: Quickstarts/publish-kb-java.md
     - name: Node.js
       href: Quickstarts/publish-kb-nodejs.md
     - name: Python
