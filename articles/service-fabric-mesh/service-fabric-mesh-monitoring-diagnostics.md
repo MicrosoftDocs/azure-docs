@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/20/2018
+ms.date: 06/22/2018
 ms.author: srrengar
 ms.custom: mvc, devcenter
 
