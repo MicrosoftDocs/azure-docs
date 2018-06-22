@@ -6,7 +6,7 @@ services: event-hubs
 author: robinsh
 manager: timlt
 ms.author: robinsh
-ms.date: 06/21J/2018
+ms.date: 06/21/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
