@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[More info here](https://msdn.microsoft.com/library/azure/dn931932.aspx)
+[More info here](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
 
 ## Schema of Logs & Events
 
