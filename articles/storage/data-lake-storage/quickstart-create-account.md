@@ -196,7 +196,8 @@ az storage account create \
     --kind StorageV2 \
     --hierarchical-namespace true
 ```
-When creating an account with zone-redundant storage (ZRS Preview), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **sku** parameter. 
+
+To create a general-purpose v2 storage account with zone-redundant storage (ZRS Preview), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **sku** parameter.
 
 |Replication option  |sku parameter  |
 |---------|---------|
