@@ -175,7 +175,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Copy the **Reply URL (recieves response from your identity provider)** value and paste it in the **Reply URL** textbox in  **Leapsome Domain and URLs** section on Azure portal.
 
-	d. In the **SSO Login URL (provided by identity provider)** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from the Azure portal.
+	d. In the **SSO Login URL (provided by identity provider)** textbox, paste the value of **SAML Single Sign-On Service URL**, which you copied from the Azure portal.
 
 	e. Copy the Certificate that you have downloaded from Azure portal without --BEGIN CERTIFICATE and END CERTIFICATE-- comments and paste it in the **Certificate (provided by identity provider)** textbox.
 
