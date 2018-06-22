@@ -67,9 +67,10 @@ Learn more in these articles:
 While you can't continue adding to your existing run histories under the old workspace, you can export the histories you have using the previous CLI. In th
 
 To export the run history with previous CLI:
+
 ```Azure CLI
 # list all runs
-$ az ml history list list
+$ az ml history list
 
 # get details about a particular run
 $ az ml history info
