@@ -1,5 +1,5 @@
 ---
-title: Create a multi-container (preview) app using Azure Web App for Containers
+title: Create a multi-container (preview) app in Web App for Containers
 description: Learn how to use multiple containers on Azure with Docker Compose and Kubernetes configuration files, with a WordPress and MySQL app.
 keywords: azure app service, web app, linux, docker, compose, multi-container, container, kubernetes
 services: app-service

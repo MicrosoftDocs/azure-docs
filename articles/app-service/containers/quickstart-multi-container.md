@@ -1,5 +1,5 @@
 ---
-title: Create a multi-container (preview) app using Azure Web App for Containers
+title: Create a multi-container (preview) app in Azure Web App for Containers using a Docker Compose configuration
 description: Deploy your first multi-container app in Azure Web App for Containers in minutes
 keywords: azure app service, web app, linux, docker, compose, multi-container, container, kubernetes
 services: app-service\web
@@ -19,9 +19,9 @@ ms.custom: mvc
 ---
 # Create a multi-container (preview) app using Web App for Containers
 
-[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app to Web App for Containers using the [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app to Web App for Containers in the [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) using a Docker Compose configuration. For Kubernetes, follow the [Kubernetes steps](tutorial-multi-container-app#use-a-kubernetes-configuration-optional) in the [multi-container tutorial](tutorial-multi-container-app.md).
 
-You'll complete this quickstart in Cloud Shell, but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 or later).
+You'll complete this quickstart in Cloud Shell, but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 or later). This quickstart will use a Docker Compose configuration file.
 
 ![Sample multi-container app on Web App for Containers][1]
 
@@ -31,9 +31,27 @@ You'll complete this quickstart in Cloud Shell, but you can also run these comma
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To complete this quickstart, you need experience with [Docker Compose](https://docs.docker.com/compose/).
 
-* Experience with [Docker Compose](https://docs.docker.com/compose/) or [Kubernetes](https://kubernetes.io/).
+## Download the sample
+
+For this quickstart, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
+
+[!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
+
+In the Cloud Shell, create a quickstart directory and then change to it.
+
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Next, run the following command to clone the sample app repository to your quickstart directory.
+
+```bash
+git clone https://github.com/Azure-Samples/multicontainerwordpress
+```
 
 ## Create a deployment user
 
@@ -72,8 +90,6 @@ When the command finishes, a JSON output shows you the resource group properties
 
 In the Cloud Shell, create an App Service plan in the resource group with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
 
-<!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
-
 The following example creates an App Service plan named `myAppServicePlan` in the **Standard** pricing tier (`--sku S1`) and in a Linux container (`--is-linux`).
 
 ```azurecli-interactive
@@ -99,36 +115,6 @@ When the App Service plan has been created, the Azure CLI shows information simi
   "workerTierName": null
 }
 ```
-
-## Download the sample
-
-For this quickstart, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it include Azure Database for MySQL, persistent storage, and Redis. Alternatively, you can use a [Kubernetes configuration](#use-a-kubernetes-configuration-optional). The configuration files can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
-
-[!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
-
-In the Cloud Shell, create a quickstart directory and then change to it.
-
-```bash
-mkdir quickstart
-
-cd quickstart
-```
-
-Next, run the following command to clone the sample app repository to your quickstart directory.
-
-```bash
-git clone https://github.com/Azure-Samples/multicontainerwordpress
-```
-
-While running, it displays information similar to the following example:
-
-```bash
-Cloning into 'nodejs-docs-hello-world'...
-remote: Counting objects: 40, done.
-remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
-Unpacking objects: 100% (40/40), done.
-Checking connectivity... done.
-````
 
 ## Create a Docker Compose app
 
@@ -157,33 +143,18 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 
 ### Browse to the app
 
-Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app may take a few minutes to load. If you receive an error, allow a few more minutes then refresh the browser. If you're having trouble and would like to troubleshoot, review [container logs](#find-docker-container-logs).
+Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app may take a few minutes to load. If you receive an error, allow a few more minutes then refresh the browser.
 
 ![Sample multi-container app on Web App for Containers][1]
 
-**Congratulations**, you've created a multi-container app in Web App for Containers. Next you'll configure your app to use Azure Database for MySQL. Don't install WordPress at this time.
-
-## Use a Kubernetes configuration (optional)
-
-In this section, you'll learn how to use a Kubernetes configuration to deploy multiple containers. Make sure you follow earlier steps in to create a [resource group](#create-a-resource-group) and an [App Service plan](#create-an-azure-app-service-plan).
-
-### Create configuration file
-
-Save the following YAML to a file called *kubernetes-wordpress.yml*.
-
-[!code-yml[Main](../../../azure-app-service-multi-container/kubernetes-wordpress.yml)]
+**Congratulations**, you've created a multi-container app in Web App for Containers.
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use a custom Docker image for Web App for Containers](tutorial-custom-docker-image.md)
+> [Create a multi-container WordPress app in Web App for Containers](tutorial-multi-container-app.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png
-[2]: ./media/tutorial-multi-container-app/wordpress-plugins.png
-[3]: ./media/tutorial-multi-container-app/activate-redis.png
-[4]: ./media/tutorial-multi-container-app/redis-settings.png
-[5]: ./media/tutorial-multi-container-app/enable-object-cache.png
-[6]: ./media/tutorial-multi-container-app/redis-connected.png
