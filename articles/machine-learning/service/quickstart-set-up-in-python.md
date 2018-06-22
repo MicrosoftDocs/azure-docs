@@ -14,7 +14,7 @@ ms.date: 7/27/2018
 
 In this quickstart, you'll use a Python SDK to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
 
-Using any Python environment, including Juypter Notebooks or your favorite Python IDE, you'll learn how to:
+Using any Python environment, including Jupyter Notebooks or your favorite Python IDE, you'll learn how to:
 1. Create a workspace, which is the top-level resource for this service.
 2. Attach a project containing your machine learning scripts.
 3. Run a script @@TO DO WHAT and view the output. 
@@ -54,7 +54,7 @@ In a command-line window, create the conda environment and install the SDK. This
 
 A resource group is a container that holds related resources for an Azure solution. Using Azure CLI, sign into Azure, specify the subscription, and create a resource group.
 
-1. In a command-line window, sign in with the Azure CLI command, [`az login`](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Follow the prompts for interactive login:
+1. In a command-line window, sign in with the Azure CLI command, [`az login`](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Follow the prompts for interactive sign in:
     
     ```azurecli
     az login

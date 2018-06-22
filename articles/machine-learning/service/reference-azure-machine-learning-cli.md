@@ -15,7 +15,7 @@ The Azure Machine Learning CLI extension enables data scientists and developers 
 + Track and version models
 + Containerize and deploy models as web services
 
-This machine learning CLI is an extension of [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) and was build on top of the [Python-based SDK for Azure Machine Learning services](reference-azure-machine-learning-sdk.md).
+This machine learning CLI is an extension of [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) and was built on top of the [Python-based SDK for Azure Machine Learning services](reference-azure-machine-learning-sdk.md).
 
 Use the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
