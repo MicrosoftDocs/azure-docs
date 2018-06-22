@@ -41,7 +41,7 @@ Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *m
 
 ```azurecli-interactive
   az network vnet create \
-    --name myVnet
+    --name myVnet \
     --resource-group myResourceGroupILB \
     --location eastus \
     --subnet-name mySubnet
@@ -243,7 +243,7 @@ To get the private IP address of the load balancer, use [az network lb show](/cl
 
 ```azurecli-interactive
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![Test load balancer](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
