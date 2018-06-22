@@ -1,5 +1,5 @@
 ---
-title: Using The HDFS CLI with Data Lake Storage Gen2
+title: Using the HDFS CLI with Azure Data Lake Storage Gen2
 description:  Introduction to HDFS CLI for Data Lake Storage Gen2
 services: storage
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.component: data-lake-storage-gen2
 
 # Using the HDFS CLI with Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Whether you have an HDInsight cluster attached or run an Apache Spark job using Azure Databricks to perform analytics on data stored in Azure Data Lake Storage Gen2 you can use command-line interface (CLI) to retrieve and manipulate the loaded data. The rest of the article outlines the options you have while [Azure Storage team is working on adding support for Azure Storage Explorer and Azure Portal](https://azure.microsoft.com/en-us/roadmap/) - have fun!
+Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Whether you have an HDInsight cluster attached or run an Apache Spark job using Azure Databricks to perform analytics on data stored in Azure Data Lake Storage Gen2 you can use command-line interface (CLI) to retrieve and manipulate the loaded data. The rest of the article outlines the options you have while [Azure Storage team is working on adding support for Azure Storage Explorer and Azure portal](https://azure.microsoft.com/roadmap/) - have fun!
 
 ## HDFS CLI with HDInsight
 
@@ -87,7 +87,7 @@ After starting the Spark cluster in Azure Databricks, you'll create a new notebo
 
 For more information on Databricks CLI, see the [official documentation](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html). For more information on notebooks, see the [notebooks](https://docs.azuredatabricks.net/user-guide/notebooks/index.html) section of the documentation.
 
-## Next Steps
+## Next steps
 
 - [Create an HDInsight cluster with Azure Data Lake Storage Gen2](./quickstart-create-connect-hdi-cluster.md)
 - [Use an Azure Data Lake Storage account in Azure Databricks](./quickstart-create-databricks-account.md) 
