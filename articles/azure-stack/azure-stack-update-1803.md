@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/22/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -102,6 +102,10 @@ This update includes the following improvements and fixes for Azure Stack.
 
 ### Known issues with the update process    
 <!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
+
+### Post-update steps
+After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+ - [KB 4341390 - Azure Stack Hotfix 1.0.180424.12](https://support.microsoft.com/en-us/help/4341390).
 
 
 ### Known issues (post-installation)
