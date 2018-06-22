@@ -1,12 +1,14 @@
 ﻿---
 title: Installation Quickstart with Azure Machine Learning Python SDK | Microsoft Docs
 description: In this Quickstart, you can learn how to install and get started with Azure Machine Learning using the Azure Machine Learning SDK for Python.
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
-ms.reviewer: jmartens
+
 author: rastala
 ms.author: roastala
+ms.reviewer: sdgilley
 ms.date: 7/27/2018
 ---
 
@@ -106,6 +108,15 @@ A resource group is a container that holds related resources for an Azure soluti
    # Attach current directory as a project in workspace `myws` and specify 
    # and specify name of run history file for this project, `myhistory`
    helloproj = Project.attach(workspace_object=ws, run_history_name="myhistory")
+   ```
+   
+   Which returns:
+   ```
+   {'Run history name': 'tf-mnist',
+    'Subscription id': 'fac34303-435d-4486-8c3f-7094d82a0b60',
+    'Resource group': 'aml-notebooks',
+    'Workspace name': 'haieuapws',
+    'Project path': '/Users/bsmith/git/my-stuff/mnist-project'}
    ```
 
    Replace \<your-subscription-id\> with the ID value for the subscription you used to create the resource group and use the same resource group name as before, `myrg`. Do not include the brackets.
