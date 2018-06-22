@@ -12,21 +12,23 @@ ms.author: v-geberr
 ---
 
 # What is Language Understanding (LUIS)?
-Language Understanding (LUIS) is a cloud-based service that applies custom machine-learning to a user's conversational, natural language text to predict overall meaning and pull out relevant, detailed information. 
+Language Understanding (LUIS) is a cloud-based service that applies custom machine-learning to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. 
 
 A client application for LUIS can be any conversational application that communicates with a user in natural language to complete a task. Examples of client applications include social media apps, chatbots, and speech-enabled desktop applications.  
 
 ![Conceptual image of 3 applications feeding information info LUIS](./media/luis-overview/luis-entry-point.png)
 
 ## What is a LUIS app?
-A LUIS app is a domain-specific language model you design. You can start your app with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
+A LUIS app contains a domain-specific natural language model you design. You can start your app with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
 
-A model begins with a list of general user intentions, called _intents_, such as "Book Flight" or "Contact Help Desk." You provide user's example phrases, called _utterances_ for the intents. Then mark significant words or phrases in the utterance, called _entities_.
+This model begins with a list of general user intentions, called _intents_, such as "Book Flight" or "Contact Help Desk." You provide user's example phrases, called _utterances_ for the intents. Then mark significant words or phrases in the utterance, called _entities_.
 
 [Prebuilt domain models][prebuilt-domains] include all these pieces for you and are a great way to start using LUIS quickly.
 
-<a name="Accessing-LUIS"></a>
+The LUIS app also contains integration settings, [collaborators](luis-concept-collaborator.md), and [versions](luis-concept-version.md).
 
+## Using a LUIS app?
+<a name="Accessing-LUIS"></a>
 Once your model is built and published, your client application sends utterances to the LUIS [endpoint API][endpoint-apis] and receives the prediction results as JSON responses.
 
 ![Conceptual imagery of LUIS working with Chatbot](./media/luis-overview/luis-overview-process-2.png)
@@ -57,9 +59,9 @@ The JSON endpoint response, at a minimum contains the query utterance, and the t
 ```
 
 <a name="Key-LUIS-concepts"></a>
-
-## What is a LUIS model?
-A LUIS model includes:
+<a name="what-is-a-luis-model"></a>
+## What is a natural language model?
+A model includes:
 
 * **[intents](#intents)**: categories of user intentions (intended action or result)
 * **[entities](#entities)**: specific types of data in utterances such as number, email, or name
@@ -100,8 +102,9 @@ LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate impor
 ### Patterns 
 Patterns allow you to simplify an intent's utterance collection into common [templates][patterns] of word choice and word order. This allows LUIS to learn quicker by needing fewer example utterances for the intents. Patterns are a hybrid system of regular expressions and machine-learned expressions. 
 
-## Using LUIS
-You can build your LUIS app from the [www.luis.ai](http://www.luis.ai) website or your can build your app programmatically with the [authoring](https://aka.ms/luis-authoring-apis) APIs. Access your published LUIS app by the query [endpoint](https://aka.ms/luis-endpoint-apis). 
+<a name="using-luis"></a>
+## Authoring and accessing LUIS
+Build your LUIS app from the [www.luis.ai](http://www.luis.ai) website or programmatically with the [authoring](https://aka.ms/luis-authoring-apis) APIs, or use both depending on the authoring need. Access your published LUIS app by the query [endpoint](https://aka.ms/luis-endpoint-apis). 
 
 ## What technologies work with LUIS?
 Several Microsoft technologies work with LUIS:
