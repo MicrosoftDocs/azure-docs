@@ -34,20 +34,23 @@ Instead of having your projects in a workspace in the cloud, projects are now di
 
 To migrate your projects, attach the local directory containing your scripts to your newly created Azure Machine Learning Workspace. When you attach that project to the workspace, you can also start a run history file in the workspace for that project by specifying a name for that history.  
 
-* With the updated CLI extension:
-    ```shell
-    $ az ml project attach -w <my_workspace> -p <proj_folder_path> --history <run_history_name>
-    ```
-  Learn how to create a workspace and attach a project in the [CLI quickstart](quickstart-set-up-in-cli.md).
++ **CLI users**, attach your existing local project directory to the workspace with the new CLI: 
+  ```shell
+  az ml project attach -w <my_workspace_name> -p <proj_dir_path> --history <run_history_name>
+  ```
 
-* With the new Python SDK:
-    ```python
-    from azureml.core import Workspace, Project
++ **SDK users**, attach your existing local project directory to the workspace with the new SDK: 
+  ```python
+  from azureml.core import Workspace, Project
     
-    ws = Workspace.from_config()
-    proj = Project.attach(workspace_object=ws, run_history='my history', directory='c:\projects\mnist')
-    ```
-  Learn how to create a workspace and attach a project in the [SDK quickstart](quickstart-set-up-in-python.md).
+  ws = Workspace.from_config()
+  proj = Project.attach(workspace_object=ws, run_history='<run_history_name>', directory='<proj_dir_path>')
+  ```
+
+Replace the information in \<\>  brackets with the name of your workspace, file path to your local project directory, and the name for run history.
+
+Follow the longer [CLI quickstart](quickstart-set-up-in-cli.md) and [SDK quickstart](quickstart-set-up-in-python.md) to learn how to create a workspace and attach a project.
+
 
 ## Deployed web services
 

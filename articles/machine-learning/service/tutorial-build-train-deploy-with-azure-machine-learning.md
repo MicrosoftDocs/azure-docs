@@ -1,38 +1,18 @@
 ﻿---
-title: Prepare data for classifying Iris tutorial in Azure Machine Learning services (preview) | Microsoft Docs
-description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part one and discusses data preparation.
+title: Build, train, deploy models in Azure Machine Learning
+description: This full-length tutorial shows how to use Azure Machine Learning services to build, train, and deploy a model with Azure Machine Learning in Python.
 services: machine-learning
+ms.service: machine-learning
+ms.component: core
+ms.topic: quickstart
+
 author: hning86
 ms.author: haining
-manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
-ms.service: machine-learning
-ms.component: core
-ms.workload: data-services
-ms.custom: mvc
-ms.topic: tutorial
-ms.date: 3/7/2018
-
-ROBOTS: NOINDEX
----
-
----
-title: Tutorial - Build, train, deploy models in Azure Machine Learning | Microsoft Docs
-description: In this tutorial, you can learn how to build, train, and deploy a model with Azure Machine Learning in Python.
-services: machine-learning
-author: haining
-ms.author: haining
-ms.service: machine-learning
-ms.component: core
-ms.workload: data-services
-ms.custom: mvc
-ms.topic: quickstart
+ms.reviewer: jmartens
 ms.date: 7/27/2018
 ---
 
-# Tutorial 1: Classify Iris - Preparing the data
-
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+# Tutorial: Training MNIST dataset using TensorFlow and deploying on Azure Machine Learning
 
 Azure Machine Learning service (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
@@ -45,31 +25,72 @@ This tutorial is **part one of a three-part series**. In this tutorial, you walk
 
 This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
 
-## Prerequisites
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-To complete this tutorial, you must have:
-- An Azure Machine Learning Experimentation account
-- Azure Machine Learning Workbench installed
-
-If you don't have these prerequisites already, follow the steps in the [Quickstart: Install and start](quickstart-installation.md) article to set up your accounts and install the Azure Machine Learning Workbench application. 
-
-
-
-
-
-
-# Tutorial: Training MNIST dataset using TensorFlow on Azure Machine Learning
-
-## Introduction
 This example shows how to train a deep neural network using the MNIST dataset and TensorFlow on Azure Machine Learning platform. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing digit from 0 to 9. The goal is to create a multi-class classifier to identify the digit each image represents, and deploy it as a web service in Azure.
 
 ## Prerequisites
-### 1. Install Azure ML SDK
-Please follow [installation instructions](https://github.com/Azure/ViennaDocs/blob/master/PrivatePreview/README.md) here.
 
-### 2. Install additional packages needed for this Notebook
+To complete this tutorial, you must have:
+- The Azure Machine Learning SDK for Python installed
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure Machine Learning Workspace named @@@
+- A local project directory named @@@
+
+If you don't have these prerequisites already, follow the steps in the [Quickstart: Create a project and get started in Python](quickstart-installation.md) article to set up workspace, a project, and install the SDK.
+
+## Check for your workspace and project
+
+1. Display the current workspace name.
+
+    ```python
+    ws = Workspace.from_config()
+    print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
+    ```
+    
+        Found config.json in: /Users/haining/git/hai/MnistTutorial/aml_config/config.json
+        haieuapws	eastus2euap	aml-notebooks	eastus2euap
+    
+1. Attach the project to the workspace and see its details:
+
+    ```python
+    # create a new project or get hold of an existing one.
+    proj = Project.attach(history_name = 'tf-mnist', directory = './tf-mnist-proj', workspace_object = ws)
+    # show project details
+    proj.get_details()
+    ```
+    
+
+
+
+    {'Run history name': 'tf-mnist',
+     'Subscription id': 'fac34303-435d-4486-8c3f-7094d82a0b60',
+     'Resource group': 'aml-notebooks',
+     'Workspace name': 'haieuapws',
+     'Project path': '/Users/haining/git/hai/MnistTutorial/tf-mnist-proj'}
+
+
+
+## Download MNIST dataset and install package dependencies
+Use scikit-learn library to download the MNIST dataset. Note we also shrink the intensity values (X) from 0-255 to 0-1. This makes the neural network converge faster.
+
+Get the data:
+```python
+import os
+import urllib
+
+os.makedirs('./data', exist_ok = True)
+
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename = './data/train-images.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename = './data/train-labels.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename = './data/test-images.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename = './data/test-labels.gz')
+```
+
+
+
+
+    ('./data/test-labels.gz', <http.client.HTTPMessage at 0xa162599b0>)
+
+And, now the package dependencies:
 ```shell
 $ conda install tensorflow matplotlib
 ```
@@ -92,61 +113,6 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 
     Azure ML SDK Version:  0.1.0.1043398
-
-
-## Get Azure ML Workspace
-
-
-```python
-ws = Workspace.from_config()
-print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
-```
-
-    Found config.json in: /Users/haining/git/hai/MnistTutorial/aml_config/config.json
-    haieuapws	eastus2euap	aml-notebooks	eastus2euap
-
-
-## Create an Azure ML project
-
-
-```python
-# create a new project or get hold of an existing one.
-proj = Project.attach(history_name = 'tf-mnist', directory = './tf-mnist-proj', workspace_object = ws)
-# show project details
-proj.get_details()
-```
-
-
-
-
-    {'Run history name': 'tf-mnist',
-     'Subscription id': 'fac34303-435d-4486-8c3f-7094d82a0b60',
-     'Resource group': 'aml-notebooks',
-     'Workspace name': 'haieuapws',
-     'Project path': '/Users/haining/git/hai/MnistTutorial/tf-mnist-proj'}
-
-
-
-## Download MNIST dataset
-Use scikit-learn library to download the MNIST dataset. Note we also shrink the intensity values (X) from 0-255 to 0-1. This makes the neural network converge faster.
-
-
-```python
-import os
-import urllib
-
-os.makedirs('./data', exist_ok = True)
-
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename = './data/train-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename = './data/train-labels.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename = './data/test-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename = './data/test-labels.gz')
-```
-
-
-
-
-    ('./data/test-labels.gz', <http.client.HTTPMessage at 0xa162599b0>)
 
 
 
@@ -678,9 +644,24 @@ print('predicted:\t',np.array(result))
     predicted:	 [9 3 4 1 3 0 7 0 0 7 5 1 9 6 9 4 1 1 8 0 8 7 7 6 0 4 2 3 4 7]
 
 
-### Delete the service
+### Delete the web service
 
 
 ```python
 service.delete()
 ```
+
+
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
+## Next steps
+
+In this Azure Machine Learning tutorial, you used Python to:
+> [!div class="checklist"]
+> * Train a model locally 
+> * Train a model on remote Data Science Virtual Machine (DSVM)
+> * Deploy and test a web service to Azure Container Instances
+
+@@WHat's next best to try out?

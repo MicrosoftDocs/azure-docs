@@ -88,5 +88,5 @@ Additionally, you can use the updated Azure CLI extension for machine learning, 
 Data Prep UX in the Workbench desktop client is not going to be available in new Workspace Web UI in Azure portal. Some of the Data Prep capabilities will surface through the Python SDK in the near future; and the plan for the Data Prep UX is still being finalized.
  
 
-## What about Visual Studio Code Tools for AI
+## What about VSCode Tools for AI?
 With this GA release, the Visual Studio Code Tools for AI extension is also updated to work with the above new features.
