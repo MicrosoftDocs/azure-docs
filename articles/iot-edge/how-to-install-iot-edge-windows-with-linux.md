@@ -134,7 +134,10 @@ Get-Service iotedge
 Examine service logs using:
 
 ```powershell
-Get-WinEvent -LogName Application | Where-Object {$_.ProviderName -eq "iotedged"} | oh -Paging
+ Get-WinEvent -LogName Application | 
+  Where-Object {$_.ProviderName -eq "iotedged"} | 
+  Select TimeCreated, Message | 
+  oh -Paging
 ```
 
 And, list running modules with:
