@@ -20,7 +20,7 @@ ms.author: yujhong
 # Virtual Machines on Azure Government
 This quickstart will help you get started using Virtual Machines on Azure Government. Using VMs with Azure Government is similar to using it with the Azure commercial platform, with a [few exceptions](documentation-government-compute.md#virtual-machines).
 
-To learn more about Azure Virtual Machines, click [here](../virtual-machines/index.md).
+To learn more about Azure Virtual Machines, click [here](../virtual-machines/index.yml).
 
 ## Part 1: Virtual Network
 
