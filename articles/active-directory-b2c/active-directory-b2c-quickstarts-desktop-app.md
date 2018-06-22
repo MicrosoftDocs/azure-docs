@@ -104,4 +104,4 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quick
 The next step is to create your own Azure AD B2C tenant and configure the sample to run using your tenant. 
 
 > [!div class="nextstepaction"]
-> [Create an Azure Active Directory B2C tenant in the Azure portal](active-directory-b2c-get-started.md)
+> [Create an Azure Active Directory B2C tenant in the Azure portal](tutorial-create-tenant.md)
