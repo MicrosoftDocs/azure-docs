@@ -25,7 +25,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: Deploy Azure Firewall using Azure PowerShell
+    text: Script samples for common tasks.
   - type: list
     style: unordered
     className: spaced noBullet
