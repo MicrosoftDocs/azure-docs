@@ -11,13 +11,17 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: kgremban
 ---
+# Install Azure IoT Edge runtime on Linux (x64)
+The Azure IoT Edge runtime is deployed on all IoT Edge devices. It is composed of three components. The **IoT Edge Security Daemon** is the component which provides and maintains security standards on the edge device. The daemon starts each time an Edge device boots and bootstraps the device by starting the IoT Edge Agent. The **IoT Edge Agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge Hub. The **IoT Edge Hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
+
+This article lists the steps to install the Azure IoT Edge runtime on your Linux x64 (Intel/AMD) Edge device.
 
 >[!NOTE]
 >Packages in the Linux software repositories are subject to the license terms located in the packages (/usr/share/doc/<package-name>). Please read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
 
-# Register Microsoft key and software repository feed
+## Register Microsoft key and software repository feed
 
-## Ubuntu 16.04
+### Ubuntu 16.04
 
 ```cmd/sh
 # Install repository configuration
@@ -29,7 +33,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
-## Ubuntu 18.04
+### Ubuntu 18.04
 
 ```cmd/sh
 # Install repository configuration
@@ -41,7 +45,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
-## Debian 9
+### Debian 9
 
 ```cmd/sh
 # Install repository configuration
@@ -53,7 +57,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
-# Install the container runtime 
+## Install the container runtime 
 
 Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). If you already have Docker CE/EE installed on your edge device, you can continue to use it for development and testing with Azure IoT Edge. For production scenarios it is highly recommended that you use the [Moby][lnk-moby]-based engine below as it is the only container engine officially supported by Microsoft.
 
@@ -65,9 +69,8 @@ sudo apt-get install moby-engine
 sudo apt-get install moby-cli
 ```
 
-# Install the Azure IoT Edge Security Daemon
+## Install the Azure IoT Edge Security Daemon
 
-The Azure IoT Edge Security Daemon is a native component of the Azure IoT Edge runtime which provides and maintains security standards on the edge device.
 
 *Instructions below will also install the standard version of the `iothsmlib` if not already present.*
 
@@ -76,7 +79,7 @@ sudo apt-get update
 sudo apt-get install iotedge
 ```
 
-# Configure the Azure IoT Edge Security Daemon
+## Configure the Azure IoT Edge Security Daemon
 
 The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml`. The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string][lnk-dcs].
 
@@ -91,7 +94,7 @@ provisioning:
 Note: the file is write-protected by default, use `sudo` to edit it. e.g `sudo nano /etc/iotedge/config.yaml`
 
 
-# Next steps
+## Next steps
 For more information and architectural overview of Azure IoT Edge Runtime go this article.
 
 <!-- Links -->
