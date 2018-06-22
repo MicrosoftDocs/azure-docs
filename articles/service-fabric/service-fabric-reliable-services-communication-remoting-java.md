@@ -23,7 +23,7 @@ ms.author: pakunapa
 >
 >
 
-For services that are not tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure call for services.  This article discusses how to set up remote procedure calls for services written with Java.
+For services that aren't tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure calls for services.  This article discusses how to set up remote procedure calls for services written with Java.
 
 ## Set up remoting on a service
 Setting up remoting for a service is done in two simple steps:
