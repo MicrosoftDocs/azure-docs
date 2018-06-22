@@ -76,7 +76,7 @@ Here's a basic deployment manifest with one module as an example:
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+                 "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
                  "createOptions": "{}"
                }
              }
