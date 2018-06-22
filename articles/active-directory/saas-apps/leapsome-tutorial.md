@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 06/22/2018
 ms.author: jeedes
 
 ---
@@ -106,7 +106,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Identifier** textbox, type a URL: `https://www.leapsome.com`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert `
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> The preceding Reply URL and Sign-on URL value is not real value. You will update these with the actual values, which is explained later in the tutorial.
 
-5. Leapsome application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
+5. Leapsome application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example.
 	
 	![Configure Single Sign-On](./media/leapsome-tutorial/tutorial_Leapsome_attribute.png)
 
@@ -159,7 +159,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Leapsome Configuration](./media/leapsome-tutorial/tutorial_leapsome_configure.png)
 
-10. In a different web browser window, login to Leapsome as a Security Administrator.
+10. In a different web browser window, log in to Leapsome as a Security Administrator.
 
 11. On the top right, Click on Settings logo and then click **Admin Settings**. 
 
@@ -175,9 +175,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Copy the **Reply URL (recieves response from your identity provider)** value and paste it in the **Reply URL** textbox in  **Leapsome Domain and URLs** section on Azure portal.
 
-	d. In the **SSO Login URL (provided by identity provider)** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from the Azure portal.
+	d. In the **SSO Login URL (provided by identity provider)** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from the Azure portal.
 
-	e. Copy the Certificate which you have downloaded from Azure portal without --BEGIN CERTIFICATE and END CERTIFICATE-- comments and paste it in the **Certificate (provided by identity provider)** textbox.
+	e. Copy the Certificate that you have downloaded from Azure portal without --BEGIN CERTIFICATE and END CERTIFICATE-- comments and paste it in the **Certificate (provided by identity provider)** textbox.
 
 	f. Click **UPDATE SSO SETTINGS**.
 	
@@ -215,7 +215,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Leapsome test user
 
-In this section, you create a user called Britta Simon in Leapsome. Work with [Leapsome Client support team](mailto:support@leapsome.com) to add the users or the domain which is needed to be whitelisted in the Leapsome platform. If the domain is added by the team, users will get automatically provisioned to the Leapsome platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in Leapsome. Work with [Leapsome Client support team](mailto:support@leapsome.com) to add the users or the domain, which needs to be whitelisted in the Leapsome platform. If the domain is added by the team, users will get automatically provisioned to the Leapsome platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
