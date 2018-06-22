@@ -67,7 +67,7 @@ The following features are included in ML Services on HDInsight.
 | Python-enabled | [Python modules](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) for solutions written in Python, with an open source distribution of Python, and run-time infrastructure for script execution.
 | [Pre-trained models](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | For visual analysis and text sentiment analysis, ready to score data you provide. |
 | [Deploy and consume](r-server-operationalize.md) | Operationalize your server and deploy solutions as a web service. |
-| [Remote execution](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-server-or-client) | Start remote sessions on ML Services cluster on your network from your client workstation. |
+| [Remote execution](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Start remote sessions on ML Services cluster on your network from your client workstation. |
 
 
 ## Data storage options for ML Services on HDInsight
