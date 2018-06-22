@@ -37,7 +37,7 @@ This topic gives you an overview of the sign-in activities.
 ## Prerequisites
 
 ### Who can access the data?
-* Users in the Security Admin, Security Reader, or Report Reader role
+* Users in the Security Admin, Security Reader, Report Reader, or Application Administrator role
 * Global Admins
 * Any user (non-admins) can access their own sign-ins 
 
