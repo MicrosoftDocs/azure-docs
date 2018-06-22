@@ -55,7 +55,7 @@ Note the entity type is 'custom' -- this means that the entity can be trained.  
 	- This means that if this question is asked, and the user response does not have any entities detected, the bot should assume the whole of the user's response is this entity.
 2. Click Actions, then New Action to create a second action.
 3. In Response, type 'Hello $name'.
-	- Note that the entity is automatically added as a disqualifying entity. 
+	- Note that the entity is automatically added as a required entity. 
 4. Click Save
 
 Now you have two actions.
