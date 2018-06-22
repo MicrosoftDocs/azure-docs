@@ -12,7 +12,7 @@ ms.author: victorh
 
 ---
 
-# Create an Azure Firewall test environment  sample 
+# Create an Azure Firewall test environment sample 
 
 This script sample creates ...
 
