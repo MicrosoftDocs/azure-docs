@@ -28,10 +28,15 @@ There are several prerequisites that need to be in place before you can deploy t
 * If you haven't already done so, [register Azure Stack](.\azure-stack-registration.md) with Azure so you can download Azure marketplace items.
 * Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Datacenter - Server Core** image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). Make sure you select the core option when you run the script.
 
->[!NOTE]
->If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, MySQL resource provider installation will fail.
+  >[!NOTE]
+  >If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, MySQL resource provider installation will fail.
 
-* Download the MySQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build. Make sure you download the correct binary for the version of Azure Stack that you're running.
+* Download the MySQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory.
+
+  >[!NOTE]
+  >To deploy the MySQL provider on a system that doesn't have Internet access, copy the [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) file to a local share. Provide the share name when you're prompted for it. You must install the Azure and Azure Stack PowerShell modules.
+
+* The resource provider has a minimum corresponding Azure Stack build. Make sure you download the correct binary for the version of Azure Stack that you're running.
 
     | Azure Stack version | MySQL RP version|
     | --- | --- |
