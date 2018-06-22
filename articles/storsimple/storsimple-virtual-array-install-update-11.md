@@ -39,11 +39,11 @@ If running Update 0.2 and later, we recommend that you install updates through t
  - If your virtual array is running a version prior to Update 0.6, update is done in two stage. The Azure portal first installs Update 0.6 (10.0.10293.0) on your device. The virtual array reboots and the portal then installs Update 1.1 (10.0.10307.0) on your device. This procedure takes around 15 minutes to complete.
 
 
-[!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-1.md)]
+[!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-11.md)]
 
 After the installation is complete, go to your StorSimple Device Manager service. Select **Devices** and then select and click the device you just updated. Go to **Settings > Manage > Device Updates**. The displayed software version should be **10.0.10307.0**.
 
-![Software version after update](./media/storsimple-virtual-array-install-update-1/azupdate17m1.png)
+![Software version after update](./media/storsimple-virtual-array-install-update-11/azupdate17m2.png)
 
 ## Use the local web UI
 
@@ -69,7 +69,7 @@ Perform the following steps to download Update 1.1 from the Microsoft Update Cat
    
     The hotfix listing appears, for example, **StorSimple Virtual Array Update 1.1**.
    
-    ![Search catalog](./media/storsimple-virtual-array-install-update-1/download1.png)
+    ![Search catalog](./media/storsimple-virtual-array-install-update-11/download1.png)
 
 4. Click **Download**.
 
@@ -77,7 +77,7 @@ Perform the following steps to download Update 1.1 from the Microsoft Update Cat
 
 6. Open the folder where the files are located.
 
-    ![Files in the package](./media/storsimple-virtual-array-install-update-1/update01folder.png)
+    ![Files in the package](./media/storsimple-virtual-array-install-update-11/update01folder.png)
 
     You see two files:
     -  A Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64`. This file is used to update the device software.
@@ -96,26 +96,26 @@ This procedure takes around 4 minutes to complete. Perform the following steps t
 
 1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. **Proceed with this update only if you are running Update 0.6 (10.0.10293.0) or Update 1 (10.0.10296.0). If you are running a version before Update 0.6, [Install Update 0.6](storsimple-virtual-array-install-update-06.md) on your device first and then apply Update 1.1.**
    
-    ![update device](./media/storsimple-virtual-array-install-update-1/update1m.png)
+    ![update device](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
    
-    ![update device](./media/storsimple-virtual-array-install-update-1/update2m.png)
+    ![update device](./media/storsimple-virtual-array-install-update-11/update2m.png)
 
 3. A warning is displayed. Given the virtual array is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
    
-   ![update device](./media/storsimple-virtual-array-install-update-1/update3m.png)
+   ![update device](./media/storsimple-virtual-array-install-update-11/update3m.png)
 
 4. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-    ![update device](./media/storsimple-virtual-array-install-update-1/update5m.png)
+    ![update device](./media/storsimple-virtual-array-install-update-11/update5m.png)
 
 5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.0.0.0.10307** for Update 1.1.
    
    > [!NOTE]
    > We report the software versions in a slightly different way in the local web UI and the Azure portal. For example, the local web UI reports **10.0.0.0.0.10307** and the Azure portal reports **10.0.10307.0** for the same version.
    
-    ![update device](./media/storsimple-virtual-array-install-update-1/update6m.png)
+    ![update device](./media/storsimple-virtual-array-install-update-11/update6m.png)
 
 6. Repeat steps 2-4 to install the Windows security fix using file `Windows8.1-KB4284815-x64`. The virtual array restarts after the install and you need to sign into the local web UI.
 
