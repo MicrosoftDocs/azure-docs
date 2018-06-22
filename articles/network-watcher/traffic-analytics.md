@@ -263,7 +263,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
 **Look for**
 
-- Traffic distribution per subnet, topology, top sources of traffic to the subnet, top rouge networks conversing to the subnet, and top conversing application protocols.
+- Traffic distribution per subnet, topology, top sources of traffic to the subnet, top rogue networks conversing to the subnet, and top conversing application protocols.
     - Knowing which subnet is conversing to which subnet. If you see unexpected conversations, you can correct your configuration.
     - If rouge networks are conversing with a subnet, you are able to correct it by configuring NSG rules to block the rogue networks.
 - The Subnets Topology shows the top ribbon for selection of parameters such as Active/Inactive subnet, External Connections, Active Flows, and Malicious flows of the subnet.
