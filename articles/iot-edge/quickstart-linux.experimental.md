@@ -45,49 +45,62 @@ Register an IoT Edge device with your newly created IoT Hub.
 
 [!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
 
-## Prepare your device for containers
-
-Azure IoT Edge deploys code and cloud logic to devices using containers, so any edge-enabled device needs a container runtime. For this quickstart you can use your own computer as an IoT Edge device, or create a virtual machine. 
-
-If you want to use your own computer, run the following command to install a container runtime: 
-
-   ```bash
-   curl https://conteng.blob.core.windows.net/mby/moby_0.1-0-ubuntu_amd64.deb -o moby_0.1.deb && sudo apt-get install ./moby_0.1.deb
-   ``` 
-
-If you want to use a virtual machine, use the [Docker on Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS) image for Azure, which comes with a container runtime pre-installed. Use a tool like [Putty](https://putty.org/) to connect to your virtual machine with SSH. 
-
 
 ## Install and start the IoT Edge runtime
 
 Install and start the Azure IoT Edge runtime on your device. 
 ![Register a device][5]
 
-The IoT Edge runtime is deployed on all IoT Edge devices. Its composed of three components. The **IoT Edge Security Daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge Agent. The **IoT Edge Agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge Hub. The **IoT Edge Hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
+The IoT Edge runtime is deployed on all IoT Edge devices. It's composed of three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
-### HSMLIB
-Download and install an implementation of hsmlib on the machine you want to be the IoT Edge device. hsmlib is a dependency of the Edge Security Daemon. Its primary responsibility is integrating the daemon with an Edge device's hardware security module, allowing the IoT Edge runtime to provide enhanced security to the IoT device. For more information about the security framework, see [Securing Azure IoT Edge](security.md).
+### Register your device to use the software repository
 
-<!-- [IoT Edge Security Manager](TODO:get link). -->
+The packages that you need to run the IoT Edge runtime are managed in a software repository. Configure your IoT Edge device to access this repository. 
 
-The following command installs a version of hsmlib that implements the IoT Edge standard security promise. <!-- [IoT Edge standard security promise](TODO:get link).-->
+The steps in this section are for devices running Ubuntu 18.04. <!-- add link to other versions -->
 
-   ```cmd
-   wget https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-amd64-14210794/libiothsm-std_0.1.1-14210794_amd64.deb && sudo apt-get install ./libiothsm-std_0.1.1-14210794_amd64.deb
+1. On the machine that you're using as an IoT Edge device, install the repository configuration.
+
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
    ```
 
-### IoT Edge Security Daemon 
-1. Download and install the IoT Edge Security Daemon. The package installs the daemon as a system service so IoT Edge starts every time your device boots.
-   ```cmd
-   wget https://azureiotedgepreview.blob.core.windows.net/shared/edgelet-amd64-14210794/iotedge_0.1.0-14210794_amd64.deb && sudo apt-get install ./iotedge_0.1.0-14210794_amd64.deb
+2. Install a public key to access the repository.
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
 
-2. Open `/etc/iotedge/config.yaml`. It is a protected file so you may need elevated privileges for access.
-   ```cmd
+### Install a container runtime
+
+The IoT Edge runtime is a set of containers, and the logic that you deploy to your IoT Edge device is packaged as containers. Prepare your device for these components by installing a container runtime.
+
+   ```bash
+   sudo apt-get update
+   sudo apt-get install moby-engine
+   sudo apt-get install moby-cli   
+   ```
+
+### Install and configure the IoT Edge security daemon
+
+The security daemon installs as a system service so that the IoT Edge runtime starts every time your device boots. The installation also includes a version of **hsmlib** that allows the security daemon to interact with the device's hardware security. 
+
+1. Download and install the IoT Edge Security Daemon. 
+
+   ```bash
+   sudo apt-get update
+   sudo apt-get install iotedge
+   ```
+
+2. Open the IoT Edge configuration file. It is a protected file so you may have to use elevated privileges to access it.
+   
+   ```bash
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Add the IoT Edge device connection string that you copied when you registered your device. Replace the value of the variable **device_connection_string**.
+3. Add the IoT Edge device connection string that you copied when you registered your device. Replace the value of the variable **device_connection_string** that you copied earlier in this quickstart.
 
 4. Restart the Edge Security Daemon:
 
@@ -101,12 +114,18 @@ The following command installs a version of hsmlib that implements the IoT Edge 
    sudo systemctl status iotedge
    ```
 
-   ![See the Edge Daemon running as a system service][7]
+   ![See the Edge Daemon running as a system service](./media/quickstart-linux/iotedged-running.png)
 
-You can also see logs from the Edge Security Daemon by running the follwoing command:
+   You can also see logs from the Edge Security Daemon by running the following command:
 
    ```bash
    journalctl -u iotedge
+   ```
+
+6. View the modules running on your device: 
+
+   ```bash
+   sudo iotedge list
    ```
 
 ## Deploy a module
