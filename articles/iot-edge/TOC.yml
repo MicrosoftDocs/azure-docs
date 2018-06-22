@@ -5,7 +5,7 @@
 - name: Overview
   items:
   - name: About Azure IoT Edge
-    href: how-iot-edge-works.md
+    href: about-iot-edge.md
 - name: Quickstarts
   expanded: true
   items:
