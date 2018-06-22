@@ -1,6 +1,6 @@
 ---
-title: How to install Azure IoT Edge on Windows with Linux containers | Microsoft Docs
-description: Azure IoT Edge installation instructions on Windows with Linux containers
+title: How to install Azure IoT Edge on Windows with Windows containers | Microsoft Docs
+description: Azure IoT Edge installation instructions on Windows with  Windows containers
 author: kgremban
 manager: timlt
 # this is the PM responsible
@@ -11,24 +11,27 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: kgremban
 ---
-# Install Azure IoT Edge runtime on Windows to use with Linux containers
+# Install Azure IoT Edge runtime on Windows to use with Windows containers
 The Azure IoT Edge runtime is deployed on all IoT Edge devices. It is composed of three components. The **IoT Edge Security Daemon**  provides and maintains security standards on the Edge device. The daemon starts on every boot and bootstraps the device by starting the IoT Edge Agent. The **IoT Edge Agent** facilitates deployment and monitoring of modules on the Edge device, including the IoT Edge Hub. The **IoT Edge Hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
 
-This article lists the steps to install the Azure IoT Edge runtime on your Windows x64 (AMD/Intel) system. Windows support is currently in Preview.
+This article lists the steps to install the Azure IoT Edge runtime on your Windows x64 (AMD/Intel) system. 
 
->[!NOTE]
-Using Linux containers on Windows sytems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
+Windows support is currently in Preview.
 
 ## Supported Windows versions
-Azure IoT Edge can be used for development and testing on following versions of Windows, when using Linux containers:
-  * Windows 10 or newer desktop operating systems.
-  * Windows Server 2016 or new server operating systems.
+Azure IoT Edge with Windows containers can be used with:
+  * Windows 10/IoT Enterprise/IoT Core with April 2018 update (Build 17134).
+  * Windows Server 1803
 
 ## Install the container runtime 
 
 Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). 
 
-You can use [Docker for Windows][lnk-docker-for-windows] for development and testing. Ensure Docker for Windows is [configured to use Linux containers][lnk-docker-config]
+You can use [Docker for Windows][lnk-docker-for-windows] for development and testing. 
+
+**Ensure Docker for Windows is [configured to use Windows containers][lnk-docker-config]**
+
+Note: For container engine installation on Windows IoT Core, follow steps from [provistion an IoT Core device article][lnk-iot-core] and then continue with instructions below.
 
 ## Install the Azure IoT Edge Security Daemon
 
@@ -59,7 +62,7 @@ Add Firewall exceptions for the ports used by the service:
 New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
 ```
 
-Create a `iotedge.reg` file with the following content, and import in to the Windows Registry by double-clicking it:
+Create a `iotedge.reg` file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg add` command:
 
 ```
 Windows Registry Editor Version 5.00
@@ -82,36 +85,36 @@ provisioning:
   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
 ```
 
-Next, we'll need to provide the ip adress and port for `workload_uri` and `management_uri` in the `connect:` section of the configuration. For the ip address, enter `ipconfig` in your PowerShell window and select the ip address of the `vEthernet (DockerNAT)` interface, with ports 15581 and 15580 as shown in the example below (the ip address on your system may be different):
+Next, we'll need to provide the ip adress and port for `workload_uri` and `management_uri` in the `connect:` section of the configuration. For the ip address, enter `ipconfig` in your PowerShell window and select the ip address of the `vEthernet (nat)` interface, with ports 15581 and 15580 as shown in the example below (the ip address on your system may be different):
 
-![DockerNat][img-docker-nat]
+![nat][img-nat]
 
 ```yaml
 connect:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://172.29.240.1:15580"
+  workload_uri: "http://172.29.240.1:15581"
 ```
 
 Enter the same addresses in the `listen:` section of the configuration. For example:
 
 ```yaml
 listen:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://172.29.240.1:15580"
+  workload_uri: "http://172.29.240.1:15581"
 ```
 
 Create an environment variable `IOTEDGE_HOST` using the same address, example:
 
 ```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://10.0.75.1:15580")
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://172.29.240.1:15580")
 ```
 
-Finally, ensure the `network` setting under `moby_runtime:` is set to `azure-iot-edge`:
+Finally, ensure the `network` setting under `moby_runtime:` is set to `nat`:
 
 ```yaml
 moby_runtime:
   docker_uri: "npipe://./pipe/docker_engine"
-  network: "azure-iot-edge"
+  network: "nat"
 ```
 
 Save the configuration file and restart the service:
@@ -147,7 +150,7 @@ If you are having problems with the Edge runtime installing properly, checkout t
 
 
 <!-- Images -->
-[img-docker-nat]: ./media/how-to-install-iot-edge-windows-with-linux/dockernat.png
+[img-nat]: ./media/how-to-install-iot-edge-windows-with-windows/nat.png
 
 <!-- Links -->
 [lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
@@ -157,4 +160,5 @@ If you are having problems with the Edge runtime installing properly, checkout t
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md
 [lnk-docker-for-windows]: https://www.docker.com/docker-windows
+[lnk-iot-core]: how-to-install-iot-core.md
 
