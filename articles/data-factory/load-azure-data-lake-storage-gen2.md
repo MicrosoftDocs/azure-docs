@@ -16,18 +16,18 @@ ms.author: jingwang
 
 # Load data into Azure Data Lake Storage Gen2 Preview with Azure Data Factory
 
-Azure Data Lake Storage Gen2 Preview adds a protocol with hierarchial file system namespace and security features to [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) making it easy to connect analytics frameworks to a durable storage layer. In Data Lake Storage Gen2, all the qualities of object storage remain while adding the advantages of a file system interface.
+[Azure Data Lake Storage Gen2 Preview](../storage/data-lake-storage/introduction.md) adds a protocol with hierarchial file system namespace and security features to Azure Blob Storage making it easy to connect analytics frameworks to a durable storage layer. In Data Lake Storage Gen2 (Preview), all the qualities of object storage remain while adding the advantages of a file system interface.
 
 Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate the lake with data from a rich set of on-premises and cloud-based data stores and save time when building your analytics solutions. For a detailed list of supported connectors, see the table of [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offers a scale-out, managed data movement solution as opposed to AzCopy, a command line data transfer utility. Due to the scale-out architecture of ADF, it can ingest data at a high throughput. For details, see [Copy activity performance](copy-activity-performance.md).
 
-This article shows you how to use the Data Factory Copy Data tool to load data from _Amazon Web Services S3 service_ into _Azure Data Lake Storage_. You can follow similar steps to copy data from other types of data stores.
+This article shows you how to use the Data Factory Copy Data tool to load data from _Amazon Web Services S3 service_ into _Azure Data Lake Storage Gen2_. You can follow similar steps to copy data from other types of data stores.
 
 ## Prerequisites
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Azure Storage account with Azure Data Lake Storage enabled: If you don't have a Storage account, click [here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to create one.
+* Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, click [here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to create one.
 * Amazon S3: This article shows how to copy data from Amazon S3. You can use other data stores by following similar steps.
 
 ## Create a data factory
@@ -121,7 +121,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
     ![Monitor activity run details](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
 
-16. Verify that the data is copied into your Azure Data Lake Storage.
+16. Verify that the data is copied into your Data Lake Storage Gen2 account.
 
 ## Best practice
 
@@ -130,6 +130,6 @@ When copy large volume of data from file-based data store, you are suggested to:
 - Partition the files into 10TB to 20TB fileset each. 
 - Do not trigger too many concurrent copy runs to avoid throttling from source or sink data stores. You can start with one copy run and monitor the throughput, then gradually add more as needed.
 
-## Next Steps
+## Next steps
 
 * [Copy activity overview](copy-activity-overview.md)
