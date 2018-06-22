@@ -178,6 +178,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
   - hosts:
@@ -195,7 +196,6 @@ spec:
         backend:
           serviceName: ingress-demo
           servicePort: 80
-
 ```
 
 Create the ingress resource with the `kubectl apply` command.
