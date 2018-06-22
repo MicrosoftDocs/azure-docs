@@ -7,7 +7,7 @@ author: vhorne
 ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 7/1/2018
+ms.date: 7/11/2018
 ms.author: victorh
 
 ---
@@ -22,7 +22,7 @@ You can run the script from the Azure [Cloud Shell](https://shell.azure.com/powe
 
 ## Sample script
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/filter-network-traffic/filter-network-traffic.ps1  "Filter VM network traffic")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/firewall/create-fw-test.ps1  "Create a firewall test environment")]
 
 ## Clean up deployment 
 
@@ -54,4 +54,3 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).
