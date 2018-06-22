@@ -44,7 +44,7 @@ Supported Linux operating systems:
 * Red Hat Enterprise Linux (RHEL) versions 5, 6, 7
 * SUSE Linux Enterprise Server (SLES) versions 11, 12
 * Oracle Linux versions 5, 6, 7
-* Amazon Linux 2012.09 -> 2017
+* Amazon Linux 2012.09 through 2017
 * Openssl 1.1.0 is only supported on x86_64 platforms (64-bit)
 
 > [!NOTE]
