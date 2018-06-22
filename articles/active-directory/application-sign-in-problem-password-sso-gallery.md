@@ -77,7 +77,7 @@ Follow the tutorial [How to Deploy the Access Panel Extension for Internet Explo
 
 ## Troubleshoot the Access Panel in Internet Explorer
 
-Follow the [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) guide for access a diagnostics tool and step by step instructions on configuring the extension for IE.
+Follow the [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) guide for access a diagnostics tool and step by step instructions on configuring the extension for IE.
 
 ## How to configure password single sign-on for an Azure AD gallery application
 
