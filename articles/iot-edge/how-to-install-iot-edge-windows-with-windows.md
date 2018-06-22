@@ -34,7 +34,7 @@ Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Doc
 ## Install the Azure IoT Edge Security Daemon
 
 >[!NOTE]
->Azure IoT Edge software packages are subject to the license terms located in the packages (in the LICENSE folder in the package). Please read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
+>Azure IoT Edge software packages are subject to the license terms located in the packages (in the LICENSE directory). Please read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
 
 ### Download the Edge daemon package and install
 
