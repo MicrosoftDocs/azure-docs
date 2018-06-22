@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Visualize data anomalies in real-time events sent to an Event Hub
 
-Let's say you have thousands of devices constantly sending real-time data to an Event Hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture any where you have multiple transactions in multiple countries around the same time? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. With Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI.
+Let's say you have thousands of devices constantly sending real-time data to an Event Hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture any where you have multiple transactions in multiple countries within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. With Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI.
 
 In this tutorial, you will simulate this example. You run an application that will create and send credit card transactions to an event hub. Then you read the stream of data in real-time with Azure Stream Analytics, which will separate the valid transactions from the invalid transactions, and then visualize the results with a Power BI visualization. 
 
@@ -23,8 +23,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create an Event Hubs namespace
 > * Create an event hub
-> * Run the app that simulates the credit card transactions and sends them to the event hub
-> * Configure a Stream Analytics job to process those transactions sent to the hub
+> * Run the app that sends credit card transactions
+> * Configure a Stream Analytics job to process those transactions
 > * Configure a Power BI visualization to show the results
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -41,7 +41,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For this tutorial, you need an Event Hubs namespace and an event hub. These resources can all be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then at the end, you can remove everything in one step by deleting the resource group.
 
-The following sections describe how to do these required steps. Follow the CLI *or* the PowerShell instructions.
+The following sections describe how to do these required steps. Follow the CLI *or* the PowerShell instructions to perform the following steps:
 
 1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
 
@@ -50,7 +50,7 @@ The following sections describe how to do these required steps. Follow the CLI *
 3. Create an event hub.
 
 > [!NOTE]
-> There are variables set in each script that you need later in the tutorial. These include location ($location), resource group name ($resourceGroup), event hub namespace ($eventHubNamespace), and event hub name ($eventHubName). These are referred to with their dollar sign (`$`) prefix later in this article so you know they were set in the script.
+> There are variables set in each script that you need later in the tutorial. These include location ($location), resource group name ($resourceGroup), event hub namespace ($eventHubNamespace), and event hub name ($eventHubName). These are referred to with their dollar sign ($) prefix later in this article so you know they were set in the script.
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->
@@ -107,7 +107,7 @@ echo "Connection string = " $connectionString
 
 Copy and paste this script into Cloud Shell. Assuming you are already logged in, it will run the script one line at a time.
 
-The variables that must be globally unique have `(Get-Random)` concatenated to them. When the script is run and the variables are set, a random numeric string is generated and concatenated to the end of the fixed string, hopefully making it unique.
+The variables that must be globally unique have `$(Get-Random)` concatenated to them. When the script is run and the variables are set, a random numeric string is generated and concatenated to the end of the fixed string, hopefully making it unique.
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -154,7 +154,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## Run app to produce test event data
 
-There is an app that will produce test data for you. It simulates the use of credit cards by writing credit card transactions to the event hub, including occasionally writing several transactions for the same credit card in multiple locations so they will be tagged as anomalies. 
+There is an app that will produce test data for you. It simulates the use of credit cards by writing credit card transactions to the event hub, including occasionally writing several transactions for the same credit card in multiple locations so they will be tagged as anomalies. To run this app, please follow these steps: 
 
 1. Download the [Azure Event Hubs samples](https://github.com/Azure/azure-event-hubs/archive/master.zip) from GitHub and unzip it locally.
 
@@ -188,12 +188,12 @@ Now you can stream data into your event hub. To use that data in a Power BI visu
 
 ### Add an input to the Stream Analytics job
 
-If you're not in the portal at the Stream Analytics Job pane, you can get to your Stream Analytics job by clicking **Resource Groups** in the portal, then select your resource group (**ContosoResourcesEH**.) This action shows all of the resources in the group, and you can select your stream analytics job. 
+If you're not in the portal at the Stream Analytics Job pane, you can get back to your Stream Analytics job by clicking **Resource Groups** in the portal, then select your resource group (**ContosoResourcesEH**.) This action shows all of the resources in the group, and you can select your stream analytics job. 
 
 The inputs for the Steam Analytics job will be the credit card transactions from the event hub.
 
 > [!NOTE]
-> The values for variables starting with the dollar sign (`$`) are set in the startup scripts above. You must use the same values here when specifying those fields, Event Hub namespace and Event Hub name.
+> The values for variables starting with the dollar sign ($) are set in the startup scripts above. You must use the same values here when specifying those fields, which are Event Hub namespace and Event Hub name.
 
 1. Under **Job Topology**, click **Inputs**.
 
@@ -312,13 +312,13 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
    ![Screenshot specifying dataset.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select the name of the count of fraudulent uses (**Fraudulent uses**.)
+9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select **fraudulentuses**.
 
    ![Screenshot specifying visualization type and fields.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
    Click **Next**.
 
-10. Set Title to **Fraudulent uses** and Subtitle to **Sum in last few minutes**. Click **Apply**. It saves the tile to your dashboard.
+10. Set the Title to **Fraudulent uses** and the Subtitle to **Sum in last few minutes**. Click **Apply**. It saves the tile to your dashboard.
 
     ![Screenshot specifying title and subtitle for dashboard tile.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
@@ -338,7 +338,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 16. Specify **Show fraudulent uses over time** for the title and leave the subtitle for the tile blank, then click **Apply**. You are returned to your dashboard.
 
-17. Run the Anomaly Detector app again to send some data to the event hub. You see the Fraudulent Uses tile change as it analyzes the data, and the line chart will show data. 
+17. Run the Anomaly Detector app again to send some data to the event hub. You see the Fraudulent uses tile change as it analyzes the data, and the line chart will show data. 
 
     ![Screenshot showing the Power BI results](./media/event-hubs-tutorial-visualize-anomalies/power-bi-results.png)
 
