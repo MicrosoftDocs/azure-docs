@@ -111,14 +111,8 @@
     href: word-alignment.md
   - name: Use the dynamic dictionary feature
     href: dynamic-dictionary.md
-  - name: Use Translator Text API
-    items:
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Ruby
-      href: quickstarts/ruby.md
-    - name: Create a Translator Text app with WPF
-      href: tutorial-wpf-translation-csharp.md
+  - name: Create a Translator Text app with WPF
+    href: tutorial-wpf-translation-csharp.md
 - name: Reference
   items: 
   - name: v3 Translator Text API reference
