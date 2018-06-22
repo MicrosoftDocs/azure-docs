@@ -24,7 +24,7 @@ ms.author: jdial
 
     - A Network Watcher enabled subscription
     - NSG flow logs enabled for the NSGs you want to monitor
-    - An Azure Storage account, to store raw flog logs
+    - An Azure Storage account, to store raw flow logs
     - A Log Analytics (OMS) Workspace, with read and write access
     - User must be assigned with either one of the following roles at subscription level:
     
