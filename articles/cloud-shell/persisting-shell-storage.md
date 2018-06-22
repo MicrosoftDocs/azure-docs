@@ -20,14 +20,14 @@ ms.author: juluk
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## How Cloud Shell storage works 
-Bash in Cloud Shell persists files through both of the following methods: 
+Cloud Shell persists files through both of the following methods: 
 * Creating a disk image of your `$Home` directory to persist all contents within the directory. The disk image is saved in your specified file share as `acc_<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, and it automatically syncs changes. 
 * Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file-share interaction. `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.
  
 > [!NOTE]
 > All files in your `$Home` directory, such as SSH keys, are persisted in your user disk image, which is stored in your mounted file share. Apply best practices when you persist information in your `$Home` directory and mounted file share.
 
-## Bash specific commands
+## Bash-specific commands
 
 ### Use the `clouddrive` command
 With Bash in Cloud Shell, you can run a command called `clouddrive`, which enables you to manually update the file share that is mounted to Cloud Shell.
@@ -86,16 +86,16 @@ shm                                                    65536       0      65536 
 //mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
 justin@Azure:~$
 ```
-## PowerShell specific commands
+## PowerShell-specific commands
 
 ### List `clouddrive` Azure file shares
-The `Get-CloudDrive` command retrieves the Azure file share information currently mounted by the `clouddrive` in the Cloud Shell. <br>
+The `Get-CloudDrive` cmdlet retrieves the Azure file share information currently mounted by the `clouddrive` in the Cloud Shell. <br>
 ![Running Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
 ### Unmount `clouddrive`
 You can unmount an Azure file share that's mounted to Cloud Shell at any time. If the Azure file share has been removed, you will be prompted to create and mount a new Azure file share at the next session.
 
-The `Dismount-CloudDrive` command unmounts an Azure file share from the current storage account. Dismounting the `clouddrive` terminates the current session. The user will be prompted to create and mount a new Azure file share during the next session.
+The `Dismount-CloudDrive` cmdlet unmounts an Azure file share from the current storage account. Dismounting the `clouddrive` terminates the current session. The user will be prompted to create and mount a new Azure file share during the next session.
 ![Running Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
