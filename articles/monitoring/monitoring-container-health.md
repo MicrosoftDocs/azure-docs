@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 06/22/2018
 ms.author: magoedte
 ---
 
@@ -33,7 +33,7 @@ If you are interested in monitoring and managing your Docker and Windows contain
 ## Requirements 
 Before starting, review the following details so you can understand the supported prerequisites.
 
-- The following versions of AKS cluster are supported: 1.7.7 to 1.9.6.
+- A new or existing AKS cluster
 - A containerized OMS agent for Linux version microsoft/oms:ciprod04202018 and later. This agent is installed automatically during onboarding of container health.  
 - A Log Analytics workspace.  It can be created when you enable monitoring of your new AKS cluster, or you can create one through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or from the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 - Member of the Log Analytics contributor role in order to enable container monitoring.  For more information on how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
@@ -240,7 +240,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster.  
 
 ## Verify agent deployed successfully
-To verify the OMS agent deployed properly, run the following command: `	kubectl get ds omsagent --namespace=kube-system`.
+To verify the OMS agent deployed properly, run the following command: `kubectl get ds omsagent --namespace=kube-system`.
 
 The output should resemble the following indicating it did deploy properly:
 
