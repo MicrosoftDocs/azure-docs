@@ -26,11 +26,15 @@ East Asia| `https://eastasia.stt.speech.microsoft.com/speech/recognition/convers
 North Europe| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
-> If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
+> You must append the required language in the URI to avoid an http 401 error. So for en-US the correct URI would be:
+> https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 
 The Speech to Text API is otherwise similar to the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) for the previous Speech API.
 
 The Speech to Text REST API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API only returns final results, not partial or interim results.
+
+> [!NOTE]
+> If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
 
 ## Text to Speech
 

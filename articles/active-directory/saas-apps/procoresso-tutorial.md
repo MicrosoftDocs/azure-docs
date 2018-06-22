@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 9818edd3-48c0-411d-b05a-3ec805eafb2e
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -250,7 +251,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). When you click the Procore SSO tile in the Access Panel, you should get automatically signed-on to your Procore SSO application.
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). When you click the Procore SSO tile in the Access Panel, you should get automatically signed-on to your Procore SSO application.
 
 ## Additional resources
 

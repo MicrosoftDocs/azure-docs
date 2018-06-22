@@ -147,17 +147,17 @@
   - name: .NET
     items:
     - name: Blobs, Queues, Tables, and Files
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
     - name: Data movement
-      href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet
+      href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement
     - name: Resource Manager
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
   - name: Java
     items:
     - name: Blobs, Queues, Tables, and Files
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/client
     - name: Resource Manager
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/managementapi
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/management
   - name: Node.js
     href: https://docs.microsoft.com/javascript/api/overview/azure/storage
   - name: Ruby

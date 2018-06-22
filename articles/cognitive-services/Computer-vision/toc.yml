@@ -119,14 +119,22 @@
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
   - name: SDKs
     items:
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
+    - name: Windows
+      href: https://github.com/Microsoft/Cognitive-vision-windows
     - name: Android
       href: https://github.com/Microsoft/Cognitive-vision-android
     - name: Swift
       href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
-    - name: Windows
-      href: https://github.com/Microsoft/Cognitive-vision-windows
 - name: Resources
   items: 
+  - name: Samples
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: FAQ
     href: FAQ.md
   - name: Pricing
@@ -137,7 +145,5 @@
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-  - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: Category taxonomy
     href: Category-Taxonomy.md
