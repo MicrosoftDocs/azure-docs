@@ -105,7 +105,7 @@ listen:
 In the PowerShell window, create an environment variable `IOTEDGE_HOST` with the `management_uri` address, example:
 
 ```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://172.29.240.1:15580")
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://10.0.75.1:15580")
 ```
 
 Obtain the name of the host using the `hostname` command in the PowerShell window and set the value for `hostname:` in the configuration yaml. For example:
