@@ -11,7 +11,7 @@ manager: carmonm
 ---
 # Troubleshoot errors when onboarding solutions
 
-You may encounter errors when onboarding solutions. This article describes the various errors that may occur and how to resolve them.
+You may encounter errors when onboarding solutions like Update Management or Change Tracking and Inventory. This article describes the various errors that may occur and how to resolve them.
 
 ## General Errors
 
