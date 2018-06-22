@@ -52,7 +52,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
    Select the **Author & Monitor** tile to launch the Data Integration Application in a separate tab.
 
-## Load data into Azure Data Lake Storage
+## Load data into Azure Data Lake Storage Gen2
 
 1. In the **Get started** page, select the **Copy Data** tile to launch the Copy Data tool: 
 
