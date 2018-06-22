@@ -128,7 +128,7 @@ Getting the actual image URLs requires a cast that reads an `ActionType` as `Ima
         }
     }
 ```
-
+For more information about these data types, see [Images - Visual Search](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 ## Complete code
 
 The following code runs previous examples. It sends the `ImageInsightsToken` in a post request. Then it prints the Bing search URLs for each ActionType. If the ActionType is `PagesIncluding`, the code gets the `ImageObject` items in `Data`.  The `Data` contains a list of values, which are the URLs of images on Web pages.  Copy and paste resulting Visual Search URLs to browser to show results. Copy and paste ContentUrl items to browser to show images.
@@ -277,4 +277,4 @@ namespace VisualSearchFeatures
 
 ```
 ## Next steps
-Visual Search SDK C# quickstart
+[Images - Visual Search](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)
