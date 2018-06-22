@@ -14,9 +14,9 @@ ms.date: 06/20/2018
 ms.author: jingwang
 ---
 
-# Load data into Azure Data Lake Storage Gen2 (Preview) with Azure Data Factory
+# Load data into Azure Data Lake Storage Gen2 Preview with Azure Data Factory
 
-Azure Data Lake Storage (Preview) adds a protocol with hierarchial file system namespace and security features to [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) making it easy to connect analytics frameworks to a durable storage layer. In ADLS (Preview), all the qualities of object storage remain while adding the advantages of a file system interface.
+Azure Data Lake Storage Gen2 Preview adds a protocol with hierarchial file system namespace and security features to [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) making it easy to connect analytics frameworks to a durable storage layer. In Data Lake Storage Gen2, all the qualities of object storage remain while adding the advantages of a file system interface.
 
 Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate the lake with data from a rich set of on-premises and cloud-based data stores and save time when building your analytics solutions. For a detailed list of supported connectors, see the table of [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
