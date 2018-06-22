@@ -1,22 +1,21 @@
 ---
 title: Get Started with Azure Data Lake Analytics using the Azure portal
-description: Learn how to use the Azure portal to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job.
+description: Use the Azure portal to create an Azure Data Lake Analytics account and submit a U-SQL job.
 services: data-lake-analytics
+ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 manager: kfile
+editor: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
-ms.service: data-lake-analytics
-ms.topic: hero-article
-ms.workload: big-data
+ms.topic: get-started-article
 ms.date: 03/21/2017
 ---
 
-# Get started with Azure Data Lake Analytics using Azure portal
+# Get started with Azure Data Lake Analytics using the Azure portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Learn how to use the Azure portal to create Azure Data Lake Analytics accounts, define jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to the Data Lake Analytics service. For more
-information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+This article describes how to use the Azure portal to create Azure Data Lake Analytics accounts, define jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to the Data Lake Analytics service.
 
 ## Prerequisites
 

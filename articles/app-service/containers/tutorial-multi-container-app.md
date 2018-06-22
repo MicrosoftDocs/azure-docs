@@ -108,7 +108,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
 
 ## Docker Compose configuration options
 
-For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it include Azure Database for MySQL, persistent storage, and Redis. Alternatively, you can use a [Kubernetes configuration](#use-a-kubernetes-configuration-optional). The configuration files can be found at [Azure Samples](https://raw.githubusercontent.com/Azure-Samples/multi-container/master/).
+For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it include Azure Database for MySQL, persistent storage, and Redis. Alternatively, you can use a [Kubernetes configuration](#use-a-kubernetes-configuration-optional). The configuration files can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
 
 The following lists show supported and unsupported Docker Compose configuration options in Web App for Containers:
 
@@ -129,7 +129,6 @@ The following lists show supported and unsupported Docker Compose configuration 
 * depends_on (ignored)
 * networks (ignored)
 * secrets (ignored)
-* ports other than 80 and 8080 (ignored)
 
 > [!NOTE]
 > Any other options not explicitly called out are also ignored in Public Preview.
@@ -291,7 +290,7 @@ The following changes have been made for Redis (to be used in a later section):
 * [Adds PHP extension for Redis v4.0.2.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/Dockerfile#L35)
 * [Adds unzip needed for file extraction.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L71)
 * [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
-* [Uses App Seting for Redis host name in WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
+* [Uses App Setting for Redis host name in WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
 To use the custom image, you'll update your compose-wordpress.yml file. Change the `image: wordpress` to use `image: microsoft/multicontainerwordpress`. You no longer need the database container. Remove the  `db`, `environment`, `depends_on`, and `volumes` section from the configuration file. Your file should look like the following code:
 

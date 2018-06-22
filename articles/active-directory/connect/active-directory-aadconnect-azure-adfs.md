@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
+ms.component: hybrid
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 ---
@@ -311,7 +312,7 @@ The easiest way is to test AD FS is by using the IdpInitiatedSignon.aspx page. I
 
 1. Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. From any external machine access https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. From any external machine, access https:\//adfs-server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx.  
 3. You should see the AD FS page like below:
 
 ![Test login page](./media/active-directory-aadconnect-azure-adfs/test1.png)

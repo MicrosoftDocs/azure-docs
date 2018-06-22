@@ -1,21 +1,13 @@
-﻿---
-title: Troubleshoot backup errors with Azure virtual machine | Microsoft Docs
+---
+title: Troubleshoot backup errors with Azure virtual machine
 description: Troubleshoot backup and restore of Azure virtual machines
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;sogup
-
+ms.author: trinadhk
 ---
 # Troubleshoot Azure virtual machine backup
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
@@ -27,7 +19,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | VM agent is unable to communicate with the Azure Backup Service. - Ensure the VM has network connectivity and the VM agent is latest and running. For more information, please refer to  http://go.microsoft.com/fwlink/?LinkId=800034 |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. [Learn more](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) about debugging up VM snapshot issues.<br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues, and restarting the VM resets this "bad state". |
 | VM is in Failed Provisioning State - Please restart the VM and make sure that the VM is in Running or Shut-down state for backup | This occurs when one of the extension failures leads VM state to be in failed provisioning state. Go to extensions list and see if there is a failed extension, remove it and try restarting the virtual machine. If all extensions are in running state, check if VM agent service is running. If not, restart the VM agent service. | 
 | VMSnapshot extension operation failed for managed disks - Please retry the backup operation. If the issue repeats, follow the instructions at 'http://go.microsoft.com/fwlink/?LinkId=800034'. If it fails further, please contact Microsoft support | This error when Azure Backup service fails to trigger a snapshot. [Learn more](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) about debugging VM snapshot issues. |
-| Could not copy the snapshot of the virtual machine, due to insufficient free space in the storage account - Ensure that storage account has free space equivalent to the data present on the premium storage disks attached to the virtual machine | In case of premium VMs, we copy the snapshot to storage account. This is to make sure that backup management traffic, which works on snapshot, doesn't limit the number of IOPS available to the application using premium disks. Microsoft recommends you allocate only 50% of the total storage account space so the Azure Backup service can copy the snapshot to storage account and transfer data from this copied location in storage account to the vault. | 
+| Could not copy the snapshot of the virtual machine, due to insufficient free space in the storage account - Ensure that storage account has free space equivalent to the data present on the premium storage disks attached to the virtual machine | In case of premium VMs on VM backup stack V1, we copy the snapshot to storage account. This is to make sure that backup management traffic, which works on snapshot, doesn't limit the number of IOPS available to the application using premium disks. Microsoft recommends you allocate only 50% (17.5 TB) of the total storage account space so the Azure Backup service can copy the snapshot to storage account and transfer data from this copied location in storage account to the vault. | 
 | Unable to perform the operation as the VM agent is not responsive |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. For Windows VMs, check the VM agent service status in services and whether the agent appears in programs in control panel. Try removing the program from control panel and re-installing the agent as mentioned [below](#vm-agent). After re-installing the agent, trigger an adhoc backup to verify. |
 | Recovery services extension operation failed. - Please make sure that latest virtual machine agent is present on the virtual machine and agent service is running. Please retry backup operation and if it fails, contact Microsoft support. |This error is thrown when VM agent is out of date. Refer “Updating the VM Agent” section below to update the VM agent. |
 | Virtual machine doesn't exist. - Please make sure that virtual machine exists or select a different virtual machine. |This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)<br></li><li>Stop protecting the virtual machine without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |

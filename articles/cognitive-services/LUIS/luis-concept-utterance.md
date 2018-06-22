@@ -38,19 +38,33 @@ When can I have a computer?
 The core term here, "computer", is not varied. They could say desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
 
 ## Example utterances in each intent
-Each intent needs to have example utterances. If you have an intent that does not have any example utterances, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not accurately predict the intent. 
+Each intent needs to have example utterances, at least 10 to 15. If you have an intent that does not have any example utterances, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not accurately predict the intent. 
+
+## Add small groups of 10-15 utterances for each authoring iteration
+In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of tens. [Train](luis-how-to-train.md), [publish](publishapp.md), and [test](interactive-test.md) again.  
+
+LUIS builds effective models with utterances that are selected carefully. Adding too many utterances is not valuable because it introduces confusion.  
+
+It is better to start with a few utterances, then [review endpoint utterances](label-suggested-utterances.md) for correct intent prediction and entity extraction.
+
+## Ignoring words and punctuation
+If you want to ignore specific words or punctuation in the example utterance, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax. 
 
 ## Training utterances
 Training is non-deterministic: the utterance prediction could vary slightly across versions or apps.
+
+## Testing utterances 
+
+Developers should start testing their LUIS application with real traffic by sending utterances to the endpoint. These utterances are used to improve the performance of the intents and entities with [Review utterances](label-suggested-utterances.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning. 
 
 ## Review utterances
 After your model is trained, published, and receiving [endpoint](luis-glossary.md#endpoint) queries, [review the utterances](label-suggested-utterances.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
 
 ## Best practices
-See [Utterance best practices](luis-concept-best-practices.md#utterances) to learn more.
+Review [best practices](luis-concept-best-practices.md) to learn more.
 
 ## Next steps
 See [Add example utterances][add-example-utterances] for information on training a LUIS app to understand user utterances.
 
-[add-example-utterances]: Add-example-utterances.md
+[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
 [BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

@@ -156,6 +156,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "iot-samples-node",
+      "url": "https://github.com/Azure-Samples/azure-iot-samples-node",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
       "branch": "docs",

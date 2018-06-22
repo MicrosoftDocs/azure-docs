@@ -1,23 +1,15 @@
 ---
 title: Connected Factory solution FAQ - Azure | Microsoft Docs
 description: Frequently asked questions for the Connected Factory solution accelerator
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-
 ---
+
 # Frequently asked questions for Connected Factory solution accelerator
 
 See also, the general [FAQ](iot-accelerators-faq.md) for IoT solution accelerators.
@@ -64,7 +56,7 @@ You have two options to remove the IP address:
 
 Signing in to the simulation VM is only supported if you have deployed your solution using the PowerShell script `build.ps1` in the [repository](https://github.com/Azure/azure-iot-connected-factory).
 
-If you deployed the solution from www.azureiotsuite.com, you cannot sign in to the VM. You cannot sign in, because the password is generated randomly and you cannot reset it.
+If you deployed the solution from www.azureiotsolutions.com, you cannot sign in to the VM. You cannot sign in, because the password is generated randomly and you cannot reset it.
 
 1. Add a public IP address to the VM. See [How do I add a public IP address to the simulation VM?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
 1. Create an SSH session to your VM using the IP address of the VM.
@@ -145,11 +137,11 @@ If you see no data sent to IoT Hub, then there is an issue with the simulation. 
 
 To enable an interactive map in your Connected Factory solution, you must have an existing Bing Maps API for Enterprise plan.
 
-When deploying from [www.azureiotsuite.com](http://www.azureiotsuite.com), the deployment process verifies that your subscription has an enabled Bing Maps API for Enterprise plan and automatically deploys an interactive map into Connected Factory. If this is not the case, you can still enable an interactive map in your deployment as follows:
+When deploying from [www.azureiotsolutions.com](http://www.azureiotsolutions.com), the deployment process verifies that your subscription has an enabled Bing Maps API for Enterprise plan and automatically deploys an interactive map into Connected Factory. If this is not the case, you can still enable an interactive map in your deployment as follows:
 
 When you deploy using the `build.ps1` script in the Connected Factory GitHub repository and you have a Bing Maps API for Enterprise plan, set the environment variable `$env:MapApiQueryKey` in the build window to the query key of your plan. The interactive map is then enabled automatically.
 
-If you don't have a Bing Maps API for Enterprise plan, deploy the Connected Factory solution from [www.azureiotsuite.com](http://www.azureiotsuite.com) or using the `build.ps1` script. Then add a Bing Maps API for Enterprise plan to your subscription as explained in [How do I create a Bing Maps API for Enterprise account?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Look up the query key of this account as explained in [How to obtain your Bing Maps API for Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) and save this key. Navigate to the Azure portal and access the App Service resource in your Connected Factory deployment. Navigate to **Application settings**, where you find a section **App settings**. Set the **MapApiQueryKey** to the query key you obtained. Save the settings and then navigate to **Overview** and restart the App Service.
+If you don't have a Bing Maps API for Enterprise plan, deploy the Connected Factory solution from [www.azureiotsolutions.com](http://www.azureiotsolutions.com) or using the `build.ps1` script. Then add a Bing Maps API for Enterprise plan to your subscription as explained in [How do I create a Bing Maps API for Enterprise account?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Look up the query key of this account as explained in [How to obtain your Bing Maps API for Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) and save this key. Navigate to the Azure portal and access the App Service resource in your Connected Factory deployment. Navigate to **Application settings**, where you find a section **App settings**. Set the **MapApiQueryKey** to the query key you obtained. Save the settings and then navigate to **Overview** and restart the App Service.
 
 ### How do I create a Bing Maps API for Enterprise account
 
@@ -209,6 +201,6 @@ To send telemetry data from non OPC UA devices to Connected Factory:
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Predictive Maintenance solution accelerator overview](../iot-suite/iot-suite-predictive-overview.md)
+* [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
 * [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
-* [IoT security from the ground up](../iot-suite/securing-iot-ground-up.md)
+* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)

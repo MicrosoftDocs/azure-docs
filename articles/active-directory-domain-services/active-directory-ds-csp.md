@@ -8,7 +8,8 @@ manager: mahesh-unnikrishnan
 editor: curtand
 
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

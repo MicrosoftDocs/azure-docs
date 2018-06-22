@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 
 ---
@@ -55,7 +55,7 @@ The following properties are supported for HTTP linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **HttpServer**. | Yes |
 | url | Base URL to the Web Server | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when connecting to HTTP endpoint. | No, default is true |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when connecting to HTTP endpoint. When your HTTPS server is using self-signed certificate, set this to false. | No, default is true |
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 

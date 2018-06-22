@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/15/2018
 ms.author: anwestg
 
 ---
@@ -63,6 +63,12 @@ To deploy App Service resource provider, follow these steps:
         * If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Click **Sign In**.
         * If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
     2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
+    
+    > [!NOTE]
+    > App Service can only be deployed into the **Default Provider Subscription** at this time.  In a future update App Service will deploy into the new Metering Subscription introduced in Azure Stack 1804 and all existing deployments will be migrated to this new subscription also.
+    >
+    >
+    
     3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
 
     ![App Service Installer][3]
@@ -116,7 +122,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer][11]
 
-12. Review the role instance and SKU options. The defaults populate with the minimum number of instance and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
+12. Review the role instance and SKU options. The defaults populate with the minimum number of instances and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
     > [!NOTE]
     > For production deployments, following the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
@@ -125,7 +131,7 @@ To deploy App Service resource provider, follow these steps:
 
     | Role | Minimum instances | Minimum SKU | Notes |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Manages and maintains the health of the App Service cloud. |
+    | Controller | 1 | Standard_A2 - (2 vCPU, 3584 MB) | Manages and maintains the health of the App Service cloud. |
     | Management | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Manages the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. To support failover, increased the recommended instances to 2. |
     | Publisher | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publishes content via FTP and web deployment. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Routes requests to App Service applications. |
@@ -167,7 +173,7 @@ To deploy App Service resource provider, follow these steps:
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
     
 > [!NOTE]
-> If you chose to deploy into an existing virtual network and a internal IP address to conenct to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+> If you chose to deploy into an existing virtual network and a internal IP address to connect to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
 > * Source: Any
 > * Source port range: *
 > * Destination: IP Addresses

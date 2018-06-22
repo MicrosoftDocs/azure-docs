@@ -7,7 +7,7 @@ author: veljko-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: vvasic
 

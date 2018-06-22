@@ -1,28 +1,20 @@
 ---
 title: Remote Monitoring solution accelerator FAQ | Microsoft Docs
 description: Frequently asked questions for Remote Monitoring solution accelerator
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-
 ---
+
 # Frequently asked questions for Remote Monitoring solution accelerator
 
 See also, the general [FAQ](iot-accelerators-faq.md).
 
-### How much does it cost to provision the new remote monitoring solution?
+### How much does it cost to provision the new Remote Monitoring solution?
 
 The new solution accelerator offers two deployment options:
 
@@ -31,7 +23,7 @@ The new solution accelerator offers two deployment options:
 
 ### How can I ensure I keep my costs down while I develop my solution?
 
-In addition to providing two differentiated deployments, the new remote monitoring solution has a setting to enable or disable all the simulated devices on demand. Disabling the simulation reduces the data ingested in the solution and, thus, the overall cost.
+In addition to providing two differentiated deployments, the new Remote Monitoring solution has a setting to enable or disable all the simulated devices on demand. Disabling the simulation reduces the data ingested in the solution and, thus, the overall cost.
 
 ### What is the difference between the basic and standard deployment options? How do I decide between the two deployment options?
 
@@ -45,7 +37,7 @@ For more information, see [Upgrade map key to see devices on a dynamic map](http
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Explore the capabilities of the remote monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
-* [Predictive Maintenance solution accelerator overview](../iot-suite/iot-suite-predictive-overview.md)
+* [Explore the capabilities of the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+* [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
 * [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
-* [IoT security from the ground up](../iot-suite/securing-iot-ground-up.md)
+* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)

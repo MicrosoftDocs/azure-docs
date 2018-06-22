@@ -1,19 +1,18 @@
----
-title: 'Azure Active Directory B2C: Google+ configuration | Microsoft Docs'
+﻿---
+title: Google+ configuration in Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to consumers with Google+ accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Google+ accounts
 ## Create a Google+ application
 To use Google+ as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create a Google+ application and supply it with the right parameters. You need a Google+ account to do this. If you don’t have one, you can get it at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).

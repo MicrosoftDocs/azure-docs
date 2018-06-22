@@ -1,11 +1,10 @@
 ﻿---
-title: 'Azure Stack Storage: Differences and considerations'
-description: Understand the differences between Azure Stack Storage and Azure Storage, along with Azure Stack deployment considerations.
+title: Azure stack storage differences and considerations | Microsoft Docs
+description: Understand the differences between Azure stack storage and Azure storage, along with Azure Stack deployment considerations.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.reviwer: xiaofmao
 
 ms.assetid:
 ms.service: azure-stack
@@ -13,25 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.author: jeffgilb
+ms.reviwer: xiaofmao
 
 ---
-# Azure Stack Storage: Differences and considerations
+# Azure stack storage: Differences and considerations
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Stack Storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
+Azure stack storage is the set of storage cloud services in Microsoft Azure Stack. Azure stack storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
 
-This article summarizes the known Azure Stack Storage differences from Azure Storage services. It also lists things to consider when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+This article summarizes the known Azure Stack Storage differences from Azure Storage services. It also lists things to consider when you deploy Azure Stack. To learn about high-level differences between global Azure and Azure Stack, see the [Key considerations](azure-stack-considerations.md) topic.
 
 ## Cheat sheet: Storage differences
 
 | Feature | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File storage|Cloud-based SMB file shares supported|Not yet supported
-|Azure Storage Service Encryption for Data at Rest|256-bit AES encryption|BitLocker 128-bit AES encryption
-|Storage account type|General-purpose and Azure Blob storage accounts|General-purpose only.
+|Azure storage service encryption for data at Rest|256-bit AES encryption|BitLocker 128-bit AES encryption
+|Storage account type|General-purpose and Azure blob storage accounts|General-purpose only.
 |Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage.
 |Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee.
 |Managed disks|Premium and standard supported|Not yet supported.
@@ -77,7 +77,7 @@ Azure Storage services management APIs:
 
 ## SDK versions
 
-Azure Stack Storage supports the following client libraries:
+Azure Stack storage supports the following client libraries:
 
 | Client library | Azure Stack supported version | Link                                                                                                                                                                                                                                                                                                                                     | Endpoint specification       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|

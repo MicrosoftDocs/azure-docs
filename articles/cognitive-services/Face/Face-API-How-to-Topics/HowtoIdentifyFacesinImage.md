@@ -117,7 +117,7 @@ while(true)
 {
     trainingStatus = await faceServiceClient.GetPersonGroupTrainingStatusAsync(personGroupId);
  
-    if (trainingStatus.Status != "running")
+    if (trainingStatus.Status != Status.Running)
     {
         break;
     }

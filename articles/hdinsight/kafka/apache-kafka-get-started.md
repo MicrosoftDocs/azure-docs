@@ -14,7 +14,7 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/16/2018
+ms.date: 05/23/2018
 ms.author: larryfr
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
@@ -179,10 +179,13 @@ In this section, you get the host information from the Ambari REST API on the cl
     When prompted, enter the name of the Kafka cluster.
 
 3. To set an environment variable with Zookeeper host information, use the following command:
-
+    
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
+
+    > [!TIP]
+    > This command directly queries the Ambari service on the cluster head node. You can also access ambari using the public address of `https://$CLUSTERNAME.azurehdinsight.net:80/`. Some network configurations can prevent access to the public address. For example, using Network Security Groups (NSG) to restrict access to HDInsight in a virtual network.
 
     When prompted, enter the password for the cluster login account (not the SSH account).
 
@@ -202,7 +205,7 @@ In this section, you get the host information from the Ambari REST API on the cl
 5. To set an environment variable with Kafka broker host information, use the following command:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
     When prompted, enter the password for the cluster login account (not the SSH account).

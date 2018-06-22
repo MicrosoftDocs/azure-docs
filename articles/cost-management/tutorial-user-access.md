@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 06/13/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom:
@@ -24,6 +24,8 @@ When you registered your Azure agreement or account, an account with admin permi
 > [!div class="checklist"]
 > * Create a user with admin access
 > * Create a user with user access
+> * Delete a user
+> * Delete or export personal data
 > * Create and manage entities
 
 
@@ -38,7 +40,7 @@ If you don't have an Azure subscription, create a  [free account](https://azure.
 
 Although you already have admin access, coworkers in your organization might also need to have admin access. In the Cloudyn portal, click the gear symbol in the upper right and select **User Management**. Click **Add New User** to add a new user.
 
-Enter required information about the user. The Login ID must be a valid e-mail address. Choose permissions to allow User Management so that the user can create and modify other users. Recipient Lists Management allow the user to edit recipient lists. A link with sign in information gets sent to the user by e-mail from Cloudyn when you select **Notify user by email**. On first sign-in the user sets a password.
+Enter required information about the user. The **login ID** must be a valid e-mail address. Choose permissions to allow User Management so that the user can create and modify other users. Recipient Lists Management allow the user to edit recipient lists. A link with sign in information gets sent to the user by e-mail from Cloudyn when you select **Notify user by email**. On first sign-in the user sets a password.
 
 Under **User has admin access**, the root entity of your organization is selected. Leave root selected and then save the user information. Selecting the root entity allows the user to have admin permission not only to the root entity in the tree, but also to all the entities that reside below it.  
   ![add new user with admin access](.\media\tutorial-user-access\new-admin-access.png)
@@ -53,6 +55,22 @@ Typical users that need access to cost management data like dashboards and repor
 ![add new user with user access](.\media\tutorial-user-access\new-user-access.png)
 
 To watch a tutorial video about adding users, see [Adding Users to Azure Cost Management](https://youtu.be/Nzn7GLahx30).
+
+## Delete a user
+
+When you delete a user, any entities that the user has access to remain intact. You cannot remove yourself as a user.
+
+> [!WARNING]
+> When you delete a user, it can’t be restored.
+
+1.	In the Cloudyn portal, click the gear symbol in the upper right and then select **User Management**.
+2.	In the list of users, select the user that you want to delete and then click **Delete User** (the trash can symbol).
+3.	In the Delete User box, click **Yes** and then click **OK**.
+
+
+## Delete or export personal data
+
+If you want to delete or export personal data from Cloudyn, you need to create a support ticket. When the support ticket is created, it acts as formal request - a Data Subject Request. Microsoft then takes prompt action to remove the account and delete any customer or personal data. To learn about how you can request to have your data deleted or exported, see [Data Subject Requests of Cloudyn Data](https://www.cloudyn.com/cloudyn-gdpr-requests).
 
 ## Create and manage entities
 
@@ -101,6 +119,8 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create a user with admin access
 > * Create a user with user access
+> * Delete a user
+> * Delete or export personal data
 > * Create and manage entities
 
 

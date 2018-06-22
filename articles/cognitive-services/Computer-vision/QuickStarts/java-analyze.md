@@ -12,9 +12,11 @@ ms.topic: quickstart
 ms.date: 05/15/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with Java
+# Quickstart: Analyze an image with Java
 
 In this quickstart, you analyze an image to extract visual features using Computer Vision.
+
+## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
@@ -45,8 +47,8 @@ To run the sample, do the following steps:
 
 ```java
 // This sample uses the following libraries:
-//  - Apache HTTP client(org.apache.httpcomponents:httpclient:4.5.5)
-//  - Apache HTTP core(org.apache.httpcomponents:httpccore:4.4.9)
+//  - Apache HTTP client (org.apache.httpcomponents:httpclient:4.5.5)
+//  - Apache HTTP core (org.apache.httpcomponents:httpccore:4.4.9)
 //  - JSON library (org.json:json:20180130).
 
 import java.net.URI;

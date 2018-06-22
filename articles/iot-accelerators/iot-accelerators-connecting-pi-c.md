@@ -1,28 +1,20 @@
 ---
 title: Provision Raspberry Pi to Remote Monitoring using C - Azure | Microsoft Docs
 description: Describes how to connect a Raspberry Pi device to the Remote Monitoring solution accelerator using an application written in C.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
-
 ---
-# Connect your Raspberry Pi device to the remote monitoring solution accelerator (C)
+
+# Connect your Raspberry Pi device to the Remote Monitoring solution accelerator (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the remote monitoring solution accelerator. As with most embedded applications that run on constrained devices, the client code for the Raspberry Pi device application is written in C. In this tutorial, you build the application on a Raspberry Pi running the Raspbian OS.
+This tutorial shows you how to connect a physical device to the Remote Monitoring solution accelerator. As with most embedded applications that run on constrained devices, the client code for the Raspberry Pi device application is written in C. In this tutorial, you build the application on a Raspberry Pi running the Raspbian OS.
 
 ### Required hardware
 
@@ -59,7 +51,6 @@ The following steps show you how to prepare your Raspberry Pi for building a C a
 1. Use the following command to add the required development tools and libraries to your Raspberry Pi:
 
     ```sh
-    sudo apt-get purge libssl-dev
     sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
@@ -68,9 +59,9 @@ The following steps show you how to prepare your Raspberry Pi for building a C a
     ```sh
     cd ~
     git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
-    cd azure-iot-sdk-c/build_all/linux
-    ./build.sh --no-make
-    cd ../../cmake/iotsdk_linux
+    mkdir cmake
+    cd cmake
+    cmake ..
     make
     sudo make install
     ```

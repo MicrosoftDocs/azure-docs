@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -61,5 +61,5 @@ For the development kit, your only support option is to ask support-related ques
 > Because the ASDK is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
 
 ## Next steps
-[Deploy the ASDK](asdk-deploy.md)
+[Deploy the ASDK](asdk-install.md)
 

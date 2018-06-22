@@ -6,7 +6,7 @@ author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: vvasic 
 
@@ -19,36 +19,40 @@ Azure SQL Database is an automatically managed data service that constantly moni
 On the server level you can choose to inherit automatic tuning configuration from "Azure Defaults" or not to inherit the configuration. Azure defaults are FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
 
 ### Azure portal
-To enable automatic tuning on Azure SQL Database **server**, navigate to the server in Azure portal and then select **Automatic tuning** in the menu. Select the automatic tuning options you want to enable and select **Apply**.
+To enable automatic tuning on Azure SQL Database logical **server**, navigate to the server in Azure portal and then select **Automatic tuning** in the menu.
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Please note that **DROP_INDEX** option at this time is incompatible with applications using partition switching and index hints and should not be turned on in these cases.
+> Please note that **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
 >
 
-Automatic tuning options on server are applied to all databases on the server. By default, all databases inherit the configuration from their parent server, but this can be overridden and specified for each database individually.
+Select the automatic tuning options you want to enable and select **Apply**.
+
+Automatic tuning options on a server are applied to all databases on this server. By default, all databases inherit configuration from their parent server, but this can be overridden and specified for each database individually.
 
 ### REST API
 [Click here, to read more about how to enable automatic tuning on the server level via REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
 
 ## Enable automatic tuning on an individual database
 
-The Azure SQL Database enables you to individually specify the automatic tuning configuration on each database. On the database level you can choose to inherit automatic tuning configuration from parent server, "Azure Defaults" or not to inherit the configuration. Azure Defaults are FORCE_LAST_GOOD_PLAN enabled, CREATE_INDEX enabled, and DROP_INDEX disabled.
+The Azure SQL Database enables you to individually specify the automatic tuning configuration for each database. On the database level you can choose to inherit automatic tuning configuration from the parent server, "Azure Defaults" or not to inherit the configuration. Azure Defaults are set to FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
 
 > [!NOTE]
-> The general recommendation is to manage the automatic tuning configuration at server level so the same configuration settings can be applied on every database automatically. Configure automatic tuning on an individual database if the database is different that others on the same server.
+> The general recommendation is to manage the automatic tuning configuration at **server level** so the same configuration settings can be applied on every database automatically. Configure automatic tuning on an individual database only if you need that database to have different settings than others inheriting settings from the same server.
 >
 
 ### Azure portal
 
-To enable automatic tuning on a **single database**, navigate to the database in the Azure portal and then and select **Automatic tuning**. You can configure a single database to inherit the settings from the server by selecting the option or you can specify the configuration for a database individually.
+To enable automatic tuning on a **single database**, navigate to the database in Azure portal and select **Automatic tuning**.
+
+Individual automatic tuning settings can be separately configured for each database. You can manually configure an individual automatic tuning option, or specify that an option inherits its settings from the server.
 
 ![Database](./media/sql-database-automatic-tuning-enable/database.png)
 
-Once you have selected appropriate configuration, click **Apply**.
+Please note that DROP_INDEX option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
 
-Please note that DROP_INDEX option at this time is incompatible with applications using partition switching and index hints and should not be turned on in these cases.
+Once you have selected your desired configuration, click **Apply**.
 
 ### Rest API
 [Click here to read more about how to enable automatic tuning on a single database via REST API](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)

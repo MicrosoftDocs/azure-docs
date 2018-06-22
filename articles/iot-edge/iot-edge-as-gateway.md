@@ -1,23 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Use Azure IoT Edge devices as gateways | Microsoft Docs 
 description: Use Azure IoT Edge to create a transparent, opaque or proxy gateway device that sends data from multiple downstream devices to the cloud or processes it locally.
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 11/27/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+services: iot-edge
 ---
 # How an IoT Edge device can be used as a gateway - preview
 

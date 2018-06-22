@@ -25,7 +25,7 @@ The following Azure services support Managed Service Identity.
 | Azure App Service | Preview | September 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager template](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Functions | Preview | September 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager template](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | Preview | November 2017 | [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-| Azure API Management | Preview | October 2017 | [Azure Resource Manager template](/azure/api-management/api-management-howto-use-managed-service-identity) |
+
 
 ## Azure services that support Azure AD authentication
 
@@ -39,3 +39,4 @@ The following services support Azure AD authentication, and have been tested wit
 | Azure SQL | https://database.windows.net/ | Available | October 2017 | |
 | Azure Event Hubs | https://eventhubs.azure.net | Available | December 2017 | |
 | Azure Service Bus | https://servicebus.azure.net | Available | December 2017 | |
+| Azure Storage | https://storage.azure.com/ | Preview | May 2018 | |

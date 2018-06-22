@@ -1,4 +1,4 @@
----
+﻿---
 layout: HubPage
 hide_bc: true
 experimental: true
@@ -244,9 +244,15 @@ featureFlags:
                                                 <h3>DevOps</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-                                                            Deploy to Azure
+                                                        <a class="barLink" href="/azure/ansible/">
+                                                            <img src="media/index/ansible.svg" alt="">
+                                                            Ansible
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/chef">
+                                                            <img src="chef/media/Chef_Regular.svg" alt="">
+                                                            Chef
                                                         </a>
                                                     </li>
                                                     <li>
@@ -262,9 +268,15 @@ featureFlags:
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/azure/chef">
-                                                            <img src="chef/media/Chef_Regular.svg" alt="">
-                                                            Chef
+                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Visual Studio Team Services
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Learn DevOps with Azure
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -1458,6 +1470,12 @@ featureFlags:
                                             <a href="/azure/vpn-gateway/">
                                                 <img src="media/index/VPNGateway.svg" alt="" />
                                                 <p>VPN Gateway</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/role-based-access-control/">
+                                                <img src="media/index/PersonWithFriend.svg" alt="" />
+                                                <p>Role-based access control</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -3332,7 +3350,7 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                            <li class="fullSpan">
+                            <!--li class="fullSpan">
                                 <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services APIs</h2>
                                 <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
                                     <li>
@@ -3528,7 +3546,7 @@ featureFlags:
                                         </div>
                                     </li>
                                 </ul>
-                            </li>
+                            </li-->
                         </ul>
                     </li>
                     <li>
@@ -4284,6 +4302,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>VPN Gateway</h3>
                                                     <p>Establish secure, cross-premises connectivity</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/role-based-access-control/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PersonWithFriend.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Role-based access control</h3>
+                                                    <p>Manage access to Azure resources</p>
                                                 </div>
                                             </div>
                                         </div>

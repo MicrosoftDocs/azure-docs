@@ -1,16 +1,15 @@
 ---
 title: Integrate the Remote Monitoring solution with Azure Data Lake Store | Microsoft Docs
 description: Learn how to integrate the Remote Monitoring solution with Azure Data Lake Store using an Azure Stream Analytics job.
-+services: ''
-+suite: iot-suite
-+author: philmea
-+manager: timlt
-+ms.author: philmea
-+ms.date: 04/029/2018
-+ms.topic: article
-+ms.service: iot-suite
-
+author: philmea
+manager: timlt
+ms.author: philmea
+ms.date: 04/29/2018
+ms.topic: conceptual
+ms.service: iot-accelerators
+services: iot-accelerators
 ---
+
 # Integrate the Remote Monitoring solution with Azure Data Lake Store
 
 You may have advanced analytics requirements beyond what is offered in the Remote Monitoring solution. Azure Data Lake Store is ideal for this application because it can store data from massive and diverse datasets as well as integrate with Azure Data Lake Analytics to provide on-demand analytics.
@@ -21,7 +20,7 @@ In this how-to, you will use an Azure Stream Analytics job to stream data from t
 
 To complete this how-to, you will need the following:
 
-* [Deploy the remote monitoring preconfigured solution](iot-accelerators-remote-monitoring-deploy.md).
+* [Deploy the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md).
   * The Remote Monitoring solution will deploy the IoT hub and Azure Stream Analytics job used in this article into your Azure subscription.
 * [Deploy an Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
   * Your Data Lake Store should be deployed to the same region as your Remote Monitoring solution.

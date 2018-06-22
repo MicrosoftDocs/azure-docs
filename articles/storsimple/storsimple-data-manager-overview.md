@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/26/2018
+ms.date: 05/21/2018
 ms.author: vidarmsft
 ---
 
@@ -78,11 +78,16 @@ If your Data Manager region is different from your job definition region, it is 
 
 ![Service and job definition in different regions](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
-## GDPR Compliance
+## Managing personal information
 
-[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR contains many requirements about how you collect, store, and use personal information. The GDPR rules are imposed on companies, government agencies, and other organizations that operate in EU and collect, analyze data tied to EU residents. 
-The StorSimple Data Manager is GDPR compliant. The Data Manager service does not collect personal data.
-For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+The StorSimple Data Manager does not collect or display any personal information. For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+
+## Known Limitations
+
+The service currently has the following limitations:
+- The StorSimple Data Manager currently does not work with volumes that are bitlocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
+- Some metadata of files (including ACLs) will not be retained in the transformed data.
+- This service works only with NTFS volumes.
 
 ## Next steps
 

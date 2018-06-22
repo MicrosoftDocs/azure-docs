@@ -1,23 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Connect a DevKit device to your Azure IoT Central application | Microsoft Docs
 description: As a device developer, learn how to connect an MXChip IoT DevKit device to your Azure IoT Central application.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-manager: timlt
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
 ---
 
 # Connect an MXChip IoT DevKit device to your Azure IoT Central application
@@ -33,7 +23,9 @@ To complete the steps in this article, you need the following:
 
 An application created from the **Sample Devkits** application template includes a **MXChip** device template with the following characteristics:
 
-### Telemetry measurements
+### Measurements
+
+#### Telemetry 
 
 | Field name     | Units  | Minimum | Maximum | Decimal places |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -49,6 +41,20 @@ An application created from the **Sample Devkits** application template includes
 | gyroscopeX     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeY     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+#### States 
+
+| Name          | Display name   | NORMAL | CAUTION | DANGER | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Device State   | Green  | Orange  | Red    | 
+
+#### Events 
+
+| Name             | Display name      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Button B Pressed  | 
+
+
 
 ### Settings
 
@@ -73,17 +79,6 @@ Toggle settings
 | Device property | Die number   | dieNumber  | number    |
 | Text            | Location     | location   | N/A       |
 
-### States 
-
-| Name          | Display name   | NORMAL | CAUTION | DANGER | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Device State   | Green  | Orange  | Red    | 
-
-### Events 
-
-| Name             | Display name      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Button B Pressed  | 
 
 ### Add a real device
 

@@ -14,11 +14,8 @@ ms.author: sujayt
 # Support matrix for replicating from one Azure region to another
 
 
->[!NOTE]
->
-> Site Recovery replication for Azure virtual machines is currently in preview.
 
-This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region.
+This article summarizes supported configurations and components when you replicate and recovering Azure virtual machines from one region to another region, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 ## User interface options
 
@@ -171,7 +168,7 @@ Disks on premium storage accounts | Supported | If a VM has disks spread across 
 Standard Managed disks | Supported in Azure regions in which Azure Site Recovery is supported. Government clouds are not currently supported.  |  
 Premium Managed disks | Supported in Azure regions in which Azure Site Recovery is supported. Government clouds are not currently supported. |
 Storage spaces | Supported |   	 	 
-Encryption at rest (SSE) | Supported | For cache and target storage accounts, you can select an SSE enabled storage account. 	 
+Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.	 
 Azure Disk Encryption (ADE) | Not supported |
 Hot add/remove disk	| Not supported | If you add or remove data disk on the VM, you need to disable replication and enable replication again for the VM.
 Exclude disk | Not supported|	Temporary disk is excluded by default.

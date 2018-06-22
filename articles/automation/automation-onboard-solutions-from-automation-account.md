@@ -5,15 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ---
-
 # Onboard Update Management, Change Tracking, and Inventory solutions
 
-Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution [from a virtual machine](automation-onboard-solutions-from-vm.md), from your Automation account, or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions from your Automation account.
+Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution [from a virtual machine](automation-onboard-solutions-from-vm.md), [from browsing multiple machines](automation-onboard-solutions-from-browse.md), from your Automation account, or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions from your Automation account.
 
 ## Log in to Azure
 
@@ -64,29 +63,27 @@ Select either saved search to view the query used to populate the group. The fol
 
 ![Saved searches](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
 
-## Onboard an Azure machine
+## Onboard Azure VMs
 
 From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
 
-Click **+ Add Azure VM**, select a VM from the list. On the **Update Management** page, click **Enable**. This adds the current VM to the computer group saved search for the solution.
+Click **+ Add Azure VMs**, select one or more VMs from the list. Virtual machines that can't be enabled are greyed out and unable to be selected. On the **Enable Update Management** page, click **Enable**. This adds the selected VMs to the computer group saved search for the solution.
+
+![Enable Azure VMs](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
 ## Onboard a non-Azure machine
 
-From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
+Machines not in Azure need to be added manually. From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
 
-Click **Add non-Azure machine**. This opens up a new browser window with the instructions on how to install and configure the Microsoft Monitoring Agent on the machine so the machine can begin reporting to the solution. If you are onboarding a machine that currently managed by System Center Operations Manager, a new agent is not required, the workspace information is entered into the existing agent.
+Click **Add non-Azure machine**. This opens up a new browser window with the [instructions on how to install and configure the Microsoft Monitoring Agent on the machine](../log-analytics/log-analytics-concept-hybrid.md) so the machine can begin reporting to the solution. If you are onboarding a machine that currently managed by System Center Operations Manager, a new agent is not required, the workspace information is entered into the existing agent.
 
 ## Onboard machines in the workspace
 
-From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
+Manually installed machines or machines already reporting to your workspace need to be added to Azure Automation for the solution to be enabled. From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
 
 Select **Manage machines**. This opens up the **Manage Machines** page. This page allows you to enable the solution on a select set of machines, all available machines, or enable the solution for all current machines and enable it on all future machines.
 
 ![Saved searches](media/automation-onboard-solutions-from-automation-account/managemachines.png)
-
-### Selected machines
-
-To enable the solution for one or more machines, select **Enable on selected machines** and click **add** next to each machine you want to add to the solution. This task adds the selected machine names to the computer group saved search query for the solution.
 
 ### All available machines
 
@@ -95,6 +92,10 @@ To enable the solution for all available machines, select **Enable on all availa
 ### All available and future machines
 
 To enable the solution for all available machines and all future machines, select **Enable on all available and future machines**. This option deletes the saved searches and Scope Configurations from the workspace. This opens the solution to all Azure and non-Azure machines that are reporting to the workspace.
+
+### Selected machines
+
+To enable the solution for one or more machines, select **Enable on selected machines** and click **add** next to each machine you want to add to the solution. This task adds the selected machine names to the computer group saved search query for the solution.
 
 ## Next steps
 

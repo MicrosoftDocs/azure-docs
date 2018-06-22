@@ -1,26 +1,22 @@
 ---
 title: Deploy the remote monitoring solution locally - Azure | Microsoft Docs 
 description: This tutorial shows you how to deploy the remote monitoring solution accelerator to your local machine for testing and development.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
-# Deploy the remote monitoring solution accelerator locally
+# Deploy the Remote Monitoring solution accelerator locally
 
-This article shows you how to deploy the remote monitoring solution accelerator to your local machine for testing and development. This approach deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure storage services in the cloud. You use the solution accelerators (PCS) CLI to deploy the Azure cloud services.
+This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. This approach deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure storage services in the cloud. You use the solution accelerators (PCS) CLI to deploy the Azure cloud services.
 
 ## Prerequisites
 
-To deploy the Azure services used by the remote monitoring solution accelerator, you need an active Azure subscription.
+To deploy the Azure services used by the Remote Monitoring solution accelerator, you need an active Azure subscription.
 
 If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -48,7 +44,7 @@ For more information about the CLI, see [How to use the CLI](https://github.com/
 
 ### Download the source code
 
- The remote monitoring source code repository includes the Docker configuration files you need to download, configure, and run the Docker images that contain the microservices. To clone and create a local version of the repository, navigate to a suitable folder on your local machine through your favorite command line or terminal and run one of the following commands:
+ The Remote Monitoring source code repository includes the Docker configuration files you need to download, configure, and run the Docker images that contain the microservices. To clone and create a local version of the repository, navigate to a suitable folder on your local machine through your favorite command line or terminal and run one of the following commands:
 
 To install the Java implementations of the microservices, run:
 
@@ -84,7 +80,7 @@ Follow the on-screen instructions to complete the sign-in process. Make sure tha
 
 ### Run a local deployment
 
-Use the following command to start the local deployment. This will create the required azure resources and print out environemnt variables to teh console. 
+Use the following command to start the local deployment. This will create the required azure resources and print out environment variables to the console. 
 
 ```cmd/pcs
 pcs -s local
@@ -116,13 +112,13 @@ The first time you run this command, Docker downloads the microservice images fr
 
 You can use a separate shell to view the logs from the container. First find the container ID using the `docker ps -a` command. Then use `docker logs {container-id} --tail 1000` to view the last 1000 log entries for the specified container.
 
-To access the remote monitoring solution dashboard, navigate to [http://localhost:8080](http://localhost:8080) in your browser.
+To access the Remote Monitoring solution dashboard, navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 
 ## Clean up
 
 To avoid unnecessary charges, when you have finished your testing, remove the cloud services from your Azure subscription. The easiest way to remove the services is to navigate to the [Azure portal](https://ms.portal.azure.com) and delete the resource group you created via the `pcs` tool.
 
-Use the `docker-compose down --rmi all` command to remove the Docker images and free up space on your local machine. You can also delete the local copy of the remote monitoring repository created when you cloned the source code from GitHub.
+Use the `docker-compose down --rmi all` command to remove the Docker images and free up space on your local machine. You can also delete the local copy of the Remote Monitoring repository created when you cloned the source code from GitHub.
 
 ## Next steps
 
@@ -134,6 +130,6 @@ In this tutorial, you learned how to:
 > * Deploy the solution accelerator
 > * Sign in to the solution accelerator
 
-Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](iot-accelerators-remote-monitoring-deploy.md).
+Now that you have deployed the Remote Monitoring solution, the next step is to [explore the capabilities of the solution dashboard](iot-accelerators-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

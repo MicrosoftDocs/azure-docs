@@ -22,7 +22,7 @@ ms.custom: mvc, devcenter
 # Quickstart: deploy a Java Spring Boot Application to Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
-This quickstart shows how to deploy a Spring Boot application to Service Fabric using a Mac or Linux developer machine. This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command-line tools, this quickstart walks you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric. 
+Using familiar command-line tools, this quickstart walks you through how to deploy a functional Spring Boot application to Service Fabric on a Mac or Linux developer machine using the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website.
 
 ![Application Screenshot](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -221,7 +221,7 @@ Now that the application and your cluster are ready, you can deploy it to the cl
 You can now access the Spring Boot application running in a Service Fabric cluster on Azure.  
     
 ## Scale applications and services in a cluster
-Services can be scaled across a cluster to accommodate for a change in load on the services. You scale a service by changing the number of instances running in the cluster. There are many ways of scaling your services, for example, you can use scripts or commands from Service Fabric CLI (sfctl). The following steps, use Service Fabric Explorer.
+Services can be scaled across a cluster to accommodate for a change in load on the services. You scale a service by changing the number of instances running in the cluster. There are many ways of scaling your services, for example, you can use scripts or commands from Service Fabric CLI (sfctl). The following steps use Service Fabric Explorer.
 
 Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser by browsing to the cluster's HTTP management port (19080); for example, `http://localhost:19080`.
 
@@ -243,7 +243,7 @@ To scale the web front-end service, do the following:
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
 
     # Run Bash command to scale instance count for your service
-    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
+    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
 4. Click on the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the tree-view and expand the partition node (represented by a GUID).
