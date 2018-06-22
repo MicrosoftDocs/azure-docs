@@ -24,7 +24,7 @@ Use Helm to install the NGINX ingress controller. See the NGINX ingress controll
 
 This example installs the controller in the `kube-system` namespace, this can be modified to a namespace of your choice. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the command. For more information, see the [nginx-ingress chart][nginx-ingress].
 
-```
+```bash
 helm install stable/nginx-ingress --namespace kube-system
 ```
 
@@ -46,7 +46,7 @@ Because no ingress rules have been created, if you browse to the public IP addre
 
 Because HTTPS certificates are used, you need to configure an FQDN name for the ingress controllers IP address. For this example, an Azure FQDN is created with the Azure CLI. Update the script with the IP address of the ingress controller and the name that you would like to use in the FQDN.
 
-```
+```bash
 #!/bin/bash
 
 # Public IP address
