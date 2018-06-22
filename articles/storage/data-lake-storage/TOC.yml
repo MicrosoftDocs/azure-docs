@@ -38,10 +38,6 @@
         href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
   - name: Data Lake Storage Gen2 evaluation
     href: evaluation.md
-  - name: Scalability and performance
-    items:
-      - name: Best practices
-        href: best-practice.md
 - name: How-to guides
   items:
   - name: Use Data Lake Storage Gen2 with Azure HDInsight clusters
