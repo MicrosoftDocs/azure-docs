@@ -153,15 +153,15 @@ For more information, see [Azure Active Directory Terms of use feature](https://
 
 ---
 
-### New step-by-step deployment guides for Azure Active Directory
+### New step-by-step deployment guides for Azure Multi-Factor Authentication
 
 **Type:** New feature  
 **Service category:** Other  
 **Product capability:** Directory
  
-New, step-by-step guidance about how to deploy Azure Active Directory (Azure AD), including self-service password reset (SSPR), single sign-on (SSO), conditional access (CA), App proxy, User provisioning, Active Directory Federation Services (ADFS) to Pass-through Authentication (PTA), and ADFS to Password hash sync (PHS).
+We've released new step-by-step guidance about how to deploy Azure Multi-Factor Authentication (MFA) in your organization.
 
-To view the deployment guides, go to the [Identity Deployment Guides](https://aka.ms/DeploymentPlans) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https:aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
+To view the MFA deployment guide, go to the [Identity Deployment Guides](https://aka.ms/DeploymentPlans) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https:aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
 ---
 
@@ -342,21 +342,15 @@ For more information about listing your application in the Azure AD app gallery,
 
 ---
  
-### Deployment Plans - Guidance to get you started with Azure Active Directory
+### New step-by-step deployment guides for Azure Active Directory
 
 **Type:** New feature  
 **Service category:** Other  
 **Product capability:** Directory
  
-Looking for step by step guidance to deploy  (SSPR, SSO, CA, App Proxy, User Provisioning, ADFS to PTA, or ADFS to PHS?). We've got deployment plans to help!
+New, step-by-step guidance about how to deploy Azure Active Directory (Azure AD), including self-service password reset (SSPR), single sign-on (SSO), conditional access (CA), App proxy, User provisioning, Active Directory Federation Services (ADFS) to Pass-through Authentication (PTA), and ADFS to Password hash sync (PHS).
 
-Go to [Aka.ms/DeploymentPlans](http://Aka.ms/DeploymentPlans) where you can access end to end guides to start getting value from those capabilities.
-
-- [How can I get the deployment plans](http://Aka.ms/DeploymentPlans)? 
-
-- You can provide feedback [here](http://aka.ms/DeploymentPlanFeedback)
-
-- Questions? Reach out to: [IDGitDeploy@microsoft.com](mailto:IDGitDeploy@microsoft.com)
+To view the deployment guides, go to the [Identity Deployment Guides](https://aka.ms/DeploymentPlans) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https:aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
 ---
 
