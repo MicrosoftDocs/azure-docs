@@ -30,7 +30,9 @@ The Azure Machine Learning module that you create in this tutorial reads the env
 
 ## Prerequisites
 
-To test the Machine Learning module that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the quickstart.
+To test the Machine Learning module that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the quickstart. 
+
+The Azure Machine Learning module does not support ARM processors.
 
 Have the following prerequisites on your development machine: 
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -38,7 +40,6 @@ Have the following prerequisites on your development machine:
 * An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
 * Module Management for Azure ML on your machine. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
 
-The Azure Machine Learning module does not support ARM processors.
 
 ## Create the Azure ML container
 In this section, you download the trained model files and convert them into an Azure ML container.
@@ -84,7 +85,7 @@ Check that your container image was successfully created and stored in the Azure
 
     1. Select **Add IoT Edge Module**.
     2. In the **Name** field, enter `tempSensor`.
-    3. In the **Image URI** field, enter `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+    3. In the **Image URI** field, enter `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
     4. Select **Save**.
 
 1. Add the machine learning module that you created.

@@ -220,7 +220,7 @@ This an example of a deployment manifest JSON document.
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
               "createOptions": "{}"
             }
           },
