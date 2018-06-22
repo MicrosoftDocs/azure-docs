@@ -105,8 +105,8 @@ The following steps show you how to create an IoT Edge Node.js module using Visu
 
     ```javascript
     client.on('inputMessage', function (inputName, msg) {
-        filterMessage(inputName, msg);
-    });
+    filterMessage(client, inputName, msg);
+        });
     ```
 
 8. Copy following code snippet into `client.open()` function callback (below `client.on()`). This function will be invoked when the desired properties are updated.
