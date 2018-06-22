@@ -106,7 +106,7 @@ This proliferation of subscriptions is no longer needed. With role-based access 
 
 Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions. For example, you can use RBAC to let one employee manage virtual machines in a subscription, while another employee manages SQL databases in the same subscription.
 
-Azure RBAC has three basic roles that apply to all resource types:
+RBAC in Azure has three basic roles that apply to all resource types:
 
 - **Owner** has full access to all resources, including the right to delegate access to others.
 
@@ -296,7 +296,7 @@ A network security group contains a list of security rules that allow or deny ne
 
 When an NSG is associated with a subnet, the rules apply to all resources connected to the subnet. You can further restrict traffic by associating an NSG to a VM or NIC.
 
-## Security and continuous compliance with organizational standards
+## Security and compliance with organizational standards
 
 Every business has different needs and will reap distinct benefits from cloud solutions. Still, customers of all kinds have the same basic concerns about moving to the cloud. What customers want from cloud providers is:
 
@@ -310,7 +310,7 @@ Every business has different needs and will reap distinct benefits from cloud so
 
 - **Maintain compliance**: As companies expand their use of cloud technologies, the complexity and scope of standards and regulations continue to evolve. Companies need to know that their compliance standards will be met.
 
-## Security configuration, monitoring and alerting
+## Security configuration for monitoring, logging, and auditing
 
 Azure subscribers can manage their cloud environments from multiple devices. These devices might include management workstations, developer PCs, and even privileged end-user devices that have task-specific permissions. 
 
@@ -320,7 +320,7 @@ This variability can add significant risk to a cloud deployment. It can be hard 
 
 Monitoring, logging, and auditing provide a basis for tracking and understanding administrative activities. Auditing all actions in complete detail might not always be feasible because of the amount of data generated. But auditing the effectiveness of the management policies is a best practice.
 
-Azure security governance from Azure Active Directory Domain Services (AD DS) GPOs can help you control all the administrators' Windows interfaces, such as file sharing. Include management workstations in auditing, monitoring, and logging processes. Track all administrator and developer access and usage.
+Azure security governance from Azure Active Directory Domain Services (AD DS) GPOs can help you control all the administrators' Windows interfaces, such as file sharing. Include management workstations in monitoring, logging, and auditing processes. Track all administrator and developer access and usage.
 
 ### Azure Security Center
 
@@ -350,7 +350,7 @@ When you first access Security Center, data collection is enabled on all virtual
 
 ### Log Analytics
 
-The Azure Log Analytics software development and service team's information security and [governance program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) supports its business requirements. It adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). How Log Analytics establishes security requirements, identifies security controls, and manages and monitors risks is also described there. Annually, the team reviews polices, standards, procedures, and guidelines.
+The Azure Log Analytics software development and service team's information security and [governance program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) supports its business requirements. It adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). How Log Analytics establishes security requirements, identifies security controls, and manages and monitors risks is also described there. Annually, the team reviews policies, standards, procedures, and guidelines.
 
 Each Log Analytics development team member receives formal application security training. A version control system helps protect each software project in development.
 
@@ -402,7 +402,7 @@ Here are the principal tools:
 
 - **Log Analytics** is for those who need to tune performance and plan maintenance on applications running in production. It collects and aggregates data from many sources, with a delay of 10 to 15 minutes. It provides a holistic IT management solution for Azure, on-premises, and third-party cloud-based infrastructure (such as Amazon Web Services). It provides tools to analyze data across sources, allows complex queries across all logs, and can proactively alert on specified conditions. You can even collect custom data in its central repository, and then query and visualize that data.
 
-- **System Center Operations Manager** is for managing and monitoring large cloud installations. You might be already familiar with it as a management tool for on-premises Windows Sever and Hyper-V based-clouds, but it can also integrate with and manage Azure apps. Among other things, it can install Application Insights on existing live apps. If an app goes down, Operations Manager tells you in seconds.
+- **System Center Operations Manager** is for managing and monitoring large cloud installations. You might be already familiar with it as a management tool for on-premises Windows Server and Hyper-V based clouds, but it can also integrate with and manage Azure apps. Among other things, it can install Application Insights on existing live apps. If an app goes down, Operations Manager tells you in seconds.
 
 
 ## Next steps
