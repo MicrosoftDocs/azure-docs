@@ -47,18 +47,6 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
     ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
 
-> [!IMPORTANT]
-> **Bugbash-only** The Python Device SDK is a wrapper of the C SDK and C SDK domain sockets aren’t present yet. This means in your config.yaml on your IoT Edge device, you’ll need to tell edgelet lo listen on HTTP. In the sample below, replace the IP’s with the IP of the device itself.  (It needs to be IP – just using the device name WILL NOT WORK because of the way that docker & /etc/hosts interact).
-> ```yaml
-> connect:
->   management_uri: "http://10.91.136.196:8080"
->   workload_uri: http://10.91.136.196:8081
-> listen:
->   management_uri: "http://0.0.0.0:8080"
->   workload_uri: "http://0.0.0.0:8081"
-> ```
-
-
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
 
@@ -81,30 +69,33 @@ The following steps show you how to create an IoT Edge Python module using Visua
     ```
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
-3. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
-4. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+4. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
+5. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
    3. Choose **Python Module** as the module template. 
    4. Name your module **PythonModule**. 
    5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/pythonmodule**.
- 
-4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder, a deployment manifest template file and a .env file. Open **modules** > **PythonModule** > **main.py**.
 
-5. At the top of the **main.py**, import the `json` library.
+**Bug bash only**: update to the latest device SDK
+In your IoT Edge workspace, open requirement.txt.  Change "azure-iothub-device-client==1.4.0.0b2" to "azure-iothub-device-client==1.4.0.0b3"
+ 
+6. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder, a deployment manifest template file and a .env file. Open **modules** > **PythonModule** > **main.py**.
+
+7. At the top of the **main.py**, import the `json` library.
 
     ```python
     import json
     ```
 
-6. Add `TEMPERATURE_THRESHOLD` and `TWIN_CALLBACKS` variables under the global counters. The temperature threshold sets the value that the measured machine temperature must exceed in order for the data to be sent to IoT Hub.
+8. Add `TEMPERATURE_THRESHOLD` and `TWIN_CALLBACKS` variables under the global counters. The temperature threshold sets the value that the measured machine temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```python
     TEMPERATURE_THRESHOLD = 25
     TWIN_CALLBACKS = 0
     ```
 
-7. Replace the function `receive_message_callback` with the following code:
+9. Replace the function `receive_message_callback` with the following code:
 
     ```python
     # receive_message_callback is invoked when an incoming message arrives on the specified 
@@ -130,7 +121,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
         return IoTHubMessageDispositionResult.ACCEPTED
     ```
 
-8. Add a new function called `module_twin_callback`. This function will be invoked when the desired properties are updated.
+10. Add a new function called `module_twin_callback`. This function will be invoked when the desired properties are updated.
 
     ```python
     # module_twin_callback is invoked when twin's desired properties are updated.
@@ -147,14 +138,14 @@ The following steps show you how to create an IoT Edge Python module using Visua
         print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
     ```
 
-9. In class `HubManager`, add a new line to the `__init__` method to initialize the `module_twin_callback` function you just added.
+11. In class `HubManager`, add a new line to the `__init__` method to initialize the `module_twin_callback` function you just added.
 
     ```python
     # sets the callback when a twin's desired properties are updated.
     self.client.set_module_twin_callback(module_twin_callback, self)
     ```
 
-10. Save this file.
+12. Save this file.
 
 ## Build your IoT Edge solution
 
