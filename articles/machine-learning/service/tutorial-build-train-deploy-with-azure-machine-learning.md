@@ -14,18 +14,24 @@ ms.date: 7/27/2018
 
 # Tutorial: Training MNIST dataset using TensorFlow and deploying on Azure Machine Learning
 
-Azure Machine Learning service (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
+In this tutorial, you'll train a multi-class DNN that identifies the digit present in an image, and deploy it as a web service in Azure Machine Learning Services.
 
-This tutorial is **part one of a three-part series**. In this tutorial, you walk through the basics of Azure Machine Learning services (preview) and learn how to:
+As you familiarize yourself with the Azure Machine Learning Services workflow, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create a project in Azure Machine Learning Workbench
-> * Create a data preparation package
-> * Generate Python/PySpark code to invoke a data preparation package
+> * Create datastore and add data
+> * Build a DNN in TensorFlow
+> * Configure a compute target for training (Azure Batch AI)
+> * Create TensorFlow estimator
+> * Prepare project for training
+> * Submit job to target
+> * Review run histories
+> * Plot accuracy
+> * Download the saved model
+> * Test the model and examine the output
+> * Deploy the model as a web service
 
-This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
-
-This example shows how to train a deep neural network using the MNIST dataset and TensorFlow on Azure Machine Learning platform. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing digit from 0 to 9. The goal is to create a multi-class classifier to identify the digit each image represents, and deploy it as a web service in Azure.
+This tutorial uses the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing digit from 0 to 9. 
 
 ## Prerequisites
 
@@ -67,28 +73,11 @@ If you don't have these prerequisites already, follow the steps in the [Quicksta
      'Workspace name': 'haieuapws',
      'Project path': '/Users/haining/git/hai/MnistTutorial/tf-mnist-proj'}
 
+## Install package dependencies
 
+For this tutorial, you'll n
+and package dependencies
 
-## Download MNIST dataset and install package dependencies
-Use scikit-learn library to download the MNIST dataset. Note we also shrink the intensity values (X) from 0-255 to 0-1. This makes the neural network converge faster.
-
-Get the data:
-```python
-import os
-import urllib
-
-os.makedirs('./data', exist_ok = True)
-
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename = './data/train-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename = './data/train-labels.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename = './data/test-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename = './data/test-labels.gz')
-```
-
-
-
-
-    ('./data/test-labels.gz', <http.client.HTTPMessage at 0xa162599b0>)
 
 And, now the package dependencies:
 ```shell
@@ -115,8 +104,31 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
     Azure ML SDK Version:  0.1.0.1043398
 
 
+## Download and examine the data 
+Use scikit-learn library to download the MNIST dataset. Note we also shrink the intensity values (X) from 0-255 to 0-1. This makes the neural network converge faster.
 
-## Show some samples images
+### Get the data
+
+```python
+import os
+import urllib
+
+os.makedirs('./data', exist_ok = True)
+
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename = './data/train-images.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename = './data/train-labels.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename = './data/test-images.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename = './data/test-labels.gz')
+```
+
+
+
+
+    ('./data/test-labels.gz', <http.client.HTTPMessage at 0xa162599b0>)
+
+
+
+### Examine sample images
 Plot 20 random images from the dataset along with their labels.
 
 
@@ -147,7 +159,9 @@ plt.show()
 ![png](MNIST%20with%20Azure%20ML_files/MNIST%20with%20Azure%20ML_10_0.png)
 
 
-## Create datastore
+## Create datastore and add data
+
+### Create the datastore
 
 
 ```python
@@ -166,7 +180,9 @@ ds = Datastore.register_azure_file_share(workspace = ws,
                                     create_if_not_exists = True)
 ```
 
-## Upload MNIST dataset to datastore
+### Add dataset to the datastore 
+
+Upload the MNIST dataset to the newly created datastore.
 
 
 ```python
