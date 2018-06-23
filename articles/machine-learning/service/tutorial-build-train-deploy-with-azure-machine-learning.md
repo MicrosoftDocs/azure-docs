@@ -14,22 +14,18 @@ ms.date: 7/27/2018
 
 # Tutorial: Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow
 
-In this tutorial, you'll train a multi-class DNN that identifies the digit present in an image, and deploy it as a web service in Azure Machine Learning Services. 
+In this tutorial, you'll train a multi-class DNN on a Azure Batch AI cluster with Azure Machine Learning Services. This DNN identifies numerical digits that are present in an image. You'll also deploy it as a web service in an Azure Container Instance (ACI).
 
 As you familiarize yourself with the Azure Machine Learning Services workflow, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create datastore and add data
 > * Build a DNN in TensorFlow
-> * Configure a compute target for training (Azure Batch AI)
-> * Create TensorFlow estimator
-> * Prepare project for training
-> * Submit job to target
-> * Review run histories
-> * Plot accuracy
-> * Download the saved model
-> * Test the model and examine the output
-> * Deploy the model as a web service
+> * Configure a compute target for training
+> * Train the model
+> * Submit a job to a target
+> * Review run histories and accuracy
+> * Test the model
+> * Deploy as a web service
 
 This tutorial uses the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing digit from 0 to 9. 
 
@@ -41,7 +37,7 @@ To complete this tutorial, you must have:
 - An Azure Machine Learning Workspace named @@@
 - A local project directory named @@@
 
-If you don't have these prerequisites already, follow the steps in the [Quickstart: Create a project and get started in Python](quickstart-installation.md) article to set up workspace, a project, and install the SDK.
+Learn how to get these prerequisites using the [Quickstart: Create a project and get started in Python](quickstart-installation.md).
 
 You also need these package dependencies (tensorflow, matplotlib, numpy) for this example:
 ```shell
