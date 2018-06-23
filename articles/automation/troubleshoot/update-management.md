@@ -87,11 +87,11 @@ Verify system account has read access to folder **C:\ProgramData\Microsoft\Crypt
 
 #### Issue
 
-An update runs fail to start on a Linux machine
+An update runs fail to start on a Linux machine.
 
 #### Cause
 
-The package manager could be unhealthy
+The Linux Hybrid Worker is unhealthy.
 
 #### Resolution
 
@@ -100,6 +100,22 @@ Make a copy of the following log file and preserve it for troubleshooting purpos
 ```
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
+
+### Scenario: Update run starts, but encounters errors
+
+#### Issue
+
+An update run starts, but encounters errors during the run.
+
+#### Cause
+
+Possible causes could be:
+
+* Package manager is unhealthy
+* Specific packages may interfere with cloud based patching
+* Other reasons
+
+#### Resolution
 
 If failures occur during an update run after it starts successfully on Linux, check the job output from the affected machine in the run. You may find specific error messages from your machine's package manager that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
 
