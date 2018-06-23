@@ -21,9 +21,9 @@ This article lists the steps to install the Azure IoT Edge runtime on your Linux
 
 ## Install the container runtime
 
-Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). If you already have Docker CE/EE installed on your Edge device, you can continue to use it for development and testing with Azure IoT Edge. 
+Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime (e.g. Docker). If you already have Docker CE/EE installed on your Edge device, you can continue to use it for development and testing with Azure IoT Edge. 
 
-For production scenarios it is highly recommended that you use the [Moby][lnk-moby]-based engine below as it is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are fully compatible with the Moby runtime.
+For production scenarios, it is highly recommended you use the [Moby-based][lnk-moby] engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are fully compatible with the Moby runtime.
 
 *Instructions below install both moby engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.*
 
@@ -63,7 +63,7 @@ sudo apt-get install -f
 
 The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml` The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string][lnk-dcs].
 
-For manual configuration, enter the device connection string in *provisioning* section of `config.yaml`
+For manual configuration, enter the device connection string in **provisioning** section of **config.yaml**
 
 ```yaml
 provisioning:
@@ -71,7 +71,7 @@ provisioning:
   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
 ```
 
-*The file is write-protected by default, you might need to use `sudo` to edit it. For example - `sudo nano /etc/iotedge/config.yaml`*
+*The file is write-protected by default, you might need to use `sudo` to edit it. For example `sudo nano /etc/iotedge/config.yaml`*
 
 After entering the provisioning information in the configuration, restart the daemon:
 
@@ -84,19 +84,19 @@ sudo systemctl restart iotedge
 You can check the status of the IoT Edge Daemon using:
 
 ```cmd/sh
-sudo systemctl status iotedge
+systemctl status iotedge
 ```
 
 Examine daemon logs using:
 
 ```cmd/sh
-sudo journalctl -u iotedge -r
+journalctl -u iotedge --no-pager --no-full
 ```
 
 And, list running modules with:
 
 ```cmd/sh
-sudo iotedge list
+iotedge list
 ```
 
 ## Next steps
