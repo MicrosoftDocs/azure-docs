@@ -69,7 +69,7 @@ For Azure clusters, we recommend that you use Azure AD security to authenticate 
 
 For standalone Windows Server clusters with Windows Server 2012 R2 and Active Directory, we recommend that you use Windows security with group Managed Service Accounts (gMSAs). Otherwise, use Windows security with Windows accounts.
 
-## Understand monitoring and diagnostics in Azure Service Fabric
+## Understand monitoring and diagnostics in Service Fabric
 [Monitoring and diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview) are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you implement monitoring and diagnostics to ensure that applications and services work as expected in a local development environment or in production.
 
 From a security perspective, the main goals of monitoring and diagnostics are:
@@ -130,7 +130,7 @@ Secrets can be any sensitive information, such as storage connection strings, pa
 
 You can use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) to manage keys and secrets. However, the use of secrets in an application doesn't rely on a specific cloud platform. You can deploy applications to a cluster that's hosted anywhere. There are four main steps in this flow:
 
-1.	Obtain a data encipherment certificate.
+1.	Get a data encipherment certificate.
 2.	Install the certificate on your cluster.
 3.	Encrypt secret values when deploying an application with the certificate and inject them into a service's Settings.xml configuration file.
 4.	Read encrypted values out of Settings.xml by decrypting them with the same encipherment certificate.
