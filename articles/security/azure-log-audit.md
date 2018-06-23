@@ -44,9 +44,9 @@ The following table lists the most important types of logs available in Azure:
 |[Azure AD reporting](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Logs and reports | Reports user sign-in activities and system activity information about users and group management.|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
 |[Virtual machines and cloud services](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows Event Log service and Linux Syslog|	Captures system data and logging data on the virtual machines and transfers that data into a storage account of your choice.|	Windows (using Windows Azure Diagnostics [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] storage) and Linux in Azure Monitor|
 |[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Storage logging, provides metrics data for a storage account|Provides insight into trace requests, analyzes usage trends, and diagnoses issues with your storage account.|	REST API or the [client library](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
-|[Network Security Group (NSG) flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON format, shows outbound and inbound flows on a per-rule basis|Displays information about ingress and egress IP traffic through a Network Security Group.|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
+|[Network Security Group (NSG) flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON format, shows outbound and inbound flows on a per-rule basis|Displays information about ingress and egress IP traffic through a Network Security Group.|[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logs, exceptions, and custom diagnostics|	Provides an application performance monitoring (APM) service for web developers on multiple platforms.|	REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Process data / security alerts|	Azure Security Center alerts, Log Analytics  alerts|	Provides security information and alerts.| 	REST APIs, JSON|
+|Process data / security alerts|	Azure Security Center alerts, Azure Log Analytics alerts|	Provides security information and alerts.| 	REST APIs, JSON|
 
 ### Activity logs
 [Azure activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into the operations that were performed on resources in your subscription. Activity logs were previously known as “audit logs” or “operational logs,” because they report [control-plane events](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) for your subscriptions. 
@@ -73,7 +73,7 @@ Integration scenarios for an activity log event:
 
 * Query it via PowerShell cmdlet, Azure CLI, or REST API.
 
-* Export the activity log with log profiles to [Log Analytics ](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+* Export the activity log with log profiles to [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 You can use a storage account or [event hub namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) that is not in the same subscription as the one that's emitting the log. Whoever configures the setting must have the appropriate [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) access to both subscriptions.
 
@@ -90,7 +90,7 @@ Azure diagnostics logs offer multiple configuration options, such as the Azure p
 
 * [Stream them to event hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) for ingestion by a third-party service or custom analytics solution, such as [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
-* Analyze them with [Log Analytics ](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* Analyze them with [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 **Supported services, schema for diagnostics logs and supported log categories per resource type**
 
@@ -112,9 +112,9 @@ Azure diagnostics logs offer multiple configuration options, such as the Azure p
 |Azure Service Bus|[Service Bus diagnostics logs](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### Azure Active Directory reporting
-Azure Active Directory (Azure AD) includes security, activity, and audit reports for a user's directory. The [Azure AD audit report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) helps you identify privileged actions that occurred in the user's Azure AD. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example, password policies), or changes to the directory configuration (for example, changes to domain federation settings).
+Azure Active Directory (Azure AD) includes security, activity, and audit reports for a user's directory. The [Azure AD audit report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) helps you identify privileged actions that occurred in the user's Azure AD instance. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example, password policies), or changes to the directory configuration (for example, changes to domain federation settings).
 
-The reports provide the audit record for the event name, the user who performed the action, the target resource affected by the change, and the date and time (in UTC). Users can retrieve the list of audit events for their Azure AD via the [Azure portal](https://portal.azure.com/), as described in [View your audit logs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
+The reports provide the audit record for the event name, the user who performed the action, the target resource affected by the change, and the date and time (in UTC). Users can retrieve the list of audit events for Azure AD via the [Azure portal](https://portal.azure.com/), as described in [View your audit logs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
 
 The included reports are listed in the following table:
 
@@ -148,13 +148,13 @@ If you're interested in retaining your audit events longer, use the Reporting AP
 
 You can enable Azure Diagnostics on a virtual machine by doing any of the following:
 
-* [Use Visual Studio to trace Azure virtual machines](https://docs.microsoft.com/azure/vs-azure-tools-debug-cloud-services-virtual-machines).
+* [Use Visual Studio to trace Azure virtual machines](https://docs.microsoft.com/azure/vs-azure-tools-debug-cloud-services-virtual-machines)
 
-* [Set up Azure Diagnostics remotely on an Azure virtual machine](https://docs.microsoft.com/azure/virtual-machines-dotnet-diagnostics).
+* [Set up Azure Diagnostics remotely on an Azure virtual machine](https://docs.microsoft.com/azure/virtual-machines-dotnet-diagnostics)
 
-* [Use PowerShell to set up diagnostics on Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-extensions-diagnostics?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* [Use PowerShell to set up diagnostics on Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-extensions-diagnostics?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-* [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### Storage Analytics
 [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) logs and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account. Storage Analytics logging is available for the [Azure Blob, Azure Queue, and Azure Table storage services](https://docs.microsoft.com/azure/storage/storage-introduction). Storage Analytics logs detailed information about successful and failed requests to a storage service.
@@ -206,7 +206,7 @@ The same retention policies that are seen on other logs apply to flow logs. Logs
 
 **Diagnostics logs**
 
-Periodic and spontaneous events are created by network resources and logged in storage accounts, and sent to an event hub or Log Analytics. The logs provide insights into the health of a resource. They can be viewed in tools such as Power BI and Log Analytics. To learn how to view diagnostics logs, see [Log Analytics ](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Periodic and spontaneous events are created by network resources and logged in storage accounts, and sent to an event hub or Log Analytics. The logs provide insights into the health of a resource. They can be viewed in tools such as Power BI and Log Analytics. To learn how to view diagnostics logs, see [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 ![Diagnostics logs](./media/azure-log-audit/azure-log-audit-fig5.png)
 
@@ -305,7 +305,7 @@ Connected sources are the computers and other resources that generate the data t
 
 [Data sources](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) are the various kinds of data that's collected from each connected source. Sources include events and [performance data](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters) from [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) and Linux agents, in addition to sources such as [IIS logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) and [custom text logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs). You configure each data source that you want to collect, and the configuration is automatically delivered to each connected source.
 
-There are four ways to [collect logs and metrics for Azure services:](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)
+There are four ways to [collect logs and metrics for Azure services](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage):
 * Azure Diagnostics direct to Log Analytics (**Diagnostics** in the following table)
 
 * Azure Diagnostics to Azure storage to Log Analytics (**Storage** in the following table)
