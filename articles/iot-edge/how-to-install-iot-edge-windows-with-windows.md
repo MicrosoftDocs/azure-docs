@@ -48,7 +48,7 @@ $env:Path += ";C:\ProgramData\iotedge"
 SETX /M PATH "$env:Path"
 ```
 
-Create and start `iotedge` service:
+Create and start **iotedge** service:
 
 ```powershell
 New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
@@ -61,7 +61,7 @@ Add Firewall exceptions for the ports used by the service:
 New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
 ```
 
-Create a `iotedge.reg` file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg add` command:
+Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
 
 ```
 Windows Registry Editor Version 5.00
@@ -76,7 +76,7 @@ Windows Registry Editor Version 5.00
 
 The daemon can be configured using the configuration file at `C:\ProgramData\iotedge\config.yaml` The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string][lnk-dcs].
 
-For manual configuration, enter the device connection string in `provisioning:` section of `config.yaml`
+For manual configuration, enter the device connection string in **provisioning:** section of **config.yaml**
 
 ```yaml
 provisioning:
@@ -84,7 +84,7 @@ provisioning:
   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
 ```
 
-Next, we'll need to provide the ip address and port for `workload_uri` and `management_uri` in the `connect:` section of the configuration.
+Next, we'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect:** section of the configuration.
 
 For the ip address, enter `ipconfig` in your PowerShell window and select the ip address of the **vEthernet (nat)** interface as shown in the example below (the ip address on your system may be different):  
 
@@ -96,7 +96,7 @@ connect:
   workload_uri: "http://172.29.240.1:15581"
 ```
 
-Enter the same addresses in the `listen:` section of the configuration. For example:
+Enter the same addresses in the **listen:** section of the configuration. For example:
 
 ```yaml
 listen:
@@ -104,13 +104,13 @@ listen:
   workload_uri: "http://172.29.240.1:15581"
 ```
 
-In the PowerShell window, create an environment variable `IOTEDGE_HOST` with the `management_uri` address, example:
+In the PowerShell window, create an environment variable **IOTEDGE_HOST** with the **management_uri** address, example:
 
 ```powershell
 [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://172.29.240.1:15580")
 ```
 
-Obtain the name of the host using the `hostname` command in the PowerShell window and set the value for `hostname:` in the configuration yaml. For example:
+Obtain the name of the host using the `hostname` command in the PowerShell window and set the value for **hostname:** in the configuration yaml. For example:
 
 ```powershell
 ###############################################################################
@@ -124,7 +124,7 @@ Obtain the name of the host using the `hostname` command in the PowerShell windo
 
 hostname: "edgedevice-1"
 ```
-Finally, ensure the `network:` setting under `moby_runtime:` is uncommented and set to `nat`:
+Finally, ensure the **network:** setting under **moby_runtime:** is uncommented and set to **nat**
 
 ```yaml
 moby_runtime:
@@ -147,13 +147,13 @@ You can check the status of the IoT Edge service by:
 Get-Service iotedge
 ```
 
-Examine service logs using:
+Examine service logs for the last 5 minutes using:
 
 ```powershell
-Get-WinEvent -LogName Application | 
-  Where-Object {$_.ProviderName -eq "iotedged"} | 
-  Select TimeCreated, Message | 
-  oh -Paging
+Get-WinEvent -ea SilentlyContinue `
+  -FilterHashtable @{ProviderName= "iotedged";
+    LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
+  select TimeCreated, Message | Sort-Object -Descending
 ```
 
 And, list running modules with:
