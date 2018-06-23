@@ -12,9 +12,9 @@ ms.reviewer: jmartens
 ms.date: 7/27/2018
 ---
 
-# Tutorial: Training MNIST dataset using TensorFlow and deploying on Azure Machine Learning
+# Tutorial: Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow
 
-In this tutorial, you'll train a multi-class DNN that identifies the digit present in an image, and deploy it as a web service in Azure Machine Learning Services.
+In this tutorial, you'll train a multi-class DNN that identifies the digit present in an image, and deploy it as a web service in Azure Machine Learning Services. 
 
 As you familiarize yourself with the Azure Machine Learning Services workflow, you'll learn how to:
 
@@ -43,47 +43,10 @@ To complete this tutorial, you must have:
 
 If you don't have these prerequisites already, follow the steps in the [Quickstart: Create a project and get started in Python](quickstart-installation.md) article to set up workspace, a project, and install the SDK.
 
-## Check for your workspace and project
-
-1. Display the current workspace name.
-
-    ```python
-    ws = Workspace.from_config()
-    print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
-    ```
-    
-        Found config.json in: /Users/haining/git/hai/MnistTutorial/aml_config/config.json
-        haieuapws	eastus2euap	aml-notebooks	eastus2euap
-    
-1. Attach the project to the workspace and see its details:
-
-    ```python
-    # create a new project or get hold of an existing one.
-    proj = Project.attach(history_name = 'tf-mnist', directory = './tf-mnist-proj', workspace_object = ws)
-    # show project details
-    proj.get_details()
-    ```
-    
-
-
-
-    {'Run history name': 'tf-mnist',
-     'Subscription id': 'fac34303-435d-4486-8c3f-7094d82a0b60',
-     'Resource group': 'aml-notebooks',
-     'Workspace name': 'haieuapws',
-     'Project path': '/Users/haining/git/hai/MnistTutorial/tf-mnist-proj'}
-
-## Install package dependencies
-
-For this tutorial, you'll n
-and package dependencies
-
-
-And, now the package dependencies:
+You also need these package dependencies (tensorflow, matplotlib, numpy) for this example:
 ```shell
-$ conda install tensorflow matplotlib
+conda install tensorflow matplotlib
 ```
-
 
 ```python
 %matplotlib inline
@@ -93,21 +56,17 @@ import matplotlib.pyplot as plt
 ```
 
 
-```python
-import azureml
-from azureml.core import Workspace, Project, Run
+## Get the notebook and sample data
+### Download the Jupyter notebook
 
-# check core SDK version number
-print("Azure ML SDK Version: ", azureml.core.VERSION)
-```
+Download the Jupyter notebook to run this tutorial yourself.
 
-    Azure ML SDK Version:  0.1.0.1043398
+> [!div class="nextstepaction"]
+> [Get the Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification)
 
+### Download the sample data
 
-## Download and examine the data 
 Use scikit-learn library to download the MNIST dataset. Note we also shrink the intensity values (X) from 0-255 to 0-1. This makes the neural network converge faster.
-
-### Get the data
 
 ```python
 import os
@@ -127,9 +86,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
     ('./data/test-labels.gz', <http.client.HTTPMessage at 0xa162599b0>)
 
 
-
-### Examine sample images
-Plot 20 random images from the dataset along with their labels.
+Then, examine sample images by plotting 20 random images from the dataset along with their labels.
 
 
 ```python
@@ -157,6 +114,27 @@ plt.show()
 
 
 ![png](MNIST%20with%20Azure%20ML_files/MNIST%20with%20Azure%20ML_10_0.png)
+
+## Check for your workspace and project
+
+1. Display the current workspace name.
+
+    ```python
+    ws = Workspace.from_config()
+    print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
+    ```
+    
+        Found config.json in: /Users/haining/git/hai/MnistTutorial/aml_config/config.json
+        haieuapws	eastus2euap	aml-notebooks	eastus2euap
+    
+1. Attach the project to the workspace and see its details:
+
+    ```python
+    # create a new project or get hold of an existing one.
+    proj = Project.attach(history_name = 'tf-mnist', directory = './tf-mnist-proj', workspace_object = ws)
+    # show project details
+    proj.get_details()
+    ```
 
 
 ## Create datastore and add data
@@ -211,7 +189,7 @@ Let's create a very simple DNN, with just 2 hidden layers. The input layer has 2
 
 ![DNN](images/feedforward_network.jpg)
 
-## Create Batch AI cluster as compute target
+## Create a Batch AI cluster as compute target
 
 
 ```python
