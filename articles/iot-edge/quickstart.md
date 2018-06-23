@@ -256,7 +256,7 @@ iotedge logs tempSensor -f
 
 ![View the data from your module](./media/tutorial-simulate-device-windows/docker-logs.png)
 
-You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer]. 
+You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer] or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## Clean up resources
 
