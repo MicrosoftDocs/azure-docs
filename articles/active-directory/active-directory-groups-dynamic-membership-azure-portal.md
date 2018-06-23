@@ -234,7 +234,7 @@ An example of a rule that uses an extension attribute would be
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
+Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
 An example of a rule that uses a custom attribute is
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  

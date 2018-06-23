@@ -105,7 +105,7 @@ The following shows how to make an outgoing call using the **Services_Twilio** c
     $sid = "your_twilio_account_sid";
     $token = "your_twilio_authentication_token";
 
-    // The number of the phone initiating the the call.
+    // The number of the phone initiating the call.
     $from_number = "NNNNNNNNNNN";
 
     // The number of the phone receiving call.

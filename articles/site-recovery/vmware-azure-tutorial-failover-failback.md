@@ -122,7 +122,7 @@ VM datastore is mounted on the master target's host, with read/write access.
 
 If the VM is on an ESXi that isn't managed by a vCenter server, Site Recovery service creates a new
 VM during reprotection. The VM is created on the ESX host on which you create the master target.
-The hard disk of the VM must be in a datastore that's accessible by the the host on which the
+The hard disk of the VM must be in a datastore that's accessible by the host on which the
 master target server is running.
 
 If the VM doesn't use vCenter, you should complete discovery of the host on which the master target

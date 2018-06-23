@@ -113,7 +113,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ``` 
 
 ### Task ID range
-In a dependency on a range of parent tasks, a task depends on the the completion of tasks whose IDs lie within a range.
+In a dependency on a range of parent tasks, a task depends on the completion of tasks whose IDs lie within a range.
 To create the dependency, provide the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
