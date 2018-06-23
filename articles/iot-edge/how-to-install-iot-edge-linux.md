@@ -73,7 +73,7 @@ sudo apt-get install moby-cli
 
 ## Install the Azure IoT Edge Security Daemon
 
-*Instructions below will also install the standard version of the `iothsmlib` if not already present.*
+*Instructions below will also install the standard version of the **iothsmlib** if not already present.*
 
 ```cmd/sh
 sudo apt-get update
@@ -105,19 +105,19 @@ sudo systemctl restart iotedge
 You can check the status of the IoT Edge Daemon using:
 
 ```cmd/sh
-sudo systemctl status iotedge
+systemctl status iotedge
 ```
 
 Examine daemon logs using:
 
 ```cmd/sh
-sudo journalctl -u iotedge -r
+journalctl -u iotedge --no-pager --no-full
 ```
 
 And, list running modules with:
 
 ```cmd/sh
-sudo iotedge list
+iotedge list
 ```
 
 ## Next steps
