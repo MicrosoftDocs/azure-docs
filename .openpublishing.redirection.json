@@ -14198,7 +14198,7 @@
         },
         {
             "source_path": "articles/active-directory/msi-how-to-get-access-token-using-msi.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-token"
+            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-token,"
             "redirect_document_id": false
         },
         {
