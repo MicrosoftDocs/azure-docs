@@ -84,9 +84,9 @@ provisioning:
   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
 ```
 
-Next, we'll need to provide the ip adress and port for `workload_uri` and `management_uri` in the `connect:` section of the configuration.
+Next, we'll need to provide the ip address and port for `workload_uri` and `management_uri` in the `connect:` section of the configuration.
 
-For the ip address, enter `ipconfig` in your PowerShell window and select the ip address of the `vEthernet (nat)` interface as shown in the example below (the ip address on your system may be different):
+For the ip address, enter `ipconfig` in your PowerShell window and select the ip address of the **vEthernet (nat)** interface as shown in the example below (the ip address on your system may be different):  
 
 ![nat][img-nat]
 
@@ -104,13 +104,27 @@ listen:
   workload_uri: "http://172.29.240.1:15581"
 ```
 
-Create an environment variable `IOTEDGE_HOST` using the same address, example:
+In the PowerShell window, create an environment variable `IOTEDGE_HOST` with the `management_uri` address, example:
 
 ```powershell
 [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://172.29.240.1:15580")
 ```
 
-Finally, ensure the `network` setting under `moby_runtime:` is set to `nat`:
+Obtain the name of the host using the `hostname` command in the PowerShell window and set the value for `hostname:` in the configuration yaml. For example:
+
+```powershell
+###############################################################################
+# Edge device hostname
+###############################################################################
+#
+# Configures the environment variable 'IOTEDGE_GATEWAYHOSTNAME' injected into
+# modules.
+#
+###############################################################################
+
+hostname: "edgedevice-1"
+```
+Finally, ensure the `network:` setting under `moby_runtime:` is uncommented and set to `nat`:
 
 ```yaml
 moby_runtime:
