@@ -50,8 +50,7 @@ Click on the name of a solution to open its summary page. This page displays any
 
 
 ## Install a management solution
-Management solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com)
-Use the following procedure to install a management solution from the Azure Marketplace. You can search available solutions and install them using the following procedure.
+Management solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search available solutions and install them using the following procedure.
 
 1. From the [list of solutions for your subscription](#list-installed-management-solutions), click **Add**. 
 1. To the right of **Management Solutions**, click **More**. 
