@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
 ---
 
@@ -70,26 +70,18 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Select your Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Under **Management**, choose **OMS Portal**.
+3. Under **Management**, choose **Overview**.
 
-   ![Choose OMS portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Choose Log Analytics portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. After the home page opens, choose **Solutions Gallery**.    
+4. After the home page opens, choose **Add** to install Logic Apps B2B solution.    
+   ![Choose Solutions Gallery](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   ![Choose Solutions Gallery](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
-
-5. Under **All solutions**, find and choose **Logic Apps B2B**.     
-
-   ![Choose Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
-
-6. Under **Logic Apps B2B**, choose **Add**.
-
-   ![Choose Add](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+5. Under **Management Solutions**, find and Create **Logic Apps B2B** solution.     
+   ![Choose Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
    On the home page, the tile for **Logic Apps B2B Messages** now appears. 
    This tile updates the message count when your B2B messages are processed.
-
-   ![Home page, Logic Apps B2B Messages tile](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
@@ -97,9 +89,9 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
 1. After your B2B messages are processed, 
 you can view the status and details for those messages. 
-On the home page, choose the **Logic Apps B2B Messages** tile.
+On the Overview page, choose the **Logic Apps B2B Messages** tile.
 
-   ![Updated message count](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![Updated message count](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
    > By default, the **Logic Apps B2B Messages** tile 
@@ -107,7 +99,7 @@ On the home page, choose the **Logic Apps B2B Messages** tile.
    > To change the data scope to a different interval, 
    > choose the scope control at the top of the page:
    > 
-   > ![Change data scope](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   > ![Change data scope](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
    >
 
 2. After the message status dashboard appears, 

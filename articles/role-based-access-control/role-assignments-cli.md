@@ -1,6 +1,6 @@
 ---
-title: Manage Role-Based Access Control (RBAC) with Azure CLI | Microsoft Docs
-description: Learn how to manage Role-Based Access Control (RBAC) with the Azure command-line interface by listing roles and role actions and by assigning roles to the subscription and application scopes.
+title: Manage access using RBAC and Azure CLI | Microsoft Docs
+description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and Azure CLI. This includes listing access, granting access, and removing access.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,23 +16,17 @@ ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# Manage Role-Based Access Control with the Azure command-line interface
+# Manage access using RBAC and Azure CLI
 
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
-
-
-With role-based access control (RBAC), you define access for users, groups, and service principals by assigning roles at a particular scope. This article describes how to manage role assignments using the Azure command-line interface (CLI).
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and Azure CLI.
 
 ## Prerequisites
 
 To use the Azure CLI to manage role assignments, you must have the following prerequisites:
 
-* [Azure CLI 2.0](/cli/azure). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
+* [Azure CLI](/cli/azure). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
 
-## List role definitions
+## List roles
 
 To list all available role definitions, use [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
@@ -89,7 +83,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### List actions of a role definition
+### List actions of a role
 
 To list the actions of a role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
@@ -177,7 +171,9 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## List role assignments
+## List access
+
+In RBAC, to list access, you list the role assignments.
 
 ### List role assignments for a user
 
@@ -235,7 +231,9 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## Create role assignments
+## Grant access
+
+In RBAC, to grant access, you create a role assignment.
 
 ### Create a role assignment for a user
 
@@ -285,9 +283,9 @@ The following example assigns the *Virtual Machine Contributor* role to an appli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## Remove a role assignment
+## Remove access
 
-To remove a role assignment, use [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete):
+In RBAC, to remove access, you remove a role assignment by using [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
