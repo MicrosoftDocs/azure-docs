@@ -212,6 +212,8 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
+Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, e.g. QnA Maker FAQ to view.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
