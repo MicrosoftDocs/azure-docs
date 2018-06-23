@@ -31,7 +31,7 @@ This article addresses frequent questions about Azure Kubernetes Service (AKS).
 
 ## When will additional regions be added?
 
-AKS will be available in all Azure public cloud regions by the end of 2018.
+AKS should be available in all Azure public cloud regions by the end of 2018.
 
 ## Are security updates applied to AKS agent nodes?
 
@@ -63,11 +63,11 @@ No, it is not but this integration is planned. In the meantime, try out the foll
 
 ## Can I run Windows Server containers on AKS?
 
-To run Windows Server containers, you need to run Windows Server-based nodes. Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). If you need to run Windows Server containers on Kubernetes in Azure outside of the preview, please see the [documentation for acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+To run Windows Server containers, you need to run Windows Server-based nodes. Windows Server-based nodes are not available in AKS at this time. If you need to run Windows Server containers on Kubernetes in Azure, please see the [documentation for acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## Why are two resource groups created with AKS?
 
-Each AKS deployment spans two resource groups. The first is created by you and contains only the AKS resource. The AKS resource provider automatically creates the second one during deployment with a name like *MC_myResourceGroup_myAKSCluster_eastus*. The second resource group contains all of the infrastructure resources associated with the cluster, such as VMs, networking, and storage. It is created to simplify resource cleanup.
+Each AKS deployment spans two resource groups. The first is created by you and contains only the Kubernetes service resource. The AKS resource provider automatically creates the second one during deployment with a name like *MC_myResourceGroup_myAKSCluster_eastus*. The second resource group contains all of the infrastructure resources associated with the cluster, such as VMs, networking, and storage. It is created to simplify resource cleanup.
 
 If you are creating resources that will be used with your AKS cluster, such as storage accounts or reserved public IP address, you should place them in the automatically generated resource group.
 
