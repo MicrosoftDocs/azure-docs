@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 6/15/2018
+ms.date: 6/22/2018
 ms.author: nepeters
 ---
 
@@ -22,15 +22,16 @@ This article addresses frequent questions about Azure Kubernetes Service (AKS).
 - Canada East
 - Central US
 - East US
+- East US2
 - North Europe
 - UK South
 - West Europe
-- West US 2
 - West US
+- West US 2
 
 ## When will additional regions be added?
 
-Additional regions are added as demand increases.
+We are planning to make AKS available in all Azure public cloud regions by the end of 2018.
 
 ## Are security updates applied to AKS agent nodes?
 
@@ -40,13 +41,13 @@ Azure automatically applies security patches to the nodes in your cluster on a n
 - By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), then bring them back up with the latest Ubuntu image. Update the OS image on your nodes without changing Kubernetes versions by specifying the current cluster version in `az aks upgrade`.
 - Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. It then orchestrates those reboots across the cluster, following the same cordon and drain process described earlier.
 
-## When will ACS be deprecated?
+## Will the Azure Container Service (ACS) be deprecated?
 
-ACS will be deprecated around the time AKS that becomes GA. You will have 12 months after that date to migrate clusters to AKS. During the 12-month period, you can run all ACS operations.
+Yes, we intend to announce formal deprecation of ACS in the coming months. Once deprecation is announced, ACS will continue to operate normally for 12 months, at which time it will be shut down.
 
 ## Does AKS support node autoscaling?
 
-Node autoscaling is not supported but is on the roadmap. You might want to take a look at this open-sourced [autoscaling implementation][auto-scaler].
+Autoscaling is not available at this time. However, it will soon be enabled via the [Kubernetes autoscaler][auto-scaler].
 
 ## Does AKS support Kubernetes role-based access control (RBAC)?
 
