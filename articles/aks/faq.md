@@ -31,7 +31,7 @@ This article addresses frequent questions about Azure Kubernetes Service (AKS).
 
 ## When will additional regions be added?
 
-We are planning to make AKS available in all Azure public cloud regions by the end of 2018.
+AKS will be available in all Azure public cloud regions by the end of 2018.
 
 ## Are security updates applied to AKS agent nodes?
 
@@ -39,7 +39,7 @@ Azure automatically applies security patches to the nodes in your cluster on a n
 
 - Manually, through the Azure portal or the Azure CLI.
 - By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), then bring them back up with the latest Ubuntu image. Update the OS image on your nodes without changing Kubernetes versions by specifying the current cluster version in `az aks upgrade`.
-- Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. It then orchestrates those reboots across the cluster, following the same cordon and drain process described earlier.
+- Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. It then orchestrates reboots across the cluster, following the same cordon and drain process described earlier.
 
 ## Will the Azure Container Service (ACS) be deprecated?
 
@@ -55,7 +55,7 @@ Yes, RBAC can be enabled when deploying an AKS cluster from the Azure CLI or Azu
 
 ## Can I deploy AKS into my existing virtual network?
 
-Yes, this is supported through the [advanced networking feature](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
+Yes, you can deploy an AKS cluster into an existing virtual network using the [advanced networking feature](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## Is Azure Key Vault integrated with AKS?
 
