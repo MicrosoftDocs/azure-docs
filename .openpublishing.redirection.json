@@ -11522,6 +11522,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Translator/quickstarts/nodejs.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-nodejs-translate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Translator/quickstarts/php.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-php-translate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Translator/quickstarts/python.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-python-translate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Translator/quickstarts/ruby.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-ruby-translate",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
             "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-build-system.md",
             "redirect_document_id": false
