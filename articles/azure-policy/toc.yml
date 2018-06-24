@@ -80,7 +80,7 @@
         href: scripts/allow-certain-vm-image.md
   - name: Data Lake
     items:
-    - name: Enforce Data Lake store encryption
+    - name: Enforce Data Lake Store encryption
       href: scripts/enforce-datalakestore-encryption.md
   - name: Monitoring
     items:
