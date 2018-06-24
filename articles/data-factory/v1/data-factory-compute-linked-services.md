@@ -19,7 +19,7 @@ robots: noindex
 ---
 # Compute environments supported by Azure Data Factory
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Compute linked services in version 2](../compute-linked-services.md).
+> This article applies to version 1 of Azure Data Factory. If you are using the current version of the Data Factory service, see [Compute linked services in](../compute-linked-services.md).
 
 This article explains the compute environments that you can use to process or transform data. It also provides details about different configurations (on-demand versus bring-your-own) that Data Factory supports when you configure linked services that link these compute environments to an Azure data factory.
 
@@ -63,7 +63,7 @@ After July 31, 2018:
 - If you are using an on-demand HDInsight linked service to execute Data Factory version 1 DotNet Custom Activity, update the DotNet Custom Activity JSON definition to instead use an Azure Batch linked service. For more information, see [Use custom activities in a Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 > [!Note]
-> If you use your existing, bring-your-own cluster HDInsight linked device in Data Factory version 1 or a bring-your-own and on-demand HDInsight linked service in Azure Data Factory version 2, no action is required. In those scenarios, the latest version support policy of HDInsight clusters is already enforced. 
+> If you use your existing, bring-your-own cluster HDInsight linked device in Data Factory version 1 or a bring-your-own and on-demand HDInsight linked service in Azure Data Factory, no action is required. In those scenarios, the latest version support policy of HDInsight clusters is already enforced. 
 >
 > 
 
