@@ -39,7 +39,7 @@ There are four different ways to complete migration of compute, network, and sto
 * [Migration of virtual machines (NOT in a virtual network)](#migration-of-virtual-machines-not-in-a-virtual-network)
 * [Migration of virtual machines (in a virtual network)](#migration-of-virtual-machines-in-a-virtual-network)
 * [Migration of storage accounts](#migration-of-storage-accounts)
-* [Migration of unattached resources](migration-of-unattached-resources)
+* [Migration of unattached resources](#migration-of-unattached-resources)
 
 ### Migration of virtual machines (NOT in a virtual network)
 In the Resource Manager deployment model, security is enforced for your applications by default. All VMs need to be in a virtual network in the Resource Manager model. The Azure platform restarts (`Stop`, `Deallocate`, and `Start`) the VMs as part of the migration. You have two options for the virtual networks that the Virtual Machines will be migrated to:
