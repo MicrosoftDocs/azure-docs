@@ -48,7 +48,7 @@ The difference in supported capabilities between the basic and standard tiers of
 
 | API | Basic tier | Standard tier |
 | --- | ---------- | ------------- |
-| [Delete device](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | Yes | Yes |
+| [Delete device](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/deletedevice) | Yes | Yes |
 | [Get device](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | Yes | Yes |
 | Delete module | Yes | Yes |
 | Get module | Yes | Yes |
