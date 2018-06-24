@@ -172,7 +172,7 @@ Configure the runtime with your IoT Edge device connection string that you copie
    ipconfig
    ```
 
-4. Copy the value for **IPv4 Address** in the **Ethernet** section of the output. 
+4. Copy the value for **IPv4 Address** in the **vEthernet (DockerNAT)** section of the output. 
 
 5. Create an environment variable called **IOTEDGE_HOST**, replacing *\<ip_address\>* with the IP Address for your IoT Edge device. 
 
@@ -220,7 +220,12 @@ Verify that the runtime was successfully installed and configured.
 2. If you need to troubleshoot the service, retrieve the service logs. 
 
    ```powershell
-   Get-WinEvent -LogName Application | Where-Object {$_.ProviderName -eq "iotedged"} | Select TimeCreated, Message | oh -Paging
+   # Displays logs from today, newest at the bottom.
+
+   Get-WinEvent -ea SilentlyContinue `
+  -FilterHashtable @{ProviderName= "iotedged";
+    LogName = "application"; StartTime = [datetime]::Today} |
+  select TimeCreated, Message | Sort-Object -Descending
    ```
 
 3. View all the modules running on your IoT Edge device.
