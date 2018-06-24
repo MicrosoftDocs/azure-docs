@@ -3,7 +3,7 @@ title: 'Incrementally copy multiple tables by using Azure Data Factory | Microso
 description: 'In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.'
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
+ms.author: yexu
 ---
 # Incrementally load data from multiple tables in SQL Server to an Azure SQL database
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in on-premises SQL Server to an Azure SQL database.    

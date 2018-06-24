@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2018
+ms.date: 06/22/2018
 ms.author: terrylan
 
 ---
@@ -40,7 +40,7 @@ The endpoint protection integration experience may vary according to the solutio
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
 | Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | No, Built in to OS           | Yes                       |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 | Via Extension                | Yes                       |
-| Trend Micro – All version         | Windows Server Family                 | Via Extension                | Yes                       |
+| Trend Micro – All version         | Windows Server Family                 | No                           | Yes                       |
 | Symantec v12.1.1100+              | Windows Server Family                 | No                           | Yes                       |
 | McAfee v10+                       | Windows Server Family                 | No                           | Yes                       |
 | Kaspersky                         | Windows Server Family                 | No                           | No                        |

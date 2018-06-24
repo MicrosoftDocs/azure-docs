@@ -21,6 +21,8 @@
     href: tutorial-bing-visual-search-single-page-app.md
   - name: Single-page Web app (source code)
     href: tutorial-bing-visual-search-single-page-app-source.md
+  - name: SDK image crop area upload and results
+    href: tutorial-visual-search-insights-token.md
 - name: Samples
   items:
     - name: Code samples
