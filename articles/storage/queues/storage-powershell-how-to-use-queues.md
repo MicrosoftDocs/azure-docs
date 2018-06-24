@@ -1,4 +1,4 @@
----
+﻿---
 title: Perform operations on Azure Queue storage with PowerShell | Microsoft Docs
 description: How to perform operations on Azure Queue storage with PowerShell
 services: storage
@@ -19,7 +19,7 @@ ms.author: robinsh
 
 # Perform Azure Queue storage operations with Azure PowerShell
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. For detailed information, see [Introduction to Azure Queues](storage-queues-introduction.md). This how-to article covers common Queue storage operations. You learn how to:
+Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via HTTP or HTTPS. For detailed information, see [Introduction to Azure Queues](storage-queues-introduction.md). This how-to article covers common Queue storage operations. You learn how to:
 
 > [!div class="checklist"]
 > * Create a queue
@@ -35,10 +35,10 @@ There are no PowerShell cmdlets for the data plane for queues. To perform data p
 
 ## Sign in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## Retrieve list of locations

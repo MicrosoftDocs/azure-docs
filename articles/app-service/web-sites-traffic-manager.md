@@ -30,10 +30,10 @@ You can use Azure Traffic Manager to control how requests from web clients are d
 ## Routing methods
 Azure Traffic Manager uses four different routing methods. These methods are described  in the following list as they pertain to Azure App Service.
 
-* **[Priority](#priority):** use a primary app for all traffic, and provide backups in case the primary or the backup apps are unavailable.
-* **[Weighted](#weighted):** distribute traffic across a set of apps, either evenly or according to weights, which you define.
-* **[Performance](#performance):** when you have apps in different geographic locations, use the "closest" app in terms of the lowest network latency.
-* **[Geographic](#geographic):** direct users to specific apps based on which geographic location their DNS query originates from. 
+* **[Priority](../traffic-manager/traffic-manager-routing-methods.md#priority):** use a primary app for all traffic, and provide backups in case the primary or the backup apps are unavailable.
+* **[Weighted](../traffic-manager/traffic-manager-routing-methods.md#weighted):** distribute traffic across a set of apps, either evenly or according to weights, which you define.
+* **[Performance](../traffic-manager/traffic-manager-routing-methods.md#performance):** when you have apps in different geographic locations, use the "closest" app in terms of the lowest network latency.
+* **[Geographic](../traffic-manager/traffic-manager-routing-methods.md#geographic):** direct users to specific apps based on which geographic location their DNS query originates from. 
 
 For more information, see [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 

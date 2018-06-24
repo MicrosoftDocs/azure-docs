@@ -20,6 +20,11 @@ ms.author: BernardoAMunoz
 # Resource types and health checks in Azure resource health
 Below is a complete list of all the checks executed through resource health by resource types.
 
+## Microsoft.AnalysisServices/servers
+|Executed Checks|
+|---|
+|<ul><li>Is the server up and running?</li><li>Has the server run out of memory?</li><li>Is the server starting up?</li><li>Is the server recovering?</li></ul>|
+
 ## Microsoft.ApiManagement/service
 |Executed Checks|
 |---|
@@ -102,6 +107,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li> Have there been logins to the database?</li></ul>|
 
+## Microsoft.Storage/storageAccounts
+|Executed Checks|
+|---|
+|<ul><li>Are requests to read data from the Storage account failing due to Azure Storage platform issues?</li><li>Are requests to write data to the Storage account failing due to Azure Storage platform issues?</li><li>Is the Storage cluster where the Storage account resides unavailable?</li></ul>|
+
 ## Microsoft.StreamAnalytics/streamingjobs
 |Executed Checks|
 |---|
@@ -110,7 +120,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.web/serverFarms
 |Executed Checks|
 |---|
-|<ul><li>Is the host server up and running?</li><li>Is Internet Information Services running?</li><li>Is the Load balancer running?</li><li>Can the Web Service Plan be reached from within the datacenter?</li><li>Is the storage account hosting the sites content for the serverFarm  available??</li></ul>|
+|<ul><li>Is the host server up and running?</li><li>Is Internet Information Services running?</li><li>Is the Load balancer running?</li><li>Can the App Service Plan be reached from within the datacenter?</li><li>Is the storage account hosting the sites content for the serverFarm  available??</li></ul>|
 
 ## Microsoft.web/sites
 |Executed Checks|
@@ -118,6 +128,6 @@ Below is a complete list of all the checks executed through resource health by r
 |<ul><li>Is the host server up and running?</li><li>Is Internet Information server running?</li><li>Is the Load balancer running?</li><li>Can the Web App be reached from within the datacenter?</li><li>Is the storage account hosting the site content available?</li></ul>|
 
 # Next Steps
--  See [Introduction to Azure Service Health](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
+-  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
-- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

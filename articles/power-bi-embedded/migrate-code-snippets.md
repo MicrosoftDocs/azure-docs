@@ -3,8 +3,8 @@ title: Code snippets for migrating content from Power BI Workspace Collections |
 description: Here are some code snippets of basic operations needed for content migration.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
+ms.author: maghan
 ---
 # Code snippets for migrating content from Power BI Workspace Collections
 

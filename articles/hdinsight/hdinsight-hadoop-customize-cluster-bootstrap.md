@@ -1,4 +1,4 @@
----
+﻿---
 title: Customize HDInsight Clusters using bootstrap - Azure | Microsoft Docs
 description: Learn how to customize HDInsight clusters using bootstrap.
 services: hdinsight
@@ -11,11 +11,9 @@ tags: azure-portal
 ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/03/2018
+ms.topic: conceptual
+ms.date: 05/14/2018
 ms.author: jgao
 
 ---
@@ -134,12 +132,10 @@ You can use bootstrap in Resource Manager template:
 * [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
 * [Develop Script Action scripts for HDInsight][hdinsight-write-script]
 * [Install and use Spark on HDInsight clusters][hdinsight-install-spark]
-* [Install and use R on HDInsight clusters][hdinsight-install-r]
 * [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
 * [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
@@ -189,7 +185,7 @@ $ErrorActionPreference = "Stop"
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 #region - Create an HDInsight cluster

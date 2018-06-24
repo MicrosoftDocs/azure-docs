@@ -4,14 +4,14 @@ description: Learn how to create self-hosted integration runtime in Azure Data F
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
 

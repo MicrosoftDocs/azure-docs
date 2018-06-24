@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/21/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 The following table shows the gateway types and the estimated aggregate throughput by gateway SKU. This table applies to the Resource Manager and classic deployment models. 
 
 Pricing differs between gateway SKUs. For more information, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).

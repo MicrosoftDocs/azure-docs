@@ -3,18 +3,18 @@ title: Azure Service Fabric Performance Monitoring | Microsoft Docs
 description: Learn about performance counters for monitoring and diagnostics of Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
+ms.date: 04/16/2018
+ms.author: srrengar
 ---
 
 # Performance metrics
@@ -80,4 +80,4 @@ If you use Reliable Collections, we recommend adding the `Avg. Transaction ms/Co
 ## Next steps
 
 * Learn more about [event generation at the platform level](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
-* Collect performance metrics through [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)
+* Collect performance metrics through [OMS Agent](service-fabric-diagnostics-oms-agent.md)

@@ -4,7 +4,7 @@ description: Quickly get Oracle ASM up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 

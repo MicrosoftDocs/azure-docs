@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 
@@ -81,7 +81,7 @@ To create a data factory, follow these steps:
 7. Select **Create**.
 
    > [!IMPORTANT]
-   > To create Data Factory instances, you must be a member of the [Data Factory contributor](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
+   > To create Data Factory instances, you must be a member of the [Data Factory contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
 
 8. You see the data factory as it is created in the dashboard of the Azure portal.
 

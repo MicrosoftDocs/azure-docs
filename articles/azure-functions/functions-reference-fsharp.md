@@ -20,7 +20,6 @@ ms.author: syclebsc
 
 ---
 # Azure Functions F# Developer Reference
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 F# for Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. Data flows into your F# function via function arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
 

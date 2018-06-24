@@ -1,15 +1,12 @@
 ---
 title: Provision a simulated TPM device to Azure IoT Hub using Python | Microsoft Docs
 description: Azure Quickstart - Create and provision a simulated TPM device using Java device SDK for IoT Hub Device Provisioning Service
-services: iot-dps 
-keywords: 
-author: msebolt
-ms.author: v-masebo
-ms.date: 12/12/2017
+author: bryanla
+ms.author: bryanla
+ms.date: 05/21/2018
 ms.topic: quickstart
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps 
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
@@ -21,8 +18,9 @@ ms.custom: mvc
 
 These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the Python code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
-Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
+If you're unfamiliar with the process of auto-provisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 ## Prepare the environment 
 
@@ -105,7 +103,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-1. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py**. Modify the _GLOBAL\_PROV\_URI_ and _ID\_SCOPE_ variables to the values noted previously.
+1. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py**. Modify the *GLOBAL\_PROV\_URI* and  *ID\_SCOPE* variables to the values noted previously. Also make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"
@@ -147,4 +145,4 @@ If you plan to continue working on and exploring the device client sample, do no
 In this Quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the Quickstart for programmatic enrollment of a TPM device. 
 
 > [!div class="nextstepaction"]
-> [Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-java.md)
+> [Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-python.md)

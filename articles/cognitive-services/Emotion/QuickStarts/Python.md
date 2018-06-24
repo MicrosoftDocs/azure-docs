@@ -5,7 +5,7 @@ services: cognitive-services
 author: anrothMSFT
 manager: corncar
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: anroth
@@ -31,7 +31,7 @@ To continue with this walkthrough, replace `subscription_key` with the API key y
 
 
 ```python
-subscription_key = "eeb35d3bc60b4298addcea8d14bb022c"
+subscription_key = None
 assert subscription_key
 ```
 

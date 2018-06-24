@@ -1,19 +1,19 @@
 ---
-title: Design your first Azure Database for MySQL database - Azure CLI
+title: 'Tutorial: Design an Azure Database for MySQL using Azure CLI'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI 2.0 from the command line.
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 04/01/2018
 ms.custom: mvc
 ---
 
-# Design your first Azure Database for MySQL database
+# Tutorial: Design an Azure Database for MySQL using Azure CLI
 
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on MySQL Community Edition database engine. In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
 
@@ -45,30 +45,6 @@ The following example creates a resource group named `myresourcegroup` in the `w
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-## Add the extension
-Add the updated Azure Database for MySQL management extension using the following command:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Check you have the correct extension version installed. 
-```azurecli-interactive
-az extension list
-```
-
-The return JSON should include the following: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.3"
-}
-```
-
-If version 0.0.3 is not returned, run the following to update the extension: 
-```azurecli-interactive
-az extension update --name rdbms
-```
 
 ## Create an Azure Database for MySQL server
 Create an Azure Database for MySQL server with the az mysql server create command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
@@ -85,10 +61,10 @@ az mysql server create --resource-group myresourcegroup --name mydemoserver --lo
 ## Configure firewall rule
 Create an Azure Database for MySQL server-level firewall rule with the az mysql server firewall-rule create command. A server-level firewall rule allows an external application, such as **mysql** command-line tool or MySQL Workbench to connect to your server through the Azure MySQL service firewall. 
 
-The following example creates a firewall rule for a predefined address range. This example shows the entire possible range of IP addresses.
+The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Substitute in the IP address or range of IP addresses that correspond to where you'll be connecting from. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIPs --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
 ```
 
 ## Get the connection information

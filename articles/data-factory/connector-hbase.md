@@ -4,15 +4,15 @@ description: Learn how to copy data from HBase to supported sink data stores by 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+ms.topic: conceptual
+ms.date: 04/19/2018
 ms.author: jingwang
 
 ---
@@ -31,7 +31,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to HBase connector.
 
@@ -43,7 +43,7 @@ The following properties are supported for HBase linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **HBase** | Yes |
 | host | The IP address or host name of the HBase server. (i.e. 192.168.222.160, [clustername].azurehdinsight.net)  | Yes |
-| port | The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.  | No |
+| port | The TCP port that the HBase instance uses to listen for client connections. The default value is 9090. If you connect to Azure HDInsights, specify port as 443. | No |
 | httpPath | The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)  | No |
 | authenticationType | The authentication mechanism to use to connect to the HBase server. <br/>Allowed values are: **Anonymous**, **Basic** | Yes |
 | username | The user name used to connect to the HBase instance.  | No |

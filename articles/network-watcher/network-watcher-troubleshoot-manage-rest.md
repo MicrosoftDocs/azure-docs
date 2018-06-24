@@ -21,7 +21,7 @@ ms.author: jdial
 # Troubleshoot Virtual Network gateway and Connections using Azure Network Watcher
 
 > [!div class="op_single_selector"]
-> - [Portal](network-watcher-troubleshoot-manage-portal.md)
+> - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
@@ -154,7 +154,7 @@ The following responses are examples of a typical degraded response returned whe
       "recommendedActions": [
         {
           "actionText": "If the condition persists, please try resetting your Azure VPN gateway",
-          "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
+          "actionUri": "https://azure.microsoft.com/documentation/articles/vpn-gateway-resetgw-classic/",
           "actionUriText": "resetting the VPN Gateway"
         },
         {
@@ -171,7 +171,7 @@ The following responses are examples of a typical degraded response returned whe
       "recommendedActions": [
         {
           "actionText": "If you are still experience problems with the VPN gateway, please try resetting the VPN gateway.",
-          "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
+          "actionUri": "https://azure.microsoft.com/documentation/articles/vpn-gateway-resetgw-classic/",
           "actionUriText": "resetting VPN gateway"
         },
         {
@@ -288,7 +288,7 @@ is a transient state while the Azure platform is being updated.",
       "recommendedActions": [
         {
           "actionText": "If the condition persists, please try resetting your Azure VPN gateway",
-          "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
+          "actionUri": "https://azure.microsoft.com/documentation/articles/vpn-gateway-resetgw-classic/",
           "actionUriText": "resetting the VPN gateway"
         },
         {
@@ -305,7 +305,7 @@ is a transient state while the Azure platform is being updated.",
       "recommendedActions": [
         {
           "actionText": "If you are still experience problems with the VPN gateway, please try resetting the VPN gateway.",
-          "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
+          "actionUri": "https://azure.microsoft.com/documentation/articles/vpn-gateway-resetgw-classic/",
           "actionUriText": "resetting VPN gateway"
         },
         {
@@ -327,4 +327,4 @@ For instructions on downloading files from azure storage accounts, refer to [Get
 
 ## Next steps
 
-If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that may be in question.
+If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that may be in question.

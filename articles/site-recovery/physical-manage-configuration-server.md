@@ -1,11 +1,11 @@
----
+﻿---
 title: ' Manage the configuration server for physical server disaster recovery with Azure Site Recovery | Microsoft Docs'
 description: This article describes how to manage an existing configuration server for physical server disaster recovery to Azure, with the Azure Site Recovery service.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: anoopkv
 ---
 
@@ -20,7 +20,7 @@ The table summarizes the prerequistes for deploying the on-premises configuratio
 | **Component** | **Requirement** |
 | --- |---|
 | CPU cores| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Number of disks | 3, including the OS disk, process server cache disk, and retention drive for failback |
 | Disk free space (process server cache) | 600 GB
 | Disk free space (retention disk) | 600 GB|
@@ -262,7 +262,7 @@ Upgrade the server as follows:
 1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
 2. Login into to your Azure account using the command
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Select the subscription under which the vault is present
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

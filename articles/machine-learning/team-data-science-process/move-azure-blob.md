@@ -3,18 +3,19 @@ title: Move Data to and from Azure Blob Storage | Microsoft Docs
 description: Move Data to and from Azure Blob Storage
 services: machine-learning,storage
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: d6681e30-ab45-45ea-a9fb-ac8acefe544d
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;sachouks
+ms.author: deguhath
 
 ---
 # Move data to and from Azure Blob Storage
@@ -38,7 +39,7 @@ As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/
 * receive the predictive analytics results, and 
 * upload the results to storage. 
 
-For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](../../data-factory/v1/data-factory-azure-ml-batch-execution-activity.md).
+For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## Prerequisites
 This document assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.

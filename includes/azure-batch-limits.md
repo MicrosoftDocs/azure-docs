@@ -3,7 +3,7 @@
 | Batch accounts per region per subscription | 1 - 3 |50 |
 | Dedicated cores per Batch account | 10 - 100 | N/A<sup>1</sup> |
 | Low-priority cores per Batch account | 10 - 100 | N/A<sup>2</sup> |
-| Active jobs and job schedules<sup>3</sup> per Batch account | 20 - 100 | 5000<sup>4</sup> |
+| Active jobs and job schedules<sup>3</sup> per Batch account | 100 - 300 | 5000<sup>4</sup> |
 | Pools per Batch account | 20 - 100 | 2500 |
 
 > [!NOTE]

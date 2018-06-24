@@ -3,18 +3,16 @@ title: How to perform an access review | Microsoft Docs
 description: Learn how to perform a review with the Azure Privileged Identity Management application.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: ''
 
-ms.assetid: 49ee2feb-7d2e-4acf-82c1-40ff23062862
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 06/06/2017
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
 ---
 # How to perform an access review in Azure AD Privileged Identity Management

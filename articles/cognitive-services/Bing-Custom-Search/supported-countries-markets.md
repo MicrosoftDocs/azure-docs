@@ -1,12 +1,11 @@
----
+﻿---
 title: Supported countries and languages for Bing Custom Search API on Azure | Microsoft Docs
 description: Find out which countries and languages are supported by the Bing Custom Search API.
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
-
 ms.service: cognitive-services
-ms.technology: bing-custom-search
+ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: v-gedod
@@ -15,11 +14,11 @@ ms.author: v-gedod
 
 The Bing Custom Search API supports more than three dozen countries, many with more than one language. 
 
+Although it's optional, the request should specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)
+
 You can specify a country using the `cc` query parameter. If you specify a country, you must also specify one or more language codes using the `Accept-Language` header. The supported languages vary by country; they are given for each country in the **Markets** table.
 
-Alternatively, you can specify the market by the `mkt` query parameter with a code from the **Markets** table. Use the country code `cc` and the `Accept-Language header` if you specify multiple languages. Otherwise, you should use the `mkt` and `setLang query` parameters.
-
-The `Accept-Language` header and the `setLang` query parameter are mutually exclusive—do not specify both. For details, see [Accept-Language](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
+The `Accept-Language` header and the `setLang` query parameter are mutually exclusive—do not specify both. For details, see [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
 ## Countries
 

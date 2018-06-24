@@ -19,7 +19,7 @@ ms.author: glenga
 
 ---
 # Use Azure Functions to connect to an Azure SQL Database
-This topic shows you how to use Azure Functions to create a scheduled job that cleans up rows in a table in an Azure SQL Database. The new C# function is created based on a pre-defined timer trigger template in the Azure portal. To support this scenario, you must also set a database connection string as an app setting in the function app. This scenario uses a bulk operation against the database. 
+This topic shows you how to use Azure Functions to create a scheduled job that cleans up rows in a table in an Azure SQL Database. The new C# script function is created based on a pre-defined timer trigger template in the Azure portal. To support this scenario, you must also set a database connection string as an app setting in the function app. This scenario uses a bulk operation against the database. 
 
 To have your function process individual create, read, update, and delete (CRUD) operations in a Mobile Apps table, you should instead use [Mobile Apps bindings](functions-bindings-mobile-apps.md).
 
@@ -37,7 +37,7 @@ You need to get the connection string for the database you created when you comp
  
 3. Select **SQL Databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
-4. Select **Show database connection strings** and copy the complete **ADO.NET** connection string.
+4. Select **Show database connection strings** and copy the complete **ADO.NET** connection string. 
 
     ![Copy the ADO.NET connection string.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -67,14 +67,16 @@ Now, you can add the C# function code that connects to your SQL Database.
 
 ## Update your function code
 
-1. In your function app, select the timer-triggered function.
+1. In your function app in the portal, select the timer-triggered function.
  
-3. Add the following assembly references at the top of the existing function code:
+3. Add the following assembly references at the top of the existing C# script function code:
 
 	```cs
     #r "System.Configuration"
     #r "System.Data"
 	```
+    >[!NOTE]
+    >The code in these examples are C# script from the portal. When you are developing a precompiled C# function locally, you must instead add references to these assembles in your local project.  
 
 3. Add the following `using` statements to the function:
 	```cs

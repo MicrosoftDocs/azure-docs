@@ -6,10 +6,10 @@ author: jovanpop-msft
 ms.reviewer: carlrab, bonova 
 ms.service: sql-database 
 ms.custom: managed instance
-ms.topic: article 
-ms.date: 03/09/2018 
+ms.topic: conceptual 
+ms.date: 06/22/2018 
 ms.author: jovanpop 
-manager: cguyer 
+manager: craigg 
 --- 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server 
 
@@ -25,11 +25,11 @@ This section summarizes key differences in T-SQL syntax and behavior between Man
 ### Always-On availability
 
 [High availability](sql-database-high-availability.md) is built into Managed Instance and cannot be controlled by users. The following statements are not supported:
- - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql.md)
- - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql.md)
- - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql.md)
- - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql.md)
- - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) clause of the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) statement
+ - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
+ - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
+ - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
+ - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
+ - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) clause of the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) statement
 
 ### Auditing 
  
@@ -202,6 +202,10 @@ Undocumented DBCC statements that are enabled in SQL Server are not supported in
 - `DBCC TRACEOFF` is not supported. See [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
 - `DBCC TRACEON` is not supported. See [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
 
+### Distributed transactions
+
+Neither MSDTC nor [Elastic Transactions](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) are currently supported in Managed Instance.
+
 ### Extended Events 
 
 Some Windows-specific targets for XEvents are not supported:
@@ -234,7 +238,7 @@ For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational
 ### Linked servers
  
 Linked servers in Managed Instance support limited number of targets: 
-- Supported targets: SQL Server, SQL Database, Managed Instance, and SQL Server on a virtual machine.
+- Supported targets: SQL Server and SQL Database
 - Not supported targets: files, Analysis Services, and other RDBMS.
 
 Operations
@@ -370,12 +374,10 @@ For information about creating and altering tables, see [CREATE TABLE](https://d
  
 The following variables, functions, and views return different results:  
 - `SERVERPROPERTY('EngineEdition')` returns value 8. This property uniquely identifies Managed Instance. See [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` returns the short instance name, for example, 'myserver'. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` returns NULL, because the concept of instance as it exists for SQL Server does not apply to Managed Instance. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` returns full DNS 'connectable' name, for example, my-managed-instance.wcus17662feb9ce98.database.windows.net. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` - returns full DNS 'connectable' name, such as `myinstance.domain.database.windows.net` for properties 'name' and 'data_source'. See [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVERNAME` returns full DNS 'connectable' name, such as `my-managed-instance.wcus17662feb9ce98.database.windows.net`. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
-- `SYS.SERVERS` - returns full DNS 'connectable' name, such as `myinstance.domain.database.windows.net` for properties 'name' and 'data_source'. See [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVICENAME` returns NULL, as it makes no sense in Managed Instance environment. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
+- `@@SERVICENAME` returns NULL, because the concept of service as it exists for SQL Server does not apply to Managed Instance. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` is supported. Returns NULL if AAD login is not in sys.syslogins. See [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` is not supported. Returns wrong data (temporary known issue). See [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 - `GETDATE()` and other built-in date/time functions always returns time in UTC time zone. See [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
@@ -388,7 +390,11 @@ The following variables, functions, and views return different results:
 
 ### Exceeding storage space with small database files
 
-Each Managed Instance has up to 35 TB reserved storage space, and every database file is initially placed on 128 GB storage allocation unit. Databases with many small files might be placed on 128 GB units that in total exceed 35 TB limit. In this case, new databases cannot be created or restored, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case might not be clear.
+Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation. 
+
+For example, a Managed Instance could have one file with 1.2 TB size that uses a 4 TB disk, and 248 files with 1 GB each that are placed on 248 disks with 128 GB size. In this example, the total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB. However, total reserved instance size for databases is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB. This illustrates that under certain circumstance, due to a very specific distribution of files, a Managed Instance might reach Azure Premium Disk storage limit where you might not expect it to. 
+
+There would be no error on existing databases and they can grow without any problem if new files are not added, but the new databases cannot be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
 
 ### Incorrect configuration of SAS key during database restore
 
@@ -410,4 +416,4 @@ There can be only one database mail profile and it must be called `AzureManagedI
 
 - For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a tutorial, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
+- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).

@@ -4,10 +4,9 @@ description: Shows how to page through all of the videos that Bing can return.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 910A485F-BCF3-42B9-958D-DD48BDEDA965
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi

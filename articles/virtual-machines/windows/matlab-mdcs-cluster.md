@@ -4,7 +4,7 @@ description: Use Microsoft Azure virtual machines to create MATLAB Distributed C
 services: virtual-machines-windows
 documentationcenter: ''
 author: mscurrell
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72

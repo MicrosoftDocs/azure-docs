@@ -4,7 +4,7 @@ description: Learn how to create a copy of your Azure Linux VM using Azure CLI 2
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 
 ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164

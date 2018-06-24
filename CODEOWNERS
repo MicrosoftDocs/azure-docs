@@ -5,8 +5,3 @@
 # articles/virtual-machines/windows/  @iainfoulds @cynthn
 # articles/application-insights/  @SergeyKanzhelev
 # articles/cosmos-db/ @mimig1
-
-articles/service-fabric/TOC.yml @tysonn
-articles/service-fabric/toc.yml @tysonn
-articles/service-fabric/TOC.md @tysonn
-articles/service-fabric/toc.md @tysonn

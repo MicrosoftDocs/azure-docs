@@ -3,9 +3,9 @@ title: 'Incrementally copy a table by using Azure Data Factory | Microsoft Docs'
 description: 'In this tutorial, you create an Azure data factory pipeline that copies data incrementally from an Azure SQL database to Azure Blob storage.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: jhubbard
-editor: spelluru
+author: dearandyxu
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
-ms.author: shlo
+ms.author: yexu
 ---
 # Incrementally load data from an Azure SQL database to Azure Blob storage
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to Azure Blob storage. 
@@ -295,7 +295,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 29. In the **Activities** toolbox, expand **General**, and drag-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. **Connect** the green (Success) output of the **Copy** activity to the **Stored Procedure** activity. 
     
     ![Copy activity - source](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
-24. Select **Storage Procedure Activity** in the pipeline designer, change its name to **StoredProceduretoWriteWatermarkActivity**. 
+24. Select **Stored Procedure Activity** in the pipeline designer, change its name to **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Stored Procedure Activity - name](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
 25. Switch to the **SQL Account** tab, and select *AzureSqlDatabaseLinkedService** for **Linked service**. 

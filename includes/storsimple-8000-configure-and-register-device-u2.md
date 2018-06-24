@@ -16,7 +16,7 @@
 
 6. Type the following command: `Invoke-HcsSetupWizard`.
 
-7. A setup wizard will appear to help you configure the network settings for the device. Supply the the following information:
+7. A setup wizard will appear to help you configure the network settings for the device. Supply the following information:
    
    * IP address for the DATA 0 network interface
    * Subnet mask

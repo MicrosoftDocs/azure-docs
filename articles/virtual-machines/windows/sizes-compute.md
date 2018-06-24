@@ -4,7 +4,7 @@ description: Lists the different compute optimized sizes available for Windows v
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -32,6 +32,7 @@ ms.author: jonbeck
 - [Storage optimized](../virtual-machines-windows-sizes-storage.md)
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

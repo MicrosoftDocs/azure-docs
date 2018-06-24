@@ -4,7 +4,7 @@ description: Build B2B workflows and support enterprise integration scenarios fo
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae

@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
@@ -55,6 +55,13 @@ When an application upgrade is rolled back, default service parameters are rever
 > [!TIP]
 > The [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) cluster config setting must be *true* to enable rules 2) and 3) above (default service update and deletion). This feature is supported starting in Service Fabric version 5.5.
 
+## Upgrading multiple applications with HTTPS endpoints
+You need to be careful not to use the **same port** for different instances of the same application when using HTTP**S**. The reason is that Service Fabric won't be able to upgrade the cert for one of the application instances. For example, if application 1 or application 2 both want to upgrade their cert 1 to cert 2. When the upgrade happens, Service Fabric might have cleaned up the cert 1 registration with http.sys even though the other application is still using it. To prevent this, Service Fabric detects that there is already another application instance registered on the port with the certificate (due to http.sys) and fails the operation.
+
+Hence Service Fabric does not support upgrading two different services using **the same port** in different application instances. In other words, you cannot use the same certificate on different services on the same port. If you need to have a shared certificate on the same port, you need to ensure that the services are placed on different machines with placement constraints. Or consider using Service Fabric dynamic ports if possible for each service in each application instance. 
+
+If you see an upgrade fail with https, an error warning saying "The Windows HTTP Server API does not support multiple certificates for applications that share a port.”
+
 ## Application upgrade flowchart
 The flowchart following this paragraph can help you understand the upgrade process of a Service Fabric application. In particular, the flow describes how the time-outs, including *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, and *UpgradeHealthCheckInterval*, help control when the upgrade in one update domain is considered a success or a failure.
 
@@ -63,7 +70,7 @@ The flowchart following this paragraph can help you understand the upgrade proce
 ## Next steps
 [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+[Upgrading your Application Using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
 Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
 
