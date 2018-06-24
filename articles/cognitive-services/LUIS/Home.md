@@ -106,7 +106,7 @@ You can build your LUIS app from the [www.luis.ai](http://www.luis.ai) website o
 ## What technologies work with LUIS?
 Several Microsoft technologies work with LUIS:
 
-* [Bing Spell Check API](../spell-check) provides text correction before prediction. 
+* [Bing Spell Check API](../bing-spell-check/) provides text correction before prediction. 
 * [Bot Framework][bot-framework] allows a chatbot to talk with a user via text input. Select [3.x](https://github.com/Microsoft/BotBuilder) or [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK for a complete bot experience.
 * [QnA Maker][qnamaker] allows several types of text to combine into a question and answer knowledge base.
 * [Speech][../Speech/home.md] converts spoken language requests into text. Once converted to text, LUIS processes the requests. See [Speech SDK](https://aka.ms/csspeech) for more information.
