@@ -14424,7 +14424,7 @@
         {
             "source_path": "articles/virtual-machines/linux/classic/manage-visual-studio.md",
             "redirect_url": "/azure/virtual-machines/windows/csharp",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-mariadb-mysql-cluster.md",
@@ -14504,7 +14504,7 @@
         {
             "source_path": "articles/virtual-machines/linux/classic/web-app-visual-studio.md",
             "redirect_url": "/azure/app-service/",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md",
@@ -16218,6 +16218,11 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-planned-maintenance-schedule.md",
+            "redirect_url": "/azure/virtual-machines/windows/planned-maintenance-schedule",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/planned-maintenance-schedule.md",
             "redirect_url": "/azure/virtual-machines/windows/planned-maintenance-schedule",
             "redirect_document_id": false
         },
@@ -18419,7 +18424,7 @@
         {
             "source_path": "articles/storage/storage-nodejs-use-table-storage-cloud-service-app.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-nodejs",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-geo-replication-transact-sql.md",
@@ -18449,7 +18454,7 @@
         {
             "source_path": "articles/storage/storage-php-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-php",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/storage/storage-powershell-guide-full.md",
