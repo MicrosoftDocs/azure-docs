@@ -9728,13 +9728,13 @@
         },
         {
             "source_path": "articles/search/search-api-2015-02-28-preview.md",
-            "redirect_url": "azure/search/search-api-2016-09-01-preview",
+            "redirect_url": "azure/search/search-api-preview",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/search/search-api-2016-09-01-preview.md",
-            "redirect_url": "/azure/search/search-api-2017-11-11-preview",
-            "redirect_document_id": true
+            "redirect_url": "/azure/search/search-api-preview",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/search/search-api-2017-11-11-preview.md",
