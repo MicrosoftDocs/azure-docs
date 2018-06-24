@@ -58,7 +58,7 @@ Use the following steps to hide all Office 365 applications from the access pane
 ![Enterprise apps](./media/hide-application-from-user-portal/apps4.png)
 
 ## Next steps
-* [See all my groups](../active-directory-groups-view-azure-portal.md)
+* [See all my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
 * [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
 * [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)

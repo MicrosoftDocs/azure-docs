@@ -141,6 +141,12 @@ For Azure File Sync and DFS-R to work side-by-side:
 
 For more information, see [DFS Replication overview](https://technet.microsoft.com/library/jj127250).
 
+### Sysprep
+Using sysprep on a server which has the Azure File Sync agent installed is not supported and can lead to unexpected results. Agent installation and server registration should occur after deploying the server image and completing sysprep mini-setup.
+
+### Windows Search
+If cloud tiering is enabled on a server endpoint, files that are tired are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
+
 ### Antivirus solutions
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. Because tiered files have the "offline" attribute set, we recommend consulting with your software vendor to learn how to configure their solution to skip reading offline files. 
 
@@ -154,6 +160,11 @@ The following solutions are known to support skipping offline files:
 
 ### Backup solutions
 Like antivirus solutions, backup solutions might cause the recall of tiered files. We recommend using a cloud backup solution to back up the Azure file share instead of an on-premises backup product.
+
+If you are using an on-premises backup solution, backups should be performed on a server in the sync group which has cloud tiering disabled. When restoring files within the server endpoint location, use the file level restore option. Files restored will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.
+
+> [!Note]  
+> Application-aware, volume-level and bare-metal (BMR) restore options can cause unexpected results and are not currently supported. These restore options will be supported in a future release.
 
 ### Encryption solutions
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:
@@ -186,6 +197,7 @@ Azure File Sync is available only in the following regions in preview:
 | North Europe | Ireland |
 | Southeast Asia | Singapore |
 | UK South | London |
+| UK West | Cardiff |
 | West Europe | Netherlands |
 | West US | California |
 

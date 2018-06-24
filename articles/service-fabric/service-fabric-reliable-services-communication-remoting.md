@@ -1,6 +1,6 @@
 ---
-title: Service remoting in Service Fabric | Microsoft Docs
-description: Service Fabric remoting allows clients and services to communicate with services by using a remote procedure call.
+title: Service remoting using C# in Service Fabric | Microsoft Docs
+description: Service Fabric remoting allows clients and services to communicate with C# services by using a remote procedure call.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -17,8 +17,14 @@ ms.date: 09/20/2017
 ms.author: vturecek
 
 ---
-# Service Remoting with Reliable Services
-For services that are not tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure call for services.
+# Service Remoting in C# with Reliable Services
+> [!div class="op_single_selector"]
+> * [C# on Windows](service-fabric-reliable-services-communication-remoting.md)
+> * [Java on Linux](service-fabric-reliable-services-communication-remoting-java.md)
+>
+>
+
+For services that arn't tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure calls for services. This article discusses how to set up remote procedure calls for services written with C#.
 
 ## Set up Remoting on a Service
 Setting up remoting for a service is done in two simple steps:
@@ -79,7 +85,7 @@ string message = await helloWorldClient.HelloWorldAsync();
 The remoting framework propagates exceptions thrown by the service to the client. As a result, when using `ServiceProxy`, the client is responsible for handling the exceptions thrown by the service.
 
 ## Service Proxy Lifetime
-ServiceProxy creation is a lightweight operation, so users can create as many as they need. Service Proxy instances can be reused as long as users need it. If a remote procedure call throws an Exception, users can still reuse the same proxy instance. Each ServiceProxy contains a communication client used to send messages over the wire. While invoking remote calls, we internally check to see if the communication client is valid. Based on that result, we re-create the communication client if needed. Hence if an exception occurs, users do not need to recreate `ServiceProxy` because it is done so transparently.
+ServiceProxy creation is a lightweight operation, so you can create as many as you need. Service Proxy instances can be reused as long as they are needed. If a remote procedure call throws an Exception, you can still reuse the same proxy instance. Each ServiceProxy contains a communication client used to send messages over the wire. While invoking remote calls, internal checks are performed to determine if the communication client is valid. Based on the results of those checks, the communication client is recreated if needed. Therefore, if an exception occurs, you do not need to recreate `ServiceProxy`.
 
 ### ServiceProxyFactory Lifetime
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy instances for different remoting interfaces. If you use the api `ServiceProxy.Create` for creating proxy, then the framework creates a singleton ServiceProxy.
@@ -94,7 +100,7 @@ ServiceProxy handles all failover exceptions for the service partition it is cre
 If transient exceptions occur, the proxy retries the call.
 
 Default retry parameters are provied by [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
-User can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
+You can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
 ## How to use Remoting V2 stack
 With 2.8 NuGet Remoting package, you have the option to use Remoting V2 stack. Remoting V2 stack is more performant and provides features like custom serializable and more pluggable Api's.
 By default, if you don't do following changes, it continues to use Remoting V1 Stack.

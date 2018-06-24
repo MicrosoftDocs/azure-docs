@@ -26,11 +26,15 @@ East Asia| `https://eastasia.stt.speech.microsoft.com/speech/recognition/convers
 North Europe| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
-> If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
+> You must append the required language in the URI to avoid an http 401 error. So for en-US the correct URI would be:
+> https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 
 The Speech to Text API is otherwise similar to the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) for the previous Speech API.
 
 The Speech to Text REST API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API only returns final results, not partial or interim results.
+
+> [!NOTE]
+> If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
 
 ## Text to Speech
 
@@ -138,7 +142,7 @@ The C# class below illustrates how to obtain an access token. Pass your Speech s
     public class Authentication
     {
         public static readonly string FetchTokenUri =
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
 
@@ -159,7 +163,6 @@ The C# class below illustrates how to obtain an access token. Pass your Speech s
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -205,7 +208,7 @@ As before, make sure the `FetchTokenUri` value matches your subscription region.
     public class Authentication
     {
         public static readonly string FetchTokenUri = 
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
         private Timer accessTokenRenewer;
@@ -265,7 +268,6 @@ As before, make sure the `FetchTokenUri` value matches your subscription region.
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -274,3 +276,8 @@ As before, make sure the `FetchTokenUri` value matches your subscription region.
         }
     }
 ```
+
+## Next steps
+
+* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [See how to customize a speech model](how-to-customize-speech-models.md)
