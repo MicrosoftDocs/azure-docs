@@ -52,7 +52,7 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Get device](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | Yes | Yes |
 | Delete module | Yes | Yes |
 | Get module | Yes | Yes |
-| [Get registry statistics](hhttps://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Yes | Yes |
+| [Get registry statistics](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Yes | Yes |
 | [Get services statistics](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Yes | Yes |
 | [Put device](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Yes | Yes |
 | Put module | Yes | Yes |
