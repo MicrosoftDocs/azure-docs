@@ -161,13 +161,13 @@ You need to configure a virtual network before you can join an Azure-SSIS IR to 
 
 5. On the **Virtual network (classic)** page, select **Properties**. 
 
-![Classic virtual network resource ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
+   ![Classic virtual network resource ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 
 6. Select the copy button for **RESOURCE ID** to copy the resource ID for the classic network to the clipboard. Save the ID from the clipboard in OneNote or a file. 
 
 7. Select **Subnets** on the left menu. Ensure that the number of **available addresses** is greater than the nodes in your Azure-SSIS integration runtime. 
 
-![Number of available addresses in the virtual network](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
+   ![Number of available addresses in the virtual network](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
 
 8. Join **MicrosoftAzureBatch** to the **Classic Virtual Machine Contributor** role for the virtual network. 
 
