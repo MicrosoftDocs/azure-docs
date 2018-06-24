@@ -7318,7 +7318,7 @@
         },
         {
             "source_path": "articles/guidance/guidance-elasticsearch-configuring-resilience-and-recovery.md",
-            "redirect_url": "/architecture-center/resiliency/failure-mode-analysis#elasticsearch",
+            "redirect_url": "https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis#elasticsearch",
             "redirect_document_id": false
         },
         {
@@ -7533,17 +7533,17 @@
         },
         {
             "source_path": "articles/guidance/guidance-web-apps-basic.md",
-            "redirect_url": "/architecture-center/reference-architectures/app-service-web-app/basic-web-app",
+            "redirect_url": "https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/guidance/guidance-web-apps-multi-region.md",
-            "redirect_url": "/architecture-center/reference-architectures/app-service-web-app/multi-region",
+            "redirect_url": "https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/guidance/guidance-web-apps-scalability.md",
-            "redirect_url": "/architecture-center/reference-architectures/app-service-web-app/scalable-web-app",
+            "redirect_url": "https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
             "redirect_document_id": false
         },
         {
@@ -9728,7 +9728,7 @@
         },
         {
             "source_path": "articles/search/search-api-2015-02-28-preview.md",
-            "redirect_url": "articles/search/search-api-2016-09-01-preview",
+            "redirect_url": "azure/search/search-api-2016-09-01-preview",
             "redirect_document_id": false
         },
         {
@@ -13908,12 +13908,12 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-java-authenticate-users-access-control-eclipse.md",
-            "redirect_url": "/azure/active-directory/develop/active-directory-java-authenticate-users-access-control-eclipse",
+            "redirect_url": "/azure/active-directory/develop/active-directory-authentication-libraries",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-java-view-saml-returned-by-access-control.md",
-            "redirect_url": "/azure/active-directory/develop/active-directory-java-view-saml-returned-by-access-control",
+            "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
             "redirect_document_id": false
         },
         {
@@ -14798,7 +14798,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-extensions-oms.md",
-            "redirect_url": "/articles/virtual-machines/linux/extensions-oms",
+            "redirect_url": "/azure/virtual-machines/linux/extensions-oms",
             "redirect_document_id": false
         },
         {
@@ -19473,7 +19473,7 @@
         },
         {
             "source_path": "articles/machine-learning/services.md",
-            "redirect_url": "/azure/machine-learning/index.yml",
+            "redirect_url": "/azure/machine-learning/index",
             "redirect_document_id": false
         },
         {
