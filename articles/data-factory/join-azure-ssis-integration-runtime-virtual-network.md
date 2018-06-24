@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 06/24/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -41,12 +41,14 @@ Here are a few important points to note:
 - If there is an existing Azure Resource Manager virtual network connected to your on-premises network in a different location from your Azure-SSIS IR, you can first create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md##create-a-virtual-network) for your Azure-SSIS IR to join. Then, configure an Azure Resource Manager-to-Azure Resource Manager virtual network connection. Or, you can create a [classic virtual network](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for your Azure-SSIS IR to join. Then, configure a [classic-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) connection. 
 
 ## Host the SSIS Catalog database in Azure SQL Database with virtual network service endpoints/Managed Instance (Preview)
-If the SSIS catalog is hosted in Azure SQL Database with virtual network service endpoints/Managed Instance (Preview), you can join your Azure-SSIS IR to: 
+If the SSIS catalog is hosted in Azure SQL Database with virtual network service endpoints, or Managed Instance (Preview), you can join your Azure-SSIS IR to: 
 
 - The same virtual network 
 - A different virtual network that has a network-to-network connection with the one that is used for Azure SQL Database with virtual network service endpoints/Managed Instance (Preview) 
 
-The virtual network can be deployed through the classic deployment model or the Azure Resource Manager deployment model. If you are planning to join your Azure-SSIS IR to the *same virtual network* that is already joined by Managed Instance (Preview), ensure that your Azure-SSIS IR is in a *different subnet* from the one used for Managed Instance (Preview). 
+If you join your Azure-SSIS IR to the same virtual network as the Managed Instance, make sure that the Azure-SSIS IR is in a different subnet than the  Managed Instance. If you join the Azure-SSIS IR to a different virtual network than the Managed Instance, we recommend either virtual network peering (which is limited to the same region) or a virtual network to virtual network connection. See [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+
+The virtual network can be deployed through the classic deployment model or the Azure Resource Manager deployment model.
 
 The following sections provide more details. 
 
