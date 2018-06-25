@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
 ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
@@ -48,7 +48,7 @@ You need:
 9. Use the slider to set retention on your log data. By default, this value is "0" and logs will be retained in the storage account indefinitely. Else, you can set a value and events older than the number of days selected will be automatically cleaned up.
 10. Click **Save** to save the setting.
 
-![Diagnostic settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/DiagnosticSettings.png "Diagnostic settings")
+![Diagnostics settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/DiagnosticSettings.png "Diagnostics settings")
 
 11. After about 15 minutues, verify that the logs are pushed into your storage account. Go to the Azure portal, click **Storage accounts**, choose the storage account you used earlier and click **Blobs**. 
 12. For **Audit logs**, click **insights-log-audit**. For **Sign-in logs**, click **insights-logs-signin**.
