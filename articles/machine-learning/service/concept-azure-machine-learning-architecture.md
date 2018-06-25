@@ -11,40 +11,56 @@ ms.date: 06/18/2018
 
 ---
 
-# Azure Machine Learning Services architecture and key concepts 
+# Azure Machine Learning Services architecture and key terms 
 
-The base logical container for Azure Machine Learning Services is the __workspace__. The workspace contains artifacts created through Azure Machine learning. The workspace also contains information about Azure resources that are used by Azure Machine Learning.
+The Azure Machine Learning workspace is an Azure resource, and the logical container for all artifacts created through Azure Machine learning. The workspace also contains information about Azure resources that are used by Azure Machine Learning.
 
-The following are artifacts contained or defined in a workspace:
+The following are artifacts contained in a workspace:
 
-* Run history
+* Run histories
 * Models
 * Docker images
 * Deployments
-* Datastore
+* Datastores
+
+Other resources, such as Azure Virtual Machines and projects on your development environment, are also attached to the workspace.
+
+The workspace is also the security boundary of these artifacts. Users can have the following roles for a workspace:
+
+* Owner
+* Contributor
+* Reader
 
 You can create multiple workspaces, and each workspace can be shared by multiple people.
 
-![Diagram showing a resource group, workspace, and artifacts](./media/concept-azure-machine-learning-architecture.md/workspace-architecture.png)
+The following is a taxonomy of the workspace:
 
-The workspace also stores information about associated resources, such as compute resources that are used to train models or host web services.
+![Workspace taxonomy](./media/concept-azure-machine-learning-architecture.md/taxonomy.png)
 
-## Access control
+## Architecture and workflow
 
-You can control access to a workspace using the [role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) provided by the Azure platform. 
+The following is a diagram of the major components of Azure Machine learning, and illustrates the general workflow from development to production: 
 
-## Run History
+![Azure Machine Learning architecture and workflow](./media/concept-azure-machine-learning-architecture.md/workflow.png)
 
-A __run__ is an execution record stored in Azure ML run history service. It contains the following information:
+The workflow for developing and deploying a model with Azure Machine Learning follows these steps:
 
-* Metadata about the run (timestamp, duration etc.)
-* Metrics logged by your script
-* Output files collected by the run history service
-* A snapshot of the project when the run is produced
+1. Create an Azure Machine Learning Workspace.
+2. Develop machine learning training scripts in Python code or Jupyter notebooks.
+3. Configure a local or cloud environment for execution.
+4. Submit the scripts to execute in that environment.
+5. Examine the run history and iterate.
+6. Query the run history to find the best model.
+6. Register the model under the model registry of the workspace.
+7. Deploy the model and the scoring scripts as a web service in Azure.
 
-A run can have zero or more child runs.
+## Project
 
-A __run history__ is a logical grouping of many runs. It always belongs to a workspace. You can submit a run using an arbitrary run history name, and the submitted run is then listed under that run history.
+A project is a local folder on your computer that contains the files for your solution. To use a local folder with Azure Machine Learning Services, you must attach it to a workspace. For an example of how to do this, see one of the following documents:
+
+* [TBD]
+
+When you submit a project for execution, the folder is copied into the compute target. The entry script is executed in a Python environment configured through a __run configuration__.
 
 ## Model
 
@@ -70,6 +86,27 @@ A datastore is a storage abstraction over an Azure Storage Account. The datastor
 
 You can use the Python SDK API to store and retrieve files from the datastore as part of your Python scripts. For more information, see [TBD]().
 
+## Run
+
+A __run__ is an execution record stored in Azure ML run history service. It contains the following information:
+
+* Metadata about the run (timestamp, duration etc.)
+* Metrics logged by your script
+* Output files collected by the run history service
+* A snapshot of the project when the run is produced
+
+A run can have zero or more child runs.
+
+## Run history
+
+A __run history__ is a logical grouping of many runs. It always belongs to a workspace. You can submit a run using an arbitrary run history name, and the submitted run is then listed under that run history.
+
+## Run configuration
+
+A run configuration is a set of instructions that defines how a script should be executed in a given compute target. It includes a wide set of behavior definitions, such as whether to use an existing Python environment or use a Conda environment built from specification.
+
+A run configuration can be persisted into a file inside your project, or can be constructed as an in-memory object and used to submit a run.
+
 ## Compute target
 
 A compute target is the service or environment used to execute your training script or host your web service deployment. The supported compute targets are:
@@ -83,36 +120,7 @@ A compute target is the service or environment used to execute your training scr
 
 Compute targets are attached to a workspace. Computer targets other than the local machine are shared by users of the workspace.
 
-## Development workflow
-
-The main workflow of developing a solution with Azure Machine Learning service generally follows this pattern:
-
-1. Create an Azure Machine Learning Workspace.
-2. Create a project and develop your machine learning solution in Python scripts or Jupyter notebooks.
-3. Configure a local or cloud environment for training.
-4. Submit the scripts to the training environment.
-5. Examine the run history and iterate.
-6. Query the run history to find the best model.
-7. Register the model under the model registry of the workspace.
-8. Deploy the model and the scoring scripts as a web service in Azure.
-
-The following diagram shows the steps in the workflow, along with associated artifacts in the workspace:
-
-![workflow](./media/concept-azure-machine-learning-architecture.md/amlworkflow.png)
-
-### Project
-
-A project is a local folder on your computer that contains files related to your solution. It is attached to a run history under a Workspace through the `project.json` configuration file in the `aml_config` folder of the project. 
-
-When you submit a project for execution, the folder is copied into the compute target. The entry script is executed in a Python environment configured through a __run configuration__.
-
-### Run configuration
-
-A run configuration is a set of instructions that defines how a script should be executed in a given compute target. It includes a wide set of behavior definitions, such as whether to use an existing Python environment or use a Conda environment built from specification.
-
-A run configuration can be persisted into a file inside your project, or can be constructed as an in-memory object and used to submit a run.
-
-### Metrics
+## Metrics
 
 When developing your solution, you can use the Azure ML Python SDK in your Python script to log metrics information. You can provide name-value pairs, where the name is a string and the value is one of the following items:
 
@@ -121,8 +129,15 @@ When developing your solution, you can use the Azure ML Python SDK in your Pytho
 * Array of strings or numbers
 * `matplotlib` figure object representing a plotted image.
 
-### Snapshots
+## Snapshots
 
 When submitting a project run, Azure ML compresses the project folder as a zip file and sends it to the compute target. The project is then expanded and executed there. Azure ML also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
 
+## Task
 
+A task represents a long running operation. The following operations are examples of tasks:
+
+* Creating or deleting a compute target
+* Executing a script on a compute target
+
+Tasks can provide notifications through the SDK or Web UI so you can easily monitor the progress of these operations. 
