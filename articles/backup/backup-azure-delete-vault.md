@@ -134,7 +134,7 @@ Use the **Backup Infrastructure** menu (see image) for:
 
 6. When there are no more items in the vault toolbar, click **Delete**.
 
-    ![delete backup data](./media/backup-azure-delete-vault/delete-vault.png)
+    ![delete backup data](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
 7. To verify that you want to delete the vault, click **Yes**.
 
