@@ -202,22 +202,22 @@ Return to the browser DataBricks browser tab and execute the following steps:
 4. Click **Create**
 5. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor)
 
-```python
-from pyspark.sql import SQLContext
-import tarfile
-import os
-
-sqlContext = SQLContext(sc)
-
-blobName = dbutils.widgets.get("blob_name")
-print("Transforming " + blobName)
-
-if(blobName == ""):
-  raise ValueError('No blob name provided')
-
-df = sqlContext.read.format('com.databricks.spark.csv').options(header='true', inferschema='true').load('/mnt/temp/' + blobName) 
-df.write.mode("append").parquet("/mnt/temp/parquet/flights")
-```
+    ```python
+    from pyspark.sql import SQLContext
+    import tarfile
+    import os
+    
+    sqlContext = SQLContext(sc)
+    
+    blobName = dbutils.widgets.get("blob_name")
+    print("Transforming " + blobName)
+    
+    if(blobName == ""):
+      raise ValueError('No blob name provided')
+    
+    df = sqlContext.read.format('com.databricks.spark.csv').options(header='true', inferschema='true').load('/mnt/temp/' + blobName) 
+    df.write.mode("append").parquet("/mnt/temp/parquet/flights")
+    ```
 
 5. Select **Jobs** on the left nav pane
 6. Click **Create Job**
@@ -236,21 +236,15 @@ df.write.mode("append").parquet("/mnt/temp/parquet/flights")
 
 ### Copy source data into the storage account
 
-The next task is to use AzCopy to copy data from the *.csv* file into Azure storage. Return to the Azure portal and execute the following steps:
-
-1. Open the **Cloud Shell** by clicking on the Cloud Shell icon (![Cloud shell icon](./media/using-databricks-spark/cloud-shell-icon.png))
-2. Select **Bash (Linux)** from the left drop-down (if not already selected)
+The next task is to use AzCopy to copy data from the *.csv* file into Azure storage. Open a command prompt window and enter the following commands:
 
 > [!IMPORTANT]
-> Make sure you replace the placeholders **<YOUR_LOCAL_DOWNLOAD_FILE_PATH>**, **<YOUR_ACCOUNT_NAME>** and **<YOUR_ACCOUNT_KEY>** with the corresponding values you set aside in a previous step.
+> Make sure you replace the placeholders **<DOWNLOAD_FILE_PATH>**, **<ACCOUNT_NAME>** and **<ACCOUNT_KEY>** with the corresponding values you set aside in a previous step.
 
 ```bash
-azcopy --source "<YOUR_LOCAL_DOWNLOAD_FILE_PATH>" \
-  --destination https://<YOUR_ACCOUNT_NAME>.blob.core.windows.net/dbricks \
-  --dest-key "<YOUR_ACCOUNT_KEY>" \
-  --include "folder1/On_Time" \
-  --sync-copy \
-  --recursive
+set ACCOUNT_NAME=<ACCOUNT_NAME>
+set ACCOUNT_KEY=<ACCOUNT_KEY>
+azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
 ## Explore data using Hadoop Distributed File System
 
@@ -267,7 +261,7 @@ To get a list of CSV files uploaded via AzCopy, run the following script:
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-source = "abfs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.dfs.core.windows.net/"
+source = "abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/"
 dbutils.fs.ls(source + "/temp")
 display(dbutils.fs.ls(source + "/temp/"))
 ```
@@ -275,7 +269,7 @@ display(dbutils.fs.ls(source + "/temp/"))
 To create a new file and list files in the *parquet/flights* folder, run this script:
 
 ```python
-source = "abfs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.dfs.core.windows.net/"
+source = "abfs:/<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/"
 
 dbutils.fs.help()
 

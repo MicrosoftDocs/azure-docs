@@ -31,6 +31,11 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 - [Create a Azure Data Lake Storage Gen2 Account](quickstart-create-account.md)
 
+## Set aside storage account configuration
+During this tutorial you need to have access to your storage account name and access key. In the Azure portal, select **All Services** and filter on *storage*. Select **Storage accounts** and locate the account you created for this tutorial.
+
+From the **Overview** copy the name of the storage account in to a text editor. Next, select **Access keys** and copy the value for **key1** into your text editor. Both these vaules are needed for commands coming later.
+
 ## Create an Azure Databricks workspace
 
 In this section, you create an Azure Databricks workspace using the Azure portal.
@@ -113,14 +118,14 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
 3. In this step, associate the Azure Storage account with the Databricks Spark cluster. To accomplish this, you directly access the storage account using the following code:
 
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.dfs.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+          spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_ACCESS_KEY>")
 
      For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../common/storage-create-storage-account.md#manage-your-storage-account).
 
 4. Run a SQL statement to create a temporary table using data from the sample JSON data file, **small_radio_json.json**. In the following snippet, replace the placeholder values with your container name and storage account name. Paste the snippet in a code cell in the notebook, and then press SHIFT + ENTER. In the snippet, `path` denotes the location of the sample JSON file that you uploaded to your Azure Storage account.
 
     ```sql
-    %sql 
+    %sql
     DROP TABLE IF EXISTS radio_sample_data;
     CREATE TABLE radio_sample_data
     USING json
