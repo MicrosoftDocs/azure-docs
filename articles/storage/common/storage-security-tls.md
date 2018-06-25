@@ -23,7 +23,7 @@ When you need to audit your services in using Azure Storage based on latest comp
 
 SSL 1.0, 2.0 and 3.0 have been found to be vulnerable. They have been prohibited by RFC. TLS 1.0 becomes insecure for using insecure Block cipher (DES CBC and RC2 CBC) and Stream cipher (RC4). PCI council also suggested the migration to higher TLS versions.
 
-Azure Storage has stopped SSL 3.0 since 2015 and uses TLS 1.2 on public HTTPs endpoints but TLS 1.0 and TLS 1.1 are still supported for backward combability.
+Azure Storage has stopped SSL 3.0 since 2015 and uses TLS 1.2 on public HTTPs endpoints but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
 
 In order to ensure secure and compliant connection to Azure Storage, you need to enable TLS 1.2 in client side before sending requests to operate Azure Storage service.
 
