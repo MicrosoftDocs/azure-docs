@@ -97,7 +97,7 @@ Template:
         {
             "apiVersion": "2018-01-01-preview",
             "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.EventHubs/Namespaces/IPFilterRules",
+            "type": "Microsoft.EventHub/Namespaces/IPFilterRules",
             "properties": {
 				"FilterName":"[parameters('ipFilterRuleName')]",
 				"Action":"[parameters('ipFilterAction')]",				
