@@ -37,7 +37,7 @@ Managed connectors are organized into these groups:
 
   |   |   |
   |---|---|
-  | [**Managed API connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Office, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. | 
+  | [**Managed API connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. | 
   | [**On-premises connectors**](#on-premises-connectors) | After you install and set up the [on-premises data gateway][gateway-doc], these connectors help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others. | 
   | [**Integration account connectors**](#integration-account-connectors) | Available when you pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. <p><p>If you work with BizTalk Server, you can use these connectors for expanding your BizTalk workflows into Azure. BizTalk Server also provides a [Logic Apps adapter](https://msdn.microsoft.com/library/mt787163.aspx) for receiving messages and sending messages to logic apps. | 
   | [**Enterprise connectors**](#enterprise-connectors) | Provide access to SAP and IBM MQ for an additional cost. |
@@ -94,7 +94,7 @@ Here are built-in actions for working with data outputs and their formats:
 
 ## Managed API connectors
 
-Here are the most popular connectors for automating tasks, 
+Here are the more popular connectors for automating tasks, 
 processes, and workflows with these services or systems:
 
 |   |   |   |   | 
@@ -104,7 +104,7 @@ processes, and workflows with these services or systems:
 | [![API icon][ftp-icon]<br/>**FTP**][ftp-doc] | Connect to FTP servers you can access from the internet so you can work with your files and folders. | [![API icon][sftp-icon]<br/>**SFTP**][sftp-doc] | Connect to SFTP servers you can access from the internet so you can work with your files and folders. | 
 | [![API icon][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | Connect to your Office 365 email account so you can create and manage emails, tasks, calendar events and meetings, contacts, requests, and more. | [![API icon][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Connect to your Salesforce account so you can create and manage items such as records, jobs, objects, and more. | 
 | [![API icon][sql-server-icon]<br/>**SQL Server**][sql-server-doc] | Connect to your SQL Server on premises or an Azure SQL Database in the cloud so you can manage records, run stored procedures, or perform queries. | [![API icon][sharepoint-online-icon]<br/>**SharePoint<br/>Online**][sharepoint-online-doc] | Connect to SharePoint Online so you can manage files, attachments, folders, and more. | 
-| [![API icon][twitter-icon]<br/>**Twitter**][twitter-doc] | Connect to your Twitter account so you can manage tweets, followers, your timeline, and more. Save your tweets to SQL, Excel, or SharePoint. | 
+| [![API icon][twitter-icon]<br/>**Twitter**][twitter-doc] | Connect to your Twitter account so you can manage tweets, followers, your timeline, and more. Save your tweets to SQL, Excel, or SharePoint. | [![API icon][azure-event-grid-icon]<br/>**Azure Event**</br>**Grid**][azure-event-grid-doc] | Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change. | 
 ||||| 
 
 <a name="on-premises-connectors"></a>
@@ -241,6 +241,7 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 
 <!--Managed API doc links-->
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
+[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md " Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs. Receive and send events between logic apps and Event Hubs"
 [box-doc]: ./connectors-create-api-box.md "Connect to Box. Upload, get, delete, list your files, and more"
 [dropbox-doc]: ./connectors-create-api-dropbox.md "Connect to Dropbox. Upload, get, delete, list your files, and more"
@@ -303,11 +304,11 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Learn about enterprise integration XML validation."
 
 <!-- Built-ins icons -->
-[azure-app-services-icon]: ./media/apis-list/appservices.png
-[azure-api-management-icon]: ./media/apis-list/api-management.png
-[azure-functions-icon]: ./media/apis-list/function.png
-[azure-logic-apps-icon]: ./media/apis-list/calllogicapp.png
-[azure-service-bus-icon]: ./media/apis-list/servicebus.png
+[azure-api-management-icon]: ./media/apis-list/azure-api-management.png
+[azure-app-services-icon]: ./media/apis-list/azure-app-services.png
+[azure-functions-icon]: ./media/apis-list/azure-functions.png
+[azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
+[azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
 [batch-icon]: ./media/apis-list/batch.png
 [condition-icon]: ./media/apis-list/condition.png
 [data-operations-icon]: ./media/apis-list/data-operations.png
@@ -328,12 +329,13 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 <!--Managed API icons-->
 [appfigures-icon]: ./media/apis-list/appfigures.png
 [asana-icon]: ./media/apis-list/asana.png
-[azure-Automation-icon]: ./media/apis-list/azure-automation.png
-[azure-blob-storage-icon]: ./media/apis-list/azureblob.png
-[azure-Cognitive-Services-Text-Analytics-icon]: ./media/apis-list/cognitiveservicestextanalytics.png
-[azure-Data-Lake-icon]: ./media/apis-list/azure-data-lake.png
-[azure-event-hubs-icon]: ./media/apis-list/eventhubs.png
-[azure-ML-icon]: ./media/apis-list/azureml.png
+[azure-automation-icon]: ./media/apis-list/azure-automation.png
+[azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
+[azure-cognitive-services-text-analytics-icon]: ./media/apis-list/cognitiveservicestextanalytics.png
+[azure-data-lake-icon]: ./media/apis-list/azure-data-lake.png
+[azure-event-grid-icon]: ./media/apis-list/azure-event-grid.png
+[azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
+[azure-ml-icon]: ./media/apis-list/azureml.png
 [azure-resource-manager-icon]: ./media/apis-list/azure-resource-manager.png
 [azure-queues-icon]: ./media/apis-list/azure-queues.png
 [basecamp-3-icon]: ./media/apis-list/basecamp.png
@@ -345,12 +347,12 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [campfire-icon]: ./media/apis-list/campfire.png
 [common-data-service-icon]: ./media/apis-list/runtimeservice.png
 [dropbox-icon]: ./media/apis-list/dropbox.png
-[dynamics-365-icon]: ./media/apis-list/dynamicscrmonline.png
+[dynamics-365-icon]: ./media/apis-list/dynamics-crm-online.png
 [dynamics-365-financials-icon]: ./media/apis-list/dynamics-365-financials.png
 [dynamics-365-operations-icon]: ./media/apis-list/dynamics-365-operations.png
 [easy-redmine-icon]: ./media/apis-list/easyredmine.png
 [facebook-icon]: ./media/apis-list/facebook.png
-[file-system-icon]: ./media/apis-list/filesystem.png
+[file-system-icon]: ./media/apis-list/file-system.png
 [ftp-icon]: ./media/apis-list/ftp.png
 [github-icon]: ./media/apis-list/github.png
 [google-calendar-icon]: ./media/apis-list/googlecalendar.png
@@ -358,9 +360,9 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [google-sheets-icon]: ./media/apis-list/googlesheet.png
 [google-tasks-icon]: ./media/apis-list/googletasks.png
 [hipchat-icon]: ./media/apis-list/hipchat.png
-[ibm-db2-icon]: ./media/apis-list/db2.png
-[ibm-informix-icon]: ./media/apis-list/informix.png
-[ibm-mq-icon]: ./media/apis-list/mq.png
+[ibm-db2-icon]: ./media/apis-list/ibm-db2.png
+[ibm-informix-icon]: ./media/apis-list/ibm-informix.png
+[ibm-mq-icon]: ./media/apis-list/ibm-mq.png
 [insightly-icon]: ./media/apis-list/insightly.png
 [instagram-icon]: ./media/apis-list/instagram.png
 [instapaper-icon]: ./media/apis-list/instapaper.png
@@ -369,7 +371,7 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [mandrill-icon]: ./media/apis-list/mandrill.png
 [microsoft-translator-icon]: ./media/apis-list/microsofttranslator.png
 [mysql-icon]: ./media/apis-list/mysql.png
-[office-365-outlook-icon]: ./media/apis-list/office365.png
+[office-365-outlook-icon]: ./media/apis-list/office-365.png
 [office-365-users-icon]: ./media/apis-list/office365users.png
 [office-365-video-icon]: ./media/apis-list/office365video.png
 [onedrive-for-Business-icon]: ./media/apis-list/onedriveforbusiness.png
@@ -386,7 +388,7 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [sap-icon]: ./media/apis-list/sap.png
 [send-grid-icon]: ./media/apis-list/sendgrid.png
 [sftp-icon]: ./media/apis-list/sftp.png
-[sharepoint-online-icon]: ./media/apis-list/sharepointonline.png
+[sharepoint-online-icon]: ./media/apis-list/sharepoint-online.png
 [sharepoint-server-icon]: ./media/apis-list/sharepoint-server.png
 [slack-icon]: ./media/apis-list/slack.png
 [smartsheet-icon]: ./media/apis-list/smartsheet.png
@@ -408,10 +410,10 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 <!-- Enterprise Integration Pack icons -->
 [as2-icon]: ./media/apis-list/as2.png
 [edifact-icon]: ./media/apis-list/edifact.png
-[flat-file-encode-icon]: ./media/apis-list/flatfileencoding.png
-[flat-file-decode-icon]: ./media/apis-list/flatfiledecoding.png
-[integration-account-icon]: ./media/apis-list/integrationaccount.png
-[liquid-icon]: ./media/apis-list/liquidtransform.png
-[x12-icon]: ./media/apis-list/x12new.png
-[xml-validate-icon]: ./media/apis-list/xmlvalidation.png
-[xml-transform-icon]: ./media/apis-list/xsltransform.png
+[flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
+[flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
+[integration-account-icon]: ./media/apis-list/integration-account.png
+[liquid-icon]: ./media/apis-list/liquid-transform.png
+[x12-icon]: ./media/apis-list/x12.png
+[xml-validate-icon]: ./media/apis-list/xml-validation.png
+[xml-transform-icon]: ./media/apis-list/xsl-transform.png
