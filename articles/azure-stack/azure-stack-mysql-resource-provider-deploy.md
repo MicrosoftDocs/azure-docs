@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 06/22/2018 
+ms.date: 06/25/2018 
 ms.author: jeffgilb 
 ms.reviewer: jeffgo
 
@@ -132,7 +132,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Run the installation script from the folder where you extracted the installation files.
 # Find the ERCS01 IP address first, and make sure the certificate file is in the specified directory.
-$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 `
+    -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
@@ -149,9 +150,8 @@ When the resource provider installation script finishes, refresh your browser to
 1. Sign in to the admin portal as the service administrator.
 2. Select **Resource Groups**
 3. Select the **system.\<location\>.mysqladapter** resource group.
-4. The message under **Deployments**, shown in the next screen capture, should be **4 Succeeded**.
-
-      ![Verify deployment of the MySQL resource provider](./media/azure-stack-mysql-rp-deploy/mysqlrp-verify.png)
+4. On the summary page for Resource group Overview, the message under **Deployments** should be **3 Succeeded**.
+5. You can get more detailed information about the resource provider deployment under **SETTINGS**. Select **Deployments** to get information such as: STATUS, TIMESTAMP, and DURATION for each deployment.
 
 ## Next steps
 
