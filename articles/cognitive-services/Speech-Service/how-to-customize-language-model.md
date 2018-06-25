@@ -29,7 +29,7 @@ Ensure that your Cognitive Services account is connected to a subscription by op
 
 You can connect to a Speech Service subscription created in the Azure portal by clicking the **Connect existing subscription** button.
 
-For information on creating a Speech Service subscription in the Azure portal, see our [get-started](../../cognitive-services-apis-create-account.md) page.
+For information on creating a Speech Service subscription in the Azure portal, see our [get-started](get-started.md) page.
 
 ## Prepare the data
 
@@ -85,7 +85,9 @@ When the status of the language data set is “Complete”, it can be used to cr
 
 ## Create a custom language model
 
-Once your language data is ready, click “Language Models” from the “Menu” drop-down menu to start the process of custom language model creation. This page contains a table called “Language Models” with your current custom language models. If you have not yet created any custom language models, the table will be empty. The current locale is reflected in the table title. If you would like to create a language model for a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [Changing Locale](cognitive-services-custom-speech-change-locale.md). To create a new model, click the “Create New” link below the table title.
+Once your language data is ready, click “Language Models” from the “Menu” drop-down menu to start the process of custom language model creation. This page contains a table called “Language Models” with your current custom language models. If you have not yet created any custom language models, the table will be empty. The current locale is reflected in the table title. If you would like to create a language model for a different language, click on “Change Locale”.
+
+The appropriate locale must be selected before taking any action. The current locale is indicated in the table title on all data, model, and deployment pages. To change the locale, click the “Change Locale” button located under the table’s title. This will take you to a locale confirmation page. Click “OK” to return to the table.
 
 On the "Create Language Model" page, enter a "Name" and "Description" to help you keep track of pertinent information about this model, such as the data set used. Next, select the “Base Language Model” from the drop-down menu. This model will be the starting point for your customization. There are two base language models to choose from. The _Microsoft Search and Dictation LM_ is appropriate for speech directed at an application, such as commands, search queries, or dictation. The _Microsoft Conversational LM_ is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings.
 

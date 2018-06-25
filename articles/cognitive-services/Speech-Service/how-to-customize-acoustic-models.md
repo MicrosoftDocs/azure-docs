@@ -29,7 +29,7 @@ Ensure that your Cognitive Services account is connected to a subscription by op
 
 You can connect to a Speech Service subscription created in the Azure portal by clicking the **Connect existing subscription** button.
 
-For information on creating a Speech Service subscription in the Azure portal, see the [get-started](../../cognitive-services-apis-create-account.md) page.
+For information on creating a Speech Service subscription in the Azure portal, see the [get-started](get-started.md) page.
 
 ## Prepare the data
 
@@ -109,7 +109,7 @@ Data validation includes a series of checks on the audio files to verify the fil
 
 When the status is “Complete”, you can click “Details” to see the acoustic data verification report. The number of utterances that passed and failed verification will be shown, along with details about the failed utterances. In the example below, two WAV files failed verification because of improper audio format (in this data set, one had an incorrect sampling rate and one was the incorrect file format).
 
-![try](media/stt/custom-speech-acoustic-datasets-report.png)
+![try](media/stt/speech-acoustic-datasets-report.png)
 
 At some point, if you would like to change the Name or Description of the data set, you can click the “Edit” link and change these entries. You cannot modify the audio files or transcriptions.
 
