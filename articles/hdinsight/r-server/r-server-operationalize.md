@@ -188,6 +188,6 @@ Once all decommissioned worker nodes are configured to run compute node, come ba
 
 ## Next steps
 
-* [Manage ML Server cluster on HDInsight](r-server-hdinsight-manage.md)
-* [Compute context options for ML Server cluster on HDInsight](r-server-compute-contexts.md)
-* [Azure Storage options for ML Server cluster on HDInsight](r-server-storage.md)
+* [Manage ML Services cluster on HDInsight](r-server-hdinsight-manage.md)
+* [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
+* [Azure Storage options for ML Services cluster on HDInsight](r-server-storage.md)
