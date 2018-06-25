@@ -454,7 +454,7 @@ Microsoft Azure offers free content and training on general AI concepts and prac
 |:-------------------|--------------|
 | [AI Developer on Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Public |
-| [Azure AI Learning from GitHub](http://azure.github.io/learnanalytics/public) | Public |
+| [Azure AI Learning from GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
 | [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Public |
