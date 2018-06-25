@@ -37,10 +37,10 @@ Sentiment analysis is the ability to determine if a user's utterance is positive
 
 The following utterances show examples of sentiment:
 
-|Sentiment and score|Utterance|
-|:--|--|
-|positive - 0.91 |John W. Smith did a great job on the presentation in Paris.|
-|positive - 0.84 |jill-jones@mycompany.com did fabulous work on the Parker sales pitch.|
+|Sentiment|Score|Utterance|
+|:--|:--|:--|
+|positive|0.91 |John W. Smith did a great job on the presentation in Paris.|
+|positive|0.84 |jill-jones@mycompany.com did fabulous work on the Parker sales pitch.|
 
 Sentiment analysis is an app setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and label them. LUIS does that for you.
 
@@ -49,9 +49,19 @@ Add a new intent to capture employee feedback from members of the company.
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-2. Select **Create new intent** name `EmployeeFeedback`.
+    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
 
-3. Add several utterances that indicate an employee doing something well or an area that needs improvement:
+2. Select **Create new intent**.
+
+    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
+
+3. Name the new intent  name `EmployeeFeedback`.
+
+    ![Create new intent dialog box with EmployeeFeedback as name](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
+
+4. Add several utterances that indicate an employee doing something well or an area that needs improvement:
+
+    Remember in this Human Resources app, employees are defined in the list entity, `Employee`, by the name, email, phone extension number, mobile phone number, and their U.S. federal social security number. 
 
     |Utterances|
     |--|
@@ -64,33 +74,29 @@ Add a new intent to capture employee feedback from members of the company.
     |Jill Jones rocked the sales pitch at Harvard|
     |John W. Smith did a great job on the presentation at Stanford|
 
-    Remember in this Human Resources app, employees are defined in the list entity, `Employee`, by the name, email, phone extension number, mobile phone number, and their U.S. federal social security number. 
+    [ ![Screenshot of LUIS app with example utterances in EmployeeFeedback intent](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## Train the LUIS app
 LUIS doesn't know about the new intent and its example utterances until it is trained. 
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-    ![Screenshot of Train button hightlighted](./media/luis-quickstart-intent-and-sentiment-analysis/train-button-expanded.png)
+    ![Screenshot of Train button hightlighted](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
-    ![Screenshot of Training success notification bar ](./media/luis-quickstart-intent-and-sentiment-analysis/trained-expanded.png)
+    ![Screenshot of Training success notification bar ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
 
 ## Configure app to include sentiment analysis
 Sentiment analysis is enabled on the **Publish** page. 
 
 1. Select **Publish** in the top right navigation.
 
-    ![Screenshot of Intent page with Publish button expanded ](./media/luis-quickstart-intent-and-sentiment-analysis/publish-expanded.png)
+    ![Screenshot of Intent page with Publish button expanded ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. Select **Enable Sentiment Analysis**.
+2. Select **Enable Sentiment Analysis**. Select the Production slot and the **Publish** button.
 
-    ![Screenshot of Publish page with Enable Sentiment Analysis highlighted ](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-expanded.png)
-
-3. Select the Production slot and the **Publish** button.
-
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-inline.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
 
 4. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
@@ -98,9 +104,9 @@ Sentiment analysis is enabled on the **Publish** page.
 
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-    !["Screenshot of Publish page with endpoint URL highlighted](media/luis-quickstart-intent-and-sentiment-analysis/endpoint-url-inline.png)
+    !["Screenshot of Publish page with endpoint URL highlighted](media/luis-quickstart-intent-and-sentiment-analysis/hr-endpoint-url-inline.png)
 
-2. Go to the end of the URL in the address and enter `Jill Jones work with the media team on the public portal was amazing`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `RestaurantReservation.Reserve` intent with the sentiment analysis extracted.
+2. Go to the end of the URL in the address and enter `Jill Jones work with the media team on the public portal was amazing`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `EmployeeFeedback` intent with the sentiment analysis extracted.
 
 ```
 {
@@ -192,6 +198,8 @@ Sentiment analysis is enabled on the **Publish** page.
   }
 }
 ```
+
+The sentimentAnalysis is positive with a score of 0.86. 
 
 ## What has this LUIS app accomplished?
 This app, with sentiment analysis enabled, identified a natural language query intention and returned the extracted data including the overall sentiment as a score. 
