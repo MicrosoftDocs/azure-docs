@@ -258,14 +258,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## Next steps
 
-In this tutorial, you learned how to synchronize state information between your devices and your IoT hub by performing the following tasks:
-
-> [!div class="checklist"]
-> * Create an IoT hub and add a test device to the identity registry.
-> * Use desired properties to send state information to your simulated device.
-> * Use reported properties to receive state information from your simulated device.
-
-Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
+In this tutorial, you learned how to synchronize state information between your devices and your IoT hub. Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
 
 > [!div class="nextstepaction"]
-[Use a simulated device to test connectivity with your IoT hub](tutorial-connectivity.md)
+[Implement a device firmware update process](tutorial-firmware-update.md)
