@@ -1,10 +1,10 @@
 ---
-title: Build an ASP.NET app in Azure with SQL Database | Microsoft Docs 
-description: Learn how to get a ASP.NET app working in Azure, with connection to a SQL Database.
+title: Build and publish an ASP.NET app to Azure with a SQL Database | Microsoft Docs 
+description: Learn how to deploy a C# ASP.NET app with a SQL Server database to Azure.
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/09/2017
+ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
 ---
@@ -40,19 +40,13 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-  - **ASP.NET and web development**
-  - **Azure development**
-
-  ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the **ASP.NET and web development** workload.
 
 If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
 ## Download the sample
 
-[Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-
-Extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file.
+[Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip) and extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file (or [clone it from GitHub](https://github.com/Azure-Samples/dotnet-sqldb-tutorial)).
 
 The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete) app using [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -82,11 +76,14 @@ Publishing opens the **Create App Service** dialog, which helps you create all t
 
 ### Sign in to Azure
 
-In the **Create App Service** dialog, click **Add an account**, and then sign in to your Azure subscription. If you're already signed into a Microsoft account, make sure that account holds your Azure subscription. If the signed-in Microsoft account doesn't have your Azure subscription, click it to add the correct account.
+In the **Create App Service** dialog, select **Add an account**, and sign in to your Azure subscription. If you're already signed in, select the account containing the desired subscription from the dropdown.
+
+> [!NOTE]
+> If you're already signed in, don't select **Create** yet.
+>
+>
    
 ![Sign in to Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
-
-Once signed in, you're ready to create all the resources you need for your Azure web app in this dialog.
 
 ### Configure the web app name
 
@@ -127,13 +124,9 @@ In the **Configure App Service Plan** dialog, configure the new App Service plan
 
 Before creating a database, you need an [Azure SQL Database logical server](../sql-database/sql-database-features.md). A logical server contains a group of databases managed as a group.
 
-Select **Explore additional Azure services**.
+Click **Create a SQL Database**.
 
-![Configure web app name](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
-
-In the **Services** tab, click the **+** icon next to **SQL Database**. 
-
-![In the Services tab, click the + icon next to SQL Database.](media/app-service-web-tutorial-dotnet-sqldatabase/sql.png)
+![Create a SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
 In the **Configure SQL Database** dialog, click **New** next to **SQL Server**. 
 
@@ -310,7 +303,7 @@ Now that your code change works, including database migration, you publish it to
 
 Just like before, right-click your project and select **Publish**.
 
-Click **Settings** to open the publish wizard.
+Click **Configure** to open the publish settings.
 
 ![Open publish settings](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 
