@@ -125,7 +125,7 @@ Several Microsoft technologies work with LUIS:
 * [Bot Framework][bot-framework] allows a chatbot to talk with a user via text input. Select [3.x](https://github.com/Microsoft/BotBuilder) or [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK for a complete bot experience.
 * [QnA Maker][qnamaker] allows several types of text to combine into a question and answer knowledge base.
 * [Speech](../Speech/home.md) converts spoken language requests into text. Once converted to text, LUIS processes the requests. See [Speech SDK](https://aka.ms/csspeech) for more information.
-* [Text Analytics](../text-analytics/) provides sentiment analysis and key phrase data extraction.
+* [Text Analytics](../text-analytics/overview.md) provides sentiment analysis and key phrase data extraction.
 
 ## Next steps
 Create a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [custom](luis-quickstart-intents-only.md) domain.
