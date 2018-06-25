@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
 
 ---  
@@ -32,7 +32,7 @@ If more than one person requires access to the same Microsoft ID used to create 
 
 >[!IMPORTANT]
 >To authorize multiple users to access your Microsoft Developer Center (Dev Center) account, Microsoft recommends that you use Azure Active Directory (Azure AD) to assign roles to individual users. Each user must access the account by signing in with individual Azure AD credentials. Create your Microsoft ID by using an email address in a domain registered to your company Microsoft suggests that the email not be assigned to an individual. An example is `windowsapps@fabrikam.com`.  
->*   For more information, visit the [Issue: Microsoft ID in an Azure AD federated domain](#issue:-microsoft-id-in-an-azure-ad-federated-domain) section.  
+>*   For more information, visit the [Issue: Microsoft ID in an Azure AD federated domain](#issue-microsoft-id-in-an-azure-ad-federated-domain) section.  
 
 *   Limit access to the Microsoft ID to the smallest possible number of developers. 
 *   Set up a corporate email distribution list (DL) that includes everyone who must access your Dev Center account. Add the DL email address to your security information. The DL enables all of the employees on the list to receive security codes when requested and to manage the security information for your Microsoft ID. If setting up a distribution list is not feasible, then the owner of the individual email account must be available to access and share the security code when prompted.  

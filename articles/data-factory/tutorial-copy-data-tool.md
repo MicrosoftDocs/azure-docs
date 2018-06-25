@@ -132,7 +132,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     ![Select blob source](./media/tutorial-copy-data-tool/select-blob-source.png)
 
-    c. On the **New Linked Service** page, select your storage account from the **Storage account name** list, and then select **Next**.
+    c. On the **New Linked Service** page, select your storage account from the **Storage account name** list, and then select **Finish**.
 
     ![Configure azure storage](./media/tutorial-copy-data-tool/configure-azure-storage.png)
 
@@ -161,7 +161,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     ![Select Azure SQL DB](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 
-    c. On the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password, then select **Next**.    
+    c. On the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password, then select **Finish**.    
 
     ![Configure Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
