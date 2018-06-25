@@ -23,14 +23,14 @@
   href: event-hubs-samples.md
 - name: Concepts
   items:
-  - name: Integrate with Event Grid
-    href: ../event-grid/event-grid-event-hubs-integration.md
-  - name: Programming guide
-    href: event-hubs-programming-guide.md
-  - name: Event Hubs features
-    href: event-hubs-features.md
   - name: Event Processor Host overview
     href: event-hubs-event-processor-host.md
+  - name: Programming guide
+    href: event-hubs-programming-guide.md
+  - name: Integrate with Event Grid
+    href: ../event-grid/event-grid-event-hubs-integration.md
+  - name: Event Hubs features
+    href: event-hubs-features.md
   - name: Managed Service Identity (preview)
     href: event-hubs-managed-service-identity.md
   - name: Role-Based Access Control (preview)
