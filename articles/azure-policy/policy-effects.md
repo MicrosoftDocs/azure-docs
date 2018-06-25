@@ -349,10 +349,10 @@ A resource may be impacted by multiple assignments. These assignments may be at 
 (specific resource, resource group, subscription, or management group) or at different scopes. Each
 of these assignments is also likely to have a different effect defined. Regardless, the condition
 and effect for each policy (assigned directly or as part of an initiative) is independently
-evaluated. For example, if policy 1 has a condition that restricts location for subscription A from
-being created in 'westus' with the deny effect and policy 2 that restricts resources in resource
-group B (which is in subscription A) from being created in 'eastus' with the audit effect are both
-assigned, the resulting outcome would be:
+evaluated. For example, if policy 1 has a condition that restricts resource location for
+subscription A to only be created in ‘westus’ with the deny effect and policy 2 has a condition
+that restricts resource location for resource group B (which is in subscription A) to only be
+created in ‘eastus’ with the audit effect are both assigned, the resulting outcome would be::
 
 - Any resource already in resource group B in 'eastus' is compliant to policy 2, but marked as non-compliant to policy 1.
 - Any resource already in resource group B not in 'eastus' will be marked as non-compliant to policy 2, and would also be marked not-compliant to policy 1 if not 'westus'.
