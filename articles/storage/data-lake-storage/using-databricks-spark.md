@@ -69,7 +69,7 @@ A [DataBricks token](https://docs.databricks.com/api/latest/tokens.html) is requ
 5. Copy the token value from the browser into the text file where you have set aside the account name and key.
 
 ## Create an Azure function
-A [serverless function](https://azure.microsoft.com/services/functions/) is required to listen for changes in the Azure Data Lake Storage account.
+A [serverless function](https://azure.microsoft.com/services/functions/) is required to listen for changes in the Azure Data Lake Storage Gen2 account.
 
 1. Create a [function app](https://portal.azure.com/#create/Microsoft.FunctionApp) and name it *myFlightDataApp*. Make sure to check the *Pin to dashboard* checkbox as you create the function app to make it easy to find again.
 2. Click the **+** to create a new function. It is available when hover your mouse over the *Functions* label on the left.
@@ -264,11 +264,11 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-With these code samples you have explored the heirarchial nature of HDFS using data stored in an Azure Data Lake Storage account.
+With these code samples you have explored the heirarchial nature of HDFS using data stored in an Azure Data Lake Storage Gen2 account.
 
 ## Query the data
 
-Next, you can beging to query the data you uploaded into Azure Data Lake Storage. Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
+Next, you can begin to query the data you uploaded into Azure Data Lake Storage. Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
 
 ### Simple queries
 To create dataframes for your data sources, run the following script. Make sure to replace the `<YOUR_CSV_FILE_NAME>` placeholder with the file name you downloaded at the beginning of this tutorial.
