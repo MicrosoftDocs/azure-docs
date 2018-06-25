@@ -24,7 +24,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 The following code creates a new knowledge base, using the [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) method.
 
-1. Create a new C# project in your favorite IDE.
+1. Create a new C# project in your favorite IDE that uses a .NET framework C# console app (either .NET CORE or .NET Standard).
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
@@ -211,6 +211,8 @@ A successful response is returned in JSON, as shown in the following example:
   "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
 }
 ```
+
+Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, e.g. QnA Maker FAQ to view.
 
 ## Next steps
 

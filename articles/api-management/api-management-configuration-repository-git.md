@@ -214,9 +214,9 @@ The final setting, `$ref-policy`, maps to the global policy statements file for 
 ### apis folder
 The `apis` folder contains a folder for each API in the service instance which contains the following items.
 
-* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) with `export=true` in `application/json` format.
-* `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
-* `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API which maps to the `description` property of the [operation entity](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) in the REST API.
+* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) with `export=true` in `application/json` format.
+* `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API which maps to the `description` property of the [operation entity](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
 
 ### groups folder
 The `groups` folder contains a folder for each group defined in the service instance.
