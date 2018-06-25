@@ -1,11 +1,11 @@
 ---
 title: Azure App Service on Linux FAQ | Microsoft Docs
 description: Azure App Service on Linux FAQ.
-keywords: azure app service, web app, faq, linux, oss
+keywords: azure app service, web app, faq, linux, oss, web app for containers, multi-container, multicontainer
 services: app-service
 documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
+author: yili
+manager: apurvajo
 editor: ''
 
 ms.assetid:
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
-ms.author: msangapu
+ms.date: 06/26/2018
+ms.author: yili
 ---
 # Azure App Service on Linux FAQ
 
@@ -139,6 +139,28 @@ We have automatic port detection. You can also specify an app setting called *WE
 **Do I need to implement HTTPS in my custom container?**
 
 No, the platform handles HTTPS termination at the shared front ends.
+
+## Multi-container with Docker Compose and Kubernetes
+
+**How do I configure Azure Container Registry (ACR) to use with multi-container?**
+
+In order to use ACR with multi-container, **all container images** need to be hosted on the same ACR registry server. Once they are on the same registry server, you will need to create application settings and then update the Docker Compose or Kubernetes configuration file to include the ACR image name.
+
+Create the following application settings:
+
+- DOCKER_REGISTRY_SERVER_USERNAME
+- DOCKER_REGISTRY_SERVER_URL (full URL, ex: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_PASSWORD (enable admin access in ACR settings)
+
+Within the configuration file, reference your ACR image like the following example:
+
+```yaml
+image: <server-name>.azurecr.io/<image-name>:<tag>
+```
+
+**How do I know which container is exposed?**
+
+The first container to expose port 80 or 8080 will be used. Otherwise, the first container in the configuration file will be exposed. To explicitly expose a specific container, create an application setting `WEBSITES_WEB_CONTAINER_NAME` with the value of the container name.
 
 ## Pricing and SLA
 
