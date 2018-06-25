@@ -213,5 +213,5 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 
 
 ## Next steps
-At this point, you have a secure cluster and you know how to enable/disable disk encryption for a Service Fabric Windows cluster. Next, learn about [disk encryption for Linux](service-fabric-enable-azure-disk-encryption-linux.md). 
+At this point, you have a secure cluster, and you know how to enable and disable disk encryption for a Service Fabric Windows cluster. Next, learn about [disk encryption for Linux](service-fabric-enable-azure-disk-encryption-linux.md). 
 
