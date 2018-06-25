@@ -12,26 +12,37 @@ ms.topic: overview
 ms.date: 09/21/2017
 ---
 
+# What is Azure Machine Learning?
+
+Azure Machine Learning is a fully mananged service for the end to end development and deployment of machine learning models.  Azure Machine Learning lets developers and data scientists track all of their model training and then deploy and manage those models. Azure Machine Learning fully supports open source technologies so you can use tens of thousands of open source Python packages, such as the following machine learning frameworks: 
+- [PyTorch](https://pytorch.org)
+- [Scikit-learn](http://scikit-learn.org/stable/)
+- [Tensorflow](https://www.tensorflow.org)
+- [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/)
+- [MXNet](http://mxnet.io)
+
+Rich tools, such as [Jupyter notebooks](http://jupyter.org) or the [Visual Studio Code Tools for AI](https://www.microsoft.com/en-us/research/project/visual-studio-code-tools-ai/) make it easy to interactively explore data, transform it, and then develop, test, and deploy models.  
+
+Azure Machine Learning lets you start training on your local machine, and then scale out to the cloud.  With native support for [Azure Batch AI](https://azure.microsoft.com/en-us/services/batch-ai/) and advanced hyperparameter tuning services (TODO for a link), you can build better models faster, using the power of the cloud.  When you have the right model, you can easily deploy with full Docker support, meaning it is simple to deploy to [Azure Container Instances](https://azure.microsoft.com/en-us/services/container-instances/), [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/), or use that Docker container in your own deployments, on-premises or in the cloud. 
+
 # What is Machine Learning?
 
 Machine learning is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends. Using machine learning, computers learn without being explicitly programmed.
 
 Forecasts or predictions from machine learning can make apps and devices smarter. When you shop online, machine learning helps recommend other products you might like based on what you've purchased. When your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. When your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
 
-## What is Azure Machine Learning?
-Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution. It enables data scientists to prepare data, develop experiments, and deploy models at cloud scale.
+# Next steps
 
-The main components of Azure Machine Learning are:
-- Azure Machine Learning Workbench
-- Azure Machine Learning Experimentation Service
-- Azure Machine Learning Model Management Service
-- Microsoft Machine Learning Libraries for Apache Spark (MMLSpark Library)
-- Visual Studio Code Tools for AI
+TODO: what's the new getting started link? 
 
-Together, these applications and services help significantly accelerate your data science project development and deployment. 
 
-![Azure Machine Learning Concepts](./media/overview-what-is-azure-ml/aml-concepts.png)
+# What are the machine learning options from Microsoft?
 
+Besides Azure Machine Learning, there are a wide variety of options in Azure to build, deploy, and manage machine learning models. [Learn about them here.](./overview-more-machine-learning.md)
+
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
+# Boneyard
 
 ## Open source compatible
 
@@ -69,6 +80,17 @@ The following are some of the Microsoft machine learning technologies included w
 - [microsoftml](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package)
 - [revoscalepy](https://docs.microsoft.com/r-server/python-reference/revoscalepy/revoscalepy-package)
 
+The main components of Azure Machine Learning are:
+- Azure Machine Learning Workbench
+- Azure Machine Learning Experimentation Service
+- Azure Machine Learning Model Management Service
+- Microsoft Machine Learning Libraries for Apache Spark (MMLSpark Library)
+- Visual Studio Code Tools for AI
+
+Together, these applications and services help significantly accelerate your data science project development and deployment. 
+
+![Azure Machine Learning Concepts](./media/overview-what-is-azure-ml/aml-concepts.png)
+
 ## Azure Machine Learning Workbench
 Azure Machine Learning Workbench is a desktop application plus command-line tools, supported on both Windows and macOS. It allows you to manage machine learning solutions through the entire data science life cycle:
 
@@ -94,6 +116,12 @@ For more information, reference the following articles:
 - [Roaming and Sharing](../desktop-workbench/roaming-and-collaboration.md)
 - [Run History Guide](../desktop-workbench/how-to-use-run-history-model-metrics.md)
 - [IDE Integration](../desktop-workbench/how-to-configure-your-ide.md)
+
+
+
+
+
+
 
 ## Azure Machine Learning Experimentation Service
 The Experimentation Service handles the execution of machine learning experiments. It also supports the Workbench by providing project management, Git integration, access control, roaming, and sharing. 
@@ -146,11 +174,3 @@ Visual Studio Code Tools for AI is an extension in Visual Studio Code to build, 
 - A gallery view allowing users to browse and bootstrap new projects with the Microsoft Cognitive Toolkit, TensorFlow, and many other deep-learning frameworks. 
 - An explorer view for selecting compute targets for your scripts to execute.
  
-
-## What are the machine learning options from Microsoft?
-Besides Azure Machine Learning, there are a wide variety of options in Azure to build, deploy, and manage machine learning models. [Learn about them here.](../desktop-workbench/overview-more-machine-learning.md)
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-## Next steps
-* [Install and create Azure Machine Learning](quickstart-installation.md)
