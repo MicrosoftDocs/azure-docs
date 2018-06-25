@@ -1,6 +1,6 @@
 ---
 title: Create a Stream Analytics job by using the Azure Stream Analytics tools for Visual Studio | Microsoft Docs
-description: This quickstart shows you how to get started by creating a Stream Analytic job, configuring inputs, outputs, and defining a query with Visual Studio.
+description: This quickstart shows you how to get started by creating a Stream Analytics job, configuring inputs, outputs, and defining a query with Visual Studio.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
