@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 6/22/2018
+ms.date: 6/25/2018
 ms.author: nepeters
 ---
 
@@ -45,13 +45,30 @@ Yes, autoscaling is available via the [Kubernetes autoscaler][auto-scaler] as of
 
 Yes, RBAC can be enabled when deploying an AKS cluster from the Azure CLI or Azure Resource Manager template. This functionality will soon come to the Azure portal.
 
+## What Kubernetes admission controllers does AKS support? Can this be configured?
+
+AKS supports the following [admission controllers][admission-controllers]:
+
+* NamespaceLifecycle
+* LimitRanger
+* ServiceAccount
+* DefaultStorageClass
+* DefaultTolerationSeconds
+* MutatingAdmissionWebhook 
+* ValidatingAdmissionWebhook
+* ResourceQuota
+* DenyEscalatingExec
+* AlwaysPullImages
+
+It is not currently possible to modify the list of admission controllers in AKS.
+
 ## Can I deploy AKS into my existing virtual network?
 
 Yes, you can deploy an AKS cluster into an existing virtual network using the [advanced networking feature](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## Is Azure Key Vault integrated with AKS?
 
-No, it is not but this integration is planned. In the meantime, try out the following solution from [Hexadite][hexadite].
+AKS is not natively integrated with Azure Key Vault at this time. However, there are community solutions like [the acs-keyvault-agent from Hexadite][hexadite].
 
 ## Can I run Windows Server containers on AKS?
 
@@ -70,3 +87,4 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
+[admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
