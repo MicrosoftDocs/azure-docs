@@ -7,19 +7,17 @@ author: roygara
 ms.topic: article
 ms.author: rogarana
 manager: twooley
-ms.date: 06/01/2018
+ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
 
 # Guidance for Azure Data Lake Storage Gen1 customers
 
-Azure Data Lake Storage Gen2 Preview represents the next step for Data Lake Storage Gen1. Data Lake Storage Gen2 takes the same rich support for the Hadoop Compatible File System that Data Lake Storage Gen1 has and incorporates additional functionality like data tiering, lifecycle management, event grid support, enhanced network security, and If you are either an existing Data Lake Storage Gen1 customer or a prospective customer, we ask that you please evaluate Data Lake Gen2 by creating a POC and testing it out.
+Data Lake Storage Gen2 Preview provides you Blob Storage native functionality such as: data tiering, lifecycle management, event grid support, and enhanced network security in addition to the Hadoop Compatible file system provided in Data Lake Storage Gen1.
 
-Existing Data Lake Storage Gen1 users will continue to be supported indefinitely
+If you are an existing Data Lake Storage Gen1 customer, we encourage you to evaluate all the new and enhanced capabilites of Data Lake Storage Gen2, and provide feedback by [participating in the preview](https://aka.ms/adlsgen2signup). Also, Data Lake Storage Gen1 will continue to be supported. Data Lake Storage Gen1 and Gen2 can coexist, so your existing resources and applications that leverage Gen1 will remain functional. This will allow you to develop a migration plan to Data Lake Storage Gen2 at your convenience.
 
-Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compatible File System and a full hierarchical namespace just like Azure Data Lake Storage Gen1 does. Additionally, it brings all of Azure Blobs offerings to the table so functionality like data tiering and lifecycle management, durability options for HA and DR, event grid support, enhanced network security, and compatibility with all of Blob APIs.
+If you are currently evaluating Data Lake Storage Gen1, we also encourage you to participate in the Gen2 preview. W
+Data Lake Storage Gen1 and Gen will continue to be supported. However, if you are currently evaluating Data Lake Storage Gen1 we encourage you to sign up for the Data Lake Storage Gen2 preview.
 
-Should you decide to evaluate Data Lake Storage Gen2, nothing will interfere with your existing applications or workloads. Data Lake Storage Gen2 and Gen1 are not mutually exclusive so your existing resources will remain fully functional and any new resources can be deployed using either Gen1 or Gen2. Existing Azure Data Lake Storage Gen1 customers will be fully supported indefinitely on the existing Azure Data Lake Storage Gen1 platform, allowing customers to plan their migration to ADLSv2 at their convenience.
-
-Azure Data Lake Storage Gen2 is available as a limited public preview. If you're interested, we [invite you to participate](https://aka.ms/adlsgen2signup) so you can begin evaluating Data Lake Storage Gen2 and provide feedback.

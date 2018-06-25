@@ -52,7 +52,7 @@ You can also install and use the Azure CLI locally. This quickstart requires tha
 Before you create an account, you first create a resource group that acts as a logical container to storage accounts or any other Azure resources you create. If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account,and any other resources associated with the resource group. For more information regarding resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
-> You must create new storage accounts as **StorageV2 accounts**, to take advantage of Data Lake Storage Gen2 features.  
+> You must create new storage accounts as **StorageV2 (general purpose V2)** account kind, to take advantage of Data Lake Storage Gen2 features.  
 
 For more information about storage account types, see [Azure Storage account options](../common/storage-account-options.md).
 
@@ -82,17 +82,21 @@ To create a resource group in the Azure portal, follow these steps:
 
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
+> [!NOTE]
+> The hierarchical namespace is only enabled in West US 2 and West Central US. Make sure you specify either one of these locations when creating the storage account.
+
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Enter a name for your storage account.
 3. Leave **Deployment model** set to the default value.
 4. Set the **Account kind** field to **StorageV2 (general-purpose v2)**.
 5. Set **Location** to **West US 2**
-6. Leave the **Replication** field set to **Locally-redundant storage (LRS)**. 
+6. Leave the **Replication** field set to **Locally-redundant storage (LRS)**.
 7. Leave these fields set to their defaults: **Replication**. **Performance**, **Access tier**.
 8. Choose the subscription in which you want to create the storage account.
 9. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.
 10. Keep the default value for **Virtual Networks**
-11. Click **Create** to create the storage account.
+11. In the **Data Lake Storage Gen2 (preview)** section set **Hierarchical namespace** to **Enabled**.
+12. Click **Create** to create the storage account.
 
 ![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/azure-data-lake-storage-account-create.png)
 
@@ -108,33 +112,30 @@ To remove a resource group using the Azure portal:
 
 ## Create an account using PowerShell
 
-Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions to authenticate.
+Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions to authenticate.
 
 ```powershell
-Connect-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 ### Create a resource group
 
 To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
 
+> [!NOTE]
+> The hierarchical namespace is only enabled in West US 2 and West Central US. Make sure you specify either one of these locations when creating the storage account.
+
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
-```
-
-If you're not sure which region to specify for the `-Location` parameter, you can retrieve a list of supported regions for your subscription with the [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) command:
-
-```powershell
-Get-AzureRmLocation | select Location 
 $location = "westus2"
+New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ### Create a general-purpose v2 storage account
 
-To create a general-purpose v2 storage account from PowerShell with locally-redundant storage (LRS), use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command: 
+To create a general-purpose v2 storage account from PowerShell with locally-redundant storage (LRS), use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command:
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -154,7 +155,7 @@ When creating an account with zone-redundant storage (ZRS Preview), geo-redundan
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
 
-#### Clean up resources
+### Clean up resources
 
 To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command: 
 
@@ -182,13 +183,8 @@ az group create \
     --location westus2
 ```
 
-If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az_account_list) command.
-
-```azurecli-interactive
-az account list-locations \
-    --query "[].{Region:name}" \
-    --out table
-```
+> [!NOTE]
+> The hierarchical namespace is only enabled in West US 2 and West Central US. Make sure you specify either one of these locations when creating the storage account.
 
 ### Create a StorageV2 storage account
 
@@ -203,14 +199,6 @@ az storage account create \
     --kind StorageV2 \
     --hierarchical-namespace true
 ```
-
-To create a general-purpose v2 storage account with zo substitute the desired value in the table below for the **sku** parameter.
-
-|Replication option  |sku parameter  |
-|---------|---------|
-|Locally-redundant storage (LRS)     |Standard_LRS         |
-
-For more information about the different types of replication available, see [Storage replication options](../common/storage-redundancy.md).
 
 ### Clean up resources
 
