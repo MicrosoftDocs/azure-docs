@@ -121,9 +121,9 @@ namespace VisualSearchFeatures
             {
                 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.25, left: (float)0.01, right: (float)0.2);
                 
-                // The ImageInfo struct contains a crop area specifying a region to crop in the image from URL. 
-                ImageInfo imageInfo =
-                new ImageInfo(cropArea: CropArea, url: "http://windowsgeek.lk/wp-content/uploads/2016/04/cxc.png");
+                // The ImageInfo struct specifies the crop area in the image and the URL of the larger image. 
+                string imageURL = "http://windowsgeek.lk/wp-content/uploads/2016/04/cxc.png";
+                ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
                 
                 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
 
