@@ -250,7 +250,7 @@
 #### [Advanced certificate signing for SAML apps](manage-apps/certificate-signing-options.md)
 #### [Hide an application from a user's experience](manage-apps/hide-application-from-user-portal.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](manage-apps/configure-authentication-for-federated-users-portal.md)
-### [Migrate AD FS apps to Azure AD](migrate-adfs-apps-to-azure.md) 
+### [Migrate AD FS apps to Azure AD](manage-apps/migrate-adfs-apps-to-azure.md) 
 ### [Manage access to apps](manage-apps/what-is-access-management.md)
 #### [SSO access](manage-apps/what-is-single-sign-on.md)
 #### [Certificates for SSO](manage-apps/manage-certificates-for-federated-single-sign-on.md)

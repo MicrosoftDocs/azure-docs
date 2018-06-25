@@ -2,15 +2,15 @@
 title: 'Migrate AD FS on-premises apps to Azure. | Microsoft Docs'
 description: This article is intended to help organizations understand how to migrate on-premises applications to Azure AD, with a focus on federated SaaS applications.
 services: active-directory
-author: billmath
+author: barbkess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
 ms.date: 03/02/2018
-ms.author: billmath
+ms.author: barbkess
 ---
 
 # Migrate AD FS on-premises apps to Azure 
