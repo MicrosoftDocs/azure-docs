@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Speech service?
+  - name: What is the Speech service?
     href: overview.md
     expanded: true
 - name: Quickstarts
