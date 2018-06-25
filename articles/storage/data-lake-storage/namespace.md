@@ -19,7 +19,7 @@ ms.component: data-lake-storage-gen2
 
 # Azure Data Lake Storage Gen2 hierarchical namespace
 
-A key mechanism that allows Azure Data Lake Storage Gen2 Preview to provide file system performance at object storage scale and prices, is the addition of a **hierarchical namespace**. This allows the collection of blobs/files within an account to be organized into a hierarchy of directories and nested subdirectories in the same way that the file system on your computer is organized. With the hierarchical namespace enabled, Azure Data Lake Storage provides the scalability and cost-effectiveness of object storage, with file system semantics that are familiar to analytics engines and frameworks.
+A key mechanism that allows Azure Data Lake Storage Gen2 Preview to provide file system performance at object storage scale and prices, is the addition of a **hierarchical namespace**. This allows the collection of objects/files within an account to be organized into a hierarchy of directories and nested subdirectories in the same way that the file system on your computer is organized. With the hierarchical namespace enabled, Azure Data Lake Storage provides the scalability and cost-effectiveness of object storage, with file system semantics that are familiar to analytics engines and frameworks.
 
 ## The benefits of the hierarchical namespace
 

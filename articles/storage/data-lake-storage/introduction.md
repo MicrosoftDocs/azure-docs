@@ -27,7 +27,7 @@ Data Lake Storage Gen2 features all qualities that are required for the full lif
 
 Data Lake Storage Gen2 is the foundational storage service for building enterprise data lakes (EDL) on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage Gen2 gives you an easy way to manage massive amounts of data.
 
-A fundamental feature of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](./namespace.md) to the Blob Storage Service which organizes blobs/files into a hierarchy of directories for performant data access. The hierarchical namespace also enables Azure Data Lake Storage Gen2 to support both object store and file system paradigms at the same time. For instance, a common object store naming convention employs slashes in the name to mimic a hierarchical folder structure. This structure becomes real with Azure Data Lake Storage Gen2. Operations such as renaming or deleting a directory become single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
+A fundamental feature of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](./namespace.md) to the Blob Storage Service which organizes objects/files into a hierarchy of directories for performant data access. The hierarchical namespace also enables Azure Data Lake Storage Gen2 to support both object store and file system paradigms at the same time. For instance, a common object store naming convention employs slashes in the name to mimic a hierarchical folder structure. This structure becomes real with Azure Data Lake Storage Gen2. Operations such as renaming or deleting a directory become single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
 
 In the past, cloud-based analytics had to compromise in areas of performance, management, and security. Azure Data Lake Storage Gen2 addresses each of these aspects in the following ways:
 
@@ -35,7 +35,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 - **Management** is easier because you can organize and manipulate files through directories and subdirectories.
 
-- **Cost Effective** is made possible as Azure Data Lake Storage Gen2 is built on top of the low-cost [Azure Blob Storage](../blobs/storage-blobs-introduction.md). The additional features further lower the total cost of ownership for running big data analytics on Azure.
+- **Cost Effectiveness** is made possible as Azure Data Lake Storage Gen2 is built on top of the low-cost [Azure Blob Storage](../blobs/storage-blobs-introduction.md). The additional features further lower the total cost of ownership for running big data analytics on Azure.
 
 ## Key features of Azure Data Lake Storage Gen2
 
@@ -45,7 +45,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 - **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](./abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](../../hdinsight/index.yml) and [Azure Databricks](../../azure-databricks/index.yml) to access data stored in Azure Data Lake Storage Gen2.
 
-- **Multi-protocol and multi-model data access**: Data Lake Storage Gen2 is considered a **multi-modal** storage service as it provides both object store and file system interfaces to the same data **at the same time**. This is achieved by providing multiple protocol endpoints that are able to access the same data. 
+- **Multi-protocol and multi-modal data access**: Data Lake Storage Gen2 is considered a **multi-modal** storage service as it provides both object store and file system interfaces to the same data **at the same time**. This is achieved by providing multiple protocol endpoints that are able to access the same data. 
 
     Unlike other analytics solutions, data stored in Data Lake Storage Gen2 does not need to move or be transformed before you can run a variety of analytics tools. You can access data via traditional [Blob Storage APIs](../blobs/storage-blobs-introduction.md) (for example: ingest data via [Event Hubs Capture](../../event-hubs/event-hubs-capture-enable-through-portal.md)) and process that data using HDInsight or Azure Databricks at the same time. 
 
@@ -57,7 +57,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 ## Scalability
 
-Azure Data Lake Storage Gen2 and Azure Blob Storage are scalable by design. They are able to store and serve *many exabytes of data*. This amount of storage is available with throughput measured in gigabits per second (Gbps) at high levels of input/output operations per second (IOPS). Beyond just persistence, processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
+Azure Storage is scalable by design whether you access via Data Lake Storage Gen2 or Blob Storage interfaces. It is able to store and serve *many exabytes of data*. This amount of storage is available with throughput measured in gigabits per second (Gbps) at high levels of input/output operations per second (IOPS). Beyond just persistence, processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
 
 ## Cost effectiveness
 
