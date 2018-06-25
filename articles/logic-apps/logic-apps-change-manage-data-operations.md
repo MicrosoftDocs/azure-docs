@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Change or manage data outputs and formats - Azure Logic Apps | Microsoft Docs
+title: Manage data outputs and formats - Azure Logic Apps | Microsoft Docs
 description: Convert, transform, and manage data outputs and formats in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 06/29/2018
 
 # optional metadata
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Change or manage data outputs and formats in Azure Logic Apps
+# Manage data outputs and formats in Azure Logic Apps
 
 This article shows how you can perform various operations on data 
 outputs from the triggers and actions in your logic apps. 
@@ -42,7 +42,7 @@ These actions help you work with data in JavaScript Object Notation (JSON) forma
 | Action | Description | 
 |--------|-------------| 
 | [**Compose**](#compose-action) | Create a single output from inputs with varying data types. | 
-| [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens, which you can use in logic apps, from JSON content by providing or generating a JSON schema.  | 
+| [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens for properties in JSON content so you can more easily use the properties in your logic apps. | 
 ||| 
 
 To create more complex JSON transformations, see 
@@ -204,7 +204,13 @@ From the actions list, select this action: **Data Operations - Create CSV table*
    To manually create the column headers and values, choose **Show advanced options**. 
    To provide only custom values, change **Columns** to **Custom**. 
    To provide custom column headers too, change **Include headers** to **Yes**. 
-   
+
+   > [!TIP]
+   > To create user-friendly tokens for properties in JSON 
+   > objects so you can select those properties as inputs, 
+   > use the [Parse JSON](#parse-json-action) action before 
+   > you need to use those properties. 
+
 5. Save your logic app. On the designer toolbar, choose **Save**.
 
 For more information about this action in your underlying workflow definition, 
@@ -287,6 +293,12 @@ From the actions list, select this action: **Data Operations - Create HTML table
    To manually create the column headers and values, choose **Show advanced options**. 
    To provide only custom values, change **Columns** to **Custom**. 
    To provide custom column headers too, change **Include headers** to **Yes**. 
+
+   > [!TIP]
+   > To create user-friendly tokens for properties in JSON 
+   > objects so you can select those properties as inputs, 
+   > use the [Parse JSON](#parse-json-action) action before 
+   > you need to use those properties. 
 
 5. Save your logic app. On the designer toolbar, choose **Save**.
 
