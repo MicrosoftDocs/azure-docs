@@ -37,7 +37,7 @@ To complete this tutorial, you must have:
 - An Azure Machine Learning Workspace named @@@
 - A local project directory named @@@
 
-Learn how to get these prerequisites using the [Quickstart: Create a project and get started in Python](quickstart-installation.md).
+Learn how to get these prerequisites using the [Quickstart: Create a project and get started in Python](quickstart-set-up-in-python.md).
 
 You also need these package dependencies (tensorflow, matplotlib, numpy) for this example:
 ```shell
