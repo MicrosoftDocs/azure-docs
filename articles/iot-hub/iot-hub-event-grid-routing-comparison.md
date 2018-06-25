@@ -24,7 +24,7 @@ While both message routing and Event Grid enable alert configuration, there are 
 | Feature | IoT Hub message routing | IoT Hub integration with Event Grid |
 | ------- | --------------- | ---------- |
 | **Device messages** | Yes, message routing can be used for telemetry data. | No, Event Grid can only be used for non-telemetry IoT Hub events. |
-| **Event type** | Yes, message routing can report twin changes and device lifecycle events. | Yes, Event Grid can report when devices are registered to an IoT Hub, when devices are deleted, when devices are connected and disconnected from IoT Hub |
+| **Event type** | Yes, message routing can report twin changes and device lifecycle events. | Yes, Event Grid can report when devices are created, deleted, connected and disconnected from IoT Hub |
 | **Ordering** | Yes, ordering of events is maintained.  | No, order of events is not guaranteed. | 
 | **Maximum message size** | 256 KB, device-to-cloud | 64 KB |
 | **Filtering** | Rich filtering through SQL-like language supports filtering on message headers and bodies. For examples, see [IoT Hub query language](iot-hub-devguide-query-language.md). | Filtering based on suffix/prefix of device IDs, which works well for hierarchical services like storage. |
@@ -49,7 +49,7 @@ IoT Hub message routing and the IoT Hub integration with Event Grid perform diff
 
    Use IoT Hub message routing when you have to send telemetry data to other services. Message routing also enables querying message headers and message bodies. 
 
-   The IoT Hub integration with Event Grid works with events that occur in the IoT Hub service. These IoT Hub events include device creation and deletion. 
+   The IoT Hub integration with Event Grid works with events that occur in the IoT Hub service. These IoT Hub events include device created, deleted, connected and disconnected. 
 
 * **What endpoints need to receive this information?**
 
