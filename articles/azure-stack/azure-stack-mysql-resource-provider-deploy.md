@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 06/22/2018 
+ms.date: 06/25/2018 
 ms.author: jeffgilb 
 ms.reviewer: jeffgo
 
@@ -132,7 +132,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Run the installation script from the folder where you extracted the installation files.
 # Find the ERCS01 IP address first, and make sure the certificate file is in the specified directory.
-$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 `
+    -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 06/25/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 
@@ -31,7 +31,7 @@ Make sure you have the credentials for an account with system admin privileges. 
 
    ![Configure a hosting server](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
-3. Provide the connection details of your MySQL Server instance.
+4. Provide the connection details of your MySQL Server instance.
 
    * For **MySQL Hosting Server Name**, provide the fully qualified domain name (FQDN) or a valid IPv4 address. Don't use the short VM name.
    * A default MySQL instance isn't provided, so you have to specify the **Size of Hosting Server in GB**. Enter a size that's close to the capacity of the database server.
@@ -41,7 +41,7 @@ Make sure you have the credentials for an account with system admin privileges. 
    > [!NOTE]
    > If the MySQL instance can be accessed by the tenant and the admin Azure Resource Manager, you can put it under the control of the resource provider. But, the MySQL instance **must** be allocated exclusively to the resource provider.
 
-4. Select **SKUs** to open the **Create SKU** dialog.
+5. Select **SKUs** to open the **Create SKU** dialog.
 
    ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
@@ -50,8 +50,8 @@ Make sure you have the credentials for an account with system admin privileges. 
    >[!IMPORTANT]
    >Special characters, including spaces and periods, aren't supported in **Name** or **Tier** when you create a SKU for the MySQL resource provider.
 
-5. Select **OK** to create the SKU.
-6. Under **Add a MySQL Hosting Server**, select **Create**.
+6. Select **OK** to create the SKU.
+7. Under **Add a MySQL Hosting Server**, select **Create**.
 
 As you add servers, assign them to a new or existing SKU to differentiate service offerings. For example, you can have a MySQL enterprise instance that provides increased database and automatic backups. You can reserve this high-performance server for different departments in your organization.
 

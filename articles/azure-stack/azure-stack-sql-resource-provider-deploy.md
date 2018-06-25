@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 06/25/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
 
-# Use SQL databases on Microsoft Azure Stack
+# Deploy the SQL Server resource provider on Azure Stack
 
 Use the Azure Stack SQL Server resource provider to expose SQL databases as an Azure Stack service. The SQL resource provider runs as a service on a Windows Server 2016 Server Core virtual machine (VM).
 
@@ -122,7 +122,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change to the directory If folder where you extracted the installation files.
 # Then adjust the endpoints.
-$tempDir\DeploySQLProvider.ps1 `
+. $tempDir\DeploySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
