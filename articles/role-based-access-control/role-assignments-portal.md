@@ -1,6 +1,6 @@
 ---
 title: Manage access using RBAC and the Azure portal | Microsoft Docs
-description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and the Azure portal. This includes listing access, granting access, and removing access.
+description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
 author: rolyon

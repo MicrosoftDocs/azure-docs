@@ -9,12 +9,11 @@ ms.reviewer: joflore
 
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 06/20/2018
 ms.author: jeedes
 
 ---
@@ -57,14 +56,14 @@ To configure the integration of PagerDuty into Azure AD, you need to add PagerDu
 
 **To add PagerDuty from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
 	![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
@@ -99,8 +98,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+1. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Single sign-on dialog box](./media/pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
 3. On the **PagerDuty Domain and URLs** section, perform the following steps:
@@ -111,12 +110,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenant-name>.pagerduty.com`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [PagerDuty Client support team](https://www.pagerduty.com/support/) to get these values. 
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [PagerDuty Client support team](https://www.pagerduty.com/support/) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
+	![The Certificate download link](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
 5. Click **Save** button.
 
@@ -124,34 +123,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. On the **PagerDuty Configuration** section, click **Configure PagerDuty** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![PagerDuty configuration](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png) 
+	![PagerDuty configuration](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png)
 
 7. In a different web browser window, log into your Pagerduty company site as an administrator.
 
 8. In the menu on the top, click **Account Settings**.
-   
+
     ![Account Settings](./media/pagerduty-tutorial/ic778535.png "Account Settings")
 
 9. Click **Single Sign-on**.
-   
+
     ![Single sign-on](./media/pagerduty-tutorial/ic778536.png "Single sign-on")
 
 10. On the **Enable Single Sign-on (SSO)** page, perform the following steps:
-   
+
     ![Enable single sign-on](./media/pagerduty-tutorial/ic778537.png "Enable single sign-on")
-   
+
     a. Open your base-64 encoded certificate downloaded from Azure portal in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
   
     b. In the **Login URL** textbox, paste **SAML Single Sign-On Service URL** which you have copied from Azure portal.
   
     c. In the **Logout URL** textbox, paste **Sign-Out URL** which you have copied from Azure portal.
- 
-    d. Select **Turn on Single Sign-on**.
- 
-    e. Click **Save Changes**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+    d. Select **Allow username/password login**.
+
+	e. Select **Require EXACT authentication context comparison** checkbox.
+
+    f. Click **Save Changes**.
 
 ### Create an Azure AD test user
 
@@ -259,8 +257,6 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/pagerduty-tutorial/tutorial_general_01.png
@@ -274,4 +270,3 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 [201]: ./media/pagerduty-tutorial/tutorial_general_201.png
 [202]: ./media/pagerduty-tutorial/tutorial_general_202.png
 [203]: ./media/pagerduty-tutorial/tutorial_general_203.png
-
