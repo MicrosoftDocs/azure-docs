@@ -49,7 +49,7 @@ Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
+    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
 
 2. Select **Entities** from the left menu.
 
@@ -75,11 +75,11 @@ The new `keyphrase` version of the app needs to be trained.
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-    ![Train the app](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
+    ![Train the app](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
 
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
-    ![Training succeeded](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+    ![Training succeeded](./media/luis-quickstart-intent-and-key-phrase/trained.png)
 
 ## Publish app to endpoint
 
