@@ -27,8 +27,9 @@ Azure Machine Learning lets you start training on your local machine, and then s
 
 In addition to Azure Machine Learning, there are a wide variety of options in Azure to build, deploy, and manage machine learning models. [Learn about them here.](./overview-more-machine-learning.md)
 
+@@ INSERT ARTWORK HERE
 
-### What is Machine Learning?
+## What is Machine Learning?
 
 Machine learning is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends. Using machine learning, computers learn without being explicitly programmed.
 
