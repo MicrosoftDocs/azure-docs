@@ -19,7 +19,7 @@ A client application for LUIS can be any conversational application that communi
 ![Conceptual image of 3 applications feeding information info LUIS](./media/luis-overview/luis-entry-point.png)
 
 ## What is a LUIS app?
-A LUIS app contains a domain-specific natural language model you design. You can start your app with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
+A LUIS app contains a domain-specific natural language model you design. You can start your LUIS app with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
 
 [Prebuilt domain models](luis-how-to-use-prebuilt-domains.md) include all these pieces for you and are a great way to start using LUIS quickly.
 
@@ -69,7 +69,7 @@ A model includes:
 * **[example utterances](#example-utterances)**: example text a user enters in the client application
 
 ### Intents 
-An [intent](luis-how-to-add-intents.md), short for _intention_, is a purpose or goal expressed in a user's utterance, such as booking a flight, paying a bill, or finding a news article. You create an intent for each action. A travel app may define an intent named "BookFlight." Your client application can use the top scoring intent to trigger an action. For example, when "BookFlight" intent is returned from LUIS, your client application could trigger an API call to an external service for booking a plane ticket.
+An [intent](luis-how-to-add-intents.md), short for _intention_, is a purpose or goal expressed in a user's utterance, such as booking a flight, paying a bill, or finding a news article. You create an intent for each action. A LUIS travel app may define an intent named "BookFlight." Your client application can use the top scoring intent to trigger an action. For example, when "BookFlight" intent is returned from LUIS, your client application could trigger an API call to an external service for booking a plane ticket.
 
 ### Entities
 An [entity](luis-how-to-add-entities.md) represents detailed information found within the utterance that is relevant to the user's request. For example, in the utterance "Book a ticket to Paris",  a single ticket is requested, and "Paris" is a location. Two entities are found "a ticket" indicating a single ticket and "Paris" indicating the destination. 
@@ -95,7 +95,7 @@ An example [utterance](luis-how-to-add-example-utterances.md) is text input from
 After your LUIS app is published and receives real user utterances, LUIS provides several methods to improve prediction accuracy: [active learning](#active-learning) of endpoint utterances, [phrase lists](#phrase-lists) for domain word inclusion, and [patterns](#patterns) to reduce the number of utterances needed.
 
 ### Active learning
-In the [active learning](label-suggested-utterances.md) process, LUIS allows you to adapt your app to real-world utterances by selecting utterances it received at the endpoint for your review. You can accept or correct the endpoint prediction, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
+In the [active learning](label-suggested-utterances.md) process, LUIS allows you to adapt your LUIS app to real-world utterances by selecting utterances it received at the endpoint for your review. You can accept or correct the endpoint prediction, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
 
 ### Phrase lists 
 LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate important words or phrases to your model domain. LUIS uses these lists to add additional significance to those words and phrases that would otherwise not be found in the model.
