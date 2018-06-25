@@ -1,5 +1,5 @@
 ---
-title: Evaluating Azure Data Lake Storage Gen2
+title: Guidance for Azure Data Lake Storage Gen1 customers
 description: Begin evaluating Azure Data Lake Storage Gen2
 services: storage
 keywords: 
@@ -12,7 +12,11 @@ ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
 
-# Evaluating Azure Data Lake Storage Gen2
+# Guidance for Azure Data Lake Storage Gen1 customers
+
+Azure Data Lake Storage Gen2 Preview represents the next step for Data Lake Storage Gen1. Data Lake Storage Gen2 takes the same rich support for the Hadoop Compatible File System that Data Lake Storage Gen1 has and incorporates additional functionality like data tiering, lifecycle management, event grid support, enhanced network security, and If you are either an existing Data Lake Storage Gen1 customer or a prospective customer, we ask that you please evaluate Data Lake Gen2 by creating a POC and testing it out.
+
+Existing Data Lake Storage Gen1 users will continue to be supported indefinitely
 
 Azure Data Lake Storage Gen2 offers the same rich support for the Hadoop Compatible File System and a full hierarchical namespace just like Azure Data Lake Storage Gen1 does. Additionally, it brings all of Azure Blobs offerings to the table so functionality like data tiering and lifecycle management, durability options for HA and DR, event grid support, enhanced network security, and compatibility with all of Blob APIs.
 

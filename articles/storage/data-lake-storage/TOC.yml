@@ -8,7 +8,7 @@
     href: introduction.md
 - name: Quickstarts
   items:
-  - name: Create a Data Lake Storage Gen2 storage account
+  - name: Create a Data Lake Storage Gen2 capable Storage account
     href: quickstart-create-account.md
   - name: Create/connect Databricks account
     href: quickstart-create-databricks-account.md
