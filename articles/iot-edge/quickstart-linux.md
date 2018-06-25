@@ -31,10 +31,6 @@ The module that you deploy in this quickstart is a simulated sensor that generat
 
 If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
-## Prerequisites
-
-This quickstart uses Azure CLI. 
-
 >[!IMPORTANT]
 >**bug bash only**
 >Use the canary portal 
@@ -47,16 +43,13 @@ This quickstart uses Azure CLI.
 >
 > Remember to remove this line when you're done testing
 
-You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality. You can complete these steps in the cloud shell in the Azure portal.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-1. Sign in to the [Azure portal][lnk-portal]. 
-1. Select the **Cloud Shell** button. 
+You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality. 
 
-   ![Cloud Shell button][0]
+Add the Azure IoT extension to the cloud shell instance.
 
-1. Run the following command in the cloud shell:
-
-   ```azurecli
+   ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
 
@@ -69,13 +62,13 @@ The free level of IoT Hub works for this quickstart. If you've used IoT Hub in t
 
 1. In the Azure cloud shell, create a resource group. The following code creates a resource group called **IoTEdge** in the **West US** region:
 
-   ```azurecli
+   ```azurecli-interactive
    az group create --name IoTEdge --location westus
    ```
 
 1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub called **MyIotHub** in the resource group **IoTEdge**:
 
-   ```azurecli
+   ```azurecli-interactive
    az iot hub create --resource-group IoTEdge --name MyIotHub --sku F1 
    ```
 
@@ -88,13 +81,13 @@ Create a device identity for your simulated device so that it can communicate wi
 
 1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub **MyIoTHub**
 
-   ```azurecli
+   ```azurecli-interactive
    az iot hub device-identity create --device-id myEdgeDevice --hub-name MyIoTHub --edge-enabled
    ```
 
 1. Retrieve the connection string for your device, which links your physical device with its identity in IoT Hub. 
 
-   ```azurecli
+   ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name MyIoTHub
    ```
 

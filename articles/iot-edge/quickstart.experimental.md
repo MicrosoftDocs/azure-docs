@@ -34,10 +34,7 @@ If you don't have an active Azure subscription, create a [free account][lnk-acco
 
 ## Prerequisites
 
-This quickstart assumes that you're using a computer or virtual machine running Windows to simulate an Internet of Things device. 
-
->[!TIP]
->If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
+This quickstart assumes that you're using a computer or virtual machine running Windows to simulate an IoT device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
 
 1. Make sure you're using a supported Windows version:
    * Windows 10 

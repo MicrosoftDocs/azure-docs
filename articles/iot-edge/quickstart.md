@@ -36,7 +36,7 @@ If you don't have an active Azure subscription, create a [free account][lnk-acco
 
 ## Prerequisites
 
-This quickstart assumes that you're using a computer or virtual machine running Windows as an Internet of Things device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
+This quickstart assumes that you're using a computer or virtual machine running Windows to simulate an IoT device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
 
 >[!IMPORTANT]
 >**bug bash only**
@@ -58,16 +58,13 @@ Have the following prerequisites ready on the machine that you're using for an I
 2. Install [Docker for Windows][lnk-docker] and make sure it's running.
 3. Configure Docker to use [Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
-You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality. You can complete these steps in the cloud shell in the Azure portal.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-1. Sign in to the [Azure portal][lnk-portal]. 
-2. Select the **Cloud Shell** button. 
+You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality. 
 
-   ![Cloud Shell button][1]
+Add the Azure IoT extension to the cloud shell instance.
 
-3. Add the Azure IoT extension to the cloud shell instance.
-
-   ```azurecli
+   ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
 
@@ -80,13 +77,13 @@ The free level of IoT Hub works for this quickstart. If you've used IoT Hub in t
 
 1. In the Azure cloud shell, create a resource group. The following code creates a resource group called **IoTEdge** in the **West US** region:
 
-   ```azurecli
+   ```azurecli-interactive
    az group create --name IoTEdge --location westus
    ```
 
 1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub called **MyIotHub** in the resource group **IoTEdge**:
 
-   ```azurecli
+   ```azurecli-interactive
    az iot hub create --resource-group IoTEdge --name MyIotHub --sku F1 
    ```
 
@@ -99,13 +96,13 @@ Create a device identity for your simulated device so that it can communicate wi
 
 1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub **MyIoTHub**
 
-   ```azurecli
+   ```azurecli-interactive
    az iot hub device-identity create --device-id myEdgeDevice --hub-name MyIoTHub --edge-enabled
    ```
 
 1. Retrieve the connection string for your device, which links your physical device with its identity in IoT Hub. 
 
-   ```azurecli
+   ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name MyIoTHub
    ```
 
@@ -162,9 +159,9 @@ The instructions in this section configure the IoT Edge runtime with Linux conta
 
 ### Configure the IoT Edge runtime 
 
-Configure the runtime with your IoT Edge device connection string that you copied when you registered a new device. Then, sconfigure the runtime network. 
+Configure the runtime with your IoT Edge device connection string that you copied when you registered a new device. Then, configure the runtime network. 
 
-1. Open the IoT Edge configuration file, which is located at `C:\ProgramData\iotedge\config.yaml`. 
+1. Open the IoT Edge configuration file, which is located at `C:\ProgramData\iotedge\config.yaml`. This file is protected, so run a text editor like Notepad as an administrator, then use the editor to open the file. 
 
 2. Find the **provisioning** section and set the value of **device_connection_string** to the string that you copied. 
 
