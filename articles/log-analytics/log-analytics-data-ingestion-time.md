@@ -24,7 +24,7 @@ Azure Log Analytics is a high scale data service that serves thousands of custom
 Latency refers to the time that data is created on the monitored system and the time that it comes available for analysis in Log Analytics. The typical latency to ingest data into Log Analytics is between 3 and 10 minutes, with 95% of data ingested in less than 7 minutes. The specific latency for any particular data will vary depending on a variety of factors explained below.
 
 ## SLA for Log Analytics?
-The [Log Analytics Service Level Agreement (SLA)](https://azure.microsoft.com/en-us/support/legal/sla/log-analytics/v1_1/) is a legal binding agreement that defines when Microsoft refunds customers when the service doesn’t meet its goals. This isn't based on the typical performance of the system but its worst case which accounts for potential catastrophic situations.
+The [Log Analytics Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) is a legal binding agreement that defines when Microsoft refunds customers when the service doesn’t meet its goals. This isn't based on the typical performance of the system but its worst case which accounts for potential catastrophic situations.
 
 ## Factors affecting latency
 The total ingestion time for a particular set of data can be broken down into the following high level areas. 
@@ -39,7 +39,7 @@ Details on the different latency introduced in this process are described below.
 Agents and management solutions use different strategies to collect data from a virtual machine, which may affect the latency. Some specific examples include the following:
 
 - Windows events, syslog events, and performance metrics are collected immediately. Linux performance counters are polled at 30 second intervals.
-- IIS logs and custom logs are collected once their timestamp changes. For IIS logs, this is influenced by the [rollover schedule configured on IIS](). 
+- IIS logs and custom logs are collected once their timestamp changes. For IIS logs, this is influenced by the [rollover schedule configured on IIS](log-analytics-data-sources-iis-logs.md). 
 - Active Directory Replication solution performs its assessment every five days, while the Active Directory Assessment solution performs a weekly assessment of your Active Directory infrastructure. The agent will collect these logs only when assessment is complete.
 
 ### Agent upload frequency
@@ -104,6 +104,5 @@ Use the following query in large environments summarize the latency for differen
 
 
 ## Next steps
-* Learn about [solutions](log-analytics-add-solutions.md) that add functionality to Log Analytics and also collect data into the workspace.
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.
-* Configure [alerts](log-analytics-alerts.md) to proactively notify you of critical data collected from data sources and solutions.
+* Read the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) for Log Analytics.
+
