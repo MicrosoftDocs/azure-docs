@@ -200,7 +200,7 @@ In the previous step, you clicked **Finish** to exit the extraction phase, and s
 
 ![Microsoft Azure Backup Setup Wizard](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Azure Backup Server shares code with Data Protection Manager. You will see references to Data Protection Manager and DPM in the Azure Backup Server installer. Though Azure Backup Server and Data Protection Manager are separate products, these products are closely related. In the Azure Backup Server documentation, all references to Data Protection Manager and DPM apply to Azure Backup Server.
+Azure Backup Server shares code with Data Protection Manager. You will see references to Data Protection Manager and DPM in the Azure Backup Server installer. Though Azure Backup Server and Data Protection Manager are separate products, these products are closely related.
 
 1. To launch the setup wizard, click **Microsoft Azure Backup Server**.
 
@@ -356,10 +356,10 @@ You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
 
-The article, [Preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx), contains information about supported  Azure Backup Server configurations.
+The article, [Preparing your environment for DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), contains information about supported  Azure Backup Server configurations.
 
 You can use the following articles to gain a deeper understanding of workload protection using Microsoft Azure Backup Server.
 
-- [SQL Server backup](backup-azure-backup-sql.md)
-- [SharePoint server backup](backup-azure-backup-sharepoint.md)
+- [SQL Server backup](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint server backup](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Alternate server backup](backup-azure-alternate-dpm-server.md)
