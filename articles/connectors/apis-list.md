@@ -1,7 +1,7 @@
 ---
 # required metadata
 title: Connectors for Azure Logic Apps | Microsoft Docs
-description: Automate workflows with built-in, managed API, integration account, and enterprise connectors for Azure Logic Apps
+description: Automate workflows with built-in, managed API, on-premises, integration account, and enterprise connectors for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -20,19 +20,21 @@ ms.suite: integration
 Connectors play an integral part when you create automated workflows with Azure Logic Apps. 
 By using connectors in your logic apps, you expand the capabilities for your on-premises 
 and cloud apps to perform tasks with the data that you create and already have. 
-This article describes popular connectors that are successfully used by 
-thousands of apps and millions of executions for processing data and information.
+While Logic Apps offers ~200+ connectors, this article describes popular and 
+more commonly used connectors that are successfully used by thousands of apps 
+and millions of executions for processing data and information.
 Connectors are available as either built-ins or managed connectors. 
 
-* [**Built-ins**](#built-ins): These built-in actions and triggers help you create 
-logic apps that run on custom schedules, communicate with other endpoints, 
-receive and respond to requests, work with services such as Azure Service Bus, 
-Azure Functions, and Azure API Management, control and structure the workflow 
-in your logic app and store, manage, or manipulate data. 
+* [**Built-ins**](#built-ins): These built-in actions and triggers help you 
+create logic apps that run on custom schedules, communicate with other endpoints, 
+receive and respond to requests, and call Azure functions, Azure API Apps (Web Apps), 
+your own APIs managed and published with Azure API Management, and nested logic apps 
+that can receive requests. You can also use built-in actions that help you 
+organize and control your logic app's workflow, and also work with data.
 
 * **Managed connectors**: These connectors provide triggers and actions 
-for accessing various other services and systems. Some connectors require 
-that you first create connections that are managed by Azure Logic Apps. 
+for accessing other services and systems. Some connectors require that 
+you first create connections that are managed by Azure Logic Apps. 
 Managed connectors are organized into these groups:
 
   |   |   |
@@ -64,7 +66,7 @@ and manage or manipulate data.
 | [![API icon][schedule-icon]<br/>**Schedule**][recurrence-doc] | - Run your logic app on a specified schedule, ranging from basic to complex recurrences, with the **Recurrence** trigger. <p>- Pause your logic app for a specified duration with the **Delay** action. <p>- Pause your logic app until the specified date and time with the **Delay until** action. | [![API icon][http-icon]<br/>**HTTP**][http-doc] | Communicate with any endpoint over HTTP with both triggers and actions for HTTP, HTTP + Swagger, and HTTP + Webhook. | 
 | [![API icon][http-request-icon]<br/>**Request**][http-request-doc] | - Make your logic app callable from other apps or services, trigger on Event Grid resource events, or trigger on responses to Azure Security Center alerts with the **Request** trigger. <p>- Send responses to an app or service with the **Response** action. | [![API icon][batch-icon]<br/>**Batch**][batch-doc] | - Process messages in batches with the **Batch messages** trigger. <p>- Call logic apps that have existing batch triggers with the **Send messages to batch** action. | 
 | [![API icon][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | Call previously created Azure functions that run custom code snippets (C# or Node.js) from your logic apps. | [![API icon][azure-api-management-icon]</br>**Azure API Management**][azure-api-management-doc] | Call triggers and actions defined by your own APIs that you manage and publish with Azure API Management. | 
-| [![API icon][azure-app-services-icon]<br/>**Azure App Services**][azure-app-services-doc] | Call Azure API Apps, or Web Apps, hosted on Azure App Service. The triggers and actions defined by these apps appear like any other first-class triggers and actions when Swagger is included. | [![API icon][azure-logic-apps-icon]<br/>**Azure<br/>Logic Apps**][nested-logic-app-doc] | Call nested logic apps, which are any logic apps that start with a Request trigger. | 
+| [![API icon][azure-app-services-icon]<br/>**Azure App Services**][azure-app-services-doc] | Call Azure API Apps, or Web Apps, hosted on Azure App Service. The triggers and actions defined by these apps appear like any other first-class triggers and actions when Swagger is included. | [![API icon][azure-logic-apps-icon]<br/>**Azure<br/>Logic Apps**][nested-logic-app-doc] | Call other logic apps that start with a Request trigger. | 
 ||||| 
 
 ### Control workflow
