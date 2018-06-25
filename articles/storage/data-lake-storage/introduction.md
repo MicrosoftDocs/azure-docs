@@ -43,7 +43,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 > During the public preview of Data Lake Storage Gen2, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated.
 > [Sign up]((https://aka.ms/adlsgen2signup)) to the public preview of Azure Data Lake Storage Gen2.  
 
-- **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](./abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](../hdinsight/index.yml) and [Azure Databricks](../azure-databricks/index.yml) to access data stored in Azure Data Lake Storage Gen2.
+- **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](./abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](../hdinsight/) and [Azure Databricks](../azure-databricks/) to access data stored in Azure Data Lake Storage Gen2.
 
 - **Multi-protocol and multi-model data access**: Data Lake Storage Gen2 is considered a **multi-modal** storage service as it provides both object store and file system interfaces to the same data **at the same time**. This is achieved by providing multiple protocol endpoints that are able to access the same data. 
 
