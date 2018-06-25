@@ -109,11 +109,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![url_01](./media/jostle-tutorial/url_01.png)
 
-  a. In the **Sign-on URL** textbox, enter: `https://login-prod.jostle.us`
+  	a. In the **Sign-on URL** textbox, enter: `https://login-prod.jostle.us`
 
 	b. In the **Identifier** textbox, enter: `https://.jostle.us`
 
-  c. Check the box next to **Show advanced URL settings**
+  	c. Check the box next to **Show advanced URL settings**
 
 	d. In the **Reply URL** textbox, enter: `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
 
