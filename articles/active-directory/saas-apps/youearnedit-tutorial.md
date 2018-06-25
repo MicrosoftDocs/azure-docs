@@ -134,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![YouEarnedIt Configuration](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. To configure single sign-on on **YouEarnedIt** side, you need to send the downloaded **Certificate(Base64)** and **SAML Single Sign-On Service URL** to [YouEarnedIt support team](https://youearnedit.freshdesk.com/support/tickets/new). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **YouEarnedIt** side, you need to send the downloaded ***Certificate(Base64)*** and ***SAML Single Sign-On Service URL*** to your assigned **YouEarnedIt** Customer Success manager. They have the access needed to ensure the SAML SSO connection is configured properly.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
