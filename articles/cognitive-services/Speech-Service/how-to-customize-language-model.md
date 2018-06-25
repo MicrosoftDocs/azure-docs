@@ -21,7 +21,7 @@ We discuss how to:
 > * Import the language data set
 > * Create the custom language model
 
-If you don't have a Cognitive Services account, create a [free account](Get your Speech trial subscription) before you begin.
+If you don't have a Cognitive Services account, create a [free account](https://azure.microsoft.com/try/cognitive-services/) before you begin.
 
 ## Prerequisites
 

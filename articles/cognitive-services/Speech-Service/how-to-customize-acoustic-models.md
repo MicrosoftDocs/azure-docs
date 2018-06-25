@@ -21,7 +21,7 @@ In this page, you learn how to:
 > * Import the acoustic data set
 > * Create the custom acoustic model
 
-If you don’t have a Cognitive Services account, create a [free account](Get your Speech trial subscription) before you begin.
+If you don’t have a Cognitive Services account, create a [free account](https://azure.microsoft.com/try/cognitive-services) before you begin.
 
 ## Prerequisites
 
@@ -101,7 +101,7 @@ Click the “Import” button in the "Acoustic Datasets" row, and the site displ
 
 ![try](media/stt/speech-acoustic-datasets-import.png)
 
-Enter a _Name_ and _Description_ in the appropriate text boxes. These are useful for keeping track of various data sets you upload. Next, click “Choose File" for the “Transcription File” and “WAV files” and select your plaint-text transcription file and zip archive of WAV files, respectively. When this is complete, click “Import” to upload your data. Your data will then be uploaded. For larger data sets, this may take several minutes.
+Enter a _Name_ and _Description_ in the appropriate text boxes. Friendly descriptions useful for keeping track of various data sets you upload. Next, click “Choose File" for the “Transcription File” and “WAV files” and select your plaint-text transcription file and zip archive of WAV files, respectively. When preparation is complete, click “Import” to upload your data. Your data will then be uploaded. For larger data sets, this may take several minutes.
 
 When the upload is complete, you will return to the "Acoustic Datasets" table and will see an entry that corresponds to your acoustic data set. Notice that it has been assigned a unique ID (GUID). The data will also have a status that reflects its current state. Its status will be “Waiting” while it is being queued for processing, “Processing” while it is going through validation, and “Complete” when the data is ready for use.
 
@@ -111,13 +111,13 @@ When the status is “Complete”, you can click “Details” to see the acoust
 
 ![try](media/stt/custom-speech-acoustic-datasets-report.png)
 
-At some point, if you would like to change the Name or Description of the data set, you can click the “Edit” link and change these entries. Note that you cannot modify the audio files or transcriptions.
+At some point, if you would like to change the Name or Description of the data set, you can click the “Edit” link and change these entries. You cannot modify the audio files or transcriptions.
 
 ## Create a custom acoustic model
 
 Once the status of your acoustic data set is “Complete”, it can be used to create a custom acoustic model. To do so, click “Acoustic Models” in the “Custom Speech” drop-down menu. You will see a table called "Your models” that lists all of your custom acoustic models. This table will be empty if this is your first use. The current locale is shown in the table title. Currently, acoustic models can be created for US English only.
 
-To create a new model, click “Create New” under the table title. As before, enter a name and description to help you identify this model. For example, the "Description"" field can be used to record which starting model and acoustic data set were used to create the model. Next, select a “Base Acoustic Model” from the drop-down menu. The base model is the model that is the starting point for your customization. There are two base acoustic models to choose from. The _Microsoft Search and Dictation AM_ are appropriate for speech directed at an application, such as commands, search queries, or dictation. The _Microsoft Conversational model_ is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call center or meetings. Note that latency for partial results in Conversational models is higher than in Search and Dictation models.
+To create a new model, click “Create New” under the table title. As before, enter a name and description to help you identify this model. For example, the "Description"" field can be used to record which starting model and acoustic data set were used to create the model. Next, select a “Base Acoustic Model” from the drop-down menu. The base model is the model that is the starting point for your customization. There are two base acoustic models to choose from. The _Microsoft Search and Dictation AM_ are appropriate for speech directed at an application, such as commands, search queries, or dictation. The _Microsoft Conversational model_ is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call center or meetings. Latency for partial results in Conversational models is higher than in Search and Dictation models.
 
 Next, select the acoustic data you wish to use to perform the customization using the drop-down menu.
 
@@ -125,7 +125,7 @@ Next, select the acoustic data you wish to use to perform the customization usin
 
 You can optionally choose to perform offline testing of your new model when the processing is complete. This will run a speech-to-text evaluation on a specified acoustic data set using the customized acoustic model and report the results. To perform this testing, select the “Accuracy Testing” check box. Then select a language model from the drop-down menu. If you have not created any custom language models, only the base language models will be in the drop-down list. See the [description](how-to-customize-language-model.md) of the base language models in the guide and select the one that is most appropriate.
 
-Finally, select the acoustic data set you would like to use to evaluate the custom model. If you perform accuracy testing, it is important to select an acoustic data that is different from the one used for the model creation to get a realistic sense of the model’s performance. Also note that offline testing is limited to 1000 utterances. If the acoustic dataset for testing is larger than that, only the first 1000 utterances will be evaluated.
+Finally, select the acoustic data set you would like to use to evaluate the custom model. If you perform accuracy testing, it is important to select an acoustic data that is different from the one used for the model creation to get a realistic sense of the model’s performance. Also note that offline testing is limited to 1000 utterances. If the acoustic dataset for testing is larger, only the first 1000 utterances will be evaluated.
 
 When you are ready to start running the customization process, press “Create”.
 
