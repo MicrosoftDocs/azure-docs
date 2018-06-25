@@ -1,20 +1,14 @@
 ---
-title: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark
-description: 
-keywords: 
+title: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark | Microsoft Docs
+description: Learn to run Spark queries on a DataBricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: hdinsight,storage
-documentationcenter: 
 tags: azure-portal
 author: dineshm
-manager: jahogg
-editor: cgronlun
+manager: twooley
 
 ms.component: data-lake-storage-gen2
 ms.service: hdinsight
-ms.custom: 
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
@@ -37,23 +31,23 @@ This tutorial demonstrates how to consume and query airline flight data, which i
 > [!NOTE]
 > Click on the **Prezipped file** checkbox to select all data fields. The download will be many gigabytes in size, but this amount of data is necessary for analysis.
 
-## Create an Azure Data Lake Storage account
+## Create an Azure Data Lake Storage Gen2 account
 
-To begin, create a new [Azure Data Data Lake storage account](quickstart-create-account.md) and give it a unique name. Once created, navigate to the storage account to retrieve configuration settings.
+To begin, create a new [Azure Data Lake Storage Gen2 account](quickstart-create-account.md) and give it a unique name. Then navigate to the storage account to retrieve configuration settings.
 
 > [!IMPORTANT]
-> During Preview, Azure Functions only work with Azure Data Lake Storage accounts created with a flat namespace.
+> During Preview, Azure Functions only work with Azure Data Lake Storage Gen2 accounts created with a flat namespace.
 
-1. Under **Settings**, click  **Access keys**
-3. Click the **Copy** button next to **key1** to copy the key value
+1. Under **Settings**, click  **Access keys**.
+3. Click the **Copy** button next to **key1** to copy the key value.
 
 Both the account name and key are required for later steps in this tutorial. Open a text editor and set aside the account name and key for future reference.
 
-## Create DataBricks cluster
+## Create a DataBricks cluster
 
-The next step is to create a [DataBricks service](https://docs.databricks.com/) to create a data workspace.
+The next step is to create a [DataBricks cluster](https://docs.databricks.com/) to create a data workspace.
 
-1. Create a [DataBricks service](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service)
+1. Create a [DataBricks cluster](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service)
 2. Click **Launch Workspace** to open the workspace in a new browser window
 3. Click **Clusters** in the left-hand nav bar
 4. Click **Create Cluster**

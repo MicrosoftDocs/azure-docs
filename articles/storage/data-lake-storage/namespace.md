@@ -3,7 +3,7 @@ title: Azure Data Lake Storage Hierarchical Namespace
 description:  Describes the concept of the hierarchical namespace for Azure Data Lake Storage
 services: storage
 author: jamesbak
-manager: jahogg
+manager: twooley
 
 ms.service: storage
 ms.topic: article
