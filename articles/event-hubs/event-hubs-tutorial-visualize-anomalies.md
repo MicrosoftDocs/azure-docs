@@ -15,17 +15,9 @@ ms.custom: mvc
 
 # Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs
 
-<<<<<<< HEAD
 With Azure Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI. Let's say you have thousands of devices constantly sending real-time data to an event hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture anywhere you have multiple transactions in multiple countries within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. 
 
 In this tutorial, you simulate this example. You run an application that creates and sends credit card transactions to an event hub. Then you read the stream of data in real-time with Azure Stream Analytics, which separates the valid transactions from the invalid transactions, and then use Power BI to visually identify the transactions that are tagged as invalid.
-=======
-Azure Event Hubs is a data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters.
-
-In this scenario, let's say you have thousands of devices constantly sending real-time data to an event hub, adding up to millions of events per second. How do you check that many events for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture any time you have multiple transactions in multiple countries within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the world at the same time. With Event Hubs, you can use Azure Stream Analytics to check the incoming data and isolate the anomalies, which you can then visualize in Power BI.
-
-This tutorial simulates this example. You run an application that creates and sends credit card transactions to an event hub. Then, you read the stream of data in real-time with Azure Stream Analytics, which separates valid transactions from the invalid transactions. You can then see the results with a Power BI visualization. 
->>>>>>> 796ae1367468778b7575121d75c26e14e54eb08f
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -58,11 +50,7 @@ The following sections describe how to perform these required steps. Follow the 
 3. Create an event hub.
 
 > [!NOTE]
-<<<<<<< HEAD
-> There are variables set in each script that you need later in the tutorial. These include resource group name ($resourceGroup), event hub namespace ($eventHubNamespace), and event hub name ($eventHubName). These are referred to with their dollar sign ($) prefix later in this article so you know they were set in the script.
-=======
 > There are variables set in each script that you need later in the tutorial. These include location (**$location**), resource group name ($resourceGroup), event hub namespace (**$eventHubNamespace**), and event hub name (**$eventHubName**). These are referred to with their dollar sign ($) prefixes later in this article, so you know they were set in the script.
->>>>>>> 796ae1367468778b7575121d75c26e14e54eb08f
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->
