@@ -50,7 +50,7 @@ The utterance has two locations specified, `a-2349` and `b-1298`. Assume that th
  
 If only one child (origin or destination) of a hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
 
-## Remove prebuilt number entity from app
+## Add prebuilt number entity from app
 In order to see the entire utterance and mark the hierarchical children, temporarily remove the prebuilt number entity.
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
@@ -142,9 +142,11 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-publish-button.png "Screenshot of intent page with Publish button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
+
 2. Select the Production slot and the **Publish** button.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-publish-button.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
