@@ -16,7 +16,7 @@ ms.date: 04/16/2018
 ms.author: daveba
 ---
 
-# Create, list or delete a user assigned identity using CRUL to make REST API calls
+# Create, list or delete a user assigned identity using CURL to make REST API calls
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
