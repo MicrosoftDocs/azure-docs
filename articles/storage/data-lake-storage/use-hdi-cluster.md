@@ -94,7 +94,7 @@ The default Data Lake Storage file system stores cluster-specific information su
 
 When creating an HDInsight cluster from the Portal, you have the options (as shown in the following screenshot) to provide the storage account details. You can also specify whether you want an additional storage account associated with the cluster, and if so, choose from any of the available storage options for additional storage.
 
-![HDInsight hadoop creation data source](./media/use-hdi-cluster/create-storage-account-TEMP.png)
+![HDInsight hadoop creation data source](./media/use-hdi-cluster/create-storage-account.png)
 
 > [!WARNING]
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
