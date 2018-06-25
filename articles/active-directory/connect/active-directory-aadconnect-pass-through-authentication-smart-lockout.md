@@ -4,8 +4,7 @@ description: This article describes how Azure Active Directory (Azure AD) Pass-t
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
-manager: mtillman
+
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -14,7 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.component: hybrid
-ms.author: billmath
+
+
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: rogoya
 ---
 
 # Azure Active Directory Pass-through Authentication: Smart Lockout
@@ -48,7 +52,7 @@ Use the following instructions to verify your Active Directory account lockout p
 3.	Browse to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Account Policies** > **Account Lockout Policy**.
 4.	Verify your **Account lockout threshold** and **Reset account lockout counter after** values.
 
-![Active Directory account lockout policies](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
+![Active Directory account lockout policies](./media/active-directory-aadconnect-pass-through-authentication-smart-lockout/pta5.png)
 
 ## Use the Graph API to manage your tenant’s Smart Lockout values (requires a Premium license)
 
