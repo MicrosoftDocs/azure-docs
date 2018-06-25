@@ -101,7 +101,7 @@ In the [active learning](label-suggested-utterances.md) process, LUIS allows you
 LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate important words or phrases to your model domain. LUIS uses these lists to add additional significance to those words and phrases that would otherwise not be found in the model.
 
 ### Patterns 
-Patterns allow you to simplify an intent's utterance collection into common [templates][patterns] of word choice and word order. This allows LUIS to learn quicker by needing fewer example utterances for the intents. Patterns are a hybrid system of regular expressions and machine-learned expressions. 
+Patterns allow you to simplify an intent's utterance collection into common [templates](luis-concept-patterns.md) of word choice and word order. This allows LUIS to learn quicker by needing fewer example utterances for the intents. Patterns are a hybrid system of regular expressions and machine-learned expressions. 
 
 <a name="using-luis"></a>
 
@@ -121,22 +121,18 @@ Learn [more](luis-reference-regions.md) about authoring and publishing regions.
 ## What technologies work with LUIS?
 Several Microsoft technologies work with LUIS:
 
-* [Bing Spell Check API][bing-spell-check-api] provides text correction before prediction. 
+* [Bing Spell Check API](../bing-spell-check/proof-text.md) provides text correction before prediction. 
 * [Bot Framework][bot-framework] allows a chatbot to talk with a user via text input. Select [3.x](https://github.com/Microsoft/BotBuilder) or [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK for a complete bot experience.
 * [QnA Maker][qnamaker] allows several types of text to combine into a question and answer knowledge base.
-* [Speech](../Speech/index.md) converts spoken language requests into text. Once converted to text, LUIS processes the requests. See [Speech SDK](https://aka.ms/csspeech) for more information.
-* [Text Analytics][text-analytics] provides sentiment analysis and key phrase data extraction.
+* [Speech](../Speech/home.md) converts spoken language requests into text. Once converted to text, LUIS processes the requests. See [Speech SDK](https://aka.ms/csspeech) for more information.
+* [Text Analytics](../text-analytics/) provides sentiment analysis and key phrase data extraction.
 
 ## Next steps
 Create a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [custom](luis-quickstart-intents-only.md) domain.
 
 <!-- Reference-style links -->
-[azure-portal]: https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
 [authoring-apis]: https://aka.ms/luis-authoring-api
 [endpoint-apis]: https://aka.ms/luis-endpoint-apis
-[text-analytics]: https://azure.microsoft.com/services/cognitive-services/text-analytics/
-[patterns]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-patterns
-[bing-spell-check-api]: https://azure.microsoft.com/services/cognitive-services/spell-check/
 [qnamaker]: https://qnamaker.ai/
