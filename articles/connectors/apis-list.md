@@ -40,7 +40,7 @@ Managed connectors are organized into these groups:
   | [**Managed API connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Office, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. | 
   | [**On-premises connectors**](#on-premises-connectors) | After you install and set up the [on-premises data gateway][gateway-doc], these connectors help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others. | 
   | [**Integration account connectors**](#integration-account-connectors) | Available when you pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. <p><p>If you work with BizTalk Server, you can use these connectors for expanding your BizTalk workflows into Azure. BizTalk Server also provides a [Logic Apps adapter](https://msdn.microsoft.com/library/mt787163.aspx) for receiving messages and sending messages to logic apps. | 
-  | [**Enterprise connectors**](#enterprise-connectors) | Provide access to MQ and SAP for an additional cost. |
+  | [**Enterprise connectors**](#enterprise-connectors) | Provide access to SAP and IBM MQ for an additional cost. |
   ||| 
 
 For technical information about each connector's triggers and actions, 
@@ -118,24 +118,24 @@ you must first [download, install, and set up an on-premises data gateway][gatew
 This gateway provides a secure communication channel without 
 having to set up the necessary network infrastructure. 
 
-|   |   |   |   | 
-|---|---|---|---| 
-| ![API icon][biztalk-server-icon]<br/>**BizTalk</br> Server**| [![API icon][file-system-icon]<br/>**File</br> System**][file-system-doc] | [![API icon][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | 
-| [![API icon][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | [![API icon][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![API icon][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | 
+|   |   |   |   |   | 
+|---|---|---|---|---| 
+| ![API icon][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![API icon][file-system-icon]<br/>**File</br> System**][file-system-doc] | [![API icon][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-informix-icon]<br/>**IBM**</br> **Informix**][ibm-informix-doc] | ![API icon][mysql-icon]<br/>**MySQL** | 
+| [![API icon][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API icon][postgre-sql-icon]<br/>**PostgreSQL** | [![API icon][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![API icon][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![API icon][teradata-icon]<br/>**Teradata** | 
 ||||| 
 
 <a name="integration-account-connectors"></a>
 
 ## Integration account connectors 
 
-Here are connectors you can use for building business-to-business (B2B) 
+Here are connectors for building business-to-business (B2B) 
 solutions with your logic apps when you create and pay for an 
 [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), 
 which is available through the Enterprise Integration Pack (EIP) in Azure. 
-In this account, you create and store B2B artifacts such as trading partners, 
+With this account, you can create and store B2B artifacts such as trading partners, 
 agreements, maps, schemas, certificates, and so on. To use these artifacts, 
 associate your logic apps with your integration account. If you currently 
-use BizTalk Server, you're likely familiar with these connectors already.
+use BizTalk Server, these connectors might seem familiar already.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -148,12 +148,12 @@ use BizTalk Server, you're likely familiar with these connectors already.
 
 ## Enterprise connectors
 
-Your logic apps can access enterprise systems such as SAP 
-and IBM MQ by using these connectors:
+Your logic apps can access enterprise systems such 
+as SAP and IBM MQ through these connectors:
 
 |   |   | 
 |---|---| 
-| [![API icon][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc]|[![API icon][sap-icon]<br/>**SAP**][sap-connector-doc] |
+| [![API icon][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API icon][sap-icon]<br/>**SAP**][sap-connector-doc] |
 ||| 
 
 ## More about triggers and actions
@@ -368,6 +368,7 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [mailchimp-icon]: ./media/apis-list/mailchimp.png
 [mandrill-icon]: ./media/apis-list/mandrill.png
 [microsoft-translator-icon]: ./media/apis-list/microsofttranslator.png
+[mysql-icon]: ./media/apis-list/mysql.png
 [office-365-outlook-icon]: ./media/apis-list/office365.png
 [office-365-users-icon]: ./media/apis-list/office365users.png
 [office-365-video-icon]: ./media/apis-list/office365video.png
@@ -377,6 +378,7 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [outlook.com-icon]: ./media/apis-list/outlook.png
 [pagerduty-icon]: ./media/apis-list/pagerduty.png
 [pinterest-icon]: ./media/apis-list/pinterest.png
+[postgre-sql-icon]: ./media/apis-list/postgre-sql.png
 [project-online-icon]: ./media/apis-list/projectonline.png
 [redmine-icon]: ./media/apis-list/redmine.png
 [rss-icon]: ./media/apis-list/rss.png
@@ -385,12 +387,13 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [send-grid-icon]: ./media/apis-list/sendgrid.png
 [sftp-icon]: ./media/apis-list/sftp.png
 [sharepoint-online-icon]: ./media/apis-list/sharepointonline.png
-[sharepoint-server-icon]: ./media/apis-list/sharepointonline.png
+[sharepoint-server-icon]: ./media/apis-list/sharepoint-server.png
 [slack-icon]: ./media/apis-list/slack.png
 [smartsheet-icon]: ./media/apis-list/smartsheet.png
 [smtp-icon]: ./media/apis-list/smtp.png
 [sparkpost-icon]: ./media/apis-list/sparkpost.png
 [sql-server-icon]: ./media/apis-list/sql.png
+[teradata-icon]: ./media/apis-list/teradata.png
 [todoist-icon]: ./media/apis-list/todoist.png
 [trello-icon]: ./media/apis-list/trello.png
 [twilio-icon]: ./media/apis-list/twilio.png
