@@ -26,7 +26,7 @@ This article contains the frequently asked questions and known issues with Azure
 
 ## Q: Where should I start? 
 
-Start with the [Overview](active-directory-reporting-azure-monitor-diagnostics-overview.md) to get an idea about what you need to deploy this feature. Once you're familiar with the pre-requisites, check out our tutorials to help you configure and  route your logs to Event Hubs.
+Start with the [Overview](active-directory-reporting-azure-monitor-diagnostics-overview.md) to get an idea about what you need to deploy this feature. Once you're familiar with the pre-requisites, check out the tutorials to help you configure and route your logs to Event Hubs.
 
 ## Q: Which logs are included?
 
@@ -35,23 +35,23 @@ Both sign-ins and audit logs are available for routing through this feature, alt
 
 ## Q: How soon after an action will the corresponding logs show up in Event Hubs?
 
-The logs should show up in Event Hubs anywhere between 2 and 5 minutues of performing the action. For more information about event hubs, see [What is event hubs?](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-what-is-event-hubs)
+The logs should show up in Event Hubs anywhere between two and five minutes of performing the action. For more information about event hubs, see [What is event hubs?](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-what-is-event-hubs)
 
 ## Q: How soon after an action will the corresponding logs show up in storage accounts?
 
-For Azure storage accounts, the latency is anywhere between 5 and 15 minutues of performing the action.
+For Azure storage accounts, the latency is anywhere between 5 and 15 minutes of performing the action.
 
 ## Q: How much will it cost to store my data?
 
-The storage cost depends on the size of your logs as well as the retention period you choose. For a ballpark estimate of the costs for tenants depending on the volume of logs generated, check out our [Overview](active-directory-reporting-azure-monitor-diagnostics-overview.md).
+The storage cost depends on the size of your logs as well as the retention period you choose. For an approximate estimate of the costs for tenants depending on the volume of logs generated, check out the [Overview](active-directory-reporting-azure-monitor-diagnostics-overview.md).
 
 ## Q: How much will it cost to stream my data to Event Hubs?
 
-The streaming cost depends on the number of messages you receive per minute. Read the [Overview](active-directory-reporting-azure-monitor-diagnostics-overview.md) to learn more about how the cost is calculated as well as find a ballpark estimate based on the number of messages. 
+The streaming cost depends on the number of messages you receive per minute. Read the [Overview](active-directory-reporting-azure-monitor-diagnostics-overview.md) to learn more about how the cost is calculated as well as find an approximate estimate based on the number of messages. 
 
 ## Q: What SIEM tools are currently supported? 
 
-Currently, Azure monitor diagnostics is supported by Splunk, QRadar and Sumologic. However, Splunk is the only SIEM tools that is supported for Azure Active Directory logs. We are currently working with both Sumologic and Qradar to map our schema to a format that their connector can understand. For more information on how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs).
+Currently, Azure monitor diagnostics is supported by Splunk, QRadar and Sumologic. However, Splunk is the only SIEM tools that is supported for Azure Active Directory logs. We are currently working with both Sumologic and Qradar to map the schema to a format that their connector can understand. For more information on how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs).
 
 ## Q: Can I access the data from Event Hub without using an external SIEM tool? 
 

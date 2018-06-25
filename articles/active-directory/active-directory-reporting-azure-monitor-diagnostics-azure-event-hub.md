@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 
 # Tutorial: Route Azure Active Directory logs to an Azure event hub
 
-In this tutorial, you will learn how to set up Azure Monitor diagnostic settings to route Azure Active Directory logs to an Azure event hub. Use this mechanism to integrate your logs with third party SIEM tools like Splunk and QRadar.
+In this tutorial, learn how to set up Azure Monitor diagnostic settings to route Azure Active Directory logs to an Azure event hub. Use this mechanism to integrate your logs with third-party SIEM tools like Splunk and QRadar.
 
 ## Prerequisites 
 
@@ -37,7 +37,7 @@ You need:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Click on **Azure Active Directory** -> **Activity** -> **Audit logs**. 
-3. Click **Export Settings** to open the Diagnostic Settings blade. Click **Edit setting** if you want to change existing settings or click **Add diagnostic setting** to add a new one. You can have a maximum of three settings. 
+3. Click **Export Settings** to open the Diagnostic Settings blade. Click **Edit setting** if you want to change existing settings or click **Add diagnostic setting** to add a new one. You can have up to three settings. 
 
 ![Export settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-event-hub/ExportSettings.png "Export settings")
 
@@ -50,7 +50,7 @@ You need:
 
 ![Diagnostics settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-event-hub/DiagnosticSettings.png "Diagnostic settings")
 
-10. After about 15 minutues, verify that events appear in your event hub by navigating to the event hub from the portal and verifying that the **incoming messages** count is greater than zero. 
+10. After about 15 minutes, verify that events appear in your event hub. To do this, navigate to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
 
 ![Audit logs](./media/active-directory-reporting-azure-monitor-diagnostics-azure-event-hub/InsightsLogsAudit.png "Audit logs")
 
@@ -59,9 +59,9 @@ You need:
 
 Once data appears in the event hub, you can access it in two ways.
 
-* **Configure a supported SIEM tool to read the data**: We currently support integrating the Azure AD logs with Splunk. For more information, see [How to integrate Azure Active Directory logs with Splunk]().
+* **Configure a supported SIEM tool to read the data**: Splunk is the only SIEM tool that is currently supported. For more information on how to integrate Azure AD logs with Splunk, see [How to integrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics](active-directory-reporting-azure-monitor-diagnostics-splunk-integration.md).
 
-* **Set up custom tooling to read the data**: If your current SIEM is not supported in Azure monitor diagnostics yet, you can set up custom tooling using the Event hub APIs. To learn how to do this, see the [Event hub APIs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
+* **Set up custom tooling to read the data**: If your current SIEM isn't supported in Azure monitor diagnostics yet, you can set up custom tooling using the Event hub APIs. To learn more, see the [Event hub APIs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
 
 >[!Note]
 > We are currently working with Qradar and Sumologic to get their connectors updated with Azure Active Directory logs. 

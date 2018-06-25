@@ -157,8 +157,8 @@ This article describes the Azure AD sign-in log schema in Azure Monitor Diagnost
 | ResultDescription | Provides the error description for the sign-in operation |
 | DurationMs |  This value is unmapped, and you can safely ignore this field.|
 | CallerIpAddress | IP address of the client who made the request | 
-| CorrelationId | Optional Guid passed by the client. This can help correlate client-side operations with server-side operations and is useful when tracing logs that span across services. |
-| Identity | Identity from the token that was presented when making the request. Can be a user account, system account or service principal. |
-| Level | Provides the type of message. For audit, it is always *Informational* |
+| CorrelationId | Optional Guid passed by the client. This value can help correlate client-side operations with server-side operations and is useful when tracing logs that span across services. |
+| Identity | Identity from the token that was presented when making the request. Can be a user account, system account, or service principal. |
+| Level | Provides the type of message. For audit, it's always *Informational* |
 | Location | Provides the location of the sign-in activity |
-| Properties | Lists all the properties associated with sign-ins. For more information, read the [MS Graph API Reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). This schema uses the attribute names as in the sign in resource, for readability.
+| Properties | Lists all the properties associated with sign-ins. For more information, read the [MS Graph API Reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). This schema uses the attribute names as in the sign-in resource, for readability.

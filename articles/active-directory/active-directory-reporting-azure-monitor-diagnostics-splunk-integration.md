@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 
 # How to integrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics  
 
-This article provides instructions to integrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics. First we will route the logs to an Azure event hub, then integrate it with Splunk. We are currently working with Qradar, Sumologic and ArcSight to set up similar integration support with their tools.
+In this article, you'll learn how to integrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics. First, you'd need to route the logs to an Azure event hub, then integrate it with Splunk. We are currently working with Qradar, Sumologic and ArcSight to set up similar integration support with their tools.
 
 ## Prerequisites
 
@@ -37,6 +37,6 @@ This article provides instructions to integrate Azure Active Directory logs with
 
 ![Sourcetypes tab](./media/active-directory-reporting-azure-monitor-diagnostics-splunk-integration/sourcetypeaadal.png "Sourcetypes tab")
 
-4. You will see the Azure AD activity logs as shown in the following figure.
+4. You'll see the Azure AD activity logs as shown in the following figure.
 
 ![Activity logs](./media/active-directory-reporting-azure-monitor-diagnostics-splunk-integration/activitylogs.png "Activity Logs")
