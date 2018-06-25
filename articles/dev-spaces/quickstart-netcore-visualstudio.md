@@ -45,9 +45,9 @@ From within Visual Studio 2017, create a new project. Currently, the project mus
 
 Select the **Web Application (Model-View-Controller)** template and be sure you're targeting **.NET Core** and **ASP.NET Core 2.0**.
 
-### Create a dev space in Azure
+### Enable Dev Spaces for an AKS cluster
 
-With the project you just created open, select **Azure Dev Spaces** from the launch settings dropdown, as shown below.
+With the project you just created, select **Azure Dev Spaces** from the launch settings dropdown, as shown below.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
@@ -72,7 +72,7 @@ While you wait for the dev space to be created, look at the files that have been
 
 - A folder named `charts` has been added and within this folder a [Helm chart](https://docs.helm.sh) for your application has been scaffolded. These files are used to deploy your application into the dev space.
 - `Dockerfile` has information needed to package your application in the standard Docker format.
-- `azds.yaml` contains configuration information that is needed by the dev space, such as whether the application should be accessible via a public endpoint.
+- `azds.yaml` contains development-time configuration that is needed by the dev space.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
