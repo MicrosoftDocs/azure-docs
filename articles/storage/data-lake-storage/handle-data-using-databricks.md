@@ -25,14 +25,14 @@ The steps in this tutorial use the SQL Data Warehouse connector for Azure Databr
 
 The following illustration shows the application flow:
 
-![Azure Databricks with Data Lake Storage and SQL Data Warehouse](./media/handle-data-using-databricks/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks with Data Lake Storage and SQL Data Warehouse")
+![Azure Databricks with Data Lake Storage Gen2 and SQL Data Warehouse](./media/handle-data-using-databricks/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks with Data Lake Storage Gen2 and SQL Data Warehouse")
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
-> * Create an Azure Data Lake Storage account
+> * Create an Azure Data Lake Storage Gen2 account
 > * Upload data to Azure Data Lake Storage
 > * Create a notebook in Azure Databricks
 > * Extract data from Data Lake Storage
@@ -101,35 +101,40 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
+## Create storage account file system
+
+In this section, you create a notebook in Azure Databricks workspace and then run code snippets to configure the storage account.
+
+1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace you created, and then select **Launch Workspace**.
+
+2. In the left pane, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
+
+3. Enter the following code into the first cell and execute the code:
+
+    ```python
+    spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+    dbutils.fs.ls("abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
+    ```
+
+    Press **SHIFT + ENTER** to run the code cell.
+
+    Now the file system is created for the storage account.
+
 ## Upload data to the storage account
 
 The next step is to upload a sample data file to the storage account to later transform in Azure Databricks. The sample data (**small_radio_json.json**) is available in the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo. Download the JSON file and make note of the path where you save the file.
 
-The method you use to upload data into your storage account differs depending on if you have the Hierarchical Namespace Service (HNS) enabled.
-
-If the Hierarchical Namespace Service is enabled, then you may use Azure Data Factory, [distp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html), or AzCopy (version 10) to handle the upload. If not, then you can use the Blob [Storage SDKs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows), [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full), [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), or [AzCopy (version 8 or earlier)](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+Next, use AzCopy version 10 to upload the data to the storage account by opening up a command prompt and enter the following code:
 
 > [!NOTE]
 > AzCopy version 10 is only available to preview customers.
 
-Once uploaded the **small_radio_json.json** should be available in the root of the storage file system at this location:
-
-```bash
-abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/small_radio_json.json
-```
-
-The following steps demonstrate how to use AzCopy to upload data in the event that you have the HNS enabled.
-
-1. Open the **Cloud Shell** by clicking on the Cloud Shell icon (![Cloud shell icon](./media/using-databricks-spark/cloud-shell-icon.png))
-2. Select **Bash (Linux)** from the left drop-down (if not already selected)
-
-> [!IMPORTANT]
-> Make sure you replace the placeholders **<YOUR_LOCAL_DOWNLOAD_FILE_PATH>**, **<YOUR_ACCOUNT_NAME>** and **<YOUR_ACCOUNT_KEY>** with the corresponding values you set aside in a previous step.
-
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
 set ACCOUNT_KEY=<ACCOUNT_KEY>
-azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1 --recursive 
+azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/data --recursive 
 ```
 
 ## Extract data from Azure Storage
@@ -160,7 +165,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 5. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values).
 
     ```python
-    val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/small_radio_json.json")
+    val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
 6. Run the following code to see the contents of the data frame.
@@ -182,7 +187,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
     ...
     ```
 
-You have now extracted the data from Azure Data Lake Storage into Azure Databricks.
+You have now extracted the data from Azure Data Lake Storage Gen2 into Azure Databricks.
 
 ## Transform data in Azure Databricks
 
@@ -340,7 +345,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
-> * Create an Azure Data Lake Storage account
+> * Create an Azure Data Lake Storage Gen2 account
 > * Upload data to Azure Data Lake Storage
 > * Create a notebook in Azure Databricks
 > * Extract data from Data Lake Storage
