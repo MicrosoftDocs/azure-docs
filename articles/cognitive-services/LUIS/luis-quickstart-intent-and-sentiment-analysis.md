@@ -19,14 +19,18 @@ In this tutorial, create an app that demonstrates how to extract positive, negat
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Understand sentiment  
-> * Create new LUIS app for travel domain with Bookflight intent
-> * Add _None_ intent and add example utterances
-> * Add sentiment 
+> * Understand sentiment analysis
+> * Use LUIS app in Human Resources (HR) domain 
+> * Add sentiment analysis
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
+## Before you begin
+If you don't have the Human Resources app from the [keyPhrase entities](luis-quickstart-intent-and-key-phrase.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json) Github repository.
+
+If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `sentiment`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## Sentiment analysis
 Sentiment analysis is the ability to determine if a user's utterance is positive, negative, or neutral. 
@@ -35,8 +39,8 @@ The following utterances show examples of sentiment:
 
 |Sentiment and score|Utterance|
 |:--|--|
-|positive - 0.89 |The soup and salad combo was great.|
-|negative - 0.07 |I didn't like the appetizer during the dinner service.|
+|positive - 0.89 |John W. Smith did a great job on the presentation in Paris.|
+|negative - 0.07 |jill-jones@mycompany.com did fabulous work on the Parker sales pitch.|
 
 Sentiment analysis is as app setting that applies to every utterance. You do not have to find the words indicating sentiment in utterance and label them. LUIS will do that for you.
 
