@@ -27,9 +27,9 @@ By using Azure Data Factory, you can create data-driven workflows to move data b
 With Data Factory, you can execute your data processing either on an Azure-based cloud service or in your own self-hosted compute environment, such as SSIS, SQL Server, or Oracle. After you create a pipeline that performs the action that you need, you can schedule it to run periodically (for example, hourly, daily, or weekly), time window scheduling or trigger the pipeline from an event occurrence. For more information, see [Introduction to Azure Data Factory](introduction.md).
 
 ### Control flows and scale 
-To support the diverse integration flows and patterns in the modern data warehouse, Data Factory enables flexible data pipeline modeling that includes full control flow programming paradigms inlcuding conditional execution, branching in data pipelines, and explicitly pass parameters within and across these flows. Control Flow also encompases transforming data through activity dispatch to external execution engines and data flow capabilities, including data movement at scale, via the Copy Activity.
+To support the diverse integration flows and patterns in the modern data warehouse, Data Factory enables flexible data pipeline modeling that includes full control flow programming paradigms including conditional execution, branching in data pipelines, and explicitly pass parameters within and across these flows. Control Flow also encompasses transforming data through activity dispatch to external execution engines and data flow capabilities, including data movement at scale, via the Copy Activity.
 
-Data Factory provies freedom to model any flow style that's required for data integration and that can be dispatched on demand or repeatedly on a schedule. A few common flows this enables are:   
+Data Factory provides freedom to model any flow style that's required for data integration and that can be dispatched on demand or repeatedly on a schedule. A few common flows that this model enables are:   
 
 - Control flows:
 	- Chain activities in a sequence within a pipeline.
@@ -61,30 +61,31 @@ If you are an advanced user and looking for a programmatic interface, ADF V2 pro
 Users can also leverage the documented REST APIs to interface with ADF V2
 
 ### Iterative development and debugging using visual tools
-Azure Data Factory (ADF) visual tools allow you to do iterative development and debugging. You can create your pipelines and do test runs using the Debug capability in the pipeline canvas without writing a single line of code. You can view the results of your test runs in the Output window of your pipeline canvas. Once your test run succeeds, you can add more activities to your pipeline and continue debugging in an iterative manner. You can also Cancel your test runs once they are in-progress. You are not required to publish your changes to the data factory service before clicking Debug. This is helpful in scenarios where you want to make sure that the new additions or changes work as expected before you update your data factory workflows in dev, test or prod environments. 
+Azure Data Factory (ADF) visual tools allow you to do iterative development and debugging. You can create your pipelines and do test runs using the Debug capability in the pipeline canvas without writing a single line of code. You can view the results of your test runs in the Output window of your pipeline canvas. Once your test run succeeds, you can add more activities to your pipeline and continue debugging in an iterative manner. You can also Cancel your test runs once they are in-progress. You are not required to publish your changes to the data factory service before clicking Debug. This is helpful in scenarios where you want to make sure that the new additions or changes work as expected before you update your data factory workflows in dev, test, or prod environments. 
 
 ### Deploy SSIS packages to Azure 
 If you want to move your SSIS workloads, you can create a Data Factory and provision an Azure-SSIS integration runtime. The Azure-SSIS integration runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the [Deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) tutorial. 
  
 ### SDKs
-If you are an advanced user and looking for a programmatic interface, ADF provides a rich set of SDKs that you can use to author, manage, or monitor pipelines by using your favorite IDE. Language support includes .NET, PowerShell, Python and REST.
+If you are an advanced user and looking for a programmatic interface, ADF provides a rich set of SDKs that you can use to author, manage, or monitor pipelines by using your favorite IDE. Language support includes .NET, PowerShell, Python, and REST.
 
 ### Monitoring
-You can monitor your Data Factories via PowerShell, SDK or the Visual Monitoring Tools in the browser user interface. You can monitor and manage on demand, trigger based and clock driven custom flows in an efficient and effective manner. Cancel existing tasks, see failures at a glance, drill down to get detailed error messages and debug the issues all from a single pane of glass without context switching or navigating back and forth between screens. 
+You can monitor your Data Factories via PowerShell, SDK, or the Visual Monitoring Tools in the browser user interface. You can monitor and manage on demand, trigger based and clock driven custom flows in an efficient and effective manner. Cancel existing tasks, see failures at a glance, drill down to get detailed error messages, and debug the issues all from a single pane of glass without context switching or navigating back and forth between screens. 
 
 ### New features for SSIS in ADF
 Since Public Preview release last year, we have added the following features for SSIS in ADF:
-•	Support for three more configurations/variants of Azure SQL Database (DB) to host SSIS catalog of projects/packages (SSISDB):
-o	Azure SQL DB with VNet service endpoints
-o	Managed Instance (MI)
-o	Elastic Pool
-•	Support for Azure Resource Manager (ARM) Virtual Network (VNet) on top of Classic VNet that will be deprecated in the future – This lets you inject/join your Azure-SSIS Integration Runtime (IR) to a VNet that is configured for Azure SQL DB with VNet service endpoints/MI/on-premises data access, see:
+
+-	Support for three more configurations/variants of Azure SQL Database (DB) to host SSIS catalog of projects/packages (SSISDB):
+-	Azure SQL DB with VNet service endpoints
+-	Managed Instance (MI)
+-	Elastic Pool
+-	Support for Azure Resource Manager Virtual Network (VNet) on top of Classic VNet that will be deprecated in the future – This lets you inject/join your Azure-SSIS Integration Runtime (IR) to a VNet that is configured for Azure SQL DB with VNet service endpoints/MI/on-premises data access, see:
 https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
-•	Support for Azure Active Directory (AAD) authentication on top of SQL authentication to connect to your SSISDB - This lets you use AAD authentication with your ADF Managed Service Identity (MSI)
-•	Support for bringing your own on-premises SQL Server license to earn substantial cost savings from Azure Hybrid Benefit (AHB) option
-•	Support for Enterprise Edition of Azure-SSIS IR that lets you use advanced/premium features, custom setup to install additional components/extensions, and 3rd party ecosystem, see: 
+-	Support for Azure Active Directory (AAD) authentication on top of SQL authentication to connect to your SSISDB - This lets you use AAD authentication with your ADF Managed Service Identity (MSI)
+-	Support for bringing your own on-premises SQL Server license to earn substantial cost savings from Azure Hybrid Benefit (AHB) option
+-	Support for Enterprise Edition of Azure-SSIS IR that lets you use advanced/premium features, custom setup to install additional components/extensions, and 3rd party ecosystem, see: 
 https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
-•	Deeper integration of SSIS in ADF that lets you invoke/trigger first-class Execute SSIS Package activities in ADF pipelines and schedule them via SSMS, see:
+-	Deeper integration of SSIS in ADF that lets you invoke/trigger first-class Execute SSIS Package activities in ADF pipelines and schedule them via SSMS, see:
 https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 
 
 
@@ -149,7 +150,7 @@ For more information about Data Factory concepts, see the following articles:
 ## What is the pricing model for Data Factory?
 For Azure Data Factory pricing details, see [Data Factory pricing details](https://azure.microsoft.com/pricing/details/data-factory/).
 
-## How can I stay up to date with information about Data Factory?
+## How can I stay up-to-date with information about Data Factory?
 For the most up-to-date information about Azure Data Factory, go to the following sites:
 
 - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
