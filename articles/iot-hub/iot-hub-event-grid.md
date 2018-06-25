@@ -39,6 +39,27 @@ Use either the Azure portal or Azure CLI to configure which events to publish fr
 
 IoT Hub events contain all the information you need to respond to changes in your device lifecycle. You can identify an IoT Hub event by checking that the eventType property starts with **Microsoft.Devices**. For more information about how to use Event Grid event properties, see the [Event Grid event schema](../event-grid/event-schema.md).
 
+### Device Connected schema
+
+The following example shows the schema of a device connected event: 
+
+```json
+[{  
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceConnected", 
+  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "data": { 
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID"
+    "sequenceNumber": "AAAAAAAAAAA=AdP+q6/KbPU=AAAAAgAAAAA=AAAAAAAAAAE=" 
+  }, 
+  "dataVersion": "", 
+  "metadataVersion": "1" 
+}]
+
 ### Device created schema
 
 The following example shows the schema of a device created event: 
@@ -82,8 +103,6 @@ The following example shows the schema of a device created event:
     },
     "hubName": "egtesthub1",
     "deviceId": "LogicAppTestDevice",
-    "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-    "opType": "DeviceCreated"
   },
   "dataVersion": "",
   "metadataVersion": "1"
