@@ -23,6 +23,8 @@
     href: tutorial-bing-visual-search-single-page-app-source.md
   - name: Bing Visual Search SDK image crop area and results
     href: tutorial-bing-visual-search-crop-area-results.md
+  - name: Bing Visual Search SDK ImageInsightsToken and results
+    href: tutorial-visual-search-insights-token.md
 - name: Samples
   items:
     - name: Code samples
