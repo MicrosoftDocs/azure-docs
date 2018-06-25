@@ -22,7 +22,7 @@ This article provides a comparison between System Center Operations Manager (SCO
 
 ## Basic Architecture
 ### System Center Operations Manager
-All SCOM components are installed in your data center.  [Agents are installed](http://technet.microsoft.com/library/hh551142.aspx) on Windows and Linux machines that are managed by SCOM.  Agents connect to [Management Servers](https://technet.microsoft.com/library/hh301922.aspx) which communicate with the SCOM database and data warehouse.  Agents rely on domain authentication to connect to management servers.  Those outside of a trusted domain can perform certificate authentication or connect to a [Gateway Server](https://technet.microsoft.com/library/hh212823.aspx).
+All SCOM components are installed in your data center.  [Agents are installed](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-console) on Windows and Linux machines that are managed by SCOM.  Agents connect to [Management Servers](https://technet.microsoft.com/library/hh301922.aspx) which communicate with the SCOM database and data warehouse.  Agents rely on domain authentication to connect to management servers.  Those outside of a trusted domain can perform certificate authentication or connect to a [Gateway Server](https://technet.microsoft.com/library/hh212823.aspx).
 
 SCOM requires two SQL databases, one for operational data and another data warehouse to support reporting and data analysis.  A [Reporting Server](https://technet.microsoft.com/library/hh298611.aspx) runs SQL Reporting Services to report on data from the data warehouse. 
 

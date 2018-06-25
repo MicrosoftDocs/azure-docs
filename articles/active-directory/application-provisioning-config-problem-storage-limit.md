@@ -3,17 +3,19 @@ title: Problem saving administrator credentials while configuring user provision
 description: How to troubleshoot common issues faced when configuring user provisioning to an application already listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: asmalser
+ms.author: barbkess
+ms.reviewer: asmalser
 
 ---
 
@@ -35,7 +37,7 @@ Any secret tokens, URIs, notification email addresses, user names, and passwords
 
 There are two possible ways to work around this issue today:
 
-1. **Use two gallery application instances, one for single sign-on and one for user provisioning** - Taking the gallery application [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md) as an example, you can add LinkedIn Elevate from the gallery and configure it for single sign-on. For provisioning, add another instance of LinkedIn Elevate from the Azure AD app gallery, and name it "LinkedIn Elevate (Provisioning)." For this second instance, configure [provisioning](active-directory-saas-linkedinelevate-provisioning-tutorial.md), but not single sign-on. When using this workaround, the same users and groups need to be [assigned](manage-apps/assign-user-or-group-access-portal.md) to both applications. 
+1. **Use two gallery application instances, one for single sign-on and one for user provisioning** - Taking the gallery application [LinkedIn Elevate](saas-apps/linkedinelevate-tutorial.md) as an example, you can add LinkedIn Elevate from the gallery and configure it for single sign-on. For provisioning, add another instance of LinkedIn Elevate from the Azure AD app gallery, and name it "LinkedIn Elevate (Provisioning)." For this second instance, configure [provisioning](saas-apps/linkedinelevate-provisioning-tutorial.md), but not single sign-on. When using this workaround, the same users and groups need to be [assigned](manage-apps/assign-user-or-group-access-portal.md) to both applications. 
 
 2. **Reduce the amount of configuration data stored** - All data entered in the [Admin credentials](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) section of the provisioning tab is stored in the same place as the SAML certificate. While it may not be possible to reduce the length of all of this data, some optional configuration fields like the **Notification Email** can be removed.
 

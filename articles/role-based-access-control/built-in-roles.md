@@ -1,6 +1,6 @@
 ---
-title: Built-in roles for role-based access control (RBAC) in Azure | Microsoft Docs
-description: Describes the built-in roles for role-based access control (RBAC) in Azure. Lists the actions and notActions.
+title: Built-in roles in Azure | Microsoft Docs
+description: Describes the built-in roles for role-based access control (RBAC) in Azure. Lists the actions, notActions, dataActions, and notDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.reviewer: bagovind
 
 ms.custom: it-pro
 ---
-# Built-in roles for Azure role-based access control
+# Built-in roles in Azure
 [Role-based access control (RBAC)](overview.md) has several built-in role definitions that you can assign to users, groups, and service principals. Role assignments are the way you control access to resources in Azure. If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md).
 
 The built-in roles are always evolving. To get the latest role definitions, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list).
