@@ -4,14 +4,14 @@ description: Learn how to visually monitor Azure Data factories
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/06/2018
 ms.author: shlo
 

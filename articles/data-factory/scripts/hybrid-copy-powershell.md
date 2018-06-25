@@ -3,7 +3,7 @@ title: "PowerShell script: Copy data from on-premises to Azure by using Data Fac
 description: This PowerShell script copies data from an on-premises SQL Server database to another an Azure Blob Storage. 
 services: data-factory
 author: linda33wj
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.service: data-factory

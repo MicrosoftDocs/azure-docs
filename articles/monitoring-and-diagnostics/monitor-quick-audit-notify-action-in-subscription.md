@@ -1,16 +1,14 @@
 ---
-title: Audit and receive notifications about important actions in your Azure subscription | Microsoft Docs
+title: Audit and receive notifications about important actions in your Azure subscription
 description: Understand the history of resource management, service health, and other subscription activity in the Activity Log, then use an Activity Log alert to receive an email notification when a highly-privileged operation is performed in your subscription.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
+ms.component: alerts
 ---
 
 # Audit and receive notifications about important actions in your Azure subscription
@@ -71,7 +69,7 @@ Click on the **JSON** tab to view the full event details. This includes the deta
 
 5. Under **Alert via** select **New** action group and provide a **name** and **short name** for the action group. The action group defines the set of actions taken when the alert is activated (when the criteria match a new event).
 
-6. Under **Actions** add 1 or more actions by providing a **Name** for the action, the **Action type** (for example, email or SMS), and **Details** for that particular action type (for example, a webhook URL, email address, or SMS number).
+6. Under **Actions** add 1 or more actions by providing a **Name** for the action, the **Action type** (for example, email, SMS, or webhook), and **Details** for that particular action type (for example, a webhook URL, email address, or SMS number).
 
     ![Create a network security group in the portal](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -80,7 +78,7 @@ Click on the **JSON** tab to view the full event details. This includes the deta
 ## Test the Activity Log alert
 
 > [!NOTE]
-> It takes approximately 10 minutes for an Activity Log alert to become fully enabled. New events that occur before the Activity Log alert is fully enabled do not generate notifications.
+> It takes approximately 5 minutes for an Activity Log alert to become fully enabled. New events that occur before the Activity Log alert is fully enabled do not generate notifications.
 >
 >
 

@@ -1,22 +1,18 @@
 ---
-title: 'GitHub identity provider configuration - Azure AD B2C | Microsoft Docs'
+title: GitHub identity provider configuration in Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to customers with GitHub accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: krassk
-editor: parakhj
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 5518e135-36b3-4f86-9a01-be25f021ed22
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: parja
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with GitHub accounts
 
 > [!NOTE]

@@ -3,8 +3,8 @@
 # Overview
 ## [What is Resource Manager?](resource-group-overview.md)
 ## [Resource providers and types](resource-manager-supported-services.md)
-## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
-## [Subscription governance](resource-manager-subscription-governance.md)
+## [Resource Manager and classic deployment](resource-manager-deployment-model.md)
+## [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Organize resources with management groups](management-groups-overview.md)
 
 # Get started
@@ -17,6 +17,7 @@
 ### [Template sections](resource-group-authoring-templates.md)
 #### [Parameters](resource-manager-templates-parameters.md)
 #### [Variables](resource-manager-templates-variables.md)
+#### [Functions](resource-group-authoring-templates.md#functions)
 #### [Resources](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
 ### [Linked and nested templates](resource-group-linked-templates.md)
@@ -47,9 +48,10 @@
 ### [Azure portal](resource-group-portal.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
+### [Create EA subscriptions](programmatically-create-subscription.md)
+### [Grant access to create EA subscriptions](grant-access-to-create-subscription.md)
 ### [Create management groups](management-groups-create.md)
 ### [Manage your management groups](management-groups-manage.md)
-### [Governance examples](resource-manager-subscription-examples.md)
 
 ## Control Access
 ### Create service principal
@@ -101,6 +103,7 @@
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Manage personal data](resource-manager-personal-data.md)
 ## [Throttling requests](resource-manager-request-limits.md)
 ## [Track asynchronous operations](resource-manager-async-operations.md)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

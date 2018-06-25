@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: brenduns
 ms.reviewer:
 
@@ -25,7 +25,7 @@ ms.reviewer:
 Use the command line to deploy Azure Resource Manager templates to the Azure Stack Development Kit. Azure Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation.
 
 ## Before you begin
- - [Install and connect](azure-stack-connect-cli.md) to Azure Stack with Azure CLI
+ - [Install and connect](azure-stack-version-profiles-azurecli2.md) to Azure Stack with Azure CLI
  - Download the files *azuredeploy.json* and *azuredeploy.parameters.json* from the [create storage account example template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
  
 ## Deploy template

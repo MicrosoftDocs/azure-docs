@@ -1,22 +1,24 @@
 ---
-title: Problems signing in to an Azure AD Gallery application configured for federated single sign-on | Microsoft Docs
+title: Problems signing in to an Azure AD Gallery application configured for password single sign-on | Microsoft Docs
 description: How to troubleshoot issues with Azure AD Gallery application configured for password single sign-on
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
+ms.reviewer: asteen
 
 ---
 
-# Problems signing in to an Azure AD Gallery application configured for federated single sign-on
+# Problems signing in to an Azure AD Gallery application configured for password single sign-on
 
 The Access Panel is a web-based portal which enables a user who has a work or school account in Azure Active Directory (Azure AD) to view and launch cloud-based applications that the Azure AD administrator has granted them access to. A user who has Azure AD editions can also use self-service group and app management capabilities through the Access Panel. The Access Panel is separate from the Azure portal and does not require users to have an Azure subscription.
 
@@ -77,7 +79,7 @@ Follow the tutorial [How to Deploy the Access Panel Extension for Internet Explo
 
 ## Troubleshoot the Access Panel in Internet Explorer
 
-Follow the [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) guide for access a diagnostics tool and step by step instructions on configuring the extension for IE.
+Follow the [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) guide for access a diagnostics tool and step by step instructions on configuring the extension for IE.
 
 ## How to configure password single sign-on for an Azure AD gallery application
 
@@ -193,4 +195,4 @@ open a support ticket with the following information if available:
 -   Fiddler traces
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

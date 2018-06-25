@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -56,6 +56,8 @@ Requirements:
 
 ## Setting up Graph integration
 
+Graph only supports integration with a single Active Directory forest. If multiple forests exist, only the forest specified in the configuration will be used to fetch users and groups.
+
 The following information is required as inputs for the automation parameters:
 
 
@@ -80,23 +82,25 @@ For this procedure, use a computer in your datacenter network that can communica
 
 2. Open an elevated Windows PowerShell session (run as administrator), and connect to the IP address of the privileged endpoint. Use the credentials for **CloudAdmin** to authenticate.
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 3. Now that you're connected to the privileged endpoint, run the following command: 
 
-   ```powershell
+   ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   When prompted, specify the credential for the user account that you want to use for the Graph service (such as graphservice).
+   When prompted, specify the credential for the user account that you want to use for the Graph service (such as graphservice). The input for the Register-DirectoryService cmdlet must be the forest name / root domain in the forest rather than any other domain in the forest.
 
    > [!IMPORTANT]
    > Wait for the credentials pop-up (Get-Credential is not supported in the privileged endpoint) and enter the Graph Service Account credentials.
 
 #### Graph protocols and ports
+
+Graph service in Azure Stack uses the following protocols and ports to communicate with a writeable Global Catalog Server (GC) and Key Distribution Center (KDC) that can process login requests in the target Active Directory forest.
 
 Graph service in Azure Stack uses the following protocols and ports to communicate with the target Active Directory:
 
@@ -123,20 +127,20 @@ For this procedure, use a computer that can communicate with the privileged endp
 
 1. Open an elevated Windows PowerShell session, and connect to the privileged endpoint.
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Now that you're connected to the privileged endpoint, run the following command using the parameters appropriate for your environment:
 
-   ```powershell
+   ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
    ```
 
 3. Run the following command to update the owner of the default provider subscription, using the parameters appropriate for your environment:
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -161,7 +165,7 @@ For the following procedure, you must use a computer that has network connectivi
 
 1. Open an elevated Windows PowerShell session, and run the following command, using the parameters appropriate for your environment:
 
-   ```powershell
+   ```PowerShell  
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
 
    $Metadata.outerxml|out-file c:\metadata.xml
@@ -176,20 +180,20 @@ For this procedure, use a computer that can communicate with the privileged endp
 
 1. Open an elevated Windows PowerShell session, and connect to the privileged endpoint.
 
-   ```powershell
+   ```PowerShell  
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Now that you're connected to the privileged endpoint, run the following command using the parameters appropriate for your environment:
 
-   ```powershell
+   ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
    ```
 
 3. Run the following command to update the owner of the default provider subscription, using the parameters appropriate for your environment:
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -236,7 +240,7 @@ If you decide to manually run the commands, follow these steps:
 
 2. To enable Windows Forms-based authentication, open a Windows PowerShell session as an elevated user, and run the following command:
 
-   ```powershell
+   ```PowerShell  
    Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
    ```
 
@@ -244,13 +248,13 @@ If you decide to manually run the commands, follow these steps:
 
    **For AD FS 2016**
 
-   ```powershell
+   ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
    ```
 
    **For AD FS 2012/2012 R2**
 
-   ```powershell
+   ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
    ```
 
@@ -259,13 +263,16 @@ If you decide to manually run the commands, follow these steps:
 
 4. When you use Internet Explorer or the Edge browser to access Azure Stack, you must ignore token bindings. Otherwise, the sign-in attempts fail. On your AD FS instance or a farm member, run the following command:
 
-   ```powershell
+   > [!note]  
+   > This step is not applicable when using Windows Server 2012 or 2012 R2 AD FS. It is safe to skip this command and continue with the integration.
+
+   ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
-5. To enable refresh tokens, open an elevated Windows PowerShell session, and run the following command:
+5. The Azure Stack portals and tooling (Visual Studio) require refresh tokens. These must be configured by relying on party trust. Open an elevated Windows PowerShell session, and run the following command:
 
-   ```powershell
+   ```PowerShell  
    Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
@@ -279,6 +286,9 @@ There are many scenarios that require the use of a service principal name (SPN) 
 - Various applications
 - You require a non-interactive logon
 
+> [!Important]  
+> AD FS only supports interactive logon sessions. If you require a non-interactive logon for an automated scenario, you must use a SPN.
+
 For more information about creating an SPN, see [Create service principal for AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
@@ -290,14 +300,14 @@ If an error occurs that leaves the environment in a state where you can no longe
 
 1. Open an elevated Windows PowerShell session and run the following commands:
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Then run the following cmdlet:
 
-   ```powershell
+   ```PowerShell  
    Reset-DatacenterIntegationConfiguration
    ```
 
@@ -306,7 +316,7 @@ If an error occurs that leaves the environment in a state where you can no longe
    > [!IMPORTANT]
    > You must configure the original owner of the default provider subscription
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
    ```
 
@@ -316,18 +326,18 @@ If any of the cmdlets fail, you can collect additional logs by using the `Get-Az
 
 1. Open an elevated Windows PowerShell session, and run the following commands:
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Then, run the following cmdlet:
 
-   ```powershell
+   ```PowerShell  
    Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
    ```
 
 
 ## Next steps
 
-[Register Azure Stack](azure-stack-registration.md)
+[Integrate external monitoring solutions](azure-stack-integrate-monitor.md)

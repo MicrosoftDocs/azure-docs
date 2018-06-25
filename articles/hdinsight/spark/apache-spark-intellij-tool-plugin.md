@@ -11,8 +11,6 @@ tags: azure-portal
 ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
@@ -27,7 +25,7 @@ Use the Azure Toolkit for IntelliJ plug-in to develop Spark applications written
 * Access your Azure HDInsight Spark cluster resources.
 * Develop and run a Scala Spark application locally.
 
-To create your project, view the [Create Spark Applications with the Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) video.
+To create your project, view the [Create Spark Applications with the Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) video.
 
 > [!IMPORTANT]
 > You can use this plug-in to create and submit applications only for an HDInsight Spark cluster on Linux.
@@ -41,6 +39,10 @@ To create your project, view the [Create Spark Applications with the Azure Toolk
 
 ## Install Azure Toolkit for IntelliJ
 For installation instructions, see [Install Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
+
+## Get Started
+User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscription), or [link a HDInsight cluster](#link-a-cluster) using Ambari username/password or domain joined credential to start.
+
 
 ## Sign in to your Azure subscription
 
@@ -66,20 +68,22 @@ For installation instructions, see [Install Azure Toolkit for IntelliJ](https://
    
     ![An expanded cluster-name node](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
-## Link a cluster
+<h2 id="linkcluster">Link a cluster</h2>
 You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com). 
 1. Click **Link a cluster** from **Azure Explorer**.
 
    ![link cluster context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Enter **Cluster Name**, **Storage Account**, **Storage Key**, then select a container from **Storage Container**, at last, input Username and Password. You need to check the username and password if get the authentication failure.
+2. Enter **Cluster Name**, **User Name** and **Password**. You need to check the username and password if got the authentication failure. Optionally, add Storage Account, Storage Key, then select a container from Storage Container. Storage information is for storage explorer in the left tree
    
    ![link cluster dialog](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
    > [!NOTE]
-   > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster. 
+   > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
+   > ![storage explorer in IntelliJ](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
+
    
-3. You can see a Linked cluster in **HDInsight** node if the input information are right. Now you can submit an application to this linked cluster.
+3. You can see a Linked cluster in **HDInsight** node if the input information is right. Now you can submit an application to this linked cluster.
 
    ![linked cluster](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
@@ -276,11 +280,15 @@ These errors happen because the heap size is not large enough for Spark to run. 
 ![Adding options to the "VM options" box in IntelliJ](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## FAQ
-To submit an application to Azure Data Lake Store, choose **Interactive** mode during the Azure sign-in process. If you select **Automated** mode, you can get an error.
+When link a cluster, I would suggest you to provide credential of storage.
 
-![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![Link cluster, provide storage credential](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
 
-Now, we resolved it. You can choose an Azure Data Lake Cluster to submit your application with any sign-in method.
+There are two modes to submit the jobs. If storage credential is provided, batch mode will be used to submit the job. Otherwise, interactive mode will be used. If the cluster is busy, you might get the error below.
+
+![Intellij get error when cluster busy](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
+
+![Intellij get error when cluster busy](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
 ## Feedback and known issues
 Currently, viewing Spark outputs directly is not supported.
@@ -317,4 +325,3 @@ If you have any suggestions or feedback, or if you encounter any problems when y
 ### Managing resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
-

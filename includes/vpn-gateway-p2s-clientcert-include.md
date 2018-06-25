@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/21/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 Each client computer that connects to a VNet using Point-to-Site must have a client certificate installed. The client certificate is generated from the root certificate and installed on each client computer. If a valid client certificate is not installed and the client tries to connect to the VNet, authentication fails.
 
 You can either generate a unique certificate for each client, or you can use the same certificate for multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate. Otherwise, if multiple clients are using the same client certificate and you need to revoke it, you have to generate and install new certificates for all the clients that use that certificate to authenticate.

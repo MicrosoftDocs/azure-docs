@@ -3,8 +3,8 @@ title: Manage Azure reserved IP addresses (Classic) - PowerShell | Microsoft Doc
 description: Understand reserved IP addresses (Classic) and how to manage them using PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genlin
+manager: cshepard
 editor: tysonn
 
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
+ms.author: genli
 
 ---
 # Reserved IP addresses (Classic)
@@ -23,7 +23,6 @@ ms.author: jdial
 > * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Template](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 IP addresses in Azure fall into two categories: dynamic and reserved. Public IP addresses managed by Azure are dynamic by default. That means that the IP address used for a given cloud service (VIP) or to access a VM or role instance directly (ILPIP) can change from time to time, when resources are shut down or stopped (deallocated).

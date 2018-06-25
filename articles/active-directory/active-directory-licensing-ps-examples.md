@@ -1,4 +1,4 @@
-﻿---
+---
 
   title: PowerShell examples for group-based licensing in Azure AD | Microsoft Docs
   description: PowerShell scenarios for Azure Active Directory group-based licensing
@@ -9,13 +9,11 @@
   manager: mtillman
   editor: ''
 
-  ms.assetid:
   ms.service: active-directory
-  ms.devlang: na
+  ms.component: users-groups-roles
   ms.topic: article
-  ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 06/05/2017
+  ms.date: 04/23/2018
   ms.author: curtand
 
 ---
@@ -28,8 +26,8 @@ cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory)
 > [!NOTE]
 > Before you begin running cmdlets, make sure you connect to your tenant first, by running the `Connect-MsolService` cmdlet.
 
->[!WARNING]
->This code is provided as an example for demonstration purposes. If you intend to use it in your environment, consider testing it first on a small scale, or in a separate test tenant. You may have to adjust the code to meet the specific needs of your environment.
+> [!WARNING]
+> This code is provided as an example for demonstration purposes. If you intend to use it in your environment, consider testing it first on a small scale, or in a separate test tenant. You may have to adjust the code to meet the specific needs of your environment.
 
 ## View product licenses assigned to a group
 The
@@ -208,17 +206,17 @@ Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-12
 Here is another version of the script that searches only through groups that contain license errors. It may be more optimized for scenarios where you expect to have few groups with problems.
 
 ```
-Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
-    $user = $_;
-    $user.IndirectLicenseErrors | % {
-            New-Object Object |
-                Add-Member -NotePropertyName UserName -NotePropertyValue $user.DisplayName -PassThru |
-                Add-Member -NotePropertyName UserId -NotePropertyValue $user.ObjectId -PassThru |
-                Add-Member -NotePropertyName GroupId -NotePropertyValue $_.ReferencedObjectId -PassThru |
-                Add-Member -NotePropertyName LicenseError -NotePropertyValue $_.Error -PassThru
-        }
-    }
-```
+$groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
+    foreach ($groupId in $groupIds) {
+    Get-MsolGroupMember -All -GroupObjectId $groupId.ObjectID |
+        Get-MsolUser -ObjectId {$_.ObjectId} |
+        Where {$_.IndirectLicenseErrors -and $_.IndirectLicenseErrors.ReferencedObjectId -eq $groupId.ObjectID} |
+        Select DisplayName, `
+               ObjectId, `
+               @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId.ObjectID} | Select -ExpandProperty Error}}
+ 
+    } 
+``` 
 
 ## Check if user license is assigned directly or inherited from a group
 
@@ -487,7 +485,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 To learn more about the feature set for license management through groups, see the following articles:
 
-* [What is group-based licensing in Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)

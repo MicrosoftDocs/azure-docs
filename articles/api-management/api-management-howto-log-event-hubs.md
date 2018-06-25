@@ -33,7 +33,7 @@ API Management loggers are configured using the [API Management REST API](http:/
 
 To create a logger, make an HTTP PUT request using the following URL template:
 
-`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Replace `{your service}` with the name of your API Management service instance.
 * Replace `{new logger name}` with the desired name for your new logger. You reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
@@ -48,7 +48,7 @@ Specify the request body using the following template:
 
 ```json
 {
-  "loggertype" : "AzureEventHub",
+  "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -57,7 +57,7 @@ Specify the request body using the following template:
 }
 ```
 
-* `loggertype` must be set to `AzureEventHub`.
+* `loggerType` must be set to `AzureEventHub`.
 * `description` provides an optional description of the logger and can be a zero length string if desired.
 * `credentials` contains the `name` and `connectionString` of your Azure Event Hub.
 
@@ -101,7 +101,8 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 * Learn more about API Management and Event Hubs integration
   * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [log-to-eventhub policy reference](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Monitor your APIs with Azure API Management, Event Hubs, and Runscope](api-management-log-to-eventhub-sample.md)    
+  * [Monitor your APIs with Azure API Management, Event Hubs, and Runscope](api-management-log-to-eventhub-sample.md)  
+* Learn more about [integration with Azure Application Insights](api-management-howto-app-insights.md)
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png

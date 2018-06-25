@@ -1,23 +1,16 @@
 ---
 title: ESP8266 to cloud - Connect Feather HUZZAH ESP8266 to Azure IoT Hub | Microsoft Docs
 description: Learn how to setup and connect Adafruit Feather HUZZAH ESP8266 to Azure IoT Hub for it to send data to the Azure cloud platform in this tutorial.
-services: iot-hub
-documentationcenter: ''
-author: shizn
-manager: timlt
-tags: ''
-keywords: ''
-
-ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
+author: rangv
+manager: nasing
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/15/2017
-ms.author: xshi
-
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
+ms.author: rangv
 ---
+
 # Connect Adafruit Feather HUZZAH ESP8266 to Azure IoT Hub in the cloud
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]

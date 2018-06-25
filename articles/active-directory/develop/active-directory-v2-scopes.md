@@ -3,18 +3,20 @@ title: Azure Active Directory v2.0 scopes, permissions, and consent | Microsoft 
 description: A description of authorization in the Azure AD v2.0 endpoint, including scopes, permissions, and consent.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 
 ---
@@ -196,6 +198,6 @@ Content-Type: application/json
 }
 ```
 
-You can use the resulting access token in HTTP requests to the resource. It reliably indicates to the resource that your app has the proper permission to perform a specific task.  
+You can use the resulting access token in HTTP requests to the resource. It reliably indicates to the resource that your app has the proper permission to perform a specific task. 
 
 For more information about the OAuth 2.0 protocol and how to get access tokens, see the [v2.0 endpoint protocol reference](active-directory-v2-protocols.md).

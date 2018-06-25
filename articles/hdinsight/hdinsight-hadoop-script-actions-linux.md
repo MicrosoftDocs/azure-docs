@@ -4,7 +4,7 @@ description: 'Learn how to use Bash scripts to customize Linux-based HDInsight c
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: cf4c89cd-f7da-4a10-857f-838004965d3e
@@ -13,8 +13,8 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/17/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
 
 ---
@@ -35,7 +35,7 @@ Script actions can be applied through the following methods:
 | --- |:---:|:---:|
 | Azure portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
-| Azure CLI |&nbsp; |✓ |
+| Azure CLI 1.0 |&nbsp; |✓ |
 | HDInsight .NET SDK |✓ |✓ |
 | Azure Resource Manager Template |✓ |&nbsp; |
 
@@ -314,7 +314,7 @@ fi
 Here are the steps take when preparing to deploy a script:
 
 * Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment. For example, the default storage for the cluster. Files can also be stored in publicly readable hosting services.
-* Verify that the script is impotent. Doing so allows the script to be executed multiple times on the same node.
+* Verify that the script is idempotent. Doing so allows the script to be executed multiple times on the same node.
 * Use a temporary file directory /tmp to keep the downloaded files used by the scripts and then clean them up after scripts have executed.
 * If OS-level settings or Hadoop service configuration files are changed, you may want to restart HDInsight services.
 

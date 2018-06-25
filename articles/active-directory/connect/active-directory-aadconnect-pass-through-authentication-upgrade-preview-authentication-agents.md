@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ---

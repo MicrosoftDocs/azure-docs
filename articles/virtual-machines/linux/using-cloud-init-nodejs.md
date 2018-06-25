@@ -4,7 +4,7 @@ description: How to use cloud-init to customize a Linux VM during creation with 
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -100,7 +100,7 @@ To inject scripts at any time after boot:
 | CoreOS |CoreOS |CoreOS |Stable |latest |yes |
 | Debian |credativ |Debian |8 |latest |no |
 | openSUSE |SUSE |openSUSE |13.2 |latest |no |
-| RHEL |Redhat |RHEL |7.2 |latest |no |
+| RHEL |RedHat |RHEL |7.2 |latest |no |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |latest |yes |
 
 Microsoft is working with our partners to get cloud-init included and working in the images that they provide to Azure.

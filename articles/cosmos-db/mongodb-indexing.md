@@ -2,17 +2,14 @@
 title: Indexing in Azure Cosmos DB MongoDB API | Microsoft Docs
 description: Presents an overview of the indexing capabilities in Azure Cosmos DB MongoDB API.
 services: cosmos-db
-documentationcenter: ''
 author: orestis-ms
-manager: jhubbard
+manager: kfile
 editor: ''
 
-ms.assetid: daacbabf-1bb5-497f-92db-079910703047
 ms.service: cosmos-db
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.devlang: javascript
-ms.topic: quickstart
+ms.component: cosmosdb-mongo
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
 
@@ -102,3 +99,4 @@ Currently, creating unique indexes is possible only when the collection contains
 ## Next steps
 * [How does Azure Cosmos DB index data?](../cosmos-db/indexing-policies.md)
 * [Expire data in Azure Cosmos DB collections automatically with time to live](../cosmos-db/time-to-live.md)
+* [Expire data in Azure Cosmos DB MongoDB API](../cosmos-db/mongodb-ttl.md)

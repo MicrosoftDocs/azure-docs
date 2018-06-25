@@ -18,7 +18,7 @@ ms.author: kumud
 
 # Configure a load balancer for SQL Server Always On
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 SQL Server Always On availability groups now can run with an internal load balancer. An availability group is SQL Server's flagship solution for high availability and disaster recovery. The availability group listener allows client applications to seamlessly connect to the primary replica, irrespective of the number of replicas in the configuration.
 

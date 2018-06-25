@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting no data - Application Insights for .NET
 description: Not seeing data in Azure Application Insights? Try here.
 services: application-insights
@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 

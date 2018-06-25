@@ -11,10 +11,8 @@ editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
 
@@ -41,7 +39,7 @@ The following procedure uses an Azure Resource Manager template to create a HBas
 2. From the **Custom deployment** blade, enter the following values:
    
    * **Subscription**: Select your Azure subscription that is used to create the cluster.
-   * **Resource group**: Create an Azure Resource Management group or use an existing one.
+   * **Resource group**: Create an Azure Resource management group or use an existing one.
    * **Location**: Specify the location of the resource group. 
    * **ClusterName**: Enter a name for the HBase cluster.
    * **Cluster login name and password**: The default login name is **admin**.

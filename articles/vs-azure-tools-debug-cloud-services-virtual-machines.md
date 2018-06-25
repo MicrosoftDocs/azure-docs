@@ -4,7 +4,7 @@ description: Debugging a Cloud Service or Virtual Machine in Visual Studio
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab

@@ -4,7 +4,7 @@ title: Azure Payment Processing Blueprint - CHD requirements
 description: PCI DSS Requirement 3
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
+ms.author: jomolesk
 
 ---
 
@@ -160,7 +160,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore encrypts all stored data, and segregates traffic to prevent privileged elevation for DevOps functions.<br /><br />As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases or changes that might be necessary, such as the ability to monitor a Web App using Kudu.<br /><br />A virtual machine is established as a jumpbox (bastion host) with the following configurations:<br /><br /><ul><li>[Antimalware extension](/azure/security/azure-security-antimalware)</li><li>[OMS Monitoring extension](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[VM Diagnostics extension](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Bitlocker Encrypted Disk](/azure/security/azure-security-disk-encryption)</li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore encrypts all stored data, and segregates traffic to prevent privileged elevation for DevOps functions.<br /><br />As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases or changes that might be necessary, such as the ability to monitor a Web App using Kudu.<br /><br />A virtual machine is established as a jumpbox (bastion host) with the following configurations:<br /><br /><ul><li>[Antimalware extension](/azure/security/azure-security-antimalware)</li><li>[Log Analytics Monitoring extension](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[VM Diagnostics extension](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Bitlocker Encrypted Disk](/azure/security/azure-security-disk-encryption)</li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
 
 
 

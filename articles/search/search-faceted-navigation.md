@@ -1,18 +1,11 @@
 ---
 title: How to implement faceted navigation in Azure Search | Microsoft Docs
 description: Add Faceted navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: mblythe
-editor: ''
-
-ms.assetid: cdf98fd4-63fd-4b50-b0b0-835cb08ad4d3
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
 
@@ -64,7 +57,7 @@ In application code, the pattern is to use facet query parameters to return the 
 
 ### Query basics
 
-In Azure Search, a request is specified through one or more query parameters (see [Search Documents](http://msdn.microsoft.com/library/azure/dn798927.aspx) for a description of each one). None of the query parameters are required, but you must have at least one in order for a query to be valid.
+In Azure Search, a request is specified through one or more query parameters (see [Search Documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) for a description of each one). None of the query parameters are required, but you must have at least one in order for a query to be valid.
 
 Precision, understood as the ability to filter out irrelevant hits, is achieved through one or both of these expressions:
 
@@ -231,7 +224,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-A facet query parameter is set to a field and depending on the data type, can be further parameterized by comma-delimited list that includes `count:<integer>`, `sort:<>`, `interval:<integer>`, and `values:<list>`. A values list is supported for numeric data when setting up ranges. See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for usage details.
+A facet query parameter is set to a field and depending on the data type, can be further parameterized by comma-delimited list that includes `count:<integer>`, `sort:<>`, `interval:<integer>`, and `values:<list>`. A values list is supported for numeric data when setting up ranges. See [Search Documents (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) for usage details.
 
 Along with facets, the request formulated by your application should also build filters to narrow down the set of candidate documents based on a facet value selection. For a bike store, faceted navigation provides clues to questions like *What colors, manufacturers, and types of bikes are available?*. Filtering answers questions like *Which exact bikes are red, mountain bikes, in this price range?*. When you click "Red" to indicate that only Red products should be shown, the next query the application sends includes `$filter=Color eq ‘Red’`.
 
@@ -333,7 +326,7 @@ Labels are typically defined in the HTML or form (`index.cshtml` in the sample a
 <a name="rangefacets"></a>
 
 ## Filter based on a range
-Faceting over ranges of values is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+Faceting over ranges of values is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 Azure Search simplifies range construction by providing two approaches for computing a range. For both approaches, Azure Search creates the appropriate ranges given the inputs you’ve provided. For instance, if you specify range values of 10|20|30, it automatically creates ranges of 0-10, 10-20, 20-30. Your application can optionally remove any intervals that are empty. 
 
@@ -366,7 +359,7 @@ There are two Geospatial functions in Azure Search, **geo.distance** and **geo.i
 * The **geo.distance** function returns the distance in kilometers between two points. One point is a field and other is a constant passed as part of the filter. 
 * The **geo.intersects** function returns true if a given point is within a given polygon. The point is a field and the polygon is specified as a constant list of coordinates passed as part of the filter.
 
-You can find filter examples in [OData expression syntax (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
+You can find filter examples in [OData expression syntax (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="tryitout"></a>
 
@@ -435,9 +428,9 @@ For more insights on design principles for faceted navigation, we recommend the 
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

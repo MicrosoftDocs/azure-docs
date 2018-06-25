@@ -1,27 +1,24 @@
 ---
-title: Create your first automated workflow - Azure Logic Apps | Microsoft Docs
-description: This quickstart shows how to automate your first workflow with Azure Logic Apps for system integration and enterprise application integration (EAI) scenarios that integrate systems & cloud services
-author: ecfan
-manager: anneta
-editor: ''
+# required metadata
+title: Create and automate your first workflow - Azure Logic Apps | Microsoft Docs
+description: Quickstart for how to create your first logic app that automates tasks, processes, and workflows with Azure Logic Apps. Create logic apps for system integration and enterprise application integration (EAI) solutions for your systems & cloud services
 services: logic-apps
-keywords: workflows, cloud services, system integration, enterprise application integration, EAI
-documentationcenter: ''
-
-ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 1/12/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 1/12/2018
-ms.author: LADocs; estfan
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
-# Quickstart: Build your first logic app workflow - Azure portal
+# Quickstart: Create your first automated workflow with Azure Logic Apps - Azure portal
 
-This quickstart introduces how to create your first automated workflow 
+This quickstart introduces how to build your first automated workflow 
 with [Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
 In this article, you create a logic app that regularly checks a website's RSS feed for new items. 
 If new items exist, the logic app sends an email for each item. 
@@ -75,6 +72,8 @@ that fires when a new RSS feed item appears. Every logic app must start with a t
 which fires when a specific event happens or when a specific condition is met. 
 Each time the trigger fires, the Logic Apps engine creates a logic app instance 
 that starts and runs your workflow.
+
+<a name="add-rss-trigger"></a>
 
 ## Check RSS feed with a trigger
 
@@ -181,7 +180,7 @@ specify the data that you want the email to include.
       ![Add contents for email body](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | Setting | Description | 
-      | ----- | ----------- | 
+      | ------- | ----------- | 
       | **Feed title** | The item's title | 
       | **Feed published on** | The item's publishing date and time | 
       | **Primary feed link** | The URL for the item | 
@@ -193,20 +192,31 @@ Next, test your logic app.
 
 ## Run your logic app
 
-To manually start your logic app, on the designer toolbar bar, choose **Run**. 
-Or, wait for your logic app to run on your specified schedule (every minute). 
-If the RSS feed has new items, your logic app sends an email for each new item. 
-But if the feed doesn't have new items, your logic app skips firing the trigger 
-and waits for the next interval before checking again. 
+To manually start your logic app, 
+on the designer toolbar bar, choose **Run**. 
+Or, wait for your logic app to check the 
+RSS feed based on your specified schedule (every minute). 
+If the RSS feed has new items, your logic 
+app sends an email for each new item. 
+Otherwise, your logic app waits until 
+the next interval before checking again. 
 
-For example, here is a sample email that this logic app sends:
+For example, here is a sample email that this logic app sends. 
+If you don't get any emails, check your junk email folder.
 
 ![Email sent for new RSS feed item](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-If you don't get any emails, check your email's junk folder. 
-Your email junk filter might redirect these kinds of mails. 
+Technically, when the trigger checks the RSS 
+feed and finds new items, the trigger fires, 
+and the Logic Apps engine creates an 
+instance of your logic app workflow 
+that runs the actions in the workflow.
+If the trigger doesn't find new items, 
+the trigger doesn't fire and "skips" 
+instantiating the workflow.
 
-Congratulations, you've built and run your first logic app.
+Congratulations, you've now successfully built and 
+run your first logic app with the Azure portal!
 
 ## Clean up resources
 

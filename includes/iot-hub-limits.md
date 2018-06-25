@@ -16,6 +16,7 @@ The following table lists the limits that apply to IoT Hub resources:
 | --- | --- |
 | Maximum paid IoT hubs per Azure subscription |10 |
 | Maximum free IoT hubs per Azure subscription |1 |
+| Maximum number of characters in a Device Id | 128 |
 | Maximum number of device identities<br/> returned in a single call |1000 |
 | IoT Hub message maximum retention for device-to-cloud messages |7 days |
 | Maximum size of device-to-cloud message |256 KB |
@@ -41,7 +42,7 @@ The following table lists the limits that apply to IoT Hub resources:
 
 
 > [!NOTE]
-> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 The IoT Hub service throttles requests when the following quotas are exceeded:
 

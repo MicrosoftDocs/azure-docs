@@ -1,39 +1,45 @@
 ---
-title: "Bing Custom Search: Call endpoint by using C Sharp | Microsoft Docs"
-description: Describes how to call Bing Custom Search endpoint with C#
+title: Call endpoint by using C# - Bing Custom Search - Microsoft Cognitive Services
+description: This quickstart shows how to request search results from your custom search instance by using C# to call the Bing Custom Search endpoint. 
 services: cognitive-services
 author: brapel
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-custom-search
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 05/07/2018
 ms.author: v-brapel
 ---
 
 # Call Bing Custom Search endpoint (C#)
 
-This example shows how to request search results from your custom search instance using C#. To create this example follow these steps:
+This quickstart shows how to request search results from your custom search instance by using C# to call the Bing Custom Search endpoint. 
 
-1. Create your custom instance (see [Define a custom search instance](define-your-custom-view.md)).
-2. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+## Prerequisites
+
+-  A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
+-  [.Net Core](https://www.microsoft.com/net/download/core) installed.
+- A [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.  
 
   >[!NOTE]  
-  >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure. 
+  >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30, 2017, or until they have exhausted the maximum number of queries allowed. Afterwards, they need to migrate to the generally available version on Azure. 
  
-3. Install [.Net Core](https://www.microsoft.com/net/download/core).
-4. Create a folder for your code.
-5. From a command prompt or terminal, navigate to the folder you just created.
-6. Run the following commands:
-    <pre>
+## Run the code
+
+To run this example, follow these steps:
+
+1. Create a folder for your code.
+2. From a command prompt or terminal, navigate to the folder you just created.
+3. Run the following commands:
+    ```
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
     dotnet add package Newtonsoft.Json
     dotnet restore
-    </pre>
-7. Copy the code below to Program.cs
-8. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
+   ```
+
+4. Copy the following code to Program.cs.
+5. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID.
 
     ``` CSharp
     using System;
@@ -107,13 +113,16 @@ This example shows how to request search results from your custom search instanc
         }
     }
     ```
-9. Run the code using the commands below replacing **PATH TO OUTPUT** with the path referenced by the build step:
+6. Build the application using the following command. Note the dll path referenced by the command output.
     <pre>
-    dotnet build
+    dotnet build 
+    </pre>
+7. Run the application using the following command replacing **PATH TO OUTPUT** with the path referenced by the build step.
+    <pre>    
     dotnet **PATH TO OUTPUT**
     </pre>
 
-### Next steps
-- [Configure and consume custom hosted UI](./hosted-ui.md)
+## Next steps
+- [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

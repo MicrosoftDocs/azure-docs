@@ -4,14 +4,14 @@ description: Learn how to copy data from MariaDB to supported sink data stores b
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 
@@ -33,7 +33,7 @@ This connector currently supports MariaDB of version less than 10.2.
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to MariaDB connector.
 

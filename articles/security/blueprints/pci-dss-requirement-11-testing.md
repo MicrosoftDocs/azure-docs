@@ -4,7 +4,7 @@ title: Azure Payment Processing Blueprint - Testing requirements
 description: PCI DSS Requirement 11
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
+ms.author: jomolesk
 
 ---
 
@@ -251,7 +251,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure maintains and notifies customers of potential changes and events that may impact security or availability of the services through an online Service Dashboard. Changes to the security commitments and security obligations of Microsoft Azure customers are updated on the Microsoft Azure website in a timely manner.<br /><br />Installation or changes to software on Microsoft Azure production environment is restricted to authorized administration personnel and follows change management procedures. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore demo is a PaaS service and change detection has been implemented using OMS. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](payment-processing-blueprint.md#oms-solutions).<br /><br />|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore demo is a PaaS service and change detection has been implemented using Log Analytics. For more information, see [PCI Guidance - Pre-Installed Management Solutions](payment-processing-blueprint.md#management-solutions).<br /><br />|
 
 
 
@@ -264,7 +264,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Azure monitoring event rules provide an increased level of monitoring for high risk operations and assets. Azure-managed network devices are monitored for compliance with established security standards. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore alerts for changes are provided by the OMS implementation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](payment-processing-blueprint.md#oms-solutions).<br /><br /><br /><br />|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore alerts for changes are provided by the Log Analytics implementation. For more information, see [PCI Guidance - Pre-Installed Management Solutions](payment-processing-blueprint.md#management-solutions).<br /><br /><br /><br />|
 
 
 
@@ -277,7 +277,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore alerts for changes are provided by the OMS implementation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](payment-processing-blueprint.md#oms-solutions).<br /><br /><br /><br />|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore alerts for changes are provided by the Log Analytics implementation. For more information, see [PCI Guidance - Pre-Installed Management Solutions](payment-processing-blueprint.md#management-solutions).<br /><br /><br /><br />|
 
 
 

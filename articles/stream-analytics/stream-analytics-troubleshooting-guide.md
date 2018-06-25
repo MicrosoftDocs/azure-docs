@@ -1,22 +1,14 @@
 ---
-title: Troubleshooting guide for Azure Stream Analytics | Microsoft Docs
-description: How to troubleshoot your Stream Analytics job
-keywords: troubleshoot guide
-documentationcenter: ''
+title: Troubleshooting guide for Azure Stream Analytics
+description: This article describes techniques to troubleshoot your Azure Stream Analytics jobs, connections, inputs, outputs, queries, and data.
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 04/20/2017
-ms.author: samacha
-
 ---
 
 # Troubleshooting guide for Azure Stream Analytics
@@ -45,6 +37,7 @@ For best results in troubleshooting your Stream Analytics job, use the following
 
 5.  Eliminate common pitfalls, such as:
     - A [**WHERE**](https://msdn.microsoft.com/library/azure/dn835048.aspx) clause in the query filtered out all events, preventing any output from being generated.
+    - A [**CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) function fails, causing the job to fail. To avoid type cast failures, use [**TRY_CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics) instead.
     - When you use window functions, wait for the entire window duration to see an output from the query.
     - The timestamp for events precedes the job start time and, therefore, events are being dropped.
 
@@ -86,7 +79,7 @@ For best results in troubleshooting your Stream Analytics job, use the following
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

@@ -21,6 +21,10 @@
   items:
   - name: Use R Server
     items:
+    - name: Manage R Server cluster
+      href: r-server-hdinsight-manage.md
+    - name: Operationalize R Server cluster
+      href: r-server-operationalize.md
     - name: Storage options
       href: r-server-storage.md
     - name: Compute context
@@ -272,13 +276,10 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using OMS
+  - name: Monitoring using Log Analytics
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Cluster-specific dashboards
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Use queries with Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

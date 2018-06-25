@@ -4,9 +4,8 @@ description: Use text moderation for possible unwanted text, PII, and custom lis
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sajagtap
@@ -46,9 +45,9 @@ If the API detects any profane terms in any of the [supported languages](Text-Mo
 >
 > For **profanity terms** detection, use the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the supported languages listed in this article, or leave it empty.
 
-## Classification (preview)
+## Classification
 
-Content Moderator’s machine-assisted **text classification feature (preview)** supports **English only**, and helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words for review. 
+Content Moderator’s machine-assisted **text classification feature** supports **English only**, and helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words for review. 
 
 The following extract in the JSON extract shows an example output:
 

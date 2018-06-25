@@ -4,9 +4,8 @@ description: Get answers to frequently asked questions about the Computer Vision
 services: cognitive-services
 author: KellyDF
 manager: corncar
-
-ms.service: cognitive-services 
-ms.technology: computer-vision
+ms.service: cognitive-services
+ms.component: computer-vision
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: kefre

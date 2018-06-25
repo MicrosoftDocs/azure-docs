@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
 
 ---
@@ -42,21 +42,21 @@ If you've deployed Azure Stack using Azure AD as the identity store, you can cre
 ### Create service principal
 In this section, you create an application (service principal) in Azure AD that represents your application.
 
-1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com).
+1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** > **App registrations** > **Add**   
 3. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
 
 You have created a service principal for your application.
 
 ### Get credentials
-When programmatically logging in, you use the ID for your application and an authentication key. To get those values, use the following steps:
+When programmatically logging in, you use the ID for your application, and for a Web app / API, an authentication key. To get those values, use the following steps:
 
 1. From **App registrations** in Active Directory, select your application.
 
 2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
 
      ![client id](./media/azure-stack-create-service-principal/image12.png)
-3. To generate an authentication key, select **Keys**.
+3. To generate an authentication key for a Web app / API, select **Settings** > **Keys**. 
 
 4. Provide a description of the key, and a duration for the key. When done, select **Save**.
 
@@ -74,7 +74,7 @@ The script is run from the privileged endpoint on an ERCS virtual machine.
 
 
 Requirements:
-- A certified is required.
+- A certificate is required.
 
 **Parameters**
 
@@ -129,12 +129,12 @@ Once you've assigned a role, you can sign in to Azure Stack using the service pr
 Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId ` 
+ -ApplicationId $servicePrincipal.ClientId ` 
  -TenantId $directoryTenantId
 ```
 
 ## Assign role to service principal
-To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md).
+To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../role-based-access-control/built-in-roles.md).
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
 

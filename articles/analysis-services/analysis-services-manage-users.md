@@ -1,25 +1,17 @@
 ---
 title: Authentication and user permissions in Azure Analysis Services | Microsoft Docs
 description: Learn about authentication and user permissions in Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Authentication and user permissions
-Azure Analysis Services uses Azure Active Directory (Azure AD) for identity management and user authentication. Any user creating, managing, or connecting to an Azure Analysis Services server must have a valid user identity in an [Azure AD tenant](../active-directory/active-directory-administer.md) in the same subscription.
+Azure Analysis Services uses Azure Active Directory (Azure AD) for identity management and user authentication. Any user creating, managing, or connecting to an Azure Analysis Services server must have a valid user identity in an [Azure AD tenant](../active-directory/fundamentals/active-directory-administer.md) in the same subscription.
 
 Azure Analysis Services supports [Azure AD B2B collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). With B2B, users from outside an organization can be invited as guest users in an Azure AD directory. Guests can be from another Azure AD tenant directory or any valid email address. Once invited and the user accepts the invitation sent by email from Azure, the user identity is added to the tenant directory. Those identities can be added to security groups or as members of a server administrator or database role.
 
@@ -66,7 +58,7 @@ Excel users can connect to a server by using a Windows account, an organization 
 
 ![Access control in Azure portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Roles at this level apply to users or accounts that need to perform tasks that can be completed in the portal or by using Azure Resource Manager templates. To learn more, see [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md). 
+Roles at this level apply to users or accounts that need to perform tasks that can be completed in the portal or by using Azure Resource Manager templates. To learn more, see [Role-Based Access Control](../role-based-access-control/overview.md). 
 
 
 ## Database roles
@@ -79,7 +71,7 @@ Roles at this level apply to users or accounts that need to perform tasks that c
 
 ## Next steps
 
-[Manage access to resources with Azure Active Directory groups](../active-directory/active-directory-manage-groups.md)   
+[Manage access to resources with Azure Active Directory groups](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Manage database roles and users](analysis-services-database-users.md)  
 [Manage server administrators](analysis-services-server-admins.md)  
-[Role-Based Access Control](../active-directory/role-based-access-control-what-is.md)  
+[Role-Based Access Control](../role-based-access-control/overview.md)  

@@ -1,4 +1,3 @@
-
 ---
 title: Service remoting in Service Fabric | Microsoft Docs
 description: Service Fabric remoting allows clients and services to communicate with services by using a remote procedure call.
@@ -11,7 +10,7 @@ editor: BharatNarasimman
 ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
@@ -50,7 +49,7 @@ class MyService : StatelessService, IMyService
     {
     }
 
-    public Task HelloWorldAsync()
+    public Task<string> HelloWorldAsync()
     {
         return Task.FromResult("Hello!");
     }
@@ -389,3 +388,4 @@ Following example uses Json Serialization with Remoting V2.
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [WCF communication with Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
+

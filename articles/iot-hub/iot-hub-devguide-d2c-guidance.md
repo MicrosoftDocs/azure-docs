@@ -1,28 +1,23 @@
 ---
 title: Azure IoT Hub device-to-cloud options | Microsoft Docs
 description: Developer guide - guidance on when to use device-to-cloud messages, reported properties, or file upload for cloud-to-device communications. 
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
+manager: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-
 ---
+
 # Device-to-cloud communications guidance
 When sending information from the device app to the solution back end, IoT Hub exposes three options:
 
 * [Device-to-cloud messages][lnk-d2c] for time series telemetry and alerts.
 * [Device twin's reported properties][lnk-twins] for reporting device state information such as available capabilities, conditions, or the state of long-running workflows. For example, configuration and software updates.
 * [File uploads][lnk-fileupload] for media files and large telemetry batches uploaded by intermittently connected devices or compressed to save bandwidth.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Here is a detailed comparison of the various device-to-cloud communication options.
 

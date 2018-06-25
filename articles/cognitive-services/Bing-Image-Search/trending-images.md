@@ -4,10 +4,9 @@ description: Shows how to use the Bing Images Search API to search the web for t
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: EAB92D35-5C0B-4A0A-8F49-02DF7FAD44B4
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi

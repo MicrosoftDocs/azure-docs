@@ -3,7 +3,7 @@ title: CI/CD with Azure Container Service and Swarm
 description: Use Azure Container Service with Docker Swarm, an Azure Container Registry, and Visual Studio Team Services to deliver continuously a multi-container .NET Core application
 services: container-service
 author: jcorioland
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

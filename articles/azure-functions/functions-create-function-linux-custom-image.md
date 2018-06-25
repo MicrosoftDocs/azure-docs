@@ -39,7 +39,7 @@ To complete this tutorial, you need:
 
 * [Git](https://git-scm.com/downloads)
 * An active [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Docker](https://docs.docker.com/install/)
 * A [Docker Hub account](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
@@ -108,7 +108,7 @@ With the custom image running in a local Docker container, verify the function a
 
 ![Test the function app locally.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-After you hav verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
+After you have verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
 
 ## Push the custom image to Docker Hub
 
@@ -222,7 +222,7 @@ In this tutorial, you learned how to:
 > * Deploy a function app from Docker Hub.
 > * Add application settings to the function app.
 
-Learn more about developing Azure Functions locally using the Azure Functions Core Tools.
+Learn how to enable continuous integration functionality built into the core App Service platform. You can configure your function app so that the container is redeployed when you update your image in Docker Hub.
 
 > [!div class="nextstepaction"] 
-> [Code and test Azure Functions locally](functions-run-local.md)
+> [Continuous deployment with Web App for Containers](../app-service/containers/app-service-linux-ci-cd.md)

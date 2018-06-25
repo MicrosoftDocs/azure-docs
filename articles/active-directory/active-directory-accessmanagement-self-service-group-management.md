@@ -7,17 +7,15 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: 904d5c70-c34a-46c4-a9a7-d1efecf4821c
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: curtand
 
-ms.reviewer: kairaz.contractor
-ms.custom: oldportal;it-pro;
+ms.reviewer: krbain
+ms.custom: it-pro
 
 ---
 # Set up Azure Active Directory for self-service group management
@@ -45,8 +43,8 @@ You can also use **Group that can manage security groups** or **Group that can m
 ## Next steps
 These articles provide additional information on Azure Active Directory.
 
-* [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Manage access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md)
 * [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [What is Azure Active Directory?](active-directory-whatis.md)
+* [What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 * [Integrate your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
