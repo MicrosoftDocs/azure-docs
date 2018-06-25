@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items: 
-  - name: Learn about Language Understanding
+  - name: What is Language Understanding?
     href: Home.md
   - name: Supported languages
     href: luis-supported-languages.md

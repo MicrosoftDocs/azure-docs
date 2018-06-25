@@ -145,18 +145,7 @@ Assigning a user will allow Azure AD to issue a token for the user. It also caus
 
 ### Test the SAML application
 
-Before testing the SAML application, you must have set up  the application with Azure AD, and assigned users or groups to the application.
-
-  ![Testing](./media/active-directory-saas-custom-apps/testing.png)
-
-From the single sign-on page, click on **Test SAML settings** under the Domain and URLs section. This opens a content pane with instructions on how to test the application.
-
-1. Sign in to the application. If the application is configured as service provider-initiated single sign-on, you are redirected to the single sign-on URL where you can initiate the sign-in. If the application is configured as identity provider-initiated single sign-on, then you are signed-in to the application.
-2.	If you see any error in your company sign-in page, copy the error and go back to Azure AD testing single sign-on content pane. Paste the error into the box and click on **Get resolution steps**. If the error is on the application’s page, you need to contact the application vendor and share your configuration on Azure AD to validate the values. 
-3.	Based on the error, Azure AD provides specific steps on how to resolve the issue.
-
-For more information, see [How to debug SAML-based single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-debugging/?WT.mc_id=DMC_AAD_?WT.mc_id=UI_AAD_Configure_NonGalleryApps)
-
+Before testing the SAML application, you must have set up the application with Azure AD, and assigned users or groups to the application. To test the SAML application, see [How to debug SAML-based single sign-on to applications in Azure Active Directory](develop/active-directory-saml-debugging.md).
 
 ## Password single sign-on
 
