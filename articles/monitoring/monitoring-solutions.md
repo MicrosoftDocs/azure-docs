@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/22/2018
 ms.author: bwren
 
 
@@ -48,21 +48,17 @@ Click on the name of a solution to open its summary page. This page displays any
 ![Solution properties](media/monitoring-solutions/solution-properties.png)
 
 
-## Find management solutions
-You can browse and install management solutions available from Microsoft and partners in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace). Perform a [search for *Management Solutions*](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions) to filter for management solutions and then click on any item for more detail.
-
-![Marketplace](media/monitoring-solutions/marketplace.png)
 
 ## Install a management solution
+Management solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search available solutions and install them using the following procedure.
 
-### Install a management solution from the Azure Marketplace
-You can use any of the following methods to locate and start the installation of a management solution.
+1. From the [list of solutions for your subscription](#list-installed-management-solutions), click **Add**. 
+1. To the right of **Management Solutions**, click **More**. 
+1. Locate the management solution you want and read through its description.
+1. Click **Create** to start the installation process.
+1. When the installation process starts, you're prompted to provide required configuration which varies for each solution. All of them require you to select a Log Analytics workspace where the solution will be installed and where its data will be collected. 
 
-- Click **Get it now** on a management solution in the [Azure Marketplace](#find-management-solutions).
-- From the [list of solutions for your subscription](#list-installed-management-solutions), click **Add**. To the right of **Management Solutions**, click **More**. Locate the management solution you want and click **Create**.
-- In the Azure portal, select **Create a resource** > **Monitoring + Management** > **See all**. To the right of **Management Solutions**, click **More**. Locate the management solution you want and click **Create**.
-
-When the installation process starts, you're prompted to provide required configuration which varies for each solution. All of them require you to select a Log Analytics workspace where the solution will be installed and where its data will be collected. You may also need to [specify an Automation account](#log-analytics-workspace-and-automation-account) if its required by the solution.
+![Install a solution](media/monitoring-solutions/install-solution.png)
 
 ### Install a solution from the community
 Members of the community can submit management solutions to Azure Quickstart Templates. You can install these solutions directly or download them templates for later installation.
