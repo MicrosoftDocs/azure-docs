@@ -80,7 +80,7 @@ Note - This process, through step 3.1, is a onetime operation.
       -   Renewal information - > ex. 90 days before expiry  
 
   - A certificate creation process is usually an asynchronous process and involves polling your key vault for the state of the create certificate operation.  
-[Get certificate operation](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)
+[Get certificate operation](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
       -   Status: completed, failed with error information or, canceled  
       -   Because of the delay to create, a cancel operation can be initiated. The cancel may or may not be effective.  
 
