@@ -31,10 +31,17 @@
   items:  
   - name: Create workspace in portal
     href: how-to-create-workspace-in-portal.md 
-  - name: Configure compute environment
-  - name: Acquire and understand data
+  - name: Define compute resources
+  - name: Acquire data and share
   - name: Develop models
-  - name: Deploy and consume models
+  - name: Build and train models 
+  - name: Track and evaluate models
+  - name: Deploy models as web services 
+    items:    
+    - name: Deploy to ACI
+      href: how-to-deploy-to-aci.md
+    - name: Deploy to AKS
+      href: how-to-deploy-to-aks.md
 - name: Reference
   items:  
   - name: Machine Learning SDK
