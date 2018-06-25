@@ -73,19 +73,6 @@ This process currently takes about 5 minutes when there is low volume of data bu
 
 
 ## Checking ingestion time
-You can use data in the **Usage** table to check the average latency from the Log Analytics ingestion point. This doesn't take into account any latency before the data reaches Log Analytics, such as latency on the agent.
-
-Use the following query to view the average latency and data batches that have complied with SLA for each data type.
-
-    Usage
-    | summarize avg(AvgLatencyInSeconds), sum(BatchesWithinSla), sum(BatchesOutsideSla) by Solution, DataType
-
-Use the following query to view the average latency and data batches that have complied with SLA for each computer.
-
-    Usage
-    | summarize avg(AvgLatencyInSeconds), sum(BatchesWithinSla), sum(BatchesOutsideSla) by Solution, DataType
-
-
 You can use the **Heartbeat** table to get an estimate of latency for data from agents. Since Heartbeat is sent once a minute, the difference between the current time and the last heartbeat record will ideally be as close to a minute as possible.
 
 Use the following query to list the computers with the highest latency.
