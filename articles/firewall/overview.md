@@ -5,20 +5,21 @@ author: vhorne
 ms.service: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/19/2018
+ms.date: 6/25/2018
 ms.author: victorh
 #Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
 # What is Azure Firewall?
 
-Azure Firewall is a cloud-based network security service. It provides filtering capabilities with built-in high availability, unrestricted cloud scalability, and zero maintenance.
-
-![Firewall overview](media/overview/firewall-overview.png)
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. 
 
 [!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
 
-You can centrally create and enforce application and network connectivity policies to protect your Azure virtual network resources. It is fully integrated with the Azure platform, portal, and services.
+![Firewall overview](media/overview/firewall-overview.png)
 
+
+
+You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall provides a static public IP address for your virtual network resources allowing outside firewalls to identify traffic originating from your virtual network.  The service is fully integrated with Azure Monitor for logging and analytics.
 
 ## Features
 
