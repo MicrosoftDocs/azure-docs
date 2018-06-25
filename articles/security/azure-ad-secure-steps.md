@@ -29,7 +29,7 @@ This checklist will help you quickly deploy critical recommended actions to prot
 > [!NOTE]
 > Many of the recommendations in this document apply only to applications, which are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Single sign-on through Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) is the foundation - on which all these recommendations are based.
 
-## Before you begin: protect privileged accounts with MFA
+## Before you begin: Protect privileged accounts with MFA
 
 Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. You first need to protect your privileged accounts.
 
