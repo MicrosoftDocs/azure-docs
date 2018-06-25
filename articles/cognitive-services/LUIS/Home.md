@@ -25,11 +25,11 @@ A LUIS app contains a domain-specific natural language model you design. You can
 
 The LUIS app also contains integration settings, [collaborators](luis-concept-collaborator.md), and [versions](luis-concept-version.md).
 
-## Using a LUIS app?
+## Using a LUIS app
 <a name="Accessing-LUIS"></a>
-Once your model is built and published, your client application sends utterances to the LUIS [endpoint API][endpoint-apis] and receives the prediction results as JSON responses.
+Once your LUIS app is published, your client application sends utterances to the LUIS [endpoint API][endpoint-apis] and receives the prediction results as JSON responses.
 
-First, your client application (such as a chatbot) sends user text of what a person wants in their own words to LUIS in an HTTP request. Second, LUIS applies your learned model to the natural language to make sense of the user input and returns a JavaScript Object Notation (JSON) format response. Third, your client application uses the JSON response to fulfill the user's requests. 
+In the following diagram, first your client chatbot sends user text of what a person wants in their own words to LUIS in an HTTP request. Second, LUIS applies your learned model to the natural language to make sense of the user input and returns a JavaScript Object Notation (JSON) format response. Third, your client chatbot uses the JSON response to fulfill the user's requests. 
 
 ![Conceptual imagery of LUIS working with Chatbot](./media/luis-overview/luis-overview-process-2.png)
 
@@ -59,14 +59,14 @@ The JSON endpoint response, at a minimum contains the query utterance, and the t
 <a name="Key-LUIS-concepts"></a>
 <a name="what-is-a-luis-model"></a>
 ## What is a natural language model?
-A model begins with a list of general user intentions, called _intents_, such as "Book Flight" or "Contact Help Desk." You provide user's example phrases, called _example utterances_ for the intents. Then mark significant words or phrases in the utterance, called _entities_.
+A model begins with a list of general user intentions, called _intents_, such as "Book Flight" or "Contact Help Desk." You provide user's example text, called _example utterances_ for the intents. Then mark significant words or phrases in the utterance, called _entities_.
 
 
 A model includes:
 
 * **[intents](#intents)**: categories of user intentions (intended action or result)
 * **[entities](#entities)**: specific types of data in utterances such as number, email, or name
-* **[example utterances](#example-utterances)**: example text a user enters in your client application
+* **[example utterances](#example-utterances)**: example text a user enters in the client application
 
 ### Intents 
 An [intent](luis-how-to-add-intents.md), short for _intention_, is a purpose or goal expressed in a user's utterance, such as booking a flight, paying a bill, or finding a news article. You create an intent for each action. A travel app may define an intent named "BookFlight." Your client application can use the top scoring intent to trigger an action. For example, when "BookFlight" intent is returned from LUIS, your client application could trigger an API call to an external service for booking a plane ticket.
@@ -74,7 +74,7 @@ An [intent](luis-how-to-add-intents.md), short for _intention_, is a purpose or 
 ### Entities
 An [entity](luis-how-to-add-entities.md) represents detailed information found within the utterance that is relevant to the user's request. For example, in the utterance "Book a ticket to Paris",  a single ticket is requested, and "Paris" is a location. Two entities are found "a ticket" indicating a single ticket and "Paris" indicating the destination. 
 
-After LUIS returns the entities found in the user’s utterance, your client application can use the list of entities as parameters to a triggered action. For example, booking a flight requires entities like the travel destination, date, and airline.
+After LUIS returns the entities found in the user’s utterance, the client application can use the list of entities as parameters to trigger an action. For example, booking a flight requires entities like the travel destination, date, and airline.
 
 LUIS provides several ways to identify and categorize entities.
 
@@ -83,7 +83,7 @@ LUIS provides several ways to identify and categorize entities.
 * **Custom Entities** LUIS gives you several ways to identify your own custom [entities](luis-concept-entity-types.md) including machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
 
 ### Example utterances
-An example [utterance](luis-how-to-add-example-utterances.md) is text input from the user that your app needs to understand. It may be a sentence, like "Book a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight." Utterances aren't always well-formed, and there can be many utterance variations for a particular intent. Add 10 to 20 example utterances to each intent and mark entities in every utterance.
+An example [utterance](luis-how-to-add-example-utterances.md) is text input from the user that the client application needs to understand. It may be a sentence, like "Book a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight." Utterances aren't always well-formed, and there can be many utterance variations for a particular intent. Add 10 to 20 example utterances to each intent and mark entities in every utterance.
 
 |Example user utterance|Intent|Entities|
 |-----------|-----------|-----------|
@@ -92,7 +92,7 @@ An example [utterance](luis-how-to-add-example-utterances.md) is text input from
 |"Schedule a meeting at __1pm__ with __Bob__ in Distribution"|ScheduleMeeting|1pm, Bob|
 
 ## Improve prediction accuracy
-After your application is published and receives real user utterances, LUIS provides several methods to improve prediction accuracy: [active learning](#active-learning) of endpoint utterances, [phrase lists](#phrase-lists) for domain word inclusion, and [patterns](#patterns) to reduce the number of utterances needed.
+After your LUIS app is published and receives real user utterances, LUIS provides several methods to improve prediction accuracy: [active learning](#active-learning) of endpoint utterances, [phrase lists](#phrase-lists) for domain word inclusion, and [patterns](#patterns) to reduce the number of utterances needed.
 
 ### Active learning
 In the [active learning](label-suggested-utterances.md) process, LUIS allows you to adapt your app to real-world utterances by selecting utterances it received at the endpoint for your review. You can accept or correct the endpoint prediction, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
@@ -108,7 +108,7 @@ Patterns allow you to simplify an intent's utterance collection into common [tem
 ## Authoring and accessing LUIS
 Build your LUIS app from the LUIS website or programmatically with the [authoring](https://aka.ms/luis-authoring-apis) APIs, or use both depending on the authoring need. Access your published LUIS app by the query [endpoint](https://aka.ms/luis-endpoint-apis). 
 
-LUIS provides three websites around the world, depending on your authoring region. The authoring region dictates tje Azure region where you publish your app.
+LUIS provides three websites around the world, depending on your authoring region. The authoring region determines the Azure region where you can publish your LUIS app.
 
 |Authoring region|Publishing region(s)|
 |--|--|
