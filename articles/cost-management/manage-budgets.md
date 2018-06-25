@@ -14,13 +14,13 @@ ms.custom:
 
 # Manage budgets
 
-Setting up budgets and budget-based alerts help you improve your cloud governance and ensure better cloud accountability. This article helps you quickly create budgets and start managing them in Cost Management.
+Setting up budgets and budget-based alerts help to improve your cloud governance and accountability. This article helps you quickly create budgets and start managing them in Cost Management.
 
-If you have an Enterprise or MSP account, you can use your hierarchical cost entity structure to assign monthly budget quotas to different business units, departments, or any other cost entity. If you have a Premium account, you can use the budget management functionality, which is then applied to your entire cloud expenditure. All budgets are manually assigned.
+When you have an Enterprise or MSP account, you can use your hierarchical cost entity structure to assign monthly budget quotas to different business units, departments, or any other cost entity. When you have a Premium account, you can use the budget management functionality, which is then applied to your entire cloud expenditure. All budgets are manually assigned.
 
 Based on assigned budgets, you can set threshold alerts based on the percentage of your budget that's consumed and define the severity of each threshold.
 
-In addition, budget reports show the assigned budget, so users are aware when their spending is over, under, or at par with their consumption over time. When you select **Show/Hide Fields** at the top of a budget report, you can select to view cost, budget, accumulated cost, or total budget.
+Budget reports show the assigned budget. Users can view when their spending is over, under, or at par with their consumption over time. When you select **Show/Hide Fields** at the top of a budget report, you can view cost, budget, accumulated cost, or total budget.
 
 ## Create budgets
 
@@ -39,7 +39,7 @@ In this example, the monthly budget for June 2018 is set to $135,000. The total 
 To import a file for the annual budget:
 
 1. Under **Actions**, select **Export** to download an empty CSV template to use as your basis for the budget.
-2. Fill-in the CSV file with your budget entries and save it locally.
+2. Fill in the CSV file with your budget entries and save it locally.
 3. Under **Actions**, select **Import**.
 4. Select your saved file and then click **OK**.
 
@@ -49,17 +49,17 @@ To export your completed budget as a CSV file, under **Actions**, select **Expor
 
 When completed, your budget is shown in most Cost reports under **Costs** &gt; **Cost Analysis** and in the Cost vs. Budget Over Time report. You can also schedule reports based on budget thresholds using **Actions**.
 
-Here's an example of the Cost Analysis report showing the total budget and total cost by workload and usage types, since the beginning of the year.
+Here's an example of the Cost Analysis report. It shows the total budget and cost by workload and usage types since the beginning of the year.
 
 ![Example Cost Analysis report with budget](./media/manage-budgets/cost-analysis-budget-example.png)
 
-In this example, assume that the current date is June 22. The cost for June 2018 is $71,611.28 compared to the monthly budget of $135,000. The reason that the cost is much lower than the monthly budget is because there are still eight days of spending before the end of the month.
+In this example, assume the current date is June 22. The cost for June 2018 is $71,611.28 compared to the monthly budget of $135,000. The cost is much lower than the monthly budget because there are still eight days of spending before the end of the month.
 
 Another way to view the report is to look at accumulated cost vs your budget. To see accumulated costs, under **Show/Hide Fields**, select **Accumulated Cost** and **Total Budget**. Here's an example showing the accumulated cost since the beginning of the year.
 
 ![Accumulated budget](./media/manage-budgets/accumulated-budget.png)
 
-As you might expect, sometime in the future your accumulated cost might exceed your budget. You can more easily see that if you change the chart view to the _line_ type.
+Sometime in the future your accumulated cost might exceed your budget. You can more easily see that if you change the chart view to the _line_ type.
 
 ![Budget shown in line chart](./media/manage-budgets/budget-line.png)
 
