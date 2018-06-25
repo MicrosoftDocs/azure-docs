@@ -1,7 +1,7 @@
 ---
-title: Use patterns to improve LUIS predictions - Azure | Microsoft Docs 
+title: Tutorial using patterns to improve LUIS predictions - Azure | Microsoft Docs 
 titleSuffix: Azure
-description: Use pattern for intents to improve LUIS intent and entity predictions.
+description: In this tutorial, use pattern for intents to improve LUIS intent and entity predictions.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -12,13 +12,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
+#Customer intent: As a new user, I want to understand how and why to use patterns, pattern.any, and pattern roles. 
 ---
 
-# Use patterns to improve predictions
+# Tutorial: Use patterns to improve predictions
 
-This tutorial demonstrates how to use patterns to increase intent and entity prediction.  
-
-In this tutorial, you learn:
+In this tutorial, use patterns to increase intent and entity prediction.  
 
 > [!div class="checklist"]
 * How to identify that a pattern would help your app
@@ -28,13 +27,7 @@ In this tutorial, you learn:
 * How to add a role to an entity to find contextually-based entities
 * How to add a Pattern.any to find free-form entities
 
-## Prerequisites
-
-> [!div class="checklist"]
-> * For this article, you also need a [LUIS][LUIS] account in order to author your LUIS application.
-
-> [!Tip]
-> If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Import HumanResources app
 This tutorial imports a HumanResources app. The app has three intents: None, GetEmployeeOrgChart, GetEmployeeBenefits. The app has two entities: Prebuilt number and Employee. The Employee entity is a simple entity to extract an employee's name. 
@@ -42,173 +35,8 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
 1. Create a new LUIS app file and name it `HumanResources.json`. 
 
 2. Copy the following app definition into the file:
-<!-- TBD: Post build release -- move to samples and link from there -->
-    ```JSON
-    {
-      "luis_schema_version": "2.3.0",
-      "versionId": "0.1",
-      "name": "HumanResources",
-      "desc": "",
-      "culture": "en-us",
-      "intents": [
-        {
-          "name": "GetEmployeeBenefits"
-        },
-        {
-          "name": "GetEmployeeOrgChart"
-        },
-        {
-          "name": "None"
-        }
-      ],
-      "entities": [
-        {
-          "name": "Employee",
-          "roles": []
-        }
-      ],
-      "composites": [],
-      "closedLists": [],
-      "patternAnyEntities": [],
-      "regex_entities": [],
-      "prebuiltEntities": [
-        {
-          "name": "number",
-          "roles": []
-        }
-      ],
-      "model_features": [],
-      "regex_features": [],
-      "patterns": [],
-      "utterances": [
-        {
-          "text": "did you watch the show last night?",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "does ilene chavez have any sl?",
-          "intent": "GetEmployeeBenefits",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 5,
-              "endPos": 16
-            }
-          ]
-        },
-        {
-          "text": "does lottie change have 40 hours of pto?",
-          "intent": "GetEmployeeBenefits",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 5,
-              "endPos": 17
-            }
-          ]
-        },
-        {
-          "text": "how many days of sick leave does santos mahaffey have?",
-          "intent": "GetEmployeeBenefits",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 33,
-              "endPos": 47
-            }
-          ]
-        },
-        {
-          "text": "how many hours of paid time off does jody pardo have?",
-          "intent": "GetEmployeeBenefits",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 37,
-              "endPos": 46
-            }
-          ]
-        },
-        {
-          "text": "is helen walton on maternity leave?",
-          "intent": "GetEmployeeBenefits",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 3,
-              "endPos": 14
-            }
-          ]
-        },
-        {
-          "text": "is there blue in the color green?",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "that is too hot!",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "who are virgie benjamin's subordinates?",
-          "intent": "GetEmployeeOrgChart",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 8,
-              "endPos": 22
-            }
-          ]
-        },
-        {
-          "text": "who does adrian garcia report to?",
-          "intent": "GetEmployeeOrgChart",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 9,
-              "endPos": 21
-            }
-          ]
-        },
-        {
-          "text": "who is dina's manager?",
-          "intent": "GetEmployeeOrgChart",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 7,
-              "endPos": 10
-            }
-          ]
-        },
-        {
-          "text": "who is mattie rivas manager?",
-          "intent": "GetEmployeeOrgChart",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 7,
-              "endPos": 18
-            }
-          ]
-        },
-        {
-          "text": "who reports to magdalena joseph",
-          "intent": "GetEmployeeOrgChart",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 15,
-              "endPos": 30
-            }
-          ]
-        }
-      ]
-    }
-    ```
+
+   [!code-json[Add the LUIS model](~/samples-luis/documentation-samples/tutorial-patterns/HumanResources.json?range=1-164 "Add the LUIS model")]
 
 3. On the LUIS **Apps** page, select **Import new app**. 
 
@@ -414,9 +242,12 @@ The Pattern.any entity allows for entities of varying length. It only works in a
 
 4. Close the test panel by selecting the **Test** button in the top navigation.
 
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to improve accuracy with batch testing](luis-tutorial-batch-testing.md)
+> [Use phrase list to improve prediction](luis-tutorial-interchangeable-phrase-list.md)
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

@@ -1,16 +1,14 @@
 ---
-title: Receive a notification when a metric value meets a condition | Microsoft Docs
+title: Receive a notification when a metric value meets a condition
 description: A quickstart guide to help users create a metric for a Logic App
 author: anirudhcavale
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
+ms.component: alerts
 ---
 
 # Receive a notification when a metric value meets a condition
@@ -66,7 +64,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Select the **Metrics** tab, fill in the **Subscription**, **Resource Group**, **Resource Type** and **Resource** information for your logic app.
 
-3. From the list of metrics, choose **Runs Started**.
+3. From the list of metrics, choose **Runs Failed**.
 
 4. Modify the **Time range** of the chart to display data for the past hour.
 

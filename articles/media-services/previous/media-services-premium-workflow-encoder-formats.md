@@ -50,6 +50,7 @@ The following section lists the codecs and file formats that this media processo
 * AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra
 * Avid DNxHD (in MXF)
 * DVCPro/DVCProHD (in MXF)
+* HEVC/H.265, Main and Main 10 Profile
 * JPEG2000
 * MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)
 * MPEG-1

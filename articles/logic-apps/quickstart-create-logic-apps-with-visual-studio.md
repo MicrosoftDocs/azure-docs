@@ -1,27 +1,25 @@
 ---
-title: Automate tasks and processes with Visual Studio and Azure Logic Apps | Microsoft Docs
-description: This quickstart shows how to create workflows that automate tasks and processes with Azure Logic Apps in Visual Studio 
-author: ecfan
-manager: SyntaxC4
-editor: ''
+# required metadata
+title: Create logic apps that automate workflows with Visual Studio - Azure Logic Apps | Microsoft Docs
+description: Quickstart for how to automate tasks, processes, and workflows with Azure Logic Apps in Visual Studio
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 03/15/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.author: estfan; LADocs
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
-# Quickstart: Automate tasks and processes with Azure Logic Apps - Visual Studio
+# Quickstart: Create and automate tasks, processes, and workflows with Azure Logic Apps - Visual Studio
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
-you can create workflows that automate tasks and processes for integrating apps, 
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio, 
+you can create workflows for automating tasks and processes that integrate apps, 
 data, systems, and services across enterprises and organizations. 
 This quickstart shows how you can design and build these workflows 
 by creating logic apps in Visual Studio and deploying those apps to 
@@ -228,7 +226,7 @@ then save your settings, for example:
    the trigger doesn't fire and "skips" 
    instantiating the workflow.
 
-Congratulations, you've now successfuly built and 
+Congratulations, you've now successfully built and 
 deployed your logic app with Visual Studio! 
 To manage your logic app and review its run history, 
 see [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
@@ -264,4 +262,5 @@ To learn more about managing and performing advanced deployment
 for logic apps with Visual Studio, see these articles:
 
 > [!div class="nextstepaction"]
-> [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Create deployment templates for logic apps with Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)

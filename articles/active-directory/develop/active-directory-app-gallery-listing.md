@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 ms.author: celested
+ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-
 ---
+
 # List your application in the Azure Active Directory application gallery
 
 
@@ -30,20 +31,19 @@ Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure 
 
 *  Customers find the best possible single sign-on experience.
 
-*  Configuration of the application is simple and minimal. 
+*  Configuration of the application is simple and minimal.
 
 *  A quick search finds your application in the gallery.
 
-*  Free, Basic, and Premium Azure AD customers can all use this integration. 
+*  Free, Basic, and Premium Azure AD customers can all use this integration.
 
-*  Mutual customers get a step-by-step configuration tutorial. 
+*  Mutual customers get a step-by-step configuration tutorial.
 
 *  Customers who use SCIM can use provisioning for the same app.
 
-
 ##	Prerequisites: Implement federation protocol
 
-To list an application in the Azure AD app gallery, you first need to implement one of the following federation protocols supported by Azure AD. Read the terms and conditions of the Azure AD application gallery from here. 
+To list an application in the Azure AD app gallery, you first need to implement one of the following federation protocols supported by Azure AD and agree with Azure AD application Gallery terms and conditions. Read the terms and conditions of the Azure AD application gallery from [here](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
 *   **OpenID Connect**: Create the multitenant application in Azure AD and implement the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) for your application. Send the login request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token. To integrate your application with Azure AD, follow the [developers' instructions](active-directory-authentication-scenarios.md).
 
@@ -61,7 +61,7 @@ To list an application in the Azure AD app gallery, you first need to implement 
 
     * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **Password SSO**: Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../active-directory-appssoaccess-whatis.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts.
+*   **Password SSO**: Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../manage-apps/what-is-single-sign-on.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts.
 
     ![TimeLine of listing Password SSO application into the gallery](./media/active-directory-app-gallery-listing/passwordsso.png)
 

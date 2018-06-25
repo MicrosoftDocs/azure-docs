@@ -2,17 +2,14 @@
 title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources | Microsoft Docs'
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
 services: cosmos-db
-documentationcenter: .net
 author: ealsur
 manager: kfile
 
-ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: reference
+ms.date: 05/21/2018
 ms.author: maquaran
 
 ---
@@ -41,6 +38,10 @@ ms.author: maquaran
 ## Release notes
 
 ### Stable builds
+
+### <a name="1.3.3"/>1.3.3
+* Added more logging.
+* Fixed a DocumentClient leak when calling the pending work estimation multiple times.
 
 ### <a name="1.3.2"/>1.3.2
 * Fixes in the pending work estimation.
@@ -104,6 +105,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.3.3](#1.3.3) |May 08, 2018 |--- |
 | [1.3.2](#1.3.2) |April 18, 2018 |--- |
 | [1.3.1](#1.3.1) |March 13, 2018 |--- |
 | [1.2.0](#1.2.0) |October 31, 2017 |--- |

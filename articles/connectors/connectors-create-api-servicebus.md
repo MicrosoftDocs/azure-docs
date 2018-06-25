@@ -4,7 +4,7 @@ description: Send and receive messages with your logic apps by using Azure Servi
 services: logic-apps
 documentationcenter: 
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 

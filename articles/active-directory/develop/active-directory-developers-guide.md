@@ -52,7 +52,6 @@ These guides walk you through some of the most common tasks in Azure AD.
 |[Application registration](active-directory-integrating-applications.md)           | How to register an application in Azure AD. |
 |[Multi-tenant applications](active-directory-devhowto-multi-tenant-overview.md)    | How to sign in any Microsoft work account. |
 |[OAuth and OpenID Connect protocols](active-directory-protocols-openid-connect-code.md)| How to sign in users and call web APIs by using the Microsoft authentication protocols. |
-|[Additional guides](active-directory-developers-guide-index.md#guides)        |  A list of guides that are available for Azure AD. |
 |  |  |
 
 ## Reference topics
@@ -63,7 +62,6 @@ The following articles provide detailed information about APIs, protocol message
 | [Authentication Libraries (ADAL)](active-directory-authentication-libraries.md)   | An overview of the libraries and SDKs that are provided by Azure AD. |
 | [Code samples](active-directory-code-samples.md)                                  | A list of all of the Azure AD code samples. |
 | [Glossary](active-directory-dev-glossary.md)                                      | Terminology and definitions of words that are used throughout this documentation. |
-| [Additional reference topics](active-directory-developers-guide-index.md#reference)| A list of reference topics that are available for Azure AD. |
 |  |  |
 
 

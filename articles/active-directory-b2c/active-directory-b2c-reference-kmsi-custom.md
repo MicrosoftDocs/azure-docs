@@ -1,19 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: KMSI| Microsoft Docs'
-description: A topic demonstrating how to set up 'keep me signed in'
+title: Keep Me Signed In in Azure Active Directory B2C | Microsoft Docs
+description: A topic demonstrating how to set up 'keep me signed in'.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/05/2016
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Enable 'Keep me signed in (KMSI)'  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

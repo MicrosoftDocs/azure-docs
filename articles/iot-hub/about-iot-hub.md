@@ -1,20 +1,14 @@
 ---
 title: Introduction to Azure IoT Hub | Microsoft Docs
 description: Learn about Azure IoT Hub. This IoT service is built for scalable data ingestion, device management, and security.
-services: iot-hub
-keywords: 
 author: nberdy
 ms.author: nberdy
 ms.date: 04/27/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-
+services: iot-hub
+manager: briz
 ---
 
 # What is Azure IoT Hub?

@@ -63,7 +63,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     
     |Property  |Description  |
     |---------|---------|
-    |**Cluster type**     | Enter a name for the Hadoop cluster. Because all clusters in HDInsight share the same DNS namespace this name needs to be unique. The name can consist of up to 59 characters includings letters, numbers, and hyphens. The first and last characters of the name cannot be hyphens. |
+    |**Cluster type**     | Select **Hadoop** |
     |**Operating system**     |  Select your Azure subscription. |
     |**Version**     | Select **Hadoop 2.7.3 (HDI 3.6)**|
 

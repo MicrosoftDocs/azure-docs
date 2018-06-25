@@ -1,14 +1,16 @@
 ---
-title: 'Azure Stack Networking: Differences and considerations'
+title: Azure Stack networking Differences and considerations | Microsoft Docs
 description: Learn about differences and considerations when working with networking in Azure Stack.
 services: azure-stack
 keywords: 
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: article
 ms.service: azure-stack
+ms.author: mabrigg
+ms.reviewer: scottnap
 
 ---
 
@@ -16,9 +18,9 @@ ms.service: azure-stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Stack Networking has many of the features provided by Azure Networking. However, there are some key differences that you should understand before deploying an Azure Stack network.
+Azure Stack networking has many of the features provided by Azure networking. However, there are some key differences that you should understand before deploying an Azure Stack network.
 
-This article provides an overview of the unique considerations for Azure Stack Networking and its features. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+This article provides an overview of the unique considerations for Azure Stack networking and its features. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
 
 ## Cheat sheet: Networking differences
 

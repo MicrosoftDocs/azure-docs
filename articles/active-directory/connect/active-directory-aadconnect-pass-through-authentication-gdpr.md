@@ -12,7 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ---
@@ -24,13 +25,13 @@ ms.custom: seohack1
 
 ## Overview
 
-Azure AD Pass-through Authentication creates the following log types, which can contain EUII:
+Azure AD Pass-through Authentication creates the following log type, which can contain Personal Data:
 
 - Azure AD Connect trace log files.
 - Authentication Agent trace log files.
 - Windows Event log files.
 
-User privacy for Pass-through Authentication can be reached in two ways:
+Improve user privacy for Pass-through Authentication in two ways:
 
 1.	Upon request, extract data for a person and remove data from that person from the installations.
 2.	Ensure no data is retained beyond 48 hours.

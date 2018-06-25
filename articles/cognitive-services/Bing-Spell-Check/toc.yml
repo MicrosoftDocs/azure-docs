@@ -4,7 +4,7 @@
   items:
   - name: What is the Bing Spell Check API?
     href: proof-text.md
-- name: Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
   - name: C#
@@ -19,6 +19,12 @@
     href: quickstarts/python.md
   - name: Ruby
     href: quickstarts/ruby.md
+- name: SDK Quickstarts
+  items:
+  - name: SDK C# quickstart
+    href: sdk-quickstart-spell-check.md
+  - name: SDK samples overview
+    href: sdk.md
 - name: Tutorials
   items:
   - name: Build a spell check web app
@@ -51,12 +57,6 @@
     href: bing-spell-check-supported-languages.md
   - name: Analytics for Bing Spell Check API
     href: bing-spell-check-stats.md
-  - name: Bing Spell Check SDK
-    items:
-    - name: SDK C# quickstart
-      href: sdk-quickstart-spell-check.md
-    - name: SDK samples overview
-      href: sdk.md
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
   - name: Try it!

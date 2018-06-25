@@ -13,120 +13,61 @@ ms.date: 05/07/2018
 ms.author: wolfma
 ---
 
-# Sample for Intent Recognition
+# Sample for intent recognition
 
 > [!NOTE]
 > For instructions to download this sample and others, see [Samples for Speech SDK](samples.md).
 
 > [!NOTE]
-> For all samples below, we assume the following top-level declarations are in place:
+> Please obtain a subscription key first. In contrast to other services supported by the Cognitive Service Speech SDK, the Intent Recognition services requires a specific subscribtion key. [Here](https://www.luis.ai) you can find additional information about the intent recognition technology, as well as information on how to acquire a subscription key. Replace your own subscription key, the region of the service, as well as the AppId of your intent model in the appropriate place in the samples.
+
+> [!NOTE]
+> For all samples below the following top-level declarations should be in place:
 >
-> ```csharp
-> using System;
-> using System.Threading.Tasks;
-> using Microsoft.CognitiveServices.Speech;
-> using Microsoft.CognitiveServices.Speech.Intent;
-> ```
->
-> ```cpp
-> #include <speechapi_cxx.h>
->
-> using namespace std;
-> using namespace Microsoft::CognitiveServices::Speech;
-> using namespace Microsoft::CognitiveServices::Speech::Intent;
-> ```
+> [!code-cpp[](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#toplevel)]
 >
 > - - -
 
-Intent Recognition Using Microphone
+## Intent recognition using microphone
 
-```csharp
-// Create a speech factory associated with your speech subscription
-var speechSubscriptionKey = "YourSpeechSubscriptionKey";
-var factory = RecognizerFactory.Instance;
-factory.SubscriptionKey = speechSubscriptionKey;
+The code snippet below shows how to recognize intent from microphone input in the default language (`en-US`).
 
-// Create an intent recognizer using microphone as audio input.
-using (var recognizer = factory.CreateIntentRecognizer())
-{
-    var intentName1 = "IntentNameFromLuisPortal";
-    var intentName2 = "IntentNameFromLuisPortal";
-
-    var luisSubscriptionKey = "YourLuisSubscriptionKey";
-    var luisEndpoint = "YourLuisEndpoint";
-    var luisAppId = "YourLuisAppId";
-
-    // Create a LanguageUnderstandingModel to use with the intent recognizer
-    var model = LanguageUnderstandingModel.From(luisEndpoint, luisSubscriptionKey, luisAppId);
-
-    // Add intents from your LU model to your intent recognizer
-    recognizer.AddIntent("1", model, intentName1);
-    recognizer.AddIntent("some other ID", model, intentName2);
-
-    // Prompt the user to speak
-    Console.WriteLine("Say something...");
-
-    // Start recognition; will return the first result recognized
-    var result = await recognizer.RecognizeAsync().ConfigureAwait(false);
-
-    // Check the reason returned
-    if (result.Reason == RecognitionStatus.Success)
-    {
-        Console.WriteLine($"We recognized: {result.RecognizedText}");
-    }
-    else if (result.Reason == RecognitionStatus.NoMatch)
-    {
-        Console.WriteLine("We didn't hear you say anything...");
-    }
-    else if (result.Reason == RecognitionStatus.Canceled)
-    {
-        Console.WriteLine($"There was an error; reason {result.Reason}-{result.RecognizedText}");
-    }
-}
-```
-
-```cpp
-// Creates an instance of a speech factory with specified
-// subscription key. Replace with your own subscription key.
-auto factory = SpeechFactory::FromSubscription(L"YourSubscriptionKey", L"");
-
-// Create an intent recognizer using microphone as audio input.
-auto recognizer = factory->CreateIntentRecognizer();
-
-// Create a LanguageUnderstandingModel associated with your LU application
-auto luisSubscriptionKey = L"YourLuisSubscriptionKey";
-auto luisEndpoint = L"YourLuisEndpoint";
-auto luisAppId = L"YourLuisAppId";
-auto model = LanguageUnderstandingModel::From(luisEndpoint, luisSubscriptionKey, luisAppId);
-
-// Add each intent you wish to recognize to the intent recognizer
-auto intentName1 = L"IntentNameFromLuisPortal";
-auto intentName2 = L"IntentNameFromLuisPortal";
-
-recognizer->AddIntent(L"1", IntentTrigger::From(model, intentName1));
-recognizer->AddIntent(L"some other ID", IntentTrigger::From(model, intentName2));
-
-// Prompt the user to speak
-wcout << L"Say something...\n";
-
-// Start recognition; will return the first result recognized
-auto result = recognizer->RecognizeAsync().get();
-
-// Check the reason returned
-if (result->Reason == Reason::Recognized)
-{
-    wcout << L"We recognized: " << result->Text << '\n';
-    wcout << L"IntentId=" << result->IntentId << '\n';
-    wcout << L"json=" << result->Properties[ResultProperty::LanguageUnderstandingJson].GetString();
-}
-else if (result->Reason == Reason::NoMatch)
-{
-    wcout << L"We didn't hear anything" << '\n';
-}
-else if (result->Reason == Reason::Canceled)
-{
-    wcout << L"There was an error, reason " << int(result->Reason) << L"-" << result->ErrorDetails << '\n';
-}
-```
+[!code-cpp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithMicrophone)]
 
 - - -
+
+## Intent recognition using microphone in a specified language
+
+The code snippet below shows how to recognize intent from microphone input in a specified language, in this case in German (`de-de`).
+
+[!code-cpp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithLanguage)]
+
+- - -
+
+## Intent recognition from a file
+
+The following code snippet recognizes intent from an audio file in the default language (`en-US`), the supported format is single-channel (mono) WAV / PCM with a sampling rate of 16 KHz.
+
+[!include[Sample Audio](includes/sample-audio.md)]
+
+[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp?IntentRecognitionWithFile)]
+
+- - -
+
+## Intent recognition using events
+
+The code snippet shows how to recognize intent in a continuous way. This code allows access to additional information, like intermediate results. 
+
+[!code-cpp[Intent Recognition Using Events](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentContinuousRecognitionUsingEvents)]
+
+- - -
+
+## Sample source code
+
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
+
+## Next steps
+
+- [Speech Recognition](./speech-to-text-sample.md)
+
+- [Translation](./translation.md)

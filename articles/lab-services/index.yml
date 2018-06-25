@@ -23,16 +23,16 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/lab-services/tutorial-setup-lab-account">Set up a lab account</a>
-    - html: <a href="/azure/lab-services/tutorial-setup-classroom-lab">Set up a classroom lab</a>
-    - html: <a href="/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab">Access a classroom lab</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-lab-account">Set up a lab account</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab">Set up a classroom lab</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab">Access a classroom lab</a>
   - type: paragraph
-    text: Learn how to create and use a <b>custom lab</b> by using Azure Lab Services.
+    text: Learn how to create and use a <b>lab</b> by using Azure DevTest Labs.
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/lab-services/tutorial-create-custom-lab">Set up a custom lab</a>
-    - html: <a href="/azure/lab-services/tutorial-use-custom-lab">Access a custom lab</a>
+    - html: <a href="/azure/lab-services/tutorial-create-custom-lab">Set up a lab</a>
+    - html: <a href="/azure/lab-services/tutorial-use-custom-lab">Access a lab</a>
 - title: Samples
   items:
   - type: paragraph

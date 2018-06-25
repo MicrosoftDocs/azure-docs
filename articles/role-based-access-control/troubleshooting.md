@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot role-based access control Azure RBAC | Microsoft Docs
-description: Get help with issues or questions about Role Based Access Control resources.
+title: Troubleshooting RBAC in Azure | Microsoft Docs
+description: Troubleshoot issues with Azure role-based access control (RBAC).
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: seohack1
 ---
-# Troubleshooting Azure role-based access control 
+# Troubleshooting RBAC in Azure
 
-This article answers common questions about the specific access rights that are granted with roles, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems. These three roles cover all resource types:
+This article answers common questions about role-based access control (RBAC), so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems. These three roles cover all resource types:
 
 * Owner  
 * Contributor  
 * Reader  
 
-Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we'll spend some time. See the [Role-Based Access Control get-started article](role-assignments-portal.md) for details on how to grant access.
+Owners and Contributors both have full access to the management experience, but a Contributor can’t grant access to other users or groups. Things get a little more interesting with the Reader role, so that’s where we'll spend some time. For information about how grant access, seee [Manage access using RBAC and the Azure portal](role-assignments-portal.md).
 
 ## App Service
 ### Write access capabilities
@@ -92,9 +92,7 @@ These require **write** access to both the **Virtual machine**, and the **Resour
 
 If you can't access any of these tiles, ask your administrator for Contributor access to the Resource group.
 
-## See more
-* [Role Based Access Control](role-assignments-portal.md): Get started with RBAC in the Azure portal.
-* [Built-in roles](built-in-roles.md): Get details about the roles that come standard in RBAC.
-* [Custom roles in Azure RBAC](custom-roles.md): Learn how to create custom roles to fit your access needs.
-* [Create an access change history report](change-history-report.md): Keep track of changing role assignments in RBAC.
+## Next steps
+* [Manage access using RBAC and the Azure portal](role-assignments-portal.md)
+* [View activity logs for RBAC changes](change-history-report.md)
 
