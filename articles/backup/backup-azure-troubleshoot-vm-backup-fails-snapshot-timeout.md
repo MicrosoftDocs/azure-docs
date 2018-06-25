@@ -7,7 +7,7 @@ manager: cshepard
 keywords: Azure backup; VM agent; Network connectivity;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 06/25/2018
 ms.author: genli
 ---
 
@@ -79,15 +79,15 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 ### <a name="the-vm-has-no-internet-access"></a>The VM doesn't have internet access
 Per the deployment requirement, the VM doesn't have internet access. Or, it might have restrictions that prevent access to the Azure infrastructure.
 
-To function correctly, the Backup extension requires connectivity to Azure public IP addresses. The extension sends commands to an Azure storage endpoint (HTTP URL) to manage the snapshots of the VM. If the extension doesn't have access to the public internet, backup eventually fails.
+To function correctly, the Backup extension requires connectivity to Azure public IP addresses. The extension sends commands to an Azure storage endpoint (HTTPs URL) to manage the snapshots of the VM. If the extension doesn't have access to the public internet, backup eventually fails.
 
 It it possible to deploy a proxy server to route the VM traffic.
-##### Create a path for HTTP traffic
+##### Create a path for HTTPs traffic
 
-1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
-2. To allow access to the internet from the HTTP proxy server, add rules to the network security group, if you have one.
+1. If you have network restrictions in place (for example, a network security group), deploy an HTTPs proxy server to route the traffic.
+2. To allow access to the internet from the HTTPs proxy server, add rules to the network security group, if you have one.
 
-To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+To learn how to set up an HTTPs proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Either the backed up VM or the proxy server through which the traffic is routed requires access to Azure Public IP addresses
 
