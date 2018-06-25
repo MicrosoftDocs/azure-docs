@@ -191,19 +191,6 @@ For more information about public preview, see the [Azure AD delegated applicati
 
 ---
 
-[274918](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=274918&triage=true&fullScreen=false&_a=edit)
-
-### Integrated CA policies with sign-in data
-
-**Type:** New feature  
-**Service category:** Reporting  
-**Product capability:** Identity Security & Protection
- 
->[!Warning]
->This item is missing info in the **Customer write-up** field in the **Release Communications** tab. If we don't get this field updated by end of day on Monday (June 25, 2018) we'll have to pull this item.
- 
----
-
 ## May 2018
 
 ### ExpressRoute support changes
