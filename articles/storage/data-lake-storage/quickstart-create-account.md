@@ -210,8 +210,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quick start, you've created a general-purpose standard storage account. To learn how to upload and download blobs to and from your storage account, continue to the Blob storage quickstart.
+In this quick start, you've created a Data Lake Storage Gen2 storage account. To learn how to upload and download blobs to and from your storage account, continue to the Blob storage quickstart.
 
-* [Transfer objects to/from Azure Blob storage using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
-* [Transfer objects to/from Azure Blob storage using PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
-* [Transfer objects to and from Azure Blob storage using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
+* [Move data to and from Azure Blob Storage using AzCopy](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)
