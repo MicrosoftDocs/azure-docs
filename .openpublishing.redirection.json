@@ -838,7 +838,7 @@
         {
             "source_path": "articles/virtual-machines/linux/dockerextension-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/dockerextension",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
 		{
             "source_path": "articles/virtual-machines/linux/capture-image-nodejs.md",
