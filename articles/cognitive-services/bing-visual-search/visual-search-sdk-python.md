@@ -1,7 +1,7 @@
 ---
 title: Visual search SDK Python Quickstart | Microsoft Docs
 description: Setup for Visual search SDK Python console application.
-titleSuffix: Azure cognitive services Visual search SDK Python Quickstart
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -25,7 +25,7 @@ Code scenarios are documented under the following headings:
 * [Tags, actions, and actionType](#tags-actions)
 
 ## Application dependencies
-* A cognitive services API key is required to authenticate SDK calls. Sign up for a [free trial key](https://azure.microsoft.com/en-us/try/cognitive-services/?api=search-api-v7). The trial key is good for seven days with 1 call per second. For production scenario, [buy access key](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). See also [pricing information](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/visual/).
+* A cognitive services API key is required to authenticate SDK calls. Sign up for a [free trial key](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). The trial key is good for seven days with 1 call per second. For production scenario, [buy access key](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). See also [pricing information](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 * If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
 * The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7.
 ```
