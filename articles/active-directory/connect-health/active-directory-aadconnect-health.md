@@ -43,7 +43,6 @@ The following video provides an overview of Azure AD Connect Health for AD FS.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Connect-Health--Monitor-you-identity-bridge/player]
 >
-
 >
 
 ## [Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
@@ -117,7 +116,7 @@ The Azure AD Connect Health portal shows views of alerts, performance monitoring
 * **Configure**: This section includes options to turn the following on or off:
 
   - **Settings** entry includes basic configurations of your agents. Auto upgrade setting enables automatically update the Azure AD Connect Health agent to the latest version: You will be automatically updated to the latest versions of the Azure AD Connect Health Agent when they become available. This is enabled by default. Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only: If this is enabled, Microsoft can see the same data that you see. This information can help with troubleshooting and assistance with issues. This is disabled by default.
-* **Role based access control (IAM)** is the the section to manage the access to Connect Health data in role base. 
+* **Role based access control (IAM)** is the section to manage the access to Connect Health data in role base. 
 
 ## Related links
 * [Azure AD Connect Health Agent installation](active-directory-aadconnect-health-agent-install.md)
