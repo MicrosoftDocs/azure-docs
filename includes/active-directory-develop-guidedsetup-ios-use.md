@@ -29,7 +29,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
         do {
             
             // We check to see if we have a current signed-in user. If we don't, then we need to sign someone in.
-            // We throw an interactionRequired so that we trigger the interactive sign in.
+            // We throw an interactionRequired so that we trigger the interactive sign-in.
             
             if  try self.applicationContext.users().isEmpty {
                 throw NSError.init(domain: "MSALErrorDomain", code: MSALErrorCode.interactionRequired.rawValue, userInfo: nil)
@@ -55,7 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
             }
         }  catch let error as NSError {
             
-            // interactionRequired means we need to ask the user to sign-in. This usually happens
+            // interactionRequired means we need to ask the user to sign in. This usually happens
             // when the user's Refresh Token is expired or if the user has changed their password
             // among other possible reasons.
             
