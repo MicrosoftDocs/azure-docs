@@ -109,12 +109,13 @@ Patterns allow you to simplify an intent's utterance collection into common [tem
 Build your LUIS app from the LUIS website or programmatically with the [authoring](https://aka.ms/luis-authoring-apis) APIs, or use both depending on the authoring need. Access your published LUIS app by the query [endpoint](https://aka.ms/luis-endpoint-apis). 
 
 LUIS provides three websites around the world, depending on your authoring region. The authoring region determines the Azure region where you can publish your LUIS app.
-
+<!--
 |Authoring region|Publishing region(s)|
 |--|--|
 |[www.luis.ai](https://www.luis.ai)|**U.S.**<br>West US<br>West US 2<br>East US<br>East US 2<br>South Central US<br>West Central US<br><br>**Asia**<br>Southeast Asia<br>East Asia<br><br>**South America**<br>Brazil South |
 |[au.luis.ai](https://au.luis.ai)|Australia East|
 |[eu.luis.ai](https://eu.luis.ai)|West Europe<br>North Europe|
+-->
 
 Learn [more](luis-reference-regions.md) about authoring and publishing regions.
 
