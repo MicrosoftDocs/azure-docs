@@ -47,7 +47,7 @@ The reasons for enabling the hierarchical namespace are determined by a TCO anal
 There are a number of 'classic' object store workloads that will most likely not gain any benefit by enabling the hierarchical namespace. Examples of these workloads are; backups, image storage and other applications where object organization is stored separately to the objects themselves (eg. in a separate database).
 
 > [!NOTE]
-> With the preview release, if you enable the hierarchical namespace, there is no interoperability of data or operations between Blob and Data Lake Stroage REST APIs. This functionality will be added during preview.
+> With the preview release, if you enable the hierarchical namespace, there is no interoperability of data or operations between Blob and Data Lake Storage REST APIs. This functionality will be added during preview.
 
 ## Next steps
 
