@@ -18,7 +18,7 @@ ms.author: shlo
 
 ---
 # Get metadata activity in Azure Data Factory
-GetMetadata activity can be used to retrieve **metadata** of any data in Azure Data Factory. This activity is supported only for data factories of version 2. It can be used in the following scenarios:
+GetMetadata activity can be used to retrieve **metadata** of any data in Azure Data Factory. This activity can be used in the following scenarios:
 
 - Validate the metadata information of any data
 - Trigger a pipeline when data is ready/ available
@@ -27,9 +27,6 @@ The following functionality is available in the control flow:
 
 - The output from GetMetadata Activity can be used in conditional expressions to perform validation.
 - A pipeline can be triggered when condition is satisfied via Do-Until looping
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory V1 documentation](v1/data-factory-introduction.md).
 
 ## Supported capabilities
 
