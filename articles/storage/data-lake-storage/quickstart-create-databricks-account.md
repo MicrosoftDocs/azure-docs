@@ -86,6 +86,35 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
+## Create storage account file system
+
+In this section, you create a notebook in Azure Databricks workspace and then run code snippets to configure the storage account.
+
+1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace you created, and then select **Launch Workspace**.
+
+2. In the left pane, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
+
+    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
+
+3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Phython** as the language, and then select the Spark cluster that you created earlier.
+
+    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-notebook-details.png "Create notebook in Databricks")
+
+    Select **Create**.
+
+3. Enter the following code into the first cell and execute the code:
+
+    ```python
+    spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+    dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
+    ```
+
+    Press **SHIFT + ENTER** to run the code cell.
+
+    Now the file system is created for the storage account.
+
 ## Ingest sample data
 
 Before you begin with this section, you must complete the following prerequisites:
