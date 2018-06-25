@@ -30,7 +30,7 @@ This guide demonstrates how a JavaScript Single Page Application (SPA) can sign 
 <!--start-collapse-->
 ### More Information
 
-The sample application created by this guide enables a JavaScript SPA to query the Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, after a user signs-in, an access token is requested and added to HTTP requests via the authorization header. Token acquisition and renewal are handled by the Microsoft Authentication Library (MSAL).
+The sample application created by this guide enables a JavaScript SPA to query the Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, after a user signs in, an access token is requested and added to HTTP requests via the authorization header. Token acquisition and renewal are handled by the Microsoft Authentication Library (MSAL).
 
 <!--end-collapse-->
 
