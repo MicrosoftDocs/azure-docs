@@ -89,7 +89,7 @@ The new `keyphrase` version of the app needs to be trained.
 
 2. Select the Production slot and the **Publish** button.
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
@@ -97,7 +97,7 @@ The new `keyphrase` version of the app needs to be trained.
 
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-    ![Screenshot of Publish page with endpoint url highlighted](media/luis-quickstart-intent-and-key-phrase/endpoint-url-inline.png )
+    ![Screenshot of Publish page with endpoint url highlighted](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
 
 2. Go to the end of the URL in the address and enter `does form hrf-123456 cover the new dental benefits and medical plan`. The last querystring parameter is `q`, the utterance **query**. 
 
