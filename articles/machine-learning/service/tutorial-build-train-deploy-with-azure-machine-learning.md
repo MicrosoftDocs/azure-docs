@@ -1,32 +1,48 @@
 ﻿---
-title: Tutorial - Build, train, deploy models in Azure Machine Learning | Microsoft Docs
-description: In this tutorial, you can learn how build, train, and deploy a model with Azure Machine Learning in Python.
+title: Build, train, deploy models in Azure Machine Learning
+description: This full-length tutorial shows how to use Azure Machine Learning services to build, train, and deploy a model with Azure Machine Learning in Python.
 services: machine-learning
-author: haining
-ms.author: haining
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.custom: mvc
 ms.topic: quickstart
+
+author: hning86
+ms.author: haining
+ms.reviewer: jmartens
 ms.date: 7/27/2018
 ---
 
+# Tutorial: Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow
 
-# Tutorial: Training MNIST dataset using TensorFlow on Azure Machine Learning
+In this tutorial, you'll train a multi-class DNN on a Azure Batch AI cluster with Azure Machine Learning Services. This DNN identifies numerical digits that are present in an image. You'll also deploy it as a web service in an Azure Container Instance (ACI).
 
-## Introduction
-This example shows how to train a deep neural network using the MNIST dataset and TensorFlow on Azure Machine Learning platform. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing digit from 0 to 9. The goal is to create a multi-class classifier to identify the digit each image represents, and deploy it as a web service in Azure.
+As you familiarize yourself with the Azure Machine Learning Services workflow, you'll learn how to:
+
+> [!div class="checklist"]
+> * Build a DNN in TensorFlow
+> * Configure a compute target for training
+> * Train the model
+> * Submit a job to a target
+> * Review run histories and accuracy
+> * Test the model
+> * Deploy as a web service
+
+This tutorial uses the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing digit from 0 to 9. 
 
 ## Prerequisites
-### 1. Install Azure ML SDK
-Please follow [installation instructions](https://github.com/Azure/ViennaDocs/blob/master/PrivatePreview/README.md) here.
 
-### 2. Install additional packages needed for this Notebook
+To complete this tutorial, you must have:
+- The Azure Machine Learning SDK for Python installed
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure Machine Learning Workspace named @@@
+- A local project directory named @@@
+
+Learn how to get these prerequisites using the [Quickstart: Create a project and get started in Python](quickstart-set-up-in-python.md).
+
+You also need these package dependencies (tensorflow, matplotlib, numpy) for this example:
 ```shell
-$ conda install tensorflow matplotlib
+conda install tensorflow matplotlib
 ```
-
 
 ```python
 %matplotlib inline
@@ -36,53 +52,17 @@ import matplotlib.pyplot as plt
 ```
 
 
-```python
-import azureml
-from azureml.core import Workspace, Project, Run
+## Get the notebook and sample data
+### Download the Jupyter notebook
 
-# check core SDK version number
-print("Azure ML SDK Version: ", azureml.core.VERSION)
-```
+Download the Jupyter notebook to run this tutorial yourself.
 
-    Azure ML SDK Version:  0.1.0.1043398
+> [!div class="nextstepaction"]
+> [Get the Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification)
 
+### Download the sample data
 
-## Get Azure ML Workspace
-
-
-```python
-ws = Workspace.from_config()
-print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
-```
-
-    Found config.json in: /Users/haining/git/hai/MnistTutorial/aml_config/config.json
-    haieuapws	eastus2euap	aml-notebooks	eastus2euap
-
-
-## Create an Azure ML project
-
-
-```python
-# create a new project or get hold of an existing one.
-proj = Project.attach(history_name = 'tf-mnist', directory = './tf-mnist-proj', workspace_object = ws)
-# show project details
-proj.get_details()
-```
-
-
-
-
-    {'Run history name': 'tf-mnist',
-     'Subscription id': 'fac34303-435d-4486-8c3f-7094d82a0b60',
-     'Resource group': 'aml-notebooks',
-     'Workspace name': 'haieuapws',
-     'Project path': '/Users/haining/git/hai/MnistTutorial/tf-mnist-proj'}
-
-
-
-## Download MNIST dataset
 Use scikit-learn library to download the MNIST dataset. Note we also shrink the intensity values (X) from 0-255 to 0-1. This makes the neural network converge faster.
-
 
 ```python
 import os
@@ -102,9 +82,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
     ('./data/test-labels.gz', <http.client.HTTPMessage at 0xa162599b0>)
 
 
-
-## Show some samples images
-Plot 20 random images from the dataset along with their labels.
+Then, examine sample images by plotting 20 random images from the dataset along with their labels.
 
 
 ```python
@@ -133,8 +111,31 @@ plt.show()
 
 ![png](MNIST%20with%20Azure%20ML_files/MNIST%20with%20Azure%20ML_10_0.png)
 
+## Check for your workspace and project
 
-## Create datastore
+1. Display the current workspace name.
+
+    ```python
+    ws = Workspace.from_config()
+    print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
+    ```
+    
+        Found config.json in: /Users/haining/git/hai/MnistTutorial/aml_config/config.json
+        haieuapws	eastus2euap	aml-notebooks	eastus2euap
+    
+1. Attach the project to the workspace and see its details:
+
+    ```python
+    # create a new project or get hold of an existing one.
+    proj = Project.attach(history_name = 'tf-mnist', directory = './tf-mnist-proj', workspace_object = ws)
+    # show project details
+    proj.get_details()
+    ```
+
+
+## Create datastore and add data
+
+### Create the datastore
 
 
 ```python
@@ -153,7 +154,9 @@ ds = Datastore.register_azure_file_share(workspace = ws,
                                     create_if_not_exists = True)
 ```
 
-## Upload MNIST dataset to datastore
+### Add dataset to the datastore 
+
+Upload the MNIST dataset to the newly created datastore.
 
 
 ```python
@@ -182,7 +185,7 @@ Let's create a very simple DNN, with just 2 hidden layers. The input layer has 2
 
 ![DNN](images/feedforward_network.jpg)
 
-## Create Batch AI cluster as compute target
+## Create a Batch AI cluster as compute target
 
 
 ```python
@@ -631,9 +634,24 @@ print('predicted:\t',np.array(result))
     predicted:	 [9 3 4 1 3 0 7 0 0 7 5 1 9 6 9 4 1 1 8 0 8 7 7 6 0 4 2 3 4 7]
 
 
-### Delete the service
+### Delete the web service
 
 
 ```python
 service.delete()
 ```
+
+
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
+## Next steps
+
+In this Azure Machine Learning tutorial, you used Python to:
+> [!div class="checklist"]
+> * Train a model locally 
+> * Train a model on remote Data Science Virtual Machine (DSVM)
+> * Deploy and test a web service to Azure Container Instances
+
+@@WHat's next best to try out?

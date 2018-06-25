@@ -1,12 +1,14 @@
 ﻿---
 title: Installation Quickstart with Azure Machine Learning Python SDK | Microsoft Docs
 description: In this Quickstart, you can learn how to install and get started with Azure Machine Learning using the Azure Machine Learning SDK for Python.
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
-ms.reviewer: jmartens
+
 author: rastala
 ms.author: roastala
+ms.reviewer: sgilley
 ms.date: 7/27/2018
 ---
 
@@ -14,10 +16,12 @@ ms.date: 7/27/2018
 
 In this quickstart, you'll use a Python SDK to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
 
-Using your preferred Python IDE, you'll learn how to:
+Using any Python environment, including Jupyter Notebooks or your favorite Python IDE, you'll learn how to:
 1. Create a workspace, which is the top-level resource for this service.
-1. Attach a project containing your machine learning scripts.
-1. Run a script @@TO DO WHAT and view the output. 
+2. Attach a project containing your machine learning scripts.
+3. Run a script to show a few metrics and view the output.
+
+The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
 ## Prerequisites
 
@@ -33,20 +37,22 @@ Make sure you have the following prerequisites before starting the quickstart st
 
 Install the Azure Machine Learning SDK for Python. You'll use this SDK to create your workspace and run code. You can [do a lot more with this SDK](reference-azure-machine-learning-sdk.md). 
 
-In a command-line window, create the conda environment and install the SDK. This example uses Python 3.6.
+1. In a command-line window, create and activate the conda package manager environment with numpy and cython. This example uses Python 3.6.
 
-   ``` 
-   #Set your conda environment with numpy and cython
+   On Windows:
+   ```sh 
    conda create -n myenv Python=3.6 cython numpy
-   
-   #Activate the package manager environment
-   ## Windows:
    activate myenv
+   ```
 
-   ## Linux or MacOS: 
-   ##source activate myenv
+   On Linux or MacOS:
+   ```sh 
+   conda create -n myenv Python=3.6 cython numpy
+   source activate myenv
+   ```
 
-   #Install the SDK
+1. Install the SDK
+   ```sh 
    pip install azureml-sdk
    ```
 
@@ -54,7 +60,7 @@ In a command-line window, create the conda environment and install the SDK. This
 
 A resource group is a container that holds related resources for an Azure solution. Using Azure CLI, sign into Azure, specify the subscription, and create a resource group.
 
-1. In a command-line window, sign in with the Azure CLI command, [`az login`](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Follow the prompts for interactive login:
+1. In a command-line window, sign in with the Azure CLI command, [`az login`](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Follow the prompts for interactive sign in:
     
     ```azurecli
     az login
@@ -104,6 +110,15 @@ A resource group is a container that holds related resources for an Azure soluti
    # Attach current directory as a project in workspace `myws` and specify 
    # and specify name of run history file for this project, `myhistory`
    helloproj = Project.attach(workspace_object=ws, run_history_name="myhistory")
+   ```
+   
+   Which returns:
+   ```
+   {'Run history name': 'tf-mnist',
+    'Subscription id': 'fac34303-435d-4486-8c3f-7094d82a0b60',
+    'Resource group': 'aml-notebooks',
+    'Workspace name': 'haieuapws',
+    'Project path': '/Users/bsmith/git/my-stuff/mnist-project'}
    ```
 
    Replace \<your-subscription-id\> with the ID value for the subscription you used to create the resource group and use the same resource group name as before, `myrg`. Do not include the brackets.

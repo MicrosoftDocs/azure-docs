@@ -1,13 +1,15 @@
 ---
 title: Python packages for Azure Machine Learning
 description: Learn about the python packages available for Azure Machine Learning users. 
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.reviewer: jmartens
+
 ms.author: jmartens
 author: j-martens
-ms.date: 05/07/2018
+ms.reviewer: jmartens
+ms.date: 7/27/2018
 ---
 # Python packages for Azure Machine Learning
 
