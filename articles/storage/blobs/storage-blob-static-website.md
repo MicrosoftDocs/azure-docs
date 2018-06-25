@@ -11,14 +11,14 @@ ms.date: 06/26/18
 ms.author: mihauss
 ---
 # Static website hosting in Azure Storage (Preview)
-Azure Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications. On a static website, webpages contain static content and JavaScript or other client-side scripts. By contrast, dynamic websites depend on server-side processing, and can be hosted using [Azure Web Apps](/app-service/app-service-web-overview.md).
+Azure Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications on Azure. On a static website, webpages contain static content and JavaScript or other client-side code. By contrast, dynamic websites depend on server-side code, and can be hosted using [Azure Web Apps](/app-service/app-service-web-overview.md).
 
-As web applications shift toward cost-effective and elastic serverless models, the ability to serve web apps without the need for managing servers is critical. Static websites hosted on Azure Storage enable rich backend capabilities with serverless architectures leveraging [Azure Functions](/azure-functions/functions-overview.md) and other PaaS services.
+As computation deployments shift toward elastic and cost-effective models, the ability to deliver web content without the need for server management is critical. Static website hosting on Azure Storage addresses this requirement, enabling rich backend capabilities with serverless architectures leveraging [Azure Functions](/azure-functions/functions-overview.md) and other PaaS services.
 
 ## How does it work?
 When you enable static websites on your storage account, a new web service endpoint is created of the form `<account-name>.<zone-name>.web.core.windows.net`.
 
-The web service endpoint always allows anonymous read access, returns formatted HTML pages in response to service errors, and allows only object read operations. When the storage account root is requested, the web endpoint returns the index document specified during configuration. If a directory is requested, the storage service will return the index document in that directory. When the storage service returns a 404 error, the web endpoint returns a custom error document if you configured it.
+The web service endpoint always allows anonymous read access, returns formatted HTML pages in response to service errors, and allows only object read operations. The web service endpoint returns the index document in the requested directory for both the root and all subdirectories. When the storage service returns a 404 error, the web endpoint returns a custom error document if you configured it.
 
 Content for your static website is hosted in a special container named "$web". As a part of the enablement process, "$web" is created for you if it does not already exist. Content in "$web" can be accessed at the account root using the web endpoint. For example `https://contoso.z4.web.core.windows.net/` returns the index document you configured for your website, if a document of that name exists in the root directory of $web.
 
