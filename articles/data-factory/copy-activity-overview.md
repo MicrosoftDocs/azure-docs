@@ -21,15 +21,12 @@ ms.author: jingwang
 ## Overview
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-data-movement-activities.md)
-> * [Version 2 - Preview](copy-activity-overview.md)
+> * [Version 1](v1/data-factory-data-movement-activities.md)
+> * [Current version](copy-activity-overview.md)
 
 In Azure Data Factory, you can use Copy Activity to copy data among data stores located on-premises and in the cloud. After the data is copied, it can be further transformed and analyzed. You can also use Copy Activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
 ![Role of Copy Activity](media/copy-activity-overview/copy-activity.png)
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, different flavor of Integration Runtime can be leveraged:
 
@@ -233,10 +230,10 @@ By default, copy activity stops copying data and returns failure when it encount
 See the [Copy Activity performance and tuning guide](copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
 
 ## Incremental copy 
-Data Factory version 2 supports scenarios for incrementally copying delta data from a source data store to a destination data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md). 
+Data Factory supports scenarios for incrementally copying delta data from a source data store to a destination data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md). 
 
 ## Read and write partitioned data
-In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In version 2, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
+In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In the current version, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:
