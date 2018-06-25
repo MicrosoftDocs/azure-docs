@@ -95,7 +95,7 @@ Use Azure Backup Server console to recover data to your virtual machine.
 
 1. In the Azure Backup Server console, on the navigation bar, click **Recovery** and browse for the data you want to recover. In the results pane, select the data.
 
-2. On the calendar in the recovery points section, dates in bold indicate recovery points are available. Select the date to recover a recovery point.
+2. On the calendar in the recovery points section, dates in bold indicate recovery points are available. Select the date to recover.
 
 3. In the **Recoverable item** pane, select the item you want to recover.
 
