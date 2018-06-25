@@ -133,3 +133,4 @@ When copy large volume of data from file-based data store, you are suggested to:
 ## Next steps
 
 * [Copy activity overview](copy-activity-overview.md)
+* [Azure Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md)
