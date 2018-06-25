@@ -19,7 +19,7 @@ ms.component: data-lake-storage-gen2
 
 # Introduction to Azure Data Lake Storage Gen2 Preview
 
-Azure Data Lake Storage Gen2 Preview is Microsoft's hyperscale storage service designed for big data analytics workloads. It allows you to interface with your data using both file system and object storage paradigms. This makes Data Lake Storage Gen2 the only cloud-based multi-modal storage service, allowing you to extract analytics value from all of your data.
+Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on top of [Azure Blob Storage](../blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms. This makes Data Lake Storage Gen2 the only cloud-based multi-modal storage service, allowing you to extract analytics value from all of your data.
 
 Data Lake Storage Gen2 features all qualities that are required for the full lifecycle of analytics data. This results from converging the capabilities of our two existing storage services. Features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), such as file system semantics, file-level security and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities and a large SDK/tooling ecosystem from [Azure Blob Storage](../blobs/storage-blobs-introduction.md). In Data Lake Storage Gen2, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
 
@@ -27,15 +27,15 @@ Data Lake Storage Gen2 features all qualities that are required for the full lif
 
 Data Lake Storage Gen2 is the foundational storage service for building enterprise data lakes (EDL) on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage Gen2 gives you an easy way to manage massive amounts of data.
 
-A fundamental feature of Data Lake Storage Gen2 is the introduction of the [Hierarchical Namespace service (HNS)](./namespace.md) which organizes blobs into a hierarchy of directories for performant data access. The HNS also enables Azure Data Lake Storage Gen2 to support both object store and file system paradigms at the same time. For instance, a common object store naming convention employs slashes in the name to mimic a hierarchical folder structure. This structure becomes real with Azure Data Lake Storage Gen2. Operations such as renaming or deleting a directory become single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
+A fundamental feature of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](./namespace.md) to the Blob Storage Service which organizes objects/files into a hierarchy of directories for performant data access. The hierarchical namespace also enables Azure Data Lake Storage Gen2 to support both object store and file system paradigms at the same time. For instance, a common object store naming convention employs slashes in the name to mimic a hierarchical folder structure. This structure becomes real with Azure Data Lake Storage Gen2. Operations such as renaming or deleting a directory become single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
 
-In the past, cloud-based analytics had to compromise in areas of performance, management, and security. Azure Data Lake Storage Gen2 addresses each of these aspects in some of the following ways:
+In the past, cloud-based analytics had to compromise in areas of performance, management, and security. Azure Data Lake Storage Gen2 addresses each of these aspects in the following ways:
 
-- **Performance** is optimized because you do not need to copy or transform data as a prerequisite for analysis. The HNS greatly improves the performance of directory management operations which improves overall job performance.
+- **Performance** is optimized because you do not need to copy or transform data as a prerequisite for analysis. The hierarchical namespace greatly improves the performance of directory management operations which improves overall job performance.
 
-- **Management** is easier because you can manipulate files through directories and subdirectories.
+- **Management** is easier because you can organize and manipulate files through directories and subdirectories.
 
-- **Cost Effective** is made possible as Azure Data Lake Storage Gen2 is built on top of the low-cost [Azure Blob Storage](../blobs/storage-blobs-introduction.md). The additional features further lower the total cost of ownership for running big data analytics on Azure.
+- **Cost Effectiveness** is made possible as Azure Data Lake Storage Gen2 is built on top of the low-cost [Azure Blob Storage](../blobs/storage-blobs-introduction.md). The additional features further lower the total cost of ownership for running big data analytics on Azure.
 
 ## Key features of Azure Data Lake Storage Gen2
 
@@ -43,23 +43,27 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 > During the public preview of Data Lake Storage Gen2, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated.
 > [Sign up]((https://aka.ms/adlsgen2signup)) to the public preview of Azure Data Lake Storage Gen2.  
 
-- **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](./abfs-driver.md) is available within Apache Hadoop environments to access data stored in Azure Data Lake Storage Gen2.
+- **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](./abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](../../hdinsight/index.yml) and [Azure Databricks](../../azure-databricks/index.yml) to access data stored in Azure Data Lake Storage Gen2.
 
-    Authentication and identities are provided courtesy of integration with [Azure Active Directory](../../active-directory/index.md).
+- **Multi-protocol and multi-modal data access**: Data Lake Storage Gen2 is considered a **multi-modal** storage service as it provides both object store and file system interfaces to the same data **at the same time**. This is achieved by providing multiple protocol endpoints that are able to access the same data. 
 
-- **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through the data lifecycle, billing rates change keeping costs to a minimum via built-in features such as [Azure Blob Storage Lifecycle](../common/storage-lifecycle-managment-concepts.md).
+    Unlike other analytics solutions, data stored in Data Lake Storage Gen2 does not need to move or be transformed before you can run a variety of analytics tools. You can access data via traditional [Blob Storage APIs](../blobs/storage-blobs-introduction.md) (for example: ingest data via [Event Hubs Capture](../../event-hubs/event-hubs-capture-enable-through-portal.md)) and process that data using HDInsight or Azure Databricks at the same time. 
+
+- **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through its complete lifecycle, billing rates change keeping costs to a minimum via built-in features such as [Azure Blob Storage Lifecycle](../common/storage-lifecycle-managment-concepts.md).
+
+- **Works with Blob Storage tools, frameworks, and apps**: Data Lake Storage Gen2 continues to work with a wide array of tools, frameworks, and applications that exist today for Blob Storage.
 
 - **Optimized driver**: The `abfs` driver is [optimized specifically](./abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the `dfs` endpoint, `dfs.core.windows.net`.
 
 ## Scalability
 
-Azure Data Lake Storage Gen2 and Azure Blob Storage are scalable by design. Each service is able to store and serve *many exabytes of data*. This amount of storage is available with throughput measured in gigabits per second (Gbps) at high levels of input/output operations per second (IOPS). Beyond just persistence, processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
+Azure Storage is scalable by design whether you access via Data Lake Storage Gen2 or Blob Storage interfaces. It is able to store and serve *many exabytes of data*. This amount of storage is available with throughput measured in gigabits per second (Gbps) at high levels of input/output operations per second (IOPS). Beyond just persistence, processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
 
 ## Cost effectiveness
 
-The architecture of Azure Data Lake Storage Gen2 can save you significant amounts of money. One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob Storage is the [low-cost](https://azure.microsoft.com/pricing/details/storage) of storage capacity and cloud-based object storage transactions.  Unlike other cloud storage services, Data Lake Storage Gen2 enjoys several orders of magnitude of lower costs because data is not moved or transformed before performing analysis.
+The architecture of Azure Data Lake Storage Gen2 can save you significant amounts of money. One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob Storage is the [low-cost](https://azure.microsoft.com/pricing/details/storage) of storage capacity and transactions.  Unlike other cloud storage services, Data Lake Storage Gen2 enjoys reduced costs because data is not required to be moved or transformed prior to performing analysis.
 
-Additionally, features such as the [Hierarchical Namespace Service](./namespace.md) significantly improve the overall performance of many analytics jobs. This improvement in performance means that you require less compute power to process the same amount of data, resulting in a lower total cost of ownership (TCO) for the end to end analytics job.
+Additionally, features such as the [hierarchical namespace](./namespace.md) significantly improve the overall performance of many analytics jobs. This improvement in performance means that you require less compute power to process the same amount of data, resulting in a lower total cost of ownership (TCO) for the end to end analytics job.
 
 ## Next steps
 
