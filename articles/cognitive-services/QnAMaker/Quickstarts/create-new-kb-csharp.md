@@ -18,7 +18,7 @@ ms.author: nolachar
 
 You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft QnA Maker API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft QnA Maker** chosen as your resource. You will need a paid subscription key from your new API account in your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). To retrieve your key, select **Keys** under **Resource Management** in your dashboard.
 
 ## Create knowledge base
 
@@ -26,8 +26,9 @@ The following code creates a new knowledge base, using the [Create](https://west
 
 1. Create a new C# project in your favorite IDE that uses a .NET framework C# console app (either .NET CORE or .NET Standard).
 2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+3. Replace the `key` value with a valid subscription key.
+4. Run the program and note the response shown below as confirmation of your success.
+5. Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, e.g. QnA Maker FAQ to view.
 
 ```csharp
 using System;
@@ -211,8 +212,6 @@ A successful response is returned in JSON, as shown in the following example:
   "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
 }
 ```
-
-Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, e.g. QnA Maker FAQ to view.
 
 ## Next steps
 
