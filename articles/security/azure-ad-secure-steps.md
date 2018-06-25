@@ -1,6 +1,6 @@
 ---
-title: Five steps to secure your identity infrastructure
-description: This doc outlines a list of actions administrator should implement to help them secure their organization using Azure AD
+title: Five steps to secure your identity infrastructure in Azure Active Directory
+description: This document outlines a list of important actions administrators should implement to help them secure their organization using Azure AD capabilities
 services: active-directory
 author: martincoetzer
 manager: manmeetb
@@ -20,16 +20,16 @@ This document will help you get a more secure posture using the capabilities of 
 
 This checklist will help you quickly deploy critical recommended actions to protect your organization immediately by explaining how to:
 
-1. Strengthen your credentials.
-2. Reduce your attack surface area.
-3. Automate threat response.
-4. Increase your awareness of auditing and monitoring.
-5. Enable more predictable and complete end-user security with self-help.
+* Strengthen your credentials.
+* Reduce your attack surface area.
+* Automate threat response.
+* Increase your awareness of auditing and monitoring.
+* Enable more predictable and complete end-user security with self-help.
 
 > [!NOTE]
 > Many of the recommendations in this document apply only to applications, which are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Single sign-on through Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) is the foundation - on which all these recommendations are based.
 
-## Before you begin: Protect privileged accounts with MFA
+## Before you begin: protect privileged accounts with MFA
 
 Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. You first need to protect your privileged accounts.
 
@@ -52,7 +52,7 @@ Given the frequency of passwords being guessed, phished, stolen with malware, or
 
 Many organizations use the traditional complexity (for example, special characters) and password expiration rules. Microsoft's research has shown these policies are harmful, causing users to choose passwords that are easier to guess.
 
-Microsoft's recommendations, consistent with [NIST guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), are to:
+Microsoft's recommendations, consistent with [NIST guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), are to implement the following three:
 
 1. Require passwords have at least 8 characters. Longer isn't necessarily better, as they cause users to choose predictable passwords, save passwords in files, or write them down.
 2. Disable expiration rules, which drive users to easily guessed passwords such as **Summer2018!**.
@@ -64,10 +64,10 @@ Azure Active Directory's [dynamic banned password](https://docs.microsoft.com/az
 
 ### Protect against leaked credentials and add resilience against outages
 
-If your organization uses a hybrid identity solution, then you should enable password hash synchronization for the following reasons:
+If your organization uses a hybrid identity solution, then you should enable password hash synchronization for the following two reasons:
 
-1. The [Users with leaked credentials](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) report in the Azure AD management warns you of username and password pairs, which have been exposed on the "dark web." An incredible volume of passwords is leaked via phishing, malware, and password reuse on third-party sites that are later breached. Microsoft finds many of these leaked credentials and will tell you, in this report, if they match credentials in your organization – but only if you [enable password hash synchronization](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)!
-2. In the event of an on-premises outage (for example, in a ransomware attack) you'll be able to switch over to [cloud authentication using password hash synchronization](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). This backup authentication method will allow you to continue accessing apps configured for authentication with Azure Active Directory, including Office 365.
+* The [Users with leaked credentials](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) report in the Azure AD management warns you of username and password pairs, which have been exposed on the "dark web." An incredible volume of passwords is leaked via phishing, malware, and password reuse on third-party sites that are later breached. Microsoft finds many of these leaked credentials and will tell you, in this report, if they match credentials in your organization – but only if you [enable password hash synchronization](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)!
+* In the event of an on-premises outage (for example, in a ransomware attack) you'll be able to switch over to [cloud authentication using password hash synchronization](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). This backup authentication method will allow you to continue accessing apps configured for authentication with Azure Active Directory, including Office 365.
 
 Learn more about how [password hash synchronization](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) works.
 
@@ -85,7 +85,7 @@ Given the pervasiveness of password compromise, minimizing the attack surface in
 
 ### Block legacy authentication
 
-Apps using their own legacy methods to authenticate with Azure AD and access company data, pose another risk for organizations. Examples of apps using legacy authentication are POP3, IMAP4, or SMTP clients. Legacy authentication apps authenticate on behalf of the user and prevent Azure AD from doing advanced security evaluations. The alternative, modern authentication, will reduce your security risk, because it supports multi-factor authentication and conditional access. We recommend the following actions:
+Apps using their own legacy methods to authenticate with Azure AD and access company data, pose another risk for organizations. Examples of apps using legacy authentication are POP3, IMAP4, or SMTP clients. Legacy authentication apps authenticate on behalf of the user and prevent Azure AD from doing advanced security evaluations. The alternative, modern authentication, will reduce your security risk, because it supports multi-factor authentication and conditional access. We recommend the following three actions:
 
 1. Block [legacy authentication if you use AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Setup [SharePoint Online and Exchange Online to use modern authentication](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
@@ -136,7 +136,7 @@ Auditing and logging of security-related events and related alerts are essential
 
 Microsoft Azure services and features provide you with configurable security auditing and logging options to help you identify gaps in your security policies and mechanisms and address those gaps to help prevent breaches. You can use [Azure Logging and Auditing](https://docs.microsoft.com/azure/security/azure-log-audit) and use [Audit activity reports in the Azure Active Directory portal](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
 
-### Monitor Azure AD Connect Health in Hybrid Environments
+### Monitor Azure AD Connect Health in hybrid environments
 
 [Monitoring ADFS with Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs) provides you with greater insight into potential issues and visibility of attacks on your ADFS infrastructure. Azure AD Connect Health delivers alerts with details, resolution steps, and links to related documentation; usage analytics for several metrics related to authentication traffic; performance monitoring and reports.
 
@@ -152,15 +152,15 @@ Microsoft Azure services and features provide you with configurable security aud
 
 As much as possible you'll want to balance security with productivity. Along the same lines of approaching your journey with the mindset that you're setting a foundation for security in the long run, you can remove friction from your organization by empowering your users while remaining vigilant. 
 
-### Implement Self-Service Password Reset
+### Implement self-service password reset
 
 Azure's [self-service password reset (SSPR)](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started) offers a simple means for IT administrators to allow users to reset or unlock their passwords or accounts without administrator intervention. The system includes detailed reporting that tracks when users access the system, along with notifications to alert you to misuse or abuse. 
 
-### Implement Self Service Group Management
+### Implement self-service group management
 
 Azure AD provides the ability to manage access to resources using security groups and Office 365 groups. These groups can be managed by group owners instead of IT administrators. Known as [self-service group management](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management), this feature allows group owners who are not assigned an administrative role to create and manage groups without relying on administrators to handle their requests.
 
-### Implement Azure AD Access reviews
+### Implement Azure AD access reviews
 
 With [Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview), you can manage group memberships, access to enterprise applications, and privileged role assignments to make sure you maintain a security standard that does not give users access for extended periods of time when they don't need it.
 
@@ -168,10 +168,13 @@ With [Azure AD access reviews](https://docs.microsoft.com/azure/active-directory
 
 There are many aspects to a secure Identity infrastructure, but this five-step checklist will help you quickly accomplish a safer and secure identity infrastructure:
 
-1. Strengthen your credentials.
-2. Reduce your attack surface area.
-3. Automate threat response.
-4. Increase your awareness of auditing and monitoring.
-5. Enable more predictable and complete end-user security with self-help.
+* Strengthen your credentials.
+* Reduce your attack surface area.
+* Automate threat response.
+* Increase your awareness of auditing and monitoring.
+* Enable more predictable and complete end-user security with self-help.
 
 We appreciate how seriously you take Identity Security and hope this document is a useful roadmap to a more secure posture for your organization.
+
+## Next steps
+If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](http://aka.ms/deploymentplans) for help.
