@@ -99,7 +99,7 @@ User can configure these values by passing OperationRetrySettings object to Serv
 
 ## How to use the Remoting V2 stack
 
-As of the NuGet Remoting package version 2.8, you have the option to use the Remoting V2 stack. The Remoting V2 stack is more performant and provides features like custom serialization and more pluggable Api's.
+As of the NuGet Remoting package version 2.8, you have the option to use the Remoting V2 stack. The Remoting V2 stack is more performant and provides features like custom serialization and more pluggable API's.
 Template code continues to use the Remoting V1 Stack.
 Remoting V2 is not compatible with V1 (the previous Remoting stack), so follow the instructions below on [how to upgrade from V1 to V2](#how-to-upgrade-from-remoting-v1-to-remoting-v2) without impacting service availability.
 
@@ -109,7 +109,7 @@ The following approaches are available to enable the V2 stack.
 
 These steps change template code to use the V2 Stack using an assembly attribute.
 
-1. Change the Endpoint Resource with from `"ServiceEndpoint"` to `"ServiceEndpointV2"` in the service manifest.
+1. Change the Endpoint Resource from `"ServiceEndpoint"` to `"ServiceEndpointV2"` in the service manifest.
 
   ```xml
   <Resources>
@@ -135,15 +135,15 @@ These steps change template code to use the V2 Stack using an assembly attribute
   ```
 
 No code changes are required in the client project.
-Build the client assembly with the interface assembly to makes sure that above assembly attribute is used.
+Build the client assembly with the interface assembly to make sure that the assembly attribute shown above is used.
 
-### Using explicit V2 classes to to use the V2 stack
+### Using explicit V2 classes to use the V2 stack
 
 As an alternative to using an assembly attribute, the V2 stack can also be enabled by using explicit V2 classes.
 
 These steps change template code to use the V2 Stack using explicit V2 classes.
 
-1. Change the Endpoint Resource with from `"ServiceEndpoint"` to `"ServiceEndpointV2"` in the service manifest.
+1. Change the Endpoint Resource from `"ServiceEndpoint"` to `"ServiceEndpointV2"` in the service manifest.
 
   ```xml
   <Resources>
