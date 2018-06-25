@@ -63,18 +63,8 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 - **Details**: Due to the default Windows Firewall settings for WinRM the user may see the following error:
  `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Resolution**:  Make sure your VM is running. You can run `Get-AzureRmVM -Status` to find out the VM Status.  Next, add a new firewall rule on the remote VM to allow WinRM connections from any subnet, for example,
-
- ``` Powershell
- New-NetFirewallRule -Name 'WINRM-HTTP-In-TCP-PSCloudShell' -Group 'Windows Remote Management' -Enabled True -Protocol TCP -LocalPort 5985 -Direction Inbound -Action Allow -DisplayName 'Windows Remote Management - PSCloud (HTTP-In)' -Profile Public
- ```
- You can use [Azure custom script extension](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript) to avoid logon to your remote VM for adding the new firewall rule.
- You can save the preceding script to a file, say `addfirerule.ps1`, and upload it to your Azure storage container.
- Then try the following command:
-
- ``` Powershell
- Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
- ```
+- **Resolution**:  Run `Enable-AzureRmVMPSRemoting` to enable all aspects of PowerShell remoting on the target machine.
+ 
 
 ### `dir` caches the result in Azure drive
 
