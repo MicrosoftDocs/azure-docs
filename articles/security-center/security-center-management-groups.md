@@ -133,6 +133,9 @@ You can add subscriptions to the management group that you created. These steps 
 
 4. Repeat steps 1 through 3 until you've added all the subscriptions in the scope.
 
+> ![NOTE]
+> Management groups can contain both subscriptions and child management groups. When you assign a user an RBAC role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
+
 ## Next steps
 In this article, you learned how to gain tenant-wide visibility for Azure Security Center. To learn more about Security Center, see the following articles:
 
