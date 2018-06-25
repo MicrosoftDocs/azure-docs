@@ -36,7 +36,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
      "hmdt": 44
    }
    ```
-2. Sign in to the Azure portal.  
+2. Sign in to the [Azure portal](https://portal.azure.com/).  
 
 3. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job page with **Name** set to "asaquickstartstorage", **Location** set to "West US 2", **Resource group** set to "asaquickstart-resourcegroup" (host the storage account in the same resource group as the Streaming job for increased performance). The remaining settings can be left to their default values.  
 
