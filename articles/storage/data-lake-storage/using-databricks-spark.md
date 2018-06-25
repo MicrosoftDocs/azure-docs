@@ -246,6 +246,7 @@ set ACCOUNT_NAME=<ACCOUNT_NAME>
 set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
+
 ## Explore data using Hadoop Distributed File System
 
 Return to the DataBricks workspace and click on the **Recent** icon in the left nav bar.
