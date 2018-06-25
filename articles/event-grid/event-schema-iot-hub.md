@@ -25,8 +25,29 @@ Azure IoT Hub emits the following event types:
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Published when a device is registered to an IoT hub. |
 | Microsoft.Devices.DeviceDeleted | Published when a device is deleted from an IoT hub. | 
+| Microsoft.Devices.DeviceConnected | Published when a device is connected to an IoT hub. |
+| Microsoft.Devices.DeviceDisconnected | Published when a device is disconnected from an IoT hub. | 
 
 ## Example event
+
+The schema for DeviceCreated and DeviceDeleted events have the same structure. This sample event shows the schema of an event raised when a device is registered to an IoT hub:
+
+```json
+[{
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceConnected", 
+  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "data": { 
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID",
+    "sequenceNumber": "AAAAAAAAAAA=AdP+q6/KbPU=AAAAAgAAAAA=AAAAAAAAAAE=" 
+  }, 
+  "dataVersion": "", 
+  "metadataVersion": "1" 
+}]
 
 The schema for DeviceCreated and DeviceDeleted events have the same structure. This sample event shows the schema of an event raised when a device is registered to an IoT hub:
 
@@ -69,8 +90,6 @@ The schema for DeviceCreated and DeviceDeleted events have the same structure. T
     },
     "hubName": "egtesthub1",
     "deviceId": "LogicAppTestDevice",
-    "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-    "opType": "DeviceCreated"
   },
   "dataVersion": "",
   "metadataVersion": "1"
@@ -98,8 +117,8 @@ The contents of the data object are different for each event publisher. For IoT 
 | -------- | ---- | ----------- |
 | hubName | string | Name of the IoT Hub where the device was created or deleted. |
 | deviceId | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| operationTimestamp | string | The ISO8601 timestamp of the operation. |
-| opType | string | The event type specified for this operation by the IoT Hub: either `DeviceCreated` or `DeviceDeleted`.
+| moduleId | string | The unique identifier of the module. This field is output only for module devices. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| sequenceNumber | string | A number which helps indicate order of device connected or device disconnected events. Latest event will have a sequence number that is higher than the previous event. This number may change by more than 1, but is strictly increasing. |
 | twin | object | Information about the device twin, which is the cloud represenation of application device metadata. | 
 | deviceID | string | The unique identifier of the device twin. | 
 | etag | string | A piece of information that describes the content of the device twin. Each etag is guaranteed to be unique per device twin. | 
