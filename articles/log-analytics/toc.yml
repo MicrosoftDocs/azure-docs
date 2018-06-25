@@ -35,6 +35,8 @@
         href: log-analytics-oms-portal-faq.md
   - name: Log Analytics FAQ
     href: log-analytics-faq.md
+  - name: Data ingestion time
+    href: log-analytics-data-ingestion-time.md
   - name: Data security
     href: log-analytics-data-security.md
   - name: Manage access
