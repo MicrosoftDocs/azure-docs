@@ -119,4 +119,4 @@ Note - This process, through step 3.1, is a onetime operation.
 
 ## See Also
 - [Certificate operations](/rest/api/keyvault/certificate-operations)
-- [About keys, secrets, and certificates](about-keys-secrets-and-certificates)
+- [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
