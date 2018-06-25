@@ -76,7 +76,7 @@ Place it into a file named `quickstart-linux.cpp`:
 
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Linux/quickstart-linux/quickstart-linux.cpp#code)]
 
-Please replace the subscription key in the code with the one you obtained.
+Replace the subscription key in the code with the one you obtained.
 
 ## Building
 
@@ -99,13 +99,13 @@ Please replace the subscription key in the code with the one you obtained.
 
 To run the application, you'll need to configure the loader's library path to point to the Speech SDK library.
 
-* On an x64 machine, please run:
+* On an x64 machine, run:
 
   ```sh
   export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x64"
   ```
 
-* On an x86 machine, please run:
+* On an x86 machine, run:
 
   ```sh
   export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
@@ -117,7 +117,7 @@ Run the application as follows:
 ./quickstart-linux
 ```
 
-If all goes well, you should see output similar to the following:
+If all goes well, you should see output similar to this:
 
 ```text
 Say something...

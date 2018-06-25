@@ -72,7 +72,7 @@ In the license screen that pops up, accept the license:
 
 ## Add the sample code
 
-Replace your default starter code with the following:
+Replace your default starter code with the following one:
 
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-cpp/CppHelloSpeech.cpp#code)]
 
