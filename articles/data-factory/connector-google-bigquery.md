@@ -31,7 +31,7 @@ You can copy data from Google BigQuery to any supported sink data store. For a l
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to the Google BigQuery connector.
 

@@ -39,6 +39,9 @@ Specifically, this Azure Data Lake Store connector supports:
 
 ## Get started
 
+> [!TIP]
+> For a walkthrough of using Azure Data Lake Store connector, see [Load data into Azure Data Lake Store](load-azure-data-lake-store.md).
+
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Data lake Store.

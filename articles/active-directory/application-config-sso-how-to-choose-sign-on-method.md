@@ -3,17 +3,18 @@ title: How to determine what single-sign on method to use | Microsoft Docs
 description: Understand the single sign-on modes supported by Azure AD and how to pick which one to choose for the application you are interested in.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
