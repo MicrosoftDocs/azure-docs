@@ -202,22 +202,22 @@ Return to the browser DataBricks browser tab and execute the following steps:
 4. Click **Create**
 5. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor)
 
-```python
-from pyspark.sql import SQLContext
-import tarfile
-import os
-
-sqlContext = SQLContext(sc)
-
-blobName = dbutils.widgets.get("blob_name")
-print("Transforming " + blobName)
-
-if(blobName == ""):
-  raise ValueError('No blob name provided')
-
-df = sqlContext.read.format('com.databricks.spark.csv').options(header='true', inferschema='true').load('/mnt/temp/' + blobName) 
-df.write.mode("append").parquet("/mnt/temp/parquet/flights")
-```
+    ```python
+    from pyspark.sql import SQLContext
+    import tarfile
+    import os
+    
+    sqlContext = SQLContext(sc)
+    
+    blobName = dbutils.widgets.get("blob_name")
+    print("Transforming " + blobName)
+    
+    if(blobName == ""):
+      raise ValueError('No blob name provided')
+    
+    df = sqlContext.read.format('com.databricks.spark.csv').options(header='true', inferschema='true').load('/mnt/temp/' + blobName) 
+    df.write.mode("append").parquet("/mnt/temp/parquet/flights")
+    ```
 
 5. Select **Jobs** on the left nav pane
 6. Click **Create Job**
