@@ -24,17 +24,25 @@ ms.author: jdial
 
     - A Network Watcher enabled subscription
     - NSG flow logs enabled for the NSGs you want to monitor
-    - An Azure Storage account, to store raw flog logs
+    - An Azure Storage account, to store raw flow logs
     - A Log Analytics (OMS) Workspace, with read and write access
     - User must be assigned with either one of the following roles at subscription level:
     
-            All permissions *
-            All Read permissions */read
-            All network permissions Microsoft.Network/*
-            All network read permissions Microsoft.Network/*/read
+    1.	You must be any one of the following classic administrator
+    
+        - Account administrator
+        - Service administrator 
+        - Co-administrator
+        
+    2.	Your account must have any one of the following RBAC roles at subscription scope
+    
+        - Owner
+        - Contributor
+        - Reader
+        - Network Contributor
 
-    Or, user must be assigned with following all roles at subscription level: 
-
+    3. Your account must have any custom RBAC roles with permission to all of the following mentioned actions at subscription level
+            
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
         - Microsoft.Network/loadBalancers/read 
@@ -46,23 +54,23 @@ ms.author: jdial
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
         
-To check roles assigned to a user for a subscription, please follow below the steps:
+    To check roles assigned to a user for a subscription, please follow below the steps:
 
-Login to Azure using Login-AzureRmAccount 
+    Login to Azure using **Login-AzureRmAccount** 
 
-Select the required subscription using Select-AzureRmSubscription 
+    Select the required subscription using **Select-AzureRmSubscription** 
 
-Now to list all the roles that are assigned to a specified user, use
-Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators 
+    Now to list all the roles that are assigned to a specified user, use
+    **Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators** 
 
-If you are not seeing any output after executing commends then please reach out to respective Subscription admin, to get access to execute the commands.  
+    If you are not seeing any output after executing commends then please reach out to respective Subscription admin, to get access to execute the commands.  
 
-For more details please refer [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+    For more details please refer [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
 
 
 2.  Which Azure regions are traffic analytics available in?
 
-    While in preview release, you can use traffic analytics for NSGs in any of the following **supported regions**: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US-2, West Europe, North Europe, West UK, South UK, Australia East, and Australia Southeast. The Log Analytics workspace must exist in the West Central US, East US, West Europe, Australia Southeast, or the South UK region.
+    While in preview release, you can use traffic analytics for NSGs in any of the following **supported regions**: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US 2, West Europe, North Europe, UK West, UK South, Australia East, Australia Southeast and Southeast Asia. The Log Analytics workspace must exist in the West Central US, East US, West Europe, UK South, Australia Southeast, or the Southeast Asia region.
 
 3.  Can the NSGs I enable flow logs for be in different regions than my OMS Workspace?
 
@@ -124,11 +132,11 @@ For more details please refer [Manage role-based access control with Azure Power
 
 14. Can I configure traffic analytics using PowerShell or an Azure Resource Manager template?
 
-Yes, traffic analytics configuration using windows powershell is supported from version 6.2.1 onwards, however Azure Resource Manager template support is not available at present. To learn more, how PowerShell can be used to configure traffic analytics please refer following [documentation](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
+        Yes, traffic analytics configuration using windows powershell is supported from version 6.2.1 onwards, however Azure Resource Manager template support is not available at present. To learn more, how PowerShell can be used to configure traffic analytics please refer following [documentation](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
 
 15.  How is traffic analytics priced?
 
-Traffic analytics is metered for flow log data processed by the service and storing the resulted enhanced logs in a Log Analytics workspace. To know more about pricing plan please [click here](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
+        Traffic analytics is metered for flow log data processed by the service and storing the resulted enhanced logs in a Log Analytics workspace. To know more about pricing plan please [click here](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
 
 16.  How can I navigate using Keyboard in Geo Map View?
 
@@ -159,3 +167,47 @@ Traffic analytics is metered for flow log data processed by the service and stor
         - `ESC` collapses the expanded selection.
         - The `UP Arrow` key performs the same action as `ESC`. The `Down arrow` key performs the same action as `Enter`.
         - Use `Shift+Plus` to zoom in, and `Shift+Minus` to zoom out.
+
+17. How can I navigate using Keyboard in VNet Topology View?
+
+    The virtual networks topology page contains two main sections:
+    
+    - **Banner**: The banner placed in the top of the Virtual Networks Topology provides the capability to select traffic distribution filters via buttons like Connected VNets/Disconnected VNets/Active/Inactive/On-Premise/Azure region/Public IPs/Heavy/Medium/Low/Allowed/Blocked, and legend information. On the selection of defined buttons, the respective filter is applied on the topology, like if a user selects the “Active” filter button under the banner, then the topology highlights the “Active” VNets in your deployment.
+    - **Topology**: The Topology section placed below the banner shows traffic distribution among VNets.
+    
+    **Keyboard Navigation on Banner**
+    
+    - By default, the selection on the virtual networks topology page for the banner is the filter “Connected VNets” button.
+    - To navigate to another filters button, you can use the `Tab` key to move next. To navigate backward, use `Shift+Tab` key. Forward navigation direction precedence is left to right, followed by top to bottom.
+    - Press the `Enter` arrow key to apply the selected filter. Based on filter selection and deployment, one or multiple nodes (VNet) under the Topology section are highlighted.
+        - To switch between **Banner** and **Topology**, press `Ctrl+F6`.
+        
+    **Keyboard Navigation on Topology**
+    
+    - Once you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**VNet**) in the topology view.
+    - To navigate to other highlighted nodes in the topology view you can use the `Shift+Right arrow` key for forward movement. 
+    - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to “More details” button on the **Information Tool Box**. To further navigate inside **Box** view, use `Right` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
+    - On selection of any such nodes, it’s all connections can be visited, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
+    
+
+18. How can I navigate using Keyboard in Subnet Topology View?
+
+    The virtual subnetworks topology page contains two main sections:
+    
+    - **Banner**: The banner placed in the top of the Virtual Subnetworks Topology provides the capability to select traffic distribution filters via buttons like Active/Inactive/External Connections/On-Premise/Azure region/Public IPs/Active Flows/Heavy/Medium/Low/Malicious Traffic/Allowed/Blocked, Gateway subnets/Backend subnets and Frontend subnets. On the selection of defined buttons, the respective filter is applied on the topology, like if a user selects the “Active” filter button under the banner, then the topology highlights the “Active” Virtual Subnetwork in your deployment.
+    - **Topology**: The Topology section placed below the banner shows traffic distribution among Virtual Subnetworks.
+    
+    **Keyboard Navigation on Banner**
+    
+    - By default, the selection on the Virtual Subnetworks Topology page for the banner is the filter “Subnets” button.
+    - To navigate to another filters button, you can use the `Tab` key to move next. To navigate backward, use `Shift+Tab` key. Forward navigation direction precedence is left to right, followed by top to bottom.
+    - Press the `Enter` arrow key to apply the selected filter. Based on filter selection and deployment, one or multiple nodes (Subnet) under the Topology section are highlighted.
+        - To switch between **Banner** and **Topology**, press `Ctrl+F6`.
+        
+    **Keyboard Navigation on Topology**
+    
+    - Once you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**Subnet**) in the topology view.
+    - To navigate to other highlighted nodes in the topology view you can use the `Shift+Right arrow` key for forward movement. 
+    - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to “More details” button on the **Information Tool Box**. To further navigate inside **Box** view, use `Right` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
+    - On selection of any such nodes, it’s all connections can be visited, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.    
+

@@ -100,7 +100,7 @@ The connector performance is bound by CPU and networking. CPU performance is nee
 
 In contrast, memory is less of an issue for connectors. The online service takes care of much of the processing and all unauthenticated traffic. Everything that can be done in the cloud is done in the cloud. 
 
-The load balancing happens between connectors of a given connector group. We do a variation of a round-robin to determine which connector in the group serves a particular request. After choosing a the connector, we maintain a session affinity between that user and application for the duration of the session. If for any reason that connector or machine become unavailable, the traffic will start going to another connector in the group. This resiliency is also why we recommend having multiple connectors.
+The load balancing happens between connectors of a given connector group. We do a variation of a round-robin to determine which connector in the group serves a particular request. If for any reason that connector or machine becomes unavailable, the traffic will start going to another connector in the group. This resiliency is also why we recommend having multiple connectors.
 
 Another factor that affects performance is the quality of the networking between the connectors, including: 
 

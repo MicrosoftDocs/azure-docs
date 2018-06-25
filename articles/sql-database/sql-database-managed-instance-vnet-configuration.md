@@ -15,7 +15,7 @@ ms.reviewer: bonova, carlrab
 # Configure a VNet for Azure SQL Database Managed Instance
 
 Azure SQL Database Managed Instance (preview) must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). This deployment enables the following scenarios: 
-- Connecting to a Managed Instance directly form an on-premises network 
+- Connecting to a Managed Instance directly from an on-premises network 
 - Connecting a Managed Instance to linked server or another on-premises data store 
 - Connecting a Managed Instance to Azure resources  
 

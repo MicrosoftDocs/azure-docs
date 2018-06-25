@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/05/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -279,7 +279,7 @@ The Cloud Comparison dashboard helps you compare costs from different cloud prov
 ![Cloud Comparison dashboard](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### EC2 Cost in Azure by Instance Type
-This widget highlights the last 30 days of usage in on-demand rates. It comares the cost with the current Amazon EC2 cost vs the potential cost in Azure.
+This widget highlights the last 30 days of usage in on-demand rates. It compares the cost with the current Amazon EC2 cost vs the potential cost in Azure.
 - Hover over the bars to compare costs per instance type.
 - Click the widget to open the Porting Your Deployment – Cost Analysis report.
 
@@ -290,3 +290,6 @@ This widget shows your current Amazon EC2 costs and compares them to Azure. The 
 ### EC2/Azure Instance Type Mapping
 This widget highlights the best mapping of elastic compute units between Amazon EC2 and Azure.
 - Click the widget to open the Instances Type Mapping report.
+
+## Next steps
+- Read the [Use Cost Management reports](use-reports.md) article to learn more about reports.
