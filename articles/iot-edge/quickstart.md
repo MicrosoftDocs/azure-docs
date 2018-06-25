@@ -118,7 +118,7 @@ Install and start the Azure IoT Edge runtime on your IoT Edge device.
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It's composed of three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
-The instructions in this section configure the IoT Edge runtime with Linux containers. If you want to use Windows containers, see [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iotedge-windows-with-windows.md).
+The instructions in this section configure the IoT Edge runtime with Linux containers. If you want to use Windows containers, see [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iot-edge-windows-with-windows.md).
 
 ### Download and install the IoT Edge service
 
@@ -206,7 +206,7 @@ Configure the runtime with your IoT Edge device connection string that you copie
      workload_uri: "http://<ip_address:15581"
    ```
 
-8. Find the **moby_runtime** section and verify that the value for **network** is set to `azure-iot-edge`.
+8. Find the **moby_runtime** section and verify that the value for **network** is set to `nat`.
 
 9. Save the configuration file. 
 
