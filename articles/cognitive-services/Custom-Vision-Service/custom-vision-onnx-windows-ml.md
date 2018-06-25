@@ -25,7 +25,7 @@ The information in this document demonstrates how to use an ONNX file exported f
 
 ## Prerequisites
 
-* A Window 10 device with:
+* A Windows 10 device with:
 
     * A camera.
 
