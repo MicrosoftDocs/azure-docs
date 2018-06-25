@@ -1,6 +1,6 @@
 ---
 title: Enable Secure TLS | Microsoft Docs
-description: Learn how to migrate old metrics to new metrics that are managed by Azure Monitor.
+description: Learn how to enable TLS 1.2 in the client of Azure Storage.
 services: storage
 documentationcenter: na
 author: fhryo-msft
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 03/30/2018
+ms.date: 06/25/2018
 ms.author: fryu
 ---
 
@@ -58,6 +58,6 @@ The following screenshot is a sample for the verification.
 
 ![screenshot of verifying TLS version in Fiddler](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
 
-## Next steps
+## See Also
 
 * [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
