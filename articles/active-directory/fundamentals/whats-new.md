@@ -157,7 +157,7 @@ For more information, see [Azure Active Directory Terms of use feature](https://
 
 **Type:** New feature  
 **Service category:** Other  
-**Product capability:** Directory
+**Product capability:** Identity Security and Protection
  
 We've released new step-by-step guidance about how to deploy Azure Multi-Factor Authentication (MFA) in your organization.
 
