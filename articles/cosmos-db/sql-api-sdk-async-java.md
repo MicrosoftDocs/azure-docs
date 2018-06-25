@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/18/2018
+ms.date: 06/20/2018
 ms.author: sngun
 
 ---
@@ -49,6 +49,16 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 ## Release notes
 
+### <a name="2.0.0"/>2.0.0
+* Replaced org.json dependency by jackson due to performance reasons and licensing ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Removed deprecated OfferV2 class.
+* Added accessor method to Offer class for throughput content.
+* Any method in Document/Resource returning org.json types changed to return a jackson object type.
+* getObject(.) method of classes extending JsonSerializable changed to return a jackson ObjectNode type.
+* getCollection(.) method changed to return Collection of ObjectNode.
+* Removed JsonSerializable subclasses' constructors with org.json.JSONObject arg.
+* JsonSerializable.toJson (SerializationFormattingPolicy.Indented) now uses two spaces for indentation.
+  
 ### <a name="1.0.2"/>1.0.2
 * Added support for Unique Index Policy.
 * Added support for limiting response continuation token size in feed options.
@@ -85,6 +95,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.0.0](#2.0.0) |June 20, 2018|--- |
 | [1.0.2](#1.0.2) |May 18, 2018|--- |
 | [1.0.1](#1.0.1) |April 20, 2018|--- |
 | [1.0.0](#1.0.0) |February 27, 2018|--- |
