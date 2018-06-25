@@ -250,7 +250,7 @@
 #### [Advanced certificate signing for SAML apps](manage-apps/certificate-signing-options.md)
 #### [Hide an application from a user's experience](manage-apps/hide-application-from-user-portal.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](manage-apps/configure-authentication-for-federated-users-portal.md)
-### [Migrate AD FS apps to Azure AD](migrate-adfs-apps-to-azure.md) 
+### [Migrate AD FS apps to Azure AD](manage-apps/migrate-adfs-apps-to-azure.md) 
 ### [Manage access to apps](manage-apps/what-is-access-management.md)
 #### [SSO access](manage-apps/what-is-single-sign-on.md)
 #### [Certificates for SSO](manage-apps/manage-certificates-for-federated-single-sign-on.md)
@@ -386,13 +386,10 @@
 
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
-#### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md) 
-#### [Compare member and guest user permissions](fundamentals/users-default-permissions.md) 
-### [Securing privileged access](admin-roles-best-practices.md)  
-### [Create emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md) 
-
-
-#### [Default user permissions](fundamentals/users-default-permissions.md)
+#### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md)
+#### [Compare member and guest user permissions](fundamentals/users-default-permissions.md)
+### [Securing administrator roles](admin-roles-best-practices.md)  
+#### [Create emergency access administrator accounts](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 ### [Securing privileged roles](admin-roles-best-practices.md)
@@ -417,6 +414,7 @@
 #### Tutorials
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 #### Concepts
+##### [Baseline Protection](active-directory-conditional-access-baseline-protection.md)
 ##### [Conditions](active-directory-conditional-access-conditions.md)
 ##### [Location conditions](active-directory-conditional-access-locations.md)
 ##### [Controls](active-directory-conditional-access-controls.md)

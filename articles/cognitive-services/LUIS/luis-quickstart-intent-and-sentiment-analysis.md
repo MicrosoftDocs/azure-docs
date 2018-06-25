@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/25/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances. 
 
@@ -19,12 +19,12 @@ In this tutorial, create an app that demonstrates how to extract positive, negat
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Understand hierarchical entities and contextually learned children 
+> * Understand sentiment  
 > * Create new LUIS app for travel domain with Bookflight intent
 > * Add _None_ intent and add example utterances
-> * Add location hierarchical entity with origin and destination children
+> * Add sentiment 
 > * Train, and publish app
-> * Query endpoint of app to see LUIS JSON response including hierarchical children 
+> * Query endpoint of app to see LUIS JSON response 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -156,5 +156,5 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [Call LUIS endpoint API with C#](luis-get-started-cs-get-intent.md) 
 
 <!--References-->
-[LUIS]: luis-reference-regions.md#luis-website
-[LUIS-regions]: luis-reference-regions.md#publishing-regions
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
