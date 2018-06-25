@@ -106,49 +106,48 @@ namespace VisualSearchFeatures
 
             try
             {
-                using (FileStream stream = new FileStream(Path.Combine("TestImages", "image2.png"), FileMode.Open))
+                CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.25, left: (float)0.01, right: (float)0.2);
+                
+                // The ImageInfo struct contains a crop area specifying a region to crop in the image from URL. 
+                ImageInfo imageInfo =
+                new ImageInfo(cropArea: CropArea, url: "http://windowsgeek.lk/wp-content/uploads/2016/04/cxc.png");
+                    VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
+
+                var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: visualSearchRequest).Result; 
+
+                Console.WriteLine("\r\nVisual search request with image from URL and crop area combined in knowledgeRequest");
+
+                if (visualSearchResults == null)
                 {
-                    // The ImageInfo struct contains a crop area specifying a region to crop in the uploaded image
-                    CropArea CropArea = new CropArea(top: (float)0.1, bottom: (float)0.30, left: (float)0.01, right: (float)0.2);
-                    ImageInfo ImageInfo = new ImageInfo(cropArea: CropArea);
-                    VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(imageInfo: ImageInfo);
-
-                    // The request contains information about the image passed in binary form.
-                    var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: VisualSearchRequest).Result;
-                    Console.WriteLine("\r\nVisual search request with binary of image and knowledgeRequest of crop area");
-
-                    if (visualSearchResults == null)
+                    Console.WriteLine("No visual search result data.");
+                }
+                else
+                {
+                    // List of tags
+                    if (visualSearchResults.Tags.Count > 0)
                     {
-                        Console.WriteLine("No visual search result data.");
-                    }
-                    else
-                    {
-                        // List of tags
-                        if (visualSearchResults.Tags.Count > 0)
+
+                        foreach(ImageTag t in visualSearchResults.Tags)
                         {
+                            foreach (ImageAction i in t.Actions)
+                            { 
+                                Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " + i.WebSearchUrl);
 
-                            foreach(ImageTag t in visualSearchResults.Tags)
-                            {
-                                foreach (ImageAction i in t.Actions)
-                                { 
-                                    Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " + i.WebSearchUrl);
-
-                                    if (i.ActionType == "PagesIncluding")
+                                if (i.ActionType == "PagesIncluding")
+                                {
+                                    foreach(ImageObject o in (i as ImageModuleAction).Data.Value)
                                     {
-                                        foreach(ImageObject o in (i as ImageModuleAction).Data.Value)
-                                        {
-                                            Console.WriteLine("ContentURL: " + o.ContentUrl);
-                                        }
+                                        Console.WriteLine("ContentURL: " + o.ContentUrl);
                                     }
                                 }
-
                             }
 
                         }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find image tags!");
-                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Couldn't find image tags!");
                     }
                 }
             }
@@ -163,4 +162,4 @@ namespace VisualSearchFeatures
 
 ```
 ## Next steps
-Visual Search SDK C# quickstart
+[Visual Search response](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview#the-response)
