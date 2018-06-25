@@ -41,10 +41,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 
 ## Set up the network environment
-First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, test servers, and a default route.
+First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and test servers.
 
 ### Create a resource group
-1. On the Azure portal home page, click **Resource groups**, then click **+Add**.
+1. On the Azure portal home page, click **Resource groups**, then click **Add**.
 2. For **Resource group name**, type **Test-FW-RG**.
 3. For **Subscription**, select your subscription.
 4. For **Resource group location**, select **East US**.
@@ -54,7 +54,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 ### Create a VNet
 1. From the Azure portal home page, click **All services**.
 2. Under **Networking**, click **Virtual networks**.
-3. Click **+Add**.
+3. Click **Add**.
 4. For **Name**, type **Test-FW-VN**.
 5. For **Address space**, type **10.0.0.0/16**.
 
@@ -74,7 +74,7 @@ Next, create subnets for the jump server, and a subnet for the workload servers.
 
 1. On the Azure portal home page, click **Resource groups**, then click **Test-FW-RG**.
 2. Click the **Test-FW-VN** virtual network.
-3. Click **Subnets**, and then click **+Subnet**.
+3. Click **Subnets**, and then click **Subnet**.
 4. For **Name**, type **Workload-SN**.
 5. For **Address range**, type **10.0.2.0/24**.
 6. Click **OK**.
@@ -87,7 +87,7 @@ Now create the jump and workload virtual machines, and place them in the appropr
 
 1. From the Azure portal home page, click **All services**.
 2. Under **Compute**, click **Virtual machines**.
-3. Click **+Add**, and click **Windows Server**,  click **Windows Server 2016 Datacenter**, and then click **Create**.
+3. Click **Add**, and click **Windows Server**,  click **Windows Server 2016 Datacenter**, and then click **Create**.
 
 **Basics**
 
@@ -155,17 +155,17 @@ On the **Workload-SN** subnet, the outbound traffic default route will go throug
 
 1. From the Azure portal home page, click **All services**.
 2. Under **Networking**, click **Route tables**.
-3. Click **+Add**.
+3. Click **Add**.
 4. For **Name**, type **Firewall-route**.
 5. For **Subscription**, select your subscription.
 6. For **Resource group**, select **Use existing**, and select **Test-FW-RG**.
 7. Click **Create**.
 8. Click **Refresh**, and then click the **Firewall-route** route table.
-9. Click **Subnets**, and then click **+Associate**.
+9. Click **Subnets**, and then click **Associate**.
 10. Click **Virtual nework**, and then select **Test-FW-VN**.
 11. For **Subnet**, click **Workload-SN**.
 12. Click **OK**.
-13. Click **Routes**, and then click **+Add**.
+13. Click **Routes**, and then click **Add**.
 14. For **Route name**, type **FW-DG**.
 15. For **Address prefix**, type **0.0.0.0/0**.
 16. For **Next hop type**, select **Virtual appliance**.
