@@ -20,7 +20,7 @@ When you apply maintenance mode updates to StorSimple device, all I/O requests a
 
     You are prompted for confirmation. After you confirm the updates, they are installed on the controller that you are currently accessing. After the updates are installed, the controller restarts.
 
-4. Monitor the status of updates. Log in to the peer controller as the current controller is updating and is not able to process any other commands. Type:
+4. Monitor the status of updates. Sign in to the peer controller as the current controller is updating and is not able to process any other commands. Type:
 
     `Get-HcsUpdateStatus`
 
