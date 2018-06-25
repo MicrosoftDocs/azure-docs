@@ -39,7 +39,7 @@ To use Blob storage events, you need either a [Blob storage account](../storage/
 
 ## Create a message endpoint
 
-Before subscribing to the topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/dbarkol/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+Before subscribing to the events for the Blob storage, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/dbarkol/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
@@ -52,7 +52,7 @@ You see the site but no events have been posted to it yet.
 
 ![View new site](./media/blob-event-quickstart-portal/view-site.png)
 
-## Subscribe to a topic
+## Subscribe to the Blob storage
 
 You subscribe to a topic to tell Event Grid which events you want to track, and where to send the events.
 
@@ -74,7 +74,7 @@ View your web app again, and notice that a subscription validation event has bee
 
 Now, let's trigger an event to see how Event Grid distributes the message to your endpoint.
 
-## Send an event to your topic
+## Send an event to your endpoint
 
 You trigger an event for the Blob storage by uploading a file. The file doesn't need any specific content. The articles assumes you have a file named testfile.txt, but you can use any file.
 
