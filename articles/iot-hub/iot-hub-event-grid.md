@@ -53,7 +53,7 @@ The following example shows the schema of a device connected event:
   "data": { 
     "hubName": "egtesthub1",
     "deviceId": "LogicAppTestDevice",
-    "moduleId" : "DeviceModuleID"
+    "moduleId" : "DeviceModuleID",
     "sequenceNumber": "AAAAAAAAAAA=AdP+q6/KbPU=AAAAAgAAAAA=AAAAAAAAAAE=" 
   }, 
   "dataVersion": "", 
