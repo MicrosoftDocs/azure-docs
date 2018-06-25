@@ -36,28 +36,25 @@ If you don't have an active Azure subscription, create a [free account][lnk-acco
 
 This quickstart assumes that you're using a computer or virtual machine running Windows to simulate an IoT device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
 
-1. Make sure you're using a supported Windows version:
-   * Windows 10 
-   * Windows Server
-2. Install [Docker for Windows][lnk-docker] and make sure it's running.
-3. Install [Python on Windows][lnk-python] and make sure you can use the pip command. This quickstart was tested with Python versions >=2.7.9 and >=3.5.4.  
-4. Run the following command to download the IoT Edge control script.
-
-   ```cmd
-   pip install -U azure-iot-edge-runtime-ctl
-   ```
-
-> [!NOTE]
-> Azure IoT Edge can run either Windows containers or Linux containers. If you're running one of the following Windows versions, you can use Windows containers:
->    * Windows 10 Fall Creators Update
->    * Windows Server 1709 (Build 16299)
->    * Windows IoT Core (Build 16299) on a x64-based device
+>[!IMPORTANT]
+>**bug bash only**
+>Use the canary portal 
+>Add the following line to the hosts file of the computer from which you'll access the Azure Portal 
+>`40.76.74.59 main.iothub.ext.azure.com` 
+> 
+>The hosts file can be found at: 
+>* Linux - /etc/hosts 
+>* Windows - C:\Windows\System32\drivers\etc\hosts 
 >
-> For Windows IoT Core, follow the instructions in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore]. Otherwise, simply [configure Docker to use Windows containers][lnk-docker-containers]. Use the following command to validate your prerequisites:
->    ```powershell
->    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
->    ```
+> Remember to remove this line when you're done testing
 
+Have the following prerequisites ready on the machine that you're using for an IoT Edge device:
+
+1. Make sure you're using a supported Windows version:
+   * Windows 10 or newer
+   * Windows Server 2016 or newer
+2. Install [Docker for Windows][lnk-docker] and make sure it's running.
+3. Configure Docker to use [Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 ## Create an IoT hub
 
@@ -75,31 +72,138 @@ Register an IoT Edge device with your newly created IoT Hub.
 
 ## Install and start the IoT Edge runtime
 
-Install and start the Azure IoT Edge runtime on your device. 
+Install and start the Azure IoT Edge runtime on your IoT Edge device. 
 ![Register a device][5]
 
-The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. When you configure the runtime on your new device, only the IoT Edge agent will start at first. The IoT Edge hub comes later when you deploy a module. 
+The IoT Edge runtime is deployed on all IoT Edge devices. It's composed of three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
+The instructions in this section configure the IoT Edge runtime with Linux containers. If you want to use Windows containers, see [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iot-edge-windows-with-windows.md).
 
-Configure the runtime with your IoT Edge device connection string from the previous section.
+### Download and install the IoT Edge service
 
-```cmd
-iotedgectl setup --connection-string "{device connection string}" --nopass
-```
+1. On your IoT Edge device, run PowerShell as an administrator.
 
-Start the runtime.
+2. Download the IoT Edge service package.
 
-```cmd
-iotedgectl start
-```
+   ```powershell
+   Invoke-WebRequest https://conteng.blob.core.windows.net/iotedged/iotedge.zip -o .\iotedge.zip
+   Expand-Archive .\iotedge.zip C:\ProgramData\iotedge -f
+   $env:Path += ";C:\ProgramData\iotedge"
+   SETX /M PATH "$env:Path"
+   ```
 
-Check Docker to see that the IoT Edge agent is running as a module.
+3. Create and start the IoT Edge service.
 
-```cmd
-docker ps
-```
+   ```powershell
+   New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
+   Start-Service iotedge
+   ```
 
-![See edgeAgent in Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
+4. Add firewall exceptions for the ports that the IoT Edge service uses.
+
+   ```powershell
+   New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
+   ```
+
+5. Create a new file called **iotedge.reg** and open it with a text editor. 
+
+6. Add the following content and save the file. 
+
+   ```input
+   Windows Registry Editor Version 5.00
+   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
+   "CustomSource"=dword:00000001
+   "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
+   "TypesSupported"=dword:00000007
+   ```
+
+7. Navigate to your file in File Explorer and double-click it to import the changes to the Windows Registry. 
+
+### Configure the IoT Edge runtime 
+
+Configure the runtime with your IoT Edge device connection string that you copied when you registered a new device. Then, configure the runtime network. 
+
+1. Open the IoT Edge configuration file, which is located at `C:\ProgramData\iotedge\config.yaml`. This file is protected, so run a text editor like Notepad as an administrator, then use the editor to open the file. 
+
+2. Find the **provisioning** section and update the value of **device_connection_string** with the string that you copied from your IoT Edge device details. 
+
+3. In your administrator PowerShell window, retrieve the hostname for your IoT Edge device and copy the output. 
+
+   ```powershell
+   hostname
+   ```
+
+4. In the configuration file, find the **Edge device hostname** section. Update the value of **hostname** with the hostname that you copied from PowerShell.
+
+3. In your administrator PowerShell window, retrieve the IP address for your IoT Edge device. 
+
+   ```powershell
+   ipconfig
+   ```
+
+4. Copy the value for **IPv4 Address** in the **vEthernet (DockerNAT)** section of the output. 
+
+5. Create an environment variable called **IOTEDGE_HOST**, replacing *\<ip_address\>* with the IP Address for your IoT Edge device. 
+
+   ```powershell
+   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+   ```
+
+6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with your IP address and the ports that you opened in the previous section. 
+
+   ```yaml
+   connect: 
+     management_uri: "http://<ip_address>:15580"
+     workload_uri: "http://<ip_address>:15581"
+   ```
+
+7. Find the **Listen settings** section and add the same values for **management_uri** and **workload_uri**. 
+
+   ```yaml
+   listen:
+     management_uri: "http://<ip_address>:15580"
+     workload_uri: "http://<ip_address:15581"
+   ```
+
+8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is set to `nat`.
+
+9. Save the configuration file. 
+
+10. In PowerShell, restart the IoT Edge service.
+
+   ```powershell
+   Stop-Service iotedge
+   Start-Service iotedge
+   ```
+
+### View the IoT Edge runtime status
+
+Verify that the runtime was successfully installed and configured.
+
+1. Check the status of the IoT Edge service.
+
+   ```powershell
+   Get-Service iotedge
+   ```
+
+2. If you need to troubleshoot the service, retrieve the service logs. 
+
+   ```powershell
+   # Displays logs from today, newest at the bottom.
+
+   Get-WinEvent -ea SilentlyContinue `
+  -FilterHashtable @{ProviderName= "iotedged";
+    LogName = "application"; StartTime = [datetime]::Today} |
+  select TimeCreated, Message | Sort-Object -Descending
+   ```
+
+3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default, and helps to install and start any additional modules that you deploy to your device. 
+
+   ```powershell
+   iotedge list
+   ```
+
+   ![View one module on your device](./media/quickstart/iotedge-list-1.png)
 
 ## Deploy a module
 
@@ -108,34 +212,47 @@ Manage your Azure IoT Edge device from the cloud to deploy a module that will se
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
-
 ## View generated data
 
 In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials. 
 
-Open the command prompt on the computer running your simulated device again. Confirm that the module deployed from the cloud is running on your IoT Edge device. 
+Confirm that the module deployed from the cloud is running on your IoT Edge device. 
 
-```cmd
-docker ps
+```powershell
+iotedge list
 ```
 
-![View three modules on your device](./media/tutorial-simulate-device-windows/docker-ps2.png)
+   ![View three modules on your device](./media/quickstart/iotedge-list-2.png)
 
 View the messages being sent from the tempSensor module to the cloud. 
 
-```cmd
-docker logs -f tempSensor
+```powershell
+iotedge logs tempSensor -f
 ```
 
-![View the data from your module](./media/tutorial-simulate-device-windows/docker-logs.png)
+  ![View the data from your module](./media/quickstart/iotedge-logs.png)
 
-You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer]. 
+You can also view the messages that are received by your IoT hub by using the [IoT Hub explorer tool][lnk-iothub-explorer] or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+
+## Clean up resources
+
+You can use the simulated device that you configured in this quickstart to test the IoT Edge tutorials. If you want to stop the tempSensor module from sending data to your IoT hub, use the following command to stop the IoT Edge service and delete the containers that were created on your device. When you want to use your machine as an IoT Edge device again, remember to start the service. 
+
+   ```powershell
+   Stop-Service iotedge
+   ```
+
+When you no longer need the IoT Hub you created, you can use the Azure portal to remove the resource and any devices associated with it.
+
+   1. In the Azure portal, navigate to the **Overview** page of your IoT hub.
+   2. Select **Delete**.
+   3. Type the name of your IoT hub to confirm the deletion, then select **Delete**.
 
 ## Next steps
 
-In this quickstart, you created a new IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a simulated device generating raw data about its environment. 
+In this quickstart, you created a new IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a test device generating raw data about its environment. 
 
-This quickstart is the prerequisite for all of the IoT Edge tutorials. You can continue on to any of the tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
+You are ready to continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
 
 > [!div class="nextstepaction"]
 > [Filter sensor data using an Azure Function](tutorial-deploy-function.md)
@@ -154,3 +271,4 @@ This quickstart is the prerequisite for all of the IoT Edge tutorials. You can c
 [lnk-docker-containers]: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-install-iotcore]: how-to-install-iot-core.md
+[lnk-account]: https://azure.microsoft.com/free
