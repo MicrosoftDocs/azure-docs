@@ -27,7 +27,7 @@ Figure 1 – Azure regional pairs
 |:--- |:--- |:--- |
 | Asia |East Asia |Southeast Asia |
 | Australia |Australia East |Australia Southeast |
-| Australia |Australia Central |Australia Central (2) |
+| Australia |Australia Central |Australia Central 2 |
 | Brazil |Brazil South (2) |South Central US |
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
