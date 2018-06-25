@@ -16,10 +16,11 @@ ms.author: kumud
 ---
 
 # Overview of Traffic Manager
-
-Azure Traffic Manager allows you to control the distribution of user traffic for service endpoints in different datacenters. Service endpoints supported by Traffic Manager include Azure VMs, Web Apps, and Cloud service. You can also use Traffic Manager with external, non-Azure endpoints.
+Azure Traffic Manager is a dns-based traffic load balancer that enables you to manage user traffic to your web applications, VMs, or cloud service in Azure. You manage traffic by controlling its distribution to service endpoints in different datacenters. Service endpoints supported by Traffic Manager include Azure VMs, Web Apps, and Cloud service. You can also use Traffic Manager to distribute traffic to external non-Azure endpoints.
 
 Traffic Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a traffic-routing method and the health of the endpoints. Traffic Manager provides a range of [traffic-routing methods](traffic-manager-routing-methods.md) and [endpoint monitoring options](traffic-manager-monitoring.md) to suit different application needs and automatic failover models. Traffic Manager is resilient to failure, including the failure of an entire Azure region.
+
+![Improve availability of applications using Traffic Manager](./media/traffic-manager-overview/traffic-manager-overview.png)
 
 ## Traffic Manager benefits
 
@@ -29,8 +30,7 @@ Traffic Manager can help you:
 
     Traffic Manager delivers high availability for your applications by monitoring your endpoints and providing automatic failover when an endpoint goes down.
 
-    ![Improve availability using Traffic Manager](./media/traffic-manager-overview/traffic-manager-overview.png)
-
+    
 * **Improve responsiveness for high-performance applications**
 
     Azure allows you to run cloud services or websites in datacenters located around the world. Traffic Manager improves application responsiveness by directing traffic to the endpoint with the lowest network latency for the client.
@@ -41,7 +41,7 @@ Traffic Manager can help you:
 
 * **Combine on-premises and cloud-based applications**
 
-    Traffic Manager supports external, non-Azure endpoints enabling it to be used with hybrid cloud and on-premises deployments, including the "burst-to-cloud," "migrate-to-cloud," and "failover-to-cloud" scenarios.
+    Traffic Manager supports external, non-Azure endpoints enabling it to be used with hybrid cloud and on-premises deployments, including the "[burst-to-cloud](https://azure.microsoft.com/overview/what-is-cloud-bursting/)," "migrate-to-cloud," and "failover-to-cloud" scenarios.
 
 * **Distribute traffic for large, complex deployments**
 
@@ -56,13 +56,11 @@ For pricing information, see [Traffic Manager Pricing](https://azure.microsoft.c
 
 ## Next steps
 
-Learn more about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
+- Learn more about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
 
-Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
+- Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
 
-Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+- For frequently asked questions about Traffic Manager, see the [Traffic Manager FAQ](traffic-manager-FAQs.md).
 
-<!--Image references-->
-[1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
-[2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
+
 
