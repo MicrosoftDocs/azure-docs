@@ -35,7 +35,7 @@ Certificates specified in the application manifest, for example, through the [**
 
 ## Certificates referenced in the configuration package (Settings.xml)
 
-For some services, you can configure X.509 certificates in the configuration package file (by default, Settings.xml). For example, this is the case when you declare certificates used to secure RPC channels for Reliable Services services built with the Service Fabric .NET Core or Java SDKs. There are two ways to reference certificates in the configuration package. Support varies between the .NET Core and the Java SDKs.
+For some services, you can configure X.509 certificates in the [ConfigPackage](./service-fabric-application-and-service-manifests.md) (by default, Settings.xml). For example, this is the case when you declare certificates used to secure RPC channels for Reliable Services services built with the Service Fabric .NET Core or Java SDKs. There are two ways to reference certificates in the configuration package. Support varies between the .NET Core and Java SDKs.
 
 ### Using X509 SecurityCredentialsType
 
