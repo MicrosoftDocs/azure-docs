@@ -89,7 +89,7 @@ The new `keyphrase` version of the app needs to be trained.
 
 2. Select the Production slot and the **Publish** button.
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-inline.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
