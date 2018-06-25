@@ -43,7 +43,10 @@ Azure Blockchain Workbench requires several prerequisites prior to the deploymen
 
 ### Blockchain Workbench API app registration
 
-Blockchain Workbench deployment requires registration of an Azure AD application. You need an Azure Active Directory (Azure AD) tenant to register the app. You can use an existing tenant or create a new tenant. If you are using an existing Azure AD tenant, you need sufficient permissions to register applications within an Azure AD tenant. The application registrations need to be in the subscription admin's tenant of the subscription where Workbench is deployed. For more information on Azure AD tenants, see [How to get an Active Directory tenant](../active-directory/develop/active-directory-howto-tenant.md) and [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+Blockchain Workbench deployment requires registration of an Azure AD application. You need an Azure Active Directory (Azure AD) tenant to register the app. You can use an existing tenant or create a new tenant. If you are using an existing Azure AD tenant, you need sufficient permissions to register applications and grant Graph API permissions within an Azure AD tenant. If you do not have sufficient permissions in an existing Azure AD tenant create a new tenant. 
+
+> [!IMPORTANT]
+> Workbench does not have to be deployed in the same tenant as the one you are using to register an Azure AD application. Workbench must be deployed in a tenant where you have sufficient permissions to deploy resources. For more information on Azure AD tenants, see [How to get an Active Directory tenant](../active-directory/develop/active-directory-howto-tenant.md) and [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select your account in the top right corner, and switch to the desired Azure AD tenant. The tenant should be the subscription admin's tenant of the subscription where Workbench is deployed and you have sufficient permissions to register applications.

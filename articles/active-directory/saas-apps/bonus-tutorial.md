@@ -9,6 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 29fea32a-fa20-47b2-9e24-26feb47b0ae6
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -108,7 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	In the **Reply URL** textbox, type a URL using the following pattern: `https://Bonus.ly/saml/<tenant-name>`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Reply URL. Contact [Bonusly support team](https://Bonusly/contact) to get the value.
+	> The value is not real. Update the value with the actual Reply URL. Contact [Bonusly support team](https://bonus.ly/contact) to get the value.
  
 4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value from the certificate.
 

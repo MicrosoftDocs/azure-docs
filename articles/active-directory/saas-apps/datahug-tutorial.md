@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 5c0dc1ea-7ff4-4554-b60b-0f2fa9f5abaa
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -236,7 +237,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-When you click the Datahug tile in the Access Panel, you should get automatically signed-on to your Datahug application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
+When you click the Datahug tile in the Access Panel, you should get automatically signed-on to your Datahug application. For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

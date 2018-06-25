@@ -10,6 +10,7 @@ manager: sakula
 
 ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -33,7 +34,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A user account in Asana with admin permissions 
 
 > [!NOTE] 
-> Azure AD provisioning integration relies on the [Asana API](https://app.asana.com/api/1.0/scim/Users), which is available to Asana.
+> Azure AD provisioning integration relies on the [Asana API](https://asana.com/developers/api-reference/users), which is available to Asana.
 
 ## Assign users to Asana
 
