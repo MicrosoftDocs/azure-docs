@@ -21,7 +21,7 @@ Azure Machine Learning is a fully mananged service for the end to end developmen
 - [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/)
 - [MXNet](http://mxnet.io)
 
-Rich tools, such as [Jupyter notebooks](http://jupyter.org) or the [Visual Studio Code Tools for AI](https://www.microsoft.com/en-us/research/project/visual-studio-code-tools-ai/) make it easy to interactively explore data, transform it, and then develop, test, and deploy models.  
+Rich tools, such as [Jupyter notebooks](http://jupyter.org) or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) make it easy to interactively explore data, transform it, and then develop, test, and deploy models.  
 
 Azure Machine Learning lets you start training on your local machine, and then scale out to the cloud.  With native support for [Azure Batch AI](https://azure.microsoft.com/en-us/services/batch-ai/) and advanced hyperparameter tuning services (TODO for a link), you can build better models faster, using the power of the cloud.  When you have the right model, you can easily deploy with full Docker support, meaning it is simple to deploy to [Azure Container Instances](https://azure.microsoft.com/en-us/services/container-instances/), [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/), or use that Docker container in your own deployments, on-premises or in the cloud. 
 
