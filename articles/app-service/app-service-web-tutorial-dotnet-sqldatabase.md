@@ -48,7 +48,7 @@ If you've installed Visual Studio already, add the workloads in Visual Studio by
 
 [Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip) and extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file (or [clone it from GitHub](https://github.com/Azure-Samples/dotnet-sqldb-tutorial)).
 
-The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete) app using [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) create-read-update-delete (CRUD) app using [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 ### Run the app
 
@@ -153,7 +153,7 @@ In the **Configure SQL Database** dialog:
 
 ![Configure SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-The **Create App Service** dialog shows the resources you've created. Click **Create**. 
+The **Create App Service** dialog shows the resources you've configured. Click **Create**. 
 
 ![the resources you've created](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
