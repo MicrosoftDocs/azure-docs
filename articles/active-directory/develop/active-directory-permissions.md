@@ -1,6 +1,6 @@
 ---
-title: Permissions in Azure AD | Microsoft docs
-description: Learn about scopes and permissions in Azure Active Directory and how to use them 
+title: Permissions in Azure Active Directory | Microsoft docs
+description: Learn about permissions in Azure Active Directory and how to use them.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/20/2018
+ms.date: 06/25/2018
 ms.author: celested
-ms.reviewer: jesakowi; justhu
+ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ---
 
-# Permissions in Azure AD
+# Permissions in Azure Active Directory
 
 Azure Active Directory (Azure AD) makes extensive use of permissions for both OAuth and OpenID Connect (OIDC) flows. When your app receives an access token from Azure AD, the access token will include claims that describe the permissions that your app has in respect to a particular resource. Permissions, also known as scopes, make authorization easy for the resource because the resource only needs to check that the token contains the appropriate permission for whatever API the app is calling. 
 
@@ -54,7 +54,7 @@ Permissions in Azure AD have a number of properties that help users, administrat
 | Property name | Description | Example | 
 | --- | --- | --- |
 | `ID` | Is a GUID value that uniquely identifies this permission. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
-| `IsEnabled` | Indicates whether this scope is available for use. | true | 
+| `IsEnabled` | Indicates whether this permission is available for use. | true | 
 | `Type` | Indicates whether this permission requires user consent or admin consent. | User | 
 | `AdminConsentDescription` | Is a description that's shown to administrators during the admin consent experiences | Allows the app to read email in user mailboxes. | 
 | `AdminConsentDisplayName` | Is the friendly name that's shown to administrators during the admin consent experience. | Read user mail | 
@@ -68,10 +68,10 @@ Applications in Azure AD rely on consent in order to gain access to necessary re
 * **Static user consent** - Occurs automatically during the [OAuth 2.0 authorize flow](/azure/active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) when you specify the resource that your app wants to interact with. In the static user consent scenario, your app must have already specified all the permissions it needs in the app's configuration in the Azure portal. If the user (or administrator, as appropriate) has not granted consent for this app, then Azure AD will prompt the user to provide consent at this time. 
 
     Learn more about registering an Azure AD app that requests access to a static set of APIs.
-* **Dynamic user consent** - Is a feature of the v2 Azure AD app model. In this scenario, your app requests a set of scopes that it needs in the [OAuth 2.0 authorize flow for v2 apps](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). If the user has not consented already, they will be prompted to consent at this time. [Learn more about dynamic consent](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
+* **Dynamic user consent** - Is a feature of the v2 Azure AD app model. In this scenario, your app requests a set of permissions that it needs in the [OAuth 2.0 authorize flow for v2 apps](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). If the user has not consented already, they will be prompted to consent at this time. [Learn more about dynamic consent](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
 
     > [!NOTE]
-    > Dynamic consent can be convenient, but presents a big challenge for permissions that require admin consent, since the admin consent experience doesn't know about those permissions at consent time. If you require admin privileged scopes, your app must register them in the Azure Portal.
+    > Dynamic consent can be convenient, but presents a big challenge for permissions that require admin consent, since the admin consent experience doesn't know about those permissions at consent time. If you require admin privileged permissions, your app must register them in the Azure Portal.
   
 * **Admin consent** - Is required when your app needs access to certain high-privilege permissions. Admin consent ensures that administrators have some additional controls before authorizing apps or users to access highly privileged data from the organization. [Learn more about how to grant admin consent](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
@@ -79,7 +79,7 @@ Applications in Azure AD rely on consent in order to gain access to necessary re
 
 ### Client best practices
 
-- Only request permission for the scopes that your app needs. Apps with too many permissions are at risk of exposing user data if they are compromised.
+- Only request for permissions that your app needs. Apps with too many permissions are at risk of exposing user data if they are compromised.
 - Choose between delegated permissions and application permissions based on the scenario that your app supports. 
     - Always use delegated permissions if the call is being made on behalf of a user.
     - Only use application permissions if the app is non-interactive and not making calls on behalf of any specific user. Application permissions are highly privileged and should only be used when absolutely necessary.
