@@ -48,13 +48,13 @@ Both the account name and key are required for later steps in this tutorial. Ope
 The next step is to create a [DataBricks cluster](https://docs.databricks.com/) to create a data workspace.
 
 1. Create a [DataBricks cluster](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service)
-2. Click **Launch Workspace** to open the workspace in a new browser window
-3. Click **Clusters** in the left-hand nav bar
-4. Click **Create Cluster**
-5. Enter a **myFlightDataCluster** in the *Cluster name* field
-6. Select **Standard_D8s_v3** in the *Worker Type* field
-7. Change the **Min Workers** value to *4*
-8. Click **Create Cluster** at the top of the page (this process may take up to 5 minutes to complete)
+2. Click **Launch Workspace** to open the workspace in a new browser window.
+3. Click **Clusters** in the left-hand nav bar, then click **Create Cluster**.
+5. Enter **myFlightDataCluster** in the *Cluster name* field.
+6. Select **4.2** in the Databricks Runtime Version field.
+7. Select **Standard_D8s_v3** in the *Worker Type* field.
+8. Change the **Min Workers** value to *4*.
+9. Click **Create Cluster** at the top of the page. It may take up to 5 minutes to create the cluster.
 
 While the request to create the cluster executes in the background, you can generate a DataBricks token.
 
@@ -62,11 +62,11 @@ While the request to create the cluster executes in the background, you can gene
 
 A [DataBricks token](https://docs.databricks.com/api/latest/tokens.html) is required by a function that responds as data is created. The following steps demonstrate how to create a token and set it aside for next step. 
 
-1. Click the profile icon (![Profile icon](./media/using-databricks-spark/databricks-workspace-profile-icon.png)) at the top right of the screen
-2. Click **User Settings**
-3. Click **Generate New Token**
-4. Enter **myFlightDataToken** in the *Comment* field
-5. Copy the token value from the browser into the text file where you have set aside the account name and key
+1. Click the profile icon (![Profile icon](./media/using-databricks-spark/databricks-workspace-profile-icon.png)) at the top of the right side of the screen.
+2. Click **User Settings**.
+3. Click **Generate New Token**.
+4. Enter **myFlightDataToken** in the *Comment* field.
+5. Copy the token value from the browser into the text file where you have set aside the account name and key.
 
 ## Create an Azure Function
 A [serverless function](https://azure.microsoft.com/services/functions/) is required to listen for changes in the Azure Data Lake Storage account.
