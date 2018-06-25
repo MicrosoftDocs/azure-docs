@@ -33,13 +33,13 @@ The workspace is also the security boundary of these artifacts. Users can have t
 
 You can create multiple workspaces, and each workspace can be shared by multiple people.
 
-The following is a taxonomy of the workspace:
+The following diagram is a taxonomy of the workspace:
 
 ![Workspace taxonomy](./media/concept-azure-machine-learning-architecture.md/taxonomy.png)
 
 ## Architecture and workflow
 
-The following is a diagram of the major components of Azure Machine learning, and illustrates the general workflow from development to production: 
+The following diagram shows the major components of Azure Machine learning, and illustrates the general workflow from development to production: 
 
 ![Azure Machine Learning architecture and workflow](./media/concept-azure-machine-learning-architecture.md/workflow.png)
 
@@ -56,7 +56,7 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 
 ## Project
 
-A project is a local folder on your computer that contains the files for your solution. To use a local folder with Azure Machine Learning Services, you must attach it to a workspace. For an example of how to do this, see one of the following documents:
+A project is a local folder on your computer that contains the files for your solution. To use a local folder with Azure Machine Learning Services, you must attach it to a workspace. For an example of how to do attach a project to a workspace, see one of the following documents:
 
 * [TBD]
 
@@ -64,7 +64,7 @@ When you submit a project for execution, the folder is copied into the compute t
 
 ## Model
 
-A model is a scoring logic operation materialized in one or more files. It is usually produced by a run. A model can also existing files that were trained outside Azure Machine Learning. A model can be registered under a Workspace, and can be version-managed. It can also be used to create a Docker image and deployment.
+A model is a scoring logic operation materialized in one or more files. A model can be produced by a run in Azure machine learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under a Workspace, and can be version-managed. It can also be used to create a Docker image and deployment.
 
 ## Docker image
 
