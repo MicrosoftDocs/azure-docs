@@ -55,9 +55,9 @@ Make sure you have the credentials for an account with system admin privileges. 
 
 As you add servers, assign them to a new or existing SKU to differentiate service offerings. For example, you can have a MySQL enterprise instance that provides increased database and automatic backups. You can reserve this high-performance server for different departments in your organization.
 
-## Increase capacity
+## Increase backend database capacity
 
-You can increase by deploying more MySQL servers in the Azure Stack portal. These servers can be added to a new or existing SKU. If you add a server to an existing SKU, make sure that the server characteristics are the same as the other servers in the SKU.
+You can increase backend database capacity by deploying more MySQL servers in the Azure Stack portal. Add these servers to a new or existing SKU. If you add a server to an existing SKU, make sure that the server characteristics are the same as the other servers in the SKU.
 
 ## Make MySQL database servers available to your users
 
