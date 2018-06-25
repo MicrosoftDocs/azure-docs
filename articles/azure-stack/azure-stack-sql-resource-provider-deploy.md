@@ -145,6 +145,8 @@ You can use the following steps verify that the SQL resource provider is success
 
       ![Verify deployment of the SQL resource provider](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
+5. You can get more detailed information about the resource provider deployment under **SETTINGS**. Select **Deployments** to get information such as: STATUS, TIMESTAMP, and DURATION for each deployment.
+
 ## Next steps
 
 [Add hosting servers](azure-stack-sql-resource-provider-hosting-servers.md)
