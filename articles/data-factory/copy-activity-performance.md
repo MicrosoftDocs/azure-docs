@@ -18,14 +18,10 @@ ms.author: jingwang
 ---
 # Copy Activity performance and tuning guide
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-copy-activity-performance.md)
-> * [Version 2 - Preview](copy-activity-performance.md)
-
+> * [Version 1](v1/data-factory-copy-activity-performance.md)
+> * [Current version](copy-activity-performance.md)
 
 Azure Data Factory Copy Activity delivers a first-class secure, reliable, and high-performance data loading solution. It enables you to copy tens of terabytes of data every day across a rich variety of cloud and on-premises data stores. Blazing-fast data loading performance is key to ensure you can focus on the core “big data” problem: building advanced analytics solutions and getting deep insights from all that data.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [copy activity performance in Data Factory version 1](v1/data-factory-copy-activity-performance.md).
 
 Azure provides a set of enterprise-grade data storage and data warehouse solutions, and Copy Activity offers a highly optimized data loading experience that is easy to configure and set up. With just a single copy activity, you can achieve:
 
@@ -50,7 +46,7 @@ As a reference, below table shows the copy throughput number **in MBps** for the
 ![Performance matrix](./media/copy-activity-performance/CopyPerfRef.png)
 
 >[!IMPORTANT]
->In Azure Data Factory version 2, when copy activity is executed on an Azure Integration Runtime, the minimal allowed cloud data movement units is two. If not specified, see default data movement units being used in [cloud data movement units](#cloud-data-movement-units).
+>When copy activity is executed on an Azure Integration Runtime, the minimal allowed cloud data movement units is two. If not specified, see default data movement units being used in [cloud data movement units](#cloud-data-movement-units).
 
 Points to note:
 
