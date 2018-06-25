@@ -1,6 +1,6 @@
 ### Open TCP ports in the Windows firewall for the default instance of the Database Engine
 1. Connect to the virtual machine with Remote Desktop. For detailed instructions on connecting to the VM, see [Open a SQL VM with Remote Desktop](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
-2. Once logged in, at the Start screen, type **WF.msc**, and then hit ENTER.
+2. Once signed in, at the Start screen, type **WF.msc**, and then hit ENTER.
    
     ![Start the Firewall Program](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
 3. In the **Windows Firewall with Advanced Security**, in the left pane, right-click **Inbound Rules**, and then click **New Rule** in the action pane.
@@ -57,21 +57,21 @@ The SQL Server Database Engine cannot use Windows Authentication without domain 
     ![Restart](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. In the SQL Server Management Studio dialog box, click **Yes** to agree that you want to restart SQL Server.
 
-### Create SQL Server authentication logins
-To connect to the Database Engine from another computer, you must create at least one SQL Server authentication login.
+### Create SQL Server authentication user accounts
+To connect to the Database Engine from another computer, you must create at least one SQL Server authentication account.
 
-1. In SQL Server Management Studio Object Explorer, expand the folder of the server instance in which you want to create the new login.
+1. In SQL Server Management Studio Object Explorer, expand the folder of the server instance in which you want to create the new account.
 2. Right-click the **Security** folder, point to **New**, and select **Login...**.
    
     ![New Login](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
-3. In the **Login - New** dialog box, on the **General** page, enter the name of the new user in the **Login name** box.
+3. In the **Login - New** dialog box, on the **General** page, enter the new username in the **Login name** box.
 4. Select **SQL Server authentication**.
 5. In the **Password** box, enter a password for the new user. Enter that password again into the **Confirm Password** box.
-6. Select the password enforcement options required (**Enforce password policy**, **Enforce password expiration**, and **User must change password at next login**). If you are using this login for yourself, you do not need to require a password change at the next login.
-7. From the **Default database** list, select a default database for the login. **master** is the default for this option. If you have not yet created a user database, leave this set to **master**.
+6. Select the password enforcement options required (**Enforce password policy**, **Enforce password expiration**, and **User must change password at next login**). If you are using this account for yourself, you do not need to select **User must change password at next login**.
+7. From the **Default database** list, select a default database for the account. **master** is the default for this option. If you have not yet created a user database, leave this set to **master**.
    
     ![Login Properties](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
-8. If this is the first login you are creating, you may want to designate this login as a SQL Server administrator. If so, on the **Server Roles** page, check **sysadmin**.
+8. If this is the first user account you are creating, you may want to designate this account as a SQL Server administrator. If so, on the **Server Roles** page, check **sysadmin**.
    
    > [!NOTE]
    > Members of the sysadmin fixed server role have complete control of the Database Engine. You should carefully restrict membership in this role.
@@ -81,5 +81,5 @@ To connect to the Database Engine from another computer, you must create at leas
    ![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 9. Click OK.
 
-For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).
+For more information about SQL Server user accounts, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).
 

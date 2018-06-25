@@ -26,7 +26,7 @@ CREATE CREDENTIAL sysadmin_ekm_cred
 FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
 
 
---Map the credential to a SQL login that have sysadmin permissions, this will allows the SQL login to access the key vault when creating the asymmetric key in the next step.
+--Map the credential to a SQL account that has sysadmin permissions. This allows the SQL account to access the key vault when creating the asymmetric key in the next step.
 ALTER LOGIN [SQL_Login]
 ADD CREDENTIAL sysadmin_ekm_cred;
 
@@ -39,18 +39,18 @@ CREATION_DISPOSITION = OPEN_EXISTING;
 
 ### Transparent Data Encryption (TDE)
 
-1. Create a SQL Server login to be used by the Database Engine for TDE, then add the credential to it.
+1. Create a SQL Server account to be used by the Database Engine for TDE, then add the credential to it.
 
    ``` sql
    USE master;
-   -- Create a SQL Server login associated with the asymmetric key
+   -- Create a SQL Server account associated with the asymmetric key
    -- for the Database engine to use when it loads a database
    -- encrypted by TDE.
    CREATE LOGIN EKM_Login
    FROM ASYMMETRIC KEY CONTOSO_KEY;
    GO
 
-   -- Alter the TDE Login to add the credential for use by the
+   -- Alter the TDE account to add the credential for use by the
    -- Database Engine to access the key vault
    ALTER LOGIN EKM_Login
    ADD CREDENTIAL Azure_EKM_cred;
@@ -76,17 +76,17 @@ CREATION_DISPOSITION = OPEN_EXISTING;
 
 ### Encrypted backups
 
-1. Create a SQL Server login to be used by the Database Engine for encrypting backups, and add the credential to it.
+1. Create a SQL Server account to be used by the Database Engine for encrypting backups, and add the credential to it.
 
    ``` sql
    USE master;
-   -- Create a SQL Server login associated with the asymmetric key
+   -- Create a SQL Server account associated with the asymmetric key
    -- for the Database engine to use when it is encrypting the backup.
    CREATE LOGIN EKM_Login
    FROM ASYMMETRIC KEY CONTOSO_KEY;
    GO
 
-   -- Alter the Encrypted Backup Login to add the credential for use by
+   -- Alter the Encrypted Backup account to add the credential for use by
    -- the Database Engine to access the key vault
    ALTER LOGIN EKM_Login
    ADD CREDENTIAL Azure_EKM_cred ;

@@ -30,7 +30,7 @@
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // When request completes
         if (resultCode == RESULT_OK) {
-            // Check the request code matches the one we send in the login request
+            // Check the request code matches the one we send in the request
             if (requestCode == GOOGLE_LOGIN_REQUEST_CODE) {
                 MobileServiceActivityResult result = mClient.onActivityResult(data);
                 if (result.isLoggedIn()) {
