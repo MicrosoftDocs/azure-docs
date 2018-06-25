@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
-# Get the Speech Devices SDK
+# Get the Cognitive Services Speech Devices SDK
 
 ## Requesting access
 
@@ -83,7 +83,7 @@ Go to the [Speech Devices SDK download site](https://shares.datatransfer.microso
  
 By default, the files are downloaded into your **Downloads** folder. You can log out of this site now. 
 
-## Next step
+## Next steps
 
-Follow the "Developer Quick Starter" Guide to deploy the files onto the dev kit. You receive this guide as part of the welcome e-mail message.
-
+> [!div class="nextstepaction"]
+> [Get started with the Speech Devices SDK](speech-devices-sdk-qsg.md)

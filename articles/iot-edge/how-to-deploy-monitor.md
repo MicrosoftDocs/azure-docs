@@ -1,16 +1,14 @@
 ---
 title: Deploy, monitor modules for Azure IoT Edge | Microsoft Docs 
 description: Manage the modules that run on edge devices
-services: iot-edge
 keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 12/07/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
+services: iot-edge
 ---
 
 # Deploy and monitor IoT Edge modules at scale - preview

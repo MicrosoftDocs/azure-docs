@@ -3,15 +3,15 @@ title: Troubleshoot storage resource deletion errors in an Azure Resource Manage
 description: How to troubleshoot problems when deleting storage resources containing attached VHDs.
 keywords: ssh connection refused, ssh error, azure ssh, SSH connection failed
 services: virtual-machines-linux
-author: tamram
-manager: jeconnoc
+author: genlin
+manager: cshepard
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: tamram
+ms.author: genli
 ---
 
 # Troubleshoot storage resource deletion errors

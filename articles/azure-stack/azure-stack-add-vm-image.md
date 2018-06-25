@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
 
@@ -106,7 +106,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
     For example: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
     You can specify a blob storage URI for an `osDisk`.  
 
-    For more information about the Add-AzsPlatformimage cmdlet, see the Microsoft PowerShell [Azure Stack Operator module documentation](https://docs.microsoft.com/powershell/module/).
+    For more information, see the PowerShell reference for the [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet and the [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## Add a custom VM image to the Marketplace by using PowerShell
 
@@ -204,7 +204,7 @@ When you no longer need the virtual machine image that you uploaded, you can del
     For example: `1.0.0`  
     The version of the VM Image that users use when they deploy the VM image. This version is in the format *\#.\#.\#*. An example is **1.0.0**. Do not include a space or other special characters in this field.  
     
-    For more information about theRemove-AzsPlatformImage cmdlet, see the Microsoft PowerShell [Azure Stack Operator module documentation](https://docs.microsoft.com/powershell/module/).
+    For more information about the Remove-AzsPlatformImage cmdlet, see the Microsoft PowerShell [Azure Stack Operator module documentation](https://docs.microsoft.com/powershell/module/).
 
 ## Next steps
 

@@ -19,7 +19,7 @@ In this tutorial, you make REST API calls to perform following tasks:
 
 > [!div class="checklist"]
 > * Create an indexing pipeline that enriches source data in route to an index
-> * Use built-in entity recognition, language detection, text manipulation, and key phrase extraction skills on a sample data set
+> * Use built-in skills on sample data: entity recognition, language detection, text manipulation, key phrase extraction
 > * Learn how to chain skills together by mapping inputs to outputs in a skillset
 > * Execute requests and review results
 > * Reset the index and indexers for further development
@@ -55,7 +55,7 @@ First, sign up for the Azure Search service.
   A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > Cognitive Search is in public preview. Skillset execution is currently available in all tiers, including free. At a later time, the pricing for this capability will be announced.
+  > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. At a later time, the pricing for this capability will be announced.
 
 1. Pin the service to the dashboard for fast access to service information.
 
@@ -80,7 +80,7 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
   The connection string should be a URL similar to the following example:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIabcd562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 There are other ways to specify the connection string, such as providing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials).

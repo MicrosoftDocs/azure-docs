@@ -4,7 +4,7 @@
   items:
     - name: What is Bing Web Search?
       href: overview.md
-- name: Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
   - name: C#
@@ -21,6 +21,18 @@
     href: quickstarts/python.md
   - name: Ruby
     href: quickstarts/ruby.md
+- name: SDK Quickstarts
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Web Search SDK C# quickstart
+    href: web-search-sdk-quickstart.md 
+  - name: Web Search SDK Node.js quickstart
+    href: web-search-sdk-node-quickstart.md 
+  - name: Web Search SDK Python quickstart
+    href: web-sdk-python-quickstart.md
+  - name: Web Search SDK Java quickstart
+    href: web-sdk-java-quickstart.md
 - name: Tutorials
   items:
   - name: Single-page web app
@@ -32,6 +44,10 @@
   - name: Visual Search mobile app (Visual Studio solution)
     href: https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/
     maintainContext: true
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search
 - name: How-to guides
   items:
   - name: Use and display results
@@ -52,18 +68,6 @@
   items:
   - name: Bing Web Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
-  - name: Bing Search SDK
-    items:
-    - name: SDK samples overview 
-      href: sdk.md
-    - name: Web Search SDK C# quickstart
-      href: web-search-sdk-quickstart.md 
-    - name: Web Search SDK Node.js quickstart (preview)
-      href: web-search-sdk-node-quickstart.md 
-    - name: Web Search SDK Python quickstart (preview)
-      href: web-sdk-python-quickstart.md
-    - name: Web Search SDK Java quickstart (preview)
-      href: web-sdk-java-quickstart.md
   - name: Bing Web Search API v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference    
 - name: Resources

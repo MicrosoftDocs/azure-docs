@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a Service Principal for Azure Stack | Microsoft Docs
 description: Describes how to create a new service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
 
 ---
@@ -42,7 +42,7 @@ If you've deployed Azure Stack using Azure AD as the identity store, you can cre
 ### Create service principal
 In this section, you create an application (service principal) in Azure AD that represents your application.
 
-1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com).
+1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** > **App registrations** > **Add**   
 3. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
 
@@ -74,7 +74,7 @@ The script is run from the privileged endpoint on an ERCS virtual machine.
 
 
 Requirements:
-- A certified is required.
+- A certificate is required.
 
 **Parameters**
 
@@ -129,7 +129,7 @@ Once you've assigned a role, you can sign in to Azure Stack using the service pr
 Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId ` 
+ -ApplicationId $servicePrincipal.ClientId ` 
  -TenantId $directoryTenantId
 ```
 

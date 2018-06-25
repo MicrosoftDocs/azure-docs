@@ -4,7 +4,7 @@ description: In this quickstart, you use PowerShell to create an Azure Policy as
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -20,6 +20,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
+- If you haven't already, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool that sends HTTP requests to Azure Resource Manager-based APIs.
 - Before you start, make sure that the latest version of PowerShell is installed. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for detailed information.
 - Update your AzureRM PowerShell module to the latest version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 - Register the Policy Insights resource provider using Azure PowerShell. Registering the resource provider makes sure that your subscription works with it. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
@@ -39,13 +40,14 @@ Run the following commands to create a new policy assignment:
 ```azurepowershell-interactive
 $rg = Get-AzureRmResourceGroup -Name '<resourceGroupName>'
 $definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
-New-AzureRmPolicyAssignment -Name 'Audit Virtual Machines without Managed Disks' -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit Virtual Machines without Managed Disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 The preceding commands use the following information:
 
-- **Name** - Display name for the policy assignment. In this case, you're using *Audit Virtual Machines without Managed Disks Assignment*.
-- **Definition** – The policy definition, based on which you're using to create the assignment. In this case, it is the policy definition – *Audit Virtual Machines without Managed Disks*.
+- **Name** - The actual name of the assignment.  For this example, *audit-vm-manageddisks* was used.
+- **DisplayName** - Display name for the policy assignment. In this case, you're using *Audit Virtual Machines without Managed Disks Assignment*.
+- **Definition** – The policy definition, based on which you're using to create the assignment. In this case, it is the ID of policy definition *Audit VMs that do not use managed disks*.
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. Be sure to replace &lt;scope&gt; with the name of your resource group.
 
 You’re now ready to identify non-compliant resources to understand the compliance state of your environment.
@@ -55,7 +57,7 @@ You’re now ready to identify non-compliant resources to understand the complia
 Use the following information to identify resources that aren't compliant with the policy assignment you created. Run the following commands:
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks' }
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -100,7 +102,7 @@ The results are comparable to what you'd typically see listed under **Non-compli
 Subsequent guides in this collection build on this quickstart. If you plan to continue to work with other tutorials, do not clean up the resources created in this quickstart. If you don't plan to continue, you can delete the assignment you created by running this command:
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name 'Audit Virtual Machines without Managed Disks Assignment' -Scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
 ## Next steps

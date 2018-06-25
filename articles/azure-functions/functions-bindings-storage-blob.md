@@ -28,14 +28,22 @@ This article explains how to work with Azure Blob storage bindings in Azure Func
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Packages
+> [!NOTE]
+> Use the Event Grid trigger instead of the Blob storage trigger for blob-only storage accounts, for high scale, or to avoid cold-start delays. For more information, see the [Trigger](#trigger) section. 
 
-The Blob storage bindings are provided in the [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub repository.
+## Packages - Functions 1.x
+
+The Blob storage bindings are provided in the [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub repository.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-> [!NOTE]
-> Use the Event Grid trigger instead of the Blob storage trigger for blob-only storage accounts, for high scale, or to avoid cold-start delays. For more information, see the following **Trigger** section. 
+## Packages - Functions 2.x
+
+The Blob storage bindings are provided in the [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub repository.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## Trigger
 
@@ -255,6 +263,8 @@ In C# and C# script, you can use the following parameter types for the triggerin
 * `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+
+If you try to bind to one of the Storage SDK types and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
 Binding to `string`, `Byte[]`, or POCO is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) later in this article.
 
@@ -560,6 +570,8 @@ In C# and C# script, you can use the following parameter types for the blob inpu
 
 <sup>1</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
 
+If you try to bind to one of the Storage SDK types and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+
 Binding to `string` or `Byte[]` is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) earlier in this article.
 
 In JavaScript, access the blob data using `context.bindings.<name from function.json>`.
@@ -770,9 +782,11 @@ In C# and C# script, you can bind to the following types to write blobs:
 * `CloudPageBlob`<sup>2</sup>
 * `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> Requires "in" binding `direction` in *function.json* or `FileAccess.Read` in a C# class library.
+<sup>1</sup> Requires "in" binding `direction` in *function.json* or `FileAccess.Read` in a C# class library. However, you can use the container object that the runtime provides to do write operations, such as uploading blobs to the container.
 
 <sup>2</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+
+If you try to bind to one of the Storage SDK types and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
 In async functions, use the return value or `IAsyncCollector` instead of an `out` parameter.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/22/2018
 ms.author: magoedte
 ---
 
@@ -33,10 +33,10 @@ If you are interested in monitoring and managing your Docker and Windows contain
 ## Requirements 
 Before starting, review the following details so you can understand the supported prerequisites.
 
-- The following versions of AKS cluster are supported: 1.7.7 to 1.9.6.
+- A new or existing AKS cluster
 - A containerized OMS agent for Linux version microsoft/oms:ciprod04202018 and later. This agent is installed automatically during onboarding of container health.  
 - A Log Analytics workspace.  It can be created when you enable monitoring of your new AKS cluster, or you can create one through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or from the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
-
+- Member of the Log Analytics contributor role in order to enable container monitoring.  For more information on how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
 ## Components 
 
@@ -46,8 +46,8 @@ This capability relies on a containerized OMS Agent for Linux to collect perform
 >If you have already deployed an AKS cluster, you enable monitoring using a provided Azure Resource Manager template as demonstrated later in this article. You cannot use `kubectl` to upgrade, delete, re-deploy, or deploy the agent.  
 >
 
-## Log in to Azure portal
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+## Sign in to Azure Portal
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Enable container health monitoring for a new cluster
 You can only enable monitoring of your AKS cluster when you deploy it from the Azure portal.  Follow the steps in the quickstart article [Deploy an Azure Kubernetes Service (AKS) cluster](../aks/kubernetes-walkthrough-portal.md).  When you are on the **Monitoring** page, select **Yes** for the option **Enable Monitoring** to enable, and  then select an existing or create a new Log Analytics workspace.  
@@ -62,7 +62,27 @@ After monitoring is enabled all configuration tasks are completed successfully, 
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster.  
 
 ## Enable container health monitoring for existing managed clusters
-Enabling monitoring of your AKS container already deployed cannot be accomplished from the portal, it can only be performed using the provided Azure Resource Manager template with the PowerShell cmdlet **New-AzureRmResourceGroupDeployment** or Azure CLI.  One JSON template specifies the configuration to enable monitoring and the other JSON template contains parameter values you configure to specify the following:
+Enabling monitoring of your AKS container already deployed can be accomplished either from the Azure portal or with the provided Azure Resource Manager template using the PowerShell cmdlet **New-AzureRmResourceGroupDeployment** or Azure CLI.  
+
+
+### Enable from Azure portal
+Perform the following steps to enable monitoring of your AKS container from the Azure portal.
+
+1. In the Azure portal, click **All services**. In the list of resources, type **Containers**. As you begin typing, the list filters based on your input. Select **Kubernetes services**.<br><br> ![Azure portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
+2. In your list of containers, select a container.
+3. On the container overview page, select **Monitor container health** and the **Onboarding to Container Health and Logs** page appears.
+4. On the **Onboarding to Container Health and Logs** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  The list preselects the default workspace and location the AKS container is deployed to in the subscription. Or you can select **Create New** and specify a new workspace in the same subscription.<br><br> ![Enable AKS container health monitoring](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+
+    If you select **Create New**, the **Create new workspace** pane appears. The **Region** defaults to the region your container resource is created in and you can accept the default or select a different region, and then specify a name for the workspace.  Click **Create** to accept your selection.<br><br> ![Define workspace for container monintoring](./media/monitoring-container-health/create-new-workspace-01.png)  
+
+    >[!NOTE]
+    >At this time you cannot create a new workspace in the West Central US region, you can only select a pre-existing workspace in that region.  Even though you can select that region from the list, the deployment will start but it fails shortly afterwards.  
+    >
+ 
+After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster. 
+
+### Enable using Azure Resource Manager template
+This method includes two JSON templates, one template specifies the configuration to enable monitoring and the other JSON template contains parameter values you configure to specify the following:
 
 * AKS container resource ID 
 * Resource group the cluster is deployed in 
@@ -74,7 +94,7 @@ If you are not familiar with the concepts of deploying resources using a templat
 
 If you chose to use Azure CLI, you first need to install and use CLI locally.  It is required that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to identify the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-### Create and execute template
+#### Create and execute template
 
 1. Copy and paste the following JSON syntax into your file:
 
@@ -86,82 +106,82 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
       "aksResourceId": {
         "type": "string",
         "metadata": {
-           "description": "AKS Cluster resource id"
-        }
+           "description": "AKS Cluster Resource ID"
+           }
     },
     "aksResourceLocation": {
+    "type": "string",
+     "metadata": {
+        "description": "Location of the AKS resource e.g. \"East US\""
+       }
+    },
+    "workspaceResourceId": {
       "type": "string",
       "metadata": {
-        "description": "Location of the AKS resource e.g. \"East US\""
-        }
-      },
-      "workspaceId": {
-        "type": "string",
-        "metadata": {
-          "description": "Azure Monitor Log Analytics resource id"
-        }
-      },
-      "workspaceRegion": {
-        "type": "string",
-        "metadata": {
-          "description": "Azure Monitor Log Analytics workspace region"
-        }
+         "description": "Azure Monitor Log Analytics Resource ID"
+       }
+    },
+    "workspaceRegion": {
+    "type": "string",
+    "metadata": {
+       "description": "Azure Monitor Log Analytics workspace region"
       }
+     }
     },
     "resources": [
       {
-        "name": "[split(parameters('aksResourceId'),'/')[8]]",
-        "type": "Microsoft.ContainerService/managedClusters",
-        "location": "[parameters('aksResourceLocation')]",
-        "apiVersion": "2018-03-31",
-        "properties": {
-          "mode": "Incremental",
-          "id": "[parameters('aksResourceId')]",
-          "addonProfiles": {
-            "omsagent": {
-              "enabled": true,
-              "config": {
-                "logAnalyticsWorkspaceResourceID": "[parameters('workspaceId')]"
-              }
-            }
+    "name": "[split(parameters('aksResourceId'),'/')[8]]",
+    "type": "Microsoft.ContainerService/managedClusters",
+    "location": "[parameters('aksResourceLocation')]",
+    "apiVersion": "2018-03-31",
+    "properties": {
+      "mode": "Incremental",
+      "id": "[parameters('aksResourceId')]",
+      "addonProfiles": {
+        "omsagent": {
+          "enabled": true,
+          "config": {
+            "logAnalyticsWorkspaceResourceID": "[parameters('workspaceResourceId')]"
           }
-        }
-      },
-      {
-            "type": "Microsoft.Resources/deployments",
-            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-            "apiVersion": "2017-05-10",
-            "subscriptionId": "[split(parameters('workspaceId'),'/')[2]]",
-            "resourceGroup": "[split(parameters('workspaceId'),'/')[4]]",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "apiVersion": "2015-11-01-preview",
-                            "type": "Microsoft.OperationsManagement/solutions",
-                            "location": "[parameters('workspaceRegion')]",
-                            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-                            "properties": {
-                                "workspaceResourceId": "[parameters('workspaceId')]"
-                            },
-                            "plan": {
-                                "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-                                "product": "[Concat('OMSGallery/', 'ContainerInsights')]",
-                                "promotionCode": "",
-                                "publisher": "Microsoft"
-                            }
-                        }
-                    ]
-                },
-                "parameters": {}
-            }
          }
-      ]
+       }
+      }
+     },
+    {
+        "type": "Microsoft.Resources/deployments",
+        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+        "apiVersion": "2017-05-10",
+        "subscriptionId": "[split(parameters('workspaceResourceId'),'/')[2]]",
+        "resourceGroup": "[split(parameters('workspaceResourceId'),'/')[4]]",
+        "properties": {
+            "mode": "Incremental",
+            "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {},
+                "variables": {},
+                "resources": [
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "location": "[parameters('workspaceRegion')]",
+                        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+                        "properties": {
+                            "workspaceResourceId": "[parameters('workspaceResourceId')]"
+                        },
+                        "plan": {
+                            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+                            "product": "[Concat('OMSGallery/', 'ContainerInsights')]",
+                            "promotionCode": "",
+                            "publisher": "Microsoft"
+                        }
+                    }
+                ]
+            },
+            "parameters": {}
+        }
+       }
+     ]
     }
     ```
 
@@ -170,26 +190,26 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "$schema": "https://schema.management.azure.com/  schemas/2015-01-01/deploymentParameters.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {
-           "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
-        },
-        "aksResourceLocation": {
-          "value": "East US"
-        },
-        "workspaceId": {
-          "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
-        },
-        "workspaceRegion": {
-          "value": "eastus"
-        }
-      }
+           "value": "/subscriptions/<SubscroptiopnId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+       },
+       "aksResourceLocation": {
+         "value": "East US"
+       },
+       "workspaceResourceId": {
+         "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
+       },
+       "workspaceRegion": {
+         "value": "eastus"
+       }
+     }
     }
     ```
 
-4. Edit the value for **aksResourceId**, **aksResourceLocation** with the values, which you can find on the **AKS Overview** page for the AKS cluster.  The value for **workspaceId** should be the name of a Log Analytics workspace, and specify the location the workspace is created in for **workspaceRegion**.    
+4. Edit the value for **aksResourceId**, **aksResourceLocation** with the values, which you can find on the **AKS Overview** page for the AKS cluster.  The value for **workspaceResourceId** is the full resource ID of your Log Analytics workspace, which includes the workspace name.  Also specify the location the workspace is in for **workspaceRegion**.    
 5. Save this file as **existingClusterParam.json** to a local folder.
 6. You are ready to deploy this template. 
 
@@ -220,12 +240,12 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster.  
 
 ## Verify agent deployed successfully
-To verify the OMS agent deployed properly, run the following command: `	kubectl get ds omsagent -—namespace=kube-system`.
+To verify the OMS agent deployed properly, run the following command: `kubectl get ds omsagent --namespace=kube-system`.
 
 The output should resemble the following indicating it did deploy properly:
 
 ```
-User@aksuser:~$ kubectl get ds omsagent -—namespace=kube-system 
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
@@ -245,7 +265,7 @@ You can select controllers or containers from the top of the page and review the
 
 By default, Performance data is based on the last six hours but you can change the window with the **Time Range** drop-down list found on the upper right-hand corner of the page. At this time, the page does not auto-refresh, so you need to manually refresh it. 
 
-In the following example, you notice for node *aks-agentpool-3402399-0*, the value for **Containers** is 10, which is a rollup of the total number of containers deployed.<br><br> ![Rollup of containers per node example](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> This can help you quickly identify if you don't have proper balance of containers between nodes in your cluster.  
+In the following example, you notice for node *aks-agentpool-3402399-0*, the value for **Containers** is 10, which is a rollup of the total number of containers deployed.<br><br> ![Rollup of containers per node example](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> It can help you quickly identify if you don't have a proper balance of containers between nodes in your cluster.  
 
 The following table describes the information presented when you view Nodes.
 
@@ -311,19 +331,19 @@ The following table shows examples of records collected by container health and 
 
 | Data type | Data type in Log Search | Fields |
 | --- | --- | --- |
-| Performance for hosts and containers | `Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
+| Performance for hosts and containers | `Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
 | Container inventory | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | Container image inventory | `ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
 | Container log | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | Container service log | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
 | Container node inventory | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Container process | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Inventory of pods in a Kubernetes cluster | `KubePodInventory` | TimeGenerated, Computer, ClusterId , ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
+| Inventory of pods in a Kubernetes cluster | `KubePodInventory` | TimeGenerated, Computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
 | Inventory of nodes part of a Kubernetes cluster | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Kubernetes Events | `KubeEvents_CL` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
 | Services in the Kubernetes cluster | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Performance metrics for nodes part of the Kubernetes cluster | Perf &#124; where ObjectName == “K8SNode” | cpuUsageNanoCores, , memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes | 
-| Performance metrics for containers part of the Kubernetes cluster | Perf &#124; where ObjectName == “K8SContainer” | cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes | 
+| Performance metrics for nodes part of the Kubernetes cluster | Perf &#124; where ObjectName == “K8SNode” | Computer, ObjectName, CounterName &#40;cpuUsageNanoCores, , memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;,CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Performance metrics for containers part of the Kubernetes cluster | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;,CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 
 ## Search logs to analyze data
 Log Analytics can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally.  Pre-defined log searches are provided to immediately start using or to customize in order to return the information the way you want. 
@@ -360,7 +380,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
         "aksResourceId": {
            "type": "string",
            "metadata": {
-             "description": "AKS Cluster resource id"
+             "description": "AKS Cluster Resource ID"
            }
        },
       "aksResourceLocation": {
@@ -413,7 +433,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
 
 4. Edit the value for **aksResourceId** and **aksResourceLocation** with the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.<br><br> ![Container properties page](./media/monitoring-container-health/container-properties-page.png)<br>
 
-    While you are on the **Properties** page, also copy the **Workspace Resource Id**.  This value is required if you decide you want to delete the Log Analytics workspace later, which is not performed as part of this process.  
+    While you are on the **Properties** page, also copy the **Workspace Resource ID**.  This value is required if you decide you want to delete the Log Analytics workspace later, which is not performed as part of this process.  
 
 5. Save this file as **OptOutParam.json** to a local folder.
 6. You are ready to deploy this template. 
@@ -426,7 +446,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
         New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
         ```
 
-        The configuration change can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
+        The configuration change can take a few minutes to complete. When it completes, a message similar to the following that includes the result is returned:
 
         ```powershell
         ProvisioningState       : Succeeded
@@ -440,13 +460,13 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
         az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
         ```
 
-        The configuration change can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
+        The configuration change can take a few minutes to complete. When it completes, a message similar to the following that includes the result is returned:
 
         ```azurecli
         ProvisioningState       : Succeeded
         ```
 
-If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../log-analytics/log-analytics-manage-del-workspace.md).  Don't forget about the **Workspace Resource Id** we copied earlier in step 4, you're going to need that.  
+If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../log-analytics/log-analytics-manage-del-workspace.md).  Don't forget about the **Workspace Resource ID** we copied earlier in step 4, you're going to need that.  
 
 ## Troubleshooting
 This section provides information to help troubleshoot issues with container health.

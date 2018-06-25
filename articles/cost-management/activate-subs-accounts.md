@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -32,7 +32,7 @@ If your account is assigned the **Contributor** role, you do not have adequate p
 
 ### Check Azure Active Directory permissions
 
-1. Log into the [Azure portal](https://portal.azure.com).
+1. Sign in into the [Azure portal](https://portal.azure.com).
 2. In the Azure portal, select **Azure Active Directory**.
 3. In Azure Active Directory, select **User settings**.
 4. Check the **App registrations** option.
@@ -56,7 +56,7 @@ When you add an account update a subscription, you grant Azure Cost Management a
 1. If you want to update an _unactivated_ subscription that already exists in Azure Cost Management in Accounts Management, click the edit pencil symbol to the right of the parent _tenant GUID_. Subscriptions are grouped under a parent tenant, so avoid activating subscriptions individually.
     ![Rediscover subscriptions](./media/activate-subs-accounts/existing-sub.png)
 2. If necessary, enter the Tenant ID. If you don't know your Tenant ID, use the following steps to find it:
-    1. Log into the [Azure portal](https://portal.azure.com).
+    1. Sign in to the [Azure portal](https://portal.azure.com).
     2. In the Azure portal, select **Azure Active Directory**.
     3. To get the tenant ID, select **Properties** for your Azure AD tenant.
     4. Copy the Directory ID GUID. This value is your tenant ID.
@@ -92,14 +92,39 @@ Here's how to fix the problems:
 1. Your reseller needs to enable _markup_ for your account. For instructions, see the [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 2. You generate the Azure Enterprise Agreement key for use with Azure Cost Management. For instructions, see [Register an Azure Enterprise Agreement and view cost data](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
-Only an Azure service administrator can enable Cost Management. Co-administrator permissions are insufficient.
-
 Before you can generate the Azure Enterprise Agreement API key to set up Azure Cost Management, you must enable the Azure Billing API by following the instructions at:
 
 - [Overview of Reporting APIs for Enterprise customers](../billing/billing-enterprise-api.md)
 - [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) under **Enabling data access to the API**
 
 You also might need to give department administrators, account owners, and enterprise administrators permissions to _view charges_ with the Billing API.
+
+Only an Azure service administrator can enable Cost Management. Co-administrator permissions are insufficient. However, you can work around the administrator requirement. You can request that your Azure Active Directory administrator grant permission to authorize the **CloudynAzureCollector** with a PowerShell script. The following script grants permission to register the Azure Active Directory Service Principal **CloudynAzureCollector**.
+
+```
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#Tenant - enter your tenant ID or Name
+$tenant = "<ReplaceWithYourTenantID>"
+
+#Cloudyn Collector application ID
+$appId = "83e638ef-7885-479f-bbe8-9150acccdb3d"
+
+#URL to activate the consent screen
+$url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&response_type=code&client_id="+$appId+"&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2FCloudynJava&prompt=consent"
+
+#Choose your browser, the default is Internet Explorer
+
+#Chrome
+#[System.Diagnostics.Process]::Start("chrome.exe", "--incognito $url")
+
+#Firefox
+#[System.Diagnostics.Process]::Start("firefox.exe","-private-window $url" )
+
+#IExplorer
+[System.Diagnostics.Process]::Start("iexplore.exe","$url -private" )
+
+```
 
 ## Next steps
 

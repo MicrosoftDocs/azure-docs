@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use Caffe on Azure HDInsight Spark for distributed deep learning | Microsoft Docs
 description: Use Caffe on Azure HDInsight Spark for distributed deep learning
 services: hdinsight

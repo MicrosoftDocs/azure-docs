@@ -1,19 +1,13 @@
 ---
 title: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub  | Microsoft Docs
 description: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub.
-services: iot-dps
-keywords: 
 author: liydu
 ms.author: liydu
 ms.date: 04/04/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-
+services: iot-dps
+manager: jeffya
 ---
 
 # Use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub
@@ -119,6 +113,17 @@ To save a unique device secret on the DevKit:
    - leave the rest as default and click **Save**
 
    ![Upload certificate](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+
+  > [!NOTE]
+  > If you have an error with this message:
+  >
+  > `{"message":"BadRequest:{\r\n \"errorCode\": 400004,\r\n \"trackingId\": \"1b82d826-ccb4-4e54-91d3-0b25daee8974\",\r\n \"message\": \"The certificate is not a valid base64 string value\",\r\n \"timestampUtc\": \"2018-05-09T13:52:42.7122256Z\"\r\n}"}`
+  >
+  > Open the certificate file **.pem** as text (open with Notepad or any text editor), and delete the lines:
+  >
+  > `"-----BEGIN CERTIFICATE-----"` and `"-----END CERTIFICATE-----"`.
+  >
+
 
 ## Start the DevKit
 

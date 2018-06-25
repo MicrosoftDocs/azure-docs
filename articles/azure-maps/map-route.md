@@ -1,18 +1,13 @@
 ---
 title: Show directions with Azure Maps | Microsoft Docs
 description: How to display directions between two locations on a Javascript map
-services: azure-maps
-keywords: 
-
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: codepen
 ---
 
@@ -43,3 +38,7 @@ Learn more about the classes and methods used in this article:
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
     * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addlinestrings)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+
+For more code examples to add to your maps, see the following articles: 
+* [Show traffic on the map](./map-show-traffic.md)
+* [Interacting with the map - mouse events](./map-events.md)

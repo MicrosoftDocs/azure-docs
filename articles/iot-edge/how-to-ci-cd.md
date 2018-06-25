@@ -1,15 +1,13 @@
 ---
 title: Azure IoT Edge continuous integration and continuous deployment | Microsoft Docs
 description: Overview of the continuous integration and continuous deployment for Azure IoT Edge
-services: iot-Edge
-documentationcenter: ''
 author: shizn
-manager: timlt
-
+manager: 
 ms.author: xshi
-ms.date: 4/30/2018
-ms.topic: article
+ms.date: 04/30/2018
+ms.topic: conceptual
 ms.service: iot-edge
+services: iot-edge
 ---
 
 # Continuous integration and continuous deployment to Azure IoT Edge - preview
@@ -449,7 +447,7 @@ So, when deploying to IoT Edge devices, there are three main environments.
 This tutorial demonstrates how you can use the continuous integration and continuous deployment features of VSTS or TFS. 
 
 * Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
-* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale][how-to-deploy-monitor.md].
+* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
 
 
 

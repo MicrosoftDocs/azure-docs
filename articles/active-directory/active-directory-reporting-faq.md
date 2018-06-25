@@ -3,7 +3,7 @@ title: Azure Active Directory Reporting FAQ | Microsoft Docs
 description: Azure Active Directory reporting FAQ.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
@@ -11,9 +11,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: markvi
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -67,7 +68,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How many records I can download from Azure portal?**
 
-**A:** You can download up to 120K records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 120K records. 
+**A:** You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records.
 
 ---
 
@@ -79,7 +80,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How do I get a premium license?**
 
-**A:** See [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md) for an answer to this question.
+**A:** See [Getting started with Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) for an answer to this question.
 
 ---
 

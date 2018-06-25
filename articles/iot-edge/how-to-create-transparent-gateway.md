@@ -1,23 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Create a transparent gateway device with Azure IoT Edge | Microsoft Docs 
 description: Use Azure IoT Edge to create a transparent gateway device that can process information for multiple devices
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 12/04/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+services: iot-edge
 ---
 
 # Create an IoT Edge device that acts as a transparent gateway - preview

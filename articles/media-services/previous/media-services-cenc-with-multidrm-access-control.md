@@ -221,7 +221,7 @@ For more information, see [JWT token authentication in Azure Media Services and 
 For information on Azure AD:
 
 * You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/active-directory-developers-guide.md).
-* You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/active-directory-administer.md).
+* You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### Some issues in implementation
 Use the following troubleshooting information for help with implementation issues.

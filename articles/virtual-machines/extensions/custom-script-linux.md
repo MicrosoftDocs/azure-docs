@@ -72,7 +72,7 @@ These items should be treated as sensitive data and specified in the extensions 
 ```json
 {
   "name": "config-app",
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
@@ -153,7 +153,7 @@ The dos2unix conversion can be skipped by setting the skipDos2Unix to true.
 ```json
 {
   "fileUris": ["<url>"],
-  "commandToExecute": "<command-to-execute>"
+  "commandToExecute": "<command-to-execute>",
   "skipDos2Unix": true
 }
 ```

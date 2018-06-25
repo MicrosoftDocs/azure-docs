@@ -3,17 +3,19 @@ title: No working connector group found for an Application Proxy application | M
 description: Address problems you might encounter when there is no working Connector in a Connector Group for your application with the Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: asteen
 
 ---
 

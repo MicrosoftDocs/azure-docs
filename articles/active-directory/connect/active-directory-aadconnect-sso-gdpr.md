@@ -12,7 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -23,11 +24,11 @@ ms.author: billmath
 ## Overview
 
 
-Azure AD Seamless SSO creates the following log type, which can contain EUII:
+Azure AD Seamless SSO creates the following log type, which can contain Personal Data: 
 
 - Azure AD Connect trace log files.
 
-User privacy compliance for Seamless SSO can be reached in two ways:
+Improve user privacy for Seamless SSO in two ways:
 
 1.	Upon request, extract data for a person and remove data from that person from the installations.
 2.	Ensure no data is retained beyond 48 hours.
