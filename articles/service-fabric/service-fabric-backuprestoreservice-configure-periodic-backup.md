@@ -21,21 +21,17 @@ ms.author: hrushib
 
 Configuring periodic backup consists of following steps:
 
-1. Creation of backup policy: In this step, one or more backup policies are created depending on requirements. A policy is created by specifying following details
-    - Backup schedule
-    - Backup storage 
-    - Maximum number of consecutive incremental backups, and 
-    - Whether to do auto restore
+1. **Creation of backup policy**: In this step, one or more backup policies are created depending on requirements.
 
-2. Enabling Data Protection: In this step, you associate a backup policy created in **Step 1** to the required entity, _Application_, _Service_, or a _Partition_.
+2. **Enabling Data Protection**: In this step, you associate a backup policies created in **Step 1** to the required entities, _Application_, _Service_, or a _Partition_.
 	
 ## Create Backup Policy
 
-A backup policy defines the following details:
+A backup policy consists of the following:
 
-* Auto restore on data loss: Specifies whether to trigger restore automatically using the latest available backup in case the partition experiences a data loss event.
+* **Auto restore on data loss**: Specifies whether to trigger restore automatically using the latest available backup in case the partition experiences a data loss event.
 
-* Max incremental backups: Defines the maximum number of incremental backups to be taken between two full backups. Max incremental backups specify the upper limit. A full backup may be taken before specified number of incremental backups are completed in one of the following conditions
+* **Max incremental backups**: Defines the maximum number of incremental backups to be taken between two full backups. Max incremental backups specify the upper limit. A full backup may be taken before specified number of incremental backups are completed in one of the following conditions
 
     1. The replica has never taken a full backup since it has become primary.
 
@@ -43,9 +39,9 @@ A backup policy defines the following details:
 
     3. Replica passed the MaxAccumulatedBackupLogSizeInMB limit.
 
-* Backup schedule: The time or frequency at which to take periodic backups. One can schedule backups to be recurring at specified interval Or at a fixed time daily/ weekly.
+* **Backup schedule**: The time or frequency at which to take periodic backups. One can schedule backups to be recurring at specified interval Or at a fixed time daily/ weekly.
 
-    1. Frequency-based backup schedule: This schedule type should be used if the need is to take data backup at fixed intervals. Desired time interval between two consecutive backups is defined using ISO8601 format. Frequency-based backup schedule supports interval resolution is Minutes, portion defining seconds and part of seconds is ignored.
+    1. **Frequency-based backup schedule**: This schedule type should be used if the need is to take data backup at fixed intervals. Desired time interval between two consecutive backups is defined using ISO8601 format. Frequency-based backup schedule supports interval resolution upto minute, portion defining seconds and part of seconds is ignored.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -53,7 +49,7 @@ A backup policy defines the following details:
         }
         ```
 
-    2. Time-based backup schedule: This schedule type should be used if the need is to take data backup at specific times of the day.
+    2. **Time-based backup schedule**: This schedule type should be used if the need is to take data backup at specific times of the day.
         ```json
         {
             "ScheduleKind": "TimeBased",
@@ -65,8 +61,8 @@ A backup policy defines the following details:
         }
         ```
 
-* Backup storage: Specifies the location to upload backups. Storage can be either Azure blob store or file share.
-    1. Azure blob store: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
+* **Backup storage**: Specifies the location to upload backups. Storage can be either Azure blob store or file share.
+    1. **Azure blob store**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
        ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -76,34 +72,34 @@ A backup policy defines the following details:
         }
         ```
 
-    2. File share: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premise. Description for this storage type requires file share path where backups need to be uploaded. Access to the file share can be configured using one of the following options
-        1. Integrated Window Authentication, where the access to file share is provided to all computers belonging to the Service Fabric cluster. In this case, set following fields to configure _file-share_ based backup storage.
-        ```json
-        {
-            "StorageKind": "FileShare",
-            "FriendlyName": "Sample_FileShare",
-            "Path": "\\\\StorageServer\\BackupStore"
-        }
-        ```
-        2. Protecting file share using user name and password, where the access to file share is provided to specific users. File share storage specification also provides capability to specify secondary user name and secondary password to provide fall-back credentials in case authentication fails with primary user name and primary password. In this case, set following fields to configure _file-share_ based backup storage.
-        ```json
-        {
-            "StorageKind": "FileShare",
-            "FriendlyName": "Sample_FileShare",
-            "Path": "\\\\StorageServer\\BackupStore",
-            "PrimaryUserName": "backupaccount",
-            "PrimaryPassword": "<Password for backupaccount>",
-            "SecondaryUserName": "backupaccount2",
-            "SecondaryPassword": "<Password for backupaccount2>"
-        }
-        ```
+    2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premise. Description for this storage type requires file share path where backups need to be uploaded. Access to the file share can be configured using one of the following options
+        1. _Integrated Windows Authentication_, where the access to file share is provided to all computers belonging to the Service Fabric cluster. In this case, set following fields to configure _file-share_ based backup storage.
+            ```json
+            {
+                "StorageKind": "FileShare",
+                "FriendlyName": "Sample_FileShare",
+                "Path": "\\\\StorageServer\\BackupStore"
+            }
+            ```
+        2. _Protecting file share using user name and password_, where the access to file share is provided to specific users. File share storage specification also provides capability to specify secondary user name and secondary password to provide fall-back credentials in case authentication fails with primary user name and primary password. In this case, set following fields to configure _file-share_ based backup storage.
+            ```json
+            {
+                "StorageKind": "FileShare",
+                "FriendlyName": "Sample_FileShare",
+                "Path": "\\\\StorageServer\\BackupStore",
+                "PrimaryUserName": "backupaccount",
+                "PrimaryPassword": "<Password for backupaccount>",
+                "SecondaryUserName": "backupaccount2",
+                "SecondaryPassword": "<Password for backupaccount2>"
+            }
+            ```
 
 > [!NOTE]
 > Ensure that the storage reliability meets or exceeds reliability requirements of backup data.
 >
 
 ## Enable periodic backup
-After defining backup policy to fulfill data protection requirements, the backup policy should be associated appropriately either with an _application_, or _service_, or a _partition_.
+After defining backup policy to fulfill data protection requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
 
 ### Hierarchical propagation of backup policy
 In Service Fabric, relation between application, service, and partitions is hierarchical as explained in [Application model](./service-fabric-application-model.md). Backup policy can be associated either with an _application_, _service_, or a _partition_ in the hierarchy. Backup policy propagates hierarchically to next level. Assuming there is only one backup policy created and associated with an _application_, all partitions belonging to all _services_ of the _application_ will be backed-up using the backup policy. Or if the backup policy is associated with a _service_ all its partitions will be backed-up using the backup policy.
