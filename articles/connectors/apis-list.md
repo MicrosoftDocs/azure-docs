@@ -111,11 +111,12 @@ processes, and workflows with these services or systems:
 
 ## On-premises connectors 
 
-These connectors provide access to data in on-premises systems. 
-Before you can create a connection, you must first 
-[set up an on-premises data gateway][gateway-doc]. 
-This gateway provides a secure communication channel without the need 
-to set up a network infrastructure. Here are some of these connectors:
+Here are some commonly used connectors that provide 
+access to data and resources in on-premises systems. 
+Before you can create a connection to an on-premises system, 
+you must first [download, install, and set up an on-premises data gateway][gateway-doc]. 
+This gateway provides a secure communication channel without 
+having to set up the necessary network infrastructure. 
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -127,9 +128,14 @@ to set up a network infrastructure. Here are some of these connectors:
 
 ## Integration account connectors 
 
-The Enterprise Integration Pack (EIP) includes connectors that are well known to the BizTalk Server community. 
-When you purchase an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), 
-you also get the following connectors: 
+Here are connectors you can use for building business-to-business (B2B) 
+solutions with your logic apps when you create and pay for an 
+[integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), 
+which is available through the Enterprise Integration Pack (EIP) in Azure. 
+In this account, you create and store B2B artifacts such as trading partners, 
+agreements, maps, schemas, certificates, and so on. To use these artifacts, 
+associate your logic apps with your integration account. If you currently 
+use BizTalk Server, you're likely familiar with these connectors already.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -142,7 +148,8 @@ you also get the following connectors:
 
 ## Enterprise connectors
 
-Connect to your enterprise systems from your logic apps.
+Your logic apps can access enterprise systems such as SAP 
+and IBM MQ by using these connectors:
 
 |   |   | 
 |---|---| 
