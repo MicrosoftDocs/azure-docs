@@ -1,6 +1,6 @@
 ---
-title: 'Azure SQL Database service tiers | Microsoft Docs'
-description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
+title: 'Azure SQL Database purchasing models | Microsoft Docs'
+description: Learn about purchasing model for Azure SQL Database.  
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
@@ -11,7 +11,7 @@ manager: craigg
 ms.author: carlrab
 
 ---
-# Service tier purchasing models and resources 
+# Azure SQL Database purchasing models and resources 
 
 Logical servers in [Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model (preview). 
 
@@ -25,7 +25,7 @@ The following table and chart compare and contrast these two purchasing models.
 
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
-|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-what-is-a-dtu.md)?|Best for customers who want simple, pre-configured resource options.| 
+|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Best for customers who want simple, pre-configured resource options.| 
 |vCore-based model|This model allows you to independently scale compute and storage resources. It also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
 ||||  
 

@@ -34,7 +34,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A user account in Asana with admin permissions 
 
 > [!NOTE] 
-> Azure AD provisioning integration relies on the [Asana API](https://app.asana.com/api/1.0/scim/Users), which is available to Asana.
+> Azure AD provisioning integration relies on the [Asana API](https://asana.com/developers/api-reference/users), which is available to Asana.
 
 ## Assign users to Asana
 
