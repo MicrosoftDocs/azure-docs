@@ -3,8 +3,7 @@ title: 'Configure Network Performance Monitor for Azure ExpressRoute circuits | 
 description: Configure cloud-based network monitoring for Azure ExpressRoute circuits.
 documentationcenter: na
 services: expressroute
-author: ajaycode
-manager: timlt
+author: cherylmc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
-ms.author: agummadi
+ms.date: 06/25/2018
+ms.author: cherylmc
 
 ---
 # Configure Network Performance Monitor for ExpressRoute
@@ -193,7 +192,6 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 >
 >
 
-
 ## <a name="setupmonitor"></a>Step 4: Configure NPM for ExpressRoute monitoring
 
 After you complete the previous sections, you can set up monitoring.
@@ -224,7 +222,7 @@ The NPM page contains a page for ExpressRoute that shows an overview of the heal
 
 ### <a name="circuits"></a>List of circuits
 
-To see a list of all monitored ExpressRoute circuits, click on the **ExpressRoute circuits** tile. You can select a circuit and view its health state, trend charts for packet loss, bandwidth utilization, and latency. The charts are interactive. You can select a custom time window for plotting the charts. You can drag the mouse over an area on the chart to zoom in and see fine-grained data points.
+To see a list of all monitored ExpressRoute circuits, click the **ExpressRoute circuits** tile. You can select a circuit and view its health state, trend charts for packet loss, bandwidth utilization, and latency. The charts are interactive. You can select a custom time window for plotting the charts. You can drag the mouse over an area on the chart to zoom in and see fine-grained data points.
 
   ![circuit_list](.\media\how-to-npm\circuits.png)
 
@@ -236,13 +234,19 @@ The bandwidth, latency, and loss charts are interactive. You can zoom into any s
 
 ### <a name="peerings"></a>Peerings list
 
-Clicking on the **Private Peerings** tile on the dashboard brings up a list of all connections to virtual networks over private peering. Here, you can select a virtual network connection and view its health state, trend charts for packet loss, bandwidth utilization, and latency.
+To bring up a list of all connections to virtual networks over private peering, click the **Private Peerings** tile on the dashboard. Here, you can select a virtual network connection and view its health state, trend charts for packet loss, bandwidth utilization, and latency.
 
   ![circuit list](.\media\how-to-npm\peerings.png)
 
+### <a name="nodes"></a>Nodes view
+
+ To bring up a list of all the links between the on-premises nodes and Azure VMs/Microsoft service endpoints for the chosen ExpressRoute peering connection, click **View node links**. You can view the health status of each link, as well as the trend of loss and latency associated with them.
+
+  ![nodes view](.\media\how-to-npm\nodes.png)
+
 ### <a name="topology"></a>Circuit topology
 
-To view circuit topology, click on the **Topology** tile. This takes you to the topology view of the selected circuit or peering. The topology diagram provides the latency for each segment on the network and each layer 3 hop is represented by a node of the diagram. Clicking on a hop reveals more details about the hop.
+To view circuit topology, click the **Topology** tile. This takes you to the topology view of the selected circuit or peering. The topology diagram provides the latency for each segment on the network and each layer 3 hop is represented by a node of the diagram. Clicking on a hop reveals more details about the hop.
 You can increase the level of visibility to include on-premises hops by moving the slider bar below **Filters**. Moving the slider bar to the left or right, increases/decreases the number of hops in the topology graph. The latency across each segment is visible, which allows for faster isolation of high latency segments on your network.
 
 ![filters](.\media\how-to-npm\topology.png)
