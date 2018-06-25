@@ -29,22 +29,39 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to create a SQL Database, manage it using SQL Management Studio, and develop with it in C#, Java, Python, Node.js, and Ruby:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Azure portal
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal
-    - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
-      text: Azure CLI
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-cli
-    - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-powershell
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: media/index/portal.svg
+          title: Azure Portal
+        - image:
+            src: media/index/cli.svg
+          title: Azure CLI
+        - image:
+            src: media/index/logo_powershell.svg
+          title: PowerShell
+      rows:
+        - title: Create SQL Database
+          values:
+          - href: /azure/sql-database/sql-database-get-started-portal
+          - href: /azure/sql-database/sql-database-get-started-cli
+          - href: /azure/sql-database/sql-database-get-started-powershell
+        - title: Create Elastic Pool
+          values:
+            - href: 
+            - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
+            - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
+        - title: Scale SQL Database
+          values:
+          - href: 
+          - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
+          - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
+        - title: Scale Elastic Pool
+          values:
+          - href: 
+          - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-cli
+          - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
