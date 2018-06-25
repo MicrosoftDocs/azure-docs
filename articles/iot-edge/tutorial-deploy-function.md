@@ -17,9 +17,9 @@ You can use Azure Functions to deploy code that implements your business logic d
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an Azure Function
-> * Use VS Code and Docker to create a Docker image and publish it to your registry 
-> * Deploy the module to your IoT Edge device
-> * View generated data
+> * Use VS Code and Docker to create a Docker image and publish it to a container registry 
+> * Deploy the module from the container registry to your IoT Edge device
+> * View filtered data
 
 >[!NOTE]
 >Azure Function modules on Azure IoT Edge are in public preview. 
@@ -67,17 +67,17 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 
 1. Open Visual Studio Code.
 
-2. To open the VS Code integrated terminal, select **View** > **Integrated Terminal**.
+2. Open the VS Code command palette by selecting **View** > **Command Palette**.
 
-3. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. 
 3. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
    3. Choose **Azure Functions - C#** as the module template. 
    4. Name your module **CSharpFunction**. 
    5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/csharpfunction**.
 
-4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder, and a deployment manifest template file. Open **modules** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
+4. The VS Code window loads your IoT Edge solution workspace. There is a **.vscode** folder, a **modules** folder, and a deployment manifest template file. Open **modules** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
 
 5. Replace the contents of the file with the following code:
 
@@ -121,7 +121,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
     //Define the expected schema for the body of incoming messages
     class MessageBody
     {
-        public Machine machine {get;set;}
+        public Machine machine {get; set;}
         public Ambient ambient {get; set;}
         public string timeCreated {get; set;}
     }
@@ -150,11 +150,12 @@ In the previous section you created an IoT Edge solution and added code to the C
    ```
    Use the username, password, and login server that you copied from your Azure Container Registry in the first section. Or retrieve them again from the **Access keys** section of your registry in the Azure portal.
 
-2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the `$edgeAgent` to deploy two modules: **tempSensor** and **CSharpFunction**. The `CSharpFunction.image` value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge runtime which modules to deploy to a device. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-3. In **deployment.template.json** file, there is a section **registryCredentials** which stores your Docker regitstry credentials. The actual username and password pairs are stored in the .env file which is git ignored.
+3. Find the **registryCredentials** section in the deployment manifest. Update the **username**, **password**, and **address** with the credentials from your container registry. This section gives the IoT Edge runtime on your device permission to pull the container images that you store in your private registry. The actual username and password pairs are stored in the .env file which is git ignored.
 
 5. Save this file.
+
 6. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build IoT Edge solution**. 
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the functions, and the push it to the container registry that you specified when you initialized the solution. 
@@ -162,6 +163,9 @@ When you tell Visual Studio Code to build your solution, it first takes the info
 You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information in the `module.json` file, with the format **\<repository\>:\<version\>-\<platform\>**. For this tutorial, you should see **\<container registry\>.azurecr.io/csharpfunction:0.0.1-amd64**.
 
 ## Deploy and run the solution
+
+3. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. 
+
 
 1. Configure the Azure IoT Toolkit extension with connection string for your IoT hub: 
     1. Open the VS Code explorer by selecting **View** > **Explorer**. 
