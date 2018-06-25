@@ -34,9 +34,6 @@ One of the key capabilities of Azure IoT Edge is being able to deploy modules to
    ```
 
 1. In the **Review template** step, select **Submit**.
-1. Return to the device details page and select **Refresh**. You should see the new tempSensor module running along the IoT Edge runtime. 
+1. Return to the device details page and select **Refresh**. In addition to the edgeAgent module that was created when you first started the service, you should see another runtime module called **edgeHub** and the **tempSensor** module listed. 
 
-   ![View tempSensor in list of deployed modules][1]
-
-<!-- Images -->
-[1]: ../articles/iot-edge/media/tutorial-simulate-device-windows/view-module.png
+   ![View tempSensor in list of deployed modules](./media/iot-edge-deploy-module/deployed-modules.png)
