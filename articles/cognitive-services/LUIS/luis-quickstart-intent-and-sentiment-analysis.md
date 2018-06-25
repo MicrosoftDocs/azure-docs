@@ -42,7 +42,7 @@ The following utterances show examples of sentiment:
 |positive - 0.91 |John W. Smith did a great job on the presentation in Paris.|
 |positive - 0.84 |jill-jones@mycompany.com did fabulous work on the Parker sales pitch.|
 
-Sentiment analysis is an app setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and label them. LUIS will do that for you.
+Sentiment analysis is an app setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and label them. LUIS does that for you.
 
 ## Add EmployeeFeedback intent 
 Add a new intent to capture employee feedback from members of the company. 
@@ -53,16 +53,18 @@ Add a new intent to capture employee feedback from members of the company.
 
 3. Add several utterances that indicate an employee doing something well or an area that needs improvement:
 
-|Utterances|
-|--|
-|425-555-1212 did a nice job of welcoming back a co-worker from maternity leave|
-|234-56-7891 did a great job of comforting a co-worker in their time of grief.|
-|jill-jones@mycompany.com didn't have all the required invoices for the paperwork.|
-|john.w.smith@mycompany.com turned in the required forms a month late with no signatures|
-|x23456 didn't make it to the important marketing off-site meeting.|
-|x12345 missed the meeting for June reviews.|
-|Jill Jones rocked the sales pitch at Harvard|
-|John W. Smith did a great job on the presentation at Stanford|
+    |Utterances|
+    |--|
+    |425-555-1212 did a nice job of welcoming back a co-worker from maternity leave|
+    |234-56-7891 did a great job of comforting a co-worker in their time of grief.|
+    |jill-jones@mycompany.com didn't have all the required invoices for the paperwork.|
+    |john.w.smith@mycompany.com turned in the required forms a month late with no signatures|
+    |x23456 didn't make it to the important marketing off-site meeting.|
+    |x12345 missed the meeting for June reviews.|
+    |Jill Jones rocked the sales pitch at Harvard|
+    |John W. Smith did a great job on the presentation at Stanford|
+
+    Remember in this Human Resources app, employees are defined in the list entity, `Employee`, by the name, email, phone extension number, mobile phone number, and their U.S. federal social security number. 
 
 ## Train the LUIS app
 LUIS doesn't know about the new intent and its example utterances until it is trained. 
