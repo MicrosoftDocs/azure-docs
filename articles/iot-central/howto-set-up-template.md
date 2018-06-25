@@ -248,7 +248,7 @@ Now when an operator views the dashboard, they can see this tile that displays t
 
 ### Add Location Azure Map in Dashboard
 
-If you have configured a location property as in the steps [Create a Location Property powered by Azure Maps]((howto-set-up-template.md), you will be able to visualize the location using a map right in your device dashboard.
+If you have configured a location property as in the steps [Create a Location Property powered by Azure Maps](howto-set-up-template.md), you will be able to visualize the location using a map right in your device dashboard.
 
 1.	Navigate to the Device Dashboard tab; ensure Design Mode is turned On.
 
