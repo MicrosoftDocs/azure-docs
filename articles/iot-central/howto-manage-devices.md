@@ -91,7 +91,7 @@ If you register devices by starting the import under **Unassociated devices**, t
 1. The selected devices will be moved under the respective device template.
 
  >   [!NOTE] 
-    Once a device has been associated with a template it cannot be changed or associated with another template.
+    Once a device has been associated with a template it cannot be unassociated or associated with a different template.
 
 ## Export devices
 

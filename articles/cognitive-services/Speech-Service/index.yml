@@ -36,12 +36,12 @@ sections:
       - title: Windows
         values:
         - href: quickstart-csharp-windows
-        - href: cpp-windows
+        - href: quickstart-cpp-windows
         - href:
       - title: Linux
         values:
         - href:
-        - href: cpp-linux
+        - href: quickstart-cpp-linux
         - href:
       - title: Devices SDK (Android)
         values:
