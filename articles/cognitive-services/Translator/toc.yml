@@ -35,6 +35,34 @@
         href: quickstart-java-languages.md
       - name: Get sentence lengths in text
         href: quickstart-java-sentences.md
+    - name: Node.js
+      items:
+      - name: Translate text
+        href: quickstart-nodejs-translate.md
+      - name: Convert text script
+        href: quickstart-nodejs-transliterate.md
+      - name: Identify language from text
+        href: quickstart-nodejs-detect.md
+      - name: Get alternate translations
+        href: quickstart-nodejs-dictionary.md
+      - name: Get supported languages
+        href: quickstart-nodejs-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-nodejs-sentences.md
+    - name: Python
+      items:
+      - name: Translate text
+        href: quickstart-python-translate.md
+      - name: Convert text script
+        href: quickstart-python-transliterate.md
+      - name: Identify language from text
+        href: quickstart-python-detect.md
+      - name: Get alternate translations
+        href: quickstart-python-dictionary.md
+      - name: Get supported languages
+        href: quickstart-python-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-python-sentences.md
 - name: Concepts
   items:
   - name: Supported languages
@@ -57,12 +85,8 @@
     href: dynamic-dictionary.md
   - name: Use Translator Text API
     items:
-    - name: Node.js
-      href: quickstarts/nodejs.md
     - name: PHP
       href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
     - name: Ruby
       href: quickstarts/ruby.md
     - name: Create a Translator Text app with WPF
