@@ -28,7 +28,7 @@ The following articles aren't required to successfully complete this tutorial, b
 * [Use Visual Studio Code to develop and deploy Azure Functions to Azure IoT Edge](how-to-vscode-develop-azure-function.md)
 
 After you complete the required tutorials, you should have all the required prerequisites ready on your machine: 
-* An active Azure IoT hub.
+* An active Azure IoT hub with at least an IoT Edge device.
 * An IoT Edge device with at least 2-GB RAM and a 2-GB disk drive.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
@@ -38,7 +38,6 @@ After you complete the required tutorials, you should have all the required prer
 * [Python 2.7](https://www.python.org/downloads/)
 * [IoT Edge control script](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 * AzureIoTEdgeFunction template (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
-* An active IoT hub with at least an IoT Edge device.
 
 Both Windows and Linux containers on x64 processor architectures work for this tutorial. SQL Server does not support ARM processors.
 
