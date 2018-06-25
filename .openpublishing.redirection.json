@@ -25247,6 +25247,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory/migrate-adfs-apps-to-azure.md",
+            "redirect_url": "/azure/active-directory/manage-apps/active-directory/migrate-adfs-apps-to-azure",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
             "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": true
