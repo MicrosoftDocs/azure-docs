@@ -142,11 +142,9 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Screenshot of intent page with Publish button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
-
 2. Select the Production slot and the **Publish** button.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-publish-button.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
+    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
