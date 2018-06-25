@@ -1,13 +1,14 @@
 ---
-title: Manage an Azure virtual machine with inventory collection | Microsoft Docs 
+title: Manage an Azure virtual machine with inventory collection | Microsoft Docs
 description: Manage a virtual machine with inventory collection
-services: automation 
+services: automation
 ms.service: automation
+ms.component: change-inventory-management
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Manage an Azure virtual machine with inventory collection
@@ -81,6 +82,24 @@ The following tables provide information about each property that can be configu
 |Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Use Sudo     | This setting determines if sudo is used when checking for the item.         |
 |Links     | This setting determines how symbolic links dealt with when traversing directories.<br> **Ignore** - Ignores symbolic links and does not include the files/directories referenced<br>**Follow** - Follows the symbolic links during recursion and also includes the files/directories referenced<br>**Manage** - Follows the symbolic links and allows alter the treatment of returned content      |
+
+## Manage machine groups
+
+Inventory allows you to create and view machine groups in Log Analytics. Machine groups are collections of machines defined by a query in Log Analytics.
+
+To view your machine groups select the **Machine groups** tab on the Inventory page.
+
+![View machine groups on the inventory page](./media/automation-vm-inventory/inventory-machine-groups.png)
+
+Selecting a machine group from the list opens the Machine groups page. This page shows details about the machine group. These details include the log analytics query that is used to define the group. At the bottom of the page, is a paged list of the machines that are part of that group.
+
+![View machine group page](./media/automation-vm-inventory/machine-group-page.png)
+
+Click the **+ Clone** button to clone the machine group. Here you must give the group a new name and alias for the group. The definition can be altered at this time. After changing the query press **Validate query** to preview the machines that would be selected. When you are happy with the group click **Create** to create the machine group
+
+If you want to create a new mchine group, select **+ Create a machine group**. This button opens the **Create a machine group page** where you can define your new group. Click **Create** to create the group.
+
+![Create new machine group](./media/automation-vm-inventory/create-new-group.png)
 
 ## Disconnect your virtual machine from management
 

@@ -207,7 +207,7 @@ On a CentOS-based HPC cluster, there are two methods for establishing trust betw
 
 A sample script contributed from the community is available on [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) to enable easy user authentication on a CentOS-based HPC cluster. Download and use this script by using the following steps. You can also modify this script or use any other method to establish passwordless SSH authentication between the cluster compute nodes.
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
 
 To run the script, you need to know the prefix for your subnet IP addresses. Get the prefix by running the following command on one of the cluster nodes. Your output should look something like 10.1.3.5, and the prefix is the 10.1.3 portion.
 

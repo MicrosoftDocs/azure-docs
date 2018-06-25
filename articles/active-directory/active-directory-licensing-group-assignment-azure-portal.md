@@ -9,12 +9,10 @@
   manager: mtillman
   editor: ''
 
-  ms.assetid:
   ms.service: active-directory
-  ms.devlang: na
   ms.topic: article
-  ms.tgt_pltfrm: na
   ms.workload: identity
+  ms.component: users-groups-roles
   ms.date: 06/05/2017
   ms.author: curtand
 
@@ -104,7 +102,7 @@ We've now specified a license template for the HR Department group. A background
 
 To learn more about the feature set for license management through groups, see the following articles:
 
-* [What is group-based licensing in Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md)

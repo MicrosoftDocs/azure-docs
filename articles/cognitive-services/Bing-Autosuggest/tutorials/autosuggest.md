@@ -1,5 +1,5 @@
 ---
-title: Getting Autosuggest Results using Bing Autosuggest API (Microsoft Cognitive Services on Azure) | Microsoft Docs
+title: Getting Autosuggest Results using Bing Autosuggest API (Azure Cognitive Services) | Microsoft Docs
 description: Shows how to use Bing Autosuggest.
 services: cognitive-services
 author: v-jaswel
@@ -11,7 +11,6 @@ ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-jaswel
 ---
-
 # Build a Web page Autosuggest client
 
 In this tutorial, we'll build a Web page that allows users to query the Bing Autosuggest API.
@@ -38,7 +37,7 @@ Add the HTML header information and begin the script section as follows.
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <title>Bing Autosuggest</title>
 
 <style type="text/css">
@@ -192,13 +191,13 @@ Specify the Bing Autosuggest API endpoint and declare an XMLHttpRequest object, 
 use to send requests to the endpoint.
 
 ```html
-	var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";
+    var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";
 
     var request = new XMLHttpRequest();
 
     try {
         request.open("GET", endpoint + "?q=" + encodeURIComponent(query));
-    } 
+    }
     catch (e) {
         renderErrorMessage("Bad request");
         return false;

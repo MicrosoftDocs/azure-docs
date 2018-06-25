@@ -2,16 +2,13 @@
 title: Azure Storage Table Design Guide | Microsoft Docs
 description: Design Scalable and Performant Tables in Azure Table Storage
 services: cosmos-db
-documentationcenter: na
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
 
@@ -532,7 +529,7 @@ Enable eventually consistent behavior across partition boundaries or storage sys
 #### Context and problem
 EGTs enable atomic transactions across multiple entities that share the same partition key. For performance and scalability reasons, you might decide to store entities that have consistency requirements in separate partitions or in a separate storage system: in such a scenario, you cannot use EGTs to maintain consistency. For example, you might have a requirement to maintain eventual consistency between:  
 
-* Entities stored in two different partitions in the same table, in different tables, in in different storage accounts.  
+* Entities stored in two different partitions in the same table, in different tables, or in different storage accounts.  
 * An entity stored in the Table service and a blob stored in the Blob service.  
 * An entity stored in the Table service and a file in a file system.  
 * An entity store in the Table service yet indexed using the Azure Search service.  
@@ -727,7 +724,7 @@ The following patterns and guidance may also be relevant when implementing this 
 Retrieve the *n* entities most recently added to a partition by using a **RowKey** value that sorts in reverse date and time order.  
 
 #### Context and problem
-A common requirement is be able to retrieve the most recently created entities, for example the ten most recent expense claims submitted by an employee. Table queries support a **$top** query operation to return the first *n* entities from a set: there is no equivalent query operation to return the last n entities in a set.  
+A common requirement is to be able to retrieve the most recently created entities, for example the ten most recent expense claims submitted by an employee. Table queries support a **$top** query operation to return the first *n* entities from a set: there is no equivalent query operation to return the last n entities in a set.  
 
 #### Solution
 Store the entities using a **RowKey** that naturally sorts in reverse date/time order by using so the most recent entry is always the first one in the table.  
@@ -1068,7 +1065,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 #### Server-side projection
-A single entity can have up to 255 properties and be up to 1 MB in size. When you query the table and retrieve entities, you may not need all the properties and can avoid transferring data unnecessarily (to help reduce latency and cost). You can use server-side projection to transfer just the properties you need. The following example is retrieves just the **Email** property (along with **PartitionKey**, **RowKey**, **Timestamp**, and **ETag**) from the entities selected by the query.  
+A single entity can have up to 255 properties and be up to 1 MB in size. When you query the table and retrieve entities, you may not need all the properties and can avoid transferring data unnecessarily (to help reduce latency and cost). You can use server-side projection to transfer just the properties you need. The following example retrieves just the **Email** property (along with **PartitionKey**, **RowKey**, **Timestamp**, and **ETag**) from the entities selected by the query.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(

@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -42,12 +43,16 @@ To join a Windows 10 device, the device registration service must be configured 
 
 - If you are a managed user, Windows takes you to the desktop through the automatic sign-in.
 
-- If you are a federated user, you have to sign-in using your credentials.
+- If you are a federated user, you have to sign in using your credentials.
+
+- If you are federated, your Identity provider MUST support WS-Fed and WS-Trust username/password endpoint. This can be version 1.3 or 2005. This protocol support is required to both join the device to Azure AD and log on to the device with a password. 
+
+
 
 
 ## Joining a device
 
-This section provides you with the steps to join your Windows 10 device to your Azure AD. If you have successfully joined your device to Azure AD, your **Access work or school** dialog indicates this with a **Connected to \<your Azure AD\>** entry.
+This section provides you with the steps to join your Windows 10 device to your Azure AD. A successfully joined  device shows up as **Connected to \<your Azure AD\>**.
 
 ![Connected](./media/device-management-azuread-joined-devices-setup/13.png)
 

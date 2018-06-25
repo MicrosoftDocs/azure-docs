@@ -1,4 +1,4 @@
-﻿---
+---
 title: Register tenants for usage tracking in Azure Stack | Microsoft Docs
 description: Details about operations used to manage  tenant registrations and how tenant usage is tracked in Azure Stack.
 services: azure-stack
@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 06/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
 
@@ -45,7 +45,7 @@ Note that only one Azure subscription can be associated with a tenant. If you tr
 
 ### PowerShell
 
-Use the New-AzureRmResource cmdlet to update the registration resource. Log in to Azure (`Connect-AzureRmAccount`) using the account you used for the initial registration. Here is an example of how to add a tenant:
+Use the New-AzureRmResource cmdlet to update the registration resource. Sign in to Azure (`Add-AzureRmAccount`) using the account you used for the initial registration. Here is an example of how to add a tenant:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -76,7 +76,7 @@ Get a list of all tenants that have been added to a registration.
 
 ### PowerShell
 
-Use the Get-AzureRmResovurce cmdlet to list all registered tenants. Log in to Azure (`Connect-AzureRmAccount`) using the account you used for the initial registration. Here is an example of how to add a tenant:
+Use the Get-AzureRmResovurce cmdlet to list all registered tenants. Sign in to Azure (`Add-AzureRmAccount`) using the account you used for the initial registration. Here is an example of how to add a tenant:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

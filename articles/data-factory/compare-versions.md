@@ -136,7 +136,7 @@ The SDKs that are updated for V2 are not backward-compatible with V1 clients.
 
 ## Roles and permissions
 
-The Data Factory version 1 Contributor role can be used to create and manage Data Factory v2 resources.
+The Data Factory version 1 Contributor role can be used to create and manage Data Factory v2 resources. For more info, see [Data Factory Contributor](../role-based-access-control/built-in-roles.md#data-factory-contributor).
 
 ## Monitoring experience
 In V2, you can also monitor data factories by using [Azure Monitor](monitor-using-azure-monitor.md). The new PowerShell cmdlets support monitoring of [integration runtimes](monitor-integration-runtime.md). Both V1 and V2 support visual monitoring via a monitoring application that can be launched from the Azure portal.

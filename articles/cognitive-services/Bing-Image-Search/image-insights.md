@@ -1,5 +1,6 @@
 ---
 title: Get image insights | Microsoft Docs
+titleSuffix: Bing Web Search APIs - Cognitive Services
 description: Shows how to use the Bing Image Search API to get more information about an image.
 services: cognitive-services
 author: swhite-msft
@@ -13,6 +14,10 @@ ms.author: scottwhi
 ---
 
 # Get insights about an image
+
+> [!IMPORTANT]
+> Instead of using the /images/details endpoint to get image insights, you should use [Visual Search](../bing-visual-search/overview.md) since it provides more comprehensive insights.
+
 
 Each image includes an insights token that you can use to get information about the image. For example, you can get a collection of related images, web pages that include the image, or a list of merchants where you can buy the product shown in the image.  
   
@@ -53,7 +58,7 @@ If you have the URL to an image that you want to get insights of, use the [imgUr
   
 If you have a URL to the image, the following example shows how to request insights of an image.
 
-```json
+```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=sailing+dinghy&imgUrl=https%3A%2F%2Fwww.mydomain.com%2Fimages%2Fsunflower.png&modules=All&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -95,11 +100,11 @@ The top-level object is an [ImageInsightsResponse](https://docs.microsoft.com/re
                 "name" : "Powerboating Dublin, Dinghy Sailing Courses...",
                 "thumbnailUrl" : "https:\/\/tse1.mm.bing.net\/th?id=OIP....",
                 "datePublished" : "2017-01-20T00:41:00.0000000Z",
-                "contentUrl" : "http:\/\/www.extremesports.ie\/content...",
-                "hostPageUrl" : "http:\/\/www.extremesports.ie\/powerboating...",
+                "contentUrl" : "http:\/\/www.contoso.ie\/content...",
+                "hostPageUrl" : "http:\/\/www.contoso.ie\/powerboating...",
                 "contentSize" : "59063 B",
                 "encodingFormat" : "jpeg",
-                "hostPageDisplayUrl" : "www.extremesports.ie\/powerboating...",
+                "hostPageDisplayUrl" : "www.contoso.ie\/powerboating...",
                 "width" : 800,
                 "height" : 600,
                 "thumbnail" : {
@@ -130,14 +135,14 @@ The top-level object is an [ImageInsightsResponse](https://docs.microsoft.com/re
         "value" : [
             {
                 "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?view=...",
-                "name" : "Coronado Daily Photo: Weekend On the Water",
+                "name" : "Weekend On the Water",
                 "thumbnailUrl" : "https:\/\/tse2.mm.bing.net\/th?id=OIP...",
                 "datePublished" : "2010-09-05T12:00:00.0000000Z",
-                "contentUrl" : "http:\/\/1.bp.blogspot.com\/_dc_6...",
-                "hostPageUrl" : "http:\/\/coronadodailyphoto.blogspot.com\/2010...",
+                "contentUrl" : "http:\/\/1.bp.contoso.com\/_dc_6...",
+                "hostPageUrl" : "http:\/\/contoso.com\/2010...",
                 "contentSize" : "203806 B",
                 "encodingFormat" : "jpeg",
-                "hostPageDisplayUrl" : "coronadodailyphoto.blogspot.com\/2010...",
+                "hostPageDisplayUrl" : "contoso.com\/2010...",
                 "width" : 1600,
                 "height" : 1249,
                 "thumbnail" : {
@@ -244,7 +249,7 @@ The following shows the response to the previous request.
     "visuallySimilarImages" : {
         "value" : [
             {
-                "name" : "typical Hawaiian Sunset! :) | Scenes of Hawaii | Pinterest",
+                "name" : "typical Hawaiian Sunset! :) | Scenes of Hawaii",
                 "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?view=detailv2...",
                 "thumbnailUrl" : "https:\/\/tse1.mm.bing.net\/th?id=OIP.Mda2a86...",
                  . . .
@@ -290,7 +295,7 @@ The response shows two recognized entities.
                     "matchingEntities" : [{  
                         "entity" : {  
                             "_type" : "Person",  
-                            "name" : "Faith Hill",  
+                            "name" : "Charlene Whitney",  
                             . . .  
                         },  
                         "matchConfidence" : 0.9961388  
@@ -306,7 +311,7 @@ The response shows two recognized entities.
                     "matchingEntities" : [{  
                         "entity" : {  
                             "_type" : "Person",  
-                            "name" : "Tim McGraw",  
+                            "name" : "Marcus Appel",  
                             . . .  
                         },  
                         "matchConfidence" : 0.9961388  
@@ -336,7 +341,7 @@ The response shows one recognized entity.
 {  
     "_type" : "ImageInsights",  
     "recognizedEntityGroups" : {
-        value: [  
+        "value" : [  
             . . .  
             {  
                 "recognizedEntityRegions" : [{  
@@ -349,7 +354,7 @@ The response shows one recognized entity.
                     "matchingEntities" : [{  
                         "entity" : {  
                             "_type" : "Person",  
-                            "name" : "Faith Hill",  
+                            "name" : "Charlene Whitney",  
                             . . .  
                         },  
                         "matchConfidence" : 0.9961388  
@@ -387,7 +392,7 @@ The following shows the response to the previous request. The response contains 
     "visuallySimilarProducts" : {
         "value" : [
             {
-                "name" : "HALSTON HERITAGE Women's Sequin One-Shoulder Twist-Drape Dress",  
+                "name" : "Sequin One-Shoulder Twist-Drape Dress",  
                 "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?view=de...",  
                 "thumbnailUrl" : "https:\/\/tse2.mm.bing.net\/th?id=OIP.M85bdee...",  
                 . . .
@@ -417,9 +422,9 @@ The following is the response to the previous request.
     "_type" : "ImageInsights",  
     "shoppingSources" : {  
         "offers" : [{  
-            "url" : "http:\/\/www.amazon.com\/dp\/B00O...",  
+            "url" : "http:\/\/www.contoso.com\/dp\/B00O...",  
             "seller" : {  
-                "name" : "Amazon",  
+                "name" : "Contoso",  
                 "image" : {  
                     "url" : "https:\/\/tse3.mm.bing.net\/th?id=A10d50fe..."  
                 }  
@@ -429,9 +434,9 @@ The following is the response to the previous request.
             "availability" : "InStock"  
         },  
         {  
-            "url" : "http:\/\/www.voquestyle.com\/product\/halston-heritage...\/",  
+            "url" : "http:\/\/www.adatum.com\/product\/heritage...\/",  
             "seller" : {  
-                "name" : "voquestyle.com"  
+                "name" : "fabrikam.com"  
             },  
             "price" : 495,  
             "priceCurrency" : "USD",  

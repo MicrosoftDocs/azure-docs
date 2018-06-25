@@ -7,12 +7,10 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: 2b862b75-14df-45f2-a8ab-2a3ff1e2eb08
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 10/10/2017
 ms.author: curtand
 
@@ -45,8 +43,8 @@ You can configure each Azure AD tenant independently to get data synchronized fr
 To add an Azure AD tenant in the Azure portal, sign in to [the Azure portal](https://portal.azure.com) with an account that is an Azure AD global administrator, and, on the left, select **New**.
 
 > [!NOTE]
-> Unlike other Azure resources, your tenants are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your tenant data using Azure PowerShell, the Azure Graph API, or the Office 365 Admin Center. You can also [associate another subscription with the tenant](active-directory-how-subscriptions-associated-directory.md).
+> Unlike other Azure resources, your tenants are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your tenant data using Azure PowerShell, the Azure Graph API, or the Office 365 Admin Center. You can also [associate another subscription with the tenant](fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## Next steps
-For a broad overview of Azure AD licensing issues and best practices, see [What is Azure Active tenant licensing?](active-directory-licensing-whatis-azure-portal.md).
+For a broad overview of Azure AD licensing issues and best practices, see [What is Azure Active tenant licensing?](fundamentals/active-directory-licensing-whatis-azure-portal.md).

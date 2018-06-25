@@ -20,7 +20,7 @@ First, you need to register your application with your Azure Active Directory (A
 
 * Sign in to the [Azure portal](https://portal.azure.com).
 * Choose your Azure AD tenant by clicking on your account in the top right corner of the page.
-* In the left-hand navigation pane, click on **Azure Active Directory**.
+* In the left hand navigation pane, click on **Azure Active Directory**.
 * Click on **App Registrations** and click on **New application registration**.
 * Follow the prompts and create a new application. It doesn't matter if it is a web application or a native application for this tutorial, but if you'd like specific examples for web applications or native applications, check out our [quickstarts](../articles/active-directory/develop/active-directory-developers-guide.md).
   * For Web Applications, provide the **Sign-On URL**, which is the base URL of your app, where users can sign in e.g `http://localhost:12345`.

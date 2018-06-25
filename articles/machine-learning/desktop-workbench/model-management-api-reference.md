@@ -8,6 +8,7 @@ manager: hjerez
 editor: jasonwhowell
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
@@ -478,7 +479,7 @@ Gets service keys.
 ### Request
 | Method | Request URI |
 |------------|------------|
-| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/regenerateKeys | 
 
 ### Description
 Regenerates service keys and returns them.

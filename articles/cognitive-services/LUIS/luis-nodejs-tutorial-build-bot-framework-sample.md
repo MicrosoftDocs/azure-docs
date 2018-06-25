@@ -80,7 +80,7 @@ Once the bot is registered, select **Test in Web Chat** to open the Web Chat pan
 
   ![Test the bot in Web Chat](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
 
-The bot responds by saying "You have reached Greeting. You said: hello". This confirms that the bot has received your message and passed it to a default LUIS app that it created. This default LUIS app detected a Greeting intent. In the next step you'll connect the bot to the LUIS app you previously created instead of the default LUIS app.
+The bot responds by saying "You have reached Greeting. You said: hello". This confirms that the bot has received your message and passed it to a default LUIS app that it created. This default LUIS app detected a Greeting intent. In the next step, you'll connect the bot to the LUIS app you previously created instead of the default LUIS app.
 
 ## Connect your LUIS app to the bot
 
@@ -96,8 +96,7 @@ If you don't have the LUIS app ID, log in to the [LUIS](luis-reference-regions.m
 
 3. If you haven't trained the app, select the **Train** button in the upper right to train your app.
 
-4. If you haven't published the app, select **PUBLISH** in the top navigation bar to open the **Publish** page. Select the **Publish to production slot** button. 
-
+4. If you haven't published the app, select **PUBLISH** in the top navigation bar to open the **Publish** page. Select the Production slot and the **Publish** button.
 
 ## Modify the bot code
 
@@ -231,20 +230,22 @@ In the Azure Portal, select on **Test in Web Chat** to test the bot. Try type me
    ![Test HomeAutomation bot in Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> If you find that your bot doesn't always recognize the correct intent or entities, improve your LUIS app's performance by giving it more example utterances to train it. You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](https://docs.microsoft.com/azure/cognitive-services/LUIS/train-test).
+> If you find that your bot doesn't always recognize the correct intent or entities, improve your LUIS app's performance by giving it more example utterances to train it. You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
 
+## Learn more about Bot Framework
+Learn more about [Bot Framework](https://dev.botframework.com/) and the [3.x](https://github.com/Microsoft/BotBuilder) and [4.x](https://github.com/Microsoft/botbuilder-js) SDKs.
 
 ## Next steps
 
 <!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
-You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS app. Then add dialogs for the new intents and and test them using the bot. 
+You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS app. Then add dialogs for the new intents and test them using the bot. 
 
 <!-- 
 > [!NOTE] 
 > The default LUIS app that the template created contains example utterances for Cancel, Greeting, and Help intents. In the list of apps, find the app that begins with the name specified in **App name** in the **Bot Service** blade when you created the Bot Service. -->
 
 > [!div class="nextstepaction"]
-> [Add intents](./add-intents.md)
+> [Add intents](./luis-how-to-add-intents.md)
 > [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
 
 
@@ -292,10 +293,10 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 <!-- Old Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
 [Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[Github-LUIS-Samples-node-hotel-bot]:https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
+[Github-LUIS-Samples-node-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
 [NodeJs]: https://nodejs.org/
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 

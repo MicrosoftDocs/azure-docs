@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -31,7 +32,7 @@ In this article, you will learn how to enable and disable the system assigned id
 
 
 - If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md).
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 
 ## Managed Service Identity during creation of an Azure virtual machine scale set
 

@@ -1,16 +1,14 @@
 ---
 title: Azure IoT Edge SQL module | Microsoft Docs 
 description: Store data at the edge with Microsoft SQL modules, with Azure Functions to format the data. 
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.reviewer: ebertrams
 ms.date: 02/21/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
+services: iot-edge
 ---
 
 # Store data at the edge with SQL Server databases
@@ -30,7 +28,7 @@ The following articles aren't required to successfully complete this tutorial, b
 * [Use Visual Studio Code to develop and deploy Azure Functions to Azure IoT Edge](how-to-vscode-develop-azure-function.md)
 
 After you complete the required tutorials, you should have all the required prerequisites ready on your machine: 
-* An active Azure IoT hub.
+* An active Azure IoT hub with at least an IoT Edge device.
 * An IoT Edge device with at least 2-GB RAM and a 2-GB disk drive.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
@@ -40,7 +38,6 @@ After you complete the required tutorials, you should have all the required prer
 * [Python 2.7](https://www.python.org/downloads/)
 * [IoT Edge control script](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 * AzureIoTEdgeFunction template (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
-* An active IoT hub with at least an IoT Edge device.
 
 Both Windows and Linux containers on x64 processor architectures work for this tutorial. SQL Server does not support ARM processors.
 
@@ -92,7 +89,7 @@ In step 3, you add create options to the SQL Server container, which are importa
         }
    ```
 
-3. Replace the `<docker registry address>` with the address filled in at the completed tutorial [Deploy Azure Function as an IoT Edge module - preview](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)
+3. Replace the `<docker registry address>` with the address filled in at the completed tutorial [Deploy Azure Function as an IoT Edge module](tutorial-deploy-function.md).
 
    >[!NOTE]
    >The container registry address is the same as the login server that you copied from your registry. It should be in the form of `<your container registry name>.azurecr.io`

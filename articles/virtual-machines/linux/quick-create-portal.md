@@ -69,15 +69,17 @@ Log in to the Azure portal at http://portal.azure.com
 
 Create an SSH connection with the VM.
 
-1. Select the **Connect** button on the overview page for your VM. The **Connect** button displays an SSH connection command that includes the username and public IP address for the VM. Copy this connection command.
+1. Select the **Connect** button on the overview page for your VM. 
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. Paste the SSH connection command into a shell, such as the Azure Cloud Shell or Windows Substem for Linux. The following example shows what the SSH connection command looks like:
+2. In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 22. In **Login using VM local account** a connection command is shown. Click the button to copy the command. The following example shows what the SSH connection command looks like:
 
     ```bash
-    ssh azureuser@40.112.21.50
+    ssh azureuser@myvm-123abc.eastus.cloudapp.azure.com
     ```
+
+3. Paste the SSH connection command into a shell, such as the Azure Cloud Shell or Bash on Ubuntu on Windows to create the connection. 
 
 ## Install web server
 

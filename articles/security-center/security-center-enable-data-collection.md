@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2018
+ms.date: 05/14/2018
 ms.author: terrylan
 
 ---
@@ -21,7 +21,7 @@ ms.author: terrylan
 Security Center collects data from your Azure virtual machines (VMs) and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Microsoft Monitoring Agent also copies crash dump files to your workspace.
 
 ## Enable automatic provisioning of Microsoft Monitoring Agent     
-When automatic provisioning is enabled, Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended but manual agent installation is also available. [Learn how to install the Microsoft Monitoring Agent extension](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
+Automatic provisioning is off by default. When automatic provisioning is enabled, Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended but manual agent installation is also available. [Learn how to install the Microsoft Monitoring Agent extension](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
 > Disabling automatic provisioning limits security monitoring for your resources. To learn more, see [disable automatic provisioning](security-center-enable-data-collection.md#disable-automatic-provisioning) in this article. VM disk snapshots and artifact collection are enabled even if automatic provisioning is disabled.
@@ -29,13 +29,16 @@ When automatic provisioning is enabled, Security Center provisions the Microsoft
 >
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
-1. Under the Security Center main menu, select **Security Policy**.
+1. Under the Security Center main menu, select **Security policy**.
 2. Select the subscription.
+
+  ![Select subscription][7]
+
 3. Under **Security policy**, select **Data Collection**.
-4. Under **Onboarding**, select **On** to enable automatic provisioning.
+4. Under **Auto Provisioning**, select **On** to enable automatic provisioning.
 5. Select **Save**.
 
-![Enable automatic provisioning][1]
+  ![Enable automatic provisioning][1]
 
 ## Default workspace configuration
 Data collected by Security Center is stored in Log Analytics workspace(s).  You can elect to have data collected from Azure VMs stored in workspaces created by Security Center or in an existing workspace you created.
@@ -46,16 +49,16 @@ To use your existing Log Analytics workspace:
 
 To select an existing Log Analytics workspace:
 
-1. Under **Security policy – Data Collection**, select **Use another workspace**.
+1. Under **Default workspace configuration**, select **Use another workspace**.
 
    ![Select existing workspace][2]
 
 2. From the pull-down menu, select a workspace to store collected data.
 
-> [!NOTE]
-> In the pull down menu, only workspaces that you have access to and are in your Azure subscription are shown.
->
->
+  > [!NOTE]
+  > In the pull down menu, all the workspaces across all of your subscriptions are available. See [cross subscription workspace selection](security-center-enable-data-collection.md#cross-subscription-workspace-selection) for more information.
+  >
+  >
 
 3. Select **Save**.
 4. After selecting **Save**, you will be asked if you would like to reconfigure monitored VMs.
@@ -70,7 +73,15 @@ To select an existing Log Analytics workspace:
 
    - Select **Cancel** to cancel the operation.
 
-   ![Select existing workspace][3]
+     ![Select existing workspace][3]
+
+## Cross subscription workspace selection
+When you select a workspace to store your data, all the workspaces across all of your subscriptions are available. Cross subscription workspace selection allows you to collect data from virtual machines running in different subscriptions and store it in the workspace of your choice. This capability works for both virtual machines running on Linux and Windows.
+
+> [!NOTE]
+> Cross subscription workspace selection is part of Azure Security Center’s Free Tier. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
+>
+>
 
 ## Data collection tier
 Security Center can reduce the volume of events while maintaining enough events for investigation, auditing, and threat detection. You can choose the right filtering policy for your subscriptions and workspaces from four sets of events to be collected by the agent.
@@ -81,7 +92,8 @@ Security Center can reduce the volume of events while maintaining enough events 
 - **None** – Disable security event collection from security and App Locker logs. For customers who choose this option, their security dashboards have only Windows Firewall logs and proactive assessments like antimalware, baseline, and update.
 
 > [!NOTE]
-> These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.
+> These security events sets are available only on Security Center’s Standard tier. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
+These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.
 >
 >
 
@@ -112,7 +124,7 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 >
 
 To choose your filtering policy:
-1. On the **Security policy & settings** blade, select your filtering policy under **Security Events**.
+1. On the **Security policy Data Collection** blade, select your filtering policy under **Security Events**.
 2. Select **Save**.
 
    ![Choose filtering policy][5]
@@ -126,12 +138,13 @@ You can disable automatic provisioning from resources at any time by turning off
 >
 
 1. Return to the Security Center main menu and select the Security policy.
-
-   ![Disable automatic provisioning][6]
-
 2. Select the subscription that you wish to disable automatic provisioning.
-3. On the **Security policy – Data Collection** blade, under **Onboarding** select **Off** to disable automatic provisioning.
-4. Select **Save**.  
+3. On the **Security policy – Data Collection** blade, under **Auto provisioning** select **Off**.
+4. Select **Save**.
+
+  ![Disable auto provisioning][6]
+
+When auto provisioning is disabled (turned off), the default workspace configuration section does not display.
 
 ## Next steps
 This article showed you how data collection and automatic provisioning in Security Center works. To learn more about Security Center, see the following:
@@ -150,4 +163,5 @@ This article showed you how data collection and automatic provisioning in Securi
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
+[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
+[7]: ./media/security-center-enable-data-collection/select-subscription.png

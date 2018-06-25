@@ -1,24 +1,21 @@
 ---
 title: Use Azure MFA Server with AD FS 2.0 | Microsoft Docs
 description: This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS 2.0.
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
 
-ms.assetid: 96168849-241a-4499-a224-d829913caa7e
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/14/2017
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
 
-ms.custom: H1Hack27Feb2017, it-pro
 ---
 # Configure Azure Multi-Factor Authentication Server to work with AD FS 2.0
+
 This article is for organizations that are federated with Azure Active Directory, and want to secure resources that are on-premises or in the cloud. Protect your resources by using the Azure Multi-Factor Authentication Server and configuring it to work with AD FS so that two-step verification is triggered for high-value end points.
 
 This documentation covers using the Azure Multi-Factor Authentication Server with AD FS 2.0. For information about AD FS, see [Securing cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS](howto-mfaserver-adfs-2012.md).

@@ -1,21 +1,18 @@
 ---
 title: Troubleshoot error codes for the Azure MFA NPS extension | Microsoft Docs
-description: Get help resolving issues with the NPS extension for Azure Multi-Factor Authentication with specific resolutions for common error messages
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
+description: Get help resolving issues with the NPS extension for Azure Multi-Factor Authentication
 
-ms.assetid:
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 07/14/2017
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
+
 ---
 
 # Resolve error messages from the NPS extension for Azure Multi-Factor Authentication

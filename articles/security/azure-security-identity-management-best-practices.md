@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure identity & access security best practices | Microsoft Docs
 description: This article provides a set of best practices for identity management and access control using built in Azure capabilities.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbaldwin
 editor: TomSh
 
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
-ms.author: yurid
+ms.date: 04/26/2018
+ms.author: barclayn
 
 ---
 # Azure Identity Management and access control security best practices
+
 Many consider identity to be the new boundary layer for security, taking over that role from the traditional network-centric perspective. This evolution of the primary pivot for security attention and investments come from the fact that network perimeters have become increasingly porous and that perimeter defense cannot be as effective as they once were prior to the explosion of [BYOD](http://aka.ms/byodcg) devices and cloud applications.
 
-In this article, we discuss a collection of Azure identity management and access control security best practices. These best practices are derived from our experience with [Azure AD](../active-directory/active-directory-whatis.md) and the experiences of customers like yourself.
+In this article, we discuss a collection of Azure identity management and access control security best practices. These best practices are derived from our experience with [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) and the experiences of customers like yourself.
 
 For each best practice, we explain:
 
@@ -44,6 +45,7 @@ Azure identity management and access control security best practices discussed i
 * Actively monitor for suspicious activities
 
 ## Centralize your identity management
+
 One important step towards securing your identity is to ensure that IT can manage accounts from one single location regarding where this account was created. While the majority of the enterprises IT organizations have their primary account directory on-premises, hybrid cloud deployments are on the rise and it is important that you understand how to integrate on-premises and cloud directories and provide a seamless experience to the end user.
 
 To accomplish this [hybrid identity](../active-directory/active-directory-hybrid-identity-design-considerations-overview.md) scenario we recommend two options:
@@ -56,9 +58,10 @@ Organizations that fail to integrate their on-premises identity with their cloud
 For more information on Azure AD synchronization, see the article [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md).
 
 ## Enable Single Sign-On (SSO)
+
 When you have multiple directories to manage, this becomes an administrative problem not only for IT, but also for end users that have to remember multiple passwords. By using [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) you provide your users the ability of use the same set of credentials to sign in and access the resources that they need, regardless where this resource is located on-premises or in the cloud.
 
-Use SSO to enable users to access their [SaaS applications](../active-directory/active-directory-appssoaccess-whatis.md) based on their organizational account in Azure AD. This is applicable not only for Microsoft SaaS apps, but also other apps, such as [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) and [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Your application can be configured to use Azure AD as a [SAML-based identity](../active-directory/fundamentals-identity.md) provider. As a security control, Azure AD will not issue a token allowing them to sign into the application unless they have been granted access using Azure AD. You may grant access directly, or through a group that they are a member of.
+Use SSO to enable users to access their [SaaS applications](../active-directory/manage-apps/what-is-single-sign-on.md) based on their organizational account in Azure AD. This is applicable not only for Microsoft SaaS apps, but also other apps, such as [Google Apps](../active-directory/saas-apps/google-apps-tutorial.md) and [Salesforce](../active-directory/saas-apps/salesforce-tutorial.md). Your application can be configured to use Azure AD as a [SAML-based identity](../active-directory/fundamentals-identity.md) provider. As a security control, Azure AD will not issue a token allowing them to sign into the application unless they have been granted access using Azure AD. You may grant access directly, or through a group that they are a member of.
 
 > [!NOTE]
 > the decision to use SSO will impact how you integrate your on-premises directory with your cloud directory. If you want SSO, you will need to use federation, because directory synchronization will only provide [same sign-on experience](../active-directory/active-directory-aadconnect.md).
@@ -70,6 +73,7 @@ Organizations that do not enforce SSO for their users and applications are more 
 You can learn more about Azure AD SSO by reading the article [AD FS management and customization with Azure AD Connect](../active-directory/active-directory-aadconnect-federation-management.md).
 
 ## Deploy password management
+
 In scenarios where you have multiple tenants or you want to enable users to [reset their own password](../active-directory/active-directory-passwords-update-your-own-password.md), it is important that you use appropriate security policies to prevent abuse. In Azure, you can leverage the self-service password reset capability and customize the security options to meet your business requirements.
 
 It is important to obtain feedback from these users and learn from their experiences as they try to perform these steps. Based on these experiences, elaborate a plan to mitigate potential issues that may occur during the deployment for a larger group. It is also recommended that you use the [Password Reset Registration Activity report](../active-directory/active-directory-passwords-get-insights.md) to monitor the users that are registering.
@@ -79,6 +83,7 @@ Organizations that want to avoid password change support calls but do enable use
 You can learn more about password reset by reading the article [Deploying Password Management and training users to use it](../active-directory/authentication/howto-sspr-deployment.md).
 
 ## Enforce multi-factor authentication (MFA) for users
+
 For organizations that need to be compliant with industry standards, such as [PCI DSS version 3.2](http://blog.pcisecuritystandards.org/preparing-for-pci-dss-32), multi-factor authentication is a must have capability for authenticate users. Beyond being compliant with industry standards, enforcing MFA to authenticate users can also help organizations to mitigate credential theft type of attack, such as [Pass-the-Hash (PtH)](http://aka.ms/PtHPaper).
 
 By enabling Azure MFA for your users, you are adding a second layer of security to user sign-ins and transactions. In this case, a transaction might be accessing a document located in a file server or in your SharePoint Online. Azure MFA also helps IT to reduce the likelihood that a compromised credential has access to organization’s data.
@@ -90,6 +95,7 @@ One alternative for organizations that want to keep the entire authentication co
 For more information on Azure MFA, see the article [Getting started with Azure Multi-Factor Authentication in the cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## Use role-based access control (RBAC)
+
 Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. Azure Role-Based Access Control (RBAC) can be used to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
 You can leverage [built in RBAC](../role-based-access-control/built-in-roles.md) roles in Azure to assign privileges to users. Consider using *Storage Account Contributor* for cloud operators that need to manage storage accounts and *Classic Storage Account Contributor* role to manage classic storage accounts. For cloud operators that needs to manage VMs and storage account, consider adding them to *Virtual Machine Contributor* role.
@@ -99,6 +105,7 @@ Organizations that do not enforce data access control by leveraging capabilities
 You can learn more about Azure RBAC by reading the article [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ## Control locations where resources are created using Resource Manager
+
 Enabling cloud operators to perform tasks while preventing them from breaking conventions that are needed to manage your organization's resources is important. Organizations that want to control the locations where resources are created should hard code these locations.
 
 To achieve this, organizations can create security policies that have definitions that describe the actions or resources that are denied. You assign those policy definitions at the desired scope, such as the subscription, resource group, or an individual resource.
@@ -115,6 +122,7 @@ Organizations that are not controlling how resources are created are more suscep
 You can learn more about creating policies with Azure Resource Manager by reading the article [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)
 
 ## Guide developers to leverage identity capabilities for SaaS apps
+
 User identity is leveraged in many scenarios when users access [SaaS apps](https://azure.microsoft.com/marketplace/active-directory/all/) that can be integrated with on-premises or cloud directory. First and foremost, we recommend that developers use a secure methodology to develop these apps, such as [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Azure AD simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as [OAuth 2.0](http://oauth.net/2/) and [OpenID Connect](http://openid.net/connect/), as well as open-source libraries for different platforms.
 
 Make sure to register any application that outsources authentication to Azure AD, this is a mandatory procedure. The reason behind this is because Azure AD needs to coordinate the communication with the application when handling sign-on (SSO) or exchanging tokens. The user’s session expires when the lifetime of the token issued by Azure AD expires. Always evaluate if your application should use this time or if you can reduce this time. Reducing the lifetime can act as a security measure that will force users to sign out based on a period of inactivity.
@@ -124,6 +132,7 @@ Organizations that do not enforce identity control to access apps and do not gui
 You can learn more about authentication scenarios for SaaS apps by reading [Authentication Scenarios for Azure AD](../active-directory/active-directory-authentication-scenarios.md).
 
 ## Actively monitor for suspicious activities
+
 According to [Verizon 2016 Data Breach report](http://www.verizonenterprise.com/verizon-insights-lab/dbir/2016/), credential compromise is still in the rise and becoming one of the most profitable businesses for cyber criminals. For this reason, it is important to have an active identity monitor system in place that can quickly detect suspicious behavior activity and trigger an alert for further investigation. Azure AD has two major capabilities that can help organizations monitor their identities: Azure AD Premium [anomaly reports](../active-directory/active-directory-view-access-usage-reports.md) and Azure AD [identity protection](../active-directory/active-directory-identityprotection.md) capability.
 
 Make sure to use the anomaly reports to identify attempts to sign in [without being traced](../active-directory/active-directory-reporting-sign-ins-from-unknown-sources.md), [brute force](../active-directory/active-directory-reporting-sign-ins-after-multiple-failures.md) attacks against a particular account, attempts to sign in from multiple locations, sign in from [infected devices, and suspicious IP addresses. Keep in mind that these are reports. In other words, you must have processes and procedures in place for IT admins to run these reports on the daily basis or on demand (usually in an incident response scenario).

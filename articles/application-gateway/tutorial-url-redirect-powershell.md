@@ -14,7 +14,7 @@ ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
 ---
 
-# Tutorial: Create an application gateway with URL path-based redirection using Azure PowerShell
+# Create an application gateway with URL path-based redirection using Azure PowerShell
 
 You can use Azure PowerShell to configure [URL-based routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using  [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). You then create URL routing rules that make sure web traffic is redirected to the appropriate backend pool.
 

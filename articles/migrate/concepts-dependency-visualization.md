@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 2/21/2018
+ms.date: 06/19/2018
 ms.author: raynew
 ---
 

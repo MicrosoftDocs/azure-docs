@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: "03/27/2018"
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: shlo
 
 ---
@@ -43,8 +43,8 @@ Visual authoring with VSTS Git integration supports source control and collabora
 ### Configure a VSTS Git repository with Azure Data Factory
 You can configure a VSTS GIT repository with a data factory through two methods.
 
-<a name="method1"></a>
-#### Configuration method 1: Let's get started page
+#### <a name="method1"></a> Configuration method 1: Let's get started page
+
 In Azure Data Factory, go to the **Let's get started** page. Select **Configure Code Repository**:
 
 ![Configure a VSTS code repository](media/author-visually/configure-repo.png)
@@ -59,11 +59,11 @@ The pane shows the following VSTS code repository settings:
 |:--- |:--- |:--- |
 | **Repository Type** | The type of the VSTS code repository.<br/>**Note**: GitHub is not currently supported. | Visual Studio Team Services Git |
 | **Azure Active Directory** | Your Azure AD tenant name. | <your tenant name> |
-| **Visual Studio Team Services Account** | Your VSTS account name. You can locate your VSTS account name at `https://{account name}.visualstudio.com`. You can [sign in to your VSTS account](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | \<your account name> |
-| **ProjectName** | Your VSTS project name. You can locate your VSTS project name at `https://{account name}.visualstudio.com/{project name}`. | \<your VSTS project name> |
-| **RepositoryName** | Your VSTS code repository name. VSTS projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | \<your VSTS code repository name> |
-| **Collaboration branch** | Your VSTS collaboration branch that will be used for publishing. By default, it is `master`. Change this in case you want to publish resources from another branch. | \<your collaboration branch name> |
-| **Root folder** | Your root folder in your VSTS collaboration branch. | \<your root folder name> |
+| **Visual Studio Team Services Account** | Your VSTS account name. You can locate your VSTS account name at `https://{account name}.visualstudio.com`. You can [sign in to your VSTS account](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | <your account name> |
+| **ProjectName** | Your VSTS project name. You can locate your VSTS project name at `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
+| **RepositoryName** | Your VSTS code repository name. VSTS projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | <your VSTS code repository name> |
+| **Collaboration branch** | Your VSTS collaboration branch that will be used for publishing. By default, it is `master`. Change this in case you want to publish resources from another branch. | <your collaboration branch name> |
+| **Root folder** | Your root folder in your VSTS collaboration branch. | <your root folder name> |
 | **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into a VSTS Git repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 
 #### Configuration method 2: UX authoring canvas
@@ -72,6 +72,14 @@ In the Azure Data Factory UX **Authoring canvas**, locate your data factory. Sel
 A configuration pane appears. For details about the configuration settings, see the descriptions in <a href="#method1">Configuration method 1</a>.
 
 ![Configure the code repository settings for UX authoring](media/author-visually/configure-repo-2.png)
+
+#### Switch to a different Git repo
+
+To switch to a different Git repo, locate the icon in the upper right corner of the Data Factory overview page, as shown in the following screenshot. If you can’t see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
+
+After you remove the association with the current repo, you can configure your Git settings to use a different repo. Then you can import existing Data Factory resources to the new repo.
+
+![Remove the association with the current Git repo.](media/author-visually/remove-repo.png)
 
 ### Use version control
 Version control systems (also known as _source control_) let developers collaborate on code and track changes that are made to the code base. Source control is an essential tool for multi-developer projects.

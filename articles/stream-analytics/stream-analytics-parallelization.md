@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
+ms.date: 05/07/2018
 ---
 # Leverage query parallelization in Azure Stream Analytics
 This article shows you how to take advantage of parallelization in Azure Stream Analytics. You learn how to scale Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.
@@ -30,7 +30,15 @@ All Azure Stream Analytics input can take advantage of partitioning:
 
 ### Outputs
 
-When you work with Stream Analytics, you can take advantage of partitioning for most output sinks. More information about output partitioning is available on the [partitioning section of the output page](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning).
+When you work with Stream Analytics, you can take advantage of partitioning in the outputs:
+-	Azure Data Lake Storage
+-	Azure Functions
+-	Azure Table
+-	Blob storage (can set the partition key explicitly)
+-	CosmosDB  (need to set the partition key explicitly)
+-	EventHub (need to set the partition key explicitly)
+-	IoT Hub  (need to set the partition key explicitly)
+-	Service Bus
 
 PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
@@ -49,13 +57,13 @@ An *embarrassingly parallel* job is the most scalable scenario we have in Azure 
 
 3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#outputs) for more details.
 
-4. The number of input partitions must equal the number of output partitions. Blob storage output doesn't currently support partitions. But that's okay, because it inherits the partitioning scheme of the upstream query. Here are examples of partition values that allow a fully parallel job:  
+4. The number of input partitions must equal the number of output partitions. Blob storage output can support partitions and inherits the partitioning scheme of the upstream query. When a partition key for Blob storage is specified, data is partitioned per input partition thus the result is still fully parallel. Here are examples of partition values that allow a fully parallel job:
 
    * 8 event hub input partitions and 8 event hub output partitions
-   * 8 event hub input partitions and blob storage output  
-   * 8 Iot hub input partitions and 8 event hub output partitions
-   * 8 blob storage input partitions and blob storage output  
-   * 8 blob storage input partitions and 8 event hub output partitions  
+   * 8 event hub input partitions and blob storage output
+   * 8 event hub input partitions and blob storage output partitioned by a custom field with arbitrary cardinality
+   * 8 blob storage input partitions and blob storage output
+   * 8 blob storage input partitions and 8 event hub output partitions
 
 The following sections discuss some example scenarios that are embarrassingly parallel.
 

@@ -6,7 +6,7 @@ author: rachel-msft
 ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
@@ -27,32 +27,6 @@ To complete this how-to guide, you need:
 > [!IMPORTANT]
 > This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## Add the extension
-Add the updated Azure Database for MySQL management extension using the following command:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Check you have the correct extension version installed. 
-```azurecli-interactive
-az extension list
-```
-
-The return JSON should include the following: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-If version 0.0.5 is not returned, run the following to update the extension: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
-
 ## Set backup configuration
 
 You make the choice between configuring your server for either locally redundant backups or geographically redundant backups at server creation. 
@@ -63,14 +37,14 @@ You make the choice between configuring your server for either locally redundant
 
 While creating a server via the `az mysql server create` command, the `--geo-redundant-backup` parameter decides your Backup Redundancy Option. If `Enabled`, geo redundant backups are taken. Or if `Disabled` locally redundant backups are taken. 
 
-The backup retention period is set by the parameter `--backup-retention-days`. 
+The backup retention period is set by the parameter `--backup-retention`. 
 
 For more information about setting these values during create, see the [Azure Database for MySQL server CLI Quickstart](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 The backup retention period of a server can be changed as follows:
 
 ```azurecli-interactive
-az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 The preceding example changes the backup retention period of mydemoserver to 10 days.

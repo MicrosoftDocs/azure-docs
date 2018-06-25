@@ -48,14 +48,14 @@ In particular, review the section in each article for "connecting over the inter
 ## Configure the Network Security Group (NSG)
 It is not unusual to configure the NSG and corresponding Azure endpoint or Access Control List (ACL) to make your Azure VM accessible to other parties. Chances are you've done this before to allow your own application logic to connect to your SQL Azure VM. It's no different for an Azure Search connection to your SQL Azure VM. 
 
-The links below provide instructions on NSG configuration for VM deployments. Use these instructions to ACL an Azure SEarch endpoint based on its IP address.
+The links below provide instructions on NSG configuration for VM deployments. Use these instructions to ACL an Azure Search endpoint based on its IP address.
 
 > [!NOTE]
-> For background, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md)
+> For background, see [What is a Network Security Group?](../virtual-network/security-overview.md)
 > 
 > 
 
-* For a **Resource Manager** VM, see [How to create NSGs for ARM deployments](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+* For a **Resource Manager** VM, see [How to create NSGs for ARM deployments](../virtual-network/tutorial-filter-network-traffic.md). 
 * For a **Classic** VM, see [How to create NSGs for Classic deployments](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
 
 IP addressing can pose a few challenges that are easily overcome if you are aware of the issue and potential workarounds. The remaining sections provide recommendations for handling issues related to IP addresses in the ACL.

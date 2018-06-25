@@ -3,7 +3,7 @@ title: Azure Container Service tutorial - Scale Application
 description: Azure Container Service tutorial - Scale Application
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial

@@ -1,12 +1,10 @@
 ---
 title: Automate Mobility Service installation for Azure Site Recovery using System Center Configuration Manager | Microsoft Docs
 description: This article helps you automate Mobility Service installation by using System Center Configuration Manager.
-services: site-recovery
 author: AnoopVasudavan
-manager: gauravd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: anoopkv
 ---
 # Automate Mobility Service installation with System Center Configuration Manager
@@ -44,7 +42,7 @@ Alternately, you can automate Mobility Service installation with [Azure Automati
 4. Copy the **MobSvc.passphrase** file into the **MobSvcWindows** folder on your network share.
 5. Browse to the installer repository on the configuration server by running the following command:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Copy the **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** to the **MobSvcWindows** folder on your network share.
 7. Copy the following code, and save it as **install.bat** into the **MobSvcWindows** folder.
@@ -225,7 +223,7 @@ You can monitor the deployment progress by using the Configuration Manager conso
 4. Copy the **MobSvc.passphrase** file into the **MobSvcLinux** folder on your network share.
 5. Browse to the installer repository on the configuration server by running the command:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Copy the following files to the **MobSvcLinux** folder on your network share:
    * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz

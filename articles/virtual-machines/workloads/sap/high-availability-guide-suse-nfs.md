@@ -4,7 +4,7 @@ description: High availability for NFS on Azure VMs on SUSE Linux Enterprise Ser
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -130,14 +130,12 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
 1. Create an Availability Set  
    Set max update domain
 1. Create Virtual Machine 1   
-   Use at least SLES4SAP 12 SP1, in this example the SLES4SAP 12 SP1 BYOS image
-   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES For SAP Applications 12 SP1 (BYOS) is used  
+   Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 BYOS image
+   SLES For SAP Applications 12 SP3 (BYOS) is used  
    Select Availability Set created earlier  
 1. Create Virtual Machine 2   
-   Use at least SLES4SAP 12 SP1, in this example the SLES4SAP 12 SP1 BYOS image
-   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES For SAP Applications 12 SP1 (BYOS) is used  
+   Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 BYOS image  
+   SLES For SAP Applications 12 SP3 (BYOS) is used  
    Select Availability Set created earlier  
 1. Add one data disk for each SAP system to both virtual machines.
 1. Create a Load Balancer (internal)  

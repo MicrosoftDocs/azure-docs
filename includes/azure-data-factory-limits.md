@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 04/18/2018
+ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -14,22 +14,23 @@ Data factory is a multi-tenant service that has the following default limits in 
 
 ### Version 2
 
-| Resource | Default Limit | Maximum Limit | 
-| -------- | ------------- | ------------- | 
+| Resource | Default Limit | Maximum Limit |
+| -------- | ------------- | ------------- |
 | Data factories in an Azure subscription |	50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Pipelines within a data factory | 2500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Datasets within a data factory | 2500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Triggers within a data factory | 2500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Linked services within a data factory | 2500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Integration runtimes within a data factory <sup>4</sup> | 2500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Total number of entities (Pipeline, Datasets, Triggers, Linked Services, Integration runtimes) within a data factory | 5000 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Total CPU cores for Azure-SSIS Integration Runtime(s) under one subscription | 100 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Concurrent pipeline runs per pipeline | 20 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Max activities per pipeline | 20 | 30 |
-| Max parameters per pipeline | 20 | 30 |
+| Concurrent pipeline runs per pipeline | 100 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Concurrent pipeline runs per data factory | 10,000  | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Max activities per pipeline (includes inner activities for containers) | 40 | 40 |
+| Max parameters per pipeline | 50 | 50 |
+| ForEach items | 100,000 | 100,000 |
+| ForEach parallelism | 20 | 50 |
+| Characters per expression | 8,192 | 8,192 |
+| Minimum Tumbling Window Trigger interval | 15 min | 15 min |
+| Max Timeout for pipeline activity runs | 7 days | 7 days |
 | Bytes per object for pipeline objects <sup>1</sup> | 200 KB | 200 KB |
 | Bytes per object for dataset and linked service objects <sup>1</sup> | 100 KB | 2000 KB |
-| Cloud data movement units <sup>3</sup> | 256 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Retry count for pipeline activity runs | 1 day(timeout) | 1 day (timeout) |
+| Cloud data movement units per activity run <sup>3</sup> | 256 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Write API calls | 2500/hr<br/><br/> This limit is imposed by Azure Resource Manager, not Azure Data Factory. | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Read API calls | 12,500/hr<br/><br/> This limit is imposed by Azure Resource Manager, not Azure Data Factory. | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
@@ -45,7 +46,7 @@ Data factory is a multi-tenant service that has the following default limits in 
 | Bytes per object for pipeline objects <sup>1</sup> |200 KB |200 KB |
 | Bytes per object for dataset and linked service objects <sup>1</sup> |100 KB |2000 KB |
 | HDInsight on-demand cluster cores within a subscription <sup>2</sup> |60 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Cloud data movement units <sup>3</sup> |32 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Cloud data movement units per activity run <sup>3</sup> |32 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Retry count for pipeline activity runs |1000 |MaxInt (32 bit) |
 
 <sup>1</sup> Pipeline, dataset, and linked service objects represent a logical grouping of your workload. Limits for these objects do not relate to amount of data you can move and process with the Azure Data Factory service. Data factory is designed to scale to handle petabytes of data.

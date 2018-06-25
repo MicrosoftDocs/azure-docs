@@ -124,7 +124,7 @@ After combining all steps, the unit test will have the following code:
 
 ## Unit testing orchestrator functions
 
-Orchestrator functions are even more interesting for unit testing since they usually have a lot more business logic. Currently, Orchestrator functions can be implemented only in C#.
+Orchestrator functions are even more interesting for unit testing since they usually have a lot more business logic.
 
 In this section the unit tests will validate the output of the `E1_HelloSequence` Orchestrator function:
 

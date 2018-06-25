@@ -1,21 +1,18 @@
 ---
 title: Use existing NPS servers to provide Azure MFA capabilities | Microsoft Docs
-description: The Network Policy Server extension for Azure Multi-Factor Authentication is a simple solution to add cloud-based two-step vericiation capabilities to your existing authentication infrastructure.
+description: Add cloud-based two-step vericiation capabilities to your existing authentication infrastructure
+
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 05/01/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-
-ms.assetid:
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/14/2017
-ms.author: joflore
 ms.reviewer: richagi
-ms.custom: H1Hack27Feb2017; it-pro
+
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
 
@@ -113,9 +110,9 @@ When you deploy the NPS extension, use these factors to evaluate which methods a
 
 You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#selectable-verification-methods) in Azure.
 
-### Enable users for MFA
+### Register users for MFA
 
-Before you deploy the full NPS extension, you need to enable MFA for the users that you want to perform two-step verification. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication.
+Before you deploy and use the NPS extension, users that will be required to perform two-step verification need to be registered for MFA. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication.
 
 Use these steps to get a test account started:
 1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account. 
@@ -172,7 +169,7 @@ This section includes design considerations and suggestions for successful NPS e
 ### Configuration limitations
 
 - The NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users have to perform proof-up again to populate their MFA details in the cloud.  
-- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom Active Directory field other than UPN. See [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfaserver-nps-vpn.md) for more information.
+- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom Active Directory field other than UPN. See [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md) for more information.
 - Not all encryption protocols support all verification methods.
    - **PAP** supports phone call, one-way text message, mobile app notification, and mobile app verification code
    - **CHAPV2** and **EAP** support phone call and mobile app notification

@@ -1,12 +1,13 @@
-﻿---
+---
 title: Compiling configurations in Azure Automation DSC
 description: This article describes how to compile Desired State Configuration (DSC) configurations for Azure Automation.
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 

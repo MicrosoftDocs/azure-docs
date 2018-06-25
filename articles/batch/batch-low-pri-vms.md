@@ -124,7 +124,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
     virtualMachineSize: "Standard_D2_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4") // WS 2012 R2
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5") // WS 2016
 );
 ```
 
@@ -135,7 +135,7 @@ To create a pool using Azure virtual machines (in this case Linux VMs) with a ta
 ImageReference imageRef = new ImageReference(
     publisher: "Canonical",
     offer: "UbuntuServer",
-    sku: "16.04.0-LTS",
+    sku: "16.04-LTS",
     version: "latest");
 
 // Create the pool

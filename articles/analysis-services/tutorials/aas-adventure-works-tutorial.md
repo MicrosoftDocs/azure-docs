@@ -3,7 +3,7 @@ title: "Azure Analysis Services Adventure Works Tutorial | Microsoft Docs"
 description: Introduces the Adventure Works tutorial for Azure Analysis Services
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend

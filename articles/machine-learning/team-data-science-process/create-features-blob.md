@@ -3,18 +3,19 @@ title: Create features for Azure blob storage data using Panda | Microsoft Docs
 description: How to create features for data that is stored in Azure blob container with the Panda Python package.
 services: machine-learning,storage
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Create features for Azure blob storage data using Panda

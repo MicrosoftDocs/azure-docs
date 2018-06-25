@@ -62,7 +62,7 @@
 ### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Security considerations](storsimple-8000-security.md)
 ### [Region availability](storsimple-regions.md)
-### [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md)
+
 
 ## Get started
 
@@ -189,10 +189,11 @@
 ## Release notes
 ### [Update 5 - current](storsimple-update5-release-notes.md)
 ### [Update 4](storsimple-update4-release-notes.md)
-### [Update 3](storsimple-update3-release-notes.md)
-### [Update 2.2](storsimple-update21-release-notes.md)
+
 
 ### Archive
+#### [Update 3](storsimple-update3-release-notes.md)
+#### [Update 2.2](storsimple-update21-release-notes.md)
 #### [Update 2 ](storsimple-update2-release-notes.md)
 #### [Update 1 ](storsimple-update1-release-notes.md)
 #### [Update 0.3](storsimple-february-2015-release-notes.md)

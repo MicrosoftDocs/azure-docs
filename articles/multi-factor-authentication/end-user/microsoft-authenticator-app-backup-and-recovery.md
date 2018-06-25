@@ -1,22 +1,23 @@
 ﻿---
-title: Backup and recover info with Microsoft Authenticator - Azure | Microsoft Docs
+title: Backup and recover with Microsoft Authenticator app - Azure AD | Microsoft Docs
 description: Learn how to backup and recover your account credentials, using the Microsoft Authenticator app.
 services: multi-factor-authentication
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
-
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
 ---
+
 # Backup and recover account credentials with the Microsoft Authenticator app
+
 **Applies to:**
 
 - iOS devices
@@ -24,7 +25,7 @@ ms.custom: end-user
 The Microsoft Authenticator app backs up your account credentials and related app settings, such as the order of your accounts, to the cloud. After backup, you can also use the app to recover your information on a new device, potentially avoiding getting locked out or having to recreate accounts.
 
 >[!IMPORTANT]
-> You need one personal Microsoft account and one iCloud account for each backup storage location. But within that storage location, you can back up several accounts. For example, you can have a personal account, a school account, and a third-party account like Facebook, Google, and so on.<br><br>Only your account credentials are stored, which includes your user name and the 8-digit account verification code that's required to prove your identity with the Microsoft Authenticator app. We don’t store any other information associated with your accounts, including emails or files. We also don’t associate or share your accounts in any way or with any other product or service. And finally, your IT admin won’t get any information about any of these accounts.
+> You need one personal Microsoft account and one iCloud account for each backup storage location. But within that storage location, you can back up several accounts. For example, you can have a personal account, a school account, and a third-party account like Facebook, Google, and so on.<br><br>Only your personal and 3rd-party account credentials are stored, which includes your user name and the account verification code that’s required to prove your identity. We don’t store any other information associated with your accounts, including emails or files. We also don’t associate or share your accounts in any way or with any other product or service. And finally, your IT admin won’t get any information about any of these accounts.
 
 ## Back up your account credentials
 Before you can back up your credentials, must have both:
@@ -78,6 +79,9 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
 2.	Select **Scan QR code to recover**, and then scan the QR code provided by your admin.
 
     ![Microsoft Authenticator app, allowing you to scan your QR code](./media/authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
+
+    >[!NOTE]
+    >For more info about how to get a QR code, see the [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) article.
 
 ## Troubleshooting backup and recovery problems
 There are a few reasons why your backup might not be available:

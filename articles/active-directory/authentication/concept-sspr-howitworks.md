@@ -1,22 +1,17 @@
 ---
 title: Self-service password reset how it works - Azure Active Directory
 description: Azure AD self-service password reset deep dive
+
 services: active-directory
-keywords: 
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 01/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro;seohack1
 
 ---
 # Self-service password reset in Azure AD deep dive
@@ -155,6 +150,8 @@ All the predefined questions that follow are localized into the full set of Offi
 Custom security questions are not localized for different locales. All custom questions are displayed in the same language as they are entered in the administrative user interface, even if the user's browser locale is different. If you need localized questions, you should use the predefined questions.
 
 The maximum length of a custom security question is 200 characters.
+
+To view the password reset portal and questions in a different localized language append "?mkt=<Locale>" to the end of the password reset URL with the example that follows localizing to Spanish [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
 ### Security question requirements
 

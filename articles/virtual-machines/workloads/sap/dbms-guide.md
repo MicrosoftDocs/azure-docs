@@ -4,7 +4,7 @@ description: Azure Virtual Machines DBMS deployment for SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -292,7 +292,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
-[virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
+[virtual-networks-nsg]:../../../virtual-network/security-overview.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
@@ -536,9 +536,10 @@ We encounter quite some scenarios where you as customer want to move a deployed 
 If you use Managed Disks, you can migrate to Premium Storage by:
 
 1. Deallocate the virtual machine
-2. If necessary, resize the virtual machine to a size that supports Premium Storage (for example DS or GS)
-3. Change the Managed Disk account type to Premium (SSD)
-4. Start your virtual machine
+1. If necessary, resize the virtual machine to a size that supports Premium Storage (for example DS or GS)
+1. Change the Managed Disk account type to Premium (SSD)
+1. Change the caching of the data disks as recommended in chapter [Caching for VMs and data disks][dbms-guide-2.1]
+1. Start your virtual machine
 
 ### Deployment of VMs for SAP in Azure
 Microsoft Azure offers multiple ways to deploy VMs and associated disks. Thereby it is important to understand the differences since preparations of the VMs might differ dependent on the way of deployment. In general, we look into the scenarios described in the following chapters.

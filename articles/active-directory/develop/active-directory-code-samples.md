@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Code Samples | Microsoft Docs
-description: An index of Azure Active Directory code samples, organized by scenario.
+title: Azure Active Directory code samples | Microsoft Docs
+description: Provides an index of Azure Active Directory (v1 endpoint) code samples, organized by scenario.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -9,33 +9,39 @@ editor: ''
 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2018
-ms.author: mbaldwin
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-
 ---
-# Azure Active Directory Code Samples (for the Azure AD V1 endpoint)
+
+# Azure Active Directory code samples (V1 endpoint)
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-You can use Microsoft Azure Active Directory (Azure AD) to add authentication and authorization to your web applications and web APIs. This section links you to samples for the Azure AD V1 endpoint.
-These samples show you how it's done along with code snippets that you can use in your applications. On the code sample page, you'll find detailed read-me topics that help with requirements, installation, and set-up. And the code is commented to help you understand the critical sections.
+You can use Microsoft Azure Active Directory (Azure AD) to add authentication and authorization to your web applications and web APIs.
 
-To understand the basic scenario for each sample type, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+This section provides links to samples you can use to learn more about the Azure AD V1 endpoint. These samples show you how it's done along with code snippets that you can use in your applications. On the code sample page, you'll find detailed read-me topics that help with requirements, installation, and set-up. And the code is commented to help you understand the critical sections.
 
-Contribute to our samples on GitHub: [Microsoft Azure Active Directory Samples and Documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
+> [!NOTE]
+> If you are interested in Azure AD V2 code samples, see [v2.0 code samples by scenario](active-directory-v2-code-samples.md).
+
+To understand the basic scenario for each sample type, see [Authentication scenarios for Azure AD](active-directory-authentication-scenarios.md).
+
+You can also contribute to our samples on GitHub. To learn how, see [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 
 ## Desktop and mobile public client applications calling Microsoft Graph or a Web API
 
-The following samples show public client applications (desktop/mobile applications) which access the Microsoft Graph or a Web API in the name of a user.
+The following samples show public client applications (desktop/mobile applications) that access the Microsoft Graph or a Web API in the name of a user.
 
 Client application | Platform | Flow/Grant | Calls Microsoft Graph | Calls an ASP.NET or ASP.NET Core 2.0 Web API
 ------------------ | -------- | ---------- | -------------------- | -------------------------
-Desktop (WPF)           | .NET/C# | Interactive | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
+Desktop (WPF)           | .NET/C# | Interactive | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
 Mobile (UWP)            | .NET/C#  | Interactive | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (single tenant Web API) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (multi-tenant Web API)|
 Mobile (Android, iOS, UWP)   | .NET/C# (Xamarin) | Interactive | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 Mobile (Android)           | Android/Java | Interactive |   [android](https://github.com/Azure-Samples/active-directory-android) |
@@ -49,7 +55,7 @@ Desktop (Console)           | .NET Core/C# | Device profile | | [dotnet-devicepr
 
  Platform | Only signs in users | Calls Microsoft Graph or AAD Graph| Calls another ASP.NET or ASP.NET Core 2.0 Web API
  -------- | ------------------- | --------------------- | -------------------------
-ASP.NET 4.5 | [webApp-openidconnect-dotnet](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp-v1) </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) (AAD Graph) |
+ASP.NET 4.5 | [webApp-openidconnect-dotnet](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp-v1) </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) (AAD Graph) |
 ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) (AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
 ASP.NET 4.5 | [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | |
 Python | | [python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
@@ -58,7 +64,7 @@ PHP | | [php-graphapi-web](https://github.com/Azure-Samples/active-directory-php
 
 ### Web applications demonstrating role-based access control (authorization)
 
-The following samples show how to implement role-based access control, to restrict the permissions of certain features of a web application to certain users. The users are authorized depending on them belonging to an Azure Active Directory group, or role.
+The following samples show how to implement role-based access control, which is used to restrict the permissions of certain features of a web application to certain users. The users are authorized depending on whether they belong to an Azure AD group or role.
 
 Platform | Sample | Description
  -------- | ------------------- | ---------------------
@@ -67,7 +73,7 @@ ASP.NET 4.5 | [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active
 
 ## Daemon applications (accessing Web APIs with the application's identity)
 
-The following samples show desktop or web applications that access the Microsoft Graph or a Web API with no user (with the application identity)
+The following samples show desktop or web applications that access the Microsoft Graph or a web API with no user (with the application identity).
 
 Client application | Platform | Flow/Grant | Calls Microsoft Graph | Calls an ASP.NET or ASP.NET Core 2.0 Web API
 ------------------ | -------- | ---------- | -------------------- | -------------------------
@@ -80,7 +86,7 @@ ASP.NET Web App  | .NET/C# | Client credentials |    | [dotnet-webapp-webapi-oau
 
 ### Web API protected by Azure Active Directory
 
-The following sample shows how to protect a node.js web API with Azure Active Directory
+The following sample shows how to protect a node.js web API with Azure AD.
 
 Platform | Sample | Description
  -------- | ------------------- | ---------------------
@@ -88,7 +94,7 @@ Node.js | [node-webapi](https://github.com/Azure-Samples/active-directory-node-w
 
 ### Web API calling Microsoft Graph or another Web API
 
-The following samples demonstrate a Web API calling another web API. The second sample shows how to handle conditional access.
+The following samples demonstrate a web API that calls another web API. The second sample shows how to handle conditional access.
 
  Platform |  Calls Microsoft Graph | Calls another ASP.NET or ASP.NET Core 2.0 Web API
  -------- |  --------------------- | -------------------------
@@ -97,19 +103,19 @@ ASP.NET 4.5 | [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/act
 
 ## Single page applications
 
-This sample shows how to write a single page application secured with Azure AD
+This sample shows how to write a single page application secured with Azure AD.
 
- Platform |  Calls Microsoft Graph | Calls its own API
- -------- |  --------------------- | -------------------------
-JavaScript (Angular) / ASP.NET 4.x |  | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)
+ Platform |  Calls Microsoft Graph | Calls its own API | Calls another Web API
+ -------- |  --------------------- | ------------------ | ----------------
+JavaScript / ASP.NET 4.x |  | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
+JavaScript (AngularJS) / ASP.NET 4.x |  | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) |
+JavaScript (AngularJS) / ASP.NET 4.x |  |  | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
 ## Other Microsoft Graph samples
 
-See [Microsoft Graph Community Samples & Tutorials](https://github.com/microsoftgraph/msgraph-community-samples) for samples and tutorials that demonstrate different usage patterns for the Microsoft Graph API, including authentication with Azure Active Directory.
+For samples and tutorials that demonstrate different usage patterns for the Microsoft Graph API, including authentication with Azure AD, see [Microsoft Graph Community Samples & Tutorials](https://github.com/microsoftgraph/msgraph-community-samples).
 
 ## See also
-
-### Other Resources
 
 [Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
 
