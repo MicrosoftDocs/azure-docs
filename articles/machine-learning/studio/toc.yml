@@ -61,8 +61,6 @@
         href: troubleshooting-creating-ml-workspace.md
       - name: Deploy using ARM
         href: deploy-with-resource-manager-template.md
-      - name: Create in another region
-        href: multi-geo.md
       - name: View and delete Studio account data
         href: export-delete-personal-data-dsr.md
   - name: Acquire and understand data
