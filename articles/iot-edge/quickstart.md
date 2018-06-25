@@ -4,7 +4,7 @@ description: Try out Azure IoT Edge by running analytics on a simulated edge dev
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/08/2018
+ms.date: 06/24/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -118,6 +118,8 @@ Install and start the Azure IoT Edge runtime on your IoT Edge device.
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It's composed of three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
+The instructions in this section configure the IoT Edge runtime with Linux containers. If you want to use Windows containers, see [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iot-edge-windows-with-windows.md).
+
 ### Download and install the IoT Edge service
 
 1. On your IoT Edge device, open PowerShell as an administrator.
@@ -166,6 +168,14 @@ Configure the runtime with your IoT Edge device connection string that you copie
 
 2. Find the **provisioning** section and set the value of **device_connection_string** to the string that you copied. 
 
+3. In your administrator PowerShell window, retrieve the hostname for your IoT Edge device and copy the output. 
+
+   ```powershell
+   hostname
+   ```
+
+4. In the configuration file, find the **Edge device hostname** section. Update the value of **hostname** to the hostname that you copied from PowerShell.
+
 3. In your administrator PowerShell window, retrieve the IP address for your IoT Edge device. 
 
    ```powershell
@@ -196,7 +206,7 @@ Configure the runtime with your IoT Edge device connection string that you copie
      workload_uri: "http://<ip_address:15581"
    ```
 
-8. Find the **moby_runtime** section and verify that the value for **network** is set to `azure-iot-edge`.
+8. Find the **moby_runtime** section and verify that the value for **network** is set to `nat`.
 
 9. Save the configuration file. 
 
