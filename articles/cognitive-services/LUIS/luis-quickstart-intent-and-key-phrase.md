@@ -42,7 +42,7 @@ The following utterances show examples of key phrases:
 |Is there a new medical plan with a lower deductible offered next year?|"lower deductible"<br>"new medical plan"<br>"year"|
 |Is vision therapy covered in the high deductible medical plan?|"high deductible medical plan"<br>"vision therapy"|
 
-Your client application can weigh these values, in addition to all other entities extracted, when deciding the next step in the conversation.
+Your client application can use these values, along with other extracted entities, to decide the next step in the conversation.
 
 ## Add keyPhrase entity 
 Add keyPhrase prebuilt entity to extract subject matter from utterances.
@@ -53,7 +53,7 @@ Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
 2. Select **Entities** from the left menu.
 
-    [ ![Screenshot of Entities highlighted in left nav of Build section](./media/luis-quickstart-intent-and-key-phrase/select-entities.png)](./media/luis-quickstart-intent-and-key-phrase/select-entities.png#lightbox)
+    [ ![Screenshot of Entities highlighted in left nav of Build section](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities.png#lightbox)
 
 3. Select **Manage prebuilt entities**.
 
@@ -85,11 +85,11 @@ The new `keyphrase` version of the app needs to be trained.
 
 1. Select **Publish** in the top right navigation.
 
-    ![Screenshot of Entity page with Publish button expanded ](./media/luis-quickstart-intent-and-key-phrase/publish-expanded.png)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
 
 2. Select the Production slot and the **Publish** button.
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-inline.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
