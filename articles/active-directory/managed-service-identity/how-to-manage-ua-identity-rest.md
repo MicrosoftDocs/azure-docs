@@ -68,8 +68,6 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 ## Related content
 
-For a full list of Azure CLI identity commands, see [az identity](/cli/azure/identity).
-
-For information on how to assign a user assigned identity to an Azure VM see, [Configure Managed Service Identity (MSI) using Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-identity)
+For information on how to assign a user assigned identity to an Azure VM using CURL see, [Configure Managed Identity using CURL](qs-configure-rest-vm.md#user-assigned-identity).
 
 
