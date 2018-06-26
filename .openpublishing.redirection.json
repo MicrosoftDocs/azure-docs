@@ -13397,11 +13397,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-aadconnect-pass-through-authentication.md",
-            "redirect_url": "/azure/active-directory/authentication/howto-password-smart-lockout",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/active-directory-aadconnect-ports.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-ports",
             "redirect_document_id": false
