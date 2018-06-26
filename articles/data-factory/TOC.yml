@@ -1,4 +1,4 @@
-- name: Data Factory V2 Documentation
+- name: Data Factory Documentation
   href: index.yml
 - name: Switch to version 1 documentation
   href: v1/data-factory-introduction.md
@@ -6,7 +6,7 @@
   items:
   - name: Introduction to Data Factory
     href: introduction.md
-  - name: Compare versions 1 and 2
+  - name: Compare current version to version 1
     href: compare-versions.md
 - name: Quickstarts
   expanded: true
