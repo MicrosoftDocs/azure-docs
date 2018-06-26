@@ -1,5 +1,5 @@
 ---
-title: Enable Secure TLS | Microsoft Docs
+title: Enable secure TLS for Azure Storage client | Microsoft Docs
 description: Learn how to enable TLS 1.2 in the client of Azure Storage.
 services: storage
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 06/25/2018
 ms.author: fryu
 ---
 
-# Enable Secure TLS
+# Enable secure TLS for Azure Storage client
 
 When you need to audit your services in using Azure Storage based on latest compliance and security requirements, SSL 1.0, 2.0, 3.0 and TLS 1.0 are recognized as non-compliant communication protocols.
 
@@ -79,6 +79,6 @@ The following screenshot is a sample for the verification.
 
 ![screenshot of verifying TLS version in Fiddler](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
 
-## See Also
+## See also
 
 * [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
