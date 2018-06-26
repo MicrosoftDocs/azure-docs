@@ -1,20 +1,14 @@
 ---
-title: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark
-description: 
-keywords: 
+title: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark | Microsoft Docs
+description: Learn to run Spark queries on a DataBricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: hdinsight,storage
-documentationcenter: 
 tags: azure-portal
 author: dineshm
-manager: jahogg
-editor: cgronlun
+manager: twooley
 
 ms.component: data-lake-storage-gen2
 ms.service: hdinsight
-ms.custom: 
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
@@ -37,30 +31,30 @@ This tutorial demonstrates how to consume and query airline flight data, which i
 > [!NOTE]
 > Click on the **Prezipped file** checkbox to select all data fields. The download will be many gigabytes in size, but this amount of data is necessary for analysis.
 
-## Create an Azure Data Lake Storage account
+## Create an Azure Data Lake Storage Gen2 account
 
-To begin, create a new [Azure Data Data Lake storage account](quickstart-create-account.md) and give it a unique name. Once created, navigate to the storage account to retrieve configuration settings.
+To begin, create a new [Azure Data Lake Storage Gen2 account](quickstart-create-account.md) and give it a unique name. Then navigate to the storage account to retrieve configuration settings.
 
 > [!IMPORTANT]
-> During Preview, Azure Functions only work with Azure Data Lake Storage accounts created with a flat namespace.
+> During Preview, Azure Functions only work with Azure Data Lake Storage Gen2 accounts created with a flat namespace.
 
-1. Under **Settings**, click  **Access keys**
-3. Click the **Copy** button next to **key1** to copy the key value
+1. Under **Settings**, click  **Access keys**.
+3. Click the **Copy** button next to **key1** to copy the key value.
 
 Both the account name and key are required for later steps in this tutorial. Open a text editor and set aside the account name and key for future reference.
 
-## Create DataBricks cluster
+## Create a DataBricks cluster
 
-The next step is to create a [DataBricks service](https://docs.databricks.com/) to create a data workspace.
+The next step is to create a [DataBricks cluster](https://docs.databricks.com/) to create a data workspace.
 
-1. Create a [DataBricks service](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service)
-2. Click **Launch Workspace** to open the workspace in a new browser window
-3. Click **Clusters** in the left-hand nav bar
-4. Click **Create Cluster**
-5. Enter a **myFlightDataCluster** in the *Cluster name* field
-6. Select **Standard_D8s_v3** in the *Worker Type* field
-7. Change the **Min Workers** value to *4*
-8. Click **Create Cluster** at the top of the page (this process may take up to 5 minutes to complete)
+1. Create a [DataBricks cluster](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service)
+2. Click **Launch Workspace** to open the workspace in a new browser window.
+3. Click **Clusters** in the left-hand navigation bar, then click **Create Cluster**.
+5. Enter **myFlightDataCluster** in the *Cluster name* field.
+6. Select **4.2** in the Databricks Runtime Version field.
+7. Select **Standard_D8s_v3** in the *Worker Type* field.
+8. Change the **Min Workers** value to *4*.
+9. Click **Create Cluster** at the top of the page. It may take up to 5 minutes to create the cluster.
 
 While the request to create the cluster executes in the background, you can generate a DataBricks token.
 
@@ -68,25 +62,22 @@ While the request to create the cluster executes in the background, you can gene
 
 A [DataBricks token](https://docs.databricks.com/api/latest/tokens.html) is required by a function that responds as data is created. The following steps demonstrate how to create a token and set it aside for next step. 
 
-1. Click the profile icon (![Profile icon](./media/using-databricks-spark/databricks-workspace-profile-icon.png)) at the top right of the screen
-2. Click **User Settings**
-3. Click **Generate New Token**
-4. Enter **myFlightDataToken** in the *Comment* field
-5. Copy the token value from the browser into the text file where you have set aside the account name and key
+1. Click the profile icon (![Profile icon](./media/using-databricks-spark/databricks-workspace-profile-icon.png)) at the top of the right side of the screen.
+2. Click **User Settings**.
+3. Click **Generate New Token**.
+4. Enter **myFlightDataToken** in the *Comment* field.
+5. Copy the token value from the browser into the text file where you have set aside the account name and key.
 
-## Create an Azure Function
-A [serverless function](https://azure.microsoft.com/services/functions/) is required to listen for changes in the Azure Data Lake Storage account.
+## Create an Azure function
+A [serverless function](https://azure.microsoft.com/services/functions/) is required to listen for changes in the Azure Data Lake Storage Gen2 account.
 
-1. Create a [Function App](https://ms.portal.azure.com/#create/Microsoft.FunctionApp) and name it *myFlightDataApp* (make sure to check the *Pin to dashboard* checkbox as you create the service)
-2. Click the **+** to create a new function (available when hover your mouse over the *Functions* label on the left)
-3. Click **Custom function** located on the bottom half of the screen under *Get started on your own*
-4. Locate *Event Grid Trigger* and click **C#**
-5. Click **Create** to accept the default function name
-6. Click the **Logs** tab at the bottom of the screen to reveal the log pane
-7. Paste the following code into functions editor
-
-> [!IMPORTANT]
-> Make sure you replace the `<YOUR_DATABRICKS_TOKEN>` placeholder with the token you set aside in your text editor
+1. Create a [function app](https://portal.azure.com/#create/Microsoft.FunctionApp) and name it *myFlightDataApp*. Make sure to check the *Pin to dashboard* checkbox as you create the function app to make it easy to find again.
+2. Click the **+** to create a new function. It is available when hover your mouse over the *Functions* label on the left.
+3. Click **Custom function** located on the bottom half of the screen under *Get started on your own*.
+4. Locate *Event Grid Trigger* and click **C#**.
+5. Click **Create** to accept the default function name.
+6. Click the **Logs** tab at the bottom of the screen to reveal the log pane.
+7. Paste the following code into functions editor. Be sure you replace the `<YOUR_DATABRICKS_TOKEN>` placeholder with the token you set aside in your text editor.
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -169,22 +160,22 @@ public class NotebookParams
 <ol start="8">Click <strong>Save</strong></ol>
 
 > [!IMPORTANT]
-> After saving the code for the function, verify you see a message saying "Compilation succeeded" in the *Logs* pane.
+> After saving the code for the function, look for a message saying "Compilation succeeded" in the *Logs* pane.
 
 ## Subscribe to the blob creation event
 
 Next you create an [Event Grid Subscription](/event-grid/overview) for the function to process incoming data. 
 
-1. Click on **Add Event Grid subscription** (next to the *Run* button)
-2. Enter **myFlightDataSubscription** in the *Name* field
-3. Select **Storage Account** from the *Topic Type* dropdown
-4. Select your Azure subscription in the *Subscription* field
-5. Enter the resource group you used for your storage account in the *Resource Group* field
-6. Enter your storage account name in the *Instance* field
-7. Uncheck the **Subscribe to all event types** checkbox
-8. Expand the dropdown and uncheck **Blob Selected** (*Blob Created* should now be the only event type selected)
-9. Enter **.csv** in the *Suffix Filter* field
-10. Click **Create**
+1. Click on **Add Event Grid subscription**, next to the **Run** button.
+2. Enter **myFlightDataSubscription** in the *Name* field.
+3. Select **Storage Account** from the *Topic Type* dropdown.
+4. Select your Azure subscription in the *Subscription* field.
+5. Enter the resource group you used for your storage account in the *Resource Group* field.
+6. Enter your storage account name in the *Instance* field.
+7. Uncheck the **Subscribe to all event types** checkbox.
+8. Expand the dropdown and uncheck **Blob Selected**. **Blob Created** should now be the only event type selected.
+9. Enter **.csv** in the *Suffix Filter* field.
+10. Click **Create**.
 
 > [!NOTE]
 > If the *Add Event Grid subscription* link is disabled, click on **Manage** and then back on the function name to activate the link.
@@ -196,11 +187,11 @@ The cluster and event grid subscription is now set up to read incoming data. The
 
 Return to the browser DataBricks browser tab and execute the following steps:
 
-1. Click **Azure DataBricks** on the top left of the nav bar
-2. Click **Notebook** under the *New* section on the bottom half of the page
-3. Enter **CSV2Parquet** in the *Name* field (leave all other fields with default values)
-4. Click **Create**
-5. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor)
+1. Click **Azure DataBricks** on the top left of the navigation bar.
+2. Click **Notebook** under the *New* section on the bottom half of the page.
+3. Enter **CSV2Parquet** in the *Name* field. Leave all other fields with the default values.
+4. Click **Create**.
+5. Paste the following code into the **Cmd 1** cell. This code auto-saves in the editor.
 
     ```python
     from pyspark.sql import SQLContext
@@ -219,27 +210,24 @@ Return to the browser DataBricks browser tab and execute the following steps:
     df.write.mode("append").parquet("/mnt/temp/parquet/flights")
     ```
 
-5. Select **Jobs** on the left nav pane
-6. Click **Create Job**
-7. Enter **CSV2ParquetJob** in the *Title* field
-8. Click **Select Notebook** under the *Task* section
-9. Select **CSV2Parquet**
-10. Click **OK**
-11. Click **Edit** under *Cluster*
-12. Select **Existing Cluster** from the *Custer Type* drop-down
-13. Select **myFlightDataCluster** from the *Select Cluster* field
-14. Click **Confirm**
-15. Click the expansion indicator arrow next to *Advanced*
-16. Click **Edit** next to *Maximum Concurrent Runs*
-17. Enter **32** in the *Maximum concurrent runs* field
-18. Click **OK**
+5. Select **Jobs** on the left nav pane.
+6. Click **Create Job**.
+7. Enter **CSV2ParquetJob** in the *Title* field.
+8. Click **Select Notebook** under the *Task* section.
+9. Select **CSV2Parquet**.
+10. Click **OK**.
+11. Click **Edit** under *Cluster*.
+12. Select **Existing Cluster** from the *Cluster Type* drop-down.
+13. Select **myFlightDataCluster** from the *Select Cluster* field.
+14. Click **Confirm**.
+15. Click the expansion indicator arrow next to *Advanced*.
+16. Click **Edit** next to *Maximum Concurrent Runs*.
+17. Enter **32** in the *Maximum concurrent runs* field.
+18. Click **OK**.
 
 ### Copy source data into the storage account
 
-The next task is to use AzCopy to copy data from the *.csv* file into Azure storage. Open a command prompt window and enter the following commands:
-
-> [!IMPORTANT]
-> Make sure you replace the placeholders **<DOWNLOAD_FILE_PATH>**, **<ACCOUNT_NAME>** and **<ACCOUNT_KEY>** with the corresponding values you set aside in a previous step.
+The next task is to use AzCopy to copy data from the *.csv* file into Azure storage. Open a command prompt window and enter the following commands. Make sure you replace the placeholders `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>` and `<ACCOUNT_KEY>` with the corresponding values you set aside in a previous step.
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -249,10 +237,10 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 ## Explore data using Hadoop Distributed File System
 
-Return to the DataBricks workspace and click on the **Recent** icon in the left nav bar.
+Return to the DataBricks workspace and click on the **Recent** icon in the left navigation bar.
 
-1. Click on the **Flight Data Analytics** notebook
-2. Press **Ctrl + Alt + N** to create a new cell
+1. Click on the **Flight Data Analytics** notebook.
+2. Press **Ctrl + Alt + N** to create a new cell.
 
 Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
 
@@ -277,17 +265,14 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-With these code samples you have explored the heirarchial nature of HDFS using data stored in an Azure Data Lake Storage account.
+With these code samples you have explored the heirarchial nature of HDFS using data stored in an Azure Data Lake Storage Gen2 account.
 
 ## Query the data
 
-Next, you can beging to query the data you uploaded into Azure Data Lake Storage. Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
+Next, you can begin to query the data you uploaded into Azure Data Lake Storage. Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
 
 ### Simple queries
-To create dataframes for your data sources, run the following script:
-
-> [!IMPORTANT]
-> Make sure to replace the **<YOUR_CSV_FILE_NAME>** placeholder with the file name you downloaded at the beginning of this tutorial.
+To create dataframes for your data sources, run the following script. Make sure to replace the `<YOUR_CSV_FILE_NAME>` placeholder with the file name you downloaded at the beginning of this tutorial.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
