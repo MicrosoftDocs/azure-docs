@@ -22,7 +22,7 @@ robots: noindex
 # Push data to an Azure Search index by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-azure-search-connector.md)
-> * [Version 2 (current version)](../connector-azure-search.md)
+> * [Current version](../connector-azure-search.md)
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Azure Search connector in V2](../connector-azure-search.md).
