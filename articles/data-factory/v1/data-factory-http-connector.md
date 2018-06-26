@@ -20,7 +20,7 @@ robots: noindex
 # Move data from an HTTP source using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-http-connector.md)
-> * [Version 2 (current version)](../connector-http.md)
+> * [Current version](../connector-http.md)
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [HTTP connector in V2](../connector-http.md).

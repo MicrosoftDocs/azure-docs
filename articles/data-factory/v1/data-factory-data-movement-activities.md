@@ -21,7 +21,7 @@ robots: noindex
 # Move data by using Copy Activity
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-data-movement-activities.md)
-> * [Version 2 (current version)](../copy-activity-overview.md)
+> * [Current version](../copy-activity-overview.md)
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy Activity in V2](../copy-activity-overview.md).
