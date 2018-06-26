@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
 ---
 
@@ -37,7 +37,7 @@ If you plan to ask guest users to review their own access, read about guest user
 
 ## Create and perform an access review for guests
 
-First, enable access reviews to appear on a reviewer's access panels. As a global administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
+First, enable access reviews to appear on a reviewer's access panels. As a global administrator or user account administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
 
 Azure AD enables several scenarios for reviewing guest users.
 
