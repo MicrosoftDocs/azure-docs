@@ -8,11 +8,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 06/27/2018
 ms.author: kgremban
 ---
 # Install Azure IoT Edge runtime on Windows to use with Windows containers
-The Azure IoT Edge runtime is deployed on all IoT Edge devices. It is composed of three components. The **IoT Edge Security Daemon**  provides and maintains security standards on the Edge device. The daemon starts on every boot and bootstraps the device by starting the IoT Edge Agent. The **IoT Edge Agent** facilitates deployment and monitoring of modules on the Edge device, including the IoT Edge Hub. The **IoT Edge Hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
+
+The Azure IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** provides and maintains security standards on the Edge device. The daemon starts on every boot and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
 
 This article lists the steps to install the Azure IoT Edge runtime on your Windows x64 (AMD/Intel) system. 
 
@@ -110,20 +111,22 @@ In the PowerShell window, create an environment variable **IOTEDGE_HOST** with t
 [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://172.29.240.1:15580")
 ```
 
-Obtain the name of the host using the `hostname` command in the PowerShell window and set the value for **hostname:** in the configuration yaml. For example:
 
-```powershell
-###############################################################################
-# Edge device hostname
-###############################################################################
-#
-# Configures the environment variable 'IOTEDGE_GATEWAYHOSTNAME' injected into
-# modules.
-#
-###############################################################################
+Get the name of edge device using `hostname` command in PowerShell and set it as the value for **hostname:** in the configuration yaml. For example:
 
-hostname: "edgedevice-1"
+```yaml
+  ###############################################################################
+  # Edge device hostname
+  ###############################################################################
+  #
+  # Configures the environment variable 'IOTEDGE_GATEWAYHOSTNAME' injected into
+  # modules.
+  #
+  ###############################################################################
+
+  hostname: "edgedevice-1"
 ```
+
 Finally, ensure the **network:** setting under **moby_runtime:** is uncommented and set to **nat**
 
 ```yaml
@@ -135,7 +138,8 @@ moby_runtime:
 Save the configuration file and restart the service:
 
 ```powershell
-Stop-Service iotedge
+Stop-Service iotedge -NoWait
+sleep 5
 Start-Service iotedge
 ```
 
@@ -150,10 +154,14 @@ Get-Service iotedge
 Examine service logs for the last 5 minutes using:
 
 ```powershell
+
+# Displays logs from last 5 min, newest at the bottom.
+
 Get-WinEvent -ea SilentlyContinue `
   -FilterHashtable @{ProviderName= "iotedged";
     LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
-  select TimeCreated, Message | Sort-Object -Descending
+  select TimeCreated, Message |
+  sort-object @{Expression="TimeCreated";Descending=$false}
 ```
 
 And, list running modules with:
