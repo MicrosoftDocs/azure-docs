@@ -17,8 +17,8 @@ ms.author: douglasl
 ---
 # Use custom activities in an Azure Data Factory pipeline
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-use-custom-activities.md)
-> * [Version 2 - Preview](transform-data-using-dotnet-custom-activity.md)
+> * [Version 1](v1/data-factory-use-custom-activities.md)
+> * [Current version](transform-data-using-dotnet-custom-activity.md)
 
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
@@ -26,10 +26,6 @@ There are two types of activities that you can use in an Azure Data Factory pipe
 - [Data transformation activities](transform-data.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning. 
 
 To move data to/from a data store that Data Factory does not support, or to transform/process data in a way that isn't supported by Data Factory, you can create a **Custom activity** with your own data movement or transformation logic and use the activity in a pipeline. The custom activity runs your customized code logic on an **Azure Batch** pool of virtual machines.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [(Custom) DotNet Activity in Data Factory version 1](v1/data-factory-use-custom-activities.md).
- 
 
 See following articles if you are new to Azure Batch service:
 
