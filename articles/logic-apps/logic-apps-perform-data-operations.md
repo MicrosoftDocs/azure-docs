@@ -78,13 +78,14 @@ as the first step in your logic app
 
 ## Compose action
 
-You can create a single output from more than one input, 
-including expressions, by using the **Data Operations - Compose** action. 
-These inputs can have varying types, such as arrays, 
-JSON objects, and any other native type that Azure 
-Logic Apps supports, for example, binary and XML. 
-You can then use this output in actions that follow 
-the **Compose** action.
+To save yourself from repeatedly entering the same multiple 
+inputs while building your logic app's workflow, you can create 
+a single output from those inputs, including expressions, 
+by using the **Data Operations - Compose** action. 
+These inputs can have varying types, such as integers, 
+Booleans, arrays, JSON objects, and any other native 
+type that Azure Logic Apps supports, for example, binary and XML. 
+You can then use this output in actions that follow after the **Compose** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -159,9 +160,10 @@ select **Output**.
 
 ## Create CSV table action
 
-You can create a CSV table from an array items by using 
-the **Data Operations - Create CSV table** action. 
-You can then use this table in actions that follow the **Create CSV table** action.
+To create a comma-separated value (CSV) table that has 
+the properties and values from JSON objects in an array, 
+use the **Data Operations - Create CSV table** action. 
+You can then use this table in actions that follow after the **Create CSV table** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -211,10 +213,10 @@ From the actions list, select this action: **Data Operations - Create CSV table*
    To provide custom column headers too, change **Include headers** to **Yes**. 
 
    > [!TIP]
-   > To create user-friendly tokens for properties in JSON 
-   > objects so you can select those properties as inputs, 
-   > use the [Parse JSON](#parse-json-action) action before 
-   > you need to use those properties. 
+   > To create user-friendly tokens for the properties in 
+   > JSON objects so you can select those properties as inputs, 
+   > use the [Parse JSON](#parse-json-action) before calling the 
+   > **Create CSV table** action.
 
 5. Save your logic app. On the designer toolbar, choose **Save**.
 
@@ -248,9 +250,11 @@ select **Output**.
 
 ## Create HTML table action
 
-You can create an HTML table from an array by using 
-the **Data Operations - Create HTML table** action. 
-You can then use this table in actions that follow the **Create HTML table** action.
+To create an HTML table that has the properties 
+and values from JSON objects in an array, 
+use the **Data Operations - Create HTML table** action. 
+You can then use this table in actions that follow after 
+the **Create HTML table** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -300,10 +304,10 @@ From the actions list, select this action: **Data Operations - Create HTML table
    To provide custom column headers too, change **Include headers** to **Yes**. 
 
    > [!TIP]
-   > To create user-friendly tokens for properties in JSON 
-   > objects so you can select those properties as inputs, 
-   > use the [Parse JSON](#parse-json-action) action before 
-   > you need to use those properties. 
+   > To create user-friendly tokens for the properties in 
+   > JSON objects so you can select those properties as inputs, 
+   > use the [Parse JSON](#parse-json-action) before calling the 
+   > **Create HTML table** action.
 
 5. Save your logic app. On the designer toolbar, choose **Save**.
 
@@ -325,25 +329,35 @@ select **Output**.
    This example uses the **Office 365 Outlook - Send an email** action 
    and includes the **Output** field in the email's body:
 
-   !["Output" fields in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
+   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-create-html-table-action.png)
+   
+   > [!NOTE]
+   > When including the HTML table output in an email action, 
+   > make sure that you set the **Is HTML** property to **Yes** 
+   > in the email action's advanced options. That way, 
+   > the email action correctly formats the HTML table.
 
 3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
    Based on the email connector you used, here are the results you get:
 
-   ![Email with "Create CSV table" action results](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
+   ![Email with "Create HTML table" action results](./media/logic-apps-change-manage-data-operations/create-html-table-email-results.png)
 
 <a name="filter-array-action"></a>
 
 ## Filter array action
 
-You can create a smaller array from an existing array based on a 
-specified condition by using the **Data Operations - Filter array** action. 
-You can then use the filtered array in actions that follow the **Filter array** action.
+To create a smaller array that has items, which meet specific criteria, 
+from an existing array, use the **Data Operations - Filter array** action. 
+You can then use the filtered array in actions that follow after the **Filter array** action. 
 
 > [!NOTE]
-> This action can't change the format or shape of items in the array.
-> Also, any filter text that you use in your condition is case sensitive.
+> Any filter text that you use in your condition is case sensitive. 
+> Also, this action can't change the format or components of items in the array. 
+> 
+> For actions to use the array output from the **Filter array** action, 
+> either those actions must accept arrays as input, or you might 
+> have to transform the output array into another compatible format. 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -406,8 +420,8 @@ the results from the **Filter array** action.
 
 2. In that action, click anywhere you want the results to appear. 
 When the dynamic content list opens, choose **Expression**. 
-To get the outputs from the **Filter array** action, 
-enter this expression with the name for the **Filter array** action:
+To get the array output from the **Filter array** action, 
+enter this expression that includes the **Filter array** action's name:
 
    ```
    @actionBody('Filter_array')
@@ -429,10 +443,10 @@ enter this expression with the name for the **Filter array** action:
 
 ## Join action
 
-You can create a string that has all the items from an array and separates 
-those items with a specified delimiter character by using the 
-**Data Operations - Join** action. You can then use the string 
-in actions that follow the **Join** action.
+To create a string that has all the items from an array and 
+separate those items with a specific delimiter character, 
+use the **Data Operations - Join** action. You can then use 
+the string in actions that follow after the **Join** action.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -511,10 +525,11 @@ select **Output**.
 
 ## Parse JSON action
 
-You can reference or use the properties in JSON content by creating 
-fields or tokens with the **Data ooperations - Parse JSON** action.
-That way, those you can select those properties from the dynamic 
-content list when you provide input for your logic app. 
+To reference or use the properties in JSON content, 
+you can create user-friendly fields or tokens for those 
+properties by using the **Data operations - Parse JSON** action.
+That way, you can select those properties from the dynamic 
+content list when you specify inputs for your logic app. 
 For this action, you can either provide a JSON schema 
 or generate a JSON schema from your sample JSON content or payload.
 
@@ -565,7 +580,7 @@ From the actions list, select this action: **Data Operations - Parse JSON**
    from the JSON content, or *payload*, you're parsing. 
    
    1. In the **Parse JSON** action, 
-   click **Use sample payload to generate schema**.
+   select **Use sample payload to generate schema**.
 
    2. Under **Enter or paste a sample JSON payload**, 
    provide the JSON content, and then choose **Done**.
@@ -609,12 +624,19 @@ you can now select the properties from the parsed JSON content.
 
 ## Select action
 
-You can create an array with JSON objects from items in another 
-array by using the **Data ooperations - Select JSON** action. 
-For example, you can create a JSON object from each value in an 
-integer array by specifying the properties that each JSON object 
-has and the values in the source array you want assigned to 
-those properties. 
+To create an array that has JSON objects built from values in 
+an existing array, use the **Data operations - Select** action. 
+For example, you can create a JSON object for each value in 
+an integer array by specifying the properties that each JSON 
+object must have and how to map the values in the source array 
+to those properties. And although you can change the 
+components in those JSON objects, the output array 
+always has the same number of items as the source array.
+
+> [!NOTE]
+> For actions to use the array output from the **Select** action, 
+> either those actions must accept arrays as input, or you might 
+> have to transform the output array into another compatible format. 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -671,6 +693,35 @@ that represents the value you want to assign the property.
 
 For more information about this action in your underlying workflow definition, 
 see [Select action](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+### Test your logic app
+
+To check that the **Select** action creates the expected results, 
+send yourself a notification that includes output from the **Select** action.
+
+1. In your logic app, add an action that can send you 
+the results from the **Select** action.
+
+2. In that action, click anywhere you want the results to appear. 
+When the dynamic content list opens, choose **Expression**. 
+To get the array output from the **Select** action, 
+enter this expression that includes the **Select** action's name:
+
+   ```
+   @actionBody('Select')
+   ```
+
+   This example uses the **Office 365 Outlook - Send an email** action 
+   and includes the outputs from the **actionBody('Select')** 
+   expression in the email's body:
+
+   ![Action outputs in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-select-action.png)
+
+3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
+
+   Based on the email connector you used, here are the results you get:
+
+   ![Email with "Select" action results](./media/logic-apps-change-manage-data-operations/select-email-results.png)
 
 ## Get support
 

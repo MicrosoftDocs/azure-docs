@@ -49,8 +49,13 @@
         href: logic-apps-control-flow-run-steps-group-scopes.md
     - name: Create variables for saving values
       href: logic-apps-create-variables-store-values.md
+<<<<<<< HEAD
     - name: Perform data operations
       href: logic-apps-perform-data-operations.md  
+=======
+    - name: Change or manage data
+      href: logic-apps-change-manage-data-operations.md 
+>>>>>>> 1276e3ede07aba39a29ae223caf9b41d90f18256
     - name: Add custom code with Azure Functions
       href: logic-apps-azure-functions.md
     - name: Call logic apps with Azure Functions
