@@ -130,22 +130,29 @@ The instructions in this section configure the IoT Edge runtime with Linux conta
    SETX /M PATH "$env:Path"
    ```
 
-3. Create and start the IoT Edge service.
+3. Install the vcruntime.
+
+  ```powershell
+  Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
+  .\vc_redist.exe /quiet /norestart
+  ```
+
+4. Create and start the IoT Edge service.
 
    ```powershell
    New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
    Start-Service iotedge
    ```
 
-4. Add firewall exceptions for the ports that the IoT Edge service uses.
+5. Add firewall exceptions for the ports that the IoT Edge service uses.
 
    ```powershell
    New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
    ```
 
-5. Create a new file called **iotedge.reg** and open it with a text editor. 
+6. Create a new file called **iotedge.reg** and open it with a text editor. 
 
-6. Add the following content and save the file. 
+7. Add the following content and save the file. 
 
    ```input
    Windows Registry Editor Version 5.00
@@ -155,7 +162,7 @@ The instructions in this section configure the IoT Edge runtime with Linux conta
    "TypesSupported"=dword:00000007
    ```
 
-7. Navigate to your file in File Explorer and double-click it to import the changes to the Windows Registry. 
+8. Navigate to your file in File Explorer and double-click it to import the changes to the Windows Registry. 
 
 ### Configure the IoT Edge runtime 
 
