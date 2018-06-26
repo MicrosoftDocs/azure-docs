@@ -1,6 +1,6 @@
 ---
-title: Monitor states for tasks and nodes - Azure Batch | Microsoft Docs
-description: Monitor the state of Azure Batch tasks and compute nodes to help manage and monitor Batch solutions.
+title: Count states for tasks and nodes - Azure Batch | Microsoft Docs
+description: Count the state of Azure Batch tasks and compute nodes to help manage and monitor Batch solutions.
 services: batch
 author: dlepow
 manager: jeconnoc
