@@ -16,7 +16,7 @@ ms.author: jingwang
 
 # Load data into Azure Data Lake Storage Gen2 Preview with Azure Data Factory
 
-[Azure Data Lake Storage Gen2 Preview](../storage/data-lake-storage/introduction.md) adds a protocol with hierarchial file system namespace and security features to Azure Blob Storage making it easy to connect analytics frameworks to a durable storage layer. In Data Lake Storage Gen2 (Preview), all the qualities of object storage remain while adding the advantages of a file system interface.
+[Azure Data Lake Storage Gen2 Preview](../storage/data-lake-storage/introduction.md) adds a protocol with hierarchical file system namespace and security features to Azure Blob Storage making it easy to connect analytics frameworks to a durable storage layer. In Data Lake Storage Gen2 (Preview), all the qualities of object storage remain while adding the advantages of a file system interface.
 
 Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate the lake with data from a rich set of on-premises and cloud-based data stores and save time when building your analytics solutions. For a detailed list of supported connectors, see the table of [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -28,7 +28,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, click [here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to create one.
-* Amazon S3: This article shows how to copy data from Amazon S3. You can use other data stores by following similar steps.
+* AWS account with an S3 bucket that contains data: This article shows how to copy data from Amazon S3. You can use other data stores by following similar steps.
 
 ## Create a data factory
 
@@ -42,7 +42,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
     * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name \"LoadADLSDemo\" is not available," enter a different name for the data factory. For example, you could use the name _**yourname**_**ADFTutorialDataFactory**. Try creating the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
     * **Subscription**: Select your Azure subscription in which to create the data factory. 
     * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-    * **Version**: Select **V2**.
+    * **Version**: Select **V2(Preview)**.
     * **Location**: Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations and regions. 
 
 3. Select **Create**.
@@ -71,7 +71,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 4. In the **Specify Amazon S3 connection** page, do the following steps:
    1. Specify the **Access Key ID** value.
    2. Specify the **Secret Access Key** value.
-   3. Click **Text connection** to validate the settings, then select **Finish**.
+   3. Click **Test connection** to validate the settings, then select **Finish**.
    
    ![Specify Amazon S3 account](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
    
@@ -81,7 +81,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
     ![Choose input file or folder](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
 
-6. Specify the copy behavior by checking the **Copy files recursively** and **Binary copy** (copy files as-is) options. Select **Next**:
+6. Specify the copy behavior by checking the **Copy files recursively** and **Binary copy** options. Select **Next**:
 
     ![Specify output folder](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
 	
@@ -89,9 +89,9 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
     ![Destination data store page](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
 
-8. In the **Specify Azure Data Lake Storage connection** page, do the following steps: 
+8. In the **Specify Azure Data Lake Storage connection** page, do the following steps:
 
-   1. Select your storage account from the "Storage account name" drop down list.
+   1. Select your Data Lake Storage Gen2 capable account from the "Storage account name" drop down list.
    2. Select **Next**.
    
    ![Specify Azure Data Lake Store account](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
