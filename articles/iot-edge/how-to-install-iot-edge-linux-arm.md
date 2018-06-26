@@ -26,7 +26,7 @@ Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime (e.g. Doc
 
 For production scenarios, it is highly recommended you use the [Moby-based][lnk-moby] engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are fully compatible with the Moby runtime.
 
-*Instructions below install both moby engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.*
+Commands below install both moby engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.
 
 ```cmd/sh
 
