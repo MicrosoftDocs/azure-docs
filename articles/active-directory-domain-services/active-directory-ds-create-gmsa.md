@@ -22,9 +22,9 @@ ms.author: maheshu
 This article shows you how to create managed service accounts on an Azure AD Domain Services managed domain.
 
 ## Managed Service Accounts
-A standalone Managed Service Account (sMSA) is a managed domain account whose password is automatically managed. It simplifies service principal name (SPN) management, and enables delegated management to other administrators. This type of managed service account (MSA) was introduced in Windows Server 2008 R2 and Windows 7.
+A standalone-Managed Service Account (sMSA) is a managed domain account whose password is automatically managed. It simplifies service principal name (SPN) management, and enables delegated management to other administrators. This type of managed service account (MSA) was introduced in Windows Server 2008 R2 and Windows 7.
 
-The group Managed Service Account (gMSA) provides the same functionality within the domain for many servers. All instances of a service hosted on a server farm (for example, a network load balancer) must use the same service principal for mutual authentication protocols to work. When a gMSA is used as service principal, the Windows operating system manages the account's password instead of relying on the administrator.
+The group-Managed Service Account (gMSA) provides the same benefits for many servers on the domain. All instances of a service hosted on a server farm need to use the same service principal for mutual authentication protocols to work. When a gMSA is used as service principal, the Windows operating system manages the account's password instead of relying on the administrator.
 
 **More information:**
 - [Group Managed Service Accounts Overview](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
@@ -35,13 +35,13 @@ The group Managed Service Account (gMSA) provides the same functionality within 
 Azure AD Domain Services managed domains are locked down and managed by Microsoft. There are a couple of key considerations when using service accounts with Azure AD Domain Services.
 
 ### Create service accounts within custom organizational units (OU) on the managed domain
-You cannot create a service account in the built-in 'AADDC Users' or 'AADDC Computers' organizational units. [Create a custom OU](active-directory-ds-admin-guide-create-ou.md) on your managed domain and then create service accounts within that custom OU.
+You can't create a service account in the built-in 'AADDC Users' or 'AADDC Computers' organizational units. [Create a custom OU](active-directory-ds-admin-guide-create-ou.md) on your managed domain and then create service accounts within that custom OU.
 
 ### The Key Distribution Services (KDS) root key is already pre-created
-The Key Distribution Services (KDS) root key is pre-created on an Azure AD Domain Services managed domain. You do not need to create a KDS root key and do not have privileges to do so either. You cannot view the KDS root key on the managed domain either.
+The Key Distribution Services (KDS) root key is pre-created on an Azure AD Domain Services managed domain. You don't need to create a KDS root key and don't have privileges to do so either. You can't view the KDS root key on the managed domain either.
 
-## Sample - create a group managed service account using PowerShell
-The following sample shows you how to create a custom OU using PowerShell. You can then create a GMSA within that OU by using the ```-Path``` parameter to specify the OU.
+## Sample - create a gMSA using PowerShell
+The following sample shows you how to create a custom OU using PowerShell. You can then create a gMSA within that OU by using the ```-Path``` parameter to specify the OU.
 
 ```powershell
 # Create a new custom OU on the managed domain
@@ -55,7 +55,7 @@ c/contoso100.com, http/WebFarmSvc/contoso100 -PrincipalsAllo
 wedToRetrieveManagedPassword CONTOSO-SERVER$
 ```
 
-**Reference:**
+**PowerShell cmdlet documentation:**
 - [New-ADOrganizationalUnit cmdlet](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit)
 - [New-ADServiceAccount cmdlet](https://docs.microsoft.com/powershell/module/addsadministration/New-ADServiceAccount)
 
