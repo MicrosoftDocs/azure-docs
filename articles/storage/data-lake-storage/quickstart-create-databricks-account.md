@@ -27,7 +27,7 @@ As part of the Spark job, you analyze a radio channel subscription data to gain 
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Pre-requisites
+## Prerequisites
 
 - [Create a Azure Data Lake Storage Gen2 Account](quickstart-create-account.md)
 

@@ -21,7 +21,7 @@ To enable Data Lake Storage Gen2 capabilities on your storage account, [fill out
 > [!NOTE]
 > The create account UI is updated once you are approved allowing you to create a Data Lake Storage Gen2 account. In the same way, the Data Lake Storage Gen2-related PowerShell and CLI arguments only work once you are approved.
 
-## Pre-requisites
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
