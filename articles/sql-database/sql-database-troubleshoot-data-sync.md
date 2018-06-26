@@ -5,8 +5,8 @@ services: sql-database
 ms.date: 06/20/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
 ---
