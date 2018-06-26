@@ -20,7 +20,7 @@ The Microsoft Translator Text API supports the following languages for text to t
 |:----------- |:-------:|:-------------:|
 | Afrikaans      | Statistical |`af`          |
 | Arabic      | Neural | `ar`          |
-| Arabic, Levantine    | Neural | `ar-SY`
+| Arabic, Levantine    | Neural | `apc`
 | Bangla      | Neural |`bn`          |
 | Bosnian (Latin)      | Statistical |`bs`          |
 | Bulgarian     |  Neural |`bg`          |
