@@ -83,40 +83,40 @@ In this section, you create a Python app on your simulated device that updates t
 
 1. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfuly created. Copy the module connection string. It is needed in the next step.
 
-![Azure portal module detail][15]
+    ![Azure portal module detail][15]
 
 2. **Create UpdateModuleTwinReportedProperties app**
 Add the following `using` statements at the top of the **Program.cs** file:
 
-```Python
-import sys
-import iothub_service_client
-from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod, IoTHubDeviceTwin, IoTHubError
+    ```Python
+    import sys
+    import iothub_service_client
+    from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod, IoTHubDeviceTwin, IoTHubError
 
-CONNECTION_STRING = "FILL IN CONNECTION STRING"
-DEVICE_ID = "MyFirstDevice"
-MODULE_ID = "MyFirstModule"
+    CONNECTION_STRING = "FILL IN CONNECTION STRING"
+    DEVICE_ID = "MyFirstDevice"
+    MODULE_ID = "MyFirstModule"
 
-UPDATE_JSON = "{\"properties\":{\"desired\":{\"telemetryInterval\":122}}}"
+    UPDATE_JSON = "{\"properties\":{\"desired\":{\"telemetryInterval\":122}}}"
 
-try:
-    iothub_twin = IoTHubDeviceTwin(CONNECTION_STRING)
+    try:
+        iothub_twin = IoTHubDeviceTwin(CONNECTION_STRING)
 
-    twin_info = iothub_twin.get_twin(DEVICE_ID, MODULE_ID)
-    print ( "" )
-    print ( "Twin before update    :" )
-    print ( "{0}".format(twin_info) )
+        twin_info = iothub_twin.get_twin(DEVICE_ID, MODULE_ID)
+        print ( "" )
+        print ( "Twin before update    :" )
+        print ( "{0}".format(twin_info) )
 
-    twin_info_updated = iothub_twin.update_twin(DEVICE_ID, MODULE_ID, UPDATE_JSON)
-    print ( "" )
-    print ( "Twin after update     :" )
-    print ( "{0}".format(twin_info_updated) )
+        twin_info_updated = iothub_twin.update_twin(DEVICE_ID, MODULE_ID, UPDATE_JSON)
+        print ( "" )
+        print ( "Twin after update     :" )
+        print ( "{0}".format(twin_info_updated) )
 
-except IoTHubError as iothub_error:
-    print ( "Unexpected error {0}".format(iothub_error) )
-except KeyboardInterrupt:
-    print ( "IoTHubRegistryManager sample stopped" )
-```
+    except IoTHubError as iothub_error:
+        print ( "Unexpected error {0}".format(iothub_error) )
+    except KeyboardInterrupt:
+        print ( "IoTHubRegistryManager sample stopped" )
+    ```
 
 This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol. 
 

@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Hub module identity and module twin (Python) | Microsoft Docs
+title: Get started with Azure IoT Hub module identity and module twin (C) | Microsoft Docs
 description: Learn how to create module identity and update module twin using IoT SDKs for C.
 author: chrissie926
 manager: 
@@ -175,64 +175,64 @@ In this section, you create a C app on your simulated device that updates the mo
 
 1. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfuly created. Copy the module connection string. It is needed in the next step.
 
-![Azure portal module detail][15]
+    ![Azure portal module detail][15]
 
 2. **Create UpdateModuleTwinReportedProperties app**
 Add the following `using` statements at the top of the **Program.cs** file:
 
-```C
-#include <stdio.h>
-#include <stdlib.h>
+    ```C
+    #include <stdio.h>
+    #include <stdlib.h>
 
-#include "azure_c_shared_utility/crt_abstractions.h"
-#include "azure_c_shared_utility/threadapi.h"
-#include "azure_c_shared_utility/platform.h"
+    #include "azure_c_shared_utility/crt_abstractions.h"
+    #include "azure_c_shared_utility/threadapi.h"
+    #include "azure_c_shared_utility/platform.h"
 
-#include "iothub_service_client_auth.h"
-#include "iothub_devicetwin.h"
+    #include "iothub_service_client_auth.h"
+    #include "iothub_devicetwin.h"
 
-const char* deviceId = "bugbash-test-2";
-const char* moduleId = "module-id-1";
-static const char* hubConnectionString ="[your hub's connection string]"; // modify
-const char* testJson = "{\"properties\":{\"desired\":{\"integer_property\": b-1234, \"string_property\": \"abcd\"}}}";
+    const char* deviceId = "bugbash-test-2";
+    const char* moduleId = "module-id-1";
+    static const char* hubConnectionString ="[your hub's connection string]"; // modify
+    const char* testJson = "{\"properties\":{\"desired\":{\"integer_property\": b-1234, \"string_property\": \"abcd\"}}}";
 
-int main(void)
-{
-    (void)platform_init();
-
-    IOTHUB_SERVICE_CLIENT_AUTH_HANDLE iotHubServiceClientHandle = NULL;
-    IOTHUB_SERVICE_CLIENT_DEVICE_TWIN_HANDLE iothubDeviceTwinHandle = NULL;
-
-    if ((iotHubServiceClientHandle = IoTHubServiceClientAuth_CreateFromConnectionString(moduleConnectionString)) == NULL)
+    int main(void)
     {
-        (void)printf("IoTHubServiceClientAuth_CreateFromConnectionString failed\n");
-    }
-    else if ((iothubDeviceTwinHandle = IoTHubDeviceTwin_Create(iotHubServiceClientHandle)) == NULL)
-    {
-        (void)printf("IoTHubServiceClientAuth_CreateFromConnectionString failed\n");
-    }
-    else
-    {
-        char *result = IoTHubDeviceTwin_UpdateModuleTwin(iothubDeviceTwinHandle, deviceId, moduleId, testJson);
-        printf("IoTHubDeviceTwin_UpdateModuleTwin returned %s\n", result);
-    }
+        (void)platform_init();
 
-    if (iothubDeviceTwinHandle != NULL)
-    {
-        (void)printf("Calling IoTHubDeviceTwin_Destroy...\n");
-        IoTHubDeviceTwin_Destroy(iothubDeviceTwinHandle);
-    }
+        IOTHUB_SERVICE_CLIENT_AUTH_HANDLE iotHubServiceClientHandle = NULL;
+        IOTHUB_SERVICE_CLIENT_DEVICE_TWIN_HANDLE iothubDeviceTwinHandle = NULL;
 
-    if (iotHubServiceClientHandle != NULL)
-    {
-        (void)printf("Calling IoTHubServiceClientAuth_Destroy...\n");
-        IoTHubServiceClientAuth_Destroy(iotHubServiceClientHandle);
+        if ((iotHubServiceClientHandle = IoTHubServiceClientAuth_CreateFromConnectionString(moduleConnectionString)) == NULL)
+        {
+            (void)printf("IoTHubServiceClientAuth_CreateFromConnectionString failed\n");
+        }
+        else if ((iothubDeviceTwinHandle = IoTHubDeviceTwin_Create(iotHubServiceClientHandle)) == NULL)
+        {
+            (void)printf("IoTHubServiceClientAuth_CreateFromConnectionString failed\n");
+        }
+        else
+        {
+            char *result = IoTHubDeviceTwin_UpdateModuleTwin(iothubDeviceTwinHandle, deviceId, moduleId, testJson);
+            printf("IoTHubDeviceTwin_UpdateModuleTwin returned %s\n", result);
+        }
+
+        if (iothubDeviceTwinHandle != NULL)
+        {
+            (void)printf("Calling IoTHubDeviceTwin_Destroy...\n");
+            IoTHubDeviceTwin_Destroy(iothubDeviceTwinHandle);
+        }
+
+        if (iotHubServiceClientHandle != NULL)
+        {
+            (void)printf("Calling IoTHubServiceClientAuth_Destroy...\n");
+            IoTHubServiceClientAuth_Destroy(iotHubServiceClientHandle);
+        }
+        
+        platform_deinit();
+        return 0;
     }
-    
-    platform_deinit();
-    return 0;
-}
-```
+    ```
 
 This code sample shows you how to retrieve the module twin and update reported properties. 
 
