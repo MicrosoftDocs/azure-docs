@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: panosper
+ms.author: panosper, qiliao
 ---
 
 # Custom Speech Service Frequently Asked Questions
