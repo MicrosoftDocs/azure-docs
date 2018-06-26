@@ -62,6 +62,9 @@ This article assumes you have [an Azure account](https://azure.microsoft.com/fre
 2. Select **Windows Classic Desktop > Console App (.NET Framework)**.
 
    To create a 3.x project, select **.NET Core > Console App (.NET Core)**.
+   
+   > [!NOTE]
+   > 3.x is still in preview and is under development. The 3.x instructions in this article are incomplete; for the latest information, see the GitHub issues at the bottom of the page.
 
 3. Name the project *WebJobsSDKSample*, and then select **OK**.
 
