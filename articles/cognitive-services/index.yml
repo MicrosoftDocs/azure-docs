@@ -76,13 +76,13 @@ sections:
       - href: 
       - href:
       - href: /azure/cognitive-services/luis/luis-get-started-create-app
-    - title: Translator Text - API sign up
+    - title: Translator Text - Translate one language to another
       values:
+      - href: Translator/quickstart-csharp-translate
+      - href: Translator/quickstart-java-translate
+      - href: Translator/quickstart-nodejs-translate
+      - href: Translator/quickstart-python-translate
       - href: 
-      - href: 
-      - href: 
-      - href:
-      - href: /azure/cognitive-services/translator/translator-text-how-to-signup
     - title: Bing Web Search - Get relevant web queries
       values: 
       - href: /azure/cognitive-services/bing-web-search/quickstarts/csharp

@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/20/2018
+ms.date: 06/27/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
@@ -20,22 +20,35 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Create an Azure Service Fabric Mesh app
 
-You'll learn how to create an Azure Service Fabric app that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates how to make a service-to-service call in a Service Fabric Mesh app.
+This tutorial is part one of a series. You'll learn how to create an Azure Service Fabric app that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates a service-to-service call in a Service Fabric Mesh app.
 
-In this tutorial you learn how to:
+If you don't want to manually create the to-do app, you can [download the source code](https://github.com/Azure-Samples/service-fabric-mesh/tree/private-preview-4) for the completed application and skip ahead to [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
+
+In part one of the series, you learn how to:
+
 > [!div class="checklist"]
 > * Create a Service Fabric Mesh app consisting of an ASP.NET web front end.
-> * Add a back-end service to the project & retrieve data from it.
-> * Debug the app locally.
-> * Publish the app to Azure.
+> * Create a model to represent to-do items.
+> * Create a back-end service & retrieve data from it.
+> * Add a controller and DataContext as part of that Model View Controller pattern for the back-end service.
+> * Create a web page to display to-do items.
+> * Create environment variables that identify the back-end service
 
-If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * Build a Service Fabric Mesh app
+> * [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Publish the app to Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## Prerequisites
 
-Before you start, make sure that you've [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md) which includes installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
+Before you begin this tutorial:
+
+* If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Make sure that you've [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md) which includes installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
 
 ## Create a Service Fabric Mesh project
 
@@ -324,7 +337,7 @@ public class IndexModel : PageModel
 }
 ```
 
-### Set environment variables
+### Create environment variables
 
 To communicate with the back-end service, specify the URL for that service. For the purpose of this tutorial, the following code (defined above as part of the `IndexModel`) reads environment variables that will be defined in a moment to compose the URL:
 
@@ -360,90 +373,18 @@ It should look something like this (although your `ApiHostPort` value will proba
 
 Now you are ready to build and deploy the image the Service Fabric app, along with the back-end web service, to your local cluster.
 
-## Build and debug on your local cluster
-
-A Docker image is automatically built and deployed to your local cluster as soon as your project loads. This process may take a while. To monitor the progress in the Visual Studio **Output** pane, set the Output pane **Show output from:** drop-down to **Service Fabric Tools**.
-
-Press **F5** to compile and run your service locally. Whenever the project is run and debugged locally, Visual Studio will:
-
-* Make sure that Docker for Windows is running and set to use Windows as the container operating system.
-* Download any missing Docker base images. This part may take some time
-* Build (or rebuild) the Docker image used to host your code project.
-* Deploy and run the container on the local Service Fabric development cluster.
-* Run your services and hit any breakpoints you have set.
-
-After the local deployment is finished, and Visual Studio is running your app, a browser window will open to a default sample webpage.
-
-**Debugging tips**
-
-* If you get error that "No Service Fabric local cluster is running", make sure that the Service Local Custer Manager (SLCM) is running. Right-click the SLCM icon in the task bar, and click **Start Local Cluster**. Once it has started, return to Visual Studio and press **F5**.
-* If you get a 404 when the app starts, it probably means that your environment variables in **service.yaml** are incorrect. Make sure that `AppName`, `ApiHostPort` and `ServiceName` are set correctly per the instructions in [Set environment variables](#set-environment-variables).
-* If you get a build error in **service.yaml**, make sure that you used spaces and not tabs when you added the environment variables.
-
-### Debug in Visual Studio
-
-When you debug a Service Fabric mesh application in Visual Studio, you are using a local Service Fabric development cluster. To see how to-do items are retrieved from the back-end service, debug into the OnGet() method.
-1. In the **WebFrontEnd** project, open **Pages** > **Index.cshtml** > **Index.cshtml.cs** and set a breakpoint in the **Get** method (line 17).
-2. In the **ToDoService** project, open **TodoController.cs** and set a breakpoint in the **Get** method (line 16).
-3. Go back to the browser and refresh the page. You hit the  breakpoint in the web front end `OnGet()` method. You can inspect the `backendUrl` variable to see how the environment variables that you defined in the **service.yaml** file are combined into the URL used to contact the back-end service.
-4. Step over (F10) the `client.GetAsync(backendUrl).GetAwaiter().GetResult())` call and you'll hit the controller's `Get()` breakpoint. In this method, you can see how the list of to-do items is retrieved from the in-memory list.
-5. When you are done looking around, you can stop debugging your project in Visual Studio by pressing **Shift+F5**.
-
-## Publish to Azure
-
-To publish your Service Fabric Mesh project to Azure, right-click on **ServiceFabricMeshApp** in Visual studio and select **Publish...**
-
-Next, you'll see a **Publish Service Fabric Application** dialog.
-
-![Visual studio Service Fabric Mesh publish dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
-
-Select your Azure account and subscription. Choose a **Location**. This article uses **East US**.
-
-Under **Resource group**, select **\<Create New Resource Group...>**. This results in a dialog where you'll create a new resource group. Choose the **East US** location and name the group **sfmeshTutorial1RG**. Press **Create** to create the resource group and return to the publish dialog.
-
-![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
-
-Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. For **Location**, pick **East US**. Select the **sfmeshTutorial1RG** resource group. Set the **SKU** to **Basic** and then press **Create** to return to the publish dialog.
-
-![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
-
-In the publish dialog, press the **Publish** button to deploy your Service Fabric application to Azure.
-
-When you publish to Azure for the first time, it can take up to 10 or more minutes. Subsequent publishes of the same project generally take around five minutes. Obviously, these estimates will vary based on your internet connection speed and other factors. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the deployment has finished, the **Service Fabric Tools** output will display the app's IP address and port in the form of a URL.
-
-```json
-Packaging Application...
-Building Images...
-Web1 -> C:\Code\ServiceFabricMeshApp\ToDoService\bin\Any CPU\Release\netcoreapp2.0\ToDoService.dll
-Uploading the images to Azure Container Registy...
-Deploying application to remote endpoint...
-The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
-```
-
-Open a web browser and navigate to the URL to see the website running in Azure.
-
-## Clean up resources
-
-When no longer needed, delete all of the resources you created. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group.
-
-```azurecli
-az group delete --resource-group sfmeshTutorial1RG
-```
-
-```powershell
-Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
-```
-
-Alternatively, you can delete the resource group [from the portal](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources).
-
 ## Next steps
 
-In this tutorial, you learned how to:
+In this part of the tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a Service Fabric Mesh app consisting of a ASP.NET web front end.
-> * Add a back-end service to the project & retrieve data from it.
-> * Debug the app locally.
-> * Publish the app to Azure.
+> * Create a Service Fabric Mesh app consisting of an ASP.NET web front end.
+> * Create a model to represent to-do items.
+> * Create a back-end service & retrieve data from it.
+> * Add a controller and DataContext as part of that Model View Controller pattern for the back-end service.
+> * Create a web page to display to-do items.
+> * Create environment variables that identify the back-end service
 
-Explore the [Voting app sample](https://github.com/Azure/service-fabric-mesh-preview-pr/tree/master/samples/src/votingapp) to see another example of service-to-service communication.
+Advance to the next tutorial:
+> [!div class="nextstepaction"]
+> [Debug the application](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
