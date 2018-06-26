@@ -1,6 +1,6 @@
 ---
-title: How to choose the right SKU for your Azure Maps account | Microsoft Docs 
-description: This article shows you the difference in Azure Maps SKUs so you can choose the right SKU for your application.
+title: How to choose the right tier for your Azure Maps account | Microsoft Docs 
+description: This article shows you the difference in Azure Maps tiers so you can make the right choice for your application.
 author: dsk-2015
 ms.author: dkshir
 ms.date: 07/16/2018
@@ -10,34 +10,44 @@ services: azure-maps
 manager: timlt
 ---
 
-# How to choose the right SKU or tier for your Azure Maps account
+# How to choose the right tier for your Azure Maps account
 
-You can create your Azure Maps account in two different SKUs or tiers - **Premium** and **Standard**, depending on the APIs you will need for your scenario. This article helps you decide which SKU is right for you. 
+Azure Maps allows you to create an account in two different tiers - **Premium** and **Standard**, depending on the features and bandwidth you will need for your scenario. This article helps you decide which tier is right for you. 
 
-If you're just starting out with Azure Maps, make sure to go through the article [Launch an interactive search map using Azure Maps](quick-demo-map-app) for a quick guidance on Azure Maps account setup and usage. For pricing information for different SKUs, read the [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
+If you're just starting out with Azure Maps, make sure to go through the article [Launch an interactive search map using Azure Maps](quick-demo-map-app) for a quick guidance on account setup and usage. For pricing information, read [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
-## Why Premium SKU?
+## Premium Vs Standard tier
+The Azure Maps Premium tier is an enterprise-ready tier, which includes all features of the Standard tier, in addition to **decreased throttling**. The Standard tier throttles customer transactions at 50 requests per second. Premium tier lifts this throttling to service large-scale enterprise customers on the order of multiple thousand requests per second. 
 
-As an Azure Maps user, you will typically create an account with **Standard** SKU, which provides 250,000 free maps and traffic transactions per month. When you need to move on to **Premium** features, you will create another account for **Premium** SKU. The **Premium** SKU does not provide any free transactions, however it has the following feature advantages over the **Standard**: 
+The Standard tier is sufficient for customers who are small to mid-sized enterprises and/or who do not expect high volumes of concurrent users. This tier is generally available, which means it is applicable for all stages of production, from proof of concept and early stage testing to application production and deployment. 
 
-### Decreased throttling
-Azure Maps Standard SKU throttles customer transactions at 50 requests per second. Premium SKU lifts this throttling to service large-scale enterprise customers on the order of multiple thousand requests per second. 
+In contrast, customers who need support for large-scale enterprise, mission-critical applications, high volumes of concurrent users or required advanced geospatial services can try out the new Premium tier. Note that this tier is currently in public preview, so it will not be yet available for production environments.
 
-### Security
-The Standard SKU secures customer use cases using key-based authentication. This is a fairly insecure method which largely leaves keys in plain text within the JavaScript map control. Premium SKU provides better security with Azure Active Directory. 
-
-If you are an entreprise customer who needs higher transaction volumes to support live-site critical applications, and better security for your applications and services, you will want to choose the Premium SKU. 
-
-[!IMPORTANT] If your application requires Premium SKU features, note that you will need to create a different Azure Maps Premium account. Currently the Standard account cannot be upgraded to Premium. 
+[!IMPORTANT] To use Premium tier services, you will need to create an additional Azure Maps Premium account. The Standard account cannot be upgraded to Premium. 
 
 
-## Service availability
+## Services available in Premium tier
 
-In addition to services available with the Standard SKU, the Azure Maps Premium SKU provides the services listed below. 
+The following table shows the service availability in Standard and Premium tiers.
+
+| Service | Standard tier | Premium tier |
+| ---------- | ------------ | ------------- |
+| [Search](https://docs.microsoft.com/rest/api/maps/search) | Yes | Yes |
+| [Route](https://docs.microsoft.com/rest/api/maps/route) | Yes | Yes |
+| [Traffic](https://docs.microsoft.com/rest/api/maps/traffic) | Yes | Yes |
+| [Render](https://docs.microsoft.com/rest/api/maps/render) | Yes | Yes |
+| [Timezone](https://docs.microsoft.com/rest/api/maps/timezone) | Yes | Yes |
+| Batch Search and Geocoding | No | Yes |
+| Return Polygons for Area | No | Yes |
+| Batch Routing | No | Yes |
+| Matrix Routing | No | Yes |
+| Reachable Range (Isochrones) | No | Yes |
+
+The Premium tier features these advanced mapping services:
 
 ### Batch Search and Geocoding Service
 
-This provides batch operations for large sets of search queries. 
+This service provides batch operations for large sets of search queries. With the help of this service, developers can pass a batch of search calls into the Maps Search service at a single time, and get all of the resulting location information in a single response. For example, a large business can 
 
 ### Return Polygons for Area Features
 
@@ -58,5 +68,5 @@ This provides the ability to calculate a range of distances based on area, time 
 
 ## Next steps
 
-- To learn more about the Azure Maps capabilities, pricing and performance per SKU, see Azure Maps pricing.  
-- To learn how to create an account in your choice of SKU, read TBD. 
+- To learn more about the Azure Maps capabilities, pricing and performance per tier, see Azure Maps pricing.  
+- To learn how to create an account in your choice of tier, read TBD. 
