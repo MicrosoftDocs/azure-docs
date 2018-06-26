@@ -41,18 +41,20 @@ You can use [Docker for Windows][lnk-docker-for-windows] for development and tes
 In an Administrator PowerShell window, execute the following commands:
 
 ```powershell
-Invoke-WebRequest https://conteng.blob.core.windows.net/iotedged/iotedge.zip -o .\iotedge.zip
+Invoke-WebRequest https://conteng.blob.core.windows.net/iotedged/iotedged-windows.zip -o .\iotedged.zip
 Expand-Archive .\iotedge.zip C:\ProgramData\iotedge -f
+Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+rmdir C:\ProgramData\iotedge\iotedged-windows
 $env:Path += ";C:\ProgramData\iotedge"
 SETX /M PATH "$env:Path"
 ```
 
->[!NOTE]
->On Windows Server, install the vcruntime redistributable using the following commands:
-> ```powershell
-> https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe%20-o%20vc_redist.exe
->.\vc_redist.exe /quiet /norestart
-> ```
+On Windows Server, install the vcruntime re-distributable using the following commands:
+
+```powershell
+Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe%20-o%20vc_redist.exe
+.\vc_redist.exe /quiet /norestart
+ ```
 
 Create and start *iotedge* service:
 
