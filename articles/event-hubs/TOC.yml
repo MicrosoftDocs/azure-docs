@@ -6,6 +6,7 @@
     href: event-hubs-about.md
   - name: Compare messaging services
     href: ../event-grid/compare-messaging-services.md
+    maintainContext: true
 - name: Quickstarts
   expanded: true
   items:
@@ -29,6 +30,7 @@
     href: event-hubs-programming-guide.md
   - name: Integrate with Event Grid
     href: ../event-grid/event-grid-event-hubs-integration.md
+    maintainContext: true
   - name: Event Hubs features
     href: event-hubs-features.md
   - name: Managed Service Identity (preview)
@@ -49,6 +51,7 @@
     href: event-hubs-diagnostic-logs.md
   - name: AMQP 1.0 protocol guide
     href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
+    maintainContext: true
 - name: How-to guides
   items:
   - name: Create an event hub
