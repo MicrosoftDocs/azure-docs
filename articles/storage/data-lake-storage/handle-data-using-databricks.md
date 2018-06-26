@@ -156,19 +156,28 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 4. Add the following snippet in an empty code cell and replace the placeholder values with the values you saved earlier from the storage account.
 
     ```python
+    spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+    dbutils.fs.ls("abfs://<desired_file_system_name>@<account_name>.dfs.core.windows.net/")
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+    ```
+
+5. Add the following snippet in an empty code cell and replace the placeholder values with the values you saved earlier from the storage account.
+
+    ```python
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
 
     Press **SHIFT + ENTER** to run the code cell.
 
-5. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values).
+6. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values).
 
     ```python
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
-6. Run the following code to see the contents of the data frame.
+7. Run the following code to see the contents of the data frame.
 
     ```python
     df.show()

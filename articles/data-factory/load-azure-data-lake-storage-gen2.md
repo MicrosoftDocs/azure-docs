@@ -68,7 +68,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 	
 	![Source data store s3 page](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
 	
-4. In the **Specify Amazon S3 connection** page, do the following steps: 
+4. In the **Specify Amazon S3 connection** page, do the following steps:
    1. Specify the **Access Key ID** value.
    2. Specify the **Secret Access Key** value.
    3. Click **Text connection** to validate the settings, then select **Finish**.
@@ -127,9 +127,10 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 When copy large volume of data from file-based data store, you are suggested to:
 
-- Partition the files into 10TB to 20TB fileset each. 
+- Partition the files into 10TB to 20TB fileset each.
 - Do not trigger too many concurrent copy runs to avoid throttling from source or sink data stores. You can start with one copy run and monitor the throughput, then gradually add more as needed.
 
 ## Next steps
 
 * [Copy activity overview](copy-activity-overview.md)
+* [Azure Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md)
