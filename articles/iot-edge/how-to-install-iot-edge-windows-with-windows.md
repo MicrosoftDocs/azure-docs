@@ -29,7 +29,7 @@ Azure IoT Edge with Windows containers can be used with:
 >[!NOTE]
 >For container engine installation on Windows IoT Core, follow steps from [provision an IoT Core device article][lnk-iot-core] and then continue with instructions below.
 
-Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). You can use [Docker for Windows][lnk-docker-for-windows] for development and testing. 
+Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime (e.g. Docker). You can use [Docker for Windows][lnk-docker-for-windows] for development and testing. 
 
 **Ensure Docker for Windows is [configured to use Windows containers][lnk-docker-config]**
 

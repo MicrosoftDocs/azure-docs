@@ -74,7 +74,7 @@ sudo apt-get install moby-cli
 
 ## Install the Azure IoT Edge Security Daemon
 
-*Instructions below will also install the standard version of the **iothsmlib** if not already present.*
+Commands below will also install the standard version of the **iothsmlib** if not already present.
 
 ```cmd/sh
 sudo apt-get update
