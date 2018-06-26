@@ -77,11 +77,11 @@ First, create a resource group to contain the resources needed to deploy the fir
 4. For **Name**, type **Test-FW-VN**.
 5. For **Address space**, type **10.0.0.0/16**.
 
-   You should use an address space that does not overlap with another virtual network in your subscription. If this one does not work for you, use one that does not overlap.
-6. For **Subscription**, select your subscription.
-7. For **Resource group**, select **Use existing**, and then select **Test-FW-RG**.
-8. For **Location**, select **East US**.
-9. Under **Subnet**, for **Name** type **FW-SN**.
+   Use an address space that does not overlap with another virtual network in your subscription. If this one does not work for you, use one that does not overlap.
+1. For **Subscription**, select your subscription.
+2. For **Resource group**, select **Use existing**, and then select **Test-FW-RG**.
+3. For **Location**, select **East US**.
+4. Under **Subnet**, for **Name** type **FW-SN**.
 
    This firewall will be in this subnet.
 10. For **Address range**, type **10.0.1.0/24**.
@@ -119,7 +119,7 @@ Now create the jump and workload virtual machines, and place them in the appropr
 
 **Size**
 
-1. Choose an appropriate size for a test virtual machine running Windows Sever. For example, **B4ms** (16 GB RAM, 32 GB storage).
+1. Choose an appropriate size for a test virtual machine running Windows Server. For example, **B4ms** (16 GB RAM, 32 GB storage).
 2. Click **Select**.
 
 **Settings**
@@ -133,9 +133,9 @@ Now create the jump and workload virtual machines, and place them in the appropr
 
 Review the summary, and then click **Create**. This will take a few minutes to complete.
 
-Repeate this process to create another virtual machine named **Srv-Work**.
+Repeat this process to create another virtual machine named **Srv-Work**.
 
-Use the information in the following table to confgure the **Settings** for the Srv-Work virtual machine. The rest of the configuration is the same as the Srv-Jump virtual machine.
+Use the information in the following table to configure the **Settings** for the Srv-Work virtual machine. The rest of the configuration is the same as the Srv-Jump virtual machine.
 
 
 |Setting  |Value  |
@@ -181,14 +181,14 @@ On the **Workload-SN** subnet, the outbound traffic default route will go throug
 7. Click **Create**.
 8. Click **Refresh**, and then click the **Firewall-route** route table.
 9. Click **Subnets**, and then click **Associate**.
-10. Click **Virtual nework**, and then select **Test-FW-VN**.
+10. Click **Virtual network**, and then select **Test-FW-VN**.
 11. For **Subnet**, click **Workload-SN**.
 12. Click **OK**.
 13. Click **Routes**, and then click **Add**.
 14. For **Route name**, type **FW-DG**.
 15. For **Address prefix**, type **0.0.0.0/0**.
 16. For **Next hop type**, select **Virtual appliance**.
-17. For **Next hop address**, type the public IP address for the firewall thay you noted previously.
+17. For **Next hop address**, type the public IP address for the firewall that you noted previously.
 18. Click **OK**.
 
 
@@ -231,7 +231,7 @@ On the **Workload-SN** subnet, the outbound traffic default route will go throug
 
    Note the Interface Index for the Ethernet interface that has a DNS server IP address configured.
 
-4. Now change the DNS server IP address from a administrator PowerShell window:
+4. Now change the DNS server IP address from an administrator PowerShell window:
 
    `Set-DnsClientServerAddress -InterfaceIndex <your index #> -ServerAddresses ("209.244.0.3","209.244.0.4")`
 
@@ -247,11 +247,11 @@ On the **Workload-SN** subnet, the outbound traffic default route will go throug
 So now you have verified that the firewall rules are working:
 
 - You can browse to the one allowed FQDN, but not to any others.
-- You can resolve DNS names using the configured exernal DNS server.
+- You can resolve DNS names using the configured external DNS server.
 
 ## Clean up resources
 
-When no longer needed, delete the **Test-FW-RG** resource group to delete all firewall related resources.
+When no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
 
 
 ## Next steps
