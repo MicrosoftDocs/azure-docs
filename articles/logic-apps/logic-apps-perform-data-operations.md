@@ -329,7 +329,7 @@ select **Output**.
    This example uses the **Office 365 Outlook - Send an email** action 
    and includes the **Output** field in the email's body:
 
-   !["Output" fields in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-create-html-table-action.png)
+   !["Output" fields in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
    
    > [!NOTE]
    > When including the HTML table output in an email action, 
@@ -341,7 +341,7 @@ select **Output**.
 
    Based on the email connector you used, here are the results you get:
 
-   ![Email with "Create HTML table" action results](./media/logic-apps-change-manage-data-operations/create-html-table-email-results.png)
+   ![Email with "Create HTML table" action results](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
 
 <a name="filter-array-action"></a>
 
