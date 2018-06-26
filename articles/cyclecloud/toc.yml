@@ -18,10 +18,6 @@
   items:
   - name: Start to Finish How-To Specific Task
     href:
-- name: Samples
-  items:
-  - name: Offically Approved ACC Sample Templates
-    href:
 - name: Concepts
   items:
   - name: CycleCloud
