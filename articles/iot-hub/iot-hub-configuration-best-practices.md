@@ -10,7 +10,7 @@ ms.service: iot-hub
 services: iot-hub
 ---
 
-# Best practices for different roles within an IoT solution
+# Best practices for device configuration within an IoT solution
 
 Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. This article defines many of the best practices for the various roles involved in developing and operating an IoT solution.
 
@@ -28,7 +28,7 @@ Automatic device management leverages the many benefits of [device twins][lnk-de
 
 ## IoT hardware manufacturer/integrator
 
-The following are best practices for hardware manfacturers and integrators dealing with emebedded software development:
+The following are best practices for hardware manfacturers and integrators dealing with embedded software development:
 
 1. **Utilize [device twins][lnk-device-twins]:** Device twins enable synchronizing desired configuration from the cloud and for reporting current configuration and device properties.  The best way to implement device twins within embedded applications is through the [Azure IoT SDKs][lnk-azure-sdk].  Device twins are best suited for configuration because they:
     a. support bi-directional communication 
@@ -48,7 +48,8 @@ The following are best practices for IoT solution developers who are building sy
     c. follow the principle of eventual consistency
     d. are fully queriable in the cloud
 2. **Allow for devices to be organized using device twin tags:** The solution should define or enable the defition of quality rings or other device groupings based on various deployment strategies such as canary. This can be implemented within your solution using device twin tags as well as [queries][lnk-queries].  Device organization is necessary to allow for configuration roll-outs safely and accurately.
-3. **Implement [automatic device configurations][lnk-auto-device-config]:** Automatic device configurations should be used to deploy and monitor configuration changes to large sets of IoT devices via device twins.  Automatic device configurations are targeted at sets of device twins via the **target condition** which is a query on device twin tags or reported properties. The **target content** is the set of desired properties that will be set within the targeted device twins. This should align with the device twin structure defined by the IoT hardware manufacturer/integrator.  The **metrics** are queries on device twin reported properties, and should also align with the device twin structure defined by the IoT hardware manufacturer/integrator. 
+3. **Implement [automatic device configurations][lnk-auto-device-config]:** Automatic device configurations should be used to deploy and monitor configuration changes to large sets of IoT devices via device twins.  Automatic device configurations are targeted at sets of device twins via the **target condition** which is a query on device twin tags or reported properties. The **target content** is the set of desired properties that will be set within the targeted device twins. This should align with the device twin structure defined by the IoT hardware manufacturer/integrator.  The **metrics** are queries on device twin reported properties, and should also align with the device twin structure defined by the IoT hardware manufacturer/integrator. Automatic device configurations also have the benefit performing device twin operations at a rate that will never exceed the [throttling limits][lnk-throttling] for device twin reads and updates.
+4. **Use [Device Provisioning Service][lnk-dps]:** Solution developers should use the Device Provisioning Service to assign device twin tags to newly provisioned devices, such that they will be automatically configured by **automatic device configurations** that are targeted at twins with that tag. 
 
 ## IoT solution operator
 
@@ -63,9 +64,12 @@ The following are best practices for IoT solution operators who using an IoT sol
 
 * Learn about implementing device twins in [Understand and use device twins in IoT Hub][lnk-device-twins]
 * Walk through the steps to create, update, or delete an automatic device configuration in [Configure and monitor IoT devices at scale][lnk-auto-device-config].
-* Learn more about other IoT Edge concepts like the [IoT Edge runtime][lnk-runtime] and [IoT Edge modules][lnk-modules].
+* Implement a firmware update pattern using device twins and automatic device configurations in [Tutorial: Implement a device firmware update process][lnk-firmware-update].
 
 <!-- Links -->
 [lnk-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-auto-device-config]: iot-hub-auto-device-config.md
+[lnk-firmware-update]: tutorial-firmware-update.md
+[lnk-throttling]: iot-hub-devguide-quotas-throttling.md
+[lnk-dps]: ../iot-dps/iot-dps/how-to-manage-enrollments.md
 [lnk-azure-sdk]: https://github.com/Azure/azure-iot-sdks
