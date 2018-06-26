@@ -221,19 +221,21 @@ On the **Workload-SN** subnet, the outbound traffic default route will go throug
 9. For Destination address, type **209.244.0.3, 209.244.0.4**
 10. For **Destination Ports**, verify it is set to **53**.
 
+### Change the primary and secondary DNS address for the **SRV-Work** network interface
+
+1. From the Azure portal, open the **Test-FW-RG** resource group.
+2. Click the network interface for the **SRV-Work** virtual machine.
+3. Under **Settings**, click **DNS servers**.
+4. Under **DNS servers**, click **Custom**.
+5. Type **209.244.0.3** in the **Add DNS server** text box, and **209.244.0.4** in the next text box.
+6. Click **Save**. 
+7. Restart the **SRV-Work** virtual machine.
+
+
 ## Test the firewall
 
 1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
 2. Connect a remote desktop to **Srv-Jump** virtual machine, and from there open a remote desktop connection to the **Srv-Work** private IP address.
-3. Change the primary and secondary DNS address for **SRV-Work**. From an administrator PowerShell window, run:
-
-   `Get-DnsClientServerAddress`
-
-   Note the Interface Index for the Ethernet interface that has a DNS server IP address configured.
-
-4. Now change the DNS server IP address from an administrator PowerShell window:
-
-   `Set-DnsClientServerAddress -InterfaceIndex <your index #> -ServerAddresses ("209.244.0.3","209.244.0.4")`
 
 5. Open Internet Explorer and browse to http://github.com.
 6. Click **OK**, and **Close** on the security alerts.
