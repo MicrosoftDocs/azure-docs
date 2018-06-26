@@ -48,7 +48,7 @@ The schema for DeviceCreated and DeviceDeleted events have the same structure. T
   "dataVersion": "", 
   "metadataVersion": "1" 
 }]
-'''
+```
 
 The schema for DeviceCreated and DeviceDeleted events have the same structure. This sample event shows the schema of an event raised when a device is registered to an IoT hub:
 

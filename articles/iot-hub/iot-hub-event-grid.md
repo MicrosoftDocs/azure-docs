@@ -59,6 +59,7 @@ The following example shows the schema of a device connected event:
   "dataVersion": "", 
   "metadataVersion": "1" 
 }]
+```
 
 ### Device created schema
 
