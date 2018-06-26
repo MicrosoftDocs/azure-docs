@@ -17,6 +17,18 @@
     href: quickstart-cpp-linux.md
   - name: Get started with Speech Devices SDK
     href: speech-devices-sdk-qsg.md
+- name: How-to guides
+  items:
+  - name: Recognize speech
+    href: how-to-speech-to-text.md
+  - name: Synthesize speech
+    href: how-to-text-to-speech.md
+  - name: Translate speech
+    href: how-to-translate-speech.md
+  - name: Get the Speech Devices SDK
+    href: get-speech-devices-sdk.md
+  - name: Batch transcription (call centers)
+    href: batch-transcription.md
 - name: Customization
   items:
   - name: Customize acoustic models
@@ -31,18 +43,6 @@
     href: how-to-use-audio-input-streams.md
   - name: Customize device wake word (Devices SDK)
     href: speech-devices-sdk-create-kws.md
-- name: How-to guides
-  items:
-  - name: Recognize speech
-    href: how-to-speech-to-text.md
-  - name: Synthesize speech
-    href: how-to-text-to-speech.md
-  - name: Translate speech
-    href: how-to-translate-speech.md
-  - name: Get the Speech Devices SDK
-    href: get-speech-devices-sdk.md
-  - name: Batch transcription (call centers)
-    href: batch-transcription.md
 - name: Samples
   items:
   - name: Download samples
