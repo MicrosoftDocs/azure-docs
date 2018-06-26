@@ -20,6 +20,7 @@
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Routing messages](tutorial-routing.md)
 ## [Configure your devices](tutorial-device-twins.md)
+## [Manage firmware updates](tutorial-firmware-update.md)
 ## [Test device connectivity](tutorial-connectivity.md)
 ## Send cloud-to-device messages
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
@@ -169,6 +170,9 @@
 ### Get started with module twins
 #### [Portal](iot-hub-portal-csharp-module-twin-getstarted.md)
 #### [.NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
+#### [Python](iot-hub-python-python-module-twin-getstarted.md)
+#### [C](iot-hub-c-c-module-twin-getstarted.md)
+#### [Node](iot-hub-node-node-module-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js](iot-hub-node-node-direct-methods.md)
 #### [.NET](iot-hub-csharp-csharp-direct-methods.md)
@@ -221,7 +225,9 @@
 ## [Upgrade an IoT hub](iot-hub-upgrade.md)
 ## [Usage metrics](iot-hub-metrics.md)
 ## [Configure IP filtering](iot-hub-ip-filtering.md)
-## [Configure devices at scale](iot-hub-auto-device-config.md)
+## Configure devices at scale
+### [Use Azure portal](iot-hub-auto-device-config.md)
+### [Use Azure CLI](iot-hub-auto-device-config-cli.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=iot-hub)
@@ -259,6 +265,7 @@
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Customer data requests](iot-hub-customer-data-requests.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
+## [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 ## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
 ## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
