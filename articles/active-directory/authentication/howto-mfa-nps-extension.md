@@ -68,6 +68,13 @@ When you install the extension, you need the directory ID and admin credentials 
 
 ![Find your Directory ID under Azure Active Directory properties](./media/howto-mfa-nps-extension/find-directory-id.png)
 
+### Network requirements
+
+The NPS server needs to be able to communicate with the following URLs over ports 80 and 443.
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
+
 ## Prepare your environment
 
 Before you install the NPS extension, you want to prepare you environment to handle the authentication traffic.
