@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 
@@ -62,4 +62,4 @@ You can modify the password by changing it on the MySQL server instance.
 
 ## Next steps
 
-[Update the MySQL resource provider](azure-stack-mysql-resource-provider-update.md)
+[Maintain the MySQL resource provider](azure-stack-mysql-resource-provider-maintain.md)
