@@ -58,7 +58,7 @@ The provisioning summary report is visible in the **Provisioning** tab for given
 
 * The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial synchronization](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) has completed.
 
-* Whether or not an [initial synchronization]((active-directory-saas-app-provisioning.md#what-happens-during-provisioning) has been completed.
+* Whether or not an [initial synchronization](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) has been completed.
 
 * Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (e.g. failure to communicate with target system due to invalid admin credentials)
 
