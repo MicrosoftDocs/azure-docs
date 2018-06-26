@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/03/2018
+ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
 ---
@@ -83,7 +83,7 @@ Now that you have enabled data collection, lets run a simple log search example 
 1. In the Azure portal, navigate to Log Analytics and select the workspace created earlier.
 2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br> ![Log Analytics log search query example](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
 
-For example, the query in the following image returned 78,000 Performance records.  Your results will be significantly less.<br> ![Log Analytics log search result](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
+For example, the query in the following image returned 735 performance records.  Your results will be significantly less.<br> ![Log Analytics log search result](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## Clean up resources
 When no longer needed, delete the Log Analytics workspace. To do so, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.<br> ![Delete Log Analytics resource](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
