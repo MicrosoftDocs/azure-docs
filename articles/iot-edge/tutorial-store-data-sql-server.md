@@ -33,7 +33,8 @@ In this tutorial, you learn how to:
 * The Azure IoT Edge device that you created in the quickstart or previous tutorial.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
-* [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
+* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download). 
 * [Docker CE](https://docs.docker.com/install/) on your development machine. 
 
 ## Create a container registry
