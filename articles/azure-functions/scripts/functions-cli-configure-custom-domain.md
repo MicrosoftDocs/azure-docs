@@ -14,13 +14,14 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/01/2017
+ms.date: 06/26/2018
 ms.author: glenga
 ms.custom: mvc
 ---
 # Map a custom domain to a function app
 
-This sample script creates a function app with related resources, and then maps `www.<yourdomain>` to it. Azure Functions supports mapping a custom domain using a CNAME record. A records are not supported for Consumption Functions Apps.
+This sample script creates a function app with related resources, and then maps `www.<yourdomain>` to it. 
+When your function app is hosted in an [App Service plan](functions-scale.md#app-service-plan), you can map a custom domain using either a CNAME or an A record. For function apps in a [Consumption plan](functions-scale.md#consumption-plan), only the CNAME option is supported.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
