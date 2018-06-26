@@ -13402,6 +13402,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-aadconnect-pass-through-authentication.md",
+            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-aadconnect-prerequisites.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-prerequisites",
             "redirect_document_id": false
@@ -24322,7 +24327,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication.md",
+            "source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout.md",
             "redirect_url": "/azure/active-directory/authentication/howto-password-smart-lockout",
             "redirect_document_id": false
         },
