@@ -77,6 +77,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Have there been any database or collection requests not served due to an Azure Cosmos DB service unavailability?</li><li>Have there been any document requests not served due to an Azure Cosmos DB service unavailability?</li></ul>|
 
+## Microsoft.KeyVault/vaults
+|Executed Checks|
+|---|
+|<ul><li>Are requests to key vault failing due to Azure KeyVault platform issues?</li><li>Are requests to key vault being throttled due to too many requests made by customer?</li></ul>|
+
 ## Microsoft.network/connections
 |Executed Checks|
 |---|
