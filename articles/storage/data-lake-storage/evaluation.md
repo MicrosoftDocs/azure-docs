@@ -1,6 +1,6 @@
 ---
-title: Evaluating Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Azure Data Lake Storage Gen2 offers rich support for the Hadoop Compatible File System and a full hierarchical namespace, just as Azure Data Lake Storage Gen1 does.
+title: Guidance for Azure Data Lake Storage Gen1 customers | Microsoft Docs
+description: Azure Data Lake Storage Gen2 Preview offers native Blob storage functionality, including data tiering, lifecycle management, and enhanced network security, in addition to the Hadoop Compatible file system available in Data Lake Storage Gen1.
 services: storage
 author: roygara
 manager: twooley
@@ -12,10 +12,10 @@ ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
 
-# Evaluating Azure Data Lake Storage Gen2
+# Guidance for Azure Data Lake Storage Gen1 customers
 
-Azure Data Lake Storage Gen2 offers rich support for the Hadoop Compatible File System and a full hierarchical namespace, just as Azure Data Lake Storage Gen1 does. Additionally, Data Lake Storage Gen2 includes all of the powerful features of Azure Blobs, such as data tiering and lifecycle management, durability options for high availability and DR, event grid support, enhanced network security, and compatibility with all Blob APIs.
+Azure Data Lake Storage Gen2 Preview offers native Blob storage functionality, including data tiering, lifecycle management, and enhanced network security, in addition to the Hadoop Compatible file system available in Data Lake Storage Gen1.
 
-You can evaluate Data Lake Storage Gen2 without affecting your existing Data Lake Storage Gen1 applications or workloads. Data Lake Storage Gen2 and Gen1 can be used side by side, so your existing resources will remain fully functional. Any new resources can be deployed using either Gen1 or Gen2. Existing Azure Data Lake Storage Gen1 customers will be fully supported indefinitely on the existing Azure Data Lake Storage Gen1 platform, allowing customers to plan their migration to Data Lake Storage Gen2 at their convenience.
+If you are an existing Data Lake Storage Gen1 customer, we encourage you to evaluate all the new and enhanced capabilities of Data Lake Storage Gen2, and provide feedback by [participating in the preview](https://aka.ms/adlsgen2signup). Also, Data Lake Storage Gen1 will continue to be supported. Data Lake Storage Gen1 and Gen2 can coexist, so your existing resources and applications that leverage Data Lake Storage Gen1 remain functional. You can develop a migration plan to Data Lake Storage Gen2 at your convenience.
 
-Data Lake Storage Gen2 is available as a limited public preview. If you're interested, we [invite you to participate](https://aka.ms/adlsgen2signup) so you can begin evaluating Data Lake Storage Gen2 and provide feedback.
+If you are currently evaluating Data Lake Storage Gen1, we encourage you to participate in the Gen2 preview and evaluate the new and enhanced capabilities offered by Data Lake Storage Gen2. Similarly, if you are an existing Blob storage customer, we encourage you to evaluate whether a Hadoop Compatible file system is appropriate for your analytic needs.

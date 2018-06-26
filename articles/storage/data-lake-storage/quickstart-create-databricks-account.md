@@ -48,7 +48,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     ![Create an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-    Provide the following values: 
+    Provide the following values:
      
     |Property  |Description  |
     |---------|---------|

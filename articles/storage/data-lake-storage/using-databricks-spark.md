@@ -234,6 +234,7 @@ set ACCOUNT_NAME=<ACCOUNT_NAME>
 set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
+
 ## Explore data using Hadoop Distributed File System
 
 Return to the DataBricks workspace and click on the **Recent** icon in the left navigation bar.
@@ -257,7 +258,7 @@ display(dbutils.fs.ls(source + "/temp/"))
 To create a new file and list files in the *parquet/flights* folder, run this script:
 
 ```python
-source = "abfs:/<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/"
+source = "abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/"
 
 dbutils.fs.help()
 

@@ -1,27 +1,21 @@
 ---
-title: 'Tutorial: Perform ETL operations using Azure Databricks'
-description: Learn to extract data from Azure Data Lake Storage into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
+title: Learn to perform extract, load, and transfer operations using Azure Databricks | Microsoft Docs
+description: Learn to extract data from Azure Data Lake Storage Gen2 into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
 services: azure-databricks
-documentationcenter: ''
 author: nitinme
-manager: cgronlun
+manager: twooley
 
 ms.component: data-lake-storage-gen2
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: "Active"
 ms.date: 06/27/2018
 ms.author: nitinme
 
 ---
 # Tutorial: Extract, transform, and load data using Azure Databricks
 
-In this tutorial, you perform an ETL (extract, transform, and load data) operation using Azure Databricks.
-
-The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Data Lake Storage Gen2 as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
+In this tutorial, you perform an ETL (extract, transform, and load data) operation to move data from Azure Data Lake Storage Gen2 to Azure SQL Data Warehouse, using Azure Databricks.
 
 The following illustration shows the application flow:
 
@@ -33,9 +27,9 @@ This tutorial covers the following tasks:
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
 > * Create an Azure Data Lake Storage Gen2 account
-> * Upload data to Azure Data Lake Storage
+> * Upload data to Azure Data Lake Storage Gen2
 > * Create a notebook in Azure Databricks
-> * Extract data from Data Lake Storage
+> * Extract data from Data Lake Storage Gen2
 > * Transform data in Azure Databricks
 > * Load data into Azure SQL Data Warehouse
 
@@ -69,7 +63,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     |Property  |Description  |
     |---------|---------|
-    |**Workspace name**     | Provide a name for your Databricks workspace        |
+    |**Workspace name**     | Provide a name for your Databricks workspace.        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
     |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
@@ -93,7 +87,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     ![Create Databricks Spark cluster on Azure](./media/handle-data-using-databricks/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
-    Accept all other default values other than the following:
+    Fill in values for the following fields, and accept the default values for the other fields:
 
     * Enter a name for the cluster.
     * For this article, create a cluster with **4.2** runtime.
@@ -124,19 +118,24 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 ## Upload data to the storage account
 
-The next step is to upload a sample data file to the storage account to later transform in Azure Databricks. The sample data (**small_radio_json.json**) is available in the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo. Download the JSON file and make note of the path where you save the file.
+The next step is to upload a sample data file to the storage account to later transform in Azure Databricks. 
 
-Next, use AzCopy version 10 to upload the data to the storage account by opening up a command prompt and enter the following code:
+1. If you do not already have an account created for Data Lake Storage Gen2, follow the quickstart to create a Data Lake Storage Gen2 account.
+2. The sample data (**small_radio_json.json**) is available in the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo. Download the JSON file and make note of the path where you save the file.
+3. Upload the data into your storage account. The method you use to upload data into your storage account differs depending on whether you have the Hierarchical Namespace Service (HNS) enabled.
 
-> [!NOTE]
-> AzCopy version 10 is only available to preview customers.
+    If the Hierarchical Namespace Service is enabled on your ADLS Gen2 account, you can use Azure Data Factory, distp, or AzCopy (version 10) to handle the upload. AzCopy version 10 is only available to preview customers. To use AzCopy from Cloud Shell:
 
-```bash
-set ACCOUNT_NAME=<ACCOUNT_NAME>
-set ACCOUNT_KEY=<ACCOUNT_KEY>
-azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/data --recursive 
-```
+    1. Open Cloud Shell by clicking on the Cloud Shell icon in the Azure portal.
+    2. Select Bash (Linux) from the left drop-down, if it is not already selected.
+    3. Use AzCopy version 10 to upload the data to the storage account by opening up a command prompt and enter the following code:
 
+    ```bash
+    set ACCOUNT_NAME=<ACCOUNT_NAME>
+    set ACCOUNT_KEY=<ACCOUNT_KEY>
+    azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/data --recursive 
+    ```
+    
 ## Extract data from Azure Storage
 
 In this section, you create a notebook in Azure Databricks workspace and then run code snippets to extract data from your storage account into Azure Databricks.
@@ -156,19 +155,28 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 4. Add the following snippet in an empty code cell and replace the placeholder values with the values you saved earlier from the storage account.
 
     ```python
+    spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+    dbutils.fs.ls("abfs://<desired_file_system_name>@<account_name>.dfs.core.windows.net/")
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+    ```
+
+5. Add the following snippet in an empty code cell and replace the placeholder values with the values you saved earlier from the storage account.
+
+    ```python
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
 
     Press **SHIFT + ENTER** to run the code cell.
 
-5. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values).
+6. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values):
 
     ```python
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
-6. Run the following code to see the contents of the data frame.
+7. Run the following code to see the contents of the data frame.
 
     ```python
     df.show()
@@ -346,9 +354,9 @@ In this tutorial, you learned how to:
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
 > * Create an Azure Data Lake Storage Gen2 account
-> * Upload data to Azure Data Lake Storage
+> * Upload data to Azure Data Lake Storage Gen2
 > * Create a notebook in Azure Databricks
-> * Extract data from Data Lake Storage
+> * Extract data from Data Lake Storage Gen2
 > * Transform data in Azure Databricks
 > * Load data into Azure SQL Data Warehouse
 
