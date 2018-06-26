@@ -74,7 +74,7 @@ availabilityResults
 
 ## Application Insights scheduled digest report
 
-1. From the Azure portal, select _Create a Resource_ > _Compute_ > _Function App_.
+1. From the Azure portal, select **Create a Resource** > **Compute** > **Function App**.
 
    ![Create an Azure Resource Function App screenshot](./media/automate-custom-reports/function-app-01.png)
 
@@ -82,29 +82,29 @@ availabilityResults
 
    ![Create an Azure Resource Function App Settings screenshot](./media/automate-custom-reports/function-app-02.png)
 
-3. Once your new Function App has completed deployment, select _Go to resource_.
+3. Once your new Function App has completed deployment, select **Go to resource**.
 
-4. Select _New function_
+4. Select **New function**.
 
    ![Create a new Function screenshot](./media/automate-custom-reports/function-app-03.png)
 
-5. Select the _Application Insights scheduled digest template_.
+5. Select the **_Application Insights scheduled digest template_**.
 
    ![New Function Application Insights Template screenshot](./media/automate-custom-reports/function-app-04.png)
 
-6. Enter an appropriate recipient e-mail address for your report and select _Create_.
+6. Enter an appropriate recipient e-mail address for your report and select **Create**.
 
    ![Function Settings screenshot](./media/automate-custom-reports/function-app-05.png)
 
-7. Select your _Function App_ > _Platform features_ > _Application settings_.
+7. Select your **Function App** > **Platform features** > **Application settings**.
 
     ![Azure Function Application settings screenshot](./media/automate-custom-reports/function-app-07.png)
 
-8. Create three new application settings with appropriate corresponding values ``AI_APP_ID``, ``AI_APP_KEY``, and ``SendGridAPI``. Select _Save_.
+8. Create three new application settings with appropriate corresponding values ``AI_APP_ID``, ``AI_APP_KEY``, and ``SendGridAPI``. Select **Save**.
 
      ![Function integrate interface screenshot](./media/automate-custom-reports/function-app-08.png)
     
-    (The AI_ values can be found under API Access for the Application Insights Resource you want to report on. If you don't have an Application Insights API Key there is the option to _Create API Key_.)
+    (The AI_ values can be found under API Access for the Application Insights Resource you want to report on. If you don't have an Application Insights API Key there is the option to **Create API Key**.)
     
     * AI_APP_ID = Application ID
     * AI_APP_KEY = API Key
@@ -113,13 +113,13 @@ availabilityResults
     > [!NOTE]
     > If you don't have a SendGrid account you can create one. SendGrid's documentation for Azure Functions is [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-sendgrid). If just want a minimal explanation of how to setup SendGrid and generate an API key one is provided at the end of this article. 
 
-9. Select _Integrate_ and under Outputs click _SendGrid ($return)_
+9. Select **Integrate** and under Outputs click **SendGrid ($return)**.
 
      ![Output screenshot](./media/automate-custom-reports/function-app-09.png)
 
-10. Under the _SendGridAPI Key App Setting_ select your newly created App Setting for _SendGridAPI_.
+10. Under the **SendGridAPI Key App Setting** select your newly created App Setting for **SendGridAPI**.
 
-     ![Run Function App screenshot](./media/automate-custom-reports/function-app-10.png)
+     ![Run Function App screenshot](./media/automate-custom-reports/function-app-010.png)
 
 11. Run and test your Function App.
 
@@ -133,19 +133,19 @@ availabilityResults
 
 These steps only apply if you don't already have a SendGrid account configured.
 
-1. From the Azure portal select _Create a resource_ search for _SendGrid Email Delivery_ > Click _Create_ > and fill out the SendGrid specific create instructions. 
+1. From the Azure portal select **Create a resource** search for **SendGrid Email Delivery** > Click **Create** > and fill out the SendGrid specific create instructions. 
 
      ![Create SendGrid Resource Screenshot](./media/automate-custom-reports/function-app-13.png)
 
-2. Once created under SendGrid Accounts select _Manage_.
+2. Once created under SendGrid Accounts select **Manage**.
 
      ![Settings API Key Screenshot](./media/automate-custom-reports/function-app-14.png)
 
-3. This will launch SendGrid's site. Select _Settings_ > _API Keys_.
+3. This will launch SendGrid's site. Select **Settings** > **API Keys**.
 
      ![Create and View API Key App Screenshot](./media/automate-custom-reports/function-app-15.png)
 
-4. Create an API Key > choose _Create & View_ (Please review SendGrid's documentation on restricted access to determine what level of permissions is appropriate for your API Key. Full Access is selected here for example purposes only.)
+4. Create an API Key > choose **Create & View** (Please review SendGrid's documentation on restricted access to determine what level of permissions is appropriate for your API Key. Full Access is selected here for example purposes only.)
 
    ![Full access screenshot](./media/automate-custom-reports/function-app-16.png)
 
