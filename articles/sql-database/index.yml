@@ -48,7 +48,7 @@ sections:
           - href: /azure/sql-database/sql-database-get-started-portal
           - href: /azure/sql-database/sql-database-get-started-cli
           - href: /azure/sql-database/sql-database-get-started-powershell
-      - title: Create Elastic Pool
+      - title: Create SQL Elastic Pool
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
@@ -58,10 +58,10 @@ sections:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
-      - title: Scale Elastic Pool
+      - title: Scale SQL Elastic Pool
         values:
           - href: 
-          - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-cli
+          - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
 - title: Step-by-Step Tutorials
   items:
