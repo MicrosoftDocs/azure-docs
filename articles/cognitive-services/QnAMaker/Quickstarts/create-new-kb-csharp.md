@@ -20,7 +20,7 @@ You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to r
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft QnA Maker** chosen as your resource. You will need a paid subscription key from your new API account in your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). To retrieve your key, select **Keys** under **Resource Management** in your dashboard.
 
-!(Azure dashboard service key)[../media/sub-key.png]
+![Azure dashboard service key](../media/sub-key.png)
 
 ## Create knowledge base
 
