@@ -4,7 +4,8 @@ description: This topic describes how to troubleshoot Azure Active Directory Sea
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
+ms.reviewer: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 06/26/2018
 ms.author: billmath
 ---
 
@@ -78,6 +79,7 @@ Use the following checklist to troubleshoot Seamless SSO problems:
 - Ensure that the user's account is from an Active Directory forest where Seamless SSO has been set up.
 - Ensure that the device is connected to the corporate network.
 - Ensure that the device's time is synchronized with the time in both Active Directory and the domain controllers, and that they are within five minutes of each other.
+- Ensure that the `AZUREADSSOACCT` computer account is present and enabled in each AD forest that you want Seamless SSO enabled. 
 - List the existing Kerberos tickets on the device by using the `klist` command from a command prompt. Ensure that the tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 10 hours. You might have different settings in Active Directory.
 - If you disabled and re-enabled Seamless SSO on your tenant, users will not get the single sign-on experience till their cached Kerberos tickets have expired.
 - Purge existing Kerberos tickets from the device by using the `klist purge` command, and try again.
