@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
 ---
 
@@ -22,7 +22,7 @@ Access assignments become "stale" when users have access they don't need any mor
 
 ## Create an access review
 
-1. As a global administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), and select **Programs**.
+1. As a global administrator or user account administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), and select **Programs**.
 
 2. Select the program that holds the access review control you want to create. **Default Program** is always present, or you can create a different program. For example, you can choose to have one program for each compliance initiative or business goal.
 
@@ -34,7 +34,7 @@ Access assignments become "stale" when users have access they don't need any mor
 
 6. To make the access review recurring, change the frequency from One time to Weekly, Monthly, Quarterly or Annually, and use the slider or text box to define how many days each review of the recurring series will be open for input from reviewers. For example, the maximum duration for you can set for a monthly review is 27 days, to avoid overlapping reviews. 
 
-7.	The recurring access review series can end in 3 ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You or another global administrator can stop the series after creation by changing the date in Settings, so that it ends on that date.
+7.	The recurring access review series can end in 3 ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another user account administrator, or another global administrator can stop the series after creation by changing the date in Settings, so that it ends on that date.
 
 8. Access reviews can be for the members of a group or for users who were assigned to an application. You can further scope the access review to review only the guest users who are members (or assigned to the app), rather than reviewing all the users who are members or who have access to the application.
 
