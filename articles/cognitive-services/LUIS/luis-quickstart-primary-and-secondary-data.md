@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 03/29/2018
+ms.date: 06/26/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
@@ -19,125 +19,105 @@ In this tutorial, create an app that demonstrates how to extract machine-learned
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand simple entities 
-> * Create new LUIS app for the communication domain with SendMessage intent
-> * Add _None_ intent and add example utterances
-> * Add simple entity to extract message contents from utterance
+> * Create new LUIS app for the Human Resources (HR) domain 
+> * Add simple entity to extract jobs from app
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response
+> * Add phrase list to boost job title extraction
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
+## Before you begin
+If you don't have the Human Resources app from the [hierarchical entities](luis-quickstart-intent-and-hier-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github repository.
+
+If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `simple`. Cloning is a great way to play with various LUIS features without affecting the original version.  
+
 ## Purpose of the app
-This app demonstrates how to pull data out of an utterance. Consider the following utterance from a chatbot:
+This app demonstrates how to pull data out of an utterance. Consider the following utterances from a chatbot:
 
-```JSON
-Send a message telling them to stop
-```
+|Utterance|Extractable job name|Job information type|
+|:--|:--|:--|
+|I want to apply for the new accounting job.|accounting|job or department name|
+|Please submit my resume for the engineering position.|engineering|job or department name|
+|Fill out application for job 123456|123456|specific job number|
 
-The intent is to send a message. The important data of the utterance is the message itself,  `telling them to stop`.  
+Job title, department name, and even job description can all be used interchangeably to refer to a position in a company. This app needs to extract that name or phrase and return it. 
+
+This tutorial adds a new entity to extract job or department name. The ability to extract a specific job number is shown in the regular expression [tutorial](luis-quickstart-intent-regex-entity.md). 
 
 ## Purpose of the simple entity
-The purpose of the simple entity is to teach LUIS what a message is and where it can be found in an utterance. The part of the utterance that is the message can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of messages in any utterance across all intents.  
+The purpose of the simple entity in this LUIS app is to teach LUIS what a job title or department is and where it can be found in an utterance. The part of the utterance that is the job can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of jobs in any utterance across all intents.  
 
-For this simple app, the message will be at the end of the utterance. 
+The job title or department is difficult to determine because a job title or department is a name. A name can be a noun, verb, or a phrase of several words. For example:
 
-## Create a new app
-1. Log in to the [LUIS][LUIS] website. Make sure to log into the region where you need the LUIS endpoints published.
+|Jobs|
+|--|
+|engineer|
+|software engineer|
+|senior software engineer|
+|engineering team lead |
+|air traffic controller|
+|motor vehicle operator|
+|ambulance driver|
+|tender|
+|extruder|
+|millwright|
 
-2. On the [LUIS][LUIS] website, select **Create new app**.  
+This LUIS app has job titles and departments in several intents. By labeling these words in all the intents' utterances, LUIS learns more about what a job title or department is and where it is found in utterances.
 
-    ![LUIS apps list](./media/luis-quickstart-primary-and-secondary-data/app-list.png)
+## Create job simple entity
 
-3. In the pop-up dialog, enter the name `MyCommunicator`. 
+1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    ![LUIS apps list](./media/luis-quickstart-primary-and-secondary-data/create-new-app-dialog.png)
+    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
 
-4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/intents-list.png "Screenshot of LUIS Intents page with None intent")](media/luis-quickstart-primary-and-secondary-data/intents-list.png#lightbox)
-
-## Create a new intent
-
-1. On the **Intents** page, select **Create new intent**. 
+2. On the **Intents** page, select **ApplyForJob** intent. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png "Screenshot of LUIS with 'Create new intent' button highlighted")](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png#lightbox)
 
-2. Enter the new intent name `SendMessage`. This intent should be selected any time a user wants to send a message.
+3. In the utterance, `I want to apply for the new accounting job`, select `accounting`, enter `Job` in the top field of the pop-up menu, then select **Create new entity** in the pop-up menu. 
 
-    By creating an intent, you are creating the primary category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer or take appropriate action. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
+4. In the pop-up window, verify the entity name and type and select **Done**.
 
-    ![Enter intent name SendMessage](./media/luis-quickstart-primary-and-secondary-data/create-new-intent-popup-dialog.png)
+5. In the utterance, `Submit resume for engineering position`, label the word engineering as a Job entity. Select the word engineering, then select Job from the pop-up menu. 
 
-3. Add seven utterances to the `SendMessage` intent that you expect a user to ask for, such as:
+    All the utterances are labeled but five utterances isn't enough to teach LUIS about job-related words and phrases. The jobs that use the number value do not need more examples because that uses a regular expression entity. The jobs that are words or phrases need at least 15 more examples. 
 
-    | Example utterances|
-    |--|
-    |Reply with I got your message, I will have the answer tomorrow|
-    |Send message of When will you be home?|
-    |Text that I am busy|
-    |Tell them that it needs to be done today|
-    |IM that I am driving and will respond later|
-    |Compose message to David that says When was that?|
-    |say greg hello|
+6. Add more utterances and mark the job words or phrases as **Job** entity. In the following table, the square brackets indicate the job-related words to label as a job entity. The words `job` and `c.v.` have synonyms across the utterances to teach LUIS words that are related to this intent. The job types are general across employment on purpose for an employment service. If you wanted jobs related to a specific industry, the job words should reflect that. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png "Screenshot of LUIS with utterances entered")](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png#lightbox)
+    |Utterance|Job entity|
+    |I'm applying for the Program Manager desk in R&D|Program Manager|
+    |Here is my line cook application.|line cook|
+    |My resume for camp counselor is attached.|camp counselor|
+    |This is my c.v. for administrative assistant.|administrative assistant|
+    |I want to apply for the management job in sales.|management, sales|
+    |This is my resume for the new accounting position.|accounting|
+    |My application for barback is included.|barback|
+    |I'm submitting my application for roofer and framer.|roofer, framer|
+    |My c.v. for bus driver is here.|bus driver|
+    |I'm a registered nurse. Here is my resume.|registered nurse|
+    |I would like to submit my paperwork for the teaching position I saw in the paper.|teaching|
+    |This is my c.v. for the stocker post in fruits and vegetables.|stocker|
+    |Apply for tile work.|tile|
+    |Attached resume for landscape architect.|landscape architect|
+    |My curriculum vitae for professor of biology is enclosed.|professor of biology|
+    |I would like to apply for the position in photography.|photography|git 
 
-## Add utterances to None intent
-
-The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
-    
-1. Select **Intents** from the left panel. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png "Screenshot of LUIS with 'Intents' button highlighted")](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png#lightbox)
-
-2. Select the **None** intent. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png "Screenshot of Selecting None intent")](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png#lightbox)
-
-3. Add three utterances that your user might enter but are not relevant to your app. Some good **None** utterances are:
-
-    | Example utterances|
-    |--|
-    |Cancel!|
-    |Good bye|
-    |What is going on?|
-    
-    In your LUIS-calling application, such as a chatbot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png "Screenshot of LUIS with utterances for None intent")](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png#lightbox)
-
-## Create a simple entity to extract message 
+## Label entity in example utterances for GetJobInformation intent
 1. Select **Intents** from the left menu.
 
-    ![Select Intents link](./media/luis-quickstart-primary-and-secondary-data/select-intents-from-none-intent.png)
+2. Select **GetJobInformation** from the list of intents. 
 
-2. Select `SendMessage` from the intents list.
+3. Label the jobs in the example utterances:
 
-    ![Select SendMessage intent](./media/luis-quickstart-primary-and-secondary-data/select-sendmessage-intent.png)
+    |Utterance|Job entity|
+    |Is there any work in databases?|databases|
+    |Looking for a new situation with responsibilities in accounting|accounting|
+    |What positions are available for senior engineers?|senior engineers|
 
-3. In the utterance, `Reply with I got your message, I will have the answer tomorrow`, select the first word of the message body, `I`, and the last word of the message body, `tomorrow`. All these words are selected for the message and a drop-down menu appears with a text box at the top.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png "Screenshot of Select words in utterance for message")](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png#lightbox)
-
-4. Enter the entity name `Message` in the text box.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png "Screenshot of Enter entity name in box")](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png#lightbox)
-
-5. Select **Create new entity** in the drop-down menu. The purpose of the entity is to pull out the text that is the body of the message. In this LUIS app, the text message is at the end of the utterance, but the utterance can be any length, and the message can be any length. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png "Screenshot of creating new entity from utterance")](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png#lightbox)
-
-6. In the pop-up window, the default entity type is **Simple** and the entity name is `Message`. Keep these settings and select **Done**.
-
-    ![Verify entity type](./media/luis-quickstart-primary-and-secondary-data/entity-type.png)
-
-7. Now that the entity is created, and one utterance is labeled, label the rest of the utterances with that entity. Select an utterance, then select the first and last word of a message. In the drop-down menu, select the entity, `Message`. The message is now labeled in the entity. Continue to label all message phrases in the remaining utterances.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png "Screenshot of all message utterances labeled")](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png#lightbox)
-
-    The default view of the utterances is **Entities view**. Select the **Entities view** control above the utterances. The **Tokens view** displays the utterance text. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png "Screenshot of utterances in Tokens view")](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png#lightbox)
+    There are other example utterances but they do not contain job words.
 
 ## Train the LUIS app
 LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
