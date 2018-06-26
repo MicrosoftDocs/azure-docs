@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Use Visual Studio Code to develop Azure Functions for Azure IoT Edge
+# Use Visual Studio Code to develop and debug Azure Functions for Azure IoT Edge
 
 This article provides detailed instructions for using [Visual Studio (VS) Code](https://code.visualstudio.com/) to debug your Azure Functions on IoT Edge.
 
