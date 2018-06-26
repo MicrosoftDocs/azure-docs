@@ -26,9 +26,9 @@ This article describes how to check the status of provisioning jobs after they h
 
 ## Overview
 
-Provisioning connectors are primarily set up and configured using the [Azure management portal](https://portal.azure.com), by following the [provided documentation](saas-apps/tutorial-list.md) for the application where user account provisioning is desired. Once configured and running, provisioning jobs for an application can be reported on using one of two methods:
+Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](saas-apps/tutorial-list.md) for the supported application. Once configured and running, provisioning jobs can be reported on using one of two methods:
 
-* **Azure management portal** - This article primarily describes retrieving report information from the [Azure management portal](https://portal.azure.com), which provides both a provisioning summary report as well as detailed provisioning audit logs for a given application.
+* **Azure management portal** - This article primarily describes retrieving report information from the [Azure portal](https://portal.azure.com), which provides both a provisioning summary report as well as detailed provisioning audit logs for a given application.
 
 * **Audit API** - Azure Active Directory also provides an Audit API that enables programmatic retrieval of the detailed provisioning audit logs. See [Azure Active Directory audit API reference](active-directory-reporting-api-audit-reference.md) for documentation specific to using this API. While this article does not specifically cover how to use the API, it does detail the types of provisioning events that are recorded in the audit log.
 
@@ -54,11 +54,11 @@ From here, you can access both the Provisioning summary report, and the provisio
 
 The provisioning summary report is visible in the **Provisioning** tab for given application. It is located in the **Synchronization Details** section underneath **Settings**, and provides the following information:
 
-* The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system.
+* The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system
 
 * The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial synchronization](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) has completed.
 
-* Whether or not an [initial synchronization](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) has been completed.
+* Whether or not an [initial synchronization](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) has been completed
 
 * Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (e.g. failure to communicate with target system due to invalid admin credentials)
 
@@ -71,7 +71,7 @@ All activities performed by the provisioning service are recorded in the Azure A
 
 * **Import events** - An "import" event is recorded each time the Azure AD provisioning service retrieves information about an individual user or group from a source system or target system. During synchronization, users are retrieved from the source system first, with the results recorded as "import" events. The matching IDs of the retrieved users are then queried against the target system to check if they exist, with the results also recorded as "import" events. These events record all mapped user attributes and their values that were seen by the Azure AD provisioning service at the time of the event. 
 
-* **Synchronization rule events** - These events report on the results of the attribute mapping rules and any configured scoping filters, after user data has been imported and evaluated from the source and target systems. For example, if a user in a source system is deemed to be in scope for provisioning, and deemed to not exist in the target system, then this event records that the user will be provisioned in the target system. 
+* **Synchronization rule events** - These events report on the results of the attribute-mapping rules and any configured scoping filters, after user data has been imported and evaluated from the source and target systems. For example, if a user in a source system is deemed to be in scope for provisioning, and deemed to not exist in the target system, then this event records that the user will be provisioned in the target system. 
 
 * **Export events** - An "export" event is recorded each time the Azure AD provisioning service writes a user account or group object to a target system. These events record all user attributes and their values that were written by the Azure AD provisioning service at the time of the event. If there was an error while writing the user account or group object to the target system, it will be displayed here.
 
@@ -83,7 +83,7 @@ When looking at provisioning events for an individual user, the events normally 
 
 2. Import event: Target system is queried to check for the existence of the retrieved user.
 
-3. Synchronization rule event: User data from source and target systems are evaluated against the configured attribute mapping rules and scoping filters to determine what action, if any, should be performed.
+3. Synchronization rule event: User data from source and target systems are evaluated against the configured attribute-mapping rules and scoping filters to determine what action, if any, should be performed.
 
 4. Export event: If the synchronization rule event dictated that an action should be performed (e.g. Add, Update, Delete), then the results of the action are recorded in an Export event.
 
@@ -100,7 +100,7 @@ The most common use case for the provisioning audit logs is to check the provisi
 
 3. In the **Date Range** menu, select the date range you want to search,
 
-4. In the **Search** bar, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute mapping configuration (e.g. userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column.
+4. In the **Search** bar, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute-mapping configuration (e.g. userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column.
 
 5. Press Enter to search. The most recent provisioning events will be returned first.
 
