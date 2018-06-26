@@ -50,7 +50,7 @@ The following sections describe how to perform these required steps. Follow the 
 3. Create an event hub.
 
 > [!NOTE]
-> There are variables set in each script that you need later in the tutorial. These include location (**$location**), resource group name ($resourceGroup), event hub namespace (**$eventHubNamespace**), and event hub name (**$eventHubName**). These are referred to with their dollar sign ($) prefixes later in this article, so you know they were set in the script.
+> There are variables set in each script that you need later in the tutorial. These include resource group name ($resourceGroup), event hub namespace (**$eventHubNamespace**), and event hub name (**$eventHubName**). These are referred to with their dollar sign ($) prefixes later in this article, so you know they were set in the script.
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->
