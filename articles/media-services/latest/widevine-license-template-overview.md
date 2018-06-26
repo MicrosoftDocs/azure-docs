@@ -185,4 +185,4 @@ void ConfigureLicense()
 
 ## Next steps
 
-[Overview](media-services-overview.md)
+[Protect with PlayReady and/or Widevine](protect-with-playready-widevine.md)

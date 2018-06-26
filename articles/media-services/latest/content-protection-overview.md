@@ -30,11 +30,11 @@ This article explains concepts and terminology relevant to understanding content
 
 ## Main components of the content protection system
 
-To sucessfully complete your "content protection" system/application design, you need to fully understanding the scope of the effort. The following list gives an overview of three parts you would need to implement. 
+To successfully complete your "content protection" system/application design, you need to fully understanding the scope of the effort. The following list gives an overview of three parts you would need to implement. 
 
 1. Azure Media Services code
   
-  * License templates for PlayReady, Widevine and/or FairPlay/ The templets let you configure rights and permissions for each of the used DRMs
+  * License templates for PlayReady, Widevine and/or FairPlay. The templates let you configure rights and permissions for each of the used DRMs
   * License delivery authorization, specifying the logic of authorization check based on claims in JWT
   * Content keys, streaming protocols and corresponding DRMs applied, defining DRM encryption
 
@@ -61,9 +61,9 @@ To sucessfully complete your "content protection" system/application design, you
   * Issuer and audience (or scope)
   * Claims, which are dependent on business requirements in content protection
   * Symmetric or asymmetric verification for signature verification
-  * Key rollover support (if required)
+  * Key rollover support (if necessary)
 
-    You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test STS which supports all 3 types of verification key: symmetric, asymmetric or AAD with key rollover. 
+    You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test STS, which supports all 3 types of verification key: symmetric, asymmetric, or AAD with key rollover. 
 
 > [!NOTE]
 > It is highly recommended to focus and fully test each part (described above) before moving onto the next part. To test your "content protection" system, use the tools specified in the list above.  
