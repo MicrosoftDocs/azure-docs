@@ -1,6 +1,6 @@
 ---
 title: Quickstart Azure IoT Edge + Linux | Microsoft Docs 
-description: Try out Azure IoT Edge by running analytics on a simulated edge device
+description: In this quickstart, learn how to deploy prebuilt code remotely to an IoT Edge device.
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -25,23 +25,12 @@ In this quickstart you learn how to:
 3. Install and start the IoT Edge runtime on your device.
 4. Remotely deploy a module to an IoT Edge device.
 
-![Tutorial architecture][2]
+![Quickstart architecture][2]
 
-The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
+This quickstart turns your Linux computer or virtual machine into an IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
 
 If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
->[!IMPORTANT]
->**bug bash only**
->Use the canary portal 
->Add the following line to the hosts file of the computer from which you'll access the Azure Portal 
->`40.76.74.59 main.iothub.ext.azure.com` 
-> 
->The hosts file can be found at: 
->* Linux - /etc/hosts 
->* Windows - C:\Windows\System32\drivers\etc\hosts 
->
-> Remember to remove this line when you're done testing
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -60,16 +49,16 @@ Start the quickstart by creating your IoT Hub in the Azure portal.
 
 The free level of IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a free hub created, you can use that IoT hub. Each subscription can only have one free IoT hub. 
 
-1. In the Azure cloud shell, create a resource group. The following code creates a resource group called **IoTEdge** in the **West US** region:
+1. In the Azure cloud shell, create a resource group. The following code creates a resource group called **TestResources** in the **West US** region. By putting all the resources for the quickstarts and tutorials in a group, you can manage them together. 
 
    ```azurecli-interactive
-   az group create --name IoTEdge --location westus
+   az group create --name TestResources --location westus
    ```
 
-1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub called **MyIotHub** in the resource group **IoTEdge**:
+1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub called **MyIoTHub** in the resource group **TestResources**. Each IoT hub needs a globally unique name. If you receive an error from this command, try a different value in the *--name* field. 
 
    ```azurecli-interactive
-   az iot hub create --resource-group IoTEdge --name MyIotHub --sku F1 
+   az iot hub create --resource-group TestResources --name MyIotHub --sku F1 
    ```
 
 ## Register an IoT Edge device

@@ -153,7 +153,7 @@ You are now ready to deploy the Azure Stream Analytics job on your IoT Edge devi
 
 6. Select **Next**.
 
-7. In the **Review Template** step, select **Submit**.
+7. In the **Review Deployment** step, select **Submit**.
 
 8. Return to the device details page, and then select **Refresh**.  
 

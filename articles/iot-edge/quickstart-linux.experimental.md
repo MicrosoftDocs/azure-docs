@@ -1,6 +1,6 @@
 ---
 title: Simulate Azure IoT Edge on Linux | Microsoft Docs 
-description: Install the Azure IoT Edge runtime on a simulated device in Linux, and deploy your first module
+description:  In this quickstart, learn how to deploy prebuilt code remotely to an IoT Edge device.
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -27,7 +27,7 @@ In this quickstart you learn how to:
 
 ![Tutorial architecture][2]
 
-The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
+This quickstart turns your Linux computer or virtual machine into an IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
 
 If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
