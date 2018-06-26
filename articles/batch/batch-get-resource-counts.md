@@ -19,7 +19,7 @@ To monitor and manage large-scale Azure Batch solutions, you need accurate count
 
   By counting tasks in each state, you can more easily display job progress to a user, or detect unexpected delays or failures that may affect the job. Get Task Counts is available as of Batch Service API version 2017-06-01.5.1 and related SDKs and tools.
 
-* [List Pool Node Counts][rest_get_node_counts] gets the number of dedicated and low-priority compute nodes in each pool that are in states including creating, idle, offline, preempted, rebooting, reimaging, starting, and others. 
+* [List Pool Node Counts][rest_get_node_counts] gets the number of dedicated and low-priority compute nodes in each pool that are in various states: creating, idle, offline, preempted, rebooting, reimaging, starting, and others. 
 
   By counting nodes in each state, you can determine when you have adequate compute resources to run your jobs, and identify potential issues with your pools. List Pool Node Counts is available as of Batch Service API version 2018-03-01.6.1
  and related SDKs and tools.
@@ -56,7 +56,7 @@ You can use a similar pattern for REST and other supported languages to get task
 
 Batch provides additional validation for task state counts by performing consistency checks against multiple components of the system. In the unlikely event that the consistency check finds errors, Batch corrects the result of the Get Tasks Counts operation based on the results of the consistency check.
 
-The `validationStatus` property in the response indicates whether Batch performed the consistency check. If Batch hasn't checked state counts against the actual states held in the system, then the `validationStatus` property is set to `unvalidated`. For performance reasons, Batch doesn't perform the consistency check if the job includes more than 200,000 tasks, so the `validationStatus` property is set to `unvalidated` in this case. (The task count is not necessarily wrong in this case, as even a very limited data loss is unlikely.) 
+The `validationStatus` property in the response indicates whether Batch performed the consistency check. If Batch hasn't checked state counts against the actual states held in the system, then the `validationStatus` property is set to `unvalidated`. For performance reasons, Batch doesn't perform the consistency check if the job includes more than 200,000 tasks, so the `validationStatus` property is set to `unvalidated` in this case. (The task count is not necessarily wrong in this case, as even a limited data loss is unlikely.) 
 
 When a task changes state, the aggregation pipeline processes the change within a few seconds. The Get Task Counts operation reflects the updated task counts within that period. However, if the aggregation pipeline misses a change in a task state, then that change is not registered until the next validation pass. During this time, task counts may be slightly inaccurate due to the missed event, but they are corrected on the next validation pass.
 
@@ -70,7 +70,7 @@ The List Pool Node Counts operation counts compute nodes by the following states
 - **Offline** - A node that Batch cannot use to schedule new tasks.
 - **Preempted** - A low-priority node that was removed from the pool because Azure reclaimed the VM. A `preempted` node can be reinitialized when replacement low-priority VM capacity is available.
 - **Rebooting** - A node that is restarting.
-- **Reimaing** - A node on which the operating system is being reinstalled.
+- **Reimaging** - A node on which the operating system is being reinstalled.
 - **Running** - A node that is running one or more tasks (other than the start task).
 - **Starting** - A node on which the Batch service is starting. 
 - **StartTaskFailed** - A node on which the [start task][rest_start_task] failed and exhausted all retries, and on which `waitForSuccess` is set on the start task. The node is not usable for running tasks.
