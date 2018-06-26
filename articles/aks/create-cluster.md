@@ -24,7 +24,7 @@ Use the [az aks create][az-aks-create] command to create the AKS cluster.
 az aks create --resource-group myResourceGroup --name myAKSCluster
 ```
 
-The following options are available with the `az aks create` command.
+The following options are available with the `az aks create` command. See the [Azure CLI reference][aks-cli-reference] for AKS for more information on each of these arguments.
 
 | Argument | Description | Required |
 |---|---|:---:|
@@ -38,15 +38,15 @@ The following options are available with the `az aks create` command.
 | `--admin-username` `-u` | User account to create on node VMs for SSH access.  Default: azureuser. | no |
 | ` --client-secret` | The secret associated with the service principal. | no |
 | `--dns-name-prefix` `-p` | DNS prefix for the clusters public ip address. | no |
-| `--dns-service-ip` | An IP address assigned to the Kubernetes DNS service. This address must be within the Kubernetes service address range specified by "--service-cidr". | no |
-| `--docker-bridge-address` | An IP address and netmask assigned to the Docker bridge. This address must not be in any Subnet IP ranges, or the Kubernetes service address range. | no |
+| `--dns-service-ip` | An IP address assigned to the Kubernetes DNS service. | no |
+| `--docker-bridge-address` | An IP address and netmask assigned to the Docker bridge. | no |
 | `--enable-addons` `-a` | Enable the Kubernetes addons in a comma-separated list. | no |
 | `--enable-rbac` `-r` | Enable Kubernetes Role-Based Access Control. | no |
 | `--generate-ssh-keys` | Generate SSH public and private key files if missing. | no |
-| `--kubernetes-version` `-k` | The version of Kubernetes to use for creating the cluster, such as '1.7.9' or '1.8.2'.  Default: 1.7.7. | no |
-| `--locaton` `-l` | Location. You can configure the default location using `az configure --defaults location=<location>` | no |
+| `--kubernetes-version` `-k` | The version of Kubernetes to use for creating the cluster, such as '1.7.9' or '1.9.6'. | no |
+| `--locaton` `-l` | Location for the auto-created resource group | no |
 | `--max-pods` `-m` | The maximum number of pods deployable to a node. | no |
-| `--network-plugin` | The Kubernetes network plugin to use. Specify "azure" for advanced networking configurations. Defaults to "kubenet". | no |
+| `--network-plugin` | The Kubernetes network plugin to use. | no |
 | `--no-ssh-key` `-x` | Do not use or create a local SSH key. | no |
 | `--no-wait` | Do not wait for the long-running operation to finish. | no |
 | `--node-count` `-c` | The default number of nodes for the node pools.  Default: 3. | no |
@@ -66,4 +66,5 @@ For instruction on deploying an AKS cluster with the Azure portal, see the Azure
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
+[aks-cli-reference]: /cli/azure/aks?view=azure-cli-latest
 [aks-portal-quickstart]: kubernetes-walkthrough-portal.md
