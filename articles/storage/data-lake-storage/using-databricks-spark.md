@@ -100,18 +100,13 @@ Re-open DataBricks in your browser and execute the following steps:
     accountkey = " <insert account key>'
     fullname = "fs.azure.account.key." +accountname+ ".blob.core.windows.net"
     accountsource = "abfs://dbricks@" +accountname+ ".blob.core.windows.net/folder1"
-    dbutils.fs.mount(
-      source = accountsource,
-      mount_point = "/mnt/temp",
-      extra_configs = {fullname : accountkey}
-    )
     #create a dataframe to read data
-    flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/temp/On_Time_On_Time*.csv")
+    flightDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/On_Time_On_Time*.csv")
     #read the all the airline csv files and write the output to parquet format for easy query
-    flightDF.write.mode("append").parquet('/mnt/temp/parquet/flights')
+    flightDF.write.mode("append").parquet(accountsource + '/parquet/flights')
 
     #read the flight details parquet file 
-    #flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load("/mnt/temp/parquet/flights")
+    #flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
     print("Done")
     ```
 
@@ -160,11 +155,11 @@ To create dataframes for your data sources, run the following script:
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/temp/<YOUR_CSV_FILE_NAME>.csv")
-acDF.write.parquet('/mnt/temp/parquet/airlinecodes')
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
+acDF.write.parquet(accountsource + '/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created via the Azure Function
-flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load("/mnt/temp/parquet/flights")
+flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
 
 #print the schema of the dataframes
 acDF.printSchema()
@@ -188,11 +183,11 @@ To run analysis queries against the data, run the following script:
 ```python
 #Run each of these queries, preferrably in a separate cmd cell for separate analysis
 #create a temporary sql view for querying flight information
-FlightTable = spark.read.parquet('dbfs:/mnt/temp/parquet/flights')
+FlightTable = spark.read.parquet(accountsource + '/parquet/flights')
 FlightTable.createOrReplaceTempView('FlightTable')
 
 #create a temporary sql view for querying airline code information
-AirlineCodes = spark.read.parquet('dbfs:/mnt/temp/parquet/airlinecodes')
+AirlineCodes = spark.read.parquet(accountsource + '/parquet/airlinecodes')
 AirlineCodes.createOrReplaceTempView('AirlineCodes')
 
 #using spark sql, query the parquet file to return total flights in January and February 2016
