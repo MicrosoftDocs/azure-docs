@@ -99,13 +99,13 @@ Create a device identity for your simulated device so that it can communicate wi
 Install and start the Azure IoT Edge runtime on your device. 
 ![Register a device][5]
 
-The IoT Edge runtime is deployed on all IoT Edge devices. It's composed of three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
+The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
 ### Register your device to use the software repository
 
 The packages that you need to run the IoT Edge runtime are managed in a software repository. Configure your IoT Edge device to access this repository. 
 
-The steps in this section are for devices running Ubuntu 18.04. <!-- add link to other versions -->
+The steps in this section are for devices running Ubuntu 18.04. For other versions of Linux, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. On the machine that you're using as an IoT Edge device, install the repository configuration.
 
@@ -173,8 +173,10 @@ The security daemon installs as a system service so that the IoT Edge runtime st
 6. View the modules running on your device: 
 
    ```bash
-   sudo iotedge list
+   iotedge list
    ```
+
+   ![View one module on your device](./media/quickstart-linux/iotedge-list-1.png)
 
 ## Deploy a module
 
@@ -189,19 +191,19 @@ In this quickstart, you created a new IoT Edge device and installed the IoT Edge
 
 Open the command prompt on the computer running your simulated device again. Confirm that the module deployed from the cloud is running on your IoT Edge device:
 
-```bash
-sudo iotedge list
-```
+   ```bash
+   iotedge list
+   ```
 
-![View three modules on your device](./media/tutorial-simulate-device-linux/running-modules.png)
+   ![View three modules on your device](./media/quickstart-linux/iotedge-list-2.png)
 
 View the messages being sent from the tempSensor module:
 
-```bash
-sudo iotedge logs tempSensor -f 
-```
+   ```bash
+   iotedge logs tempSensor -f 
+   ```
 
-![View the data from your module](./media/tutorial-simulate-device-linux/sensor-data.png)
+![View the data from your module](./media/quickstart-linux/iotedge-logs.png)
 
 The temperature sensor module may be waiting to connect to Edge Hub if the last line you see in the log is `Using transport Mqtt_Tcp_Only`. Try killing the module and letting the Edge Agent restart it. You can kill it with the command `sudo docker stop tempSensor`.
 
