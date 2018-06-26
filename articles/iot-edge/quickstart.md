@@ -205,11 +205,9 @@ Configure the runtime with your IoT Edge device connection string that you copie
 
 8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is set to `nat`.
 
-9. Get the name of Edge device using `hostname` command in PowerShell and set it as the value for **hostname:** in the configuration yaml.
+9. Save the configuration file. 
 
-10. Save the configuration file. 
-
-11. In PowerShell, restart the IoT Edge service.
+10. In PowerShell, restart the IoT Edge service.
 
    ```powershell
    Stop-Service iotedge -NoWait
@@ -233,9 +231,10 @@ Verify that the runtime was successfully installed and configured.
    # Displays logs from today, newest at the bottom.
 
    Get-WinEvent -ea SilentlyContinue `
-  -FilterHashtable @{ProviderName= "iotedged";
-    LogName = "application"; StartTime = [datetime]::Today} |
-  select TimeCreated, Message | Sort-Object -Descending
+    -FilterHashtable @{ProviderName= "iotedged";
+      LogName = "application"; StartTime = [datetime]::Today} |
+    select TimeCreated, Message |
+    sort-object @{Expression="TimeCreated";Descending=$false}
    ```
 
 3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default, and helps to install and start any additional modules that you deploy to your device. 
