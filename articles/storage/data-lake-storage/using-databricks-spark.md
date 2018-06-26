@@ -47,183 +47,29 @@ Both the account name and key are required for later steps in this tutorial. Ope
 
 The next step is to create a [DataBricks cluster](https://docs.databricks.com/) to create a data workspace.
 
-1. Create a [DataBricks cluster](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service)
+1. Create a [DataBricks service](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service).
 2. Click **Launch Workspace** to open the workspace in a new browser window.
-3. Click **Clusters** in the left-hand navigation bar, then click **Create Cluster**.
-5. Enter **myFlightDataCluster** in the *Cluster name* field.
-6. Select **4.2** in the Databricks Runtime Version field.
-7. Select **Standard_D8s_v3** in the *Worker Type* field.
-8. Change the **Min Workers** value to *4*.
-9. Click **Create Cluster** at the top of the page. It may take up to 5 minutes to create the cluster.
+3. Click **Clusters** in the left-hand nav bar.
+4. Click **Create Cluster**.
+5. Enter a **myFlightDataCluster** in the *Cluster name* field.
+6. Select **Standard_D8s_v3** in the *Worker Type* field.
+7. Change the **Min Workers** value to *4*.
+8. Click **Create Cluster** at the top of the page (this process may take up to 5 minutes to complete).
+9. When the process completes, select **Azure DataBricks** on the top left of the nav bar.
+10. Select **Notebook** under the **New** section on the bottom half of the page.
+11. Enter a name of your choice in the **Name** field.
+12. All other fields can be left as default values.
+13. Select **Create**.
+14. Paste the following code into the **Cmd 1** cell, replace the values with the values you preserved from your storage account.
 
-While the request to create the cluster executes in the background, you can generate a DataBricks token.
-
-### Create DataBricks token
-
-A [DataBricks token](https://docs.databricks.com/api/latest/tokens.html) is required by a function that responds as data is created. The following steps demonstrate how to create a token and set it aside for next step. 
-
-1. Click the profile icon (![Profile icon](./media/using-databricks-spark/databricks-workspace-profile-icon.png)) at the top of the right side of the screen.
-2. Click **User Settings**.
-3. Click **Generate New Token**.
-4. Enter **myFlightDataToken** in the *Comment* field.
-5. Copy the token value from the browser into the text file where you have set aside the account name and key.
-
-## Create an Azure function
-A [serverless function](https://azure.microsoft.com/services/functions/) is required to listen for changes in the Azure Data Lake Storage Gen2 account.
-
-1. Create a [function app](https://portal.azure.com/#create/Microsoft.FunctionApp) and name it *myFlightDataApp*. Make sure to check the *Pin to dashboard* checkbox as you create the function app to make it easy to find again.
-2. Click the **+** to create a new function. It is available when hover your mouse over the *Functions* label on the left.
-3. Click **Custom function** located on the bottom half of the screen under *Get started on your own*.
-4. Locate *Event Grid Trigger* and click **C#**.
-5. Click **Create** to accept the default function name.
-6. Click the **Logs** tab at the bottom of the screen to reveal the log pane.
-7. Paste the following code into functions editor. Be sure you replace the `<YOUR_DATABRICKS_TOKEN>` placeholder with the token you set aside in your text editor.
-
-```csharp
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Net.Http.Headers;
-using System.Net;
-using System.Text;
-
-/// <summary>
-/// Function triggered with a blob create event from EventGrid.</summary>
-public static async Task Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString());
-    log.Info("Triggered for event: " + eventGridEvent["data"]["url"].ToString(Formatting.Indented));
-
-    // Call DataBricks with the filename and run job id = 1
-    Uri uri = new Uri(eventGridEvent["data"]["url"].ToString());
-    string filename = System.IO.Path.GetFileName(uri.LocalPath);
-    if(filename.Contains("On_Time_On_Time"))
-        await RunNowAsync(filename, 1, log);
-}
-
-/// <summary>
-/// Runs a job on a DataBricks cluster to process a blob.</summary>
-static async Task RunNowAsync(string csvFileUrl, int job_id, TraceWriter log)
-{
-    // DataBricks URI and token
-    var databricksUri = "https://eastus2.azuredatabricks.net/api/2.0/jobs/run-now";
-    var databricksToken = "<YOUR_DATABRICKS_TOKEN>";
-
-    // REST API payload
-    var payload = new Job { 
-        id = job_id,
-        NotebookParams = new NotebookParams { 
-            BlobName = csvFileUrl
-        }
-    };
-
-    // Serialize JSON and create the HttpContent
-    var stringPayload = JsonConvert.SerializeObject(payload);
-    var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
-
-
-    // Send the request to DataBricks
-    using (var httpClient = new HttpClient()) {
-
-        // Send the Run-Now request: https://docs.azuredatabricks.net/api/latest/jobs.html#run-now
-        httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + databricksToken);
-        var httpResponse = await httpClient.PostAsync(databricksUri, httpContent);
-
-        // If the response contains content we want to read it!
-        if (httpResponse.Content != null) {
-            var responseContent = await httpResponse.Content.ReadAsStringAsync();
-            log.Info(responseContent);
-        }
-
-    }
-}
-
-/// <summary>
-/// Class to serialize/deserialize JSON content for the DataBricks Run-now REST API</summary>
-public class Job
-{
-    [JsonProperty("job_id")]
-    public int id { get; set; }
-
-    [JsonProperty("notebook_params")]
-    public NotebookParams NotebookParams { get; set; }
-}
-
-public class NotebookParams
-{
-    [JsonProperty("blob_name")]
-    public string BlobName { get; set; }
-}
-```
-
-<ol start="8">Click <strong>Save</strong></ol>
-
-> [!IMPORTANT]
-> After saving the code for the function, look for a message saying "Compilation succeeded" in the *Logs* pane.
-
-## Subscribe to the blob creation event
-
-Next you create an [Event Grid Subscription](/event-grid/overview) for the function to process incoming data. 
-
-1. Click on **Add Event Grid subscription**, next to the **Run** button.
-2. Enter **myFlightDataSubscription** in the *Name* field.
-3. Select **Storage Account** from the *Topic Type* dropdown.
-4. Select your Azure subscription in the *Subscription* field.
-5. Enter the resource group you used for your storage account in the *Resource Group* field.
-6. Enter your storage account name in the *Instance* field.
-7. Uncheck the **Subscribe to all event types** checkbox.
-8. Expand the dropdown and uncheck **Blob Selected**. **Blob Created** should now be the only event type selected.
-9. Enter **.csv** in the *Suffix Filter* field.
-10. Click **Create**.
-
-> [!NOTE]
-> If the *Add Event Grid subscription* link is disabled, click on **Manage** and then back on the function name to activate the link.
-
-## Ingest data
-The cluster and event grid subscription is now set up to read incoming data. The next step is to create the pipeline to ingest data into the storage account.
-
-### Use DataBricks Notebook to convert CSV to Parquet
-
-Return to the browser DataBricks browser tab and execute the following steps:
-
-1. Click **Azure DataBricks** on the top left of the navigation bar.
-2. Click **Notebook** under the *New* section on the bottom half of the page.
-3. Enter **CSV2Parquet** in the *Name* field. Leave all other fields with the default values.
-4. Click **Create**.
-5. Paste the following code into the **Cmd 1** cell. This code auto-saves in the editor.
-
-    ```python
-    from pyspark.sql import SQLContext
-    import tarfile
-    import os
-    
-    sqlContext = SQLContext(sc)
-    
-    blobName = dbutils.widgets.get("blob_name")
-    print("Transforming " + blobName)
-    
-    if(blobName == ""):
-      raise ValueError('No blob name provided')
-    
-    df = sqlContext.read.format('com.databricks.spark.csv').options(header='true', inferschema='true').load('/mnt/temp/' + blobName) 
-    df.write.mode("append").parquet("/mnt/temp/parquet/flights")
+    ```bash
+    spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+    dbutils.fs.ls("abfs://<file_system>@<account_name>.dfs.core.windows.net/")
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
     ```
 
-5. Select **Jobs** on the left nav pane.
-6. Click **Create Job**.
-7. Enter **CSV2ParquetJob** in the *Title* field.
-8. Click **Select Notebook** under the *Task* section.
-9. Select **CSV2Parquet**.
-10. Click **OK**.
-11. Click **Edit** under *Cluster*.
-12. Select **Existing Cluster** from the *Cluster Type* drop-down.
-13. Select **myFlightDataCluster** from the *Select Cluster* field.
-14. Click **Confirm**.
-15. Click the expansion indicator arrow next to *Advanced*.
-16. Click **Edit** next to *Maximum Concurrent Runs*.
-17. Enter **32** in the *Maximum concurrent runs* field.
-18. Click **OK**.
+## Ingest data
 
 ### Copy source data into the storage account
 
@@ -234,6 +80,35 @@ set ACCOUNT_NAME=<ACCOUNT_NAME>
 set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
+
+### Use DataBricks Notebook to convert CSV to Parquet
+
+Re-open DataBricks in your browser and execute the following steps:
+
+1. Select **Azure DataBricks** on the top left of the nav bar.
+2. Select **Notebook** under the **New** section on the bottom half of the page.
+3. Enter **CSV2Parquet** in the **Name** field.
+4. All other fields can be left as default values.
+5. Select **Create**.
+6. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor).
+
+    ```
+    #mount Azure Blob Storage as an HDFS file system to your databricks cluster
+    #you need to specify a storage account and container to connect to. 
+    #use a SAS token or an account key to connect to Blob Storage.  
+    accountname = "<insert account name>' 
+    accountkey = " <insert account key>'
+    fullname = "fs.azure.account.key." +accountname+ ".blob.core.windows.net"
+    accountsource = "abfs://dbricks@" +accountname+ ".blob.core.windows.net/folder1"
+    #create a dataframe to read data
+    flightDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/On_Time_On_Time*.csv")
+    #read the all the airline csv files and write the output to parquet format for easy query
+    flightDF.write.mode("append").parquet(accountsource + '/parquet/flights')
+
+    #read the flight details parquet file 
+    #flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
+    print("Done")
+    ```
 
 ## Explore data using Hadoop Distributed File System
 
@@ -265,22 +140,26 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-With these code samples you have explored the heirarchial nature of HDFS using data stored in an Azure Data Lake Storage Gen2 account.
+With these code samples you have explored the hierarchical nature of HDFS using data stored in an Azure Data Lake Storage Gen2 capable account.
 
 ## Query the data
 
 Next, you can begin to query the data you uploaded into Azure Data Lake Storage. Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
 
 ### Simple queries
-To create dataframes for your data sources, run the following script. Make sure to replace the `<YOUR_CSV_FILE_NAME>` placeholder with the file name you downloaded at the beginning of this tutorial.
+
+To create dataframes for your data sources, run the following script:
+
+> [!IMPORTANT]
+> Make sure to replace the **<YOUR_CSV_FILE_NAME>** placeholder with the file name you downloaded at the beginning of this tutorial.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/temp/<YOUR_CSV_FILE_NAME>.csv")
-acDF.write.parquet('/mnt/temp/parquet/airlinecodes')
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
+acDF.write.parquet(accountsource + '/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created via the Azure Function
-flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load("/mnt/temp/parquet/flights")
+flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
 
 #print the schema of the dataframes
 acDF.printSchema()
@@ -304,11 +183,11 @@ To run analysis queries against the data, run the following script:
 ```python
 #Run each of these queries, preferrably in a separate cmd cell for separate analysis
 #create a temporary sql view for querying flight information
-FlightTable = spark.read.parquet('dbfs:/mnt/temp/parquet/flights')
+FlightTable = spark.read.parquet(accountsource + '/parquet/flights')
 FlightTable.createOrReplaceTempView('FlightTable')
 
 #create a temporary sql view for querying airline code information
-AirlineCodes = spark.read.parquet('dbfs:/mnt/temp/parquet/airlinecodes')
+AirlineCodes = spark.read.parquet(accountsource + '/parquet/airlinecodes')
 AirlineCodes.createOrReplaceTempView('AirlineCodes')
 
 #using spark sql, query the parquet file to return total flights in January and February 2016
@@ -370,11 +249,6 @@ output.show(10, False)
 #display for visual analysis
 display(output)
 ```
-> [!div class="checklist"]
-> * Create a DataBricks cluster
-> * Ingest unstructured data into a storage account
-> * Trigger an Azure Function to process data
-> * Running analytics on your data in Blob storage
 
 ## Next steps
 
