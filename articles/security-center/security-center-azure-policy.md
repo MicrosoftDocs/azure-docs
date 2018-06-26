@@ -88,50 +88,14 @@ To understand the policy definitions that are available in the default security 
 | JIT network access |When just-in-time network access is enabled, Security Center locks down inbound traffic to your Azure VMs by creating a network security group rule. You select the ports on the VM to which inbound traffic should be locked down. For more information, see [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
 
 ## Management groups
-If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure Management Groups provides a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group.
+If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure Management Groups provides a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. Each directory is given a single top-level management group called the "root" management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This root management group allows for global policies and RBAC assignments to be applied at the directory level. 
 
-Each directory is given a single top-level management group called the "root" management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This root management group allows for global policies and RBAC assignments to be applied at the directory level.
+To set up management groups for use with Azure Security Center, follow the instructions in the [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md) article. 
 
 > [!NOTE]
 > It’s important that you understand the hierarchy of management groups and subscriptions. See [Organize your resources with Azure Management Groups](../azure-resource-manager/management-groups-overview.md#root-management-group-for-each-directory) to learn more about management groups, root management, and management group access.
 >
 >
-
-## Create a management group
-It isn't required that you create a management group and add your subscription to it in order to use Security Center. We recommend that you create at least one management group to take advantage of managing your entire Azure estate by performing actions on the root management group.
-
-1.	To create a management group, follow the instructions in the article [Create management groups for resource organization and management](../azure-resource-manager/management-groups-create.md).
-2.	Under the Azure main menu, select **All services**.
-3.	Under **General**, select **Management Groups**.
-
-	![Create a management group](./media/security-center-azure-policy/all-services.png)
-
-	**Management Groups** opens.  Here you'll see the management group that you created.
-
-    You may receive a message that you don't have the necessary permissions to access the root management group.  The Azure Active Directory tenant administrator needs to elevate itself to user access administrator at the root management group level. To gain the necessary permissions, follow instructions in [elevate access as a tenant admin with Role-Based Access Control](../role-based-access-control/elevate-access-global-admin.md).
-
-    Once access is elevated, the tenant admin can assign an RBAC role on the root management group. Roles are assigned either by selecting the root management group and choosing Access control (IAM), or via PowerShell. The recommended roles to assign are either [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) or [Security Reader](../role-based-access-control/built-in-roles.md#security-reader). The assigned role is automatically propagated to all management groups and subscriptions under the root management group. 
-
-    > [!NOTE]
-	> The Security Admin role does not grant you write permission. The Security Admin role gives you read and security related permissions, such as create and manage policy assignments or dismiss a security alert.
-	>
-	
-    ![Assign Security Reader role from IAM](./media/security-center-azure-policy/asc-security-reader.png)
-
-## Add subscriptions to a management group
-Now you can add subscriptions to the management group that you created.
-
-1. Under **Management Groups**, select a management group to add your subscription to.
-
-	![Select a management group to add subscription to](./media/security-center-azure-policy/management-group.png)
-
-2. Select **Add existing**.
-
-	![Add existing](./media/security-center-azure-policy/add-existing.png)
-
-3. Enter subscription under **Add existing resource**.
-
-4. Repeat steps 1 through 3 until you've added all subscriptions in scope.
 
 
 ## Next steps
@@ -141,6 +105,7 @@ In this article, you learned how to configure security policies in Security Cent
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md): Learn how to monitor the health of your Azure resources.
 * [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): Learn how to manage and respond to security alerts.
 * [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
+* [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md): Learn how to set up management groups for Azure Security Center. 
 * [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
 
