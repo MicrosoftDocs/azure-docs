@@ -44,8 +44,8 @@ To begin, create a new [Azure Data Data Lake storage account](quickstart-create-
 > [!IMPORTANT]
 > During Preview, Azure Functions only work with Azure Data Lake Storage accounts created with a flat namespace.
 
-1. Under **Settings**, click  **Access keys**
-3. Click the **Copy** button next to **key1** to copy the key value
+1. Under **Settings**, click  **Access keys**.
+3. Click the **Copy** button next to **key1** to copy the key value.
 
 Both the account name and key are required for later steps in this tutorial. Open a text editor and set aside the account name and key for future reference.
 
@@ -53,20 +53,20 @@ Both the account name and key are required for later steps in this tutorial. Ope
 
 The next step is to create a [DataBricks service](https://docs.databricks.com/) to create a data workspace.
 
-1. Create a [DataBricks service](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service)
-2. Click **Launch Workspace** to open the workspace in a new browser window
-3. Click **Clusters** in the left-hand nav bar
-4. Click **Create Cluster**
-5. Enter a **myFlightDataCluster** in the *Cluster name* field
-6. Select **Standard_D8s_v3** in the *Worker Type* field
-7. Change the **Min Workers** value to *4*
-8. Click **Create Cluster** at the top of the page (this process may take up to 5 minutes to complete)
-9. When the process completes, select **Azure DataBricks** on the top left of the nav bar
-10. Select **Notebook** under the **New** section on the bottom half of the page
-11. Enter a name of your choice in the **Name** field
-12. All other fields can be left as default values
-13. Select **Create**
-14. Paste the following code into the **Cmd 1** cell, replace the values with the values you preserved from your storage account
+1. Create a [DataBricks service](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service).
+2. Click **Launch Workspace** to open the workspace in a new browser window.
+3. Click **Clusters** in the left-hand nav bar.
+4. Click **Create Cluster**.
+5. Enter a **myFlightDataCluster** in the *Cluster name* field.
+6. Select **Standard_D8s_v3** in the *Worker Type* field.
+7. Change the **Min Workers** value to *4*.
+8. Click **Create Cluster** at the top of the page (this process may take up to 5 minutes to complete).
+9. When the process completes, select **Azure DataBricks** on the top left of the nav bar.
+10. Select **Notebook** under the **New** section on the bottom half of the page.
+11. Enter a name of your choice in the **Name** field.
+12. All other fields can be left as default values.
+13. Select **Create**.
+14. Paste the following code into the **Cmd 1** cell, replace the values with the values you preserved from your storage account.
 
     ```bash
     spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
@@ -94,12 +94,12 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 Re-open DataBricks in your browser and execute the following steps:
 
-1. Select **Azure DataBricks** on the top left of the nav bar
-2. Select **Notebook** under the **New** section on the bottom half of the page
-3. Enter **CSV2Parquet** in the **Name** field
-4. All other fields can be left as default values
-5. Select **Create**
-6. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor)
+1. Select **Azure DataBricks** on the top left of the nav bar.
+2. Select **Notebook** under the **New** section on the bottom half of the page.
+3. Enter **CSV2Parquet** in the **Name** field.
+4. All other fields can be left as default values.
+5. Select **Create**.
+6. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor).
 
     ```
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
@@ -128,8 +128,8 @@ Re-open DataBricks in your browser and execute the following steps:
 
 Return to the DataBricks workspace and click on the **Recent** icon in the left nav bar.
 
-1. Click on the **Flight Data Analytics** notebook
-2. Press **Ctrl + Alt + N** to create a new cell
+1. Click on the **Flight Data Analytics** notebook.
+2. Press **Ctrl + Alt + N** to create a new cell.
 
 Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
 
@@ -264,11 +264,6 @@ output.show(10, False)
 #display for visual analysis
 display(output)
 ```
-> [!div class="checklist"]
-> * Create a DataBricks cluster
-> * Ingest unstructured data into a storage account
-> * Trigger an Azure Function to process data
-> * Running analytics on your data in Blob storage
 
 ## Next steps
 
