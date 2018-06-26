@@ -189,17 +189,19 @@ View Azure AD sign-in Reports and audit logs<br>View company and user informatio
 
    ![Opening azure AD admin center](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 
-2. Select **Users and groups &gt; All users**
+2. Select **Users** > **All users**.
 
-3. Find the user you want to designate as a Global Administrator and open the blade for that user.
+3. Open the page for the user you want to designate as a Global Administrator.
 
-4. On the user blade, select **Directory role**.
- 
-5. On the directory role blade, select the **Global Administrator** role, and save.
+4. On the command bar, select **Directory role**.
+
+5. Select **Add role**.
+
+6. On the directory role page, select the **Global Administrator** role, and then click **Select** to save.
 
 ## Deprecated roles
 
-The following roles should not be used. They been deprecated and will be removed from Azure AD in the future.
+The following roles should not be used. They are deprecated and will be removed from Azure AD in the future.
 
 * AdHoc License Administrator
 * Email Verified User Creator
@@ -210,7 +212,7 @@ The following roles should not be used. They been deprecated and will be removed
 
 ## Next steps
 
-* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
+* To learn more about how to change administrators for an Azure subscription, see [Add or change Azure subscription administrators](../billing-add-change-azure-subscription-administrator.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Manage users](active-directory-create-users.md)
