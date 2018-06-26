@@ -42,7 +42,7 @@ The following utterances show examples of sentiment:
 |positive|0.91 |John W. Smith did a great job on the presentation in Paris.|
 |positive|0.84 |jill-jones@mycompany.com did fabulous work on the Parker sales pitch.|
 
-Sentiment analysis is an app setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and label them. LUIS does that for you.
+Sentiment analysis is an app setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and label them because sentiment analysis applies to the entire utterance. 
 
 ## Add EmployeeFeedback intent 
 Add a new intent to capture employee feedback from members of the company. 
