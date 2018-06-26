@@ -21,7 +21,7 @@ robots: noindex
 # Datasets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-create-datasets.md)
-> * [Version 2 (current version)](../concepts-datasets-linked-services.md)
+> * [Current version](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Datasets in V2](../concepts-datasets-linked-services.md).
