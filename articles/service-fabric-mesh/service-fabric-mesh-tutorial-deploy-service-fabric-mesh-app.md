@@ -26,7 +26,7 @@ In this tutorial you learn how to:
 > [!div class="checklist"]
 > * Publish the app to Azure.
 > * Check application deployment status
-> * See all the application you have currently deployed to your subscription
+> * See all applications currently deployed to your subscription
 > * See the application logs
 > * Clean up the resources used by the app.
 
@@ -101,7 +101,7 @@ The application name for the tutorial app is `ServiceMeshApp`. Gather the detail
 az mesh app show --resource-group $rg --name ServiceMeshApp
 ```
 
-## See all the application you have currently deployed to your subscription
+## See all applications currently deployed to your subscription
 
 You can use the "app list" command to get a list of applications you have deployed to your subscription.
 
