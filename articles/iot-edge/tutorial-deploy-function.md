@@ -160,34 +160,50 @@ In the previous section you created an IoT Edge solution and added code to the C
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the functions, and the push it to the container registry that you specified when you initialized the solution. 
 
-You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information in the `module.json` file, with the format **\<repository\>:\<version\>-\<platform\>**. For this tutorial, you should see **\<container registry\>.azurecr.io/csharpfunction:0.0.1-amd64**.
+## View your container image
+
+Visual Studio Code outputs a success message when your container image is pushed to your container registry. If you want to confirm the successful operation for yourself, you can view the image in the registry. 
+
+1. In the Azure portal, navigate to your Azure container registry. 
+2. Select **Repositories**.
+3. You should see the **csharpfunction** listed in your respositories. Select the repository to see more details.
+4. In the **Tags** section you should see **0.0.1-amd64**. This tag reflects the version and platform of the image that you built. These values are set in the **module.json** file in the CSharpFunction folder. 
 
 ## Deploy and run the solution
 
-3. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. 
+You could use the Azure portal to deploy your Functions module to an IoT Edge device like you did in the quickstarts, but you can also deploy and monitor modules from within Visual Studio Code. The following sections use the Azure IoT Edge extension for VS Code that was listed in the prerequisites. Install that now if you did not already. 
 
+1. Open the VS Code command palette by selecting **View** > **Command Palette**.
 
-1. Configure the Azure IoT Toolkit extension with connection string for your IoT hub: 
-    1. Open the VS Code explorer by selecting **View** > **Explorer**. 
-    2. In the explorer, click **AZURE IOT HUB DEVICES** and then click **...**. Click **Select IoT Hub**. Follow the instructions to log in you Azure account and choose your IoT hub.
+2. Search for and run the command **Azure: Sign in**. Follow the instructions to sign in your Azure account. 
 
-       > [!NOTE]
-       > You can also setup by clicking **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. 
+3. In the command palette, search for and run the command **Azure IoT Hub: Select IoT Hub**. 
 
-2. In Azure IoT Hub Devices explorer, right-click your IoT Edge device, then click **Create Deployment for IoT Edge device**. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**.
+4. Select the subscription that contains your IoT hub, then select the IoT hub that you want to access.
 
-3. Click the refresh button. You should see the new **CSharpFunction** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+5. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
+
+6. Right-click the name of your IoT Edge device, then select **Create Deployment for IoT Edge device**. 
+
+7. Navigate to the solution folder that contains CSharpFunction. Open the **config** folder and select the **deployment.json** file. Click **Select Edge Deployment Manifest**.
+
+8. Refresh the **Azure IoT Hub Devices** section. You should see the new **CSharpFunction** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+
+   ![View deployed modulese in VS Code](./media/tutorial-deploy-function/view-modules.png)
 
 ## View generated data
 
-1. To monitor data arriving at the IoT hub, click **...**, and select **Start Monitoring D2C Messages**.
-2. To monitor the D2C message for a specific device, right-click the device in the list, and select **Start Monitoring D2C Messages**.
-3. To stop monitoring data, run the command **Azure IoT Hub: Stop monitoring D2C message** in command palette. 
-4. To view or update module twin, right-click the module in the list, and select **Edit module twin**. To update the module twin, save the twin JSON file and right-click the editor area and select **Update Module Twin**.
+You can see all the messages arriving at your IoT hub by running **Azure IoT Hub: Start Monitoring D2C Message** in the command palette.
+
+You can also filter to see all the messages arriving at your IoT hub from a specific device. Right-click the device in the **Azure IoT Hub Devices** section and select **Start Monitoring D2C Messages**.
+
+To stop monitoring messages, run the command **Azure IoT Hub: Stop monitoring D2C message** in the command palette. 
 
 ## Next steps
 
-In this tutorial, you created an Azure Funtions module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [Develop and debug Azure Functions with Azure IoT Edge for Visual Studio Code](how-to-develop-csharp-function.md). You can continue on to the next tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
+In this tutorial, you created an Azure Functions module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [Develop and debug Azure Functions with Azure IoT Edge for Visual Studio Code](how-to-develop-csharp-function.md). 
+
+Continue on to the next tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
 > [Find averages using a floating window in Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
