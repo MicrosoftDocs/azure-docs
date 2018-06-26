@@ -43,6 +43,7 @@ The following table shows the different methods you can use to set up an HDInsig
 | [Azure Resource Manager templates](../../hdinsight/hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 ## Quick create: Basic cluster setup
+
 This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster using *Quick create* or *Custom*. 
 
 ![hdinsight create options custom quick create](media/quickstart-create-connect-hdi-cluster/hdinsight-creation-options.png)
@@ -56,9 +57,8 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 retirement](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
 
-## Resource group name 
+## Resource group name
 
 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
 
@@ -80,26 +80,26 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 | [Spark](../../hdinsight/spark/apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
 | [Storm](../../hdinsight/storm/apache-storm-overview.md) |Real-time event processing |
 
-
 ### HDInsight version
+
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 ### Enterprise security package
 
-For Hadoop, Spark, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Direcotry. For more information, see [Enterprise Security Package in Azure HDInsight](../../hdinsight/domain-joined/apache-domain-joined-introduction.md).
+For Hadoop, Spark, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Directory. For more information, see [Enterprise Security Package in Azure HDInsight](../../hdinsight/domain-joined/apache-domain-joined-introduction.md).
 
 ![hdinsight create options choose enterprise security package](./media/quickstart-create-connect-hdi-cluster/hdinsight-creation-enterprise-security-package.png)
 
 For more information on creating domain-joined HDInsight cluster, see [Create domain-joined HDInsight sandbox environment](../../hdinsight/domain-joined/apache-domain-joined-configure.md).
 
-
 ## Cluster login and SSH user name
+
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 
 * HTTP user: The default user name is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
 * SSH user (Linux clusters): Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
-The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enteprise security package.
+The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enterprise security package.
 
 ## <a name="location"></a>Location (regions) for clusters and storage
 
@@ -107,7 +107,7 @@ You don't need to specify the cluster location explicitly; the cluster is in the
 
 ## Storage endpoints for clusters
 
-Although an on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster, in the cloud you use storage endpoints connected to cluster. HDInsight clusters use either [Data Lake Storage Gen2](abfs-driver.md) or [Blobs in Azure Storage](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). Using Azure Storage or Data Lake Storage means you can safely delete the HDInsight clusters used for computation while still retaining your data. 
+Although an on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster, in the cloud you use storage endpoints connected to cluster. HDInsight clusters use either [Data Lake Storage Gen2](abfs-driver.md) or [Blobs in Azure Storage](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). Using Azure Storage or Data Lake Storage means you can safely delete the HDInsight clusters used for computation while still retaining your data.
 
 > [!WARNING]
 > Using an additional storage account in a different location from the HDInsight cluster is not supported.
