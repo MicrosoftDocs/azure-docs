@@ -30,7 +30,7 @@ Azure IoT Hub emits the following event types:
 
 ## Example event
 
-The schema for DeviceCreated and DeviceDeleted events have the same structure. This sample event shows the schema of an event raised when a device is registered to an IoT hub:
+The schema for DeviceConnected and DeviceDisconnected events have the same structure. This sample event shows the schema of an event raised when a device is connected to an IoT hub:
 
 ```json
 [{
