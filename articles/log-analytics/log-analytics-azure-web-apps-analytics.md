@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/26/2018
 ms.author: magoedte
 
 ---
@@ -53,8 +53,7 @@ Unlike most other Log Analytics solutions, data isn't collected for Azure Web Ap
 
 Perform the following steps to configure the Azure Web Apps Analytics solution for your workspaces.
 
-1. Enable the Azure Web Apps Analytics solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
-2. [Enable Azure resource metrics logging to Log Analytics using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+1. [Enable Azure resource metrics logging to Log Analytics using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 The Azure Web Apps Analytics solution collects two set of metrics from Azure:
 
