@@ -20,8 +20,6 @@ In this tutorial, you create a data factory by using the Azure Data Factory user
 
 > [!NOTE]
 > - If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md).
->
-> - This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of  Data Factory, which is generally available, see [Get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 In this tutorial, you perform the following steps:
 

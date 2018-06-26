@@ -16,16 +16,13 @@ ms.author: jingwang
 ---
 # Copy data from an on-premises SQL Server database to Azure Blob storage by using the Copy Data tool
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Generally Available](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Version 2 - Preview](tutorial-hybrid-copy-data-tool.md)
+> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Current version](tutorial-hybrid-copy-data-tool.md)
 
 In this tutorial, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from an on-premises SQL Server database to Azure Blob storage.
 
 > [!NOTE]
 > - If you're new to Azure Data Factory, see [Introduction to Data Factory](introduction.md).
->
-> - This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of  Data Factory, which is generally available, see [Get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 In this tutorial, you perform the following steps:
 
 > [!div class="checklist"]

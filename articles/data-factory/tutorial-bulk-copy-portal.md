@@ -20,7 +20,6 @@ This tutorial demonstrates **copying a number of tables from Azure SQL Database 
 
 > [!NOTE]
 > - If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
-> - This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 At a high level, this tutorial involves following steps:
 
