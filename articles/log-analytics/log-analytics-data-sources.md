@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2018
+ms.date: 06/26/2018
 ms.author: bwren
 
 ---
@@ -34,7 +34,7 @@ The following table lists the data sources that are currently available in Log A
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Custom logs](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | on arrival |
 | [Custom logs](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | on arrival |
-| [IIS logs](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutes |
+| [IIS logs](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |depends on Log File Rollover setting |
 | [Performance counters](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |as scheduled, minimum of 10 seconds |
 | [Performance counters](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |as scheduled, minimum of 10 seconds |
 | [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |from Azure storage: 10 minutes; from agent: on arrival |
