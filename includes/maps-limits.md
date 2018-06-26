@@ -2,7 +2,7 @@
  title: include file
  description: include file
  services: azure maps
- author: jinzh-azureiot
+ author: jingjing-z
  ms.service: azure-maps
  ms.topic: include
  ms.date: 05/07/2018
