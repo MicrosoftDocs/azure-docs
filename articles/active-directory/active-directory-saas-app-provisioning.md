@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2018
+ms.date: 06/26/2018
 ms.author: asmalser
 
 ---
@@ -43,9 +43,7 @@ Some common motivations for using this feature include:
 * Avoiding the costs, inefficiencies, and human error associated with manual provisioning processes.
 * Avoiding the costs associated with hosting and maintaining custom-developed provisioning solutions and scripts
 * To secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
-* To easily import a large number of users into a particular SaaS application or system.
-* To enjoy having a single set of policies to determine who is provisioned and who can sign in to an app.
-
+* To easily import a large number of users into a particular SaaS application or system.* To enjoy having a single set of policies to determine who is provisioned and who can sign in to an app.
 
 ## How does automatic provisioning work?
 	
@@ -65,11 +63,16 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 Azure AD features pre-integrated support for a variety of popular SaaS apps and human resources systems, as well as generic support for apps that implement specific parts of the SCIM 2.0 standard.
 
+###Pre-integrated applications
 For a list of all applications for which Azure AD supports a pre-integrated provisioning connector, see the [list of application tutorials for user provisioning](saas-apps/tutorial-list.md).
 
-For information on how to add support for Azure AD user provisioning to an application, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md).
+To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
 
-To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).	
+> [!NOTE]
+> In order for an application to support automated user provisioning, it must first provide the necessary user management APIs that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support user management APIs, the Azure AD engineering team will then be able to build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers. 
+
+###Connecting applications that support SCIM 2.0
+For information on how to generically connect applications that implement SCIM 2.0 -based user management APIs, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md).
 
 > [!NOTE]
 > In order for an application to support automated user provisioning, it must first provide the necessary user management APIs that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support user management APIs, the Azure AD engineering team will then be able to build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers. 
@@ -212,25 +215,19 @@ Summary of factors that influence the time it takes to complete an **initial syn
 * Request rate limits and throttling implemented by the target system. Some target systems implement request rate limits and throttling which can impact performance during large sync operations. Under these conditions, an app that receives too many requests too fast might slow its response rate or close the connection. To improve performance, the connector needs to adjust by not sending the app requests faster than the app can process them. Provisioning connectors built by Microsoft make this adjustment. 
 
 * The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs will take longer than only syncing user objects.
- 
 
-## Frequently asked questions
 
-**How can I track the progress of the current provisioning job?**
+##How can I tell if users are being provisioned properly?
 
-See the [provisioning reporting guide](active-directory-saas-provisioning-reporting.md).
+All operations performed by the user provisioning service are recorded in the Azure AD audit logs. This includes all read and write operations made to the source and target systems, as well as what user data was read or written during each operation.
 
-**How will I know if users fail to get provisioned properly?**
+For information on how the read the audit logs in the Azure portal, see the [provisioning reporting guide](active-directory-saas-provisioning-reporting.md).
 
-All failures are recorded in the Azure AD audit logs. For more information, see the [provisioning reporting guide](active-directory-saas-provisioning-reporting.md).
 
-**How can I build an application that works with the provisioning service?**
+##How do I troubleshoot issues with user provisioning?
 
-See [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
+For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](active-directory-application-provisioning-content-map.md).
 
-**How can I submit feedback to the engineering team?**
-
-Contact us through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
 ## Related articles
@@ -241,4 +238,3 @@ Contact us through the [Azure Active Directory feedback forum](https://feedback.
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 * [Step-by-step deployment plan for outbound user provisioning of an application](https://aka.ms/userprovisioningdeploymentplan)
-
