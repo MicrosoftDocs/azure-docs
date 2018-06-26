@@ -41,7 +41,7 @@ Choose **.NET** as the language. The Java and .NET implementations have identica
 
 Enter a unique **Solution name** for your Remote Monitoring solution accelerator.
 
-Select the **Subscription** and **Region** you want to use to deploy the solution accelerator. Typically, you choose the region closest to you.
+Select the **Subscription** and **Region** you want to use to deploy the solution accelerator. Typically, you choose the region closest to you. You must be a [global administrator or user](iot-accelerators-permissions.md) in the subscription.
 
 Click **Create Solution** to begin the deployment. This process takes at least five minutes to run:
 
