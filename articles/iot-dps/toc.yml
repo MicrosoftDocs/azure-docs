@@ -95,9 +95,6 @@
   items:
   - name: Connect MXChip IoT DevKit to IoT Hub
     href: how-to-connect-mxchip-iot-devkit.md
-  - name: Connect IoT Edge device to IoT Hub
-    href: ../iot-edge/how-to-simulate-dps-tpm.md
-    maintainContext: true
   - name: Manage device provisioning configuration
     items:
     - name: Configure verified CA certificates
