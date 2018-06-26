@@ -1,10 +1,10 @@
 ---
 title: Load balancing on multiple IP configurations using Azure CLI | Microsoft Docs
-description: Learn how to assign multiple IP addresses to a virtual machine using Azure CLI | Resource Manager.
+description: Learn how to assign multiple IP addresses to a virtual machine using Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: narayan
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

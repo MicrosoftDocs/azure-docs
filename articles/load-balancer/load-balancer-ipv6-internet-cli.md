@@ -1,10 +1,10 @@
 ---
 title: Create a public load balancer with IPv6 - Azure CLI | Microsoft Docs
-description: Learn how to create a public load balancer with IPv6 in Azure Resource Manager by using Azure CLI.
+description: Learn how to create a public load balancer with IPv6 using Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 
@@ -18,7 +18,7 @@ ms.date: 06/25/2018
 ms.author: kumud
 ---
 
-# Create a public load balancer with IPv6 in Azure Resource Manager by using Azure CLI
+# Create a public load balancer with IPv6 using Azure CLI
 
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. Load balancers provide high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Load balancers can also present these services on multiple ports or multiple IP addresses or both.
@@ -39,7 +39,7 @@ In this scenario, you create the following Azure resources:
 
 ## Deploy the solution by using Azure CLI
 
-The following steps show how to create a public load balancer by using Azure Resource Manager with Azure CLI. With Azure Resource Manager, you create and configure each object individually, and then put them together to create a resource.
+The following steps show how to create a public load balancer by using Azure CLI. Using CLI, you create and configure each object individually, and then put them together to create a resource.
 
 To deploy a load balancer, create and configure the following objects:
 
@@ -49,9 +49,7 @@ To deploy a load balancer, create and configure the following objects:
 * **Inbound NAT rules**: Contains network address translation (NAT) rules that map a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
 * **Probes**: Contains health probes that are used to check the availability of virtual machine instances in the back-end address pool.
 
-For more information, see [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
-
-## Set up your Azure CLI environment to use Azure Resource Manager
+## Set up Azure CLI
 
 In this example, you run the Azure CLI tools in a PowerShell command window. To improve readability and reuse, you use PowerShell's scripting capabilities, not the Azure PowerShell cmdlets.
 
