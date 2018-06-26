@@ -14,8 +14,14 @@
 
 - name: Tutorials
   items:
-  - name: Test and deploy a .NET Core app for Azure Service Fabric Mesh
+  - name: Deploy an Azure Service Mesh app
+    items:
+  - name: 1- Build a Service Mesh application
     href: service-fabric-mesh-tutorial-create-dotnetcore.md
+  - name: 2- Debug the application
+    href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
+  - name: 3- Deploy the application
+    href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
 
 - name: Concepts
   items:
