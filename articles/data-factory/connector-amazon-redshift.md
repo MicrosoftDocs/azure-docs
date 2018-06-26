@@ -194,7 +194,7 @@ For this sample use case, copy activity unloads data from Amazon Redshift to Ama
                 "linkedServiceName": "AzureStorageLinkedService",
                 "path": "adfstagingcopydata"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]
