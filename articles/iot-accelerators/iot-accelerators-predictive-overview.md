@@ -134,7 +134,7 @@ You can also explore some of the other features and capabilities of the IoT solu
 [lnk-predictive-walkthrough]:iot-accelerators-predictive-walkthrough.md
 [lnk_preconfigured_solutions]:iot-accelerators-what-are-solution-accelerators.md
 [lnk_iot_suite]:iot-accelerators-options.md
-[lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
+[lnk_infographic]: https://azure.microsoft.com/en-us/solutions/architecture/predictive-maintenance/
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
