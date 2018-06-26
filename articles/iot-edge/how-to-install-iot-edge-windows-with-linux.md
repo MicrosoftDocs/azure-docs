@@ -49,7 +49,7 @@ $env:Path += ";C:\ProgramData\iotedge"
 SETX /M PATH "$env:Path"
 ```
 
-if your Edge device is running Windows Server, install the vcruntime using:
+Install the vcruntime using:
 
 ```powershell
 Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
