@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/16/2018
+ms.date: 06/26/2018
 ms.author: daveba
 ---
 
@@ -68,6 +68,6 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 ## Related content
 
-For information on how to assign a user assigned identity to an Azure VM using CURL see, [Configure Managed Identity using CURL](qs-configure-rest-vm.md#user-assigned-identity).
+For information on how to assign a user assigned identity to an Azure VM/VMSS using CURL see, [Configure Managed Identity on an Azure VM using CURL](qs-configure-rest-vm.md#user-assigned-identity) and [Configure Managed Identity on an Azure VMSS using CURL](qs-configure-rest-vmss.md#user-assigned-identity).
 
 

@@ -67,7 +67,7 @@ To create an Azure VM with system assigned identity enabled, you need create a V
 
 4. Create a VM using using CURL to call the Azure Resource Manager REST endpoint. The following example creates a VM named *myVM* with a system assigned identity, as identified in the request body by the value `"identity":{"type":"SystemAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
  
-    ```   
+    ```bash
     curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"TestVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
     ```
 
@@ -113,7 +113,7 @@ To disable a system assigned identity on an existing VM, you need to acquire an 
    > [!IMPORTANT]
    > To ensure you don't delete any existing user assigned managed identities that are assigned to the VM, you need to list the user assigned identities by using the CURL command here, [List user assigned managed identities](how-to-manage-ua-identity-rest.md#list-user-assigned-managed-identities). If you have any user assigned identity assigned to the VM, skip to step 3 that shows you how retain the user assigned identities while removing the system assigned identity from your VM.
 
-   ```
+   ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
@@ -194,7 +194,7 @@ If your VM has multiple user assigned identities, use the following CURL call to
 2. List the user assigned identities by using the CURL command here, [List user assigned managed identities](how-to-manage-ua-identity-rest.md#list-user-assigned-managed-identities) and then enter only the user assigned managed identities you would like to keep in the `identityIDs` array.  
    For example, if you have user assigned identities `ID1` and `ID2` assigned to your VM, and would only like to keep `ID1` assigned, you would use the same CURL command as assigning a user assigned managed identity to a VM only keeping the `ID1` value. This removes the `ID2` user assigned identity from the VM.
 
-   ```
+   ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 

@@ -80,6 +80,8 @@
       href: qs-configure-powershell-windows-vmss.md
     - name: Azure Resource Manager Template
       href: qs-configure-template-windows-vmss.md
+    - name: REST
+      href: qs-configure-rest-vmss.md
   - name: Use a VM MSI
     items:
     - name: Acquire an access token
