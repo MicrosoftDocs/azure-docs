@@ -2,18 +2,18 @@
 title: Configure certificates on Linux | Microsoft Docs
 description: Configure certificates for your app with the Service Fabric runtime on a Linux cluster
 services: service-fabric
-documentationcenter: csharp
+documentationcenter: NA
 author: JimacoMS2
 manager: timlt
 editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: csharp
+ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/29/2018
+ms.date: 06/26/2018
 ms.author: v-jamebr
 
 ---
