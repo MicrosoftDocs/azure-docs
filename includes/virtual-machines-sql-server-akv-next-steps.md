@@ -50,7 +50,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    FROM ASYMMETRIC KEY CONTOSO_KEY;
    GO
 
-   -- Alter the TDE login to add the credential for use by the
+   -- Alter the TDE Login to add the credential for use by the
    -- Database Engine to access the key vault
    ALTER LOGIN EKM_Login
    ADD CREDENTIAL Azure_EKM_cred;

@@ -27,7 +27,7 @@ To create a DNS Label, first select **Virtual machines** in the portal. Select y
 
 1. In the **Authentication** box, select **SQL Server Authentication**.
 
-1. In the **Login** box, type the username of a valid SQL login.
+1. In the **Login** box, type the name of a valid SQL login.
 
 1. In the **Password** box, type the password of the login.
 

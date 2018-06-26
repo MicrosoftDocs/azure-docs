@@ -63,7 +63,7 @@ The previous example showed a standard sign-in, which requires the client to con
     }
     ```
 
-5. In the *ToDoActivity.java* file, replace the `authenticate` and `onActivityResult` methods with the following ones, which uses a token cache. Change the provider if you want to use an account other than Google.
+5. In the *ToDoActivity.java* file, replace the `authenticate` and `onActivityResult` methods with the following ones, which uses a token cache. Change the login provider if you want to use an account other than Google.
 
     ```java
     private void authenticate() {

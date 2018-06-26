@@ -17,7 +17,7 @@ To connect to the SQL Server Database Engine from another computer, you must kno
    
     ![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
 3. In the **Authentication** box, select **SQL Server Authentication**.
-4. In the **Login** box, type the name of a SQL Server login that you created in an earlier task.
+4. In the **Login** box, type the name of a login that you created in an earlier task.
 5. In the **Password** box, type the password of the login that you create in an earlier task.
 6. Click **Connect**.
 
