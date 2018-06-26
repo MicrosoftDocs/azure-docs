@@ -38,6 +38,44 @@ Have the following prerequisites on your development machine:
 * An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
 * Module Management for Azure ML on your machine. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
 
+### Disable process identification
+
+>[!NOTE]
+>
+> While in preview, Azure Machine Learning does not support the process identification security feature enabled by default with IoT Edge. 
+> Below are the steps to disable it. This is however not suitable for use in production.
+
+To disable process identification, you'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect** section of the IoT Edge daemon configuration.
+
+Get the ip address first. Enter `ifconfig` in your command line and copy the ip address of the **docker0** interface.
+
+Edit the IoT Edge daemon configuration file:
+
+```cmd/sh
+sudo nano /etc/iotedge/config.yaml
+```
+
+Update the **connect** section of the configuration. For example:
+```yaml
+connect:
+  management_uri: "http://172.17.0.1.1:15580"
+  workload_uri: "http://172.17.0.1:15581"
+```
+
+Enter the same addresses in the **listen** section of the configuration. For example:
+
+```yaml
+listen:
+  management_uri: "http://172.17.0.1.1:15580"
+  workload_uri: "http://172.17.0.1:15581"
+```
+
+Create an environment variable IOTEDGE_HOST with the management_uri address (To set it permanently, add it to `/etc/environment`).For example:
+
+```cmd/sh
+export IOTEDGE_HOST="http://172.17.0.1:15580"
+```
+
 
 ## Create the Azure ML container
 In this section, you download the trained model files and convert them into an Azure ML container.
