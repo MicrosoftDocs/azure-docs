@@ -161,8 +161,7 @@ use BizTalk Server, these connectors might seem familiar already.
 
 ## Enterprise connectors
 
-Your logic apps can access enterprise systems such 
-as SAP and IBM MQ through these connectors:
+Your logic apps can access enterprise systems, such as SAP and IBM MQ:
 
 |   |   | 
 |---|---| 
