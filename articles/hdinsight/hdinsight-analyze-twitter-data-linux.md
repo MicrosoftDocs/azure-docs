@@ -12,7 +12,7 @@ ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/26/2018
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -28,7 +28,7 @@ Learn how to use Apache Hive to process Twitter data. The result is a list of Tw
 
 ## Get the data
 
-Twitter allows you to retrieve the [data for each tweet](https://dev.twitter.com/docs/platform-objects/tweets) as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](http://oauth.net) is required for authentication to the API.
+Twitter allows you to retrieve the data for each tweet as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](http://oauth.net) is required for authentication to the API.
 
 ### Create a Twitter application
 
