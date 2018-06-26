@@ -422,7 +422,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 	Console.WriteLine("\nPress any key to exit.");
 	Console.ReadKey();
 	```
-14. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to log in to Azure portal.
+14. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that lets you provide **user name** and **password** that you use to log in to Azure portal.
 
     ```csharp
     public static async Task<string> GetAuthorizationHeader()

@@ -68,6 +68,13 @@ When you install the extension, you need the directory ID and admin credentials 
 
 ![Find your Directory ID under Azure Active Directory properties](./media/howto-mfa-nps-extension/find-directory-id.png)
 
+### Network requirements
+
+The NPS server needs to be able to communicate with the following URLs over ports 80 and 443.
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
+
 ## Prepare your environment
 
 Before you install the NPS extension, you want to prepare you environment to handle the authentication traffic.
@@ -112,7 +119,7 @@ You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#se
 
 ### Register users for MFA
 
-Before you deploy and use the NPS extension, users that will be required to perform two-step verification need to be registered for MFA. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication.
+Before you deploy and use the NPS extension, users that are required to perform two-step verification need to be registered for MFA. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication.
 
 Use these steps to get a test account started:
 1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account. 
@@ -169,7 +176,7 @@ This section includes design considerations and suggestions for successful NPS e
 ### Configuration limitations
 
 - The NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users have to perform proof-up again to populate their MFA details in the cloud.  
-- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom Active Directory field other than UPN. See [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md) for more information.
+- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom Active Directory field other than UPN. For more information, see the article, [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md).
 - Not all encryption protocols support all verification methods.
    - **PAP** supports phone call, one-way text message, mobile app notification, and mobile app verification code
    - **CHAPV2** and **EAP** support phone call and mobile app notification
@@ -219,7 +226,7 @@ Valid-From and Valid-Until timestamps, which are in human-readable form, can be 
 This error could be due to one of several reasons. Use these steps to help troubleshoot:
 
 1. Restart your NPS server.
-2. Verify that that client cert is installed as expected.
+2. Verify that client cert is installed as expected.
 3. Verify that the certificate is associated with your tenant on Azure AD.
 4. Verify that https://login.microsoftonline.com/ is accessible from the server running the extension.
 
@@ -235,6 +242,9 @@ Verify that AD Connect is running, and that the user is present in both Windows 
 
 Verify that https://adnotifications.windowsazure.com is reachable from the server running the NPS extension.
 
+## Managing the TLS/SSL Protocols and Cipher Suites
+
+It is recommended that older and weaker cipher suites be disabled or removed unless required by your organization. Information on how to complete this task can be found in the article [Managing SSL/TLS Protocols and Cipher Suites for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## Next steps
 
