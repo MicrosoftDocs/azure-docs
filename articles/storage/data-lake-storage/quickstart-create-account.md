@@ -1,9 +1,10 @@
 ---
-title: Create an Azure Data Lake Storage Gen2 capable Storage account
-description: Quickly learn to create a new Create a Storage Account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI
+title: Create an Azure Data Lake Storage Gen2 storage account | Microsoft Docs
+description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI
 services: storage
 author: jamesbak
-manager: jahogg
+manager: twooley
+
 ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
@@ -12,16 +13,16 @@ ms.date: 06/27/2018
 ms.author: jamesbak
 ---
 
-# Quickstart: Create an Azure Data Lake Storage Gen2 capable Storage account
+# Quickstart: Create an Azure Data Lake Storage Gen2 storage account
 
 Azure Data Lake Storage Gen2 accounts [support an Hierarchical Namespace Service](introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](abfs-driver.md).
 
 To enable Data Lake Storage Gen2 capabilities on your storage account, [fill out the preview survey to request access](https://aka.ms/adlsgen2signup). Once approved, then you are able to create a new Data Lake Storage Gen2 account. This quickstart demonstrates how to create an account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 > [!NOTE]
-> The create account UI is updated once you are approved allowing you to create a Data Lake Storage Gen2 account. In the same way, the Data Lake Storage Gen2-related PowerShell and CLI arguments only work once you are approved.
+> The create account UI in the Azure portal is updated once you are approved to create a Data Lake Storage Gen2 account. In the same way, the Data Lake Storage Gen2-related PowerShell and CLI arguments only work once you are approved for the preview.
 
-## Pre-requisites
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -52,7 +53,7 @@ You can also install and use the Azure CLI locally. This quickstart requires tha
 Before you create an account, you first create a resource group that acts as a logical container to storage accounts or any other Azure resources you create. If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account,and any other resources associated with the resource group. For more information regarding resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
-> You must create new storage accounts as **StorageV2 (general purpose V2)** account kind, to take advantage of Data Lake Storage Gen2 features.  
+> You must create new storage accounts as type **StorageV2 (general-purpose V2)** to take advantage of Data Lake Storage Gen2 features.  
 
 For more information about storage account types, see [Azure Storage account options](../common/storage-account-options.md).
 
@@ -188,9 +189,9 @@ az group create \
 > [!NOTE]
 > The hierarchical namespace is only enabled in West US 2 and West Central US. Make sure you specify either one of these locations when creating the storage account.
 
-### Create a StorageV2 storage account
+### Create a general-purpose v2 storage account
 
-To create a StorageV2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli-interactive
 az storage account create \
