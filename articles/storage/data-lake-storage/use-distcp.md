@@ -7,7 +7,7 @@ author: seguler
 manager: jahogg
 editor: seguler
 
-ms.assetid: 
+ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.devlang: na
 ms.topic: how-to

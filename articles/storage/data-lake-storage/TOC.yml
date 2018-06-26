@@ -40,8 +40,6 @@
     href: evaluation.md
 - name: How-to guides
   items:
-  - name: Connect to Azure DataBricks
-    href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html 
   - name: Use Data Lake Storage Gen2 with Azure HDInsight clusters
     href: use-hdi-cluster.md
   - name: Use Hadoop File System CLI with Data Lake Storage Gen2
