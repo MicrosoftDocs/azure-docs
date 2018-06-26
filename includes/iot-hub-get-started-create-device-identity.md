@@ -6,7 +6,7 @@ In this section, you use a Node.js tool called [iothub-explorer][iot-hub-explore
 
     `npm install -g iothub-explorer@latest`
 
-1. Then, run the following command to login to your hub. Substitute `{iot hub connection string}` with the IoT Hub connection string you previously copied:
+1. Then, run the following command to sign in to your hub. Substitute `{iot hub connection string}` with the IoT Hub connection string you previously copied:
 
     `iothub-explorer login "{iot hub connection string}"`
 

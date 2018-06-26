@@ -3087,8 +3087,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service/app-service-high-density-hosting.md",
-            "redirect_url": "/azure/app-service/environment/app-service-high-density-hosting",
+            "source_path": "articles/app-service/environment/app-service-high-density-hosting.md",
+            "redirect_url": "/azure/app-service/app-service-high-density-hosting",
             "redirect_document_id": false
         },
         {
