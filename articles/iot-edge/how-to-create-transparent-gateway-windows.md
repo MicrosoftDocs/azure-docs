@@ -44,7 +44,7 @@ The following steps walk you through the process of creating the certificates an
    .\vcpkg install openssl:x64-windows
    ```
 
-   1. Set environment variable `OPENSSL_ROOT_DIR` to `$VCPKGDIR\vcpkg\packages\openssl_x64-windows`
+   1. Set environment variable `OPENSSL_ROOT_DIR` to `$VCPKGDIR\vcpkg\packages\openssl_x64-windows` and also add `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` to your `PATH` environment variable.
 
 1.	Obtain the scripts to generate the required non-production certificates with the following command. These scripts help you create the necessary certificates to set up a transparent gateway.
 
