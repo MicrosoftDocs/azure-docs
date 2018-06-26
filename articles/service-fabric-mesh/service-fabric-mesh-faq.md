@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords: 
 author: chackdan
 ms.author: chackdan
-ms.date: 06/12/2018
+ms.date: 06/26/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
@@ -17,15 +17,15 @@ Azure Service Fabric Mesh is a fully managed service enabling developers to depl
 
 **What is the cost of participating in the preview?**
 
- There are no charges for deploying applications or containers to Mesh preview. However you are encouraged to delete the resources you deploy and not leave them running, unless you are actively testing it.
+There are no charges for deploying applications or containers to Mesh preview. However you are encouraged to delete the resources you deploy and not leave them running, unless you are actively testing it.
 
-**Is there a quota limit of the # of Cores and RAM?**
+**Is there a quota limit of the number of cores and RAM?**
 
 Yes, you are allocated restricted quota for use in the preview.
 
--  You are allocated a total of six Cores and 24-GB RAM.
--  The largest container you can deploy is limited to two cores, 8-GB RAM.
--  You can allocate partial cores to your containers. 
+- You are allocated a total of six cores and 24-GB RAM.
+- The largest container you can deploy is limited to two cores, 8-GB RAM.
+- You can allocate partial cores to your containers in increments of 0.5 cores up to a maximum of 8 cores.
 
 **Can I leave my application running overnight?**
 
