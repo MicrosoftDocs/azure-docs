@@ -14,13 +14,13 @@ ms.author: nolachar
 
 # Create a new knowledge base in C#
 
-This quickstart walks you through creating a sample knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
+This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 
 Two sample FAQ URLs are given below ('urls' in the string kb). QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
 
 ## Prerequisites
 
-You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
+If your preferred IDE is Visual Studio, you will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code sample on Windows. (The free Community Edition will work.)
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You'll need a paid subscription key from your new API account in your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. Either key will work for this quickstart.
 
@@ -30,11 +30,10 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 The following code creates a new knowledge base, using the [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) method.
 
-1. Create a new C# project in your favorite IDE that uses a .NET framework C# console app (either .NET CORE or .NET Standard).
+1. Create a new .NET Framework C# console application in your preferred IDE.
 2. Add the code provided below.
 3. Replace the `key` value with your valid subscription key.
-4. Run the program and expect the response shown below as confirmation of your success.
-5. Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, for example QnA Maker FAQ, to view.
+4. Run the program.
 
 ```csharp
 using System;
@@ -290,36 +289,50 @@ namespace QnAMaker
 
 ```
 
-## The create a knowledge base response
+## Understand what QnA Maker returns
 
 A successful response is returned in JSON, as shown in the following example: 
 
 ```json
+Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create.
 {
   "operationState": "NotStarted",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-06-25T10:30:15Z",
+  "lastActionTimestamp": "2018-06-25T10:30:15Z",
+  "userId": "0d85ec291c284197a70cfeb51725cd22",
+  "operationId": "d9d40918-01bd-49f4-88b4-129fbc434c94"
 }
-...
+Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
 {
   "operationState": "Running",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-06-25T10:30:15Z",
+  "lastActionTimestamp": "2018-06-25T10:30:15Z",
+  "userId": "0d85ec291c284197a70cfeb51725cd22",
+  "operationId": "d9d40918-01bd-49f4-88b4-129fbc434c94"
 }
-...
+Waiting 30 seconds...
+Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
+{
+  "operationState": "Running",
+  "createdTimestamp": "2018-06-25T10:30:15Z",
+  "lastActionTimestamp": "2018-06-25T10:30:15Z",
+  "userId": "0d85ec291c284197a70cfeb51725cd22",
+  "operationId": "d9d40918-01bd-49f4-88b4-129fbc434c94"
+}
+Waiting 30 seconds...
+Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
 {
   "operationState": "Succeeded",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:46Z",
-  "resourceLocation": "/knowledgebases/b0288f33-27b9-4258-a304-8b9f63427dad",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-06-25T10:30:15Z",
+  "lastActionTimestamp": "2018-06-25T10:30:51Z",
+  "resourceLocation": "/knowledgebases/1d9eb2a1-de2a-4709-91b2-f6ea8afb6fb9",
+  "userId": "0d85ec291c284197a70cfeb51725cd22",
+  "operationId": "d9d40918-01bd-49f4-88b4-129fbc434c94"
 }
+Press any key to continue.
 ```
+
+Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, for example QnA Maker FAQ, to view.
 
 ## Next steps
 
