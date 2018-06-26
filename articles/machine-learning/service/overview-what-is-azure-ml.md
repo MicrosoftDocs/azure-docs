@@ -62,4 +62,3 @@ If you aren't a subscriber, you can [open an Azure account for free](https://azu
 + 0-3 minutes covers key features and use-cases.
 + 3-4 minutes covers service provisioning. 
 + 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
-+ 6-9 minutes covers Search Explorer and various queries.

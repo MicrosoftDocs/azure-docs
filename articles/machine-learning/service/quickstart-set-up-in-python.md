@@ -8,7 +8,7 @@ ms.topic: quickstart
 
 author: rastala
 ms.author: roastala
-ms.reviewer: sdgilley
+ms.reviewer: sgilley
 ms.date: 7/27/2018
 ---
 
@@ -19,7 +19,9 @@ In this quickstart, you'll use a Python SDK to get started with [Azure Machine L
 Using any Python environment, including Jupyter Notebooks or your favorite Python IDE, you'll learn how to:
 1. Create a workspace, which is the top-level resource for this service.
 2. Attach a project containing your machine learning scripts.
-3. Run a script @@TO DO WHAT and view the output. 
+3. Run a script to show a few metrics and view the output.
+
+The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
 ## Prerequisites
 
