@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 |           | Prerequisite |
 |-----------|--------------|
 |Portal     | None         |
-|PowerShell | This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). |
+|PowerShell | This quickstart requires the Azure PowerShell module version **5.0.4-preview** or later. Run `Get-Module -ListAvailable AzureRM` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). |
 |CLI        | You can log in to Azure and run Azure CLI commands in one of two ways: <ul><li>You can run CLI commands from within the Azure portal, in Azure Cloud Shell </li><li>You can install the CLI and run CLI commands locally</li></ul>|
 
 When working on the command line you have the option of running the Azure Cloud shell or installing the CLI locally.
@@ -47,7 +47,7 @@ The button launches an interactive shell that you can use to run the steps in th
 
 You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-## Create an account
+## Overview
 
 Before you create an account, you first create a resource group that acts as a logical container to storage accounts or any other Azure resources you create. If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account,and any other resources associated with the resource group. For more information regarding resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
