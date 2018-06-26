@@ -71,6 +71,17 @@ ms.author: maquaran
 
 ### Pre-release builds
 
+### <a name="2.0.3-prerelease"/>2.0.3-prerelease
+* Fixed the following issues:
+  * When partition split happens, there could be duplicate processing of documents modified before the split.
+  * The GetEstimatedRemainingWork API returned 0 when no leases were present in the lease collection.
+
+* The following exceptions are made public. Extensions that implement IPartitionProcessor can throw these exceptions.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
+
 ### <a name="2.0.2-prerelease"/>2.0.2-prerelease
 * Minor API changes:
   * Removed ChangeFeedProcessorOptions.IsAutoCheckpointEnabled that was marked as obsolete.
