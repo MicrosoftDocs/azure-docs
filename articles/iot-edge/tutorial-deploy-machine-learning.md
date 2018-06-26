@@ -47,7 +47,7 @@ Have the following prerequisites on your development machine:
 
 To disable process identification, you'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect:** section of the IoT Edge daemon configuration.
 
-Get the ip address first. Enter `ifconfig` in your command line and copy the ip address of the ** docker0** interface.
+Get the ip address first. Enter `ifconfig` in your command line and copy the ip address of the **docker0** interface.
 
 Edit the IoT Edge daemon configuration file:
 
