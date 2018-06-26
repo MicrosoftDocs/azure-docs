@@ -87,8 +87,8 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![CentOS-based 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
 | ![CentOS-based 7.4](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
 | ![CentOS-based 7.4-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.4-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74LVM) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
-| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer11SP4BringYourOwnSubscription) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
-| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
+| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES?tab=PlansAndPrice) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
+| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES?tab=PlansAndPrice) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 
 ## Third-Party BYOL, Free, and Trial images and Solution Templates
 

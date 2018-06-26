@@ -187,13 +187,14 @@ Well done! You now have a multi-container application where each container can b
 
 Let's see it in action. Go to the VS Code window for `mywebapi` and make a code edit to the `string Get(int id)` method, for example:
 
-    ```csharp
-    [HttpGet("{id}")]
-    public string Get(int id)
-    {
-        return "mywebapi now says something new";
-    }
-    ```
+```csharp
+[HttpGet("{id}")]
+public string Get(int id)
+{
+    return "mywebapi now says something new";
+}
+```
+
 
 [!INCLUDE[](includes/team-development-2.md)]
 
