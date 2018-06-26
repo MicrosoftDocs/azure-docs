@@ -22,7 +22,7 @@ ms.author: daveba
 
 Managed Identity provides Azure services the ability to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to create, list and delete a user assigned managed identity using CURL to make REST API calls.
+In this article, you learn how to create, list, and delete a user assigned managed identity using CURL to make REST API calls.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 ```
 ## Delete a user assigned managed identity
 
-To delete a user assigned managed identity, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>` and `<ACCESS TOKEN>` parameters values with your own values:
+To delete a user assigned managed identity, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`,  , and `<ACCESS TOKEN>` parameters values with your own values:
 
 > [!NOTE]
 > Deleting a user assigned identity will not remove the reference from any resource it was assigned to. To remove a user assigned managed from a VM using CURL see [Remove a user assigned identity from an Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).

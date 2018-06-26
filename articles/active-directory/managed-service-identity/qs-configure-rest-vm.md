@@ -53,19 +53,19 @@ To create an Azure VM with system assigned identity enabled, you need create a V
    az group create --name myResourceGroup --location westus
    ```
 
-2. Create a [network interface](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) for for your VM:
+2. Create a [network interface](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) for your VM:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Retrieve a BEARER access token which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+3.  Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
    ``` 
 
-4. Create a VM using using CURL to call the Azure Resource Manager REST endpoint. The following example creates a VM named *myVM* with a system assigned identity, as identified in the request body by the value `"identity":{"type":"SystemAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
+4. Create a VM using CURL to call the Azure Resource Manager REST endpoint. The following example creates a VM named *myVM* with a system assigned identity, as identified in the request body by the value `"identity":{"type":"SystemAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
  
     ```bash
     curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"TestVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -75,7 +75,7 @@ To create an Azure VM with system assigned identity enabled, you need create a V
 
 To enable system assigned identity on an existing VM, you need to acquire an access token and then use CURL to call the Resource Manager REST endpoint to update the identity type.
 
-1. Retrieve a BEARER access token which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -102,7 +102,7 @@ To enable system assigned identity on an existing VM, you need to acquire an acc
 
 To disable a system assigned identity on an existing VM, you need to acquire an access token and then use CURL to call the Resource Manager REST endpoint to update the identity type to `None`.
 
-1. Retrieve a BEARER access token which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -117,17 +117,17 @@ To disable a system assigned identity on an existing VM, you need to acquire an 
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-3. To remove system assigned identity from a VM that has user assigned identities, remove `SystemAssigned` from the `{"identity":{"type:" "}}` value while keeping the `UserAssigned` value and `identityIds` array the defines what user assigned identities are assigned to the VM.
+3. To remove system assigned identity from a VM that has user assigned identities, remove `SystemAssigned` from the `{"identity":{"type:" "}}` value while keeping the `UserAssigned` value and `identityIds` array that defines what user assigned identities are assigned to the VM.
 
 ## User assigned identity
 
-In this section, you learn how to add and remove system assigned identity on an Azure VM using CURL to to make calls to the Azure Resource Manager REST endpoint.
+In this section, you learn how to add and remove system assigned identity on an Azure VM using CURL to make calls to the Azure Resource Manager REST endpoint.
 
 ### Assign a user assigned identity during the creation of an Azure VM
 
 To create an Azure VM with system assigned identity enabled, you need create a VM and retrieve an access token to use CURL to call the Resource Manager endpoint with the system assigned identity type value.
 
-1. Retrieve a BEARER access token which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -139,7 +139,7 @@ To create an Azure VM with system assigned identity enabled, you need create a V
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Retrieve a BEARER access token which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+3.  Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -147,7 +147,7 @@ To create an Azure VM with system assigned identity enabled, you need create a V
 
 4. Create a user assigned identity using the instructions found here: [Create a user assigned managed identity](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
-5. Create a VM using using CURL to call the Azure Resource Manager REST endpoint. The following example creates a VM named *myVM* in the resouce group *myResourceGroup* with a user assigned identity `ID1`, as identified in the request body by the value `"identity":{"type":"UserAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
+5. Create a VM using CURL to call the Azure Resource Manager REST endpoint. The following example creates a VM named *myVM* in the resource group *myResourceGroup* with a user assigned identity `ID1`, as identified in the request body by the value `"identity":{"type":"UserAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
  
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"TestVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -155,7 +155,7 @@ To create an Azure VM with system assigned identity enabled, you need create a V
 
 ### Assign a user assigned identity to an existing Azure VM
 
-1. Retrieve a BEARER access token which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -185,7 +185,7 @@ To create an Azure VM with system assigned identity enabled, you need create a V
 
 If your VM has multiple user assigned identities, use the following CURL call to the Resource Manager endpoint.  You need to list the user assigned identities by using the CURL command listed here, [List user assigned managed identities](how-to-manage-ua-identity-rest.md#list-user-assigned-managed-identities) and then enter only the user assigned managed identities you would like to keep in the `identityIDs` array. 
 
-1. Retrieve a BEARER access token which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
