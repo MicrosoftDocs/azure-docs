@@ -6,7 +6,7 @@ author: vhorne
 ms.service: firewall
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/18/2018
+ms.date: 7/11/2018
 ms.author: victorh
 ---
 # Monitor Azure Firewall logs

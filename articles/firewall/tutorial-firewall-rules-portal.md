@@ -7,7 +7,7 @@ manager: jpconnock
 
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 6/25/2018
+ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want configure firewall rules so that I can control outbound access from resources located in a subnet.
@@ -261,6 +261,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Set up the network
 > * Create a firewall
+> * Create a default route
 > * Configure application and network firewall rules
 > * Test the firewall
 

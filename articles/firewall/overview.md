@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/25/2018
+ms.date: 7/11/2018
 ms.author: victorh
 #Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
