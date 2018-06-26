@@ -502,7 +502,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/dev-spaces/">
                                                 <img src="media/index/AzureDevSpaceController_50x.svg" alt=""/>
-                                                <p>Azure Dev Spaces (Preview)</p>
+                                                <p>Azure Dev Spaces</p>
                                         </li>
                                     </ul>
                                     <h3>Integration</h3>
@@ -2691,6 +2691,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/dev-spaces/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureDevSpaceController_50x.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Dev Spaces</h3>
+                                                    <p>Rapid Kubernetes development with containers and microservices</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -4602,25 +4621,6 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Blockchain Workbench</h3>
                                                     <p>Connect your blockchain to the cloud without the heavy lifting</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/dev-spaces/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/AzureDevSpaceController_50x.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Dev Spaces</h3>
-                                                    <p>Rapid Kubernetes development with containers and microservices</p>
                                                 </div>
                                             </div>
                                         </div>
