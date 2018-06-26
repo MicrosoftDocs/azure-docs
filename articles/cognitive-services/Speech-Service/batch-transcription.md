@@ -50,6 +50,7 @@ For stereo audio streams, Batch transcription will split the left and right chan
         "locale": "en-US"
     },
     ```
+Consult our Swagger file for more [details](https://customspeech.ai/swagger).
 
 > [!NOTE]
 > The Batch transcription API is using a REST service for requesting transcriptions, their status, and associated results. It is based on .NET and does not have any external dependencies. The next section describes how it is used.
