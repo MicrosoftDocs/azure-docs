@@ -48,11 +48,14 @@ The following sample shows you how to create a custom OU using PowerShell. You c
 New-ADOrganizationalUnit -Name "MyNewOU" -Path "DC=CONTOSO100,DC=COM"
 
 # Create a service account 'WebFarmSvc' within the custom OU.
-New-ADServiceAccount -Name WebFarmSvc -DNSHostName WebFarmSvc.contoso100.com -Path "OU=MYNEWO
-U,DC=CONTOSO100,DC=com" -KerberosEncryptionType AES128, AES256 -ManagedPasswordIntervalInDays 30 -ServicePrincip
-alNames http/WebFarmSvc.contoso100.com/contoso100.com, http/WebFarmSvc.contoso100.com/contoso100, http/WebFarmSv
-c/contoso100.com, http/WebFarmSvc/contoso100 -PrincipalsAllo
-wedToRetrieveManagedPassword CONTOSO-SERVER$
+New-ADServiceAccount -Name WebFarmSvc  `
+-DNSHostName ` WebFarmSvc.contoso100.com  `
+-Path "OU=MYNEWOU,DC=CONTOSO100,DC=com"  `
+-KerberosEncryptionType AES128, AES256  ` -ManagedPasswordIntervalInDays 30  `
+-ServicePrincipalNames http/WebFarmSvc.contoso100.com/contoso100.com, `
+http/WebFarmSvc.contoso100.com/contoso100,  `
+http/WebFarmSvc/contoso100.com, http/WebFarmSvc/contoso100  `
+-PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
 ```
 
 **PowerShell cmdlet documentation:**
