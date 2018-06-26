@@ -100,7 +100,7 @@ For a table of service limits, quotas, and constraints, and supported features i
   
     [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
   
-* For information about Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+* For information about Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * For videos about scaling App Service apps, see the following resources:
   
   * [When to Scale Azure Websites - with Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

@@ -348,5 +348,5 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 > [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### Community Content
-* [Azure SQL Database Management with PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
+* [Azure SQL Database Management with PowerShell](https://azure.microsoft.com/blog/windows-azure-sql-database-management-with-powershell/)
 
