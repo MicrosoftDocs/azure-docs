@@ -145,7 +145,7 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-With these code samples you have explored the heirarchial nature of HDFS using data stored in an Azure Data Lake Storage Gen2 capable account.
+With these code samples you have explored the hierarchical nature of HDFS using data stored in an Azure Data Lake Storage Gen2 capable account.
 
 ## Query the data
 
