@@ -39,7 +39,7 @@ Monitor each Batch account using features of [Azure Monitor](../monitoring-and-d
 
 In your Batch applications, use the Batch APIs to monitor or query the status of your resources including jobs, tasks, nodes, and pools. For example:
 
-* [Count tasks by state](batch-get-task-counts.md)
+* [Count tasks and compute nodes by state](batch-get-resource-counts.md)
 * [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md)
 * [Create task dependencies](batch-task-dependencies.md)
 * Use a [job manager task](/rest/api/batchservice/job/add#jobmanagertask)

@@ -25505,6 +25505,11 @@
             "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started.md",
             "redirect_url": "/azure/active-directory-b2c/tutorial-create-tenant",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/batch/batch-get-task-counts.md",
+            "redirect_url": "/azure/batch/batch-get-resource-counts",
+            "redirect_document_id": true
         }
     ]
 }
