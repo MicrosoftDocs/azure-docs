@@ -29,13 +29,13 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Azure SQL Database enables you to easily perform basic management tasks using Azure Portal, Azure CLI, and Azure PowerShell. Learn how to perform basic management tasks using the following quick-start samples:'
+    text: 'Azure SQL Database enables you to easily perform basic management tasks using the Azure portal, Azure CLI, and Azure PowerShell. Learn how to perform basic management tasks using the following quick-start samples:'
   - type: table
     style: dataMatrix
     columns:
       - image:
           src: media/index/portal.svg
-        title: Azure Portal
+        title: the Azure portal
       - image:
           src: media/index/cli.svg
         title: Azure CLI
