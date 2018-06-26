@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/26/2018
 ms.author: sashan
 
 ---
@@ -59,6 +59,8 @@ You can verify whether you are connected to a read-only replica by running the f
 ```SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
+> [!IMPORTANT]
+> During preview, if you are connecting to a geo-replicated secondary database with read-scale enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the  replicas the same way we route connections on the primary database. Even though the primary replica of the secondary is also read-only, we will not perform round-robin or any other load balanced routing. 
 
 ## Enable and disable Read Scale-Out using Azure PowerShell
 
