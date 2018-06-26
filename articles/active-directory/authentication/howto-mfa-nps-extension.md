@@ -219,7 +219,7 @@ Valid-From and Valid-Until timestamps, which are in human-readable form, can be 
 This error could be due to one of several reasons. Use these steps to help troubleshoot:
 
 1. Restart your NPS server.
-2. Verify that that client cert is installed as expected.
+2. Verify that client cert is installed as expected.
 3. Verify that the certificate is associated with your tenant on Azure AD.
 4. Verify that https://login.microsoftonline.com/ is accessible from the server running the extension.
 
