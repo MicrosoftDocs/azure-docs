@@ -98,7 +98,7 @@ Each directory is given a single top-level management group called the "root" ma
 >
 
 ## Create a management group
-It is not required that you create a management group and add your subscription to it in order to use Security Center. We recommend that you create at least one management group to take advantage of managing your entire Azure estate by performing actions on the root management group.
+It isn't required that you create a management group and add your subscription to it in order to use Security Center. We recommend that you create at least one management group to take advantage of managing your entire Azure estate by performing actions on the root management group.
 
 1.	To create a management group, follow the instructions in the article [Create management groups for resource organization and management](../azure-resource-manager/management-groups-create.md).
 2.	Under the Azure main menu, select **All services**.
@@ -106,16 +106,17 @@ It is not required that you create a management group and add your subscription 
 
 	![Create a management group](./media/security-center-azure-policy/all-services.png)
 
-	**Management Groups** opens.  Here you will see the management group that you created.
+	**Management Groups** opens.  Here you'll see the management group that you created.
 
-    You may receive a message that you do not have the necessary permissions to access the root management group.  The Azure Active Directory tenant administrator needs to elevate itself to user access administrator at the root management group level. To gain the necessary permissions, follow instructions in [elevate access as a tenant admin with Role-Based Access Control](../role-based-access-control/elevate-access-global-admin.md).
+    You may receive a message that you don't have the necessary permissions to access the root management group.  The Azure Active Directory tenant administrator needs to elevate itself to user access administrator at the root management group level. To gain the necessary permissions, follow instructions in [elevate access as a tenant admin with Role-Based Access Control](../role-based-access-control/elevate-access-global-admin.md).
 
-    Once access is elevated, the tenant admin can assign an RBAC role on the root management group. The required role to set and enforce policies is the "[Security Administrator](../role-based-access-control/built-in-roles.md#security-admin)" role. The assigned role is automatically propagated to all management groups and subscriptions under the root management group.
+    Once access is elevated, the tenant admin can assign an RBAC role on the root management group. Roles are assigned either by selecting the root management group and choosing Access control (IAM), or via PowerShell. The recommended roles to assign are either [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) or [Security Reader](../role-based-access-control/built-in-roles.md#security-reader). The assigned role is automatically propagated to all management groups and subscriptions under the root management group. 
 
-	> [!NOTE]
-	> The Security Administrator role does not grant you write permission. The Security Administrator role gives you read and security related permissions, such as create and manage policy assignments or dismiss a security alert.
+    > [!NOTE]
+	> The Security Admin role does not grant you write permission. The Security Admin role gives you read and security related permissions, such as create and manage policy assignments or dismiss a security alert.
 	>
-	>
+	
+    ![Assign Security Reader role from IAM](./media/security-center-azure-policy/asc-security-reader.png)
 
 ## Add subscriptions to a management group
 Now you can add subscriptions to the management group that you created.
@@ -130,7 +131,8 @@ Now you can add subscriptions to the management group that you created.
 
 3. Enter subscription under **Add existing resource**.
 
-4. Repeat steps 1 through 3 until you have added all subscriptions in scope.
+4. Repeat steps 1 through 3 until you've added all subscriptions in scope.
+
 
 ## Next steps
 In this article, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following articles:
