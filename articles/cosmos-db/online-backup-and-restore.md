@@ -51,7 +51,7 @@ For SQL API, If you want to maintain your own snapshots, you can use the export 
 
 ## Restoring a database from an online backup
 
-If you accidentally delete your database or collection, you can [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support](https://azure.microsoft.com/support/options/) to restore the data from the last automatic backup. Azure support is available for selected plans only such as Standard, Developer, support isn't available with Basic plan. To learn about different support plans, see [Azure support plans](https://azure.microsoft.com/en-us/support/plans/) page. 
+If you accidentally delete your database or collection, you can [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support](https://azure.microsoft.com/support/options/) to restore the data from the last automatic backup. Azure support is available for selected plans only such as Standard, Developer, support isn't available with Basic plan. To learn about different support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/) page. 
 
 If you need to restore your database because of data corruption issue (includes cases where documents within a collection are deleted), see [Handling data corruption](#handling-data-corruption) as you need to take additional steps to prevent the corrupted data from overwriting the existing backups. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was available for the duration of the backup cycle for that snapshot.
 
