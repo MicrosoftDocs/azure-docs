@@ -82,8 +82,14 @@
     items:
     - name: C#
       href: how-to-develop-csharp-module.md
+    - name: Node.js
+      href: how-to-develop-node-module.md
     - name: Azure Functions
       href: how-to-develop-csharp-function.md
+    - name: Develop multiple modules
+      href: how-to-develop-multiple-modules-vscode.md
+    - name: Debug multiple modules
+      href: how-to-debug-multiple-modules-vscode.md
   - name: Deploy modules
     items:
     - name: Azure portal
@@ -108,8 +114,6 @@
       href: deploy-modbus-gateway.md
   - name: Provision an IoT Core device
     href: how-to-install-iot-core.md
-  - name: Work with multiple modules
-    href: tutorial-multiple-modules-in-vscode.md
   - name: CI/CD in VSTS
     href: how-to-ci-cd.md
   - name: Troubleshoot

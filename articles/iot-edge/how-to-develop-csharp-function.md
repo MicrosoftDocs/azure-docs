@@ -4,7 +4,7 @@ description: Use Visual Studio Code to debug C# Azure Functions with Azure IoT E
 author: shizn
 manager: 
 ms.author: xshi
-ms.date: 03/20/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -87,7 +87,7 @@ You can check your container status in the VS Code Docker explorer or by running
 
 
 > [!NOTE]
-> Above example shows how to debugging .Net Core IoT Edge Function on containers. It's based on the debug version of the `Dockerfile.amd64.debug`, which includes VSDBG(the .NET Core command-line debugger) in your container image while building it. We recommend you directly use or customize the `Dockerfile` without VSDBG for production-ready IoT Edge function after you finish debugging your C# function.
+> The above example shows how to debugging .Net Core IoT Edge Function on containers. It's based on the debug version of the `Dockerfile.amd64.debug`, which includes VSDBG(the .NET Core command-line debugger) in your container image while building it. We recommend you directly use or customize the `Dockerfile` without VSDBG for production-ready IoT Edge function after you finish debugging your C# function.
 
 ## Next steps
 
