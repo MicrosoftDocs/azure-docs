@@ -102,9 +102,9 @@ availabilityResults
 
 8. Create three new application settings with appropriate corresponding values ``AI_APP_ID``, ``AI_APP_KEY``, and ``SendGridAPI``. Select **Save**.
 
-     ![Function integrate interface screenshot](./media/automate-custom-reports/function-app-08.png)
+     ![Function integration interface screenshot](./media/automate-custom-reports/function-app-08.png)
     
-    (The AI_ values can be found under API Access for the Application Insights Resource you want to report on. If you don't have an Application Insights API Key there is the option to **Create API Key**.)
+    (The AI_ values can be found under API Access for the Application Insights Resource you want to report on. If you don't have an Application Insights API Key, there is the option to **Create API Key**.)
     
     * AI_APP_ID = Application ID
     * AI_APP_KEY = API Key
@@ -117,7 +117,7 @@ availabilityResults
 
      ![Output screenshot](./media/automate-custom-reports/function-app-09.png)
 
-10. Under the **SendGridAPI Key App Setting** select your newly created App Setting for **SendGridAPI**.
+10. Under the **SendGridAPI Key App Setting**, select your newly created App Setting for **SendGridAPI**.
 
      ![Run Function App screenshot](./media/automate-custom-reports/function-app-010.png)
 
