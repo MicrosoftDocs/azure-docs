@@ -333,5 +333,4 @@ You have learned how to transform an unstructured JSON dataset into a structured
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
