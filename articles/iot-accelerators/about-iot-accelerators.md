@@ -18,9 +18,11 @@ manager: timlt
 
 A cloud-based IoT solution typically uses custom code and multiple cloud services to manage device connectivity, data processing and analytics, and presentation.
 
-The IoT solution accelerators are a collection of complete, ready-to-deploy, IoT solutions that implement common IoT scenarios such as _remote monitoring_, _predictive maintenance_, and _connected factory_. When you deploy a solution accelerator, the deployment includes all the required cloud-based services along with any required application code.
+The IoT solution accelerators are a collection of complete, open source, ready-to-deploy, IoT solutions that implement common IoT scenarios such as _remote monitoring_, _predictive maintenance_, and _connected factory_. When you deploy a solution accelerator, the deployment includes all the required cloud-based services along with any required application code.
 
-The application code in each solution accelerator includes a solution-specific dashboard that enables you to manage the solution accelerator. For example, you can use a dashboard to view the telemetry from your connected devices, provision new devices, or upgrade the firmware on your connected devices.
+The application code in each solution accelerator includes a solution-specific dashboard that enables you to manage the solution accelerator. For example, you can use a dashboard to view the telemetry from your connected devices, provision new devices, or upgrade the firmware on your connected devices:
+
+[![Solution dashboard](./media/about-iot-accelerators/dashboard-inline.png)](./media/about-iot-accelerators/dashboard-expanded.png#lightbox)
 
 ## IoT scenarios
 
@@ -44,7 +46,7 @@ Use the Device Simulation solution accelerator to run multiple simulated devices
 
 ## How to use the solution accelerators
 
-The solution accelerators are intended as starting points for your own IoT solutions. The source code for all the solution accelerators is open source and is available in GitHub. You're encouraged to download and customize the solution accelerators to meet your specific requirements.
+The solution accelerators are intended as starting points for your own IoT solutions. The source code for all the solution accelerators is open source and is available in GitHub. You're encouraged to download and [customize](iot-accelerators-remote-monitoring-customize.md) the solution accelerators to meet your specific requirements.
 
 You can also use the solution accelerators as learning tools before building a custom IoT solution from scratch. The solution accelerators implement proven practices for cloud-based IoT solutions for you to follow.
 
