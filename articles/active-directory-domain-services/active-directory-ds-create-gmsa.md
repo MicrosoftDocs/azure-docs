@@ -22,9 +22,9 @@ ms.author: maheshu
 This article shows you how to create managed service accounts on an Azure AD Domain Services managed domain.
 
 ## Managed Service Accounts
-A standalone Managed Service Account (sMSA) is a managed domain account that provides automatic password management, simplified service principal name (SPN) management and the ability to delegate the management to other administrators. This type of managed service account (MSA) was introduced in Windows Server 2008 R2 and Windows 7.
+A standalone Managed Service Account (sMSA) is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, and the ability to delegate the management to other administrators. This type of managed service account (MSA) was introduced in Windows Server 2008 R2 and Windows 7.
 
-The group Managed Service Account (gMSA) provides the same functionality within the domain but also extends that functionality over multiple servers. When connecting to a service hosted on a server farm, such as Network Load Balanced solution, the authentication protocols supporting mutual authentication require that all instances of the services use the same principal. When a gMSA is used as service principal, the Windows operating system manages the password for the account instead of relying on the administrator to manage the password.
+The group Managed Service Account (gMSA) provides the same functionality within the domain for many servers. All instances of a service hosted on a server farm (for example, a network load balancer) must use the same service principal for mutual authentication protocols to work. When a gMSA is used as service principal, the Windows operating system manages the account's password instead of relying on the administrator.
 
 **More information:**
 - [Group Managed Service Accounts Overview](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
