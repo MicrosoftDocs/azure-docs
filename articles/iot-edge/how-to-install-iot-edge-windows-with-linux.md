@@ -27,7 +27,7 @@ Azure IoT Edge can be used for development and testing on following versions of 
 
 ## Install the container runtime 
 
-Azure IoT Edge relies on a [OCI][lnk-oci]-compatible container runtime (e.g. Docker). 
+Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime (e.g. Docker). 
 
 You can use [Docker for Windows][lnk-docker-for-windows] for development and testing. Ensure Docker for Windows is [configured to use Linux containers][lnk-docker-config]
 
