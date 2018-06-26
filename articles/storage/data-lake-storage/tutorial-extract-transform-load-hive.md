@@ -21,9 +21,6 @@ ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
 
 In this tutorial, you take a raw CSV data file, import it into an HDInsight cluster, and then transform the data using Apache Hive on Azure HDInsight. Once the data is transformed, you load that data into an Azure SQL database using Apache Sqoop. This article, uses publicly available flight data.
 
-> [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on Azure HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 This tutorial covers the following tasks: 
 
 > [!div class="checklist"]
@@ -49,6 +46,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 * **Azure CLI 2.0**. If you haven't installed the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for more steps.
 
 * **An SSH client**. For more information, see [Connect to HDInsight (Hadoop) using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+
+> [!IMPORTANT]
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on Azure HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Download the flight data
 
