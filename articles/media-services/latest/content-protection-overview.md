@@ -68,21 +68,6 @@ To sucessfully complete your "content protection" system/application design, you
 > [!NOTE]
 > It is highly recommended to focus and fully test each part (described above) before moving onto the next part. To test your "content protection" system, use the tools specified in the list above.  
 
-## Map components to technology for implementation
-
-The generic design is mapped to technologies on the Azure platform by specifying which technology to use for each building block.
-
-The following table shows the mapping.
-
-| **Building block** | **Technology** |
-| --- | --- |
-| **Player** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
-| **Identity provider (IDP)** |Azure Active Directory (Azure AD) |
-| **Security token service (STS)** |Azure AD |
-| **DRM protection workflow** |Media Services dynamic protection |
-| **DRM license delivery** |Media Services license delivery (PlayReady, Widevine, FairPlay) |
-| **StreamingEndpoint** |Media Services streaming endpoint |
-
 ## Streaming protocols and encryption types
 
 You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HTTP Live Streaming (HLS), MPEG DASH, and Smooth Streaming formats. Each protocol supports the following encryption methods:
