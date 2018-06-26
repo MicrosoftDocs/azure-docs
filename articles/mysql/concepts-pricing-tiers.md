@@ -52,6 +52,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Brazil South | X | X |
 | North Europe | X | X |
 | West Europe |  | X |
+| France Central |  | X |
 | UK West |  | X |
 | UK South |  | X |
 | East Asia | X | X |
