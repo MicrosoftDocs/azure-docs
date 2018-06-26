@@ -50,7 +50,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 - **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through its complete lifecycle, billing rates change keeping costs to a minimum via built-in features such as [Azure Blob storage lifecycle](../common/storage-lifecycle-managment-concepts.md).
 
-- **Works with Blob Storage tools, frameworks, and apps**: Data Lake Storage Gen2 continues to work with a wide array of tools, frameworks, and applications that exist today for Blob Storage.
+- **Works with Blob storage tools, frameworks, and apps**: Data Lake Storage Gen2 continues to work with a wide array of tools, frameworks, and applications that exist today for Blob storage.
 
 - **Optimized driver**: The `abfs` driver is [optimized specifically](./abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the `dfs` endpoint, `dfs.core.windows.net`.
 
