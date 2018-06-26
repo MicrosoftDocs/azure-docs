@@ -44,9 +44,9 @@ For example, if you want to accept addresses in the range 70.37.104.0/24 and rej
 > [!NOTE]
 > Rejecting IP addresses can prevent other Azure services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with Service Bus.
 
-### Creating a virtual network rule with ARM templates
+### Creating a virtual network rule with Azure Resource Manager templates
 
-The following ARM template enables adding a virtual network rule to an existing Service Bus namespace.
+The following Resource Manager template enables adding a virtual network rule to an existing Service Bus namespace.
 
 Template parameters:
 
@@ -104,7 +104,7 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 
 ## Next steps
 
-For constraining access to Service Bus to Azure virtual networks see
+For constraining access to Service Bus to Azure virtual networks, see the following link:
 
 - [Virtual Network Service Endpoints for Service Bus][lnk-vnet]
 

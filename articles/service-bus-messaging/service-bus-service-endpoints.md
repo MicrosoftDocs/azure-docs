@@ -89,7 +89,9 @@ Template:
 
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].
 
-## Related articles
+## Next steps
+
+For more information about virtual networks, see the following links:
 
 - [Azure virtual network service endpoints][vnet-sep]
 - [Azure Service Bus IP filtering][ip-filtering]

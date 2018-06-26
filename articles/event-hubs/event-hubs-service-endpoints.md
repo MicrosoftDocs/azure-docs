@@ -30,7 +30,7 @@ Any immediate IP route between the compartments, including those carrying HTTPS 
  
 That means your security sensitive cloud solutions not only gain access to Azure industry-leading reliable and scalable asynchronous messaging capabilities, but they can now use messaging to create communication paths between secure solution compartments that are inherently more secure than what is achievable with any peer-to-peer communication mode, including HTTPS and other TLS-secured socket protocols.
 
-## Binding Event Hubs to Virtual Networks
+## Bind Event Hubs to Virtual Networks
 
 *Virtual network rules* are the firewall security feature that controls whether your Azure Event Hubs server accepts connections from a particular virtual network subnet.
 
@@ -38,7 +38,7 @@ Binding an Event Hubs namespace to a virtual network is a two-step process. You 
 
 The virtual network rule is a named association of the Event Hubs namespace with a virtual network subnet. While the rule exists, all workloads bound to the subnet are granted access to the Event Hubs namespace. Event Hubs itself never establishes outbound connections, does not need to gain access, and is therefore never granted access to your subnet by enabling this rule.
 
-### Creating a virtual network rule with Azure Resource Manager templates
+### Create a virtual network rule with Azure Resource Manager templates
 
 The following Resource Manager template enables adding a virtual network rule to an existing Event Hubs 
 namespace.
@@ -88,7 +88,9 @@ Template parameters:
 
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].
 
-## Related articles
+## Next steps
+
+For more information about virtual networks, see the following links:
 
 - [Azure virtual network service endpoints][vnet-sep]
 - [Azure Event Hubs IP filtering][ip-filtering]
