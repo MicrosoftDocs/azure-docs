@@ -2,13 +2,13 @@
 title: Frequently asked questions for Speech to Text Service on Azure | Microsoft Docs
 description: Here are answers to the most popular questions about the Speech to Text.
 services: cognitive-services
-author: PanosPeriorellis, QinyingLiao 
+author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: panosper, qiliao
+ms.author: panosper
 ---
 
 # Custom Speech Service Frequently Asked Questions
