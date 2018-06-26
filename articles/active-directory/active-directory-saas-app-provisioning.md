@@ -43,7 +43,8 @@ Some common motivations for using this feature include:
 * Avoiding the costs, inefficiencies, and human error associated with manual provisioning processes.
 * Avoiding the costs associated with hosting and maintaining custom-developed provisioning solutions and scripts
 * To secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
-* To easily import a large number of users into a particular SaaS application or system.* To enjoy having a single set of policies to determine who is provisioned and who can sign in to an app.
+* To easily import a large number of users into a particular SaaS application or system.
+* To enjoy having a single set of policies to determine who is provisioned and who can sign in to an app.
 
 ## How does automatic provisioning work?
 	
