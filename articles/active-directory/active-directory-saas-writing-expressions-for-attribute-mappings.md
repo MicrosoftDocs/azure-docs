@@ -251,7 +251,7 @@ NormalizeDiacritics([givenName])
 **Sample input/output:** <br>
 
 * **INPUT** (givenName): "Zoë"
-* **OUTPUT**:  "zoe"
+* **OUTPUT**:  "Zoe"
 
 ### Output date as a string in a certain format
 You want to send dates to a SaaS application in a certain format. <br>
