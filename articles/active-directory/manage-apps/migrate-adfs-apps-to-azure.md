@@ -2,15 +2,15 @@
 title: 'Migrate AD FS on-premises apps to Azure. | Microsoft Docs'
 description: This article is intended to help organizations understand how to migrate on-premises applications to Azure AD, with a focus on federated SaaS applications.
 services: active-directory
-author: billmath
+author: barbkess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
 ms.date: 03/02/2018
-ms.author: billmath
+ms.author: barbkess
 ---
 
 # Migrate AD FS on-premises apps to Azure 
@@ -39,17 +39,17 @@ Many organizations have SaaS or custom line-of-business (LOB) apps federated dir
 For an organization that already uses AD FS, Ping, or another on-premises authentication provider, migrating apps to Azure AD enables the following benefits:
 
 **More secure access**
-- Configure granular per-application access controls, including Azure Multi-Factor Authentication, by using [Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). The policies can be applied to SaaS and custom apps in the same way that you might be doing today for Office 365.
-- To detect threats and help protect sign-on based on machine learning and heuristics that identify risky traffic, take advantage of [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection).
+- Configure granular per-application access controls, including Azure Multi-Factor Authentication, by using [Azure AD conditional access](../active-directory-conditional-access-azure-portal.md). The policies can be applied to SaaS and custom apps in the same way that you might be doing today for Office 365.
+- To detect threats and help protect sign-on based on machine learning and heuristics that identify risky traffic, take advantage of [Azure AD Identity Protection](../active-directory-identityprotection.md).
 
 **Azure AD B2B collaboration**
-- After sign-on to SaaS apps is based on Azure AD, you can give partners access to cloud resources with [Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- After sign-on to SaaS apps is based on Azure AD, you can give partners access to cloud resources with [Azure AD B2B collaboration](../b2b/what-is-b2b.md).
 
 **Easier admin experience and additional capabilities of Azure AD**
 - Azure AD, as an identity provider for SaaS apps, supports additional capabilities such as:
   - Token signing certificates per application.
-  - [Configurable certificate expiration dates](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
-  - [Automated provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) of user accounts (in key Azure Marketplace apps) based on Azure AD identities.
+  - [Configurable certificate expiration dates](manage-certificates-for-federated-single-sign-on.md).
+  - [Automated provisioning](../active-directory-saas-app-provisioning.md) of user accounts (in key Azure Marketplace apps) based on Azure AD identities.
 
 **Keeping the benefits of an on-premises identity provider**
 - While you're gaining the Azure AD benefits, you can keep using your on-premises solution for authentication. That way, benefits like on-premises Multi-Factor Authentication solutions, logging, and auditing stay in place. 
@@ -76,7 +76,7 @@ Federated apps include apps that fall into these categories:
 
 ### Non-federated apps
 You can integrate non-federated apps with Azure AD by using Azure AD Application Proxy and related capabilities. Non-federated apps include:
-- Apps that use Windows Integrated Authentication directly with Active Directory. You can integrate these apps with Azure AD via [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
+- Apps that use Windows Integrated Authentication directly with Active Directory. You can integrate these apps with Azure AD via [Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
 - Apps that integrate with your single sign-on provider via an agent and that use headers for authorization. On-premises apps that use an installed agent for sign-on and header-based authorization can be configured for Azure AD-based sign-on via Azure AD Application Proxy with [Ping Access for Azure AD](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/).
 
 ## Translating on-premises federated apps to Azure AD 
@@ -118,10 +118,10 @@ The following table describes the key IdP configuration elements to configure SS
 |IdP </br>sign-out </br>URL|Sign-out URL of the IdP from the app’s perspective (where the user is redirected when they choose to sign out of the app).|For AD FS, the sign-out URL is either the same as the sign-on URL, or the same URL with “wa=wsignout1.0” appended. For example: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|The corresponding value for Azure AD depends on whether the app supports SAML 2.0 sign-out.</br></br>If the app supports SAML sign-out, the value follows the pattern where the value for {tenant-id} is replaced with the tenant ID. Find it in the Azure portal under **Azure Active Directory** > **Properties** as **Directory ID**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>If the app does not support SAML sign-out: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |Token </br>signing </br>certificate|Certificate whose private key the IdP uses to sign issued tokens. It verifies that the token came from the same IdP that the app is configured to trust.|Find the AD FS token signing certificate in AD FS Management under **Certificates**.|In Azure AD, you can find the token signing certificate within the Azure portal in the application’s **Single sign-on** properties under the header **SAML Signing Certificate**. There, you can download the certificate for upload to the app.</br></br> If the application has more than one certificate, you can find all certificates in the federation metadata XML file.|
 |Identifier/</br>“issuer”|Identifier of the IdP from the app’s perspective (sometimes called the “issuer ID”).</br></br>In the SAML token, the value appears as the **Issuer** element.|The identifier for AD FS is usually the federation service identifier in AD FS Management under **Service** > **Edit Federation Service Properties**. For example: http&#58;//fs.contoso.com/adfs/services/trust|The corresponding value for Azure AD follows the pattern where the value for {tenant-id} is replaced with the tenant ID. Find it in the Azure portal under **Azure Active Directory** > **Properties** as **Directory ID**: https&#58;//sts.windows.net/{tenant-id}/|
-|IdP </br>federation </br>metadata|Location of the IdP’s publicly available federation metadata. (Some apps use federation metadata as an alternative to the administrator configuring URLs, identifier, and token signing certificate individually.)|Find the AD FS federation metadata URL in AD FS Management under **Service** > **Endpoints** > **Metadata** > **Type: Federation Metadata**. For example: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|The corresponding value for Azure AD follows the pattern https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. The value for {TenantDomainName} is replaced with your tenant’s name in the format “contoso.onmicrosoft.com.” </br></br>For more information, see [Federation metadata](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata).
+|IdP </br>federation </br>metadata|Location of the IdP’s publicly available federation metadata. (Some apps use federation metadata as an alternative to the administrator configuring URLs, identifier, and token signing certificate individually.)|Find the AD FS federation metadata URL in AD FS Management under **Service** > **Endpoints** > **Metadata** > **Type: Federation Metadata**. For example: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|The corresponding value for Azure AD follows the pattern https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. The value for {TenantDomainName} is replaced with your tenant’s name in the format “contoso.onmicrosoft.com.” </br></br>For more information, see [Federation metadata](../develop/active-directory-federation-metadata.md).
 
 ## Migrating SaaS apps
-Migrating SaaS apps from AD FS or another identity provider to Azure AD is a manual process today. For app-specific guidance, see the [list of tutorials on integrating SaaS apps found in the Marketplace](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Migrating SaaS apps from AD FS or another identity provider to Azure AD is a manual process today. For app-specific guidance, see the [list of tutorials on integrating SaaS apps found in the Marketplace](../saas-apps/tutorial-list.md).
 
 The integration tutorials assume that you're doing a green field integration. As you plan, assess, configure, and cut over your apps, you should know about a few key concepts that are specific to migration:  
 - Some apps can be migrated easily. Apps with more complex requirements, such as custom claims, might require additional configuration in Azure AD and/or Azure AD Connect.
@@ -144,11 +144,11 @@ Apps that you can migrate easily today include SAML 2.0 apps that use the standa
 - Email address.
 - Given name.
 - Surname.
-- Alternate attribute as SAML **NameID**, including the Azure AD mail attribute, mail prefix, employee ID, extension attributes 1-15, or on-premises **SamAccountName** attribute. For more information, see [Editing the NameIdentifier claim](./develop/active-directory-saml-claims-customization.md).
-- Custom claims. For information about supported claims mappings, see [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md) and [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](./develop/active-directory-saml-claims-customization.md).
+- Alternate attribute as SAML **NameID**, including the Azure AD mail attribute, mail prefix, employee ID, extension attributes 1-15, or on-premises **SamAccountName** attribute. For more information, see [Editing the NameIdentifier claim](../develop/active-directory-saml-claims-customization.md).
+- Custom claims. For information about supported claims mappings, see [Claims mapping in Azure Active Directory](../active-directory-claims-mapping.md) and [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 In addition to custom claims and **NameID** elements, configurations that require additional configuration steps in Azure AD as part of the migration are:
-- Custom authorization or Multi-Factor Authentication rules in AD FS. You configure them by using the [Azure AD conditional access](active-directory-conditional-access-azure-portal.md) feature.
+- Custom authorization or Multi-Factor Authentication rules in AD FS. You configure them by using the [Azure AD conditional access](../active-directory-conditional-access-azure-portal.md) feature.
 - Apps with multiple SAML endpoints. You configure them in Azure AD by using PowerShell. (This capability is not available in the portal.)
 - WS-Federation apps such as SharePoint apps that require SAML version 1.1 tokens. You must configure them manually by using PowerShell.
 
@@ -165,7 +165,7 @@ Apps that require the following capabilities cannot be migrated today. If you ha
 - Claims in token capabilities:
     - Issuance of on-premises group names as claims.
     - Claims from stores other than Azure AD.
-    - Complex claims issuance transform rules. For information about supported claims mappings, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) and [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
+    - Complex claims issuance transform rules. For information about supported claims mappings, see [Claims mapping in Azure Active Directory](../active-directory-claims-mapping.md) and [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
     - Issuance of directory extensions as claims.
     - Custom specification of the **NameID** format.
     - Issuance of multiple-value attributes.
@@ -197,7 +197,7 @@ To assign users in the Azure AD portal, browse to the SaaS app’s page, and the
 
 !["Add Assignment" pane](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-To verify access, users should see the SaaS app in their [access panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) when they sign in. They can find the access panel at http://myapps.microsoft.com. In this example, a user has been successfully assigned access to both Salesforce and ServiceNow.
+To verify access, users should see the SaaS app in their [access panel](../active-directory-saas-access-panel-introduction.md) when they sign in. They can find the access panel at http://myapps.microsoft.com. In this example, a user has been successfully assigned access to both Salesforce and ServiceNow.
 
 ![Example access panel with Salesforce and ServiceNow apps](media/migrate-adfs-apps-to-azure/migrate8.png)
 
@@ -226,10 +226,10 @@ Because of the configuration created earlier under **Identity** > **Single sign-
 ![Selecting Azure AD as the authentication service](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### Optional: Configure user provisioning in Azure AD
-If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
+If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
 ## Next steps
 
-- [Managing applications with Azure Active Directory](manage-apps/what-is-application-management.md)
-- [Manage access to apps](manage-apps/what-is-access-management.md)
-- [Azure AD Connect federation](active-directory-aadconnectfed-whatis.md)
+- [Managing applications with Azure Active Directory](what-is-application-management.md)
+- [Manage access to apps](what-is-access-management.md)
+- [Azure AD Connect federation](../active-directory-aadconnectfed-whatis.md)
