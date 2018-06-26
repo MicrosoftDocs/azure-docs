@@ -16,13 +16,13 @@ ms.author: nolachar
 
 This quickstart walks you through creating a sample knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 
-Two sample FAQ URLs are given below ('urls' in the string kb), but you may also use your own FAQ URLs.
+Two sample FAQ URLs are given below ('urls' in the string kb). QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
 
 ## Prerequisites
 
 You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You'll need a paid subscription key from your new API account in your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). To retrieve your key, select **Keys** under **Resource Management** in your dashboard.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You'll need a paid subscription key from your new API account in your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. Either key will work for this quickstart.
 
 ![Azure dashboard service key](../media/sub-key.png)
 
@@ -32,7 +32,7 @@ The following code creates a new knowledge base, using the [Create](https://west
 
 1. Create a new C# project in your favorite IDE that uses a .NET framework C# console app (either .NET CORE or .NET Standard).
 2. Add the code provided below.
-3. Replace the `key` value with a valid subscription key.
+3. Replace the `key` value with your valid subscription key.
 4. Run the program and expect the response shown below as confirmation of your success.
 5. Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, for example QnA Maker FAQ, to view.
 
