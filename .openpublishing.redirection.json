@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path": "articles/cognitive-services/speech-service/how-to-customize-speech-models.md",
-            "redirect_url": "/azure/cognitive-services/speech-service",
+            "redirect_url": "/azure/cognitive-services/speech-service/",
             "redirect_document_id": false
         },    
         {
