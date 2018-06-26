@@ -33,8 +33,12 @@ If you don't have already have an Azure subscription, [create a free account](ht
 Install the latest preview **AzureRM.Sql** module to get the Elastic Job cmdlets. Run the following commands from an elevated command prompt (run as administrator).
 
 ```powershell
+# Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
+Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
+
+# You may need to restart the powershell session
 # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
-Install-Module -Name PowerShellGet -Force
+Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 
 # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
 Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
