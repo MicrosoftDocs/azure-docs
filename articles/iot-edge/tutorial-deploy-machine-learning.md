@@ -45,7 +45,7 @@ Have the following prerequisites on your development machine:
 > While in preview, Azure Machine Learning does not support the process identification security feature enabled by default with IoT Edge. 
 > Below are the steps to disable it. This is however not suitable for use in production.
 
-To disable process identification, you'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect:** section of the IoT Edge daemon configuration.
+To disable process identification, you'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect** section of the IoT Edge daemon configuration.
 
 Get the ip address first. Enter `ifconfig` in your command line and copy the ip address of the **docker0** interface.
 
@@ -62,7 +62,7 @@ connect:
   workload_uri: "http://172.29.240.1:15581"
 ```
 
-Enter the same addresses in the **listen:** section of the configuration. For example:
+Enter the same addresses in the **listen** section of the configuration. For example:
 
 ```yaml
 listen:
