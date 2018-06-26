@@ -95,18 +95,22 @@ Once a tenant administrator has elevated access, they can assign an RBAC role to
     # Login to Azure as a Global Administrator user
     Login-AzureRmAccount
     ```
-3. When prompted, sign in with global admin credentials. 
-  ![Sign in prompt screenshot](./media/security-center-management-groups/azurerm-sign-in.PNG)
 
-4. Grant reader role permissions by running the following command: 
+3. When prompted, sign in with global admin credentials. 
+
+    ![Sign in prompt screenshot](./media/security-center-management-groups/azurerm-sign-in.PNG)
+
+4. Grant reader role permissions by running the following command:
+
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
     New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. To remove the role, use the following command: 
+
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"5  
     ```
 
 <!-- Currently, PowerShell method only 6/26/18
@@ -159,8 +163,8 @@ You can add subscriptions to the management group that you created. These steps 
 
 4. Repeat steps 1 through 3 until you've added all the subscriptions in the scope.
 
-> ![NOTE]
-> Management groups can contain both subscriptions and child management groups. When you assign a user an RBAC role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
+    > [!NOTE]
+    > Management groups can contain both subscriptions and child management  groups. When you assign a user an RBAC role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
 
 ## Next steps
 In this article, you learned how to gain tenant-wide visibility for Azure Security Center. To learn more about Security Center, see the following articles:
