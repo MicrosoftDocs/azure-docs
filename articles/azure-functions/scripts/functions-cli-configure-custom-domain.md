@@ -21,7 +21,7 @@ ms.custom: mvc
 # Map a custom domain to a function app
 
 This sample script creates a function app with related resources, and then maps `www.<yourdomain>` to it. 
-When your function app is hosted in an [App Service plan](functions-scale.md#app-service-plan), you can map a custom domain using either a CNAME or an A record. For function apps in a [Consumption plan](functions-scale.md#consumption-plan), only the CNAME option is supported.
+When your function app is hosted in an [App Service plan](../functions-scale.md#app-service-plan), you can map a custom domain using either a CNAME or an A record. For function apps in a [Consumption plan](../functions-scale.md#consumption-plan), only the CNAME option is supported.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
