@@ -11,7 +11,7 @@
   items:
   - name: Run code at the edge
     items:
-    - name: Linux/Mac
+    - name: Linux
       href: quickstart-linux.md
     - name: Windows
       href: quickstart.md
