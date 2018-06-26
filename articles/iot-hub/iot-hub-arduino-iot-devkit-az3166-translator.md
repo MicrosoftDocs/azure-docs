@@ -33,13 +33,16 @@ An active Azure subscription. If you do not have one, you can register via one o
 
 ### A. Start VS Code
 
-- Make sure your DevKit is not connected to your PC.
+- Make sure your DevKit is connected to your PC.
 - Start VS Code
 - Connect the DevKit to your computer.
 
 ### B. Open the Arduino Examples folder
 
-Expand left side **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT**, and select **DevKitTranslator**. It opens a new VS Code window with the DEVKITTRANSLATOR project folder in it.
+Expand left side **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT**, and select **DevKitTranslator**. It opens a new VS Code window with the DEVKITTRANSLATOR project folder in it.  
+
+> [!NOTE]
+> If you can't see the Examples for MXCHIP AZ3166 section, make sure your device is properly connected and restart Visual Studio Code.  
 
 ![IoT DevKit samples](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 

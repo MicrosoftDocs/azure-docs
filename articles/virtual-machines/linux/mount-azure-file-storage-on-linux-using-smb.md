@@ -20,7 +20,7 @@ ms.author: iainfou
 
 # Mount Azure File storage on Linux VMs using SMB
 
-This article shows you how to utilize the Azure File storage service on a Linux VM using an SMB mount with the Azure CLI 2.0. Azure File storage offers file shares in the cloud using the standard SMB protocol. You can also perform these steps with the [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md). The requirements are:
+This article shows you how to utilize the Azure File storage service on a Linux VM using an SMB mount with the Azure CLI 2.0. Azure File storage offers file shares in the cloud using the standard SMB protocol. The requirements are:
 
 - [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 - [SSH public and private key files](mac-create-ssh-keys.md)
