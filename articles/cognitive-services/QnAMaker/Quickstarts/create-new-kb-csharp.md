@@ -22,7 +22,7 @@ Two sample FAQ URLs are given below ('urls' in the string kb), but you may also 
 
 You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You will need a paid subscription key from your new API account in your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). To retrieve your key, select **Keys** under **Resource Management** in your dashboard.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You'll need a paid subscription key from your new API account in your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). To retrieve your key, select **Keys** under **Resource Management** in your dashboard.
 
 ![Azure dashboard service key](../media/sub-key.png)
 
@@ -34,7 +34,7 @@ The following code creates a new knowledge base, using the [Create](https://west
 2. Add the code provided below.
 3. Replace the `key` value with a valid subscription key.
 4. Run the program and expect the response shown below as confirmation of your success.
-5. Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, e.g. QnA Maker FAQ to view.
+5. Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, for example QnA Maker FAQ to view.
 
 ```csharp
 using System;
