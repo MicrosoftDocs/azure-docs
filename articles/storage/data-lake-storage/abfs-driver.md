@@ -1,5 +1,5 @@
 ---
-title: The Azure Blob Filesystem driver for Azure Data Lake Storage Gen2
+title: The Azure Blob Filesystem driver for Azure Data Lake Storage Gen2 Preview
 description: The ABFS Hadoop Filesystem driver
 services: storage
 keywords: 
@@ -14,7 +14,7 @@ ms.component: data-lake-storage-gen2
 
 # The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop
 
-One of the primary access methods for data in Azure Data Lake Storage Gen2 is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Azure Data Lake Storage Gen2 features an associated driver, the Azure Blob File System driver or `ABFS`. ABFS is part of Apache Hadoop and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in Azure Data Lake Storage without any code explicitly referencing the Azure Data Lake Storage service.
+One of the primary access methods for data in Azure Data Lake Storage Gen2 Preview is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Azure Data Lake Storage Gen2 features an associated driver, the Azure Blob File System driver or `ABFS`. ABFS is part of Apache Hadoop and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in Data Lake Storage Gen2 without any code explicitly referencing the Data Lake Storage Gen2 service.
 
 ## Prior capability: The Windows Azure Storage Blob driver
 
@@ -30,7 +30,7 @@ However, there are some functions that the driver must still perform:
 
 ### URI scheme to reference data
 
-Consistent with other FileSystem implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is documented in [Use the Azure Data Lake Storage URI](./introduction-abfs-uri.md). The structure of the URI is: `abfs[s]://file_system@account_name.dfs.core.widows.net/<path>/<path>/<file_name>`
+Consistent with other FileSystem implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is documented in [Use the Azure Data Lake Storage Gen2 URI](./introduction-abfs-uri.md). The structure of the URI is: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
 
 Using the above URI format, standard Hadoop tools and frameworks can be used to reference these resources:
 
@@ -43,7 +43,7 @@ Internally, the ABFS driver translates the resource(s) specified in the URI to f
 
 ### Authentication
 
-The ABFS driver currently supports Shared Key authentication so that the Hadoop application may securely access resources contained within an Azure Data Lake Storage account. The key is encrypted and stored in Hadoop configuration.
+The ABFS driver currently supports Shared Key authentication so that the Hadoop application may securely access resources contained within Data Lake Storage Gen2. The key is encrypted and stored in Hadoop configuration.
 
 ### Configuration
 
@@ -59,4 +59,4 @@ The ABFS driver is fully documented in the [Official Hadoop documentation](http:
 
 - [Setup HDInsight Clusters](./quickstart-create-connect-hdi-cluster.md)
 - [Create an Azure Databricks Cluster](./quickstart-create-databricks-account.md)
-- [Use the Azure Data Lake Storage URI](./introduction-abfs-uri.md)
+- [Use the Azure Data Lake Storage Gen2 URI](./introduction-abfs-uri.md)
