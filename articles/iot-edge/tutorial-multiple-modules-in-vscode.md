@@ -8,7 +8,7 @@ author: shizn
 manager: timlt
 
 ms.author: xshi
-ms.date: 06/06/2018
+ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 
@@ -26,24 +26,32 @@ To complete the steps in this article, have the following prerequisites in place
 - The [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
 - The [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 - [Docker](https://docs.docker.com/engine/installation/)
-- The [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd)
-- The AzureIoTEdgeModule template (`dotnet new -i Microsoft.Azure.IoT.Edge.Module`)
+- The [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
 - An active IoT hub with at least one IoT Edge device
 
 You also need [Docker for VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) with Azure IoT Hub Device Explorer integration to manage images and containers.
 
-## Prepare your first IoT Edge solution
+## Create your IoT Edge solution
 
-1. In the VS Code **Command Palette**, enter and run the command **Edge: New IoT Edge solution**. Select your workspace folder and provide the solution name (default is EdgeSolution). Create a C# module (with the name **SampleModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (**localhost:5000/<first module name>**). You can change it to Azure Container Registry or Docker Hub.
+1. In Visual Studio code, open the integrated terminal by selecting **View** > **Integrated terminal**. 
 
-   > [!NOTE]
-   > If you're using a local Docker registry, make sure that the registry is running. Enter the following command in your console window:
-   > 
-   > `docker run -d -p 5000:5000 --restart=always --name registry registry:2`
+2. In the integrated terminal, run the following command to intall (or update) the **AzureIoTEdgeModule** template.
+
+   ```cmd/sh
+   dotnet new -i Microsoft.Azure.IoT.Edge.Module
+   ```
+
+3. In the integrated terminal, enter the following command to update the latest version of the **AzureIoTEdgeFunction** template in .NET: 
+
+   ```cmd/sh
+   dotnet new -i Microsoft.Azure.IoT.Edge.Function
+   ```
+
+1. In the VS Code **Command Palette**, enter and run the command **Azure IoT Edge: New IoT Edge solution**. Select your workspace folder and provide the solution name (default is EdgeSolution). Create a C# module (with the name **SampleModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (**localhost:5000/<first module name>**). You can change it to Azure Container Registry or Docker Hub. 
 
 2. The VS Code window loads your IoT Edge solution workspace. The root folder contains a **modules** folder, a **.vscode** folder, and a deployment manifest template file. Debug configurations are located in the .vscode folder. All of the user module codes are subfolders of the modules folder. The deployment.template.json file is the deployment manifest template. Some of the parameters in this file are parsed from the module.json file, which exists in every module folder.
 
-3. Add your second module to this solution project. Enter and run the command **Edge: Add IoT Edge module**. Select the deployment template file to update. Select an **Azure Function - C#** module with the name **SampleFunction** and its Docker image repository.
+3. Add your second module to this solution project. There are several ways to add a new module to current solution. Enter and run the command **Azure IoT Edge: Add IoT Edge module**. Select the deployment template file to update. Or right-click the modules folder or right-click the deployment.template.json file and select **Add IoT Edge Module**. Then there will be a dropdown list to select module type. Select an **Azure Functions - C#** module with the name **SampleFunction** and its Docker image repository. 
 
 4. Open the deployment.template.json file. Verify that the file declares three modules and the runtime. The message is generated from the tempSensor module. The message is directly piped via the SampleModule and SampleFunction modules and then sent to your IoT hub. 
 
@@ -61,7 +69,7 @@ You also need [Docker for VS Code](https://marketplace.visualstudio.com/items?it
 
 ## Build and deploy your IoT Edge solution
 
-1. In the VS Code **Command Palette**, enter and run the command **Edge: Build IoT Edge solution**. Based on the module.json file in each module folder, the command starts to build, containerize, and push each module Docker image. The command then passes the required value to the deployment.template.json file and generates the deployment.json file with information from the config folder. The integrated terminal in VS Code shows the build progress.
+1. In the VS Code **Command Palette**, enter and run the command **Azure IoT Edge: Build IoT Edge solution**. Based on the module.json file in each module folder, the command starts to build, containerize, and push each module Docker image. The command then passes the required value to the deployment.template.json file and generates the deployment.json file with information from the config folder. The integrated terminal in VS Code shows the build progress. 
 
 2. In the Azure IoT Hub **Device Explorer**, right-click an IoT Edge device ID and then select the **Create deployment for Edge device** command. Select the deployment.json file in the config folder. The integrated terminal in VS Code shows the deployment successfully created with a deployment ID.
 
@@ -76,5 +84,5 @@ You also need [Docker for VS Code](https://marketplace.visualstudio.com/items?it
 
 Learn about other scenarios for developing with Azure IoT Edge in Visual Studio Code:
 
-* [Debug a C# module in VS Code](how-to-vscode-debug-csharp-module.md)
-* [Debug a C# function in VS Code](how-to-develop-csharp-function.md)
+* [Develop a C# module in VS Code](how-to-develop-csharp-module.md)
+* [Develop a C# function in VS Code](how-to-develop-csharp-function.md)

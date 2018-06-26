@@ -4,13 +4,13 @@ description: Use Visual Studio Code to debug C# Azure Functions with Azure IoT E
 author: shizn
 manager: 
 ms.author: xshi
-ms.date: 03/20/2018
+ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 
-# Use Visual Studio Code to debug Azure Functions with Azure IoT Edge
+# Use Visual Studio Code to develop Azure Functions for Azure IoT Edge
 
 This article provides detailed instructions for using [Visual Studio (VS) Code](https://code.visualstudio.com/) to debug your Azure Functions on IoT Edge.
 
