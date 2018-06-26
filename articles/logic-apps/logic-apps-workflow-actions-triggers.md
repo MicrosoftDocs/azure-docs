@@ -1238,7 +1238,7 @@ When you save your logic app, the Logic Apps engine performs some checks on the 
 
 This action creates a string from all the items in an array 
 and separates those items with the specified character. 
-For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-change-manage-data-operations.md#join-action).
+For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-perform-data-operations.md#join-action).
 
 ```json
 "Join": {
@@ -1284,7 +1284,7 @@ which are separated by a comma: `"1,2,3,4"`
 This action gets items from an array based on a specified filter or condition. 
 The output from this action is an array with the items 
 from the input array that satisfy the condition.
-For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-change-manage-data-operations.md#filter-array-action).
+For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action).
 
 ```json
 "Filter_array": {
