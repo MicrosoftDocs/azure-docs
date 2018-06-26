@@ -21,7 +21,7 @@ robots: noindex
 # Copy data to or from Azure Blob Storage using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-azure-blob-connector.md)
-> * [Current version](../connector-azure-blob-storage.md)
+> * [Version 2 (current version)](../connector-azure-blob-storage.md)
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Azure Blob Storage connector in V2](../connector-azure-blob-storage.md).

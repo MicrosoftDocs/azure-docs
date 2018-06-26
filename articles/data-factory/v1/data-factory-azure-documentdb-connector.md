@@ -21,7 +21,7 @@ robots: noindex
 # Move data to and from Azure Cosmos DB using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-azure-documentdb-connector.md)
-> * [Current version](../connector-azure-cosmos-db.md)
+> * [Version 2 (current version)](../connector-azure-cosmos-db.md)
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Azure Cosmos DB connector in V2](../connector-azure-cosmos-db.md).
