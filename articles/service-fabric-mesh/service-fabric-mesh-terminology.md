@@ -45,15 +45,16 @@ Service Fabric is the platform technology, which several different services and 
 **Service Fabric onebox or development cluster**: Provides the developer experience on Windows, Linux, or Mac for creating Service Fabric applications.
 
 ## Environment, framework, and deployment model support matrix
-Different environments have different level of support for frameworks and deployment models. The following tables describe the supported combinations.
+Different environments have different level of support for frameworks and deployment models. The following table describes the supported framework and deployment model combinations.
 
-|Frameworks\Deployment Model |Resource model |Manifest model | Compose|
+|Frameworks\Deployment model |Resource model |Manifest model | Compose|
 |---|---|---|---|
 |Reliable Actors and Reliable Services |Not supported |Supported |Not supported |
 |Any other framework |Supported in containers |Supported as processes and in containers |Supported in containers |
 
+The following table describes the supported environment and deployment model combinations.
 
-|Environment\Deployment Model |Resource model |Manifest model |Compose |
+|Environment\Deployment model |Resource model |Manifest model |Compose |
 |---|---|---|---|
 |Azure Service Fabric Mesh |Supported |Not supported|Not supported |
 |All other environments |Supported (Some resources have prerequisites to work in an environment) |Supported |Limited Support |
