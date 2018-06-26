@@ -22,8 +22,8 @@ For scenarios in which Azure Event Hubs is only accessible from certain well-kno
 
 Two important use cases in which it is useful to block Event Hubs endpoints for certain IP addresses are as follows:
 
-1. Your event hubs should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using Event Hubs with [Azure Express Route][express-route] to create private connections to your on-premises infrastructure. 
-2. You need to reject traffic from IP addresses that have been identified as suspicious by the Event Hubs administrator.
+- Your event hubs should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using Event Hubs with [Azure Express Route][express-route] to create private connections to your on-premises infrastructure. 
+- You need to reject traffic from IP addresses that have been identified as suspicious by the Event Hubs administrator.
 
 ## How filter rules are applied
 

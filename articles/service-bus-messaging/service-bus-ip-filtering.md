@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus IP connection filters | Microsoft Docs
-description: How to use IP filtering to block connections from specific IP addresses for to Azure Service Bus. 
+description: How to use IP filtering to block connections from specific IP addresses to Azure Service Bus. 
 services: service-bus
 documentationcenter: ''
 author: clemensv
