@@ -204,7 +204,7 @@ To call APIs that run custom code or aren't available as connectors,
 you can extend the Logic Apps platform by 
 [creating custom API Apps](../logic-apps/logic-apps-create-api-app.md). 
 You can also [create custom connectors](../logic-apps/custom-connector-overview.md) 
-for *any* REST or SOAP-based APIs, which make those those APIs 
+for *any* REST or SOAP-based APIs, which make those APIs 
 available to any logic app in your Azure subscription.
 To make custom API Apps or connectors public for anyone to use in Azure, 
 you can [submit connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
