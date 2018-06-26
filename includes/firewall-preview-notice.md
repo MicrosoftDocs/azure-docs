@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: firewall
+ author: vhorne
+ ms.service: firewall
+ ms.topic: include
+ ms.date: 7/11/2018
+ ms.author: victorh
+ ms.custom: include file
+---
 > [!IMPORTANT]
 > Azure Firewall is currently a managed public preview that you need to explicitly enable using the `Register-AzureRmProviderFeature` PowerShell command.
 >
