@@ -221,15 +221,15 @@ On the **Workload-SN** subnet, the outbound traffic default route will go throug
 9. For Destination address, type **209.244.0.3, 209.244.0.4**
 10. For **Destination Ports**, verify it is set to **53**.
 
-### Change the primary and secondary DNS address for the **SRV-Work** network interface
+### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
 1. From the Azure portal, open the **Test-FW-RG** resource group.
-2. Click the network interface for the **SRV-Work** virtual machine.
+2. Click the network interface for the **Srv-Work** virtual machine.
 3. Under **Settings**, click **DNS servers**.
 4. Under **DNS servers**, click **Custom**.
 5. Type **209.244.0.3** in the **Add DNS server** text box, and **209.244.0.4** in the next text box.
 6. Click **Save**. 
-7. Restart the **SRV-Work** virtual machine.
+7. Restart the **Srv-Work** virtual machine.
 
 
 ## Test the firewall
