@@ -263,11 +263,9 @@ A SAS URL has the following format:
 
 Some considerations apply:
 
-* You cannot have more than five unique Locators associated with a given Asset at one time. For more information, see Locator.
+* You cannot have more than five unique Locators associated with a given Asset at one time. 
 * If you need to upload your files immediately, you should set your StartTime value to five minutes before the current time. This is because there may be clock skew between your client machine and Media Services. Also, your StartTime value must be in the following DateTime format: YYYY-MM-DDTHH:mm:ssZ (for example, "2014-05-23T17:53:50Z").    
-* There may be a 30-40 second delay after a Locator is created to when it is available for use. This issue applies to both SAS URL and Origin Locators.
-
-For more information about SAS locators see [this](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
+* There may be a 30-40 second delay after a Locator is created to when it is available for use. This issue applies to both [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) and Origin Locators.
 
 The following example shows how to create a SAS URL Locator, as defined by the Type property in the request body ("1" for a SAS locator and "2" for an On-Demand origin locator). The **Path** property returned contains the URL that you must use to upload your file.
 
