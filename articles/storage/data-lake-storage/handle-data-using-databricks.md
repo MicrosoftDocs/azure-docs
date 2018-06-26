@@ -26,7 +26,7 @@ This tutorial covers the following tasks:
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
-> * Create an Azure Data Lake Storage Gen2 account
+> * Create an Azure Data Lake Storage Gen2 capable account
 > * Upload data to Azure Data Lake Storage Gen2
 > * Create a notebook in Azure Databricks
 > * Extract data from Data Lake Storage Gen2
@@ -134,10 +134,6 @@ The next step is to upload a sample data file to the storage account to later tr
 
     If the Hierarchical Namespace Service is enabled on your ADLS Gen2 account, you can use Azure Data Factory, distp, or AzCopy (version 10) to handle the upload. AzCopy version 10 is only available to preview customers. To use AzCopy from Cloud Shell:
 
-    1. Open Cloud Shell by clicking on the Cloud Shell icon in the Azure portal.
-    2. Select Bash (Linux) from the left drop-down, if it is not already selected.
-    3. Use AzCopy version 10 to upload the data to the storage account by opening up a command prompt and enter the following code:
-
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
     set ACCOUNT_KEY=<ACCOUNT_KEY>
@@ -166,7 +162,7 @@ Return to your DataBricks Notebook and enter the following code in a new cell:
 
     Press **SHIFT + ENTER** to run the code cell.
 
-3. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values).
+3. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values):
 
     ```python
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
@@ -349,7 +345,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
-> * Create an Azure Data Lake Storage Gen2 account
+> * Create an Azure Data Lake Storage Gen2 capable account
 > * Upload data to Azure Data Lake Storage Gen2
 > * Create a notebook in Azure Databricks
 > * Extract data from Data Lake Storage Gen2
