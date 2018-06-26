@@ -108,6 +108,9 @@ The most common use case for the provisioning audit logs is to check the provisi
 
 7. Click on individual events to view extended details, including all user properties that were retrieved, evaluated, or written as part of the event.
 
+For a demonstration on how to use the audit logs, see the video below. The audit logs are presented around the 5:30 mark:
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 ### Tips for viewing the provisioning audit logs
 
