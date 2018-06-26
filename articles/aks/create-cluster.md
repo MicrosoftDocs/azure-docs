@@ -32,7 +32,7 @@ The following options are available with the `az aks create` command. See the [A
 | `--resource-group` `-g` | Name of the Azure Kubernetes Service resource group. | yes |
 | `--admin-username` `-u` | User name for the Linux Virtual Machines.  Default: azureuser. | no |
 | `--aad-client-app-id` | (PREVIEW) The ID of an Azure Active Directory client application of type "Native". | no |
-| `--aad-server-app-id` | PREVIEW) The ID of an Azure Active Directory server application of type "Web app/API". | no |
+| `--aad-server-app-id` | (PREVIEW) The ID of an Azure Active Directory server application of type "Web app/API". | no |
 | `--aad-server-app-secret` | (PREVIEW) The secret of an Azure Active Directory server application. | no |
 | `--aad-tenant-id` | (PREVIEW) The ID of an Azure Active Directory tenant. | no |
 | `--admin-username` `-u` | User account to create on node VMs for SSH access.  Default: azureuser. | no |
