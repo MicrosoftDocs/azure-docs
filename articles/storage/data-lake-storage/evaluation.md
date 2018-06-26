@@ -7,7 +7,7 @@ manager: twooley
 
 ms.topic: article
 ms.author: rogarana
-ms.date: 06/25/2018
+ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
