@@ -103,16 +103,16 @@ Returns a substring of the source value. A substring is a string that contains o
 - - -
 ### NormalizeDiacritics
 **Function:**<br> 
-ReplaceDiacritics(source)
+NormalizeDiacritics(source)
 
 **Description:**<br> 
 Requires one string argument. Returns the string, but with any diacritical characters replaced with equivalent non-diacritical characters. Typically used to convert first names and last names containing diacritical characters (accent marks) into legal values that can be used in various user identifiers such as user principal names, SAM account names, and email addresses.
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | 
+| Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |String |
+| **source** |Required |String | Usually a first name or last name attribute |
 
 - - -
 ### Not
