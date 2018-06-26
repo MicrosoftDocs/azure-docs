@@ -71,5 +71,5 @@ The following are best practices for IoT solution operators who using an IoT sol
 [lnk-auto-device-config]: iot-hub-auto-device-config.md
 [lnk-firmware-update]: tutorial-firmware-update.md
 [lnk-throttling]: iot-hub-devguide-quotas-throttling.md
-[lnk-dps]: ../iot-dps/iot-dps/how-to-manage-enrollments.md
+[lnk-dps]: ../iot-dps/how-to-manage-enrollments.md
 [lnk-azure-sdk]: https://github.com/Azure/azure-iot-sdks
