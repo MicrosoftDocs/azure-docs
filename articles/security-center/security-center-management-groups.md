@@ -83,7 +83,33 @@ An Azure Active Directory tenant administrator doesn’t have direct access to A
 5. Do the tasks you need to make at the elevated access. When you're done, set the switch back to **No**.
 
 ### Assign RBAC roles to users
-Once a tenant administrator has elevated access, they can assign an RBAC role to relevant users on the root management group level. The recommended roles to assign are either **Security Admin** or **Security Reader**. Generally, the Security Admin role is required to apply policies on the root level, while Security Reader will suffice to provide tenant-level visibility. For more information about the permissions granted by these roles, see the [Security Admin built-in role description](../role-based-access-control/built-in-roles.md#security-admin) or the [Security Reader built-in role description](../role-based-access-control/built-in-roles.md#security-reader). The assigned role will be automatically propagated to all management groups and subscriptions under the root management group. For more information about RBAC roles, see [Available roles](../active-directory/active-directory-assign-admin-roles-azure-portal.md#available-roles).
+Once a tenant administrator has elevated access, they can assign an RBAC role to relevant users on the root management group level. The recommended role to assign is [**Reader**](../role-based-access-control/built-in-roles.md#reader). This role is required to provide tenant-level visibility. The assigned role will be automatically propagated to all management groups and subscriptions under the root management group. For more information about RBAC roles, see [Available roles](../active-directory/active-directory-assign-admin-roles-azure-portal.md#available-roles).
+
+1. Install [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+2. Run the following commands: 
+
+    ```azurepowershell
+    # Install Management Groups Powershell module
+    Install-Module AzureRM.Resources
+    
+    # Login to Azure as a Global Administrator user
+    Login-AzureRmAccount
+    ```
+3. When prompted, sign in with global admin credentials. 
+  ![Sign in prompt screenshot](./media/security-center-management-groups/azurerm-sign-in.PNG)
+
+4. Grant reader role permissions by running the following command: 
+    ```azurepowershell
+    # Add Reader role to the required user on the Root Management Group
+    # Replace "user@domian.com” with the user to grant access to
+    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    ```
+5. To remove the role, use the following command: 
+    ```azurepowershell
+    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    ```
+
+<!-- Currently, PowerShell method only 6/26/18
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
@@ -95,7 +121,7 @@ Once a tenant administrator has elevated access, they can assign an RBAC role to
 5. Select the role to assign and the user, then click **Save**.  
    
    ![Add Security Reader role screenshot](./media/security-center-management-groups/asc-security-reader.png)
-
+-->
 
 ### Remove elevated access 
 Once the RBAC roles have been assigned to the users, the tenant administrator should remove itself from the user access administrator role.
