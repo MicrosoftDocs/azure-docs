@@ -50,7 +50,7 @@ Press **OK** to create the ASP.NET Core project.
 
 ![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-service-fabric-service.png)
 
-A new dialog is displayed, **New ASP.NET Core Web Application** dialog. Select **Web Application** and then press **OK**.
+The **New ASP.NET Core Web Application** dialog appears. Select **Web Application** and then press **OK**.
 
 ![Visual studio new ASP.NET core application](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-aspnetcore-app.png)
 
