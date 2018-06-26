@@ -101,6 +101,12 @@ There are many ways to upload data to the storage associated with an HDInsight c
     hdfs dfs -put <FILENAME>.csv abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data/
     ```
 
+5. Create the Data Lake Storage Gen2 file system.
+
+    ```bash
+    hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/
+    ```
+
 ## Transform data using a Hive query
 
 There are many ways to run a Hive job on an HDInsight cluster. In this section, you use Beeline to run a Hive job. For information on other methods of running a Hive job, see [Use Hive on HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md).

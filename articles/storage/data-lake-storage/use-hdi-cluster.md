@@ -119,7 +119,12 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
     New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
 
     # Create default storage account
-    New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS -IsHnsEnabled $True
+    New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName `
+      -Name StorageAccountName `
+      -Location $Location `
+      -SkuName Standard_LRS `
+      -Kind StorageV2 
+      -HierarchialNamespace $True
 
     # Create default blob containers
     $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
