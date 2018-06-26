@@ -205,12 +205,15 @@ Configure the runtime with your IoT Edge device connection string that you copie
 
 8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is set to `nat`.
 
-9. Save the configuration file. 
+9. Get the name of Edge device using `hostname` command in PowerShell and set it as the value for **hostname:** in the configuration yaml. For example:
 
-10. In PowerShell, restart the IoT Edge service.
+10. Save the configuration file. 
+
+11. In PowerShell, restart the IoT Edge service.
 
    ```powershell
-   Stop-Service iotedge
+   Stop-Service iotedge -NoWait
+   sleep 5
    Start-Service iotedge
    ```
 
@@ -277,7 +280,8 @@ You can also view the messages that are received by your IoT hub by using the [I
 You can use the simulated device that you configured in this quickstart to test the IoT Edge tutorials. If you want to stop the tempSensor module from sending data to your IoT hub, use the following command to stop the IoT Edge service and delete the containers that were created on your device. When you want to use your machine as an IoT Edge device again, remember to start the service. 
 
    ```powershell
-   Stop-Service iotedge
+   Stop-Service iotedge -NoWait
+   docker rm -f $(docker ps -aq)
    ```
 
 When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
