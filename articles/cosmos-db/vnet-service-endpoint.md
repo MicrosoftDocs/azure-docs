@@ -77,7 +77,7 @@ After Azure Virtual Network service endpoints are enabled for your Azure Cosmos 
 
 If your Azure Cosmos DB account is used by other Azure services like Azure Search, or accessed from Stream analytics or Power BI, you allow access by checking **Allow access to Azure Services**.
 
-To ensure you have access to Azure Cosmos DB metrics from the portal, you need to enable **Allow access to Azure portal** options. To learn more about these options, see [connections from Azure portal](firewall-support.md#connections-from-the-azure-portal) and [connections from Azure PaaS services](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services) sections. After selecting access, select **Save** to save the settings.
+To ensure you have access to Azure Cosmos DB metrics from the portal, you need to enable **Allow access to Azure portal** options. To learn more about these options, see [connections from Azure portal](firewall-support.md#connections-from-the-azure-portal) and [connections from Azure PaaS services](firewall-support.md#connections-from-global-azure-datacenters-or-azure-paas-services) sections. After selecting access, select **Save** to save the settings.
 
 ## Remove a virtual network or subnet 
 
@@ -142,11 +142,20 @@ Use the following steps to configure Service endpoint to an Azure Cosmos DB acco
 
    ```powershell
    $locations = @(@{})
+
+   <# If you have read regions in addition to a write region, use the following code to set the $locations variable instead.
+
+   $locations = @(@{"locationName"="<Write location>"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="<Read location>"; 
+                  "failoverPriority"=1}) #>
+
    $consistencyPolicy = @{}
    $cosmosDBProperties = @{}
 
    $locations[0]['failoverPriority'] = $cosmosDBConfiguration.Properties.failoverPolicies.failoverPriority
    $locations[0]['locationName'] = $cosmosDBConfiguration.Properties.failoverPolicies.locationName
+
    $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
 
    $accountVNETFilterEnabled = $True

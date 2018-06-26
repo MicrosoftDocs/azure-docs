@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 01/10/2018
-ms.author: xiaochen.wu
+ms.author: xiwu
 ms.reviewer: douglasl
 ---
 # Use PowerShell to update the sync schema in an existing sync group

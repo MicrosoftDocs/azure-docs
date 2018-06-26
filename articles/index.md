@@ -1235,19 +1235,20 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/iot-edge/">
-                                                <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                <img src="media/index/iot-edge-alt.svg
+s" alt="" />
                                                 <p>IoT Edge</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/iot-central/">
-                                                <img src="media/index/IoT-central.svg" alt="" />
+                                                <img src="media/index/iot-central.svg" alt="" />
                                                 <p>IoT Central</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/iot-suite/">
-                                                <img src="media/index/iot-suite.svg" alt="" />
+                                                <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                 <p>IoT solution accelerators</p>
                                             </a>
                                         </li>
@@ -1265,7 +1266,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/azure-maps/">
-                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                 <p>Azure Maps</p>
                                             </a>
                                         </li>
@@ -1399,7 +1400,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/azure-maps/">
-                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                 <p>Azure Maps</p>
                                             </a>
                                         </li>
@@ -2517,7 +2518,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                        <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3597,7 +3598,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                        <img src="media/index/iot-edge-alt.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3616,7 +3617,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/IoTCentralBlue.svg" alt="" />
+                                                        <img src="media/index/iot-central.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3635,7 +3636,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iot-suite.svg" alt="" />
+                                                        <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3692,7 +3693,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                        <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

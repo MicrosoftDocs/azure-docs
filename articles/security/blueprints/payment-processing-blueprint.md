@@ -298,7 +298,7 @@ Default deployment is intended to provide a baseline of security center recommen
 
 ## Deploy the solution
 
-The components for deploying this solution are available in the [PCI Blueprint code repository][code-repo]. The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
+The components for deploying this solution are available in the [PCI Blueprint code repository](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified through a guided user prompt in the primary deployment script in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
 
 The scripts add domain users to the Azure AD tenant that you specify. We recommend creating a new Azure AD tenant to use as a test.
 
@@ -323,19 +323,17 @@ It is highly recommended that a clean installation of PowerShell be used to depl
  
     ```powershell
     .\1-DeployAndConfigureAzureResources.ps1 
-        -resourceGroupName contosowebstore
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -azureADDomainName contosowebstore.com 
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-        -suffix PCIcontosowebstore
-        -customHostName contosowebstore.com
-        -sqlTDAlertEmailAddress edna@contosowebstore.com 
-        -enableSSL
-        -enableADDomainPasswordPolicy 
     ```
     
-    For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+    For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). This script can be used for supporting the Contoso Web Store demo, or piloting the initial steps of deploying an environment for supporting PCI compliance. 
+    
+    ```PowerShell
+    .\1A-ContosoWebStoreDemoAzureResources.ps1
+    ```
+    
+    For detailed usage instructions for supporting the Contoso Web Store demo deployment, see [Script Instructions - Contoso Web Store Demo Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1A-ContosoWebStoreDemoAzureResources.md). This script can be used for deploying the Contoso Web Store demo infrastructure. 
+    
+    These scripts are intended to be used independent of each other. To best understand the solution, it is recommended to complete the demo deployment for identifying the necessary Azure resources required for supporting the solution. 
     
 3. Logging and monitoring. Once the solution is deployed, a Log Analytics workspace can be opened, and the sample templates provided in the solution repository can be used to illustrate how a monitoring dashboard can be configured. For the sample templates refer to the [omsDashboards folder](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Note that data must be collected in Log Analytics for templates to deploy correctly. This can take up to an hour or more depending on site activity.
  

@@ -36,7 +36,7 @@ After you create a server, the number of vCores, hardware generation, and pricin
 
 ## Compute generations and vCores
 
-Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors. Gen 4 and Gen 5 are available in the following regions ("X" denotes available). 
+Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors. Gen 4 and Gen 5 are available in the following regions ("X" denotes available).
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
@@ -52,6 +52,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Brazil South | X | X |
 | North Europe | X | X |
 | West Europe |  | X |
+| France Central |  | X |
 | UK West |  | X |
 | UK South |  | X |
 | East Asia | X | X |
@@ -63,6 +64,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | South India |  | X |
 | Japan East | X | X |
 | Japan West | X | X |
+| Korea Central |  | X |
 | Korea South |  | X |
 
 ## Storage
@@ -74,7 +76,7 @@ The storage you provision is the amount of storage capacity available to your Az
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
-| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 7500 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 7500 IOPS |
+| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
 
 You can add additional storage capacity during and after the creation of the server. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
