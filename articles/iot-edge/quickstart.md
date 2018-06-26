@@ -203,13 +203,11 @@ Configure the runtime with your IoT Edge device connection string that you copie
      workload_uri: "http://<ip_address:15581"
    ```
 
-8. Get the name of Edge device using `hostname` command in PowerShell and set it as the value for **hostname**.
+8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is set to `nat`.
 
-9. Find the **Moby Container Runtime settings** section and verify that the value for **network** is set to `nat`.
+9. Save the configuration file. 
 
-10. Save the configuration file. 
-
-11. In PowerShell, restart the IoT Edge service.
+10. In PowerShell, restart the IoT Edge service.
 
    ```powershell
    Stop-Service iotedge -NoWait
