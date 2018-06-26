@@ -23,7 +23,7 @@ Azure Firewall has two rule types to control outbound access:
 
    Allows you to configure rules containing source address, protocol, destination port, and destination address. For example, you could create a rule to allow traffic to port 53 (DNS) to the IP address of your DNS server from your subnet.
 
-After you configure the rules, you route your network traffic from your subnet to the firewall (as a default gateway) where the network traffic is then subjected to the configured firewall rules.
+Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
 In this tutorial, you learn how to:
 
