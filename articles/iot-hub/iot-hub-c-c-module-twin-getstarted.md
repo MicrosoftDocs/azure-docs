@@ -387,5 +387,5 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide-identity-registry.md
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
