@@ -1,6 +1,6 @@
 ---
 title: 'Configure Network Performance Monitor for Azure ExpressRoute circuits | Microsoft Docs'
-description: Configure cloud-based network monitoring for Azure ExpressRoute circuits.
+description: Configure cloud-based network monitoring (NPM) for Azure ExpressRoute circuits. This covers monitoring over ExpressRoute private peering and Microsoft peering.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -19,7 +19,7 @@ ms.author: cherylmc
 ---
 # Configure Network Performance Monitor for ExpressRoute
 
-Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Log Analytics. NPM now offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use Private Peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate.
+Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Log Analytics. NPM now offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use private peering or Microsoft peering. This service is also available for Azure Gov. Cloud. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate.
 
 You can:
 
@@ -35,27 +35,13 @@ You can:
 
 * See the ExpressRoute system state from a previous point in time
 
-## <a name="regions"></a>Supported regions
-
-You can monitor ExpressRoute circuits in any part of the world by using a workspace that is hosted in one of the following regions:
-
-* West Europe
-* West Central US
-* East US 
-* South East Asia 
-* South East Australia
-
->[!NOTE]
->Support for monitoring of ExpressRoute circuits connected to VNETs in Azure Government cloud is planned for Q2 2018.   
->
-
 ## <a name="workflow"></a>Workflow
 
 Monitoring agents are installed on multiple servers, both on-premises and in Azure. The agents communicate with each other, but do not send data, they send TCP handshake packets. The communication between the agents allows Azure to map the network topology and path the traffic could take.
 
-1. Create an NPM Workspace in the one of the [supported regions](#regions).
+1. Create an NPM Workspace. This is the same as an OMS Workspace.
 2. Install and configure software agents: 
-    * Install monitoring agents on the on-premises servers and the Azure VMs.
+    * Install monitoring agents on the on-premises servers and the Azure VMs (for private peering).
     * Configure settings on the monitoring agent servers to allow the monitoring agents to communicate. (Open firewall ports, etc.)
 3. Configure network security group (NSG) rules to allow the monitoring agent installed on Azure VMs to communicate with on-premises monitoring agents.
 4. Set up monitoring: Auto-Discover and manage which networks are visible in NPM.
@@ -79,8 +65,8 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
   * OMS Workspace - Type a name for your Workspace.
   * Subscription - If you have multiple subscriptions, choose the one you want to associate with the new Workspace.
   * Resource group - Create a resource group, or use an existing one.
-  * Location - You must select a [supported region](#regions).
-  * Pricing tier - Select 'Free'
+  * Location - You must select a supported region. This location is used to specify where the storage account that is used for the agent connection logs is located. Any ExpressRoute circuit in the world can be monitored using NPM.
+  * Pricing tier - Select the pricing tier.
   
     >[!NOTE]
     >The ExpressRoute circuit could be anywhere in the world and does not have to be in the same region as the Workspace.
@@ -106,7 +92,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 
 ### <a name="installagent"></a>2.2: Install a monitoring agent on each monitoring server (on each VNET that you want to monitor)
 
-We recommend that you install at least two agents on each side of the ExpressRoute connection (i.e., on-premises, Azure VNETs) for redundancy. Use the following steps to install agents:
+We recommend that you install at least two agents on each side of the ExpressRoute connection for redundancy (for example, on-premises, Azure VNETs).  Use the following steps to install agents:
   
   >[!NOTE]
   >The agent must be installed on a Windows Server (2008 SP1 or later). 
@@ -138,7 +124,7 @@ We recommend that you install at least two agents on each side of the ExpressRou
 7. On the **Configuration completed successfully** page, click **Finish**.
 8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Azure Log Analytics (OMS). When connected, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
 
-9. Please repeat this for each VNET that you need to be monitored.
+9. Repeat this procedure for each VNET that you need to be monitored.
 
 ### <a name="proxy"></a>2.3: Configure proxy settings (optional)
 
@@ -196,7 +182,7 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 
 After you complete the previous sections, you can set up monitoring.
 
-1. Navigate to the Network Performance Monitor overview tile by going to the **All Resources** page, and clicking on the whitelisted NPM Workspace.
+1. Navigate to the Network Performance Monitor overview tile by going to the **All Resources** page, then click on the whitelisted NPM Workspace.
 
   ![npm workspace](.\media\how-to-npm\npm.png)
 2. Click the **Network Performance Monitor** overview tile to bring up the dashboard. The dashboard contains an ExpressRoute page, which shows that ExpressRoute is in an 'unconfigured state'. Click **Feature Setup** to open the Network Performance Monitor configuration page.
@@ -205,14 +191,44 @@ After you complete the previous sections, you can set up monitoring.
 3. On the configuration page, navigate to the 'ExpressRoute Peerings' tab, located on the left side panel. Click **Discover Now**.
 
   ![discover](.\media\how-to-npm\13.png)
-4. When discovery completes, you see rules for unique Circuit name and VNet name. Initially, these rules are disabled. Enable the rules, then select the monitoring agents and threshold values.
-
+4. When discovery completes, you will see a list containing the following items:
+  * All of the Microsoft peering connections in the ExpressRoute circuit(s) that are associated with this subscription.
+  * All of the private peering connections that connect to the VNets associated with this subscription.
+            
   ![rules](.\media\how-to-npm\14.png)
-5. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available. Once you see the monitoring tiles, your ExpressRoute circuits and connection resources are being monitored by NPM.
 
-  ![monitoring tiles](.\media\how-to-npm\15.png)
+## <a name="configure connections"></a>Step 6: Configure monitors
+
+Follow the steps for the type of peering that you want to monitor, Microsoft peering or private peering. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available. Once you see the monitoring tiles, your ExpressRoute circuits and connection resources are being monitored by NPM.
+        
+### Microsoft peering
+
+For Microsoft peering, click the Microsoft peering connection(s) that you want to monitor, and configure the settings.
+
+1. Check the **Monitor this peering** checkbox. 
+2. (Optional) You can change the target Microsoft service endpoint. By default, NPM chooses a Microsoft service endpoint as the target. NPM monitors connectivity from your on-premises servers to this target endpoint through ExpressRoute. However, you can choose to change this target endpoint by clicking the **Edit** link and selecting another Microsoft service target endpoint from the list of URLs. 
+  
+   You can also choose to enter a custom URL/IP by clicking on the link **Use custom URL or IP Address**. This option is particularly relevant if you are using Microsoft peering to establish a connection to Azure PaaS services, such as Azure Storage, SQL databases, and Websites that are offered on public IP addresses. To do this, click **Use custom URL or IP Address**, and enter the public endpoint of your Azure PaaS service that is connected through the ExpressRoute Microsoft peering.
+
+    >[!NOTE]
+    >Make sure that only the Microsoft service endpoint is selected here. The endpoint must be connected to ExpressRoute and reachable by the on-premises agents.
+    >
+3. Select the checkbox **Enable Health Monitoring for this peering**.
+4. Choose the monitoring conditions. You can set custom thresholds to generate health events by typing threshold values. Whenever the value of the condition goes above its selected threshold for the selected network/subnetwork pair, a health event is generated.
+5. Click the **Add Agents** button to add the on-premises servers from which you want to monitor the Microsoft peering connection.
+
+    >[!NOTE]
+    >Make sure that you choose only those agents which have connectivity to the Microsoft service endpoint that was specified in the previous steps. The on-premises agents must be able to reach the endpoint using the ExpressRoute connection.
+
+### Private peering
+
+When the discovery completes, you see rules for unique Circuit name and VNet name. Initially, these rules are disabled. Enable the rules, then select the monitoring agents and threshold values.
 
 ## <a name="explore"></a>Step 5: View monitoring tiles
+
+Once you see the monitoring tiles, your ExpressRoute circuits and connection resources are being monitored by NPM. You can click on Microsoft Peering tile to drill down on the health of Microsoft Peering connections.
+
+![monitoring tiles](.\media\how-to-npm\15.png)
 
 ### <a name="dashboard"></a>Network Performance Monitor page
 
@@ -222,11 +238,11 @@ The NPM page contains a page for ExpressRoute that shows an overview of the heal
 
 ### <a name="circuits"></a>List of circuits
 
-To see a list of all monitored ExpressRoute circuits, click the **ExpressRoute circuits** tile. You can select a circuit and view its health state, trend charts for packet loss, bandwidth utilization, and latency. The charts are interactive. You can select a custom time window for plotting the charts. You can drag the mouse over an area on the chart to zoom in and see fine-grained data points.
+To view a list of all monitored ExpressRoute circuits, click the **ExpressRoute circuits** tile. You can select a circuit and view its health state, trend charts for packet loss, bandwidth utilization, and latency. The charts are interactive. You can select a custom time window for plotting the charts. You can drag the mouse over an area on the chart to zoom in and see fine-grained data points.
 
   ![circuit_list](.\media\how-to-npm\circuits.png)
 
-#### <a name="trend"></a>Trend of Loss, Latency and Throughput
+#### <a name="trend"></a>Trend of Loss, Latency, and Throughput
 
 The bandwidth, latency, and loss charts are interactive. You can zoom into any section of these charts, using mouse controls. You can also see the bandwidth, latency, and loss data for other intervals by clicking **Date/Time**, located below the Actions button on the upper left.
 
@@ -234,13 +250,13 @@ The bandwidth, latency, and loss charts are interactive. You can zoom into any s
 
 ### <a name="peerings"></a>Peerings list
 
-To bring up a list of all connections to virtual networks over private peering, click the **Private Peerings** tile on the dashboard. Here, you can select a virtual network connection and view its health state, trend charts for packet loss, bandwidth utilization, and latency.
+To view list of all connections to virtual networks over private peering, click the **Private Peerings** tile on the dashboard. Here, you can select a virtual network connection and view its health state, trend charts for packet loss, bandwidth utilization, and latency.
 
   ![circuit list](.\media\how-to-npm\peerings.png)
 
 ### <a name="nodes"></a>Nodes view
 
- To bring up a list of all the links between the on-premises nodes and Azure VMs/Microsoft service endpoints for the chosen ExpressRoute peering connection, click **View node links**. You can view the health status of each link, as well as the trend of loss and latency associated with them.
+ To view list of all the links between the on-premises nodes and Azure VMs/Microsoft service endpoints for the chosen ExpressRoute peering connection, click **View node links**. You can view the health status of each link, as well as the trend of loss and latency associated with them.
 
   ![nodes view](.\media\how-to-npm\nodes.png)
 
