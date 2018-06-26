@@ -610,13 +610,13 @@
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Azure Diagnostics
         href: service-fabric-diagnostics-event-aggregation-lad.md 
-      - name: Set up OMS Log Analytics
+      - name: Set up Log Analytics
         href: service-fabric-diagnostics-oms-setup.md
-      - name: Monitor with OMS
+      - name: Monitor with Log Analytics
         href: service-fabric-diagnostics-event-analysis-oms.md  
     - name: Monitor infrastructure
       items:
-      - name: Performance monitoring with the OMS Agent
+      - name: Performance monitoring with the Log Analytics Agent
         href: service-fabric-diagnostics-oms-agent.md
       - name: Performance monitoring with WAD
         href: service-fabric-diagnostics-perf-wad.md     
@@ -632,6 +632,11 @@
       href: service-fabric-troubleshoot-local-cluster-setup.md
     - name: Diagnose common scenarios
       href: service-fabric-diagnostics-common-scenarios.md
+  - name: Best practices
+    items:
+    - name: Production readiness checklist
+      href: service-fabric-production-readiness-checklist.md
+
 - name: Reference
   items:
   - name: Azure PowerShell

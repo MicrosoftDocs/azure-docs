@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
 
 ---
@@ -53,7 +53,7 @@ There are some important steps to perform before moving a resource. By verifying
   If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:
 
   * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
-  * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
+  * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 2. The service must enable the ability to move resources. This article lists which services enable moving resources and which services don't enable moving resources.
 3. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used with that resource type.
@@ -113,6 +113,7 @@ The services that enable moving to both a new resource group and subscription ar
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 * App Service Certificates
 * Application Insights
+* Analysis Services
 * Automation
 * Azure Cosmos DB
 * Azure Relay
@@ -151,7 +152,8 @@ The services that enable moving to both a new resource group and subscription ar
 * Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics jobs can't be moved when in running state.
-* SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases. 
+* SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
+* Time Series Insights
 * Traffic Manager
 * Virtual Machines - VMs with managed disks can't be moved. See [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
@@ -172,6 +174,7 @@ The services that currently don't enable moving a resource are:
 * Azure Migrate
 * BizTalk Services
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
+* Container Service
 * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move isn't enabled.
 * Dynamics LCS
 * Express Route

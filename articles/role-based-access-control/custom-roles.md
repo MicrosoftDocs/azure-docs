@@ -61,6 +61,10 @@ The following shows a custom role for monitoring and restarting virtual machines
 }
 ```
 
+After you create a custom role, it appears in the Azure portal with an orange resource icon.
+
+![Custom role icon](./media/custom-roles/roles-custom-role-icon.png)
+
 ## Steps to create a custom role
 
 1. Determine the permissions you need
@@ -70,7 +74,7 @@ The following shows a custom role for monitoring and restarting virtual machines
 
 2. Create the custom role
 
-    Depending on the language that you use, there are different ways to create the custom role. Typically, you start with a built-in role and then modify it for your needs. Then you use the [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) or [az role definition create](/cli/azure/role/definition#az-role-definition-create) commands to create the custom role. To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `assignableScopes`, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+    You can use Azure PowerShell or Azure CLI to create the custom role. Typically, you start with an existing built-in role and then modify it for your needs. Then you use the [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) or [az role definition create](/cli/azure/role/definition#az-role-definition-create) commands to create the custom role. To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `assignableScopes`, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
 
 3. Test the custom role
 
@@ -80,17 +84,17 @@ The following shows a custom role for monitoring and restarting virtual machines
 
 A custom role has the following properties.
 
-| Property | Required | Description | Notes |
+| Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `Name` | Yes | The display name of the custom role. | Must be unique to your tenant. Can include letters, numbers, spaces, and any special characters. The maximum number of characters is 128. |
-| `Id` | Yes | The unique ID of the custom role. | Automatically generated when you create a new role. |
-| `IsCustom` | Yes | Indicates whether this is a custom role. | Set to `true` for custom roles. |
-| `Description` | Yes | The description of the custom role. | Can include letters, numbers, spaces, and any special characters. |
-| `Actions` | Yes | Specifies the management operations that the role allows to be performed. | For more information, see [actions](role-definitions.md#actions). |
-| `NotActions` | No | Specifies the management operations that are excluded from the allowed `actions`. | For more information, see [notActions](role-definitions.md#notactions). |
-| `DataActions` | No | Specifies the data operations that the role allows to be performed to your data within that object. | For more information, see [dataActions (Preview)](role-definitions.md#dataactions-preview). |
-| `NotDataActions` | No | Specifies the data operations that are excluded from the allowed `dataActions`. | For more information, see [notDataActions (Preview)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Yes | Specifies the scopes that the custom role is available for assignment. | Cannot be set to root scope (`"/"`). For more information, see [assignableScopes](role-definitions.md#assignablescopes). |
+| `Name` | Yes | String | The display name of the custom role. Must be unique to your tenant. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 128. |
+| `Id` | Yes | String | The unique ID of the custom role. For Azure PowerShell and Azure CLI, this ID is automatically generated when you create a new role. |
+| `IsCustom` | Yes | String | Indicates whether this is a custom role. Set to `true` for custom roles. |
+| `Description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 1024. |
+| `Actions` | Yes | String[] | An array of strings that specifies the management operations that the role allows to be performed. For more information, see [actions](role-definitions.md#actions). |
+| `NotActions` | No | String[] | An array of strings that specifies the management operations that are excluded from the allowed `actions`. For more information, see [notActions](role-definitions.md#notactions). |
+| `DataActions` | No | String[] | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. For more information, see [dataActions (Preview)](role-definitions.md#dataactions-preview). |
+| `NotDataActions` | No | String[] | An array of strings that specifies the data operations that are excluded from the allowed `dataActions`. For more information, see [notDataActions (Preview)](role-definitions.md#notdataactions-preview). |
+| `AssignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. Cannot be set to root scope (`"/"`). For more information, see [assignableScopes](role-definitions.md#assignablescopes). |
 
 ## assignableScopes for custom roles
 
@@ -103,6 +107,6 @@ Just like built-in roles, the `assignableScopes` property specifies the scopes t
 | View a custom role | `Microsoft.Authorization/ roleDefinition/read` | Users that are granted this operation at a scope can view the custom roles that are available for assignment at that scope. All built-in roles allow custom roles to be available for assignment. |
 
 ## Next steps
-- [Tutorial: Create a custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Tutorial: Create a custom role using Azure CLI](tutorial-custom-role-cli.md)
+- [Create custom roles using Azure PowerShell](custom-roles-powershell.md)
+- [Create custom roles using Azure CLI](custom-roles-cli.md)
 - [Understand role definitions](role-definitions.md)
