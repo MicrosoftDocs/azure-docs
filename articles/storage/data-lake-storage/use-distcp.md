@@ -11,16 +11,11 @@ ms.assetid:
 ms.service: storage
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/15/2018
+ms.date: 06/27/2018
 ms.author: seguler
 
 ---
 # Use Distcp to copy data between Azure Storage Blobs and Data Lake Storage Gen2 (Preview)
-
-> [!div class="op_single_selector"]
-> * [Using Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-v2)
->
->
 
 If you have an HDInsight cluster with access to Data Lake Storage, you can use Hadoop ecosystem tools like Distcp to copy data **to and from** an HDInsight cluster storage (WASB) into a Data Lake Storage account. This article provides instructions on how use the Distcp tool.
 
