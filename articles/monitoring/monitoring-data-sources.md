@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 06/26/2018
 ms.author: bwren
 
 ---
@@ -25,7 +25,7 @@ Monitoring data in Azure comes from a variety of sources that can be organized i
 
 
 ## Azure platform
-Telemetry related to the health and operation of Azure itself includes data about the operation and management of your Azure subscription or tenant. It includes service health data from the Azure Activity log and audit logs from Azure Active Directory.
+Telemetry related to the health and operation of Azure itself includes data about the operation and management of your Azure subscription or tenant. It includes service health data store in the Azure Activity log and audit logs from Azure Active Directory.
 
 ![Azure collection](media/monitoring-data-sources/azure-collection.png)
 
