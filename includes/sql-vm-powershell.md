@@ -7,7 +7,7 @@ First you need to have the latest [Azure PowerShell](http://msdn.microsoft.com/l
 > 
 > 
 
-Run the [**Connect-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet and you will be presented with a sign in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
+Run the [**Connect-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet and you will be presented with a sign-in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
 
     Connect-AzureRmAccount
 

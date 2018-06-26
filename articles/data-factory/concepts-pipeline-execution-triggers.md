@@ -133,7 +133,7 @@ For a complete sample, see [Quickstart: Create a data factory by using the .NET 
 > You can use the .NET SDK to invoke Data Factory pipelines from Azure Functions, from your own web services, and so on.
 
 <h2 id="triggers">Trigger execution</h2>
-Triggers are another way that you can execute a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Data Factory supports two types of triggers:
+Triggers are another way that you can execute a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Data Factory supports three types of triggers:
 
 - Schedule trigger: A trigger that invokes a pipeline on a wall-clock schedule.
 
