@@ -60,7 +60,7 @@ The provisioning summary report is visible in the **Provisioning** tab for given
 
 * Whether or not an [initial synchronization](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) has been completed
 
-* Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (e.g. failure to communicate with target system due to invalid admin credentials)
+* Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (for example, failure to communicate with target system due to invalid admin credentials)
 
 The provisioning summary report should be the first place admins look to check on the operational health of the provisioning job.
 
@@ -85,7 +85,7 @@ When looking at provisioning events for an individual user, the events normally 
 
 3. Synchronization rule event: User data from source and target systems are evaluated against the configured attribute-mapping rules and scoping filters to determine what action, if any, should be performed.
 
-4. Export event: If the synchronization rule event dictated that an action should be performed (e.g. Add, Update, Delete), then the results of the action are recorded in an Export event.
+4. Export event: If the synchronization rule event dictated that an action should be performed (Add, Update, Delete), then the results of the action are recorded in an Export event.
 
 ![Creating an Azure AD test user](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 
@@ -100,7 +100,7 @@ The most common use case for the provisioning audit logs is to check the provisi
 
 3. In the **Date Range** menu, select the date range you want to search,
 
-4. In the **Search** bar, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute-mapping configuration (e.g. userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column.
+4. In the **Search** bar, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute-mapping configuration (for example, userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column.
 
 5. Press Enter to search. The most recent provisioning events will be returned first.
 
