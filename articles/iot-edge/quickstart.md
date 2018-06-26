@@ -205,7 +205,7 @@ Configure the runtime with your IoT Edge device connection string that you copie
 
 8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is set to `nat`.
 
-9. Get the name of Edge device using `hostname` command in PowerShell and set it as the value for **hostname:** in the configuration yaml. For example:
+9. Get the name of Edge device using `hostname` command in PowerShell and set it as the value for **hostname:** in the configuration yaml.
 
 10. Save the configuration file. 
 
