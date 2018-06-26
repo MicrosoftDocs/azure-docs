@@ -13,9 +13,9 @@ ms.author: panosper
 
 # Tutorial: Create a custom language model
 
-In this document you create a custom language model which you can then use in conjunction with existing state-of-the-art speech models from Microsoft to add voice interaction to your application.
+In this document, you create a custom language model, which you can then use in conjunction with existing state-of-the-art speech models from Microsoft to add voice interaction to your application.
 
-We discuss how to:
+The document discusses how to:
 > [!div class="checklist"]
 > * Prepare the data
 > * Import the language data set
@@ -29,20 +29,20 @@ Ensure that your Cognitive Services account is connected to a subscription by op
 
 You can connect to a Speech Service subscription created in the Azure portal by clicking the **Connect existing subscription** button.
 
-For information on creating a Speech Service subscription in the Azure portal, see our [get-started](get-started.md) page.
+For information on creating a Speech Service subscription in the Azure portal, see the [get-started](get-started.md) page.
 
 ## Prepare the data
 
 In order to create a custom language model for your application, you need to provide a list of example utterances to the system, for example:
 
-*   "He has had urticaria for the past week."
+*   "the patient has had urticaria for the past week."
 *   "The patient had a well-healed herniorrhaphy scar."
 
 The sentences do not need to be complete sentences or grammatically correct, and should accurately reflect the spoken input the system is expected to encounter in deployment. These examples should reflect both the style and content of the task the users will perform with your application.
 
 The language model data should be written in UTF-8 BOM. The text file should contain one example (sentence, utterance, or query) per line.
 
-If you wish some sentences to have a higher weight (importance), you can add it several times to your data. A good number of repetitions is between 10 - 100. If you normalize it to 100, you can weight sentence relative to this easily.
+If you wish some sentences to have a higher weight (importance), you can add it several times to your data. A good number of repetitions is between 10 - 100. If you normalize it to 100, you can weight sentence easily.
 
 The main requirements for the language data are summarized in the following table.
 
@@ -51,7 +51,7 @@ The main requirements for the language data are summarized in the following tabl
 | Text Encoding | UTF-8 BOM|
 | # of Utterances per line | 1 |
 | Maximum File Size | 200 MB |
-| Remarks | avoid repeating characters more often than 4 times, for example 'aaaaa'|
+| Remarks | avoid repeating characters more often than four times, for example 'aaaaa'|
 | Remarks | no special characters like '\t' or any other UTF-8 character above U+00A1 in [Unicode characters table](http://www.utf8-chartable.de/)|
 | Remarks | URIs will also be rejected since there is no unique way to pronounce a URI|
 
@@ -67,9 +67,9 @@ Click for Full list of [Supported-languages](supported-languages.md)
 
 Click the “Import” button in the "Acoustic Datasets" row, and the site displays a page for uploading a new data set.
 
-When you are ready to import your language data set, log into the [Speech Service Portal](https://customspeech.ai).  Then click the “Custom Speech” drop-down menu on the top ribbon and select “Adaptation Data”. If this is your first time uploading data to the Custom Speech Service, you will see an empty table called “Datasets”.
+When you are ready to import your language data set, log into the [Speech Service Portal](https://customspeech.ai).  Then click the “Custom Speech” drop-down menu on the top ribbon and select “Adaptation Data”. The first time one attempts to upload data to the Speech Service, you will see an empty table called “Datasets”.
 
-To import a new data set, click the “Import” button in the "Language Datasets" row, and the site displays a page for uploading a new data set. Enter a Name and Description to help you identify the data set in the future. Next, use the “Choose File” button to locate the text file of language data. After that, click “Import” and the data set will be uploaded. Depending on the size of the data set, this may take several minutes.
+To import a new data set, click the “Import” button in the "Language Datasets" row, and the site displays a page for uploading a new data set. Enter a Name and Description to help you identify the data set in the future. Next, use the “Choose File” button to locate the text file of language data. After that, click “Import” and the data set will be uploaded. Depending on the size of the data set, import may take several minutes.
 
 ![try](media/stt/speech-language-datasets-import.png)
 
@@ -87,7 +87,7 @@ When the status of the language data set is “Complete”, it can be used to cr
 
 Once your language data is ready, click “Language Models” from the “Menu” drop-down menu to start the process of custom language model creation. This page contains a table called “Language Models” with your current custom language models. If you have not yet created any custom language models, the table will be empty. The current locale is reflected in the table title. If you would like to create a language model for a different language, click on “Change Locale”.
 
-The appropriate locale must be selected before taking any action. The current locale is indicated in the table title on all data, model, and deployment pages. To change the locale, click the “Change Locale” button located under the table’s title. This will take you to a locale confirmation page. Click “OK” to return to the table.
+The appropriate locale must be selected before taking any action. The current locale is indicated in the table title on all data, model, and deployment pages. To change the locale, click the “Change Locale” button located under the table’s title which will take you to a locale confirmation page. Click “OK” to return to the table.
 
 On the "Create Language Model" page, enter a "Name" and "Description" to help you keep track of pertinent information about this model, such as the data set used. Next, select the “Base Language Model” from the drop-down menu. This model will be the starting point for your customization. There are two base language models to choose from. The _Microsoft Search and Dictation LM_ is appropriate for speech directed at an application, such as commands, search queries, or dictation. The _Microsoft Conversational LM_ is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings.
 
@@ -95,13 +95,13 @@ After you have specified the base language model, select the language data set y
 
 ![try](media/stt/speech-language-models-create2.png)
 
-As with the acoustic model creation, you can optionally choose to perform offline testing of your new model when the processing is complete. Because this is an evaluation of the speech-to-text performance, offline testing requires an acoustic data set.
+As with the acoustic model creation, you can optionally choose to perform offline testing of your new model when the processing is complete. Model evaluations require an acoustic data sets.
 
 To perform offline testing of your language model, select the check box next to “Offline Testing”. Then select an acoustic model from the drop-down menu. If you have not created any custom acoustic models, the Microsoft base acoustic models will be the only model in the menu. In case you have picked a conversational LM base model, you need to use a conversational AM here. In case you use a search and dictate LM model, you have to select a search and dictate AM model.
 
 Finally, select the acoustic data set you would like to use to perform the evaluation.
 
-When you are ready to start processing, press “Create”. This will return you to the table of language models. There will be a new entry in the table corresponding to this model. The status reflects the model’s state and will go through several states including “Waiting”, “Processing”, and “Complete”.
+When you are ready to start processing, press “Create” which will take you to the table of language models. There will be a new entry in the table corresponding to this model. The status reflects the model’s state and will go through several states including “Waiting”, “Processing”, and “Complete”.
 
 When the model has reached the “Complete” state, it can be deployed to an endpoint. Clicking on “View Result” will show the results of offline testing, if performed.
 
