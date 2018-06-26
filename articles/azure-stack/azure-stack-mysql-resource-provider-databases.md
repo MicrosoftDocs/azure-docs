@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 
@@ -21,7 +21,7 @@ ms.reviewer: jeffgo
 
 You can create and manage self-service databases in the user portal. An Azure Stack user needs a subscription with an offer that includes the MySQL database service.
 
-## Test your deployment by creating your first MySQL database
+## Test your deployment by creating a MySQL database
 
 1. Sign in to the Azure Stack user portal.
 2. Select **+ New** > **Data + Storage** > **MySQL Database** > **Add**.
