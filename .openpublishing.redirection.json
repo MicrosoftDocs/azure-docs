@@ -795,6 +795,10 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-edge/tutorial-multiple-modules-in-vscode.md",
+            "redirect_url": "/azure/iot-edge/how-to-develop-multiple-modules-vscode",
+            "redirect_document_id": false
+        },        {
             "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
             "redirect_url": "/azure/cognitive-services/recommendations/overview",
             "redirect_document_id": false
