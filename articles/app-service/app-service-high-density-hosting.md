@@ -163,4 +163,4 @@ high density hosting for your apps:
 ## Next Steps
 
 - [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md)
-- [Introduction to App Service Environment](app-service-app-service-environment-intro.md)
+- [Introduction to App Service Environment](environment/app-service-app-service-environment-intro.md)
