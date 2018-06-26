@@ -52,6 +52,9 @@
 ### VPN Gateway
 #### [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
+### ExpressRoute
+#### [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
 # Disaster Recovery
 ## [Use Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
 
