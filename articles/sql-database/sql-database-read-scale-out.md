@@ -108,7 +108,7 @@ For more information, see [Databases - Create or Update](/rest/api/sql/databases
 If your are using read scale-out to load balance read-only workloads on a database that is geo-replicated (e.g. as a member of a failover group), make sure that read scale-out is enabled on both the primary and the geo-replicated secondary databases. This will ensure the same load-balancing effect when your application connects to the new primary after failover. If you are connecting to the geo-replicated secondary database with read-scale enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the  replicas the same way we route connections on the primary database.  The sessions without `ApplicationIntent=ReadOnly` will be routed to the primary replica of the geo-replicated secondary, whic is also read-only. 
 
 > [!NOTE]
-> During preview, even though the primary replica of the secondary is also read-only, we will not perform round-robin or any other load balanced routing. 
+> During preview, we will not perform round-robin or any other load balanced routing between the local replicas of the secondary database. 
 
 
 ## Next steps
