@@ -11,9 +11,9 @@ ms.date: 06/26/18
 ms.author: mihauss
 ---
 # Static website hosting in Azure Storage (Preview)
-Azure Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications on Azure. On a static website, webpages contain static content and JavaScript or other client-side code. By contrast, dynamic websites depend on server-side code, and can be hosted using [Azure Web Apps](/app-service/app-service-web-overview.md).
+Azure Storage now offers static website hosting (Preview), enabling you to deploy cost-effective and scalable modern web applications. On a static website, webpages contain static content and JavaScript or other client-side code. By contrast, dynamic websites depend on server-side code, and can be hosted using [Azure Web Apps](/app-service/app-service-web-overview.md).
 
-As computation deployments shift toward elastic and cost-effective models, the ability to deliver web content without the need for server management is critical. Static website hosting on Azure Storage addresses this requirement, enabling rich backend capabilities with serverless architectures leveraging [Azure Functions](/azure-functions/functions-overview.md) and other PaaS services.
+As deployments shift toward elastic, cost-effective models, the ability to deliver web content without the need for server management is critical. The introduction of static website hosting in Azure Storage makes this possible, enabling rich backend capabilities with serverless architectures leveraging [Azure Functions](/azure-functions/functions-overview.md) and other PaaS services.
 
 ## How does it work?
 When you enable static websites on your storage account, a new web service endpoint is created of the form `<account-name>.<zone-name>.web.core.windows.net`.
