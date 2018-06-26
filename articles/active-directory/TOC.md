@@ -388,11 +388,10 @@
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md)
-### [Securing administrator roles](admin-roles-best-practices.md)  
+### [Harden administrator role security](admin-roles-best-practices.md)  
 #### [Create emergency access administrator accounts](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
-### [Securing privileged roles](admin-roles-best-practices.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
