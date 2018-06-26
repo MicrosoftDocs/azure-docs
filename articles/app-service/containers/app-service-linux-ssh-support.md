@@ -111,13 +111,13 @@ To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli?vie
 Add the latest App Service extension by running [az extension add](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
 
 ```azurecli-interactive
-az extension add -–name webapp
+az extension add --name webapp
 ```
 
 If you've already run `az extension add` before, run [az extension update](/cli/azure/extension?view=azure-cli-latest#az-extension-update) instead:
 
 ```azurecli-interactive
-az extension update -–name webapp
+az extension update --name webapp
 ```
 
 Open a remote connection to your app using the [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) command. Specify _\<group\_name>_ and \_<app\_name>_ for your app, and replace \<port> with a local port number.
