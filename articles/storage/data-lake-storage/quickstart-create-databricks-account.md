@@ -23,18 +23,18 @@ ms.custom: mvc
 
 This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in Azure Data Lake Storage Gen2.
 
-In this quickstart, as part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics. 
+As part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics. 
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Pre-requisites
+## Prerequisites
 
 - [Create a Azure Data Lake Storage Gen2 Account](quickstart-create-account.md)
 
 ## Set aside storage account configuration
 During this tutorial you need to have access to your storage account name and access key. In the Azure portal, select **All Services** and filter on *storage*. Select **Storage accounts** and locate the account you created for this tutorial.
 
-From the **Overview** copy the name of the storage account in to a text editor. Next, select **Access keys** and copy the value for **key1** into your text editor. Both these vaules are needed for commands coming later.
+From the **Overview** copy the name of the storage account in to a text editor. Next, select **Access keys** and copy the value for **key1** into your text editor as both vaules are needed for commands coming later.
 
 ## Create an Azure Databricks workspace
 
@@ -82,9 +82,38 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     * Create a cluster with **4.2 beta** runtime.
     * Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
-    Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+4. Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+
+## Create storage account file system
+
+In this section, you create a notebook in Azure Databricks workspace and then run code snippets to configure the storage account.
+
+1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace you created, and then select **Launch Workspace**.
+
+2. In the left pane, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
+
+    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
+
+3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Phython** as the language, and then select the Spark cluster that you created earlier.
+
+    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-notebook-details.png "Create notebook in Databricks")
+
+    Select **Create**.
+
+3. Enter the following code into the first cell and execute the code:
+
+    ```python
+    spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+    dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
+    ```
+
+    Press **SHIFT + ENTER** to run the code cell.
+
+    Now the file system is created for the storage account.
 
 ## Ingest sample data
 
@@ -93,10 +122,12 @@ Before you begin with this section, you must complete the following prerequisite
 * Download a **small_radio_json.json** [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
 * Upload the sample JSON file using **AzCopy version 10** to the Azure Blob storage account you created:
 
+    Before you can upload the file, you must create a container in your storage account selecting **Settings** > **Browse blobs** > **Create container**.
+
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
     set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/files --recursive 
+    azcopy cp "<LOCAL_FILE_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/<CONTAINER_NAME> --recursive 
     ```
 
 > [!NOTE]
@@ -130,7 +161,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfs://dbricks@<ACCOUNT_NAME>.dfs.core.windows.net/files/small_radio_json.json"
+     path  "abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>/small_radio_json.json"
     )
     ```
 
@@ -164,9 +195,9 @@ Perform the following tasks to create a notebook in Databricks, configure the no
     * Set **Values** to **level**.
     * Set **Aggregation** to **COUNT**.
 
-    Click **Apply**.
+9. Click **Apply**.
 
-9. The output shows the visual representation as depicted in the following screenshot:
+10. The output shows the visual representation as depicted in the following screenshot:
 
      ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Customize bar chart")
 

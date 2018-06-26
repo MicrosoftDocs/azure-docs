@@ -26,7 +26,7 @@ This tutorial covers the following tasks:
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
-> * Create an Azure Data Lake Storage Gen2 account
+> * Create an Azure Data Lake Storage Gen2 capable account
 > * Upload data to Azure Data Lake Storage Gen2
 > * Create a notebook in Azure Databricks
 > * Extract data from Data Lake Storage Gen2
@@ -103,12 +103,20 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 2. In the left pane, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
 
-3. Enter the following code into the first cell and execute the code:
+    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
+
+3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
+
+    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-notebook-details.png "Create notebook in Databricks")
+
+    Select **Create**.
+
+4. Enter the following code into the first cell and execute the code:
 
     ```python
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
     ```
 
@@ -126,10 +134,6 @@ The next step is to upload a sample data file to the storage account to later tr
 
     If the Hierarchical Namespace Service is enabled on your ADLS Gen2 account, you can use Azure Data Factory, distp, or AzCopy (version 10) to handle the upload. AzCopy version 10 is only available to preview customers. To use AzCopy from Cloud Shell:
 
-    1. Open Cloud Shell by clicking on the Cloud Shell icon in the Azure portal.
-    2. Select Bash (Linux) from the left drop-down, if it is not already selected.
-    3. Use AzCopy version 10 to upload the data to the storage account by opening up a command prompt and enter the following code:
-
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
     set ACCOUNT_KEY=<ACCOUNT_KEY>
@@ -138,30 +142,9 @@ The next step is to upload a sample data file to the storage account to later tr
     
 ## Extract data from Azure Storage
 
-In this section, you create a notebook in Azure Databricks workspace and then run code snippets to extract data from your storage account into Azure Databricks.
+Return to your DataBricks Notebook and enter the following code in a new cell:
 
-1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace you created, and then select **Launch Workspace**.
-
-2. In the left pane, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
-
-    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
-
-3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
-
-    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-notebook-details.png "Create notebook in Databricks")
-
-    Select **Create**.
-
-4. Add the following snippet in an empty code cell and replace the placeholder values with the values you saved earlier from the storage account.
-
-    ```python
-    spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfs://<desired_file_system_name>@<account_name>.dfs.core.windows.net/")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
-    ```
-
-5. Add the following snippet in an empty code cell and replace the placeholder values with the values you saved earlier from the storage account.
+1. Add the following snippet in an empty code cell and replace the placeholder values with the values you saved earlier from the storage account.
 
     ```python
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
@@ -170,13 +153,13 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     Press **SHIFT + ENTER** to run the code cell.
 
-6. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values):
+2. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values):
 
     ```python
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
-7. Run the following code to see the contents of the data frame.
+3. Run the following code to see the contents of the data frame.
 
     ```python
     df.show()
@@ -353,7 +336,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
-> * Create an Azure Data Lake Storage Gen2 account
+> * Create an Azure Data Lake Storage Gen2 capable account
 > * Upload data to Azure Data Lake Storage Gen2
 > * Create a notebook in Azure Databricks
 > * Extract data from Data Lake Storage Gen2
