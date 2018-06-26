@@ -3,9 +3,9 @@ title: 'Quickstart: Run a Spark job on Azure Databricks using Azure portal | Mic
 description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
 services: storage
 documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: jamesbak
+ms.author: jamesbak
+manager: jahogg
 
 ms.component: data-lake-storage-gen2
 ms.service: storage
@@ -13,8 +13,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/23/2018
-ms.author: nitinme
+ms.date: 06/27/2018
 ms.custom: mvc
 
 ---

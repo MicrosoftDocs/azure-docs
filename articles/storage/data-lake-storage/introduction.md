@@ -6,7 +6,6 @@ documentationcenter: ''
 author: jamesbak
 manager: jahogg
 
-ms.assetid: 
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

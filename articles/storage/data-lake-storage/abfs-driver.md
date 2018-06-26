@@ -4,10 +4,10 @@ description: The ABFS Hadoop Filesystem driver
 services: storage
 keywords: 
 author: jamesbak
+manager: jahogg
 ms.topic: article
 ms.author: jamesbak
-manager: jahogg
-ms.date: 06/20/2018
+ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
