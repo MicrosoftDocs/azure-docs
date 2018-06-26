@@ -41,7 +41,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 > [!NOTE]
 > During the public preview of Data Lake Storage Gen2, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated.
-> [Sign up]((https://aka.ms/adlsgen2signup)) to the public preview of Data Lake Storage Gen2.  
+> [Sign up](https://aka.ms/adlsgen2signup) to the public preview of Data Lake Storage Gen2.  
 
 - **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](./abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](../../hdinsight/index.yml) and [Azure Databricks](../../azure-databricks/index.yml) to access data stored in Data Lake Storage Gen2.
 
