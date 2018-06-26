@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Debug an Azure Service Fabric Mesh app
 
-This tutorial is part two of a series and shows you how to debug an Azure Service Fabric Mesh  app on your local development cluster.
+This tutorial is part two of a series and shows you how to debug an Azure Service Fabric Mesh app on your local development cluster.
 
 In this tutorial you will learn:
 
@@ -49,8 +49,10 @@ Before you begin this tutorial:
 If you did not create the to-do sample application in [part one of this tutorial series](service-fabric-mesh-tutorial-create-dotnetcore.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
 
 ```
-git clone https://github.com/Azure-Samples/service-fabric-mesh/tree/private-preview-4/BasicServiceFabricMeshApp
+git clone https://github.com/azure-samples/service-fabric-mesh
 ```
+
+The application is under the basicservicefabricmeshapp directory.
 
 ## Build and debug on your local cluster
 
