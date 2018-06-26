@@ -1,5 +1,5 @@
 ---
-title: Build and publish an ASP.NET app to Azure with a SQL Database | Microsoft Docs 
+title: Build an ASP.NET app in Azure with SQL Database | Microsoft Docs 
 description: Learn how to deploy a C# ASP.NET app with a SQL Server database to Azure.
 services: app-service\web
 documentationcenter: ''
@@ -46,7 +46,9 @@ If you've installed Visual Studio already, add the workloads in Visual Studio by
 
 ## Download the sample
 
-[Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip) and extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file (or [clone it from GitHub](https://github.com/Azure-Samples/dotnet-sqldb-tutorial)).
+-[Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+-
+-Extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file.
 
 The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) create-read-update-delete (CRUD) app using [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -76,7 +78,7 @@ Publishing opens the **Create App Service** dialog, which helps you create all t
 
 ### Sign in to Azure
 
-In the **Create App Service** dialog, select **Add an account**, and sign in to your Azure subscription. If you're already signed in, select the account containing the desired subscription from the dropdown.
+In the **Create App Service** dialog, click **Add an account**, and then sign in to your Azure subscription. If you're already signed into a Microsoft account, make sure that account holds your Azure subscription. If the signed-in Microsoft account doesn't have your Azure subscription, click it to add the correct account. 
 
 > [!NOTE]
 > If you're already signed in, don't select **Create** yet.
@@ -90,9 +92,6 @@ In the **Create App Service** dialog, select **Add an account**, and sign in to 
 You can keep the generated web app name, or change it to another unique name (valid characters are `a-z`, `0-9`, and `-`). The web app name is used as part of the default URL for your app (`<app_name>.azurewebsites.net`, where `<app_name>` is your web app name). The web app name needs to be unique across all apps in Azure. 
 
 ![Create app service dialog](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
-
-> [!NOTE]
-> Do not click **Create**. You first need to set up a SQL Database in a later step.
 
 ### Create a resource group
 
