@@ -109,6 +109,10 @@ Once the application has been deployed, open a browser and navigate to
 [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Then, expand the **Applications** node and note
 that there is now an entry for your application type and another for the first instance of that type.
 
+> [!IMPORTANT]
+> To deploy the application to a secure Linux cluster in Azure, you need to configure a certificate to validate your application with the Service Fabric runtime. Doing so enables your Reliable Services services to communicate with the underlying Service Fabric runtime APIs. To learn more, see [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
+
 ## Start the test client and perform a failover
 Actor projects do not do anything on their own. They require another service or client to send them messages. The actor
 template includes a simple test script that you can use to interact with the actor service.
