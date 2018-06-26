@@ -7,7 +7,7 @@ author: shizn
 manager: timlt
 
 ms.author: xshi
-ms.date: 06/22/2018
+ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -32,15 +32,9 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * The Azure IoT Edge device that you created in the quickstart or first tutorial.
 * The primary key connection string for the IoT Edge device.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
+* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Docker](https://docs.docker.com/engine/installation/) on the same computer that has Visual Studio Code. The Community Edition (CE) is sufficient for this tutorial. 
 * [Node.js and npm](https://nodejs.org). npm is distributed with Node.js, which means that when you download Node.js, you automatically get npm installed on your computer.
-
-## Bugbash-only Prerequisites
-* [Azure IoT Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
-* [Azure IoT Edge extension for Visual Studio Code - 1.0.0-rc-mcr](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/v1.0.0-rc-mcr/azure-iot-edge-1.0.0-rc-mcr.vsix).
-    Download and save the VSIX file locally using the link provided. In VS Code, go to the **Extensions** view. Click the **...** then select **Install from VSIX...**. Reload the VS Code window to enable the extension.
-
-    ![manual install](media/tutorial-csharp-module/bugbash-install-vsix.png)
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
@@ -57,10 +51,10 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge Node.js module using Visual Studio Code and the Azure IoT Edge extension.
 1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
-2. In the integrated terminal, enter the following command to install **yeoman** and **Bugbash-only** the generator for Node.js Azure IoT Edge module:
+2. In the integrated terminal, enter the following command to install **yeoman** and the generator for Node.js Azure IoT Edge module: 
 
     ```cmd/sh
-    npm install -g yo https://github.com/Azure/generator-azure-iot-edge-module/archive/v1.0.0-rc3.tar.gz
+    npm install -g yo https://github.com/Azure/generator-azure-iot-edge-module/archive/v1.0.0-rc5.tar.gz
     ```
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
@@ -105,22 +99,22 @@ The following steps show you how to create an IoT Edge Node.js module using Visu
 
     ```javascript
     client.on('inputMessage', function (inputName, msg) {
-    filterMessage(client, inputName, msg);
+        filterMessage(client, inputName, msg);
         });
     ```
 
 8. Copy following code snippet into `client.open()` function callback (below `client.on()`). This function will be invoked when the desired properties are updated.
 
     ```javascript
-    client.getTwin(function(err, twin) {
+    client.getTwin(function (err, twin) {
         if (err) {
-        console.error('Error getting twin: ' + err.message);
+            console.error('Error getting twin: ' + err.message);
         } else {
-        twin.on('properties.desired', function(delta) {
-            if (delta.TemperatureThreshold) {
-            temperatureThreshold = delta.TemperatureThreshold;
-            }
-        });
+            twin.on('properties.desired', function(delta) {
+                if (delta.TemperatureThreshold) {
+                    temperatureThreshold = delta.TemperatureThreshold;
+                }
+            });
         }
     });
     ```
@@ -176,6 +170,7 @@ You can see the full container image address with tag in the VS Code integrated 
 2. To monitor the D2C message for a specific device, right-click the device in the list, and select **Start Monitoring D2C Messages**.
 3. To stop monitoring data, run the command **Azure IoT Hub: Stop monitoring D2C message** in command palette. 
 4. To view or update module twin, right-click the module in the list, and select **Edit module twin**. To update the module twin, save the twin JSON file and right-click the editor area and select **Update Module Twin**.
+5. To view Docker logs, you can install [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) for VS Code and find your running modules locally in Docker explorer. In the context menu, click **Show Logs** to view in integrated terminal. 
 
 ## Next steps
 

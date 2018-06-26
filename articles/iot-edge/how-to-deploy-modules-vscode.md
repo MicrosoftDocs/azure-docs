@@ -4,7 +4,7 @@ description: Use Visual Studio Code to deploy modules to an IoT Edge device
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/18/2018
+ms.date: 06/26/2018
 ms.topic: conceptual
 ms.reviewer: 
 ms.service: iot-edge
@@ -55,7 +55,7 @@ Here's a basic deployment manifest with one module as an example:
              "edgeAgent": {
                "type": "docker",
                "settings": {
-                 "image": "microsoft/azureiotedge-agent:1.0-preview",
+                 "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
                  "createOptions": "{}"
                }
              },
@@ -64,8 +64,8 @@ Here's a basic deployment manifest with one module as an example:
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "microsoft/azureiotedge-hub:1.0-preview",
-                 "createOptions": "{}"
+                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
                }
              }
            },
