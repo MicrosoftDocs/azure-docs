@@ -1,9 +1,10 @@
 ---
-title: Create an Azure Data Lake Storage Gen2 capable Storage account
-description: Quickly learn to create a new Create a Storage Account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI
+title: Create an Azure Data Lake Storage Gen2 storage account | Microsoft Docs
+description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI
 services: storage
 author: jamesbak
-manager: jahogg
+manager: twooley
+
 ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
@@ -12,14 +13,14 @@ ms.date: 06/27/2018
 ms.author: jamesbak
 ---
 
-# Quickstart: Create an Azure Data Lake Storage Gen2 capable Storage account
+# Quickstart: Create an Azure Data Lake Storage Gen2 storage account
 
 Azure Data Lake Storage Gen2 accounts [support an Hierarchical Namespace Service](introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](abfs-driver.md).
 
 To enable Data Lake Storage Gen2 capabilities on your storage account, [fill out the preview survey to request access](https://aka.ms/adlsgen2signup). Once approved, then you are able to create a new Data Lake Storage Gen2 account. This quickstart demonstrates how to create an account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 > [!NOTE]
-> The create account UI is updated once you are approved allowing you to create a Data Lake Storage Gen2 account. In the same way, the Data Lake Storage Gen2-related PowerShell and CLI arguments only work once you are approved.
+> The create account UI in the Azure portal is updated once you are approved to create a Data Lake Storage Gen2 account. In the same way, the Data Lake Storage Gen2-related PowerShell and CLI arguments only work once you are approved for the preview.
 
 ## Prerequisites
 
@@ -33,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 When working on the command line you have the option of running the Azure Cloud shell or installing the CLI locally.
 
-## Use Azure Cloud Shell
+### Use Azure Cloud Shell
 
 Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right of the Azure portal:
 
@@ -43,16 +44,16 @@ The button launches an interactive shell that you can use to run the steps in th
 
 [![Screenshot showing the Cloud Shell window in the portal](./media/quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
-## Install the CLI locally
+### Install the CLI locally
 
 You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-## Overview
+## Overview of creating an Azure Data Lake Storage Gen2 account
 
 Before you create an account, you first create a resource group that acts as a logical container to storage accounts or any other Azure resources you create. If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account,and any other resources associated with the resource group. For more information regarding resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
-> You must create new storage accounts as **StorageV2 (general purpose V2)** account kind, to take advantage of Data Lake Storage Gen2 features.  
+> You must create new storage accounts as type **StorageV2 (general-purpose V2)** to take advantage of Data Lake Storage Gen2 features.  
 
 For more information about storage account types, see [Azure Storage account options](../common/storage-account-options.md).
 
@@ -61,11 +62,11 @@ When naming your storage account, keep these rules in mind:
 - Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 - Your storage account name must be unique within Azure. No two storage accounts can have the same name.
 
-## Create an account using the Portal
+## Create an account using the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com).
 
-#### Create a resource group
+### Create a resource group
 
 To create a resource group in the Azure portal, follow these steps:
 
@@ -102,7 +103,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 
 Your storage account is now created through the portal.
 
-#### Clean up resources
+### Clean up resources
 
 To remove a resource group using the Azure portal:
 
@@ -138,6 +139,9 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 To create a general-purpose v2 storage account from PowerShell with locally-redundant storage (LRS), use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command:
 
 ```powershell
+Get-AzureRmLocation | select Location 
+$location = "westus2"
+
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
@@ -163,7 +167,7 @@ To remove the resource group and its associated resources, including the new sto
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## Create an account using the CLI
+## Create an account using Azure CLI 
 
 To launch Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
 
@@ -172,7 +176,6 @@ To log into your local installation of the CLI, run the login command:
 ```cli
 az login
 ```
-
 ### Create a resource group
 
 To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command. 
@@ -186,9 +189,9 @@ az group create \
 > [!NOTE]
 > The hierarchical namespace is only enabled in West US 2 and West Central US. Make sure you specify either one of these locations when creating the storage account.
 
-### Create a StorageV2 storage account
+### Create a general-purpose v2 storage account
 
-To create a StorageV2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli-interactive
 az storage account create \
