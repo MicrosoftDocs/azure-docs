@@ -29,7 +29,6 @@ For step-by-step instructions, see the following tutorials:
 - [Incrementally copy data from one table in Azure SQL Database to Azure Blob storage](tutorial-incremental-copy-powershell.md)
 - [Incrementally copy data from multiple tables in on-premises SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
-
 ## Delta data loading by using the Change Tracking technology
 Change Tracking technology is a lightweight solution in SQL Server and Azure SQL Database that provides an efficient change tracking mechanism for applications. It enables an application to easily identify data that was inserted, updated, or deleted. 
 
@@ -39,7 +38,6 @@ The workflow for this approach is depicted in the following diagram:
 
 For step-by-step instructions, see the following tutorial: <br/>
 [Incrementally copy data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-powershell.md)
-
 
 ## Next steps
 Advance to the following tutorial: 
