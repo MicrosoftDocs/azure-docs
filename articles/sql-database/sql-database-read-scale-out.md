@@ -59,8 +59,7 @@ You can verify whether you are connected to a read-only replica by running the f
 ```SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
-> [!IMPORTANT]
-> During preview, if you are connecting to a geo-replicated secondary database with read-scale enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the  replicas the same way we route connections on the primary database. Even though the primary replica of the secondary is also read-only, we will not perform round-robin or any other load balanced routing. 
+
 
 ## Enable and disable Read Scale-Out using Azure PowerShell
 
@@ -103,6 +102,14 @@ Body:
 ```
 
 For more information, see [Databases - Create or Update](/rest/api/sql/databases/createorupdate).
+
+## Using read scale-out with geo-replicated databases
+
+If your are using read scale-out to load balance read-only workloads on the database that is geo-replicated (e.g. member of a failover group), make sure that read scale-out is enabled on both the primary and the geo-replicated secondary databases. This will ensure the same load-balancing effect when your application connects to the new primary after failover. If you are connecting to the geo-replicated secondary database with read-scale enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the  replicas the same way we route connections on the primary database.  The sessions without `ApplicationIntent=ReadOnly` will be routed to the primary replica of the geo-replicated secondary, whic is also read-only. 
+
+> [!NOTE]
+> During preview, even though the primary replica of the secondary is also read-only, we will not perform round-robin or any other load balanced routing. 
+
 
 ## Next steps
 
