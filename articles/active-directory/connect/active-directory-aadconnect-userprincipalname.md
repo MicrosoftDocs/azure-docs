@@ -101,6 +101,8 @@ Azure AD Tenant user object:
 
 ### Scenario 2: Non-verified UPN suffix – set on-premises mailNickName attribute
 
+![Scenario2](media/active-directory-aadconnect-userprincipalname/example2.png)
+
 On-Premises user object:
 - mailNickName		: us4
 - proxyAddresses		: {SMTP:us1@contoso.com}
@@ -116,6 +118,8 @@ Azure AD Tenant user object:
 - UserPrincipalName	: us1@contoso.onmicrosoft.com
 
 ### Scenario 3: Non-verified UPN suffix – update on-premises userPrincipalName attribute
+
+![Scenario3](media/active-directory-aadconnect-userprincipalname/example3.png)
 
 On-Premises user object:
 - mailNickName		: us4
@@ -134,6 +138,8 @@ Azure AD Tenant user object:
 
 ### Scenario 4: Non-verified UPN suffix – update primary SMTP address and on-premises mail attribute
 
+![Scenario4](media/active-directory-aadconnect-userprincipalname/example4.png)
+
 On-Premises user object:
 - mailNickName		: us4
 - proxyAddresses		: {SMTP:us6@contoso.com}
@@ -148,6 +154,8 @@ Azure AD Tenant user object:
 - UserPrincipalName	: us4@contoso.onmicrosoft.com
 
 ### Scenario 5: Verified UPN suffix – update on-premises userPrincipalName attribute suffix
+
+![Scenario5](media/active-directory-aadconnect-userprincipalname/example5.png)
 
 On-Premises user object:
 - mailNickName		: us4
