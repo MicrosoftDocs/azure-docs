@@ -58,17 +58,24 @@ sudo nano /etc/iotedge/config.yaml
 Update the **connect** section of the configuration. For example:
 ```yaml
 connect:
-  management_uri: "http://172.29.240.1:15580"
-  workload_uri: "http://172.29.240.1:15581"
+  management_uri: "http://172.17.0.1.1:15580"
+  workload_uri: "http://172.17.0.1:15581"
 ```
 
 Enter the same addresses in the **listen** section of the configuration. For example:
 
 ```yaml
 listen:
-  management_uri: "http://172.29.240.1:15580"
-  workload_uri: "http://172.29.240.1:15581"
+  management_uri: "http://172.17.0.1.1:15580"
+  workload_uri: "http://172.17.0.1:15581"
 ```
+
+Create an environment variable IOTEDGE_HOST with the management_uri address (To set it permanently, add it to `/etc/environment`).For example:
+
+```cmd/sh
+export IOTEDGE_HOST="http://172.17.0.1:15580"
+```
+
 
 ## Create the Azure ML container
 In this section, you download the trained model files and convert them into an Azure ML container.
