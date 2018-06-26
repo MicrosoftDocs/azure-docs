@@ -40,7 +40,7 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 
 ## <a id="ConnectAppService"></a>Connect to your app service
 1. Before starting the Gremlin Console, create or modify the remote-secure.yaml configuration file in the `apache-tinkerpop-gremlin-console-3.2.5/conf` directory.
-2. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations:
+2. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations as defined in the following table:
 
     Setting|Suggested value|Description
     ---|---|---
