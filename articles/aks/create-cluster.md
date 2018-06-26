@@ -24,7 +24,7 @@ Use the [az aks create][az-aks-create] command to create the AKS cluster.
 az aks create --resource-group myResourceGroup --name myAKSCluster
 ```
 
-The following options are available with the `az aks create` command. See the [Azure CLI reference][aks-cli-reference] for AKS for more information on each of these arguments.
+The following options are available with the `az aks create` command. See the [Azure CLI reference][az-aks-create] for AKS for more information on each of these arguments.
 
 | Argument | Description | Required |
 |---|---|:---:|
@@ -66,5 +66,4 @@ For instruction on deploying an AKS cluster with the Azure portal, see the Azure
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
-[aks-cli-reference]: /cli/azure/aks?view=azure-cli-latest
 [aks-portal-quickstart]: kubernetes-walkthrough-portal.md
