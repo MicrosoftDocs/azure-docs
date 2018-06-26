@@ -37,11 +37,6 @@ The following steps walk you through the process of creating the certificates an
 
 2.	Obtain the scripts to generate the required non-production certificates with the following command. These scripts help you create the necessary certificates to set up a transparent gateway. 
 
-   >[!NOTE]
-   >Use this command for the bug bash:
-   >
-   > `git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git`
-   
    ```cmd
    git clone https://github.com/Azure/azure-iot-sdk-c.git
    ```
@@ -78,10 +73,10 @@ The following steps walk you through the process of creating the certificates an
 2.	Create the Edge device CA certificate and private key with the command below.
 
    >[!NOTE]
-   > **DO NOT** use a name that is the same as the gateway host's name. Doing so will cause client certification against these certificates to fail.
+   > **DO NOT** use a name that is the same as the gateway's DNS host name. Doing so will cause client certification against these certificates to fail.
 
       ```cmd
-      ./certGen.sh create_edge_device_certificate <gatewayName>
+      ./certGen.sh create_edge_device_certificate "<gateway device name>"
       ```
 
    The outputs of the script execution are the following certificates and key:
@@ -111,18 +106,38 @@ certificates:
   trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
 ```
 
+## Deploy EdgeHub to the gateway
+One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. This section has you create a seemingly empty deployment; however Edge Hub is automatcially added to all deployments even if there are no other modules present. Edge Hub is the only module you need on an Edge Device to have it act as a transparent gateway so creating an empty deployment is enough. 
+1. In the Azure portal, navigate to your IoT hub.
+2. Go to **IoT Edge** and select your IoT Edge device that you want to use as a gateway.
+3. Select **Set Modules**.
+4. Select **Next**.
+5. In the **Specify routes** step, you should have a default route that sends all messages from all modules to IoT Hub. If not, add the following code then select **Next**.
+   ```JSON
+   {
+       "routes": {
+           "route": "FROM /* INTO $upstream"
+       }
+   }
+   ```
+6. In the Review template step, select **Submit**.
+
 ## Installation on the downstream device
 A downstream device can be any application using the [Azure IoT device SDK][lnk-devicesdk], such as the simple one described in [Connect your device to your IoT hub using .NET][lnk-iothub-getstarted]. A downstream device application has to trust the **owner CA** certificate in order to validate the TLS connections to the gateway devices. This step can usually be performed in two ways: at the OS level, or (for certain languages) at the application level.
 
 ### OS level
-Here is an example of how to install a CA certificate on an Ubuntu host
->[!NOTE]
->Installing this certificate in the OS certificate store will allow all applications to use the owner CA certificate as a trusted certificate.
+Installing this certificate in the OS certificate store will allow all applications to use the owner CA certificate as a trusted certificate.
+
+* Ubuntu - Here is an example of how to install a CA certificate on an Ubuntu host.
 
    ```cmd
    sudo cp $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem  /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
    sudo update-ca-certificates
    ```
+ 
+    You should see a message saying, "Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done."
+
+* Windows - [This](https://msdn.microsoft.com/en-us/library/cc750534.aspx) article details how to do this on a Windows device using the certificate import wizzard. 
 
 ### Application level
 For .NET applications, you can add the following snippet to trust a certificate in PEM format. Initialize the variable `certPath` with `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.
@@ -144,6 +159,11 @@ You must initialize the IoT Hub device sdk with a connection string referring to
    ```
    HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com
    ```
+
+   >[!NOTE]
+   >This is a sample command which tests that everything has been set up correctly. You sohuld a message saying "verified OK".
+   >
+   >openssl s_client -connect mygateway.contoso.com:8883 -CAfile $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 
 ## Routing messages from downstream devices
 The IoT Edge runtime can route messages sent from downstream devices just like messages sent by modules. This allows you to perform analytics in a module running on the gateway before sending any data to the cloud. The below route would be used to send messages from a downstream device named `sensor` to a module name `ai_insights`.
@@ -175,5 +195,5 @@ Refer to the [module composition article][lnk-module-composition] for more detai
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 [lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/modules-preview/tools/CACertificates/CACertificateOverview.md
+[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md
 [lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus
