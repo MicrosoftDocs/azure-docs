@@ -26,13 +26,13 @@ For partners and service providers who are part of the [Cloud Solution Provider 
 
 ## Architectures for Service Providers
 
-Log Analytics workspaces provide a method for the administrator to control the flow and isolation of the logs and create a log architecture that address his business needs. [This article](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) explains the general considerations around workspace management. Service providers have additional considerations.
+Log Analytics workspaces provide a method for the administrator to control the flow and isolation of the logs and create a log architecture that addresses its specific business needs. [This article](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) explains the general considerations around workspace management. Service providers have additional considerations.
 
 There are three possible architectures for service providers regarding Log Analytics workspaces:
 
 ### 1. Distributed - Logs are stored in workspaces located in the customer's tenant 
 
-In this architecture, workspace is deployed in the customer's tenant that is used for all the logs of that customer. The service provider administrators are granted access to this workspace using [Azure Active Directory guest users (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). The service provider administrator will have to switch in Azure Portal to their customer's directory to be able to access these workspaces.
+In this architecture, workspace is deployed in the customer's tenant that is used for all the logs of that customer. The service provider administrators are granted access to this workspace using [Azure Active Directory guest users (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). The service provider administrator will have to switch in Azure portal to their customer's directory to be able to access these workspaces.
 
 The advantages of this architecture are:
 * The customer can manage access to the logs using their own [role-based access](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
@@ -44,7 +44,7 @@ The advantages of this architecture are:
 The disadvantages of this architecture are:
 * It is harder for the service provider to manage large number of customer tenants at once.
 * Service provider administrators have to be provisioned on the customer directory.
-* The service provider can't analyze data across his customers.
+* The service provider can't analyze data across its customers.
 
 ### 2. Central - Logs are stored in workspace located in the service provider tenant
 
@@ -52,28 +52,28 @@ In this architecture, the logs are not stored in the customer's tenants but only
 
 The advantages of this architecture are:
 * It is easy to manage large number of customers and integrate them to various backend systems.
-* The service provider have full ownership over the logs and the various artifacts such as functions and saved queries.
+* The service provider has full ownership over the logs and the various artifacts such as functions and saved queries.
 * The service provider can perform analytics across all of customers.
 
 The disadvantages of this architecture are:
-* It will be hard to seperate the data between the customers. The only good method to do so is to use the computer's domain name.
+* It will be hard to separate the data between the customers. The only good method to do so is to use the computer's domain name.
 * All data from all customers will be stored in the same region with a single bill and same retention and configuration settings.
 * Azure fabric and PaaS services such as Azure Diagnostics and Azure Auditing requires the workspace to be in the same tenant as the resource thus they cannot send the logs to the central workspace.
 
 ### 3. Hybrid - Logs are stored in workspace located in the customer's tenant and some of them are pulled to a central location.
 
-The third architecture mix between the two options. It is based on the first distributed architecture where the logs are local to each customer but using some mechanism to create a central repository of logs. A portion of the logs are pulled into a central location for reporting and analytics. This portion could be small number of data types or a summary of the activity such as a daily statistics.
+The third architecture mix between the two options. It is based on the first distributed architecture where the logs are local to each customer but using some mechanism to create a central repository of logs. A portion of the logs is pulled into a central location for reporting and analytics. This portion could be small number of data types or a summary of the activity such as daily statistic.
 
 There are two options to implement the central location in Log Analytics:
 
-1. Central workspace: The service provider can create a workspace in his tenant and use a script that utilize the [Query API](log-analytics-log-search-api.md) with the [Data Collection API](log-analytics-data-collector-api) to bring the data from the various workpsces to this central location. Another option, other than script is to use [Azure Logic App](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
+1. Central workspace: The service provider can create a workspace in its tenant and use a script that utilizes the [Query API](log-analytics-log-search-api.md) with the [Data Collection API](log-analytics-data-collector-api) to bring the data from the various workspaces to this central location. Another option, other than script is to use [Azure Logic App](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
 
-2. PowerBI as a central location: PowerBI can act as the central location when the various workspaces export data to it using the the integration between Log Analytics and [PowerBI](log-analytics-powerbi.md). 
+2. PowerBI as a central location: Power BI can act as the central location when the various workspaces export data to it using the integration between Log Analytics and [Power BI](log-analytics-powerbi.md). 
 
 
 ## Next Steps
 * Automate creation and configuration of workspaces using [Resource Manager templates](log-analytics-template-workspace-configuration.md)
 * Automate creation of workspaces using [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Use [Alerts](log-analytics-alerts.md) to integrate with existing systems
-* Generate summary reports using [PowerBI](log-analytics-powerbi.md)
+* Generate summary reports using [Power BI](log-analytics-powerbi.md)
 
