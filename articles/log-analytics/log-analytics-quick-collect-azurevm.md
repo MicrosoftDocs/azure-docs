@@ -26,7 +26,7 @@ This quickstart assumes you have an existing Azure virtual machine. If not you c
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Create a workspace
-1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. Click **Create**, and then select choices for the following items:
 
   * Provide a name for the new **OMS Workspace**, such as *DefaultLAWorkspace*. 
@@ -58,13 +58,13 @@ For Windows and Linux virtual machines already deployed in Azure, you install th
 Log Analytics can collect events from the Windows event logs or Linux Syslog and performance counters that you specify for longer term analysis and reporting, and take action when a particular condition is detected.  Follow these steps to configure collection of events from the Windows system log and Linux Syslog, and several common performance counters to start with.  
 
 ### Data collection from Windows VM
-1. Select **Advanced settings**.<br> ![Log Analytics Advance Settings](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br> 
+1. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br> 
 3. Select **Data**, and then select **Windows Event Logs**.  
 4. You add an event log by typing in the name of the log.  Type **System** and then click the plus sign **+**.  
 5. In the table, check the severities **Error** and **Warning**.   
 6. Click **Save** at the top of the page to save the configuration.
 7. Select **Windows Performance Data** to enable collection of performance counters on a Windows computer. 
-8. When you first configure Windows Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.<br> ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).<br> Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
+8. When you first configure Windows Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.<br><br> ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).<br><br> Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
 9. Click **Save** at the top of the page to save the configuration.
 
 ### Data collection from Linux VM
@@ -74,19 +74,19 @@ Log Analytics can collect events from the Windows event logs or Linux Syslog and
 3. In the table, uncheck the severities **Info**, **Notice** and **Debug**. 
 4. Click **Save** at the top of the page to save the configuration.
 5. Select **Linux Performance Data** to enable collection of performance counters on a Linux computer. 
-6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.<br> ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).<br> Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
+6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.<br><br> ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).<br><br> Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
 7. Click **Save** at the top of the page to save the configuration.
 
 ## View data collected
 Now that you have enabled data collection, lets run a simple log search example to see some data from the target VMs.  
 
 1. In the Azure portal, navigate to Log Analytics and select the workspace created earlier.
-2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br> ![Log Analytics log search query example](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
+2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br><br> ![Log Analytics log search query example](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
 
-For example, the query in the following image returned 735 performance records.  Your results will be significantly less.<br> ![Log Analytics log search result](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
+For example, the query in the following image returned 735 performance records.  Your results will be significantly less.<br><br> ![Log Analytics log search result](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## Clean up resources
-When no longer needed, delete the Log Analytics workspace. To do so, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.<br> ![Delete Log Analytics resource](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+When no longer needed, delete the Log Analytics workspace. To do so, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.<br><br> ![Delete Log Analytics resource](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
 ## Next steps
 Now that you are collecting operational and performance data from your Windows or Linux virtual machines, you can easily begin exploring, analyzing, and taking action on data that you collect for *free*.  
