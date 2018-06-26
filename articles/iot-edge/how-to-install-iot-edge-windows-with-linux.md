@@ -47,6 +47,13 @@ $env:Path += ";C:\ProgramData\iotedge"
 SETX /M PATH "$env:Path"
 ```
 
+>[!NOTE]
+>On Windows Server, install the vcruntime redistributable using the following commands:
+> ```powershell
+> https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe%20-o%20vc_redist.exe
+>.\vc_redist.exe /quiet /norestart
+> ```
+
 Create and start *iotedge* service:
 
 ```powershell
