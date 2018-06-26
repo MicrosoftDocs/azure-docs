@@ -1,5 +1,5 @@
 ---
-title: Device configuration best practices for IoT Hub | Microsoft Docs 
+title: Device configuration best practices for Azure IoT Hub | Microsoft Docs 
 description: Learn about best practices for configuring IoT devices at scale
 author: chrisgre
 manager: briz
@@ -18,12 +18,12 @@ Automatic device management in Azure IoT Hub automates many repetitive and compl
 * **IoT solution developer:** The development of an IoT solution is typically done by a solution developer. This developer may be part of an in-house team or a system integrator specializing in this activity. The IoT solution developer can develop various components of the IoT solution from scratch, integrate various standard or open-source components, or customize an [IoT solution accelerator][lnk-solution].
 * **IoT solution operator:** After the IoT solution is deployed, it requires long-term operations, monitoring, upgrades, and maintenance. These tasks can be done by an in-house team that consists of information technology specialists, hardware operations and maintenance teams, and domain specialists who monitor the correct behavior of the overall IoT infrastructure.
 
-# Understand automatic device management for configuring IoT devices at scale
+## Understand automatic device management for configuring IoT devices at scale
 
-Automatic device management includes the many benefits of [device twins][lnk-device-twins] and [module twins][lnk-module-twins] to synchronize desired and reported states between the cloud and devices.  [Automatic device configurations][lnk-auto-device-configs] automatically update large sets of twins and summerize progress and compliance. The following high-level steps describe how automatic device management is developed and used:
+Automatic device management includes the many benefits of [device twins][lnk-device-twins] and [module twins][lnk-module-twins] to synchronize desired and reported states between the cloud and devices.  [Automatic device configurations][lnk-auto-device-config] automatically update large sets of twins and summerize progress and compliance. The following high-level steps describe how automatic device management is developed and used:
 
 * The **IoT hardware manufacturer/integrator** implements device management features within an embedded application using [device twins][lnk-device-twins]. These features could include firmware updates, software installation and update, and settings management.
-* The **IoT solution developer** implements the management layer of device management operations using [device twins][lnk-device-twins] and [automatic device configurations][lnk-auto-device-configs]. The solution should include defining an operator interface to perform device management tasks.
+* The **IoT solution developer** implements the management layer of device management operations using [device twins][lnk-device-twins] and [automatic device configurations][lnk-auto-device-config]. The solution should include defining an operator interface to perform device management tasks.
 * The **IoT solution operator** uses the IoT solution to perform device management tasks, particularly to group devices together, initiate configuration changes like firmware updates, monitor progress, and troubleshoot issues that arise.
 
 ## IoT hardware manufacturer/integrator
@@ -69,10 +69,11 @@ The following are best practices for IoT solution operators who using an IoT sol
 
 <!-- Links -->
 [lnk-device-twins]: iot-hub-devguide-device-twins.md
+[lnk-module-twins]: iot-hub-devguide-module-twins.md
 [lnk-auto-device-config]: iot-hub-auto-device-config.md
 [lnk-firmware-update]: tutorial-firmware-update.md
 [lnk-throttling]: iot-hub-devguide-quotas-throttling.md
 [lnk-queries]: iot-hub-devguide-query-language.md
 [lnk-dps]: ../iot-dps/how-to-manage-enrollments.md
 [lnk-azure-sdk]: https://github.com/Azure/azure-iot-sdks
-[lnk-solution]: https://azure.microsoft.com/en-us/features/iot-accelerators/
+[lnk-solution]: https://azure.microsoft.com/features/iot-accelerators/
