@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2018
+ms.date: 06/22/2018
 ms.author: jingwang
 ---
 # Copy multiple tables in bulk by using Azure Data Factory
@@ -158,9 +158,9 @@ In this tutorial, you use Azure Blob storage as an interim staging area to enabl
 ## Create datasets
 In this tutorial, you create source and sink datasets, which specify the location where the data is stored. 
 
-The input dataset AzureSqlDatabaseDataset refers to the AzureSqlDatabaseLinkedService. The linked service specifies the connection string to connect to the database. The dataset specifies the name of the database and the table that contains the source data. 
+The input dataset **AzureSqlDatabaseDataset** refers to the **AzureSqlDatabaseLinkedService**. The linked service specifies the connection string to connect to the database. The dataset specifies the name of the database and the table that contains the source data. 
 
-The output dataset AzureSqlDWDataset refers to the AzureSqlDWLinkedService. The linked service specifies the connection string to connect to the data warehouse. The dataset specifies the database and the table to which the data is copied. 
+The output dataset **AzureSqlDWDataset** refers to the **AzureSqlDWLinkedService**. The linked service specifies the connection string to connect to the data warehouse. The dataset specifies the database and the table to which the data is copied. 
 
 In this tutorial, the source and destination SQL tables are not hard-coded in the dataset definitions. Instead, the ForEach activity passes the name of the table at runtime to the Copy activity. 
 
@@ -174,7 +174,6 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
     ![Select Azure SQL Database](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
 3. In the properties window at the bottom, enter **AzureSqlDatabaseDataset** for **Name**.
 
-    ![Source dataset name](./media/tutorial-bulk-copy-portal/source-dataset-general.png)
 4. Switch to the **Connection** tab, and do the following steps: 
 
     1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
@@ -188,14 +187,21 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
 1. Click **+ (plus)** in the left pane, and click **Dataset**. 
 2. In the **New Dataset** window, select **Azure SQL Data Warehouse**, and click **Finish**. You should see a new tab titled **AzureSqlDWTable1**. 
 3. In the properties window at the bottom, enter **AzureSqlDWDataset** for **Name**.
-4. Switch to the **Connection** tab, and select **AzureSqlDatabaseLinkedService** for **Linked service**.
-5. Switch to the **Parameters** tab, and click **+ New**
+5. Switch to the **Parameters** tab, click **+ New**, and enter **DWTableName** for the parameter name. If you copy/paste this name from the page, ensure that there is no **trailing space character** at the end of **DWTableName**. 
 
-    ![Source dataset connection page](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Enter **DWTableName** for the parameter name. If you copy/paste this name from the page, ensure that there is no **trailing space character** at the end of **DWTableName**. 
-7. In the **Parameterized properties** section, enter `@{dataset().DWTableName}` for **tableName** property. The **tableName** property of the dataset is set to the value that's passed as an argument for the **DWTableName** parameter. The ForEach activity iterates through a list of tables, and passes one by one to the Copy activity. 
-   
-    ![Parameter name](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
+    ![Source dataset connection page](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter.png)
+
+6. Switch to the **Connection** tab, 
+
+    a. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
+
+    b. For **Table**, check the **Edit** option, click into the table name input box, then click the **Add dynamic content** link below. 
+    
+    ![Parameter name](./media/tutorial-bulk-copy-portal/table-name-parameter.png)
+
+    c. In the **Add Dynamic Content** page, click the **DWTAbleName** under **Parameters** which will automatically populate the top expression text box `@dataset().DWTableName`, then click **Finish**. The **tableName** property of the dataset is set to the value that's passed as an argument for the **DWTableName** parameter. The ForEach activity iterates through a list of tables, and passes one by one to the Copy activity. 
+
+    ![Dataset parameter builder](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## Create pipelines
 In this tutorial, you create two pipelines: **IterateAndCopySQLTables** and **GetTableListAndTriggerCopyData**. 
@@ -212,63 +218,65 @@ The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. F
 1. In the left pane, click **+ (plus)**, and click **Pipeline**.
 
     ![New pipeline menu](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-2. In the Properties window, change the name of the pipeline to **IterateAndCopySQLTables**. 
+2. In the **General** tab, specify **IterateAndCopySQLTables** for name. 
 
-    ![Pipeline name](./media/tutorial-bulk-copy-portal/first-pipeline-name.png)
 3. Switch to the **Parameters** tab, and do the following actions: 
 
     1. Click **+ New**. 
     2. Enter **tableList** for the parameter **name**.
-    3. Select **Object** for **Type**.
+    3. Select **Array** for **Type**.
 
         ![Pipeline parameter](./media/tutorial-bulk-copy-portal/first-pipeline-parameter.png)
-4. In the **Activities** toolbox, expand **Iteration & Conditions**, and drag-drop the **ForEach** activity to the pipeline design surface. You can also search for activities in the **Activities** toolbox. In the **Properties** window at the bottom, enter **IterateSQLTables** for **Name**. 
+4. In the **Activities** toolbox, expand **Iteration & Conditions**, and drag-drop the **ForEach** activity to the pipeline design surface. You can also search for activities in the **Activities** toolbox. 
 
-    ![ForEach activity name](./media/tutorial-bulk-copy-portal/for-each-activity-name.png)
-5. Switch to the **Settings** tab, and enter `@pipeline().parameters.tableList` for **Items**.
+    a. In the **General** tab at the bottom, enter **IterateSQLTables** for **Name**. 
+
+    b. Switch to the **Settings** tab, click the inputbox for **Items**, then click the **Add dynamic content** link below. 
 
     ![ForEach activity settings](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
-6. To add a child activity to the **ForEach** activity, **double-click** the ForEach activity (or) click the **Edit (pencil icon)**. You see the action links for an activity only when you select it. 
 
-    ![ForEach activity name](./media/tutorial-bulk-copy-portal/edit-for-each-activity.png)
-7. In the **Activities** toolbox, expand **DataFlow**, and drag-drop **Copy** activity into the pipeline designer surface, and change the name in the Properties window to **CopyData**. Notice the breadcrumb menu at the top. The IterateAndCopySQLTable is the pipeline name and IterateSQLTables is the ForEach activity name. The designer is in the activity scope. To switch back to the pipeline editor from the ForEach editor, click the link in the breadcrumb menu. 
+    c. In the **Add Dynamic Content** page, collapse the System Vairables and Funcstions section, click the **tableList** under **Parameters** which will automatically populate the top expression text box as `@pipeline().parameter.tableList`, then click **Finish**. 
+
+    ![Foreach parameter builder](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
+    
+    d. Switch to **Activities** tab, click **Add activity** to add a child activity to the **ForEach** activity.
+
+5. In the **Activities** toolbox, expand **DataFlow**, and drag-drop **Copy** activity into the pipeline designer surface. Notice the breadcrumb menu at the top. The IterateAndCopySQLTable is the pipeline name and IterateSQLTables is the ForEach activity name. The designer is in the activity scope. To switch back to the pipeline editor from the ForEach editor, click the link in the breadcrumb menu. 
 
     ![Copy in ForEach](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
-8. Switch to the **Source** tab, and do the following steps:
+6. Switch to the **Source** tab, and do the following steps:
 
     1. Select **AzureSqlDatabaseDataset** for **Source Dataset**. 
     2. Select **Query** option for **User Query**. 
-    3. Enter the following SQL query for **Query**.
+    3. Click the **Query** input box -> select the **Add dynamic content** below -> enter the following expression for **Query** -> select **Finish**.
 
         ```sql
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
         ![Copy source settings](./media/tutorial-bulk-copy-portal/copy-source-settings.png)
-9. Switch to the **Sink** tab, and do the following steps: 
+7. Switch to the **Sink** tab, and do the following steps: 
 
     1. Select **AzureSqlDWDataset** for **Sink Dataset**.
+    2. Click input box for the VALUE of DWTableName parameter -> select the **Add dynamic content** below, enter `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` expression as script, -> select **Finish**.
     2. Expand **Polybase Settings**, and select **Allow polybase**. 
     3. Clear the **Use Type default** option. 
-    4. Enter the following SQL script for **Cleanup Script**. 
+    4. Click the **Cleanup Script** input box -> select the **Add dynamic content** below -> enter the following expression as script -> select **Finish**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
         ![Copy sink settings](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
-10. Switch to the **Parameters** tab, scroll down, if needed, to see the **Sink Dataset** section with **DWTableName** parameter. Set value of this parameter to `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]`.
 
-    ![Copy sink parameters](./media/tutorial-bulk-copy-portal/copy-sink-parameters.png)
-11. Switch to the **Settings** tab, and do the following steps: 
+8. Switch to the **Settings** tab, and do the following steps: 
 
     1. Select **True** for **Enable Staging**.
     2. Select **AzureStorageLinkedService** for **Store Account Linked Service**.
 
         ![Enable staging](./media/tutorial-bulk-copy-portal/copy-sink-staging-settings.png)
-12. To validate the pipeline settings, click **Validate**. Confirm that there is no validation error. To close the **Pipeline Validation Report**, click **>>**.
 
-    ![Pipeline validation report](./media/tutorial-bulk-copy-portal/first-pipeline-validation-report.png)
+9. To validate the pipeline settings, click **Validate** on the top pipeline tool bar. Confirm that there is no validation error. To close the **Pipeline Validation Report**, click **>>**.
 
 ### Create the pipeline GetTableListAndTriggerCopyData
 
@@ -282,7 +290,6 @@ This pipeline performs two steps:
     ![New pipeline menu](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
 2. In the Properties window, change the name of the pipeline to **GetTableListAndTriggerCopyData**. 
 
-    ![Pipeline name](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
 3. In the **Activities** toolbox, expand **General**, and drag-and-drop **Lookup** activity to the pipeline designer surface, and do the following steps:
 
     1. Enter **LookupTableList** for **Name**. 
@@ -310,7 +317,7 @@ This pipeline performs two steps:
     2. Expand the **Advanced** section. 
     3. Click **+ New** in the **Parameters** section. 
     4. Enter **tableList** for parameter **name**.
-    5. Enter `@activity('LookupTableList').output.value` for parameter **value**. You are setting the result list from the Lookup activity as an input to the second pipeline. The result list contains the list of tables whose data needs to be copied to the destination. 
+    5. Click VALUE input box -> select the **Add dynamic content** below -> enter `@activity('LookupTableList').output.value` as table name value -> select **Finish**. You are setting the result list from the Lookup activity as an input to the second pipeline. The result list contains the list of tables whose data needs to be copied to the destination. 
 
         ![Execute pipeline activity - settings page](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 7. **Connect** the **Lookup** activity to the **Execute Pipeline** activity by dragging the **green box** attached to the Lookup activity to the left of Execute Pipeline activity.
@@ -318,17 +325,13 @@ This pipeline performs two steps:
     ![Connect Lookup and Execute Pipeline activities](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
 8. To validate the pipeline, click **Validate** on the toolbar. Confirm that there are no validation errors. To close the **Pipeline Validation Report**, click **>>**.
 
-    ![Second pipeline - validation report](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. To publish entities (datasets, pipelines, etc.) to the Data Factory service, click **Publish All**. Wait until the publishing succeeds. 
-
-    ![Publish button](./media/tutorial-bulk-copy-portal/publish.png)
+9. To publish entities (datasets, pipelines, etc.) to the Data Factory service, click **Publish All** on top of the window. Wait until the publishing succeeds. 
 
 ## Trigger a pipeline run
 
-1. Confirm that **GetTableListAndTriggerCopyData** tab is active. 
-2. Click **Trigger**, and click **Trigger Now**. 
+Go to pipeline **GetTableListAndTriggerCopyData**, click **Trigger**, and click **Trigger Now**. 
 
-    ![Trigger now](./media/tutorial-bulk-copy-portal/trigger-now.png)
+![Trigger now](./media/tutorial-bulk-copy-portal/trigger-now.png)
 
 ## Monitor the pipeline run
 

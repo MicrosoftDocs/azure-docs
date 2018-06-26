@@ -21,4 +21,3 @@ The following legacy algorithms will also be deprecated for TLS on July 1, 2018:
 * DES (Data Encryption Algorithm)
 * 3DES (Triple Data Encryption Algorithm)
 * MD5 (Message Digest 5)
-* SHA-1 (Secure Hash Algorithm 1)
