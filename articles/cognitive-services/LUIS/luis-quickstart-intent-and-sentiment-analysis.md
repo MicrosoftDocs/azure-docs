@@ -88,7 +88,7 @@ LUIS doesn't know about the new intent and its example utterances until it is tr
     ![Screenshot of Training success notification bar ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
 
 ## Configure app to include sentiment analysis
-Sentiment analysis is enabled on the **Publish** page. 
+Configure sentiment analysis on the **Publish** page. 
 
 1. Select **Publish** in the top right navigation.
 
