@@ -220,7 +220,7 @@ New command:
 * [Submit Sqoop jobs](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## Migrating to the new HDInsight .NET SDK
-The Azure Service Management-based [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) is now deprecated. You are encouraged to use the Azure Resource Management-based [Resource Manager-based HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt271028.aspx). The following ASM-based HDInsight packages are being deprecated.
+The Azure Service Management-based [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) is now deprecated. You are encouraged to use the Azure Resource Management-based [Resource Manager-based HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight). The following ASM-based HDInsight packages are being deprecated.
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`
