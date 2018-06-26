@@ -50,15 +50,15 @@ To get provisioning report information for a given application, start by launchi
 From here, you can access both the Provisioning summary report, and the provisioning audit logs, both described below.
 
 
-### Provisioning summary report
+## Provisioning summary report
 
-The provisioning summary report is visible in the **Provisioning** tab for given application. It is located in the Synchronization Details section underneath **Settings**, and provides the following information:
+The provisioning summary report is visible in the **Provisioning** tab for given application. It is located in the **Synchronization Details** section underneath **Settings**, and provides the following information:
 
 * The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system.
 
-* The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after a full synchronization has completed.
+* The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial synchronization](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) has completed.
 
-* Whether or not an initial full synchronization has been completed.
+* Whether or not an [initial synchronization]((active-directory-saas-app-provisioning.md#what-happens-during-provisioning) has been completed.
 
 * Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (e.g. failure to communicate with target system due to invalid admin credentials)
 
@@ -66,7 +66,7 @@ The provisioning summary report should be the first place admins look to check o
 
  ![Summary report](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
-### Provisioning audit logs
+## Provisioning audit logs
 All activities performed by the provisioning service are recorded in the Azure AD audit logs, which can be viewed in the **Audit logs** tab under the **Account Provisioning** category. Logged activity event types include:
 
 * **Import events** - An "import" event is recorded each time the Azure AD provisioning service retrieves information about an individual user or group from a source system or target system. During synchronization, users are retrieved from the source system first, with the results recorded as "import" events. The matching IDs of the retrieved users are then queried against the target system to check if they exist, with the results also recorded as "import" events. These events record all mapped user attributes and their values that were seen by the Azure AD provisioning service at the time of the event. 
