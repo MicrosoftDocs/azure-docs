@@ -23,7 +23,7 @@ ms.author: daveba
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you learn how to perform the following Managed Service Identity operations on an Azure Virtual Machine Scale Set (VMSS), using PowerShell:
+In this article, you learn how to perform the Managed Service Identity operations on a Virtual Machine Scale Set (VMSS), using PowerShell:
 - Enable and disable the system assigned identity on an Azure VMSS
 - Add and remove a user assigned identity on an Azure VMSS
 
@@ -104,7 +104,7 @@ In this section, you learn how to add and remove a user assigned identity from a
 
 ### Assign a user assigned identity during creation of an Azure VMSS
 
-Creating a new VMSS with a user assigned identity is not currently supported via PowerShell. See the next section on how to add a user assigned identity to an existing VMSS. Check back for updates.
+Creating a new VMSS with a user assigned identity isn't currently supported via PowerShell. See the next section on how to add a user assigned identity to an existing VMSS. Check back for updates.
 
 ### Assign a user identity to an existing Azure VMSS
 
@@ -118,8 +118,7 @@ To assign a user assigned identity to an existing Azure VMSS:
 
 2. First retrieve the VM properties using the `Get-AzureRmVM` cmdlet. Then to assign a user assigned identity to the Azure VMSS, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet. Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` with your own values.
 
-   > [!IMPORTANT]
-   > Creating user assigned identities only supports alphanumeric and hyphen (0-9 or a-z or A-Z or -) characters. Additionally, name should be limited to 24 character length for the assignment to VM/VMSS to work properly. Check back for updates. For more information, see [FAQs and known issues](known-issues.md)
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
    ```powershell

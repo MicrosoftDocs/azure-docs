@@ -42,10 +42,10 @@ The [Speech to Text](speech-to-text.md) (STT), or speech recognition, API transc
 
 Speech to Text has been separately optimized for interactive, conversation, and dictation scenarios. The following are common use cases for the Speech to Text API. 
 
- * Recognize brief a utterance, such as a command, without interim results
- * Transcribe a long, previously-recorded utterance, such as a voicemail message
- * Transcribe streaming speech in real-time, with partial results, for dictation
- * Determine what users want to do based on a spoken natural-language request
+* Recognize brief a utterance, such as a command, without interim results
+* Transcribe a long, previously-recorded utterance, such as a voicemail message
+* Transcribe streaming speech in real-time, with partial results, for dictation
+* Determine what users want to do based on a spoken natural-language request
 
 The Speech to Text API supports interactive speech transcription with real-time continuous recognition and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.
 
@@ -73,7 +73,7 @@ Use cases for Speech Translation include the following.
 
 * Implement a "conversational" translation mobile app or device for travelers 
 * Provide automatic translations for subtitling of audio and video recordings
- 
+
 ## Speech Devices SDK
 
 With the introduction of the unified Speech service, Microsoft and its partners offer an integrated hardware/software platform optimized for developing speech-enabled devices: the [Speech Devices SDK](speech-devices-sdk.md). This SDK is suitable for developing smart speech devices for all types of applications.
@@ -82,7 +82,7 @@ The Speech Devices SDK allows you to build your own ambient devices with a custo
 
 ## Next steps
 
-Proceed to the next article to get set up for using the Speech service.
+Get a free trial subscription key for the Speech service.
 
 > [!div class="nextstepaction"]
-> [Prepare to use Speech service](get-started.md)
+> [Try the Speech service for free](get-started.md)

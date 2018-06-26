@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Cloud Shell troubleshooting | Microsoft Docs
 description: Troubleshooting Azure Cloud Shell
 services: azure
@@ -40,11 +40,6 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
  - **Resolution**: Check you have configured your network settings to enable sending https requests and websocket requests to domains at *.console.azure.com.
 
 ## Bash troubleshooting
-
-### Cannot run az login
-
-- **Details**: Running `az login` will not work as you are already authenticated under the account used to sign into Cloud Shell or Azure portal.
-- **Resolution**: Utilize your account used to sign in or sign out and reauthenticate with your intended Azure account.
 
 ### Cannot run the docker daemon
 

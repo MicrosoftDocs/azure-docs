@@ -1,13 +1,13 @@
-﻿---
+---
 title: Create Azure Automation Run As accounts
-description: This article describes how to update your Automation account and create Run As accounts with PowerShell, or from the portal.  
+description: This article describes how to update your Automation account and create Run As accounts with PowerShell, or from the portal.
 services: automation
 ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 
@@ -132,12 +132,9 @@ This PowerShell script includes support for the following configurations:
         $keyValue = [System.Convert]::ToBase64String($PfxCert.GetRawCertData())
         $keyId = (New-Guid).Guid
         
-        $startDate = Get-Date
-        $endDate = (Get-Date $PfxCert.GetExpirationDateString()).AddDays(-1)
-        
         #Create an Azure AD application, AD App Credential, AD ServicePrincipal
         $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $keyId) 
-        $ApplicationCredential = New-AzureRmADAppCredential -ApplicationId $Application.ApplicationId -CertValue $keyValue -StartDate $startDate -EndDate $endDate 
+        $ApplicationCredential = New-AzureRmADAppCredential -ApplicationId $Application.ApplicationId -CertValue $keyValue -StartDate $PfxCert.NotBefore -EndDate $PfxCert.NotAfter
         $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
         $GetServicePrincipal = Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id
         

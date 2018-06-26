@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -58,7 +58,7 @@ For example, the following JSON shows a policy that limits where resources are d
 }
 ```
 
-All Azure Policy template samples are at [Templates for Azure Policy](json-samples.md).
+All Azure Policy samples are at [Policy samples](json-samples.md).
 
 ## Mode
 
@@ -186,9 +186,12 @@ A condition evaluates whether a **field** meets certain criteria. The supported 
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value.
+When using the **like** and **notLike** conditions, you can provide a wildcard `*` in the value.
+The value should not contain more than one wildcard `*`.
 
-When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Allow multiple name patterns](scripts/allow-multiple-name-patterns.md).
+When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a
+letter, and any other character to represent that actual character. For examples, see [Allow
+multiple name patterns](scripts/allow-multiple-name-patterns.md).
 
 ### Fields
 
@@ -198,7 +201,7 @@ The following fields are supported:
 
 - `name`
 - `fullName`
-  - Returns the full name of the resource, including any parents (for example "myServer/myDatabase")
+  - Returns the full name of the resource. The full name of a resource is the resource name prepended by any parent resource names (for example "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`
@@ -245,6 +248,8 @@ The value can be either a string or a JSON format object.
 
 With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a related resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks.
 For an example of auditing when a virtual machine extension is not deployed, see [Audit if extension does not exist](scripts/audit-ext-not-exist.md).
+
+For complete details on each effect, order of evaluation, properties, and examples, see [Understanding Policy Effects](policy-effects.md).
 
 ## Aliases
 
@@ -308,7 +313,7 @@ The list of aliases is always growing. To discover what aliases are currently su
 
 ## Initiatives
 
-Initiatives enable you group several related policy definitions to simplify assignments and management because you work with a group as a single item. For example, you can group all related tagging policy definitions in a single initiative. Rather than assigning each policy individually, you apply the initiative.
+Initiatives enable you to group several related policy definitions to simplify assignments and management because you work with a group as a single item. For example, you can group all related tagging policy definitions in a single initiative. Rather than assigning each policy individually, you apply the initiative.
 
 The following example illustrates how to create an initiative for handling two tags: `costCenter` and `productName`. It uses two built-in policies to apply the default tag value.
 
@@ -386,4 +391,4 @@ The following example illustrates how to create an initiative for handling two t
 
 ## Next steps
 
-- Review the Azure Policy template samples at [Templates for Azure Policy](json-samples.md).
+- Review more examples at [Azure Policy samples](json-samples.md).

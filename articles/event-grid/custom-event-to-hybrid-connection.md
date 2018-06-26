@@ -6,7 +6,7 @@ keywords:
 author: tfitzmac
 ms.author: tomfitz
 ms.date: 05/04/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: event-grid
 ---
 # Route custom events to Azure Relay Hybrid Connections with Azure CLI and Event Grid

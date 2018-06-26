@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/07/2018
+ms.date: 5/22/2018
 ms.author: nachandr
 
 ---
@@ -317,6 +317,10 @@ A. The time needed by the patch orchestration app is mostly dependent on the fol
 Q. **Why do I see some updates in Windows Update results obtained via REST API, but not under the Windows Update history on the machine?**
 
 A. Some product updates would only appear in their respective update/patch history. For example, Windows Defender updates do not show up in Windows Update history on Windows Server 2016.
+
+Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node cluster) ?**
+
+A. No, Patch orchestration app cannot be used to patch one-node cluster. This limitation is by design, as [service fabric system services](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) or any customer apps will face downtime and hence any repair job for patching would never get approved by repair manager.
 
 ## Disclaimers
 

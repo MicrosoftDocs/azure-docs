@@ -73,10 +73,15 @@
     href: azure-web-sites-web-hosting-plans-in-depth-overview.md
   - name: OS functionality
     href: web-sites-available-operating-system-functionality.md
+  - name: Security
+    href: app-service-security.md
+    items:
+    - name: Authentication and authorization
+      href: app-service-authentication-overview.md
+    - name: OS and runtime patching
+      href: app-service-patch-os-runtime.md
   - name: Inbound and outbound IPs
     href: app-service-ip-addresses.md
-  - name: Authentication and authorization
-    href: app-service-authentication-overview.md
   - name: Hybrid connections
     href: app-service-hybrid-connections.md
   - name: Traffic Manager integration
@@ -85,8 +90,6 @@
     href: app-service-local-cache-overview.md
   - name: Diagnostics
     href: app-service-diagnostics.md
-  - name: OS and runtime patching
-    href: app-service-patch-os-runtime.md
 - name: How-To guides
   items:
   - name: Configure app
@@ -165,6 +168,8 @@
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
       href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
+    - name: High density hosting
+      href: app-service-high-density-hosting.md
   - name: Monitor app
     items:
     - name: Quotas & alerts

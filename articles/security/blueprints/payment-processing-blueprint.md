@@ -42,7 +42,7 @@ The foundational architecture is comprised of the following components:
 - **Deployment templates**. In this deployment, [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment) are used to automatically deploy the components of the architecture into Microsoft Azure by specifying configuration parameters during setup.
 - **Automated deployment scripts**. These scripts help deploy the end-to-end solution. The scripts consist of:
     - A module installation and [global administrator](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) setup script is used to install and verify that required PowerShell modules and global administrator roles are configured correctly.
-    - An installation PowerShell script is used to deploy the end-to-end solution, provided via a .zip file and a .bacpac file that contain a pre-built demo web application with [SQL database sample](https://github.com/Microsoft/azure-sql-security-sample). content. The source code for this solution is available for review [ Blueprint code repository][code-repo]. 
+    - An installation PowerShell script is used to deploy the end-to-end solution, provided via a .zip file and a .bacpac file that contain a pre-built demo web application with [SQL database sample](https://github.com/Microsoft/azure-sql-security-sample) content. The source code for this solution is available for review on [GitHub](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). 
 
 ## Architectural diagram
 
@@ -167,8 +167,6 @@ Each of the network tiers has a dedicated network security group (NSG):
 - A DMZ network security group for firewall and Application Gateway WAF
 - An NSG for management jumpbox (bastion host)
 - An NSG for the app service environment
-
-Each of the NSGs have specific ports and protocols opened for the secure and correct operation of the solution. For more information, see [PCI Guidance - Network Security Groups](#network-security-groups).
 
 Each of the NSGs have specific ports and protocols opened for the secure and
 correct working of the solution. In addition, the following configurations are enabled for each NSG:
@@ -300,7 +298,7 @@ Default deployment is intended to provide a baseline of security center recommen
 
 ## Deploy the solution
 
-The components for deploying this solution are available in the [PCI Blueprint code repository][code-repo]. The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
+The components for deploying this solution are available in the [PCI Blueprint code repository](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified through a guided user prompt in the primary deployment script in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
 
 The scripts add domain users to the Azure AD tenant that you specify. We recommend creating a new Azure AD tenant to use as a test.
 
@@ -325,19 +323,17 @@ It is highly recommended that a clean installation of PowerShell be used to depl
  
     ```powershell
     .\1-DeployAndConfigureAzureResources.ps1 
-        -resourceGroupName contosowebstore
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -azureADDomainName contosowebstore.com 
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-        -suffix PCIcontosowebstore
-        -customHostName contosowebstore.com
-        -sqlTDAlertEmailAddress edna@contosowebstore.com 
-        -enableSSL
-        -enableADDomainPasswordPolicy 
     ```
     
-    For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+    For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). This script can be used for supporting the Contoso Web Store demo, or piloting the initial steps of deploying an environment for supporting PCI compliance. 
+    
+    ```PowerShell
+    .\1A-ContosoWebStoreDemoAzureResources.ps1
+    ```
+    
+    For detailed usage instructions for supporting the Contoso Web Store demo deployment, see [Script Instructions - Contoso Web Store Demo Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1A-ContosoWebStoreDemoAzureResources.md). This script can be used for deploying the Contoso Web Store demo infrastructure. 
+    
+    These scripts are intended to be used independent of each other. To best understand the solution, it is recommended to complete the demo deployment for identifying the necessary Azure resources required for supporting the solution. 
     
 3. Logging and monitoring. Once the solution is deployed, a Log Analytics workspace can be opened, and the sample templates provided in the solution repository can be used to illustrate how a monitoring dashboard can be configured. For the sample templates refer to the [omsDashboards folder](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Note that data must be collected in Log Analytics for templates to deploy correctly. This can take up to an hour or more depending on site activity.
  

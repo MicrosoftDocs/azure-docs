@@ -1,5 +1,6 @@
 ---
 title: Microsoft Translator Text API Translate Method | Microsoft Docs
+titleSuffix: Cognitive Services
 description: Use the Microsoft Translator Text API Translate method.
 services: cognitive-services
 author: Jann-Skotdal
@@ -117,7 +118,6 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 25 elements.
-* The text value of an array element cannot exceed 1,000 characters including spaces.
 * The entire text included in the request cannot exceed 5,000 characters including spaces.
 
 ## Response body
@@ -318,7 +318,7 @@ This example shows how to translate the same input to several languages in one r
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Latn&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 ---
@@ -522,10 +522,10 @@ The markup to supply uses the following syntax.
 <mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
 ```
 
-For example, consider the English sentence "Instant dictionary: word wordomatic is a dictionary entry." To preserve the word _wordomatic_ in the translation, send the request:
+For example, consider the English sentence "The word wordomatic is a dictionary entry." To preserve the word _wordomatic_ in the translation, send the request:
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Instant dictionary: word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 The result is:
@@ -534,7 +534,7 @@ The result is:
 [
     {
         "translations":[
-            {"text":"Sofortige Wörterbuch: Wort wordomatic ist ein Wörterbucheintrag.","to":"de"}
+            {"text":"Das Wort "wordomatic" ist ein Wörterbucheintrag.","to":"de"}
         ]
     }
 ]

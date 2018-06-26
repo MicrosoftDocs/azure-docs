@@ -18,7 +18,7 @@ Different languages are supported for different Speech services functions. The t
 
 ## Speech to Text
 
-The Microsoft speech recognition API supports the following languages in `conversation` modes. 
+The Microsoft speech recognition API supports the following languages. 
 
 | Code | Language | Code | Language |
 |-----|-----|-----|-----|
@@ -82,11 +82,10 @@ hr-HR | Croatian | Male | "Microsoft Server Speech Text to Speech Voice (hr-HR, 
 hu-HU | Hungarian | Male | "Microsoft Server Speech Text to Speech Voice (hu-HU, Szabolcs)"
 id-ID | Indonesian| Male | "Microsoft Server Speech Text to Speech Voice (id-ID, Andika)"
 it-IT | Italian |Male | "Microsoft Server Speech Text to Speech Voice (it-IT, Cosimo, Apollo)"
+| | |Female | "Microsoft Server Speech Text to Speech Voice (it-IT, LuciaRUS)"
 ja-JP | Japanese |Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ayumi, Apollo)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ichiro, Apollo)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, HarukaRUS)"
-| | |Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, LuciaRUS)"
-| | |Male | "Microsoft Server Speech Text to Speech Voice (ja-JP, EkaterinaRUS)"
 ko-KR | Korean |Female | "Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)"
 ms-MY | Malay|Male | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)"
 nb-NO | Norwegian|Female | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)"
@@ -98,6 +97,7 @@ pt-PT | Portuguese (Portugal)|Female | "Microsoft Server Speech Text to Speech V
 ro-RO | Romanian|Male | "Microsoft Server Speech Text to Speech Voice (ro-RO, Andrei)"
 ru-RU |Russian| Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)"
+| | |Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, EkaterinaRUS)"
 sk-SK | Slovak|Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)"
 sl-SI | Slovenian|Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
 sv-SE | Swedish|Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"

@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/22/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -20,11 +20,33 @@ For more information about the components of Blockchain Workbench, see [Azure Bl
 
 ## Prepare for deployment
 
+Blockchain Workbench allows you to deploy a blockchain ledger along with a set of relevant Azure services most often used to build a blockchain-based application. Deploying Blockchain Workbench results in the following Azure services being provisioned within a resource group in your Azure subscription.
+
+* 1 Event Grid Topic
+* 1 Service Bus Namespace
+* 1 Application Insights
+* 1 SQL Database (Standard S0)
+* 2 App Services (Standard)
+* 2 Azure Key Vaults
+* 2 Azure Storage accounts (Standard LRS)
+* 2 Virtual machine scale sets (for validator and worker nodes)
+* 2 Virtual Networks (including load balancer, network security group, and public IP address for each virtual network)
+* Optional: Azure Monitor
+
+The following is an example deployment created in **myblockchain** resource group.
+
+![Example deployment](media/blockchain-workbench-deploy/example-deployment.png)
+
+The cost of Blockchain Workbench is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
 Azure Blockchain Workbench requires several prerequisites prior to the deployment. The prerequisites include Azure AD configuration and application registrations.
 
 ### Blockchain Workbench API app registration
 
-Blockchain Workbench deployment requires registration of an Azure AD application. You need an Azure Active Directory (Azure AD) tenant to register the app. You can use an existing tenant or create a new tenant. If you are using an existing Azure AD tenant, you need sufficient permissions to register applications within an Azure AD tenant. The application registrations need to be in the subscription admin's tenant of the subscription where Workbench is deployed. For more information on Azure AD tenants, see [How to get an Active Directory tenant](../active-directory/develop/active-directory-howto-tenant.md) and [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+Blockchain Workbench deployment requires registration of an Azure AD application. You need an Azure Active Directory (Azure AD) tenant to register the app. You can use an existing tenant or create a new tenant. If you are using an existing Azure AD tenant, you need sufficient permissions to register applications and grant Graph API permissions within an Azure AD tenant. If you do not have sufficient permissions in an existing Azure AD tenant create a new tenant. 
+
+> [!IMPORTANT]
+> Workbench does not have to be deployed in the same tenant as the one you are using to register an Azure AD application. Workbench must be deployed in a tenant where you have sufficient permissions to deploy resources. For more information on Azure AD tenants, see [How to get an Active Directory tenant](../active-directory/develop/active-directory-howto-tenant.md) and [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select your account in the top right corner, and switch to the desired Azure AD tenant. The tenant should be the subscription admin's tenant of the subscription where Workbench is deployed and you have sufficient permissions to register applications.
@@ -49,7 +71,7 @@ Blockchain Workbench deployment requires registration of an Azure AD application
 Next, you need to modify the application manifest to use application roles within Azure AD to specify Blockchain Workbench administrators.  For more information about application manifests, see [Azure Active Directory application manifest](../active-directory/develop/active-directory-application-manifest.md).
 
 1. For the application you registered, select **Manifest** in the registered application details pane.
-2. Generate a GUID. You can use the PowerShell command `[guid]::NewGuid()` or online tools to generate a GUID. 
+2. Generate a GUID. You can generate a GUID using the PowerShell command [guid] :: NewGuid () or New-GUID cmdlet. Another option is to use a GUID generator website.
 3. You are going to update the **appRoles** section of the manifest. In the Edit manifest pane, select **Edit** and replace `"appRoles": []` with the provided JSON. Be sure to replace the value for the **id** field with the GUID you generated. 
 
     ``` json
@@ -250,9 +272,18 @@ Once the Azure Blockchain Workbench has been deployed, the next step is to make 
 
 7. Select **Save** to update the client registration.
 
+## Remove a deployment
+
+When a deployment is no longer needed, you can remove a deployment by deleting the Blockchain Workbench resource group.
+
+1. In the Azure portal, navigate to **Resource group** in the left navigation pane and select the resource group you want to delete. 
+2. Select **Delete resource group**. Verify deletion by entering the resource group name and select **Delete**.
+
+    ![Delete resource group](media/blockchain-workbench-deploy/delete-resource-group.png)
+
 ## Next steps
 
-In this how-to article, you've deployed Azure Blockchain Workbench. To learn how to create a blockchain application, continue to the next how-to article.
+In this how-to article, you deployed Azure Blockchain Workbench. To learn how to create a blockchain application, continue to the next how-to article.
 
 > [!div class="nextstepaction"]
 > [Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)

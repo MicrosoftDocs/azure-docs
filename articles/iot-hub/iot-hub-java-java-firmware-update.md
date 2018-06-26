@@ -1,22 +1,16 @@
 ---
 title: Device firmware update with Azure IoT Hub (Java/Java) | Microsoft Docs
 description: How to use device management on Azure IoT Hub to initiate a device firmware update. You use the Azure IoT device SDK for Java to implement a simulated device app and to implement a service app that triggers the firmware update.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: java
+ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: v-masebo;dobett
-
+ms.author: dobett
 ---
+
 # Use device management to initiate a device firmware update (Java/Java)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 

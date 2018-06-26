@@ -3,18 +3,19 @@ title: Sign-in activity reports in the Azure Active Directory portal | Microsoft
 description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2018
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 06/21/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -33,10 +34,10 @@ The reporting architecture in Azure Active Directory consists of the following c
 
 This topic gives you an overview of the sign-in activities.
 
-## Pre-requisite
+## Prerequisites
 
 ### Who can access the data?
-* Users in the Security Admin or Security Reader role
+* Users in the Security Admin, Security Reader, Report Reader, or Application Administrator role
 * Global Admins
 * Any user (non-admins) can access their own sign-ins 
 
@@ -44,7 +45,7 @@ This topic gives you an overview of the sign-in activities.
 * Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report
 
 
-## Signs-in activities
+## Sign-in activities
 
 With the information provided by the user sign-in report, you find answers to questions such as:
 
@@ -196,3 +197,4 @@ The **Sign-ins** option gives you a complete overview of all sign-in events to y
 ## Next steps
 
 If you want to know more about sign-in activity error codes, see the [Sign-in activity report error codes in the Azure Active Directory portal](active-directory-reporting-activity-sign-ins-errors.md).
+

@@ -3,12 +3,14 @@ title: Tutorial - Grant access to an ASP.NET Core web API from a single-page app
 description: Tutorial on how to use Active Directory B2C to protect an .NET Core web api and call it from a single page app.
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
+ms.service: active-directory
+ms.component: B2C
 ---
 
 # Tutorial: Grant access to an ASP.NET Core web API from a single-page app using Azure Active Directory B2C
@@ -152,13 +154,15 @@ To allow your single page app to call the ASP.NET Core web API, you need to enab
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
+3. Open the **launchSettings.json** file under **Properties**, locate the *applicationURL* setting, and record the value for use in the next section.
+
 ### Configure the single page app
 
 The single page app uses Azure AD B2C for user sign-up, sign-in, and calls the protected ASP.NET Core web API. You need to update the single page app call the .NET Core web api.
 To change the app settings:
 
 1. Open the `index.html` file in the Node.js single page app sample.
-2. Configure the sample with the Azure AD B2C tenant registration information. Change the **b2cScopes** and **webApi** values in following lines of code:
+2. Configure the sample with the Azure AD B2C tenant registration information. In the following code, add your tenant name to **b2cScopes** and change the **webApi** value to the *applicationURL* value that you previously recorded:
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -166,7 +170,7 @@ To change the app settings:
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:58553/api/values',
+        webApi: 'http://localhost:64791/api/values',
     };
     ```
 

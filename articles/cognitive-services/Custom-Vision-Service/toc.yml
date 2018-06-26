@@ -17,6 +17,8 @@
       href: use-prediction-api.md
     - name: Export your model to mobile
       href: export-your-model.md
+    - name: Use ONNX model with Windows ML
+      href: custom-vision-onnx-windows-ml.md
     - name: Run TensorFlow model in Python
       href: export-model-python.md
   - name: Build apps
@@ -45,14 +47,20 @@
     href: glossary-of-terms.md
   - name: SDKs
     items:
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
     - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
     - name: Windows
       href: http://github.com/Microsoft/Cognitive-CustomVision-Windows
 - name: Resources
   items:
+  - name: Samples
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/
+  - name: Export or delete account data
+    href: ./export-delete-data.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
   - name: Stack Overflow

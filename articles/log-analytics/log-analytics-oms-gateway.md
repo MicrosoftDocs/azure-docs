@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/16/2018
 ms.author: magoedte
 ---
 
@@ -127,20 +127,18 @@ You can configure the gateway for high availability using network load balancing
 
 To learn how to design and deploy a Windows Server 2016 network load balancing cluster, see [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  The following steps describe how to configure a  Microsoft network load balancing cluster.  
 
-1.  Sign onto the Windows server that is a member of the NLB cluster with an administrative account.  
-2.  Open Network Load Balancing Manager in Server Manager, click **Tools**, and then click **Network Load Balancing Manager**.
+1. Sign onto the Windows server that is a member of the NLB cluster with an administrative account.  
+2. Open Network Load Balancing Manager in Server Manager, click **Tools**, and then click **Network Load Balancing Manager**.
 3. To connect an OMS Gateway server with the Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then click **Add Host to Cluster**.<br><br> ![Network Load Balancing Manager – Add Host To Cluster](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 4. Enter the IP address of the gateway server that you want to connect.<br><br> ![Network Load Balancing Manager – Add Host To Cluster: Connect](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## Configure OMS agent and Operations Manager management group
 The following section includes steps on how to configure directly connected OMS agents, an Operations Manager management group, or Azure Automation Hybrid Runbook Workers with the OMS Gateway to communicate with Azure Automation or Log Analytics.  
 
-To understand requirements and steps on how to install the OMS agent on Windows computers directly connecting to Log Analytics, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) or for Linux computers see [Connect Linux computers to Log Analytics](log-analytics-quick-collect-linux-computer.md).  For information related to the Automation Hybrid Runbook Worker, see [Deploy Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
-
-### Configuring the OMS agent and Operations Manager to use the OMS Gateway as a proxy server
-
 ### Configure standalone OMS agent
-See [Configure proxy and firewall settings with the Microsoft Monitoring Agent](log-analytics-proxy-firewall.md) for information about configuring an agent to use a proxy server, which in this case is the gateway.  If you have deployed multiple gateway servers behind a network load balancer, the OMS agent proxy configuration is the virtual IP address of the NLB:<br><br> ![Microsoft Monitoring Agent Properties – Proxy Settings](./media/log-analytics-oms-gateway/nlb04.png)
+To understand requirements and steps on how to install the OMS agent on Windows computers directly connecting to Log Analytics, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) or for Linux computers see [Connect Linux computers to Log Analytics](log-analytics-quick-collect-linux-computer.md). In the place of specifying a proxy server while configuring the agent, you replace that value with the IP address of the OMS Gateway server and its port number.  If you have deployed multiple gateway servers behind a network load balancer, the OMS agent proxy configuration is the virtual IP address of the NLB.  
+
+For information related to the Automation Hybrid Runbook Worker, see [Deploy Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
 
 ### Configure Operations Manager - all agents use the same proxy server
 You configure Operations Manager to add the gateway server.  The Operations Manager proxy configuration is automatically applied to all agents reporting to Operations Manager, even if the setting is empty.  

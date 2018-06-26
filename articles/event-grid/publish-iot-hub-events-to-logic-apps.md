@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 
 ms.service: iot-hub
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018

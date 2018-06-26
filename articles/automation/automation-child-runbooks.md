@@ -7,7 +7,7 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/04/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Child runbooks in Azure Automation
@@ -40,7 +40,7 @@ When you call a Graphical or PowerShell Workflow child runbook using inline exec
 
 ### Example
 
-The following example invokes a test child runbook that accepts three parameters, a complex object, an integer, and a boolean. The output of the child runbook is assigned to a variable.  In this case, the child runbook is a PowerShell Workflow runbook
+The following example invokes a test child runbook that accepts three parameters, a complex object, an integer, and a boolean. The output of the child runbook is assigned to a variable.  In this case, the child runbook is a PowerShell Workflow runbook.
 
 ```azurepowershell-interactive
 $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"

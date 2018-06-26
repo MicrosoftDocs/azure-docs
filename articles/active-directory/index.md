@@ -64,7 +64,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                     <div class="cardText">
                         <h3>External users</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b">Business-to-business (B2B)</a><br/>
+                        <a href="/azure/active-directory/b2b/what-is-b2b">Business-to-business (B2B)</a><br/>
                         <a href="/azure/active-directory-b2c/">Business-to-customer (B2C)</a>
                         </p>
                     </div>
@@ -98,7 +98,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Identity protection</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Conditional access</a><br/>
-                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure">Privileged identity management</a>
+                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json">Privileged identity management</a>
                         </p>
                     </div>
                 </div>
@@ -129,7 +129,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <h3>Apps</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-enable-sso-scenario">App management</a><br/>
-                        <a href="/azure/active-directory/cloudappdiscovery-get-started">App discovery</a><br/>
+                        <a href="/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure">App migration</a><br/>
                         <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">Enterprise apps</a><br/>
                         <a href="/azure/active-directory/active-directory-managing-access-to-apps">Access to apps</a>
                         </p>

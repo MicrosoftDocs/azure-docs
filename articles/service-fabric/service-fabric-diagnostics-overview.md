@@ -45,9 +45,6 @@ We recommend using the EventStore for quick analysis and to get a snapshot idea 
 
  You can read more about monitoring your cluster at [Platform level event and log generation](service-fabric-diagnostics-event-generation-infra.md).
 
-
- ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
-
 ## Performance monitoring
 Monitoring your underlying infrastructure is a key part of understanding the state of your cluster and your resource utilization. Measuring system performance depends on several factors, each of which is typically measured through a Key Performance Indicators (KPIs). Service Fabric relevant KPIs can be mapped to metrics that can be collected from the nodes in your cluster, as performance counters.
 These KPIs can help with:
