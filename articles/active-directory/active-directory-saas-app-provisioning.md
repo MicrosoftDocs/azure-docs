@@ -227,6 +227,12 @@ For information on how the read the audit logs in the Azure portal, see the [pro
 For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](active-directory-application-provisioning-content-map.md).
 
 
+##What are the best practices for rolling out automatic user provisioning?
+
+> [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
+
+For an example step-by-step deployment plan for outbound user provisioning to an application, see the [Identity Deployment Guide for User Provisioning](https://aka.ms/userprovisioningdeploymentplan)/
+
 
 ## Related articles
 * [List of Tutorials on How to Integrate SaaS Apps](saas-apps/tutorial-list.md)
@@ -235,4 +241,3 @@ For scenario-based guidance on how to troubleshoot automatic user provisioning, 
 * [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
-* [Step-by-step deployment plan for outbound user provisioning of an application](https://aka.ms/userprovisioningdeploymentplan)
