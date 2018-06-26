@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2018
+ms.date: 06/20/2018
 ms.author: shlo
 
 ---
@@ -133,11 +133,13 @@ For a complete sample, see [Quickstart: Create a data factory by using the .NET 
 > You can use the .NET SDK to invoke Data Factory pipelines from Azure Functions, from your own web services, and so on.
 
 <h2 id="triggers">Trigger execution</h2>
-Triggers are another way that you can execute a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Data Factory supports two types of triggers:
+Triggers are another way that you can execute a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Data Factory supports three types of triggers:
 
 - Schedule trigger: A trigger that invokes a pipeline on a wall-clock schedule.
 
 - Tumbling window trigger: A trigger that operates on a periodic interval, while also retaining state. Azure Data Factory doesn't currently support event-based triggers. For example, the trigger for a pipeline run that responds to a file-arrival event is not supported.
+
+- Event-based trigger: A trigger that responds to an event.
 
 Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
 
@@ -172,11 +174,6 @@ Pipelines and triggers have a many-to-many relationship. Multiple triggers can k
 A schedule trigger runs pipelines on a wall-clock schedule. This trigger supports periodic and advanced calendar options. For example, the trigger supports intervals like "weekly" or "Monday at 5:00 PM and Thursday at 9:00 PM." The schedule trigger is flexible because the dataset pattern is agnostic, and the trigger doesn't discern between time-series and non-time-series data.
 
 For more information about schedule triggers and for examples, see [Create a schedule trigger](how-to-create-schedule-trigger.md).
-
-## Tumbling window trigger
-Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals.
-
-For more information about tumbling window triggers and for examples, see [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
 
 ## Schedule trigger definition
 When you create a schedule trigger, you specify scheduling and recurrence by using a JSON definition. 
@@ -319,6 +316,17 @@ The following table describes the **schedule** elements in detail:
 | **weekDays** | Days of the week the trigger runs. The value can be specified only with a weekly frequency.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Array of day values (maximum array size is 7)<br /><br />Day values are not case-sensitive|
 | **monthlyOccurrences** | Days of the month on which the trigger runs. The value can be specified with a monthly frequency only. |- Array of **monthlyOccurence** objects: `{ "day": day,  "occurrence": occurence }`<br />- The **day** attribute is the day of the week on which the trigger runs. For example, a **monthlyOccurrences** property with a **day** value of `{Sunday}` means every Sunday of the month. The **day** attribute is required.<br />- The **occurrence** attribute is the occurrence of the specified **day** during the month. For example, a **monthlyOccurrences** property with **day** and **occurrence** values of `{Sunday, -1}` means the last Sunday of the month. The **occurrence** attribute is optional.|
 | **monthDays** | Day of the month on which the trigger runs. The value can be specified with a monthly frequency only. |- Any value <= -1 and >= -31<br />- Any value >= 1 and <= 31<br />- Array of values|
+
+## Tumbling window trigger
+Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals.
+
+For more information about tumbling window triggers and for examples, see [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
+
+## Event-based trigger
+
+An event-based triggers runs pipelines in response to an event, such as the arrival of a file, or the deletion of a file, in Azure Blob Storage.
+
+For more information about event-based triggers, see [Create a trigger that runs a pipeline in response to an event](how-to-create-event-trigger.md).
 
 ## Examples of trigger recurrence schedules
 This section provides examples of recurrence schedules. It focuses on the **schedule** object and its elements.

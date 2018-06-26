@@ -3,7 +3,7 @@ title: PowerShell example-Sync between SQL Database and SQL Server on-premises |
 description: Azure PowerShell example script to sync between an Azure SQL Database and a SQL Server on-premises database
 services: sql-database
 documentationcenter: sql-database
-author: jognanay
+author: allenwux
 manager: craigg
 editor: ''
 tags:
@@ -16,18 +16,18 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: jognanay
+ms.author: xiwu
 ms.reviewer: douglasl
 ---
 # Use PowerShell to sync between a SQL Database and a SQL Server on-premises database
 
-This PowerShell example configures Data Sync (Preview) to sync between an Azure SQL Database and a SQL Server on-premises database. 
+This PowerShell example configures Data Sync to sync between an Azure SQL Database and a SQL Server on-premises database. 
 
 This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
 Run `Connect-AzureRmAccount` to create a connection with Azure.
 
-For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](../sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md).
 
 ## Sample script
 

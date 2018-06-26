@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 06/20/2018
 ms.author: barclayn
 
 ---
@@ -126,7 +126,7 @@ For many customers, the essential requirement is to ensure that the data is encr
 
 Server-side encryption using service managed keys therefore quickly addresses the need to have encryption at rest with low overhead to the customer. When available a customer typically opens the Azure portal for the target subscription and resource provider and checks a box indicating, they would like the data to be encrypted. In some Resource Managers server-side encryption with service-managed keys is on by default.
 
-Server-side encryption with Microsoft-managed keys does imply the service has full access to store and manages the keys. While some customers may want to manage the keys because they feel they gain greater security, the cost and risk associated with a custom key storage solution should be considered when evaluating this model. In manIn many cases,ganization may determine that resource constraints or risks of an on-premises solution may greater than the risk of cloud management of the encryption at rest keys.  However, this model might not be sufficient for organizations that have requirements to control the creation or lifecycle of the encryption keys or to have different personnel manage a service’s encryption keys than those managing the service (i.e., segregation of key management from the overall management model for the service).
+Server-side encryption with Microsoft-managed keys does imply the service has full access to store and manages the keys. While some customers may want to manage the keys because they feel they gain greater security, the cost and risk associated with a custom key storage solution should be considered when evaluating this model. In many cases, organization may determine that resource constraints or risks of an on-premises solution may greater than the risk of cloud management of the encryption at rest keys.  However, this model might not be sufficient for organizations that have requirements to control the creation or lifecycle of the encryption keys or to have different personnel manage a service’s encryption keys than those managing the service (i.e., segregation of key management from the overall management model for the service).
 
 ##### Key access
 
@@ -229,7 +229,7 @@ It is recommended that whenever possible, IaaS applications leverage Azure Disk 
 
 ## Azure resource providers encryption model support
 
-Microsoft Azure Services each support one or more of the encryption at rest models. For some services, however, one or more of the encryption models may not be applicable. Additionally, services may release support for these scenarios at different schedules. This section describes the encryption at rest support at the time of this writing for each of the major Azure data storage services.
+Microsoft Azure Services each support one or more of the encryption at rest models. For some services, however, one or more of the encryption models may not be applicable. For services that support customer-managed key scenarios, they may support only a subset of the key types that Azure Key Vault supports for key encryption keys. Additionally, services may release support for these scenarios and key types at different schedules. This section describes the encryption at rest support at the time of this writing for each of the major Azure data storage services.
 
 ### Azure disk encryption
 
@@ -239,7 +239,7 @@ Any customer using Azure Infrastructure as a Service (IaaS) features can achieve
 
 All Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files) support server-side encryption at rest, with some services supporting customer-managed keys and client-side encryption.  
 
-- Server-side: All Azure Storage Services enable server-side encryption by default using service-managed keys, which is transparent to the application. For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage and Azure Files also support customer-managed keys in Azure Key Vault. For more information, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Server-side: All Azure Storage Services enable server-side encryption by default using service-managed keys, which is transparent to the application. For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage and Azure Files also support RSA 2048-bit customer-managed keys in Azure Key Vault. For more information, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 - Client-side: Azure Blobs, Tables, and Queues support client-side encryption. When using client-side encryption, customers encrypt the data and upload the data as an encrypted blob. Key management is done by the customer. For more information, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
@@ -247,40 +247,38 @@ All Azure Storage services (Blob storage, Queue storage, Table storage, and Azur
 
 Azure SQL Database currently supports encryption at rest for Microsoft managed service side and client-side encryption scenarios.
 
-Support for server encryption is currently provided through the SQL feature called Transparent Data Encryption. Once an Azure SQL Database customer enables TDE key are automatically created and managed for them. Encryption at rest can be enabled at the database and server levels. As of June 2017, [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) will be enabled by default on newly created databases.
+Support for server encryption is currently provided through the SQL feature called Transparent Data Encryption. Once an Azure SQL Database customer enables TDE key are automatically created and managed for them. Encryption at rest can be enabled at the database and server levels. As of June 2017, [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) is enabled by default on newly created databases. Azure SQL Database supports RSA 2048-bit customer-managed keys in Azure Key Vault. For more information, see [Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
 Client-side encryption of Azure SQL Database data is supported through the [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) feature. Always Encrypted uses a key that created and stored by the client. Customers can store the master key in a Windows certificate store, Azure Key Vault, or a local Hardware Security Module. Using SQL Server Management Studio, SQL users choose what key they’d like to use to encrypt which column.
 
-|                                  |                |                     | **Encryption Model**             |                              |        |
-|----------------------------------|----------------|---------------------|------------------------------|------------------------------|--------|
-|                                  |                |                     |                              |                              | **Client** |
-|                                  | **Key Management** | **Service-Managed Key** | **Customer Managed in Key Vault** | **Customer-Managed On-premises** |        |
-| **Storage and Databases**            |                |                     |                              |                              |        |
-| Disk (IaaS)                      |                | -                   | Yes                          | Yes*                         | -      |
-| SQL Server (IaaS)                |                | Yes                 | Yes                          | Yes                          | Yes    |
-| Azure SQL Database (PaaS)                 |                | Yes                 | Yes                          | -                            | Yes    |
-| Azure Storage (Block/Page Blobs) |                | Yes                 | Yes                          | -                            | Yes    |
-| Azure Storage (Files)            |                | Yes                 | Yes                          | -                            | -      |
-| Azure Storage (Tables, Queues)   |                | Yes                 | -                            | -                            | Yes    |
-| Cosmos DB (Document DB)          |                | Yes                 | -                            | -                            | -      |
-| StorSimple                       |                | Yes                 | -                            | -                            | Yes    |
-| Backup                           |                | -                   | -                            | -                            | Yes    |
-| **Intelligence and Analytics**       |                |                     |                              |                              |        |
-| Azure Data Factory               |                | Yes                 | -                            | -                            | -      |
-| Azure Machine Learning           |                | -                   | Preview                      | -                            | -      |
-| Azure Stream Analytics           |                | Yes                 | -                            | -                            | -      |
-| HDInsight (Azure Blob Storage)  |                | Yes                 | -                            | -                            | -      |
-| HDInsight (Data Lake Storage)   |                | Yes                 | -                            | -                            | -      |
-| Azure Data Lake Store            |                | Yes                 | Yes                          | -                            | -      |
-| Azure Data Catalog               |                | Yes                 | -                            | -                            | -      |
-| Power BI                         |                | Yes                 | -                            | -                            | -      |
-| **IoT Services**                     |                |                     |                              |                              |        |
-| IoT Hub                          |                | -                   | -                            | -                            | Yes    |
-| Service Bus                      |                | Yes              | -                            | -                            | Yes    |
-| Event Hubs                       |                | Yes             | -                            | -                            | -      |
+|                                  |                    | **Encryption Model and Key Management** |                   |                    |
+|----------------------------------|--------------------|--------------------|--------------------|--------------------|
+|                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed in Key Vault**             |  **Server-Side Using Customer-Managed On-premises**                  | **Client Using Client-Managed**      |
+| **Storage and Databases**        |                    |                    |                    |                    |                    |
+| Disk (IaaS)                      | -                  | Yes, RSA 2048-bit  | Yes               | -                  |
+| SQL Server (IaaS)                | Yes                | Yes, RSA 2048-bit  | Yes                | Yes                |
+| Azure SQL Database (PaaS)        | Yes                | Yes, RSA 2048-bit  | -                  | Yes                |
+| Azure Storage (Block/Page Blobs) | Yes                | Yes, RSA 2048-bit  | -                  | Yes                |
+| Azure Storage (Files)            | Yes                | Yes, RSA 2048-bit  | -                  | -                  |
+| Azure Storage (Tables, Queues)   | Yes                | -                  | -                  | Yes                |
+| Cosmos DB (Document DB)          | Yes                | -                  | -                  | -                  |
+| StorSimple                       | Yes                | -                  | -                  | Yes                |
+| Backup                           | -                  | -                  | -                  | Yes                |
+| **Intelligence and Analytics**   |                    |                    |                    |                    |
+| Azure Data Factory               | Yes                | -                  | -                  | -                  |
+| Azure Machine Learning           | -                  | Preview, RSA 2048-bit | -                  | -                  |
+| Azure Stream Analytics           | Yes                | -                  | -                  | -                  |
+| HDInsight (Azure Blob Storage)   | Yes                | -                  | -                  | -                  |
+| HDInsight (Data Lake Storage)    | Yes                | -                  | -                  | -                  |
+| Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  | -                  |
+| Azure Data Catalog               | Yes                | -                  | -                  | -                  |
+| Power BI                         | Yes                | -                  | -                  | -                  |
+| **IoT Services**                 |                    |                    |                    |                    |
+| IoT Hub                          | -                  | -                  | -                  | Yes                |
+| Service Bus                      | Yes                | -                  | -                  | Yes                |
+| Event Hubs                       | Yes                | -                  | -                  | -                  |
 
 
 ## Conclusion
 
 Protection of customer data stored within Azure Services is of paramount importance to Microsoft. All Azure hosted services are committed to providing Encryption at Rest options. Foundational services such as Azure Storage, Azure SQL Database, and key analytics and intelligence services already provide Encryption at Rest options. Some of these services support either customer controlled keys and client-side encryption as well as service-managed keys and encryption. Microsoft Azure services are broadly enhancing Encryption at Rest availability and new options are planned for preview and general availability in the upcoming months.
-

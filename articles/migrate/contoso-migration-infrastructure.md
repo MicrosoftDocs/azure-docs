@@ -3,10 +3,9 @@ title: Contoso-Set up a migration infrastructure | Microsoft Docs
 description: Learn how Contoso sets up an Azure infrastructure for migration to Azure.
 services: azure-migrate
 author: rayne-wiselman
-manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/19/2018
 ms.author: raynew
 
 ---
@@ -38,11 +37,12 @@ In this article Contoso set up all the infrastructure elements they need to comp
 
 Before they can migrate to Azure, it's critical that Contoso prepare their infrastructure.  Generally, there are five broad areas they need to think about:
 
-1. **Azure subscriptions**: How will they purchase Azure, and interact with the Azure platform and services?
-2. **Hybrid identity**: How will they manage and control access to on-premises and Azure resources after migration? How do they extend or move identity management to the cloud?
-3. **Disaster recovery and resilience**: How will they ensure that their apps and infrastructure are resilient if outages and disasters occur?
-4. **Networking**: How should they design your networking infrastructure, and establish connectivity between their on-premises datacenter and Azure?
-5. **Security and governance**: How will they secure their hybrid/Azure deployment, and keep it aligned with security and governance requirements?
+**Step 1: Azure subscriptions**: How will they purchase Azure, and interact with the Azure platform and services?  
+**Step 2: Hybrid identity**: How will they manage and control access to on-premises and Azure resources after migration? How do they extend or move identity management to the cloud?  
+**Step 3: Disaster recovery and resilience**: How will they ensure that their apps and infrastructure are resilient if outages and disasters occur?  
+**Step 4: Networking**: How should they design your networking infrastructure, and establish connectivity between their on-premises datacenter and Azure?  
+**Step 5: Security**: How will they secure their hybrid/Azure deployment?  
+**Step 6: Governance**: How will they keep their deployment aligned with security and governance requirements?
 
 ## Before you start
 
@@ -92,7 +92,7 @@ After paying for Azure, Contoso need to figure out how to manage their subscript
     - Inside their enterprise they'll have a single IT department that controls the Azure budget. This will be the only group with subscriptions.
     - They'll extend this model in the future, so that other corporate groups can join as departments in the Enterprise Enrollment.
     - Inside the IT department Contoso has structured two subscriptions, Production and Development.
-    - If Contoso requires additional subscriptions in the future, they'll need to manage access, policies and compliance for those subscriptions. They'll be able to do that by introducing [Azure Management Groups](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), as an additional layer above subscriptions.
+    - If Contoso requires additional subscriptions in the future, they'll need to manage access, policies and compliance for those subscriptions. They'll be able to do that by introducing [Azure management groups](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), as an additional layer above subscriptions.
 
     ![Enterprise structure](./media/contoso-migration-infrastructure/enterprise-structure.png) 
 
@@ -571,7 +571,7 @@ After updating network settings, Contoso are ready to build out their domain con
 
      ![New Volume Wizard](./media/contoso-migration-infrastructure/volume-wizard.png)
 
-7. In Server Manager they add the **Active Directory Domain Services** role. Then, they configure the VM as a domain controller.
+7. In Server Manager, they add the **Active Directory Domain Services** role. Then, they configure the VM as a domain controller.
 
       ![Server role](./media/contoso-migration-infrastructure/server-role.png)  
 
@@ -776,4 +776,4 @@ With this infrastructure in place, they're ready to move on and try out migratio
 
 ## Next steps
 
-As a first migration scenario, Contoso are going to migrate their on-premises SmartHotel two-tiered app running on VMware VMs to Azure. They'll migrate the app VMs to Azure VMs, and the app database to an Azure SQL Managed Instance.
+As a first migration scenario, Contoso are going to [assess their on-premises SmartHotel two-tiered app for migration to Azure](contoso-migration-assessment.md). 

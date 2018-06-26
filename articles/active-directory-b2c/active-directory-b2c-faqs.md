@@ -52,7 +52,7 @@ No, you can host your application anywhere (in the cloud or on-premises). All it
 Before opening 'Azure AD B2C' in the left side menu of the Azure portal, you must switch into the directory you want to manage.  Switch directories by clicking your identity in the upper right of the Azure portal, then choose a directory in the drop down that appears.  For a step-by-step with images, see [Navigate to Azure AD B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
-You can use the [company branding feature](../active-directory/customize-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
+You can use the [company branding feature](../active-directory/fundamentals/customize-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
 
 * **Banner Logo**: Shown at the bottom-right.
 * **Background color**: Shown at the top.
@@ -85,7 +85,7 @@ No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame. 
 Integration with Microsoft Dynamics 365 Portal is available.  See [Configuring Dynamics 365 Portal to use Azure AD B2C for authentication](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### Does Azure AD B2C work with SharePoint on-premises 2016 or earlier?
-Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) instead.
+Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/) instead.
 
 ### Should I use Azure AD B2C or B2B to manage external identities?
 Read this article about [external identities](../active-directory/active-directory-b2b-compare-external-identities.md) to learn more about applying the appropriate features to your external identity scenarios.

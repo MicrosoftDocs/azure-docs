@@ -6,6 +6,7 @@
     href: service-bus-messaging-overview.md
   - name: Compare messaging services
     href: ../event-grid/compare-messaging-services.md
+    maintainContext: true
 - name: Quickstarts
   items:
   - name: Send messages - PowerShell

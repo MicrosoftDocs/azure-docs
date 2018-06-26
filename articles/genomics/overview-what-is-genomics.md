@@ -25,7 +25,7 @@ Microsoft Genomics offers a 99.99% availability service level agreement (SLA) fo
 
 
 ## Secure your data
-The Microsoft Genomics service is ISO 27001, ISO 27018, and ISO 9001 certified and compliant with HIPAA regulations. Visit the [Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx) for information about Azure's platform security.
+The Microsoft Genomics service is ISO 27001, ISO 27018, and ISO 9001 certified and compliant with HIPAA regulations. Visit the [Azure Trust Center](https://www.microsoft.com/en-us/trustcenter/security) for information about Azure's platform security.
 
 
 ## Next steps

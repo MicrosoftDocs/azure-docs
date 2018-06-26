@@ -1,20 +1,20 @@
 ---
-title: "Troubleshoot Azure SQL Data Sync (Preview) | Microsoft Docs"
-description: "Learn how to troubleshoot common issues with Azure SQL Data Sync (Preview)."
+title: "Troubleshoot Azure SQL Data Sync | Microsoft Docs"
+description: "Learn how to troubleshoot common issues with Azure SQL Data Sync."
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
 ---
-# Troubleshoot issues with SQL Data Sync (Preview)
+# Troubleshoot issues with SQL Data Sync
 
-This article describes how to troubleshoot known issues with Azure SQL Data Sync (Preview). If there is a resolution for an issue, it's provided here.
+This article describes how to troubleshoot known issues with Azure SQL Data Sync. If there is a resolution for an issue, it's provided here.
 
-For an overview of SQL Data Sync (Preview), see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
 
 ## Sync issues
 
@@ -22,7 +22,7 @@ For an overview of SQL Data Sync (Preview), see [Sync data across multiple cloud
 
 #### Description and symptoms
 
-Sync fails on the SQL Data Sync (Preview) portal UI for on-premises databases that are associated with the agent. On the local computer that's running the agent, you see System.IO.IOException errors in the Event Log. The errors say that the disk has insufficient space.
+Sync fails on the SQL Data Sync portal UI for on-premises databases that are associated with the agent. On the local computer that's running the agent, you see System.IO.IOException errors in the Event Log. The errors say that the disk has insufficient space.
 
 #### Resolution
 
@@ -32,7 +32,7 @@ Create more space on the drive on which the %TEMP% directory is located.
 
 #### Description and symptoms
 
-A sync group in SQL Data Sync (Preview) has been in the processing state for a long time. It doesn't respond to the **stop** command, and the logs show no new entries.
+A sync group in SQL Data Sync has been in the processing state for a long time. It doesn't respond to the **stop** command, and the logs show no new entries.
 
 #### Cause
 
@@ -42,14 +42,14 @@ Any of the following conditions might result in a sync group being stuck in the 
 
 -   **The client agent is uninstalled or missing**. If the client agent is uninstalled or otherwise missing:
 
-    1. Remove the agent XML file from the SQL Data Sync (Preview) installation folder, if the file exists.
+    1. Remove the agent XML file from the SQL Data Sync installation folder, if the file exists.
     2. Install the agent on an on-premises computer (it can be the same or a different computer). Then, submit the agent key that's generated in the portal for the agent that's showing as offline.
 
 -   **The SQL Data Sync service is stopped**.
 
     1. In the **Start** menu, search for **Services**.
     2. In the search results, select **Services**.
-    3. Find the **SQL Data Sync (Preview)** service.
+    3. Find the **SQL Data Sync** service.
     4. If the service status is **Stopped**, right-click the service name, and then select **Start**.
 
 #### Resolution
@@ -64,7 +64,7 @@ If tables that have the same name but which are from different database schemas 
 
 #### Cause
 
-The SQL Data Sync (Preview) provisioning process uses the same tracking tables for tables that have the same name but which are in different schemas. Because of this, changes from both tables are reflected in the same tracking table. This causes erroneous data changes during sync.
+The SQL Data Sync provisioning process uses the same tracking tables for tables that have the same name but which are in different schemas. Because of this, changes from both tables are reflected in the same tracking table. This causes erroneous data changes during sync.
 
 #### Resolution
 
@@ -103,10 +103,10 @@ The best fix is prevention. Ensure that you don't have circular references in yo
 ### I see this message: "Cannot insert the value NULL into the column \<column\>. Column does not allow nulls." What does this mean, and how can I fix it? 
 This error message indicates that one of the two following issues has occurred:
 -  A table doesn't have a primary key. To fix this issue, add a primary key to all the tables that you're syncing.
--  There's a WHERE clause in your CREATE INDEX statement. Data Sync (Preview) doesn't handle this condition. To fix this issue, remove the WHERE clause or manually make the changes to all databases. 
+-  There's a WHERE clause in your CREATE INDEX statement. Data Sync doesn't handle this condition. To fix this issue, remove the WHERE clause or manually make the changes to all databases. 
  
-### How does Data Sync (Preview) handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?
-Data Sync (Preview) doesn’t handle circular references. Be sure to avoid them. 
+### How does Data Sync handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?
+Data Sync doesn’t handle circular references. Be sure to avoid them. 
 
 ## Client agent issues
 
@@ -125,27 +125,6 @@ To find the specific cause of the failure, generate and look at the Windows Inst
 
 You can also turn on logging for all installations that are performed by Windows Installer. The Microsoft Knowledge Base article [How to enable Windows Installer logging](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) provides a one-click solution to turn on logging for Windows Installer. It also provides the location of the logs.
 
-### My client agent doesn't work
-
-#### Description and symptoms
-
-You get the following messages when you attempt to use the client agent:
-
-"Sync failed with exception There was an error while trying to deserialize parameter www.microsoft.com/.../05:GetBatchInfoResult. See InnerException for more information."
-
-"Inner exception message: Type 'Microsoft.Synchronization.ChangeBatch' is an invalid collection type since it does not have a default constructor."
-
-#### Cause
-
-This is a known issue with SQL Data Sync (Preview) installation. The most likely cause of this message is one of the following:
-
--   You are running Windows 8 Developer Preview.
--   You have .NET Framework 4.5 installed.
-
-#### Resolution
-
-Ensure that you install the client agent on a computer that isn't running Windows 8 Developer Preview, and that the .NET Framework 4.5 isn't installed.
-
 ### My client agent doesn't work after I cancel the uninstall
 
 #### Description and symptoms
@@ -154,7 +133,7 @@ The client agent doesn't work, even after you cancel its uninstallation.
 
 #### Cause
 
-This occurs because the SQL Data Sync (Preview) client agent doesn't store credentials.
+This occurs because the SQL Data Sync client agent doesn't store credentials.
 
 #### Resolution
 
@@ -209,18 +188,18 @@ A likely cause of this error is that the password on the local server has change
 
 Update the agent's password to your current server password:
 
-1. Locate the SQL Data Sync (Preview) client agent Preview service.  
+1. Locate the SQL Data Sync client agent service.  
     a. Select **Start**.  
     b. In the search box, enter **services.msc**.  
     c. In the search results, select **Services**.  
-    d. In the **Services** window, scroll to the entry for **SQL Data Sync (Preview) Agent Preview**.  
-2. Right-click **SQL Data Sync (Preview) Agent Preview**, and then select **Stop**.
-3. Right-click **SQL Data Sync (Preview) Agent Preview**, and then select **Properties**.
-4. On **SQL Data Sync (Preview) Agent Preview Properties**, select the **Log in** tab.
+    d. In the **Services** window, scroll to the entry for **SQL Data Sync Agent**.  
+2. Right-click **SQL Data Sync Agent**, and then select **Stop**.
+3. Right-click **SQL Data Sync Agent**, and then select **Properties**.
+4. On **SQL Data Sync Agent Properties**, select the **Log in** tab.
 5. In the **Password** box, enter your password.
 6. In the **Confirm Password** box, reenter your password.
 7. Select **Apply**, and then select **OK**.
-8. In the **Services** window, right-click the **SQL Data Sync (Preview) Agent Preview** service, and then click **Start**.
+8. In the **Services** window, right-click the **SQL Data Sync Agent** service, and then click **Start**.
 9. Close the **Services** window.
 
 ### I can't submit the agent key
@@ -233,8 +212,8 @@ After you create or re-create a key for an agent, you try to submit the key thro
 
 Before you proceed, check for the following conditions:
 
--   The SQL Data Sync (Preview) Windows service is running.  
--   The service account for SQL Data Sync (Preview) Preview Windows service has network access.    
+-   The SQL Data Sync Windows service is running.  
+-   The service account for SQL Data Sync Windows service has network access.    
 -   The outbound 1433 port is open in your local firewall rule.
 -   The local ip is added to the server or database firewall rule for the sync metadata database.
 
@@ -242,7 +221,7 @@ Before you proceed, check for the following conditions:
 
 The agent key uniquely identifies each local agent. The key must meet two conditions:
 
--   The client agent key on the SQL Data Sync (Preview) server and the local computer must be identical.
+-   The client agent key on the SQL Data Sync server and the local computer must be identical.
 -   The client agent key can be used only once.
 
 #### Resolution
@@ -266,7 +245,7 @@ To apply the new key to the agent:
 
 #### Description and symptoms
 
-If a local endpoint (that is, a database) that is registered with a SQL Data Sync (Preview) client agent becomes unreachable, the client agent can't be deleted.
+If a local endpoint (that is, a database) that is registered with a SQL Data Sync client agent becomes unreachable, the client agent can't be deleted.
 
 #### Cause
 
@@ -289,8 +268,8 @@ Try the following steps:
 2. Open the Component Services Panel.  
     a. In the search box on the taskbar, enter **services.msc**.  
     b. In the search results, double-click **Services**.  
-3. Stop the **SQL Data Sync (Preview) Preview** service.
-4. Restart the **SQL Data Sync (Preview) Preview** service.  
+3. Stop the **SQL Data Sync** service.
+4. Restart the **SQL Data Sync** service.  
 5. Reopen the app.
 
 ## Setup and maintenance issues
@@ -329,12 +308,12 @@ To resolve failure to delete a sync group:
 
 -   Ensure that the client agent is online and then try again.
 -   If the client agent is uninstalled or otherwise missing:  
-    a. Remove the agent XML file from the SQL Data Sync (Preview) installation folder, if the file exists.  
+    a. Remove the agent XML file from the SQL Data Sync installation folder, if the file exists.  
     b. Install the agent on an on-premises computer (it can be the same or a different computer). Then, submit the agent key that's generated in the portal for the agent that's showing as offline.
--   Ensure that the SQL Data Sync (Preview) service is running:  
+-   Ensure that the SQL Data Sync service is running:  
     a. In the **Start** menu, search for **Services**.  
     b. In the search results, select **Services**.  
-    c. Find the **SQL Data Sync (Preview) Preview** service.  
+    c. Find the **SQL Data Sync** service.  
     d. If the service status is **Stopped**, right-click the service name, and then select **Start**.
 -   Ensure that your SQL databases and SQL Server databases are all online.
 -   Wait until the provisioning or sync process finishes and then retry deleting the sync group.
@@ -355,7 +334,7 @@ If this operation fails to remove the database from the sync group:
     a. Select the **Start** menu.  
     b. In the search box, enter **services.msc**.  
     c. In the **Programs** section of the search results pane, double-click **Services**.  
-    d. Right-click the **SQL Data Sync (Preview)** service.  
+    d. Right-click the **SQL Data Sync** service.  
     e. If the service is running, stop it.  
     f. Right-click the service, and then select **Start**.  
     g. Check whether the database is still registered. If it is no longer registered, you're done. Otherwise, proceed with the next step.
@@ -385,7 +364,7 @@ Grant log-on-as-a-service credentials to the user account:
 
 #### Cause
 
-SQL Data Sync (Preview) removes databases that have been offline from the service for 45 days or more (as counted from the time the database went offline). If a database is offline for 45 days or more and then comes back online, its status is **Out-of-Date**.
+SQL Data Sync removes databases that have been offline from the service for 45 days or more (as counted from the time the database went offline). If a database is offline for 45 days or more and then comes back online, its status is **Out-of-Date**.
 
 #### Resolution
 
@@ -415,14 +394,14 @@ If a sync group's status is **Out-of-Date**, delete the sync group and then re-c
 
 #### Description and symptoms
 
-You can't delete a sync group within three minutes of uninstalling or stopping the associated SQL Data Sync (Preview) client agent.
+You can't delete a sync group within three minutes of uninstalling or stopping the associated SQL Data Sync client agent.
 
 #### Resolution
 
 1. Remove a sync group while the associated sync agents are online (recommended).
-2. If the agent is offline but is installed, bring it online on the on-premises computer. Wait for the status of the agent to appear as **Online** in the SQL Data Sync (Preview) portal. Then, remove the sync group.
+2. If the agent is offline but is installed, bring it online on the on-premises computer. Wait for the status of the agent to appear as **Online** in the SQL Data Sync portal. Then, remove the sync group.
 3. If the agent is offline because it was uninstalled:  
-    a.  Remove the agent XML file from the SQL Data Sync (Preview) installation folder, if the file exists.  
+    a.  Remove the agent XML file from the SQL Data Sync installation folder, if the file exists.  
     b.  Install the agent on an on-premises computer (it can be the same or a different computer). Then, submit the agent key that's generated in the portal for the agent that's showing as offline.  
     c. Try to delete the sync group.
 
@@ -431,16 +410,16 @@ You can't delete a sync group within three minutes of uninstalling or stopping t
 If you restore a lost or corrupted database from a backup, there might be a nonconvergence of data in the sync groups to which the database belongs.
 
 ## Next steps
-For more information about SQL Data Sync (Preview), see:
+For more information about SQL Data Sync, see:
 
--   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md)  
--   [Set up Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)  
--   [Best practices for Azure SQL Data Sync (Preview)](sql-database-best-practices-data-sync.md)  
--   [Monitor Azure SQL Data Sync (Preview) with Log Analytics](sql-database-sync-monitor-oms.md)  
--   Complete PowerShell examples that show how to configure SQL Data Sync (Preview):  
+-   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)  
+-   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)  
+-   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)  
+-   [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)  
+-   Complete PowerShell examples that show how to configure SQL Data Sync:  
     -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Download the SQL Data Sync (Preview) REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 For more information about SQL Database, see:
 

@@ -71,7 +71,7 @@ You can also use the sample Microsoft Excel workbook that's created for you and 
 
 **What are the main updates to Azure Machine Learning?**
 
-For the latest updates, see [What's new in Azure Machine Learning](whats-new.md).
+For the latest updates, see [What's new in Azure Machine Learning](../../active-directory/fundamentals/whats-new.md).
 
 ## Machine Learning Studio questions
 ### Import and export data for Machine Learning
@@ -470,7 +470,7 @@ Yes, Classic web services are still available in Azure Machine Learning.
 ### Azure Machine Learning Free and Standard tier
 **What is included in the Azure Machine Learning Free tier?**
 
-The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://www.microsoft.com/account/default.aspx). In this tier, you can use up to 10 GB of storage and operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. 
+The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://account.microsoft.com/account). In this tier, you can use up to 10 GB of storage and operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. 
 
 Free tier workspaces have the following limitations:
 

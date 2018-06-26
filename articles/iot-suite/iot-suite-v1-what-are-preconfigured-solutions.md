@@ -161,7 +161,7 @@ Now you know what a preconfigured solution is, you can get started by deploying 
 [img-dashboard]: ./media/iot-suite-v1-what-are-preconfigured-solutions/dashboard.png
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
+[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]:../iot-accelerators/iot-accelerators-predictive-overview.md
