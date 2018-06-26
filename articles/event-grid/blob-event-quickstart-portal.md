@@ -41,16 +41,16 @@ To use Blob storage events, you need either a [Blob storage account](../storage/
 
 Before subscribing to the events for the Blob storage, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/dbarkol/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
-Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
+1. Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
+1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`
 
-You see the site but no events have been posted to it yet.
+1. You see the site but no events have been posted to it yet.
 
-![View new site](./media/blob-event-quickstart-portal/view-site.png)
+   ![View new site](./media/blob-event-quickstart-portal/view-site.png)
 
 ## Subscribe to the Blob storage
 
@@ -68,9 +68,9 @@ You subscribe to a topic to tell Event Grid which events you want to track, and 
 
    ![Select logs](./media/blob-event-quickstart-portal/create-subscription.png)
 
-View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
+1. View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
-![View subscription event](./media/blob-event-quickstart-portal/view-subscription-event.png)
+   ![View subscription event](./media/blob-event-quickstart-portal/view-subscription-event.png)
 
 Now, let's trigger an event to see how Event Grid distributes the message to your endpoint.
 
@@ -96,33 +96,33 @@ You trigger an event for the Blob storage by uploading a file. The file doesn't 
 
 1. Browse to your test file and upload it.
 
-You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app and notice that a blob created event was received. 
+1. You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app and notice that a blob created event was received. 
 
-```json
-{
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
-  "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
-  "eventType": "Microsoft.Storage.BlobCreated",
-  "eventTime": "2018-06-25T22:50:41.1823131Z",
-  "id": "89a2f9da-c01e-00bb-13d6-0c599506e4e3",
-  "data": {
-    "api": "PutBlockList",
-    "clientRequestId": "41341a9b-e977-4a91-9000-c64125039047",
-    "requestId": "89a2f9da-c01e-00bb-13d6-0c5995000000",
-    "eTag": "0x8D5DAEE13C8F9ED",
-    "contentType": "text/plain",
-    "contentLength": 4,
-    "blobType": "BlockBlob",
-    "url": "https://demoblob0625.blob.core.windows.net/eventcontainer/testfile.txt",
-    "sequencer": "00000000000000000000000000001C24000000000004712b",
-    "storageDiagnostics": {
-      "batchId": "ef633252-32fd-464b-8f5a-0d10d68885e6"
-    }
-  },
-  "dataVersion": "",
-  "metadataVersion": "1"
-}
-```
+  ```json
+  {
+    "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
+    "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "eventTime": "2018-06-25T22:50:41.1823131Z",
+    "id": "89a2f9da-c01e-00bb-13d6-0c599506e4e3",
+    "data": {
+      "api": "PutBlockList",
+      "clientRequestId": "41341a9b-e977-4a91-9000-c64125039047",
+      "requestId": "89a2f9da-c01e-00bb-13d6-0c5995000000",
+      "eTag": "0x8D5DAEE13C8F9ED",
+      "contentType": "text/plain",
+      "contentLength": 4,
+      "blobType": "BlockBlob",
+      "url": "https://demoblob0625.blob.core.windows.net/eventcontainer/testfile.txt",
+      "sequencer": "00000000000000000000000000001C24000000000004712b",
+      "storageDiagnostics": {
+        "batchId": "ef633252-32fd-464b-8f5a-0d10d68885e6"
+      }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
+  }
+  ```
 
 ## Clean up resources
 
