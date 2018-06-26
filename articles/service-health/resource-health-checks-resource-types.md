@@ -20,6 +20,11 @@ ms.author: BernardoAMunoz
 # Resource types and health checks in Azure resource health
 Below is a complete list of all the checks executed through resource health by resource types.
 
+## Microsoft.AnalysisServices/servers
+|Executed Checks|
+|---|
+|<ul><li>Is the server up and running?</li><li>Has the server run out of memory?</li><li>Is the server starting up?</li><li>Is the server recovering?</li></ul>|
+
 ## Microsoft.ApiManagement/service
 |Executed Checks|
 |---|
@@ -53,13 +58,13 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.datalakeanalytics/accounts
 |Executed Checks|
 |---|
-|<ul><li>Can users submit jobs to Data Lake Analytics in the region?</li><li>Do basic jobs run and complete successfully in the region?</li><li>Can users list catalog items in the region?</li>|
+|<ul><li>Have users experienced problems submitting or listing their Data Lake Analytics jobs?</li><li>Are Data Lake Analytics jobs unable to complete to system errors?</li></ul>|
 
 
 ## Microsoft.datalakestore/accounts
 |Executed Checks|
 |---|
-|<ul><li>Can users upload data to Data Lake Store in the region?</li><li>Can users download data from Data Lake Store in the region?</li></ul>|
+|<ul><li>Have users experienced problems uploading data to Data Lake Store?</li><li>Have users experienced problems downloading data from Data Lake Store?</li></ul>|
 
 ## Microsoft.devices/iothubs
 
@@ -101,6 +106,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li> Have there been logins to the database?</li></ul>|
+
+## Microsoft.Storage/storageAccounts
+|Executed Checks|
+|---|
+|<ul><li>Are requests to read data from the Storage account failing due to Azure Storage platform issues?</li><li>Are requests to write data to the Storage account failing due to Azure Storage platform issues?</li><li>Is the Storage cluster where the Storage account resides unavailable?</li></ul>|
 
 ## Microsoft.StreamAnalytics/streamingjobs
 |Executed Checks|
