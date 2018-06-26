@@ -81,6 +81,8 @@ The following are example scenarios of how the UPN is calculated based on the gi
 
 ### Scenario 1: Non-verified UPN suffix – initial synchronization
 
+![Scenario1](media/active-directory-aadconnect-userprincipalname/example1.png)
+
 On-Premises user object:
 - mailNickName		: &lt;not set&gt;
 - proxyAddresses		: {SMTP:us1@contoso.com}
