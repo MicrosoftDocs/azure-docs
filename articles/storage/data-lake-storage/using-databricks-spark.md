@@ -74,6 +74,7 @@ The next step is to create a [DataBricks service](https://docs.databricks.com/) 
     dbutils.fs.ls("abfs://<file_system>@<account_name>.dfs.core.windows.net/")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
     ```
+
 ## Ingest data
 
 ### Copy source data into the storage account
@@ -89,7 +90,6 @@ set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
 
-<<<<<<< HEAD
 ### Use DataBricks Notebook to convert CSV to Parquet
 
 Re-open DataBricks in your browser and execute the following steps:
@@ -118,15 +118,12 @@ Re-open DataBricks in your browser and execute the following steps:
     flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/temp/On_Time_On_Time*.csv")
     #read the all the airline csv files and write the output to parquet format for easy query
     flightDF.write.mode("append").parquet('/mnt/temp/parquet/flights')
-    
-    
+
     #read the flight details parquet file 
     #flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load("/mnt/temp/parquet/flights")
     print("Done")
     ```
 
-=======
->>>>>>> 4f59296806a2fb21ebe9f8764b2d5ec55a7f1f1c
 ## Explore data using Hadoop Distributed File System
 
 Return to the DataBricks workspace and click on the **Recent** icon in the left nav bar.
@@ -157,6 +154,7 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
+
 With these code samples you have explored the heirarchial nature of HDFS using data stored in an Azure Data Lake Storage account.
 
 ## Query the data
@@ -164,6 +162,7 @@ With these code samples you have explored the heirarchial nature of HDFS using d
 Next, you can beging to query the data you uploaded into Azure Data Lake Storage. Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
 
 ### Simple queries
+
 To create dataframes for your data sources, run the following script:
 
 > [!IMPORTANT]
