@@ -15,152 +15,30 @@ Reference data (also known as a lookup table) is a finite data set that is stati
 
 Stream Analytics supports reference data with **maximum size of 300 MB**. The 300 MB limit of maximum size of reference data is achievable only with simple queries. As the complexity of query increases to include stateful processing such as windowed aggregates, temporal joins and temporal analytic functions, it is expected that the maximum supported size of reference data decreases. If Azure Stream Analytics cannot load the reference data and perform complex operations, the job will run out of memory and fail. In such cases, SU % Utilization metric will reach 100%.    
 
+|**Number of Streaming Units**  |**Approx. Max Size Supported (in MB)**  |
+|---------|---------|
+|1   |50   |
+|3   |150   |
+|6 and beyond   |300   |
 
- 
-+ 
-
-
- 
-+ 
-
-
- 
-+<table> 
-
-
- 
-+<tbody> 
-
-
- 
-+<tr> 
-
-
- 
-+<td>Number of Streaming Units</td> 
-
-
- 
-+<td>Approx. Max Size Supported (in MB)</td> 
-
-
- 
-+</tr> 
-
-
- 
-+<tr> 
-
-
- 
-+<td>1</td> 
-
-
- 
-+<td>50</td> 
-
-
- 
-+</tr> 
-
-
- 
-+<tr> 
-
-
- 
-+<td>3</td> 
-
-
- 
-+<td>150</td> 
-
-
- 
-+</tr> 
-
-
- 
-+<tr> 
-
-
- 
-+<td>6 and beyond</td> 
-
-
- 
-+<td>300</td> 
-
-
- 
-+</tr> 
-
-
- 
-+</tbody> 
-
-
- 
-+</table> 
-
-
- 
-+ 
-
-
- 
-+Increasing number of Streaming Units of a job beyond 6 does not increase the maximum supported size of reference data.
+Increasing number of Streaming Units of a job beyond 6 does not increase the maximum supported size of reference data.
 
 Support for compression is not available for reference data. 
 
 ## Configuring reference data
 To configure your reference data, you first need to create an input that is of type **Reference Data**. The table below explains each property that you will need to provide while creating the reference data input with its description:
 
-
-<table>
-<tbody>
-<tr>
-<td>Property Name</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>Input Alias</td>
-<td>A friendly name that will be used in the job query to reference this input.</td>
-</tr>
-<tr>
-<td>Storage Account</td>
-<td>The name of the storage account where your blobs are located. If it’s in the same subscription as your Stream Analytics Job, you can select it from the drop-down.</td>
-</tr>
-<tr>
-<td>Storage Account Key</td>
-<td>The secret key associated with the storage account. This gets automatically populated if the storage account is in the same subscription as your Stream Analytics job.</td>
-</tr>
-<tr>
-<td>Storage Container</td>
-<td>Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.</td>
-</tr>
-<tr>
-<td>Path Pattern</td>
-<td>The path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables:<BR>{date}, {time}<BR>Example 1: products/{date}/{time}/product-list.csv<BR>Example 2: products/{date}/product-list.csv
-</tr>
-<tr>
-<td>Date Format [optional]</td>
-<td>If you have used {date} within the Path Pattern that you specified, then you can select the date format in which your blobs are organized from the drop-down of supported formats.<BR>Example: YYYY/MM/DD, MM/DD/YYYY, etc.</td>
-</tr>
-<tr>
-<td>Time Format [optional]</td>
-<td>If you have used {time} within the Path Pattern that you specified, then you can select the time format in which your blobs are organized from the drop-down of supported formats.<BR>Example: HH, HH/mm, or HH-mm</td>
-</tr>
-<tr>
-<td>Event Serialization Format</td>
-<td>To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format you're using for incoming data streams. For Reference Data, the supported formats are CSV and JSON.</td>
-</tr>
-<tr>
-<td>Encoding</td>
-<td>UTF-8 is the only supported encoding format at this time</td>
-</tr>
-</tbody>
-</table>
+|**Property Name**  |**Description**  |
+|---------|---------|
+|Input Alias   | A friendly name that will be used in the job query to reference this input.   |
+|Storage Account   | The name of the storage account where your blobs are located. If it’s in the same subscription as your Stream Analytics Job, you can select it from the drop-down.   |
+|Storage Account Key   | The secret key associated with the storage account. This gets automatically populated if the storage account is in the same subscription as your Stream Analytics job.   |
+|Storage Container   | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.   |
+|Path Pattern   | The path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables:<BR>{date}, {time}<BR>Example 1: products/{date}/{time}/product-list.csv<BR>Example 2: products/{date}/product-list.csv   |
+|Date Format [optional]   | If you have used {date} within the Path Pattern that you specified, then you can select the date format in which your blobs are organized from the drop-down of supported formats.<BR>Example: YYYY/MM/DD, MM/DD/YYYY, etc.   |
+|Time Format [optional]   | If you have used {time} within the Path Pattern that you specified, then you can select the time format in which your blobs are organized from the drop-down of supported formats.<BR>Example: HH, HH/mm, or HH-mm.  |
+|Event Serialization Format   | To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format you're using for incoming data streams. For Reference Data, the supported formats are CSV and JSON.  |
+|Encoding   | UTF-8 is the only supported encoding format at this time.  |
 
 ## Generating reference data on a schedule
 If your reference data is a slowly changing data set, then support for refreshing reference data is enabled by specifying a path pattern in the input configuration using the {date} and {time} substitution tokens. Stream Analytics picks up the updated reference data definitions based on this path pattern. For example, a pattern of `sample/{date}/{time}/products.csv` with a date format of **“YYYY-MM-DD”** and a time format of **“HH-mm”** instructs Stream Analytics to pick up the updated blob `sample/2015-04-16/17-30/products.csv` at 5:30 PM on April 16th, 2015 UTC time zone.
