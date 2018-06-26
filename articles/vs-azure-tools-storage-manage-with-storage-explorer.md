@@ -119,50 +119,27 @@ With Storage Explorer, you can work against local storage by using an emulator. 
 Starting with version 1.1.0, local storage emulator is supported on all platforms. Storage Explorer can connect to any emulated service listening to its default local storage endpoints.
 
 > [!NOTE]
-> Support for storage services and features may vary widely depending on your choice of emulator. Make sure the emulator you use supports the services and features you intend to work with.
+> Support for storage services and features may vary widely depending on your choice of emulator. Make sure your emulator supports the services and features you intend to work with.
 
-1. Start the storage emulator of your choice.
+1. Configure your emulator of choice to listen at the default endpoints.
 
-   > [!IMPORTANT]
-   > Storage Explorer only supports connecting to local emulators using the default endpoints. When starting the emulator, make sure only the default endpoints are configured.
-   >
-   > Emulated Service | Default Endpoint
-   > -----------------|-------------------------
-   > Blobs            | `http://127.0.0.1:10000`
-   > Queues           | `http://127.0.0.1:10001`
-   > Tables           | `http://127.0.0.1:10002`
+   Emulated Service | Default Endpoint
+   -----------------|-------------------------
+   Blobs            | `http://127.0.0.1:10000`
+   Queues           | `http://127.0.0.1:10001`
+   Tables           | `http://127.0.0.1:10002`
 
-2. In Storage Explorer, select **Connect**.
+2. Start the emulator.
 
-   ![Select Connect](5)
+3. In the left pane of Storage Explorer, expand the **(Local and Attached)** > **Storage Accounts** > **(Development)** node.
 
-   Choose **Use a connection string or shared access signature URI** and select **Next**.
-
-3. Enter the following for the connection string:
-
-   ```txt
-   DefaultEndpointsProtocol=http;
-   AccountName=devstoreaccount1;
-   AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
-   BlobEndpoint=http://127.0.0.1:10000;
-   QueueEndpoint=http://127.0.0.1:10001;
-   TableEndpoint=http://127.0.0.1:10002;
-   ```
-
-   Enter the following for the account label:
-
-   ```txt
-   devstoreaccount1
-   ```
-
-   > [!TIP] You may omit any endpoints for services you don't intend to use or are not supported by your chosen emulator.
-
-4. Click **Next**, then click **Connect**.
-
-5. In the left pane, expand the **(Local and Attached)** > **Storage Accounts** > **devstoreaccount1** node. You can use this node to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, refer to the following guides:
+   You can use this node to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, refer to the following guides:
 
    * [Manage Azure Blob storage resources](vs-azure-tools-storage-explorer-blobs.md)
    * [Manage Azure File storage resources](vs-azure-tools-storage-explorer-files.md)
+
+> [!NOTE]
+> Storage Explorer only supports connecting to local emulators using the default endpoints. When starting the emulator, make sure only the default endpoints are configured.
 
 ## Attach or detach an external storage account
 
