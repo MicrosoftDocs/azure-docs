@@ -90,7 +90,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    - Select **Create new**, and enter the name of a resource group.   
          
    Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-5. For **Version**, select **V2 (Preview)**.
+5. For **Version**, select **V2**.
 6. For **Location**, select the location for the data factory. 
 
    Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (like Azure Storage and Azure SQL Database) and computes (like HDInsight) that Data Factory uses can be in other regions.

@@ -73,7 +73,7 @@ If you are an advanced user and looking for a programmatic interface, ADF provid
 You can monitor your Data Factories via PowerShell, SDK, or the Visual Monitoring Tools in the browser user interface. You can monitor and manage on demand, trigger based and clock driven custom flows in an efficient and effective manner. Cancel existing tasks, see failures at a glance, drill down to get detailed error messages, and debug the issues all from a single pane of glass without context switching or navigating back and forth between screens. 
 
 ### New features for SSIS in ADF
-Since the initial Public Preview release in 2017, we have added the following features for SSIS in ADF:
+Since the initial Public Preview release in 2017, Data Factory has added the following features for SSIS:
 
 -	Support for three more configurations/variants of Azure SQL Database (DB) to host SSIS catalog of projects/packages (SSISDB):
 -	Azure SQL DB with VNet service endpoints

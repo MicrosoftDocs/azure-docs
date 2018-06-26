@@ -99,7 +99,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
          
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
 
-5. Under **version**, select **V2 (Preview)** for the version.
+5. Under **version**, select **V2** for the version.
 6. Under **location**, select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) that are used by your data factory can be in other locations and regions.
 7. Select **Pin to dashboard**. 
 8. Select **Create**.
