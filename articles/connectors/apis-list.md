@@ -41,9 +41,20 @@ Managed connectors are organized into these groups:
   |---|---|
   | [**Managed API connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. | 
   | [**On-premises connectors**](#on-premises-connectors) | After you install and set up the [on-premises data gateway][gateway-doc], these connectors help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others. | 
-  | [**Integration account connectors**](#integration-account-connectors) | Available when you pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. <p><p>If you work with BizTalk Server, you can use these connectors for expanding your BizTalk workflows into Azure. BizTalk Server also provides a [Logic Apps adapter](https://msdn.microsoft.com/library/mt787163.aspx) for receiving messages and sending messages to logic apps. | 
-  | [**Enterprise connectors**](#enterprise-connectors) | Provide access to SAP and IBM MQ for an additional cost. |
+  | [**Integration account connectors**](#integration-account-connectors) | Available when you pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. | 
+  | [**Enterprise connectors**](#enterprise-connectors) | Provide access to enterprise systems such as SAP and IBM MQ for an additional cost. |
   ||| 
+
+For example, if you work with BizTalk Server, 
+you can connect from your logic app to your BizTalk Server 
+by including the [on-premises BizTalk Server connector](#on-premises-connectors). 
+You'd also create an integration account, which you link to your logic app, 
+and use the [integration account connectors](#integration-account-connectors) 
+for expanding your BizTalk workflows into Azure.
+Or, if you want to have your BizTalk Server communicate with a logic app, 
+you can use the [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). 
+Learn more about [how to set up and use the BizTalk Server Adapter](https://docs.microsoft.com/biztalk/core/logic-app-adapter) for 
+exchanging messages with a logic app.
 
 For technical information about each connector's triggers and actions, 
 which are defined by a Swagger description, plus any limits, see 
@@ -65,7 +76,7 @@ and manage or manipulate data.
 |---|---|---|---| 
 | [![API icon][schedule-icon]<br/>**Schedule**][recurrence-doc] | - Run your logic app on a specified schedule, ranging from basic to complex recurrences, with the **Recurrence** trigger. <p>- Pause your logic app for a specified duration with the **Delay** action. <p>- Pause your logic app until the specified date and time with the **Delay until** action. | [![API icon][http-icon]<br/>**HTTP**][http-doc] | Communicate with any endpoint over HTTP with both triggers and actions for HTTP, HTTP + Swagger, and HTTP + Webhook. | 
 | [![API icon][http-request-icon]<br/>**Request**][http-request-doc] | - Make your logic app callable from other apps or services, trigger on Event Grid resource events, or trigger on responses to Azure Security Center alerts with the **Request** trigger. <p>- Send responses to an app or service with the **Response** action. | [![API icon][batch-icon]<br/>**Batch**][batch-doc] | - Process messages in batches with the **Batch messages** trigger. <p>- Call logic apps that have existing batch triggers with the **Send messages to batch** action. | 
-| [![API icon][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | Call previously created Azure functions that run custom code snippets (C# or Node.js) from your logic apps. | [![API icon][azure-api-management-icon]</br>**Azure API Management**][azure-api-management-doc] | Call triggers and actions defined by your own APIs that you manage and publish with Azure API Management. | 
+| [![API icon][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | Call Azure functions that run custom code snippets (C# or Node.js) from your logic apps. | [![API icon][azure-api-management-icon]</br>**Azure API Management**][azure-api-management-doc] | Call triggers and actions defined by your own APIs that you manage and publish with Azure API Management. | 
 | [![API icon][azure-app-services-icon]<br/>**Azure App Services**][azure-app-services-doc] | Call Azure API Apps, or Web Apps, hosted on Azure App Service. The triggers and actions defined by these apps appear like any other first-class triggers and actions when Swagger is included. | [![API icon][azure-logic-apps-icon]<br/>**Azure<br/>Logic Apps**][nested-logic-app-doc] | Call other logic apps that start with a Request trigger. | 
 ||||| 
 
@@ -142,7 +153,7 @@ use BizTalk Server, these connectors might seem familiar already.
 |   |   |   |   | 
 |---|---|---|---| 
 | [![API icon][as2-icon]<br/>**AS2</br> decoding**][as2-decode-doc] | [![API icon][as2-icon]<br/>**AS2</br> encoding**][as2-encode-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> encoding**][edifact-encode-doc] | 
-| [![API icon][flat-file-decode-icon]<br/>**Flat file</br> decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br/>**Flat file</br> encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br/>**Integration<br/>account**][integration-account-doc] | [![API icon][liquid-icon]<br/>**Transform <br/>JSON**][json-liquid-transform-doc] | 
+| [![API icon][flat-file-decode-icon]<br/>**Flat file</br> decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br/>**Flat file</br> encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br/>**Integration<br/>account**][integration-account-doc] | [![API icon][liquid-icon]<br/>**Transform JSON**</br>**or XML (Liquid)**][json-liquid-transform-doc] | 
 [![API icon][xml-transform-icon]<br/>**Transform<br/>XML**][xml-transform-doc] | [![API icon][x12-icon]<br/>**X12</br> decoding**][x12-decode-doc] | [![API icon][x12-icon]<br/>**X12</br> encoding**][x12-encode-doc] | [![API icon][xml-validate-icon]<br/>**XML <br/>validation**][xml-validate-doc] |  
 ||||| 
 
@@ -191,9 +202,10 @@ For more about triggers and actions, see the
 
 To call APIs that run custom code or aren't available as connectors, 
 you can extend the Logic Apps platform by 
-[creating REST-based API Apps](../logic-apps/logic-apps-create-api-app.md). 
-You can also [create your own connectors](../logic-apps/custom-connector-overview.md), 
-which you can make available to any logic app in your Azure subscription.
+[creating custom API Apps](../logic-apps/logic-apps-create-api-app.md). 
+You can also [create custom connectors](../logic-apps/custom-connector-overview.md) 
+for *any* REST or SOAP-based APIs, which make those those APIs 
+available to any logic app in your Azure subscription.
 To make custom API Apps or connectors public for anyone to use in Azure, 
 you can [submit connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 
