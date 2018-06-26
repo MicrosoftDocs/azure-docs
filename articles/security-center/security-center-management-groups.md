@@ -22,7 +22,7 @@ ms.author: terrylan
 This article helps you get started by doing several actions that maximize the benefits Azure Security Center provides. Performing these actions enables you to gain visibility on all the Azure subscriptions that are linked to your Azure Active Directory tenant and effectively manage your organization’s security posture at scale by applying security policies across multiple subscriptions in an aggregative manner.
 
 ## Management groups
-Azure management groups provide the ability to efficiently manage access, policies, and reporting on groups of subscriptions, as well as effectively manage the entire Azure estate by performing actions on the root management group. Each AAD tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and RBAC assignments to be applied at the directory level. 
+Azure management groups provide the ability to efficiently manage access, policies, and reporting on groups of subscriptions, as well as effectively manage the entire Azure estate by performing actions on the root management group. Each Azure AD tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and RBAC assignments to be applied at the directory level. 
 
 The root management group is created automatically when you do any of the following actions: 
 1. Opt in to use Azure management groups by navigating to **Management Groups** in the [Azure portal](https://portal.azure.com).
@@ -32,7 +32,7 @@ The root management group is created automatically when you do any of the follow
 For a detailed overview of management groups, see the [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md) article.
 
 ## Create a management group in the Azure portal
-You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. While management groups aren't required to onboard Security Center, it’s highly recommended that you create at least one management group so the root management group is created. After the group is created, all subscriptions under your AAD tenant will be linked to it. For instructions for PowerShell and more information, see [Create management groups for resource and organization management](../azure-resource-manager/management-groups-create.md).
+You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. While management groups aren't required to onboard Security Center, it’s highly recommended that you create at least one management group so the root management group is created. After the group is created, all subscriptions under your Azure AD tenant will be linked to it. For instructions for PowerShell and more information, see [Create management groups for resource and organization management](../azure-resource-manager/management-groups-create.md).
 
  
 1. Sign in to the [Azure portal](http://portal.azure.com).
@@ -59,7 +59,7 @@ You can organize subscriptions into management groups and apply your governance 
 To get visibility into the security posture of all subscriptions registered in the Azure AD tenant, an RBAC role with sufficient read permissions is required to be assigned on the root management group.
 
 ### Elevate access for a global administrator in Azure Active Directory
-An Azure Active Directory tenant administrator doesn’t have direct access to Azure subscriptions. However, as a directory administrator, they have the right to elevate themselves to a role that does have access. An AAD tenant administrator needs to elevate itself to user access administrator at the root management group level so they can assign RBAC roles. For PowerShell instructions and additional information, see [Elevate access for a Global administrator in Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
+An Azure Active Directory tenant administrator doesn’t have direct access to Azure subscriptions. However, as a directory administrator, they have the right to elevate themselves to a role that does have access. An Azure AD tenant administrator needs to elevate itself to user access administrator at the root management group level so they can assign RBAC roles. For PowerShell instructions and additional information, see [Elevate access for a Global administrator in Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com).
@@ -139,11 +139,11 @@ Once the RBAC roles have been assigned to the users, the tenant administrator sh
 4. Click **Save** to save your setting.
 
 ### Open or refresh Security Center
-Once you have assigned the RBAC roles, open or refresh Azure Security Center to verify you have visibility into all subscriptions under your AAD tenant. 
+Once you have assigned the RBAC roles, open or refresh Azure Security Center to verify you have visibility into all subscriptions under your Azure AD tenant. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Select **All services** under the Azure main menu then select **Security Center**.
-3. In the Overview,** there's a subscription coverage chart. 
+3. In the **Overview**, there's a subscription coverage chart. 
     ![Subscription coverage chart screenshot](./media/security-center-management-groups/security-center-subscription-coverage.png)
 4. Click on **Coverage** to see the list of subscriptions covered. 
     ![Subscription coverage list screenshot](./media/security-center-management-groups/security-center-coverage.png)

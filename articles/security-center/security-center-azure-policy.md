@@ -62,7 +62,7 @@ You can edit the default security policy for each of your Azure subscriptions an
 
 2. Select the subscription or management group that you want to enable a security policy for. **Security policy** opens.
 
-3.	Under Security policy,** select the controls that you want Security Center to monitor for and provide recommendations on by selecting **On**.  Select **Off** if you don't want Security Center to monitor that control.
+3.	Under **Security policy**, select the controls that you want Security Center to monitor for and provide recommendations on by selecting **On**.  Select **Off** if you don't want Security Center to monitor that control.
 
 	![Policy components](./media/security-center-azure-policy/security-policy.png)
 
