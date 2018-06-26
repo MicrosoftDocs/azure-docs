@@ -20,7 +20,7 @@ This article provides detailed instructions for using an IoT Edge device as a tr
 > * IoT Edge devices cannot connect to IoT Edge gateways.
 > * Downstream devices can not use file upload.
 
-The hard part about creating a transparent gateway is securely connecting the gateway to downstream devices. Azure IoT Edge allows you to use PKI infrastructure to set up secure TLS connections between these devices. In this case we’re allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway.  To maintain reasonable security, the downstream device should confirm the identity of the Edge device because you only want your devices connecting to your gateways and not a potentially malicious gateway.
+The hard part about creating a transparent gateway is securely connecting the gateway to downstream devices. Azure IoT Edge allows you to use PKI infrastructure to set up secure TLS connections between these devices. In this case, we’re allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway.  To maintain reasonable security, the downstream device should confirm the identity of the Edge device because you only want your devices connecting to your gateways and not a potentially malicious gateway.
 
 You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security][lnk-iothub-x509] in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub owner CA), and a series of certificates, signed with this CA, and a CA for the Edge device.
 
@@ -33,10 +33,11 @@ The following steps walk you through the process of creating the certificates an
 ## Prerequisites
 1.	[Install the Azure IoT Edge runtime][lnk-install-windows-x64] on a Windows device you want to use as the transparent gateway.
 
+__TODO__:Get directions from Mahesh
 1. Get OpenSSL for Windows.
    1. 
 
-1.	Obtain the scripts to generate the required non productions certificates with the following command. These scripts help you create the necessary certificates to set up a transparent gateway. 
+1.	Obtain the scripts to generate the required non-production certificates with the following command. These scripts help you create the necessary certificates to set up a transparent gateway. 
 
    >[!NOTE]
    >Use this command for the bug bash:
@@ -49,7 +50,7 @@ The following steps walk you through the process of creating the certificates an
 
 1. Open PowerShell as an Administrator
 
-1. Intsall OpenSSL which is used to generate the required certificates.
+1. Install OpenSSL which is used to generate the required certificates.
    
    1. Navigate to the directory in which you want to work. From here on we'll refer to this as $WRKDIR.  All files will be created in this directory.
 
@@ -77,7 +78,7 @@ The following steps walk you through the process of creating the certificates an
    New-CACertsCertChain rsa
    ```
 
-   The output of the script execution are the following certificates and keys:
+   The outputs of the script execution are the following certificates and keys:
    * Certificates
       * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
       * `$WRKDIR\certs\azure-iot-test-only.intermediate.cert.pem`
@@ -94,12 +95,12 @@ The following steps walk you through the process of creating the certificates an
       New-CACertsVerificationCert create_edge_device_certificate <gatewayName>
       ```
 
-   The output of the script execution are the following certificates and key:
+   The outputs of the script execution are the following certificates and key:
    * `$WRKDIR\certs\new-edge-device.*`
    * `$WRKDIR\private\new-edge-device.key.pem`
 
 ## Certificate chain creation
-Create a certificate chain from the owner CA certificate, intermediate certificate, and Edge device CA certificate with the command below. Placing it in a chain file allows you to easily install it on you Edge device acting as a transparent gateway.
+Create a certificate chain from the owner CA certificate, intermediate certificate, and Edge device CA certificate with the command below. Placing it in a chain file allows you to easily install it on your Edge device acting as a transparent gateway.
 
    __TODO__:Update this command 
    ```cmd
@@ -107,7 +108,7 @@ Create a certificate chain from the owner CA certificate, intermediate certifica
    ```
 
 ## Installation on the gateway
-1.	Copy the following files from $WRKDIR anywhere on your Edge device, we'll refer to that as $CERTDIR. If your generated the certificates on your Edge device skip this step.
+1.	Copy the following files from $WRKDIR anywhere on your Edge device, we'll refer to that as $CERTDIR. If you generated the certificates on your Edge device skip this step.
 
    * Device CA certificate -  `$WRKDIR\certs\new-edge-device-full-chain.cert.pem`
    * Device CA private key - `$WRKDIR\private\new-edge-device.key.pem`
@@ -126,7 +127,7 @@ certificates:
 A downstream device can be any application using the [Azure IoT device SDK][lnk-devicesdk], such as the simple one described in [Connect your device to your IoT hub using .NET][lnk-iothub-getstarted]. A downstream device application has to trust the **owner CA** certificate in order to validate the TLS connections to the gateway devices. This step can usually be performed in two ways: at the OS level, or (for certain languages) at the application level.
 
 ### OS level
-Here is an example of how to install a CA certificate on an Windows host
+Here is an example of how to install a CA certificate on a Windows host
 >[!NOTE]
 >Installing this certificate in the OS certificate store will allow all applications to use the owner CA certificate as a trusted certificate.
 
@@ -158,7 +159,7 @@ You must initialize the IoT Hub device sdk with a connection string referring to
    ```
 
 ## Routing messages from downstream devices
-The IoT Edge runtime can route messages sent from downstream devices just like messages sent by modules. This allows you to preform analytics in a module running on the gateway before sending any data to the cloud. The below route would be used to send messages from a downstream device named `sensor` to a module name `ai_insights`.
+The IoT Edge runtime can route messages sent from downstream devices just like messages sent by modules. This allows you to perform analytics in a module running on the gateway before sending any data to the cloud. The below route would be used to send messages from a downstream device named `sensor` to a module name `ai_insights`.
 
    ```json
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
