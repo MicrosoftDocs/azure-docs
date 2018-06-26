@@ -43,7 +43,7 @@ sections:
           src: media/index/logo_powershell.svg
         title: PowerShell
     rows:
-      - title: Create Standalone SQL Database
+      - title: Create Single SQL Database
         values:
           - href: /azure/sql-database/sql-database-get-started-portal
           - href: /azure/sql-database/sql-database-get-started-cli
@@ -53,7 +53,7 @@ sections:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
-      - title: Scale Standalone SQL Database
+      - title: Scale Single SQL Database
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
