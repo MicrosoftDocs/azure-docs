@@ -39,6 +39,25 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
 
+To enable the Azure Firewall public preview, use the following Azure PowerShell commands:
+
+```PowerShell
+Register-AzureRmProviderFeature -FeatureName AllowRegionalGatewayManagerForSecureGateway -ProviderNamespace Microsoft.Network
+
+Register-AzureRmProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Microsoft.Network
+```
+
+It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure PowerShell commands:
+
+```PowerShell
+
+Get-AzureRmProviderFeature -FeatureName AllowRegionalGatewayManagerForSecureGateway -ProviderNamespace Microsoft.Network
+
+Get-AzureRmProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Microsoft.Network
+```
+
+The examples in the Azure Firewall articles assume that you have already installed the public preview.
+
 
 ## Set up the network environment
 First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and test servers.
