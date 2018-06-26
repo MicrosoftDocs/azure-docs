@@ -38,7 +38,7 @@ This tutorial provides steps for provisioning an Azure-SSIS integration runtime 
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision an Azure-SSIS integration runtime that runs SSIS packages in the cloud. 
 
 > [!NOTE]
-> - You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+> - You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 > - You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 
 ## Launch Windows PowerShell ISE
@@ -48,13 +48,13 @@ Start **Windows PowerShell ISE** with administrative privileges.
 Copy and paste the following script: Specify values for the variables. For a list of supported **pricing tiers** for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
-# Azure Data Factory version 2 information 
+# Azure Data Factory information 
 # If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "[Azure subscription name]"
 $ResourceGroupName = "[Azure resource group name]"
 # Data factory name. Must be globally unique
 $DataFactoryName = "[Data factory name]"
-# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS"
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
@@ -219,13 +219,13 @@ For a list of supported **pricing tiers** for Azure SQL Database, see [SQL Datab
 For a list of regions supported by Azure Data Factory V2 and Azure-SSIS Integration Runtime, see [Products available by region](https://azure.microsoft.com/regions/services/). Expand **Data + Analytics** to see **Data Factory V2** and **SSIS Integration Runtime**.
 
 ```powershell
-# Azure Data Factory version 2 information 
+# Azure Data Factory information 
 # If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "[Azure subscription name]"
 $ResourceGroupName = "[Azure resource group name]"
 # Data factory name. Must be globally unique
 $DataFactoryName = "[Data factory name]"
-# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+# You can create a data factory of in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS"
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
@@ -307,7 +307,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## Join Azure-SSIS IR to a virtual network
-If you use Azure SQL Database with virtual network service endpoints/Managed Instance (Preview) that joins a virtual network to host SSISDB, you must also join your Azure-SSIS integration runtime to the same virtual network. Azure Data Factory version 2 (Preview) lets you join your Azure-SSIS integration runtime to a virtual network. For more information, see [Join Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
+If you use Azure SQL Database with virtual network service endpoints/Managed Instance (Preview) that joins a virtual network to host SSISDB, you must also join your Azure-SSIS integration runtime to the same virtual network. Azure Data Factory lets you join your Azure-SSIS integration runtime to a virtual network. For more information, see [Join Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
 
 For a full script to create an Azure-SSIS integration runtime that joins a virtual network, see [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md).
 

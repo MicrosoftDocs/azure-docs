@@ -46,8 +46,8 @@ As a reference, below table shows the copy throughput number **in MBps** for the
 
 ![Performance matrix](./media/copy-activity-performance/CopyPerfRef.png)
 
->[!IMPORTANT]
->In Azure Data Factory version 2, when copy activity is executed on an Azure Integration Runtime, the minimal allowed Data Integration Units (formerly known as Data Movement Units) is two. If not specified, see default Data Integration Units being used in [Data Integration Units](#data-integration-units).
+> [!IMPORTANT]
+> When copy activity is executed on an Azure Integration Runtime, the minimal allowed Data Integration Units (formerly known as Data Movement Units) is two. If not specified, see default Data Integration Units being used in [Data Integration Units](#data-integration-units).
 
 Points to note:
 
