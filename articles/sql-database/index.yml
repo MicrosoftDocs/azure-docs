@@ -30,36 +30,36 @@ sections:
   items:
   - type: paragraph
     text: 'Azure SQL Database enables you to easily perform basic management tasks using Azure Portal, Azure CLI, and Azure PowerShell. Learn how to perform basic management tasks using the following quick-start samples:'
-    - type: table
-      style: dataMatrix
-      columns:
-        - image:
-            src: media/index/portal.svg
-          title: Azure Portal
-        - image:
-            src: media/index/cli.svg
-          title: Azure CLI
-        - image:
-            src: media/index/logo_powershell.svg
-          title: PowerShell
-      rows:
-        - title: Create SQL Database
-          values:
-          - href: /azure/sql-database/sql-database-get-started-portal
-          - href: /azure/sql-database/sql-database-get-started-cli
-          - href: /azure/sql-database/sql-database-get-started-powershell
-        - title: Create Elastic Pool
-          values:
-            - href: 
-            - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
-            - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
-        - title: Scale SQL Database
-          values:
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/portal.svg
+        title: Azure Portal
+      - image:
+          src: media/index/cli.svg
+        title: Azure CLI
+      - image:
+          src: media/index/logo_powershell.svg
+        title: PowerShell
+    rows:
+      - title: Create SQL Database
+        values:
+        - href: /azure/sql-database/sql-database-get-started-portal
+        - href: /azure/sql-database/sql-database-get-started-cli
+        - href: /azure/sql-database/sql-database-get-started-powershell
+      - title: Create Elastic Pool
+        values:
+          - href: 
+          - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
+          - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
+      - title: Scale SQL Database
+        values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
-        - title: Scale Elastic Pool
-          values:
+      - title: Scale Elastic Pool
+        values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-cli
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
