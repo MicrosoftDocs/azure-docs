@@ -34,7 +34,7 @@ The following code creates a new knowledge base, using the [Create](https://west
 2. Add the code provided below.
 3. Replace the `key` value with a valid subscription key.
 4. Run the program and expect the response shown below as confirmation of your success.
-5. Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, for example QnA Maker FAQ to view.
+5. Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, for example QnA Maker FAQ, to view.
 
 ```csharp
 using System;
