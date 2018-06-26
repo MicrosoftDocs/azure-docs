@@ -36,9 +36,9 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 - Central US
 - France Central
-- East US 2
+- East US 2 (Preview)
 - West Europe
-- Southeast Asia
+- Southeast Asia (Preview)
 
 
 ## Services that support Availability Zones
