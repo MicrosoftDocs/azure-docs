@@ -35,7 +35,7 @@ You can monitor metrics over time in the Azure portal. The following example sho
 
 ![screenshot of accessing metrics in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-For metrics supporting dimensions, you must filter with the desired dimension value. The following example shows how to view **Transactions** at account level with **Success** response type.
+For metrics supporting dimensions, you can filter metric with the desired dimension value. The following example shows how to view **Transactions** at account level on a specific operation by selecting values for  **API Name** dimension.
 
 ![screenshot of accessing metrics with dimension in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
