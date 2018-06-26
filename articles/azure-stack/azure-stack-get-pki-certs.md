@@ -26,8 +26,6 @@ The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the follow
 
  - **Standard Certificate Requests**  
     Request according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md).
- - **Request Type**  
-    Specifies whether or not the Certificate Signing Request will be a single request, or multiple requests.
  - **Platform-as-a-Service**  
     Optionally request platform-as-a-service (PaaS) names to certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
 
@@ -94,22 +92,22 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     > [!note]  
     > `<regionName>.<externalFQDN>` forms the basis on which all external DNS names in Azure Stack are created, in this example, the portal would be `portal.east.azurestack.contoso.com`.  
 
-6. To generate a single certificate request with multiple Subject Alternative Names:
+6. To generate certificate signing requests for each DNS name:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    ````
+
+    To include PaaS Services specify the switch ```-IncludePaaS```
+
+7. Alternatively, for Dev/Test environments. To generate a single certificate request with multiple Subject Alternative Names add **-RequestType SingleCSR** parameter and value (**not** recommended for production environments):
 
     ```PowerShell  
     Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
     To include PaaS Services specify the switch ```-IncludePaaS```
-
-7. To generate individual certificate signing requests for each DNS name:
-
-    ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
-
-    To include PaaS Services specify the switch ```-IncludePaaS```
-
+    
 8. Review the output:
 
     ````PowerShell  
