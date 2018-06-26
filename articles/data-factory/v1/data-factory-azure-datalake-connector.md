@@ -21,7 +21,7 @@ robots: noindex
 # Copy data to and from Data Lake Store by using Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-azure-datalake-connector.md)
-> * [Current version](../connector-azure-data-lake-store.md)
+> * [Version 2 (current version)](../connector-azure-data-lake-store.md)
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Azure Data Lake Store connector in V2](../connector-azure-data-lake-store.md).

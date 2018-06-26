@@ -21,7 +21,7 @@ robots: noindex
 # Move data From Amazon Redshift using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-amazon-redshift-connector.md)
-> * [Current version](../connector-amazon-redshift.md)
+> * [Version 2 (current version)](../connector-amazon-redshift.md)
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Amazon Redshift connector in V2](../connector-amazon-redshift.md).
