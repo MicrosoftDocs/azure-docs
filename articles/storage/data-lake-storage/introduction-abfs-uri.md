@@ -1,6 +1,6 @@
 ---
-title: Use the Azure Data Lake Storage URI
-description: Use the Azure Data Lake Storage URI
+title: Use the Azure Data Lake Storage Gen2 Preview URI
+description: Use the Azure Data Lake Storage Gen2 Preview URI
 services: storage
 keywords: 
 author: jamesbak

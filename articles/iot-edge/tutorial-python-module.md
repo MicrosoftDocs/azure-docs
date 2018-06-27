@@ -54,38 +54,61 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge Python module using Visual Studio Code and the Azure IoT Edge extension.
+
+### Create a new solution
+
+Use the Python package **cookiecutter** to create a Python solution template that you can build on top of. 
+
 1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
-2. In the integrated terminal, enter the following command to install (or update) **cookiecutter**:
+
+2. In the integrated terminal, enter the following command to install (or update) **cookiecutter**, which you use to create the Edge solution template in VS Code:
 
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
+
 4. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
+
 5. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
    3. Choose **Python Module** as the module template. 
    4. Name your module **PythonModule**. 
    5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/pythonmodule**.
  
-6. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder and a deployment manifest template file and a .env file. Open **modules** > **PythonModule** > **main.py**.
+The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a deployment manifest template file, and a **.env** file. 
 
-7. At the top of the **main.py**, import the `json` library.
+### Add your registry credentials
+
+The environment file stores the credentials for your container repository and shares those with the IoT Edge runtime. The runtime needs these credentials to pull your private images onto the IoT Edge device. 
+
+1. In the VS Code explorer, open the **.env** file. 
+2. Update the fields with the **username** and **password** values that you copied from your Azure container registry. 
+3. Save this file. 
+
+### Update the module with custom code
+
+Each template comes with sample code included, which takes simulates sensor data from the **tempSensor** module and routes it to IoT Hub. In this section, add the code that expands the pythonModule to analyze the messages before sending them. 
+
+1. In the VS Code explorer, open **modules** > **PythonModule** > **main.py**.
+
+2. At the top of the **main.py**, import the `json` library.
 
     ```python
     import json
     ```
 
-8. Add `TEMPERATURE_THRESHOLD` and `TWIN_CALLBACKS` variables under the global counters. The temperature threshold sets the value that the measured machine temperature must exceed in order for the data to be sent to IoT Hub.
+3. Add `TEMPERATURE_THRESHOLD` and `TWIN_CALLBACKS` variables under the global counters. The temperature threshold sets the value that the measured machine temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```python
     TEMPERATURE_THRESHOLD = 25
     TWIN_CALLBACKS = 0
     ```
 
-9. Replace the function `receive_message_callback` with the following code:
+4. Replace the function `receive_message_callback` with the following code:
 
     ```python
     # receive_message_callback is invoked when an incoming message arrives on the specified 
@@ -111,7 +134,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
         return IoTHubMessageDispositionResult.ACCEPTED
     ```
 
-10. Add a new function called `module_twin_callback`. This function will be invoked when the desired properties are updated.
+5. Add a new function called `module_twin_callback`. This function will be invoked when the desired properties are updated.
 
     ```python
     # module_twin_callback is invoked when twin's desired properties are updated.
@@ -128,14 +151,14 @@ The following steps show you how to create an IoT Edge Python module using Visua
         print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
     ```
 
-11. In class `HubManager`, add a new line to the `__init__` method to initialize the `module_twin_callback` function you just added.
+6. In class `HubManager`, add a new line to the `__init__` method to initialize the `module_twin_callback` function you just added.
 
     ```python
     # sets the callback when a twin's desired properties are updated.
     self.client.set_module_twin_callback(module_twin_callback, self)
     ```
 
-12. Save this file.
+7. Save this file.
 
 ## Build your IoT Edge solution
 
@@ -148,11 +171,13 @@ In the previous section you created an IoT Edge solution and added code to the P
    ```
    Use the username, password, and login server that you copied from your Azure Container Registry in the first section. Or retrieve them again from the **Access keys** section of your registry in the Azure portal.
 
-2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the `$edgeAgent` to deploy two modules: **tempSensor** and **PythonModule**. The `PythonModule.image` value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. 
 
-3. In **deployment.template.json** file, there is a section **registryCredentials** which stores your Docker registry credentials. The actual username and password pairs are stored in the .env file which is git ignored.
+   This file tells the `$edgeAgent` to deploy two modules: **tempSensor**, which simulates device data, and **PythonModule**. The `PythonModule.image` value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-4. Add the PythonModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
+   This file also contains your registry credentials. In the template file, your username and password are filled in with placeholders. When you generate the deployment manifest, the fields are updated with the values you added to **.env**. 
+
+3. Add the PythonModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
     ```json
         "PythonModule": {
             "properties.desired":{
@@ -161,8 +186,9 @@ In the previous section you created an IoT Edge solution and added code to the P
         }
     ```
 
-5. Save this file.
-6. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build IoT Edge solution**. 
+4. Save this file.
+
+5. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build IoT Edge solution**. 
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the your Python code, and the push it to the container registry that you specified when you initialized the solution. 
 
