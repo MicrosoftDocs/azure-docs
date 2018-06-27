@@ -379,4 +379,4 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to add a prebuilt keyphrase entity](luis-quickstart-intent-and-key-phrase.md)
+> [Add a prebuilt keyphrase entity](luis-quickstart-intent-and-key-phrase.md)

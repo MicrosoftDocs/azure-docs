@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 * Query LUIS and receive prediction response
 
 ## Before you begin
-If you do not have the [Human Resources](luis-quickstart-intents-only.md) app, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
+If you do not have the [Human Resources](luis-quickstart-intents-only.md) app from the previous tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `prebuilts`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -163,5 +163,6 @@ By easily and quickly adding prebuilt intents and entities, the client applicati
 
 ## Next steps
 
-[Learn more about entities](luis-concept-entity-types.md). 
+> [!div class="nextstepaction"]
+> [Add a regular expression entity to the app](luis-quickstart-intents-regex-entity.md)
 
