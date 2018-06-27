@@ -39,7 +39,7 @@ This tutorial requires the following pre-requisites:
 * Visual Studio 2013 running on Windows 8.1 or later.
 * Completion of [Create a Windows app][create a windows app].
 * [Azure Mobile Services SQLite Store][sqlite store nuget]
-* [SQLite for Universal Windows Platform development](http://www.sqlite.org/downloads)  
+* [SQLite for Universal Windows Platform development](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
 ## Update the client app to support offline features
 Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario. To use these features in your app, you initialize a [SyncContext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite is used as the local store on the device.
