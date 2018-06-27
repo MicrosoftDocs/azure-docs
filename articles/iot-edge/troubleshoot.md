@@ -33,6 +33,29 @@ On Linux:
     sudo journalctl -u iotedge -f
     ```
 
+- To view more detailed logs of the IoT Edge Security Manager:
+
+   - Edit the iotedge daemon settings:
+
+      ```bash
+      sudo systemctl edit iotedge.service
+      ```
+   
+   - Update the following lines:
+    
+      ```
+      [Service]
+      Environment=IOTEDGE_LOG=edgelet=debug
+      ```
+    
+   - Restart the IoT Edge Security Daemon:
+    
+      ```bash
+      sudo systemctl cat iotedge.service
+      sudo systemctl daemon-reload
+      sudo systemctl restart iotedge
+      ```
+
 * View verbose logs from iotedgectl commands:
 
    ```cmd
@@ -115,10 +138,38 @@ On Windows:
    [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
    ```
 
-### If the IoT Edge Security Manager is not running, verify your yaml configuration file
+You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
-> [!WARNING]
-> YAML files cannot contain tabs as identation. Use 2 spaces instead.
+### Restart containers
+After investigating the logs and messages for information, you can try restarting containers:
+
+```
+iotedge restart <container name>
+```
+
+Restart the IoT Edge runtime containers:
+
+```
+iotedge restart edgeAgent && iotedge restart edgeHub
+```
+
+### Restart the IoT Edge security manager
+
+If issue is still persisting, you can try restarting the IoT Edge security manager.
+
+On Linux:
+
+   ```cmd
+   sudo systemctl restart iotedge
+   ```
+
+On Windows:
+
+   ```powershell
+   Stop-Service iotedge -NoWait
+   sleep 5
+   Start-Service iotedge
+   ```
 
 ## Edge Agent stops after about a minute
 
