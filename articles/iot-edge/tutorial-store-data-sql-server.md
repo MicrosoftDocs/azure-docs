@@ -5,16 +5,15 @@ description: Learn how to store data locally on your IoT Edge device with a SQL 
 services: iot-edge
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
-ms.date: 06/19/2018
+ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-
+#Customer intent: As an IoT developer, I want to use SQL Service to execute logic on edge devices to filter data and communications that is sent to the cloud.
 ---
 
-# Store data at the edge with SQL Server databases
+# Tutorial: Store data at the edge with SQL Server databases
 
 Use Azure IoT Edge and SQL Server to store and query data at the edge. Azure IoT Edge comes built-in with basic storage features that cache messages if a device goes offline and then forwards them when the connection is reestablished. However, you may want more advanced storage capabilities, like being able to query data locally. By incorporating local databases, your IoT Edge devices can perform more complex computing without having to maintain a connection to IoT Hub. For example, a field technician can visualize the last few days of sensor data on a machine locally, even though that data is only uploaded to the cloud once a month to help improve a machine learning model.
 
@@ -28,9 +27,11 @@ In this tutorial, you learn how to:
 > * Use Visual Studio Code to build modules and deploy them to your IoT Edge device
 > * View generated data
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the quickstart or previous tutorial.
+* The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
@@ -42,12 +43,16 @@ In this tutorial, you use the Azure IoT Edge extension for VS Code to build a mo
 
 You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Azure Container Registry**.
-2. Give your registry a name, choose a subscription, choose a resource group, and set the SKU to **Basic**. 
-3. Select **Create**.
-4. Once your container registry is created, navigate to it and select **Access keys**. 
-5. Toggle **Admin user** to **Enable**.
-6. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial. 
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
+
+    ![create container registry](./media/tutorial-deploy-function/create-container-registry.png)
+
+2. Give your registry a name, and choose a subscription.
+3. For the resource group, it is recommended that you use the same resource group name that contains your IoT Hub. By keeping all the resources together in the same group, you can manage them together. For example, deleting the resource group used for testing deletes all test resources contained in the group. 
+4. Set the SKU to **Basic**, and toggle **Admin user** to **Enable**. 
+5. Click **Create**.
+6. Once your container registry is created, navigate to it and select **Access keys**. 
+7. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial. 
 
 ## Create a function project
 
@@ -221,9 +226,16 @@ In the previous sections, you created a solution with one module, and then added
 4. Save the **deployment.template.json** file.
 5. Sign in your container registry in Visual Studio Code so that you can push your images to your registry. Use the same credentials that you just added to the deployment manifest. Enter the following command in the integrated terminal: 
 
-   ```cmd/sh
-   docker login -u <username> -p <password> <address>
-   ```
+    ```csh/sh
+    docker login -u <ACR username> <ACR login server>
+    ```
+    You will be prompted for the password. Paste your password into the prompt and press **Enter**.
+
+    ```csh/sh
+    Password: <paste in the ACR password and press enter>
+    Login Succeeded
+    ```
+
 6. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build IoT Edge solution**. 
 
 ## Deploy the solution to a device
@@ -317,3 +329,18 @@ From inside the SQL command tool, run the following command to view your formatt
 
    ![View local data](./media/tutorial-store-data-sql-server/view-data.png)
 
+
+
+## Clean up resources
+
+[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)]
+
+
+## Next steps
+
+In this tutorial, you created an Azure Functions module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [Develop Azure Functions with Azure IoT Edge for Visual Studio Code](how-to-develop-csharp-function.md). 
+
+Continue on to the next tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
+
+> [!div class="nextstepaction"]
+> [Find averages using a floating window in Azure Stream Analytics](tutorial-deploy-stream-analytics.md)

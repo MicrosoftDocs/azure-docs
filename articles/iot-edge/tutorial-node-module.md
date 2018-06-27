@@ -31,8 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the [quickstart](quickstart-linux.md) or first tutorial.
-* The primary key connection string for the IoT Edge device.  
+* The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Docker](https://docs.docker.com/engine/installation/) on the same computer that has Visual Studio Code. The Community Edition (CE) is sufficient for this tutorial. 
@@ -56,11 +55,10 @@ The following steps show you how to create an IoT Edge Node.js module using Visu
 2. In the integrated terminal, enter the following command to install **yeoman** and the generator for Node.js Azure IoT Edge module: 
 
     ```cmd/sh
-    npm install -g yo https://github.com/Azure/generator-azure-iot-edge-module/archive/v1.0.0-rc5.tar.gz
+    npm install -g yo generator-azure-iot-edge-module
     ```
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
-3. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
 4. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
@@ -151,18 +149,28 @@ In the previous section you created an IoT Edge solution and added code to the N
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the your Node.js code, and the push it to the container registry that you specified when you initialized the solution. 
 
-You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information in the `module.json` file, with the format **\<repository\>:\<version\>-\<platform\>**. For this tutorial, it should look like **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
+You can see the full container image address with tag in the `docker build` command that runs in the VS Code integrated terminal. The image address is built from information in the `module.json` file, with the format **\<repository\>:\<version\>-\<platform\>**. For this tutorial, it should look like **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
 
 ## Deploy and run the solution
 
-1. Configure the Azure IoT Toolkit extension with connection string for your IoT hub: 
-    1. Open the VS Code explorer by selecting **View** > **Explorer**. 
-    2. In the explorer, click **AZURE IOT HUB DEVICES** and then click **...**. Click **Select IoT Hub**. Follow the instructions to log in you Azure account and choose your IoT hub.
-       Note that you can also setup by clicking **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window.
+You could use the Azure portal to deploy your Node.ms module to an IoT Edge device like you did in the quickstarts, but you can also deploy and monitor modules from within Visual Studio Code. The following sections use the Azure IoT Edge extension for VS Code that was listed in the prerequisites. Install that now if you did not already. 
 
-2. In Azure IoT Hub Devices explorer, right-click your IoT Edge device, then click **Create Deployment for IoT Edge device**. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**.
+1. Open the VS Code command palette by selecting **View** > **Command Palette**.
 
-3. Click the refresh button. You should see the new **NodeModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+2. Search for and run the command **Azure: Sign in**. Follow the instructions to sign in your Azure account. 
+
+3. In the command palette, search for and run the command **Azure IoT Hub: Select IoT Hub**. 
+
+4. Select the subscription that contains your IoT hub, then select the IoT hub that you want to access.
+
+5. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
+
+6. Right-click the name of your IoT Edge device, then select **Create Deployment for IoT Edge device**. 
+
+7. Navigate to the solution folder that contains NodeModule. Open the **config** folder and select the **deployment.json** file. Click **Select Edge Deployment Manifest**.
+
+8. Refresh the **Azure IoT Hub Devices** section. You should see the new **NodeModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+
 
 ## View generated data
 
@@ -171,6 +179,37 @@ You can see the full container image address with tag in the VS Code integrated 
 3. To stop monitoring data, run the command **Azure IoT Hub: Stop monitoring D2C message** in command palette. 
 4. To view or update module twin, right-click the module in the list, and select **Edit module twin**. To update the module twin, save the twin JSON file and right-click the editor area and select **Update Module Twin**.
 5. To view Docker logs, you can install [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) for VS Code and find your running modules locally in Docker explorer. In the context menu, click **Show Logs** to view in integrated terminal. 
+
+## Clean up resources 
+
+<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+
+If you will be continuing to the next recommended article, you can keep the resources and configurations you've already created and reuse them.
+
+Otherwise, you can delete the local configurations and the Azure resources created in this article to avoid charges. 
+
+> [!IMPORTANT]
+> Deleting Azure resources and resource group is irreversible. Once deleted, the resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
+>
+
+To delete only the IoT Hub execute the following command using your hub name and resource group name:
+
+```azurecli-interactive
+az iot hub delete --name MyIoTHub --resource-group TestResources
+```
+
+
+To delete the entire resource group by name:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+
+2. In the **Filter by name...** textbox, type the name of the resource group containing your IoT Hub. 
+
+3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
+
+<!-->    ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
+-->
+4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 
