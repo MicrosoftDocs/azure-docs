@@ -31,7 +31,7 @@
       href: luis-quickstart-intent-and-key-phrase.md
     - name: 8. Add sentiment analysis
       href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: Improve prediction 
+  - name: Improve prediction 
     items: 
     - name: With patterns
       href: luis-tutorial-pattern.md
