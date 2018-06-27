@@ -27,14 +27,13 @@ In this tutorial, you learn how to:
 > * Configure a Stream Analytics job to process those transactions
 > * Configure a Power BI visualization to show the results
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To complete this tutorial, you need an Azure subscription. If you don't have one, [create a free account][] before you begin.
 
 ## Prerequisites
 
-- Install [Visual Studio](https://www.visualstudio.com/). 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+- Install [Visual Studio](https://www.visualstudio.com/). 
 - You need a Power BI account to analyze output from a Stream Analytics job. You can [try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).
 
 ## Set up resources
@@ -168,7 +167,7 @@ Now you can stream data into your event hub. To use that data in a Power BI visu
 
 ### Create the Stream Analytics job
 
-1. In the [Azure portal](https://portal.azure.com), click **Create a resource**. Type **stream analytics** into the search box and press **Enter**. Select **Stream Analytics Job**. Click **Create** on the Stream Analytics job pane. 
+1. In the Azure portal, click **Create a resource**. Type **stream analytics** into the search box and press **Enter**. Select **Stream Analytics Job**. Click **Create** on the Stream Analytics job pane. 
 
 2. Enter the following information for the job:
 
@@ -347,7 +346,7 @@ If you want to remove all of the resources you've created, remove the Power BI v
 
 ### Clean up resources in the Power BI visualization
 
-Log into your [Power BI](https://powerbi.microsoft.com/) account. Go to **My Workspace**. On the line with your dashboard name, click the trash can icon. Next, go to **DataSets** and click the trash can icon to delete the dataset (**contosoehdataset**).
+Log into your Power BI account. Go to **My Workspace**. On the line with your dashboard name, click the trash can icon. Next, go to **DataSets** and click the trash can icon to delete the dataset (**contosoehdataset**).
 
 ### Clean up resources using Azure CLI
 
@@ -379,3 +378,5 @@ Advance to the next article to learn more about Azure Event Hubs.
 
 > [!div class="nextstepaction"]
 > [Get started sending messages to Azure Event Hubs in .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
+
+[create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

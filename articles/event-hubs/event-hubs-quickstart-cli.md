@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Process event streams using Azure CLI | Microsoft Docs
-description: Quickly learn to process event streams using Azure CLI
+description: In this quickstart, you learn how to process event streams using Azure CLI.
 services: event-hubs
 author: sethmanheim
 manager: timlt
@@ -9,19 +9,19 @@ ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/24/2018
+ms.date: 06/26/2018
 ms.author: sethm
 #Customer intent: How do I stream data and process telemetry from an event hub?
 
 ---
 
-# Process event streams using Azure CLI and Java
+# Quickstart: Process event streams using Azure CLI and Java
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create Event Hubs resources using Azure CLI, then send and receive event streams from an event hub using Java code.
 
-## Prerequisites
+To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account][] before you begin.
 
-To complete this tutorial, make sure you have an Azure subscription. If you don't have one, [create a free subscription][] before you begin.
+## Prerequisites
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -31,21 +31,21 @@ If you choose to install and use Azure CLI locally, this tutorial requires that 
 
 The following steps are not required if you're running commands in Cloud Shell. If you're running the CLI locally, perform the following steps to log on to Azure and set your current subscription:
 
-1. Run the following command to log on to Azure:
+Run the following command to log on to Azure:
 
-   ```azurecli-interactive
-   az login
-   ```
+```azurecli-interactive
+az login
+```
 
-3. Set the current subscription context. Replace `MyAzureSub` with the name of the Azure subscription you want to use:
+Set the current subscription context. Replace `MyAzureSub` with the name of the Azure subscription you want to use:
 
-   ```azurecli-interactive
-   az account set --subscription MyAzureSub
-   ``` 
+```azurecli-interactive
+az account set --subscription MyAzureSub
+``` 
 
 ## Provision resources
 
-After logging in to Azure, issue the following commands to provision Event Hubs resources. Be sure to replace the placeholders `myResourceGroup`, `namespaceName`, `eventHubName`, and `storageAccountName` with the appropriate values:
+Issue the following commands to provision Event Hubs resources. Be sure to replace the placeholders `myResourceGroup`, `namespaceName`, `eventHubName`, and `storageAccountName` with the appropriate values:
 
 ```azurecli-interactive
 # Create a resource group
@@ -73,50 +73,59 @@ Copy and paste the connection string to a temporary location, such as Notepad, t
 
 The next step is to download the sample code that streams events to an event hub, and receives those events using the Event Processor Host. First, send the messages:
 
-1. Clone the [Event Hubs GitHub repo](https://github.com/Azure/azure-event-hubs).
-2. Navigate to the **SimpleSend** folder: `\azure-event-hubs\samples\Java\Basic\SimpleSend\src\main\java\com\microsoft\azure\eventhubs\samples\SimpleSend`.
-2. In the SimpleSend.java file, replace the `"Your Event Hubs namaspace name"` string with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article.
-2. Replace `"Your event hub"` with the name of the event hub you created within that namespace.
-3. Replace `"Your policy name"` with the name of the Shared access policy for the namespace. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
-4. Replace `"Your primary SAS key"` with the value of the SAS key for the policy in the previous step.
-5. To build the application, navigate back to the `\azure-event-hubs\samples\Java\Basic\SimpleSend` folder, and issue the following command:
+Clone the [Event Hubs GitHub repo](https://github.com/Azure/azure-event-hubs) by issuing the following command:
 
-   ```shell
-   mvn clean package -DskipTests
-   ```
+```bash
+git clone https://github.com/Azure/azure-event-hubs.git
+```
+
+Navigate to the **SimpleSend** folder: `\azure-event-hubs\samples\Java\Basic\SimpleSend\src\main\java\com\microsoft\azure\eventhubs\samples\SimpleSend`. Open the SimpleSend.java file and replace the `"Your Event Hubs namaspace name"` string with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article.
+
+Replace `"Your event hub"` with the name of the event hub you created within that namespace, and `"Your policy name"` with the name of the Shared access policy for the namespace. Unless you created a new policy, the default is **RootManageSharedAccessKey**. 
+
+Finally, replace `"Your primary SAS key"` with the value of the SAS key for the policy in the previous step.
+
+### Build the application 
+
+Navigate back to the `\azure-event-hubs\samples\Java\Basic\SimpleSend` folder, and issue the following build command:
+
+```shell
+mvn clean package -DskipTests
+```
 
 ### Receive
 
-Now download the Event Processor Host sample, which receives the messages you just sent:
+Now download the Event Processor Host sample, which receives the messages you just sent. Navigate to the **EventProcessorSample** folder: `\azure-event-hubs\samples\Java\Basic\EventProcessorSample\src\main\java\com\microsoft\azure\eventhubs\samples\eventprocessorsample`.
 
-1. Navigate to the **EventProcessorSample** folder: `\azure-event-hubs\samples\Java\Basic\EventProcessorSample\src\main\java\com\microsoft\azure\eventhubs\samples\eventprocessorsample`.
-2. In the EventProcessorSample.java file, replace the `----EventHubsNamespaceName-----` value with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article. 
-3. Replace `----EventHubName-----` with the name of the event hub you created within that namespace.
-4. Replace `-----SharedAccessSignatureKeyName-----` with the name of the Shared access policy for the namespace. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
-5. Replace `---SharedAccessSignatureKey----` with the value of the SAS key for the policy in the previous step.
-6. Replace `----AzureStorageConnectionString----` with the connection string for the storage account you created.
-7. Replace `----StorageContainerName----` with the name of the container under the storage account you created.
-8. Replace `----HostNamePrefix----` with the name of the storage account.
-9. To build the application, navigate to the `\azure-event-hubs\samples\Java\Basic\EventProcessorSample` folder, and issue the following command:
+In the EventProcessorSample.java file, replace the `----EventHubsNamespaceName-----` value with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article. 
 
-   ```shell
-   mvn clean package -DskipTests
-   ```
+Replace the other string values in this file: replace `----EventHubName-----` with the name of the event hub you created within that namespace, and `-----SharedAccessSignatureKeyName-----` with the name of the Shared access policy for the namespace. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
+
+Replace `---SharedAccessSignatureKey----` with the value of the SAS key for the policy in the previous step, replace `----AzureStorageConnectionString----` with the connection string for the storage account you created, and `----StorageContainerName----` with the name of the container under the storage account you created. 
+
+Finally, replace `----HostNamePrefix----` with the name of the storage account.
+
+### Build the receiver 
+
+To build the receiving application, navigate to the `\azure-event-hubs\samples\Java\Basic\EventProcessorSample` folder, and issue the following command:
+
+```shell
+mvn clean package -DskipTests
+```
 
 ### Run the apps
 
-If the builds completed successfully, you are ready to send and receive events. 
+If the builds completed successfully, you are ready to send and receive events. First, run the **SimpleSend** application and observe events being sent. To run the program, navigate to the `\azure-event-hubs\samples\Java\Basic\SimpleSend` folder, and issue the following command:
 
-1. Run the **SimpleSend** application and observe events being sent. To run the program, navigate to the `\azure-event-hubs\samples\Java\Basic\SimpleSend` folder, and issue the following command:
+```shell
+java -jar ./target/simplesend-1.0.0-jar-with-dependencies.jar
+```
 
-   ```shell
-   java -jar ./target/simplesend-1.0.0-jar-with-dependencies.jar
-   ```
-2. Run the **EventProcessorSample** app, and observe the events being received. To run the program, navigate to the `\azure-event-hubs\samples\Java\Basic\EventProcessorSample` folder, and issue the following command:
+Next, run the **EventProcessorSample** app, and observe the events being received. To run the program, navigate to the `\azure-event-hubs\samples\Java\Basic\EventProcessorSample` folder, and issue the following command:
    
-   ```shell
-   java -jar ./target/eventprocessorsample-1.0.0-jar-with-dependencies.jar
-   ```
+```shell
+java -jar ./target/eventprocessorsample-1.0.0-jar-with-dependencies.jar
+```
 
 After running both programs, you can check the Azure portal overview page for the event hub to see the incoming and outgoing message count:
 
@@ -281,7 +290,7 @@ In this article, you created the Event Hubs namespace and other resources requir
 > [!div class="nextstepaction"]
 > [Visualize data anomalies on Event Hubs data streams](event-hubs-tutorial-visualize-anomalies.md)
 
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
