@@ -220,7 +220,7 @@ Remove-Service -Name iotedge
 Delete the containers that were created on your device. 
 
 ```Powershell
-docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction)
+docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction")
 ```
 
 ### Linux
@@ -234,7 +234,7 @@ sudo apt-get remove --purge iotedge
 Delete the containers that were created on your device. 
 
 ```bash
-sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction)
+sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction")
 ```
 
 Remove the container runtime.
