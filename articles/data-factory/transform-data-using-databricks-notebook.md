@@ -63,7 +63,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
 
     Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-1.  For **Version**, select **V2 (Preview)**.
+1.  For **Version**, select **V2**.
 
 2.  For **Location**, select the location for the data factory.
 
