@@ -43,15 +43,15 @@ Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime (e.g. Doc
 In an Administrator PowerShell window, execute the following commands:
 
 ```powershell
-Invoke-WebRequest https://conteng.blob.core.windows.net/iotedged/iotedged-windows.zip -o .\iotedged.zip
-Expand-Archive .\iotedge.zip C:\ProgramData\iotedge -f
+Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
 $env:Path += ";C:\ProgramData\iotedge"
 SETX /M PATH "$env:Path"
 ```
 
-if your Edge device is running Windows Server, install the vcruntime using:
+Install the vcruntime using (you can skip this step on an IoT core Edge device):
 
 ```powershell
 Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
@@ -84,7 +84,7 @@ Windows Registry Editor Version 5.00
 
 ## Configure the Azure IoT Edge Security Daemon
 
-The daemon can be configured using the configuration file at `C:\ProgramData\iotedge\config.yaml` The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string][lnk-dcs].
+The daemon can be configured using the configuration file at `C:\ProgramData\iotedge\config.yaml` The edge device can be configured <!--[automatically via Device Provisioning Service][lnk-dps] or--> manually using a [device connection string][lnk-dcs].
 
 For manual configuration, enter the device connection string in **provisioning:** section of **config.yaml**
 

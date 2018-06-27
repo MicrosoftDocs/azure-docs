@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Stream Analytics with Azure IoT Edge | Microsoft Docs 
-description: Deploy Azure Stream Analytics as a module to an edge device
+title: Tutorial - Deploy ASA jobs to Azure IoT Edge devices | Microsoft Docs 
+description: Deploy Azure Stream Analytics as a module to an Iot Edge device
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -11,7 +11,7 @@ services: iot-edge
 ms.custom: mvc
 ---
 
-# Deploy Azure Stream Analytics as an IoT Edge module - preview
+# Tutorial: Deploy Azure Stream Analytics as an IoT Edge module - preview
 
 Many IoT solutions use analytics services to gain insight about data as it arrives in the cloud from the IoT devices. With Azure IoT Edge, you can take [Azure Stream Analytics][azure-stream] logic and move it onto the device itself. By processing telemetry streams at the edge, you can reduce the amount of uploaded data and reduce the time it takes to react to actionable insights.
 
@@ -28,10 +28,13 @@ In this tutorial, you learn how to:
 > * Connect the new Azure Stream Analytics job with other IoT Edge modules.
 > * Deploy the Azure Stream Analytics job to an IoT Edge device from the Azure portal.
 
+>[!NOTE]
+>Azure Stream Analytics modules for IoT Edge are in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
-* An IoT hub. 
-* The device that you created and configured in the quickstart for [Windows][lnk-quickstart-win] or [Linux][lnk-quickstart-lin]. 
+* An IoT hub
+* The IoT Edge device that you created and configured in the quickstart for [Windows][lnk-quickstart-win] or [Linux][lnk-quickstart-lin]. 
 
 ## Create an Azure Stream Analytics job
 
@@ -47,11 +50,6 @@ An Azure Storage account is required for Azure Stream Analytics jobs, to act as 
 
     ![Create a storage account][1]
 
-3. Go to the storage account that you created, and then select **Browse blobs**. 
-
-4. Create a new container for the Azure Stream Analytics module to store data, set the access level to **Container**, and then select **OK**.
-
-    ![Storage settings][10]
 
 ### Create a Stream Analytics job
 
@@ -109,7 +107,7 @@ An Azure Storage account is required for Azure Stream Analytics jobs, to act as 
 
 15. Select your **Storage account** from the drop-down menu.
 
-16. Choose to **Use existing** container, and select the one that you created from the drop-down menu.
+16. For the **Container** field, select **Create new** and provide a name for the storage container. 
 
 17. Select **Save**. 
 
@@ -138,22 +136,22 @@ You are now ready to deploy the Azure Stream Analytics job on your IoT Edge devi
 
 4. Select **Next**.
 
-5. Copy the following code to **Routes**. Replace _{moduleName}_ with the name of your Azure Stream Analytics module. The module should have the same name as the job that it was created from. 
+5. Replace the default value in **Routes** with the following code. Update _{moduleName}_ with the name of your Azure Stream Analytics module. The module should have the same name as the job that it was created from. 
 
     ```json
     {
         "routes": {
             "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream",
-            "alertsToCloud": "FROM /messages/modules/IoTJob2/* INTO $upstream",
-            "alertsToReset": "FROM /messages/modules/IoTJob2/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")",
-            "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/IoTJob2/inputs/temperature\")"
+            "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream",
+            "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")",
+            "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")"
         }
     }
     ```
 
 6. Select **Next**.
 
-7. In the **Review Template** step, select **Submit**.
+7. In the **Review Deployment** step, select **Submit**.
 
 8. Return to the device details page, and then select **Refresh**.  
 

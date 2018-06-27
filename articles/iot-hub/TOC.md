@@ -112,6 +112,8 @@
 #### [Send messages to an MQTT server using Eclipse Paho APIs](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 #### [Monitor the magnetic sensor and send email notifications with Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
+## [Device configuration best practices](iot-hub-configuration-best-practices.md)
+
 # How-to guides
 ## Plan
 ### [Compare IoT Hub and Event Hubs](iot-hub-compare-event-hubs.md)

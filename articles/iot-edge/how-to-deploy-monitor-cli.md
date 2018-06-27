@@ -197,7 +197,7 @@ When you delete a deployment, any devices take on their next highest priority de
 Use the following command to delete a deployment:
 
    ```cli
-az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] 
+az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name] 
    ```
 * **--deployment-id** - The name of the deployment that exists in the IoT hub.
 * **--hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`

@@ -90,7 +90,7 @@ Use the following command to create a configuration:
 
 * **--config-id** - The name of the configuration that will be created in the IoT hub. Give your configuration a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
 * **--labels** - Add labels to help track your configuration. Labels are Name, Value pairs that describe your deployment. For example, `HostPlatform, Linux` or `Version, 3.0.1`
-* **--content** - Filepath to the target content to be set as twin desired properties. 
+* **--content** - Inline JSON or file path to the target content to be set as twin desired properties. 
 * **--hub-name** - Name of the IoT hub in which the configuration will be created. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
 * **--target-condition** - Enter a target condition to determine which devices will be targeted with this configuration. The condition is based on device twin tags or device twin desired properties and should match the expression format. For example, `tags.environment='test'` or `properties.desired.devicemodel='4000x'`. 
 * **--priority** - A positive integer. In the event that two or more configurations are targeted at the same device, the configuration with the highest numerical value for Priority will apply.
@@ -150,7 +150,7 @@ When you delete a configuration, any device twins take on their next highest pri
 Use the following command to delete a configuration:
 
    ```cli
-az iot hub configuration update --config-id [configuration id] --hub-name [hub name] 
+az iot hub configuration delete --config-id [configuration id] --hub-name [hub name] 
    ```
 * **--config-id** - The name of the configuration that exists in the IoT hub.
 * **--hub-name** - Name of the IoT hub in which the configuration exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`

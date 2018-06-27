@@ -83,7 +83,7 @@ sudo apt-get install iotedge
 
 ## Configure the Azure IoT Edge Security Daemon
 
-The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml` The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string][lnk-dcs].
+The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml` The edge device can be configured <!--[automatically via Device Provisioning Service][lnk-dps] or--> manually using a [device connection string][lnk-dcs].
 
 For manual configuration, enter the device connection string in **provisioning** section of **config.yaml**
 

@@ -1,6 +1,6 @@
 ---
 title: Simulate Azure IoT Edge on Linux | Microsoft Docs 
-description: Install the Azure IoT Edge runtime on a simulated device in Linux, and deploy your first module
+description:  In this quickstart, learn how to deploy prebuilt code remotely to an IoT Edge device.
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -14,7 +14,7 @@ experimental: false
 experiment_id:
 ---
 
-# Quickstart: Deploy your first IoT Edge module to a Linux x64 or Mac device
+# Quickstart: Deploy your first IoT Edge module to a Linux x64 device
 
 Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, but first you need a device to test. 
 
@@ -27,7 +27,7 @@ In this quickstart you learn how to:
 
 ![Tutorial architecture][2]
 
-The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
+This quickstart turns your Linux computer or virtual machine into an IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
 
 If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
@@ -184,5 +184,4 @@ This quickstart is the prerequisite for all of the IoT Edge tutorials. You can c
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

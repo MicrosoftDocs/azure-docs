@@ -30,23 +30,14 @@ In this quickstart you learn how to:
 
 The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
 
+>[!NOTE]
+>The IoT Edge runtime on Windows is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
 ## Prerequisites
 
 This quickstart assumes that you're using a computer or virtual machine running Windows to simulate an IoT device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
-
->[!IMPORTANT]
->**bug bash only**
->Use the canary portal 
->Add the following line to the hosts file of the computer from which you'll access the Azure Portal 
->`40.76.74.59 main.iothub.ext.azure.com` 
-> 
->The hosts file can be found at: 
->* Linux - /etc/hosts 
->* Windows - C:\Windows\System32\drivers\etc\hosts 
->
-> Remember to remove this line when you're done testing
 
 Have the following prerequisites ready on the machine that you're using for an IoT Edge device:
 
@@ -76,6 +67,9 @@ Install and start the Azure IoT Edge runtime on your IoT Edge device.
 ![Register a device][5]
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
+
+>[!NOTE]
+>The installation steps in this section are manual for now while an installation script is being developed. 
 
 The instructions in this section configure the IoT Edge runtime with Linux containers. If you want to use Windows containers, see [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iot-edge-windows-with-windows.md).
 
@@ -135,41 +129,47 @@ Configure the runtime with your IoT Edge device connection string that you copie
 
 4. In the configuration file, find the **Edge device hostname** section. Update the value of **hostname** with the hostname that you copied from PowerShell.
 
-3. In your administrator PowerShell window, retrieve the IP address for your IoT Edge device. 
+5. In your administrator PowerShell window, retrieve the IP address for your IoT Edge device. 
 
    ```powershell
    ipconfig
    ```
 
-4. Copy the value for **IPv4 Address** in the **vEthernet (DockerNAT)** section of the output. 
+6. Copy the value for **IPv4 Address** in the **vEthernet (DockerNAT)** section of the output. 
 
-5. Create an environment variable called **IOTEDGE_HOST**, replacing *\<ip_address\>* with the IP Address for your IoT Edge device. 
+7. Create an environment variable called **IOTEDGE_HOST**, replacing *\<ip_address\>* with the IP Address for your IoT Edge device. 
 
    ```powershell
    [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
    ```
 
-6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with your IP address and the ports that you opened in the previous section. 
+8. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with your IP address in place of the **\<GATEWAY_ADDRESS\>** and the ports that you opened in the previous section. 
 
    ```yaml
    connect: 
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address>:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-7. Find the **Listen settings** section and add the same values for **management_uri** and **workload_uri**. 
+9. Find the **Listen settings** section and add the same values for **management_uri** and **workload_uri**. 
 
    ```yaml
    listen:
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is set to `nat`.
+10. Find the **Moby Container Runtime settings** section. Uncomment the **network** line and verify that the value is set to `nat`.
 
-9. Save the configuration file. 
+   ```yaml
+   moby_runtime:
+     uri: "npipe://./pipe/docker_engine"
+     network: "nat"
+   ```
 
-10. In PowerShell, restart the IoT Edge service.
+11. Save the configuration file. 
+
+12. In PowerShell, restart the IoT Edge service.
 
    ```powershell
    Stop-Service iotedge

@@ -34,10 +34,10 @@ Commands below install both moby engine and command-line interface (CLI). The CL
 # paste in terminal. The comment lines will be ignored.
 
 # Download and install the moby-engine
-curl https://azureiotedgepreview.blob.core.windows.net/shared/moby-0.1.0~rc1/moby-engine_0.1.0~rc1-1_armhf.deb -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
+curl https://aka.ms/moby-engine-armhf-latest -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
 
 # Download and install the moby-cli
-curl https://azureiotedgepreview.blob.core.windows.net/shared/moby-0.1.0~rc1/moby-cli_0.1.0~rc1-1_armhf.deb -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
+curl https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
 
 # Run apt-get fix
 sudo apt-get install -f
@@ -51,10 +51,10 @@ sudo apt-get install -f
 # paste in terminal. The comment lines will be ignored.
 
 # Download and install the standard libiothsm implementation
-curl https://conteng.blob.core.windows.net/iotedged/libiothsm-std_1.0.0_rc1-1_armhf.deb -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
+curl https://aka.ms/libiothsm-std-linux-armhf-latest -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
 
 # Download and install the IoT Edge Security Daemon
-curl https://conteng.blob.core.windows.net/iotedged/iotedge_1.0.0_rc1-1_armhf.deb -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+curl https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -i ./iotedge.deb
 
 # Run apt-get fix
 sudo apt-get install -f
@@ -62,7 +62,7 @@ sudo apt-get install -f
 
 ## Configure the Azure IoT Edge Security Daemon
 
-The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml` The edge device can be configured [automatically via Device Provisioning Service][lnk-dps] or manually using a [device connection string][lnk-dcs].
+The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml` The edge device can be configured <!--[automatically via Device Provisioning Service][lnk-dps] or--> manually using a [device connection string][lnk-dcs].
 
 For manual configuration, enter the device connection string in **provisioning** section of **config.yaml**
 

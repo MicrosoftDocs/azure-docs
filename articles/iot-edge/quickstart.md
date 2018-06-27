@@ -23,32 +23,20 @@ In this quickstart you learn how to:
 1. Create an IoT Hub.
 2. Register an IoT Edge device to your IoT hub.
 3. Install and start the IoT Edge runtime on your device.
-4. Remotely deploy a module to an IoT Edge device.
+4. Remotely deploy a module to an IoT Edge device and send telemetry to IoT Hub.
 
 ![Tutorial architecture][2]
 
 The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
 
 >[!NOTE]
->The IoT Edge runtime on Windows is in public preview.
+>The IoT Edge runtime on Windows is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
 ## Prerequisites
 
-This quickstart assumes that you're using a computer or virtual machine running Windows to simulate an IoT device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
-
->[!IMPORTANT]
->**bug bash only**
->Use the canary portal 
->Add the following line to the hosts file of the computer from which you'll access the Azure Portal 
->`40.76.74.59 main.iothub.ext.azure.com` 
-> 
->The hosts file can be found at: 
->* Linux - /etc/hosts 
->* Windows - C:\Windows\System32\drivers\etc\hosts 
->
-> Remember to remove this line when you're done testing
+This quickstart turns your Windows computer or virtual machine into an IoT Edge device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
 
 Have the following prerequisites ready on the machine that you're using for an IoT Edge device:
 
@@ -75,16 +63,16 @@ Start the quickstart by creating your IoT Hub in the Azure portal.
 
 The free level of IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a free hub created, you can use that IoT hub. Each subscription can only have one free IoT hub. 
 
-1. In the Azure cloud shell, create a resource group. The following code creates a resource group called **IoTEdge** in the **West US** region:
+1. In the Azure cloud shell, create a resource group. The following code creates a resource group called **TestResources** in the **West US** region. By putting all the resources for the quickstarts and tutorials in a group, you can manage them together. 
 
    ```azurecli-interactive
-   az group create --name IoTEdge --location westus
+   az group create --name TestResources --location westus
    ```
 
-1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub called **MyIotHub** in the resource group **IoTEdge**:
+1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub called **MyIoTHub** in the resource group **TestResources**. Each IoT hub needs a globally unique name. If you receive an error from this command, try a different value in the *--name* field. 
 
    ```azurecli-interactive
-   az iot hub create --resource-group IoTEdge --name MyIotHub --sku F1 
+   az iot hub create --resource-group TestResources --name MyIotHub --sku F1 
    ```
 
 ## Register an IoT Edge device
@@ -115,6 +103,9 @@ Install and start the Azure IoT Edge runtime on your IoT Edge device.
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
+>[!NOTE]
+>The installation steps in this section are manual for now while an installation script is being developed. 
+
 The instructions in this section configure the IoT Edge runtime with Linux containers. If you want to use Windows containers, see [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iot-edge-windows-with-windows.md).
 
 ### Download and install the IoT Edge service
@@ -123,29 +114,38 @@ The instructions in this section configure the IoT Edge runtime with Linux conta
 
 2. Download the IoT Edge service package.
 
-   ```powershell
-   Invoke-WebRequest https://conteng.blob.core.windows.net/iotedged/iotedge.zip -o .\iotedge.zip
-   Expand-Archive .\iotedge.zip C:\ProgramData\iotedge -f
-   $env:Path += ";C:\ProgramData\iotedge"
-   SETX /M PATH "$env:Path"
-   ```
+  ```powershell
+  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+  rmdir C:\ProgramData\iotedge\iotedged-windows
+  $env:Path += ";C:\ProgramData\iotedge"
+  SETX /M PATH "$env:Path"
+  ```
 
-3. Create and start the IoT Edge service.
+3. Install the vcruntime.
+
+  ```powershell
+  Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
+  .\vc_redist.exe /quiet /norestart
+  ```
+
+4. Create and start the IoT Edge service.
 
    ```powershell
    New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
    Start-Service iotedge
    ```
 
-4. Add firewall exceptions for the ports that the IoT Edge service uses.
+5. Add firewall exceptions for the ports that the IoT Edge service uses.
 
    ```powershell
    New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
    ```
 
-5. Create a new file called **iotedge.reg** and open it with a text editor. 
+6. Create a new file called **iotedge.reg** and open it with a text editor. 
 
-6. Add the following content and save the file. 
+7. Add the following content and save the file. 
 
    ```input
    Windows Registry Editor Version 5.00
@@ -155,7 +155,7 @@ The instructions in this section configure the IoT Edge runtime with Linux conta
    "TypesSupported"=dword:00000007
    ```
 
-7. Navigate to your file in File Explorer and double-click it to import the changes to the Windows Registry. 
+8. Navigate to your file in File Explorer and double-click it to import the changes to the Windows Registry. 
 
 ### Configure the IoT Edge runtime 
 
