@@ -168,6 +168,8 @@
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
       href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
+    - name: High density hosting
+      href: app-service-high-density-hosting.md
   - name: Monitor app
     items:
     - name: Quotas & alerts

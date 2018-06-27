@@ -38,6 +38,7 @@
 #### [Task 3: enable secure LDAP for the managed domain using Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
+### [Create a group managed service account on a managed domain](active-directory-ds-create-gmsa.md)
 ### [Administer group policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Select a virtual network](active-directory-ds-networking.md)
 ## Deploy applications

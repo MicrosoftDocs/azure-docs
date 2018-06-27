@@ -25,9 +25,9 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 The following code creates a new knowledge base, using the [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) method.
 
 1. Create a new Java project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+1. Add the code provided below.
+1. Replace the `key` value with an access key valid for your subscription.
+1. Run the program.
 
 ```java
 import java.io.*;

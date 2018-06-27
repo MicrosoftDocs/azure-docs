@@ -20,293 +20,109 @@ ms.author: juliako
 
 You can use Media Services to deliver HTTP Live Streaming (HLS), MPEG-DASH and Smooth Streaming encrypted with the AES by using 128-bit encryption keys. Media Services also provides the key delivery service that delivers encryption keys to authorized users. If you want Media Services to encrypt an asset, you associate an encryption key with the asset and also configure authorization policies for the key. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES encryption. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
-The article is based on the [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted) sample. The sample demonstrates how to create an encoding Transform that uses a built-in preset for adaptive bitrate encoding and ingests a file directly from an [HTTPs source URL](job-input-from-http-how-to.md). The output asset is then published using Envelope (AES), or sometimes referred to as ClearKey, encryption. The sample publishes the asset on the "default" StreamingEndpoint. Make sure that you have already started the default endpoint, or modify the code to start the default or create a new Streaming Endpoint and autostart it. The output from the sample is a URL to the Azure Media Player, including both the DASH manifest and the AES token needed to play back the content. The sample sets the expiration of the JWT token to 1 hour. You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already: ``` https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
+The article is based on the [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) sample. The sample demonstrates how to create an encoding Transform that uses a built-in preset for adaptive bitrate encoding and ingests a file directly from an [HTTPs source URL](job-input-from-http-how-to.md). The output asset is then published using Envelope (AES), or sometimes referred to as ClearKey, encryption. The output from the sample is a URL to the Azure Media Player, including both the DASH manifest and the AES token needed to play back the content. The sample sets the expiration of the JWT token to 1 hour. You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already (in the following format: ``` https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.)
 
-The article descrbies the following common steps:
-
-* Create the content key policy  
-* Get or create an encoding Transform
-* Create input job from HTTPS URL
-* Create an output asset
-* Submit job
-* Wait for the job to finish
-* Create a StreamingLocator
-* Get ContentKeys
-* Get token
-* Get streaming endpoint
-* Build streaming URLs
+> [!NOTE]
+> You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types), to see what makes sense to combine.
 
 ## Prerequisites
 
 The following are required to complete the tutorial.
 
-* Review the [Content protection overview](content-protection-overview.md) topic.
+* Review the [Content protection overview](content-protection-overview.md) article.
 * Install Visual Studio Code or Visual Studio
 * Create a new Azure Media Services account, as described in [this quickstart](create-account-cli-quickstart.md).
 * Get credentials needed to use Media Services APIs by following [Access APIs](access-api-cli-how-to.md)
 
 ## Download code
 
-Clone a GitHub repository that contains the full .NET Core sample to your machine using the following command:
+Clone a GitHub repository that contains the full .NET sample discussed in this topic to your machine using the following command:
 
  ```bash
- git clone https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials.git
+ git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
  
-The "Encrypt with AES-128" sample is located in the [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted) folder.
+The "Encrypt with AES-128" sample is located in the [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) folder.
 
-## Create Content Key Policy
+> [!NOTE]
+> The sample creates unique resources every time you run the application. Typically, you will reuse existing resources like transforms and policies (if existing resource have required configurations). 
+
+## Start using Media Services APIs with .NET SDK
+
+To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in local configuration file. 
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateMediaServicesClient)]
+
+## Create an output asset to store the result of a job 
+
+The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. The project defines the **DownloadResults** function that downloads the results from this output asset into the "output" folder, so you can see what you got.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateOutputAsset)]
+ 
+## Get or create an encoding Transform
+
+When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code below. Each **TransformOutput** contains a **Preset**. **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about this Preset, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
+
+You can use a built-in EncoderNamedPreset or use custom presets. For more information, see [How to customize encoder presets](customize-encoder-presets-how-to.md).
+
+When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#EnsureTransformExists)]
+
+## Submit Job
+
+As mentioned above, the [Transform](https://docs.microsoft.com/rest/api/media/transforms) object is the recipe and a [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
+
+In this tutorial, we create a job's input based on a file that is ingested directly from an [HTTPs source URL](job-input-from-http-how-to.md).
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#SubmitJob)]
+
+## Wait for the Job to complete
+
+The job takes some time to complete and when it does you want to be notified. The code sample below shows how to poll the service for the status of the [Job](https://docs.microsoft.com/rest/api/media/jobs). Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
+
+Event Grid is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+
+The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#WaitForJobToFinish)]
+
+## Create a ContentKey policy
 
 Create the content key policy that configures how the content key is delivered to end clients via the Key Delivery component of Azure Media Services.
 
-```csharp
-private static ContentKeyPolicy EnsureContentKeyPolicyExists(IAzureMediaServicesClient client,
-    string resourceGroup, string accountName, string contentKeyPolicyName)
-{
-    ContentKeyPolicySymmetricTokenKey primaryKey = new ContentKeyPolicySymmetricTokenKey(TokenSigningKey);
-    List<ContentKeyPolicyRestrictionTokenKey> alternateKeys = null;
-    List<ContentKeyPolicyTokenClaim> requiredClaims = new List<ContentKeyPolicyTokenClaim>()
-    {
-        ContentKeyPolicyTokenClaim.ContentKeyIdentifierClaim
-    };
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetOrCreateContentKeyPolicy)]
 
-    List<ContentKeyPolicyOption> options = new List<ContentKeyPolicyOption>()
-    {
-        new ContentKeyPolicyOption(
-            new ContentKeyPolicyClearKeyConfiguration(),
-            new ContentKeyPolicyTokenRestriction(Issuer, Audience, primaryKey,
-                ContentKeyPolicyRestrictionTokenType.Jwt, alternateKeys, requiredClaims))
-    };
-
-    // since we are randomly generating the signing key each time, make sure to create or update the policy each time.
-    // Normally you would use a long lived key so you would just check for the policies existence with Get instead of
-    // ensuring to create or update it each time.
-    ContentKeyPolicy policy = client.ContentKeyPolicies.CreateOrUpdate(resourceGroup, accountName, contentKeyPolicyName, options);
-
-    return policy;
-}
-```
-
-## Get or create an encoding Transform
-
-Ensure that you have customized encoding Transform.  This is really a one time setup operation.
-
-```csharp
-private static Transform EnsureTransformExists(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, Preset preset)
-{
-    Transform transform = client.Transforms.Get(resourceGroupName, accountName, transformName);
-
-    if (transform == null)
-    {
-        TransformOutput[] outputs = new TransformOutput[]
-        {
-            new TransformOutput(preset),
-        };
-
-        transform = client.Transforms.CreateOrUpdate(resourceGroupName, accountName, transformName, outputs);
-    }
-
-    return transform;
-}
-```
-
-## Create input job from HTTPS URL
-
-In this sample we create an encoding Transform that uses a built-in preset for adaptive bitrate encoding and ingests a file directly from an [HTTPs source URL](job-input-from-http-how-to.md).
-
-```csharp
-var input = new JobInputHttp(
-                    baseUri: "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
-                    files: new List<String> {"Ignite-short.mp4"},
-                    label:"input1"
-                    );
-```
-
-## Create an output asset
-
-```csharp
-private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName,  string assetName)
-{
-    Asset input = new Asset();
-
-    return client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, input);
-}
-```        
-
-## Submit job
-
-```csharp
-private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName, JobInput jobInput, string outputAssetName)
-{
-    JobOutput[] jobOutputs =
-    {
-        new JobOutputAsset(outputAssetName), 
-    };
-
-    Job job = client.Jobs.Create(
-        resourceGroupName, 
-        accountName,
-        transformName,
-        jobName,
-        new Job
-        {
-            Input = jobInput,
-            Outputs = jobOutputs,
-        });
-
-    return job;
-}
-```
-
-## Wait for the job to finish
-
-```csharp
-private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName)
-{
-    const int SleepInterval = 10 * 1000;
-
-    Job job = null;
-    bool exit = false;
-
-    do
-    {
-        job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
+## Get a token
         
-        if (job.State == JobState.Finished || job.State == JobState.Error || job.State == JobState.Canceled)
-        {
-            exit = true;
-        }
-        else
-        {
-            Console.WriteLine($"Job is {job.State}.");
+We are using the ContentKeyIdentifierClaim in the ContentKeyPolicy which means that the token presented to the Key Delivery component must have the identifier of the content key in it. In the sample, we don't specify a content key when creating the StreamingLocator, the system creates a random one for us. In order to generate the test token we must get the ContentKeyId to put in the ContentKeyIdentifierClaim claim.
 
-            for (int i = 0; i < job.Outputs.Count; i++)
-            {
-                JobOutput output = job.Outputs[i];
-
-                Console.Write($"\tJobOutput[{i}] is {output.State}.");
-
-                if (output.State == JobState.Processing)
-                {
-                    Console.Write($"  Progress: {output.Progress}");
-                }
-
-                Console.WriteLine();
-            }
-
-            System.Threading.Thread.Sleep(SleepInterval);
-        }
-    }
-    while (!exit);
-
-    return job;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
 
 ## Create a StreamingLocator
 
-// Now that the content has been encoded, publish it for Streaming by creating
-// a StreamingLocator.  Note that we are using one of the PredefinedStreamingPolicies
-// which tell the Origin component of Azure Media Services how to publish the content
-// for streaming.  In this case it applies AES Envelople encryption, which is also known
-// ClearKey encryption (because the key is delivered to the playback client via HTTPS and
-// not instead a DRM license).
+After the encoding is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
 
-```csharp
-StreamingLocator locator = new StreamingLocator(
-    assetName: outputAssetName,
-    streamingPolicyName: PredefinedStreamingPolicy.ClearKey,
-    defaultContentKeyPolicyName: ContentKeyPolicyName);
+The process of creating a **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-client.StreamingLocators.Create(config.ResourceGroup, config.AccountName, streamingLocatorName, locator);
-```
+When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this tutorial, we are using one of the PredefinedStreamingPolicies which tells Azure Media Services how to publish the content for streaming. In this example, the AES Envelope encryption is applied, which is also known ClearKey encryption (because the key is delivered to the playback client via HTTPS and not instead a DRM license).
 
-## Get ContentKeys
-        
-// We are using the ContentKeyIdentifierClaim in the ContentKeyPolicy which means that the token presented
-// to the Key Delivery Component must have the identifier of the content key in it.  Since we didn't specify
-// a content key when creating the StreamingLocator, the system created a random one for us.  In order to 
-// generate our test token we must get the ContentKeyId to put in the ContentKeyIdentifierClaim claim.
+> [!IMPORTANT]
+> When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
 
-```csharp
-var response = client.StreamingLocators.ListContentKeys(config.ResourceGroup, config.AccountName, streamingLocatorName);
-string keyIdentifier = response.ContentKeys.First().Id.ToString();
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateStreamingLocator)]
 
-## Get token
+## Build a DASH streaming URL
 
-```csharp
-private static string GetToken(string issuer, string audience, string keyIdentifier, byte[] tokenVerificationKey)
-{
-    var tokenSigningKey = new SymmetricSecurityKey(tokenVerificationKey);
+Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs. To build a URL, you need to concatenate the [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) host name and the **StreamingLocator** path. In this sample, the *default* **StreamingEndpoint** is used. When you first create a Media Service account, this *default* **StreamingEndpoint** will be in a stopped state, so you need to call **Start**.
 
-    SigningCredentials cred = new SigningCredentials(
-        tokenSigningKey,
-        // Use the  HmacSha256 and not the HmacSha256Signature option, or the token will not work!
-        SecurityAlgorithms.HmacSha256,
-        SecurityAlgorithms.Sha256Digest);
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetMPEGStreamingUrl)]
 
-    Claim[] claims = new Claim[]
-    {
-        new Claim(ContentKeyPolicyTokenClaim.ContentKeyIdentifierClaim.ClaimType, keyIdentifier)
-    };
+## Clean up resources in your Media Services account
 
-    JwtSecurityToken token = new JwtSecurityToken(
-        issuer: issuer,
-        audience: audience,
-        claims: claims,
-        notBefore: DateTime.Now.AddMinutes(-5),
-        expires: DateTime.Now.AddMinutes(60), 
-        signingCredentials: cred);
+Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes Jobs.
 
-    JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
-    
-    return handler.WriteToken(token);
-}
-
-```
-
-## Get streaming endpoint
-
-The sample publishes the asset on the "default" StreamingEndpoint. Make sure that you have already started the default endpoint, or modify the code to start the default or create a new Streaming Endpoint and autostart it.
-
-```csharp
-
- StreamingEndpoint streamingEndpoint = client.StreamingEndpoints.Get(resourceGroupName, accountName, "default");
-
-    if (streamingEndpoint != null)
-    {
-        if (streamingEndpoint.ResourceState != StreamingEndpointResourceState.Running)
-        {
-            await client.StreamingEndpoints.StartAsync(resourceGroupName, accountName, DefaultStreamingEndpointName);
-        }
-    }
-```
-
-## Build streaming URLs
-
-```csharp
-for (int i = 0; i < paths.StreamingPaths.Count; i++)
-{
-    UriBuilder uriBuilder = new UriBuilder();
-    uriBuilder.Scheme = "https";
-    uriBuilder.Host = streamingEndpoint.HostName;
-
-    if (paths.StreamingPaths[i].Paths.Count > 0)
-    {
-        // Look for just the DASH path and generate a URL for the Azure Media Player to playback the content with the AES token to decrypt.
-        // Note that the JWT token is set to expire in 1 hour. 
-        if (paths.StreamingPaths[i].StreamingProtocol== "Dash"){
-            uriBuilder.Path = paths.StreamingPaths[i].Paths[0];
-            var dashPath = uriBuilder.ToString();
-
-            Console.WriteLine("Open the following URL in your browser to play back the file in the Azure Media Player");
-            Console.WriteLine($"https://ampdemo.azureedge.net/?url={dashPath}&aes=true&aestoken=Bearer%3D{token}");
-            Console.WriteLine();
-        }
-    }
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CleanUp)]
 
 ## Next steps
 
