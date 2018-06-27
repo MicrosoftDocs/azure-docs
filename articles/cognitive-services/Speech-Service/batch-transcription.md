@@ -78,7 +78,7 @@ Making use of the API is fairly straight forward. The sample code below needs to
 ```cs
    static async Task TranscribeAsync()
         { 
-            // Creating an Batch transcription API Client
+            // Creating a Batch transcription API Client
             var client = 
                 await CrisClient.CreateApiV1ClientAsync(
                     "<your msa>", // MSA email
