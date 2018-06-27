@@ -13533,7 +13533,7 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
-            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
             "redirect_document_id": true
         },
         {
