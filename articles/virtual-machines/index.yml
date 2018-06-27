@@ -15,7 +15,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: Learn how to create Azure virtual machines. Tutorials, API references, and other documentation show you how to create and deploy Windows and Linux virtual machines, as well as VM templates.
+  description: Learn how to create Azure virtual machines. Tutorials, API references, and other documentation show you how to create and deploy Windows and Linux virtual machines and VM templates.
 sections:
 - title: 
   items:
@@ -23,12 +23,12 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title:  Getting started with Windows Virtual Machines
+    - title:  Get started with Windows Virtual Machines
       href: /azure/virtual-machines/windows
       image: 
         src: media/index/virtual-machines.svg
         href: /azure/virtual-machines/windows
-    - title:  Getting started with Linux Virtual Machines
+    - title:  Get started with Linux Virtual Machines
       href: /azure/virtual-machines/linux
       image: 
         src: media/index/get-started.svg
@@ -46,7 +46,7 @@ sections:
       href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - image: 
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal
+      text: Azure portal
       href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - image: 
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
@@ -55,7 +55,7 @@ sections:
 - title: 5-Minute Windows quickstarts
   items: 
   - type: paragraph
-    text: 'Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:'
+    text: 'Learn how to deploy an IIS web-server within a virtual machine running Windows Server 2016:'
   - type: list
     style: icon48
     items: 
@@ -65,7 +65,7 @@ sections:
       href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=/azure/virtual-machines/windows/toc.json
     - image: 
         src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/portal.svg
-      text: Azure Portal
+      text: Azure portal
       href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=/azure/virtual-machines/windows/toc.json
     - image: 
         src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/cli.svg
