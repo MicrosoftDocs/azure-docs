@@ -76,6 +76,42 @@ On Windows:
 > [!WARNING]
 > YAML files cannot contain tabs as identation. Use 2 spaces instead.
 
+On Linux:
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+On Windows:
+
+   ```cmd
+   notepad C:\ProgramData\iotedge\config.yaml
+   ```
+
+### Check container logs for issues
+
+Once the IoT Edge Security Daemon is running, look at the logs of the containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: Edge Agent and Edge Hub. The Edge Agent logs typically provide info on the lifecycle of each container. The Edge Hub logs provide info on messaging and routing. 
+
+   ```cmd
+   iotedge logs <container name>
+   ```
+
+### View the messages going through the Edge hub
+
+View the messages going through the Edge hub, and gather insights on device properties updates with verbose logs from the edgeAgent and edgeHub runtime containers. To turn on verbose logs on these containers, set the `RuntimeLogLevel` environment variable: 
+
+On Linux:
+    
+   ```cmd
+   export RuntimeLogLevel="debug"
+   ```
+    
+On Windows:
+    
+   ```powershell
+   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
+   ```
+
 You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
 ### Restart containers
