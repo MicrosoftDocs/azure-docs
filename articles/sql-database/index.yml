@@ -48,6 +48,11 @@ sections:
           - href: /azure/sql-database/sql-database-get-started-portal
           - href: /azure/sql-database/sql-database-get-started-cli
           - href: /azure/sql-database/sql-database-get-started-powershell
+      - title: Create SQL Managed Instance
+        values:
+          - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+          - href: 
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
       - title: Create SQL Elastic Pool
         values:
           - href: 
@@ -63,6 +68,17 @@ sections:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
+      - title: Scale Managed Instance
+        values:
+          - href: 
+          - href:
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+      - title: Configure Azure network for Managed Instance
+        values:
+          - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+          - href: 
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

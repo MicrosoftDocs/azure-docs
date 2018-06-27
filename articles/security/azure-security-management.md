@@ -220,8 +220,8 @@ Using a hardened workstation configuration for administering your Azure cloud se
 The following resources are available to provide more general information about Azure and related Microsoft services, in addition to specific items referenced in this paper:
 
 * [Securing Privileged Access](https://technet.microsoft.com/library/mt631194.aspx) – get the technical details for designing and building a secure administrative workstation for Azure management
-* [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Security/AzureSecurity) - learn about Azure platform capabilities that protect the Azure fabric and the workloads that run on Azure
-* [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx) -- where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to [secure@microsoft.com](mailto:secure@microsoft.com)
+* [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure) - learn about Azure platform capabilities that protect the Azure fabric and the workloads that run on Azure
+* [Microsoft Security Response Center](https://technet.microsoft.com/en-us/security/dn440717.aspx) -- where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to [secure@microsoft.com](mailto:secure@microsoft.com)
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – keep up to date on the latest in Azure Security
 
 <!--Image references-->

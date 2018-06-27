@@ -24,6 +24,17 @@ This article provides information about the **most recent** Azure HDInsight rele
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
+## Notes for 06/27/2018 - Release of new open source versions, ADLS Gen2 etc. on HDInsight 3.6
+The June 2018 release of HDInsight is shaping up to be a significant release with a lot of new updates and capabilities for our customers as outlined below. Please read this [post](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/) for more details.
+
+Following are the highlights. For the detailed release notes, bugs fixed, known issues etc., please read this [document](https://aka.ms/hdirelnotes).
+
+- **Update Hadoop and other open-source projects** – In addition to, 1000+ bug fixes across 20+ open-source projects, this update contains a new version of Spark (2.3) and Kafka (1.0).
+- **Update R Server 9.1 to Machine Learning Services 9.3** – With this release, we are providing data scientists and engineers with the best of open-source enhanced with algorithmic innovations and ease of operationalization, all available in their preferred language with the speed of Apache Spark. This release expands upon the capabilities offered in R Server with added support for Python, leading to the cluster name change from R Server to ML Services. 
+- **Support for Azure Data Lake Storage Gen2** – HDInsight will support the Preview release of Azure Data Lake Storage Gen2. In the available regions, customers will be able to choose an ADLS Gen2 account as a store for their HDInsight clusters.
+- **HDInsight Enterprise Security Package Updates (Preview)** – (Preview) Virtual Network Service Endpoints  support for Azure blob Storage, ADLS Gen1, Cosmos DB and Azure DB. 
+
+
 ## Notes for 03/20/2018 - Release of Spark 2.2 on HDInsight 3.6
 
 - Spark 2.2.0 improves stability across Spark Core, SQL, ML, and brings Structured Streaming to GA status. Spark 2.2.0 is now available on HDInsight 3.6.

@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
 
 ---
@@ -23,6 +23,10 @@ For any production deployment, capacity planning is an important step. Here are 
 * The number of node types your cluster needs to start out with
 * The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
 * The reliability and durability characteristics of the cluster
+
+> [!NOTE]
+> You should minimally review all **Not Allowed** upgrade policy values during planning. This is to ensure that you set the values appropriately and to mitigate burning down of your cluster later because of unchangeable system configuration settings. 
+> 
 
 Let us briefly review each of these items.
 
