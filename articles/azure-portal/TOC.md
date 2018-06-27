@@ -21,7 +21,7 @@
 ### [Share dashboards with Role-Based Access Control](azure-portal-dashboard-share-access.md)
 ### [Use tags to organize resources](../azure-resource-manager/resource-group-using-tags.md)
 ### [Create new Azure service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-## [Monitor](../monitoring-and-diagnostics/monitoring-overview.md))
+## [Monitor](../monitoring-and-diagnostics/monitoring-overview.md)
 
 # Related
 ## [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md)
