@@ -30,27 +30,6 @@ When you encounter an issue, learn more about the state of your IoT Edge device 
    iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
    ```
    
-* View verbose logs from iotedgectl commands:
-
-   ```cmd
-   iotedgectl --verbose DEBUG <command>
-   ```
-
-* If you experience connectivity issues, inspect your edge device environment variables like your device connection string:
-
-   ```cmd
-   docker exec edgeAgent printenv
-   ```
-
-You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
-
-   - Restart the IoT Edge Security Daemon:
-    
-      ```bash
-      sudo systemctl cat iotedge.service
-      sudo systemctl daemon-reload
-      sudo systemctl restart iotedge
-      ```
 
 On Windows:
 - To view the status of the IoT Edge Security Manager:
