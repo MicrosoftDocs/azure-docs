@@ -36,8 +36,19 @@ The below diagram illustrates the major components of Azure Machine Learning and
 ## Workspace
 Azure ML Workspace is an Azure resource, and the logical container of all artifacts created through Azure Machine Learning Services, such as run history, models, images, deployments, etc. It is the security boundary of these artifacts. Multiple users can share a single Workspace under the roles of Owner, Contributor, or Reader. A single user can also create multiple Workspaces, each for a set of users to share their work.
 
+vs.
+
+An **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. The run history file stores each run in your project so you can monitor your model during training.  For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/), [Azure storage](https://azure.microsoft.com/en-us/services/storage/), [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/), and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
+
+   
+
+
 ## Project
 A project is simply a local folder on user's computer that contains arbitrary files. It is attached to a run history under a Workspace through a configuration file `project.json` under the `aml_config` folder. When submitted for execution, the entire project folder (with some exceptions) is copied into the compute target, and the entry script is executed in a designated Python environment configured through Run Configuration.
+
+vs.
+
+A **project** is a local folder that contains the scripts needed to solve your machine learning problem and the configuration files  required to attach the project to your workspace in Azure Cloud.
 
 ## Compute target
 A compute target is the compute resource that you can use to execute your training script or host your web service deployment. The supported compute target includes:
