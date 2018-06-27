@@ -149,7 +149,7 @@ You can view the telemetry measurements and reported property values, and config
 
 1. Use **Device Explorer** to navigate to the **Measurements** page for the real MXChip device you added:
 
-    ![Navigate to real device](media/howto-connect-devkit/realdevice.png)
+    ![Navigate to real device](media/howto-connect-devkit/realdevicenew.png)
 
 1. On the **Measurements** page, you can see the telemetry coming from the MXChip device:
 
@@ -162,6 +162,11 @@ You can view the telemetry measurements and reported property values, and config
 1. On the **Settings** page, you can update the settings on the MXChip device:
 
     ![View device settings](media/howto-connect-devkit/devicesettingsnew.png)
+
+1. On the **Dashboard** page, you can see the location map
+
+![View device dashboard](media/howto-connect-devkit/devicedashboardnew.png)
+
 
 ## Download the source code
 
