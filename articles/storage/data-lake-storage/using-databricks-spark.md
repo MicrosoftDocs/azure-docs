@@ -45,7 +45,7 @@ Both the account name and key are required for later steps in this tutorial. Ope
 
 ## Create a DataBricks cluster
 
-The next step is to create a [DataBricks cluster](https://docs.databricks.com/) to create a data workspace.
+The next step is to create a [DataBricks cluster](https://docs.azuredatabricks.net/) to create a data workspace.
 
 1. Create a [DataBricks service](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service).
 2. Click **Launch Workspace** to open the workspace in a new browser window.
