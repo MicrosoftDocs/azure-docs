@@ -43,7 +43,7 @@ The following diagram illustrates all the components and the steps involved:
 ## Next steps
 - [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Learn which scenarios are supported and which ones are not.
 - [Quick Start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-- [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
+- [Smart Lockout](../authentication/howto-password-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
 - [Frequently Asked Questions](active-directory-aadconnect-pass-through-authentication-faq.md): Find answers to frequently asked questions.
 - [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security Deep Dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.

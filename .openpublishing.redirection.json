@@ -1,6 +1,10 @@
 {
     "redirections": [
         {
+            "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
+            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
+            "redirect_document_id": true
+        },        {
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
             "redirect_document_id": true
@@ -751,11 +755,50 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-edge/sql-storage.md",
+            "redirect_url": "/azure/iot-edge/tutorial-store-data-sql-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-create-deployment-with-cli-iot-extension.md",
+            "redirect_url": "/azure/iot-edge/how-to-register-device-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-edge/how-to-vscode-debug-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-debug-azure-function.md",
+            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-simulate-device-linux.md",
+            "redirect_url": "/azure/iot-edge/quickstart-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-simulate-device-windows.md",
+            "redirect_url": "/azure/iot-edge/quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-iot-edge-works.md",
+            "redirect_url": "/azure/iot-edge/about-iot-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-multiple-modules-in-vscode.md",
+            "redirect_url": "/azure/iot-edge/how-to-develop-multiple-modules-vscode",
+            "redirect_document_id": false
+        },        {
             "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
             "redirect_url": "/azure/cognitive-services/recommendations/overview",
             "redirect_document_id": false
@@ -13487,13 +13530,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-aadconnect-pass-through-authentication.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication",
+            "source_path": "articles/active-directory/active-directory-aadconnect-ports.md",
+            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-ports",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-aadconnect-ports.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-ports",
+            "source_path": "articles/active-directory/active-directory-aadconnect-pass-through-authentication.md",
+            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication",
             "redirect_document_id": false
         },
         {
@@ -24417,6 +24460,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-password-smart-lockout",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/application-proxy-understand-connectors.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectors",
             "redirect_document_id": false
@@ -25510,6 +25558,21 @@
             "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started.md",
             "redirect_url": "/azure/active-directory-b2c/tutorial-create-tenant",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": false
+        }        
     ]
 }
