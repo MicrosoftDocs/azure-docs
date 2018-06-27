@@ -665,7 +665,6 @@ This document contains a detailed drill-down of the Vehicle Telemetry Analytics 
 
 ### References
 
-* [Vehicle Telematics Simulator Visual Studio Solution](http://go.microsoft.com/fwlink/?LinkId=717075) 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 * [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [Azure Event Hubs SDK for stream ingestion](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
