@@ -11,7 +11,7 @@ ms.service: service-fabric-mesh
 manager: timlt
 ---
 # Commonly asked Service Fabric Mesh questions
-Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. This article has answers to commonly asked questions.
+Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. This article has answers to commonly asked questions.
 
 ## Quota and Cost
 
