@@ -83,17 +83,37 @@ sudo apt-get install iotedge
 
 ## Configure the Azure IoT Edge Security Daemon
 
-The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml` The edge device can be configured <!--[automatically via Device Provisioning Service][lnk-dps] or--> manually using a [device connection string][lnk-dcs].
+The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml`. *The file is write-protected by default, you might need to use `sudo` to edit it. For example `sudo nano /etc/iotedge/config.yaml`*
 
-For manual configuration, enter the device connection string in **provisioning** section of **config.yaml**
+The edge device can be configured manually using a [device connection string][lnk-dcs] or [automatically via Device Provisioning Service][lnk-dps].
 
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-```
+* For manual configuration, uncomment the **manual** provisioning mode. Update the value of **device_connection_string** with the connection string from your IoT Edge device.
 
-*The file is write-protected by default, you might need to use `sudo` to edit it. For example `sudo nano /etc/iotedge/config.yaml`*
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* For automatic configuration, uncomment the **dps** provisioning mode. Update the values of **scope_id** and **registration_id** with the values from your IoT Hub DPS instance and your IoT Edge device with TPM. 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
 
 After entering the provisioning information in the configuration, restart the daemon:
 
@@ -126,8 +146,8 @@ iotedge list
 If you are having problems with the Edge runtime installing properly, checkout the [troubleshooting][lnk-trouble] page.
 
 <!-- Links -->
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md
