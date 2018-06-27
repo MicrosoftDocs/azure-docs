@@ -65,9 +65,9 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ## Create a Spark cluster in Databricks
 
-1. In the Azure portal, go to the Databricks workspace that you created, and then click **Launch Workspace**.
+1. In the Azure portal, go to the Databricks workspace that you created, and then select **Launch Workspace**.
 
-2. You are redirected to the Azure Databricks portal. From the portal, click **New** > **Cluster**.
+2. You are redirected to the Azure Databricks portal. From the portal, select **New** > **Cluster**.
 
     ![Databricks on Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")
 
@@ -101,7 +101,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     Select **Create**.
 
-3. Enter the following code into the first cell and execute the code:
+4. Enter the following code into the first cell, replacing the placeholder values with your account name, key, and a name for your file system.
 
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
@@ -118,10 +118,8 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 Before you begin with this section, you must complete the following prerequisites:
 
-* Download a **small_radio_json.json** [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Upload the sample JSON file using **AzCopy version 10** to the Azure Blob storage account you created:
-
-    Before you can upload the file, you must create a container in your storage account selecting **Settings** > **Browse blobs** > **Create container**.
+* Download **small_radio_json.json** [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+* Upload the sample JSON file using **AzCopy version 10** to the Azure Blob storage account and file system you created:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -134,17 +132,9 @@ Before you begin with this section, you must complete the following prerequisite
 
 ## Run a Spark SQL Job
 
-Next, you configure the notebook to read data from an Azure Blob storage account and run a Spark SQL job on the data.
+Perform the following tasks to run a Spark SQL job on the data.
 
-1. Associate the Azure Storage account with the Databricks Spark cluster by directly accessing the storage account using the following code:
-
-    ```scala
-    spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_ACCESS_KEY>")
-    ```
-
-     For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../common/storage-create-storage-account.md#manage-your-storage-account).
-
-2. Run a SQL statement to create a temporary table using data from the sample JSON data file, **small_radio_json.json**. In the following snippet, replace the placeholder values with your container name and storage account name. Paste the snippet in a code cell in the notebook, and then press **SHIFT + ENTER**. In the snippet, `<PATH>` denotes the location of the sample JSON file that you uploaded to your Azure Storage account.
+1. Run a SQL statement to create a temporary table using data from the sample JSON data file, **small_radio_json.json**. In the following snippet, replace the placeholder values with your file system name and storage account name. Using the notebook you created earlier, paste the snippet in a new code cell in the notebook, and then press SHIFT + ENTER.
 
     ```sql
     %sql
@@ -160,35 +150,35 @@ Next, you configure the notebook to read data from an Azure Blob storage account
 
     The `%sql` language magic command enables you to run a SQL code from the notebook, even if the notebook is of another type. For more information, see [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
 
-3. Let's look at a snapshot of the sample JSON data to better understand the query that you run. Paste the following snippet in the code cell and press **SHIFT + ENTER**.
+2. Let's look at a snapshot of the sample JSON data to better understand the query that you run. Paste the following snippet in the code cell and press **SHIFT + ENTER**.
 
     ```sql
     %sql 
     SELECT * from radio_sample_data
     ```
 
-4. You see a tabular output like shown in the following screenshot (only some columns are shown):
+3. You see a tabular output like shown in the following screenshot (only some columns are shown):
 
     ![Sample JSON data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Sample JSON data")
 
     Among other details, the sample data captures the gender of the audience of a radio channel (column name, **gender**)  and whether their subscription is free or paid (column name, **level**).
 
-5. You now create a visual representation of this data to show for each gender, how many users have free accounts and how many are paid subscribers. From the bottom of the tabular output, click the **Bar chart** icon, and then click **Plot Options**.
+4. You now create a visual representation of this data to show for each gender, how many users have free accounts and how many are paid subscribers. From the bottom of the tabular output, click the **Bar chart** icon, and then click **Plot Options**.
 
     ![Create bar chart](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Create bar chart")
 
-6. In **Customize Plot**, drag-and-drop values as shown in the screenshot.
+5. In **Customize Plot**, drag-and-drop values as shown in the screenshot.
 
     ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Customize bar chart")
 
-    * Set **Keys** to **gender**.
-    * Set **Series groupings** to **level**.
-    * Set **Values** to **level**.
-    * Set **Aggregation** to **COUNT**.
+    - Set **Keys** to **gender**.
+    - Set **Series groupings** to **level**.
+    - Set **Values** to **level**.
+    - Set **Aggregation** to **COUNT**.
 
-7. Click **Apply**.
+6. Click **Apply**.
 
-8. The output shows the visual representation as depicted in the following screenshot:
+7. The output shows the visual representation as depicted in the following screenshot:
 
      ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Customize bar chart")
 
