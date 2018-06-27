@@ -197,7 +197,7 @@ After you complete the previous sections, you can set up monitoring.
             
   ![rules](.\media\how-to-npm\14.png)
 
-## <a name="configure connections"></a>Step 6: Configure monitors
+## <a name="configure connections"></a>Step 5: Configure monitors
 
 Follow the steps for the type of peering that you want to monitor, Microsoft peering or private peering. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available. Once you see the monitoring tiles, your ExpressRoute circuits and connection resources are being monitored by NPM.
         
@@ -224,7 +224,7 @@ For Microsoft peering, click the Microsoft peering connection(s) that you want t
 
 When the discovery completes, you see rules for unique Circuit name and VNet name. Initially, these rules are disabled. Enable the rules, then select the monitoring agents and threshold values.
 
-## <a name="explore"></a>Step 5: View monitoring tiles
+## <a name="explore"></a>Step 6: View monitoring tiles
 
 Once you see the monitoring tiles, your ExpressRoute circuits and connection resources are being monitored by NPM. You can click on Microsoft Peering tile to drill down on the health of Microsoft Peering connections.
 
