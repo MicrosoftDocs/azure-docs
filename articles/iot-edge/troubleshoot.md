@@ -95,25 +95,7 @@ A container fails to run, and the Edge Agent logs show a 403 error.
 The Edge Agent doesn't have permissions to access a module's image. 
 
 ### Resolution
-Try running the `iotedgectl login` command again.
-
-## iotedgectl can't find Docker
-
-The commands `iotedgectl setup` or `iotedgectl start` fail and print the following message to the logs:
-```output
-File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
-  info = self._client.info()
-File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
-  return self.api.info(*args, **kwargs)
-File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
-  return self._result(self._get(self._url("/info")), True)
-```
-
-### Root cause
-iotedgectl can't find Docker, which is a pre-requisite.
-
-### Resolution
-Install Docker, make sure that it is running and retry.
+Make sure that your registry credentials are correctly specified in your deployment manifest
 
 ## iotedgectl setup fails with an invalid hostname
 
