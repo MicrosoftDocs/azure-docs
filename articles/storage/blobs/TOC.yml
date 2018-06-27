@@ -192,6 +192,8 @@
       href: storage-https-custom-domain-cdn.md
     - name: Immutable storage feature of Azure Blob storage (Preview)
       href: storage-blob-immutable-storage.md
+    - name: Enable secure TLS for Azure Storage client
+      href: ../common/storage-security-tls.md
   - name: Monitor and troubleshoot
     items:
     - name: Troubleshooting tutorial
@@ -335,6 +337,8 @@
     href: storage-custom-domain-name.md
   - name: Search Blob storage with Azure Search
     href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Host a static website
+    href: storage-blob-static-website.md
   - name: Transfer data
     items:
     - name: AzCopy on Windows

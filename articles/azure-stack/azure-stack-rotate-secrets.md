@@ -81,11 +81,12 @@ Running secret rotation using the instructions below will remediate these alerts
     > [!note]  
     > The next steps only apply when rotating Azure Stack external secrets.
 
-2.  Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-3.  Store a back up to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Note, keep backup copies in the secure backup location.
-3.  Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
-4.  Open a PowerShell ISE console from a computer where you have access to the fileshare. Navigate to your fileshare. 
-5.  Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
+2. Ensure secret rotation hasn't been successfully executed on your environment within the past month. At this point in time Azure Stack only supports secret rotation once per month. 
+3. Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+4.  Store a back up to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Note, keep backup copies in the secure backup location.
+5.  Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
+6.  Open a PowerShell ISE console from a computer where you have access to the fileshare. Navigate to your fileshare. 
+7.  Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
 ## Rotating external and internal secrets
 
