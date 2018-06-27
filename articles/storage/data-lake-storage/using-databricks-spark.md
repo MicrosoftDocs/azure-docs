@@ -55,7 +55,7 @@ The next step is to create a [DataBricks cluster](https://docs.azuredatabricks.n
 6. Select **Standard_D8s_v3** in the *Worker Type* field.
 7. Change the **Min Workers** value to *4*.
 8. Click **Create Cluster** at the top of the page (this process may take up to 5 minutes to complete).
-9. When the process completes, select **Azure DataBricks** on the top left of the nav bar.
+9. When the process completes, select **Azure Databricks** on the top left of the nav bar.
 10. Select **Notebook** under the **New** section on the bottom half of the page.
 11. Enter a name of your choice in the **Name** field.
 12. All other fields can be left as default values.
@@ -85,7 +85,7 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 Re-open DataBricks in your browser and execute the following steps:
 
-1. Select **Azure DataBricks** on the top left of the nav bar.
+1. Select **Azure Databricks** on the top left of the nav bar.
 2. Select **Notebook** under the **New** section on the bottom half of the page.
 3. Enter **CSV2Parquet** in the **Name** field.
 4. All other fields can be left as default values.

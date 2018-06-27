@@ -53,6 +53,7 @@ The connection string can be found at the "SSH + Cluster login" section of the H
 For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
 ## HDFS CLI with Azure Databricks
+
 The Databricks provides an easy-to-use CLI built on top of the Databricks REST API. The open-source project is hosted on [GitHub](https://github.com/databricks/databricks-cli). Below are the commonly used commands.
 
 To get a list of files or directories:
@@ -89,4 +90,4 @@ For more information on Databricks CLI, see the [official documentation](https:/
 ## Next steps
 
 - [Create an HDInsight cluster with Azure Data Lake Storage Gen2](./quickstart-create-connect-hdi-cluster.md)
-- [Use an Azure Data Lake Storage account in Azure Databricks](./quickstart-create-databricks-account.md) 
+- [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./quickstart-create-databricks-account.md) 
