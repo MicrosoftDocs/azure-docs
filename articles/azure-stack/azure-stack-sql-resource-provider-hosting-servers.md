@@ -86,7 +86,9 @@ To add a standalone hosting server that's already set up, follow these steps:
    * To create a SKU, select **+ Create new SKU**. In **Create SKU**, enter the required information, and then select **OK**.
 
      > [!IMPORTANT]
-     > Special characters, including spaces and periods, are not supported in the **Family** or **Tier** names when you create a SKU for the SQL and MySQL resource providers.
+     > Special characters, including spaces and periods, aren't supported in **Name** field. Use the examples in the following screen capture for the **Family**, **Tier**, and **Edition** fields.
+
+     ![Create a SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
       SKUs can take up to an hour to be visible in the portal. Users can't create a database until the SKU is fully created.
 
