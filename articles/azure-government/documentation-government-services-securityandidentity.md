@@ -18,6 +18,42 @@ ms.author: gsacavdm
 
 ---
 # Azure Government Security + Identity
+
+## Azure Security Center
+
+Azure Security Center is available for public preview in Azure Government.  
+
+For details on this service and how to use it, see the [Azure Security Center public documentation](../security-center/index.yml).  
+
+### <a name="bkmk_ASCVariations"></a> Variations
+
+The following variations and limitations are present in the Azure Security Center offering in Azure Government:  
+
+- **Windows Defender Advanced Threat Protection (WDATP) alerts**
+    - WDATP installation on Windows VMs via Security Center and the associated alerts are not available in Azure Government.  
+- **Security Incidents**
+    - The aggregation of alerts for a resource, known as a security incident, is not available in Azure Government. Users can conduct investigations directly through single alerts.  
+-  **Custom alerts**
+    - The ability to create custom alerts from raw data is not available in Azure Government.
+-  **Vulnerability assessments**
+    - The Qualys Vulnerability Assessment agent is not available in Azure Government. 
+-  **Email notifications for high severity alerts and JIT access**
+    - Alerts and just-in-time access will function normally. However, email notifications are not available in Azure Government.
+- **Adaptive application controls**
+    - Application whitelisting is not available in Azure Government. Other cloud defense capabilities such as just-time-access (JIT) are available.
+-  **Specific detections**
+    - Detections based on VM logs, Azure core router network logs, threat intelligence reports, and detections for app services are not available in Azure Government.  
+
+### Azure Security Center FAQs
+ 
+For Azure Security Center FAQs, see [Azure Security Center frequently asked questions public documentation](../security-center/security-center-faq.md). Additional FAQs for Azure Security Center in Azure Government are listed below. 
+
+**What features are available for Azure Security Center government customers?**</br>A detailed list of feature variations in the Azure Security Center government offering can found in the [variations section](#bkmk_ASCVariations) of this article. All other Azure Security Center capabilities can be referenced in the [Azure Security Center public documentation](../security-center/index.yml).  
+
+**What is the compliance commitment for Azure Security Center in Azure Government?**</br>Azure Security Center engineering has committed to the FedRAMP-High audit to commence in February 2019. Microsoft will provide additional updates on this process and certification at that time.  
+
+**Is Azure Security Center available for DoD customers?**</br>Azure Security Center is deployed on Azure Government regions but not DoD regions. Azure resources created in DoD regions can still utilize Security Center capabilities. However, using it will result in Security Center collected data being moved out from DoD regions and stored in Azure Government regions. By default, all Security Center features which collect and store data are disabled for resources hosted in DoD regions. The type of data collected and stored varies depending on the selected feature. Customers who want to enable Azure Security Center features for DoD resources are recommended to consider data residency before doing so. 
+
 ## Key Vault
 Key Vault is generally available in Azure Government.
 
