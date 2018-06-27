@@ -54,7 +54,7 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 4. Set the SKU to **Basic**, and toggle **Admin user** to **Enable**. 
 5. Click **Create**.
 6. Once your container registry is created, navigate to it and select **Access keys**. 
-6. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial. 
+7. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial. 
 
 ## Create a function project
 The following steps show you how to create an IoT Edge function using Visual Studio Code and the Azure IoT Edge extension.
@@ -147,10 +147,15 @@ In the previous section you created an IoT Edge solution and added code to the C
 
 1. Sign in to Docker by entering the following command in the Visual Studio Code integrated terminal, so you can push your module image to the ACR: 
      
-   ```csh/sh
-   docker login -u <ACR username> -p <ACR password> <ACR login server>
-   ```
-   Use the username, password, and login server that you copied from your Azure Container Registry in the first section. Or retrieve them again from the **Access keys** section of your registry in the Azure portal.
+    ```csh/sh
+    docker login -u <ACR username> <ACR login server>
+    ```
+    Use the username, and login server that you copied from your Azure Container Registry earlier. You will be prompted for the password. Paste your password into the prompt and press **Enter**.
+
+    ```csh/sh
+    Password: <paste in the ACR password and press enter>
+    Login Succeeded
+    ```
 
 2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge runtime which modules to deploy to a device. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
