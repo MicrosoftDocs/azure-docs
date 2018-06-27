@@ -17,7 +17,7 @@ metadata:
   ms.author: nolachar
 
 abstract:
-  description: The Microsoft Speech service provides developers an easy way to add powerful speech-enabled features to their applications, including voice command control, transcription, dictation, and translation using a <a href="rest-apis">REST API</a> or a <a href="speech-sdk">C#, C++, or Java SDK</a>.<p>The Speech service lets you customize <a href="how-to-customize-speech-models">Speech to Text</a> models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. Customized <a href="https://cris.ai/Home/customvoice">Text to Speech</a> and <a href="https://www.microsoft.com/translator/customization.aspx">Speech Translation</a> are also available.<p>For more details, see <a href="overview">What is the Speceh service?</a>
+  description: The Microsoft Speech service provides developers an easy way to add powerful speech-enabled features to their applications, including voice command control, transcription, dictation, and translation using a <a href="rest-apis">REST API</a> or a <a href="speech-sdk">C#, C++, or Java SDK</a>.<p>The Speech service lets you customize <a href="how-to-customize-speech-models">Speech to Text</a> models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. Customized <a href="https://cris.ai/Home/customvoice">Text to Speech</a> and <a href="https://www.microsoft.com/translator/customization.aspx">Speech Translation</a> are also available.<p>For more details, see <a href="overview">What is the Speech service?</a>
 sections:
 - title: 10-Minute Quickstarts
   items:
