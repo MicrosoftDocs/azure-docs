@@ -19,13 +19,10 @@ ms.author: shlo
 
 # Datasets and linked services in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-create-datasets.md)
-> * [Version 2 - Preview](concepts-datasets-linked-services.md)
+> * [Version 1](v1/data-factory-create-datasets.md)
+> * [Current version](concepts-datasets-linked-services.md)
 
-This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory V2 pipelines. 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Datasets in Data Factory V1](v1/data-factory-create-datasets.md).
+This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines. 
 
 If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview. 
 
@@ -217,13 +214,13 @@ The following guidelines help you understand when to include structure informati
 ## Create datasets
 You can create datasets by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal
 
-## V1 vs. V2 datasets
+## Current version vs. version 1 datasets
 
-Here are some differences between Data Factory v1 and v2 datasets: 
+Here are some differences between Data Factory and Data Factory version 1 datasets: 
 
-- The external property is not supported in v2. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
-- The policy and availability properties are not supported in V2. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
-- Scoped datasets (datasets defined in a pipeline) are not supported in V2. 
+- The external property is not supported in the current version. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
+- The policy and availability properties are not supported in the current version. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
+- Scoped datasets (datasets defined in a pipeline) are not supported in the current version. 
 
 ## Next steps
 See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 
