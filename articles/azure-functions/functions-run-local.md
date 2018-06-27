@@ -1,5 +1,5 @@
 ---
-title: Develop and run Azure functions locally | Microsoft Docs
+title: Work with Azure Functions Core Tools | Microsoft Docs
 description: Learn how to code and test Azure functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
 services: functions
 documentationcenter: na
@@ -13,29 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 06/26/2018
 ms.author: glenga
 
 ---
-# Code and test Azure Functions locally
+# Work with Azure Functions Core Tools
 
-While you are able to develop and test Azure Functions in the [Azure portal], many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime.
+Azure Functions Core Tools lets you develop and test your functions on your local computer from the command prompt or terminal. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime. You can even deploy a function app to your Azure subscription.
 
-## Local development environments
-
-The way in which you develop functions on your local computer depends on your [language](supported-languages.md) and tooling preferences. The environments in the following table support local development:
-
-|Environment                              |Languages         |Description|
-|-----------------------------------------|------------|---|
-| Command prompt or terminal | [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enables local development. Version 2.x support development on Linux, MacOS, and Windows. All environments rely on Core Tools for the local Functions runtime.|
-|[Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)| [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Azure Functions Core Tools. Supports development on Linux, MacOS, and Windows, when using version 2.x of the Core Tools. To learn more, see [Deploy to Azure using Azure Functions](https://code.visualstudio.com/tutorials/functions-extension/getting-started).  |
-| [Visual Studio 2017](functions-develop-vs.md) | [C# (class library)](functions-dotnet-class-library.md) | The Azure Functions tools are included in the **Azure development** workload of [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) and later versions. Lets you compile functions in a class library and publish the .dll to Azure. To learn more, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md). |
-| [Maven](functions-create-first-java-maven.md) | [Java](functions-reference-java.md) | Integrates with Core Tools to enable development of Java functions. Version 2.x supports development on Linux, MacOS, and Windows. To learn more, see [Create your first function with Java and Maven](functions-create-first-java-maven.md).|
-
-The rest of this article is focused on installing and using the Core Tools to create, test, and deploy your functions.
-
->[!IMPORTANT]  
-> Do not mix local development with portal development in the same function app. When you create and publish functions from a local project, you should not try to maintain or modify project code in the portal.
+[!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
 ## Core Tools versions
 
@@ -309,13 +295,13 @@ func host start
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 |**`--port -p`** | The local port to listen on. Default value: 7071. |
-| **`--debug <type>`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from Visual Studio Code or Visual Studio. The *\<type\>* options are `VSCode` and `VS`.  |
+| **`--debug <type>`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) or [Visual Studio 2017](functions-dotnet-class-library.md). The *\<type\>* options are `VSCode` and `VS`.  |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
 | **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
 | **`--debugLevel -d`** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
-| **`--pause-on-error`** | Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).|
+| **`--pause-on-error`** | Pause for additional input before exiting the process. Used when launching Core Tools from Visual Studio or VS Code.|
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
