@@ -104,13 +104,13 @@ In a command-line window, create a folder and sub-folder on your local machine f
 
 Create a configuration file for the project. Create a file called config.json in the aml_config folder.  Copy the following code into that file, using the values you created for the workspace:
 
-    ```
-    {
-    "subscription_id": "Subscription ID found in portal",
-    "resource_group": "Group",
-    "workspace_name": "MyWorkspace"
-    }
-    ```
+```json
+{
+"subscription_id": "Subscription ID found in portal",
+"resource_group": "Group",
+"workspace_name": "MyWorkspace"
+}
+```
 
 
 In a Python editor, attach the project to the new workspace.
