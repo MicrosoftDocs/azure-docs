@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
@@ -141,11 +141,14 @@ The Azure Compute APIs give you programmatic access to virtual machines and thei
 
 | Resource Types | API Versions |
 |--------------------|--------------------|
-| Alert Rules | 2016-03-01 |
-| Event Categories | 2017-03-01-preview |
-| Event Types | 2017-03-01-preview |
-| Metric Definitions | 2016-03-01 |
 | Operations | 2015-04-01 |
+| Event Types | 2015-04-01 |
+| Event Categories | 2015-04-01 |
+| Metric Definitions | 2018-01-01 |
+| Metrics | 2018-01-01 |
+| Diagnostic Settings | 2017-05-01-preview |
+| Diagnostic Settings Categories | 2017-05-01-preview |
+
 
 ### Microsoft.KeyVault
 

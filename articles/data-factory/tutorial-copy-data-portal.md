@@ -20,8 +20,6 @@ In this tutorial, you create a data factory by using the Azure Data Factory user
 
 > [!NOTE]
 > - If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md).
->
-> - This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of  Data Factory, which is generally available, see [Get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 In this tutorial, you perform the following steps:
 
@@ -99,7 +97,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
     b. Select **Create new**, and enter the name of a resource group. 
          
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md). 
-6. Under **Version**, select **V2 (Preview)**.
+6. Under **Version**, select **V2**.
 7. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
 8. Select **Pin to dashboard**. 
 9. Select **Create**. 
