@@ -74,4 +74,4 @@ LUIS successfully completed the ISO 27001:2013 and ISO 27018:2014 audit with ZER
 
 See [Best Practices](luis-concept-best-practices.md) to learn how to use intents and entities for the best predictions.
 
-[LUIS]: luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

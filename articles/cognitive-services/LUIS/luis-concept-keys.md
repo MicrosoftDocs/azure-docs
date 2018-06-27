@@ -71,4 +71,4 @@ If you exceed your per second quota, you receive an HTTP 429 error. If you excee
 
 * Learn [concepts](Manage-Keys.md#assign-endpoint-key) about authoring and endpoint keys.
 
-[LUIS]: luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -8,11 +8,11 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/19/2018
 ms.author: juliako
 
 ---
-# Create video insights from existing videos
+# Create highlights from existing videos
 
 This topic shows you how to create and publish video insights based on some other video.
 

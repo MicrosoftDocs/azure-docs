@@ -32,7 +32,7 @@ Creating an HDInsight cluster includes creating the following Azure objects and 
 
 - An Azure resource group. An Azure resource group is a container for Azure resources. 
 - An Azure storage account or an Azure Data Lake Store.  Each HDInsight cluster requires a dependent data storage. In this quickstart, you create a storage account.
-- An HDInsight cluster of different cluster types.  In this quickstart, you create a Spark 2.2 cluster.
+- An HDInsight cluster of different cluster types.  In this quickstart, you create a Spark 2.3 cluster.
 
 You use a PowerShell script to create the resources.  When you run the script, you are prompted to enter the following values:
 
@@ -51,7 +51,7 @@ You use a PowerShell script to create the resources.  When you run the script, y
 2. Copy and paste the following PowerShell script in the cloud shell. 
 
     ```azurepowershell-interactive
-    ### Create a Spark 2.2 cluster in Azure HDInsight
+    ### Create a Spark 2.3 cluster in Azure HDInsight
         
     # Create the resource group
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -73,7 +73,7 @@ You use a PowerShell script to create the resources.  When you run the script, y
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     
-    # Create a Spark 2.2 cluster
+    # Create a Spark 2.3 cluster
     $clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
     # Cluster login is used to secure HTTPS services hosted on the cluster
     $httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
@@ -94,7 +94,7 @@ You use a PowerShell script to create the resources.  When you run the script, y
         -Name $clusterName -Context $defaultStorageContext 
     
     $sparkConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-    $sparkConfig.Add("spark", "2.2")
+    $sparkConfig.Add("spark", "2.3")
     
     # Create the HDInsight cluster
     New-AzureRmHDInsightCluster `

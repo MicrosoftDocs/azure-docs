@@ -36,6 +36,8 @@ When the Azure AD hybrid identity solution is your new control plane, authentica
 
 To choose an authentication method, you need to consider the time, existing infrastructure, complexity, and cost of implementing your choice. These factors are different for every organization and might change over time. 
 
+>[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
+
 Azure AD supports the following authentication methods for hybrid identity solutions.
 
 ### Cloud authentication

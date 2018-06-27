@@ -27,8 +27,6 @@
     href: role-definitions.md
   - name: Built-in roles
     href: built-in-roles.md
-  - name: Custom roles
-    href: custom-roles.md
   - name: Resource provider operations
     href: resource-provider-operations.md
   - name: Privileged Identity Management (PIM) for RBAC
@@ -42,13 +40,22 @@
     items:
     - name: Portal
       href: role-assignments-portal.md
-    - name: Azure CLI
-      href: role-assignments-cli.md
     - name: PowerShell
       href: role-assignments-powershell.md
-    - name: REST
+    - name: Azure CLI
+      href: role-assignments-cli.md
+    - name: REST API
       href: role-assignments-rest.md
-  - name: Activity logs
+  - name: Custom roles
+    href: custom-roles.md
+    items:
+    - name: PowerShell
+      href: custom-roles-powershell.md
+    - name: Azure CLI
+      href: custom-roles-cli.md
+    - name: REST API
+      href: custom-roles-rest.md
+  - name: View activity logs
     href: change-history-report.md
   - name: Elevate access for Global admin
     href: elevate-access-global-admin.md

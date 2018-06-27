@@ -47,6 +47,9 @@ LUIS builds effective models with utterances that are selected carefully. Adding
 
 It is better to start with a few utterances, then [review endpoint utterances](label-suggested-utterances.md) for correct intent prediction and entity extraction.
 
+## Ignoring words and punctuation
+If you want to ignore specific words or punctuation in the example utterance, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax. 
+
 ## Training utterances
 Training is non-deterministic: the utterance prediction could vary slightly across versions or apps.
 
@@ -63,5 +66,5 @@ Review [best practices](luis-concept-best-practices.md) to learn more.
 ## Next steps
 See [Add example utterances][add-example-utterances] for information on training a LUIS app to understand user utterances.
 
-[add-example-utterances]: luis-how-to-add-example-utterances.md
+[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
 [BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

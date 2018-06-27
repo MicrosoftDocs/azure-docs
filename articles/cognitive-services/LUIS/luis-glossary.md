@@ -206,4 +206,4 @@ An utterance is a natural language phrase such as "book 2 tickets to Seattle nex
 
 A LUIS [version](luis-how-to-manage-versions.md) is a specific data model associated with a LUIS app ID and the published endpoint. Every LUIS app has at least one version.
 
-[batch-testing]: interactive-test.md#batch-testing
+[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing
