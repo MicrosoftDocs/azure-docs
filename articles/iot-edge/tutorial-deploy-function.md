@@ -168,7 +168,7 @@ Visual Studio Code outputs a success message when your container image is pushed
 
 1. In the Azure portal, navigate to your Azure container registry. 
 2. Select **Repositories**.
-3. You should see the **csharpfunction** listed in your respositories. Select the repository to see more details.
+3. You should see the **csharpfunction** listed in your repositories. Select the repository to see more details.
 4. In the **Tags** section you should see **0.0.1-amd64**. This tag reflects the version and platform of the image that you built. These values are set in the **module.json** file in the CSharpFunction folder. 
 
 ## Deploy and run the solution
@@ -191,7 +191,7 @@ You could use the Azure portal to deploy your Functions module to an IoT Edge de
 
 8. Refresh the **Azure IoT Hub Devices** section. You should see the new **CSharpFunction** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
 
-   ![View deployed modulese in VS Code](./media/tutorial-deploy-function/view-modules.png)
+   ![View deployed modules in VS Code](./media/tutorial-deploy-function/view-modules.png)
 
 ## View generated data
 
