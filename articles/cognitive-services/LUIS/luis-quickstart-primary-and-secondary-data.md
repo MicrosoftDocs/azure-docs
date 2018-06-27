@@ -71,7 +71,7 @@ This LUIS app has job titles and departments in several intents. By labeling the
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
+    [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
 
 2. On the **Intents** page, select **ApplyForJob** intent. 
 
@@ -83,7 +83,7 @@ This LUIS app has job titles and departments in several intents. By labeling the
 
 5. In the utterance, `Submit resume for engineering position`, label the word engineering as a Job entity. Select the word engineering, then select Job from the pop-up menu. 
 
-    All the utterances are labeled but five utterances isn't enough to teach LUIS about job-related words and phrases. The jobs that use the number value do not need more examples because that uses a regular expression entity. The jobs that are words or phrases need at least 15 more examples. 
+    All the utterances are labeled but five utterances aren't enough to teach LUIS about job-related words and phrases. The jobs that use the number value do not need more examples because that uses a regular expression entity. The jobs that are words or phrases need at least 15 more examples. 
 
 6. Add more utterances and mark the job words or phrases as **Job** entity. In the following table, the square brackets indicate the job-related words to label as a job entity. The words `job` and `c.v.` have synonyms across the utterances to teach LUIS words that are related to this intent. The job types are general across employment on purpose for an employment service. If you wanted jobs related to a specific industry, the job words should reflect that. 
 
@@ -267,9 +267,9 @@ In the following JSON, LUIS responds with the correct intent, `ApplyForJob`, but
 }
 ```
 
-Because a name can be anything, LUIS will predict entities more accurately if it has a phrase list of words to boost the signal.
+Because a name can be anything, LUIS predicts entities more accurately if it has a phrase list of words to boost the signal.
 
-## Add jobs phrase list to boost signal
+## To boost signal, add jobs phrase list
 Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the LUIS-Samples Github repository. The list is 1220 job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
 
 1. In the **Build** section of the LUIS app, select **Phrase lists** found under the **Improve app performance** menu.
@@ -358,7 +358,7 @@ This app, with a simple entity and a phrase list of words, identified a natural 
 Your chatbot now has enough information to determine the primary action of applying for a job and a parameter of that action, which job is referenced. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to use a 3rd party API to send the job information to a Human Resources representative. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to use a third-party API to send the job information to a Human Resources representative. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
@@ -367,4 +367,3 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 > [!div class="nextstepaction"]
 > [Learn how to add a hierarchical entity](luis-quickstart-intent-and-hier-entity.md)
-
