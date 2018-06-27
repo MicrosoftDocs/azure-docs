@@ -53,7 +53,7 @@ Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
 2. Select **Entities** from the left menu.
 
-    [ ![Screenshot of Entities highlighted in left nav of Build section](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities.png#lightbox)
+    [ ![Screenshot of Entities highlighted in left nav of Build section](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png#lightbox)
 
 3. Select **Manage prebuilt entities**.
 

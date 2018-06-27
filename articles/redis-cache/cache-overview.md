@@ -76,6 +76,8 @@ The [Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/) pa
   Create a simple ASP.NET web app that uses an Azure Redis Cache.
 * [.NET Quickstart](cache-dotnet-how-to-use-azure-redis-cache.md)
   Create a .NET app that uses an Azure Redis Cache.
+* [.NET Core Quickstart](cache-dotnet-core-quickstart.md)
+  Create a .NET Core app that uses an Azure Redis Cache.
 * [Node.js Quickstart](cache-nodejs-get-started.md)
   Create a simple Node.js app that uses an Azure Redis Cache.
 * [Java Quickstart](cache-java-get-started.md)
