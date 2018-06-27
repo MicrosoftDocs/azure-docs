@@ -28,13 +28,13 @@ The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://gi
 
 ## R
 
-[R](https://www.r-project.org/) is currently the most popular statistical programming language in the world. It is an open source data visualization tool with a community of over 2.5 million users and growing. With its thriving user base, and over 8,000 contributed packages, R is a likely choice for many companies who need machine learning. You can create an HDInsight cluster with R Server ready to be used with massive datasets and models. This capability provides data scientists and statisticians with a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance.
+[R](https://www.r-project.org/) is currently the most popular statistical programming language in the world. It is an open source data visualization tool with a community of over 2.5 million users and growing. With its thriving user base, and over 8,000 contributed packages, R is a likely choice for many companies who need machine learning. You can create an HDInsight cluster with ML Services ready to be used with massive datasets and models. This capability provides data scientists and statisticians with a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance.
 
 ![Training for prediction with R server](./media/hdinsight-machine-learning-overview/r-training.png)
 
 The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts.  You also have the option to run R scripts across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
 
-With R Server on HDInsight with Spark, you can parallelize training across the nodes of a cluster by using a Spark compute context. You can run R scripts directly on the edge node, using all available cores in parallel, as needed. Alternately, you can run your code from the edge node to kick off processing that is distributed across all nodes in the cluster. R Server on HDInsight with Spark also enables parallelizing functions from open source R packages, if desired.
+With ML Services on HDInsight with Spark, you can parallelize training across the nodes of a cluster by using a Spark compute context. You can run R scripts directly on the edge node, using all available cores in parallel, as needed. Alternately, you can run your code from the edge node to kick off processing that is distributed across all nodes in the cluster. ML Services on HDInsight with Spark also enables parallelizing functions from open source R packages, if desired.
 
 ## Azure Machine Learning and Hive
 
