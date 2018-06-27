@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To test the Machine Learning module that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the quickstart. 
+To test the Machine Learning module that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md). 
 
 The Azure Machine Learning module does not support ARM processors.
 

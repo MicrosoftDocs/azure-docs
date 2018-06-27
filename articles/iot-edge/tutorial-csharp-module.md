@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the [quickstart](quickstart.md) or first tutorial.
+* The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 * The primary key connection string for the IoT Edge device.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) for Visual Studio Code.

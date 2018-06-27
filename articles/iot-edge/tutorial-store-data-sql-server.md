@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the quickstart or previous tutorial.
+* The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
