@@ -104,7 +104,7 @@ In a command-line window, create a folder and sub-folder on your local machine f
 
 Create a configuration file for the project. Create a file called config.json in the aml_config folder.  Copy the following code into that file, using the values you created for the workspace:
 
-    ```json
+    ```
     {
     "subscription_id": "Subscription ID found in portal",
     "resource_group": "Group",
