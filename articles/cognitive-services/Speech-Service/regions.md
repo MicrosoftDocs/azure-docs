@@ -15,7 +15,7 @@ ms.author: mahilleb
 # Regions and endpoints of the Speech service
 
 > [!NOTE]
-> Regions names in the [Speech SDK](speech-sdk.md) match the first part of the domain of the endpoints given below.
+> Region names in the [Speech SDK](speech-sdk.md) match the first part of the domain of the endpoints given below.
 > For example, use `westus` to specify the West US region in the Speech SDK.
 
 ## Speech to Text
@@ -29,6 +29,8 @@ ms.author: mahilleb
 ## Authentication
 
 [!include[](includes/endpoints-token-service.md)]
+
+See [here](rest-apis.md#authentication) for details obtaining and refreshing authorization tokens.
 
 ## Language understanding (Speech SDK only)
 
