@@ -18,13 +18,10 @@ ms.author: jingwang
 ---
 # Copy data from Web table by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-web-table-connector.md)
-> * [Version 2 - Preview](connector-web-table.md)
+> * [Version 1](v1/data-factory-web-table-connector.md)
+> * [Current version](connector-web-table.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Web table database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Web Table connector in V1](v1/data-factory-web-table-connector.md).
 
 ## Supported capabilities
 

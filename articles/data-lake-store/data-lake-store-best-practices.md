@@ -1,20 +1,22 @@
 ---
-title: Best practices for using Azure Data Lake Store | Microsoft Docs
-description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Store 
+title: Best practices for using Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store) 
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
-editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/27/2018
 ms.author: sachins
 
 ---
-# Best practices for using Azure Data Lake Store
+# Best practices for using Azure Data Lake Storage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 In this article, you learn about best practices and considerations for working with the Azure Data Lake Store. This article provides information around security, performance, resiliency, and monitoring for Data Lake Store. Before Data Lake Store, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. With Data Lake Store, most of the hard limits for size and performance are removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Store. 
 
 ## Security considerations
