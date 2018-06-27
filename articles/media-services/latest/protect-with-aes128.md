@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 06/26/2018
 ms.author: juliako
 
 ---
 # Use AES-128 dynamic encryption and the key delivery service
 
-You can use Media Services to deliver HTTP Live Streaming (HLS), MPEG-DASH and Smooth Streaming encrypted with the AES by using 128-bit encryption keys. Media Services also provides the key delivery service that delivers encryption keys to authorized users. If you want Media Services to encrypt an asset, you associate an encryption key with the asset and also configure authorization policies for the key. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES encryption. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+You can use Media Services to deliver HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming encrypted with the AES by using 128-bit encryption keys. Media Services also provides the key delivery service that delivers encryption keys to authorized users. If you want Media Services to encrypt an asset, you associate an encryption key with the asset and also configure authorization policies for the key. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES encryption. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
-The article is based on the [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) sample. The sample demonstrates how to create an encoding Transform that uses a built-in preset for adaptive bitrate encoding and ingests a file directly from an [HTTPs source URL](job-input-from-http-how-to.md). The output asset is then published using Envelope (AES), or sometimes referred to as ClearKey, encryption. The output from the sample is a URL to the Azure Media Player, including both the DASH manifest and the AES token needed to play back the content. The sample sets the expiration of the JWT token to 1 hour. You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already (in the following format: ``` https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.)
+The article is based on the [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) sample. The sample demonstrates how to create an encoding Transform that uses a built-in preset for adaptive bitrate encoding and ingests a file directly from an [HTTPs source URL](job-input-from-http-how-to.md). The output asset is then published using the AES (ClearKey) encryption. The output from the sample is a URL to the Azure Media Player, including both the DASH manifest and the AES token needed to play back the content. The sample sets the expiration of the JWT token to 1 hour. You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already (in the following format: ``` https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.)
 
 > [!NOTE]
 > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types), to see what makes sense to combine.
@@ -53,9 +53,9 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateMediaServicesClient)]
 
-## Create an output asset to store the result of a job 
+## Create an output asset  
 
-The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. After the encoding is done, the output asset is published using Envelope (AES), or sometimes referred to as ClearKey, encryption.  
+The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. After the encoding is done, the output asset is published using the AES (ClearKey) encryption.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateOutputAsset)]
  
@@ -71,15 +71,13 @@ Before creating a new [Transform](https://docs.microsoft.com/rest/api/media/tran
 
 As mentioned above, the [Transform](https://docs.microsoft.com/rest/api/media/transforms) object is the recipe and a [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
 
-In this tutorial, we create a job's input based on a file that is ingested directly from an [HTTPs source URL](job-input-from-http-how-to.md).
+In this tutorial, we create the job's input based on a file that is ingested directly from an [HTTPs source URL](job-input-from-http-how-to.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#SubmitJob)]
 
 ## Wait for the Job to complete
 
-The job takes some time to complete and when it does you want to be notified. The code sample below shows how to poll the service for the status of the [Job](https://docs.microsoft.com/rest/api/media/jobs). Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
-
-Event Grid is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+The job takes some time to complete and when it does you want to be notified. The code sample below shows how to poll the service for the status of the [Job](https://docs.microsoft.com/rest/api/media/jobs). Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid. See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
@@ -87,9 +85,9 @@ The **Job** usually goes through the following states: **Scheduled**, **Queued**
 
 ## Create a ContentKey policy
 
-A ContentKey provides secure access to your Assets. You need to create a ContentKeyPolicy that configures how the ContentKey is delivered to end clients. In this tutorial, the stream is encrypted with the AES by using 128-bit encryption keys. Media Services also provides the key delivery service that delivers encryption keys to authorized users. 
+A ContentKey provides secure access to your Assets. You need to create a ContentKeyPolicy that configures how the ContentKey is delivered to end clients. Media Services also provides the key delivery service that delivers encryption keys to authorized users. 
 
-When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES encryption. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content (in this case, by using AES encryption.) To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetOrCreateContentKeyPolicy)]
 
@@ -97,7 +95,7 @@ When a stream is requested by a player, Media Services uses the specified key to
         
 In this tutorial, we specify for the ContentKey authorization policy to have a token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) formats and that is what we configure in the sample.
 
-The ContentKeyIdentifierClaim is used in the ContentKeyPolicy, which means that the token presented to the Key Delivery service must have the identifier of the ContentKey in it. In the sample, we don't specify a content key when creating the StreamingLocator, the system creates a random one for us. In order to generate the test token we must get the ContentKeyId to put in the ContentKeyIdentifierClaim claim.
+The ContentKeyIdentifierClaim is used in the ContentKeyPolicy, which means that the token presented to the Key Delivery service must have the identifier of the ContentKey in it. In the sample, we don't specify a content key when creating the StreamingLocator, the system creates a random one for us. In order to generate the test token, we must get the ContentKeyId to put in the ContentKeyIdentifierClaim claim.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
 
@@ -107,7 +105,7 @@ After the encoding is complete, the next step is to make the video in the output
 
 The process of creating a **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this tutorial, we are using one of the PredefinedStreamingPolicies, which tells Azure Media Services how to publish the content for streaming. In this example, the AES Envelope encryption is applied, which is also known ClearKey encryption (because the key is delivered to the playback client via HTTPS and not instead a DRM license).
+When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this tutorial, we are using one of the PredefinedStreamingPolicies, which tells Azure Media Services how to publish the content for streaming. In this example, the AES Envelope encryption is applied (also known as ClearKey encryption because the key is delivered to the playback client via HTTPS and not a DRM license).
 
 > [!IMPORTANT]
 > When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
