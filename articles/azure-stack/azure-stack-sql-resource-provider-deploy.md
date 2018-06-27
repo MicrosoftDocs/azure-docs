@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 06/25/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
 
-# Use SQL databases on Microsoft Azure Stack
+# Deploy the SQL Server resource provider on Azure Stack
 
 Use the Azure Stack SQL Server resource provider to expose SQL databases as an Azure Stack service. The SQL resource provider runs as a service on a Windows Server 2016 Server Core virtual machine (VM).
 
@@ -29,7 +29,7 @@ There are several prerequisites that need to be in place before you can deploy t
 - Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Datacenter - Server Core** image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). Make sure you select the core option when you run the script.
 
   >[!NOTE]
-  >If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, SQL resource provider installation will fail.
+  >If you need to install an update, you can place a single MSU package in the local dependency path. If more than one MSU file is found, SQL resource provider installation will fail.
 
 - Download the SQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build. Make sure you download the correct binary for the version of Azure Stack that you're running.
 
@@ -122,7 +122,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change to the directory If folder where you extracted the installation files.
 # Then adjust the endpoints.
-$tempDir\DeploySQLProvider.ps1 `
+. $tempDir\DeploySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
@@ -144,6 +144,8 @@ You can use the following steps verify that the SQL resource provider is success
 4. The message under **Deployments**, shown in the next screen capture, should be **4 Succeeded**.
 
       ![Verify deployment of the SQL resource provider](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+5. You can get more detailed information about the resource provider deployment under **SETTINGS**. Select **Deployments** to get information such as: STATUS, TIMESTAMP, and DURATION for each deployment.
 
 ## Next steps
 

@@ -13,10 +13,8 @@
     href: how-to-migrate-to-ga.md
 - name: Quickstarts
   items:
-  - name: Create project - Python
-    href: quickstart-set-up-in-python.md 
-  - name: Create project - CLI
-    href: quickstart-set-up-in-cli.md 
+  - name: Get started
+    href: quickstart-get-started.md  
 - name: Tutorials
   items:
   - name: Train and deploy models

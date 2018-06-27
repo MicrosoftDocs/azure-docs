@@ -42,6 +42,9 @@ To test SAML-based single sign-on between AAD and a target application:
 4.	To open the SAML-based single sign-on testing experience, in the **Domain and URLs** section click **Test SAML Setting**. If the Test SAML Setting button is greyed out, you need to fill out and save the required attributes first.
 5.	In the **Test single sign-on** blade, use your corporate credentials to sign in to the target application. You can sign in as the current user or as a different user. If you sign in as a different user, a prompt will ask you to authenticate.
 
+    ![Test SAML page](media/active-directory-saml-debugging/testing.png)
+
+
 If you are successfully signed in, the test has passed. In this case, Azure AD issued a SAML response token to the application. The application used the SAML token to successfully sign you in.
 
 If you have an error on the company sign-in page or the application's page, use one of the next sections to resolve the error.

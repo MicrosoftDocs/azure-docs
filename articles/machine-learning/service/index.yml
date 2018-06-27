@@ -25,8 +25,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-set-up-in-python.md">Set up a project - Python SDK</a>
-    - html: <a href="quickstart-set-up-in-cli.md">Set up a project - CLI Extension</a>
+    - html: <a href="quickstart-get-started.md">Get started</a>
 
 
 - title: Step-by-Step Tutorials

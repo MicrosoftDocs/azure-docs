@@ -10,7 +10,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/24/2018
 ms.author: douglasl
 ---
 # Create a trigger that runs a pipeline in response to an event
@@ -24,6 +24,9 @@ Event-driven architecture (EDA) is a common data integration pattern that involv
 ### Create a new event trigger
 
 A typical event is the arrival of a file, or the deletion of a file, in your Azure Storage account. You can  create a trigger that responds to this event in your Data Factory pipeline.
+
+> [!NOTE]
+> This integration supports only version 2 Storage accounts (General purpose).
 
 ![Create new event trigger](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 

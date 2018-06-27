@@ -13,23 +13,28 @@ ms.date: 06/18/2018
 
 # Azure Machine Learning Services architecture and key terms 
 
-The Azure Machine Learning workspace is the logical container for all artifacts created through Azure Machine learning. The workspace also contains information about Azure resources that are used by Azure Machine Learning.
+An **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. The run history file stores each run in your project so you can monitor your model during training.  
 
-The following are artifacts contained in a workspace:
+The __Azure Machine Learning workspace__ is the top-level resource for Azure Machine learning. It provides the following resources:
 
-* Run histories
-* Models
-* Docker images
-* Deployments
+* Run histories - Information about each run of your project.
+* Models - Your models.
+* Docker images - A Docker image created from your model.
+* Deployments - One of your Docker images deployed as a service.
 * Datastores
-
-Other resources, such as Azure Virtual Machines and projects on your development environment, are also attached to the workspace.
 
 The workspace is also the security boundary of these artifacts. Users can have the following roles for a workspace:
 
 * Owner
 * Contributor
 * Reader
+
+For your convenience, the following Azure resources are added automatically to your workspace: 
+
+* [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
+* [Azure Storage](https://azure.microsoft.com/en-us/services/storage/)
+* [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/)
+* [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
 
 You can create multiple workspaces, and each workspace can be shared by multiple people.
 
@@ -56,7 +61,7 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 
 ## Project
 
-A project is a local folder on your computer that contains the files for your solution. To use a local folder with Azure Machine Learning Services, you must attach it to a workspace. For an example of how to do attach a project to a workspace, see one of the following documents:
+A project is a local folder on your computer that contains the files for your machine learing solution. To use a local folder with Azure Machine Learning Services, you must attach it to a workspace. For an example of how to do attach a project to a workspace, see one of the following documents:
 
 * [Create a workspace with Python]()
 * [Create a workspace with Azure CLI]()
