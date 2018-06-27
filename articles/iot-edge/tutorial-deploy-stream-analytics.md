@@ -123,7 +123,7 @@ You are now ready to deploy the Azure Stream Analytics job on your IoT Edge devi
    If you previously deployed the tempSensor module on this device, it might autopopulate. If it does not, add the module the following steps:
 
    1. Click **Add** and select **IoT Edge Module**.
-   2. For the name, type **tempSensor**.
+   2. For the name, type **tempsensor**.
    3. For the image URI, enter **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**. 
    4. Leave the other settings unchanged.
    5. Select **Save**.
@@ -168,9 +168,9 @@ Now you can go to your IoT Edge device to check out the interaction between the 
    ```cmd/sh
    iotedge list  
    ```
-
+<!--
    ![Docker output][8]
-
+-->
 2. View all system logs and metrics data. Use the Stream Analytics module name:
 
    ```cmd/sh
@@ -208,7 +208,8 @@ To delete the entire resource group by name:
 
 3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
 
-<!-->    ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
+<!--
+   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
 -->
 4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
