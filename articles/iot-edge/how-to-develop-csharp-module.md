@@ -22,7 +22,7 @@ You can send your business logic to operate at the edge by turning it into modul
 This article assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device, or you can simulate your IoT Edge device on your development machine.
 
 > [!NOTE]
-> This debugging tutorial describes how to attach a process in a module container and debug it with VS Code. You can only debug C# modules in linux-amd64 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
+> This debugging tutorial describes how to attach a process in a module container and debug it with VS Code. You can only debug C# functions in linux-amd64 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
 
 Since this article uses Visual Studio Code as the main development tool, install VS Code and then add the necessary extensions:
 * [Visual Studio Code](https://code.visualstudio.com/) 
