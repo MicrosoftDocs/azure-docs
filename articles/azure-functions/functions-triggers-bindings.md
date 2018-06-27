@@ -55,11 +55,15 @@ The following binding types are exceptions that don't require explicit registrat
 
 ### Azure portal development
 
+This section applies only to Functions 2.x. Binding extensions don't have to be explicitly registered in Functions 1.x.
+
 When you create a function or add a binding, you are prompted when the extension for the trigger or binding requires registration. Respond to the prompt by clicking **Install** to register the extension. Installation can take up to 10 minutes on a consumption plan.
 
 You need only install each extension one time for a given function app. 
 
 ### Local development Azure Functions Core Tools
+
+This section applies only to Functions 2.x. Binding extensions don't have to be explicitly registered in Functions 1.x.
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
