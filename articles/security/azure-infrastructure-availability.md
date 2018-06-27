@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2018
+ms.date: 06/27/2018
 ms.author: terrylan
 
 ---
@@ -24,19 +24,19 @@ Azure provides robust availability based on extensive redundancy achieved with v
 ## Temporary outages and natural disaster
 The Microsoft Cloud Infrastructure and Operations team designs, builds, operates, and secures the cloud infrastructure. This team ensures that the Azure infrastructure is delivering high availability and reliability, high efficiency, smart scalability, and a secure, private, & trusted cloud.
 
-Uninterruptible power supplies and vast banks of batteries ensure that electricity remains continuous in the event of a short term power disruption.
+Uninterruptible power supplies and vast banks of batteries ensure that electricity remains continuous if a short-term power disruption occurs.
 
-Emergency generators provide backup power for extended outages and planned maintenance and can operate the datacenter with onsite fuel reserves in the event of a natural disaster.
+Emergency generators provide backup power for extended outages and planned maintenance. The datacenter is operated with onsite fuel reserves if a natural disaster occurs.
 
-High speed and robust fiber optic networks connect datacenters with other major hubs and Internet users. Compute nodes host workloads closer to the end users to reduce latency, provide geo-redundancy and increase overall service resiliency. A team of engineers work around the clock to ensure services are persistently available to customers.
+High speed and robust fiber optic networks connect datacenters with other major hubs and Internet users. Compute nodes host workloads closer to the end users to reduce latency, provide geo-redundancy, and increase overall service resiliency. A team of engineers works around the clock to ensure services are persistently available to customers.
 
-Microsoft ensures high availability through advanced monitoring and incident response, service support, and back up failover capability managed through our geographically distributed Microsoft operations centers, operating 24/7/365. Our network is one of the largest in the world with a fiber optic and content distribution network backbone connecting our datacenters and Edge nodes to ensure high performance and reliability.
+Microsoft ensures high availability through advanced monitoring and incident response, service support, and back up failover capability. Geographically distributed Microsoft operations centers operate 24/7/365. The Azure network is one of the largest in the world. The fiber optic and content distribution network connects datacenters and Edge nodes to ensure high performance and reliability.
 
 ## Disaster recovery
 Azure keeps customer data durable in two locations  with the customer having the capability to choose the location of the backup site. In both locations, Azure constantly maintains multiple (3) healthy replicas of customer data.
 
 ## Database availability
-Azure ensures that a database is Internet accessible through an Internet gateway with sustained database availability monitoring which assesses the health and state of the active database(s) at 5-minute time intervals.
+Azure ensures that a database is Internet accessible through an Internet gateway with sustained database availability. Monitoring assesses the health and state of the active databases at 5-minute time intervals.
 
 ## Storage availability
 Azure delivers storage through a highly scalable and durable storage service, which provides connectivity endpoints allowing it to be accessible directly by a consuming application. Through the storage service, incoming storage requests will be processed efficiently with transactional integrity.
