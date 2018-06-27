@@ -1,6 +1,6 @@
 ---
-title: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
-description: Learn how to query data from Azure Data Lake Storage Gen2 and store results of your analysis.
+title: Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
+description: Learn how to query data from Azure Data Lake Storage Gen2 Preview and store results of your analysis.
 keywords: hdfs,structured data,unstructured data,data lake store,Hadoop input,Hadoop output, hadoop storage, hdfs input,hdfs output,hdfs storage,wasb azure
 services: hdinsight,storage
 documentationcenter: ''
@@ -19,9 +19,9 @@ ms.date: 06/27/2018
 ms.author: jamesbak
 
 ---
-# Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
+# Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
 
-To analyze data in HDInsight cluster, you can store the data either in any combination of Azure Storage, Azure Data Lake Storage Gen1, or Azure Data Lake Storage Gen2. All storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in HDInsight cluster, you can store the data either in any combination of Azure Storage, Azure Data Lake Storage Gen1, or Azure Data Lake Storage Gen2 Preview. All storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
 Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage or Azure Data Lake Storage as the default file system. Alternatively with HDInsight 3.5, you can select either Azure Storage or Azure Data Lake Storage as the default file system with a few exceptions.
 
