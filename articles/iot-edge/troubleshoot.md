@@ -123,9 +123,9 @@ The Edge Agent doesn't have permissions to access a module's image.
 ### Resolution
 Make sure that your registry credentials are correctly specified in your deployment manifest
 
-## iotedgectl setup fails with an invalid hostname
+## IoT Edge security daemon fails with an invalid hostname
 
-The command `iotedgectl setup` fails and prints the following message: 
+The command `sudo journalctl -u iotedge` fails and prints the following message: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
@@ -146,9 +146,17 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
 5. Inside the virtual machine, use the following command to set up the IoT Edge runtime with your DNS name:
 
-   ```input
-   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
-   ```
+   - On Linux:
+
+      ```bash
+      sudo nano /etc/iotedge/config.yaml
+      ```
+
+   - On Windows:
+
+      ```cmd
+      notepad C:\ProgramData\iotedge\config.yaml
+      ```
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iot-edge/issues) so that we can continue to improve. 
