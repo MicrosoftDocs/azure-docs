@@ -41,18 +41,15 @@ Managed connectors are organized into these groups:
   |---|---|
   | [**Managed API connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. | 
   | [**On-premises connectors**](#on-premises-connectors) | After you install and set up the [on-premises data gateway][gateway-doc], these connectors help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others. | 
-  | [**Integration account connectors**](#integration-account-connectors) | Available when you pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. | 
+  | [**Integration account connectors**](#integration-account-connectors) | Available when you create and pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. | 
   | [**Enterprise connectors**](#enterprise-connectors) | Provide access to enterprise systems such as SAP and IBM MQ for an additional cost. |
   ||| 
 
-  For example, if you're working with BizTalk Server, 
-  you can connect your logic app to your BizTalk Server 
-  by using the [on-premises BizTalk Server connector](#on-premises-connectors). 
-  You can then use the [integration account connectors](#integration-account-connectors) 
-  for extending or performing operations similar to BizTalk Server. 
-  Or, if you want to have your BizTalk Server communicate with a logic app, 
-  you can use the [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Learn more about [how to set up and use the BizTalk Server Adapter](https://docs.microsoft.com/biztalk/core/logic-app-adapter) for 
-  exchanging messages with a logic app.
+  For example, if you're using Microsoft BizTalk Server, your logic apps 
+  can connect to and communicate with your BizTalk Server by using the 
+  [BizTalk Server connector](#on-premises-connectors) in your logic apps. 
+  You can then extend or perform BizTalk-like operations in your logic apps by 
+  using the [integration account connectors](#integration-account-connectors). 
 
 For technical information about each connector's triggers and actions, 
 which are defined by a Swagger description, plus any limits, see 
