@@ -50,7 +50,7 @@ You can also install and use the Azure CLI locally. This quickstart requires tha
 
 ## Overview of creating an Azure Data Lake Storage Gen2 account
 
-Before you create an account, you first create a resource group that acts as a logical container to storage accounts or any other Azure resources you create. If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account,and any other resources associated with the resource group. For more information regarding resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
+Before you create an account, you first create a resource group that acts as a logical container to storage accounts or any other Azure resources you create. If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account, and any other resources associated with the resource group. For more information regarding resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
 > You must create new storage accounts as type **StorageV2 (general-purpose V2)** to take advantage of Data Lake Storage Gen2 features.  
@@ -149,15 +149,6 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
   -HierarchialNamespace $True
 ```
-
-When creating an account with zone-redundant storage (ZRS Preview), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **SkuName** parameter.
-
-|Replication option  |SkuName parameter  |
-|---------|---------|
-|Locally-redundant storage (LRS)     |Standard_LRS         |
-|Zone-redundant storage (ZRS)     |Standard_ZRS         |
-|Geo-redundant storage (GRS)     |Standard_GRS         |
-|Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
 
 ### Clean up resources
 
