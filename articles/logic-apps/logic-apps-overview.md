@@ -174,7 +174,7 @@ Here are more details about the capabilities and benefits that you get with Logi
    
   For example, if you're using Microsoft BizTalk Server, your logic apps 
   can connect to and communicate with your BizTalk Server by using the 
-  [BizTalk Server connector](../connectors/apis-list.md#on-premises-connectors) in your logic apps. 
+  [BizTalk Server connector](../connectors/apis-list.md#on-premises-connectors). 
   You can then extend or perform BizTalk-like operations in your logic apps by using the 
   [integration account connectors](../connectors/apis-list.md#integration-account-connectors), 
   which are available with the Enterprise Integration Pack. 

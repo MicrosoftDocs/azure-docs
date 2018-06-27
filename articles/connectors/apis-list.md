@@ -47,7 +47,7 @@ Managed connectors are organized into these groups:
 
   For example, if you're using Microsoft BizTalk Server, your logic apps 
   can connect to and communicate with your BizTalk Server by using the 
-  [BizTalk Server connector](#on-premises-connectors) in your logic apps. 
+  [BizTalk Server connector](#on-premises-connectors). 
   You can then extend or perform BizTalk-like operations in your logic apps by 
   using the [integration account connectors](#integration-account-connectors). 
 
