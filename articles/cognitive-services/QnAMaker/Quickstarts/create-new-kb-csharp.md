@@ -291,7 +291,7 @@ namespace QnAMaker
 
 ## Understand what QnA Maker returns
 
-A successful response is returned in JSON, as shown in the following example. Your results may differ slightly. But if the final call returns a "Succeeded" state... your knowledge base was created successfully.
+A successful response is returned in JSON, as shown in the following example. Your results may differ slightly. If the final call returns a "Succeeded" state... your knowledge base was created successfully. To troubleshoot refer to the [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) of the QnA Maker API.
 
 ```json
 Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create.
