@@ -35,5 +35,5 @@ The data sent to the endpoint, via the Speech SDK, regardless if it is speech or
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Use speech to text with this document](luis-tutorial-speech-to-intent.md)
+> Use speech to text with this [document](luis-tutorial-speech-to-intent.md)
 
