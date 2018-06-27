@@ -32,7 +32,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md).
+
+   >[!Note]
+   >Python modules for Azure IoT Edge do not support Windows or ARM devices. 
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
