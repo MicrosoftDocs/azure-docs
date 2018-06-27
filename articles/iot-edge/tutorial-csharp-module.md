@@ -65,7 +65,7 @@ The following steps show you how to create an IoT Edge module project based on .
    4. Name your module **CSharpModule**. 
    5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/csharpmodule**.
  
-4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder, a deployment manifest template file and a .env file. Open **modules** > **CSharpModule** > **Program.cs**.
+4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder, a deployment manifest template file and a **.env** file. Open **modules** > **CSharpModule** > **Program.cs**.
 
 5. At the top of the **CSharpModule** namespace, add three `using` statements for types used later on:
 
@@ -289,8 +289,6 @@ To delete the entire resource group by name:
 
 3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
 
-<!--    ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
--->
 4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 

@@ -161,6 +161,31 @@ View the messages being sent from the tempSensor module:
 The temperature sensor module may be waiting to connect to Edge Hub if the last line you see in the log is `Using transport Mqtt_Tcp_Only`. Try killing the module and letting the Edge Agent restart it. You can kill it with the command `sudo docker stop tempSensor`.
 
 You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer] or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+
+## Clean up resources
+
+If you want to continue on to the IoT Edge tutorials, you can use the device that you registered and set up in this quickstart. If you want to remove the installations from your device, use the following commands.  
+
+Remove the IoT Edge runtime.
+
+   ```bash
+   sudo apt-get remove --purge iotedge
+   ```
+
+Delete the containers that were created on your device. 
+
+   ```bash
+   sudo docker rm -f $(sudo docker ps -aq)
+   ```
+
+Remove the container runtime.
+
+   ```bash
+   sudo apt-get remove --purge moby
+   ```
+
+When you no longer need the Azure IoT hub or IoT Edge device that you created in this quickstart, you can delete them in the Azure portal. Navigate to the overview page of your IoT hub and select **Delete**. 
+
 ## Next steps
 
 In this quickstart, you created a new IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a simulated device generating raw data about its environment. 

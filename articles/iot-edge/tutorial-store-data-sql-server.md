@@ -62,13 +62,8 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 
 1. Open Visual Studio Code.
 2. Open the VS Code integrated terminal by selecting **View** > **Integrated Terminal**.
-3. Install (or update) the **AzureIoTEdgeFunction** template in .NET by running the following command in the integrated terminal: 
-
-   ```cmd/sh
-   dotnet new -i Microsoft.Azure.IoT.Edge.Function
-   ```
-
-4. Open the VS Code command palette by selecting **View** > **Command palette**.
+3. Open the VS Code command palette by selecting **View** > **Command palette**.
+4. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
 3. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
@@ -171,7 +166,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 2. Find the **moduleContent.$edgeAgent.properties.desired.modules** section. There should be two modules listed: **tempSensor**, which generates simulated data, and your **sqlFunction** module.
 3. Add the following code to declare a third module:
 
-   ```
+   ```json
    "sql": {
        "version": "1.0",
        "type": "docker",
@@ -334,6 +329,45 @@ From inside the SQL command tool, run the following command to view your formatt
 ## Clean up resources
 
 [!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)]
+
+Remove the IoT Edge service runtime based on your IoT device platform (Linux or Windows).
+
+#### Windows
+
+Remove the IoT Edge runtime.
+
+```Powershell
+stop-service iotedge -NoWait
+sleep 5
+sc.exe delete iotedge
+```
+
+Delete the containers that were created on your device. 
+
+```Powershell
+docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
+```
+
+#### Linux
+
+Remove the IoT Edge runtime.
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+Delete the containers that were created on your device. 
+
+```bash
+sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
+```
+
+Remove the container runtime.
+
+```bash
+sudo apt-get remove --purge moby
+```
+
 
 
 ## Next steps
