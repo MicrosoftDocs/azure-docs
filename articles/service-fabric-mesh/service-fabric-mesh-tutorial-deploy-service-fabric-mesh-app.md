@@ -51,8 +51,10 @@ Before you begin this tutorial:
 If you did not build the to-do sample application in [part two of this tutorial series](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
 
 ```
-git clone https://github.com/Azure-Samples/service-fabric-mesh/tree/private-preview-4/BasicServiceFabricMeshApp
+git clone https://github.com/azure-samples/service-fabric-mesh
 ```
+
+The application is under the basicservicefabricmeshapp directory.
 
 ## Publish to Azure
 
