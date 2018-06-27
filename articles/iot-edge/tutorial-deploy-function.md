@@ -150,7 +150,7 @@ In the previous section you created an IoT Edge solution and added code to the C
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
-    Use the username, and login server that you copied from your Azure Container Registry in the first section. If necessary, retrieve them again from the **Access keys** section of your registry in the Azure portal. You will be prompted for the password. Paste your password into the prompt and press **Enter**.
+    Use the username, and login server that you copied from your Azure Container Registry earlier. You will be prompted for the password. Paste your password into the prompt and press **Enter**.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>

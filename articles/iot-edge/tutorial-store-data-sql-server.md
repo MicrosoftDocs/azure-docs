@@ -226,9 +226,16 @@ In the previous sections, you created a solution with one module, and then added
 4. Save the **deployment.template.json** file.
 5. Sign in your container registry in Visual Studio Code so that you can push your images to your registry. Use the same credentials that you just added to the deployment manifest. Enter the following command in the integrated terminal: 
 
-   ```cmd/sh
-   docker login -u <username> -p <password> <address>
-   ```
+    ```csh/sh
+    docker login -u <ACR username> <ACR login server>
+    ```
+    You will be prompted for the password. Paste your password into the prompt and press **Enter**.
+
+    ```csh/sh
+    Password: <paste in the ACR password and press enter>
+    Login Succeeded
+    ```
+
 6. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build IoT Edge solution**. 
 
 ## Deploy the solution to a device
