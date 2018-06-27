@@ -156,9 +156,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. In the **Description** textbox, type your description like AZURE Configuration for SSO.
 
-	d. In **Single Sign On Page** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+	d. In **Single Sign On Page** textbox, paste the **SAML Single Sign-On Service URL** value, which you have copied from Azure portal.
 
-	e. In **Sign out Page** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
+	e. In **Sign out Page** textbox, paste the **Sign-Out URL** value, which you have copied from Azure portal.
 
 	f. In the **Post Form Field** textbox, type the field name present in Post Response that contains SAML like SamlResponse
 
@@ -251,7 +251,7 @@ To enable Azure AD users to log in to Riskware, they must be provisioned into Ri
 
 	![Riskware Configuration org](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-	a. Under **Organisation** section, select the Organisation as **Level1** organisation.
+	a. Select the option as **Level1** organisation.
 
 	b. Under **Person's Primary Workplace** section, in the **Location** textbox, type your location.
 
