@@ -71,7 +71,7 @@ This section provides examples of event-based trigger settings.
 
 When a blob events trigger fires, it makes two variables available to your pipeline: *folderPath* and *fileName*. To access these variables, use the `@triggerBody().fileName` or `@triggerBody().folderPath` expressions.
 
-For example, consider a trigger configured to fire when a blob is created with `.csv` as the value of `blobPathEndsWith`. When a .csv file is dropped into the storage account, the *folderPath* and *fileName* describe the location of the .csv file. For example, *folderPath* has the value `/containername/foldername/nestedfoldernam` and *fileName* has the value `filename.csv`.
+For example, consider a trigger configured to fire when a blob is created with `.csv` as the value of `blobPathEndsWith`. When a .csv file is dropped into the storage account, the *folderPath* and *fileName* describe the location of the .csv file. For example, *folderPath* has the value `/containername/foldername/nestedfoldername` and *fileName* has the value `filename.csv`.
 
 ## Next steps
 For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).
