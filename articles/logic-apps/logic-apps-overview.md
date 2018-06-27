@@ -158,13 +158,19 @@ Here are more details about the capabilities and benefits that you get with Logi
   * Build off these products and services: 
 
     * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server) 
+
     * [Azure Functions](../azure-functions/functions-overview.md) 
+
     * [API Management](../api-management/api-management-key-concepts.md) 
+
     * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
   * Process [XML messages](../logic-apps/logic-apps-enterprise-integration-xml.md)
+
   * Process [flat files](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
+
   * Exchange messages with [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), and [X12](../logic-apps/logic-apps-enterprise-integration-x12.md) protocols
+
   * Store and manage these B2B artifacts and more in one place with [integration accounts](../logic-apps/logic-apps-enterprise-integration-accounts.md):
 
     * [Partners](../logic-apps/logic-apps-enterprise-integration-partners.md)
