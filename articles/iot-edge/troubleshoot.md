@@ -16,7 +16,7 @@ If you experience issues running Azure IoT Edge in your environment, use this ar
 
 ## Standard diagnostic steps 
 
-When you encounter an issue, learn more about the state of your IoT Edge device by reviewing the container logs and messages that pass to and from the device. Use the commands and tools in this section to gather information.
+When you encounter an issue, learn more about the state of your IoT Edge device by reviewing the container logs and messages that pass to and from the device. Use the commands and tools in this section to gather information. 
 
 ### Check the status of the IoT Edge Security Manager and its logs:
 
@@ -47,6 +47,8 @@ On Linux:
       [Service]
       Environment=IOTEDGE_LOG=edgelet=debug
       ```
+
+You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
 After investigating the logs and messages for information, you can also try restarting the Azure IoT Edge runtime:
 
