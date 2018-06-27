@@ -1,5 +1,5 @@
 ---
-title: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark | Microsoft Docs
+title: Access Azure Data Lake Storage Gen2 Preview data with DataBricks using Spark | Microsoft Docs
 description: Learn to run Spark queries on a DataBricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: hdinsight,storage
 tags: azure-portal
@@ -14,9 +14,9 @@ ms.date: 6/27/2018
 ms.author: dineshm
 ---
 
-# Tutorial: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark
+# Tutorial: Access Azure Data Lake Storage Gen2 Preview data with DataBricks using Spark
 
-In this tutorial, you learn how to run Spark queries on a DataBricks cluster to query data in Azure Data Lake Storage Gen2 account.
+In this tutorial, you learn how to run Spark queries on a DataBricks cluster to query data in Azure Data Lake Storage Gen2 Preview capable account.
 
 > [!div class="checklist"]
 > * Create a DataBricks cluster
@@ -45,7 +45,7 @@ Both the account name and key are required for later steps in this tutorial. Ope
 
 ## Create a DataBricks cluster
 
-The next step is to create a [DataBricks cluster](https://docs.databricks.com/) to create a data workspace.
+The next step is to create a [DataBricks cluster](https://docs.azuredatabricks.net/) to create a data workspace.
 
 1. Create a [DataBricks service](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service).
 2. Click **Launch Workspace** to open the workspace in a new browser window.

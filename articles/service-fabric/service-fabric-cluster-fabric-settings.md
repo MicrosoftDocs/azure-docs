@@ -14,10 +14,16 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 06/27/2018
 ms.author: aljo
 
 ---
+# Description of the different upgrade policies
+
+- **Dynamic** – Changes to a dynamic configuration do not cause any process restarts of either Service Fabric processes or your service host processes. 
+- **Static** – Changes to a static configuration will cause the Service Fabric node to restart in order to consume the change. Services on the nodes will be restarted.
+- **NotAllowed** – These settings cannot be modified. Changing these settings requires that the cluster be destroyed and a new cluster created. 
+
 # Customize Service Fabric cluster settings and Fabric Upgrade policy
 This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them through the [Azure portal](https://portal.azure.com) or using an Azure Resource Manager template.
 

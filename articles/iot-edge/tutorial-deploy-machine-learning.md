@@ -120,7 +120,7 @@ Check that your container image was successfully created and stored in the Azure
 1. If you've previously deployed the tempSensor module to your IoT Edge device, it may autopopulate. If it's not already in your list of modules, add it.
 
     1. Click **Add** and select **IoT Edge Module**.
-    2. In the **Name** field, enter `tempSensor`.
+    2. In the **Name** field, enter `tempsensor`.
     3. In the **Image URI** field, enter `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
     4. Select **Save**.
 
@@ -219,7 +219,8 @@ To delete the entire resource group by name:
 
 3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
 
-<!-->    ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
+<!--
+   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
 -->
 4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
