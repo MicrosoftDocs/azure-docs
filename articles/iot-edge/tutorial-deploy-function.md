@@ -206,6 +206,44 @@ To stop monitoring messages, run the command **Azure IoT Hub: Stop monitoring D2
 
 [!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)]
 
+Remove the IoT Edge service runtime based on your IoT device platform (Linux or Windows).
+
+### Windows
+
+Remove the IoT Edge runtime.
+
+```Powershell
+Stop-Service iotedge 
+Remove-Service -Name iotedge
+```
+
+Delete the containers that were created on your device. 
+
+```Powershell
+docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction)
+```
+
+### Linux
+
+Remove the IoT Edge runtime.
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+Delete the containers that were created on your device. 
+
+```bash
+sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction)
+```
+
+Remove the container runtime.
+
+```bash
+sudo apt-get remove --purge moby
+```
+
+
 
 ## Next steps
 
